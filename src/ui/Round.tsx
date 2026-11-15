@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type Dispatch } from 'react';
-import { currentQuestion, ROUNDS, totalPoints, type GameAction, type GameState } from '../engine/game';
+import { canLock, currentQuestion, ROUNDS, totalPoints, type GameAction, type GameState } from '../engine/game';
 import { potentialPoints } from '../engine/scoring';
 import { formatValue, unitFor } from '../lib/format';
 import { feedback } from './feedback';
@@ -15,9 +15,18 @@ type Props = {
   onFirstTouch: () => void;
 };
 
-const TRAVEL_MS = 1350;
+const FIRST_TRAVEL_MS = 1350;
+const TRAVEL_MS = 1050;
 const CLAMP_MS = 260;
 const easeOutQuint = (t: number) => 1 - (1 - t) ** 5;
+
+function hitLine(points: number): string {
+  if (points === 100) return 'Nailed to the notch.';
+  if (points >= 85) return 'Bang on.';
+  if (points >= 60) return 'Tight. Good.';
+  if (points >= 30) return 'Caught it.';
+  return 'Caught, but loose.';
+}
 
 export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props) {
   const q = currentQuestion(state);
@@ -26,6 +35,7 @@ export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props)
   const [progress, setProgress] = useState(0);
   const [shownPoints, setShownPoints] = useState(0);
   const actionRef = useRef<HTMLButtonElement>(null);
+  const skipRef = useRef(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   const interactive = state.phase === 'ready' || state.phase === 'adjusting';
@@ -52,8 +62,10 @@ export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props)
     let raf = 0;
     let lastTickAt = 0;
     const start = performance.now();
+    const duration = state.round === 0 ? FIRST_TRAVEL_MS : TRAVEL_MS;
+    skipRef.current = false;
     const step = (now: number) => {
-      const t = Math.min(1, (now - start) / TRAVEL_MS);
+      const t = skipRef.current ? 1 : Math.min(1, (now - start) / duration);
       setProgress(easeOutQuint(t));
       if (now - lastTickAt > 70 + t * 160 && t < 0.92) {
         feedback.roll();
@@ -68,7 +80,7 @@ export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props)
     };
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
-  }, [state.phase, last, dispatch]);
+  }, [state.phase, state.round, last, dispatch]);
 
   // resolved: count the points up, then put focus on the next action.
   useEffect(() => {
@@ -91,7 +103,9 @@ export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props)
   }, [state.phase, last, reduced]);
 
   const revealing = state.phase === 'revealing' || state.phase === 'resolved';
-  const reveal: RulerReveal | null = revealing && last ? { progress: state.phase === 'resolved' ? 1 : progress, hit: last.hit } : null;
+  // The flag sets off from whichever end of the ruler is farther from the answer, so it always has to cross ground.
+  const from = q.answer - q.min > q.max - q.answer ? q.min : q.max;
+  const reveal: RulerReveal | null = revealing && last ? { progress: state.phase === 'resolved' ? 1 : progress, hit: last.hit, from } : null;
   const resolved = state.phase === 'resolved' && last;
   // Don't leak the outcome before the answer lands.
   const runningTotal = totalPoints(state.phase === 'resolved' ? state.results : state.results.slice(0, state.round));
@@ -105,14 +119,13 @@ export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props)
           {Array.from({ length: ROUNDS }, (_, i) => {
             const r = state.results[i];
             const shown = r && (i < state.round || state.phase === 'resolved' || state.phase === 'complete');
-            const status = shown ? (r.hit ? 'hit' : 'miss') : i === state.round ? 'current' : 'todo';
+            const status = shown ? (!r.hit ? 'miss' : r.points > 0 ? 'hit' : 'zero') : i === state.round ? 'current' : 'todo';
             return (
               <li key={i} className="ledger-cell" data-status={status}>
                 <span className="sr-only">
                   Round {i + 1}: {shown ? `${r.points} points` : i === state.round ? 'now playing' : 'to play'}
                 </span>
-                <span className="ledger-fill" style={{ transform: `scaleY(${shown ? Math.max(0.08, r.points / 100) : 0})` }} aria-hidden="true" />
-                <span className="ledger-num" aria-hidden="true">{shown ? r.points : i + 1}</span>
+                                <span className="ledger-num" aria-hidden="true">{shown ? r.points : i + 1}</span>
               </li>
             );
           })}
@@ -143,7 +156,7 @@ export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props)
             {resolved ? (
               last.hit ? (
                 <p className="outcome outcome-hit">
-                  <span className="outcome-word">{last.points >= 90 ? 'Pinpoint.' : last.points >= 60 ? 'In, and tight.' : 'In.'}</span>
+                  <span className="outcome-word">{hitLine(last.points)}</span>
                   <span className="outcome-points tabular">+{shownPoints}</span>
                 </p>
               ) : (
@@ -196,8 +209,12 @@ export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props)
 
       <div className="action-bar">
         {interactive ? (
-          <button type="button" className="btn btn-primary" onClick={() => dispatch({ type: 'lock' })}>
-            Lock it in
+          <button type="button" className="btn btn-primary" disabled={!canLock(state)} onClick={() => dispatch({ type: 'lock' })}>
+            {canLock(state) ? 'Lock the window' : 'Pull the brackets in first'}
+          </button>
+        ) : state.phase === 'revealing' ? (
+          <button type="button" className="btn btn-primary btn-skip" onClick={() => (skipRef.current = true)}>
+            Skip
           </button>
         ) : (
           <button
@@ -207,7 +224,7 @@ export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props)
             disabled={state.phase !== 'resolved'}
             onClick={() => dispatch({ type: 'next' })}
           >
-            {state.phase !== 'resolved' ? 'Revealing…' : isLast ? 'See your day' : 'Next question'}
+            {state.phase !== 'resolved' ? 'Locked' : isLast ? 'See your day' : 'Next question'}
           </button>
         )}
       </div>

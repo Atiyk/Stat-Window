@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { initGame, gameReducer, normalizeWindow, totalPoints, type GameState } from './game';
+import { canLock, initGame, gameReducer, normalizeWindow, totalPoints, type GameState } from './game';
 import type { Slate } from '../content/schema';
 
 const q = (id: string, answer: number, min = 0, max = 100, step = 1) => ({
@@ -65,6 +65,14 @@ describe('a daily run', () => {
     expect(s.window).toEqual({ lo: 0, hi: 100 });
   });
 
+  it('refuses to lock the untouched full range (it can only ever score 0)', () => {
+    const s = initGame(slate, 'daily', []);
+    expect(gameReducer(s, { type: 'lock' })).toBe(s);
+    expect(canLock(s)).toBe(false);
+    const narrowed = gameReducer(s, { type: 'setWindow', window: { lo: 1, hi: 100 } });
+    expect(canLock(narrowed)).toBe(true);
+  });
+
   it('ignores window changes and double locks once locked', () => {
     let s = initGame(slate, 'daily', []);
     s = gameReducer(s, { type: 'setWindow', window: { lo: 70, hi: 80 } });
@@ -82,14 +90,14 @@ describe('a daily run', () => {
 
   it('completes after five rounds and totals the points', () => {
     let s = initGame(slate, 'daily', []);
-    const windows: [number, number][] = [[72, 73], [0, 100], [40, 60], [90, 95], [0, 2]];
+    const windows: [number, number][] = [[72, 73], [0, 99], [40, 60], [90, 95], [0, 2]];
     windows.forEach(([lo, hi], i) => {
       s = play(s, lo, hi);
       if (i < 4) s = gameReducer(s, { type: 'next' });
     });
     s = gameReducer(s, { type: 'next' });
     expect(s.phase).toBe('complete');
-    // 100 (one step wide) + 0 (full range) + 65 (20 wide) + 0 (miss) + 98 (2 wide)
+    // 100 (one step wide) + 0 (99 of 100 steps) + 65 (20 wide) + 0 (miss) + 98 (2 wide)
     expect(s.results.map((r) => r.points)).toEqual([100, 0, 65, 0, 98]);
     expect(totalPoints(s.results)).toBe(263);
   });

@@ -10,6 +10,8 @@ export type RulerReveal = {
   /** 0..1 progress of the marker's travel; 1 = landed. */
   readonly progress: number;
   readonly hit: boolean | null;
+  /** The end of the scale the flag starts from. */
+  readonly from: number;
 };
 
 type Props = {
@@ -56,8 +58,8 @@ export function Ruler({ question: q, window: w, interactive, reveal, onChange, o
     } else if (target === 'band') {
       g = { kind: 'band', offset: v - w.lo, width: w.hi - w.lo };
     } else {
-      // Tap on open track: the nearer bracket jumps there and keeps following.
-      g = { kind: Math.abs(v - w.lo) <= Math.abs(v - w.hi) ? 'lo' : 'hi' };
+      // Tap on open track: the bracket on that side jumps there and keeps following.
+      g = { kind: v < w.lo ? 'lo' : v > w.hi ? 'hi' : Math.abs(v - w.lo) <= Math.abs(v - w.hi) ? 'lo' : 'hi' };
       emit(g.kind === 'lo' ? { lo: v, hi: w.hi } : { lo: w.lo, hi: v }, g.kind);
     }
     grab.current = g;
@@ -117,7 +119,7 @@ export function Ruler({ question: q, window: w, interactive, reveal, onChange, o
         next = which === 'hi' ? q.max : w.hi;
         break;
       case 'Enter':
-        onCommit();
+        onCommit(); // the reducer ignores it while the full scale is selected
         e.preventDefault();
         return;
       default:
@@ -130,7 +132,7 @@ export function Ruler({ question: q, window: w, interactive, reveal, onChange, o
 
   const unit = (v: number) => `${formatValue(v, q.step)} ${unitFor(v, q.unit)}`;
   const landed = reveal !== null && reveal.progress >= 1;
-  const markerValue = reveal ? q.min + (q.answer - q.min) * reveal.progress : q.answer;
+  const markerValue = reveal ? reveal.from + (q.answer - reveal.from) * reveal.progress : q.answer;
   const state = !landed ? 'open' : reveal?.hit ? 'hit' : 'miss';
 
   return (

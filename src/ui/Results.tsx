@@ -71,6 +71,24 @@ export function Results({ slate, number, mode, results, stats, archive, onPracti
         </p>
       </header>
 
+      <div className="results-actions">
+        {practice ? (
+          <button type="button" className="btn btn-primary" onClick={onBackToToday}>
+            Back to today
+          </button>
+        ) : (
+          <button type="button" className="btn btn-primary" onClick={share}>
+            Share result
+          </button>
+        )}
+        {fallback && (
+          <textarea className="share-fallback" readOnly value={fallback} rows={3} aria-label="Your result to copy" onFocus={(e) => e.currentTarget.select()} />
+        )}
+        <p className="next-window">
+          Next puzzle in <span className="tabular">{formatCountdown(msUntilNextPuzzle(now))}</span>
+        </p>
+      </div>
+
       <ol className="recap" aria-label="Your five windows">
         {slate.questions.map((q, i) => {
           const r = results[i];
@@ -95,24 +113,6 @@ export function Results({ slate, number, mode, results, stats, archive, onPracti
           );
         })}
       </ol>
-
-      <div className="results-actions">
-        {practice ? (
-          <button type="button" className="btn btn-primary" onClick={onBackToToday}>
-            Back to today
-          </button>
-        ) : (
-          <button type="button" className="btn btn-primary" onClick={share}>
-            Share result
-          </button>
-        )}
-        {fallback && (
-          <textarea className="share-fallback" readOnly value={fallback} rows={3} aria-label="Your result to copy" onFocus={(e) => e.currentTarget.select()} />
-        )}
-        <p className="next-window">
-          Next puzzle in <span className="tabular">{formatCountdown(msUntilNextPuzzle(now))}</span>
-        </p>
-      </div>
 
       {!practice && (
         <dl className="stats">

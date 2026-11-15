@@ -4,12 +4,13 @@ import type { SavedRun } from './storage';
 
 export const MAX_TOTAL = 500;
 
-/** One mark per round. Shape tells the story; no answers leak. */
+/** One mark per round. Shape tells the story; no answers leak.
+ * Emoji squares are the share-text convention of daily games (pasted into chats), never UI. */
 export function roundMark(r: RoundRecord): string {
-  if (!r.hit) return '⬛';
-  if (r.points >= 75) return '🟩';
-  if (r.points >= 40) return '🟨';
-  return '🟧';
+  if (!r.hit) return '⬛'; // taste-skill-ignore
+  if (r.points >= 75) return '🟩'; // taste-skill-ignore
+  if (r.points >= 40) return '🟨'; // taste-skill-ignore
+  return '🟧'; // taste-skill-ignore
 }
 
 export function shareText(opts: { number: number; results: readonly RoundRecord[]; url: string }): string {
@@ -22,11 +23,12 @@ export function shareText(opts: { number: number; results: readonly RoundRecord[
 }
 
 export function verdict(total: number): string {
-  if (total >= 400) return 'Surgical.';
-  if (total >= 300) return 'Sharp eyes.';
-  if (total >= 200) return 'Solid read.';
-  if (total >= 100) return 'Some daylight.';
-  return 'Wide open.';
+  if (total >= 450) return 'Record-book stuff.';
+  if (total >= 350) return 'All-star read.';
+  if (total >= 250) return 'Starter material.';
+  if (total >= 150) return 'Solid minutes.';
+  if (total >= 50) return 'Rough day at the office.';
+  return 'Tomorrow’s a new game.';
 }
 
 export type PlayerStats = {

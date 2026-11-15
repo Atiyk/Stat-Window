@@ -24,8 +24,13 @@ export async function typeWindow(page: Page, lo: number, hi: number) {
   await page.keyboard.press('Enter');
 }
 
+/** Locks the current window; if it is still the untouched full scale, nudges the low bracket in first. */
 export async function lockAndSettle(page: Page) {
-  await page.getByRole('button', { name: 'Lock it in' }).click();
+  if (await page.getByRole('button', { name: 'Pull the brackets in first' }).isVisible()) {
+    await lowBracket(page).focus();
+    await page.keyboard.press('ArrowRight');
+  }
+  await page.getByRole('button', { name: 'Lock the window' }).click();
   await expect(page.locator('.story')).toBeVisible({ timeout: 5000 });
 }
 

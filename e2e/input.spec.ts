@@ -92,9 +92,30 @@ test('touch: dragging a bracket moves it and never scrolls the page', async ({ p
   expect(await page.evaluate(() => window.scrollY)).toBe(before);
 });
 
+test('the untouched full scale cannot be locked', async ({ page }) => {
+  await openAt(page, DAY1);
+  await expect(page.getByRole('button', { name: 'Pull the brackets in first' })).toBeDisabled();
+  await lowBracket(page).focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('.story')).toHaveCount(0);
+  await page.keyboard.press('ArrowRight');
+  await expect(page.getByRole('button', { name: 'Lock the window' })).toBeEnabled();
+});
+
+test('the reveal can be skipped', async ({ page }) => {
+  await openAt(page, DAY1);
+  await lowBracket(page).focus();
+  await page.keyboard.press('ArrowRight');
+  await page.getByRole('button', { name: 'Lock the window' }).click();
+  await page.getByRole('button', { name: 'Skip' }).click();
+  await expect(page.locator('.story')).toBeVisible({ timeout: 900 });
+});
+
 test('reduced motion: the answer appears without the travel', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await openAt(page, DAY1);
-  await page.getByRole('button', { name: 'Lock it in' }).click();
+  await lowBracket(page).focus();
+  await page.keyboard.press('ArrowRight');
+  await page.getByRole('button', { name: 'Lock the window' }).click();
   await expect(page.locator('.story')).toBeVisible({ timeout: 400 });
 });

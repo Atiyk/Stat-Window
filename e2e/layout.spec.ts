@@ -15,7 +15,8 @@ test.describe('layout', () => {
       await openAt(page, DAY1);
       const noOverflow = () => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth);
       expect(await noOverflow()).toBe(true);
-      await expect(page.getByRole('button', { name: 'Lock it in' })).toBeInViewport();
+      await expect(page.getByRole('button', { name: 'Pull the brackets in first' })).toBeInViewport();
+      await expect(page.locator('.ruler-track')).toBeInViewport({ ratio: 1 });
       for (const handle of await page.getByRole('slider').all()) {
         const box = (await handle.boundingBox())!;
         expect(box.width).toBeGreaterThanOrEqual(44);
@@ -24,6 +25,11 @@ test.describe('layout', () => {
       await page.screenshot({ path: `${shots}/${width}-question.png`, fullPage: true });
       await lockAndSettle(page);
       expect(await noOverflow()).toBe(true);
+      // The answer flag must never sit on top of the verdict text.
+      await page.waitForTimeout(500);
+      const flag = (await page.locator('.marker-flag').boundingBox())!;
+      const verdict = (await page.locator('.verdict-line p').boundingBox())!;
+      expect(flag.y).toBeGreaterThanOrEqual(verdict.y + verdict.height - 1);
       await page.screenshot({ path: `${shots}/${width}-reveal.png`, fullPage: true });
       for (let i = 0; i < 4; i++) {
         await next(page);

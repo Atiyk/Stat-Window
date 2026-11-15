@@ -242,25 +242,42 @@ a {
   overflow: hidden;
 }
 
-.ledger-fill {
-  position: absolute;
-  inset: 0;
+.ledger-cell[data-status='hit'] {
   background: var(--hi);
-  transform-origin: bottom;
-  transition: transform 520ms var(--ease-out);
+  animation: ledger-in 360ms var(--ease-spring);
 }
 
 .ledger-cell[data-status='miss'] {
-  background: var(--ink);
-  color: var(--chalk);
+  background: var(--paper-2);
+  color: var(--miss);
+  animation: ledger-in 360ms var(--ease-spring);
 }
 
-.ledger-cell[data-status='miss'] .ledger-fill {
-  display: none;
+.ledger-cell[data-status='zero'] {
+  background: var(--paper-2);
+  animation: ledger-in 360ms var(--ease-spring);
+}
+
+.ledger-cell[data-status='zero'] .ledger-num {
+  color: var(--ink);
+}
+
+.ledger-cell[data-status='miss'] .ledger-num {
+  color: #b2321b;
+}
+
+@keyframes ledger-in {
+  from {
+    transform: scale(0.85);
+  }
 }
 
 .ledger-cell[data-status='current'] {
   background: var(--ink);
+  color: var(--chalk);
+}
+
+.ledger-cell[data-status='current'] .ledger-num {
   color: var(--chalk);
 }
 
@@ -464,12 +481,12 @@ a {
 
 /* The ruler: a highlighter window held between two caliper brackets. */
 .ruler {
-  padding-top: 30px; /* room for the answer flag */
+  padding-top: 40px; /* the answer flag's own lane */
 }
 
 .ruler-track {
   position: relative;
-  height: 122px;
+  height: 124px;
   margin: 0 22px; /* brackets overhang the ends */
   touch-action: none;
   user-select: none;
@@ -513,7 +530,7 @@ a {
 
 .tick-label {
   position: absolute;
-  top: 52px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 0.8125rem;
@@ -570,7 +587,7 @@ a {
   position: absolute;
   top: 0;
   width: 48px;
-  height: 100px;
+  height: 122px;
   margin-left: -24px;
   cursor: ew-resize;
   touch-action: none;
@@ -598,6 +615,29 @@ a {
   border-top-width: 5px;
 }
 
+.bracket-shape::after {
+  /* stem from the jaw down to the grip */
+  content: '';
+  position: absolute;
+  top: 100%;
+  width: 2px;
+  height: 30px;
+  background: var(--chalk);
+  transition: opacity 160ms ease;
+}
+
+.bracket-lo .bracket-shape::after {
+  left: 2px;
+}
+
+.bracket-hi .bracket-shape::after {
+  right: 2px;
+}
+
+.bracket[aria-disabled='true'] .bracket-shape::after {
+  opacity: 0;
+}
+
 .bracket-lo .bracket-shape {
   left: 21px;
   transform-origin: left center;
@@ -618,7 +658,7 @@ a {
 
 .bracket-grip {
   position: absolute;
-  top: 70px;
+  top: 96px;
   left: 50%;
   width: 26px;
   height: 22px;
@@ -679,7 +719,7 @@ a {
 
 .bracket-tag {
   position: absolute;
-  top: -30px;
+  top: -38px;
   left: 50%;
   padding: 3px 7px;
   background: var(--chalk);
@@ -710,7 +750,7 @@ a {
 /* The answer marker */
 .marker {
   position: absolute;
-  top: -30px;
+  top: 0;
   width: 0;
   z-index: 3;
   pointer-events: none;
@@ -719,15 +759,15 @@ a {
 .marker-pin {
   position: absolute;
   left: -2px;
-  top: 26px;
+  top: -6px;
   width: 4px;
-  height: 68px;
+  height: 70px;
   background: var(--chalk);
 }
 
 .marker-flag {
   position: absolute;
-  bottom: 4px;
+  top: -38px;
   left: 0;
   transform: translateX(-50%);
   padding: 2px 8px;
@@ -813,11 +853,17 @@ a {
   }
 }
 
+/* Only the Lock button sticks to the thumb, and only while the window is being set. */
+.round[data-phase='ready'] .action-bar,
+.round[data-phase='adjusting'] .action-bar {
+  position: sticky;
+  bottom: 0;
+}
+
 /* ───────────── Buttons ───────────── */
 .action-bar {
   grid-area: action;
-  position: sticky;
-  bottom: 0;
+  position: relative;
   z-index: 5;
   padding-top: 16px;
   padding-bottom: max(16px, env(safe-area-inset-bottom));
@@ -857,11 +903,17 @@ a {
   outline-offset: -3px;
 }
 
-.btn-primary:disabled {
+.btn-primary:disabled,
+.round[data-phase='ready'] .btn-primary:disabled {
   cursor: default;
   background: var(--paper-2);
   color: var(--ink-soft);
   outline: none;
+}
+
+.btn-skip {
+  background: var(--paper-2);
+  color: var(--ink);
 }
 
 .btn-primary:focus-visible {
@@ -938,7 +990,7 @@ a {
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 4px;
+  gap: 22px;
 }
 
 .recap-row {
@@ -948,8 +1000,6 @@ a {
     'text points'
     'bar bar';
   gap: 10px 16px;
-  padding: 14px 16px 16px;
-  background: var(--paper-2);
 }
 
 .recap-text {
@@ -979,14 +1029,14 @@ a {
 }
 
 .recap-row[data-hit='false'] .recap-points {
-  color: var(--ink-soft);
+  color: #b2321b;
 }
 
 .recap-bar {
   grid-area: bar;
   position: relative;
-  height: 16px;
-  background: var(--paper);
+  height: 20px;
+  background: var(--ink);
 }
 
 .recap-window {
@@ -998,16 +1048,24 @@ a {
 }
 
 .recap-row[data-hit='false'] .recap-window {
-  background: var(--ink-soft);
+  background: transparent;
+  outline: 2px solid var(--chalk-soft);
+  outline-offset: -2px;
 }
 
 .recap-pin {
   position: absolute;
-  top: -4px;
-  bottom: -4px;
-  width: 3px;
-  margin-left: -1.5px;
+  top: -5px;
+  bottom: -5px;
+  width: 4px;
+  margin-left: -2px;
+  background: var(--chalk);
+  outline: 2px solid var(--ink);
+}
+
+.recap-row[data-hit='true'] .recap-pin {
   background: var(--ink);
+  outline-color: var(--chalk);
 }
 
 .recap-row[data-hit='false'] .recap-pin {
@@ -1100,7 +1158,7 @@ a {
   opacity: 0;
   pointer-events: none;
   transition: opacity 180ms ease, transform 220ms var(--ease-out);
-  box-shadow: 0 10px 30px rgb(16 17 15 / 0.25);
+  box-shadow: 0 10px 30px rgb(16 17 15 / 0.25); /* taste-skill-ignore: floating toast */
 }
 
 .toast[data-visible='true'] {
@@ -1116,7 +1174,6 @@ a {
   border: 0;
   background: var(--paper);
   color: var(--ink);
-  box-shadow: 0 24px 80px rgb(16 17 15 / 0.35);
 }
 
 .help::backdrop {
@@ -1136,6 +1193,65 @@ a {
 
 .help-body {
   padding: 28px clamp(20px, 5vw, 36px) 28px;
+}
+
+.help-title:focus {
+  outline: none;
+}
+
+.help-diagram {
+  position: relative;
+  height: 72px;
+  margin: 4px 0 16px;
+  background: var(--ink);
+}
+
+.help-diagram::before {
+  content: '';
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 52px;
+  height: 2px;
+  background: var(--tick);
+}
+
+.help-band {
+  position: absolute;
+  left: 40%;
+  width: 22%;
+  top: 14px;
+  height: 36px;
+  background: var(--hi);
+}
+
+.help-bracket {
+  position: absolute;
+  top: 10px;
+  width: 10px;
+  height: 46px;
+  border: 0 solid var(--chalk);
+  border-top-width: 4px;
+}
+
+.help-bracket-lo {
+  left: calc(40% - 3px);
+  border-left-width: 5px;
+}
+
+.help-bracket-hi {
+  left: calc(62% - 7px);
+  border-right-width: 5px;
+}
+
+.help-pin {
+  position: absolute;
+  left: 55%;
+  top: 6px;
+  width: 4px;
+  height: 52px;
+  background: var(--ink);
+  outline: 2px solid var(--chalk);
 }
 
 .help-title {
@@ -1186,9 +1302,41 @@ a {
   width: 5ch;
 }
 
+@media (max-height: 700px), (max-width: 359px) {
+  .question {
+    font-size: 1.375rem;
+  }
+  .question-block {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .context {
+    margin-bottom: 6px;
+    font-size: 0.875rem;
+  }
+  .bound {
+    font-size: 3rem;
+  }
+  .verdict-line {
+    min-height: 2.75rem;
+  }
+}
+
+@media (max-width: 359px) {
+  .brand {
+    gap: 8px;
+  }
+  .wordmark {
+    font-size: 1.125rem;
+  }
+  .day-label {
+    margin-right: 0;
+  }
+}
+
 /* ───────────── Wider screens ───────────── */
 @media (min-width: 720px) {
-  .action-bar {
+  .round .action-bar {
     position: static;
     padding-top: 24px;
   }
@@ -1236,8 +1384,8 @@ a {
     grid-area: question;
   }
   .question {
-    max-width: 26ch;
-    font-size: clamp(2.5rem, 1rem + 2.6vw, 3.5rem);
+    max-width: 32ch;
+    font-size: clamp(2.25rem, 1rem + 2.2vw, 3.125rem);
   }
   .ledger-cell {
     width: 64px;
@@ -1249,30 +1397,16 @@ a {
   .round-meta {
     font-size: 1rem;
   }
+  .round {
+    min-height: calc(100dvh - 64px);
+    grid-template-rows: auto 1fr auto auto;
+  }
+  .field {
+    display: flex;
+    align-items: center;
+  }
   .field-inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas:
-      'readout verdict'
-      'ruler ruler'
-      'hint hint';
-    align-items: end;
-    column-gap: 40px;
-  }
-  .readout {
-    grid-area: readout;
-  }
-  .verdict-line {
-    grid-area: verdict;
-    justify-content: flex-end;
-    text-align: right;
-    padding-bottom: 14px;
-  }
-  .ruler {
-    grid-area: ruler;
-  }
-  .hint {
-    grid-area: hint;
+    width: 100%;
   }
   .story,
   .action-bar {
@@ -1281,8 +1415,7 @@ a {
   .round[data-phase='resolved'] {
     grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas:
-      'top top'
-      'question question'
+      'head head'
       'field field'
       'story action';
     max-width: none;

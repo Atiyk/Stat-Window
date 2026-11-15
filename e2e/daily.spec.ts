@@ -4,7 +4,7 @@ import { collectErrors, DAY1, DAY2, highBracket, lockAndSettle, lowBracket, next
 // Day 1 answers (content/days/2026-11-15.json): 73, 23, 92, 138, 2632
 const DAY1_PLAN = [
   { lo: 72, hi: 73, expectHit: true, points: 100 }, // one step wide: max score
-  { lo: 0, hi: 40, expectHit: true, points: 0 }, // full range: always in, worth 0
+  { lo: 1, hi: 40, expectHit: true, points: 0 }, // 39 of 40 steps: a hit worth round(100*(1/39)^2) = 0
   { lo: 95, hi: 110, expectHit: false, points: 0 }, // miss by 3
   { lo: 130, hi: 150, expectHit: true, points: 80 }, // 20 of 180 steps: round(100*(160/179)^2) = 80
   { lo: 2600, hi: 2700, expectHit: true, points: 94 }, // 10 of 300 steps: round(100*(290/299)^2) = 94
@@ -57,7 +57,8 @@ test('a full daily run scores every round, saves, and shares without spoilers', 
 test('refreshing mid-reveal keeps the locked window and shows its result', async ({ page }) => {
   await openAt(page, DAY1);
   await typeWindow(page, 60, 70); // misses 73
-  await page.getByRole('button', { name: 'Lock it in' }).click();
+  await page.getByRole('button', { name: 'Lock the window' }).click();
+  await page.waitForTimeout(150);
   await page.reload();
   await expect(page.locator('.outcome-miss')).toBeVisible();
   await expect(lowBracket(page)).toHaveAttribute('aria-valuenow', '60');

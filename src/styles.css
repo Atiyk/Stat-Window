@@ -1,20 +1,25 @@
 /* Stat Window — "record book & highlighter"
- * One family (Archivo, variable width), paper ground, ink field, one highlighter accent.
+ * One family (Archivo, variable width), warm paper ground, indigo field, lime highlighter,
+ * violet for actions, coral only for a miss. Palette taken from the owner's sample screens.
  * Square corners everywhere. No gradients, glows or shadows at rest.
  */
 :root {
-  --paper: #ecede7;
-  --paper-2: #e1e3db;
-  --ink: #10110f;
-  --ink-soft: #4a4c46;
-  --field: #10110f;
-  --field-2: #1d1f1b;
-  --chalk: #f1f2ec;
-  --chalk-soft: #a7aa9f;
-  --tick: #565950;
-  --hi: #ddf247;
-  --hi-press: #c9de34;
-  --miss: #ff5b3a;
+  --paper: #fff9ed;
+  --paper-2: #f3ecdb;
+  --line: #e1dcca;
+  --ink: #222843;
+  --ink-soft: #5c6580;
+  --field: #29245d;
+  --field-2: #37316f;
+  --chalk: #fff9ee;
+  --chalk-soft: #c3bde6;
+  --tick: #625b9e;
+  --hi: #d7f187;
+  --hi-press: #c6e46a;
+  --violet: #5d4fd8;
+  --violet-press: #4035b1;
+  --miss: #ff7769;
+  --miss-text: #b8382f;
 
   --font: 'Archivo Variable', 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
@@ -263,7 +268,7 @@ a {
 }
 
 .ledger-cell[data-status='miss'] .ledger-num {
-  color: #b2321b;
+  color: var(--miss-text);
 }
 
 @keyframes ledger-in {
@@ -273,7 +278,7 @@ a {
 }
 
 .ledger-cell[data-status='current'] {
-  background: var(--ink);
+  background: var(--violet);
   color: var(--chalk);
 }
 
@@ -915,16 +920,8 @@ a {
 
 .btn-primary {
   width: 100%;
-  background: var(--ink);
+  background: var(--violet);
   color: var(--chalk);
-}
-
-.round[data-phase='ready'] .btn-primary,
-.round[data-phase='adjusting'] .btn-primary {
-  background: var(--hi);
-  color: var(--ink);
-  outline: 3px solid var(--ink);
-  outline-offset: -3px;
 }
 
 .btn-primary:disabled,
@@ -948,9 +945,8 @@ a {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .round[data-phase='adjusting'] .btn-primary:hover,
-  .round[data-phase='ready'] .btn-primary:hover {
-    background: var(--hi-press);
+  .btn-primary:not(:disabled):not(.btn-skip):hover {
+    background: var(--violet-press);
   }
   .btn-quiet:hover {
     background: var(--ink);
@@ -1055,7 +1051,7 @@ a {
 }
 
 .recap-row[data-hit='false'] .recap-points {
-  color: #b2321b;
+  color: var(--miss-text);
 }
 
 .recap-bar {
@@ -1188,7 +1184,7 @@ a {
   opacity: 0;
   pointer-events: none;
   transition: opacity 180ms ease, transform 220ms var(--ease-out);
-  box-shadow: 0 10px 30px rgb(16 17 15 / 0.25); /* taste-skill-ignore: floating toast */
+  box-shadow: 0 10px 30px rgb(34 40 67 / 0.22); /* taste-skill-ignore: floating toast */
 }
 
 .toast[data-visible='true'] {
@@ -1207,7 +1203,7 @@ a {
 }
 
 .help::backdrop {
-  background: rgb(16 17 15 / 0.55);
+  background: rgb(34 40 67 / 0.55);
 }
 
 .help[open] {
@@ -1507,9 +1503,9 @@ a {
 
 @media (prefers-contrast: more) {
   :root {
-    --ink-soft: #2b2c28;
-    --chalk-soft: #d4d6cd;
-    --tick: #8a8d82;
+    --ink-soft: #3b365a;
+    --chalk-soft: #e2def5;
+    --tick: #9a94d0;
   }
 }
 

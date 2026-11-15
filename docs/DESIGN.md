@@ -10,7 +10,7 @@
 
 ## System
 - **Type:** one family, Archivo (variable, SIL Open Font License, self-hosted through `@fontsource-variable/archivo`). Condensed heavy cuts (width 62–75%, weight 860+) for the big numerals and verdicts, like a printed stat line; normal-width 780 for questions; regular for running text. Tabular figures wherever numbers change.
-- **Colour:** paper `#ECEDE7`, a tone-step `#E1E3DB`, ink `#10110F`, highlighter `#DDF247`, miss `#FF5B3A`. The highlighter means "your window / you scored". Red only ever means "outside".
+- **Colour:** taken from the owner's sample screens. Warm paper `#FFF9ED` with a tone-step `#F3ECDB`, navy ink `#222843`, an indigo field `#29245D` for the ruler, lime highlighter `#D7F187`, violet `#5D4FD8` for actions and the mark, coral `#FF7769` for a miss (`#B8382F` when it's text on paper). The highlighter means "your window / you scored". Coral only ever means "outside", so the action colour is violet rather than the sample's coral button. The samples' gradients, glows and rounded cards stay out; only the colours came across.
 - **Shape:** square corners everywhere, no gradients, no glows, no shadows on resting surfaces (only the dialog and toast, which float).
 - **Mark:** an ink square holding a highlighter window between two brackets (`src/ui/Mark.tsx`, `public/favicon.svg`).
 

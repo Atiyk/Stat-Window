@@ -30,10 +30,17 @@ test.describe('layout', () => {
       const flag = (await page.locator('.marker-flag').boundingBox())!;
       const verdict = (await page.locator('.verdict-line p').boundingBox())!;
       expect(flag.y).toBeGreaterThanOrEqual(verdict.y + verdict.height - 1);
+      // The next step is on screen after every reveal, without scrolling.
+      await expect(page.getByRole('button', { name: 'Next question' })).toBeInViewport({ ratio: 1 });
       await page.screenshot({ path: `${shots}/${width}-reveal.png`, fullPage: true });
+      await page.screenshot({ path: `${shots}/${width}-reveal-fold.png` });
       for (let i = 0; i < 4; i++) {
+        await page.mouse.wheel(0, 600);
         await next(page);
+        // A new round opens at the top of the page, brand mark included.
+        await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
         await lockAndSettle(page);
+        await expect(page.getByRole('button', { name: i === 3 ? 'See your day' : 'Next question' })).toBeInViewport({ ratio: 1 });
       }
       await next(page);
       await expect(page.locator('.results-score')).toBeVisible();

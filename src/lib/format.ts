@@ -41,5 +41,9 @@ export function niceTicks(min: number, max: number, target: number): { major: nu
     const r = round(v);
     if (!major.some((m) => Math.abs(m - r) < minorStep / 10)) minor.push(r);
   }
-  return { major, minor };
+  // Label the scale's own ends when the nearest round value is too far away to read them off.
+  const gap = majorStep * 0.45;
+  if (!major.some((m) => Math.abs(m - min) < gap)) major.unshift(round(min));
+  if (!major.some((m) => Math.abs(m - max) < gap)) major.push(round(max));
+  return { major, minor: minor.filter((t) => !major.includes(t)) };
 }

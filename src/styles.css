@@ -497,6 +497,14 @@ a {
   cursor: pointer;
 }
 
+.ruler-track:not([data-interactive]) {
+  height: 92px;
+}
+
+.ruler-track:not([data-interactive]) .bracket {
+  height: 90px;
+}
+
 .ruler-ticks {
   position: absolute;
   inset: 0;
@@ -530,6 +538,9 @@ a {
 
 .tick-label {
   position: absolute;
+  z-index: 3;
+  padding: 0 4px;
+  background: var(--field);
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
@@ -813,6 +824,10 @@ a {
   opacity: 1;
 }
 
+.round:not([data-phase='ready']):not([data-phase='adjusting']) .hint {
+  display: none;
+}
+
 /* ───────────── Story (after the reveal) ───────────── */
 .story {
   grid-area: story;
@@ -853,7 +868,16 @@ a {
   }
 }
 
-/* Only the Lock button sticks to the thumb, and only while the window is being set. */
+/* On phones the next step stays under the thumb after the reveal too; the fact scrolls beneath it. */
+@media (max-width: 719px) {
+  .round[data-phase='resolved'] .action-bar {
+    position: sticky;
+    bottom: 0;
+    border-top: 1px solid var(--ink);
+  }
+}
+
+/* The Lock button sticks to the thumb while the window is being set. */
 .round[data-phase='ready'] .action-bar,
 .round[data-phase='adjusting'] .action-bar {
   position: sticky;
@@ -911,9 +935,11 @@ a {
   outline: none;
 }
 
-.btn-skip {
-  background: var(--paper-2);
+.btn-primary.btn-skip {
+  background: transparent;
   color: var(--ink);
+  outline: 2px solid var(--ink);
+  outline-offset: -2px;
 }
 
 .btn-primary:focus-visible {
@@ -1102,12 +1128,16 @@ a {
   margin: 0;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 4px;
+  border-top: 3px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
 }
 
 .stats div {
-  padding: 12px 10px;
-  background: var(--paper-2);
+  padding: 10px 10px 12px;
+}
+
+.stats div + div {
+  border-left: 1px solid var(--ink);
 }
 
 .stats dt {

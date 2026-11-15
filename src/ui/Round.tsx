@@ -45,7 +45,11 @@ export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props)
   useEffect(() => {
     setProgress(0);
     setShownPoints(0);
-    if (state.round > 0 || state.results.length > 0) headingRef.current?.focus({ preventScroll: true });
+    if (state.round > 0 || state.results.length > 0) {
+      headingRef.current?.focus({ preventScroll: true });
+      // The previous round may have left the page scrolled down to its fact; start the new one at the top.
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
   }, [state.round]);
 
   // locked → (brief clamp) → revealing

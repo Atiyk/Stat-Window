@@ -36,7 +36,9 @@ export type GameAction =
   | { type: 'lock' }
   | { type: 'reveal' }
   | { type: 'settle' }
-  | { type: 'next' };
+  | { type: 'next' }
+  /** Replace the whole state, e.g. when another tab saved progress for the same day. */
+  | { type: 'hydrate'; state: GameState };
 
 export const ROUNDS = 5;
 
@@ -107,6 +109,13 @@ export function initGame(
   return { phase: 'ready', mode, slate, round: results.length, results, window: fullWindow(q) };
 }
 
+/** The untouched full scale can only score 0, so it can't be locked. */
+export function canLock(s: GameState): boolean {
+  if (s.phase !== 'ready' && s.phase !== 'adjusting') return false;
+  const q = currentQuestion(s);
+  return s.window.lo > q.min || s.window.hi < q.max;
+}
+
 export function gameReducer(s: GameState, a: GameAction): GameState {
   switch (a.type) {
     case 'setWindow': {
@@ -116,7 +125,7 @@ export function gameReducer(s: GameState, a: GameAction): GameState {
       return { ...s, phase: 'adjusting', window };
     }
     case 'lock': {
-      if (s.phase !== 'ready' && s.phase !== 'adjusting') return s;
+      if (!canLock(s)) return s;
       const q = currentQuestion(s);
       const score = scoreWindow(q, s.window);
       const record: RoundRecord = { questionId: q.id, lo: s.window.lo, hi: s.window.hi, ...score };
@@ -126,6 +135,8 @@ export function gameReducer(s: GameState, a: GameAction): GameState {
       return s.phase === 'locked' ? { ...s, phase: 'revealing' } : s;
     case 'settle':
       return s.phase === 'locked' || s.phase === 'revealing' ? { ...s, phase: 'resolved' } : s;
+    case 'hydrate':
+      return a.state;
     case 'next': {
       if (s.phase !== 'resolved') return s;
       if (s.results.length >= ROUNDS) return { ...s, phase: 'complete' };

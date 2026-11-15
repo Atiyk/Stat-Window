@@ -1,8 +1,8 @@
-import { z } from 'zod';
+import * as z from 'zod/mini';
 import { addDays } from '../engine/daily.ts';
 import { stepDecimals } from '../engine/scoring.ts';
 
-const isoDay = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Expected YYYY-MM-DD');
+const isoDay = z.string().check(z.regex(/^\d{4}-\d{2}-\d{2}$/, 'Expected YYYY-MM-DD'));
 
 const NUMBER_WORDS = [
   'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten',
@@ -21,49 +21,53 @@ export function answerSpellings(answer: number, step: number): string[] {
   return [...new Set([fixed, grouped, ...words].filter(Boolean))];
 }
 
+const text = (min: number, max = 2000) => z.string().check(z.minLength(min), z.maxLength(max));
+
 export const QuestionSchema = z
   .object({
-    id: z.string().regex(/^[a-z0-9-]+$/, 'Lowercase id with dashes'),
-    sport: z.string().min(2),
-    prompt: z.string().min(10).max(140),
-    context: z.string().min(3).max(80),
-    answer: z.number().finite(),
-    unit: z.object({ singular: z.string().min(1), plural: z.string().min(1) }),
-    min: z.number().finite(),
-    max: z.number().finite(),
-    step: z.number().positive(),
-    note: z.string().min(3).max(140),
+    id: z.string().check(z.regex(/^[a-z0-9-]+$/, 'Lowercase id with dashes')),
+    sport: text(2),
+    prompt: text(10, 140),
+    context: text(3, 80),
+    answer: z.number(),
+    unit: z.object({ singular: text(1), plural: text(1) }),
+    min: z.number(),
+    max: z.number(),
+    step: z.number().check(z.positive()),
+    note: text(3, 140),
     source: z.object({
-      name: z.string().min(2),
+      name: text(2),
       url: z.url({ protocol: /^https$/ }),
-      quote: z.string().min(3).max(160),
+      quote: text(3, 160),
       /** When the page states the figure another way (11 h 5 min), show the arithmetic. */
-      derivation: z.string().optional(),
+      derivation: z.optional(z.string()),
     }),
-    verified: z.object({ on: isoDay, by: z.string().min(2) }),
+    verified: z.object({ on: isoDay, by: text(2) }),
   })
-  .superRefine((q, ctx) => {
-    if (!(q.min < q.answer && q.answer < q.max)) {
-      ctx.addIssue({ code: 'custom', message: `${q.id}: answer must sit strictly inside min and max` });
-    }
-    const steps = (q.max - q.min) / q.step;
-    if (Math.abs(steps - Math.round(steps)) > 1e-9 || Math.round(steps) < 5) {
-      ctx.addIssue({ code: 'custom', message: `${q.id}: range must be a whole number of steps (at least 5)` });
-    }
-    if (Math.round(steps) > 400) {
-      ctx.addIssue({ code: 'custom', message: `${q.id}: more than 400 steps is too fine to drag; raise the step` });
-    }
-    const hasFigure = answerSpellings(q.answer, q.step).some((s) =>
-      q.source.quote.toLowerCase().includes(s.toLowerCase()),
-    );
-    if (!hasFigure && !q.source.derivation) {
-      ctx.addIssue({ code: 'custom', message: `${q.id}: source quote must contain the answer, or give a derivation` });
-    }
-  });
+  .check(
+    z.superRefine((q, ctx) => {
+      if (!(q.min < q.answer && q.answer < q.max)) {
+        ctx.issues.push({ code: 'custom', input: q, message: `${q.id}: answer must sit strictly inside min and max` });
+      }
+      const steps = (q.max - q.min) / q.step;
+      if (Math.abs(steps - Math.round(steps)) > 1e-9 || Math.round(steps) < 5) {
+        ctx.issues.push({ code: 'custom', input: q, message: `${q.id}: range must be a whole number of steps (at least 5)` });
+      }
+      if (Math.round(steps) > 400) {
+        ctx.issues.push({ code: 'custom', input: q, message: `${q.id}: more than 400 steps is too fine to drag; raise the step` });
+      }
+      const hasFigure = answerSpellings(q.answer, q.step).some((s) =>
+        q.source.quote.toLowerCase().includes(s.toLowerCase()),
+      );
+      if (!hasFigure && !q.source.derivation) {
+        ctx.issues.push({ code: 'custom', input: q, message: `${q.id}: source quote must contain the answer, or give a derivation` });
+      }
+    }),
+  );
 
 export const SlateSchema = z.object({
   date: isoDay,
-  questions: z.array(QuestionSchema).length(5),
+  questions: z.array(QuestionSchema).check(z.length(5)),
 });
 
 export type Question = z.infer<typeof QuestionSchema>;

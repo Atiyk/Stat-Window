@@ -9,7 +9,7 @@ const run = (points: number[]) => ({
 describe('shareText', () => {
   it('is spoiler-free: puzzle number, total, one mark per round, and the link', () => {
     const text = shareText({ number: 3, results: run([100, 83, 0, 45, 12]).results, url: 'https://statwindow.vercel.app' });
-    expect(text).toBe(['Stat Window No. 3  240/500', '🟩🟩⬛🟨🟧', 'https://statwindow.vercel.app'].join('\n'));
+    expect(text).toBe(['Stat Window No. 3  240/500', '🟩🟩⬛🟨🟧' /* taste-skill-ignore */, 'https://statwindow.vercel.app'].join('\n'));
   });
 });
 

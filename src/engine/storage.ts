@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import * as z from 'zod/mini';
 import type { RoundRecord } from './game';
 
 /**
@@ -10,21 +10,21 @@ export const SAVE_KEY = 'stat-window:v1';
 
 const RoundRecordSchema = z.object({
   questionId: z.string(),
-  lo: z.number().finite(),
-  hi: z.number().finite(),
+  lo: z.number(),
+  hi: z.number(),
   hit: z.boolean(),
-  points: z.number().int().min(0).max(100),
-  missBy: z.number().min(0),
+  points: z.int().check(z.minimum(0), z.maximum(100)),
+  missBy: z.number().check(z.minimum(0)),
 });
 
 const RunSchema = z.object({
-  results: z.array(RoundRecordSchema).max(5),
-  advanced: z.number().int().min(0).max(5),
+  results: z.array(RoundRecordSchema).check(z.maxLength(5)),
+  advanced: z.int().check(z.minimum(0), z.maximum(5)),
 });
 
 const SaveSchema = z.object({
   version: z.literal(1),
-  runs: z.record(z.string().regex(/^\d{4}-\d{2}-\d{2}$/), RunSchema),
+  runs: z.record(z.string().check(z.regex(/^\d{4}-\d{2}-\d{2}$/)), RunSchema),
   settings: z.object({ sound: z.boolean(), introSeen: z.boolean() }),
 });
 

@@ -1,10 +1,9 @@
-/** The mark: a ruler with a highlighted window held between two brackets. */
-export function Mark({ size = 28 }: { size?: number }) {
+/** The mark: two caliper brackets closing on the answer. */
+export function Mark({ size = 30 }: { size?: number }) {
   return (
     <svg className="mark" width={size} height={size} viewBox="0 0 32 32" aria-hidden="true">
-      <rect width="32" height="32" fill="var(--ink)" />
-      <rect x="11" y="9" width="10" height="14" fill="var(--hi)" />
-      <path d="M9 7H6v18h3M23 7h3v18h-3" stroke="var(--paper)" strokeWidth="2.5" fill="none" />
+      <path d="M11 5H5v22h6M21 5h6v22h-6" stroke="var(--brand)" strokeWidth="3.5" fill="none" strokeLinejoin="round" />
+      <rect x="14.25" y="9" width="3.5" height="14" rx="1.75" fill="var(--ink)" />
     </svg>
   );
 }

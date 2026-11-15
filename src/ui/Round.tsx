@@ -160,12 +160,18 @@ export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props)
             {resolved ? (
               last.hit ? (
                 <p className="outcome outcome-hit">
-                  <span className="outcome-word">{hitLine(last.points)}</span>
+                  <span className="outcome-word">
+                    <span className="outcome-glyph" aria-hidden="true">✓</span>
+                    {hitLine(last.points)}
+                  </span>
                   <span className="outcome-points tabular">+{shownPoints}</span>
                 </p>
               ) : (
                 <p className="outcome outcome-miss">
-                  <span className="outcome-word">Outside.</span>
+                  <span className="outcome-word">
+                    <span className="outcome-glyph" aria-hidden="true">✕</span>
+                    Outside.
+                  </span>
                   <span className="outcome-detail">
                     Missed by {formatValue(last.missBy, q.step)} {unitFor(last.missBy, q.unit)}
                   </span>
@@ -173,6 +179,8 @@ export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props)
               )
             ) : state.phase === 'locked' || state.phase === 'revealing' ? (
               <p className="worth worth-locked">Locked at {worth} points. Here it comes…</p>
+            ) : worth === 0 ? (
+              <p className="worth">Pull the brackets in to start scoring.</p>
             ) : (
               <p className="worth">
                 Worth <b className="tabular">{worth}</b> if it’s inside. Miss and it’s 0.

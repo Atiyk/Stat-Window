@@ -1,0 +1,125 @@
+{
+  "date": "2026-11-22",
+  "questions": [
+    {
+      "id": "nba-russell-titles",
+      "sport": "Basketball",
+      "prompt": "How many NBA championships did Bill Russell win as a player?",
+      "context": "NBA · Boston Celtics · 1956–1969",
+      "answer": 11,
+      "unit": {
+        "singular": "title",
+        "plural": "titles"
+      },
+      "min": 0,
+      "max": 15,
+      "step": 1,
+      "note": "Eleven titles between 1957 and 1969.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Bill_Russell",
+        "quote": "11× NBA champion (1957, 1959–1966, 1968, 1969)"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "fb-fontaine-1958",
+      "sport": "Football",
+      "prompt": "How many goals did Just Fontaine score at the 1958 World Cup?",
+      "context": "FIFA World Cup · Sweden · six matches for France",
+      "answer": 13,
+      "unit": {
+        "singular": "goal",
+        "plural": "goals"
+      },
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "note": "Thirteen in six matches, still the record for one tournament.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Just_Fontaine",
+        "quote": "with thirteen in six matches at the 1958 tournament"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "nfl-dickerson-1984-yds",
+      "sport": "American football",
+      "prompt": "How many rushing yards did Eric Dickerson gain in the 1984 season?",
+      "context": "NFL · Los Angeles Rams · 1984",
+      "answer": 2105,
+      "unit": {
+        "singular": "yard",
+        "plural": "yards"
+      },
+      "min": 1200,
+      "max": 2600,
+      "step": 5,
+      "note": "2,105 yards, the single-season record.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Eric_Dickerson",
+        "quote": "He holds the NFL's single-season rushing record with 2,105 yards, set in 1984"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "f1-verstappen-2023-wins",
+      "sport": "Motor racing",
+      "prompt": "How many Grands Prix did Max Verstappen win in the 2023 season?",
+      "context": "Formula One · 2023 · 22 races held",
+      "answer": 19,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 5,
+      "max": 22,
+      "step": 1,
+      "note": "Nineteen of 22, a record for one season.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship",
+        "quote": "winning a record 19 out of 22 Grands Prix held"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "ath-bolt-100m",
+      "sport": "Athletics",
+      "prompt": "What is Usain Bolt’s 100 m world record time, in seconds?",
+      "context": "Athletics · Berlin · 2009",
+      "answer": 9.58,
+      "unit": {
+        "singular": "second",
+        "plural": "seconds"
+      },
+      "min": 9.4,
+      "max": 10.2,
+      "step": 0.01,
+      "note": "9.58 seconds, the biggest jump since electronic timing began.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Usain_Bolt",
+        "quote": "with 9.58 seconds in 2009 – the biggest improvement since the start of electronic timing"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    }
+  ]
+}

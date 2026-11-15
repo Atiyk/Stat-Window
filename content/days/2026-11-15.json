@@ -1,0 +1,125 @@
+{
+  "date": "2026-11-15",
+  "questions": [
+    {
+      "id": "nba-gsw-2016-wins",
+      "sport": "Basketball",
+      "prompt": "How many regular-season games did the 2015–16 Golden State Warriors win?",
+      "context": "NBA · 2015–16 season · 82 games",
+      "answer": 73,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 40,
+      "max": 82,
+      "step": 1,
+      "note": "They went 73–9, the best regular-season record the NBA has ever seen.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "set the best ever regular-season record of 73–9"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "oly-phelps-golds",
+      "sport": "Swimming",
+      "prompt": "How many Olympic gold medals did Michael Phelps win in his career?",
+      "context": "Olympic Games · 2000–2016",
+      "answer": 23,
+      "unit": {
+        "singular": "gold medal",
+        "plural": "gold medals"
+      },
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "note": "Twenty-three golds, an all-time record, out of 28 Olympic medals in total.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Michael_Phelps",
+        "quote": "the all-time records for Olympic gold medals (23)"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "nhl-gretzky-1982-goals",
+      "sport": "Hockey",
+      "prompt": "How many goals did Wayne Gretzky score in the 1981–82 NHL season?",
+      "context": "NHL · Edmonton Oilers · 80 games",
+      "answer": 92,
+      "unit": {
+        "singular": "goal",
+        "plural": "goals"
+      },
+      "min": 40,
+      "max": 130,
+      "step": 1,
+      "note": "He finished with 92 goals, 120 assists and 212 points in 80 games.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Wayne_Gretzky",
+        "quote": "He ended the 1981–82 season with records of 92 goals, 120 assists, and 212 points in 80 games"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "ten-isner-mahut-games",
+      "sport": "Tennis",
+      "prompt": "How many games were played in the fifth set of Isner vs. Mahut at Wimbledon?",
+      "context": "Wimbledon first round · June 2010 · played over three days",
+      "answer": 138,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 20,
+      "max": 200,
+      "step": 1,
+      "note": "Isner took the set 70–68. It is still the most games ever played in one set.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Isner%E2%80%93Mahut_match_at_the_2010_Wimbledon_Championships",
+        "quote": "Most games in a set (138 in the fifth set)."
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "mlb-ripken-streak",
+      "sport": "Baseball",
+      "prompt": "How many consecutive games did Cal Ripken Jr. play without missing one?",
+      "context": "MLB · Baltimore Orioles · 1982–1998",
+      "answer": 2632,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 1000,
+      "max": 4000,
+      "step": 10,
+      "note": "Ripken played 2,632 straight games, the MLB record.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Cal_Ripken_Jr.",
+        "quote": "record for consecutive games played (2,632)"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "date": "2026-11-25",
+  "questions": [
+    {
+      "id": "nba-wilt-55-reb",
+      "sport": "Basketball",
+      "prompt": "How many rebounds did Wilt Chamberlain grab against the Celtics on November 24, 1960?",
+      "context": "NBA · Philadelphia Warriors · 1960",
+      "answer": 55,
+      "unit": {
+        "singular": "rebound",
+        "plural": "rebounds"
+      },
+      "min": 20,
+      "max": 70,
+      "step": 1,
+      "note": "Fifty-five rebounds in one night.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/List_of_NBA_single-game_rebounding_leaders",
+        "quote": "55 | Wilt Chamberlain | Philadelphia Warriors | November 24, 1960 | Boston Celtics"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "fb-arsenal-unbeaten",
+      "sport": "Football",
+      "prompt": "How many league matches in a row did Arsenal go unbeaten in 2003 and 2004?",
+      "context": "English top flight · Arsenal · 2003–2004",
+      "answer": 49,
+      "unit": {
+        "singular": "match",
+        "plural": "matches"
+      },
+      "min": 20,
+      "max": 70,
+      "step": 1,
+      "note": "Forty-nine, including the whole 38-game “Invincibles” season.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/The_Invincibles_(football)",
+        "quote": "went unbeaten for a total of 49 consecutive matches in the league between 2003 and 2004"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "oly-phelps-medals",
+      "sport": "Swimming",
+      "prompt": "How many Olympic medals did Michael Phelps win in total?",
+      "context": "Olympic Games · gold, silver and bronze",
+      "answer": 28,
+      "unit": {
+        "singular": "medal",
+        "plural": "medals"
+      },
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "note": "Twenty-eight medals, 23 of them gold.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Michael_Phelps",
+        "quote": "a total of 28 medals"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "mlb-cy-young-wins",
+      "sport": "Baseball",
+      "prompt": "How many games did Cy Young win as a pitcher?",
+      "context": "MLB · 1890–1911",
+      "answer": 511,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 300,
+      "max": 600,
+      "step": 1,
+      "note": "Five hundred eleven, the MLB record.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Cy_Young",
+        "quote": "He holds MLB records for the most career wins, with 511"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "nfl-emmitt-career-yds",
+      "sport": "American football",
+      "prompt": "How many rushing yards did Emmitt Smith gain in his NFL career?",
+      "context": "NFL · 1990–2004",
+      "answer": 18355,
+      "unit": {
+        "singular": "yard",
+        "plural": "yards"
+      },
+      "min": 10000,
+      "max": 25000,
+      "step": 50,
+      "note": "18,355, breaking Walter Payton’s record.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Emmitt_Smith",
+        "quote": "he rushed for 18,355 yards, breaking the record formerly held by Walter Payton"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    }
+  ]
+}

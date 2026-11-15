@@ -1,0 +1,125 @@
+{
+  "date": "2026-11-16",
+  "questions": [
+    {
+      "id": "mlb-bonds-2001-hr",
+      "sport": "Baseball",
+      "prompt": "How many home runs did Barry Bonds hit in the 2001 season?",
+      "context": "MLB · San Francisco Giants · 2001",
+      "answer": 73,
+      "unit": {
+        "singular": "home run",
+        "plural": "home runs"
+      },
+      "min": 30,
+      "max": 100,
+      "step": 1,
+      "note": "Seventy-three, the single-season record.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Barry_Bonds",
+        "quote": "(73, set in 2001)"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "fb-messi-2012-goals",
+      "sport": "Football",
+      "prompt": "How many goals did Lionel Messi score in 2012, for club and country combined?",
+      "context": "Barcelona and Argentina · January to December 2012",
+      "answer": 91,
+      "unit": {
+        "singular": "goal",
+        "plural": "goals"
+      },
+      "min": 30,
+      "max": 130,
+      "step": 1,
+      "note": "Ninety-one goals in one calendar year, for Barcelona and Argentina.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Lionel_Messi",
+        "quote": "Messi scored a record 91 goals in all competitions for Barcelona and Argentina throughout 2012."
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "nba-klay-quarter",
+      "sport": "Basketball",
+      "prompt": "How many points did Klay Thompson score in a single quarter against the Kings?",
+      "context": "NBA · Warriors vs. Kings · January 23, 2015",
+      "answer": 37,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "note": "Thirty-seven, in the third quarter. No one has scored more in one NBA quarter.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+        "quote": "In the third quarter of that game, he scored an NBA-record 37 points for a single quarter"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "golf-nicklaus-majors",
+      "sport": "Golf",
+      "prompt": "How many men’s major championships did Jack Nicklaus win?",
+      "context": "Golf · 1962–1986",
+      "answer": 18,
+      "unit": {
+        "singular": "major",
+        "plural": "majors"
+      },
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "note": "Eighteen majors, still the men’s record.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Jack_Nicklaus",
+        "quote": "including a record 18 major championships"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "nba-kareem-career-pts",
+      "sport": "Basketball",
+      "prompt": "How many regular-season points did Kareem Abdul-Jabbar score in his NBA career?",
+      "context": "NBA · Bucks and Lakers · 1969–1989",
+      "answer": 38387,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 20000,
+      "max": 50000,
+      "step": 100,
+      "note": "38,387 points, long the regular-season record.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kareem_Abdul-Jabbar",
+        "quote": "the NBA's regular season career leader in points (38,387)"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    }
+  ]
+}

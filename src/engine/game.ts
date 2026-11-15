@@ -36,7 +36,9 @@ export type GameAction =
   | { type: 'lock' }
   | { type: 'reveal' }
   | { type: 'settle' }
-  | { type: 'next' };
+  | { type: 'next' }
+  /** Replace the whole state, e.g. when another tab saved progress for the same day. */
+  | { type: 'hydrate'; state: GameState };
 
 export const ROUNDS = 5;
 
@@ -126,6 +128,8 @@ export function gameReducer(s: GameState, a: GameAction): GameState {
       return s.phase === 'locked' ? { ...s, phase: 'revealing' } : s;
     case 'settle':
       return s.phase === 'locked' || s.phase === 'revealing' ? { ...s, phase: 'resolved' } : s;
+    case 'hydrate':
+      return a.state;
     case 'next': {
       if (s.phase !== 'resolved') return s;
       if (s.results.length >= ROUNDS) return { ...s, phase: 'complete' };

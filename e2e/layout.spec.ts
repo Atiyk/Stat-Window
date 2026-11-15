@@ -1,0 +1,62 @@
+import AxeBuilder from '@axe-core/playwright';
+import { expect, test } from '@playwright/test';
+import { collectErrors, DAY1, lockAndSettle, next, openAt } from './helpers';
+
+const WIDTHS = [320, 375, 768, 1440];
+const shots = 'test-results/screens';
+
+test.describe('layout', () => {
+  test.skip(({ isMobile }) => isMobile, 'viewport sweep runs once, on the desktop project');
+
+  for (const width of WIDTHS) {
+    test(`no overflow, reachable controls and clean console at ${width}px`, async ({ page }) => {
+      const errors = collectErrors(page);
+      await page.setViewportSize({ width, height: width < 700 ? 720 : 900 });
+      await openAt(page, DAY1);
+      const noOverflow = () => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth);
+      expect(await noOverflow()).toBe(true);
+      await expect(page.getByRole('button', { name: 'Lock it in' })).toBeInViewport();
+      for (const handle of await page.getByRole('slider').all()) {
+        const box = (await handle.boundingBox())!;
+        expect(box.width).toBeGreaterThanOrEqual(44);
+        expect(box.height).toBeGreaterThanOrEqual(44);
+      }
+      await page.screenshot({ path: `${shots}/${width}-question.png`, fullPage: true });
+      await lockAndSettle(page);
+      expect(await noOverflow()).toBe(true);
+      await page.screenshot({ path: `${shots}/${width}-reveal.png`, fullPage: true });
+      for (let i = 0; i < 4; i++) {
+        await next(page);
+        await lockAndSettle(page);
+      }
+      await next(page);
+      await expect(page.locator('.results-score')).toBeVisible();
+      expect(await noOverflow()).toBe(true);
+      await page.screenshot({ path: `${shots}/${width}-results.png`, fullPage: true });
+      expect(errors).toEqual([]);
+    });
+  }
+
+  test('axe finds no serious accessibility violations', async ({ page }) => {
+    await openAt(page, DAY1);
+    const check = async () => {
+      const r = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+      return r.violations.filter((v) => v.impact === 'serious' || v.impact === 'critical').map((v) => `${v.id}: ${v.nodes.length}`);
+    };
+    expect(await check()).toEqual([]);
+    await lockAndSettle(page);
+    await page.waitForTimeout(800); // let entrance animations finish so contrast is measured at rest
+    expect(await check()).toEqual([]);
+    await page.getByRole('button', { name: 'How to play' }).click();
+    await page.waitForTimeout(400);
+    expect(await check()).toEqual([]);
+  });
+
+  test('200% text zoom keeps the game usable', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 720 });
+    await openAt(page, DAY1);
+    await page.addStyleTag({ content: 'html{font-size:200%}' });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
+    await page.screenshot({ path: `${shots}/375-text-200.png`, fullPage: true });
+  });
+});

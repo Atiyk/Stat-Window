@@ -136,6 +136,10 @@ export function scoringFingerprint(slate: Slate): string[] {
 export function checkLock(slates: readonly Slate[], lock: ContentLock, today: string): { errors: string[]; warnings: string[] } {
   const errors: string[] = [];
   const warnings: string[] = [];
+  const present = new Set(slates.map((s) => s.date));
+  for (const day of Object.keys(lock)) {
+    if (day <= today && !present.has(day)) errors.push(`${day} is published but its file is missing; restore content/days/${day}.json`);
+  }
   for (const s of slates) {
     const want = lock[s.date];
     const have = scoringFingerprint(s);

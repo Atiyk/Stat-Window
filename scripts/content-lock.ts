@@ -9,8 +9,8 @@ import { parseSlate, scoringFingerprint, type ContentLock } from '../src/content
 import { puzzleDay } from '../src/engine/daily.ts';
 
 const root = join(import.meta.dirname, '..', 'content');
-const todayArg = process.argv.indexOf('--today');
-const today = todayArg > -1 ? String(process.argv[todayArg + 1]) : puzzleDay(new Date());
+// Always today's real UTC date: a --today override could unlock published days.
+const today = puzzleDay(new Date());
 const lockFile = join(root, 'published.lock.json');
 let lock: ContentLock = {};
 try {

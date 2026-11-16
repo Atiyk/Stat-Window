@@ -124,7 +124,10 @@ export function createSaveStore(storage: StorageLike | null): SaveStore {
     },
     recordVisit(day) {
       const data = persistent ? read() : memory;
-      const prev = data.visits;
+      // Saves from before visits were recorded: infer them from the days already played,
+      // so a long-standing player is never counted as a new browser.
+      const played = [...Object.keys(data.runs), ...Object.keys(data.practice ?? {})].filter((d) => d <= day).sort();
+      const prev = data.visits ?? (played.length ? { first: played[0]!, last: played.at(-1)! } : undefined);
       const first = prev && prev.first < day ? prev.first : day;
       const last = prev && prev.last > day ? prev.last : day;
       write({ ...data, visits: { first, last } });

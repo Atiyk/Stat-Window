@@ -12,6 +12,7 @@ Each question gets 0–3 on five things: **Cl**arity (do you know what number yo
 
 - **Published days (2026-11-15, 2026-11-16)** are untouched: same ids, answers, scales, steps, order and text. `content/published.lock.json` now records the scoring fields of every day, and `npm run content:check` fails the build if a day on or before today ever changes them. Flags on published days are listed for a future, versioned correction, not fixed silently.
 - **Unpublished days (2026-11-17 onward)** got wording, note, order and scale changes only. No answer changed. New claims in notes were checked against the cited Wikipedia page on 2026-11-16 (one proposed claim, that Lewis Hamilton passed Schumacher's win record in 2020, was not on the cited page, so the note says only "the record when he retired", as the source does).
+- **Text on published days** may still be corrected if the meaning is unchanged (owner's rule); the lock covers only what scores depend on, and a deleted published day also fails the check.
 - **Fact checking.** Every question was verified against its source page on 2026-11-15 (see `verified` in each file). This pass re-read each question against its stored source quote and re-fetched the cited page for the seven claims added or reworded here. It did not re-fetch all 65 pages.
 - Nobody has played an unpublished day (the archive only offers earlier days), so the scale changes re-score no one.
 
@@ -28,7 +29,7 @@ For the 55 unpublished questions the scales were moved so answers land anywhere 
 | | Count |
 | --- | --- |
 | Questions audited | 65 (13 slates) |
-| Factual blockers | 0 |
+| Factual blockers | 0 (no answer is wrong). One note was wrong as worded: `ten-serena-slams` said "the most in the Open Era"; Djokovic has 24. Caught in independent review and fixed to "by any woman" before publication. |
 | Revised (unpublished days) | 45 |
 | Of those, scale moved | 42 |
 | Of those, wording, note or order improved | 11 |
@@ -60,7 +61,7 @@ For the 55 unpublished questions the scales were moved so answers land anywhere 
 | 2026-11-16 | 4 | `golf-nicklaus-majors` | 3 | 2 | 3 | 1 | 2 | M | 60% → 60% | Reveal restates the number | None (published) | [Wikipedia](https://en.wikipedia.org/wiki/Jack_Nicklaus) | Locked |
 | 2026-11-16 | 5 | `nba-kareem-career-pts` | 3 | 3 | 2 | 2 | 2 | X | 61% → 61% | Stored source quote calls him the current leader (LeBron James passed him in 2023); the note on screen ("long the regular-season record") is accurate | None (published); quote refresh deferred | [Wikipedia](https://en.wikipedia.org/wiki/Kareem_Abdul-Jabbar) | Locked, flag |
 | 2026-11-17 | 1 | `nba-bulls-1996-wins` | 3 | 3 | 3 | 3 | 2 | E | 76% → 76% | Thin reveal ("They went 72–10.") | Note: most wins until the 2015–16 Warriors (both in sources) | [Wikipedia](https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season) | Revised |
-| 2026-11-17 | 2 | `ten-serena-slams` | 3 | 3 | 3 | 2 | 3 | M | 66% → 72% | Answer at 66% | Scale 0–35 → 5–30 | [Wikipedia](https://en.wikipedia.org/wiki/Serena_Williams) | Revised |
+| 2026-11-17 | 2 | `ten-serena-slams` | 3 | 3 | 3 | 2 | 3 | M | 66% → 72% | Note overstated the record (Djokovic has 24 men's titles) | Note: "the most by any woman in the Open Era"; scale 0–35 → 5–30 | [Wikipedia](https://en.wikipedia.org/wiki/Serena_Williams) | Revised |
 | 2026-11-17 | 3 | `mlb-dimaggio-streak` | 3 | 3 | 2 | 2 | 3 | M | 45% → 77% | — | Scale 20–100 → 10–70 | [Wikipedia](https://en.wikipedia.org/wiki/Joe_DiMaggio%27s_56-game_hitting_streak) | Revised |
 | 2026-11-17 | 4 | `nhl-brodeur-shutouts` | 3 | 2 | 1 | 2 | 3 | H | 56% → 30% | Hard for non-hockey fans | Scale 30–200 → 80–230 | [Wikipedia](https://en.wikipedia.org/wiki/Martin_Brodeur) | Revised |
 | 2026-11-17 | 5 | `ten-isner-mahut-minutes` | 2 | 2 | 2 | 2 | 3 | X | 58% → 33% | Repeats the match used two days earlier; minutes need arithmetic from "11 h 5 min" | Scale 200–1,000 → 400–1,200 | [Wikipedia](https://en.wikipedia.org/wiki/Isner%E2%80%93Mahut_match_at_the_2010_Wimbledon_Championships) | Revised, flag variety |

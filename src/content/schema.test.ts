@@ -83,6 +83,10 @@ describe('published-content lock', () => {
     expect(r.errors).toEqual([]);
     expect(r.warnings).toHaveLength(1);
   });
+  it('blocks deleting a published day', () => {
+    const lock = { '2026-11-15': scoringFingerprint(slate('2026-11-15')) };
+    expect(checkLock([], lock, '2026-11-16').errors).toHaveLength(1);
+  });
   it('requires a published day to be locked at all', () => {
     expect(checkLock([slate('2026-11-15')], {}, '2026-11-15').errors).toHaveLength(1);
   });

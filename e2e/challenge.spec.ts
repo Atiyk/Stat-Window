@@ -87,6 +87,7 @@ test('future, malformed and tampered links fall back to today without leaking an
 test('a run in progress at UTC midnight is finished on its own day, then today opens', async ({ page }) => {
   await page.clock.install({ time: new Date('2026-11-15T23:59:00Z') });
   await page.goto('/');
+  await expect(page.locator('.question')).toBeVisible();
   await expect(page.locator('.day-label')).toHaveText('No. 1');
   await lockAndSettle(page);
   await next(page);

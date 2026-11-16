@@ -73,6 +73,12 @@ describe('mergeRun', () => {
     expect(store.load().runs['2026-11-15']?.results).toHaveLength(1);
     expect(store.load().settings.introSeen).toBe(true);
   });
+  it('never counts a player with saved runs from before visits were recorded as new', () => {
+    const old = { version: 1, runs: { '2026-11-15': { results: [r('a')], advanced: 1 } }, settings: { sound: false, introSeen: true } };
+    const store = createSaveStore(memoryStorage({ 'stat-window:v1': JSON.stringify(old) }));
+    expect(store.recordVisit('2026-11-16')).toEqual({ first: '2026-11-15', last: '2026-11-15' });
+    expect(store.load().visits).toEqual({ first: '2026-11-15', last: '2026-11-16' });
+  });
   it('records visits: undefined for a new browser, then the previous first and last day', () => {
     const store = createSaveStore(memoryStorage());
     expect(store.recordVisit('2026-11-15')).toBeUndefined();

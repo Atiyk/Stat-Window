@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { isMixedSportDay } from './content/cutover';
 import { inventoryDays, loadSlate } from './content/inventory';
 import type { Slate } from './content/schema';
@@ -7,13 +7,47 @@ import { addDays, puzzleDay, puzzleNumber } from './engine/daily';
 import { gameReducer, initGame, ROUNDS, type GameAction, type GameState, type Mode } from './engine/game';
 import { createSaveStore, type RunKind, type SaveStore, type StorageLike } from './engine/storage';
 import { playerStats } from './engine/summary';
-import { track, trackOnce, type PlayMode } from './lib/track';
+import { analyticsEnabled, track, trackOnce, type PlayMode, type ShareMethod } from './lib/track';
+import { CTA_TEST, previewAsOf, SURVIVAL_FLAG, wantsSurvival } from './survival/flag';
+import { armFor, exposedYesterday, markExposed, type Arm } from './survival/experiment';
 import { formatDay } from './lib/format';
 import { setSoundEnabled } from './ui/feedback';
 import { Help } from './ui/Help';
 import { Mark } from './ui/Mark';
 import { Results } from './ui/Results';
 import { Round } from './ui/Round';
+
+// Survival is its own chunk, and is absent from the build while the flag is off.
+// (The env comparison is spelled out here so the bundler can drop the chunk.)
+const Survival =
+  import.meta.env.VITE_SURVIVAL === 'on' || import.meta.env.VITE_SURVIVAL === 'preview' ? lazy(() => import('./ui/Survival')) : null;
+
+/**
+ * Whether Survival is open to play on this UTC day (public flag only), and this
+ * browser's experiment arm. `cta` decides whether daily results offer it.
+ */
+type SurvivalOffer = { open: boolean; arm: Arm | null; cta: boolean };
+const NO_OFFER: SurvivalOffer = { open: false, arm: null, cta: false };
+
+function useSurvivalOffer(today: string, storage: StorageLike | null): SurvivalOffer {
+  const [offer, setOffer] = useState<SurvivalOffer>(NO_OFFER);
+  useEffect(() => {
+    if (import.meta.env.VITE_SURVIVAL !== 'on') return;
+    let live = true;
+    void import('./survival/gate').then(async ({ loadPool }) => {
+      const { supply } = await loadPool(today);
+      if (!live) return;
+      if (!supply.beta) return setOffer(NO_OFFER);
+      // The experiment needs working analytics; without it everyone sees the button.
+      const arm = armFor(storage, CTA_TEST && analyticsEnabled);
+      setOffer({ open: true, arm, cta: arm === null ? !CTA_TEST : arm === 'cta' });
+    }).catch(() => undefined);
+    return () => {
+      live = false;
+    };
+  }, [today, storage]);
+  return offer;
+}
 
 function safeLocalStorage(): StorageLike | null {
   try {
@@ -65,9 +99,14 @@ function inProgress(store: SaveStore, day: string): boolean {
 }
 
 export function App() {
-  const store = useMemo(() => createSaveStore(safeLocalStorage()), []);
+  const storage = useMemo(() => safeLocalStorage(), []);
+  const store = useMemo(() => createSaveStore(storage), [storage]);
+  const [view, setView] = useState<'daily' | 'survival'>(() => (wantsSurvival(window.location.search) ? 'survival' : 'daily'));
+  const [survivalSource, setSurvivalSource] = useState<'cta' | 'link'>('link');
+
   const [settings, setSettings] = useState(() => store.load().settings);
   const [today, setToday] = useState(() => puzzleDay(new Date()));
+  const offer = useSurvivalOffer(today, storage);
   const [session, setSession] = useState<Session | null>(null);
   const [missing, setMissing] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
@@ -146,7 +185,16 @@ export function App() {
 
   const backToToday = () => {
     if (window.location.search) window.history.replaceState(null, '', '/');
+    setView('daily');
     void open(puzzleDay(new Date()));
+  };
+
+  const openSurvival = () => {
+    if (offer.arm) track({ name: 'experiment', arm: offer.arm, step: 'click' });
+    setSurvivalSource('cta');
+    window.history.replaceState(null, '', '/?survival');
+    setView('survival');
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   const updateSettings = (patch: Partial<typeof settings>) => {
@@ -166,7 +214,7 @@ export function App() {
         </a>
         <div className="topbar-right">
           <span className="day-label">
-            No. {number}
+            {view === 'survival' ? 'Survival' : <>No. {number}</>}
           </span>
           <button
             type="button"
@@ -184,7 +232,18 @@ export function App() {
       </header>
 
       <main className="main" id="main">
-        {session ? (
+        {view === 'survival' && Survival ? (
+          <Suspense fallback={<p className="loading" aria-live="polite">Loading Survival…</p>}>
+            <Survival
+              today={today}
+              asOf={previewAsOf(window.location.search)}
+              source={survivalSource}
+              requireBeta={SURVIVAL_FLAG === 'on'}
+              storage={storage}
+              onBackToDaily={backToToday}
+            />
+          </Suspense>
+        ) : session ? (
           <Game
             key={`${session.kind}:${session.day}`}
             session={session}
@@ -195,6 +254,9 @@ export function App() {
             archive={archive}
             onPractice={(d) => void open(d)}
             onBackToToday={backToToday}
+            offer={offer}
+            storage={storage}
+            onSurvival={openSurvival}
           />
         ) : missing ? (
           <NoPuzzle today={today} archive={archive} onPractice={(d) => void open(d)} />
@@ -223,8 +285,11 @@ function Game(props: {
   archive: readonly string[];
   onPractice: (day: string) => void;
   onBackToToday: () => void;
+  offer: SurvivalOffer;
+  storage: StorageLike | null;
+  onSurvival: () => void;
 }) {
-  const { session, store, today } = props;
+  const { session, store, today, offer } = props;
   const daily = session.mode === 'daily';
   const playMode: PlayMode = session.viaLink ? 'challenge' : session.mode;
 
@@ -252,7 +317,14 @@ function Game(props: {
 
   const n = puzzleNumber(session.day);
   useEffect(() => {
-    if (state.results.length === 0) trackOnce(`start:${playMode}:${session.kind}:${session.day}`, today, { name: 'run_start', mode: playMode });
+    if (state.results.length === 0) {
+      const sent = trackOnce(`start:${playMode}:${session.kind}:${session.day}`, today, { name: 'run_start', mode: playMode });
+      // Experiment outcome: an official daily start, and whether it is a next-day return after an exposure.
+      if (sent && offer.arm && playMode === 'daily' && session.day === today) {
+        track({ name: 'experiment', arm: offer.arm, step: 'daily-start' });
+        if (exposedYesterday(props.storage, today)) track({ name: 'experiment', arm: offer.arm, step: 'next-day-start' });
+      }
+    }
     // Only on mount of a fresh run.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -296,6 +368,15 @@ function Game(props: {
     return () => window.removeEventListener('storage', onStorage);
   });
 
+  const officialToday = playMode === 'daily' && session.day === today;
+  const complete = state.phase === 'complete';
+  // Experiment exposure: once per day, when today's official results are on screen (both arms).
+  useEffect(() => {
+    if (complete && officialToday && offer.arm && markExposed(props.storage, today)) {
+      track({ name: 'experiment', arm: offer.arm, step: 'exposed' });
+    }
+  }, [complete, officialToday, offer.arm, props.storage, today]);
+
   if (state.phase === 'complete') {
     const stats = playerStats(store.load().runs, today);
     return (
@@ -311,6 +392,10 @@ function Game(props: {
         archive={props.archive.filter((d) => d !== session.day)}
         onPractice={props.onPractice}
         onBackToToday={props.onBackToToday}
+        onShared={(m: ShareMethod) => {
+          if (offer.arm && officialToday && (m === 'native' || m === 'clipboard')) track({ name: 'experiment', arm: offer.arm, step: 'daily-share' });
+        }}
+        survivalCta={offer.open && offer.cta && officialToday ? props.onSurvival : null}
       />
     );
   }

@@ -122,7 +122,10 @@ function main() {
     return i > -1 ? process.argv[i + 1] : undefined;
   };
   const out = arg('--out') ?? join(ROOT, 'build', 'nba.sqlite');
-  const today = arg('--today') ?? puzzleDay(new Date());
+  // --today can only make the status stricter (a later date), never mark a published day as scheduled.
+  const real = puzzleDay(new Date());
+  const asked = arg('--today');
+  const today = asked && asked > real ? asked : real;
   mkdirSync(dirname(out), { recursive: true });
   rmSync(out, { force: true });
   const db = buildDatabase(loadNbaData(), { path: out, today });

@@ -7,7 +7,9 @@ Written 2026-11-16 after the NBA-only Daily Five release PR. Order matters: each
 **Done when:** `scripts/analytics-readout.ts` prints real rates (not "not enough data") for daily start → round 1 → all five, and next-day return, for at least 7 days of the NBA calendar.
 **Don't build:** an A/B framework, a dashboard, accounts, or a leaderboard.
 
-## 1. Survival MVP (next separate PR)
+## 1. Survival MVP: BUILT behind a flag (see docs/SURVIVAL.md, 2026-11-16)
+What follows is the original design note, kept for history. Where they differ, docs/SURVIVAL.md is current: the shipped ladder is 20…80 by round, the pool gate is 100 questions with three runs' worth per tier (first expected 2026-12-05 UTC), and reserves are used without a separate sign-off flag but are then spent as daily backups.
+
 One life, up to 20 rounds, best run kept in the browser, instant restart.
 
 **Question supply.** A separate pool, never the future daily calendar:

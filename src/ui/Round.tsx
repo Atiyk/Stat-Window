@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type Dispatch } from 'react';
+import { useEffect, useRef, useState, type Dispatch, type ReactNode } from 'react';
 import { canLock, currentQuestion, ROUNDS, totalPoints, type GameAction, type GameState } from '../engine/game';
 import { potentialPoints } from '../engine/scoring';
 import { formatValue, unitFor } from '../lib/format';
@@ -19,6 +19,21 @@ type Props = {
   /** Set when the run came from a friend's link: shown before the first round only. */
   challenge?: { vs: number | null } | null;
   onFirstTouch: () => void;
+  /**
+   * Survival mode only. Everything else about the round (window, lock, reveal,
+   * scoring) is the Daily Five's, unchanged; this only swaps the ledger, the
+   * running total, the score line and the Next button, and adds the minimum.
+   */
+  survival?: SurvivalChrome | undefined;
+};
+
+export type SurvivalChrome = {
+  /** Minimum points this round needs. */
+  need: number;
+  /** Points banked by survived rounds, to show in the corner. */
+  total: number;
+  ledger: ReactNode;
+  nextLabel: string;
 };
 
 const FIRST_TRAVEL_MS = 1350;
@@ -34,7 +49,7 @@ function hitLine(points: number): string {
   return 'Caught, but loose.';
 }
 
-export function Round({ state, dispatch, label, level, theme, showHint, challenge = null, onFirstTouch }: Props) {
+export function Round({ state, dispatch, label, level, theme, showHint, challenge = null, onFirstTouch, survival }: Props) {
   const q = currentQuestion(state);
   const reduced = usePrefersReducedMotion();
   const last = state.results[state.round];
@@ -118,14 +133,16 @@ export function Round({ state, dispatch, label, level, theme, showHint, challeng
   const reveal: RulerReveal | null = revealing && last ? { progress: state.phase === 'resolved' ? 1 : progress, hit: last.hit, from } : null;
   const resolved = state.phase === 'resolved' && last;
   // Don't leak the outcome before the answer lands.
-  const runningTotal = totalPoints(state.phase === 'resolved' ? state.results : state.results.slice(0, state.round));
+  const runningTotal = survival ? survival.total : totalPoints(state.phase === 'resolved' ? state.results : state.results.slice(0, state.round));
+  const short = survival !== undefined && worth < survival.need;
+  const lockable = canLock(state) && !short;
   const isLast = state.round >= ROUNDS - 1;
 
   return (
     <article className="round" data-phase={state.phase} data-first-play={showHint || undefined}>
       <div className="round-head">
       <div className="round-top">
-        <ol className="ledger" aria-label="Rounds">
+        {survival ? survival.ledger : <ol className="ledger" aria-label="Rounds">
           {Array.from({ length: ROUNDS }, (_, i) => {
             const r = state.results[i];
             const shown = r && (i < state.round || state.phase === 'resolved' || state.phase === 'complete');
@@ -139,7 +156,7 @@ export function Round({ state, dispatch, label, level, theme, showHint, challeng
               </li>
             );
           })}
-        </ol>
+        </ol>}
         <p className="round-meta">
           <span>{label}</span>
           {level && (
@@ -181,7 +198,9 @@ export function Round({ state, dispatch, label, level, theme, showHint, challeng
           <Readout question={q} window={state.window} editable={interactive} onChange={(w, m) => dispatch({ type: 'setWindow', window: w, moving: m })} />
 
           <div className="verdict-line" aria-live="polite">
-            {resolved ? (
+            {resolved && survival ? (
+              <SurvivalOutcome points={last.points} hit={last.hit} need={survival.need} shown={shownPoints} missBy={`${formatValue(last.missBy, q.step)} ${unitFor(last.missBy, q.unit)}`} />
+            ) : resolved ? (
               last.hit ? (
                 <p className="outcome outcome-hit">
                   <span className="outcome-word">
@@ -203,6 +222,16 @@ export function Round({ state, dispatch, label, level, theme, showHint, challeng
               )
             ) : state.phase === 'locked' || state.phase === 'revealing' ? (
               <p className="worth worth-locked">Locked at {worth} points. Here it comes…</p>
+            ) : survival ? (
+              <p className="worth" data-short={short || undefined}>
+                {worth === 0 ? (
+                  <>Pull the brackets in. You need <b className="tabular">{survival.need}</b> to survive.</>
+                ) : short ? (
+                  <>Worth <b className="tabular">{worth}</b>. You need <b className="tabular">{survival.need}</b>: tighten it.</>
+                ) : (
+                  <>Worth <b className="tabular">{worth}</b> if it’s inside. You need {survival.need}.</>
+                )}
+              </p>
             ) : worth === 0 ? (
               <p className="worth">
                 {showHint
@@ -222,7 +251,9 @@ export function Round({ state, dispatch, label, level, theme, showHint, challeng
             interactive={interactive}
             reveal={reveal}
             onChange={(w, m) => dispatch({ type: 'setWindow', window: w, ...(m ? { moving: m } : {}) })}
-            onCommit={() => dispatch({ type: 'lock' })}
+            onCommit={() => {
+              if (!short) dispatch({ type: 'lock' });
+            }}
             onFirstTouch={onFirstTouch}
           />
         </div>
@@ -255,8 +286,8 @@ export function Round({ state, dispatch, label, level, theme, showHint, challeng
 
       <div className="action-bar">
         {interactive ? (
-          <button type="button" className="btn btn-primary" disabled={!canLock(state)} onClick={() => dispatch({ type: 'lock' })}>
-            {canLock(state) ? 'Lock the window' : 'Pull the brackets in first'}
+          <button type="button" className="btn btn-primary" disabled={!lockable} onClick={() => dispatch({ type: 'lock' })}>
+            {lockable ? 'Lock the window' : survival && canLock(state) ? `Tighten to ${survival.need}+ to lock` : 'Pull the brackets in first'}
           </button>
         ) : state.phase === 'revealing' ? (
           <button type="button" className="btn btn-primary btn-skip" onClick={() => (skipRef.current = true)}>
@@ -270,10 +301,33 @@ export function Round({ state, dispatch, label, level, theme, showHint, challeng
             disabled={state.phase !== 'resolved'}
             onClick={() => dispatch({ type: 'next' })}
           >
-            {state.phase !== 'resolved' ? 'Locked' : isLast ? 'See your day' : 'Next question'}
+            {state.phase !== 'resolved' ? 'Locked' : survival ? survival.nextLabel : isLast ? 'See your day' : 'Next question'}
           </button>
         )}
       </div>
     </article>
+  );
+}
+
+function SurvivalOutcome({ hit, points, need, shown, missBy }: { hit: boolean; points: number; need: number; shown: number; missBy: string }) {
+  if (hit && points >= need) {
+    return (
+      <p className="outcome outcome-hit">
+        <span className="outcome-word">
+          <span className="outcome-glyph" aria-hidden="true">✓</span>
+          Survived.
+        </span>
+        <span className="outcome-points tabular">+{shown}</span>
+      </p>
+    );
+  }
+  return (
+    <p className="outcome outcome-miss">
+      <span className="outcome-word">
+        <span className="outcome-glyph" aria-hidden="true">✕</span>
+        {hit ? 'Inside, but short.' : 'Outside. Run over.'}
+      </span>
+      <span className="outcome-detail">{hit ? `${points} is under the ${need} this round needed. Run over.` : `Missed by ${missBy}`}</span>
+    </p>
   );
 }

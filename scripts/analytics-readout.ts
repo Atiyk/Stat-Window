@@ -73,7 +73,42 @@ export function readout(counts: Counts, min = 30): Row[] {
   }
   rows.push(row('next-day return (approx.)', 'visit/return/*/day1 ÷ visit/new (same range; see bias notes)', day1, fresh));
   rows.push(row('day-7 return (approx.)', 'visit/return/*/day7 ÷ visit/new (same range; see bias notes)', day7, fresh));
+
+  // Survival (docs/SURVIVAL.md). Every start has exactly one source.
+  const svStarts = sum(counts, '/e/survival/start');
+  const svFirst = sum(counts, '/e/survival/start/cta', '/e/survival/start/link');
+  rows.push(row('survival: starts from the results button per finished daily', 'survival/start/cta ÷ complete/daily/*', sum(counts, '/e/survival/start/cta'), completes));
+  rows.push(row('survival: deliberate "Run it again" per first start', 'survival/start/again ÷ survival/start/{cta,link}', sum(counts, '/e/survival/start/again'), svFirst));
+  for (const r of [5, 10, 15]) rows.push(row(`survival: survived round ${r} per start`, `survival/reach/r${r} ÷ survival/start/*`, sum(counts, `/e/survival/reach/r${r}`), svStarts));
+  rows.push(row('survival: wins per start', 'survival/win ÷ survival/start/*', sum(counts, '/e/survival/win'), svStarts));
+  const ends = sum(counts, '/e/survival/end');
+  for (const band of ['r1-4', 'r5-8', 'r9-12', 'r13-16', 'r17-20']) {
+    rows.push(row(`survival: runs ending in rounds ${band.slice(1)}`, `survival/end/${band}/* ÷ survival/end/*`, sum(counts, `/e/survival/end/${band}`), ends));
+  }
+  let short = 0;
+  for (const [path, n] of counts) if (path.startsWith('/e/survival/end/') && path.endsWith('/short')) short += n;
+  rows.push(row('survival: ends that were inside but under the minimum', 'survival/end/*/short ÷ survival/end/*', short, ends));
+
+  // The experiment: per arm, per exposed browser-day.
+  for (const arm of ['cta', 'control'] as const) {
+    const exposed = sum(counts, `/e/x/survival-cta/${arm}/exposed`);
+    rows.push(row(`experiment ${arm}: next-day daily start per exposure`, `x/survival-cta/${arm}/next-day-start ÷ …/exposed (drop the range's last day from exposed)`, sum(counts, `/e/x/survival-cta/${arm}/next-day-start`), exposed));
+    rows.push(row(`experiment ${arm}: daily share attempts per exposure (guardrail)`, `x/survival-cta/${arm}/daily-share ÷ …/exposed`, sum(counts, `/e/x/survival-cta/${arm}/daily-share`), exposed));
+  }
   return rows;
+}
+
+/**
+ * Difference in proportions (a − b) with a 95% normal-approximation interval.
+ * Null when either arm has fewer than `min` exposures: say "not enough data".
+ */
+export function diffInterval(aNum: number, aDen: number, bNum: number, bDen: number, min = 200): { diff: number; lo: number; hi: number } | null {
+  if (aDen < min || bDen < min) return null;
+  const pa = aNum / aDen;
+  const pb = bNum / bDen;
+  const se = Math.sqrt((pa * (1 - pa)) / aDen + (pb * (1 - pb)) / bDen);
+  const diff = pa - pb;
+  return { diff, lo: diff - 1.96 * se, hi: diff + 1.96 * se };
 }
 
 if (process.argv[1]?.endsWith('analytics-readout.ts')) {
@@ -91,5 +126,12 @@ if (process.argv[1]?.endsWith('analytics-readout.ts')) {
   }
   console.log('| Metric | Count | Of | Rate | Equation |\n|---|---|---|---|---|');
   for (const r of readout(counts, min)) console.log(`| ${r.metric} | ${r.numerator} | ${r.denominator} | ${r.rate} | ${r.equation} |`);
+  const x = (arm: string, step: string) => sum(counts, `/e/x/survival-cta/${arm}/${step}`);
+  const ci = diffInterval(x('cta', 'next-day-start'), x('cta', 'exposed'), x('control', 'next-day-start'), x('control', 'exposed'));
+  console.log(
+    ci
+      ? `\nExperiment, next-day start, cta − control: ${(ci.diff * 100).toFixed(1)} points (95% interval ${(ci.lo * 100).toFixed(1)} to ${(ci.hi * 100).toFixed(1)}). An interval that crosses 0 is no evidence either way.`
+      : '\nExperiment: not enough data (needs 200 exposures in each arm).',
+  );
   console.log('\nBrowsers, not people; share attempts, not deliveries. See docs/MEASUREMENT.md.');
 }

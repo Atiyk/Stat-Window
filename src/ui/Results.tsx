@@ -23,6 +23,10 @@ type Props = {
   archive: readonly string[];
   onPractice: (day: string) => void;
   onBackToToday: () => void;
+  /** Called after a share attempt (for the experiment's guardrail). */
+  onShared?: ((method: 'native' | 'clipboard' | 'failed' | 'cancelled') => void) | undefined;
+  /** Survival is open and this player is offered it: a quiet secondary button. */
+  survivalCta?: (() => void) | null | undefined;
 };
 
 /** "7:00 PM" in the player's own time zone, or null when that zone is UTC anyway. */
@@ -37,7 +41,7 @@ function comparison(total: number, vs: number): string {
   return `Your friend’s link says ${vs}. They take this one by ${vs - total}.`;
 }
 
-export function Results({ slate, number, mode, playMode, isToday, vs, results, stats, archive, onPractice, onBackToToday }: Props) {
+export function Results({ slate, number, mode, playMode, isToday, vs, results, stats, archive, onPractice, onBackToToday, onShared, survivalCta = null }: Props) {
   const total = totalPoints(results);
   const now = useNow(1000);
   const [toast, setToast] = useState<string | null>(null);
@@ -60,20 +64,24 @@ export function Results({ slate, number, mode, playMode, isToday, vs, results, s
       if (navigator.share && matchMedia('(pointer: coarse)').matches) {
         await navigator.share({ text });
         track({ name: 'share', mode: playMode, method: 'native' });
+      onShared?.('native');
         return;
       }
       if (!navigator.clipboard?.writeText) throw new Error('No clipboard');
       await navigator.clipboard.writeText(text);
       setToast('Copied. Paste it anywhere.');
       track({ name: 'share', mode: playMode, method: 'clipboard' });
+      onShared?.('clipboard');
     } catch (e) {
       if (e instanceof DOMException && e.name === 'AbortError') {
         track({ name: 'share', mode: playMode, method: 'cancelled' });
+      onShared?.('cancelled');
         return;
       }
       setFallback(text);
       setToast('Couldn’t copy automatically. Select the text below.');
       track({ name: 'share', mode: playMode, method: 'failed' });
+      onShared?.('failed');
     }
   };
 
@@ -134,6 +142,11 @@ export function Results({ slate, number, mode, playMode, isToday, vs, results, s
         </p>
         {fallback && (
           <textarea className="share-fallback" readOnly value={fallback} rows={4} aria-label="Your result to copy" onFocus={(e) => e.currentTarget.select()} />
+        )}
+        {survivalCta && (
+          <button type="button" className="btn btn-quiet" onClick={survivalCta}>
+            Try Survival: 20 rounds, one life
+          </button>
         )}
         <p className="next-window">
           Next puzzle in <span className="tabular">{formatCountdown(msUntilNextPuzzle(now))}</span>, at midnight UTC

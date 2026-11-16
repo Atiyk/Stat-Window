@@ -37,6 +37,10 @@ test('a full daily run scores every round, saves, and shares without spoilers', 
   await expect(page.locator('.results-title')).toBeVisible();
   expect(points.reduce((a, b) => a + b, 0)).toBe(274);
   await expect(page.locator('.results-score')).toHaveText('274');
+  // Today's 274 lands in the 200–299 band of the player's own distribution.
+  const todayBand = page.locator('.dist-row[data-today]');
+  await expect(todayBand.locator('.dist-label')).toHaveText('200–299');
+  await expect(todayBand.locator('.dist-count')).toContainText('1');
   await expect(page.locator('.recap-row')).toHaveCount(5);
 
   if (browserName === 'chromium' && test.info().project.name === 'desktop') {

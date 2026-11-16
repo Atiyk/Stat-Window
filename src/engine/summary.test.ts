@@ -46,4 +46,15 @@ describe('playerStats', () => {
     expect(s.streak).toBe(1);
     expect(s.longest).toBe(3);
   });
+  it('buckets completed days by total, 100 points per bucket, with 500 in the top bucket', () => {
+    const runs = {
+      '2026-11-15': run([0, 0, 0, 0, 0]),
+      '2026-11-16': run([20, 20, 20, 20, 19]),
+      '2026-11-17': run([20, 20, 20, 20, 20]),
+      '2026-11-18': run([100, 100, 100, 100, 100]),
+      '2026-11-19': run([90, 90, 90, 90, 90]),
+      '2026-11-20': run([10]),
+    };
+    expect(playerStats(runs, '2026-11-20').distribution).toEqual([2, 1, 0, 0, 2]);
+  });
 });

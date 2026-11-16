@@ -1122,8 +1122,10 @@ a {
   top: 0;
   bottom: 0;
   min-width: 3px;
-  border-radius: 4px;
-  background: var(--brand);
+  border-radius: 2px;
+  background: var(--band-hit);
+  border-left: 3px solid var(--brand);
+  border-right: 3px solid var(--brand);
 }
 
 .recap-row[data-hit='false'] .recap-window {
@@ -1200,6 +1202,89 @@ a {
   font-weight: 700;
   font-size: 2rem;
   line-height: 1;
+}
+
+.dist {
+  display: grid;
+  gap: 6px;
+}
+
+.dist-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 650;
+}
+
+.dist-sub {
+  margin: 0 0 6px;
+  color: var(--ink-soft);
+}
+
+.dist-list {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dist-row {
+  display: grid;
+  grid-template-columns: 5.5em minmax(0, 1fr) 2.5em;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9375rem;
+}
+
+.dist-label {
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.dist-track {
+  height: 14px;
+  border-radius: 4px;
+  background: var(--paper-2);
+  overflow: hidden;
+}
+
+.dist-bar {
+  display: block;
+  height: 100%;
+  min-width: 2px;
+  border-radius: 4px;
+  background: var(--tick);
+  transform-origin: left center;
+  animation: dist-in 520ms var(--ease-out) both;
+}
+
+/* Today's band is the one in pine, with a marker, so it reads without colour too. */
+.dist-row[data-today] .dist-bar {
+  background: var(--brand);
+}
+
+.dist-row[data-today] .dist-label,
+.dist-row[data-today] .dist-count {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.dist-row[data-today] .dist-label::before {
+  content: '▸ ';
+  color: var(--brand);
+}
+
+.dist-count {
+  text-align: right;
+  font-weight: 600;
+}
+
+@keyframes dist-in {
+  from {
+    transform: scaleX(0.6);
+    opacity: 0;
+  }
 }
 
 .archive-title {
@@ -1353,6 +1438,47 @@ a {
 .help-small {
   font-size: 0.9375rem !important;
   color: var(--ink-soft);
+}
+
+.help-examples {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.help-examples li {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  font-size: 0.9375rem;
+}
+
+.help-glyph {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.help-examples [data-kind='hit'] .help-glyph {
+  background: var(--brand);
+  color: var(--on-brand);
+}
+
+.help-examples [data-kind='miss'] .help-glyph {
+  background: var(--paper-2);
+  color: var(--ink);
+  outline: 1px dashed var(--ink-soft);
+  outline-offset: -1px;
 }
 
 .help-table {
@@ -1521,6 +1647,7 @@ a {
       'head recap'
       'actions recap'
       'stats recap'
+      'dist recap'
       'archive recap';
     align-items: start;
     column-gap: 56px;
@@ -1530,13 +1657,16 @@ a {
   }
   .recap {
     grid-area: recap;
-    grid-row: 1 / span 5;
+    grid-row: 1 / span 6;
   }
   .results-actions {
     grid-area: actions;
   }
   .stats {
     grid-area: stats;
+  }
+  .dist {
+    grid-area: dist;
   }
   .archive {
     grid-area: archive;

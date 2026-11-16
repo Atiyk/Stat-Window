@@ -123,6 +123,34 @@ export function Results({ slate, number, mode, results, stats, archive, onPracti
         </dl>
       )}
 
+      {!practice && stats.played > 0 && (
+        <section className="dist" aria-labelledby="dist-title">
+          <h2 id="dist-title" className="dist-title">Your days</h2>
+          <p className="dist-sub">
+            Longest run: <span className="tabular">{stats.longest}</span> {stats.longest === 1 ? 'day' : 'days'} in a row.
+          </p>
+          <ol className="dist-list">
+            {stats.distribution.map((count, band) => {
+              const label = band === 4 ? '400–500' : `${band * 100}–${band * 100 + 99}`;
+              const max = Math.max(...stats.distribution, 1);
+              const today = band === Math.min(4, Math.floor(total / 100));
+              return (
+                <li key={band} className="dist-row" data-today={today || undefined}>
+                  <span className="dist-label tabular">{label}</span>
+                  <span className="dist-track" aria-hidden="true">
+                    <span className="dist-bar" style={{ width: `${(count / max) * 100}%` }} />
+                  </span>
+                  <span className="dist-count tabular">
+                    {count}
+                    <span className="sr-only"> {count === 1 ? 'day' : 'days'}{today ? ', including today' : ''}</span>
+                  </span>
+                </li>
+              );
+            })}
+          </ol>
+        </section>
+      )}
+
       {archive.length > 0 && (
         <section className="archive" aria-labelledby="archive-title">
           <h2 id="archive-title" className="archive-title">Warm up on an earlier day</h2>

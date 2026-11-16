@@ -59,4 +59,33 @@ describe('mergeRun', () => {
     expect(mergeRun({ results: [r('a', 90)], advanced: 1 }, { results: [r('a', 5), r('b', 7)], advanced: 1 }))
       .toEqual({ results: [r('a', 90), r('b', 7)], advanced: 1 });
   });
+  it('keeps practice and challenge runs apart from the daily record', () => {
+    const storage = memoryStorage();
+    const store = createSaveStore(storage);
+    store.saveRun('2026-11-15', { results: [r('a', 80)], advanced: 1 }, 'practice');
+    const data = createSaveStore(storage).load();
+    expect(data.runs).toEqual({});
+    expect(data.practice?.['2026-11-15']?.results).toEqual([r('a', 80)]);
+  });
+  it('loads saves written before practice runs and visits were stored', () => {
+    const old = { version: 1, runs: { '2026-11-15': { results: [r('a')], advanced: 1 } }, settings: { sound: false, introSeen: true } };
+    const store = createSaveStore(memoryStorage({ 'stat-window:v1': JSON.stringify(old) }));
+    expect(store.load().runs['2026-11-15']?.results).toHaveLength(1);
+    expect(store.load().settings.introSeen).toBe(true);
+  });
+  it('never counts a player with saved runs from before visits were recorded as new', () => {
+    const old = { version: 1, runs: { '2026-11-15': { results: [r('a')], advanced: 1 } }, settings: { sound: false, introSeen: true } };
+    const store = createSaveStore(memoryStorage({ 'stat-window:v1': JSON.stringify(old) }));
+    expect(store.recordVisit('2026-11-16')).toEqual({ first: '2026-11-15', last: '2026-11-15' });
+    expect(store.load().visits).toEqual({ first: '2026-11-15', last: '2026-11-16' });
+  });
+  it('records visits: undefined for a new browser, then the previous first and last day', () => {
+    const store = createSaveStore(memoryStorage());
+    expect(store.recordVisit('2026-11-15')).toBeUndefined();
+    expect(store.recordVisit('2026-11-16')).toEqual({ first: '2026-11-15', last: '2026-11-15' });
+    expect(store.recordVisit('2026-11-16')).toEqual({ first: '2026-11-15', last: '2026-11-16' });
+    // A clock that jumps backwards never rewinds the record.
+    store.recordVisit('2026-11-10');
+    expect(store.load().visits).toEqual({ first: '2026-11-10', last: '2026-11-16' });
+  });
 });

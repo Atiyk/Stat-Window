@@ -4,6 +4,9 @@ import '@fontsource-variable/fraunces/wght.css';
 import '@fontsource-variable/dm-sans/wght.css';
 import './styles.css';
 import { App } from './App';
+import { startAnalytics } from './lib/track';
+
+startAnalytics();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

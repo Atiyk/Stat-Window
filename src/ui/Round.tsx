@@ -12,6 +12,8 @@ type Props = {
   dispatch: Dispatch<GameAction>;
   label: string;
   showHint: boolean;
+  /** Set when the run came from a friend's link: shown before the first round only. */
+  challenge?: { vs: number | null } | null;
   onFirstTouch: () => void;
 };
 
@@ -28,7 +30,7 @@ function hitLine(points: number): string {
   return 'Caught, but loose.';
 }
 
-export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props) {
+export function Round({ state, dispatch, label, showHint, challenge = null, onFirstTouch }: Props) {
   const q = currentQuestion(state);
   const reduced = usePrefersReducedMotion();
   const last = state.results[state.round];
@@ -143,6 +145,17 @@ export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props)
       </div>
 
       <header className="question-block">
+        {challenge && interactive && (
+          <p className="challenge-note">
+            {challenge.vs === null ? (
+              'A friend sent you these five.'
+            ) : (
+              <>
+                A friend scored <b className="tabular">{challenge.vs}</b> on these five.
+              </>
+            )}
+          </p>
+        )}
         <p className="context">
           {q.sport} · {q.context}
         </p>
@@ -181,7 +194,9 @@ export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props)
               <p className="worth worth-locked">Locked at {worth} points. Here it comes…</p>
             ) : worth === 0 ? (
               <p className="worth">
-                {showHint ? 'Drag a bracket in. Tighter windows score more, up to 100.' : 'Pull the brackets in to start scoring.'}
+                {showHint
+                  ? 'Drag a bracket in. Tighter scores more, up to 100. A miss scores 0.'
+                  : 'Pull the brackets in to start scoring.'}
               </p>
             ) : (
               <p className="worth">

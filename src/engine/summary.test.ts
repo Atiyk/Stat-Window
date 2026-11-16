@@ -8,8 +8,15 @@ const run = (points: number[]) => ({
 
 describe('shareText', () => {
   it('is spoiler-free: puzzle number, total, one mark per round, and the link', () => {
-    const text = shareText({ number: 3, results: run([100, 83, 0, 45, 12]).results, url: 'https://statwindow.vercel.app' });
-    expect(text).toBe(['Stat Window No. 3  240/500', '🟩🟩⬛🟨🟧' /* taste-skill-ignore */, 'https://statwindow.vercel.app'].join('\n'));
+    const url = 'https://stat-window.vercel.app/?day=2026-11-17&vs=240';
+    const text = shareText({ number: 3, results: run([100, 83, 0, 45, 12]).results, url });
+    expect(text).toBe(
+      ['Stat Window No. 3  240/500', '🟩🟩⬛🟨🟧' /* taste-skill-ignore */, 'Same five questions. Can you beat 240?', url].join('\n'),
+    );
+  });
+  it('does not dare a friend to beat zero', () => {
+    const text = shareText({ number: 3, results: run([0, 0, 0, 0, 0]).results, url: 'https://x.test/' });
+    expect(text.split('\n')[2]).toBe('Same five questions. Your turn.');
   });
 });
 

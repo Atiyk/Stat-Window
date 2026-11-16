@@ -23,7 +23,8 @@
     "content:publish": "node --experimental-strip-types scripts/nba/publish.ts",
     "content:publish:check": "node --experimental-strip-types scripts/nba/publish.ts --check",
     "content:lock": "node --experimental-strip-types scripts/content-lock.ts",
-    "nba:reschedule": "node --experimental-strip-types scripts/nba/reschedule.ts"
+    "nba:reschedule": "node --experimental-strip-types scripts/nba/reschedule.ts",
+    "test:e2e:analytics": "ANALYTICS_E2E=1 playwright test e2e/analytics.spec.ts"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "^5.3.0",

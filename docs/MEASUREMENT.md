@@ -9,6 +9,9 @@ Nothing here has been validated with real players yet. No retention, completion 
 - **Why page views:** on Hobby, Vercel's custom events are not available ("Custom Events are available on Enterprise and Pro plans", [Vercel docs](https://vercel.com/docs/analytics/custom-events)). So each event is sent as a *virtual page view* on a path under `/e/…`, using the package's `pageview()` call. The counts appear in the dashboard's **Pages** list, one row per path.
 - **Cost:** Hobby includes 50,000 events a month (page views and virtual page views both count). At the limit, collection pauses; "You will not pay for any additional usage" ([Vercel limits and pricing](https://vercel.com/docs/analytics/limits-and-pricing)). Rough budget: about 16 events per complete game (page view, visit, start, first touch, five locks, five Nexts, completion, share), so roughly 3,000 complete games a month before collection pauses.
 - **Off by default.** Events are sent only when the build sets `VITE_ANALYTICS=vercel`. Local runs, CI and builds without the variable send nothing (in development they log to the console instead).
+- **Auto-tracking is off; the real page view is sent by hand.** The Vercel script remembers the last `path` passed to `pageview()` and reuses it for later automatic page views (read from `va.vercel-scripts.com/v1/script.debug.js`, v0.1.3, on 2026-11-16), so with auto-tracking on, a real visit could be filed under a stale `/e/…` path. `startAnalytics()` injects with `disableAutoTrack: true` and sends `pageview({ route: '/', path: '/' })` once per page load.
+- **Counted once.** `start` and `first-touch` are sent once per browser, mode and day (`trackOnce`, kept 14 days in localStorage), so a refresh, a remount or a second tab doesn't add a second start. A lock is counted by the tab that made it; a tab that adopts rounds from another tab doesn't recount them. React StrictMode double effects only happen in development, where nothing is sent.
+- **What has been proven, and what hasn't.** `npm run test:e2e:analytics` builds with `VITE_ANALYTICS=vercel`, stubs Vercel's script and checks the exact queue of page views the app hands it (funnel order, no duplicates after reloads, challenge vs daily, query string stripped, nothing at all under GPC/DNT). It does **not** prove Vercel receives them: that needs the production check in "Turning it on", step 4. As of 2026-11-16 that check has not been done.
 - **Privacy:** no cookies or identifiers from us, no answers, no typed text, no scores beyond a 100-point band. Every path segment comes from the fixed list below. Real page-view URLs are stripped of their query string, so challenge links (`?day=…&vs=…`) are not collected. Browsers that send Global Privacy Control or Do Not Track send nothing. The help dialog says what is counted.
 
 ### Turning it on (owner, about two minutes)
@@ -16,9 +19,24 @@ Nothing here has been validated with real players yet. No retention, completion 
 1. Vercel dashboard → the `stat-window` project → **Analytics** → **Enable** Web Analytics (Hobby, free).
 2. Project **Settings → Environment Variables** → add `VITE_ANALYTICS` = `vercel` for **Production** only.
 3. Redeploy production (or merge anything to `main`).
-4. Check: open the site, play a round, then look for `/e/start/daily` and `/e/lock/daily/r1/…` under Analytics → Pages. If they appear, events are flowing.
+4. Check receipt (about five minutes, from a normal browser window with no ad blocker and Do Not Track / GPC off):
+   1. Open https://stat-window.vercel.app/ with DevTools → Network open, filter `view`.
+   2. You should see a `POST …/view` request (Vercel's docs say `/_vercel/insights/view` or `/<unique-path>/view`) with status 200 for the page, then one per event as you play: start, first touch, lock r1, Next, … complete.
+   3. If you instead see a console line `[Vercel Web Analytics] Failed to load script`, step 1 or 3 is not done.
+   4. Within a few minutes, Analytics → **Pages** should list `/e/start/daily`, `/e/first-touch/daily`, `/e/lock/daily/r1/hit` (or `miss`) and so on.
+   5. Your test game adds about 16 events. That is fine; note the time so you can exclude it when reading early numbers.
 
-Until step 2 is done, production sends nothing, exactly as before this change.
+Until step 2 is done, production sends nothing.
+
+### Reading it (no dashboard to build)
+
+Copy the Pages list for a date range (path and count per line, CSV or tab separated) into a file and run:
+
+```bash
+node --experimental-strip-types scripts/analytics-readout.ts pages.csv        # --min 30 by default
+```
+
+It prints the funnel below with the equation used for each line, and says "not enough data" for any rate whose denominator is under 30. With today's traffic, expect that for every line.
 
 ## Event dictionary
 
@@ -46,7 +64,7 @@ Until step 2 is done, production sends nothing, exactly as before this change.
 | Round drop-off | `lock/…/r{n}` across n | no single round loses > 10% |
 | Share attempts | `share/daily/{native,clipboard}` ÷ `complete/daily/*` | > 10% |
 | Challenge pull | `start/challenge` and `complete/challenge/*` ÷ shares | any is a signal |
-| Next-day return | `visit/return/…/day1` ÷ `visit/new` from the previous day | > 25% |
+| Next-day return | `visit/return/…/day1` ÷ `visit/new` from the previous day (the readout uses the same range for both, which overstates it slightly when new visitors are growing) | > 25% |
 | Day-7 return | `visit/return/…/day7` ÷ `visit/new` seven days earlier | > 15% |
 
 ## What these numbers are not

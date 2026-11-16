@@ -6,7 +6,7 @@ import { addDays, puzzleDay, puzzleNumber } from './engine/daily';
 import { gameReducer, initGame, ROUNDS, type GameAction, type GameState, type Mode } from './engine/game';
 import { createSaveStore, type RunKind, type SaveStore, type StorageLike } from './engine/storage';
 import { playerStats } from './engine/summary';
-import { track, type PlayMode } from './lib/track';
+import { track, trackOnce, type PlayMode } from './lib/track';
 import { formatDay } from './lib/format';
 import { setSoundEnabled } from './ui/feedback';
 import { Help } from './ui/Help';
@@ -236,11 +236,11 @@ function Game(props: {
     (a: GameAction) => {
       if (a.type === 'next' && state.phase === 'resolved') track({ name: 'round_next', mode: playMode, round: state.round + 1 });
       if (a.type === 'setWindow' && state.round === 0 && state.phase === 'ready' && state.results.length === 0) {
-        track({ name: 'first_touch', mode: playMode });
+        trackOnce(`touch:${playMode}:${session.kind}:${session.day}`, today, { name: 'first_touch', mode: playMode });
       }
       rawDispatch(a);
     },
-    [state.phase, state.round, state.results.length, playMode],
+    [state.phase, state.round, state.results.length, playMode, session.kind, session.day, today],
   );
 
   // Persist every locked round immediately (before the reveal), so a refresh can't re-roll it.
@@ -251,7 +251,7 @@ function Game(props: {
 
   const n = puzzleNumber(session.day);
   useEffect(() => {
-    if (state.results.length === 0) track({ name: 'run_start', mode: playMode });
+    if (state.results.length === 0) trackOnce(`start:${playMode}:${session.kind}:${session.day}`, today, { name: 'run_start', mode: playMode });
     // Only on mount of a fresh run.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -286,6 +286,8 @@ function Game(props: {
     const onStorage = () => {
       const saved = store.load()[session.kind]?.[session.day];
       if (saved && saved.results.length > state.results.length && (state.phase === 'ready' || state.phase === 'adjusting')) {
+        // Those rounds were counted by the tab that locked them.
+        lastLocked.current = saved.results.length;
         rawDispatch({ type: 'hydrate', state: initGame(session.slate, session.mode, saved.results, saved.advanced) });
       }
     };

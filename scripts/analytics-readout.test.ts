@@ -57,7 +57,7 @@ describe('analytics readout', () => {
       '/e/lock/daily/r1/hit,42',
       '/e/complete/daily/200-299,43',
       '/e/x/survival-cta/cta/first-exposure,20',
-    ].join('\\n'));
+    ].join('\n'));
     const rows = readout(c);
     const get = (metric: string) => rows.find((r) => r.metric === metric)!;
     expect(get('daily: first touch per start').rate).toMatch(/data quality warning/);

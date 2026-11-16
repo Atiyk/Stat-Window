@@ -104,7 +104,10 @@ export function readout(counts: Counts, min = 30): Row[] {
  * Null when either arm has fewer than `min` exposures: say "not enough data".
  */
 export function diffInterval(aNum: number, aDen: number, bNum: number, bDen: number, min = 200): { diff: number; lo: number; hi: number } | null {
-  if (aDen < min || bDen < min) return null;
+  // Virtual page views can be blocked, duplicated or counted over mismatched
+  // date windows. Never turn impossible input into a plausible confidence interval.
+  if (![aNum, aDen, bNum, bDen].every((n) => Number.isSafeInteger(n) && n >= 0)) return null;
+  if (aNum > aDen || bNum > bDen || aDen < min || bDen < min) return null;
   const pa = aNum / aDen;
   const pb = bNum / bDen;
   const se = Math.sqrt((pa * (1 - pa)) / aDen + (pb * (1 - pb)) / bDen);
@@ -129,7 +132,13 @@ if (process.argv[1]?.endsWith('analytics-readout.ts')) {
   for (const r of readout(counts, min)) console.log(`| ${r.metric} | ${r.numerator} | ${r.denominator} | ${r.rate} | ${r.equation} |`);
   const x = (arm: string, step: string) => sum(counts, `/e/x/survival-cta/${arm}/${step}`);
   const enoughBrowsers = x('cta', 'first-exposure') >= 200 && x('control', 'first-exposure') >= 200;
-  const ci = enoughBrowsers ? diffInterval(x('cta', 'next-day-start'), x('cta', 'exposed'), x('control', 'next-day-start'), x('control', 'exposed')) : null;
+  const ctaNum = x('cta', 'next-day-start');
+  const ctaDen = x('cta', 'exposed');
+  const controlNum = x('control', 'next-day-start');
+  const controlDen = x('control', 'exposed');
+  const impossible = ctaNum > ctaDen || controlNum > controlDen;
+  const ci = enoughBrowsers && !impossible ? diffInterval(ctaNum, ctaDen, controlNum, controlDen) : null;
+  if (impossible) console.warn('Experiment data quality warning: next-day starts exceed exposures in at least one arm. Check the date range, event deduplication and export before interpreting a lift.');
   console.log(
     ci
       ? `\nExperiment, next-day start per exposed browser-day, cta − control: ${(ci.diff * 100).toFixed(1)} points (rough 95% interval ${(ci.lo * 100).toFixed(1)} to ${(ci.hi * 100).toFixed(1)}). It treats each browser-day as independent, so the real interval is wider; an interval near or across 0 is no evidence either way.`

@@ -1,13 +1,26 @@
 # Daily content: inventory and publishing workflow
 
-## NBA-only from 2026-11-18
+## NBA-only from 2026-11-17
 
-**Transition date: 2026-11-18 (UTC).** From that day Stat Window is NBA-only and the daily slates come from the NBA fact database in `data/nba`.
+**Transition date: 2026-11-17 (UTC)**, set in `data/nba/calendar.json` (`cutover`) and mirrored in `src/content/cutover.ts`. From that day Stat Window is NBA-only and the daily slates come from the NBA fact database in `data/nba`.
 
-- 2026-11-15, 11-16 and 11-17 were already live as mixed-sport days. They are unchanged and locked in `content/lock.json`, so old links (`?day=2026-11-15`), saves and shared scores keep working.
-- The mixed-sport files that had been scheduled for 11-18 to 11-27 were never played (they were in the future when they were replaced). They are kept in `content/retired/` for the record.
-- 50 NBA days run 2026-11-18 to 2027-01-06: 250 scheduled questions plus 30 in reserve, 280 verified facts. See `docs/nba/calendar.md` and `docs/nba/validation.md`.
+- 2026-11-15 and 11-16 were live as mixed-sport days. They are unchanged, so old links (`?day=2026-11-15&vs=…`), saves and shared scores keep working, and the archive labels them "mixed sports".
+- The mixed-sport files scheduled for 11-17 to 11-27 were never live (they were still in the future when they were replaced). They are kept in `content/retired/`.
+- 50 NBA days run 2026-11-17 to 2027-01-05: 250 scheduled questions, 26 in reserve, 3 quarantined (`data/nba/quarantine.json`). See `docs/nba/calendar.md`, `docs/nba/validation.md` and `docs/nba/AUDIT-2026-11-16.md`.
 - Rights: `docs/NBA_DATA_RIGHTS.md`. Only Wikipedia (CC BY-SA 4.0) is an approved source.
+
+### Published days (one policy for every day)
+- `content/published.lock.json` holds each day's scoring fingerprint: question ids, answers, min, max, step and order. Saves, share links and score comparisons depend on exactly these.
+- A day on or before today (the real UTC date) is published. `content:check` (and so every build and deploy) fails if its fingerprint changes or its file disappears. `npm run content:publish` never rewrites a published day file at all. `--today` can only move the date later, never unlock a day.
+- Future days are regenerated from `data/nba` and their lock entries follow.
+- Mixed-sport launch days may still get text-only corrections (a note or source line), as before. NBA days cannot: their files must equal what `data/nba` generates, and published files are never regenerated.
+
+### If the release slips past midnight
+The cutover must be a future date when the release reaches production. If the deploy is not live and checked by about 23:00 UTC the day before the cutover, hold it and move the cutover:
+1. Copy `content/retired/<old cutover>.json` back to `content/days/` and restore that day's entry in `content/published.lock.json` from `origin/main` (only that entry; the rest of the lock stays).
+2. `npm run nba:reschedule -- --cutover <next free UTC date>` (refuses a date that is not in the future; also updates `src/content/cutover.ts`).
+3. `npm run content:publish` (writes the moved days, removes the NBA files that no longer belong, updates the lock), then `npm run nba:report`.
+4. `npm run content:check && npm test` must pass, and `e2e/cutover.spec.ts` follows the new date by itself.
 
 ### Where things live
 | Path | What |
@@ -18,7 +31,7 @@
 | `data/nba/sources.json`, `rejected.json`, `franchises.json` | Rights register, rejected examples, franchise names |
 | `db/migrations/*.sql` | SQLite schema with uniqueness, ladder and era triggers |
 | `content/days/*.json` | What the game loads; generated from `data/nba`, never edited by hand |
-| `content/lock.json` | sha256 of every day file; a published day may never change |
+| `content/published.lock.json` | scoring fingerprint of every day; a published day's may never change |
 | `docs/nba/` | Generated proof: `questions.csv`, `calendar.md`, `validation.md` |
 
 ### Commands
@@ -34,12 +47,12 @@ npm test                                           # every gate has a test that 
 1. Write five facts in `data/nba/facts.json` (or move five ids out of `calendar.reserve`). Each needs a Wikipedia URL you have opened, a quote of 160 characters or fewer that contains the number, scope, season, unit, range, step, difficulty and a one-line difficulty reason.
 2. Append a day to `calendar.days` with the next date, a theme (`kind`, `title`, `subtitle`, `recap`) and the five ids in ladder order: easy, medium, hard, hard, expert.
 3. Run `npm run content:publish`, then `npm run nba:report`, then `npm test`. The validator tells you if the day breaks a rule (family limits, the rolling 7-day mix, franchise repeats, a stat used before it was recorded, a range that rewards guessing the middle).
-4. Commit `data/nba`, `content/days`, `content/lock.json` and `docs/nba` together and open a PR. CI runs the same gates. Merging to main publishes.
+4. Commit `data/nba`, `content/days`, `content/published.lock.json` and `docs/nba` together and open a PR. CI runs the same gates. Merging to main publishes.
 
-Changing a future day that is already locked needs `--allow-future-edits`. Changing a day on or before today is refused outright.
+Changing a day on or before today is refused outright; future days follow `data/nba`.
 
 ### Gates that fail the build
-At least 250 verified facts and 250 scheduled questions; at least 50 consecutive days with 30 or more themed; 5 unique questions per day, never reused; the difficulty ladder; non-empty theme; an approved source with a quote that contains the answer; scope, season (valid years, event date inside the season), units and reveal present; answer strictly inside the range and 8% or more from either end; 5–400 whole steps; no near-duplicate prompts or repeated facts; no stat before its first official season (rebounds 1950–51, steals and blocks 1973–74, turnovers 1977–78, threes 1979–80); at most 2 per family and 1 simple scoring average per day; every rolling 7 days has 6 or more families, 3 or more eras and at most 10 questions on one franchise; no franchise leads two days running; at most 35% of answers in the middle fifth of their range; a centre-the-window player never scores above 90; every day file matches the lock; the SQLite build is reproducible.
+At least 250 verified facts and 250 scheduled questions; at least 50 consecutive days with 30 or more themed; 5 unique questions per day, never reused; the difficulty ladder; non-empty theme; an approved source with a quote that contains the answer; scope, season (valid years, event date inside the season), units and reveal present; answer strictly inside the range and 8% or more from either end; 5–400 whole steps; no near-duplicate prompts or repeated facts; no stat before its first official season (rebounds 1950–51, steals and blocks 1973–74, turnovers 1977–78, threes 1979–80); at most 2 per family and 1 simple scoring average per day; every rolling 7 days has 6 or more families, 3 or more eras and at most 10 questions on one franchise; no franchise leads two days running; at most 35% of answers in the middle fifth of their range; a centre-the-window player never scores above 90; every published day matches its locked fingerprint; the SQLite build is reproducible.
 
 ---
 

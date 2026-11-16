@@ -57,9 +57,12 @@ export function planPublish(today: string, dir = DAYS_DIR): PublishPlan {
   // A future day file from the cutover on that the calendar no longer has (it moved
   // when the calendar was rescheduled) is removed; a published one never is.
   const planned = new Set(data.calendar.days.map((d) => d.date));
+  // A generated (themed) file before the cutover is also stale: it is left behind
+  // when the cutover moves later.
   for (const f of readdirSync(dir).filter((x) => x.endsWith('.json'))) {
     const day = f.slice(0, 10);
-    if (day >= data.calendar.cutover && !planned.has(day)) {
+    const themed = () => 'theme' in (JSON.parse(readFileSync(join(dir, f), 'utf8')) as object);
+    if (!planned.has(day) && (day >= data.calendar.cutover || themed())) {
       if (day > today) remove.push(day);
       else problems.push(`${day} is published but not in the NBA calendar`);
     }

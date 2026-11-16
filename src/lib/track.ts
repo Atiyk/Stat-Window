@@ -156,8 +156,12 @@ export function startAnalytics(
     disableAutoTrack: true,
     // Page views keep only the path: challenge links carry a day and a score we don't need to collect.
     beforeSend: (event) => {
-      const u = new URL(event.url);
-      return { ...event, url: `${u.origin}${u.pathname}` };
+      try {
+        const u = new URL(event.url);
+        return { ...event, url: `${u.origin}${u.pathname}` };
+      } catch {
+        return null; // an unreadable URL is dropped rather than sent with its query string
+      }
     },
   });
   v.pageview({ route: '/', path: '/' });

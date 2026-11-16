@@ -34,7 +34,7 @@ Generated from data/nba by `npm run nba:report`. Cutover: 2026-11-17. Slots clim
 | 28 | 2026-12-14 | era | **Houston's high-volume years** · Rockets, 2007–2019 | rockets18-wins (65); harden19-30-streak (32); rockets18-27-misses (27); mcgrady04-35-seconds (13); rockets08-streak (22) |
 | 29 | 2026-12-15 | team-season | **Bird's best Celtics** · Boston, 1985–86 | celtics86-wins (67); jordan86-63 (63); hawks86-third-quarter (6); bird85-opener-steals (8); bird86-finals-minutes (269) |
 | 30 | 2026-12-16 | story | **Warriors vs Cavaliers** · The 2015 and 2017 Finals | gsw15-combined-wins (83); iguodala15-votes (7); curry15-g2-misses (13); cavs17-g4-q1 (49); lebron15-g1-fga (38) |
-| 31 | 2026-12-17 | franchise | **Philadelphia's juggernauts** · 76ers, 1966–67 and 1982–83 | sixers67-wins (68); sixers67-start-losses (4); sixers67-ppg (125); wilt67-fta (875); sixers83-playoff-wins (12) |
+| 31 | 2026-12-17 | franchise | **Philadelphia's juggernauts** · 76ers, 1966–67 and 1982–83 | sixers67-wins (68); sixers67-start-losses (4); sixers67-ppg (125); wilt67-fta (875); sixers83-playoff-wins (1) |
 | 32 | 2026-12-18 | story | **Miller time** · Reggie Miller's Pacers | miller92-57 (57); miller95-8-points (8); miller94-4q (25); pacers00-home-streak (25); miller97-three-streak (68) |
 | 33 | 2026-12-19 | franchise | **Lakers lore** · Minneapolis and Los Angeles | lakers72-streak (33); lakers72-wins (69); lakers72-margin (12.3); wilt72-finals-reb (29); baylor62-finals-61 (61) |
 | 34 | 2026-12-20 | story | **Crowds, ratings and parades** · Who was watching | allstar10-attendance (108713); allstar24-east (211); allstar51-attendance (10094); finals07-rating (6.2); cavs16-parade (1.3) |

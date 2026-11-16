@@ -1,3 +1,5 @@
+> **Superseded on 2026-11-16 by PR #6** (integration with main, cutover 2026-11-17, one lock in `content/published.lock.json`, audit in `AUDIT-2026-11-16.md`). Kept below as the branch's original handoff.
+
 # NBA database: parked work (not merged)
 
 Status on 2026-11-16: **paused by the owner's scope change.** Nothing here is on `main` or in production. This branch (`content/nba-50-days`) is kept so the NBA-only transition can be picked up later. Do not merge it as-is: the cutover date (2026-11-18) is two days away and would need to move.

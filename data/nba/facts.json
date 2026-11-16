@@ -2528,17 +2528,17 @@
       "singular": "free-throw attempt",
       "plural": "free-throw attempts"
     },
-    "claim": "875. His own record, from 1961–62, is 1,363.",
+    "claim": "875.",
     "source": {
       "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-      "quote": "he made a league-record 68% of his shots; his 875 free throw attempts, another league record",
+      "quote": "his 875 free throw attempts",
       "derivation": null,
       "asOf": null
     },
     "question": {
       "prompt": "How many free throws did Wilt Chamberlain attempt in 1966–67?",
       "context": "Philadelphia 76ers · 1966–67 regular season",
-      "reveal": "875. His own record, from 1961–62, is 1,363.",
+      "reveal": "875.",
       "min": 550,
       "max": 1500,
       "step": 5,
@@ -2560,12 +2560,12 @@
     "eventDate": null,
     "franchise": "PHI",
     "player": null,
-    "answer": 12,
+    "answer": 1,
     "unit": {
-      "singular": "win",
-      "plural": "wins"
+      "singular": "loss",
+      "plural": "losses"
     },
-    "claim": "12, losing only once.",
+    "claim": "One: they went 12–1.",
     "source": {
       "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
       "quote": "The 76ers completed one of the most dominating playoff runs in league history with a 12–1 mark",
@@ -2573,11 +2573,11 @@
       "asOf": null
     },
     "question": {
-      "prompt": "How many playoff games did the 1983 Sixers win on the way to the title?",
+      "prompt": "How many playoff games did the 1983 champion Sixers lose?",
       "context": "Philadelphia 76ers · 1983 playoffs",
-      "reveal": "12, losing only once.",
-      "min": 4,
-      "max": 17,
+      "reveal": "One: they went 12–1.",
+      "min": 0,
+      "max": 8,
       "step": 1,
       "difficulty": "expert",
       "difficultyReason": "Requires knowing the series lengths and byes of 1983.",
@@ -3120,7 +3120,7 @@
       "singular": "point",
       "plural": "points"
     },
-    "claim": "14.0, a record average margin for a Finals at the time.",
+    "claim": "14.0 points a game.",
     "source": {
       "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
       "quote": "The Spurs outscored the Heat in the series by the largest per game average point differential (14.0) in Finals history.",
@@ -3130,7 +3130,7 @@
     "question": {
       "prompt": "By how many points per game did the Spurs outscore Miami in the 2014 Finals?",
       "context": "2014 NBA Finals · five games",
-      "reveal": "14.0, a record average margin for a Finals at the time.",
+      "reveal": "14.0 points a game.",
       "min": 0.0,
       "max": 34.0,
       "step": 0.1,
@@ -3499,7 +3499,7 @@
     },
     "question": {
       "prompt": "Before Oklahoma City beat them in the 2012 West finals, the Spurs had won how many games in a row?",
-      "context": "San Antonio Spurs · 2011–12 · regular season and playoffs",
+      "context": "San Antonio Spurs · 2011–12",
       "reveal": "20 in a row.",
       "min": 12,
       "max": 44,
@@ -4230,7 +4230,7 @@
       "singular": "three-pointer",
       "plural": "three-pointers"
     },
-    "claim": "13. Klay Thompson broke it with 14 in 2018.",
+    "claim": "13, then the single-game record.",
     "source": {
       "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
       "quote": "Stephen Curry set a new record of 13 three-pointers made in a single game",
@@ -4240,7 +4240,7 @@
     "question": {
       "prompt": "On November 7, 2016, Stephen Curry set what was then the single-game record for threes. How many did he make?",
       "context": "Golden State Warriors · 2016–17 regular season",
-      "reveal": "13. Klay Thompson broke it with 14 in 2018.",
+      "reveal": "13, then the single-game record.",
       "min": 6,
       "max": 24,
       "step": 1,
@@ -4341,7 +4341,7 @@
       "singular": "game",
       "plural": "games"
     },
-    "claim": "157. He later topped it with 268 from 2018 to 2023.",
+    "claim": "157 straight games.",
     "source": {
       "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
       "quote": "Most consecutive regular-season games with a made three-pointer: 157",
@@ -4349,9 +4349,9 @@
       "asOf": null
     },
     "question": {
-      "prompt": "Stephen Curry’s first long streak of games with a made three ended in November 2016. How many games did it last?",
+      "prompt": "Stephen Curry’s streak of regular-season games with a made three ended in November 2016. How many games did it last?",
       "context": "Golden State Warriors · ended in 2016–17",
-      "reveal": "157. He later topped it with 268 from 2018 to 2023.",
+      "reveal": "157 straight games.",
       "min": 60,
       "max": 320,
       "step": 1,

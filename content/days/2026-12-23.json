@@ -19,7 +19,7 @@
       "min": 6,
       "max": 24,
       "step": 1,
-      "note": "13. Klay Thompson broke it with 14 in 2018.",
+      "note": "13, then the single-game record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
@@ -84,7 +84,7 @@
     {
       "id": "nba-curry-three-streak",
       "sport": "NBA",
-      "prompt": "Stephen Curry’s first long streak of games with a made three ended in November 2016. How many games did it last?",
+      "prompt": "Stephen Curry’s streak of regular-season games with a made three ended in November 2016. How many games did it last?",
       "context": "Golden State Warriors · ended in 2016–17",
       "answer": 157,
       "unit": {
@@ -94,7 +94,7 @@
       "min": 60,
       "max": 320,
       "step": 1,
-      "note": "157. He later topped it with 268 from 2018 to 2023.",
+      "note": "157 straight games.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",

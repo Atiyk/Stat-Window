@@ -37,23 +37,25 @@ export type Row = { metric: string; numerator: number; denominator: number; rate
 export function readout(counts: Counts, min = 30): Row[] {
   const rate = (num: number, den: number) =>
     den < min ? `not enough data (${den} < ${min})` : `${((num / den) * 100).toFixed(1)}%`;
-  const row = (metric: string, equation: string, num: number, den: number): Row => ({
+  const row = (metric: string, equation: string, num: number, den: number, bounded = false): Row => ({
     metric,
     numerator: num,
     denominator: den,
-    rate: rate(num, den),
+    // A bounded funnel cannot have more downstream events than upstream events
+    // in a consistent cohort. Never report an impossible conversion as a win.
+    rate: bounded && num > den ? 'data quality warning (downstream count exceeds upstream)' : rate(num, den),
     equation,
   });
   const rows: Row[] = [];
   for (const mode of ['daily', 'practice', 'challenge'] as const) {
     const start = sum(counts, `/e/start/${mode}`);
     const r1 = sum(counts, `/e/lock/${mode}/r1`);
-    rows.push(row(`${mode}: first touch per start`, `first-touch/${mode} ÷ start/${mode}`, sum(counts, `/e/first-touch/${mode}`), start));
-    rows.push(row(`${mode}: round 1 locked per start`, `lock/${mode}/r1/* ÷ start/${mode}`, r1, start));
-    rows.push(row(`${mode}: finished all five per round 1 lock`, `complete/${mode}/* ÷ lock/${mode}/r1/*`, sum(counts, `/e/complete/${mode}`), r1));
+    rows.push(row(`${mode}: first touch per start`, `first-touch/${mode} ÷ start/${mode}`, sum(counts, `/e/first-touch/${mode}`), start, true));
+    rows.push(row(`${mode}: round 1 locked per start`, `lock/${mode}/r1/* ÷ start/${mode}`, r1, start, true));
+    rows.push(row(`${mode}: finished all five per round 1 lock`, `complete/${mode}/* ÷ lock/${mode}/r1/*`, sum(counts, `/e/complete/${mode}`), r1, true));
     for (let r = 2; r <= 5; r++) {
       rows.push(
-        row(`${mode}: reached round ${r} per round ${r - 1}`, `lock/${mode}/r${r}/* ÷ lock/${mode}/r${r - 1}/*`, sum(counts, `/e/lock/${mode}/r${r}`), sum(counts, `/e/lock/${mode}/r${r - 1}`)),
+        row(`${mode}: reached round ${r} per round ${r - 1}`, `lock/${mode}/r${r}/* ÷ lock/${mode}/r${r - 1}/*`, sum(counts, `/e/lock/${mode}/r${r}`), sum(counts, `/e/lock/${mode}/r${r - 1}`)), true,
       );
     }
   }
@@ -79,8 +81,8 @@ export function readout(counts: Counts, min = 30): Row[] {
   const svFirst = sum(counts, '/e/survival/start/cta', '/e/survival/start/link');
   rows.push(row('survival: starts from the results button per finished daily', 'survival/start/cta ÷ complete/daily/*', sum(counts, '/e/survival/start/cta'), completes));
   rows.push(row('survival: deliberate "Run it again" per first start', 'survival/start/again ÷ survival/start/{cta,link}', sum(counts, '/e/survival/start/again'), svFirst));
-  for (const r of [5, 10, 15]) rows.push(row(`survival: survived round ${r} per start`, `survival/reach/r${r} ÷ survival/start/*`, sum(counts, `/e/survival/reach/r${r}`), svStarts));
-  rows.push(row('survival: wins per start', 'survival/win ÷ survival/start/*', sum(counts, '/e/survival/win'), svStarts));
+  for (const r of [5, 10, 15]) rows.push(row(`survival: survived round ${r} per start`, `survival/reach/r${r} ÷ survival/start/*`, sum(counts, `/e/survival/reach/r${r}`), svStarts, true));
+  rows.push(row('survival: wins per start', 'survival/win ÷ survival/start/*', sum(counts, '/e/survival/win'), svStarts, true));
   const ends = sum(counts, '/e/survival/end');
   for (const band of ['r1-4', 'r5-8', 'r9-12', 'r13-16', 'r17-20']) {
     rows.push(row(`survival: runs ending in rounds ${band.slice(1)}`, `survival/end/${band}/* ÷ survival/end/*`, sum(counts, `/e/survival/end/${band}`), ends));
@@ -92,7 +94,7 @@ export function readout(counts: Counts, min = 30): Row[] {
   // The experiment: per arm, per exposed browser-day.
   for (const arm of ['cta', 'control'] as const) {
     const exposed = sum(counts, `/e/x/survival-cta/${arm}/exposed`);
-    rows.push(row(`experiment ${arm}: browsers exposed at least once`, `x/survival-cta/${arm}/first-exposure (a count, not a rate)`, sum(counts, `/e/x/survival-cta/${arm}/first-exposure`), sum(counts, `/e/x/survival-cta/${arm}/first-exposure`)));
+    rows.push({ metric: `experiment ${arm}: browsers exposed at least once`, equation: `x/survival-cta/${arm}/first-exposure (a count, not a rate)`, numerator: sum(counts, `/e/x/survival-cta/${arm}/first-exposure`), denominator: 0, rate: 'count only' });
     rows.push(row(`experiment ${arm}: next-day daily start per exposed browser-day`, `x/survival-cta/${arm}/next-day-start ÷ …/exposed (the range's two edges roughly cancel; not exact)`, sum(counts, `/e/x/survival-cta/${arm}/next-day-start`), exposed));
     rows.push(row(`experiment ${arm}: daily share attempts per exposed browser-day (guardrail)`, `x/survival-cta/${arm}/daily-share ÷ …/exposed`, sum(counts, `/e/x/survival-cta/${arm}/daily-share`), exposed));
   }
@@ -123,6 +125,10 @@ if (process.argv[1]?.endsWith('analytics-readout.ts')) {
   }
   const i = process.argv.indexOf('--min');
   const min = i > -1 ? Number(process.argv[i + 1]) : 30;
+  if (!Number.isSafeInteger(min) || min < 1) {
+    console.error('--min must be a positive whole number');
+    process.exit(2);
+  }
   const counts = parseCounts(readFileSync(file, 'utf8'));
   if (counts.size === 0) {
     console.log('No /e/… paths found: analytics is off, or no events have arrived yet. Not enough data.');

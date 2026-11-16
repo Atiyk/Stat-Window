@@ -14,6 +14,20 @@ Nothing here has been validated with real players yet. No retention, completion 
 - **What has been proven, and what hasn't.** `npm run test:e2e:analytics` builds with `VITE_ANALYTICS=vercel`, stubs Vercel's script and checks the exact queue of page views the app hands it (funnel order, no duplicates after reloads, challenge vs daily, query string stripped, nothing at all under GPC/DNT). It does **not** prove Vercel receives them: that needs the production check in "Turning it on", step 4. As of 2026-11-16 that check has not been done.
 - **Privacy:** no cookies or identifiers from us, no answers, no typed text, no scores beyond a 100-point band. Every path segment comes from the fixed list below. Real page-view URLs are stripped of their query string, so challenge links (`?day=…&vs=…`) are not collected. Browsers that send Global Privacy Control or Do Not Track send nothing. The help dialog says what is counted.
 
+### Production status (checked 2026-11-16, 16:00 UTC)
+
+**Not verified. Treat production analytics as off.** What was and wasn't checkable from the build agent:
+
+| Check | Result |
+|---|---|
+| `main` and the production deployment | `d4ec037` (PR #6); GitHub's Vercel status for that commit: success, "Deployment has completed" |
+| `VITE_ANALYTICS=vercel` set for Production | **Unknown.** The agent has no Vercel dashboard or API access. The last reading (an earlier session, 2026-11-16) showed no environment variables at all, so the live build sends nothing. |
+| Web Analytics enabled for the project | **Unknown**, same reason. |
+| A real `POST …/view` with status 200, and rows in Analytics → Pages | **Not observed.** The agent's network blocks `stat-window.vercel.app`, and no browser or device was reachable. |
+| What *is* proven | `npm run test:e2e:analytics`: with the variable set, the app hands Vercel's (stubbed) script exactly the documented paths, once each, with query strings stripped and nothing under GPC/DNT. That is the hand-off, not a receipt. |
+
+Until someone does step 4 below and sees the rows, every count is "not collected", not "zero".
+
 ### Turning it on (owner, about two minutes)
 
 1. Vercel dashboard → the `stat-window` project → **Analytics** → **Enable** Web Analytics (Hobby, free).
@@ -28,6 +42,8 @@ Nothing here has been validated with real players yet. No retention, completion 
 
 Until step 2 is done, production sends nothing.
 
+Note on the Content-Security-Policy in `vercel.json` (`script-src 'self'`, `connect-src 'self'`): on Vercel the script and the endpoint are served from the site's own origin (`/_vercel/insights/…`), so the policy allows them. If step 4 shows a CSP error in the console instead, that assumption is wrong and the policy needs the endpoint added; report it rather than loosening the policy blind.
+
 ### Reading it (no dashboard to build)
 
 Copy the Pages list for a date range (path and count per line, CSV or tab separated) into a file and run:
@@ -36,7 +52,24 @@ Copy the Pages list for a date range (path and count per line, CSV or tab separa
 node --experimental-strip-types scripts/analytics-readout.ts pages.csv        # --min 30 by default
 ```
 
-It prints the funnel below with the equation used for each line, and says "not enough data" for any rate whose denominator is under 30. With today's traffic, expect that for every line.
+It prints the funnel below with the equation used for each line, and says "not enough data" for any rate whose denominator is under 30. With today's traffic, expect that for every line. It also prints the Survival rows and, once each arm has 200 exposures, the experiment's difference with a 95% interval.
+
+Sample input and output (made-up counts, to show the format; **not real traffic**):
+
+```text
+$ cat pages.csv
+/e/start/daily,40
+/e/first-touch/daily,38
+/e/lock/daily/r1/hit,20
+/e/lock/daily/r1/miss,16
+/e/complete/daily/200-299,25
+$ node --experimental-strip-types scripts/analytics-readout.ts pages.csv
+| daily: first touch per start | 38 | 40 | 95.0% | first-touch/daily ÷ start/daily |
+| daily: finished all five per round 1 lock | 25 | 36 | 69.4% | complete/daily/* ÷ lock/daily/r1/* |
+…
+```
+
+Report small numbers as counts with an interval, not as rates: 7 of 10 is "somewhere between about 40% and 90%", not "70%".
 
 ## Event dictionary
 
@@ -54,6 +87,8 @@ It prints the funnel below with the equation used for each line, and says "not e
 | `/e/complete/{mode}/{0-99,…,400-500}` | round 5 locked | completion, score bands |
 | `/e/share/{mode}/{native,clipboard,failed,cancelled}` | share button result | share attempts |
 | `/e/challenge-open/{today,past,future,invalid}[/with-score]` | page opened with a `?day=` link | challenge links that worked |
+
+Survival and its experiment add the paths in `docs/SURVIVAL.md` ("Measurement"); they are only sent from a build with `VITE_SURVIVAL=on`, which production does not have.
 
 ### Metrics, and how to read them
 

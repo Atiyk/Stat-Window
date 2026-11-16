@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseCounts, readout, sum } from './analytics-readout.ts';
+import { diffInterval, parseCounts, readout, sum } from './analytics-readout.ts';
 
 describe('analytics readout', () => {
   const sample = [
@@ -35,5 +35,26 @@ describe('analytics readout', () => {
   it('says "not enough data" instead of a rate when the denominator is small', () => {
     const rows = readout(parseCounts('/e/start/daily,3\n/e/first-touch/daily,3'));
     expect(rows.find((r) => r.metric === 'daily: first touch per start')!.rate).toMatch(/^not enough data/);
+  });
+  it('reads Survival and the experiment from their fixed paths', () => {
+    const c = parseCounts(['/e/complete/daily/200-299,100', '/e/survival/start/cta,40', '/e/survival/start/link,10', '/e/survival/start/again,20',
+      '/e/survival/reach/r5,35', '/e/survival/end/r1-4/miss,30', '/e/survival/end/r5-8/short,5', '/e/survival/end/r5-8/miss,30', '/e/survival/win,1',
+      '/e/x/survival-cta/cta/exposed,50', '/e/x/survival-cta/cta/next-day-start,20'].join('\n'));
+    const rows = readout(c);
+    const get = (m: string) => rows.find((r) => r.metric === m)!;
+    expect(get('survival: starts from the results button per finished daily').rate).toBe('40.0%');
+    expect(get('survival: deliberate "Run it again" per first start').rate).toBe('40.0%');
+    expect(get('survival: survived round 5 per start').rate).toBe('50.0%');
+    expect(get('survival: runs ending in rounds 5-8').numerator).toBe(35);
+    expect(get('survival: ends that were inside but under the minimum').numerator).toBe(5);
+    expect(get('experiment cta: next-day daily start per exposed browser-day').rate).toBe('40.0%');
+    expect(get('experiment control: next-day daily start per exposed browser-day').rate).toMatch(/^not enough data/);
+  });
+  it('gives an interval only with enough exposures per arm', () => {
+    expect(diffInterval(10, 50, 5, 50)).toBeNull();
+    const ci = diffInterval(120, 400, 100, 400)!;
+    expect(ci.diff).toBeCloseTo(0.05);
+    expect(ci.lo).toBeLessThan(0);
+    expect(ci.hi).toBeGreaterThan(0.1);
   });
 });

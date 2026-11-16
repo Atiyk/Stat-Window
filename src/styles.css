@@ -1799,3 +1799,78 @@ a {
   font-size: 1rem;
   color: var(--ink);
 }
+
+/* ───────────── Survival (flagged; same Clubhouse parts, one new piece: the 20-cell track) ───────────── */
+.survival-track {
+  display: grid;
+  grid-template-columns: repeat(20, minmax(0, 1fr));
+  gap: 3px;
+  flex: 1 1 auto;
+  max-width: 420px;
+  margin: 0;
+  padding: 0 0 6px;
+  border-bottom: 1px solid var(--line);
+  list-style: none;
+  align-self: center;
+}
+
+.survival-cell {
+  height: 14px;
+  border-radius: 3px;
+  background: var(--paper-2);
+}
+
+.survival-cell[data-status='hit'] {
+  background: var(--brand);
+}
+
+.survival-cell[data-status='current'] {
+  box-shadow: inset 0 0 0 2px var(--brand); /* taste-skill-ignore: current-round ring, as in the daily ledger */
+  background: transparent;
+}
+
+.survival-cell[data-status='miss'] {
+  background: var(--accent);
+}
+
+.worth[data-short] b {
+  color: var(--accent-ink);
+}
+
+.survival-lede {
+  margin: 0;
+  max-width: 60ch;
+  font-size: 1.125rem;
+  line-height: 1.45;
+}
+
+.survival-rules {
+  margin: 0;
+  padding-left: 1.2em;
+  display: grid;
+  gap: 6px;
+  color: var(--ink-soft);
+  max-width: 60ch;
+}
+
+.survival-best {
+  margin: 8px 0 0;
+  font-weight: 650;
+}
+
+.survival-preview {
+  margin: 0 auto;
+  max-width: var(--maxw);
+}
+
+/* Survival screens are one column at every width (the daily results grid has a recap column they don't). */
+.results.survival {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: none;
+  max-width: 760px;
+}
+
+.results.survival > * {
+  grid-area: auto;
+  grid-row: auto;
+}

@@ -2,12 +2,17 @@
 
 Written 2026-11-16 after the NBA-only Daily Five release PR. Order matters: each step needs the one before it.
 
+## Launch-day reset (owner decision, 2026-11-16)
+stat-window.vercel.app is a pre-launch test site. The NBA calendar runs there from 2026-11-17 for testers only. When the owner says the game is live on its real domain, re-date the calendar so the Wilt day (calendar day 1) and Puzzle No. 1 fall on the launch date. That means a one-time, deliberate override of the published lock for the test days (no real players' saves exist yet), moving `EPOCH_DAY` and `NBA_CUTOVER`, and regenerating the Survival catalog, whose beta-gate date (now projected 2026-12-05) moves with it: about 18 days after launch. Do it in one PR, with the critic, before the domain goes public.
+
 ## 0. Before anything new: one week of real numbers
 **Depends on:** the owner enabling Vercel Web Analytics and `VITE_ANALYTICS=vercel` (docs/MEASUREMENT.md).
 **Done when:** `scripts/analytics-readout.ts` prints real rates (not "not enough data") for daily start → round 1 → all five, and next-day return, for at least 7 days of the NBA calendar.
 **Don't build:** an A/B framework, a dashboard, accounts, or a leaderboard.
 
-## 1. Survival MVP (next separate PR)
+## 1. Survival MVP: BUILT behind a flag (see docs/SURVIVAL.md, 2026-11-16)
+What follows is the original design note, kept for history. Where they differ, docs/SURVIVAL.md is current: the shipped ladder is 20…80 by round, the pool gate is 100 questions with three runs' worth per tier (first expected 2026-12-05 UTC), and reserves are used without a separate sign-off flag but are then spent as daily backups.
+
 One life, up to 20 rounds, best run kept in the browser, instant restart.
 
 **Question supply.** A separate pool, never the future daily calendar:

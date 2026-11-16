@@ -33,7 +33,22 @@ export type TrackEvent =
   | { name: 'run_exit'; mode: PlayMode; round: number }
   | { name: 'run_complete'; mode: PlayMode; total: number }
   | { name: 'share'; mode: PlayMode; method: ShareMethod }
-  | { name: 'challenge_open'; kind: ChallengeOpen; withScore: boolean };
+  | { name: 'challenge_open'; kind: ChallengeOpen; withScore: boolean }
+  /** Survival (docs/SURVIVAL.md). `again` = the player pressed "Run it again". */
+  | { name: 'survival_start'; source: 'cta' | 'link' | 'again' }
+  | { name: 'survival_reach'; round: 5 | 10 | 15 }
+  /** round = the round that ended the run (1-20); reason = outside, or inside but under the minimum. */
+  | { name: 'survival_end'; round: number; reason: 'miss' | 'short' }
+  | { name: 'survival_win' }
+  | { name: 'survival_share'; method: ShareMethod }
+  /** The one experiment: arm is per browser, step is what happened. */
+  | { name: 'experiment'; arm: 'cta' | 'control'; step: 'exposed' | 'first-exposure' | 'click' | 'daily-start' | 'next-day-start' | 'daily-share' };
+
+/** Rounds 1-4, 5-8 … so the end of a run lands in one of five rows. */
+export function survivalBand(round: number): string {
+  const lo = Math.floor((Math.min(20, Math.max(1, round)) - 1) / 4) * 4 + 1;
+  return `r${lo}-${lo + 3}`;
+}
 
 /** Coarse buckets keep the dashboard readable and avoid one path per exact value. */
 export function gapBucket(days: number): string {
@@ -72,6 +87,18 @@ export function eventPath(e: TrackEvent): string {
       return `/e/share/${e.mode}/${e.method}`;
     case 'challenge_open':
       return `/e/challenge-open/${e.kind}${e.withScore ? '/with-score' : ''}`;
+    case 'survival_start':
+      return `/e/survival/start/${e.source}`;
+    case 'survival_reach':
+      return `/e/survival/reach/r${e.round}`;
+    case 'survival_end':
+      return `/e/survival/end/${survivalBand(e.round)}/${e.reason}`;
+    case 'survival_win':
+      return '/e/survival/win';
+    case 'survival_share':
+      return `/e/survival/share/${e.method}`;
+    case 'experiment':
+      return `/e/x/survival-cta/${e.arm}/${e.step}`;
   }
 }
 

@@ -1,11 +1,17 @@
 import { defineConfig, devices } from '@playwright/test';
 
 // ANALYTICS_E2E=1 runs against a separate build with VITE_ANALYTICS=vercel (see e2e/analytics.spec.ts).
+// SURVIVAL_E2E=1 runs against two flagged builds: VITE_SURVIVAL=preview on 4175 and
+// VITE_SURVIVAL=on with the CTA experiment (analytics on, Vercel stubbed by the test) on 4176 (see e2e/survival.spec.ts).
 const ANALYTICS = !!process.env.ANALYTICS_E2E;
-const PORT = ANALYTICS ? 4174 : 4173;
+const SURVIVAL = !!process.env.SURVIVAL_E2E;
+const PORT = ANALYTICS ? 4174 : SURVIVAL ? 4175 : 4173;
 const BUILD = ANALYTICS
   ? `VITE_ANALYTICS=vercel npx vite build --outDir dist-analytics && npx vite preview --outDir dist-analytics --port ${PORT} --strictPort`
-  : `npm run build && npx vite preview --port ${PORT} --strictPort`;
+  : SURVIVAL
+    ? `VITE_SURVIVAL=preview npx vite build --outDir dist-survival && npx vite preview --outDir dist-survival --port ${PORT} --strictPort`
+    : `npm run build && npx vite preview --port ${PORT} --strictPort`;
+const SURVIVAL_ON = 'VITE_SURVIVAL=on VITE_SURVIVAL_CTA_TEST=1 VITE_ANALYTICS=vercel npx vite build --outDir dist-survival-on && npx vite preview --outDir dist-survival-on --port 4176 --strictPort';
 
 export default defineConfig({
   testDir: './e2e',
@@ -23,10 +29,8 @@ export default defineConfig({
   ],
   webServer: process.env.BASE_URL
     ? undefined
-    : {
-        command: BUILD,
-        port: PORT,
-        reuseExistingServer: !process.env.CI,
-        timeout: 120_000,
-      },
+    : [
+        { command: BUILD, port: PORT, reuseExistingServer: !process.env.CI, timeout: 120_000 },
+        ...(SURVIVAL ? [{ command: SURVIVAL_ON, port: 4176, reuseExistingServer: !process.env.CI, timeout: 120_000 }] : []),
+      ],
 });

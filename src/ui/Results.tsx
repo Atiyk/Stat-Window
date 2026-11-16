@@ -69,6 +69,16 @@ export function Results({ slate, number, mode, results, stats, archive, onPracti
           <span className="results-score tabular">{total}</span>
           <span className="results-max">of {MAX_TOTAL}</span>
         </p>
+        <ol className="ledger scorecard" aria-label="Round by round">
+          {results.map((r, i) => (
+            <li key={i} className="ledger-cell" data-status={!r.hit ? 'miss' : r.points > 0 ? 'hit' : 'zero'} style={{ animationDelay: `${i * 70}ms` }}>
+              <span className="sr-only">
+                Round {i + 1}: {r.points} points
+              </span>
+              <span className="ledger-num" aria-hidden="true">{r.points}</span>
+            </li>
+          ))}
+        </ol>
       </header>
 
       <div className="results-actions">
@@ -81,11 +91,16 @@ export function Results({ slate, number, mode, results, stats, archive, onPracti
             Share result
           </button>
         )}
+        {!practice && (
+          <p className="share-note">
+            {total > 0 ? `No answers in it. See if a friend can beat ${total}.` : 'No answers in it, so it’s safe to send to anyone.'}
+          </p>
+        )}
         {fallback && (
           <textarea className="share-fallback" readOnly value={fallback} rows={3} aria-label="Your result to copy" onFocus={(e) => e.currentTarget.select()} />
         )}
         <p className="next-window">
-          Next puzzle in <span className="tabular">{formatCountdown(msUntilNextPuzzle(now))}</span>
+          Next puzzle in <span className="tabular">{formatCountdown(msUntilNextPuzzle(now))}</span>, at midnight UTC
         </p>
       </div>
 
@@ -127,7 +142,7 @@ export function Results({ slate, number, mode, results, stats, archive, onPracti
         <section className="dist" aria-labelledby="dist-title">
           <h2 id="dist-title" className="dist-title">Your days</h2>
           <p className="dist-sub">
-            Longest run: <span className="tabular">{stats.longest}</span> {stats.longest === 1 ? 'day' : 'days'} in a row.
+            Longest run: <span className="tabular">{stats.longest}</span> {stats.longest === 1 ? 'day' : 'days'} in a row. Kept in this browser.
           </p>
           <ol className="dist-list">
             {stats.distribution.map((count, band) => {

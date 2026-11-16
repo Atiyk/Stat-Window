@@ -116,7 +116,7 @@ export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props)
   const isLast = state.round >= ROUNDS - 1;
 
   return (
-    <article className="round" data-phase={state.phase}>
+    <article className="round" data-phase={state.phase} data-first-play={showHint || undefined}>
       <div className="round-head">
       <div className="round-top">
         <ol className="ledger" aria-label="Rounds">
@@ -180,10 +180,12 @@ export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props)
             ) : state.phase === 'locked' || state.phase === 'revealing' ? (
               <p className="worth worth-locked">Locked at {worth} points. Here it comes…</p>
             ) : worth === 0 ? (
-              <p className="worth">Pull the brackets in to start scoring.</p>
+              <p className="worth">
+                {showHint ? 'Drag a bracket in. Tighter windows score more, up to 100.' : 'Pull the brackets in to start scoring.'}
+              </p>
             ) : (
               <p className="worth">
-                Worth <b className="tabular">{worth}</b> if it’s inside. Miss and it’s 0.
+                Worth <b className="tabular">{worth}</b> if it’s inside, 0 if not.
               </p>
             )}
           </div>
@@ -197,9 +199,6 @@ export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props)
             onCommit={() => dispatch({ type: 'lock' })}
             onFirstTouch={onFirstTouch}
           />
-          <p className="hint" data-visible={showHint && interactive && state.phase === 'ready'} aria-hidden={!showHint}>
-            Drag the brackets in. The tighter the window, the more it pays.
-          </p>
         </div>
       </section>
 

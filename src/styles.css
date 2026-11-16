@@ -866,20 +866,21 @@ a {
   }
 }
 
-.hint {
-  margin: 4px 0 0;
-  font-size: 0.9375rem;
-  color: var(--chalk-soft);
-  opacity: 0;
-  transition: opacity 240ms ease;
+/* First play only: both brackets lean in once, to show they move. */
+.round[data-phase='ready'][data-first-play] .bracket-lo {
+  animation: lean-in 1100ms var(--ease-in-out) 700ms 2;
+  --lean: 9px;
 }
 
-.hint[data-visible='true'] {
-  opacity: 1;
+.round[data-phase='ready'][data-first-play] .bracket-hi {
+  animation: lean-in 1100ms var(--ease-in-out) 700ms 2;
+  --lean: -9px;
 }
 
-.round:not([data-phase='ready']):not([data-phase='adjusting']) .hint {
-  display: none;
+@keyframes lean-in {
+  45% {
+    translate: var(--lean) 0;
+  }
 }
 
 /* ───────────── Story (after the reveal) ───────────── */
@@ -1043,7 +1044,7 @@ a {
 }
 
 .results-total {
-  margin: 8px 0 0;
+  margin: 18px 0 0;
   display: flex;
   align-items: baseline;
   gap: 12px;
@@ -1152,6 +1153,30 @@ a {
 .results-actions {
   display: grid;
   gap: 12px;
+}
+
+.share-note {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+/* The day at a glance: the same five cells the rounds filled in, one size up. */
+.scorecard {
+  margin-top: 20px;
+  padding: 0;
+  border: 0;
+  gap: 6px;
+}
+
+.scorecard .ledger-cell {
+  width: 52px;
+  height: 44px;
+  animation-fill-mode: backwards;
+}
+
+.scorecard .ledger-num {
+  font-size: 1.125rem;
 }
 
 .share-fallback {
@@ -1540,6 +1565,29 @@ a {
   .day-label {
     margin-right: 0;
   }
+  /* Keep the top bar to one row so the ruler and its grips clear the docked button. */
+  .topbar {
+    flex-wrap: nowrap;
+    gap: 0 6px;
+  }
+  .brand {
+    gap: 6px;
+    min-width: 0;
+  }
+  .wordmark {
+    font-size: 1.0625rem;
+    white-space: nowrap;
+  }
+  .topbar-right {
+    gap: 0;
+    flex: none;
+  }
+  .worth {
+    font-size: 0.9375rem;
+  }
+  .worth b {
+    font-size: 1.5rem;
+  }
 }
 
 /* ───────────── Wider screens ───────────── */
@@ -1682,7 +1730,6 @@ a {
     animation-iteration-count: 1 !important;
     transition-duration: 1ms !important;
   }
-  .hint,
   .toast,
   .outcome,
   .story {

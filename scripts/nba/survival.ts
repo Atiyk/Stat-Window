@@ -39,7 +39,8 @@ function textOf(f: Fact): string {
 export function related(a: Fact, b: Fact, text: string = textOf(a)): boolean {
   if (a.season && b.season && a.season === b.season) return true;
   if (a.player && b.player && a.player === b.player) return true;
-  const surname = b.player?.trim().split(/\s+/).at(-1);
+  // "Dereck Lively II", "Gary Payton Jr.": the surname is the last word that isn't a suffix.
+  const surname = b.player?.trim().split(/\s+/).filter((w) => !/^(jr\.?|sr\.?|i{1,3}|iv|v)$/i.test(w)).at(-1);
   if (surname && surname.length >= 3 && new RegExp(`\\b${surname.replace(/[^A-Za-z'’-]/g, '')}\\b`, 'i').test(text)) return true;
   return false;
 }

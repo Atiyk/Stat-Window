@@ -87,7 +87,7 @@ Easy questions are the binding constraint: the reserve has none, so every easy q
 
 | `VITE_SURVIVAL` | What happens |
 |---|---|
-| unset / `off` | No Survival code in the bundle. `/?survival` opens the Daily Five. |
+| unset / `off` | Survival screens, catalog and pool logic are left out of the bundle. `/?survival` opens the Daily Five. |
 | `preview` | `/?survival` opens Survival with a "Preview build" note. `&asof=YYYY-MM-DD` simulates a later UTC day, so the full pool can be tried today. Only for Vercel **Preview** deployments: `asof` can show questions from days that haven't been played. A preview build never sends Survival events and keeps its runs under a separate key, with or without `asof`. |
 | `on` | Public. `/?survival` works and today's finished Daily Five results show a quiet "Try Survival: 20 rounds, one life" button, but **only while the pool passes the beta gate on that UTC day**; before that, `/?survival` shows "Not open yet" and no button appears. `asof` is ignored. |
 

@@ -44,7 +44,7 @@
       "min": 0,
       "max": 14,
       "step": 1,
-      "note": "Three, a 16–3 run second only to the 2017 Warriors.",
+      "note": "Three. Only the 2017 Warriors lost fewer since the four best-of-seven rounds began.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2023%E2%80%9324_Boston_Celtics_season",
@@ -57,23 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-celtics24-ortg",
+      "id": "nba-brown24-finals-ppg",
       "sport": "NBA",
-      "prompt": "The 2023–24 Celtics set the record for offensive rating. How many points did they score per 100 possessions?",
-      "context": "Boston Celtics · 2023–24 regular season",
-      "answer": 123.2,
+      "prompt": "Jaylen Brown won 2024 Finals MVP. What did he average in the series?",
+      "context": "2024 NBA Finals · five games vs Dallas",
+      "answer": 20.8,
       "unit": {
-        "singular": "point per 100 possessions",
-        "plural": "points per 100 possessions"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 114,
-      "max": 146,
+      "min": 2,
+      "max": 28,
       "step": 0.1,
-      "note": "123.2.",
+      "note": "20.8 points per game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
-        "quote": "They had the highest offensive rating in NBA history at 123.2"
+        "quote": "after averaging 20.8 points, 5.4 rebounds, and 5.0 assists per game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -94,7 +94,7 @@
       "min": 24,
       "max": 58,
       "step": 1,
-      "note": "35, tying Bill Russell as the youngest coach to reach the Finals.",
+      "note": "35, in his second season as Boston’s head coach.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",

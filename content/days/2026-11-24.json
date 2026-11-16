@@ -82,23 +82,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-lebron11-4q-total",
+      "id": "nba-dirk11-24-ft",
       "sport": "NBA",
-      "prompt": "Across all six fourth quarters of the 2011 Finals, how many points did LeBron James score?",
-      "context": "2011 NBA Finals · six games vs Dallas",
-      "answer": 8,
+      "prompt": "In the 2011 West finals, Dirk Nowitzki set a playoff record by making how many free throws without a miss?",
+      "context": "2011 West finals · Game 1 · vs Oklahoma City",
+      "answer": 24,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "free throw",
+        "plural": "free throws"
       },
-      "min": 0,
-      "max": 45,
+      "min": 14,
+      "max": 44,
       "step": 1,
-      "note": "Eight in total.",
+      "note": "24 of 24.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
-        "quote": "He also scored just eight points throughout all six fourth quarters in the series."
+        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Dallas_Mavericks_season",
+        "quote": "set a playoff record for most free throws made without a miss with 24, previously held by"
       },
       "verified": {
         "on": "2026-11-16",
@@ -119,7 +119,7 @@
       "min": 0,
       "max": 26,
       "step": 1,
-      "note": "15, then the biggest Finals comeback since a 24-point rally.",
+      "note": "15, the biggest Finals comeback since Boston rallied from 24 down in 2008.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",

@@ -110,8 +110,8 @@
     {
       "id": "nba-gsw16-dec1-3pa",
       "sport": "NBA",
-      "prompt": "On December 1, 2016, how many three-point attempts did the Warriors and their opponent combine for?",
-      "context": "Golden State Warriors · 2016–17 regular season",
+      "prompt": "In a double-overtime game on December 1, 2016, how many threes did the Warriors and Rockets attempt combined?",
+      "context": "Warriors vs Houston Rockets · 2016–17 · double overtime",
       "answer": 88,
       "unit": {
         "singular": "attempt",
@@ -120,7 +120,7 @@
       "min": 20,
       "max": 105,
       "step": 1,
-      "note": "88 three-point attempts between the two teams.",
+      "note": "88, 44 for each team.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",

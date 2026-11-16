@@ -5,13 +5,13 @@ Generated from data/nba by `npm run nba:report`. Cutover: 2026-11-17. Slots clim
 | # | Date (UTC) | Kind | Theme | Questions (answer) |
 |---|---|---|---|---|
 | 1 | 2026-11-17 | story | **Wilt's impossible season** · Philadelphia Warriors, 1961–62 | wilt-100 (100); wilt62-ppg (50.4); wilt-100-ftm (28); wilt-100-crowd (4124); wilt62-minutes (3882) |
-| 2 | 2026-11-18 | team-season | **Banner 18** · Boston, 2023–24 | celtics24-wins (64); celtics24-playoff-losses (3); celtics24-ortg (123.2); mazzulla24-age (35); celtics24-seed-gap (14) |
+| 2 | 2026-11-18 | team-season | **Banner 18** · Boston, 2023–24 | celtics24-wins (64); celtics24-playoff-losses (3); brown24-finals-ppg (20.8); mazzulla24-age (35); celtics24-seed-gap (14) |
 | 3 | 2026-11-19 | era | **Hakeem's Rockets** · Houston, 1993–95 | rockets94-start (15); ewing94-blocks (30); starks94-g7-3pa (11); anderson95-ft (4); rockets95-road-wins (9) |
 | 4 | 2026-11-20 | era | **Showtime** · The Lakers of the 1980s | lakers87-wins (65); magic80-g6-points (42); lakers89-playoff-start (11); cooper87-threes (6); magic84-assists (21) |
 | 5 | 2026-11-21 | story | **Lopsided** · Blowouts and comebacks | grizzlies21-margin (73); jazz96-comeback (36); mavs20-halftime-lead (50); blazers83-ot (17); spurs83-fg (70.7) |
 | 6 | 2026-11-22 | era | **Russell, Wilt and Baylor** · The NBA in the 1960s | celtics-eight-straight (8); baylor60-71 (71); west69-g1 (53); russell62-quarter-reb (19); wilt60-half-reb (31) |
 | 7 | 2026-11-23 | team-season | **The 72–10 Bulls** · Chicago, 1995–96 | bulls96-combined-wins (87); rodman96-rpg (14.9); bulls96-home-streak (44); bulls96-road-wins (33); rodman96-finals-oreb (11) |
-| 8 | 2026-11-24 | story | **Heat vs Mavericks, twice** · 2006 and 2011 Finals | wade06-g3 (42); wade06-finals-ppg (34.7); mavs06-g4-q4 (7); lebron11-4q-total (8); mavs11-g2-comeback (15) |
+| 8 | 2026-11-24 | story | **Heat vs Mavericks, twice** · 2006 and 2011 Finals | wade06-g3 (42); wade06-finals-ppg (34.7); mavs06-g4-q4 (7); dirk11-24-ft (24); mavs11-g2-comeback (15) |
 | 9 | 2026-11-25 | team-season | **Splash season** · Golden State, 2015–16 | gsw16-start (24); gsw16-allstar-wins (48); gsw16-home-streak (54); gsw16-threes (1077); curry16-ot-points (17) |
 | 10 | 2026-11-26 | team-season | **Rip City** · Portland, 1976–77 | walton77-g6-reb (23); blazers78-start (50); blazers77-g4-q3 (41); blazers77-g4-margin (32); walton77-g5-dreb (20) |
 | 11 | 2026-11-27 | story | **Mamba numbers** · Kobe Bryant, 1996–2016 | kobe-81 (81); kobe03-threes (12); kobe03-40-streak (9); kobe05-62-three-quarters (62); kobe10-g7-fga (24) |
@@ -51,8 +51,8 @@ Generated from data/nba by `npm run nba:report`. Cutover: 2026-11-17. Slots clim
 | 45 | 2026-12-31 | story | **Shortened seasons** · Lockouts and the pandemic | lockout99-games (50); season21-games (72); spurs99-wins (37); sprewell99-g5 (25); spurs99-memorial-day (17) |
 | 46 | 2027-01-01 | story | **Scoring outbursts** · Big nights | booker17-70 (70); wilt-60-point-games (32); kobe16-final-game (60); wilt-100-fga (63); wilt62-week-average (73) |
 | 47 | 2027-01-02 | story | **Lakers–Celtics, 2010** · The 2010 Finals | jackson10-titles (11); allen10-g2-threes (8); allen10-g3-fga (13); celtics-lakers-finals-record (9); finals10-g7-viewers (28.2) |
-| 48 | 2027-01-03 | mixed | **The 2020s** · Recent records | jokic-draft-pick (41); butler23-56 (56); heat23-wins (44); jokic23-playoff-points (600); lively24-fg (74.7) |
+| 48 | 2027-01-03 | mixed | **The 2020s** · Recent records | jokic-draft-pick (41); butler23-56 (56); heat23-wins (44); jokic23-playoff-points (600); spurs24-losing-streak (18) |
 | 49 | 2027-01-04 | story | **Warriors, Cavs and Raptors** · The 2018 and 2019 Finals | lebron18-g1 (51); curry18-g2-threes (9); gsw19-g2-run (18); siakam19-g1 (32); gsw19-20-threes (20) |
 | 50 | 2027-01-05 | story | **Miami's Finals years** · Heat, 2012 and 2013 | lebron13-g7 (37); westbrook12-g4 (43); miller12-g5-threes (7); allen13-g6-seconds (5.2); spurs12-streak (20) |
 
-Reserve (29): bulls96-18-streak, sonics96-wins, finals96-combined-wins, wilt61-78, wilt-100-combined, wilt62-total-points, curry19-g3, kobe-three-titles-age, wade06-g5-fta, dirk11-24-ft, mavs07-wins, knicks94-playoff-games, celtics08-g6-steals, duncan14-finals-reb, diaw14-finals-ast, leonard14-age, lakers01-39, smith95-threes, middleton21-g4, tatum22-debut-ast, brown24-finals-ppg, spurs24-losing-streak, skiles90-30, lucas84-quarter-ast, celtics73-wins, pistons06-wins, sixers83-wins, heat13-wins, nets02-improvement
+Reserve (26): bulls96-18-streak, sonics96-wins, finals96-combined-wins, wilt61-78, wilt-100-combined, wilt62-total-points, curry19-g3, kobe-three-titles-age, wade06-g5-fta, mavs07-wins, knicks94-playoff-games, celtics08-g6-steals, duncan14-finals-reb, diaw14-finals-ast, leonard14-age, lakers01-39, smith95-threes, middleton21-g4, tatum22-debut-ast, skiles90-30, lucas84-quarter-ast, celtics73-wins, pistons06-wins, sixers83-wins, heat13-wins, nets02-improvement

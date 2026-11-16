@@ -84,7 +84,7 @@
     {
       "id": "nba-finals07-rating",
       "sport": "NBA",
-      "prompt": "The 2007 Finals sweep set a record low TV rating. What was it?",
+      "prompt": "The 2007 Finals sweep set what was then a record-low TV rating. What was it?",
       "context": "2007 NBA Finals · Spurs vs Cavaliers · ABC",
       "answer": 6.2,
       "unit": {
@@ -94,7 +94,7 @@
       "min": 0,
       "max": 15,
       "step": 0.1,
-      "note": "6.2.",
+      "note": "6.2, the lowest until 2020.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2007_NBA_Finals",

@@ -9,7 +9,7 @@
     {
       "id": "nba-curry16-13-threes",
       "sport": "NBA",
-      "prompt": "On November 7, 2016, Stephen Curry set the single-game record for threes. How many did he make?",
+      "prompt": "On November 7, 2016, Stephen Curry set what was then the single-game record for threes. How many did he make?",
       "context": "Golden State Warriors · 2016–17 regular season",
       "answer": 13,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 6,
       "max": 24,
       "step": 1,
-      "note": "13.",
+      "note": "13. Klay Thompson broke it with 14 in 2018.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
@@ -59,7 +59,7 @@
     {
       "id": "nba-klay16-wcf-threes",
       "sport": "NBA",
-      "prompt": "Facing elimination at Oklahoma City in 2016, Klay Thompson set a playoff record for threes. How many?",
+      "prompt": "Facing elimination at Oklahoma City in 2016, Klay Thompson set what was then the playoff record for threes. How many?",
       "context": "2016 Western Conference finals · Game 6",
       "answer": 11,
       "unit": {
@@ -84,17 +84,17 @@
     {
       "id": "nba-curry-three-streak",
       "sport": "NBA",
-      "prompt": "Stephen Curry's streak of regular-season games with at least one made three reached how many?",
+      "prompt": "Stephen Curry’s first long streak of games with a made three ended in November 2016. How many games did it last?",
       "context": "Golden State Warriors · ended in 2016–17",
       "answer": 157,
       "unit": {
         "singular": "game",
         "plural": "games"
       },
-      "min": 80,
+      "min": 60,
       "max": 320,
       "step": 1,
-      "note": "157 straight games.",
+      "note": "157. He later topped it with 268 from 2018 to 2023.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",

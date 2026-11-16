@@ -109,7 +109,7 @@
     {
       "id": "nba-lakers04-g3-68",
       "sport": "NBA",
-      "prompt": "Detroit held the Lakers to a franchise playoff low in Game 3 of the 2004 Finals. How many points?",
+      "prompt": "How many points did Detroit hold the Lakers to in Game 3 of the 2004 Finals?",
       "context": "2004 NBA Finals · Game 3 · at Detroit",
       "answer": 68,
       "unit": {
@@ -119,7 +119,7 @@
       "min": 30,
       "max": 95,
       "step": 1,
-      "note": "68 points, the Lakers' lowest ever in a playoff game.",
+      "note": "68, in an 88–68 loss.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",

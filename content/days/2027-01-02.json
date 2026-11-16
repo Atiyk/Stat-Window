@@ -34,7 +34,7 @@
     {
       "id": "nba-allen10-g2-threes",
       "sport": "NBA",
-      "prompt": "Ray Allen set a Finals record for threes in Game 2 of 2010. How many did he make?",
+      "prompt": "How many threes did Ray Allen make in Game 2 of the 2010 Finals?",
       "context": "2010 NBA Finals · Game 2 · at Los Angeles",
       "answer": 8,
       "unit": {
@@ -44,11 +44,11 @@
       "min": 0,
       "max": 12,
       "step": 1,
-      "note": "Eight, on 11 attempts.",
+      "note": "Eight, on 11 attempts, a Finals record at the time.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-        "quote": "Allen hit eight of 11 three-pointers, breaking a Finals record previously set by the"
+        "quote": "Allen hit eight of 11 three-pointers, breaking a Finals record"
       },
       "verified": {
         "on": "2026-11-16",

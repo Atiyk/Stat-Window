@@ -34,7 +34,7 @@
     {
       "id": "nba-sixers67-start-losses",
       "sport": "NBA",
-      "prompt": "The 1966–67 Sixers had the best 50-game start in history. How many of those 50 did they lose?",
+      "prompt": "The 1966–67 Sixers’ 50-game start is still tied for the best ever. How many of those 50 did they lose?",
       "context": "Philadelphia 76ers · 1966–67 · first 50 games",
       "answer": 4,
       "unit": {
@@ -59,7 +59,7 @@
     {
       "id": "nba-sixers67-ppg",
       "sport": "NBA",
-      "prompt": "How many points per game did the 1966–67 Sixers average?",
+      "prompt": "About how many points per game did the 1966–67 Sixers average?",
       "context": "Philadelphia 76ers · 1966–67 regular season",
       "answer": 125,
       "unit": {
@@ -69,7 +69,7 @@
       "min": 105,
       "max": 155,
       "step": 1,
-      "note": "125, a record at the time.",
+      "note": "About 125, with the league’s best shooting.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
@@ -84,7 +84,7 @@
     {
       "id": "nba-wilt67-fta",
       "sport": "NBA",
-      "prompt": "Wilt Chamberlain set a league record for free-throw attempts in 1966–67. How many did he take?",
+      "prompt": "How many free throws did Wilt Chamberlain attempt in 1966–67?",
       "context": "Philadelphia 76ers · 1966–67 regular season",
       "answer": 875,
       "unit": {
@@ -94,7 +94,7 @@
       "min": 550,
       "max": 1500,
       "step": 5,
-      "note": "875, a league record.",
+      "note": "875. His own record, from 1961–62, is 1,363.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",

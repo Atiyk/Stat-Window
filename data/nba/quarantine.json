@@ -1,0 +1,113 @@
+[
+  {
+    "id": "nba-lebron11-4q-total",
+    "family": "points-series",
+    "scope": "finals",
+    "season": "2010-11",
+    "eventDate": null,
+    "franchise": "MIA",
+    "player": "LeBron James",
+    "answer": 8,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Eight in total.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+      "quote": "He also scored just eight points throughout all six fourth quarters in the series.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Across all six fourth quarters of the 2011 Finals, how many points did LeBron James score?",
+      "context": "2011 NBA Finals · six games vs Dallas",
+      "reveal": "Eight in total.",
+      "min": 0,
+      "max": 45,
+      "step": 1,
+      "difficulty": "hard",
+      "difficultyReason": "The total is far below any star's normal output.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 3,
+        "estimability": 3,
+        "surprise": 5
+      }
+    }
+  },
+  {
+    "id": "nba-celtics24-ortg",
+    "family": "team-rating",
+    "scope": "regular-season",
+    "season": "2023-24",
+    "eventDate": null,
+    "franchise": "BOS",
+    "player": null,
+    "answer": 123.2,
+    "unit": {
+      "singular": "point per 100 possessions",
+      "plural": "points per 100 possessions"
+    },
+    "claim": "123.2.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
+      "quote": "They had the highest offensive rating in NBA history at 123.2",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "The 2023–24 Celtics set the record for offensive rating. How many points did they score per 100 possessions?",
+      "context": "Boston Celtics · 2023–24 regular season",
+      "reveal": "123.2.",
+      "min": 114.0,
+      "max": 146.0,
+      "step": 0.1,
+      "difficulty": "hard",
+      "difficultyReason": "An analytics scale many casual fans do not track.",
+      "ratings": {
+        "interest": 2,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      }
+    }
+  },
+  {
+    "id": "nba-lively24-fg",
+    "family": "shooting-pct",
+    "scope": "regular-season",
+    "season": "2023-24",
+    "eventDate": null,
+    "franchise": "DAL",
+    "player": "Dereck Lively II",
+    "answer": 74.7,
+    "unit": {
+      "singular": "percent",
+      "plural": "percent"
+    },
+    "claim": "74.7%.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
+      "quote": "obtaining the highest field-goal percentage for a rookie season in NBA history at 74.7%",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Dereck Lively II set the rookie record for field-goal percentage in 2023–24. What was it?",
+      "context": "Dallas Mavericks · 2023–24",
+      "reveal": "74.7%.",
+      "min": 35.0,
+      "max": 90.0,
+      "step": 0.2,
+      "difficulty": "expert",
+      "difficultyReason": "Few anchors exist for a rookie this efficient.",
+      "ratings": {
+        "interest": 2,
+        "recognizability": 2,
+        "estimability": 2,
+        "surprise": 5
+      }
+    }
+  }
+]

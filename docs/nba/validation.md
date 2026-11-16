@@ -10,16 +10,16 @@ All gates pass: 0 errors.
 
 | Measure | Value |
 |---|---|
-| Verified facts (one question each) | 279 |
+| Verified facts (one question each) | 276 |
 | Scheduled questions | 250 |
-| Reserve questions | 29 |
+| Reserve questions | 26 |
 | Days | 50 (2026-11-17 to 2027-01-05) |
 | Themed days (not "mixed") | 49 |
-| Stat families | 83 |
+| Stat families | 82 |
 | Franchises | 27 |
-| Players | 75 |
+| Players | 74 |
 | Seasons | 60 |
-| Rejected examples logged | 19 |
+| Rejected examples logged | 22 |
 
 ## SQLite build
 
@@ -29,35 +29,35 @@ All gates pass: 0 errors.
 | sources | 5 |
 | franchises | 27 |
 | team_names | 42 |
-| players | 75 |
+| players | 74 |
 | seasons | 60 |
 | stat_families | 83 |
-| stat_facts | 279 |
-| question_candidates | 279 |
-| question_tags | 820 |
+| stat_facts | 276 |
+| question_candidates | 276 |
+| question_tags | 811 |
 | daily_themes | 50 |
 | daily_slates | 50 |
 | daily_slate_questions | 250 |
 
 Integrity: integrity_check ok, no foreign-key violations, every fact verified and sourced.
-Canonical dump sha256 (status as of 2026-11-16): `351f80d436f8e5e549f5f28eae3d18c5d6b33d221092bf96741ce789e4183c1e`.
+Canonical dump sha256 (status as of 2026-11-16): `60829e5ba9284f3e0ab759394106eda6dfcf809eea60283eeb99ee22181122c8`.
 
 ## Difficulty
 
 | Difficulty | All facts | Scheduled |
 |---|---|---|
 | easy | 50 | 50 |
-| medium | 63 | 50 |
-| hard | 114 | 100 |
+| medium | 62 | 50 |
+| hard | 112 | 100 |
 | expert | 52 | 50 |
 
 Mean editorial ratings by slot (interest / recognizability / estimability / surprise):
 
 - Slot 1 (easy): 3.68 / 3.90 / 2.92 / 4.26
 - Slot 2 (medium): 3.40 / 3.12 / 2.74 / 4.74
-- Slot 3 (hard): 3.06 / 2.96 / 2.40 / 4.94
-- Slot 4 (hard): 2.98 / 2.84 / 2.30 / 4.98
-- Slot 5 (expert): 2.70 / 2.44 / 2.28 / 4.98
+- Slot 3 (hard): 3.08 / 2.96 / 2.40 / 4.94
+- Slot 4 (hard): 2.96 / 2.84 / 2.28 / 4.98
+- Slot 5 (expert): 2.70 / 2.46 / 2.28 / 4.98
 
 ## Range fairness
 
@@ -65,25 +65,25 @@ Where each answer sits on its scale (0 = min, 9 = top tenth). A flat spread mean
 
 | Tenth | Questions |
 |---|---|
-| 1 | 8 |
-| 2 | 32 |
-| 3 | 56 |
+| 1 | 7 |
+| 2 | 31 |
+| 3 | 55 |
 | 4 | 42 |
-| 5 | 20 |
-| 6 | 54 |
-| 7 | 48 |
+| 5 | 21 |
+| 6 | 55 |
+| 7 | 46 |
 | 8 | 19 |
 
-Share of answers in the middle fifth: 23.7% (gate: at most 35%).
-Simulated "always centre the window" player: mean 47.46 points per question, best 89 (gate: no question above 90).
+Share of answers in the middle fifth: 24.3% (gate: at most 35%).
+Simulated "always centre the window" player: mean 47.81 points per question, best 89 (gate: no question above 90).
 Every answer sits strictly inside its scale and at least 8% away from either end; every scale has 5–400 whole steps.
 
 ## Editorial balance, by week
 
 | Week | Stat families | Eras | Most-used franchise |
 |---|---|---|---|
-| 2026-11-17 to 2026-11-23 | 26 | 5 | BOS (7) |
-| 2026-11-24 to 2026-11-30 | 21 | 5 | GSW (7) |
+| 2026-11-17 to 2026-11-23 | 25 | 5 | BOS (7) |
+| 2026-11-24 to 2026-11-30 | 22 | 5 | GSW (7) |
 | 2026-12-01 to 2026-12-07 | 21 | 7 | BOS (8) |
 | 2026-12-08 to 2026-12-14 | 24 | 7 | LAL (7) |
 | 2026-12-15 to 2026-12-21 | 25 | 8 | IND (5) |
@@ -94,7 +94,7 @@ Every rolling 7-day window is also checked: at least 6 families, at least 3 eras
 
 ## Novelty
 
-67 players and 27 franchises appear. 7 of 50 days introduce no new player or franchise.
+68 players and 27 franchises appear. 7 of 50 days introduce no new player or franchise.
 
 ## Eras
 
@@ -104,8 +104,8 @@ Every rolling 7-day window is also checked: at least 6 families, at least 3 eras
 - 1980s: 27
 - 1990s: 47
 - 2000s: 53
-- 2010s: 61
-- 2020s: 31
+- 2010s: 60
+- 2020s: 29
 - timeless: 2
 
 ## Rejected candidates (examples)
@@ -129,3 +129,6 @@ Every rolling 7-day window is also checked: at least 6 families, at least 3 eras
 - **2026 Knicks Finals comeback details**: too-recent. Very recent; only one page mentioned it and it was not independently corroborated.
 - **Danny Biasone's 120 shots per game behind the 24-second clock**: derivable. Kept out of the schedule: anyone who knows 24 seconds and 48 minutes can compute it, so it is not an estimation question.
 - **Kevin Durant's streak of 72 straight regular-season games with 20 or more points**: ambiguous-scope. The prompt could not say which streak or season without a long qualifier, and the as-of label was a season, not a date. Dropped by the release critic.
+- **nba-lebron11-4q-total: Across all six fourth quarters of the 2011 Finals, how many points did LeBron James score? (8)**: quarantined after the 2026-11-16 audit. Single Wikipedia sentence (2011 NBA Finals) not corroborated; widely reported totals differ. Quarantined 2026-11-16 pending a second source. Full record in data/nba/quarantine.json.
+- **nba-celtics24-ortg: The 2023–24 Celtics set the record for offensive rating. How many points did they score per 100 possessions? (123.2)**: quarantined after the 2026-11-16 audit. Offensive rating differs by stats provider and the record may be stale; quarantined 2026-11-16. Full record in data/nba/quarantine.json.
+- **nba-lively24-fg: Dereck Lively II set the rookie record for field-goal percentage in 2023–24. What was it? (74.7)**: quarantined after the 2026-11-16 audit. Rookie-record claim likely ignores league minimums; not supported by his own article. Quarantined 2026-11-16. Full record in data/nba/quarantine.json.

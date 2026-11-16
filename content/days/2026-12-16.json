@@ -44,7 +44,7 @@
       "min": 0,
       "max": 11,
       "step": 1,
-      "note": "Seven. LeBron James got the other four, from the losing team.",
+      "note": "Seven. The other four went to LeBron James of the losing Cavaliers.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
@@ -63,13 +63,13 @@
       "context": "2015 NBA Finals · Game 2 · vs Cleveland",
       "answer": 13,
       "unit": {
-        "singular": "attempt",
-        "plural": "attempts"
+        "singular": "missed three",
+        "plural": "missed threes"
       },
       "min": 3,
       "max": 21,
       "step": 1,
-      "note": "13 misses.",
+      "note": "13 misses, a Finals record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
@@ -119,7 +119,7 @@
       "min": 24,
       "max": 62,
       "step": 1,
-      "note": "38, a career playoff high.",
+      "note": "38, then a career playoff high.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",

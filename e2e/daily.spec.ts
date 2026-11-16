@@ -94,6 +94,19 @@ test('a tab left open across midnight moves to the new puzzle', async ({ page })
   await expect(page.locator('.day-label')).toHaveText('No. 2');
 });
 
+test('an adjusted but not locked first window survives UTC midnight', async ({ page }) => {
+  await page.clock.install({ time: new Date('2026-11-15T23:59:30Z') });
+  await page.goto('/');
+  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  const low = lowBracket(page);
+  await low.focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(low).toHaveAttribute('aria-valuenow', '41');
+  await page.clock.fastForward('01:00');
+  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(lowBracket(page)).toHaveAttribute('aria-valuenow', '41');
+});
+
 test('practice on an earlier day does not touch the daily record', async ({ page }) => {
   await openAt(page, DAY2);
   for (let i = 0; i < 5; i++) {

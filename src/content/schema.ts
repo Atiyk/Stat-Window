@@ -23,6 +23,17 @@ export function answerSpellings(answer: number, step: number): string[] {
 
 const text = (min: number, max = 2000) => z.string().check(z.minLength(min), z.maxLength(max));
 
+/** Optional until the full source-checked editorial backlog is complete. */
+export const FunFactSchema = z.object({
+  text: text(20, 220),
+  source: z.object({
+    name: text(2, 100),
+    url: z.url({ protocol: /^https$/ }),
+    /** Source evidence checked during editing; not reproduced verbatim in-game. */
+    quote: text(10, 160),
+  }),
+});
+
 export const QuestionSchema = z
   .object({
     id: z.string().check(z.regex(/^[a-z0-9-]+$/, 'Lowercase id with dashes')),
@@ -35,6 +46,8 @@ export const QuestionSchema = z
     max: z.number(),
     step: z.number().check(z.positive()),
     note: text(3, 140),
+    /** Three evidence-backed post-reveal variants; only one shown per browser. */
+    funFacts: z.optional(z.array(FunFactSchema).check(z.length(3))),
     source: z.object({
       name: text(2),
       url: z.url({ protocol: /^https$/ }),
@@ -48,6 +61,9 @@ export const QuestionSchema = z
   })
   .check(
     z.superRefine((q, ctx) => {
+      if (q.funFacts && new Set(q.funFacts.map((f) => f.text.trim().toLowerCase())).size !== 3) {
+        ctx.issues.push({ code: 'custom', input: q, message: `${q.id}: fun facts must be distinct` });
+      }
       if (!(q.min < q.answer && q.answer < q.max)) {
         ctx.issues.push({ code: 'custom', input: q, message: `${q.id}: answer must sit strictly inside min and max` });
       }

@@ -403,7 +403,33 @@
         "recognizability": 5,
         "estimability": 4,
         "surprise": 5
-      }
+      },
+      "funFacts": [
+        {
+          "text": "This famous Philadelphia Warriors home game was actually staged in Hershey, Pennsylvania, in an arena originally built for ice hockey.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+            "quote": "The game was played at Hershey Sports Arena, an old, drafty gym originally built for ice hockey."
+          }
+        },
+        {
+          "text": "No video of the game survives. A recording of the fourth quarter was later preserved in the Library of Congress's National Recording Registry.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+            "quote": "The game was not televised, and no video footage of the game has been recovered"
+          }
+        },
+        {
+          "text": "In the fourth quarter, the Knicks deliberately fouled other Warriors to keep the ball away from Wilt. The Warriors started fouling back to regain possession.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+            "quote": "During the fourth quarter, the Knicks began fouling other players to keep the ball away from Chamberlain"
+          }
+        }
+      ]
     }
   },
   {

@@ -61,6 +61,7 @@ export function Results({ slate, number, mode, results, stats, archive, onPracti
       <header className="results-head">
         <p className="context">
           {practice ? `Practice · No. ${number} · ${formatDay(slate.date)} · not counted` : `No. ${number} · ${formatDay(slate.date)}`}
+          {slate.theme ? ` · ${slate.theme.title}` : ''}
         </p>
         <h1 className="results-title" ref={headingRef} tabIndex={-1}>
           {verdict(total)}
@@ -79,6 +80,7 @@ export function Results({ slate, number, mode, results, stats, archive, onPracti
             </li>
           ))}
         </ol>
+        {slate.theme && <p className="theme-recap">{slate.theme.recap}</p>}
       </header>
 
       <div className="results-actions">

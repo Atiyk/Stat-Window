@@ -1,125 +1,135 @@
 {
   "date": "2026-11-21",
+  "theme": {
+    "title": "Showtime",
+    "subtitle": "The Lakers of the 1980s",
+    "recap": "Magic Johnson's Lakers played fast, won big and left Finals marks behind, from a rookie's 42-point clincher to a perfect start to a postseason."
+  },
   "questions": [
     {
-      "id": "nba-kobe-81",
-      "sport": "Basketball",
-      "prompt": "How many points did Kobe Bryant score on January 22, 2006?",
-      "context": "NBA · Los Angeles Lakers · 2006",
-      "answer": 81,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 40,
-      "max": 100,
-      "step": 1,
-      "note": "A career-high 81, the second-most in NBA history.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
-        "quote": "On January 22, 2006, Bryant scored a career-high 81 points"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "nhl-gretzky-1986-pts",
-      "sport": "Hockey",
-      "prompt": "How many points did Wayne Gretzky record in the 1985–86 NHL season?",
-      "context": "NHL · Edmonton Oilers · 1985–86",
-      "answer": 215,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 120,
-      "max": 260,
-      "step": 1,
-      "note": "Two hundred fifteen, the single-season record.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Wayne_Gretzky",
-        "quote": "his point record one more time (215, in 1985–86)"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "cri-tendulkar-tons",
-      "sport": "Cricket",
-      "prompt": "How many international centuries did Sachin Tendulkar score?",
-      "context": "Cricket · Tests and ODIs · 1989–2013",
-      "answer": 100,
-      "unit": {
-        "singular": "century",
-        "plural": "centuries"
-      },
-      "min": 30,
-      "max": 150,
-      "step": 1,
-      "note": "One hundred hundreds. He is the only batter to do it.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Sachin_Tendulkar",
-        "quote": "being the only batsman to score 100 international centuries"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "box-mayweather-wins",
-      "sport": "Boxing",
-      "prompt": "How many professional fights did Floyd Mayweather Jr. win?",
-      "context": "Boxing · 1996–2017 · never beaten",
-      "answer": 50,
+      "id": "nba-lakers87-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did the 1986–87 Lakers win?",
+      "context": "Los Angeles Lakers · 1986–87 · 82 games",
+      "answer": 65,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 20,
-      "max": 70,
+      "min": 25,
+      "max": 82,
       "step": 1,
-      "note": "Fifty wins, no losses.",
+      "note": "65–17, the best record in the league.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Floyd_Mayweather_Jr.",
-        "quote": "He is undefeated at 50–0."
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+        "quote": "The Lakers finished the regular season with a league-best 65–17 record."
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "easy"
     },
     {
-      "id": "mlb-ryan-strikeouts",
-      "sport": "Baseball",
-      "prompt": "How many strikeouts did Nolan Ryan record in his MLB career?",
-      "context": "MLB · 1966–1993",
-      "answer": 5714,
+      "id": "nba-magic80-g6-points",
+      "sport": "NBA",
+      "prompt": "As a rookie in the title-clinching Game 6 of the 1980 Finals, how many points did Magic Johnson score?",
+      "context": "1980 NBA Finals · Game 6 · Lakers vs 76ers",
+      "answer": 42,
       "unit": {
-        "singular": "strikeout",
-        "plural": "strikeouts"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 3000,
-      "max": 7000,
-      "step": 10,
-      "note": "5,714, the major-league record.",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "note": "42, and he made all 14 of his free throws.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Nolan_Ryan",
-        "quote": "He has 5,714 career strikeouts, an MLB record"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
+        "quote": "Magic Johnson scored 42 points, including all 14 of his free-throw attempts."
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-lakers89-playoff-start",
+      "sport": "NBA",
+      "prompt": "The 1989 Lakers were the first team to win how many playoff games in a row to open a postseason?",
+      "context": "Los Angeles Lakers · 1989 playoffs",
+      "answer": 11,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 7,
+      "max": 20,
+      "step": 1,
+      "note": "11 straight, the first team ever to do it.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+        "quote": "The Lakers became the first team to win their first 11 playoff games"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-cooper87-threes",
+      "sport": "NBA",
+      "prompt": "Michael Cooper set a playoff record in Game 2 of the 1987 Finals by making how many three-pointers?",
+      "context": "1987 NBA Finals · Game 2 · vs Boston",
+      "answer": 6,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
+      },
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "note": "Six, a playoff record at the time.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+        "quote": "He hit six 3 pointers, a playoff record."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-magic84-assists",
+      "sport": "NBA",
+      "prompt": "Magic Johnson set the NBA Finals record for assists in a game in 1984. How many did he dish out?",
+      "context": "1984 NBA Finals · Game 3 · vs Boston",
+      "answer": 21,
+      "unit": {
+        "singular": "assist",
+        "plural": "assists"
+      },
+      "min": 12,
+      "max": 38,
+      "step": 1,
+      "note": "21 assists in Game 3.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
+        "quote": "Magic Johnson dished out 21 assists, an NBA Finals record."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
     }
   ]
 }

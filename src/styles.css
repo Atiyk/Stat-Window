@@ -353,9 +353,32 @@ a {
   padding-bottom: clamp(18px, 3vw, 28px);
 }
 
+.round-level {
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+}
+
 .context {
   margin: 0 0 10px;
   font-size: 0.9375rem;
+  color: var(--ink-soft);
+}
+
+/* The day's theme: a quiet eyebrow above the question, and one line of recap after the game. */
+.theme-line {
+  margin: 0 0 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.theme-recap {
+  margin: 14px 0 0;
+  max-width: 34rem;
+  font-size: 0.9375rem;
+  line-height: 1.45;
   color: var(--ink-soft);
 }
 

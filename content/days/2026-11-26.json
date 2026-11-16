@@ -1,125 +1,135 @@
 {
   "date": "2026-11-26",
+  "theme": {
+    "title": "Splash season",
+    "subtitle": "Golden State, 2015–16",
+    "recap": "The Warriors won their first 24, reached the All-Star break at 48–4, never lost at home for more than a year and made threes at a rate nobody had seen."
+  },
   "questions": [
     {
-      "id": "nhl-howe-seasons",
-      "sport": "Hockey",
-      "prompt": "How many NHL seasons did Gordie Howe play?",
-      "context": "NHL · 1946–1980",
-      "answer": 26,
+      "id": "nba-gsw16-start",
+      "sport": "NBA",
+      "prompt": "The 2015–16 Warriors opened the season with how many straight wins?",
+      "context": "Golden State Warriors · 2015–16",
+      "answer": 24,
       "unit": {
-        "singular": "season",
-        "plural": "seasons"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 10,
-      "max": 35,
+      "min": 0,
+      "max": 30,
       "step": 1,
-      "note": "Twenty-six seasons, over five decades.",
+      "note": "24 in a row before their first loss.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Gordie_Howe",
-        "quote": "From 1946 to 1980, he played 26 seasons in the National Hockey League (NHL)"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "The Warriors began the 2015–16 season by winning their first 24 games,"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "easy"
     },
     {
-      "id": "cri-lara-400",
-      "sport": "Cricket",
-      "prompt": "What is Brian Lara’s highest Test score?",
-      "context": "Cricket · West Indies vs. England · Antigua 2004",
-      "answer": 400,
-      "unit": {
-        "singular": "run",
-        "plural": "runs"
-      },
-      "min": 200,
-      "max": 500,
-      "step": 1,
-      "note": "Four hundred not out.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Brian_Lara",
-        "quote": "after scoring 400 not out at Antigua during the 4th test against England"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "box-marciano-wins",
-      "sport": "Boxing",
-      "prompt": "How many professional fights did Rocky Marciano win?",
-      "context": "Boxing · 1947–1955 · retired unbeaten",
-      "answer": 49,
+      "id": "nba-gsw16-allstar-wins",
+      "sport": "NBA",
+      "prompt": "What was the Warriors' win total at the 2016 All-Star break?",
+      "context": "Golden State Warriors · 2015–16 · first half of the season",
+      "answer": 48,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 20,
-      "max": 70,
+      "min": 28,
+      "max": 60,
       "step": 1,
-      "note": "Forty-nine wins, 43 by knockout, no losses.",
+      "note": "48–4, the best record ever at the break.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Rocky_Marciano",
-        "quote": "with a final record of 49–0, 43 of them ending in knockouts"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "Golden State reached the NBA All-Star break at 48–4, the best start to an NBA season at this juncture."
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "medium"
     },
     {
-      "id": "nhl-selanne-rookie",
-      "sport": "Hockey",
-      "prompt": "How many goals did Teemu Selänne score as an NHL rookie in 1992–93?",
-      "context": "NHL · Winnipeg Jets · 1992–93",
-      "answer": 76,
+      "id": "nba-gsw16-home-streak",
+      "sport": "NBA",
+      "prompt": "Golden State set an NBA record for consecutive regular-season home wins. How long was the streak?",
+      "context": "Golden State Warriors · spanning 2015 and 2016",
+      "answer": 54,
       "unit": {
-        "singular": "goal",
-        "plural": "goals"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 20,
+      "min": 35,
       "max": 100,
       "step": 1,
-      "note": "Seventy-six goals and 132 points as a rookie.",
+      "note": "54 straight home wins.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Teemu_Sel%C3%A4nne",
-        "quote": "He broke into the NHL by recording 76 goals and 132 points in 1992–93"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "The Warriors also set an NBA record 54-straight regular-season home-game winning streak,"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "hard"
     },
     {
-      "id": "ath-beamon-1968",
-      "sport": "Athletics",
-      "prompt": "How far did Bob Beamon jump at the 1968 Olympics, in metres?",
-      "context": "Olympic Games · Mexico City · 1968",
-      "answer": 8.9,
+      "id": "nba-gsw16-threes",
+      "sport": "NBA",
+      "prompt": "How many three-pointers did the 2015–16 Warriors make in the regular season?",
+      "context": "Golden State Warriors · 2015–16 · 82 games",
+      "answer": 1077,
       "unit": {
-        "singular": "metre",
-        "plural": "metres"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 7.5,
-      "max": 9.5,
-      "step": 0.01,
-      "note": "8.90 m, breaking the world record.",
+      "min": 550,
+      "max": 1400,
+      "step": 10,
+      "note": "1,077, the first team past 1,000.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Bob_Beamon",
-        "quote": "By jumping 8.90 m (29 ft 2+1/4 in), he broke the existing record"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "They also became the first team to make over 1,000 three-pointers in the regular-season with 1,077,"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-curry16-ot-points",
+      "sport": "NBA",
+      "prompt": "On May 9, 2016, Stephen Curry set an NBA record for points in an overtime period. How many did he score?",
+      "context": "2016 Western Conference semifinals · vs Portland",
+      "answer": 17,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "note": "17, breaking the record of 16.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "He scored 17 of his points in overtime, which broke the NBA record of 16"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
     }
   ]
 }

@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-24",
+  "theme": {
+    "title": "Warriors from deep",
+    "subtitle": "Golden State shooting records",
+    "recap": "Golden State's shooters broke records for threes in a game, threes in a playoff game and threes in consecutive games."
+  },
+  "questions": [
+    {
+      "id": "nba-curry16-13-threes",
+      "sport": "NBA",
+      "prompt": "On November 7, 2016, Stephen Curry set the single-game record for threes. How many did he make?",
+      "context": "Golden State Warriors · 2016–17 regular season",
+      "answer": 13,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
+      },
+      "min": 6,
+      "max": 24,
+      "step": 1,
+      "note": "13.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+        "quote": "Stephen Curry set a new record of 13 three-pointers made in a single game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-klay16-60-minutes",
+      "sport": "NBA",
+      "prompt": "Klay Thompson scored 60 points against Indiana on December 5, 2016. How many minutes did he play?",
+      "context": "Golden State Warriors · 2016–17",
+      "answer": 29,
+      "unit": {
+        "singular": "minute",
+        "plural": "minutes"
+      },
+      "min": 20,
+      "max": 48,
+      "step": 1,
+      "note": "29.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+        "quote": "scored 60 points in 29 minutes against the Indiana Pacers on December 5, 2016"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-klay16-wcf-threes",
+      "sport": "NBA",
+      "prompt": "Facing elimination at Oklahoma City in 2016, Klay Thompson set a playoff record for threes. How many?",
+      "context": "2016 Western Conference finals · Game 6",
+      "answer": 11,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
+      },
+      "min": 4,
+      "max": 23,
+      "step": 1,
+      "note": "11, breaking the record of nine.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "Klay Thompson made eleven three-pointers, breaking the NBA playoff record of nine."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-curry-three-streak",
+      "sport": "NBA",
+      "prompt": "Stephen Curry's streak of regular-season games with at least one made three reached how many?",
+      "context": "Golden State Warriors · ended in 2016–17",
+      "answer": 157,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 80,
+      "max": 320,
+      "step": 1,
+      "note": "157 straight games.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+        "quote": "Most consecutive regular-season games with a made three-pointer: 157"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-gsw16-mavs-39-threes",
+      "sport": "NBA",
+      "prompt": "On March 25, 2016, the Warriors and Mavericks set a record for combined threes in a game. How many?",
+      "context": "Warriors vs Mavericks · 2015–16",
+      "answer": 39,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
+      },
+      "min": 0,
+      "max": 55,
+      "step": 1,
+      "note": "39: 21 by Golden State, 18 by Dallas. A record at the time.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "both teams combined for 39 made three-pointers (21 by the Warriors, 18 by the Mavericks), an all-time NBA record,"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-17",
+  "theme": {
+    "title": "Warriors vs Cavaliers",
+    "subtitle": "The 2015 and 2017 Finals",
+    "recap": "Golden State won the first and third of four straight Finals meetings, with both sides setting records along the way."
+  },
+  "questions": [
+    {
+      "id": "nba-gsw15-combined-wins",
+      "sport": "NBA",
+      "prompt": "Counting the playoffs, how many games did the 2014–15 Warriors win?",
+      "context": "Golden State Warriors · 2014–15 · regular season plus playoffs",
+      "answer": 83,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 54,
+      "max": 96,
+      "step": 1,
+      "note": "83, against 20 losses.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+        "quote": "Combining regular season and playoff games, Golden State finished 83–20"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-iguodala15-votes",
+      "sport": "NBA",
+      "prompt": "Andre Iguodala won 2015 Finals MVP. How many of the 11 votes did he get?",
+      "context": "2015 NBA Finals · MVP voting",
+      "answer": 7,
+      "unit": {
+        "singular": "vote",
+        "plural": "votes"
+      },
+      "min": 0,
+      "max": 11,
+      "step": 1,
+      "note": "Seven. LeBron James got the other four, from the losing team.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+        "quote": "Iguodala received seven out 11 votes; the other four went to James"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-curry15-g2-misses",
+      "sport": "NBA",
+      "prompt": "In Game 2 of the 2015 Finals, Stephen Curry set a Finals record for missed threes. How many?",
+      "context": "2015 NBA Finals · Game 2 · vs Cleveland",
+      "answer": 13,
+      "unit": {
+        "singular": "attempt",
+        "plural": "attempts"
+      },
+      "min": 3,
+      "max": 21,
+      "step": 1,
+      "note": "13 misses.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+        "quote": "Curry set an NBA record for most missed three-point attempts in an NBA Finals game with 13."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-cavs17-g4-q1",
+      "sport": "NBA",
+      "prompt": "Facing a sweep in 2017, Cleveland set a Finals record for points in a quarter. How many?",
+      "context": "2017 NBA Finals · Game 4 · first quarter",
+      "answer": 49,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 34,
+      "max": 72,
+      "step": 1,
+      "note": "49 in the first quarter of Game 4.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2017_NBA_Finals",
+        "quote": "Cleveland scored 49 points in the first quarter, the most points of any period in an NBA Finals game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-lebron15-g1-fga",
+      "sport": "NBA",
+      "prompt": "LeBron James scored 44 points in Game 1 of the 2015 Finals. How many shots did he take?",
+      "context": "2015 NBA Finals · Game 1 · at Golden State",
+      "answer": 38,
+      "unit": {
+        "singular": "shot",
+        "plural": "shots"
+      },
+      "min": 24,
+      "max": 62,
+      "step": 1,
+      "note": "38, a career playoff high.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+        "quote": "James had a career NBA Finals high of 44 points, while attempting a postseason career-high 38 shots"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

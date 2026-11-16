@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-25",
+  "theme": {
+    "title": "The Worm",
+    "subtitle": "Dennis Rodman",
+    "recap": "Dennis Rodman, a second-round pick, won seven straight rebounding titles and grabbed rebounds at a rate not seen since Wilt."
+  },
+  "questions": [
+    {
+      "id": "nba-rodman-reb-titles",
+      "sport": "NBA",
+      "prompt": "Dennis Rodman led the NBA in rebounding for how many seasons in a row?",
+      "context": "Pistons, Spurs and Bulls · 1991–92 onward",
+      "answer": 7,
+      "unit": {
+        "singular": "season",
+        "plural": "seasons"
+      },
+      "min": 2,
+      "max": 14,
+      "step": 1,
+      "note": "Seven, a record.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+        "quote": "He also led the NBA in rebounds per game for a record seven consecutive years and won five NBA championships."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-rodman92-rpg",
+      "sport": "NBA",
+      "prompt": "What did Dennis Rodman average in rebounds in 1991–92, his first rebounding title?",
+      "context": "Detroit Pistons · 1991–92",
+      "answer": 18.7,
+      "unit": {
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
+      },
+      "min": 7,
+      "max": 23,
+      "step": 0.1,
+      "note": "18.7 a game.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+        "quote": "He collected an astounding 18.7 per game, winning his first of seven consecutive rebounding crowns"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-rodman92-34",
+      "sport": "NBA",
+      "prompt": "What was Dennis Rodman's career high in rebounds, set in March 1992?",
+      "context": "Detroit Pistons · 1991–92",
+      "answer": 34,
+      "unit": {
+        "singular": "rebound",
+        "plural": "rebounds"
+      },
+      "min": 20,
+      "max": 52,
+      "step": 1,
+      "note": "34.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+        "quote": "In a March 1992 game, Rodman grabbed a career-high 34 rebounds."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-rodman86-draft",
+      "sport": "NBA",
+      "prompt": "Dennis Rodman was drafted in the second round in 1986. What overall pick was he?",
+      "context": "1986 NBA draft · Detroit Pistons",
+      "answer": 27,
+      "unit": {
+        "singular": "overall pick",
+        "plural": "overall pick"
+      },
+      "min": 10,
+      "max": 75,
+      "step": 1,
+      "note": "27th overall.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+        "quote": "as the third pick in the second round (27th overall)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-wilt72-total-reb",
+      "sport": "NBA",
+      "prompt": "Rodman's 1991–92 rebound total was the most since Wilt Chamberlain's total in 1971–72. How many did Wilt grab that season?",
+      "context": "Los Angeles Lakers · 1971–72",
+      "answer": 1572,
+      "unit": {
+        "singular": "rebound",
+        "plural": "rebounds"
+      },
+      "min": 300,
+      "max": 1800,
+      "step": 5,
+      "note": "1,572.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+        "quote": "1,530 season rebounds (the most since Wilt Chamberlain's 1,572 in the 1971–1972 season)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

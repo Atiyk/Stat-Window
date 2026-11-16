@@ -43,6 +43,8 @@ export const QuestionSchema = z
       derivation: z.optional(z.string()),
     }),
     verified: z.object({ on: isoDay, by: text(2) }),
+    /** NBA days climb easy → medium → hard → hard → expert. Older days have no label. */
+    difficulty: z.optional(z.enum(['easy', 'medium', 'hard', 'expert'])),
   })
   .check(
     z.superRefine((q, ctx) => {
@@ -65,13 +67,23 @@ export const QuestionSchema = z
     }),
   );
 
+export const ThemeSchema = z.object({
+  title: text(2, 40),
+  subtitle: text(2, 60),
+  recap: text(10, 220),
+});
+
 export const SlateSchema = z.object({
   date: isoDay,
+  /** Themed days (from the NBA cutover on) carry a title, a subtitle and a post-game recap. */
+  theme: z.optional(ThemeSchema),
   questions: z.array(QuestionSchema).check(z.length(5)),
 });
 
 export type Question = z.infer<typeof QuestionSchema>;
 export type Slate = z.infer<typeof SlateSchema>;
+export type Theme = z.infer<typeof ThemeSchema>;
+export type Difficulty = NonNullable<Question['difficulty']>;
 
 export function parseSlate(input: unknown): Slate {
   return SlateSchema.parse(input);

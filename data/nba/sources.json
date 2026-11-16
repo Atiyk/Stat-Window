@@ -1,0 +1,120 @@
+[
+ {
+  "id": "wikipedia",
+  "provider": "Wikipedia (Wikimedia Foundation)",
+  "hosts": [
+   "en.wikipedia.org"
+  ],
+  "license": "Text: CC BY-SA 4.0. Individual numeric facts are not copyrightable.",
+  "upstreamOrigin": "Community-edited articles that cite league, team and press sources.",
+  "acquisition": "About 85 individual article pages read one at a time in November 2026. No bulk download, no API dump, no scraping of tables into the game.",
+  "attribution": "Every question links to the article it was checked against, labelled \"Wikipedia contributors (CC BY-SA 4.0)\", with a link to the license in the help dialog.",
+  "allowedUse": "Facts restated in our own original prompts, reveals and recaps. Short unmodified excerpts (under 160 characters) are stored as verification evidence with a link and license label.",
+  "reviewStatus": "approved",
+  "reviewedOn": "2026-11-16",
+  "policyEvidence": [],
+  "policyNote": "Wikipedia's reuse page and the Wikimedia Terms of Use could not be fetched from this environment on 2026-11-16 (url_not_found). The CC BY-SA 4.0 text license is applied conservatively: unmodified short excerpts, a link to each article, and a license label on every source line."
+ },
+ {
+  "id": "stat-window-editorial",
+  "provider": "Stat Window",
+  "hosts": [],
+  "license": "Original work of the project.",
+  "upstreamOrigin": "Prompts, reveals, theme titles, recaps, ranges, difficulty ratings and arithmetic derivations written for this game.",
+  "acquisition": "Written by the editor.",
+  "attribution": "None required.",
+  "allowedUse": "Unrestricted within the project.",
+  "reviewStatus": "approved",
+  "reviewedOn": "2026-11-16"
+ },
+ {
+  "id": "sports-reference",
+  "provider": "Sports Reference (Basketball-Reference)",
+  "hosts": [
+   "www.basketball-reference.com",
+   "basketball-reference.com",
+   "www.sports-reference.com",
+   "sports-reference.com"
+  ],
+  "license": "Proprietary; see the site's data use policy and terms of use.",
+  "upstreamOrigin": "Sports Reference's own compiled database.",
+  "acquisition": "Not accessed for content. Excluded by project rule: no scraping or bulk download to populate the game.",
+  "attribution": "Not applicable.",
+  "allowedUse": "None for content.",
+  "reviewStatus": "rejected",
+  "reviewedOn": "2026-11-16",
+  "policyEvidence": [
+   {
+    "url": "https://www.sports-reference.com/data_use.html",
+    "checkedOn": "2026-11-16",
+    "excerpt": "copyright law is clear that facts cannot be copyrighted, so you are free to reuse facts found on this site"
+   },
+   {
+    "url": "https://www.sports-reference.com/data_use.html",
+    "checkedOn": "2026-11-16",
+    "excerpt": "This means that you should not create websites or tools based on data you scrape from Sports Reference"
+   },
+   {
+    "url": "https://www.sports-reference.com/termsofuse.html",
+    "checkedOn": "2026-11-16",
+    "excerpt": "use any automated means to access or use the Site, including scripts, bots, scrapers, data miners"
+   },
+   {
+    "url": "https://www.sports-reference.com/termsofuse.html",
+    "checkedOn": "2026-11-16",
+    "excerpt": "to create any database, archive, or other data store that competes with or constitutes a material substitute"
+   }
+  ]
+ },
+ {
+  "id": "nba-com",
+  "provider": "NBA.com and stats.nba.com",
+  "hosts": [
+   "www.nba.com",
+   "nba.com",
+   "stats.nba.com",
+   "cdn.nba.com"
+  ],
+  "license": "Proprietary; NBA terms of use restrict reuse of its content and data.",
+  "upstreamOrigin": "The league's official data.",
+  "acquisition": "Not accessed for content.",
+  "attribution": "Not applicable.",
+  "allowedUse": "None for content.",
+  "reviewStatus": "rejected",
+  "reviewedOn": "2026-11-16",
+  "policyEvidence": [
+   {
+    "url": "https://www.nba.com/termsofuse",
+    "checkedOn": "2026-11-16",
+    "excerpt": "No Basketball Content from the Services may be reproduced, republished, uploaded, posted, modified, reused"
+   },
+   {
+    "url": "https://www.nba.com/termsofuse",
+    "checkedOn": "2026-11-16",
+    "excerpt": "the NBA Statistics may not be used in connection with any fantasy game or other commercial product or service"
+   },
+   {
+    "url": "https://www.nba.com/termsofuse",
+    "checkedOn": "2026-11-16",
+    "excerpt": "the NBA Statistics may not be used in connection with any website, product, or service that features a database"
+   }
+  ]
+ },
+ {
+  "id": "third-party-dumps",
+  "provider": "GitHub, Kaggle and similar dataset mirrors",
+  "hosts": [
+   "www.kaggle.com",
+   "kaggle.com",
+   "github.com",
+   "raw.githubusercontent.com"
+  ],
+  "license": "Often labelled CC0 or MIT, but the upstream data is usually scraped from NBA.com or Sports Reference.",
+  "upstreamOrigin": "Mostly NBA.com or Basketball-Reference scrapes.",
+  "acquisition": "Not used. A permissive label on a copy does not grant rights the original owner did not give.",
+  "attribution": "Not applicable.",
+  "allowedUse": "None.",
+  "reviewStatus": "rejected",
+  "reviewedOn": "2026-11-16"
+ }
+]

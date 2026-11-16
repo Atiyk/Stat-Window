@@ -1,125 +1,135 @@
 {
   "date": "2026-11-20",
+  "theme": {
+    "title": "Hakeem's Rockets",
+    "subtitle": "Houston, 1993–95",
+    "recap": "Houston started 15–0, won a seven-game Finals against New York and then won another title as a sixth seed."
+  },
   "questions": [
     {
-      "id": "nfl-dolphins-1972-wins",
-      "sport": "American football",
-      "prompt": "Counting the playoffs, how many games did the 1972 Miami Dolphins win?",
-      "context": "NFL · 1972 season · they never lost",
-      "answer": 17,
+      "id": "nba-rockets94-start",
+      "sport": "NBA",
+      "prompt": "The 1993–94 Rockets opened the season with how many straight wins?",
+      "context": "Houston Rockets · 1993–94",
+      "answer": 15,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 2,
+      "max": 32,
+      "step": 1,
+      "note": "15, tying the record at the time.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Houston_Rockets_season",
+        "quote": "winning their first fifteen games of the regular season to tie the"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-ewing94-blocks",
+      "sport": "NBA",
+      "prompt": "Patrick Ewing set a Finals record for blocks in a series in 1994. How many?",
+      "context": "1994 NBA Finals · seven games vs Houston",
+      "answer": 30,
+      "unit": {
+        "singular": "block",
+        "plural": "blocks"
+      },
+      "min": 0,
+      "max": 42,
+      "step": 1,
+      "note": "30 over seven games.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1994_NBA_Finals",
+        "quote": "Ewing set an NBA finals record in the series with a total of 30 blocks"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-starks94-g7-3pa",
+      "sport": "NBA",
+      "prompt": "John Starks went 0-for-what from three-point range in Game 7 of the 1994 Finals?",
+      "context": "1994 NBA Finals · Game 7 · at Houston",
+      "answer": 11,
+      "unit": {
+        "singular": "attempt",
+        "plural": "attempts"
+      },
+      "min": 4,
+      "max": 30,
+      "step": 1,
+      "note": "0 for 11, and 2 of 18 overall.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1994_NBA_Finals",
+        "quote": "Starks struggled severely, shooting 2-of-18 from the field (0-for-11 from three-point range)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-anderson95-ft",
+      "sport": "NBA",
+      "prompt": "Late in Game 1 of the 1995 Finals, Nick Anderson missed how many free throws in a row?",
+      "context": "1995 NBA Finals · Game 1 · vs Houston",
+      "answer": 4,
+      "unit": {
+        "singular": "free throw",
+        "plural": "free throws"
+      },
+      "min": 0,
+      "max": 8,
+      "step": 1,
+      "note": "Four, and Houston won in overtime.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1995_NBA_Finals",
+        "quote": "Nick Anderson missed four consecutive free throws in the closing seconds of the game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-rockets95-road-wins",
+      "sport": "NBA",
+      "prompt": "The 1995 Rockets were the first team to win how many road playoff games in one postseason?",
+      "context": "Houston Rockets · 1995 playoffs",
+      "answer": 9,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 8,
-      "max": 22,
+      "min": 5,
+      "max": 19,
       "step": 1,
-      "note": "They finished 17–0.",
+      "note": "Nine.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/1972_Miami_Dolphins_season",
-        "quote": "won all three postseason games to finish 17–0"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1995_NBA_Finals",
+        "quote": "the Rockets became the first NBA team to win nine road playoff games"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "fb-klose-wc-goals",
-      "sport": "Football",
-      "prompt": "How many World Cup goals did Miroslav Klose score in his career?",
-      "context": "FIFA World Cup · Germany · 2002–2014",
-      "answer": 16,
-      "unit": {
-        "singular": "goal",
-        "plural": "goals"
       },
-      "min": 0,
-      "max": 30,
-      "step": 1,
-      "note": "Sixteen, a World Cup record that stood for twelve years.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Miroslav_Klose",
-        "quote": "was the record-holder for most goals scored in the FIFA World Cup (16) for twelve years"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "nba-curry-2016-threes",
-      "sport": "Basketball",
-      "prompt": "How many three-pointers did Stephen Curry make in the 2015–16 regular season?",
-      "context": "NBA · Golden State Warriors · 2015–16",
-      "answer": 402,
-      "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
-      },
-      "min": 150,
-      "max": 550,
-      "step": 1,
-      "note": "402, smashing his own record of 286.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-        "quote": "Curry broke his own NBA record for made three-pointers in a season of 286, finishing with 402"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "oly-comaneci-tens",
-      "sport": "Gymnastics",
-      "prompt": "How many perfect 10s did Nadia Comăneci score at the 1976 Olympics?",
-      "context": "Olympic Games · Montreal · 1976",
-      "answer": 7,
-      "unit": {
-        "singular": "perfect 10",
-        "plural": "perfect 10s"
-      },
-      "min": 0,
-      "max": 15,
-      "step": 1,
-      "note": "Seven, four of them on the uneven bars.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Nadia_Com%C4%83neci",
-        "quote": "At Montreal Comăneci received four of her seven 10s on the uneven bars."
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "mlb-aaron-career-hr",
-      "sport": "Baseball",
-      "prompt": "How many home runs did Hank Aaron hit in his MLB career?",
-      "context": "MLB · 1954–1976",
-      "answer": 755,
-      "unit": {
-        "singular": "home run",
-        "plural": "home runs"
-      },
-      "min": 400,
-      "max": 1000,
-      "step": 5,
-      "note": "Seven hundred fifty-five, the record until 2007.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Hank_Aaron",
-        "quote": "surpassed his famous total of 755 in 2007"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
+      "difficulty": "expert"
     }
   ]
 }

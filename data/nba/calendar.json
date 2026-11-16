@@ -1,0 +1,886 @@
+{
+  "cutover": "2026-11-18",
+  "days": [
+    {
+      "date": "2026-11-18",
+      "theme": {
+        "id": "wilts-impossible-season",
+        "kind": "story",
+        "title": "Wilt's impossible season",
+        "subtitle": "Philadelphia Warriors, 1961–62",
+        "recap": "Wilt Chamberlain averaged 50.4 points, scored 100 in one night in front of a small crowd and barely left the floor all season."
+      },
+      "questions": [
+        "nba-wilt-100",
+        "nba-wilt62-ppg",
+        "nba-wilt-100-ftm",
+        "nba-wilt-100-crowd",
+        "nba-wilt62-minutes"
+      ]
+    },
+    {
+      "date": "2026-11-19",
+      "theme": {
+        "id": "banner-18",
+        "kind": "team-season",
+        "title": "Banner 18",
+        "subtitle": "Boston, 2023–24",
+        "recap": "The Celtics led the league by a mile, lost three playoff games and won the franchise's 18th title."
+      },
+      "questions": [
+        "nba-celtics24-wins",
+        "nba-celtics24-playoff-losses",
+        "nba-celtics24-ortg",
+        "nba-mazzulla24-age",
+        "nba-celtics24-seed-gap"
+      ]
+    },
+    {
+      "date": "2026-11-20",
+      "theme": {
+        "id": "hakeems-rockets",
+        "kind": "era",
+        "title": "Hakeem's Rockets",
+        "subtitle": "Houston, 1993–95",
+        "recap": "Houston started 15–0, won a seven-game Finals against New York and then won another title as a sixth seed."
+      },
+      "questions": [
+        "nba-rockets94-start",
+        "nba-ewing94-blocks",
+        "nba-starks94-g7-3pa",
+        "nba-anderson95-ft",
+        "nba-rockets95-road-wins"
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "theme": {
+        "id": "showtime",
+        "kind": "era",
+        "title": "Showtime",
+        "subtitle": "The Lakers of the 1980s",
+        "recap": "Magic Johnson's Lakers played fast, won big and left Finals marks behind, from a rookie's 42-point clincher to a perfect start to a postseason."
+      },
+      "questions": [
+        "nba-lakers87-wins",
+        "nba-magic80-g6-points",
+        "nba-lakers89-playoff-start",
+        "nba-cooper87-threes",
+        "nba-magic84-assists"
+      ]
+    },
+    {
+      "date": "2026-11-22",
+      "theme": {
+        "id": "lopsided",
+        "kind": "story",
+        "title": "Lopsided",
+        "subtitle": "Blowouts and comebacks",
+        "recap": "The NBA record book has a 73-point win, a 50-point halftime lead and a 36-point comeback."
+      },
+      "questions": [
+        "nba-grizzlies21-margin",
+        "nba-jazz96-comeback",
+        "nba-mavs20-halftime-lead",
+        "nba-blazers83-ot",
+        "nba-spurs83-fg"
+      ]
+    },
+    {
+      "date": "2026-11-23",
+      "theme": {
+        "id": "russell-wilt-and-baylor",
+        "kind": "era",
+        "title": "Russell, Wilt and Baylor",
+        "subtitle": "The NBA in the 1960s",
+        "recap": "Boston won eight titles in a row while Wilt, Baylor and West put up numbers that look like misprints today."
+      },
+      "questions": [
+        "nba-celtics-eight-straight",
+        "nba-baylor60-71",
+        "nba-west69-g1",
+        "nba-russell62-quarter-reb",
+        "nba-wilt60-half-reb"
+      ]
+    },
+    {
+      "date": "2026-11-24",
+      "theme": {
+        "id": "the-72-10-bulls",
+        "kind": "team-season",
+        "title": "The 72–10 Bulls",
+        "subtitle": "Chicago, 1995–96",
+        "recap": "Chicago lost three games before February, won almost everywhere it played and finished with the best combined record in league history."
+      },
+      "questions": [
+        "nba-bulls96-combined-wins",
+        "nba-rodman96-rpg",
+        "nba-bulls96-home-streak",
+        "nba-bulls96-road-wins",
+        "nba-rodman96-finals-oreb"
+      ]
+    },
+    {
+      "date": "2026-11-25",
+      "theme": {
+        "id": "heat-vs-mavericks-twice",
+        "kind": "story",
+        "title": "Heat vs Mavericks, twice",
+        "subtitle": "2006 and 2011 Finals",
+        "recap": "Dwyane Wade carried Miami past Dallas in 2006; five years later Dirk Nowitzki's Mavericks took the rematch."
+      },
+      "questions": [
+        "nba-wade06-g3",
+        "nba-wade06-finals-ppg",
+        "nba-mavs06-g4-q4",
+        "nba-lebron11-4q-total",
+        "nba-mavs11-g2-comeback"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "theme": {
+        "id": "splash-season",
+        "kind": "team-season",
+        "title": "Splash season",
+        "subtitle": "Golden State, 2015–16",
+        "recap": "The Warriors won their first 24, reached the All-Star break at 48–4, never lost at home for more than a year and made threes at a rate nobody had seen."
+      },
+      "questions": [
+        "nba-gsw16-start",
+        "nba-gsw16-allstar-wins",
+        "nba-gsw16-home-streak",
+        "nba-gsw16-threes",
+        "nba-curry16-ot-points"
+      ]
+    },
+    {
+      "date": "2026-11-27",
+      "theme": {
+        "id": "rip-city",
+        "kind": "team-season",
+        "title": "Rip City",
+        "subtitle": "Portland, 1976–77",
+        "recap": "Bill Walton's Blazers came from 0–2 down to win the 1977 title, then started the next season 50–10."
+      },
+      "questions": [
+        "nba-walton77-g6-reb",
+        "nba-blazers78-start",
+        "nba-blazers77-g4-q3",
+        "nba-blazers77-g4-margin",
+        "nba-walton77-g5-dreb"
+      ]
+    },
+    {
+      "date": "2026-11-28",
+      "theme": {
+        "id": "mamba-numbers",
+        "kind": "story",
+        "title": "Mamba numbers",
+        "subtitle": "Kobe Bryant, 1996–2016",
+        "recap": "Kobe Bryant scored 81 in a night, 62 in three quarters and 40 or more nine games running."
+      },
+      "questions": [
+        "nba-kobe-81",
+        "nba-kobe03-threes",
+        "nba-kobe03-40-streak",
+        "nba-kobe05-62-three-quarters",
+        "nba-kobe10-g7-fga"
+      ]
+    },
+    {
+      "date": "2026-11-29",
+      "theme": {
+        "id": "rock-bottom",
+        "kind": "story",
+        "title": "Rock bottom",
+        "subtitle": "The NBA's worst seasons",
+        "recap": "The 1972–73 Sixers and 2011–12 Bobcats own the worst records ever, and both lost games in long runs."
+      },
+      "questions": [
+        "nba-sixers73-wins",
+        "nba-bobcats12-wins",
+        "nba-sixers73-games-back",
+        "nba-bobcats12-losing-streak",
+        "nba-sixers14-losing-streak"
+      ]
+    },
+    {
+      "date": "2026-11-30",
+      "theme": {
+        "id": "stockton-to-malone",
+        "kind": "franchise",
+        "title": "Stockton to Malone",
+        "subtitle": "Utah Jazz, 1984–2003",
+        "recap": "John Stockton and Karl Malone played together longer than any teammates, and Stockton barely missed a game."
+      },
+      "questions": [
+        "nba-stockton90-apg",
+        "nba-stockton-malone-games",
+        "nba-stockton-missed",
+        "nba-stockton91-28",
+        "nba-malone-playoff-games"
+      ]
+    },
+    {
+      "date": "2026-12-01",
+      "theme": {
+        "id": "down-3-1",
+        "kind": "story",
+        "title": "Down 3–1",
+        "subtitle": "2016 Finals, Cleveland vs Golden State",
+        "recap": "Cleveland won the last three games, with LeBron James and Kyrie Irving scoring 41 each in Game 5 and the two teams dead level on points before Game 7."
+      },
+      "questions": [
+        "nba-cavs16-g5-41",
+        "nba-lebron16-finals-ppg",
+        "nba-green16-g7",
+        "nba-kerr16-games-missed",
+        "nba-finals16-610"
+      ]
+    },
+    {
+      "date": "2026-12-02",
+      "theme": {
+        "id": "kareem-and-the-big-o",
+        "kind": "story",
+        "title": "Kareem and the Big O",
+        "subtitle": "Milwaukee, 1970–71",
+        "recap": "In only its third season Milwaukee won 66 games and a title behind Lew Alcindor and Oscar Robertson."
+      },
+      "questions": [
+        "nba-bucks71-wins",
+        "nba-alcindor71-ppg",
+        "nba-bucks71-streak",
+        "nba-oscar71-apg",
+        "nba-kareem89-retire-age"
+      ]
+    },
+    {
+      "date": "2026-12-03",
+      "theme": {
+        "id": "the-big-threes-first-year",
+        "kind": "team-season",
+        "title": "The Big Three's first year",
+        "subtitle": "Boston, 2007–08",
+        "recap": "Boston went from a franchise-worst losing streak to 66 wins and a title won with a 39-point clincher."
+      },
+      "questions": [
+        "nba-celtics08-wins",
+        "nba-celtics07-losing-streak",
+        "nba-celtics08-playoff-games",
+        "nba-celtics08-g6-margin",
+        "nba-powe08-g2"
+      ]
+    },
+    {
+      "date": "2026-12-04",
+      "theme": {
+        "id": "clocks-rules-and-oddities",
+        "kind": "story",
+        "title": "Clocks, rules and oddities",
+        "subtitle": "Before and after the shot clock",
+        "recap": "The shot clock arrived in 1954 after games like a 19–18 final and a six-overtime game with one shot per overtime."
+      },
+      "questions": [
+        "nba-shot-clock-24",
+        "nba-pistons50-19-18",
+        "nba-offensive-rebound-reset",
+        "nba-six-overtime-game",
+        "nba-hawks-wizards-45-ft"
+      ]
+    },
+    {
+      "date": "2026-12-05",
+      "theme": {
+        "id": "silver-and-black",
+        "kind": "franchise",
+        "title": "Silver and black",
+        "subtitle": "San Antonio, 1989–2003",
+        "recap": "David Robinson turned the Spurs around overnight, and Tim Duncan's arrival after a 20-win season started a dynasty."
+      },
+      "questions": [
+        "nba-robinson94-71",
+        "nba-spurs90-improvement",
+        "nba-spurs97-wins",
+        "nba-duncan03-g6-blocks",
+        "nba-spurs99-playoff-streak"
+      ]
+    },
+    {
+      "date": "2026-12-06",
+      "theme": {
+        "id": "the-1980s-finals",
+        "kind": "era",
+        "title": "The 1980s Finals",
+        "subtitle": "Celtics, Lakers and 76ers",
+        "recap": "Boston and Los Angeles traded titles through the decade, including a Game 5 in a Boston Garden with no air conditioning."
+      },
+      "questions": [
+        "nba-celtics84-wins",
+        "nba-finals84-g5-heat",
+        "nba-floyd87-51",
+        "nba-celtics87-g6-q3",
+        "nba-wilkes80-g6"
+      ]
+    },
+    {
+      "date": "2026-12-07",
+      "theme": {
+        "id": "jordan-in-the-finals",
+        "kind": "story",
+        "title": "Jordan in the Finals",
+        "subtitle": "Chicago Bulls, 1991–98",
+        "recap": "Michael Jordan's Finals nights, from 13 straight makes in 1991 to the flu game and the last shot in Utah."
+      },
+      "questions": [
+        "nba-jordan98-g6",
+        "nba-jordan91-straight-makes",
+        "nba-jordan93-finals-ppg",
+        "nba-jordan97-flu-game",
+        "nba-finals98-rating"
+      ]
+    },
+    {
+      "date": "2026-12-08",
+      "theme": {
+        "id": "cup-nights",
+        "kind": "story",
+        "title": "Cup nights",
+        "subtitle": "The In-Season Tournament and NBA Cup",
+        "recap": "The new in-season event produced its own record nights, plus a prize of half a million dollars a player."
+      },
+      "questions": [
+        "nba-ad23-cup-final",
+        "nba-cup23-prize",
+        "nba-lakers23-cup-paint",
+        "nba-bucks24-cup-quarter",
+        "nba-thunder24-cup-3pa"
+      ]
+    },
+    {
+      "date": "2026-12-09",
+      "theme": {
+        "id": "detroit-defense",
+        "kind": "franchise",
+        "title": "Detroit defense",
+        "subtitle": "Pistons, 1989 and 2004",
+        "recap": "Detroit won with defense twice: the Bad Boys of 1989 and the 2004 team that held five straight opponents under 70."
+      },
+      "questions": [
+        "nba-pistons89-wins",
+        "nba-dumars89-17-straight",
+        "nba-dumars89-finals-ppg",
+        "nba-pistons04-under-70",
+        "nba-lakers04-g3-68"
+      ]
+    },
+    {
+      "date": "2026-12-10",
+      "theme": {
+        "id": "triple-double-kings",
+        "kind": "story",
+        "title": "Triple-double kings",
+        "subtitle": "Oscar Robertson to Russell Westbrook",
+        "recap": "Oscar Robertson set the triple-double standard in the 1960s; Russell Westbrook finally passed it in 2017."
+      },
+      "questions": [
+        "nba-westbrook17-td",
+        "nba-oscar-career-td",
+        "nba-oscar62-assists",
+        "nba-kidd02-finals-td",
+        "nba-butler20-g3-ast"
+      ]
+    },
+    {
+      "date": "2026-12-11",
+      "theme": {
+        "id": "shaq-and-kobes-three-peat",
+        "kind": "story",
+        "title": "Shaq and Kobe's three-peat",
+        "subtitle": "Los Angeles Lakers, 2000–2002",
+        "recap": "Shaquille O'Neal dominated three straight Finals, and the 2001 Lakers lost just once in the playoffs."
+      },
+      "questions": [
+        "nba-lakers00-wins",
+        "nba-shaq00-finals-ppg",
+        "nba-iverson01-g1",
+        "nba-shaq00-g2-fta",
+        "nba-shaq01-g2-blocks"
+      ]
+    },
+    {
+      "date": "2026-12-12",
+      "theme": {
+        "id": "heat-wave",
+        "kind": "team-season",
+        "title": "Heat wave",
+        "subtitle": "Miami Heat, 2012–13",
+        "recap": "Miami won 27 in a row on the way to a second straight title, five years after a 15-win season."
+      },
+      "questions": [
+        "nba-heat13-streak",
+        "nba-battier13-g7-threes",
+        "nba-heat13-month-wins",
+        "nba-andersen13-fg",
+        "nba-heat08-wins"
+      ]
+    },
+    {
+      "date": "2026-12-13",
+      "theme": {
+        "id": "the-1970-finals",
+        "kind": "story",
+        "title": "The 1970 Finals",
+        "subtitle": "Knicks vs Lakers",
+        "recap": "The 1970 Finals had a 60-foot buzzer-beater and Willis Reed's walk-out in Game 7, where Walt Frazier did the damage."
+      },
+      "questions": [
+        "nba-knicks70-streak",
+        "nba-frazier70-g7-ast",
+        "nba-reed70-g7-minutes",
+        "nba-west70-60-foot",
+        "nba-baylor-finals-losses"
+      ]
+    },
+    {
+      "date": "2026-12-14",
+      "theme": {
+        "id": "beyond-the-arc",
+        "kind": "story",
+        "title": "Beyond the arc",
+        "subtitle": "The three-pointer, 1979 to today",
+        "recap": "It took the NBA years to use the three: the first record was eight in a game and the first 100-three season came in 1988."
+      },
+      "questions": [
+        "nba-three-point-distance",
+        "nba-barry80-threes",
+        "nba-ainge88-threes",
+        "nba-miller-career-threes",
+        "nba-gsw16-dec1-3pa"
+      ]
+    },
+    {
+      "date": "2026-12-15",
+      "theme": {
+        "id": "houstons-high-volume-years",
+        "kind": "era",
+        "title": "Houston's high-volume years",
+        "subtitle": "Rockets, 2007–2019",
+        "recap": "Houston won 65 games, set a playoff record for missed threes and watched James Harden score 30 night after night."
+      },
+      "questions": [
+        "nba-rockets18-wins",
+        "nba-harden19-30-streak",
+        "nba-rockets18-27-misses",
+        "nba-mcgrady04-35-seconds",
+        "nba-rockets08-streak"
+      ]
+    },
+    {
+      "date": "2026-12-16",
+      "theme": {
+        "id": "birds-best-celtics",
+        "kind": "team-season",
+        "title": "Bird's best Celtics",
+        "subtitle": "Boston, 1985–86",
+        "recap": "Larry Bird won a third straight MVP, Boston lost once at home all season and the Celtics beat Houston for the title."
+      },
+      "questions": [
+        "nba-celtics86-wins",
+        "nba-jordan86-63",
+        "nba-hawks86-third-quarter",
+        "nba-bird85-opener-steals",
+        "nba-bird86-finals-minutes"
+      ]
+    },
+    {
+      "date": "2026-12-17",
+      "theme": {
+        "id": "warriors-vs-cavaliers",
+        "kind": "story",
+        "title": "Warriors vs Cavaliers",
+        "subtitle": "The 2015 and 2017 Finals",
+        "recap": "Golden State won the first and third of four straight Finals meetings, with both sides setting records along the way."
+      },
+      "questions": [
+        "nba-gsw15-combined-wins",
+        "nba-iguodala15-votes",
+        "nba-curry15-g2-misses",
+        "nba-cavs17-g4-q1",
+        "nba-lebron15-g1-fga"
+      ]
+    },
+    {
+      "date": "2026-12-18",
+      "theme": {
+        "id": "philadelphias-juggernauts",
+        "kind": "franchise",
+        "title": "Philadelphia's juggernauts",
+        "subtitle": "76ers, 1966–67 and 1982–83",
+        "recap": "Philadelphia built two of the most dominant teams ever: Wilt's 68-win champions and the 1983 team that nearly swept the playoffs."
+      },
+      "questions": [
+        "nba-sixers67-wins",
+        "nba-sixers67-start-losses",
+        "nba-sixers67-ppg",
+        "nba-wilt67-fta",
+        "nba-sixers83-playoff-wins"
+      ]
+    },
+    {
+      "date": "2026-12-19",
+      "theme": {
+        "id": "miller-time",
+        "kind": "story",
+        "title": "Miller time",
+        "subtitle": "Reggie Miller's Pacers",
+        "recap": "Reggie Miller tormented the Knicks, made threes in 68 straight games and once scored eight points in under nine seconds."
+      },
+      "questions": [
+        "nba-miller92-57",
+        "nba-miller95-8-points",
+        "nba-miller94-4q",
+        "nba-pacers00-home-streak",
+        "nba-miller97-three-streak"
+      ]
+    },
+    {
+      "date": "2026-12-20",
+      "theme": {
+        "id": "lakers-lore",
+        "kind": "franchise",
+        "title": "Lakers lore",
+        "subtitle": "Minneapolis and Los Angeles",
+        "recap": "Long before Showtime the Lakers had Elgin Baylor's Finals record and a 1971–72 team that did not lose for two months."
+      },
+      "questions": [
+        "nba-lakers72-streak",
+        "nba-lakers72-wins",
+        "nba-lakers72-margin",
+        "nba-wilt72-finals-reb",
+        "nba-baylor62-finals-61"
+      ]
+    },
+    {
+      "date": "2026-12-21",
+      "theme": {
+        "id": "crowds-ratings-and-parades",
+        "kind": "story",
+        "title": "Crowds, ratings and parades",
+        "subtitle": "Who was watching",
+        "recap": "From 4,000 people in Hershey to 108,713 in Texas, the NBA's audience numbers swing wildly."
+      },
+      "questions": [
+        "nba-allstar10-attendance",
+        "nba-allstar24-east",
+        "nba-allstar51-attendance",
+        "nba-finals07-rating",
+        "nba-cavs16-parade"
+      ]
+    },
+    {
+      "date": "2026-12-22",
+      "theme": {
+        "id": "the-beautiful-game",
+        "kind": "team-season",
+        "title": "The beautiful game",
+        "subtitle": "San Antonio, 2013–14",
+        "recap": "The Spurs passed Miami off the floor in the 2014 Finals, a year after losing to them, with a record ten international players."
+      },
+      "questions": [
+        "nba-spurs14-streak",
+        "nba-spurs14-international",
+        "nba-spurs14-g3-fg",
+        "nba-spurs14-blowouts",
+        "nba-spurs14-finals-margin"
+      ]
+    },
+    {
+      "date": "2026-12-23",
+      "theme": {
+        "id": "seventies-finals",
+        "kind": "era",
+        "title": "Seventies Finals",
+        "subtitle": "The NBA, 1975–79",
+        "recap": "The late 1970s spread titles around: Golden State swept, Boston won a triple-overtime classic and Seattle won its first title."
+      },
+      "questions": [
+        "nba-bullets75-wins",
+        "nba-jojo76-finals-points",
+        "nba-mcdonald76-ot",
+        "nba-warriors75-bench",
+        "nba-gus79-finals-ppg"
+      ]
+    },
+    {
+      "date": "2026-12-24",
+      "theme": {
+        "id": "warriors-from-deep",
+        "kind": "story",
+        "title": "Warriors from deep",
+        "subtitle": "Golden State shooting records",
+        "recap": "Golden State's shooters broke records for threes in a game, threes in a playoff game and threes in consecutive games."
+      },
+      "questions": [
+        "nba-curry16-13-threes",
+        "nba-klay16-60-minutes",
+        "nba-klay16-wcf-threes",
+        "nba-curry-three-streak",
+        "nba-gsw16-mavs-39-threes"
+      ]
+    },
+    {
+      "date": "2026-12-25",
+      "theme": {
+        "id": "the-worm",
+        "kind": "story",
+        "title": "The Worm",
+        "subtitle": "Dennis Rodman",
+        "recap": "Dennis Rodman, a second-round pick, won seven straight rebounding titles and grabbed rebounds at a rate not seen since Wilt."
+      },
+      "questions": [
+        "nba-rodman-reb-titles",
+        "nba-rodman92-rpg",
+        "nba-rodman92-34",
+        "nba-rodman86-draft",
+        "nba-wilt72-total-reb"
+      ]
+    },
+    {
+      "date": "2026-12-26",
+      "theme": {
+        "id": "one-year-apart",
+        "kind": "story",
+        "title": "One year apart",
+        "subtitle": "The 2008 and 2009 Finals",
+        "recap": "The Lakers lost a 21-point first-quarter lead to Boston in 2008, then came back to win the 2009 title."
+      },
+      "questions": [
+        "nba-lakers09-title-number",
+        "nba-kobe09-finals-ppg",
+        "nba-finals09-g2-q1",
+        "nba-celtics09-streak",
+        "nba-lakers08-g4-lead"
+      ]
+    },
+    {
+      "date": "2026-12-27",
+      "theme": {
+        "id": "swat-team",
+        "kind": "story",
+        "title": "Swat team",
+        "subtitle": "Blocked-shot records",
+        "recap": "Blocks were first counted in 1973–74, and the records include Elmore Smith's 11 in a half and Dwight Howard's nine in a Finals game."
+      },
+      "questions": [
+        "nba-howard09-g4-blocks",
+        "nba-elmore73-half",
+        "nba-bol85-quarter",
+        "nba-raptors01-team-blocks",
+        "nba-robinson94-quadruple"
+      ]
+    },
+    {
+      "date": "2026-12-28",
+      "theme": {
+        "id": "the-dynasty-years",
+        "kind": "era",
+        "title": "The dynasty years",
+        "subtitle": "Chicago Bulls, 1991–98",
+        "recap": "Chicago won 69 games a year after 72, buried Utah by 42 in a Finals game and then fell to 13 wins once the team broke up."
+      },
+      "questions": [
+        "nba-jordan93-g4-55",
+        "nba-bulls97-wins",
+        "nba-jazz98-g3-54",
+        "nba-pippen97-g3-threes",
+        "nba-bulls99-wins"
+      ]
+    },
+    {
+      "date": "2026-12-29",
+      "theme": {
+        "id": "golden-states-fourth",
+        "kind": "story",
+        "title": "Golden State's fourth",
+        "subtitle": "The 2022 Finals",
+        "recap": "The Warriors won a fourth title in eight years behind Stephen Curry and a 21–0 run in the clincher."
+      },
+      "questions": [
+        "nba-curry22-g4",
+        "nba-kerr-player-titles",
+        "nba-gsw22-g6-run",
+        "nba-tatum22-turnovers",
+        "nba-finals22-g1-threes"
+      ]
+    },
+    {
+      "date": "2026-12-30",
+      "theme": {
+        "id": "playoff-drama",
+        "kind": "story",
+        "title": "Playoff drama",
+        "subtitle": "2002 to 2005",
+        "recap": "Boston shot its way past Philadelphia and erased a big deficit against New Jersey, and Robert Horry stole a Finals game in Detroit."
+      },
+      "questions": [
+        "nba-pierce02-46",
+        "nba-celtics02-4q",
+        "nba-celtics02-19-threes",
+        "nba-horry05-g5",
+        "nba-pistons05-g4-to"
+      ]
+    },
+    {
+      "date": "2026-12-31",
+      "theme": {
+        "id": "bubble-and-beyond",
+        "kind": "story",
+        "title": "Bubble and beyond",
+        "subtitle": "The 2020 and 2021 Finals",
+        "recap": "The Lakers won in the 2020 bubble; a year later Giannis Antetokounmpo scored 50 to finish Phoenix."
+      },
+      "questions": [
+        "nba-giannis21-g6",
+        "nba-lakers20-lead-record",
+        "nba-giannis21-g6-ft",
+        "nba-suns21-g1-ft",
+        "nba-paul21-seasons"
+      ]
+    },
+    {
+      "date": "2027-01-01",
+      "theme": {
+        "id": "shortened-seasons",
+        "kind": "story",
+        "title": "Shortened seasons",
+        "subtitle": "Lockouts and the pandemic",
+        "recap": "The NBA has cut its schedule to 50 games, 66 games and 72 games, and the shortened years still produced champions."
+      },
+      "questions": [
+        "nba-lockout99-games",
+        "nba-season21-games",
+        "nba-spurs99-wins",
+        "nba-sprewell99-g5",
+        "nba-spurs99-memorial-day"
+      ]
+    },
+    {
+      "date": "2027-01-02",
+      "theme": {
+        "id": "scoring-outbursts",
+        "kind": "story",
+        "title": "Scoring outbursts",
+        "subtitle": "Big nights",
+        "recap": "Wilt owns most of the scoring records, but Devin Booker and Kobe Bryant added 60-plus nights at both ends of a career."
+      },
+      "questions": [
+        "nba-booker17-70",
+        "nba-wilt-60-point-games",
+        "nba-kobe16-final-game",
+        "nba-wilt-100-fga",
+        "nba-wilt62-week-average"
+      ]
+    },
+    {
+      "date": "2027-01-03",
+      "theme": {
+        "id": "lakers-celtics-2010",
+        "kind": "story",
+        "title": "Lakers–Celtics, 2010",
+        "subtitle": "The 2010 Finals",
+        "recap": "The rivalry's latest Finals went seven games, with Ray Allen setting a record one night and missing everything two nights later."
+      },
+      "questions": [
+        "nba-jackson10-titles",
+        "nba-allen10-g2-threes",
+        "nba-allen10-g3-fga",
+        "nba-celtics-lakers-finals-record",
+        "nba-finals10-g7-viewers"
+      ]
+    },
+    {
+      "date": "2027-01-04",
+      "theme": {
+        "id": "the-2020s",
+        "kind": "mixed",
+        "title": "The 2020s",
+        "subtitle": "Recent records",
+        "recap": "A 41st pick won Finals MVP, an eighth seed reached the Finals and a rookie center shot almost 75 percent."
+      },
+      "questions": [
+        "nba-jokic-draft-pick",
+        "nba-butler23-56",
+        "nba-heat23-wins",
+        "nba-jokic23-playoff-points",
+        "nba-lively24-fg"
+      ]
+    },
+    {
+      "date": "2027-01-05",
+      "theme": {
+        "id": "warriors-cavs-and-raptors",
+        "kind": "story",
+        "title": "Warriors, Cavs and Raptors",
+        "subtitle": "The 2018 and 2019 Finals",
+        "recap": "LeBron James scored 51 in a 2018 loss; a year later Toronto ended Golden State's run."
+      },
+      "questions": [
+        "nba-lebron18-g1",
+        "nba-curry18-g2-threes",
+        "nba-gsw19-g2-run",
+        "nba-siakam19-g1",
+        "nba-gsw19-20-threes"
+      ]
+    },
+    {
+      "date": "2027-01-06",
+      "theme": {
+        "id": "miamis-finals-years",
+        "kind": "story",
+        "title": "Miami's Finals years",
+        "subtitle": "Heat, 2012 and 2013",
+        "recap": "Miami beat Oklahoma City and then survived San Antonio, thanks in part to a corner three with seconds left."
+      },
+      "questions": [
+        "nba-lebron13-g7",
+        "nba-westbrook12-g4",
+        "nba-miller12-g5-threes",
+        "nba-allen13-g6-seconds",
+        "nba-spurs12-streak"
+      ]
+    }
+  ],
+  "reserve": [
+    "nba-bulls96-18-streak",
+    "nba-sonics96-wins",
+    "nba-finals96-combined-wins",
+    "nba-wilt61-78",
+    "nba-wilt-100-combined",
+    "nba-wilt62-total-points",
+    "nba-curry19-g3",
+    "nba-kobe-three-titles-age",
+    "nba-wade06-g5-fta",
+    "nba-dirk11-24-ft",
+    "nba-mavs07-wins",
+    "nba-knicks94-playoff-games",
+    "nba-celtics08-g6-steals",
+    "nba-duncan14-finals-reb",
+    "nba-diaw14-finals-ast",
+    "nba-leonard14-age",
+    "nba-lakers01-39",
+    "nba-smith95-threes",
+    "nba-middleton21-g4",
+    "nba-tatum22-debut-ast",
+    "nba-brown24-finals-ppg",
+    "nba-spurs24-losing-streak",
+    "nba-skiles90-30",
+    "nba-lucas84-quarter-ast",
+    "nba-celtics73-wins",
+    "nba-pistons06-wins",
+    "nba-sixers83-wins",
+    "nba-heat13-wins",
+    "nba-nets02-improvement"
+  ]
+}

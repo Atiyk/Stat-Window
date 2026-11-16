@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-22",
+  "theme": {
+    "title": "The beautiful game",
+    "subtitle": "San Antonio, 2013–14",
+    "recap": "The Spurs passed Miami off the floor in the 2014 Finals, a year after losing to them, with a record ten international players."
+  },
+  "questions": [
+    {
+      "id": "nba-spurs14-streak",
+      "sport": "NBA",
+      "prompt": "The 2013–14 Spurs' longest winning streak lasted how many games?",
+      "context": "San Antonio Spurs · 2013–14 regular season",
+      "answer": 19,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "note": "19, including a 16–0 March.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+        "quote": "Emboldened by a 19-game winning streak from late February to early April, including an unbeaten month in March (16–0)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-spurs14-international",
+      "sport": "NBA",
+      "prompt": "The 2013–14 Spurs opened the season with an NBA-record number of international players. How many?",
+      "context": "San Antonio Spurs · 2013–14",
+      "answer": 10,
+      "unit": {
+        "singular": "player",
+        "plural": "players"
+      },
+      "min": 5,
+      "max": 19,
+      "step": 1,
+      "note": "Ten.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+        "quote": "They also entered the season with an NBA-record ten international players."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-spurs14-g3-fg",
+      "sport": "NBA",
+      "prompt": "In the first half of Game 3 of the 2014 Finals, what percentage of their shots did the Spurs make?",
+      "context": "2014 NBA Finals · Game 3 · at Miami",
+      "answer": 75.8,
+      "unit": {
+        "singular": "percent",
+        "plural": "percent"
+      },
+      "min": 55,
+      "max": 100,
+      "step": 0.2,
+      "note": "75.8%, a Finals record for a half.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+        "quote": "a Finals-record 75.8% shooting effort from the team during the first half"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-spurs14-blowouts",
+      "sport": "NBA",
+      "prompt": "How many of the 2014 Spurs' playoff wins came by 15 points or more?",
+      "context": "San Antonio Spurs · 2014 playoffs",
+      "answer": 12,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 7,
+      "max": 26,
+      "step": 1,
+      "note": "12, a postseason record.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+        "quote": "The Spurs finished the playoffs with 12 wins by 15 points or more, the most ever in the postseason."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-spurs14-finals-margin",
+      "sport": "NBA",
+      "prompt": "By how many points per game did the Spurs outscore Miami in the 2014 Finals?",
+      "context": "2014 NBA Finals · five games",
+      "answer": 14,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 34,
+      "step": 0.1,
+      "note": "14.0, the largest average margin in Finals history.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+        "quote": "The Spurs outscored the Heat in the series by the largest per game average point differential (14.0) in Finals history."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

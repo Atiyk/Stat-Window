@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-30",
+  "theme": {
+    "title": "Playoff drama",
+    "subtitle": "2002 to 2005",
+    "recap": "Boston shot its way past Philadelphia and erased a big deficit against New Jersey, and Robert Horry stole a Finals game in Detroit."
+  },
+  "questions": [
+    {
+      "id": "nba-pierce02-46",
+      "sport": "NBA",
+      "prompt": "In the deciding Game 5 of the 2002 first round against Philadelphia, Paul Pierce scored how many points?",
+      "context": "2002 East first round · Game 5 · vs 76ers",
+      "answer": 46,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 25,
+      "max": 75,
+      "step": 1,
+      "note": "46, with 8 of 10 threes.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
+        "quote": "Paul Pierce led the way with 46, on 8-10 shooting from downtown"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-celtics02-4q",
+      "sport": "NBA",
+      "prompt": "Boston erased a big deficit in Game 3 of the 2002 East finals. How many points did it score in the fourth quarter?",
+      "context": "2002 East finals · Game 3 · vs New Jersey",
+      "answer": 41,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 24,
+      "max": 62,
+      "step": 1,
+      "note": "41, to New Jersey's 16.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
+        "quote": "the Celtics outscored the Nets 41–16 in the fourth quarter"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-celtics02-19-threes",
+      "sport": "NBA",
+      "prompt": "Boston set a playoff record for threes in a game against Philadelphia in 2002. How many?",
+      "context": "2002 East first round · Celtics vs 76ers",
+      "answer": 19,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
+      },
+      "min": 10,
+      "max": 36,
+      "step": 1,
+      "note": "19, with nine in the fourth quarter.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
+        "quote": "hitting an NBA playoff record nine of them in the 4th quarter and 19 in the game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-horry05-g5",
+      "sport": "NBA",
+      "prompt": "Robert Horry hit the game-winner in Game 5 of the 2005 Finals. How many points did he score off the bench?",
+      "context": "2005 NBA Finals · Game 5 · at Detroit",
+      "answer": 21,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 34,
+      "step": 1,
+      "note": "21, with five of six threes.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
+        "quote": "Horry went 5 for 6 from beyond the arc, including the game-winner, and scored 21 points coming off the bench."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-pistons05-g4-to",
+      "sport": "NBA",
+      "prompt": "Detroit set a Finals record for the fewest turnovers in a game in 2005. How many did it commit?",
+      "context": "2005 NBA Finals · Pistons vs Spurs",
+      "answer": 4,
+      "unit": {
+        "singular": "turnover",
+        "plural": "turnovers"
+      },
+      "min": 0,
+      "max": 15,
+      "step": 1,
+      "note": "Four.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
+        "quote": "Collectively, the Spurs shot 37% and committed 17 turnovers to the Pistons' NBA Finals-record four."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

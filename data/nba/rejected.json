@@ -1,0 +1,21 @@
+[
+ {"claim": "The 1989 Pistons clinched all four series on the road", "reason": "contradicted", "detail": "The season page's game log does not support it. Two Wikipedia pages disagree, so the claim was dropped."},
+ {"claim": "Game 4 of the 1969 Finals had 50 turnovers", "reason": "stat-not-officially-recorded", "detail": "The NBA did not officially record turnovers until 1977–78, so a 1969 turnover count cannot be treated as an official figure."},
+ {"claim": "The Lakers' 68 points in Game 3 of the 2004 Finals as a Finals low", "reason": "source-conflict", "detail": "The 2003–04 Pistons page and the 2004 Finals page frame the record differently (Finals vs all playoff games). The question uses only the 2004 Finals page wording: a Lakers franchise playoff low."},
+ {"claim": "Score of Game 4 of the 1970 Finals", "reason": "source-conflict", "detail": "Two pages gave different scores."},
+ {"claim": "Ralph Sampson's height advantage in the 1986 Finals (15 vs 16 inches)", "reason": "source-conflict", "detail": "Pages disagree on the figure."},
+ {"claim": "The 2009 title as the Lakers' 'seventh' or 'tenth' in Los Angeles", "reason": "source-conflict", "detail": "Pages disagree; the question uses the franchise total (15th) instead."},
+ {"claim": "Score of Game 2 of the 2008 Finals", "reason": "unclear-source", "detail": "The fetched text and table disagreed on which side scored what."},
+ {"claim": "Charlotte Bobcats score on March 28, 2012", "reason": "source-conflict", "detail": "Game log and prose disagree."},
+ {"claim": "Avery Johnson's 1999 Finals shot came with 47 or 66 seconds left", "reason": "source-conflict", "detail": "Two different times on two pages."},
+ {"claim": "Orlando's 63% field-goal shooting in Game 3 of the 2009 Finals as a Finals record", "reason": "source-conflict", "detail": "The 2013 Finals page says San Antonio in 2013 was the first team to shoot 60% in a Finals game, which conflicts. Both dropped as record framings."},
+ {"claim": "Boston has 17 championships", "reason": "stale", "detail": "True only until 2024; the count changed to 18. Changeable totals need an as-of date or are avoided."},
+ {"claim": "Tim Duncan's 158 playoff double-doubles", "reason": "changeable-record", "detail": "The page states it as a running record with no as-of date."},
+ {"claim": "Detroit held Jason Kidd to 0 points in a 2003 playoff game", "reason": "unplayable", "detail": "An answer of zero cannot sit strictly inside a scale that starts at zero."},
+ {"claim": "Pistons averaged 80.696 points per game", "reason": "precision", "detail": "Three decimals is false precision for a slider game."},
+ {"claim": "HoopsHype ranking of the 1986 Celtics' path to the Finals", "reason": "opinion", "detail": "A third-party ranking, not a fact."},
+ {"claim": "James Harden 60-point game and Victor Wembanyama 40-20 game from table cells", "reason": "unclear-source", "detail": "Table cells were fetched without clear column headers, so the stat could not be confirmed."},
+ {"claim": "2026 Knicks Finals comeback details", "reason": "too-recent", "detail": "Very recent; only one page mentioned it and it was not independently corroborated."},
+ {"claim": "Danny Biasone's 120 shots per game behind the 24-second clock", "reason": "derivable", "detail": "Kept out of the schedule: anyone who knows 24 seconds and 48 minutes can compute it, so it is not an estimation question."},
+ {"claim": "Kevin Durant's streak of 72 straight regular-season games with 20 or more points", "reason": "ambiguous-scope", "detail": "The prompt could not say which streak or season without a long qualifier, and the as-of label was a season, not a date. Dropped by the release critic."}
+]

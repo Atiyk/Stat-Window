@@ -1,125 +1,138 @@
 {
   "date": "2026-11-22",
+  "theme": {
+    "title": "Lopsided",
+    "subtitle": "Blowouts and comebacks",
+    "recap": "The NBA record book has a 73-point win, a 50-point halftime lead and a 36-point comeback."
+  },
   "questions": [
     {
-      "id": "nba-russell-titles",
-      "sport": "Basketball",
-      "prompt": "How many NBA championships did Bill Russell win as a player?",
-      "context": "NBA · Boston Celtics · 1956–1969",
-      "answer": 11,
+      "id": "nba-grizzlies21-margin",
+      "sport": "NBA",
+      "prompt": "Memphis beat Oklahoma City on December 2, 2021 by the largest margin in NBA history. How many points?",
+      "context": "Grizzlies vs Thunder · 2021–22",
+      "answer": 73,
       "unit": {
-        "singular": "title",
-        "plural": "titles"
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 25,
+      "max": 100,
+      "step": 1,
+      "note": "73, winning 152–79.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
+        "quote": "152–79 on December 2, 2021",
+        "derivation": "152 − 79 = 73"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-jazz96-comeback",
+      "sport": "NBA",
+      "prompt": "Utah set the record for the largest comeback in NBA history against Denver in 1996. How many points did the Jazz trail by?",
+      "context": "Jazz vs Nuggets · November 27, 1996",
+      "answer": 36,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 10,
+      "max": 52,
+      "step": 1,
+      "note": "36, down 70–34 late in the first half.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
+        "quote": "Utah trailed 70–34 with 20 seconds left in the 1st half, but outscored Denver 73–33",
+        "derivation": "70 − 34 = 36"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-mavs20-halftime-lead",
+      "sport": "NBA",
+      "prompt": "Dallas built the largest halftime lead in NBA history against the Clippers on December 27, 2020. How big was it?",
+      "context": "Mavericks vs Clippers · 2020–21",
+      "answer": 50,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 35,
+      "max": 85,
+      "step": 1,
+      "note": "50 points, 77–27.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
+        "quote": "77–27 in the 1st half on December 27, 2020",
+        "derivation": "77 − 27 = 50"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-blazers83-ot",
+      "sport": "NBA",
+      "prompt": "On January 22, 1983, Houston did not score in overtime against Portland. How many points did Portland score in it?",
+      "context": "Trail Blazers vs Rockets · 1982–83",
+      "answer": 17,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 15,
+      "max": 26,
       "step": 1,
-      "note": "Eleven titles between 1957 and 1969.",
+      "note": "17–0, winning 113–96.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Bill_Russell",
-        "quote": "11× NBA champion (1957, 1959–1966, 1968, 1969)"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
+        "quote": "(113–96 game, 17–0 OT)"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "hard"
     },
     {
-      "id": "fb-fontaine-1958",
-      "sport": "Football",
-      "prompt": "How many goals did Just Fontaine score at the 1958 World Cup?",
-      "context": "FIFA World Cup · Sweden · six matches for France",
-      "answer": 13,
+      "id": "nba-spurs83-fg",
+      "sport": "NBA",
+      "prompt": "San Antonio set the NBA record for team field-goal percentage in a game in 1983. What was it?",
+      "context": "Spurs vs Mavericks · April 16, 1983",
+      "answer": 70.7,
       "unit": {
-        "singular": "goal",
-        "plural": "goals"
+        "singular": "percent",
+        "plural": "percent"
       },
-      "min": 0,
-      "max": 20,
-      "step": 1,
-      "note": "Thirteen in six matches, still the record for one tournament.",
+      "min": 42,
+      "max": 78,
+      "step": 0.1,
+      "note": "70.7%, 53 of 75.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Just_Fontaine",
-        "quote": "with thirteen in six matches at the 1958 tournament"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
+        "quote": "70.7% (53/75) by the San Antonio Spurs vs. the Dallas Mavericks on April 16, 1983"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "nfl-dickerson-1984-yds",
-      "sport": "American football",
-      "prompt": "How many rushing yards did Eric Dickerson gain in the 1984 season?",
-      "context": "NFL · Los Angeles Rams · 1984",
-      "answer": 2105,
-      "unit": {
-        "singular": "yard",
-        "plural": "yards"
       },
-      "min": 1200,
-      "max": 2600,
-      "step": 5,
-      "note": "2,105 yards, the single-season record.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Eric_Dickerson",
-        "quote": "He holds the NFL's single-season rushing record with 2,105 yards, set in 1984"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "f1-verstappen-2023-wins",
-      "sport": "Motor racing",
-      "prompt": "How many Grands Prix did Max Verstappen win in the 2023 season?",
-      "context": "Formula One · 2023 · 22 races held",
-      "answer": 19,
-      "unit": {
-        "singular": "win",
-        "plural": "wins"
-      },
-      "min": 5,
-      "max": 22,
-      "step": 1,
-      "note": "Nineteen of 22, a record for one season.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship",
-        "quote": "winning a record 19 out of 22 Grands Prix held"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "ath-bolt-100m",
-      "sport": "Athletics",
-      "prompt": "What is Usain Bolt’s 100 m world record time, in seconds?",
-      "context": "Athletics · Berlin · 2009",
-      "answer": 9.58,
-      "unit": {
-        "singular": "second",
-        "plural": "seconds"
-      },
-      "min": 9.4,
-      "max": 10.2,
-      "step": 0.01,
-      "note": "9.58 seconds, the biggest jump since electronic timing began.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Usain_Bolt",
-        "quote": "with 9.58 seconds in 2009 – the biggest improvement since the start of electronic timing"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
+      "difficulty": "expert"
     }
   ]
 }

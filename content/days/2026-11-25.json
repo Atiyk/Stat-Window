@@ -1,125 +1,135 @@
 {
   "date": "2026-11-25",
+  "theme": {
+    "title": "Heat vs Mavericks, twice",
+    "subtitle": "2006 and 2011 Finals",
+    "recap": "Dwyane Wade carried Miami past Dallas in 2006; five years later Dirk Nowitzki's Mavericks took the rematch."
+  },
   "questions": [
     {
-      "id": "nba-wilt-55-reb",
-      "sport": "Basketball",
-      "prompt": "How many rebounds did Wilt Chamberlain grab against the Celtics on November 24, 1960?",
-      "context": "NBA · Philadelphia Warriors · 1960",
-      "answer": 55,
+      "id": "nba-wade06-g3",
+      "sport": "NBA",
+      "prompt": "Down 2–0 in the 2006 Finals, how many points did Dwyane Wade score to win Game 3?",
+      "context": "2006 NBA Finals · Game 3 · vs Dallas",
+      "answer": 42,
       "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 20,
-      "max": 70,
+      "max": 75,
       "step": 1,
-      "note": "Fifty-five rebounds in one night.",
+      "note": "42 with 13 rebounds, rallying Miami from 13 down.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/List_of_NBA_single-game_rebounding_leaders",
-        "quote": "55 | Wilt Chamberlain | Philadelphia Warriors | November 24, 1960 | Boston Celtics"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+        "quote": "Led by Dwyane Wade's 42 points and 13 rebounds, the Heat rallied from a 13-point deficit"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "easy"
     },
     {
-      "id": "fb-arsenal-unbeaten",
-      "sport": "Football",
-      "prompt": "How many league matches in a row did Arsenal go unbeaten in 2003 and 2004?",
-      "context": "English top flight · Arsenal · 2003–2004",
-      "answer": 49,
+      "id": "nba-wade06-finals-ppg",
+      "sport": "NBA",
+      "prompt": "Dwyane Wade was 2006 Finals MVP. What did he average?",
+      "context": "2006 NBA Finals · six games",
+      "answer": 34.7,
       "unit": {
-        "singular": "match",
-        "plural": "matches"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 20,
-      "max": 70,
-      "step": 1,
-      "note": "Forty-nine, including the whole 38-game “Invincibles” season.",
+      "min": 24,
+      "max": 54,
+      "step": 0.1,
+      "note": "34.7 points per game.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/The_Invincibles_(football)",
-        "quote": "went unbeaten for a total of 49 consecutive matches in the league between 2003 and 2004"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+        "quote": "Averaging 34.7 points per game in the series"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "medium"
     },
     {
-      "id": "oly-phelps-medals",
-      "sport": "Swimming",
-      "prompt": "How many Olympic medals did Michael Phelps win in total?",
-      "context": "Olympic Games · gold, silver and bronze",
-      "answer": 28,
+      "id": "nba-mavs06-g4-q4",
+      "sport": "NBA",
+      "prompt": "In Game 4 of the 2006 Finals, Miami held Dallas to how many fourth-quarter points?",
+      "context": "2006 NBA Finals · Game 4 · at Miami",
+      "answer": 7,
       "unit": {
-        "singular": "medal",
-        "plural": "medals"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 10,
-      "max": 40,
+      "min": 0,
+      "max": 26,
       "step": 1,
-      "note": "Twenty-eight medals, 23 of them gold.",
+      "note": "Seven.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Michael_Phelps",
-        "quote": "a total of 28 medals"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+        "quote": "Miami held Dallas to just seven points in the fourth quarter"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "hard"
     },
     {
-      "id": "mlb-cy-young-wins",
-      "sport": "Baseball",
-      "prompt": "How many games did Cy Young win as a pitcher?",
-      "context": "MLB · 1890–1911",
-      "answer": 511,
+      "id": "nba-lebron11-4q-total",
+      "sport": "NBA",
+      "prompt": "Across all six fourth quarters of the 2011 Finals, how many points did LeBron James score?",
+      "context": "2011 NBA Finals · six games vs Dallas",
+      "answer": 8,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 300,
-      "max": 600,
+      "min": 0,
+      "max": 45,
       "step": 1,
-      "note": "Five hundred eleven, the MLB record.",
+      "note": "Eight in total.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Cy_Young",
-        "quote": "He holds MLB records for the most career wins, with 511"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+        "quote": "He also scored just eight points throughout all six fourth quarters in the series."
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "hard"
     },
     {
-      "id": "nfl-emmitt-career-yds",
-      "sport": "American football",
-      "prompt": "How many rushing yards did Emmitt Smith gain in his NFL career?",
-      "context": "NFL · 1990–2004",
-      "answer": 18355,
+      "id": "nba-mavs11-g2-comeback",
+      "sport": "NBA",
+      "prompt": "Dallas won Game 2 of the 2011 Finals after trailing by how many points?",
+      "context": "2011 NBA Finals · Game 2 · at Miami",
+      "answer": 15,
       "unit": {
-        "singular": "yard",
-        "plural": "yards"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 10000,
-      "max": 25000,
-      "step": 50,
-      "note": "18,355, breaking Walter Payton’s record.",
+      "min": 0,
+      "max": 26,
+      "step": 1,
+      "note": "15, then the biggest Finals comeback since a 24-point rally.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Emmitt_Smith",
-        "quote": "he rushed for 18,355 yards, breaking the record formerly held by Walter Payton"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+        "quote": "The Mavs' 15-point comeback was the biggest in an NBA Finals game since the 24-point comeback"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "expert"
     }
   ]
 }

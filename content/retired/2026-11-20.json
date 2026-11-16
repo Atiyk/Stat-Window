@@ -1,0 +1,125 @@
+{
+  "date": "2026-11-20",
+  "questions": [
+    {
+      "id": "nfl-dolphins-1972-wins",
+      "sport": "American football",
+      "prompt": "Counting the playoffs, how many games did the 1972 Miami Dolphins win?",
+      "context": "NFL · 1972 season · they never lost",
+      "answer": 17,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 8,
+      "max": 22,
+      "step": 1,
+      "note": "They finished 17–0.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/1972_Miami_Dolphins_season",
+        "quote": "won all three postseason games to finish 17–0"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "fb-klose-wc-goals",
+      "sport": "Football",
+      "prompt": "How many World Cup goals did Miroslav Klose score in his career?",
+      "context": "FIFA World Cup · Germany · 2002–2014",
+      "answer": 16,
+      "unit": {
+        "singular": "goal",
+        "plural": "goals"
+      },
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "note": "Sixteen, a World Cup record that stood for twelve years.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Miroslav_Klose",
+        "quote": "was the record-holder for most goals scored in the FIFA World Cup (16) for twelve years"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "nba-curry-2016-threes",
+      "sport": "Basketball",
+      "prompt": "How many three-pointers did Stephen Curry make in the 2015–16 regular season?",
+      "context": "NBA · Golden State Warriors · 2015–16",
+      "answer": 402,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
+      },
+      "min": 150,
+      "max": 550,
+      "step": 1,
+      "note": "402, smashing his own record of 286.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "Curry broke his own NBA record for made three-pointers in a season of 286, finishing with 402"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "oly-comaneci-tens",
+      "sport": "Gymnastics",
+      "prompt": "How many perfect 10s did Nadia Comăneci score at the 1976 Olympics?",
+      "context": "Olympic Games · Montreal · 1976",
+      "answer": 7,
+      "unit": {
+        "singular": "perfect 10",
+        "plural": "perfect 10s"
+      },
+      "min": 0,
+      "max": 15,
+      "step": 1,
+      "note": "Seven, four of them on the uneven bars.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Nadia_Com%C4%83neci",
+        "quote": "At Montreal Comăneci received four of her seven 10s on the uneven bars."
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "mlb-aaron-career-hr",
+      "sport": "Baseball",
+      "prompt": "How many home runs did Hank Aaron hit in his MLB career?",
+      "context": "MLB · 1954–1976",
+      "answer": 755,
+      "unit": {
+        "singular": "home run",
+        "plural": "home runs"
+      },
+      "min": 400,
+      "max": 1000,
+      "step": 5,
+      "note": "Seven hundred fifty-five, the record until 2007.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Hank_Aaron",
+        "quote": "surpassed his famous total of 755 in 2007"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    }
+  ]
+}

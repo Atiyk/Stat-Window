@@ -1,0 +1,125 @@
+{
+  "date": "2026-11-18",
+  "questions": [
+    {
+      "id": "nba-wilt-100",
+      "sport": "Basketball",
+      "prompt": "How many points did Wilt Chamberlain score against the Knicks on March 2, 1962?",
+      "context": "NBA · Philadelphia Warriors · 169–147 win",
+      "answer": 100,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 50,
+      "max": 130,
+      "step": 1,
+      "note": "Exactly one hundred, in a 169–147 win.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "by scoring 100 points for the Philadelphia Warriors in a 169–147 win over the New York Knicks"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "nfl-brady-sb-wins",
+      "sport": "American football",
+      "prompt": "How many Super Bowls did Tom Brady win?",
+      "context": "NFL · Patriots and Buccaneers · 2000–2022",
+      "answer": 7,
+      "unit": {
+        "singular": "Super Bowl",
+        "plural": "Super Bowls"
+      },
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "note": "Seven wins from ten Super Bowl appearances.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Tom_Brady",
+        "quote": "extending his individual records to 10 Super Bowl appearances and seven victories"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "fb-city-2018-points",
+      "sport": "Football",
+      "prompt": "How many points did Manchester City finish with in the 2017–18 Premier League?",
+      "context": "Premier League · 38 matches · 114 points possible",
+      "answer": 100,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 60,
+      "max": 114,
+      "step": 1,
+      "note": "A round 100, a Premier League record.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Manchester_City_F.C._season",
+        "quote": "New Premier League records for most points (100)"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "f1-schumacher-wins",
+      "sport": "Motor racing",
+      "prompt": "How many Formula One races did Michael Schumacher win?",
+      "context": "Formula One · 1991–2012",
+      "answer": 91,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 30,
+      "max": 130,
+      "step": 1,
+      "note": "Ninety-one Grand Prix wins.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Michael_Schumacher",
+        "quote": "held the records for most wins (91)"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "nfl-rice-career-yds",
+      "sport": "American football",
+      "prompt": "How many regular-season receiving yards did Jerry Rice gain in his NFL career?",
+      "context": "NFL · 1985–2004",
+      "answer": 22895,
+      "unit": {
+        "singular": "yard",
+        "plural": "yards"
+      },
+      "min": 10000,
+      "max": 30000,
+      "step": 100,
+      "note": "22,895 yards.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Jerry_Rice",
+        "quote": "Career receiving yards: 22,895"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    }
+  ]
+}

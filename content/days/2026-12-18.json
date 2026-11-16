@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-18",
+  "theme": {
+    "title": "Philadelphia's juggernauts",
+    "subtitle": "76ers, 1966–67 and 1982–83",
+    "recap": "Philadelphia built two of the most dominant teams ever: Wilt's 68-win champions and the 1983 team that nearly swept the playoffs."
+  },
+  "questions": [
+    {
+      "id": "nba-sixers67-wins",
+      "sport": "NBA",
+      "prompt": "How many games did the 1966–67 Sixers win in an 81-game season?",
+      "context": "Philadelphia 76ers · 1966–67",
+      "answer": 68,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 50,
+      "max": 81,
+      "step": 1,
+      "note": "68–13, the best record in league history at the time.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+        "quote": "They finished the season at 68–13, the best record in league history at the time."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-sixers67-start-losses",
+      "sport": "NBA",
+      "prompt": "The 1966–67 Sixers had the best 50-game start in history. How many of those 50 did they lose?",
+      "context": "Philadelphia 76ers · 1966–67 · first 50 games",
+      "answer": 4,
+      "unit": {
+        "singular": "loss",
+        "plural": "losses"
+      },
+      "min": 0,
+      "max": 15,
+      "step": 1,
+      "note": "Just four: 46–4. The 2015–16 Warriors later matched it.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+        "quote": "The 76ers started the season at 46–4, which remains the best 50-game start in the NBA history"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-sixers67-ppg",
+      "sport": "NBA",
+      "prompt": "How many points per game did the 1966–67 Sixers average?",
+      "context": "Philadelphia 76ers · 1966–67 regular season",
+      "answer": 125,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 105,
+      "max": 155,
+      "step": 1,
+      "note": "125, a record at the time.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+        "quote": "The team averaged a record 125 points per game, leading all teams in shooting accuracy"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-wilt67-fta",
+      "sport": "NBA",
+      "prompt": "Wilt Chamberlain set a league record for free-throw attempts in 1966–67. How many did he take?",
+      "context": "Philadelphia 76ers · 1966–67 regular season",
+      "answer": 875,
+      "unit": {
+        "singular": "free-throw attempt",
+        "plural": "free-throw attempts"
+      },
+      "min": 550,
+      "max": 1500,
+      "step": 5,
+      "note": "875, a league record.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+        "quote": "he made a league-record 68% of his shots; his 875 free throw attempts, another league record"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-sixers83-playoff-wins",
+      "sport": "NBA",
+      "prompt": "The 1983 Sixers lost only once in the playoffs. How many playoff games did they win?",
+      "context": "Philadelphia 76ers · 1983 playoffs",
+      "answer": 12,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 4,
+      "max": 17,
+      "step": 1,
+      "note": "12, going 12–1.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
+        "quote": "The 76ers completed one of the most dominating playoff runs in league history with a 12–1 mark"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-04",
+  "theme": {
+    "title": "Clocks, rules and oddities",
+    "subtitle": "Before and after the shot clock",
+    "recap": "The shot clock arrived in 1954 after games like a 19–18 final and a six-overtime game with one shot per overtime."
+  },
+  "questions": [
+    {
+      "id": "nba-shot-clock-24",
+      "sport": "NBA",
+      "prompt": "How many seconds does an NBA team have to shoot under the shot clock?",
+      "context": "NBA rules · since 1954",
+      "answer": 24,
+      "unit": {
+        "singular": "second",
+        "plural": "seconds"
+      },
+      "min": 10,
+      "max": 55,
+      "step": 1,
+      "note": "24.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Shot_clock",
+        "quote": "The NBA has had a 24-second limit since 1954."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-pistons50-19-18",
+      "sport": "NBA",
+      "prompt": "Before the shot clock, the Fort Wayne Pistons beat the Lakers in 1950 with how many points?",
+      "context": "Fort Wayne Pistons vs Minneapolis Lakers · November 22, 1950",
+      "answer": 19,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 45,
+      "step": 1,
+      "note": "19, winning 19–18. The fourth quarter went 3–1.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Shot_clock",
+        "quote": "defeated the Minneapolis Lakers by a record-low score of 19–18, including 3–1 in the fourth quarter."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-offensive-rebound-reset",
+      "sport": "NBA",
+      "prompt": "After an offensive rebound, what is the NBA shot clock reset to?",
+      "context": "NBA rules · shot clock",
+      "answer": 14,
+      "unit": {
+        "singular": "second",
+        "plural": "seconds"
+      },
+      "min": 1,
+      "max": 21,
+      "step": 1,
+      "note": "14 seconds.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Shot_clock",
+        "quote": "The shot clock is instead set to 14 following an offensive rebound."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-six-overtime-game",
+      "sport": "NBA",
+      "prompt": "Before the shot clock, two teams played a game with only one shot in each overtime. How many overtimes?",
+      "context": "NBA · 1950–51",
+      "answer": 6,
+      "unit": {
+        "singular": "overtime",
+        "plural": "overtimes"
+      },
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "note": "Six.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Shot_clock",
+        "quote": "played a six-overtime game with only one shot in each overtime"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-hawks-wizards-45-ft",
+      "sport": "NBA",
+      "prompt": "On November 1, 2021, Atlanta and Washington combined to make how many free throws without a single miss?",
+      "context": "Hawks vs Wizards · 2021–22",
+      "answer": 45,
+      "unit": {
+        "singular": "free throw",
+        "plural": "free throws"
+      },
+      "min": 20,
+      "max": 80,
+      "step": 1,
+      "note": "45: Atlanta 29-for-29, Washington 16-for-16.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
+        "quote": "45 between Atlanta Hawks (29-for-29) and Washington Wizards (16-for-16) on November 1, 2021"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

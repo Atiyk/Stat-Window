@@ -207,6 +207,9 @@ function Game(props: {
     );
   }
 
+  // Difficulty is a quiet hint under the round count, not a headline.
+  const difficulty = session.slate.questions[state.round]?.difficulty;
+  const level = difficulty ? `${difficulty[0]!.toUpperCase()}${difficulty.slice(1)}` : undefined;
   const label = daily
     ? `Round ${state.round + 1} of 5`
     : `Practice · ${formatDay(session.day)} · round ${state.round + 1} of 5`;
@@ -216,6 +219,8 @@ function Game(props: {
       state={state}
       dispatch={dispatch}
       label={label}
+      level={level}
+      theme={session.slate.theme?.title}
       showHint={props.showHint && state.round === 0}
       onFirstTouch={props.onFirstTouch}
     />

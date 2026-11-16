@@ -11,6 +11,10 @@ type Props = {
   state: GameState;
   dispatch: Dispatch<GameAction>;
   label: string;
+  /** Difficulty of this round (Easy … Expert), when the slate has one. */
+  level?: string | undefined;
+  /** The day's theme title, when the slate has one. */
+  theme?: string | undefined;
   showHint: boolean;
   onFirstTouch: () => void;
 };
@@ -28,7 +32,7 @@ function hitLine(points: number): string {
   return 'Caught, but loose.';
 }
 
-export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props) {
+export function Round({ state, dispatch, label, level, theme, showHint, onFirstTouch }: Props) {
   const q = currentQuestion(state);
   const reduced = usePrefersReducedMotion();
   const last = state.results[state.round];
@@ -136,6 +140,12 @@ export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props)
         </ol>
         <p className="round-meta">
           <span>{label}</span>
+          {level && (
+            <span className="round-level">
+              <span className="sr-only"> · </span>
+              {level}
+            </span>
+          )}
           <span className="round-total">
             <span className="tabular">{runningTotal}</span> pts
           </span>
@@ -143,6 +153,7 @@ export function Round({ state, dispatch, label, showHint, onFirstTouch }: Props)
       </div>
 
       <header className="question-block">
+        {theme && <p className="theme-line">{theme}</p>}
         <p className="context">
           {q.sport} · {q.context}
         </p>

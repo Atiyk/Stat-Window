@@ -3,6 +3,10 @@ import { expect, type Page } from '@playwright/test';
 /** Day 1 at 15:00 UTC. Every test pins the clock so the slate is deterministic. */
 export const DAY1 = new Date('2026-11-15T15:00:00Z');
 export const DAY2 = new Date('2026-11-16T15:00:00Z');
+/** First, middle and last days of the NBA calendar (data/nba/calendar.json). */
+export const NBA_FIRST = new Date('2026-11-18T15:00:00Z');
+export const NBA_MIDDLE = new Date('2026-12-12T15:00:00Z');
+export const NBA_LAST = new Date('2027-01-06T15:00:00Z');
 
 export async function openAt(page: Page, when: Date, path = '/') {
   await page.clock.setFixedTime(when);

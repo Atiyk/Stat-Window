@@ -1,0 +1,500 @@
+[
+ {
+  "id": "age",
+  "label": "Age",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "assists-average",
+  "label": "Assists average",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "assists-game",
+  "label": "Assists game",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "assists-period",
+  "label": "Assists period",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "assists-season",
+  "label": "Assists season",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "assists-series",
+  "label": "Assists series",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "attendance",
+  "label": "Attendance",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "awards-votes",
+  "label": "Awards votes",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "blocks-game",
+  "label": "Blocks game",
+  "firstSeason": "1973-74",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "blocks-period",
+  "label": "Blocks period",
+  "firstSeason": "1973-74",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "blocks-series",
+  "label": "Blocks series",
+  "firstSeason": "1973-74",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "blocks-team",
+  "label": "Blocks team",
+  "firstSeason": "1973-74",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "comeback",
+  "label": "Comeback",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "defense-streak",
+  "label": "Defense streak",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "defensive-rebounds",
+  "label": "Defensive rebounds",
+  "firstSeason": "1973-74",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "distance",
+  "label": "Distance",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "draft-pick",
+  "label": "Draft pick",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "field-goals",
+  "label": "Field goals",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "finals-appearances",
+  "label": "Finals appearances",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "free-throws",
+  "label": "Free throws",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "games-back",
+  "label": "Games back",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "games-missed",
+  "label": "Games missed",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "games-together",
+  "label": "Games together",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "losing-streak",
+  "label": "Losing streak",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "losses-season",
+  "label": "Losses season",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "margin",
+  "label": "Margin",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "margin-average",
+  "label": "Margin average",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "margin-halftime",
+  "label": "Margin halftime",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "margin-period",
+  "label": "Margin period",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "minutes",
+  "label": "Minutes",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "offensive-rebounds",
+  "label": "Offensive rebounds",
+  "firstSeason": "1973-74",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "overtimes",
+  "label": "Overtimes",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "parade-crowd",
+  "label": "Parade crowd",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "playoff-games",
+  "label": "Playoff games",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "points-combined",
+  "label": "Points combined",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "points-game",
+  "label": "Points game",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "points-period",
+  "label": "Points period",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "points-run",
+  "label": "Points run",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "points-season",
+  "label": "Points season",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "points-season-total",
+  "label": "Points season total",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "points-series",
+  "label": "Points series",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "points-team-game",
+  "label": "Points team game",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "prize-money",
+  "label": "Prize money",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "rebounds-average",
+  "label": "Rebounds average",
+  "firstSeason": "1950-51",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "rebounds-game",
+  "label": "Rebounds game",
+  "firstSeason": "1950-51",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "rebounds-period",
+  "label": "Rebounds period",
+  "firstSeason": "1950-51",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "rebounds-season",
+  "label": "Rebounds season",
+  "firstSeason": "1950-51",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "rebounds-series",
+  "label": "Rebounds series",
+  "firstSeason": "1950-51",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "roster",
+  "label": "Roster",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "rules",
+  "label": "Rules",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "scoring-average",
+  "label": "Scoring average",
+  "firstSeason": null,
+  "simpleScoringAverage": true
+ },
+ {
+  "id": "scoring-average-team",
+  "label": "Scoring average team",
+  "firstSeason": null,
+  "simpleScoringAverage": true
+ },
+ {
+  "id": "scoring-games",
+  "label": "Scoring games",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "scoring-streak",
+  "label": "Scoring streak",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "season-length",
+  "label": "Season length",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "seasons-count",
+  "label": "Seasons count",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "shooting-pct",
+  "label": "Shooting pct",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "steals-game",
+  "label": "Steals game",
+  "firstSeason": "1973-74",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "steals-team",
+  "label": "Steals team",
+  "firstSeason": "1973-74",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "team-rating",
+  "label": "Team rating",
+  "firstSeason": "1977-78",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "temperature",
+  "label": "Temperature",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "threes-attempts",
+  "label": "Threes attempts",
+  "firstSeason": "1979-80",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "threes-career",
+  "label": "Threes career",
+  "firstSeason": "1979-80",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "threes-combined",
+  "label": "Threes combined",
+  "firstSeason": "1979-80",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "threes-game",
+  "label": "Threes game",
+  "firstSeason": "1979-80",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "threes-season",
+  "label": "Threes season",
+  "firstSeason": "1979-80",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "threes-streak",
+  "label": "Threes streak",
+  "firstSeason": "1979-80",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "time",
+  "label": "Time",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "titles",
+  "label": "Titles",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "titles-stat",
+  "label": "Titles stat",
+  "firstSeason": "1950-51",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "triple-doubles-career",
+  "label": "Triple doubles career",
+  "firstSeason": "1950-51",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "triple-doubles-finals",
+  "label": "Triple doubles finals",
+  "firstSeason": "1950-51",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "triple-doubles-season",
+  "label": "Triple doubles season",
+  "firstSeason": "1950-51",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "turnovers",
+  "label": "Turnovers",
+  "firstSeason": "1977-78",
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "viewership",
+  "label": "Viewership",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "win-streak",
+  "label": "Win streak",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "wins-by-margin",
+  "label": "Wins by margin",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "wins-change",
+  "label": "Wins change",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "wins-combined",
+  "label": "Wins combined",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "wins-month",
+  "label": "Wins month",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "wins-playoffs",
+  "label": "Wins playoffs",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "wins-season",
+  "label": "Wins season",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ },
+ {
+  "id": "wins-situational",
+  "label": "Wins situational",
+  "firstSeason": null,
+  "simpleScoringAverage": false
+ }
+]

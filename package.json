@@ -16,7 +16,12 @@
     "test:watch": "vitest",
     "test:e2e": "npm run build && playwright test",
     "content:check": "node --experimental-strip-types scripts/content-check.ts",
-    "content:new": "node --experimental-strip-types scripts/content-new.ts"
+    "content:new": "node --experimental-strip-types scripts/content-new.ts",
+    "nba:db": "node --experimental-strip-types scripts/nba/db.ts",
+    "nba:report": "node --experimental-strip-types scripts/nba/report.ts",
+    "nba:report:check": "node --experimental-strip-types scripts/nba/report.ts --check",
+    "content:publish": "node --experimental-strip-types scripts/nba/publish.ts",
+    "content:publish:check": "node --experimental-strip-types scripts/nba/publish.ts --check"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "^5.3.0",

@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-27",
+  "theme": {
+    "title": "Swat team",
+    "subtitle": "Blocked-shot records",
+    "recap": "Blocks were first counted in 1973–74, and the records include Elmore Smith's 11 in a half and Dwight Howard's nine in a Finals game."
+  },
+  "questions": [
+    {
+      "id": "nba-howard09-g4-blocks",
+      "sport": "NBA",
+      "prompt": "Dwight Howard set the Finals record for blocks in a game in 2009. How many?",
+      "context": "2009 NBA Finals · Game 4 · vs Lakers",
+      "answer": 9,
+      "unit": {
+        "singular": "block",
+        "plural": "blocks"
+      },
+      "min": 5,
+      "max": 20,
+      "step": 1,
+      "note": "Nine.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+        "quote": "giving him a single-game NBA Finals record with 9 blocked shots"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-elmore73-half",
+      "sport": "NBA",
+      "prompt": "In the first season blocks were counted, Elmore Smith set the record for blocks in a half. How many?",
+      "context": "Los Angeles Lakers · October 28, 1973",
+      "answer": 11,
+      "unit": {
+        "singular": "block",
+        "plural": "blocks"
+      },
+      "min": 0,
+      "max": 15,
+      "step": 1,
+      "note": "11.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
+        "quote": "11 blocks in a half, setting the NBA record. 6 blocks in one quarter; 5 blocks in the other quarter"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-bol85-quarter",
+      "sport": "NBA",
+      "prompt": "Manute Bol set the record for blocks in a quarter in December 1985. How many?",
+      "context": "Washington Bullets · 1985–86",
+      "answer": 8,
+      "unit": {
+        "singular": "block",
+        "plural": "blocks"
+      },
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "note": "Eight in the first quarter.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
+        "quote": "8 blocks in the first quarter, setting the NBA record, and 11 blocks in the first half, tying the NBA record"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-raptors01-team-blocks",
+      "sport": "NBA",
+      "prompt": "In March 2001, Toronto set what was then the NBA record for team blocks in a game. How many?",
+      "context": "Toronto Raptors · 2000–01 regular season",
+      "answer": 23,
+      "unit": {
+        "singular": "block",
+        "plural": "blocks"
+      },
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "note": "23, an NBA record at the time.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
+        "quote": "The Raptors combined for 23 blocks, an NBA record at the time"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-robinson94-quadruple",
+      "sport": "NBA",
+      "prompt": "David Robinson's 1994 quadruple-double included 10 blocks. How many points did he score?",
+      "context": "Spurs vs Detroit Pistons · February 17, 1994",
+      "answer": 34,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 16,
+      "max": 58,
+      "step": 1,
+      "note": "34, plus 10 rebounds and 10 assists.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/David_Robinson",
+        "quote": "with 34 points, 10 rebounds, 10 assists, and 10 blocks against the Detroit Pistons on February 17, 1994"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

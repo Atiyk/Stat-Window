@@ -1,125 +1,135 @@
 {
   "date": "2026-11-18",
+  "theme": {
+    "title": "Wilt's impossible season",
+    "subtitle": "Philadelphia Warriors, 1961–62",
+    "recap": "Wilt Chamberlain averaged 50.4 points, scored 100 in one night in front of a small crowd and barely left the floor all season."
+  },
   "questions": [
     {
       "id": "nba-wilt-100",
-      "sport": "Basketball",
+      "sport": "NBA",
       "prompt": "How many points did Wilt Chamberlain score against the Knicks on March 2, 1962?",
-      "context": "NBA · Philadelphia Warriors · 169–147 win",
+      "context": "Philadelphia Warriors vs New York Knicks · 1961–62",
       "answer": 100,
       "unit": {
         "singular": "point",
         "plural": "points"
-      },
-      "min": 50,
-      "max": 130,
-      "step": 1,
-      "note": "Exactly one hundred, in a 169–147 win.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-        "quote": "by scoring 100 points for the Philadelphia Warriors in a 169–147 win over the New York Knicks"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "nfl-brady-sb-wins",
-      "sport": "American football",
-      "prompt": "How many Super Bowls did Tom Brady win?",
-      "context": "NFL · Patriots and Buccaneers · 2000–2022",
-      "answer": 7,
-      "unit": {
-        "singular": "Super Bowl",
-        "plural": "Super Bowls"
       },
       "min": 0,
-      "max": 12,
+      "max": 120,
       "step": 1,
-      "note": "Seven wins from ten Super Bowl appearances.",
+      "note": "100, in a 169–147 win.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Tom_Brady",
-        "quote": "extending his individual records to 10 Super Bowl appearances and seven victories"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "by scoring 100 points for the Philadelphia Warriors in a 169–147 win over the New York Knicks on March 2, 1962"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "easy"
     },
     {
-      "id": "fb-city-2018-points",
-      "sport": "Football",
-      "prompt": "How many points did Manchester City finish with in the 2017–18 Premier League?",
-      "context": "Premier League · 38 matches · 114 points possible",
-      "answer": 100,
+      "id": "nba-wilt62-ppg",
+      "sport": "NBA",
+      "prompt": "What was Wilt Chamberlain's scoring average over the 1961–62 regular season?",
+      "context": "Philadelphia Warriors · 1961–62 · 80 games",
+      "answer": 50.4,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 60,
-      "max": 114,
-      "step": 1,
-      "note": "A round 100, a Premier League record.",
+      "min": 38,
+      "max": 70,
+      "step": 0.1,
+      "note": "50.4 points per game, a single-season record.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Manchester_City_F.C._season",
-        "quote": "New Premier League records for most points (100)"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "Chamberlain averaged a single-season record 50.4 points per game"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "medium"
     },
     {
-      "id": "f1-schumacher-wins",
-      "sport": "Motor racing",
-      "prompt": "How many Formula One races did Michael Schumacher win?",
-      "context": "Formula One · 1991–2012",
-      "answer": 91,
+      "id": "nba-wilt-100-ftm",
+      "sport": "NBA",
+      "prompt": "In his 100-point game, how many of his 32 free-throw attempts did Wilt Chamberlain make?",
+      "context": "Philadelphia vs New York · March 2, 1962",
+      "answer": 28,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "free throw",
+        "plural": "free throws"
       },
-      "min": 30,
-      "max": 130,
+      "min": 10,
+      "max": 32,
       "step": 1,
-      "note": "Ninety-one Grand Prix wins.",
+      "note": "28 of 32.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Michael_Schumacher",
-        "quote": "held the records for most wins (91)"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "Chamberlain made 36 of 63 field-goals and 28 of 32 free throws"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "hard"
     },
     {
-      "id": "nfl-rice-career-yds",
-      "sport": "American football",
-      "prompt": "How many regular-season receiving yards did Jerry Rice gain in his NFL career?",
-      "context": "NFL · 1985–2004",
-      "answer": 22895,
+      "id": "nba-wilt-100-crowd",
+      "sport": "NBA",
+      "prompt": "How many paying spectators watched Wilt Chamberlain's 100-point game?",
+      "context": "Philadelphia vs New York · March 2, 1962",
+      "answer": 4124,
       "unit": {
-        "singular": "yard",
-        "plural": "yards"
+        "singular": "spectator",
+        "plural": "spectators"
       },
-      "min": 10000,
-      "max": 30000,
+      "min": 2000,
+      "max": 17000,
       "step": 100,
-      "note": "22,895 yards.",
+      "note": "Only 4,124 paid to get in.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Jerry_Rice",
-        "quote": "Career receiving yards: 22,895"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "only 4,124 spectators paid to see the game"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-wilt62-minutes",
+      "sport": "NBA",
+      "prompt": "In 1961–62 Wilt played how many total minutes? (80 games of 48 minutes is 3,840.)",
+      "context": "Philadelphia Warriors · 1961–62 regular season",
+      "answer": 3882,
+      "unit": {
+        "singular": "minute",
+        "plural": "minutes"
+      },
+      "min": 2500,
+      "max": 4600,
+      "step": 10,
+      "note": "3,882, more than 48 a game thanks to overtime.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "He played in a record 3,882 minutes—including every minute of 79 (a record) of 80 games."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
     }
   ]
 }

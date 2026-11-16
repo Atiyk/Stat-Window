@@ -1,125 +1,135 @@
 {
   "date": "2026-11-23",
+  "theme": {
+    "title": "Russell, Wilt and Baylor",
+    "subtitle": "The NBA in the 1960s",
+    "recap": "Boston won eight titles in a row while Wilt, Baylor and West put up numbers that look like misprints today."
+  },
   "questions": [
     {
-      "id": "nhl-habs-cups",
-      "sport": "Hockey",
-      "prompt": "How many times have the Montreal Canadiens won the Stanley Cup?",
-      "context": "NHL · 1916–present",
-      "answer": 24,
+      "id": "nba-celtics-eight-straight",
+      "sport": "NBA",
+      "prompt": "How many NBA titles in a row did Boston win from 1959 to 1966?",
+      "context": "Boston Celtics · 1959 to 1966",
+      "answer": 8,
       "unit": {
-        "singular": "Stanley Cup",
-        "plural": "Stanley Cups"
+        "singular": "title",
+        "plural": "titles"
       },
-      "min": 5,
-      "max": 35,
+      "min": 2,
+      "max": 16,
       "step": 1,
-      "note": "Twenty-four Stanley Cups.",
+      "note": "Eight straight.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/List_of_Stanley_Cup_champions",
-        "quote": "The Montreal Canadiens have won the Stanley Cup 24 times"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+        "quote": "Boston Celtics won eight in a row from 1959 to 1966."
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "easy"
     },
     {
-      "id": "nba-jordan-63",
-      "sport": "Basketball",
-      "prompt": "How many points did Michael Jordan score against the Celtics on April 20, 1986?",
-      "context": "NBA playoffs · Bulls at Celtics · 1986",
-      "answer": 63,
+      "id": "nba-baylor60-71",
+      "sport": "NBA",
+      "prompt": "Elgin Baylor set the NBA single-game scoring record on November 15, 1960. How many points did he score?",
+      "context": "Los Angeles Lakers · 1960–61",
+      "answer": 71,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 30,
-      "max": 80,
+      "min": 45,
+      "max": 110,
       "step": 1,
-      "note": "Sixty-three points in Boston.",
+      "note": "71, a record until Wilt passed it the next season.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/List_of_NBA_single-game_playoff_scoring_leaders",
-        "quote": "63; Michael Jordan; Chicago Bulls; April 20, 1986; Boston Celtics"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+        "quote": "On November 15 of the 1960–61 season, Baylor set an NBA scoring record when he scored 71 points in a victory"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "medium"
     },
     {
-      "id": "oly-owens-1936",
-      "sport": "Athletics",
-      "prompt": "How many gold medals did Jesse Owens win at the 1936 Olympics?",
-      "context": "Olympic Games · Berlin · 1936",
-      "answer": 4,
+      "id": "nba-west69-g1",
+      "sport": "NBA",
+      "prompt": "In Game 1 of the 1969 Finals, how many points did Jerry West score against Boston?",
+      "context": "1969 NBA Finals · Game 1 · vs Celtics",
+      "answer": 53,
       "unit": {
-        "singular": "gold medal",
-        "plural": "gold medals"
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 35,
+      "max": 85,
+      "step": 1,
+      "note": "53, in a Lakers win.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1969_NBA_Finals",
+        "quote": "He used this freedom to score 53 points on opposing guards"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-russell62-quarter-reb",
+      "sport": "NBA",
+      "prompt": "In Game 7 of the 1962 Finals, Bill Russell set the record for rebounds in a quarter. How many?",
+      "context": "1962 NBA Finals · Game 7 · vs Lakers",
+      "answer": 19,
+      "unit": {
+        "singular": "rebound",
+        "plural": "rebounds"
       },
       "min": 0,
-      "max": 8,
+      "max": 26,
       "step": 1,
-      "note": "Four gold medals in Berlin.",
+      "note": "19 in one quarter, the most of any NBA quarter.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Jesse_Owens",
-        "quote": "He made history at the 1936 Olympic Games by winning four gold medals"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_rebounding_leaders",
+        "quote": "Russell's 19 rebounds in a single quarter is the most of any NBA quarter"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "hard"
     },
     {
-      "id": "mlb-ichiro-2004-hits",
-      "sport": "Baseball",
-      "prompt": "How many hits did Ichiro Suzuki collect in the 2004 season?",
-      "context": "MLB · Seattle Mariners · 2004",
-      "answer": 262,
+      "id": "nba-wilt60-half-reb",
+      "sport": "NBA",
+      "prompt": "In his record-setting rebounding game on November 24, 1960, how many rebounds did Wilt grab in one half?",
+      "context": "Philadelphia Warriors vs Boston Celtics · 1960–61",
+      "answer": 31,
       "unit": {
-        "singular": "hit",
-        "plural": "hits"
+        "singular": "rebound",
+        "plural": "rebounds"
       },
-      "min": 180,
-      "max": 300,
+      "min": 20,
+      "max": 56,
       "step": 1,
-      "note": "Two hundred sixty-two, the single-season record.",
+      "note": "31 in a single half, in a game his team lost.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Ichiro_Suzuki",
-        "quote": "Suzuki finished the season with a record of 262 hits"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_rebounding_leaders",
+        "quote": "Record set in a losing effort; grabbed 31 rebounds in one half; scored 34 points"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "nhl-gretzky-career-pts",
-      "sport": "Hockey",
-      "prompt": "How many regular-season points did Wayne Gretzky score in his NHL career?",
-      "context": "NHL · 1979–1999 · 1,487 games",
-      "answer": 2857,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
       },
-      "min": 1500,
-      "max": 3500,
-      "step": 10,
-      "note": "2,857: 894 goals and 1,963 assists.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/List_of_career_achievements_by_Wayne_Gretzky",
-        "quote": "Most points: 2,857 in 1,487 games (894 goals, 1,963 assists)"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
+      "difficulty": "expert"
     }
   ]
 }

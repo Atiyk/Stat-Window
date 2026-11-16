@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-05",
+  "theme": {
+    "title": "Silver and black",
+    "subtitle": "San Antonio, 1989–2003",
+    "recap": "David Robinson turned the Spurs around overnight, and Tim Duncan's arrival after a 20-win season started a dynasty."
+  },
+  "questions": [
+    {
+      "id": "nba-robinson94-71",
+      "sport": "NBA",
+      "prompt": "How many points did David Robinson score against the Clippers on April 24, 1994?",
+      "context": "San Antonio Spurs · 1993–94",
+      "answer": 71,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 45,
+      "max": 110,
+      "step": 1,
+      "note": "71, breaking George Gervin's Spurs record of 63.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/David_Robinson",
+        "quote": "scoring 71 points (breaking George Gervin's single-game franchise record of 63) against the Los Angeles Clippers"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-spurs90-improvement",
+      "sport": "NBA",
+      "prompt": "With rookie David Robinson in 1989–90, the Spurs improved by how many wins over the year before?",
+      "context": "San Antonio Spurs · 1989–90",
+      "answer": 35,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 15,
+      "max": 65,
+      "step": 1,
+      "note": "35, going 56–26.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/David_Robinson",
+        "quote": "The Spurs leaped to a record of 56–26 for a remarkable 35 game improvement"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-spurs97-wins",
+      "sport": "NBA",
+      "prompt": "How many games did the Spurs win in 1996–97, the season before they drafted Tim Duncan?",
+      "context": "San Antonio Spurs · 1996–97 · 82 games",
+      "answer": 20,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 12,
+      "max": 54,
+      "step": 1,
+      "note": "20, finishing 20–62.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/David_Robinson",
+        "quote": "finished the season with a 20–62 record"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-duncan03-g6-blocks",
+      "sport": "NBA",
+      "prompt": "Tim Duncan nearly had a quadruple-double in the 2003 title clincher. How many blocks did he have?",
+      "context": "2003 NBA Finals · Game 6 · vs New Jersey",
+      "answer": 8,
+      "unit": {
+        "singular": "block",
+        "plural": "blocks"
+      },
+      "min": 0,
+      "max": 13,
+      "step": 1,
+      "note": "Eight, with 21 points, 20 rebounds and 10 assists.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2003_NBA_Finals",
+        "quote": "finishing with 21 points, 20 rebounds, 10 assists and 8 blocks"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-spurs99-playoff-streak",
+      "sport": "NBA",
+      "prompt": "In 1999 the Spurs set a record for consecutive playoff wins. How many did they win before the streak ended in the Finals?",
+      "context": "San Antonio Spurs · 1999 playoffs",
+      "answer": 12,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 6,
+      "max": 24,
+      "step": 1,
+      "note": "12 straight, the longest in NBA history at the time.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+        "quote": "This was the end of the Spurs' 12-game playoff winning streak, the longest in NBA history at the time."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

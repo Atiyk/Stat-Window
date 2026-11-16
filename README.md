@@ -1,6 +1,6 @@
 # Stat Window
 
-A daily sports numbers game. Five real, sourced sports facts a day; for each one, drag two brackets to frame a window you're sure the answer sits inside. The tighter the window, the more it scores. Miss, and the round scores zero.
+A daily NBA numbers game. Five real, sourced NBA facts a day; for each one, drag two brackets to frame a window you're sure the answer sits inside. The tighter the window, the more it scores. Miss, and the round scores zero.
 
 Free, no sign-up, same puzzle for everyone, new one at midnight UTC.
 
@@ -17,7 +17,8 @@ npm run build          # content check + typecheck + production build to dist/
 - Vite + React 19 + strict TypeScript. No backend, no database, no paid services.
 - `src/engine/`: the game, independent of React. Pure scoring (`scoring.ts`), UTC day policy (`daily.ts`), an explicit state machine (`game.ts`: ready → adjusting → locked → revealing → resolved → complete), validated browser save (`storage.ts`), stats and share text (`summary.ts`).
 - `src/content/`: zod schema for questions, and a lazy loader so only the day being played is downloaded.
-- `content/days/YYYY-MM-DD.json`: one file per day, five questions each, with source URL and quote.
+- `content/days/YYYY-MM-DD.json`: one file per day, five questions each, with source URL and quote. From 2026-11-18 these are generated from `data/nba` and locked in `content/lock.json`.
+- `data/nba/`, `db/migrations/`, `scripts/nba/`: the NBA fact database, SQLite schema, validators, publisher and reports (`docs/nba/`).
 - `src/ui/`: the ruler interaction, round, results and help screens. One stylesheet, `src/styles.css`.
 
 ## Docs
@@ -34,4 +35,4 @@ The Vercel project builds `main` with `npm run build` and serves `dist/` (see `v
 ## Known limitations
 - Progress is stored in this browser only (localStorage). It is not anti-cheat, and it doesn't sync across devices.
 - Future slates are public files in a static site. Fine for a free game; move slates behind an edge function before offering prizes.
-- 13 days of content ship at launch (through 2026-11-27). After that, the game honestly says there's no new puzzle until more are published.
+- The game launched with three mixed-sport days (2026-11-15 to 11-17). From 2026-11-18 it is NBA-only: 50 themed days through 2027-01-06, built from a verified fact database in `data/nba` (see [docs/CONTENT.md](docs/CONTENT.md) and [docs/NBA_DATA_RIGHTS.md](docs/NBA_DATA_RIGHTS.md)). After the last day the game says there's no new puzzle until more are published.

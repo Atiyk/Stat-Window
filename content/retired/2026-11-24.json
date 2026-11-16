@@ -1,0 +1,126 @@
+{
+  "date": "2026-11-24",
+  "questions": [
+    {
+      "id": "nba-lakers-streak",
+      "sport": "Basketball",
+      "prompt": "How many games in a row did the 1971–72 Los Angeles Lakers win?",
+      "context": "NBA · 1971–72 season",
+      "answer": 33,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "note": "Thirty-three straight, an NBA record.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+        "quote": "they would also go on an NBA record 33-game winning streak"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "fb-shearer-pl-goals",
+      "sport": "Football",
+      "prompt": "How many Premier League goals did Alan Shearer score?",
+      "context": "Premier League · Blackburn and Newcastle · 1992–2006",
+      "answer": 260,
+      "unit": {
+        "singular": "goal",
+        "plural": "goals"
+      },
+      "min": 100,
+      "max": 350,
+      "step": 1,
+      "note": "Two hundred sixty, the Premier League record.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Alan_Shearer",
+        "quote": "With 260 goals, Shearer is the Premier League's all-time record goalscorer."
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "ten-navratilova-wimbledon",
+      "sport": "Tennis",
+      "prompt": "How many Wimbledon singles titles did Martina Navratilova win?",
+      "context": "Tennis · Wimbledon · 1978–1990",
+      "answer": 9,
+      "unit": {
+        "singular": "title",
+        "plural": "titles"
+      },
+      "min": 0,
+      "max": 15,
+      "step": 1,
+      "note": "Nine, an all-time record.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Martina_Navratilova",
+        "quote": "Her nine Wimbledon singles titles are an all-time record."
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "nfl-sb51-deficit",
+      "sport": "American football",
+      "prompt": "In Super Bowl LI, by how many points did the Patriots trail before coming back to win?",
+      "context": "NFL · Patriots vs. Falcons · February 2017",
+      "answer": 25,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 35,
+      "step": 1,
+      "note": "They trailed 28–3 in the third quarter and still won.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Super_Bowl_LI",
+        "quote": "overcoming a 28–3 deficit to emerge victorious",
+        "derivation": "28 − 3 = 25 points"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "mlb-rose-hits",
+      "sport": "Baseball",
+      "prompt": "How many hits did Pete Rose collect in his MLB career?",
+      "context": "MLB · 1963–1986",
+      "answer": 4256,
+      "unit": {
+        "singular": "hit",
+        "plural": "hits"
+      },
+      "min": 3000,
+      "max": 5000,
+      "step": 10,
+      "note": "4,256, the all-time record.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Pete_Rose",
+        "quote": "Rose remains the MLB's all-time leader in hits (4,256)"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    }
+  ]
+}

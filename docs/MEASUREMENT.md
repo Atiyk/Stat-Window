@@ -42,3 +42,6 @@ The daily game stays free, with no ads in the play area and nothing that buys po
 3. **Sponsored themed weeks** (a league or brand presents a week of questions), editorially separate from scoring.
 
 Before turning on any paid feature on Vercel, check whether the plan's terms allow commercial use; it may require moving from Hobby to a paid plan, which conflicts with the $0 constraint today.
+
+## NBA calendar checks (from 2026-11-18)
+The slates now climb Easy, Medium, Hard, Hard, Expert. Once `round_lock` reaches a collector, check per puzzle that the mean points fall from round 1 to round 5. A Hard or Expert round that scores higher than round 1 on two or more days in a week means its difficulty rating was wrong; fix the rating and range of future and reserve facts in `data/nba`, never a published day. Also compare scores on themed and mixed days, and track the share of rounds locked with the full scale untouched, by round.

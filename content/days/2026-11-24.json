@@ -1,126 +1,135 @@
 {
   "date": "2026-11-24",
+  "theme": {
+    "title": "The 72–10 Bulls",
+    "subtitle": "Chicago, 1995–96",
+    "recap": "Chicago lost three games before February, won almost everywhere it played and finished with the best combined record in league history."
+  },
   "questions": [
     {
-      "id": "nba-lakers-streak",
-      "sport": "Basketball",
-      "prompt": "How many games in a row did the 1971–72 Los Angeles Lakers win?",
-      "context": "NBA · 1971–72 season",
-      "answer": 33,
+      "id": "nba-bulls96-combined-wins",
+      "sport": "NBA",
+      "prompt": "Counting the regular season and playoffs together, how many games did the 1995–96 Bulls win?",
+      "context": "Chicago Bulls · 1995–96 · regular season plus playoffs",
+      "answer": 87,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 55,
+      "max": 105,
+      "step": 1,
+      "note": "87 wins and 13 losses, the best combined record in NBA history.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
+        "quote": "The 1995–96 Bulls have the best combined regular and postseason record in NBA history at 87–13"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-rodman96-rpg",
+      "sport": "NBA",
+      "prompt": "How many rebounds per game did Dennis Rodman average for the 1995–96 Bulls?",
+      "context": "Chicago Bulls · 1995–96 regular season",
+      "answer": 14.9,
+      "unit": {
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
+      },
+      "min": 10,
+      "max": 23,
+      "step": 0.1,
+      "note": "14.9 a night, while scoring just 5.5 points.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
+        "quote": "Rodman averaged 5.5 points and 14.9 rebounds per game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-bulls96-home-streak",
+      "sport": "NBA",
+      "prompt": "Chicago opened 1995–96 with 37 straight home wins. How long did that home winning streak run in total?",
+      "context": "Chicago Bulls · home games · 1995–96",
+      "answer": 44,
       "unit": {
         "singular": "game",
         "plural": "games"
       },
-      "min": 10,
-      "max": 50,
+      "min": 15,
+      "max": 65,
       "step": 1,
-      "note": "Thirty-three straight, an NBA record.",
+      "note": "44 in a row, then an NBA record.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-        "quote": "they would also go on an NBA record 33-game winning streak"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
+        "quote": "The Bulls' started the regular season 37–0 at home, part of a then-NBA-record 44-game winning streak"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "hard"
     },
     {
-      "id": "fb-shearer-pl-goals",
-      "sport": "Football",
-      "prompt": "How many Premier League goals did Alan Shearer score?",
-      "context": "Premier League · Blackburn and Newcastle · 1992–2006",
-      "answer": 260,
+      "id": "nba-bulls96-road-wins",
+      "sport": "NBA",
+      "prompt": "How many road games did the 1995–96 Bulls win?",
+      "context": "Chicago Bulls · 1995–96 · 41 road games",
+      "answer": 33,
       "unit": {
-        "singular": "goal",
-        "plural": "goals"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 100,
-      "max": 350,
+      "min": 21,
+      "max": 41,
       "step": 1,
-      "note": "Two hundred sixty, the Premier League record.",
+      "note": "33, the most ever until the 2015–16 Warriors won 34.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Alan_Shearer",
-        "quote": "With 260 goals, Shearer is the Premier League's all-time record goalscorer."
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
+        "quote": "Their 33 road wins were the most in NBA history until the 2015–16 Warriors won 34 road games."
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "hard"
     },
     {
-      "id": "ten-navratilova-wimbledon",
-      "sport": "Tennis",
-      "prompt": "How many Wimbledon singles titles did Martina Navratilova win?",
-      "context": "Tennis · Wimbledon · 1978–1990",
-      "answer": 9,
+      "id": "nba-rodman96-finals-oreb",
+      "sport": "NBA",
+      "prompt": "In Game 2 of the 1996 Finals, Dennis Rodman tied the Finals record for offensive rebounds. How many did he grab?",
+      "context": "1996 NBA Finals · Game 2 · vs Seattle",
+      "answer": 11,
       "unit": {
-        "singular": "title",
-        "plural": "titles"
+        "singular": "rebound",
+        "plural": "rebounds"
       },
       "min": 0,
-      "max": 15,
+      "max": 19,
       "step": 1,
-      "note": "Nine, an all-time record.",
+      "note": "11 offensive rebounds, tying the Finals record.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Martina_Navratilova",
-        "quote": "Her nine Wimbledon singles titles are an all-time record."
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1996_NBA_Finals",
+        "quote": "Dennis Rodman tied an NBA Finals record with 11 offensive rebounds"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "nfl-sb51-deficit",
-      "sport": "American football",
-      "prompt": "In Super Bowl LI, by how many points did the Patriots trail before coming back to win?",
-      "context": "NFL · Patriots vs. Falcons · February 2017",
-      "answer": 25,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
       },
-      "min": 0,
-      "max": 35,
-      "step": 1,
-      "note": "They trailed 28–3 in the third quarter and still won.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Super_Bowl_LI",
-        "quote": "overcoming a 28–3 deficit to emerge victorious",
-        "derivation": "28 − 3 = 25 points"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "mlb-rose-hits",
-      "sport": "Baseball",
-      "prompt": "How many hits did Pete Rose collect in his MLB career?",
-      "context": "MLB · 1963–1986",
-      "answer": 4256,
-      "unit": {
-        "singular": "hit",
-        "plural": "hits"
-      },
-      "min": 3000,
-      "max": 5000,
-      "step": 10,
-      "note": "4,256, the all-time record.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Pete_Rose",
-        "quote": "Rose remains the MLB's all-time leader in hits (4,256)"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
+      "difficulty": "expert"
     }
   ]
 }

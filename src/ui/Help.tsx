@@ -22,7 +22,7 @@ export function Help({ open, onClose }: { open: boolean; onClose: () => void }) 
           <span className="help-pin" />
         </div>
         <p>
-          Each day brings five real sports numbers. For each one, drag the two brackets in to frame a window you’re
+          Each day brings five real NBA numbers. For each one, drag the two brackets in to frame a window you’re
           sure the answer sits inside. Then lock it and watch where the real number lands.
         </p>
         <p>
@@ -39,8 +39,8 @@ export function Help({ open, onClose }: { open: boolean; onClose: () => void }) 
           <li data-kind="miss">
             <span className="help-glyph" aria-hidden="true">✕</span>
             <span>
-              <strong>Outside.</strong> Phelps’ golds: you framed 10–16, the answer was 23. That’s 0, and the window is
-              shown hatched.
+              <strong>Outside.</strong> Kobe’s biggest night: you framed 55–70, the answer was 81. That’s 0, and the window
+              is shown hatched.
             </span>
           </li>
         </ul>
@@ -58,7 +58,12 @@ export function Help({ open, onClose }: { open: boolean; onClose: () => void }) 
         </p>
         <p className="help-small">
           A new puzzle opens every day at midnight UTC, the same five for everyone. Your progress stays in this browser;
-          there’s no account and nothing is tracked. Every answer links to its source.
+          there’s no account and nothing is tracked. Every answer links to its source. NBA facts are checked against
+          Wikipedia articles by Wikipedia contributors, used under{' '}
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">
+            CC BY-SA 4.0
+          </a>
+          .
         </p>
         <button type="button" className="btn btn-primary" onClick={onClose}>
           Got it

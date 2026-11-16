@@ -1,125 +1,135 @@
 {
   "date": "2026-11-27",
+  "theme": {
+    "title": "Rip City",
+    "subtitle": "Portland, 1976–77",
+    "recap": "Bill Walton's Blazers came from 0–2 down to win the 1977 title, then started the next season 50–10."
+  },
   "questions": [
     {
-      "id": "nba-pistons-186",
-      "sport": "Basketball",
-      "prompt": "How many points did the Detroit Pistons score against Denver on December 13, 1983?",
-      "context": "NBA · Pistons vs. Nuggets · triple overtime",
-      "answer": 186,
+      "id": "nba-walton77-g6-reb",
+      "sport": "NBA",
+      "prompt": "In the 1977 title clincher, how many rebounds did Bill Walton grab?",
+      "context": "1977 NBA Finals · Game 6 · vs Philadelphia",
+      "answer": 23,
+      "unit": {
+        "singular": "rebound",
+        "plural": "rebounds"
+      },
+      "min": 10,
+      "max": 42,
+      "step": 1,
+      "note": "23, with 20 points, 7 assists and 8 blocks.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+        "quote": "Bill Walton's 20 points, 23 rebounds, 7 assists and 8 blocks kept the game in Portland's favor."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-blazers78-start",
+      "sport": "NBA",
+      "prompt": "The year after their title, how many of their first 60 games did the 1977–78 Blazers win?",
+      "context": "Portland Trail Blazers · 1977–78",
+      "answer": 50,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 30,
+      "max": 60,
+      "step": 1,
+      "note": "50.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+        "quote": "The 1977-78 Blazers started with 50 wins in their first 60 games"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-blazers77-g4-q3",
+      "sport": "NBA",
+      "prompt": "Portland scored how many points in the third quarter of Game 4 of the 1977 Finals?",
+      "context": "1977 NBA Finals · Game 4 · at Portland",
+      "answer": 41,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 120,
-      "max": 220,
+      "min": 26,
+      "max": 68,
       "step": 1,
-      "note": "One hundred eighty-six, the most by one team in an NBA game.",
+      "note": "41.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/List_of_highest-scoring_NBA_games",
-        "quote": "the most points scored by one team (186 points)"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+        "quote": "Portland quickly led the game by 17 points and never looked back, scoring 41 points in the third quarter"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "hard"
     },
     {
-      "id": "golf-tiger-1997-masters",
-      "sport": "Golf",
-      "prompt": "By how many strokes did Tiger Woods win the 1997 Masters?",
-      "context": "Golf · Augusta National · April 1997",
-      "answer": 12,
+      "id": "nba-blazers77-g4-margin",
+      "sport": "NBA",
+      "prompt": "By how many points did Portland win Game 4 of the 1977 Finals?",
+      "context": "1977 NBA Finals · Game 4 · vs Philadelphia",
+      "answer": 32,
       "unit": {
-        "singular": "stroke",
-        "plural": "strokes"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 20,
+      "max": 45,
       "step": 1,
-      "note": "Twelve strokes clear of Tom Kite.",
+      "note": "32, the largest Game 4 margin until 2024.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/1997_Masters_Tournament",
-        "quote": "twelve strokes ahead of runner-up Tom Kite"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+        "quote": "the 32 point win being the largest margin of victory in a Finals game 4 until 2024"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "hard"
     },
     {
-      "id": "fb-leicester-2016-points",
-      "sport": "Football",
-      "prompt": "How many points did Leicester City finish with when they won the 2015–16 Premier League?",
-      "context": "Premier League · 38 matches",
-      "answer": 81,
+      "id": "nba-walton77-g5-dreb",
+      "sport": "NBA",
+      "prompt": "Bill Walton grabbed 24 rebounds in Game 5 of the 1977 Finals. How many were defensive?",
+      "context": "1977 NBA Finals · Game 5 · at Philadelphia",
+      "answer": 20,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "rebound",
+        "plural": "rebounds"
       },
-      "min": 50,
-      "max": 100,
+      "min": 9,
+      "max": 24,
       "step": 1,
-      "note": "Eighty-one points from 23 wins.",
+      "note": "20, a Blazers record.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Leicester_City_F.C._season",
-        "quote": "Leicester City finished with 81 points, winning 23 games"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+        "quote": "24 (20 defensive, another team record) of which belonged to Walton alone; his team record still stands."
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "mlb-ryan-no-hitters",
-      "sport": "Baseball",
-      "prompt": "How many no-hitters did Nolan Ryan throw in his MLB career?",
-      "context": "MLB · 1966–1993",
-      "answer": 7,
-      "unit": {
-        "singular": "no-hitter",
-        "plural": "no-hitters"
       },
-      "min": 0,
-      "max": 12,
-      "step": 1,
-      "note": "Seven, the most ever.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Nolan_Ryan",
-        "quote": "Ryan is the all-time leader in no-hitters with seven"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "nba-wilt-1962-total",
-      "sport": "Basketball",
-      "prompt": "How many points did Wilt Chamberlain score in the 1961–62 regular season?",
-      "context": "NBA · Philadelphia Warriors · 80 games",
-      "answer": 4029,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 2000,
-      "max": 5000,
-      "step": 10,
-      "note": "4,029, an average of 50.4 a game.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/1961%E2%80%9362_Philadelphia_Warriors_season",
-        "quote": "Wilt Chamberlain | 80 | 3882 | 1597 | 835 | 2052 | 192 | 4029"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
+      "difficulty": "expert"
     }
   ]
 }

@@ -1,0 +1,135 @@
+{
+  "date": "2026-11-29",
+  "theme": {
+    "title": "Rock bottom",
+    "subtitle": "The NBA's worst seasons",
+    "recap": "The 1972–73 Sixers and 2011–12 Bobcats own the worst records ever, and both lost games in long runs."
+  },
+  "questions": [
+    {
+      "id": "nba-sixers73-wins",
+      "sport": "NBA",
+      "prompt": "How many games did the 1972–73 Philadelphia 76ers win?",
+      "context": "Philadelphia 76ers · 1972–73 · 82 games",
+      "answer": 9,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "note": "Nine, finishing 9–73.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+        "quote": "the 76ers lost their remaining 13 games to finish 9–73."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-bobcats12-wins",
+      "sport": "NBA",
+      "prompt": "In the lockout-shortened 2011–12 season, how many games did the Charlotte Bobcats win?",
+      "context": "Charlotte Bobcats · 2011–12 · 66 games",
+      "answer": 7,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 0,
+      "max": 19,
+      "step": 1,
+      "note": "Seven, the lowest winning percentage in NBA history.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
+        "quote": "Total: 7–59 (Home: 4–29; Road: 3–30)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-sixers73-games-back",
+      "sport": "NBA",
+      "prompt": "How many games behind first-place Boston did the 1972–73 Sixers finish in their division?",
+      "context": "Philadelphia 76ers · 1972–73 · Atlantic Division",
+      "answer": 59,
+      "unit": {
+        "singular": "game back",
+        "plural": "games back"
+      },
+      "min": 45,
+      "max": 95,
+      "step": 1,
+      "note": "59, an NBA record.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+        "quote": "The 76ers finished an NBA-record 59 games behind the Atlantic Division champion Boston Celtics."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-bobcats12-losing-streak",
+      "sport": "NBA",
+      "prompt": "The 2011–12 Bobcats ended the season on a losing streak that carried into the next year. How long did it run?",
+      "context": "Charlotte Bobcats · 2011–12 into 2012–13",
+      "answer": 23,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 10,
+      "max": 46,
+      "step": 1,
+      "note": "23 straight losses.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
+        "quote": "embarking on a 23-game losing streak that lasted until the start of the following season."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-sixers14-losing-streak",
+      "sport": "NBA",
+      "prompt": "The 2013–14 Sixers tied what was then the NBA record for consecutive losses. How many?",
+      "context": "Philadelphia 76ers · 2013–14",
+      "answer": 26,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 0,
+      "max": 36,
+      "step": 1,
+      "note": "26 in a row, matching Cleveland's mark.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
+        "quote": "tying Cleveland's former NBA record for most consecutive losses with 26"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

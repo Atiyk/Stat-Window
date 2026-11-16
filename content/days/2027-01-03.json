@@ -1,0 +1,135 @@
+{
+  "date": "2027-01-03",
+  "theme": {
+    "title": "Lakers–Celtics, 2010",
+    "subtitle": "The 2010 Finals",
+    "recap": "The rivalry's latest Finals went seven games, with Ray Allen setting a record one night and missing everything two nights later."
+  },
+  "questions": [
+    {
+      "id": "nba-jackson10-titles",
+      "sport": "NBA",
+      "prompt": "Phil Jackson won the 2010 title as Lakers coach. How many titles had he won as a head coach in total?",
+      "context": "Bulls and Lakers · through 2010",
+      "answer": 11,
+      "unit": {
+        "singular": "title",
+        "plural": "titles"
+      },
+      "min": 6,
+      "max": 19,
+      "step": 1,
+      "note": "11.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+        "quote": "Lakers head coach Phil Jackson earned his 11th NBA championship title"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-allen10-g2-threes",
+      "sport": "NBA",
+      "prompt": "Ray Allen set a Finals record for threes in Game 2 of 2010. How many did he make?",
+      "context": "2010 NBA Finals · Game 2 · at Los Angeles",
+      "answer": 8,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
+      },
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "note": "Eight, on 11 attempts.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+        "quote": "Allen hit eight of 11 three-pointers, breaking a Finals record previously set by the"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-allen10-g3-fga",
+      "sport": "NBA",
+      "prompt": "Two days after his record night, Ray Allen went 0-for-how-many from the field in Game 3?",
+      "context": "2010 NBA Finals · Game 3 · vs Lakers",
+      "answer": 13,
+      "unit": {
+        "singular": "shot",
+        "plural": "shots"
+      },
+      "min": 4,
+      "max": 28,
+      "step": 1,
+      "note": "0 for 13.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+        "quote": "Ray Allen went a near-record 0–13 in field goals for this game."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-celtics-lakers-finals-record",
+      "sport": "NBA",
+      "prompt": "Before 2010, Boston had won how many of its 11 Finals series against the Lakers?",
+      "context": "Celtics vs Lakers · Finals history to 2008",
+      "answer": 9,
+      "unit": {
+        "singular": "series",
+        "plural": "series"
+      },
+      "min": 4,
+      "max": 11,
+      "step": 1,
+      "note": "Nine.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+        "quote": "The Celtics won nine of their previous 11 Finals meetings against the Lakers, winning in"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-finals10-g7-viewers",
+      "sport": "NBA",
+      "prompt": "On average, how many million viewers watched Game 7 of the 2010 Finals?",
+      "context": "2010 NBA Finals · Game 7 · US television",
+      "answer": 28.2,
+      "unit": {
+        "singular": "million viewers",
+        "plural": "million viewers"
+      },
+      "min": 0,
+      "max": 38,
+      "step": 0.1,
+      "note": "28.2 million.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+        "quote": "Game 7 had the highest average number of viewers with 28.2 million"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

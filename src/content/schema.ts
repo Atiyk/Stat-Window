@@ -106,5 +106,54 @@ export function checkInventory(slates: readonly Slate[], today: string): Invento
   if (ahead < RUNWAY_DAYS) {
     warnings.push(`Only ${ahead} day${ahead === 1 ? '' : 's'} of puzzles left from ${today}; publish more`);
   }
+  const upcoming = sorted.filter((s) => s.date > today).flatMap((s) => s.questions);
+  if (upcoming.length >= 10) {
+    const pos = upcoming.map((q) => (q.answer - q.min) / (q.max - q.min));
+    const mean = pos.reduce((x, y) => x + y, 0) / pos.length;
+    const banded = pos.filter((p) => Math.abs(p - mean) <= 0.15).length / pos.length;
+    if (mean < 0.35 || mean > 0.65 || banded > 0.8) {
+      warnings.push(
+        `Upcoming answers cluster on the ruler (average ${Math.round(mean * 100)}% along, ${Math.round(banded * 100)}% within 15 points of it); vary min/max so placement gives nothing away`,
+      );
+    }
+  }
   return { errors, warnings, firstDay: sorted[0]?.date, lastDay: sorted.at(-1)?.date };
+}
+
+/**
+ * Published-content lock. Saved scores and share links depend on each question's
+ * id, answer, scale and order, so once a day has been published these must never
+ * change. content/published.lock.json records them; text (prompt, note, source)
+ * may still be corrected without touching the lock.
+ */
+export type ContentLock = Record<string, string[]>;
+
+export function scoringFingerprint(slate: Slate): string[] {
+  return slate.questions.map((q) => `${q.id}|${q.answer}|${q.min}|${q.max}|${q.step}`);
+}
+
+/** Errors when a day on or before `today` differs from the lock (or is missing from it); warns for later days. */
+export function checkLock(slates: readonly Slate[], lock: ContentLock, today: string): { errors: string[]; warnings: string[] } {
+  const errors: string[] = [];
+  const warnings: string[] = [];
+  for (const s of slates) {
+    const want = lock[s.date];
+    const have = scoringFingerprint(s);
+    const same = want !== undefined && want.length === have.length && want.every((v, i) => v === have[i]);
+    if (same) continue;
+    if (s.date <= today) {
+      errors.push(
+        want === undefined
+          ? `${s.date} is published but not in content/published.lock.json; run npm run content:lock`
+          : `${s.date} is published: question ids, answers, scales and order are locked (${have.find((v, i) => v !== want[i]) ?? 'length'} differs)`,
+      );
+    } else {
+      warnings.push(`${s.date} changed since it was locked; run npm run content:lock after checking it`);
+    }
+  }
+  return { errors, warnings };
+}
+
+export function runwayDays(slates: readonly Slate[], today: string): number {
+  return slates.filter((s) => s.date >= today).length;
 }

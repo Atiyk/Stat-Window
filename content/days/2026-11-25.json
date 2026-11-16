@@ -11,10 +11,10 @@
         "singular": "rebound",
         "plural": "rebounds"
       },
-      "min": 20,
-      "max": 70,
+      "min": 30,
+      "max": 80,
       "step": 1,
-      "note": "Fifty-five rebounds in one night.",
+      "note": "Fifty-five rebounds in one night, the NBA single-game record.",
       "source": {
         "name": "Wikipedia",
         "url": "https://en.wikipedia.org/wiki/List_of_NBA_single-game_rebounding_leaders",
@@ -35,8 +35,8 @@
         "singular": "match",
         "plural": "matches"
       },
-      "min": 20,
-      "max": 70,
+      "min": 30,
+      "max": 80,
       "step": 1,
       "note": "Forty-nine, including the whole 38-game “Invincibles” season.",
       "source": {
@@ -83,8 +83,8 @@
         "singular": "win",
         "plural": "wins"
       },
-      "min": 300,
-      "max": 600,
+      "min": 400,
+      "max": 700,
       "step": 1,
       "note": "Five hundred eleven, the MLB record.",
       "source": {
@@ -107,8 +107,8 @@
         "singular": "yard",
         "plural": "yards"
       },
-      "min": 10000,
-      "max": 25000,
+      "min": 8000,
+      "max": 22000,
       "step": 50,
       "note": "18,355, breaking Walter Payton’s record.",
       "source": {

@@ -11,8 +11,8 @@
         "singular": "home run",
         "plural": "home runs"
       },
-      "min": 20,
-      "max": 80,
+      "min": 40,
+      "max": 100,
       "step": 1,
       "note": "Sixty, a career high, while batting .356.",
       "source": {
@@ -59,8 +59,8 @@
         "singular": "assist",
         "plural": "assists"
       },
-      "min": 10,
-      "max": 50,
+      "min": 15,
+      "max": 75,
       "step": 1,
       "note": "Thirty assists, the NBA single-game record.",
       "source": {
@@ -83,8 +83,8 @@
         "singular": "stroke",
         "plural": "strokes"
       },
-      "min": 0,
-      "max": 25,
+      "min": 5,
+      "max": 30,
       "step": 1,
       "note": "Fifteen strokes, a record winning margin at a major.",
       "source": {
@@ -107,8 +107,8 @@
         "singular": "stolen base",
         "plural": "stolen bases"
       },
-      "min": 500,
-      "max": 2000,
+      "min": 1000,
+      "max": 2500,
       "step": 10,
       "note": "1,406, nearly 50% more than the previous record of 938.",
       "source": {

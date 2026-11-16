@@ -11,8 +11,8 @@
         "singular": "point",
         "plural": "points"
       },
-      "min": 120,
-      "max": 220,
+      "min": 150,
+      "max": 250,
       "step": 1,
       "note": "One hundred eighty-six, the most by one team in an NBA game.",
       "source": {
@@ -59,7 +59,7 @@
         "singular": "point",
         "plural": "points"
       },
-      "min": 50,
+      "min": 40,
       "max": 100,
       "step": 1,
       "note": "Eighty-one points from 23 wins.",
@@ -84,7 +84,7 @@
         "plural": "no-hitters"
       },
       "min": 0,
-      "max": 12,
+      "max": 15,
       "step": 1,
       "note": "Seven, the most ever.",
       "source": {
@@ -107,8 +107,8 @@
         "singular": "point",
         "plural": "points"
       },
-      "min": 2000,
-      "max": 5000,
+      "min": 3000,
+      "max": 6000,
       "step": 10,
       "note": "4,029, an average of 50.4 a game.",
       "source": {

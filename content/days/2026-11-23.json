@@ -2,54 +2,6 @@
   "date": "2026-11-23",
   "questions": [
     {
-      "id": "nhl-habs-cups",
-      "sport": "Hockey",
-      "prompt": "How many times have the Montreal Canadiens won the Stanley Cup?",
-      "context": "NHL · 1916–present",
-      "answer": 24,
-      "unit": {
-        "singular": "Stanley Cup",
-        "plural": "Stanley Cups"
-      },
-      "min": 5,
-      "max": 35,
-      "step": 1,
-      "note": "Twenty-four Stanley Cups.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/List_of_Stanley_Cup_champions",
-        "quote": "The Montreal Canadiens have won the Stanley Cup 24 times"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "nba-jordan-63",
-      "sport": "Basketball",
-      "prompt": "How many points did Michael Jordan score against the Celtics on April 20, 1986?",
-      "context": "NBA playoffs · Bulls at Celtics · 1986",
-      "answer": 63,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 30,
-      "max": 80,
-      "step": 1,
-      "note": "Sixty-three points in Boston.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/List_of_NBA_single-game_playoff_scoring_leaders",
-        "quote": "63; Michael Jordan; Chicago Bulls; April 20, 1986; Boston Celtics"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
       "id": "oly-owens-1936",
       "sport": "Athletics",
       "prompt": "How many gold medals did Jesse Owens win at the 1936 Olympics?",
@@ -74,6 +26,54 @@
       }
     },
     {
+      "id": "nhl-habs-cups",
+      "sport": "Hockey",
+      "prompt": "How many times have the Montreal Canadiens won the Stanley Cup?",
+      "context": "NHL · 1916–present",
+      "answer": 24,
+      "unit": {
+        "singular": "Stanley Cup",
+        "plural": "Stanley Cups"
+      },
+      "min": 5,
+      "max": 30,
+      "step": 1,
+      "note": "Twenty-four Stanley Cups.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/List_of_Stanley_Cup_champions",
+        "quote": "The Montreal Canadiens have won the Stanley Cup 24 times"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "nba-jordan-63",
+      "sport": "Basketball",
+      "prompt": "How many points did Michael Jordan score against the Celtics on April 20, 1986?",
+      "context": "NBA playoffs · Bulls at Celtics · 1986",
+      "answer": 63,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 20,
+      "max": 80,
+      "step": 1,
+      "note": "Sixty-three points in Boston, the most anyone has scored in an NBA playoff game.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/List_of_NBA_single-game_playoff_scoring_leaders",
+        "quote": "63; Michael Jordan; Chicago Bulls; April 20, 1986; Boston Celtics"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
       "id": "mlb-ichiro-2004-hits",
       "sport": "Baseball",
       "prompt": "How many hits did Ichiro Suzuki collect in the 2004 season?",
@@ -83,7 +83,7 @@
         "singular": "hit",
         "plural": "hits"
       },
-      "min": 180,
+      "min": 150,
       "max": 300,
       "step": 1,
       "note": "Two hundred sixty-two, the single-season record.",
@@ -107,8 +107,8 @@
         "singular": "point",
         "plural": "points"
       },
-      "min": 1500,
-      "max": 3500,
+      "min": 2000,
+      "max": 4000,
       "step": 10,
       "note": "2,857: 894 goals and 1,963 assists.",
       "source": {

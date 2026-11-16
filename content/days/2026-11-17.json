@@ -14,7 +14,7 @@
       "min": 40,
       "max": 82,
       "step": 1,
-      "note": "They went 72–10.",
+      "note": "72–10, the most regular-season wins in NBA history until the 2015–16 Warriors went 73–9.",
       "source": {
         "name": "Wikipedia",
         "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
@@ -35,8 +35,8 @@
         "singular": "title",
         "plural": "titles"
       },
-      "min": 0,
-      "max": 35,
+      "min": 5,
+      "max": 30,
       "step": 1,
       "note": "Twenty-three, the most in the Open Era.",
       "source": {
@@ -59,8 +59,8 @@
         "singular": "game",
         "plural": "games"
       },
-      "min": 20,
-      "max": 100,
+      "min": 10,
+      "max": 70,
       "step": 1,
       "note": "Fifty-six straight games with at least one hit.",
       "source": {
@@ -83,8 +83,8 @@
         "singular": "shutout",
         "plural": "shutouts"
       },
-      "min": 30,
-      "max": 200,
+      "min": 80,
+      "max": 230,
       "step": 1,
       "note": "One hundred and twenty-five, the all-time record.",
       "source": {
@@ -107,8 +107,8 @@
         "singular": "minute",
         "plural": "minutes"
       },
-      "min": 200,
-      "max": 1000,
+      "min": 400,
+      "max": 1200,
       "step": 5,
       "note": "Eleven hours and five minutes of tennis: 665 minutes.",
       "source": {

@@ -11,8 +11,8 @@
         "singular": "point",
         "plural": "points"
       },
-      "min": 50,
-      "max": 130,
+      "min": 80,
+      "max": 180,
       "step": 1,
       "note": "Exactly one hundred, in a 169–147 win.",
       "source": {
@@ -36,7 +36,7 @@
         "plural": "Super Bowls"
       },
       "min": 0,
-      "max": 12,
+      "max": 10,
       "step": 1,
       "note": "Seven wins from ten Super Bowl appearances.",
       "source": {
@@ -84,9 +84,9 @@
         "plural": "wins"
       },
       "min": 30,
-      "max": 130,
+      "max": 120,
       "step": 1,
-      "note": "Ninety-one Grand Prix wins.",
+      "note": "Ninety-one Grand Prix wins, the record when he retired.",
       "source": {
         "name": "Wikipedia",
         "url": "https://en.wikipedia.org/wiki/Michael_Schumacher",
@@ -107,10 +107,10 @@
         "singular": "yard",
         "plural": "yards"
       },
-      "min": 10000,
-      "max": 30000,
+      "min": 15000,
+      "max": 35000,
       "step": 100,
-      "note": "22,895 yards.",
+      "note": "22,895 yards, the NFL career record.",
       "source": {
         "name": "Wikipedia",
         "url": "https://en.wikipedia.org/wiki/Jerry_Rice",

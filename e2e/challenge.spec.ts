@@ -32,7 +32,8 @@ test('a friend opens a challenge link after UTC midnight and gets the same five 
   const errors = collectErrors(b);
   await openAt(b, new Date('2026-11-17T00:05:00Z'), `/?day=2026-11-16&vs=${total}`);
   await expect(b.locator('.question')).toContainText(BONDS);
-  await expect(b.locator('.day-label')).toHaveText('Challenge');
+  await expect(b.locator('.day-label')).toHaveText('No. 2');
+  await expect(b.locator('.round-meta')).toContainText('Round 1 of 5');
   await expect(b.locator('.challenge-note')).toContainText(`A friend scored ${total}`);
   // No spoilers before play: the answer and its note are not on the page yet.
   await expect(b.locator('.story')).toHaveCount(0);
@@ -41,7 +42,7 @@ test('a friend opens a challenge link after UTC midnight and gets the same five 
   await lockAndSettle(b);
   await next(b);
   await b.reload();
-  await expect(b.locator('.round-meta')).toContainText('round 2 of 5');
+  await expect(b.locator('.round-meta')).toContainText('Round 2 of 5');
   await playOut(b, 1);
   await expect(b.locator('.results-head')).toContainText('Challenge · No. 2');
   await expect(b.locator('.results-head')).toContainText('not counted in your stats');
@@ -73,10 +74,13 @@ test('future, malformed and tampered links fall back to today without leaking an
     await expect(page.locator('.day-label')).toHaveText('No. 2');
     await expect(page.locator('.challenge-note')).toHaveCount(0);
   }
+  // A link with no score still says where the five came from.
+  await openAt(page, DAY2, '/?day=2026-11-15');
+  await expect(page.locator('.challenge-note')).toHaveText('A friend sent you these five.');
   // An out-of-range score is dropped but the day still opens.
   await openAt(page, DAY2, '/?day=2026-11-15&vs=9999');
   await expect(page.locator('.question')).toContainText('Golden State Warriors');
-  await expect(page.locator('.challenge-note')).toHaveCount(0);
+  await expect(page.locator('.challenge-note')).toHaveText('A friend sent you these five.');
   expect(errors).toEqual([]);
 });
 
@@ -89,7 +93,7 @@ test('a run in progress at UTC midnight is finished on its own day, then today o
   await page.clock.fastForward('02:00');
   // Still No. 1, round 2: midnight does not pull the player out of a run.
   await expect(page.locator('.day-label')).toHaveText('No. 1');
-  await expect(page.locator('.round-meta')).toContainText('round 2 of 5');
+  await expect(page.locator('.round-meta')).toContainText('Round 2 of 5');
   await playOut(page, 1);
   await expect(page.locator('.stats')).toContainText('Played1');
   await page.getByRole('button', { name: 'Play today’s puzzle' }).click();
@@ -122,6 +126,6 @@ test('practice runs of earlier days are saved, so a refresh does not re-roll the
   // Reload goes back to today (finished); the practice run waits where it was left.
   await expect(page.locator('.results-title')).toBeVisible();
   await page.getByRole('button', { name: 'Nov 15' }).click();
-  await expect(page.locator('.round-meta')).toContainText('round 2 of 5');
+  await expect(page.locator('.round-meta')).toContainText('Round 2 of 5');
   await expect(page.locator('.stats')).toHaveCount(0);
 });

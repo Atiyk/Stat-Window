@@ -12,8 +12,8 @@ type Props = {
   dispatch: Dispatch<GameAction>;
   label: string;
   showHint: boolean;
-  /** Score from a friend's challenge link, shown before the first round only. */
-  challengeScore?: number | null;
+  /** Set when the run came from a friend's link: shown before the first round only. */
+  challenge?: { vs: number | null } | null;
   onFirstTouch: () => void;
 };
 
@@ -30,7 +30,7 @@ function hitLine(points: number): string {
   return 'Caught, but loose.';
 }
 
-export function Round({ state, dispatch, label, showHint, challengeScore = null, onFirstTouch }: Props) {
+export function Round({ state, dispatch, label, showHint, challenge = null, onFirstTouch }: Props) {
   const q = currentQuestion(state);
   const reduced = usePrefersReducedMotion();
   const last = state.results[state.round];
@@ -145,8 +145,16 @@ export function Round({ state, dispatch, label, showHint, challengeScore = null,
       </div>
 
       <header className="question-block">
-        {challengeScore !== null && interactive && (
-          <p className="challenge-note">A friend scored <b className="tabular">{challengeScore}</b> on these five. Your turn.</p>
+        {challenge && interactive && (
+          <p className="challenge-note">
+            {challenge.vs === null ? (
+              'A friend sent you these five.'
+            ) : (
+              <>
+                A friend scored <b className="tabular">{challenge.vs}</b> on these five.
+              </>
+            )}
+          </p>
         )}
         <p className="context">
           {q.sport} · {q.context}
@@ -187,7 +195,7 @@ export function Round({ state, dispatch, label, showHint, challengeScore = null,
             ) : worth === 0 ? (
               <p className="worth">
                 {showHint
-                  ? 'Drag the brackets in around the answer. Tighter scores more, up to 100. Miss and it’s 0.'
+                  ? 'Drag a bracket in. Tighter scores more, up to 100. A miss scores 0.'
                   : 'Pull the brackets in to start scoring.'}
               </p>
             ) : (

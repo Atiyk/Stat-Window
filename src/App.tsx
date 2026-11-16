@@ -140,7 +140,7 @@ export function App() {
         </a>
         <div className="topbar-right">
           <span className="day-label">
-            {session?.mode === 'practice' ? (session.viaLink ? 'Challenge' : 'Practice') : `No. ${number}`}
+            No. {number}
           </span>
           <button
             type="button"
@@ -287,12 +287,9 @@ function Game(props: {
     );
   }
 
-  const where = session.viaLink ? 'Challenge' : 'Practice';
-  const label = daily
-    ? session.day === today
-      ? `Round ${state.round + 1} of 5`
-      : `No. ${n} · round ${state.round + 1} of 5`
-    : `${where} · ${formatDay(session.day)} · round ${state.round + 1} of 5`;
+  // The header already names the puzzle (No. N); this line only says what kind of run it is.
+  const where = daily || session.viaLink ? '' : 'Practice · ';
+  const label = `${where}Round ${state.round + 1} of 5`;
 
   return (
     <Round
@@ -300,7 +297,7 @@ function Game(props: {
       dispatch={dispatch}
       label={label}
       showHint={props.showHint && state.round === 0}
-      challengeScore={state.round === 0 && state.results.length === 0 ? session.vs : null}
+      challenge={session.viaLink && state.round === 0 && state.results.length === 0 ? { vs: session.vs } : null}
       onFirstTouch={props.onFirstTouch}
     />
   );

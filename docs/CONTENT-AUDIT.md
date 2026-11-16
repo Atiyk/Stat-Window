@@ -12,6 +12,7 @@ Each question gets 0–3 on five things: **Cl**arity (do you know what number yo
 
 - **Published days (2026-11-15, 2026-11-16)** are untouched: same ids, answers, scales, steps, order and text. `content/published.lock.json` now records the scoring fields of every day, and `npm run content:check` fails the build if a day on or before today ever changes them. Flags on published days are listed for a future, versioned correction, not fixed silently.
 - **Unpublished days (2026-11-17 onward)** got wording, note, order and scale changes only. No answer changed. New claims in notes were checked against the cited Wikipedia page on 2026-11-16 (one proposed claim, that Lewis Hamilton passed Schumacher's win record in 2020, was not on the cited page, so the note says only "the record when he retired", as the source does).
+- **Fact checking.** Every question was verified against its source page on 2026-11-15 (see `verified` in each file). This pass re-read each question against its stored source quote and re-fetched the cited page for the seven claims added or reworded here. It did not re-fetch all 65 pages.
 - Nobody has played an unpublished day (the archive only offers earlier days), so the scale changes re-score no one.
 
 ## The biggest finding: answers sat in the same place

@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-09",
+  "theme": {
+    "title": "Triple-double kings",
+    "subtitle": "Oscar Robertson to Russell Westbrook",
+    "recap": "Oscar Robertson set the triple-double standard in the 1960s; Russell Westbrook passed his single-season mark in 2017 and his career total in 2021."
+  },
+  "questions": [
+    {
+      "id": "nba-westbrook17-td",
+      "sport": "NBA",
+      "prompt": "On April 9, 2017, Russell Westbrook broke the record for triple-doubles in a season. What number did he reach?",
+      "context": "Oklahoma City Thunder · 2016–17",
+      "answer": 42,
+      "unit": {
+        "singular": "triple-double",
+        "plural": "triple-doubles"
+      },
+      "min": 0,
+      "max": 55,
+      "step": 1,
+      "note": "42, passing Oscar Robertson's 41.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Oklahoma_City_Thunder_season",
+        "quote": "On April 9th, Russell Westbrook broke Oscar Robertson's record for most triple-doubles in a season with 42."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-oscar-career-td",
+      "sport": "NBA",
+      "prompt": "How many career triple-doubles did Oscar Robertson record?",
+      "context": "Royals and Bucks · 1960–1974",
+      "answer": 181,
+      "unit": {
+        "singular": "triple-double",
+        "plural": "triple-doubles"
+      },
+      "min": 100,
+      "max": 310,
+      "step": 1,
+      "note": "181, a record for decades.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+        "quote": "For his career, Robertson had 181 triple-doubles, a record that had never been approached for decades"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-oscar62-assists",
+      "sport": "NBA",
+      "prompt": "Oscar Robertson broke Bob Cousy's single-season assist record of 715. How many did he log?",
+      "context": "Cincinnati Royals · 1961–62",
+      "answer": 899,
+      "unit": {
+        "singular": "assist",
+        "plural": "assists"
+      },
+      "min": 200,
+      "max": 1050,
+      "step": 5,
+      "note": "899.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+        "quote": "He broke the assists record by Bob Cousy, who had recorded 715 assists two seasons earlier, by logging 899"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-kidd02-finals-td",
+      "sport": "NBA",
+      "prompt": "Jason Kidd posted a triple-double in the 2002 Finals. It was which number in Finals history?",
+      "context": "2002 NBA Finals · Game 1 · at Los Angeles",
+      "answer": 26,
+      "unit": {
+        "singular": "triple-double",
+        "plural": "triple-doubles"
+      },
+      "min": 15,
+      "max": 75,
+      "step": 1,
+      "note": "The 26th.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2002_NBA_Finals",
+        "quote": "Kidd finished with a triple-double, the 26th in Finals history"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-butler20-g3-ast",
+      "sport": "NBA",
+      "prompt": "Jimmy Butler had 40 points and 11 rebounds in Game 3 of the 2020 Finals. How many assists did he add?",
+      "context": "2020 NBA Finals · Game 3 · vs Lakers",
+      "answer": 13,
+      "unit": {
+        "singular": "assist",
+        "plural": "assists"
+      },
+      "min": 0,
+      "max": 16,
+      "step": 1,
+      "note": "13, a 40-point triple-double.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
+        "quote": "Butler finished with 40 points, 11 rebounds and 13 assists for a triple-double to lead Miami to a 115–104 win"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

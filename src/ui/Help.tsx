@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { analyticsEnabled } from '../lib/track';
+import { NBA_CUTOVER } from '../content/cutover';
+import { formatDay } from '../lib/format';
 
 export function Help({ open, onClose }: { open: boolean; onClose: () => void }) {
   const ref = useRef<HTMLDialogElement>(null);
@@ -23,7 +25,7 @@ export function Help({ open, onClose }: { open: boolean; onClose: () => void }) 
           <span className="help-pin" />
         </div>
         <p>
-          Each day brings five real sports numbers. For each one, drag the two brackets in to frame a window you’re
+          Each day brings five real NBA numbers. For each one, drag the two brackets in to frame a window you’re
           sure the answer sits inside. Then lock it and watch where the real number lands.
         </p>
         <p>
@@ -40,8 +42,8 @@ export function Help({ open, onClose }: { open: boolean; onClose: () => void }) 
           <li data-kind="miss">
             <span className="help-glyph" aria-hidden="true">✕</span>
             <span>
-              <strong>Outside.</strong> Phelps’ golds: you framed 10–16, the answer was 23. That’s 0, and the window is
-              shown hatched.
+              <strong>Outside.</strong> Kobe’s biggest night: you framed 55–70, the answer was 81. That’s 0, and the window
+              is shown hatched.
             </span>
           </li>
         </ul>
@@ -58,12 +60,17 @@ export function Help({ open, onClose }: { open: boolean; onClose: () => void }) 
           (Shift moves further, Enter locks). Tap the ruler outside your window to pull that side straight to it.
         </p>
         <p className="help-small">
-          A new puzzle opens every day at midnight UTC, the same five for everyone. Your progress stays in this browser;
+          A new puzzle opens every day at midnight UTC, the same five for everyone. From {formatDay(NBA_CUTOVER)} every puzzle is NBA; the earlier mixed-sport days stay playable. Your progress stays in this browser;
           there’s no account.{' '}
           {analyticsEnabled
             ? 'We count anonymous plays (rounds locked, games finished, shares) to improve the game: no cookies, no names, nothing typed. Browsers set to Do Not Track or Global Privacy Control are not counted.'
             : 'Nothing is tracked.'}{' '}
-          Every answer links to its source.
+          Every answer links to its source. NBA facts are checked against Wikipedia articles by Wikipedia contributors,
+          used under{' '}
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">
+            CC BY-SA 4.0
+          </a>
+          .
         </p>
         <button type="button" className="btn btn-primary" onClick={onClose}>
           Got it

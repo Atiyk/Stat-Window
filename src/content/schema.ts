@@ -43,6 +43,8 @@ export const QuestionSchema = z
       derivation: z.optional(z.string()),
     }),
     verified: z.object({ on: isoDay, by: text(2) }),
+    /** NBA days climb easy → medium → hard → hard → expert. Older days have no label. */
+    difficulty: z.optional(z.enum(['easy', 'medium', 'hard', 'expert'])),
   })
   .check(
     z.superRefine((q, ctx) => {
@@ -65,13 +67,23 @@ export const QuestionSchema = z
     }),
   );
 
+export const ThemeSchema = z.object({
+  title: text(2, 40),
+  subtitle: text(2, 60),
+  recap: text(10, 220),
+});
+
 export const SlateSchema = z.object({
   date: isoDay,
+  /** Themed days (from the NBA cutover on) carry a title, a subtitle and a post-game recap. */
+  theme: z.optional(ThemeSchema),
   questions: z.array(QuestionSchema).check(z.length(5)),
 });
 
 export type Question = z.infer<typeof QuestionSchema>;
 export type Slate = z.infer<typeof SlateSchema>;
+export type Theme = z.infer<typeof ThemeSchema>;
+export type Difficulty = NonNullable<Question['difficulty']>;
 
 export function parseSlate(input: unknown): Slate {
   return SlateSchema.parse(input);
@@ -156,6 +168,26 @@ export function checkLock(slates: readonly Slate[], lock: ContentLock, today: st
     }
   }
   return { errors, warnings };
+}
+
+/**
+ * The lock as it should be after publishing `slates`: every day's fingerprint,
+ * except that a day on or before `today` keeps its old fingerprint and is listed
+ * in `refused` when the file no longer matches it. Days deleted from content/days
+ * stay in the lock, so checkLock can report a published day whose file is gone.
+ */
+export function nextLock(slates: readonly Slate[], lock: ContentLock, today: string): { lock: ContentLock; refused: string[] } {
+  const next: ContentLock = {};
+  const refused: string[] = [];
+  for (const [day, fp] of Object.entries(lock)) if (day <= today) next[day] = fp;
+  for (const s of [...slates].sort((a, b) => a.date.localeCompare(b.date))) {
+    const fp = scoringFingerprint(s);
+    const old = lock[s.date];
+    if (old && s.date <= today && JSON.stringify(old) !== JSON.stringify(fp)) refused.push(s.date);
+    else next[s.date] = fp;
+  }
+  const sorted = Object.fromEntries(Object.entries(next).sort(([a], [b]) => a.localeCompare(b)));
+  return { lock: sorted, refused };
 }
 
 export function runwayDays(slates: readonly Slate[], today: string): number {

@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-19",
+  "theme": {
+    "title": "Lakers lore",
+    "subtitle": "Minneapolis and Los Angeles",
+    "recap": "Long before Showtime the Lakers had Elgin Baylor's Finals record and a 1971–72 team that did not lose for two months."
+  },
+  "questions": [
+    {
+      "id": "nba-lakers72-streak",
+      "sport": "NBA",
+      "prompt": "The 1971–72 Lakers set the NBA record for consecutive wins. How long was the streak?",
+      "context": "Los Angeles Lakers · 1971–72",
+      "answer": 33,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 6,
+      "max": 48,
+      "step": 1,
+      "note": "33 in a row, an NBA record.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+        "quote": "they would also go on an NBA record 33-game winning streak"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-lakers72-wins",
+      "sport": "NBA",
+      "prompt": "The 1971–72 Lakers set a regular-season wins record. What was their win total?",
+      "context": "Los Angeles Lakers · 1971–72 · 82 games",
+      "answer": 69,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 50,
+      "max": 82,
+      "step": 1,
+      "note": "69–13, a record that stood until the 1995–96 Bulls.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+        "quote": "Record: 69–13 (.841)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-lakers72-margin",
+      "sport": "NBA",
+      "prompt": "By how many points per game did the 1971–72 Lakers outscore their opponents?",
+      "context": "Los Angeles Lakers · 1971–72 regular season",
+      "answer": 12.3,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 19,
+      "step": 0.1,
+      "note": "12.3 points a night.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+        "quote": "outscoring opponents by 12.3 points per game in the regular season"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-wilt72-finals-reb",
+      "sport": "NBA",
+      "prompt": "In the game that clinched the 1972 title, Wilt Chamberlain had 24 points and how many rebounds?",
+      "context": "1972 NBA Finals · Game 5 · vs New York",
+      "answer": 29,
+      "unit": {
+        "singular": "rebound",
+        "plural": "rebounds"
+      },
+      "min": 0,
+      "max": 34,
+      "step": 1,
+      "note": "29 rebounds, and the Finals MVP award.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+        "quote": "Wilt Chamberlain scored 24 points and 29 rebounds and earned the NBA Finals MVP Award"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-baylor62-finals-61",
+      "sport": "NBA",
+      "prompt": "What is the NBA record for points in a Finals game, set by Elgin Baylor in 1962?",
+      "context": "Los Angeles Lakers vs Boston Celtics · 1962 NBA Finals",
+      "answer": 61,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 45,
+      "max": 95,
+      "step": 1,
+      "note": "61 points, still the Finals record.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+        "quote": "Baylor set the still-standing NBA record for points in an NBA Finals game with 61."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

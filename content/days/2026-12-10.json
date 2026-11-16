@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-10",
+  "theme": {
+    "title": "Shaq and Kobe's three-peat",
+    "subtitle": "Los Angeles Lakers, 2000–2002",
+    "recap": "Shaquille O'Neal dominated three straight Finals, and the 2001 Lakers lost just once in the playoffs."
+  },
+  "questions": [
+    {
+      "id": "nba-lakers00-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did the 1999–2000 Lakers win?",
+      "context": "Los Angeles Lakers · 1999–2000 · 82 games",
+      "answer": 67,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 28,
+      "max": 82,
+      "step": 1,
+      "note": "67–15.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+        "quote": "They posted winning streaks of 11, 16, and 19 en route to a 67–15 record"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-shaq00-finals-ppg",
+      "sport": "NBA",
+      "prompt": "Shaquille O'Neal averaged how many points in the 2000 Finals?",
+      "context": "2000 NBA Finals · six games vs Indiana",
+      "answer": 38,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 26,
+      "max": 54,
+      "step": 0.1,
+      "note": "38.0, plus 16.7 rebounds a game.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+        "quote": "putting up 38.0 points, 16.7 rebounds, and 2.7 blocks per game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-iverson01-g1",
+      "sport": "NBA",
+      "prompt": "Allen Iverson handed the 2001 Lakers their only playoff loss in Finals Game 1. How many points did he score?",
+      "context": "2001 NBA Finals · Game 1 · at Los Angeles",
+      "answer": 48,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 32,
+      "max": 72,
+      "step": 1,
+      "note": "48, with five steals.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Los_Angeles_Lakers_season",
+        "quote": "Iverson scored 48 points along with 5 steals"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-shaq00-g2-fta",
+      "sport": "NBA",
+      "prompt": "How many free throws did Shaquille O'Neal attempt in Game 2 of the 2000 Finals?",
+      "context": "2000 NBA Finals · Game 2 · vs Indiana",
+      "answer": 39,
+      "unit": {
+        "singular": "free-throw attempt",
+        "plural": "free-throw attempts"
+      },
+      "min": 12,
+      "max": 54,
+      "step": 1,
+      "note": "39, an NBA record at the time. He made 18.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+        "quote": "Shaq shot 39 free throws, making only 18, an NBA record for most free throws attempted"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-shaq01-g2-blocks",
+      "sport": "NBA",
+      "prompt": "In Game 2 of the 2001 Finals, Shaq had 28 points, 20 rebounds, nine assists and how many blocks?",
+      "context": "2001 NBA Finals · Game 2 · vs Philadelphia",
+      "answer": 8,
+      "unit": {
+        "singular": "block",
+        "plural": "blocks"
+      },
+      "min": 0,
+      "max": 13,
+      "step": 1,
+      "note": "Eight blocks.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
+        "quote": "O'Neal finished with 28 points, 20 rebounds, nine assists, and eight blocks"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

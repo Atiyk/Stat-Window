@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { eventPath, privacySignal, totalBand, type TrackEvent } from './track';
+import { eventPath, privacySignal, setTrackSink, startAnalytics, totalBand, track, trackOnce, type TrackEvent } from './track';
 
 describe('eventPath', () => {
   it('maps every event to a fixed, low-cardinality path with no answers or ids', () => {
@@ -29,5 +29,90 @@ describe('privacySignal', () => {
     expect(privacySignal({ globalPrivacyControl: true } as unknown as Navigator)).toBe(true);
     expect(privacySignal({ doNotTrack: '1' } as unknown as Navigator)).toBe(true);
     expect(privacySignal({ doNotTrack: 'unspecified' } as unknown as Navigator)).toBe(false);
+  });
+});
+
+describe('trackOnce', () => {
+  const memory = () => {
+    const m = new Map<string, string>();
+    return { getItem: (k: string) => m.get(k) ?? null, setItem: (k: string, v: string) => void m.set(k, v), m };
+  };
+  it('counts a start once per browser, across reloads (a fresh module would re-check storage)', () => {
+    const sent: string[] = [];
+    setTrackSink((e) => sent.push(eventPath(e)));
+    const store = memory();
+    const e: TrackEvent = { name: 'run_start', mode: 'daily' };
+    expect(trackOnce('start:daily:runs:2026-11-17', '2026-11-17', e, store)).toBe(true);
+    expect(trackOnce('start:daily:runs:2026-11-17', '2026-11-17', e, store)).toBe(false);
+    // Same key from a new page load: the in-memory guard is gone, storage still knows.
+    expect(trackOnce('start:daily:runs:2026-11-17', '2026-11-17', e, { getItem: store.getItem, setItem: store.setItem })).toBe(false);
+    expect(trackOnce('start:practice:practice:2026-11-15', '2026-11-17', { name: 'run_start', mode: 'practice' }, store)).toBe(true);
+    expect(sent).toEqual(['/e/start/daily', '/e/start/practice']);
+  });
+  it('forgets keys after 14 days so storage stays small', () => {
+    setTrackSink(() => {});
+    const store = memory();
+    trackOnce('a', '2026-11-01', { name: 'visit_new' }, store);
+    trackOnce('b', '2026-11-20', { name: 'visit_new' }, store);
+    expect(Object.keys(JSON.parse(store.m.get('stat-window:sent')!))).toEqual(['b']);
+  });
+  it('still sends once per load when storage throws', () => {
+    const sent: string[] = [];
+    setTrackSink((e) => sent.push(eventPath(e)));
+    const broken = { getItem: () => { throw new Error('blocked'); }, setItem: () => { throw new Error('blocked'); } };
+    expect(trackOnce('c', '2026-11-17', { name: 'visit_new' }, broken)).toBe(true);
+    expect(trackOnce('c', '2026-11-17', { name: 'visit_new' }, broken)).toBe(false);
+    expect(sent).toEqual(['/e/visit/new']);
+  });
+});
+
+describe('startAnalytics', () => {
+  const fake = () => {
+    const calls: unknown[][] = [];
+    return {
+      calls,
+      vercel: {
+        inject: ((props: unknown) => void calls.push(['inject', props])) as never,
+        pageview: ((p: unknown) => void calls.push(['pageview', p])) as never,
+      },
+    };
+  };
+  const nav = {} as Navigator;
+  it('sends nothing unless the build turned analytics on', () => {
+    const f = fake();
+    expect(startAnalytics({ enabled: false, nav, vercel: f.vercel })).toBe(false);
+    expect(f.calls).toEqual([]);
+  });
+  it('sends nothing when the browser asks not to be tracked', () => {
+    const f = fake();
+    expect(startAnalytics({ enabled: true, nav: { doNotTrack: '1' } as unknown as Navigator, vercel: f.vercel })).toBe(false);
+    expect(f.calls).toEqual([]);
+  });
+});
+
+describe('startAnalytics wiring (simulated window)', () => {
+  it('turns auto-tracking off, sends one real page view, then one virtual page view per event', () => {
+    const g = globalThis as { window?: unknown };
+    const had = 'window' in g;
+    g.window = g.window ?? {};
+    try {
+      const calls: unknown[][] = [];
+      const vercel = {
+        inject: ((props: unknown) => void calls.push(['inject', props])) as never,
+        pageview: ((p: unknown) => void calls.push(['pageview', p])) as never,
+      };
+      expect(startAnalytics({ enabled: true, nav: {} as Navigator, vercel })).toBe(true);
+      track({ name: 'round_lock', mode: 'daily', round: 1, hit: true });
+      const inj = calls[0]![1] as { disableAutoTrack: boolean; beforeSend: (e: { url: string }) => { url: string } };
+      expect(inj.disableAutoTrack).toBe(true);
+      expect(inj.beforeSend({ url: 'https://stat-window.vercel.app/?day=2026-11-16&vs=274' }).url).toBe('https://stat-window.vercel.app/');
+      expect(calls.slice(1)).toEqual([
+        ['pageview', { route: '/', path: '/' }],
+        ['pageview', { route: '/e/lock/daily/r1/hit', path: '/e/lock/daily/r1/hit' }],
+      ]);
+    } finally {
+      setTrackSink(() => {});
+      if (!had) delete g.window;
+    }
   });
 });

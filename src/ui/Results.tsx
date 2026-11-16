@@ -5,6 +5,7 @@ import { msUntilNextPuzzle } from '../engine/daily';
 import { totalPoints, type Mode, type RoundRecord } from '../engine/game';
 import { MAX_TOTAL, shareText, verdict, type PlayerStats } from '../engine/summary';
 import { formatCountdown, formatDay, formatValue } from '../lib/format';
+import { isMixedSportDay } from '../content/cutover';
 import { track, type PlayMode } from '../lib/track';
 import { useNow } from './hooks';
 
@@ -88,6 +89,7 @@ export function Results({ slate, number, mode, playMode, isToday, vs, results, s
           {practice
             ? `${playMode === 'challenge' ? 'Challenge' : 'Practice'} · No. ${number} · ${formatDay(slate.date)} · not counted in your stats`
             : `No. ${number} · ${formatDay(slate.date)}`}
+          {slate.theme ? ` · ${slate.theme.title}` : ''}
         </p>
         <h1 className="results-title" ref={headingRef} tabIndex={-1}>
           {verdict(total)}
@@ -106,6 +108,7 @@ export function Results({ slate, number, mode, playMode, isToday, vs, results, s
             </li>
           ))}
         </ol>
+        {slate.theme && <p className="theme-recap">{slate.theme.recap}</p>}
         {vs !== null && <p className="versus">{comparison(total, vs)}</p>}
       </header>
 
@@ -209,6 +212,7 @@ export function Results({ slate, number, mode, playMode, isToday, vs, results, s
               <li key={day}>
                 <button type="button" className="btn btn-quiet" onClick={() => onPractice(day)}>
                   {formatDay(day)}
+                  {isMixedSportDay(day) && <span className="archive-tag"> · mixed sports</span>}
                 </button>
               </li>
             ))}

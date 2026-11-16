@@ -1,125 +1,135 @@
 {
   "date": "2026-11-18",
+  "theme": {
+    "title": "Banner 18",
+    "subtitle": "Boston, 2023–24",
+    "recap": "The Celtics led the league by a mile, lost three playoff games and won the franchise's 18th title."
+  },
   "questions": [
     {
-      "id": "nba-wilt-100",
-      "sport": "Basketball",
-      "prompt": "How many points did Wilt Chamberlain score against the Knicks on March 2, 1962?",
-      "context": "NBA · Philadelphia Warriors · 169–147 win",
-      "answer": 100,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 80,
-      "max": 180,
-      "step": 1,
-      "note": "Exactly one hundred, in a 169–147 win.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-        "quote": "by scoring 100 points for the Philadelphia Warriors in a 169–147 win over the New York Knicks"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "nfl-brady-sb-wins",
-      "sport": "American football",
-      "prompt": "How many Super Bowls did Tom Brady win?",
-      "context": "NFL · Patriots and Buccaneers · 2000–2022",
-      "answer": 7,
-      "unit": {
-        "singular": "Super Bowl",
-        "plural": "Super Bowls"
-      },
-      "min": 0,
-      "max": 10,
-      "step": 1,
-      "note": "Seven wins from ten Super Bowl appearances.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Tom_Brady",
-        "quote": "extending his individual records to 10 Super Bowl appearances and seven victories"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "fb-city-2018-points",
-      "sport": "Football",
-      "prompt": "How many points did Manchester City finish with in the 2017–18 Premier League?",
-      "context": "Premier League · 38 matches · 114 points possible",
-      "answer": 100,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 60,
-      "max": 114,
-      "step": 1,
-      "note": "A round 100, a Premier League record.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Manchester_City_F.C._season",
-        "quote": "New Premier League records for most points (100)"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "f1-schumacher-wins",
-      "sport": "Motor racing",
-      "prompt": "How many Formula One races did Michael Schumacher win?",
-      "context": "Formula One · 1991–2012",
-      "answer": 91,
+      "id": "nba-celtics24-wins",
+      "sport": "NBA",
+      "prompt": "What was Boston's regular-season win total in its 2023–24 title season?",
+      "context": "Boston Celtics · 2023–24 · 82 games",
+      "answer": 64,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 30,
-      "max": 120,
+      "min": 50,
+      "max": 82,
       "step": 1,
-      "note": "Ninety-one Grand Prix wins, the record when he retired.",
+      "note": "64–18, the NBA's best.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Michael_Schumacher",
-        "quote": "held the records for most wins (91)"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2023%E2%80%9324_Boston_Celtics_season",
+        "quote": "The Celtics had the best record (64–18) in the NBA"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "easy"
     },
     {
-      "id": "nfl-rice-career-yds",
-      "sport": "American football",
-      "prompt": "How many regular-season receiving yards did Jerry Rice gain in his NFL career?",
-      "context": "NFL · 1985–2004",
-      "answer": 22895,
+      "id": "nba-celtics24-playoff-losses",
+      "sport": "NBA",
+      "prompt": "Boston won the 2024 title. How many playoff games did it lose along the way?",
+      "context": "Boston Celtics · 2024 playoffs",
+      "answer": 3,
       "unit": {
-        "singular": "yard",
-        "plural": "yards"
+        "singular": "loss",
+        "plural": "losses"
       },
-      "min": 15000,
-      "max": 35000,
-      "step": 100,
-      "note": "22,895 yards, the NFL career record.",
+      "min": 0,
+      "max": 14,
+      "step": 1,
+      "note": "Three. Only the 2017 Warriors lost fewer since the four best-of-seven rounds began.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Jerry_Rice",
-        "quote": "Career receiving yards: 22,895"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2023%E2%80%9324_Boston_Celtics_season",
+        "quote": "With a playoff record of 16–3, the Celtics were second only to the 2016–17 Golden State Warriors"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-brown24-finals-ppg",
+      "sport": "NBA",
+      "prompt": "Jaylen Brown won 2024 Finals MVP. What did he average in the series?",
+      "context": "2024 NBA Finals · five games vs Dallas",
+      "answer": 20.8,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 2,
+      "max": 28,
+      "step": 0.1,
+      "note": "20.8 points per game.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
+        "quote": "after averaging 20.8 points, 5.4 rebounds, and 5.0 assists per game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-mazzulla24-age",
+      "sport": "NBA",
+      "prompt": "How old was Celtics coach Joe Mazzulla when he reached the 2024 Finals?",
+      "context": "Boston Celtics · 2024 NBA Finals",
+      "answer": 35,
+      "unit": {
+        "singular": "year old",
+        "plural": "years old"
+      },
+      "min": 24,
+      "max": 58,
+      "step": 1,
+      "note": "35, in his second season as Boston’s head coach.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
+        "quote": "the 35-year-old head coach appointed by the Celtics a season prior"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-celtics24-seed-gap",
+      "sport": "NBA",
+      "prompt": "By how many games did Boston finish ahead of the East's second seed in 2023–24?",
+      "context": "Eastern Conference standings · 2023–24",
+      "answer": 14,
+      "unit": {
+        "singular": "game back",
+        "plural": "games back"
+      },
+      "min": 8,
+      "max": 34,
+      "step": 1,
+      "note": "14 games, the widest gap since 1976.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
+        "quote": "widest margin of wins between the first and second seeds in the Eastern Conference since 1976 at 14 games"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
     }
   ]
 }

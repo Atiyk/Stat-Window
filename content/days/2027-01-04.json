@@ -1,0 +1,135 @@
+{
+  "date": "2027-01-04",
+  "theme": {
+    "title": "Warriors, Cavs and Raptors",
+    "subtitle": "The 2018 and 2019 Finals",
+    "recap": "LeBron James scored 51 in a 2018 loss; a year later Toronto ended Golden State's run."
+  },
+  "questions": [
+    {
+      "id": "nba-lebron18-g1",
+      "sport": "NBA",
+      "prompt": "LeBron James scored the most points ever in a Finals loss in Game 1 of 2018. How many?",
+      "context": "2018 NBA Finals · Game 1 · at Golden State",
+      "answer": 51,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "note": "51.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
+        "quote": "LeBron James scored 51 points in Game 1, the fifth-highest point total for an NBA Finals game and the most in a loss"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-curry18-g2-threes",
+      "sport": "NBA",
+      "prompt": "How many threes did Stephen Curry make in Game 2 of the 2018 Finals?",
+      "context": "2018 NBA Finals · Game 2 · vs Cleveland",
+      "answer": 9,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
+      },
+      "min": 0,
+      "max": 13,
+      "step": 1,
+      "note": "Nine, a Finals record.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
+        "quote": "set an NBA Finals record in Game 2 with nine three-point field goals"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-gsw19-g2-run",
+      "sport": "NBA",
+      "prompt": "Golden State opened the second half of Game 2 of the 2019 Finals with how many unanswered points?",
+      "context": "2019 NBA Finals · Game 2 · at Toronto",
+      "answer": 18,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "note": "18, the most to start a half in Finals history.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
+        "quote": "The Warriors' 18 unanswered points to begin the second half were the most in NBA Finals history to start a half."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-siakam19-g1",
+      "sport": "NBA",
+      "prompt": "Pascal Siakam shot 14 of 17 in Game 1 of the 2019 Finals. How many points did he score?",
+      "context": "2019 NBA Finals · Game 1 · vs Golden State",
+      "answer": 32,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 24,
+      "max": 44,
+      "step": 1,
+      "note": "32, a playoff career high.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
+        "quote": "Pascal Siakam scored a playoff career-high 32 points on 14-of-17 shooting"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-gsw19-20-threes",
+      "sport": "NBA",
+      "prompt": "Golden State made what was then the second-most threes in a Finals game, in Game 5 of 2019. How many?",
+      "context": "2019 NBA Finals · Game 5 · at Toronto",
+      "answer": 20,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
+      },
+      "min": 0,
+      "max": 26,
+      "step": 1,
+      "note": "20, then second only to Cleveland’s 24.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
+        "quote": "Golden State made 20 three-pointers, the second most in NBA Finals history behind Cleveland's 24"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

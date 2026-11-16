@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-30",
+  "theme": {
+    "title": "Bubble and beyond",
+    "subtitle": "The 2020 and 2021 Finals",
+    "recap": "The Lakers won in the 2020 bubble; a year later Giannis Antetokounmpo scored 50 to finish Phoenix."
+  },
+  "questions": [
+    {
+      "id": "nba-giannis21-g6",
+      "sport": "NBA",
+      "prompt": "How many points did Giannis Antetokounmpo score in the 2021 title clincher?",
+      "context": "2021 NBA Finals · Game 6 · vs Phoenix",
+      "answer": 50,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 15,
+      "max": 65,
+      "step": 1,
+      "note": "50, with 14 rebounds and five blocks.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+        "quote": "Giannis Antetokounmpo scored a playoff career-high 50 points and added 14 rebounds and five blocks"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-lakers20-lead-record",
+      "sport": "NBA",
+      "prompt": "The 2019–20 Lakers never lost when leading after three quarters. How many such games did they win, playoffs included?",
+      "context": "Los Angeles Lakers · 2019–20 · regular season plus playoffs",
+      "answer": 57,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 35,
+      "max": 85,
+      "step": 1,
+      "note": "57, going 57–0.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
+        "quote": "to be undefeated in a season when leading entering the fourth quarter, going a combined 57–0 record"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-giannis21-g6-ft",
+      "sport": "NBA",
+      "prompt": "In his 50-point clincher, how many of his 19 free throws did Giannis make?",
+      "context": "2021 NBA Finals · Game 6 · vs Phoenix",
+      "answer": 17,
+      "unit": {
+        "singular": "free throw",
+        "plural": "free throws"
+      },
+      "min": 7,
+      "max": 19,
+      "step": 1,
+      "note": "17 of 19, a surprise from a weak free-throw shooter.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+        "quote": "Antetokounmpo made 16 of his 25 shots, and was a surprising 17 for 19 on his free throws"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-suns21-g1-ft",
+      "sport": "NBA",
+      "prompt": "In Game 1 of the 2021 Finals, Phoenix made how many free throws in a row before its first miss?",
+      "context": "2021 NBA Finals · Game 1 · vs Milwaukee",
+      "answer": 25,
+      "unit": {
+        "singular": "free throw",
+        "plural": "free throws"
+      },
+      "min": 14,
+      "max": 52,
+      "step": 1,
+      "note": "25.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+        "quote": "Phoenix made their first 25 free throws and nearly set a record for most free throws in a game without a miss"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-paul21-seasons",
+      "sport": "NBA",
+      "prompt": "Chris Paul reached his first Finals in 2021. How many NBA seasons had he played by then?",
+      "context": "Phoenix Suns · 2021 NBA Finals",
+      "answer": 16,
+      "unit": {
+        "singular": "season",
+        "plural": "seasons"
+      },
+      "min": 2,
+      "max": 20,
+      "step": 1,
+      "note": "16, with 10 All-NBA selections.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+        "quote": "At 36 years old, Paul made his first Finals appearance after 16 seasons in the league and 10 All-NBA selections."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

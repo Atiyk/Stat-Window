@@ -1,125 +1,135 @@
 {
   "date": "2026-11-20",
+  "theme": {
+    "title": "Showtime",
+    "subtitle": "The Lakers of the 1980s",
+    "recap": "Magic Johnson's Lakers played fast, won big and left Finals marks behind, from a rookie's 42-point clincher to a perfect start to a postseason."
+  },
   "questions": [
     {
-      "id": "nfl-dolphins-1972-wins",
-      "sport": "American football",
-      "prompt": "Counting the playoffs, how many games did the 1972 Miami Dolphins win?",
-      "context": "NFL · 1972 season · they never lost",
-      "answer": 17,
+      "id": "nba-lakers87-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did the 1986–87 Lakers win?",
+      "context": "Los Angeles Lakers · 1986–87 · 82 games",
+      "answer": 65,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 8,
-      "max": 22,
+      "min": 25,
+      "max": 82,
       "step": 1,
-      "note": "They finished 17–0.",
+      "note": "65–17, the best record in the league.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/1972_Miami_Dolphins_season",
-        "quote": "won all three postseason games to finish 17–0"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+        "quote": "The Lakers finished the regular season with a league-best 65–17 record."
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "easy"
     },
     {
-      "id": "fb-klose-wc-goals",
-      "sport": "Football",
-      "prompt": "How many World Cup goals did Miroslav Klose score in his career?",
-      "context": "FIFA World Cup · Germany · 2002–2014",
-      "answer": 16,
+      "id": "nba-magic80-g6-points",
+      "sport": "NBA",
+      "prompt": "As a rookie in the title-clinching Game 6 of the 1980 Finals, how many points did Magic Johnson score?",
+      "context": "1980 NBA Finals · Game 6 · Lakers vs 76ers",
+      "answer": 42,
       "unit": {
-        "singular": "goal",
-        "plural": "goals"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 30,
+      "max": 50,
       "step": 1,
-      "note": "Sixteen, a World Cup record that stood for twelve years.",
+      "note": "42, and he made all 14 of his free throws.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Miroslav_Klose",
-        "quote": "was the record-holder for most goals scored in the FIFA World Cup (16) for twelve years"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
+        "quote": "Magic Johnson scored 42 points, including all 14 of his free-throw attempts."
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "medium"
     },
     {
-      "id": "nba-curry-2016-threes",
-      "sport": "Basketball",
-      "prompt": "How many three-pointers did Stephen Curry make in the 2015–16 regular season?",
-      "context": "NBA · Golden State Warriors · 2015–16",
-      "answer": 402,
+      "id": "nba-lakers89-playoff-start",
+      "sport": "NBA",
+      "prompt": "The 1989 Lakers were the first team to win how many playoff games in a row to open a postseason?",
+      "context": "Los Angeles Lakers · 1989 playoffs",
+      "answer": 11,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 7,
+      "max": 16,
+      "step": 1,
+      "note": "11 straight, the first team ever to do it.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+        "quote": "The Lakers became the first team to win their first 11 playoff games"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-cooper87-threes",
+      "sport": "NBA",
+      "prompt": "Michael Cooper set a playoff record in Game 2 of the 1987 Finals by making how many three-pointers?",
+      "context": "1987 NBA Finals · Game 2 · vs Boston",
+      "answer": 6,
       "unit": {
         "singular": "three-pointer",
         "plural": "three-pointers"
       },
-      "min": 250,
-      "max": 650,
-      "step": 1,
-      "note": "402, smashing his own record of 286.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-        "quote": "Curry broke his own NBA record for made three-pointers in a season of 286, finishing with 402"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "oly-comaneci-tens",
-      "sport": "Gymnastics",
-      "prompt": "How many perfect 10s did Nadia Comăneci score at the 1976 Olympics?",
-      "context": "Olympic Games · Montreal · 1976",
-      "answer": 7,
-      "unit": {
-        "singular": "perfect 10",
-        "plural": "perfect 10s"
-      },
       "min": 0,
-      "max": 10,
+      "max": 20,
       "step": 1,
-      "note": "Seven, four of them on the uneven bars.",
+      "note": "Six, a playoff record at the time.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Nadia_Com%C4%83neci",
-        "quote": "At Montreal Comăneci received four of her seven 10s on the uneven bars."
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+        "quote": "He hit six 3 pointers, a playoff record."
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "hard"
     },
     {
-      "id": "mlb-aaron-career-hr",
-      "sport": "Baseball",
-      "prompt": "How many home runs did Hank Aaron hit in his MLB career?",
-      "context": "MLB · 1954–1976",
-      "answer": 755,
+      "id": "nba-magic84-assists",
+      "sport": "NBA",
+      "prompt": "Magic Johnson set the NBA Finals record for assists in a game in 1984. How many did he dish out?",
+      "context": "1984 NBA Finals · Game 3 · vs Boston",
+      "answer": 21,
       "unit": {
-        "singular": "home run",
-        "plural": "home runs"
+        "singular": "assist",
+        "plural": "assists"
       },
-      "min": 600,
-      "max": 1200,
-      "step": 5,
-      "note": "Seven hundred fifty-five, the record until 2007.",
+      "min": 12,
+      "max": 38,
+      "step": 1,
+      "note": "21 assists in Game 3.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Hank_Aaron",
-        "quote": "surpassed his famous total of 755 in 2007"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
+        "quote": "Magic Johnson dished out 21 assists, an NBA Finals record."
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "expert"
     }
   ]
 }

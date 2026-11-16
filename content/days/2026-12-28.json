@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-28",
+  "theme": {
+    "title": "Golden State's fourth",
+    "subtitle": "The 2022 Finals",
+    "recap": "The Warriors won a fourth title in eight years behind Stephen Curry and a 21–0 run in the clincher."
+  },
+  "questions": [
+    {
+      "id": "nba-curry22-g4",
+      "sport": "NBA",
+      "prompt": "With Golden State down 2–1 in the 2022 Finals, how many points did Stephen Curry score in Game 4?",
+      "context": "2022 NBA Finals · Game 4 · at Boston",
+      "answer": 43,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 25,
+      "max": 75,
+      "step": 1,
+      "note": "43, with 10 rebounds.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+        "quote": "Curry scored 43 points and had 10 rebounds in a 107–97 win to even the series 2–2."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-kerr-player-titles",
+      "sport": "NBA",
+      "prompt": "Steve Kerr's 2022 title was his ninth overall. How many did he win as a player?",
+      "context": "Bulls and Spurs · 1990s and 2000s",
+      "answer": 5,
+      "unit": {
+        "singular": "title",
+        "plural": "titles"
+      },
+      "min": 0,
+      "max": 9,
+      "step": 1,
+      "note": "Five.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+        "quote": "Steve Kerr won his ninth championship overall, after winning five as a player."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-gsw22-g6-run",
+      "sport": "NBA",
+      "prompt": "In the 2022 title clincher, Golden State went on an unanswered run of how many points?",
+      "context": "2022 NBA Finals · Game 6 · at Boston",
+      "answer": 21,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 28,
+      "step": 1,
+      "note": "21–0, the longest in modern Finals history.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+        "quote": "The 21–0 run was the longest such run in modern Finals history."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-tatum22-turnovers",
+      "sport": "NBA",
+      "prompt": "Jayson Tatum set the record for turnovers in one postseason in 2022. How many?",
+      "context": "Boston Celtics · 2022 playoffs",
+      "answer": 100,
+      "unit": {
+        "singular": "turnover",
+        "plural": "turnovers"
+      },
+      "min": 20,
+      "max": 140,
+      "step": 1,
+      "note": "100.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+        "quote": "Tatum set the NBA record for most turnovers in a single postseason with 100."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-finals22-g1-threes",
+      "sport": "NBA",
+      "prompt": "Boston and Golden State set a Finals record for combined threes in Game 1 of 2022. How many?",
+      "context": "2022 NBA Finals · Game 1 · at Golden State",
+      "answer": 40,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
+      },
+      "min": 8,
+      "max": 50,
+      "step": 1,
+      "note": "40.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+        "quote": "Both teams made a combined 40 three-pointers, the most ever in an NBA Finals game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

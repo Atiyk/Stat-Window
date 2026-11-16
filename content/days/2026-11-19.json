@@ -1,125 +1,135 @@
 {
   "date": "2026-11-19",
+  "theme": {
+    "title": "Hakeem's Rockets",
+    "subtitle": "Houston, 1993–95",
+    "recap": "Houston started 15–0, won a seven-game Finals against New York and then won another title as a sixth seed."
+  },
   "questions": [
     {
-      "id": "mlb-ruth-1927-hr",
-      "sport": "Baseball",
-      "prompt": "How many home runs did Babe Ruth hit in 1927?",
-      "context": "MLB · New York Yankees · 1927",
-      "answer": 60,
-      "unit": {
-        "singular": "home run",
-        "plural": "home runs"
-      },
-      "min": 40,
-      "max": 100,
-      "step": 1,
-      "note": "Sixty, a career high, while batting .356.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/1927_New_York_Yankees_season",
-        "quote": "In addition to his career-high 60 home runs, Ruth batted .356"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "ten-nadal-rg-titles",
-      "sport": "Tennis",
-      "prompt": "How many French Open singles titles did Rafael Nadal win?",
-      "context": "Tennis · Roland Garros · 2005–2022",
-      "answer": 14,
-      "unit": {
-        "singular": "title",
-        "plural": "titles"
-      },
-      "min": 0,
-      "max": 20,
-      "step": 1,
-      "note": "Fourteen, a record at Roland Garros.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Rafael_Nadal",
-        "quote": "including a record 14 French Open titles"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "nba-skiles-assists",
-      "sport": "Basketball",
-      "prompt": "How many assists did Scott Skiles hand out in one game on December 30, 1990?",
-      "context": "NBA · Magic vs. Nuggets · 155–116",
-      "answer": 30,
-      "unit": {
-        "singular": "assist",
-        "plural": "assists"
-      },
-      "min": 15,
-      "max": 75,
-      "step": 1,
-      "note": "Thirty assists, the NBA single-game record.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Scott_Skiles",
-        "quote": "Skiles racked up 30 assists in Orlando's 155–116 victory over the Denver Nuggets"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "golf-tiger-2000-usopen",
-      "sport": "Golf",
-      "prompt": "By how many strokes did Tiger Woods win the 2000 U.S. Open?",
-      "context": "Golf · Pebble Beach · June 2000",
+      "id": "nba-rockets94-start",
+      "sport": "NBA",
+      "prompt": "The 1993–94 Rockets opened the season with how many straight wins?",
+      "context": "Houston Rockets · 1993–94",
       "answer": 15,
       "unit": {
-        "singular": "stroke",
-        "plural": "strokes"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 5,
-      "max": 30,
+      "min": 2,
+      "max": 32,
       "step": 1,
-      "note": "Fifteen strokes, a record winning margin at a major.",
+      "note": "15, tying the record at the time.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/2000_U.S._Open_(golf)",
-        "quote": "won his first U.S. Open by a record-setting fifteen strokes over runners-up"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Houston_Rockets_season",
+        "quote": "winning their first fifteen games of the regular season to tie the"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "easy"
     },
     {
-      "id": "mlb-henderson-sb",
-      "sport": "Baseball",
-      "prompt": "How many bases did Rickey Henderson steal in his MLB career?",
-      "context": "MLB · 1979–2003",
-      "answer": 1406,
+      "id": "nba-ewing94-blocks",
+      "sport": "NBA",
+      "prompt": "Patrick Ewing set a Finals record for blocks in a series in 1994. How many?",
+      "context": "1994 NBA Finals · seven games vs Houston",
+      "answer": 30,
       "unit": {
-        "singular": "stolen base",
-        "plural": "stolen bases"
+        "singular": "block",
+        "plural": "blocks"
       },
-      "min": 1000,
-      "max": 2500,
-      "step": 10,
-      "note": "1,406, nearly 50% more than the previous record of 938.",
+      "min": 0,
+      "max": 42,
+      "step": 1,
+      "note": "30 over seven games.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Rickey_Henderson",
-        "quote": "His 1,406 career steals is nearly 50% higher than the previous record of 938"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1994_NBA_Finals",
+        "quote": "Ewing set an NBA finals record in the series with a total of 30 blocks"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-starks94-g7-3pa",
+      "sport": "NBA",
+      "prompt": "John Starks went 0-for-what from three-point range in Game 7 of the 1994 Finals?",
+      "context": "1994 NBA Finals · Game 7 · at Houston",
+      "answer": 11,
+      "unit": {
+        "singular": "attempt",
+        "plural": "attempts"
+      },
+      "min": 4,
+      "max": 30,
+      "step": 1,
+      "note": "0 for 11, and 2 of 18 overall.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1994_NBA_Finals",
+        "quote": "Starks struggled severely, shooting 2-of-18 from the field (0-for-11 from three-point range)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-anderson95-ft",
+      "sport": "NBA",
+      "prompt": "Late in Game 1 of the 1995 Finals, Nick Anderson missed how many free throws in a row?",
+      "context": "1995 NBA Finals · Game 1 · vs Houston",
+      "answer": 4,
+      "unit": {
+        "singular": "free throw",
+        "plural": "free throws"
+      },
+      "min": 0,
+      "max": 8,
+      "step": 1,
+      "note": "Four, and Houston won in overtime.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1995_NBA_Finals",
+        "quote": "Nick Anderson missed four consecutive free throws in the closing seconds of the game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-rockets95-road-wins",
+      "sport": "NBA",
+      "prompt": "The 1995 Rockets were the first team to win how many road playoff games in one postseason?",
+      "context": "Houston Rockets · 1995 playoffs",
+      "answer": 9,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 5,
+      "max": 19,
+      "step": 1,
+      "note": "Nine.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1995_NBA_Finals",
+        "quote": "the Rockets became the first NBA team to win nine road playoff games"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
     }
   ]
 }

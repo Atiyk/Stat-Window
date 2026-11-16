@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-31",
+  "theme": {
+    "title": "Shortened seasons",
+    "subtitle": "Lockouts and the pandemic",
+    "recap": "The NBA has cut its schedule to 50 games, 66 games and 72 games, and the shortened years still produced champions."
+  },
+  "questions": [
+    {
+      "id": "nba-lockout99-games",
+      "sport": "NBA",
+      "prompt": "The 1998–99 lockout cut the regular season to how many games per team?",
+      "context": "NBA · 1998–99 season",
+      "answer": 50,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 15,
+      "max": 70,
+      "step": 1,
+      "note": "50, starting February 5, 1999.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
+        "quote": "Due to a lockout, the regular season began on February 5, 1999, and was cut from 82 games to 50."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-season21-games",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did each team play in 2020–21?",
+      "context": "NBA · 2020–21 season",
+      "answer": 72,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 44,
+      "max": 78,
+      "step": 1,
+      "note": "72.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+        "quote": "The regular season was reduced to 72 games for each team"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-spurs99-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did the 1998–99 Spurs win in the lockout season?",
+      "context": "San Antonio Spurs · 1998–99",
+      "answer": 37,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 10,
+      "max": 46,
+      "step": 1,
+      "note": "37, going 37–13, tied with Utah for the league’s best.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
+        "quote": "The Spurs finished in first place in the Midwest Division with a league-best 37–13 record"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-sprewell99-g5",
+      "sport": "NBA",
+      "prompt": "The Knicks scored 39 second-half points in the 1999 clincher. How many were Latrell Sprewell's?",
+      "context": "1999 NBA Finals · Game 5 · vs San Antonio",
+      "answer": 25,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 39,
+      "step": 1,
+      "note": "25 of the 39.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+        "quote": "The Knicks scored 39 points in the second half, and Latrell Sprewell scored 25 of them"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-spurs99-memorial-day",
+      "sport": "NBA",
+      "prompt": "In Game 2 of the 1999 West finals, San Antonio came back from how many points down to win on Sean Elliott's \"Memorial Day Miracle\"?",
+      "context": "1999 West finals · Game 2 · vs Portland",
+      "answer": 17,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 22,
+      "step": 1,
+      "note": "17.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
+        "quote": "the Spurs trailed by 17 points against the Trail Blazers in Game 2"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

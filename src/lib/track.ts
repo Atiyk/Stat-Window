@@ -94,6 +94,40 @@ export function track(e: TrackEvent): void {
   }
 }
 
+/**
+ * Sends `e` only the first time `key` is seen in this browser, so a refresh, a
+ * remount or a second tab does not count the same start or first touch twice.
+ * Keys are kept for 14 days. Without storage it falls back to once per page load.
+ */
+const ONCE_KEY = 'stat-window:sent';
+const sentThisLoad = new Set<string>();
+export function trackOnce(key: string, day: string, e: TrackEvent, storage: Pick<Storage, 'getItem' | 'setItem'> | null = safeStorage()): boolean {
+  if (sentThisLoad.has(key)) return false;
+  sentThisLoad.add(key);
+  if (storage) {
+    try {
+      const raw = JSON.parse(storage.getItem(ONCE_KEY) ?? '{}') as Record<string, string>;
+      if (typeof raw[key] === 'string') return false;
+      const cutoff = new Date(Date.parse(`${day}T00:00:00Z`) - 14 * 86_400_000).toISOString().slice(0, 10);
+      const kept = Object.fromEntries(Object.entries(raw).filter(([, d]) => typeof d === 'string' && d >= cutoff));
+      kept[key] = day;
+      storage.setItem(ONCE_KEY, JSON.stringify(kept));
+    } catch {
+      /* unreadable or full storage: once per page load is the best we can do */
+    }
+  }
+  track(e);
+  return true;
+}
+
+function safeStorage(): Storage | null {
+  try {
+    return typeof window === 'undefined' ? null : window.localStorage;
+  } catch {
+    return null;
+  }
+}
+
 export function privacySignal(nav: Navigator): boolean {
   const n = nav as Navigator & { globalPrivacyControl?: boolean; doNotTrack?: string | null };
   return n.globalPrivacyControl === true || n.doNotTrack === '1';
@@ -101,20 +135,39 @@ export function privacySignal(nav: Navigator): boolean {
 
 export const analyticsEnabled = import.meta.env.VITE_ANALYTICS === 'vercel';
 
-/** Starts Vercel Web Analytics and routes events to it. Safe to call once at startup. */
-export function startAnalytics(): boolean {
-  if (!analyticsEnabled || typeof window === 'undefined' || privacySignal(navigator)) return false;
-  inject({
+type Vercel = { inject: typeof inject; pageview: typeof pageview };
+
+/**
+ * Starts Vercel Web Analytics and routes events to it. Safe to call once at startup.
+ *
+ * Auto-tracking is off and the real page view is sent by hand: the Vercel script
+ * keeps the last `path` given to pageview() and reuses it for later automatic page
+ * views, which would file a real visit under a stale `/e/…` path.
+ */
+export function startAnalytics(
+  opts: { enabled?: boolean; nav?: Navigator; vercel?: Vercel } = {},
+): boolean {
+  const enabled = opts.enabled ?? analyticsEnabled;
+  if (!enabled || typeof window === 'undefined') return false;
+  if (privacySignal(opts.nav ?? navigator)) return false;
+  const v = opts.vercel ?? { inject, pageview };
+  v.inject({
     mode: 'production',
+    disableAutoTrack: true,
     // Page views keep only the path: challenge links carry a day and a score we don't need to collect.
     beforeSend: (event) => {
-      const u = new URL(event.url);
-      return { ...event, url: `${u.origin}${u.pathname}` };
+      try {
+        const u = new URL(event.url);
+        return { ...event, url: `${u.origin}${u.pathname}` };
+      } catch {
+        return null; // an unreadable URL is dropped rather than sent with its query string
+      }
     },
   });
+  v.pageview({ route: '/', path: '/' });
   setTrackSink((e) => {
     const path = eventPath(e);
-    pageview({ route: path, path });
+    v.pageview({ route: path, path });
   });
   return true;
 }

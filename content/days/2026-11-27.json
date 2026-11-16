@@ -1,125 +1,135 @@
 {
   "date": "2026-11-27",
+  "theme": {
+    "title": "Mamba numbers",
+    "subtitle": "Kobe Bryant, 1996–2016",
+    "recap": "Kobe Bryant scored 81 in a night, 62 in three quarters and 40 or more nine games running."
+  },
   "questions": [
     {
-      "id": "nba-pistons-186",
-      "sport": "Basketball",
-      "prompt": "How many points did the Detroit Pistons score against Denver on December 13, 1983?",
-      "context": "NBA · Pistons vs. Nuggets · triple overtime",
-      "answer": 186,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 150,
-      "max": 250,
-      "step": 1,
-      "note": "One hundred eighty-six, the most by one team in an NBA game.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/List_of_highest-scoring_NBA_games",
-        "quote": "the most points scored by one team (186 points)"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "golf-tiger-1997-masters",
-      "sport": "Golf",
-      "prompt": "By how many strokes did Tiger Woods win the 1997 Masters?",
-      "context": "Golf · Augusta National · April 1997",
-      "answer": 12,
-      "unit": {
-        "singular": "stroke",
-        "plural": "strokes"
-      },
-      "min": 0,
-      "max": 20,
-      "step": 1,
-      "note": "Twelve strokes clear of Tom Kite.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/1997_Masters_Tournament",
-        "quote": "twelve strokes ahead of runner-up Tom Kite"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "fb-leicester-2016-points",
-      "sport": "Football",
-      "prompt": "How many points did Leicester City finish with when they won the 2015–16 Premier League?",
-      "context": "Premier League · 38 matches",
+      "id": "nba-kobe-81",
+      "sport": "NBA",
+      "prompt": "How many points did Kobe Bryant score against Toronto on January 22, 2006?",
+      "context": "Lakers vs Toronto Raptors · 2005–06",
       "answer": 81,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
       "min": 40,
-      "max": 100,
+      "max": 105,
       "step": 1,
-      "note": "Eighty-one points from 23 wins.",
+      "note": "81, his career high.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Leicester_City_F.C._season",
-        "quote": "Leicester City finished with 81 points, winning 23 games"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+        "quote": "On January 22, 2006, Bryant scored a career-high 81 points"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "easy"
     },
     {
-      "id": "mlb-ryan-no-hitters",
-      "sport": "Baseball",
-      "prompt": "How many no-hitters did Nolan Ryan throw in his MLB career?",
-      "context": "MLB · 1966–1993",
-      "answer": 7,
+      "id": "nba-kobe03-threes",
+      "sport": "NBA",
+      "prompt": "On January 7, 2003, Kobe Bryant set the NBA record for threes in a game. How many did he make?",
+      "context": "Los Angeles Lakers · 2002–03 regular season",
+      "answer": 12,
       "unit": {
-        "singular": "no-hitter",
-        "plural": "no-hitters"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 0,
-      "max": 15,
+      "min": 7,
+      "max": 26,
       "step": 1,
-      "note": "Seven, the most ever.",
+      "note": "12, a record at the time.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Nolan_Ryan",
-        "quote": "Ryan is the all-time leader in no-hitters with seven"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+        "quote": "Bryant also set an NBA record for three-pointers in a game on January 7, 2003, when he made 12"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "medium"
     },
     {
-      "id": "nba-wilt-1962-total",
-      "sport": "Basketball",
-      "prompt": "How many points did Wilt Chamberlain score in the 1961–62 regular season?",
-      "context": "NBA · Philadelphia Warriors · 80 games",
-      "answer": 4029,
+      "id": "nba-kobe03-40-streak",
+      "sport": "NBA",
+      "prompt": "In February 2003, Kobe Bryant scored 40 or more in how many consecutive games?",
+      "context": "Los Angeles Lakers · 2002–03",
+      "answer": 9,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 6,
+      "max": 25,
+      "step": 1,
+      "note": "Nine straight, averaging 40.6 for the month.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+        "quote": "posting 40 or more points in nine consecutive games while averaging 40.6 in the entire month of February"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-kobe05-62-three-quarters",
+      "sport": "NBA",
+      "prompt": "Kobe Bryant sat out the fourth quarter against Dallas on December 20, 2005. How many points did he have through three?",
+      "context": "Lakers vs Dallas Mavericks · 2005–06",
+      "answer": 62,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 3000,
-      "max": 6000,
-      "step": 10,
-      "note": "4,029, an average of 50.4 a game.",
+      "min": 30,
+      "max": 85,
+      "step": 1,
+      "note": "62, one more than the whole Mavericks team had at that point.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/1961%E2%80%9362_Philadelphia_Warriors_season",
-        "quote": "Wilt Chamberlain | 80 | 3882 | 1597 | 835 | 2052 | 192 | 4029"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+        "quote": "On December 20, 2005, Bryant scored 62 points in three quarters against the Dallas Mavericks"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-kobe10-g7-fga",
+      "sport": "NBA",
+      "prompt": "Kobe Bryant made just six field goals in Game 7 of the 2010 Finals. How many did he attempt?",
+      "context": "2010 NBA Finals · Game 7 · vs Boston",
+      "answer": 24,
+      "unit": {
+        "singular": "shot",
+        "plural": "shots"
+      },
+      "min": 0,
+      "max": 34,
+      "step": 1,
+      "note": "6 for 24, though his 23 points led all scorers.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+        "quote": "Bryant, despite shooting 6 for 24 (25%) from the field, scored 10 of his game-high 23 points in the fourth quarter."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
     }
   ]
 }

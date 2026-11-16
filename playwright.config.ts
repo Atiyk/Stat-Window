@@ -1,6 +1,11 @@
 import { defineConfig, devices } from '@playwright/test';
 
-const PORT = 4173;
+// ANALYTICS_E2E=1 runs against a separate build with VITE_ANALYTICS=vercel (see e2e/analytics.spec.ts).
+const ANALYTICS = !!process.env.ANALYTICS_E2E;
+const PORT = ANALYTICS ? 4174 : 4173;
+const BUILD = ANALYTICS
+  ? `VITE_ANALYTICS=vercel npx vite build --outDir dist-analytics && npx vite preview --outDir dist-analytics --port ${PORT} --strictPort`
+  : `npm run build && npx vite preview --port ${PORT} --strictPort`;
 
 export default defineConfig({
   testDir: './e2e',
@@ -19,7 +24,7 @@ export default defineConfig({
   webServer: process.env.BASE_URL
     ? undefined
     : {
-        command: `npm run build && npx vite preview --port ${PORT} --strictPort`,
+        command: BUILD,
         port: PORT,
         reuseExistingServer: !process.env.CI,
         timeout: 120_000,

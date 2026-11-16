@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-11",
+  "theme": {
+    "title": "Heat wave",
+    "subtitle": "Miami Heat, 2012–13",
+    "recap": "Miami won 27 in a row on the way to a second straight title, five years after a 15-win season."
+  },
+  "questions": [
+    {
+      "id": "nba-heat13-streak",
+      "sport": "NBA",
+      "prompt": "How long was the Miami Heat's 2012–13 winning streak?",
+      "context": "Miami Heat · 2012–13 regular season",
+      "answer": 27,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 2,
+      "max": 38,
+      "step": 1,
+      "note": "27 games in a row.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+        "quote": "the Heat embarked on a 27-game winning streak"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-battier13-g7-threes",
+      "sport": "NBA",
+      "prompt": "How many three-pointers did Shane Battier make in Game 7 of the 2013 Finals?",
+      "context": "2013 NBA Finals · Game 7 · vs San Antonio",
+      "answer": 6,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
+      },
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "note": "Six, for 18 points.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
+        "quote": "Battier scored 18 points on six 3-pointers"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-heat13-month-wins",
+      "sport": "NBA",
+      "prompt": "In 2012–13 Miami became the first team to win how many games in a single calendar month?",
+      "context": "Miami Heat · 2012–13 regular season",
+      "answer": 17,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 13,
+      "max": 31,
+      "step": 1,
+      "note": "17, going 17–1 in March 2013.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+        "quote": "becoming the first team in NBA history to win at least 17 games in a calendar month"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-andersen13-fg",
+      "sport": "NBA",
+      "prompt": "Chris \"Birdman\" Andersen shot what percentage from the field in the 2013 playoffs?",
+      "context": "Miami Heat · 2013 playoffs",
+      "answer": 80.7,
+      "unit": {
+        "singular": "percent",
+        "plural": "percent"
+      },
+      "min": 55,
+      "max": 100,
+      "step": 0.5,
+      "note": "80.7%, 46 of 57.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+        "quote": "Chris \"Birdman\" Andersen shot 80.7 percent (46-of-57) from the field in the 2013 postseason"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-heat08-wins",
+      "sport": "NBA",
+      "prompt": "Five years before the streak, how many games did the 2007–08 Heat win?",
+      "context": "Miami Heat · 2007–08 · 82 games",
+      "answer": 15,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "note": "15, tying the franchise's worst.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+        "quote": "winning only 15 games, equaling the mark set by the team in"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

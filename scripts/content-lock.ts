@@ -1,11 +1,11 @@
 /**
  * Records each slate's scoring fingerprint (ids, answers, scales, order) in
  * content/published.lock.json. Refuses to rewrite a day that is already published.
- *   node --experimental-strip-types scripts/content-lock.ts [--today YYYY-MM-DD]
+ *   node --experimental-strip-types scripts/content-lock.ts
  */
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { parseSlate, scoringFingerprint, type ContentLock } from '../src/content/schema.ts';
+import { nextLock, parseSlate, type ContentLock } from '../src/content/schema.ts';
 import { puzzleDay } from '../src/engine/daily.ts';
 
 const root = join(import.meta.dirname, '..', 'content');
@@ -18,20 +18,11 @@ try {
 } catch {
   /* first run */
 }
-const next: ContentLock = {};
-let refused = 0;
-for (const file of readdirSync(join(root, 'days')).filter((f) => f.endsWith('.json')).sort()) {
-  const slate = parseSlate(JSON.parse(readFileSync(join(root, 'days', file), 'utf8')));
-  const fp = scoringFingerprint(slate);
-  const old = lock[slate.date];
-  if (old && slate.date <= today && JSON.stringify(old) !== JSON.stringify(fp)) {
-    console.error(`refused: ${slate.date} is published; restore its ids, answers, scales and order`);
-    next[slate.date] = old;
-    refused++;
-  } else {
-    next[slate.date] = fp;
-  }
-}
+const slates = readdirSync(join(root, 'days'))
+  .filter((f) => f.endsWith('.json'))
+  .map((f) => parseSlate(JSON.parse(readFileSync(join(root, 'days', f), 'utf8'))));
+const { lock: next, refused } = nextLock(slates, lock, today);
+for (const day of refused) console.error(`refused: ${day} is published; restore its ids, answers, scales and order`);
 writeFileSync(lockFile, JSON.stringify(next, null, 2) + '\n');
 console.log(`Locked ${Object.keys(next).length} days.`);
-if (refused) process.exit(1);
+if (refused.length) process.exit(1);

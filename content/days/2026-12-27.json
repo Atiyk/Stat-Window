@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-27",
+  "theme": {
+    "title": "The dynasty years",
+    "subtitle": "Chicago Bulls, 1991–98",
+    "recap": "Chicago won 69 games a year after 72, buried Utah by 42 in a Finals game and then fell to 13 wins once the team broke up."
+  },
+  "questions": [
+    {
+      "id": "nba-jordan93-g4-55",
+      "sport": "NBA",
+      "prompt": "How many points did Michael Jordan score in Game 4 of the 1993 Finals against Phoenix?",
+      "context": "1993 NBA Finals · Game 4 · Chicago Stadium",
+      "answer": 55,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 35,
+      "max": 85,
+      "step": 1,
+      "note": "55 at Chicago Stadium.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+        "quote": "In Game 4, Michael Jordan was unstoppable, scoring 55 points at Chicago Stadium"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-bulls97-wins",
+      "sport": "NBA",
+      "prompt": "How many games did the 1996–97 Bulls win, a year after going 72–10?",
+      "context": "Chicago Bulls · 1996–97 · 82 games",
+      "answer": 69,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 50,
+      "max": 82,
+      "step": 1,
+      "note": "69–13, the league's best record that season.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
+        "quote": "the Bulls settled for a league-best 69–13 record"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-jazz98-g3-54",
+      "sport": "NBA",
+      "prompt": "Utah lost Game 3 of the 1998 Finals by 42 points. How many points did the Jazz score?",
+      "context": "1998 NBA Finals · Game 3 · at Chicago",
+      "answer": 54,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 30,
+      "max": 105,
+      "step": 1,
+      "note": "54, in a 96–54 loss.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
+        "quote": "In a 96–54 loss, the Jazz set the record for the 42-point loss in Finals history"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-pippen97-g3-threes",
+      "sport": "NBA",
+      "prompt": "Scottie Pippen tied the Finals record for threes in Game 3 of 1997. How many did he make?",
+      "context": "1997 NBA Finals · Game 3 · at Utah",
+      "answer": 7,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
+      },
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "note": "Seven, then a Finals record.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
+        "quote": "Scottie Pippen tying a then-Finals record with seven 3-pointers"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-bulls99-wins",
+      "sport": "NBA",
+      "prompt": "In the lockout season after their sixth title, how many games did the Bulls win?",
+      "context": "Chicago Bulls · 1998–99 · lockout-shortened season",
+      "answer": 13,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 6,
+      "max": 42,
+      "step": 1,
+      "note": "13, in the lockout-shortened season after their sixth title.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
+        "quote": "winning just 13 of 50 games"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

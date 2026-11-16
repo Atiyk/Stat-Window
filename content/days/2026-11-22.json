@@ -1,125 +1,135 @@
 {
   "date": "2026-11-22",
+  "theme": {
+    "title": "Russell, Wilt and Baylor",
+    "subtitle": "The NBA in the 1960s",
+    "recap": "Boston won eight titles in a row while Wilt, Baylor and West put up numbers that look like misprints today."
+  },
   "questions": [
     {
-      "id": "nba-russell-titles",
-      "sport": "Basketball",
-      "prompt": "How many NBA championships did Bill Russell win as a player?",
-      "context": "NBA · Boston Celtics · 1956–1969",
-      "answer": 11,
+      "id": "nba-celtics-eight-straight",
+      "sport": "NBA",
+      "prompt": "Starting in 1959, how many NBA titles in a row did Boston win?",
+      "context": "Boston Celtics · from 1958–59",
+      "answer": 8,
       "unit": {
         "singular": "title",
         "plural": "titles"
       },
-      "min": 0,
-      "max": 15,
+      "min": 2,
+      "max": 16,
       "step": 1,
-      "note": "Eleven titles between 1957 and 1969.",
+      "note": "Eight straight.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Bill_Russell",
-        "quote": "11× NBA champion (1957, 1959–1966, 1968, 1969)"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+        "quote": "Boston Celtics won eight in a row from 1959 to 1966."
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "easy"
     },
     {
-      "id": "fb-fontaine-1958",
-      "sport": "Football",
-      "prompt": "How many goals did Just Fontaine score at the 1958 World Cup?",
-      "context": "FIFA World Cup · Sweden · six matches for France",
-      "answer": 13,
+      "id": "nba-baylor60-71",
+      "sport": "NBA",
+      "prompt": "Elgin Baylor set the NBA single-game scoring record on November 15, 1960. How many points did he score?",
+      "context": "Los Angeles Lakers · 1960–61",
+      "answer": 71,
       "unit": {
-        "singular": "goal",
-        "plural": "goals"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 5,
-      "max": 25,
+      "min": 45,
+      "max": 110,
       "step": 1,
-      "note": "Thirteen in six matches, still the record for one tournament.",
+      "note": "71, a record until Wilt passed it the next season.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Just_Fontaine",
-        "quote": "with thirteen in six matches at the 1958 tournament"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+        "quote": "On November 15 of the 1960–61 season, Baylor set an NBA scoring record when he scored 71 points in a victory"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "medium"
     },
     {
-      "id": "nfl-dickerson-1984-yds",
-      "sport": "American football",
-      "prompt": "How many rushing yards did Eric Dickerson gain in the 1984 season?",
-      "context": "NFL · Los Angeles Rams · 1984",
-      "answer": 2105,
+      "id": "nba-west69-g1",
+      "sport": "NBA",
+      "prompt": "In Game 1 of the 1969 Finals, how many points did Jerry West score against Boston?",
+      "context": "1969 NBA Finals · Game 1 · vs Celtics",
+      "answer": 53,
       "unit": {
-        "singular": "yard",
-        "plural": "yards"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 1000,
-      "max": 2500,
-      "step": 5,
-      "note": "2,105 yards, the single-season record.",
+      "min": 35,
+      "max": 85,
+      "step": 1,
+      "note": "53, in a Lakers win.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Eric_Dickerson",
-        "quote": "He holds the NFL's single-season rushing record with 2,105 yards, set in 1984"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1969_NBA_Finals",
+        "quote": "He used this freedom to score 53 points on opposing guards"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "hard"
     },
     {
-      "id": "f1-verstappen-2023-wins",
-      "sport": "Motor racing",
-      "prompt": "How many Grands Prix did Max Verstappen win in the 2023 season?",
-      "context": "Formula One · 2023 · 22 races held",
+      "id": "nba-russell62-quarter-reb",
+      "sport": "NBA",
+      "prompt": "In the 1962 Finals, Bill Russell set the record for rebounds in a quarter. How many?",
+      "context": "1962 NBA Finals · vs Lakers",
       "answer": 19,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "rebound",
+        "plural": "rebounds"
       },
-      "min": 5,
-      "max": 22,
+      "min": 0,
+      "max": 26,
       "step": 1,
-      "note": "Nineteen of 22, a record for one season.",
+      "note": "19 in one quarter, the most of any NBA quarter.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/2023_Formula_One_World_Championship",
-        "quote": "winning a record 19 out of 22 Grands Prix held"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_rebounding_leaders",
+        "quote": "Russell's 19 rebounds in a single quarter is the most of any NBA quarter"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "hard"
     },
     {
-      "id": "ath-bolt-100m",
-      "sport": "Athletics",
-      "prompt": "What is Usain Bolt’s 100 m world record time, in seconds?",
-      "context": "Athletics · Berlin · 2009",
-      "answer": 9.58,
+      "id": "nba-wilt60-half-reb",
+      "sport": "NBA",
+      "prompt": "In his record-setting rebounding game on November 24, 1960, how many rebounds did Wilt grab in one half?",
+      "context": "Philadelphia Warriors vs Boston Celtics · 1960–61",
+      "answer": 31,
       "unit": {
-        "singular": "second",
-        "plural": "seconds"
+        "singular": "rebound",
+        "plural": "rebounds"
       },
-      "min": 9.4,
-      "max": 10.2,
-      "step": 0.01,
-      "note": "9.58 seconds, the biggest jump since electronic timing began.",
+      "min": 20,
+      "max": 56,
+      "step": 1,
+      "note": "31 in a single half, in a game his team lost.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Usain_Bolt",
-        "quote": "with 9.58 seconds in 2009 – the biggest improvement since the start of electronic timing"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_rebounding_leaders",
+        "quote": "Record set in a losing effort; grabbed 31 rebounds in one half; scored 34 points"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "expert"
     }
   ]
 }

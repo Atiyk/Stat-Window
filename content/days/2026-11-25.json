@@ -1,125 +1,135 @@
 {
   "date": "2026-11-25",
+  "theme": {
+    "title": "Splash season",
+    "subtitle": "Golden State, 2015–16",
+    "recap": "The Warriors won their first 24, reached the All-Star break at 48–4, never lost at home for more than a year and made threes at a rate nobody had seen."
+  },
   "questions": [
     {
-      "id": "nba-wilt-55-reb",
-      "sport": "Basketball",
-      "prompt": "How many rebounds did Wilt Chamberlain grab against the Celtics on November 24, 1960?",
-      "context": "NBA · Philadelphia Warriors · 1960",
-      "answer": 55,
+      "id": "nba-gsw16-start",
+      "sport": "NBA",
+      "prompt": "The 2015–16 Warriors opened the season with how many straight wins?",
+      "context": "Golden State Warriors · 2015–16",
+      "answer": 24,
       "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 30,
-      "max": 80,
+      "min": 0,
+      "max": 30,
       "step": 1,
-      "note": "Fifty-five rebounds in one night, the NBA single-game record.",
+      "note": "24 in a row before their first loss.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/List_of_NBA_single-game_rebounding_leaders",
-        "quote": "55 | Wilt Chamberlain | Philadelphia Warriors | November 24, 1960 | Boston Celtics"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "The Warriors began the 2015–16 season by winning their first 24 games,"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "easy"
     },
     {
-      "id": "fb-arsenal-unbeaten",
-      "sport": "Football",
-      "prompt": "How many league matches in a row did Arsenal go unbeaten in 2003 and 2004?",
-      "context": "English top flight · Arsenal · 2003–2004",
-      "answer": 49,
-      "unit": {
-        "singular": "match",
-        "plural": "matches"
-      },
-      "min": 30,
-      "max": 80,
-      "step": 1,
-      "note": "Forty-nine, including the whole 38-game “Invincibles” season.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/The_Invincibles_(football)",
-        "quote": "went unbeaten for a total of 49 consecutive matches in the league between 2003 and 2004"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "oly-phelps-medals",
-      "sport": "Swimming",
-      "prompt": "How many Olympic medals did Michael Phelps win in total?",
-      "context": "Olympic Games · gold, silver and bronze",
-      "answer": 28,
-      "unit": {
-        "singular": "medal",
-        "plural": "medals"
-      },
-      "min": 10,
-      "max": 40,
-      "step": 1,
-      "note": "Twenty-eight medals, 23 of them gold.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Michael_Phelps",
-        "quote": "a total of 28 medals"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "mlb-cy-young-wins",
-      "sport": "Baseball",
-      "prompt": "How many games did Cy Young win as a pitcher?",
-      "context": "MLB · 1890–1911",
-      "answer": 511,
+      "id": "nba-gsw16-allstar-wins",
+      "sport": "NBA",
+      "prompt": "What was the Warriors' win total at the 2016 All-Star break?",
+      "context": "Golden State Warriors · 2015–16 · first half of the season",
+      "answer": 48,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 400,
-      "max": 700,
+      "min": 28,
+      "max": 60,
       "step": 1,
-      "note": "Five hundred eleven, the MLB record.",
+      "note": "48–4, the best record ever at the break.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Cy_Young",
-        "quote": "He holds MLB records for the most career wins, with 511"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "Golden State reached the NBA All-Star break at 48–4, the best start to an NBA season at this juncture."
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "medium"
     },
     {
-      "id": "nfl-emmitt-career-yds",
-      "sport": "American football",
-      "prompt": "How many rushing yards did Emmitt Smith gain in his NFL career?",
-      "context": "NFL · 1990–2004",
-      "answer": 18355,
+      "id": "nba-gsw16-home-streak",
+      "sport": "NBA",
+      "prompt": "Golden State set an NBA record for consecutive regular-season home wins. How long was the streak?",
+      "context": "Golden State Warriors · spanning 2015 and 2016",
+      "answer": 54,
       "unit": {
-        "singular": "yard",
-        "plural": "yards"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 8000,
-      "max": 22000,
-      "step": 50,
-      "note": "18,355, breaking Walter Payton’s record.",
+      "min": 35,
+      "max": 100,
+      "step": 1,
+      "note": "54 straight home wins.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Emmitt_Smith",
-        "quote": "he rushed for 18,355 yards, breaking the record formerly held by Walter Payton"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "The Warriors also set an NBA record 54-straight regular-season home-game winning streak,"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-gsw16-threes",
+      "sport": "NBA",
+      "prompt": "How many three-pointers did the 2015–16 Warriors make in the regular season?",
+      "context": "Golden State Warriors · 2015–16 · 82 games",
+      "answer": 1077,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
+      },
+      "min": 550,
+      "max": 1400,
+      "step": 10,
+      "note": "1,077, the first team past 1,000.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "They also became the first team to make over 1,000 three-pointers in the regular-season with 1,077,"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-curry16-ot-points",
+      "sport": "NBA",
+      "prompt": "On May 9, 2016, Stephen Curry set an NBA record for points in an overtime period. How many did he score?",
+      "context": "2016 Western Conference semifinals · vs Portland",
+      "answer": 17,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "note": "17, breaking the record of 16.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "He scored 17 of his points in overtime, which broke the NBA record of 16"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
     }
   ]
 }

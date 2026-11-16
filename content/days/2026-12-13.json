@@ -1,0 +1,136 @@
+{
+  "date": "2026-12-13",
+  "theme": {
+    "title": "Beyond the arc",
+    "subtitle": "The three-pointer, 1979 to today",
+    "recap": "It took the NBA years to use the three: the first record was eight in a game and the first 100-three season came in 1988."
+  },
+  "questions": [
+    {
+      "id": "nba-three-point-distance",
+      "sport": "NBA",
+      "prompt": "Away from the corners, how far is the NBA three-point arc from the center of the basket, in feet?",
+      "context": "NBA rules · arc distance",
+      "answer": 23.75,
+      "unit": {
+        "singular": "foot",
+        "plural": "feet"
+      },
+      "min": 21,
+      "max": 34,
+      "step": 0.25,
+      "note": "23 feet 9 inches, or 23.75 feet.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
+        "quote": "in the National Basketball Association (NBA) the arc is 23 feet 9 inches (7.24 m) from the center of the basket",
+        "derivation": "23 feet 9 inches = 23.75 feet"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-barry80-threes",
+      "sport": "NBA",
+      "prompt": "Rick Barry set the first NBA record for threes in a game in February 1980. How many did he make?",
+      "context": "Houston Rockets vs Utah Jazz · 1979–80",
+      "answer": 8,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
+      },
+      "min": 0,
+      "max": 15,
+      "step": 1,
+      "note": "Eight, against Utah.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
+        "quote": "Barry would later set the original 3-point record at 8 in a single game on February 9, 1980 against the Utah Jazz."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-ainge88-threes",
+      "sport": "NBA",
+      "prompt": "In 1987–88 Danny Ainge became the first player with 100 threes in a season. How many did he make?",
+      "context": "Boston Celtics · 1987–88",
+      "answer": 148,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
+      },
+      "min": 50,
+      "max": 210,
+      "step": 1,
+      "note": "148 threes.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
+        "quote": "Danny Ainge was the first player to make over 100 three-pointers in a season in 1988, scoring 148 that season."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-miller-career-threes",
+      "sport": "NBA",
+      "prompt": "Reggie Miller retired in 2005 as the career leader in threes. How many had he made?",
+      "context": "Indiana Pacers · 1987–2005",
+      "answer": 2560,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
+      },
+      "min": 0,
+      "max": 3200,
+      "step": 10,
+      "note": "2,560, a record at his retirement.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
+        "quote": "eventually retiring with a record 2,560 three-pointers made."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-gsw16-dec1-3pa",
+      "sport": "NBA",
+      "prompt": "In a double-overtime game on December 1, 2016, how many threes did the Warriors and Rockets attempt combined?",
+      "context": "Warriors vs Houston Rockets · 2016–17 · double overtime",
+      "answer": 88,
+      "unit": {
+        "singular": "attempt",
+        "plural": "attempts"
+      },
+      "min": 20,
+      "max": 105,
+      "step": 1,
+      "note": "88, 44 for each team.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+        "quote": "Most combined three-point attempts in a single game: 88"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

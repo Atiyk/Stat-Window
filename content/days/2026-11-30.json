@@ -1,0 +1,135 @@
+{
+  "date": "2026-11-30",
+  "theme": {
+    "title": "Down 3–1",
+    "subtitle": "2016 Finals, Cleveland vs Golden State",
+    "recap": "Cleveland won the last three games, with LeBron James and Kyrie Irving scoring 41 each in Game 5 and the two teams dead level on points before Game 7."
+  },
+  "questions": [
+    {
+      "id": "nba-cavs16-g5-41",
+      "sport": "NBA",
+      "prompt": "In Game 5 of the 2016 Finals, LeBron James and Kyrie Irving each scored how many points?",
+      "context": "2016 NBA Finals · Game 5 · at Golden State",
+      "answer": 41,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 25,
+      "max": 75,
+      "step": 1,
+      "note": "41 apiece, the first teammates to both reach 40 in a Finals game.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "James and Irving each scored 41 points to become the first teammates in Finals history to score 40 or more"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-lebron16-finals-ppg",
+      "sport": "NBA",
+      "prompt": "What was LeBron James's scoring average in the 2016 Finals, when he was named MVP?",
+      "context": "2016 NBA Finals · seven games",
+      "answer": 29.7,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 20,
+      "max": 48,
+      "step": 0.1,
+      "note": "29.7 points, plus 11.3 rebounds and 8.9 assists.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "after averaging 29.7 points, 11.3 rebounds, 8.9 assists, 2.6 steals, and 2.3 blocks."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-green16-g7",
+      "sport": "NBA",
+      "prompt": "Draymond Green led all scorers in Game 7 of the 2016 Finals. How many points did he score?",
+      "context": "2016 NBA Finals · Game 7 · Warriors lost",
+      "answer": 32,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 15,
+      "max": 65,
+      "step": 1,
+      "note": "32, more than anyone else that night.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "Draymond Green put up his best performance of the Finals, leading all scorers with 32 points,"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-kerr16-games-missed",
+      "sport": "NBA",
+      "prompt": "Coach Steve Kerr missed how many games at the start of 2015–16 with a back injury?",
+      "context": "Golden State Warriors · 2015–16 regular season",
+      "answer": 43,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 20,
+      "max": 90,
+      "step": 1,
+      "note": "The first 43 games.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "Steve Kerr missed the first 43 regular season games because of a back injury."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-finals16-610",
+      "sport": "NBA",
+      "prompt": "Before Game 7 of the 2016 Finals, both teams had scored the exact same total over six games. What was it?",
+      "context": "2016 NBA Finals · Games 1–6 · Cavaliers and Warriors",
+      "answer": 610,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 440,
+      "max": 640,
+      "step": 1,
+      "note": "610 points each.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "both teams entered Game 7 with the same total points scored through six games (610 points each)."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

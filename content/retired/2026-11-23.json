@@ -1,0 +1,125 @@
+{
+  "date": "2026-11-23",
+  "questions": [
+    {
+      "id": "oly-owens-1936",
+      "sport": "Athletics",
+      "prompt": "How many gold medals did Jesse Owens win at the 1936 Olympics?",
+      "context": "Olympic Games · Berlin · 1936",
+      "answer": 4,
+      "unit": {
+        "singular": "gold medal",
+        "plural": "gold medals"
+      },
+      "min": 0,
+      "max": 8,
+      "step": 1,
+      "note": "Four gold medals in Berlin.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Jesse_Owens",
+        "quote": "He made history at the 1936 Olympic Games by winning four gold medals"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "nhl-habs-cups",
+      "sport": "Hockey",
+      "prompt": "How many times have the Montreal Canadiens won the Stanley Cup?",
+      "context": "NHL · 1916–present",
+      "answer": 24,
+      "unit": {
+        "singular": "Stanley Cup",
+        "plural": "Stanley Cups"
+      },
+      "min": 5,
+      "max": 30,
+      "step": 1,
+      "note": "Twenty-four Stanley Cups.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/List_of_Stanley_Cup_champions",
+        "quote": "The Montreal Canadiens have won the Stanley Cup 24 times"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "nba-jordan-63",
+      "sport": "Basketball",
+      "prompt": "How many points did Michael Jordan score against the Celtics on April 20, 1986?",
+      "context": "NBA playoffs · Bulls at Celtics · 1986",
+      "answer": 63,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 20,
+      "max": 80,
+      "step": 1,
+      "note": "Sixty-three points in Boston, the most anyone has scored in an NBA playoff game.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/List_of_NBA_single-game_playoff_scoring_leaders",
+        "quote": "63; Michael Jordan; Chicago Bulls; April 20, 1986; Boston Celtics"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "mlb-ichiro-2004-hits",
+      "sport": "Baseball",
+      "prompt": "How many hits did Ichiro Suzuki collect in the 2004 season?",
+      "context": "MLB · Seattle Mariners · 2004",
+      "answer": 262,
+      "unit": {
+        "singular": "hit",
+        "plural": "hits"
+      },
+      "min": 150,
+      "max": 300,
+      "step": 1,
+      "note": "Two hundred sixty-two, the single-season record.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Ichiro_Suzuki",
+        "quote": "Suzuki finished the season with a record of 262 hits"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "nhl-gretzky-career-pts",
+      "sport": "Hockey",
+      "prompt": "How many regular-season points did Wayne Gretzky score in his NHL career?",
+      "context": "NHL · 1979–1999 · 1,487 games",
+      "answer": 2857,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 2000,
+      "max": 4000,
+      "step": 10,
+      "note": "2,857: 894 goals and 1,963 assists.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/List_of_career_achievements_by_Wayne_Gretzky",
+        "quote": "Most points: 2,857 in 1,487 games (894 goals, 1,963 assists)"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    }
+  ]
+}

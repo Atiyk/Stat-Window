@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-12",
+  "theme": {
+    "title": "The 1970 Finals",
+    "subtitle": "Knicks vs Lakers",
+    "recap": "The 1970 Finals had a 60-foot buzzer-beater and Willis Reed's walk-out in Game 7, where Walt Frazier did the damage."
+  },
+  "questions": [
+    {
+      "id": "nba-knicks70-streak",
+      "sport": "NBA",
+      "prompt": "The 1969–70 Knicks set what was then a single-season record winning streak. How long was it?",
+      "context": "New York Knicks · 1969–70",
+      "answer": 18,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 10,
+      "max": 42,
+      "step": 1,
+      "note": "18 straight, on the way to 60–22.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1969%E2%80%9370_New_York_Knicks_season",
+        "quote": "The Knicks had a then single-season NBA record 18 straight victories en route to 60–22 record"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-frazier70-g7-ast",
+      "sport": "NBA",
+      "prompt": "Walt Frazier scored 36 points in Game 7 of the 1970 Finals. How many assists did he have?",
+      "context": "1970 NBA Finals · Game 7 · vs Lakers",
+      "answer": 19,
+      "unit": {
+        "singular": "assist",
+        "plural": "assists"
+      },
+      "min": 12,
+      "max": 38,
+      "step": 1,
+      "note": "19, in a 113–99 win.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
+        "quote": "took it from there, finishing with 36 points and 19 assists as the Knicks won the championship, 113–99."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-reed70-g7-minutes",
+      "sport": "NBA",
+      "prompt": "Willis Reed limped out for Game 7 of the 1970 Finals. How many minutes did he play?",
+      "context": "1970 NBA Finals · Game 7 · vs Lakers",
+      "answer": 27,
+      "unit": {
+        "singular": "minute",
+        "plural": "minutes"
+      },
+      "min": 0,
+      "max": 48,
+      "step": 1,
+      "note": "27. He did not leave after his first two baskets, despite the legend.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1969%E2%80%9370_New_York_Knicks_season",
+        "quote": "Contrary to popular lore, he did not sit out after his first two baskets, but remained on the floor for 27 minutes"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-west70-60-foot",
+      "sport": "NBA",
+      "prompt": "Jerry West forced overtime in Game 3 of the 1970 Finals with a buzzer-beater from how many feet?",
+      "context": "1970 NBA Finals · Game 3 · at New York",
+      "answer": 60,
+      "unit": {
+        "singular": "foot",
+        "plural": "feet"
+      },
+      "min": 0,
+      "max": 94,
+      "step": 1,
+      "note": "60 feet, tying it at 102.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
+        "quote": "hit a desperation buzzer-beating 60-foot shot to tie it at 102 and force OT"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-baylor-finals-losses",
+      "sport": "NBA",
+      "prompt": "Elgin Baylor led the Lakers to the Finals how many times, losing every one?",
+      "context": "Minneapolis and Los Angeles Lakers · 1958–1971",
+      "answer": 8,
+      "unit": {
+        "singular": "Finals appearance",
+        "plural": "Finals appearances"
+      },
+      "min": 0,
+      "max": 11,
+      "step": 1,
+      "note": "Eight times.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+        "quote": "helped lead the team to the NBA Finals eight times, but the team lost each time."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "date": "2026-11-27",
+  "questions": [
+    {
+      "id": "nba-pistons-186",
+      "sport": "Basketball",
+      "prompt": "How many points did the Detroit Pistons score against Denver on December 13, 1983?",
+      "context": "NBA · Pistons vs. Nuggets · triple overtime",
+      "answer": 186,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 150,
+      "max": 250,
+      "step": 1,
+      "note": "One hundred eighty-six, the most by one team in an NBA game.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/List_of_highest-scoring_NBA_games",
+        "quote": "the most points scored by one team (186 points)"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "golf-tiger-1997-masters",
+      "sport": "Golf",
+      "prompt": "By how many strokes did Tiger Woods win the 1997 Masters?",
+      "context": "Golf · Augusta National · April 1997",
+      "answer": 12,
+      "unit": {
+        "singular": "stroke",
+        "plural": "strokes"
+      },
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "note": "Twelve strokes clear of Tom Kite.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/1997_Masters_Tournament",
+        "quote": "twelve strokes ahead of runner-up Tom Kite"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "fb-leicester-2016-points",
+      "sport": "Football",
+      "prompt": "How many points did Leicester City finish with when they won the 2015–16 Premier League?",
+      "context": "Premier League · 38 matches",
+      "answer": 81,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 40,
+      "max": 100,
+      "step": 1,
+      "note": "Eighty-one points from 23 wins.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Leicester_City_F.C._season",
+        "quote": "Leicester City finished with 81 points, winning 23 games"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "mlb-ryan-no-hitters",
+      "sport": "Baseball",
+      "prompt": "How many no-hitters did Nolan Ryan throw in his MLB career?",
+      "context": "MLB · 1966–1993",
+      "answer": 7,
+      "unit": {
+        "singular": "no-hitter",
+        "plural": "no-hitters"
+      },
+      "min": 0,
+      "max": 15,
+      "step": 1,
+      "note": "Seven, the most ever.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Nolan_Ryan",
+        "quote": "Ryan is the all-time leader in no-hitters with seven"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "nba-wilt-1962-total",
+      "sport": "Basketball",
+      "prompt": "How many points did Wilt Chamberlain score in the 1961–62 regular season?",
+      "context": "NBA · Philadelphia Warriors · 80 games",
+      "answer": 4029,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 3000,
+      "max": 6000,
+      "step": 10,
+      "note": "4,029, an average of 50.4 a game.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/1961%E2%80%9362_Philadelphia_Warriors_season",
+        "quote": "Wilt Chamberlain | 80 | 3882 | 1597 | 835 | 2052 | 192 | 4029"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    }
+  ]
+}

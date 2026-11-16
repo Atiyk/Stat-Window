@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
+import { isMixedSportDay } from './content/cutover';
 import { inventoryDays, loadSlate } from './content/inventory';
 import type { Slate } from './content/schema';
 import { parseChallenge } from './engine/challenge';
@@ -6,7 +7,7 @@ import { addDays, puzzleDay, puzzleNumber } from './engine/daily';
 import { gameReducer, initGame, ROUNDS, type GameAction, type GameState, type Mode } from './engine/game';
 import { createSaveStore, type RunKind, type SaveStore, type StorageLike } from './engine/storage';
 import { playerStats } from './engine/summary';
-import { track, type PlayMode } from './lib/track';
+import { track, trackOnce, type PlayMode } from './lib/track';
 import { formatDay } from './lib/format';
 import { setSoundEnabled } from './ui/feedback';
 import { Help } from './ui/Help';
@@ -35,6 +36,25 @@ function safeLocalStorage(): StorageLike | null {
  */
 type Session = { mode: Mode; kind: RunKind; day: string; slate: Slate; viaLink: boolean; vs: number | null };
 
+/**
+ * A tab opened before a deploy still holds the old list of day files. If one of
+ * those files changed (a future day was regenerated), the new deploy no longer
+ * serves its old name and the import fails. Reload once to pick up the new
+ * version; the guard stops a reload loop if the file is missing for another reason.
+ */
+function reloadForNewVersion(): boolean {
+  try {
+    const key = 'stat-window:reloaded-at';
+    const last = Number(window.sessionStorage.getItem(key) ?? 0);
+    if (Date.now() - last < 60_000) return false;
+    window.sessionStorage.setItem(key, String(Date.now()));
+  } catch {
+    return false;
+  }
+  window.location.reload();
+  return true;
+}
+
 const daysBetween = (a: string, b: string) => puzzleNumber(b) - puzzleNumber(a);
 
 /** A daily run that has started but not finished (or is mid-reveal) must not be swapped out under the player. */
@@ -56,7 +76,13 @@ export function App() {
 
   const open = useCallback(
     async (day: string, link?: { vs: number | null }) => {
-      const slate = await loadSlate(day);
+      let slate: Slate | null;
+      try {
+        slate = await loadSlate(day);
+      } catch {
+        if (reloadForNewVersion()) return;
+        slate = null;
+      }
       if (!slate) {
         setMissing(true);
         setSession(null);
@@ -211,11 +237,11 @@ function Game(props: {
     (a: GameAction) => {
       if (a.type === 'next' && state.phase === 'resolved') track({ name: 'round_next', mode: playMode, round: state.round + 1 });
       if (a.type === 'setWindow' && state.round === 0 && state.phase === 'ready' && state.results.length === 0) {
-        track({ name: 'first_touch', mode: playMode });
+        trackOnce(`touch:${playMode}:${session.kind}:${session.day}`, today, { name: 'first_touch', mode: playMode });
       }
       rawDispatch(a);
     },
-    [state.phase, state.round, state.results.length, playMode],
+    [state.phase, state.round, state.results.length, playMode, session.kind, session.day, today],
   );
 
   // Persist every locked round immediately (before the reveal), so a refresh can't re-roll it.
@@ -226,7 +252,7 @@ function Game(props: {
 
   const n = puzzleNumber(session.day);
   useEffect(() => {
-    if (state.results.length === 0) track({ name: 'run_start', mode: playMode });
+    if (state.results.length === 0) trackOnce(`start:${playMode}:${session.kind}:${session.day}`, today, { name: 'run_start', mode: playMode });
     // Only on mount of a fresh run.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -261,6 +287,8 @@ function Game(props: {
     const onStorage = () => {
       const saved = store.load()[session.kind]?.[session.day];
       if (saved && saved.results.length > state.results.length && (state.phase === 'ready' || state.phase === 'adjusting')) {
+        // Those rounds were counted by the tab that locked them.
+        lastLocked.current = saved.results.length;
         rawDispatch({ type: 'hydrate', state: initGame(session.slate, session.mode, saved.results, saved.advanced) });
       }
     };
@@ -287,6 +315,9 @@ function Game(props: {
     );
   }
 
+  // Difficulty is a quiet hint under the round count, not a headline.
+  const difficulty = session.slate.questions[state.round]?.difficulty;
+  const level = difficulty ? `${difficulty[0]!.toUpperCase()}${difficulty.slice(1)}` : undefined;
   // The header already names the puzzle (No. N); this line only says what kind of run it is.
   const where = daily || session.viaLink ? '' : 'Practice · ';
   const label = `${where}Round ${state.round + 1} of 5`;
@@ -296,6 +327,8 @@ function Game(props: {
       state={state}
       dispatch={dispatch}
       label={label}
+      level={level}
+      theme={session.slate.theme?.title}
       showHint={props.showHint && state.round === 0}
       challenge={session.viaLink && state.round === 0 && state.results.length === 0 ? { vs: session.vs } : null}
       onFirstTouch={props.onFirstTouch}
@@ -322,6 +355,7 @@ function NoPuzzle({ today, archive, onPractice }: { today: string; archive: read
             <li key={day}>
               <button type="button" className="btn btn-quiet" onClick={() => onPractice(day)}>
                 {formatDay(day)}
+                {isMixedSportDay(day) && <span className="archive-tag"> · mixed sports</span>}
               </button>
             </li>
           ))}

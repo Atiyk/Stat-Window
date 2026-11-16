@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-07",
+  "theme": {
+    "title": "Cup nights",
+    "subtitle": "The In-Season Tournament and NBA Cup",
+    "recap": "The new in-season event produced its own record nights, plus a prize of half a million dollars a player."
+  },
+  "questions": [
+    {
+      "id": "nba-ad23-cup-final",
+      "sport": "NBA",
+      "prompt": "How many points did Anthony Davis score in the first In-Season Tournament final?",
+      "context": "2023 In-Season Tournament final · Lakers vs Pacers",
+      "answer": 41,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 8,
+      "max": 50,
+      "step": 1,
+      "note": "41, with 20 rebounds.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+        "quote": "Anthony Davis finished with 41 points on 16-for-24 shooting, 20 rebounds and 4 blocks;"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-cup23-prize",
+      "sport": "NBA",
+      "prompt": "How much prize money did each player on the 2023 In-Season Tournament champions earn?",
+      "context": "2023 In-Season Tournament · prize pool",
+      "answer": 500000,
+      "unit": {
+        "singular": "dollar",
+        "plural": "dollars"
+      },
+      "min": 0,
+      "max": 750000,
+      "step": 10000,
+      "note": "$500,000 each.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+        "quote": "Players on the tournament championship team: $500,000 each"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-lakers23-cup-paint",
+      "sport": "NBA",
+      "prompt": "In the 2023 In-Season Tournament final, how many points in the paint did the Lakers score?",
+      "context": "2023 In-Season Tournament final · vs Indiana",
+      "answer": 86,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 55,
+      "max": 130,
+      "step": 1,
+      "note": "86, to Indiana's 44.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+        "quote": "The Lakers dominated the Pacers inside, edging them with an 86–44 edge in points in the paint."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-bucks24-cup-quarter",
+      "sport": "NBA",
+      "prompt": "In the 2024 NBA Cup final, Milwaukee held Oklahoma City to how many points in one quarter?",
+      "context": "2024 NBA Cup final · Bucks vs Thunder",
+      "answer": 14,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 4,
+      "max": 36,
+      "step": 1,
+      "note": "14.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
+        "quote": "holding the Thunder to just 14 points in the period."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-thunder24-cup-3pa",
+      "sport": "NBA",
+      "prompt": "Oklahoma City made just five threes in the 2024 NBA Cup final. How many did it attempt?",
+      "context": "2024 NBA Cup final · vs Milwaukee",
+      "answer": 32,
+      "unit": {
+        "singular": "attempt",
+        "plural": "attempts"
+      },
+      "min": 0,
+      "max": 42,
+      "step": 1,
+      "note": "32, a season low in accuracy.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
+        "quote": "going 5-of-32 from long-range, setting season lows in both field goal and three-point percentage"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

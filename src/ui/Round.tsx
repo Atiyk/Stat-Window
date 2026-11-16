@@ -11,6 +11,10 @@ type Props = {
   state: GameState;
   dispatch: Dispatch<GameAction>;
   label: string;
+  /** Difficulty of this round (Easy … Expert), when the slate has one. */
+  level?: string | undefined;
+  /** The day's theme title, when the slate has one. */
+  theme?: string | undefined;
   showHint: boolean;
   /** Set when the run came from a friend's link: shown before the first round only. */
   challenge?: { vs: number | null } | null;
@@ -30,7 +34,7 @@ function hitLine(points: number): string {
   return 'Caught, but loose.';
 }
 
-export function Round({ state, dispatch, label, showHint, challenge = null, onFirstTouch }: Props) {
+export function Round({ state, dispatch, label, level, theme, showHint, challenge = null, onFirstTouch }: Props) {
   const q = currentQuestion(state);
   const reduced = usePrefersReducedMotion();
   const last = state.results[state.round];
@@ -138,6 +142,12 @@ export function Round({ state, dispatch, label, showHint, challenge = null, onFi
         </ol>
         <p className="round-meta">
           <span>{label}</span>
+          {level && (
+            <span className="round-level">
+              <span className="sr-only"> · </span>
+              {level}
+            </span>
+          )}
           <span className="round-total">
             <span className="tabular">{runningTotal}</span> pts
           </span>
@@ -156,6 +166,7 @@ export function Round({ state, dispatch, label, showHint, challenge = null, onFi
             )}
           </p>
         )}
+        {theme && <p className="theme-line">{theme}</p>}
         <p className="context">
           {q.sport} · {q.context}
         </p>
@@ -226,8 +237,17 @@ export function Round({ state, dispatch, label, showHint, challenge = null, onFi
           <p className="story-source">
             Source:{' '}
             <a href={q.source.url} target="_blank" rel="noopener noreferrer">
-              {q.source.name}
+              {q.source.name.replace(/ \(CC BY-SA 4\.0\)$/, '')}
             </a>
+            {/ \(CC BY-SA 4\.0\)$/.test(q.source.name) && (
+              <>
+                {' ('}
+                <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">
+                  CC BY-SA 4.0
+                </a>
+                {')'}
+              </>
+            )}
             {q.source.derivation ? ` (${q.source.derivation})` : ''}
           </p>
         </section>

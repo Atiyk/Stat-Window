@@ -1,0 +1,125 @@
+{
+  "date": "2026-11-21",
+  "questions": [
+    {
+      "id": "nba-kobe-81",
+      "sport": "Basketball",
+      "prompt": "How many points did Kobe Bryant score on January 22, 2006?",
+      "context": "NBA · Lakers vs. Raptors · 2006",
+      "answer": 81,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 30,
+      "max": 100,
+      "step": 1,
+      "note": "A career-high 81 in a 122–104 win over Toronto, the second-most in NBA history.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
+        "quote": "On January 22, 2006, Bryant scored a career-high 81 points"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "nhl-gretzky-1986-pts",
+      "sport": "Hockey",
+      "prompt": "How many points did Wayne Gretzky record in the 1985–86 NHL season?",
+      "context": "NHL · Edmonton Oilers · 1985–86",
+      "answer": 215,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 100,
+      "max": 260,
+      "step": 1,
+      "note": "Two hundred fifteen, the single-season record.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Wayne_Gretzky",
+        "quote": "his point record one more time (215, in 1985–86)"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "cri-tendulkar-tons",
+      "sport": "Cricket",
+      "prompt": "How many international centuries did Sachin Tendulkar score?",
+      "context": "Cricket · Tests and ODIs · 1989–2013",
+      "answer": 100,
+      "unit": {
+        "singular": "century",
+        "plural": "centuries"
+      },
+      "min": 50,
+      "max": 200,
+      "step": 1,
+      "note": "One hundred hundreds. He is the only batter to do it.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Sachin_Tendulkar",
+        "quote": "being the only batsman to score 100 international centuries"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "box-mayweather-wins",
+      "sport": "Boxing",
+      "prompt": "How many professional fights did Floyd Mayweather Jr. win?",
+      "context": "Boxing · 1996–2017 · never beaten",
+      "answer": 50,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 30,
+      "max": 90,
+      "step": 1,
+      "note": "Fifty wins, no losses.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Floyd_Mayweather_Jr.",
+        "quote": "He is undefeated at 50–0."
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "mlb-ryan-strikeouts",
+      "sport": "Baseball",
+      "prompt": "How many strikeouts did Nolan Ryan record in his MLB career?",
+      "context": "MLB · 1966–1993",
+      "answer": 5714,
+      "unit": {
+        "singular": "strikeout",
+        "plural": "strikeouts"
+      },
+      "min": 4000,
+      "max": 8000,
+      "step": 10,
+      "note": "5,714, the major-league record.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Nolan_Ryan",
+        "quote": "He has 5,714 career strikeouts, an MLB record"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    }
+  ]
+}

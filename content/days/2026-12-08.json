@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-08",
+  "theme": {
+    "title": "Detroit defense",
+    "subtitle": "Pistons, 1989 and 2004",
+    "recap": "Detroit won with defense twice: the Bad Boys of 1989 and the 2004 team that held five straight opponents under 70."
+  },
+  "questions": [
+    {
+      "id": "nba-pistons89-wins",
+      "sport": "NBA",
+      "prompt": "How many games did the 1988–89 \"Bad Boys\" Pistons win?",
+      "context": "Detroit Pistons · 1988–89 · 82 games",
+      "answer": 63,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 50,
+      "max": 82,
+      "step": 1,
+      "note": "63–19, the league's best.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1988%E2%80%9389_Detroit_Pistons_season",
+        "quote": "finishing in first place in the Central Division with a league-best 63–19 record"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-dumars89-17-straight",
+      "sport": "NBA",
+      "prompt": "In Game 3 of the 1989 Finals, Joe Dumars scored how many points in a row in the third quarter?",
+      "context": "1989 NBA Finals · Game 3 · at Los Angeles",
+      "answer": 17,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 26,
+      "step": 1,
+      "note": "17 in a row, on his way to 31.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+        "quote": "Joe Dumars scored 31 points, scoring 17 consecutive points in the third quarter"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-dumars89-finals-ppg",
+      "sport": "NBA",
+      "prompt": "Joe Dumars was 1989 Finals MVP. What was his scoring average in the series?",
+      "context": "1989 NBA Finals · four games vs Lakers",
+      "answer": 27.3,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 6,
+      "max": 34,
+      "step": 0.1,
+      "note": "27.3 points per game.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+        "quote": "Dumars was named Finals MVP after averaging 27.3 points per game during the series"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-pistons04-under-70",
+      "sport": "NBA",
+      "prompt": "The 2003–04 Pistons were the first team to hold how many straight opponents under 70 points?",
+      "context": "Detroit Pistons · 2003–04 regular season",
+      "answer": 5,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "note": "Five in a row.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+        "quote": "They became the first team in NBA history to hold five consecutive opponents under 70 points"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-lakers04-g3-68",
+      "sport": "NBA",
+      "prompt": "How many points did Detroit hold the Lakers to in Game 3 of the 2004 Finals?",
+      "context": "2004 NBA Finals · Game 3 · at Detroit",
+      "answer": 68,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 30,
+      "max": 95,
+      "step": 1,
+      "note": "68, in an 88–68 loss.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+        "quote": "The 68 points scored by the Lakers set a franchise record for the lowest number of points scored in a playoff game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

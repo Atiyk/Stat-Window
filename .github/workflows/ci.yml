@@ -21,6 +21,8 @@ jobs:
       - run: npm ci
       - name: Content check (fails on bad data, warns when fewer than 7 days remain)
         run: npm run content:check
+      - name: NBA database (reproducible SQLite build, reports up to date)
+        run: npm run nba:db -- --out build/nba.sqlite --today 2026-11-16 && npm run nba:report:check && npm run content:publish:check
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
@@ -28,3 +30,5 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: End-to-end tests
         run: npx playwright test
+      - name: Analytics wiring (VITE_ANALYTICS=vercel build, Vercel script stubbed, nothing sent)
+        run: npm run test:e2e:analytics

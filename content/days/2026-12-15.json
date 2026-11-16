@@ -1,0 +1,135 @@
+{
+  "date": "2026-12-15",
+  "theme": {
+    "title": "Bird's best Celtics",
+    "subtitle": "Boston, 1985–86",
+    "recap": "Larry Bird won a third straight MVP, Boston lost once at home all season and the Celtics beat Houston for the title."
+  },
+  "questions": [
+    {
+      "id": "nba-celtics86-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did the 1985–86 Celtics win?",
+      "context": "Boston Celtics · 1985–86 · 82 games",
+      "answer": 67,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 28,
+      "max": 82,
+      "step": 1,
+      "note": "67–15, including 40–1 at home.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
+        "quote": "They finished with the best record in the league at 67–15, including a 40–1 record at home"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-jordan86-63",
+      "sport": "NBA",
+      "prompt": "Michael Jordan set a playoff scoring record against the 1986 Celtics in a loss. How many points did he score?",
+      "context": "1986 first round · Game 2 · at Boston",
+      "answer": 63,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 25,
+      "max": 80,
+      "step": 1,
+      "note": "63 points, a playoff record, in a Bulls loss.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
+        "quote": "despite a playoff record 63 points by Michael Jordan in Game 2"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-hawks86-third-quarter",
+      "sport": "NBA",
+      "prompt": "Boston routed Atlanta 132–99 in the 1986 East semifinals. How many points did the Hawks score in the third quarter?",
+      "context": "1986 East semifinals · Celtics vs Hawks",
+      "answer": 6,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 26,
+      "step": 1,
+      "note": "Six, as Boston won the quarter 36–6.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
+        "quote": "Boston outscored Atlanta 36–6 in the third quarter in route to a 132–99 victory."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-bird85-opener-steals",
+      "sport": "NBA",
+      "prompt": "In the 1985–86 opener, Larry Bird posted a triple-double. How many steals did he add?",
+      "context": "Celtics at New Jersey Nets · October 25, 1985",
+      "answer": 8,
+      "unit": {
+        "singular": "steal",
+        "plural": "steals"
+      },
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "note": "Eight steals, with 21 points, 12 rebounds and 10 assists.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
+        "quote": "recorded 21 points, 12 rebounds, 10 assists and 8 steals for the Celtics"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-bird86-finals-minutes",
+      "sport": "NBA",
+      "prompt": "Of the 288 possible minutes in the six-game 1986 Finals, how many did Larry Bird play?",
+      "context": "1986 NBA Finals · six games vs Houston",
+      "answer": 269,
+      "unit": {
+        "singular": "minute",
+        "plural": "minutes"
+      },
+      "min": 180,
+      "max": 288,
+      "step": 1,
+      "note": "269, resting for only 19 minutes all series.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
+        "quote": "Bird got very little rest during the six-game series, logging 269 out of a possible 288 minutes of floor time."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

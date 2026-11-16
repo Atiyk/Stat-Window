@@ -1,0 +1,135 @@
+{
+  "date": "2027-01-03",
+  "theme": {
+    "title": "The 2020s",
+    "subtitle": "Recent records",
+    "recap": "A 41st pick won Finals MVP, an eighth seed reached the Finals and a rebuilding Spurs team lost 18 in a row."
+  },
+  "questions": [
+    {
+      "id": "nba-jokic-draft-pick",
+      "sport": "NBA",
+      "prompt": "In 2023 Nikola Jokić became the lowest draft pick ever to win Finals MVP. Where was he picked in 2014?",
+      "context": "2014 NBA draft · Denver Nuggets",
+      "answer": 41,
+      "unit": {
+        "singular": "overall pick",
+        "plural": "overall pick"
+      },
+      "min": 15,
+      "max": 80,
+      "step": 1,
+      "note": "41st overall.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "He became the lowest-selected player to ever win Finals MVP, being the 41st pick of the 2014 NBA draft"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-butler23-56",
+      "sport": "NBA",
+      "prompt": "As an eighth seed, Miami beat Milwaukee in 2023. How many points did Jimmy Butler score in his career-high game in that series?",
+      "context": "2023 first round · Game 4 · vs Milwaukee",
+      "answer": 56,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 35,
+      "max": 85,
+      "step": 1,
+      "note": "56, in a 119–114 win.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "scoring a career-high 56 points in a 119–114 victory"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-heat23-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did the 2022–23 Heat win before reaching the Finals?",
+      "context": "Miami Heat · 2022–23 · 82 games",
+      "answer": 44,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 32,
+      "max": 64,
+      "step": 1,
+      "note": "44–38, then a run to the Finals as an eighth seed.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "They regressed from their 53–29 record the previous season and finished with a record of 44–38"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-jokic23-playoff-points",
+      "sport": "NBA",
+      "prompt": "Nikola Jokić led the 2023 playoffs in points, rebounds and assists. How many points did he score?",
+      "context": "Denver Nuggets · 2023 playoffs",
+      "answer": 600,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 350,
+      "max": 750,
+      "step": 1,
+      "note": "600, with 269 rebounds and 190 assists.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "became the first player in NBA history to lead the league in points (600), rebounds (269), and assists (190)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-spurs24-losing-streak",
+      "sport": "NBA",
+      "prompt": "In Victor Wembanyama's rookie year, San Antonio lost how many games in a row?",
+      "context": "San Antonio Spurs · 2023–24",
+      "answer": 18,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 10,
+      "max": 38,
+      "step": 1,
+      "note": "18, a franchise record.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2023%E2%80%9324_San_Antonio_Spurs_season",
+        "quote": "lost 18 consecutive games between November 5 and December 15, the longest losing streak in franchise history."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert"
+    }
+  ]
+}

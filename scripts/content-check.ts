@@ -7,6 +7,8 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { checkInventory, checkLock, parseSlate, runwayDays, type ContentLock, type Slate } from '../src/content/schema.ts';
 import { puzzleDay } from '../src/engine/daily.ts';
+import { buildSlates, loadNbaData, serializeSlate, validateNba } from './nba/model.ts';
+import { DAYS_DIR } from './nba/publish.ts';
 
 const dir = join(import.meta.dirname, '..', 'content', 'days');
 const todayArg = process.argv.indexOf('--today');
@@ -30,6 +32,22 @@ const lock = JSON.parse(readFileSync(lockFile, 'utf8')) as ContentLock;
 const locked = checkLock(slates, lock, today);
 errors.push(...locked.errors);
 const warnings = [...report.warnings, ...locked.warnings];
+
+// NBA database gates: data/nba must validate, content/days must match it, and
+// published days keep their locked scoring fields (checked above).
+const nba = loadNbaData();
+const nbaReport = validateNba(nba);
+errors.push(...nbaReport.errors.map((e) => `data/nba: ${e}`));
+for (const s of buildSlates(nba)) {
+  let current = '';
+  try {
+    current = readFileSync(join(DAYS_DIR, `${s.date}.json`), 'utf8');
+  } catch {
+    /* missing file is reported below */
+  }
+  if (current !== serializeSlate(s)) errors.push(`content/days/${s.date}.json differs from data/nba; run npm run content:publish`);
+}
+console.log(`NBA database: ${nba.facts.length} verified facts, ${nba.calendar.days.length} days from ${nba.calendar.cutover}, ${nba.calendar.reserve.length} in reserve`);
 
 console.log(`Stat Window content: ${slates.length} slates, ${slates.length * 5} questions, ${report.firstDay} → ${report.lastDay}`);
 const left = runwayDays(slates, today);

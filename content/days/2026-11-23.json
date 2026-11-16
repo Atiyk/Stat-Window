@@ -1,125 +1,135 @@
 {
   "date": "2026-11-23",
+  "theme": {
+    "title": "The 72–10 Bulls",
+    "subtitle": "Chicago, 1995–96",
+    "recap": "Chicago lost three games before February, won almost everywhere it played and finished with the best combined record in league history."
+  },
   "questions": [
     {
-      "id": "oly-owens-1936",
-      "sport": "Athletics",
-      "prompt": "How many gold medals did Jesse Owens win at the 1936 Olympics?",
-      "context": "Olympic Games · Berlin · 1936",
-      "answer": 4,
+      "id": "nba-bulls96-combined-wins",
+      "sport": "NBA",
+      "prompt": "Counting the regular season and playoffs together, how many games did the 1995–96 Bulls win?",
+      "context": "Chicago Bulls · 1995–96 · regular season plus playoffs",
+      "answer": 87,
       "unit": {
-        "singular": "gold medal",
-        "plural": "gold medals"
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 55,
+      "max": 105,
+      "step": 1,
+      "note": "87 wins and 13 losses, the best combined record in NBA history.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
+        "quote": "The 1995–96 Bulls have the best combined regular and postseason record in NBA history at 87–13"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy"
+    },
+    {
+      "id": "nba-rodman96-rpg",
+      "sport": "NBA",
+      "prompt": "How many rebounds per game did Dennis Rodman average for the 1995–96 Bulls?",
+      "context": "Chicago Bulls · 1995–96 regular season",
+      "answer": 14.9,
+      "unit": {
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
+      },
+      "min": 10,
+      "max": 23,
+      "step": 0.1,
+      "note": "14.9 a night, while scoring just 5.5 points.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
+        "quote": "Rodman averaged 5.5 points and 14.9 rebounds per game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium"
+    },
+    {
+      "id": "nba-bulls96-home-streak",
+      "sport": "NBA",
+      "prompt": "Chicago opened 1995–96 with 37 straight home wins. How long did that home winning streak run in total?",
+      "context": "Chicago Bulls · home games · 1994–95 into 1995–96",
+      "answer": 44,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 15,
+      "max": 65,
+      "step": 1,
+      "note": "44 in a row, then an NBA record.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
+        "quote": "The Bulls' started the regular season 37–0 at home, part of a then-NBA-record 44-game winning streak"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-bulls96-road-wins",
+      "sport": "NBA",
+      "prompt": "How many road games did the 1995–96 Bulls win?",
+      "context": "Chicago Bulls · 1995–96 · 41 road games",
+      "answer": 33,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 21,
+      "max": 41,
+      "step": 1,
+      "note": "33, the most ever until the 2015–16 Warriors won 34.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
+        "quote": "Their 33 road wins were the most in NBA history until the 2015–16 Warriors won 34 road games."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-rodman96-finals-oreb",
+      "sport": "NBA",
+      "prompt": "In Game 2 of the 1996 Finals, Dennis Rodman tied the Finals record for offensive rebounds. How many did he grab?",
+      "context": "1996 NBA Finals · Game 2 · vs Seattle",
+      "answer": 11,
+      "unit": {
+        "singular": "rebound",
+        "plural": "rebounds"
       },
       "min": 0,
-      "max": 8,
+      "max": 19,
       "step": 1,
-      "note": "Four gold medals in Berlin.",
+      "note": "11 offensive rebounds, tying the Finals record.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Jesse_Owens",
-        "quote": "He made history at the 1936 Olympic Games by winning four gold medals"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1996_NBA_Finals",
+        "quote": "Dennis Rodman tied an NBA Finals record with 11 offensive rebounds"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "nhl-habs-cups",
-      "sport": "Hockey",
-      "prompt": "How many times have the Montreal Canadiens won the Stanley Cup?",
-      "context": "NHL · 1916–present",
-      "answer": 24,
-      "unit": {
-        "singular": "Stanley Cup",
-        "plural": "Stanley Cups"
       },
-      "min": 5,
-      "max": 30,
-      "step": 1,
-      "note": "Twenty-four Stanley Cups.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/List_of_Stanley_Cup_champions",
-        "quote": "The Montreal Canadiens have won the Stanley Cup 24 times"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "nba-jordan-63",
-      "sport": "Basketball",
-      "prompt": "How many points did Michael Jordan score against the Celtics on April 20, 1986?",
-      "context": "NBA playoffs · Bulls at Celtics · 1986",
-      "answer": 63,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 20,
-      "max": 80,
-      "step": 1,
-      "note": "Sixty-three points in Boston, the most anyone has scored in an NBA playoff game.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/List_of_NBA_single-game_playoff_scoring_leaders",
-        "quote": "63; Michael Jordan; Chicago Bulls; April 20, 1986; Boston Celtics"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "mlb-ichiro-2004-hits",
-      "sport": "Baseball",
-      "prompt": "How many hits did Ichiro Suzuki collect in the 2004 season?",
-      "context": "MLB · Seattle Mariners · 2004",
-      "answer": 262,
-      "unit": {
-        "singular": "hit",
-        "plural": "hits"
-      },
-      "min": 150,
-      "max": 300,
-      "step": 1,
-      "note": "Two hundred sixty-two, the single-season record.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Ichiro_Suzuki",
-        "quote": "Suzuki finished the season with a record of 262 hits"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "nhl-gretzky-career-pts",
-      "sport": "Hockey",
-      "prompt": "How many regular-season points did Wayne Gretzky score in his NHL career?",
-      "context": "NHL · 1979–1999 · 1,487 games",
-      "answer": 2857,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 2000,
-      "max": 4000,
-      "step": 10,
-      "note": "2,857: 894 goals and 1,963 assists.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/List_of_career_achievements_by_Wayne_Gretzky",
-        "quote": "Most points: 2,857 in 1,487 games (894 goals, 1,963 assists)"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
+      "difficulty": "expert"
     }
   ]
 }

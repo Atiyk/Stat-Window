@@ -1,0 +1,125 @@
+{
+  "date": "2026-11-19",
+  "questions": [
+    {
+      "id": "mlb-ruth-1927-hr",
+      "sport": "Baseball",
+      "prompt": "How many home runs did Babe Ruth hit in 1927?",
+      "context": "MLB · New York Yankees · 1927",
+      "answer": 60,
+      "unit": {
+        "singular": "home run",
+        "plural": "home runs"
+      },
+      "min": 40,
+      "max": 100,
+      "step": 1,
+      "note": "Sixty, a career high, while batting .356.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/1927_New_York_Yankees_season",
+        "quote": "In addition to his career-high 60 home runs, Ruth batted .356"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "ten-nadal-rg-titles",
+      "sport": "Tennis",
+      "prompt": "How many French Open singles titles did Rafael Nadal win?",
+      "context": "Tennis · Roland Garros · 2005–2022",
+      "answer": 14,
+      "unit": {
+        "singular": "title",
+        "plural": "titles"
+      },
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "note": "Fourteen, a record at Roland Garros.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Rafael_Nadal",
+        "quote": "including a record 14 French Open titles"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "nba-skiles-assists",
+      "sport": "Basketball",
+      "prompt": "How many assists did Scott Skiles hand out in one game on December 30, 1990?",
+      "context": "NBA · Magic vs. Nuggets · 155–116",
+      "answer": 30,
+      "unit": {
+        "singular": "assist",
+        "plural": "assists"
+      },
+      "min": 15,
+      "max": 75,
+      "step": 1,
+      "note": "Thirty assists, the NBA single-game record.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Scott_Skiles",
+        "quote": "Skiles racked up 30 assists in Orlando's 155–116 victory over the Denver Nuggets"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "golf-tiger-2000-usopen",
+      "sport": "Golf",
+      "prompt": "By how many strokes did Tiger Woods win the 2000 U.S. Open?",
+      "context": "Golf · Pebble Beach · June 2000",
+      "answer": 15,
+      "unit": {
+        "singular": "stroke",
+        "plural": "strokes"
+      },
+      "min": 5,
+      "max": 30,
+      "step": 1,
+      "note": "Fifteen strokes, a record winning margin at a major.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/2000_U.S._Open_(golf)",
+        "quote": "won his first U.S. Open by a record-setting fifteen strokes over runners-up"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    },
+    {
+      "id": "mlb-henderson-sb",
+      "sport": "Baseball",
+      "prompt": "How many bases did Rickey Henderson steal in his MLB career?",
+      "context": "MLB · 1979–2003",
+      "answer": 1406,
+      "unit": {
+        "singular": "stolen base",
+        "plural": "stolen bases"
+      },
+      "min": 1000,
+      "max": 2500,
+      "step": 10,
+      "note": "1,406, nearly 50% more than the previous record of 938.",
+      "source": {
+        "name": "Wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Rickey_Henderson",
+        "quote": "His 1,406 career steals is nearly 50% higher than the previous record of 938"
+      },
+      "verified": {
+        "on": "2026-11-15",
+        "by": "Stat Window editorial"
+      }
+    }
+  ]
+}

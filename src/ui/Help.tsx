@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { analyticsEnabled } from '../lib/track';
+import { NBA_CUTOVER } from '../content/cutover';
+import { formatDay } from '../lib/format';
 
 export function Help({ open, onClose }: { open: boolean; onClose: () => void }) {
   const ref = useRef<HTMLDialogElement>(null);
@@ -58,7 +60,7 @@ export function Help({ open, onClose }: { open: boolean; onClose: () => void }) 
           (Shift moves further, Enter locks). Tap the ruler outside your window to pull that side straight to it.
         </p>
         <p className="help-small">
-          A new puzzle opens every day at midnight UTC, the same five for everyone. Your progress stays in this browser;
+          A new puzzle opens every day at midnight UTC, the same five for everyone. From {formatDay(NBA_CUTOVER)} every puzzle is NBA; the earlier mixed-sport days stay playable. Your progress stays in this browser;
           there’s no account.{' '}
           {analyticsEnabled
             ? 'We count anonymous plays (rounds locked, games finished, shares) to improve the game: no cookies, no names, nothing typed. Browsers set to Do Not Track or Global Privacy Control are not counted.'

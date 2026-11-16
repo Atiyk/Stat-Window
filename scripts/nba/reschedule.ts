@@ -12,6 +12,7 @@ import { addDays, puzzleDay } from '../../src/engine/daily.ts';
 import type { Calendar } from './model.ts';
 
 export const CALENDAR_PATH = join(import.meta.dirname, '..', '..', 'data', 'nba', 'calendar.json');
+export const CUTOVER_TS = join(import.meta.dirname, '..', '..', 'src', 'content', 'cutover.ts');
 
 export function reschedule(calendar: Calendar, cutover: string, today: string): Calendar {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(cutover)) throw new Error(`not a date: ${cutover}`);
@@ -29,5 +30,7 @@ if (process.argv[1]?.endsWith('reschedule.ts')) {
   const cal = JSON.parse(readFileSync(CALENDAR_PATH, 'utf8')) as Calendar;
   const next = reschedule(cal, cutover, puzzleDay(new Date()));
   writeFileSync(CALENDAR_PATH, `${JSON.stringify(next, null, 2)}\n`);
+  const ts = readFileSync(CUTOVER_TS, 'utf8').replace(/NBA_CUTOVER = '\d{4}-\d{2}-\d{2}'/, `NBA_CUTOVER = '${cutover}'`);
+  writeFileSync(CUTOVER_TS, ts);
   console.log(`NBA calendar: ${next.days.length} days, ${next.days[0]!.date} → ${next.days.at(-1)!.date}`);
 }

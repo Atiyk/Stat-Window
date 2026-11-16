@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
+import { isMixedSportDay } from './content/cutover';
 import { inventoryDays, loadSlate } from './content/inventory';
 import type { Slate } from './content/schema';
 import { parseChallenge } from './engine/challenge';
@@ -354,6 +355,7 @@ function NoPuzzle({ today, archive, onPractice }: { today: string; archive: read
             <li key={day}>
               <button type="button" className="btn btn-quiet" onClick={() => onPractice(day)}>
                 {formatDay(day)}
+                {isMixedSportDay(day) && <span className="archive-tag"> · mixed sports</span>}
               </button>
             </li>
           ))}

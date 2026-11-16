@@ -8,6 +8,7 @@ import {
 import { checkLock as checkPublishedLock, nextLock, parseSlate, scoringFingerprint } from '../../src/content/schema.ts';
 import { DAYS_DIR, laterDay, planPublish, readLock } from './publish.ts';
 import { reschedule } from './reschedule.ts';
+import { NBA_CUTOVER } from '../../src/content/cutover.ts';
 import { reportFiles } from './report.ts';
 
 const real = loadNbaData();
@@ -143,6 +144,9 @@ describe('Content versioning', () => {
     expect(plan.problems).toEqual([]);
     expect(plan.write).toEqual([]);
     expect(plan.remove).toEqual([]);
+  });
+  it('the app and the calendar agree on the cutover', () => {
+    expect(NBA_CUTOVER).toBe(real.calendar.cutover);
   });
   it('--today can only make the rule stricter', () => {
     expect(laterDay('2026-01-01', '2026-11-16')).toBe('2026-11-16');

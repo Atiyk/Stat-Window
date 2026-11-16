@@ -5,6 +5,7 @@ import { msUntilNextPuzzle } from '../engine/daily';
 import { totalPoints, type Mode, type RoundRecord } from '../engine/game';
 import { MAX_TOTAL, shareText, verdict, type PlayerStats } from '../engine/summary';
 import { formatCountdown, formatDay, formatValue } from '../lib/format';
+import { isMixedSportDay } from '../content/cutover';
 import { track, type PlayMode } from '../lib/track';
 import { useNow } from './hooks';
 
@@ -211,6 +212,7 @@ export function Results({ slate, number, mode, playMode, isToday, vs, results, s
               <li key={day}>
                 <button type="button" className="btn btn-quiet" onClick={() => onPractice(day)}>
                   {formatDay(day)}
+                  {isMixedSportDay(day) && <span className="archive-tag"> · mixed sports</span>}
                 </button>
               </li>
             ))}

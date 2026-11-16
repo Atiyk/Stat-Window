@@ -1347,6 +1347,11 @@ a {
   color: var(--ink-soft);
 }
 
+.archive-tag {
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
 .archive-list {
   display: flex;
   flex-wrap: wrap;

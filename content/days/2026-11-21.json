@@ -1,29 +1,30 @@
 {
   "date": "2026-11-21",
   "theme": {
-    "title": "Showtime",
-    "subtitle": "The Lakers of the 1980s",
-    "recap": "Magic Johnson's Lakers played fast, won big and left Finals marks behind, from a rookie's 42-point clincher to a perfect start to a postseason."
+    "title": "Lopsided",
+    "subtitle": "Blowouts and comebacks",
+    "recap": "The NBA record book has a 73-point win, a 50-point halftime lead and a 36-point comeback."
   },
   "questions": [
     {
-      "id": "nba-lakers87-wins",
+      "id": "nba-grizzlies21-margin",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 1986–87 Lakers win?",
-      "context": "Los Angeles Lakers · 1986–87 · 82 games",
-      "answer": 65,
+      "prompt": "Memphis beat Oklahoma City on December 2, 2021 by the largest margin in NBA history. How many points?",
+      "context": "Grizzlies vs Thunder · 2021–22",
+      "answer": 73,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 25,
-      "max": 82,
+      "max": 100,
       "step": 1,
-      "note": "65–17, the best record in the league.",
+      "note": "73, winning 152–79.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
-        "quote": "The Lakers finished the regular season with a league-best 65–17 record."
+        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
+        "quote": "152–79 on December 2, 2021",
+        "derivation": "152 − 79 = 73"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +33,24 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-magic80-g6-points",
+      "id": "nba-jazz96-comeback",
       "sport": "NBA",
-      "prompt": "As a rookie in the title-clinching Game 6 of the 1980 Finals, how many points did Magic Johnson score?",
-      "context": "1980 NBA Finals · Game 6 · Lakers vs 76ers",
-      "answer": 42,
+      "prompt": "Utah set the record for the largest comeback in NBA history against Denver in 1996. How many points did the Jazz trail by?",
+      "context": "Jazz vs Nuggets · November 27, 1996",
+      "answer": 36,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 0,
-      "max": 50,
+      "min": 10,
+      "max": 52,
       "step": 1,
-      "note": "42, and he made all 14 of his free throws.",
+      "note": "36, down 70–34 late in the first half.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-        "quote": "Magic Johnson scored 42 points, including all 14 of his free-throw attempts."
+        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
+        "quote": "Utah trailed 70–34 with 20 seconds left in the 1st half, but outscored Denver 73–33",
+        "derivation": "70 − 34 = 36"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +59,24 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-lakers89-playoff-start",
+      "id": "nba-mavs20-halftime-lead",
       "sport": "NBA",
-      "prompt": "The 1989 Lakers were the first team to win how many playoff games in a row to open a postseason?",
-      "context": "Los Angeles Lakers · 1989 playoffs",
-      "answer": 11,
+      "prompt": "Dallas built the largest halftime lead in NBA history against the Clippers on December 27, 2020. How big was it?",
+      "context": "Mavericks vs Clippers · 2020–21",
+      "answer": 50,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 7,
-      "max": 20,
+      "min": 35,
+      "max": 85,
       "step": 1,
-      "note": "11 straight, the first team ever to do it.",
+      "note": "50 points, 77–27.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-        "quote": "The Lakers became the first team to win their first 11 playoff games"
+        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
+        "quote": "77–27 in the 1st half on December 27, 2020",
+        "derivation": "77 − 27 = 50"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,23 +85,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-cooper87-threes",
+      "id": "nba-blazers83-ot",
       "sport": "NBA",
-      "prompt": "Michael Cooper set a playoff record in Game 2 of the 1987 Finals by making how many three-pointers?",
-      "context": "1987 NBA Finals · Game 2 · vs Boston",
-      "answer": 6,
+      "prompt": "On January 22, 1983, Houston did not score in overtime against Portland. How many points did Portland score in it?",
+      "context": "Trail Blazers vs Rockets · 1982–83",
+      "answer": 17,
       "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 20,
+      "max": 26,
       "step": 1,
-      "note": "Six, a playoff record at the time.",
+      "note": "17–0, winning 113–96.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
-        "quote": "He hit six 3 pointers, a playoff record."
+        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
+        "quote": "(113–96 game, 17–0 OT)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -107,23 +110,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-magic84-assists",
+      "id": "nba-spurs83-fg",
       "sport": "NBA",
-      "prompt": "Magic Johnson set the NBA Finals record for assists in a game in 1984. How many did he dish out?",
-      "context": "1984 NBA Finals · Game 3 · vs Boston",
-      "answer": 21,
+      "prompt": "San Antonio set the NBA record for team field-goal percentage in a game in 1983. What was it?",
+      "context": "Spurs vs Mavericks · April 16, 1983",
+      "answer": 70.7,
       "unit": {
-        "singular": "assist",
-        "plural": "assists"
+        "singular": "percent",
+        "plural": "percent"
       },
-      "min": 12,
-      "max": 38,
-      "step": 1,
-      "note": "21 assists in Game 3.",
+      "min": 42,
+      "max": 78,
+      "step": 0.1,
+      "note": "70.7%, 53 of 75.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
-        "quote": "Magic Johnson dished out 21 assists, an NBA Finals record."
+        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
+        "quote": "70.7% (53/75) by the San Antonio Spurs vs. the Dallas Mavericks on April 16, 1983"
       },
       "verified": {
         "on": "2026-11-16",

@@ -1,30 +1,29 @@
 {
   "date": "2026-11-22",
   "theme": {
-    "title": "Lopsided",
-    "subtitle": "Blowouts and comebacks",
-    "recap": "The NBA record book has a 73-point win, a 50-point halftime lead and a 36-point comeback."
+    "title": "Russell, Wilt and Baylor",
+    "subtitle": "The NBA in the 1960s",
+    "recap": "Boston won eight titles in a row while Wilt, Baylor and West put up numbers that look like misprints today."
   },
   "questions": [
     {
-      "id": "nba-grizzlies21-margin",
+      "id": "nba-celtics-eight-straight",
       "sport": "NBA",
-      "prompt": "Memphis beat Oklahoma City on December 2, 2021 by the largest margin in NBA history. How many points?",
-      "context": "Grizzlies vs Thunder · 2021–22",
-      "answer": 73,
+      "prompt": "How many NBA titles in a row did Boston win from 1959 to 1966?",
+      "context": "Boston Celtics · 1959 to 1966",
+      "answer": 8,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "title",
+        "plural": "titles"
       },
-      "min": 25,
-      "max": 100,
+      "min": 2,
+      "max": 16,
       "step": 1,
-      "note": "73, winning 152–79.",
+      "note": "Eight straight.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
-        "quote": "152–79 on December 2, 2021",
-        "derivation": "152 − 79 = 73"
+        "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+        "quote": "Boston Celtics won eight in a row from 1959 to 1966."
       },
       "verified": {
         "on": "2026-11-16",
@@ -33,24 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-jazz96-comeback",
+      "id": "nba-baylor60-71",
       "sport": "NBA",
-      "prompt": "Utah set the record for the largest comeback in NBA history against Denver in 1996. How many points did the Jazz trail by?",
-      "context": "Jazz vs Nuggets · November 27, 1996",
-      "answer": 36,
+      "prompt": "Elgin Baylor set the NBA single-game scoring record on November 15, 1960. How many points did he score?",
+      "context": "Los Angeles Lakers · 1960–61",
+      "answer": 71,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 10,
-      "max": 52,
+      "min": 45,
+      "max": 110,
       "step": 1,
-      "note": "36, down 70–34 late in the first half.",
+      "note": "71, a record until Wilt passed it the next season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
-        "quote": "Utah trailed 70–34 with 20 seconds left in the 1st half, but outscored Denver 73–33",
-        "derivation": "70 − 34 = 36"
+        "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+        "quote": "On November 15 of the 1960–61 season, Baylor set an NBA scoring record when he scored 71 points in a victory"
       },
       "verified": {
         "on": "2026-11-16",
@@ -59,11 +57,11 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-mavs20-halftime-lead",
+      "id": "nba-west69-g1",
       "sport": "NBA",
-      "prompt": "Dallas built the largest halftime lead in NBA history against the Clippers on December 27, 2020. How big was it?",
-      "context": "Mavericks vs Clippers · 2020–21",
-      "answer": 50,
+      "prompt": "In Game 1 of the 1969 Finals, how many points did Jerry West score against Boston?",
+      "context": "1969 NBA Finals · Game 1 · vs Celtics",
+      "answer": 53,
       "unit": {
         "singular": "point",
         "plural": "points"
@@ -71,12 +69,11 @@
       "min": 35,
       "max": 85,
       "step": 1,
-      "note": "50 points, 77–27.",
+      "note": "53, in a Lakers win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
-        "quote": "77–27 in the 1st half on December 27, 2020",
-        "derivation": "77 − 27 = 50"
+        "url": "https://en.wikipedia.org/wiki/1969_NBA_Finals",
+        "quote": "He used this freedom to score 53 points on opposing guards"
       },
       "verified": {
         "on": "2026-11-16",
@@ -85,23 +82,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-blazers83-ot",
+      "id": "nba-russell62-quarter-reb",
       "sport": "NBA",
-      "prompt": "On January 22, 1983, Houston did not score in overtime against Portland. How many points did Portland score in it?",
-      "context": "Trail Blazers vs Rockets · 1982–83",
-      "answer": 17,
+      "prompt": "In Game 7 of the 1962 Finals, Bill Russell set the record for rebounds in a quarter. How many?",
+      "context": "1962 NBA Finals · Game 7 · vs Lakers",
+      "answer": 19,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "rebound",
+        "plural": "rebounds"
       },
       "min": 0,
       "max": 26,
       "step": 1,
-      "note": "17–0, winning 113–96.",
+      "note": "19 in one quarter, the most of any NBA quarter.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
-        "quote": "(113–96 game, 17–0 OT)"
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_rebounding_leaders",
+        "quote": "Russell's 19 rebounds in a single quarter is the most of any NBA quarter"
       },
       "verified": {
         "on": "2026-11-16",
@@ -110,23 +107,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-spurs83-fg",
+      "id": "nba-wilt60-half-reb",
       "sport": "NBA",
-      "prompt": "San Antonio set the NBA record for team field-goal percentage in a game in 1983. What was it?",
-      "context": "Spurs vs Mavericks · April 16, 1983",
-      "answer": 70.7,
+      "prompt": "In his record-setting rebounding game on November 24, 1960, how many rebounds did Wilt grab in one half?",
+      "context": "Philadelphia Warriors vs Boston Celtics · 1960–61",
+      "answer": 31,
       "unit": {
-        "singular": "percent",
-        "plural": "percent"
+        "singular": "rebound",
+        "plural": "rebounds"
       },
-      "min": 42,
-      "max": 78,
-      "step": 0.1,
-      "note": "70.7%, 53 of 75.",
+      "min": 20,
+      "max": 56,
+      "step": 1,
+      "note": "31 in a single half, in a game his team lost.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
-        "quote": "70.7% (53/75) by the San Antonio Spurs vs. the Dallas Mavericks on April 16, 1983"
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_rebounding_leaders",
+        "quote": "Record set in a losing effort; grabbed 31 rebounds in one half; scored 34 points"
       },
       "verified": {
         "on": "2026-11-16",

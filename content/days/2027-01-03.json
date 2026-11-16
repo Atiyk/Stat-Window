@@ -1,29 +1,29 @@
 {
   "date": "2027-01-03",
   "theme": {
-    "title": "Lakers–Celtics, 2010",
-    "subtitle": "The 2010 Finals",
-    "recap": "The rivalry's latest Finals went seven games, with Ray Allen setting a record one night and missing everything two nights later."
+    "title": "The 2020s",
+    "subtitle": "Recent records",
+    "recap": "A 41st pick won Finals MVP, an eighth seed reached the Finals and a rookie center shot almost 75 percent."
   },
   "questions": [
     {
-      "id": "nba-jackson10-titles",
+      "id": "nba-jokic-draft-pick",
       "sport": "NBA",
-      "prompt": "Phil Jackson won the 2010 title as Lakers coach. How many titles had he won as a head coach in total?",
-      "context": "Bulls and Lakers · through 2010",
-      "answer": 11,
+      "prompt": "Nikola Jokić is the lowest draft pick ever to win Finals MVP. Where was he picked in 2014?",
+      "context": "2014 NBA draft · Denver Nuggets",
+      "answer": 41,
       "unit": {
-        "singular": "title",
-        "plural": "titles"
+        "singular": "overall pick",
+        "plural": "overall pick"
       },
-      "min": 6,
-      "max": 19,
+      "min": 15,
+      "max": 80,
       "step": 1,
-      "note": "11.",
+      "note": "41st overall.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-        "quote": "Lakers head coach Phil Jackson earned his 11th NBA championship title"
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "He became the lowest-selected player to ever win Finals MVP, being the 41st pick of the 2014 NBA draft"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-allen10-g2-threes",
+      "id": "nba-butler23-56",
       "sport": "NBA",
-      "prompt": "Ray Allen set a Finals record for threes in Game 2 of 2010. How many did he make?",
-      "context": "2010 NBA Finals · Game 2 · at Los Angeles",
-      "answer": 8,
+      "prompt": "As an eighth seed, Miami beat Milwaukee in 2023. How many points did Jimmy Butler score in his career-high game in that series?",
+      "context": "2023 first round · Game 4 · vs Milwaukee",
+      "answer": 56,
       "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 0,
-      "max": 12,
+      "min": 35,
+      "max": 85,
       "step": 1,
-      "note": "Eight, on 11 attempts.",
+      "note": "56, in a 119–114 win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-        "quote": "Allen hit eight of 11 three-pointers, breaking a Finals record previously set by the"
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "scoring a career-high 56 points in a 119–114 victory"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-allen10-g3-fga",
+      "id": "nba-heat23-wins",
       "sport": "NBA",
-      "prompt": "Two days after his record night, Ray Allen went 0-for-how-many from the field in Game 3?",
-      "context": "2010 NBA Finals · Game 3 · vs Lakers",
-      "answer": 13,
+      "prompt": "How many regular-season games did the 2022–23 Heat win before reaching the Finals?",
+      "context": "Miami Heat · 2022–23 · 82 games",
+      "answer": 44,
       "unit": {
-        "singular": "shot",
-        "plural": "shots"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 4,
-      "max": 28,
+      "min": 32,
+      "max": 64,
       "step": 1,
-      "note": "0 for 13.",
+      "note": "44–38, then a run to the Finals as an eighth seed.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-        "quote": "Ray Allen went a near-record 0–13 in field goals for this game."
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "They regressed from their 53–29 record the previous season and finished with a record of 44–38"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,23 +82,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-celtics-lakers-finals-record",
+      "id": "nba-jokic23-playoff-points",
       "sport": "NBA",
-      "prompt": "Before 2010, Boston had won how many of its 11 Finals series against the Lakers?",
-      "context": "Celtics vs Lakers · Finals history to 2008",
-      "answer": 9,
+      "prompt": "Nikola Jokić led the 2023 playoffs in points, rebounds and assists. How many points did he score?",
+      "context": "Denver Nuggets · 2023 playoffs",
+      "answer": 600,
       "unit": {
-        "singular": "series",
-        "plural": "series"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 4,
-      "max": 11,
+      "min": 350,
+      "max": 750,
       "step": 1,
-      "note": "Nine.",
+      "note": "600, with 269 rebounds and 190 assists.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-        "quote": "The Celtics won nine of their previous 11 Finals meetings against the Lakers, winning in"
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "became the first player in NBA history to lead the league in points (600), rebounds (269), and assists (190)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -107,23 +107,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-finals10-g7-viewers",
+      "id": "nba-lively24-fg",
       "sport": "NBA",
-      "prompt": "On average, how many million viewers watched Game 7 of the 2010 Finals?",
-      "context": "2010 NBA Finals · Game 7 · US television",
-      "answer": 28.2,
+      "prompt": "Dereck Lively II set the rookie record for field-goal percentage in 2023–24. What was it?",
+      "context": "Dallas Mavericks · 2023–24",
+      "answer": 74.7,
       "unit": {
-        "singular": "million viewers",
-        "plural": "million viewers"
+        "singular": "percent",
+        "plural": "percent"
       },
-      "min": 0,
-      "max": 38,
-      "step": 0.1,
-      "note": "28.2 million.",
+      "min": 35,
+      "max": 90,
+      "step": 0.2,
+      "note": "74.7%.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-        "quote": "Game 7 had the highest average number of viewers with 28.2 million"
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
+        "quote": "obtaining the highest field-goal percentage for a rookie season in NBA history at 74.7%"
       },
       "verified": {
         "on": "2026-11-16",

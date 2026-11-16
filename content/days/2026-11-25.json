@@ -1,29 +1,29 @@
 {
   "date": "2026-11-25",
   "theme": {
-    "title": "Heat vs Mavericks, twice",
-    "subtitle": "2006 and 2011 Finals",
-    "recap": "Dwyane Wade carried Miami past Dallas in 2006; five years later Dirk Nowitzki's Mavericks took the rematch."
+    "title": "Splash season",
+    "subtitle": "Golden State, 2015–16",
+    "recap": "The Warriors won their first 24, reached the All-Star break at 48–4, never lost at home for more than a year and made threes at a rate nobody had seen."
   },
   "questions": [
     {
-      "id": "nba-wade06-g3",
+      "id": "nba-gsw16-start",
       "sport": "NBA",
-      "prompt": "Down 2–0 in the 2006 Finals, how many points did Dwyane Wade score to win Game 3?",
-      "context": "2006 NBA Finals · Game 3 · vs Dallas",
-      "answer": 42,
+      "prompt": "The 2015–16 Warriors opened the season with how many straight wins?",
+      "context": "Golden State Warriors · 2015–16",
+      "answer": 24,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 20,
-      "max": 75,
+      "min": 0,
+      "max": 30,
       "step": 1,
-      "note": "42 with 13 rebounds, rallying Miami from 13 down.",
+      "note": "24 in a row before their first loss.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
-        "quote": "Led by Dwyane Wade's 42 points and 13 rebounds, the Heat rallied from a 13-point deficit"
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "The Warriors began the 2015–16 season by winning their first 24 games,"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-wade06-finals-ppg",
+      "id": "nba-gsw16-allstar-wins",
       "sport": "NBA",
-      "prompt": "Dwyane Wade was 2006 Finals MVP. What did he average?",
-      "context": "2006 NBA Finals · six games",
-      "answer": 34.7,
+      "prompt": "What was the Warriors' win total at the 2016 All-Star break?",
+      "context": "Golden State Warriors · 2015–16 · first half of the season",
+      "answer": 48,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 24,
-      "max": 54,
-      "step": 0.1,
-      "note": "34.7 points per game.",
+      "min": 28,
+      "max": 60,
+      "step": 1,
+      "note": "48–4, the best record ever at the break.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
-        "quote": "Averaging 34.7 points per game in the series"
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "Golden State reached the NBA All-Star break at 48–4, the best start to an NBA season at this juncture."
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-mavs06-g4-q4",
+      "id": "nba-gsw16-home-streak",
       "sport": "NBA",
-      "prompt": "In Game 4 of the 2006 Finals, Miami held Dallas to how many fourth-quarter points?",
-      "context": "2006 NBA Finals · Game 4 · at Miami",
-      "answer": 7,
+      "prompt": "Golden State set an NBA record for consecutive regular-season home wins. How long was the streak?",
+      "context": "Golden State Warriors · spanning 2015 and 2016",
+      "answer": 54,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 0,
-      "max": 26,
+      "min": 35,
+      "max": 100,
       "step": 1,
-      "note": "Seven.",
+      "note": "54 straight home wins.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
-        "quote": "Miami held Dallas to just seven points in the fourth quarter"
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "The Warriors also set an NBA record 54-straight regular-season home-game winning streak,"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,23 +82,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-lebron11-4q-total",
+      "id": "nba-gsw16-threes",
       "sport": "NBA",
-      "prompt": "Across all six fourth quarters of the 2011 Finals, how many points did LeBron James score?",
-      "context": "2011 NBA Finals · six games vs Dallas",
-      "answer": 8,
+      "prompt": "How many three-pointers did the 2015–16 Warriors make in the regular season?",
+      "context": "Golden State Warriors · 2015–16 · 82 games",
+      "answer": 1077,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 0,
-      "max": 45,
-      "step": 1,
-      "note": "Eight in total.",
+      "min": 550,
+      "max": 1400,
+      "step": 10,
+      "note": "1,077, the first team past 1,000.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
-        "quote": "He also scored just eight points throughout all six fourth quarters in the series."
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "They also became the first team to make over 1,000 three-pointers in the regular-season with 1,077,"
       },
       "verified": {
         "on": "2026-11-16",
@@ -107,23 +107,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-mavs11-g2-comeback",
+      "id": "nba-curry16-ot-points",
       "sport": "NBA",
-      "prompt": "Dallas won Game 2 of the 2011 Finals after trailing by how many points?",
-      "context": "2011 NBA Finals · Game 2 · at Miami",
-      "answer": 15,
+      "prompt": "On May 9, 2016, Stephen Curry set an NBA record for points in an overtime period. How many did he score?",
+      "context": "2016 Western Conference semifinals · vs Portland",
+      "answer": 17,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
       "min": 0,
-      "max": 26,
+      "max": 40,
       "step": 1,
-      "note": "15, then the biggest Finals comeback since a 24-point rally.",
+      "note": "17, breaking the record of 16.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
-        "quote": "The Mavs' 15-point comeback was the biggest in an NBA Finals game since the 24-point comeback"
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "He scored 17 of his points in overtime, which broke the NBA record of 16"
       },
       "verified": {
         "on": "2026-11-16",

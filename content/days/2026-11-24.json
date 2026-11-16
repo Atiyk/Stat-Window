@@ -1,29 +1,29 @@
 {
   "date": "2026-11-24",
   "theme": {
-    "title": "The 72–10 Bulls",
-    "subtitle": "Chicago, 1995–96",
-    "recap": "Chicago lost three games before February, won almost everywhere it played and finished with the best combined record in league history."
+    "title": "Heat vs Mavericks, twice",
+    "subtitle": "2006 and 2011 Finals",
+    "recap": "Dwyane Wade carried Miami past Dallas in 2006; five years later Dirk Nowitzki's Mavericks took the rematch."
   },
   "questions": [
     {
-      "id": "nba-bulls96-combined-wins",
+      "id": "nba-wade06-g3",
       "sport": "NBA",
-      "prompt": "Counting the regular season and playoffs together, how many games did the 1995–96 Bulls win?",
-      "context": "Chicago Bulls · 1995–96 · regular season plus playoffs",
-      "answer": 87,
+      "prompt": "Down 2–0 in the 2006 Finals, how many points did Dwyane Wade score to win Game 3?",
+      "context": "2006 NBA Finals · Game 3 · vs Dallas",
+      "answer": 42,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 55,
-      "max": 105,
+      "min": 20,
+      "max": 75,
       "step": 1,
-      "note": "87 wins and 13 losses, the best combined record in NBA history.",
+      "note": "42 with 13 rebounds, rallying Miami from 13 down.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
-        "quote": "The 1995–96 Bulls have the best combined regular and postseason record in NBA history at 87–13"
+        "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+        "quote": "Led by Dwyane Wade's 42 points and 13 rebounds, the Heat rallied from a 13-point deficit"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-rodman96-rpg",
+      "id": "nba-wade06-finals-ppg",
       "sport": "NBA",
-      "prompt": "How many rebounds per game did Dennis Rodman average for the 1995–96 Bulls?",
-      "context": "Chicago Bulls · 1995–96 regular season",
-      "answer": 14.9,
+      "prompt": "Dwyane Wade was 2006 Finals MVP. What did he average?",
+      "context": "2006 NBA Finals · six games",
+      "answer": 34.7,
       "unit": {
-        "singular": "rebound per game",
-        "plural": "rebounds per game"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 10,
-      "max": 23,
+      "min": 24,
+      "max": 54,
       "step": 0.1,
-      "note": "14.9 a night, while scoring just 5.5 points.",
+      "note": "34.7 points per game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
-        "quote": "Rodman averaged 5.5 points and 14.9 rebounds per game"
+        "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+        "quote": "Averaging 34.7 points per game in the series"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,73 +57,73 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-bulls96-home-streak",
+      "id": "nba-mavs06-g4-q4",
       "sport": "NBA",
-      "prompt": "Chicago opened 1995–96 with 37 straight home wins. How long did that home winning streak run in total?",
-      "context": "Chicago Bulls · home games · 1995–96",
-      "answer": 44,
+      "prompt": "In Game 4 of the 2006 Finals, Miami held Dallas to how many fourth-quarter points?",
+      "context": "2006 NBA Finals · Game 4 · at Miami",
+      "answer": 7,
       "unit": {
-        "singular": "game",
-        "plural": "games"
-      },
-      "min": 15,
-      "max": 65,
-      "step": 1,
-      "note": "44 in a row, then an NBA record.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
-        "quote": "The Bulls' started the regular season 37–0 at home, part of a then-NBA-record 44-game winning streak"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-bulls96-road-wins",
-      "sport": "NBA",
-      "prompt": "How many road games did the 1995–96 Bulls win?",
-      "context": "Chicago Bulls · 1995–96 · 41 road games",
-      "answer": 33,
-      "unit": {
-        "singular": "win",
-        "plural": "wins"
-      },
-      "min": 21,
-      "max": 41,
-      "step": 1,
-      "note": "33, the most ever until the 2015–16 Warriors won 34.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
-        "quote": "Their 33 road wins were the most in NBA history until the 2015–16 Warriors won 34 road games."
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-rodman96-finals-oreb",
-      "sport": "NBA",
-      "prompt": "In Game 2 of the 1996 Finals, Dennis Rodman tied the Finals record for offensive rebounds. How many did he grab?",
-      "context": "1996 NBA Finals · Game 2 · vs Seattle",
-      "answer": 11,
-      "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 19,
+      "max": 26,
       "step": 1,
-      "note": "11 offensive rebounds, tying the Finals record.",
+      "note": "Seven.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1996_NBA_Finals",
-        "quote": "Dennis Rodman tied an NBA Finals record with 11 offensive rebounds"
+        "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+        "quote": "Miami held Dallas to just seven points in the fourth quarter"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-lebron11-4q-total",
+      "sport": "NBA",
+      "prompt": "Across all six fourth quarters of the 2011 Finals, how many points did LeBron James score?",
+      "context": "2011 NBA Finals · six games vs Dallas",
+      "answer": 8,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 45,
+      "step": 1,
+      "note": "Eight in total.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+        "quote": "He also scored just eight points throughout all six fourth quarters in the series."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-mavs11-g2-comeback",
+      "sport": "NBA",
+      "prompt": "Dallas won Game 2 of the 2011 Finals after trailing by how many points?",
+      "context": "2011 NBA Finals · Game 2 · at Miami",
+      "answer": 15,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 26,
+      "step": 1,
+      "note": "15, then the biggest Finals comeback since a 24-point rally.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+        "quote": "The Mavs' 15-point comeback was the biggest in an NBA Finals game since the 24-point comeback"
       },
       "verified": {
         "on": "2026-11-16",

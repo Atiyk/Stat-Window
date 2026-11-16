@@ -35,8 +35,8 @@
         "singular": "goal",
         "plural": "goals"
       },
-      "min": 100,
-      "max": 350,
+      "min": 200,
+      "max": 500,
       "step": 1,
       "note": "Two hundred sixty, the Premier League record.",
       "source": {
@@ -60,7 +60,7 @@
         "plural": "titles"
       },
       "min": 0,
-      "max": 15,
+      "max": 12,
       "step": 1,
       "note": "Nine, an all-time record.",
       "source": {
@@ -76,17 +76,17 @@
     {
       "id": "nfl-sb51-deficit",
       "sport": "American football",
-      "prompt": "In Super Bowl LI, by how many points did the Patriots trail before coming back to win?",
+      "prompt": "Super Bowl LI ended in a Patriots comeback. What was the biggest deficit they overcame, in points?",
       "context": "NFL · Patriots vs. Falcons · February 2017",
       "answer": 25,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 0,
-      "max": 35,
+      "min": 10,
+      "max": 40,
       "step": 1,
-      "note": "They trailed 28–3 in the third quarter and still won.",
+      "note": "They trailed 28–3 in the third quarter and won, the biggest comeback in Super Bowl history.",
       "source": {
         "name": "Wikipedia",
         "url": "https://en.wikipedia.org/wiki/Super_Bowl_LI",
@@ -108,8 +108,8 @@
         "singular": "hit",
         "plural": "hits"
       },
-      "min": 3000,
-      "max": 5000,
+      "min": 3500,
+      "max": 5500,
       "step": 10,
       "note": "4,256, the all-time record.",
       "source": {

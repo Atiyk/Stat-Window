@@ -6,11 +6,8 @@ type Day = { date: string; theme: { title: string; recap: string }; questions: {
 const load = (day: string) => JSON.parse(readFileSync(new URL(`../content/days/${day}.json`, import.meta.url), 'utf8')) as Day;
 const LADDER = ['Easy', 'Medium', 'Hard', 'Hard', 'Expert'];
 
-for (const [when, day] of [
-  [NBA_FIRST, '2026-11-18'],
-  [NBA_MIDDLE, '2026-12-12'],
-  [NBA_LAST, '2027-01-06'],
-] as const) {
+for (const when of [NBA_FIRST, NBA_MIDDLE, NBA_LAST]) {
+  const day = when.toISOString().slice(0, 10);
   test(`NBA day ${day}: themed, climbs Easy to Expert, sources on Wikipedia, recap after play`, async ({ page }) => {
     const errors = collectErrors(page);
     const slate = load(day);
@@ -36,7 +33,7 @@ test('a save from before the NBA cutover still loads, and its day still plays th
   await openAt(page, DAY1);
   await lockAndSettle(page);
   await next(page);
-  // Two days later, the first NBA day opens fresh and the launch-day run is kept.
+  // Later, the first NBA day opens fresh and the launch-day run is kept.
   await openAt(page, NBA_FIRST);
   await expect(page.locator('.round-meta')).toContainText('Round 1 of 5 · Easy');
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') ?? '{}'));

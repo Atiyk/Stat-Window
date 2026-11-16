@@ -1,29 +1,29 @@
 {
   "date": "2026-12-09",
   "theme": {
-    "title": "Detroit defense",
-    "subtitle": "Pistons, 1989 and 2004",
-    "recap": "Detroit won with defense twice: the Bad Boys of 1989 and the 2004 team that held five straight opponents under 70."
+    "title": "Triple-double kings",
+    "subtitle": "Oscar Robertson to Russell Westbrook",
+    "recap": "Oscar Robertson set the triple-double standard in the 1960s; Russell Westbrook finally passed it in 2017."
   },
   "questions": [
     {
-      "id": "nba-pistons89-wins",
+      "id": "nba-westbrook17-td",
       "sport": "NBA",
-      "prompt": "How many games did the 1988–89 \"Bad Boys\" Pistons win?",
-      "context": "Detroit Pistons · 1988–89 · 82 games",
-      "answer": 63,
+      "prompt": "On April 9, 2017, Russell Westbrook broke the record for triple-doubles in a season. What number did he reach?",
+      "context": "Oklahoma City Thunder · 2016–17",
+      "answer": 42,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "triple-double",
+        "plural": "triple-doubles"
       },
-      "min": 50,
-      "max": 82,
+      "min": 0,
+      "max": 55,
       "step": 1,
-      "note": "63–19, the league's best.",
+      "note": "42, passing Oscar Robertson's 41.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1988%E2%80%9389_Detroit_Pistons_season",
-        "quote": "finishing in first place in the Central Division with a league-best 63–19 record"
+        "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Oklahoma_City_Thunder_season",
+        "quote": "On April 9th, Russell Westbrook broke Oscar Robertson's record for most triple-doubles in a season with 42."
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-dumars89-17-straight",
+      "id": "nba-oscar-career-td",
       "sport": "NBA",
-      "prompt": "In Game 3 of the 1989 Finals, Joe Dumars scored how many points in a row in the third quarter?",
-      "context": "1989 NBA Finals · Game 3 · at Los Angeles",
-      "answer": 17,
+      "prompt": "How many career triple-doubles did Oscar Robertson record?",
+      "context": "Royals and Bucks · 1960–1974",
+      "answer": 181,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "triple-double",
+        "plural": "triple-doubles"
       },
-      "min": 0,
-      "max": 26,
+      "min": 100,
+      "max": 310,
       "step": 1,
-      "note": "17 in a row, on his way to 31.",
+      "note": "181, a record for decades.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-        "quote": "Joe Dumars scored 31 points, scoring 17 consecutive points in the third quarter"
+        "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+        "quote": "For his career, Robertson had 181 triple-doubles, a record that had never been approached for decades"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-dumars89-finals-ppg",
+      "id": "nba-oscar62-assists",
       "sport": "NBA",
-      "prompt": "Joe Dumars was 1989 Finals MVP. What was his scoring average in the series?",
-      "context": "1989 NBA Finals · four games vs Lakers",
-      "answer": 27.3,
+      "prompt": "Oscar Robertson broke Bob Cousy's single-season assist record of 715. How many did he log?",
+      "context": "Cincinnati Royals · 1961–62",
+      "answer": 899,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "assist",
+        "plural": "assists"
       },
-      "min": 6,
-      "max": 34,
-      "step": 0.1,
-      "note": "27.3 points per game.",
+      "min": 200,
+      "max": 1050,
+      "step": 5,
+      "note": "899.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-        "quote": "Dumars was named Finals MVP after averaging 27.3 points per game during the series"
+        "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+        "quote": "He broke the assists record by Bob Cousy, who had recorded 715 assists two seasons earlier, by logging 899"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,48 +82,48 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-pistons04-under-70",
+      "id": "nba-kidd02-finals-td",
       "sport": "NBA",
-      "prompt": "The 2003–04 Pistons were the first team to hold how many straight opponents under 70 points?",
-      "context": "Detroit Pistons · 2003–04 regular season",
-      "answer": 5,
+      "prompt": "Jason Kidd posted a triple-double in the 2002 Finals. It was which number in Finals history?",
+      "context": "2002 NBA Finals · Game 1 · at Los Angeles",
+      "answer": 26,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "triple-double",
+        "plural": "triple-doubles"
+      },
+      "min": 15,
+      "max": 75,
+      "step": 1,
+      "note": "The 26th.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2002_NBA_Finals",
+        "quote": "Kidd finished with a triple-double, the 26th in Finals history"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-butler20-g3-ast",
+      "sport": "NBA",
+      "prompt": "Jimmy Butler had 40 points and 11 rebounds in Game 3 of the 2020 Finals. How many assists did he add?",
+      "context": "2020 NBA Finals · Game 3 · vs Lakers",
+      "answer": 13,
+      "unit": {
+        "singular": "assist",
+        "plural": "assists"
       },
       "min": 0,
-      "max": 10,
+      "max": 16,
       "step": 1,
-      "note": "Five in a row.",
+      "note": "13, a 40-point triple-double.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-        "quote": "They became the first team in NBA history to hold five consecutive opponents under 70 points"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-lakers04-g3-68",
-      "sport": "NBA",
-      "prompt": "Detroit held the Lakers to a franchise playoff low in Game 3 of the 2004 Finals. How many points?",
-      "context": "2004 NBA Finals · Game 3 · at Detroit",
-      "answer": 68,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 30,
-      "max": 95,
-      "step": 1,
-      "note": "68 points, the Lakers' lowest ever in a playoff game.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-        "quote": "The 68 points scored by the Lakers set a franchise record for the lowest number of points scored in a playoff game"
+        "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
+        "quote": "Butler finished with 40 points, 11 rebounds and 13 assists for a triple-double to lead Miami to a 115–104 win"
       },
       "verified": {
         "on": "2026-11-16",

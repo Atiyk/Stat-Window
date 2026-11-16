@@ -13,7 +13,7 @@ All gates pass: 0 errors.
 | Verified facts (one question each) | 279 |
 | Scheduled questions | 250 |
 | Reserve questions | 29 |
-| Days | 50 (2026-11-18 to 2027-01-06) |
+| Days | 50 (2026-11-17 to 2027-01-05) |
 | Themed days (not "mixed") | 49 |
 | Stat families | 83 |
 | Franchises | 27 |
@@ -40,7 +40,7 @@ All gates pass: 0 errors.
 | daily_slate_questions | 250 |
 
 Integrity: integrity_check ok, no foreign-key violations, every fact verified and sourced.
-Canonical dump sha256 (status as of 2026-11-16): `7c1914098c98022b30b9b7f5dc1abb0f3acde3c65c144cd62a34aeaecebe8bad`.
+Canonical dump sha256 (status as of 2026-11-16): `351f80d436f8e5e549f5f28eae3d18c5d6b33d221092bf96741ce789e4183c1e`.
 
 ## Difficulty
 
@@ -82,13 +82,13 @@ Every answer sits strictly inside its scale and at least 8% away from either end
 
 | Week | Stat families | Eras | Most-used franchise |
 |---|---|---|---|
-| 2026-11-18 to 2026-11-24 | 26 | 5 | BOS (7) |
-| 2026-11-25 to 2026-12-01 | 21 | 5 | GSW (7) |
-| 2026-12-02 to 2026-12-08 | 21 | 7 | BOS (8) |
-| 2026-12-09 to 2026-12-15 | 24 | 7 | LAL (7) |
-| 2026-12-16 to 2026-12-22 | 25 | 8 | IND (5) |
-| 2026-12-23 to 2026-12-29 | 23 | 6 | GSW (9) |
-| 2026-12-30 to 2027-01-05 | 19 | 6 | BOS (6) |
+| 2026-11-17 to 2026-11-23 | 26 | 5 | BOS (7) |
+| 2026-11-24 to 2026-11-30 | 21 | 5 | GSW (7) |
+| 2026-12-01 to 2026-12-07 | 21 | 7 | BOS (8) |
+| 2026-12-08 to 2026-12-14 | 24 | 7 | LAL (7) |
+| 2026-12-15 to 2026-12-21 | 25 | 8 | IND (5) |
+| 2026-12-22 to 2026-12-28 | 23 | 6 | GSW (9) |
+| 2026-12-29 to 2027-01-04 | 19 | 6 | BOS (6) |
 
 Every rolling 7-day window is also checked: at least 6 families, at least 3 eras, at most 10 questions about one franchise, and no two days in a row led by the same franchise. Each day has at most 2 questions from one family and at most 1 simple scoring average.
 

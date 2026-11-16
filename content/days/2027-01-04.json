@@ -1,29 +1,29 @@
 {
   "date": "2027-01-04",
   "theme": {
-    "title": "The 2020s",
-    "subtitle": "Recent records",
-    "recap": "A 41st pick won Finals MVP, an eighth seed reached the Finals and a rookie center shot almost 75 percent."
+    "title": "Warriors, Cavs and Raptors",
+    "subtitle": "The 2018 and 2019 Finals",
+    "recap": "LeBron James scored 51 in a 2018 loss; a year later Toronto ended Golden State's run."
   },
   "questions": [
     {
-      "id": "nba-jokic-draft-pick",
+      "id": "nba-lebron18-g1",
       "sport": "NBA",
-      "prompt": "Nikola Jokić is the lowest draft pick ever to win Finals MVP. Where was he picked in 2014?",
-      "context": "2014 NBA draft · Denver Nuggets",
-      "answer": 41,
+      "prompt": "LeBron James scored the most points ever in a Finals loss in Game 1 of 2018. How many?",
+      "context": "2018 NBA Finals · Game 1 · at Golden State",
+      "answer": 51,
       "unit": {
-        "singular": "overall pick",
-        "plural": "overall pick"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 15,
-      "max": 80,
+      "min": 10,
+      "max": 60,
       "step": 1,
-      "note": "41st overall.",
+      "note": "51.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-        "quote": "He became the lowest-selected player to ever win Finals MVP, being the 41st pick of the 2014 NBA draft"
+        "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
+        "quote": "LeBron James scored 51 points in Game 1, the fifth-highest point total for an NBA Finals game and the most in a loss"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-butler23-56",
+      "id": "nba-curry18-g2-threes",
       "sport": "NBA",
-      "prompt": "As an eighth seed, Miami beat Milwaukee in 2023. How many points did Jimmy Butler score in his career-high game in that series?",
-      "context": "2023 first round · Game 4 · vs Milwaukee",
-      "answer": 56,
+      "prompt": "How many threes did Stephen Curry make in Game 2 of the 2018 Finals, a Finals record?",
+      "context": "2018 NBA Finals · Game 2 · vs Cleveland",
+      "answer": 9,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 35,
-      "max": 85,
+      "min": 0,
+      "max": 13,
       "step": 1,
-      "note": "56, in a 119–114 win.",
+      "note": "Nine.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-        "quote": "scoring a career-high 56 points in a 119–114 victory"
+        "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
+        "quote": "set an NBA Finals record in Game 2 with nine three-point field goals"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,48 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-heat23-wins",
+      "id": "nba-gsw19-g2-run",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 2022–23 Heat win before reaching the Finals?",
-      "context": "Miami Heat · 2022–23 · 82 games",
-      "answer": 44,
-      "unit": {
-        "singular": "win",
-        "plural": "wins"
-      },
-      "min": 32,
-      "max": 64,
-      "step": 1,
-      "note": "44–38, then a run to the Finals as an eighth seed.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-        "quote": "They regressed from their 53–29 record the previous season and finished with a record of 44–38"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-jokic23-playoff-points",
-      "sport": "NBA",
-      "prompt": "Nikola Jokić led the 2023 playoffs in points, rebounds and assists. How many points did he score?",
-      "context": "Denver Nuggets · 2023 playoffs",
-      "answer": 600,
+      "prompt": "Golden State opened the second half of Game 2 of the 2019 Finals with how many unanswered points?",
+      "context": "2019 NBA Finals · Game 2 · at Toronto",
+      "answer": 18,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 350,
-      "max": 750,
+      "min": 0,
+      "max": 24,
       "step": 1,
-      "note": "600, with 269 rebounds and 190 assists.",
+      "note": "18, the most to start a half in Finals history.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-        "quote": "became the first player in NBA history to lead the league in points (600), rebounds (269), and assists (190)"
+        "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
+        "quote": "The Warriors' 18 unanswered points to begin the second half were the most in NBA Finals history to start a half."
       },
       "verified": {
         "on": "2026-11-16",
@@ -107,23 +82,48 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-lively24-fg",
+      "id": "nba-siakam19-g1",
       "sport": "NBA",
-      "prompt": "Dereck Lively II set the rookie record for field-goal percentage in 2023–24. What was it?",
-      "context": "Dallas Mavericks · 2023–24",
-      "answer": 74.7,
+      "prompt": "Pascal Siakam shot 14 of 17 in Game 1 of the 2019 Finals. How many points did he score?",
+      "context": "2019 NBA Finals · Game 1 · vs Golden State",
+      "answer": 32,
       "unit": {
-        "singular": "percent",
-        "plural": "percent"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 35,
-      "max": 90,
-      "step": 0.2,
-      "note": "74.7%.",
+      "min": 4,
+      "max": 42,
+      "step": 1,
+      "note": "32, a playoff career high.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
-        "quote": "obtaining the highest field-goal percentage for a rookie season in NBA history at 74.7%"
+        "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
+        "quote": "Pascal Siakam scored a playoff career-high 32 points on 14-of-17 shooting"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-gsw19-20-threes",
+      "sport": "NBA",
+      "prompt": "Golden State made the second-most threes in Finals history in Game 5 of 2019. How many?",
+      "context": "2019 NBA Finals · Game 5 · at Toronto",
+      "answer": 20,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
+      },
+      "min": 0,
+      "max": 26,
+      "step": 1,
+      "note": "20, behind Cleveland's 24.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
+        "quote": "Golden State made 20 three-pointers, the second most in NBA Finals history behind Cleveland's 24"
       },
       "verified": {
         "on": "2026-11-16",

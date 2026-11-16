@@ -1,29 +1,29 @@
 {
   "date": "2026-12-03",
   "theme": {
-    "title": "The Big Three's first year",
-    "subtitle": "Boston, 2007–08",
-    "recap": "Boston went from a franchise-worst losing streak to 66 wins and a title won with a 39-point clincher."
+    "title": "Clocks, rules and oddities",
+    "subtitle": "Before and after the shot clock",
+    "recap": "The shot clock arrived in 1954 after games like a 19–18 final and a six-overtime game with one shot per overtime."
   },
   "questions": [
     {
-      "id": "nba-celtics08-wins",
+      "id": "nba-shot-clock-24",
       "sport": "NBA",
-      "prompt": "After adding Kevin Garnett and Ray Allen, how many games did the 2007–08 Celtics win?",
-      "context": "Boston Celtics · 2007–08 · 82 games",
-      "answer": 66,
+      "prompt": "How many seconds does an NBA team have to shoot under the shot clock?",
+      "context": "NBA rules · since 1954",
+      "answer": 24,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "second",
+        "plural": "seconds"
       },
-      "min": 24,
-      "max": 82,
+      "min": 10,
+      "max": 55,
       "step": 1,
-      "note": "66–16.",
+      "note": "24.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_Boston_Celtics_season",
-        "quote": "the trade enabled the Celtics to finish the season with a record of 66–16"
+        "url": "https://en.wikipedia.org/wiki/Shot_clock",
+        "quote": "The NBA has had a 24-second limit since 1954."
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-celtics07-losing-streak",
+      "id": "nba-pistons50-19-18",
       "sport": "NBA",
-      "prompt": "A year before their title, the 2006–07 Celtics set a franchise record with a losing streak of how many games?",
-      "context": "Boston Celtics · 2006–07",
-      "answer": 18,
+      "prompt": "Before the shot clock, the Fort Wayne Pistons beat the Lakers in 1950 with how many points?",
+      "context": "Fort Wayne Pistons vs Minneapolis Lakers · November 22, 1950",
+      "answer": 19,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 26,
+      "max": 45,
       "step": 1,
-      "note": "18 straight, in a 24-win season.",
+      "note": "19, winning 19–18. The fourth quarter went 3–1.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-        "quote": "culminated in a 24-win 2006–07 season, highlighted by a franchise-worst 18 straight losses"
+        "url": "https://en.wikipedia.org/wiki/Shot_clock",
+        "quote": "defeated the Minneapolis Lakers by a record-low score of 19–18, including 3–1 in the fourth quarter."
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-celtics08-playoff-games",
+      "id": "nba-offensive-rebound-reset",
       "sport": "NBA",
-      "prompt": "Boston needed a record number of playoff games to win the 2008 title. How many?",
-      "context": "Boston Celtics · 2008 playoffs",
-      "answer": 26,
+      "prompt": "After an offensive rebound, what is the NBA shot clock reset to?",
+      "context": "NBA rules · shot clock",
+      "answer": 14,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "second",
+        "plural": "seconds"
       },
-      "min": 16,
-      "max": 30,
+      "min": 1,
+      "max": 21,
       "step": 1,
-      "note": "26, a record.",
+      "note": "14 seconds.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-        "quote": "the Celtics set an NBA record for most playoff games ever needed to win a championship, with 26"
+        "url": "https://en.wikipedia.org/wiki/Shot_clock",
+        "quote": "The shot clock is instead set to 14 following an offensive rebound."
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,23 +82,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-celtics08-g6-margin",
+      "id": "nba-six-overtime-game",
       "sport": "NBA",
-      "prompt": "Boston won the 2008 title-clinching Game 6 against the Lakers by how many points?",
-      "context": "2008 NBA Finals · Game 6 · at Boston",
-      "answer": 39,
+      "prompt": "Before the shot clock, two teams played a game with only one shot in each overtime. How many overtimes?",
+      "context": "NBA · 1950–51",
+      "answer": 6,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "overtime",
+        "plural": "overtimes"
       },
-      "min": 22,
-      "max": 62,
+      "min": 2,
+      "max": 12,
       "step": 1,
-      "note": "39, 131–92, the biggest clinching margin ever.",
+      "note": "Six.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-        "quote": "The 39-point margin of victory was the largest ever in an NBA championship-clinching game"
+        "url": "https://en.wikipedia.org/wiki/Shot_clock",
+        "quote": "played a six-overtime game with only one shot in each overtime"
       },
       "verified": {
         "on": "2026-11-16",
@@ -107,23 +107,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-powe08-g2",
+      "id": "nba-hawks-wizards-45-ft",
       "sport": "NBA",
-      "prompt": "Reserve Leon Powe played only 15 minutes in Game 2 of the 2008 Finals. How many points did he score?",
-      "context": "2008 NBA Finals · Game 2 · vs Lakers",
-      "answer": 21,
+      "prompt": "On November 1, 2021, Atlanta and Washington combined to make how many free throws without a single miss?",
+      "context": "Hawks vs Wizards · 2021–22",
+      "answer": 45,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "free throw",
+        "plural": "free throws"
       },
-      "min": 0,
-      "max": 32,
+      "min": 20,
+      "max": 80,
       "step": 1,
-      "note": "21, on 6-of-7 shooting.",
+      "note": "45: Atlanta 29-for-29, Washington 16-for-16.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-        "quote": "Leon Powe scored 21 points on 6–7 shooting from the field and 9–13 from the line in 15 minutes of play"
+        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
+        "quote": "45 between Atlanta Hawks (29-for-29) and Washington Wizards (16-for-16) on November 1, 2021"
       },
       "verified": {
         "on": "2026-11-16",

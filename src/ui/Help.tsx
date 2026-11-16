@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { analyticsEnabled } from '../lib/track';
 
 export function Help({ open, onClose }: { open: boolean; onClose: () => void }) {
   const ref = useRef<HTMLDialogElement>(null);
@@ -58,8 +59,12 @@ export function Help({ open, onClose }: { open: boolean; onClose: () => void }) 
         </p>
         <p className="help-small">
           A new puzzle opens every day at midnight UTC, the same five for everyone. Your progress stays in this browser;
-          there’s no account and nothing is tracked. Every answer links to its source. NBA facts are checked against
-          Wikipedia articles by Wikipedia contributors, used under{' '}
+          there’s no account.{' '}
+          {analyticsEnabled
+            ? 'We count anonymous plays (rounds locked, games finished, shares) to improve the game: no cookies, no names, nothing typed. Browsers set to Do Not Track or Global Privacy Control are not counted.'
+            : 'Nothing is tracked.'}{' '}
+          Every answer links to its source. NBA facts are checked against Wikipedia articles by Wikipedia contributors,
+          used under{' '}
           <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">
             CC BY-SA 4.0
           </a>

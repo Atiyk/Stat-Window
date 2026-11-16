@@ -1,29 +1,29 @@
 {
   "date": "2026-12-04",
   "theme": {
-    "title": "Clocks, rules and oddities",
-    "subtitle": "Before and after the shot clock",
-    "recap": "The shot clock arrived in 1954 after games like a 19–18 final and a six-overtime game with one shot per overtime."
+    "title": "Silver and black",
+    "subtitle": "San Antonio, 1989–2003",
+    "recap": "David Robinson turned the Spurs around overnight, and Tim Duncan's arrival after a 20-win season started a dynasty."
   },
   "questions": [
     {
-      "id": "nba-shot-clock-24",
+      "id": "nba-robinson94-71",
       "sport": "NBA",
-      "prompt": "How many seconds does an NBA team have to shoot under the shot clock?",
-      "context": "NBA rules · since 1954",
-      "answer": 24,
+      "prompt": "How many points did David Robinson score against the Clippers on April 24, 1994?",
+      "context": "San Antonio Spurs · 1993–94",
+      "answer": 71,
       "unit": {
-        "singular": "second",
-        "plural": "seconds"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 10,
-      "max": 55,
+      "min": 45,
+      "max": 110,
       "step": 1,
-      "note": "24.",
+      "note": "71, breaking George Gervin's Spurs record of 63.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Shot_clock",
-        "quote": "The NBA has had a 24-second limit since 1954."
+        "url": "https://en.wikipedia.org/wiki/David_Robinson",
+        "quote": "scoring 71 points (breaking George Gervin's single-game franchise record of 63) against the Los Angeles Clippers"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-pistons50-19-18",
+      "id": "nba-spurs90-improvement",
       "sport": "NBA",
-      "prompt": "Before the shot clock, the Fort Wayne Pistons beat the Lakers in 1950 with how many points?",
-      "context": "Fort Wayne Pistons vs Minneapolis Lakers · November 22, 1950",
-      "answer": 19,
+      "prompt": "With rookie David Robinson in 1989–90, the Spurs improved by how many wins over the year before?",
+      "context": "San Antonio Spurs · 1989–90",
+      "answer": 35,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 0,
-      "max": 45,
+      "min": 15,
+      "max": 65,
       "step": 1,
-      "note": "19, winning 19–18. The fourth quarter went 3–1.",
+      "note": "35, going 56–26.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Shot_clock",
-        "quote": "defeated the Minneapolis Lakers by a record-low score of 19–18, including 3–1 in the fourth quarter."
+        "url": "https://en.wikipedia.org/wiki/David_Robinson",
+        "quote": "The Spurs leaped to a record of 56–26 for a remarkable 35 game improvement"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-offensive-rebound-reset",
+      "id": "nba-spurs97-wins",
       "sport": "NBA",
-      "prompt": "After an offensive rebound, what is the NBA shot clock reset to?",
-      "context": "NBA rules · shot clock",
-      "answer": 14,
+      "prompt": "How many games did the Spurs win in 1996–97, the season before they drafted Tim Duncan?",
+      "context": "San Antonio Spurs · 1996–97 · 82 games",
+      "answer": 20,
       "unit": {
-        "singular": "second",
-        "plural": "seconds"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 1,
-      "max": 21,
+      "min": 12,
+      "max": 54,
       "step": 1,
-      "note": "14 seconds.",
+      "note": "20, finishing 20–62.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Shot_clock",
-        "quote": "The shot clock is instead set to 14 following an offensive rebound."
+        "url": "https://en.wikipedia.org/wiki/David_Robinson",
+        "quote": "finished the season with a 20–62 record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,23 +82,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-six-overtime-game",
+      "id": "nba-duncan03-g6-blocks",
       "sport": "NBA",
-      "prompt": "Before the shot clock, two teams played a game with only one shot in each overtime. How many overtimes?",
-      "context": "NBA · 1950–51",
-      "answer": 6,
+      "prompt": "Tim Duncan nearly had a quadruple-double in the 2003 title clincher. How many blocks did he have?",
+      "context": "2003 NBA Finals · Game 6 · vs New Jersey",
+      "answer": 8,
       "unit": {
-        "singular": "overtime",
-        "plural": "overtimes"
+        "singular": "block",
+        "plural": "blocks"
       },
-      "min": 2,
-      "max": 12,
+      "min": 0,
+      "max": 13,
       "step": 1,
-      "note": "Six.",
+      "note": "Eight, with 21 points, 20 rebounds and 10 assists.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Shot_clock",
-        "quote": "played a six-overtime game with only one shot in each overtime"
+        "url": "https://en.wikipedia.org/wiki/2003_NBA_Finals",
+        "quote": "finishing with 21 points, 20 rebounds, 10 assists and 8 blocks"
       },
       "verified": {
         "on": "2026-11-16",
@@ -107,23 +107,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-hawks-wizards-45-ft",
+      "id": "nba-spurs99-playoff-streak",
       "sport": "NBA",
-      "prompt": "On November 1, 2021, Atlanta and Washington combined to make how many free throws without a single miss?",
-      "context": "Hawks vs Wizards · 2021–22",
-      "answer": 45,
+      "prompt": "In 1999 the Spurs set a record for consecutive playoff wins. How many did they win before the streak ended in the Finals?",
+      "context": "San Antonio Spurs · 1999 playoffs",
+      "answer": 12,
       "unit": {
-        "singular": "free throw",
-        "plural": "free throws"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 20,
-      "max": 80,
+      "min": 6,
+      "max": 24,
       "step": 1,
-      "note": "45: Atlanta 29-for-29, Washington 16-for-16.",
+      "note": "12 straight, the longest in NBA history at the time.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
-        "quote": "45 between Atlanta Hawks (29-for-29) and Washington Wizards (16-for-16) on November 1, 2021"
+        "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+        "quote": "This was the end of the Spurs' 12-game playoff winning streak, the longest in NBA history at the time."
       },
       "verified": {
         "on": "2026-11-16",

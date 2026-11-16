@@ -1,29 +1,29 @@
 {
   "date": "2026-12-25",
   "theme": {
-    "title": "The Worm",
-    "subtitle": "Dennis Rodman",
-    "recap": "Dennis Rodman, a second-round pick, won seven straight rebounding titles and grabbed rebounds at a rate not seen since Wilt."
+    "title": "One year apart",
+    "subtitle": "The 2008 and 2009 Finals",
+    "recap": "The Lakers lost a 21-point first-quarter lead to Boston in 2008, then came back to win the 2009 title."
   },
   "questions": [
     {
-      "id": "nba-rodman-reb-titles",
+      "id": "nba-lakers09-title-number",
       "sport": "NBA",
-      "prompt": "Dennis Rodman led the NBA in rebounding for how many seasons in a row?",
-      "context": "Pistons, Spurs and Bulls · 1991–92 onward",
-      "answer": 7,
+      "prompt": "The 2009 title was which championship in Lakers history?",
+      "context": "Los Angeles Lakers · 2009 NBA Finals",
+      "answer": 15,
       "unit": {
-        "singular": "season",
-        "plural": "seasons"
+        "singular": "title",
+        "plural": "titles"
       },
-      "min": 2,
-      "max": 14,
+      "min": 0,
+      "max": 19,
       "step": 1,
-      "note": "Seven, a record.",
+      "note": "Their 15th.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
-        "quote": "He also led the NBA in rebounds per game for a record seven consecutive years and won five NBA championships."
+        "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+        "quote": "The Lakers defeated the Magic in five games to win the franchise's 15th NBA championship"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-rodman92-rpg",
+      "id": "nba-kobe09-finals-ppg",
       "sport": "NBA",
-      "prompt": "What did Dennis Rodman average in rebounds in 1991–92, his first rebounding title?",
-      "context": "Detroit Pistons · 1991–92",
-      "answer": 18.7,
+      "prompt": "Kobe Bryant won 2009 Finals MVP. What did he average in the series?",
+      "context": "2009 NBA Finals · five games vs Orlando",
+      "answer": 32.4,
       "unit": {
-        "singular": "rebound per game",
-        "plural": "rebounds per game"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 7,
-      "max": 23,
+      "min": 12,
+      "max": 40,
       "step": 0.1,
-      "note": "18.7 a game.",
+      "note": "32.4 points per game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
-        "quote": "He collected an astounding 18.7 per game, winning his first of seven consecutive rebounding crowns"
+        "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+        "quote": "Bryant averaged 32.4 points, 5.6 rebounds, and 7.4 assists per game during the series"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-rodman92-34",
+      "id": "nba-finals09-g2-q1",
       "sport": "NBA",
-      "prompt": "What was Dennis Rodman's career high in rebounds, set in March 1992?",
-      "context": "Detroit Pistons · 1991–92",
-      "answer": 34,
+      "prompt": "The Lakers and Magic set a Finals record low for combined first-quarter points in Game 2 of 2009. What was it?",
+      "context": "2009 NBA Finals · Game 2 · at Los Angeles",
+      "answer": 30,
       "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 20,
-      "max": 52,
+      "min": 0,
+      "max": 55,
       "step": 1,
-      "note": "34.",
+      "note": "30.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
-        "quote": "In a March 1992 game, Rodman grabbed a career-high 34 rebounds."
+        "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+        "quote": "setting a record-low for combined score (30) in the first quarter of an NBA Finals game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,23 +82,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-rodman86-draft",
+      "id": "nba-celtics09-streak",
       "sport": "NBA",
-      "prompt": "Dennis Rodman was drafted in the second round in 1986. What overall pick was he?",
-      "context": "1986 NBA draft · Detroit Pistons",
-      "answer": 27,
+      "prompt": "The defending champion Celtics set a franchise-record winning streak in 2008–09. How long was it?",
+      "context": "Boston Celtics · 2008–09",
+      "answer": 19,
       "unit": {
-        "singular": "overall pick",
-        "plural": "overall pick"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 10,
-      "max": 75,
+      "min": 6,
+      "max": 38,
       "step": 1,
-      "note": "27th overall.",
+      "note": "19 games.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
-        "quote": "as the third pick in the second round (27th overall)"
+        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+        "quote": "bringing an end to their franchise-high 19-game winning streak"
       },
       "verified": {
         "on": "2026-11-16",
@@ -107,23 +107,24 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-wilt72-total-reb",
+      "id": "nba-lakers08-g4-lead",
       "sport": "NBA",
-      "prompt": "Rodman's 1991–92 rebound total was the most since Wilt Chamberlain's total in 1971–72. How many did Wilt grab that season?",
-      "context": "Los Angeles Lakers · 1971–72",
-      "answer": 1572,
+      "prompt": "In Game 4 of the 2008 Finals, the Lakers set a Finals record for a first-quarter lead. How big was it?",
+      "context": "2008 NBA Finals · Game 4 · vs Boston",
+      "answer": 21,
       "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 300,
-      "max": 1800,
-      "step": 5,
-      "note": "1,572.",
+      "min": 8,
+      "max": 40,
+      "step": 1,
+      "note": "21 points, 35–14. Boston came back to win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
-        "quote": "1,530 season rebounds (the most since Wilt Chamberlain's 1,572 in the 1971–1972 season)"
+        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+        "quote": "a 35–14 lead after the first quarter, which was the largest first-quarter lead in NBA Finals history",
+        "derivation": "35 − 14 = 21"
       },
       "verified": {
         "on": "2026-11-16",

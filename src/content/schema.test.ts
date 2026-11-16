@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { checkInventory, parseSlate } from './schema';
+import { checkInventory, parseSlate, checkLock, scoringFingerprint, type Slate } from './schema';
 
 const good = {
   id: 'nba-test',
@@ -63,5 +63,31 @@ describe('checkInventory', () => {
     const r = checkInventory([slate('2026-11-15', 'a'), slate('2026-11-16', 'b')], '2026-11-15');
     expect(r.errors).toEqual([]);
     expect(r.warnings.join(' ')).toMatch(/2 day/);
+  });
+});
+
+describe('published-content lock', () => {
+  const slate = (date: string, answer = 73): Slate =>
+    ({ date, questions: [1, 2, 3, 4, 5].map((i) => ({ id: `q${date}${i}`, answer, min: 0, max: 100, step: 1 })) }) as unknown as Slate;
+  it('passes when published days match the lock', () => {
+    const s = slate('2026-11-15');
+    expect(checkLock([s], { '2026-11-15': scoringFingerprint(s) }, '2026-11-16')).toEqual({ errors: [], warnings: [] });
+  });
+  it('blocks any change to the answer or scale of a published day', () => {
+    const lock = { '2026-11-15': scoringFingerprint(slate('2026-11-15')) };
+    expect(checkLock([slate('2026-11-15', 74)], lock, '2026-11-16').errors).toHaveLength(1);
+  });
+  it('only warns for a change to a day that is not out yet', () => {
+    const lock = { '2026-11-20': scoringFingerprint(slate('2026-11-20')) };
+    const r = checkLock([slate('2026-11-20', 74)], lock, '2026-11-16');
+    expect(r.errors).toEqual([]);
+    expect(r.warnings).toHaveLength(1);
+  });
+  it('blocks deleting a published day', () => {
+    const lock = { '2026-11-15': scoringFingerprint(slate('2026-11-15')) };
+    expect(checkLock([], lock, '2026-11-16').errors).toHaveLength(1);
+  });
+  it('requires a published day to be locked at all', () => {
+    expect(checkLock([slate('2026-11-15')], {}, '2026-11-15').errors).toHaveLength(1);
   });
 });

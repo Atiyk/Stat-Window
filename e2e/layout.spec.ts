@@ -54,6 +54,15 @@ test.describe('layout', () => {
       await expect(page.locator('.results-score')).toBeVisible();
       expect(await noOverflow()).toBe(true);
       await page.screenshot({ path: `${shots}/${tag}-results.png`, fullPage: true });
+      await expect(page.getByRole('button', { name: 'Challenge a friend' })).toBeVisible();
+      if (day.name === 'launch') {
+        // A friend's challenge link at the same width, in a browser that hasn't played that day.
+        await page.evaluate(() => localStorage.clear());
+        await openAt(page, new Date('2026-11-16T15:00:00Z'), '/?day=2026-11-15&vs=274');
+        expect(await noOverflow()).toBe(true);
+        await expect(page.locator('.challenge-note')).toBeInViewport();
+        await page.screenshot({ path: `${shots}/${tag}-challenge.png` });
+      }
       expect(errors).toEqual([]);
     });
   }
@@ -71,6 +80,18 @@ test.describe('layout', () => {
     expect(await check()).toEqual([]);
     await page.getByRole('button', { name: 'How to play' }).click();
     await page.waitForTimeout(400);
+    expect(await check()).toEqual([]);
+    await page.keyboard.press('Escape');
+    // A challenge link in a browser that hasn't played that day, through to results.
+    await page.evaluate(() => localStorage.clear());
+    await openAt(page, new Date('2026-11-16T15:00:00Z'), '/?day=2026-11-15&vs=274');
+    expect(await check()).toEqual([]);
+    for (let i = 0; i < 5; i++) {
+      await lockAndSettle(page);
+      await next(page);
+    }
+    await expect(page.locator('.versus')).toBeVisible();
+    await page.waitForTimeout(800);
     expect(await check()).toEqual([]);
   });
 

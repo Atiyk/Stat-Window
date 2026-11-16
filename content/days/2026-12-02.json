@@ -1,16 +1,16 @@
 {
   "date": "2026-12-02",
   "theme": {
-    "title": "Kareem and the Big O",
-    "subtitle": "Milwaukee, 1970–71",
-    "recap": "In only its third season Milwaukee won 66 games and a title behind Lew Alcindor and Oscar Robertson."
+    "title": "The Big Three's first year",
+    "subtitle": "Boston, 2007–08",
+    "recap": "Boston went from a franchise-worst losing streak to 66 wins and a title won with a 39-point clincher."
   },
   "questions": [
     {
-      "id": "nba-bucks71-wins",
+      "id": "nba-celtics08-wins",
       "sport": "NBA",
-      "prompt": "In only their third season, how many games did the 1970–71 Bucks win?",
-      "context": "Milwaukee Bucks · 1970–71 · 82 games",
+      "prompt": "After adding Kevin Garnett and Ray Allen, how many games did the 2007–08 Celtics win?",
+      "context": "Boston Celtics · 2007–08 · 82 games",
       "answer": 66,
       "unit": {
         "singular": "win",
@@ -19,11 +19,11 @@
       "min": 24,
       "max": 82,
       "step": 1,
-      "note": "66–16, then a title.",
+      "note": "66–16.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-        "quote": "Milwaukee posted a 66–16 record in only its third year of existence"
+        "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_Boston_Celtics_season",
+        "quote": "the trade enabled the Celtics to finish the season with a record of 66–16"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-alcindor71-ppg",
+      "id": "nba-celtics07-losing-streak",
       "sport": "NBA",
-      "prompt": "Lew Alcindor led the NBA in scoring in 1970–71. What was his average?",
-      "context": "Milwaukee Bucks · 1970–71",
-      "answer": 31.7,
+      "prompt": "A year before their title, the 2006–07 Celtics set a franchise record with a losing streak of how many games?",
+      "context": "Boston Celtics · 2006–07",
+      "answer": 18,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 24,
-      "max": 46,
-      "step": 0.1,
-      "note": "31.7 points per game.",
+      "min": 0,
+      "max": 26,
+      "step": 1,
+      "note": "18 straight, in a 24-win season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-        "quote": "In only his second professional season, Lew Alcindor led the league in scoring at 31.7 ppg"
+        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+        "quote": "culminated in a 24-win 2006–07 season, highlighted by a franchise-worst 18 straight losses"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-bucks71-streak",
+      "id": "nba-celtics08-playoff-games",
       "sport": "NBA",
-      "prompt": "The 1970–71 Bucks set what was then the NBA's longest winning streak. How many games?",
-      "context": "Milwaukee Bucks · 1970–71",
-      "answer": 20,
+      "prompt": "Boston needed a record number of playoff games to win the 2008 title. How many?",
+      "context": "Boston Celtics · 2008 playoffs",
+      "answer": 26,
       "unit": {
         "singular": "game",
         "plural": "games"
       },
-      "min": 2,
-      "max": 34,
+      "min": 16,
+      "max": 30,
       "step": 1,
-      "note": "20 straight.",
+      "note": "26, a record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-        "quote": "This season included a 20-game winning streak, the NBA's longest at the time, and still ranked fifth all-time"
+        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+        "quote": "the Celtics set an NBA record for most playoff games ever needed to win a championship, with 26"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,23 +82,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-oscar71-apg",
+      "id": "nba-celtics08-g6-margin",
       "sport": "NBA",
-      "prompt": "In his first Bucks season, how many assists per game did Oscar Robertson average?",
-      "context": "Milwaukee Bucks · 1970–71",
-      "answer": 8.3,
+      "prompt": "Boston won the 2008 title-clinching Game 6 against the Lakers by how many points?",
+      "context": "2008 NBA Finals · Game 6 · at Boston",
+      "answer": 39,
       "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 4,
-      "max": 14.5,
-      "step": 0.1,
-      "note": "8.3, third in the league.",
+      "min": 22,
+      "max": 62,
+      "step": 1,
+      "note": "39, 131–92, the biggest clinching margin ever.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-        "quote": "Robertson ranked third in the league in assists at 8.3 apg and was the Bucks' No. 2 scorer at 19.4 ppg."
+        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+        "quote": "The 39-point margin of victory was the largest ever in an NBA championship-clinching game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -107,23 +107,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-kareem89-retire-age",
+      "id": "nba-powe08-g2",
       "sport": "NBA",
-      "prompt": "How old was Kareem Abdul-Jabbar when he retired after the 1989 Finals?",
-      "context": "Los Angeles Lakers · 1988–89 · his 20th season",
-      "answer": 42,
+      "prompt": "Reserve Leon Powe played only 15 minutes in Game 2 of the 2008 Finals. How many points did he score?",
+      "context": "2008 NBA Finals · Game 2 · vs Lakers",
+      "answer": 21,
       "unit": {
-        "singular": "year old",
-        "plural": "years old"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 27,
-      "max": 48,
+      "min": 0,
+      "max": 32,
       "step": 1,
-      "note": "42, after 20 seasons.",
+      "note": "21, on 6-of-7 shooting.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-        "quote": "announced his retirement from the NBA at age 42 at the end of his 20th season"
+        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+        "quote": "Leon Powe scored 21 points on 6–7 shooting from the field and 9–13 from the line in 15 minutes of play"
       },
       "verified": {
         "on": "2026-11-16",

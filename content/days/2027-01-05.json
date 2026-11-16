@@ -1,29 +1,29 @@
 {
   "date": "2027-01-05",
   "theme": {
-    "title": "Warriors, Cavs and Raptors",
-    "subtitle": "The 2018 and 2019 Finals",
-    "recap": "LeBron James scored 51 in a 2018 loss; a year later Toronto ended Golden State's run."
+    "title": "Miami's Finals years",
+    "subtitle": "Heat, 2012 and 2013",
+    "recap": "Miami beat Oklahoma City and then survived San Antonio, thanks in part to a corner three with seconds left."
   },
   "questions": [
     {
-      "id": "nba-lebron18-g1",
+      "id": "nba-lebron13-g7",
       "sport": "NBA",
-      "prompt": "LeBron James scored the most points ever in a Finals loss in Game 1 of 2018. How many?",
-      "context": "2018 NBA Finals · Game 1 · at Golden State",
-      "answer": 51,
+      "prompt": "How many points did LeBron James score in Game 7 of the 2013 Finals?",
+      "context": "2013 NBA Finals · Game 7 · vs San Antonio",
+      "answer": 37,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 10,
-      "max": 60,
+      "min": 15,
+      "max": 65,
       "step": 1,
-      "note": "51.",
+      "note": "37, with five threes and 12 rebounds.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
-        "quote": "LeBron James scored 51 points in Game 1, the fifth-highest point total for an NBA Finals game and the most in a loss"
+        "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
+        "quote": "LeBron James led the Miami Heat with 37 points, including five 3-pointers, and grabbed 12 rebounds"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-curry18-g2-threes",
+      "id": "nba-westbrook12-g4",
       "sport": "NBA",
-      "prompt": "How many threes did Stephen Curry make in Game 2 of the 2018 Finals, a Finals record?",
-      "context": "2018 NBA Finals · Game 2 · vs Cleveland",
-      "answer": 9,
+      "prompt": "In Game 4 of the 2012 Finals, how many points did Russell Westbrook score in a loss?",
+      "context": "2012 NBA Finals · Game 4 · at Miami",
+      "answer": 43,
       "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 0,
-      "max": 13,
+      "min": 25,
+      "max": 75,
       "step": 1,
-      "note": "Nine.",
+      "note": "43, leading the Thunder.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
-        "quote": "set an NBA Finals record in Game 2 with nine three-point field goals"
+        "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
+        "quote": "Russell Westbrook (who led the Thunder with 43 points)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,73 +57,73 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-gsw19-g2-run",
+      "id": "nba-miller12-g5-threes",
       "sport": "NBA",
-      "prompt": "Golden State opened the second half of Game 2 of the 2019 Finals with how many unanswered points?",
-      "context": "2019 NBA Finals · Game 2 · at Toronto",
-      "answer": 18,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 0,
-      "max": 24,
-      "step": 1,
-      "note": "18, the most to start a half in Finals history.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-        "quote": "The Warriors' 18 unanswered points to begin the second half were the most in NBA Finals history to start a half."
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-siakam19-g1",
-      "sport": "NBA",
-      "prompt": "Pascal Siakam shot 14 of 17 in Game 1 of the 2019 Finals. How many points did he score?",
-      "context": "2019 NBA Finals · Game 1 · vs Golden State",
-      "answer": 32,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 4,
-      "max": 42,
-      "step": 1,
-      "note": "32, a playoff career high.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-        "quote": "Pascal Siakam scored a playoff career-high 32 points on 14-of-17 shooting"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-gsw19-20-threes",
-      "sport": "NBA",
-      "prompt": "Golden State made the second-most threes in Finals history in Game 5 of 2019. How many?",
-      "context": "2019 NBA Finals · Game 5 · at Toronto",
-      "answer": 20,
+      "prompt": "Mike Miller shot eight threes in the 2012 title clincher. How many did he make?",
+      "context": "2012 NBA Finals · Game 5 · vs Oklahoma City",
+      "answer": 7,
       "unit": {
         "singular": "three-pointer",
         "plural": "three-pointers"
       },
       "min": 0,
-      "max": 26,
+      "max": 16,
       "step": 1,
-      "note": "20, behind Cleveland's 24.",
+      "note": "Seven of eight, for 23 points.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-        "quote": "Golden State made 20 three-pointers, the second most in NBA Finals history behind Cleveland's 24"
+        "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
+        "quote": "who was 7 for 8 for three-pointers, ending the night with 23 points"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-allen13-g6-seconds",
+      "sport": "NBA",
+      "prompt": "How many seconds were left when Ray Allen hit his game-tying corner three in Game 6 of the 2013 Finals?",
+      "context": "2013 NBA Finals · Game 6 · vs San Antonio",
+      "answer": 5.2,
+      "unit": {
+        "singular": "second",
+        "plural": "seconds"
+      },
+      "min": 0,
+      "max": 15,
+      "step": 0.1,
+      "note": "5.2 seconds.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
+        "quote": "made a three-point basket from the right corner with 5.2 left to tie the game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-spurs12-streak",
+      "sport": "NBA",
+      "prompt": "Before Oklahoma City beat them in the 2012 West finals, the Spurs had won how many games in a row?",
+      "context": "San Antonio Spurs · 2011–12",
+      "answer": 20,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 12,
+      "max": 44,
+      "step": 1,
+      "note": "20 in a row.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
+        "quote": "snapping San Antonio's 20 game winning streak in the process"
       },
       "verified": {
         "on": "2026-11-16",

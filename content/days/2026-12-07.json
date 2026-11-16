@@ -1,29 +1,29 @@
 {
   "date": "2026-12-07",
   "theme": {
-    "title": "Jordan in the Finals",
-    "subtitle": "Chicago Bulls, 1991–98",
-    "recap": "Michael Jordan's Finals nights, from 13 straight makes in 1991 to the flu game and the last shot in Utah."
+    "title": "Cup nights",
+    "subtitle": "The In-Season Tournament and NBA Cup",
+    "recap": "The new in-season event produced its own record nights, plus a prize of half a million dollars a player."
   },
   "questions": [
     {
-      "id": "nba-jordan98-g6",
+      "id": "nba-ad23-cup-final",
       "sport": "NBA",
-      "prompt": "How many points did Michael Jordan score in Game 6 of the 1998 Finals, the night of his title-winning last shot?",
-      "context": "1998 NBA Finals · Game 6 · at Utah",
-      "answer": 45,
+      "prompt": "How many points did Anthony Davis score in the first In-Season Tournament final?",
+      "context": "2023 In-Season Tournament final · Lakers vs Pacers",
+      "answer": 41,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 30,
-      "max": 80,
+      "min": 8,
+      "max": 50,
       "step": 1,
-      "note": "45, capped by the game-winner over Bryon Russell.",
+      "note": "41, with 20 rebounds.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Chicago_Bulls_season",
-        "quote": "Jordan scored 45 points, and hit a memorable game-winning shot over Jazz forward Bryon Russell"
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+        "quote": "Anthony Davis finished with 41 points on 16-for-24 shooting, 20 rebounds and 4 blocks;"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-jordan91-straight-makes",
+      "id": "nba-cup23-prize",
       "sport": "NBA",
-      "prompt": "In Game 2 of the 1991 Finals, Michael Jordan made how many shots in a row?",
-      "context": "1991 NBA Finals · Game 2 · vs Lakers",
-      "answer": 13,
+      "prompt": "How much prize money did each player on the 2023 In-Season Tournament champions earn?",
+      "context": "2023 In-Season Tournament · prize pool",
+      "answer": 500000,
       "unit": {
-        "singular": "shot",
-        "plural": "shots"
+        "singular": "dollar",
+        "plural": "dollars"
       },
       "min": 0,
-      "max": 20,
-      "step": 1,
-      "note": "13 straight.",
+      "max": 750000,
+      "step": 10000,
+      "note": "$500,000 each.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1991_NBA_Finals",
-        "quote": "Jordan would hit his next 13 shots in compensation"
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+        "quote": "Players on the tournament championship team: $500,000 each"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,48 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-jordan93-finals-ppg",
+      "id": "nba-lakers23-cup-paint",
       "sport": "NBA",
-      "prompt": "What did Michael Jordan average per game in the 1993 Finals against Phoenix, a Finals record?",
-      "context": "1993 NBA Finals · six games vs Phoenix",
-      "answer": 41,
-      "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
-      },
-      "min": 28,
-      "max": 60,
-      "step": 0.1,
-      "note": "41.0 points per game.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
-        "quote": "averaged a Finals-record 41.0 PPG during the six-game series"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-jordan97-flu-game",
-      "sport": "NBA",
-      "prompt": "Sick before Game 5 of the 1997 Finals, how many points did Michael Jordan score in the \"Flu Game\"?",
-      "context": "1997 NBA Finals · Game 5 · at Utah",
-      "answer": 38,
+      "prompt": "In the 2023 In-Season Tournament final, how many points in the paint did the Lakers score?",
+      "context": "2023 In-Season Tournament final · vs Indiana",
+      "answer": 86,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 5,
-      "max": 60,
+      "min": 55,
+      "max": 130,
       "step": 1,
-      "note": "38 in 44 minutes.",
+      "note": "86, to Indiana's 44.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
-        "quote": "Jordan played 44 minutes, finishing the game with 38 points, 7 rebounds, 5 assists, 3 steals and 1 block."
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+        "quote": "The Lakers dominated the Pacers inside, edging them with an 86–44 edge in points in the paint."
       },
       "verified": {
         "on": "2026-11-16",
@@ -107,23 +82,48 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-finals98-rating",
+      "id": "nba-bucks24-cup-quarter",
       "sport": "NBA",
-      "prompt": "The 1998 Finals drew the highest Nielsen TV rating in NBA history. What was it?",
-      "context": "1998 NBA Finals · Bulls vs Jazz · US television",
-      "answer": 18.7,
+      "prompt": "In the 2024 NBA Cup final, Milwaukee held Oklahoma City to how many points in one quarter?",
+      "context": "2024 NBA Cup final · Bucks vs Thunder",
+      "answer": 14,
       "unit": {
-        "singular": "rating point",
-        "plural": "rating points"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 2,
-      "max": 30,
-      "step": 0.1,
-      "note": "An 18.7 rating.",
+      "min": 4,
+      "max": 36,
+      "step": 1,
+      "note": "14.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-        "quote": "garnered the highest Nielsen TV ratings in NBA history at 18.7"
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
+        "quote": "holding the Thunder to just 14 points in the period."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-thunder24-cup-3pa",
+      "sport": "NBA",
+      "prompt": "Oklahoma City made just five threes in the 2024 NBA Cup final. How many did it attempt?",
+      "context": "2024 NBA Cup final · vs Milwaukee",
+      "answer": 32,
+      "unit": {
+        "singular": "attempt",
+        "plural": "attempts"
+      },
+      "min": 0,
+      "max": 42,
+      "step": 1,
+      "note": "32, a season low in accuracy.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
+        "quote": "going 5-of-32 from long-range, setting season lows in both field goal and three-point percentage"
       },
       "verified": {
         "on": "2026-11-16",

@@ -1,13 +1,13 @@
-import { mkdtempSync, readFileSync, writeFileSync, cpSync } from 'node:fs';
-import { tmpdir } from 'node:os';
+import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { parseSlate } from '../../src/content/schema.ts';
 import { buildDatabase, counts, dumpDatabase, integrity } from './db.ts';
 import {
   buildSlates, loadNbaData, MIN_DAYS, MIN_FACTS, ROOT, serializeSlate, sha256, validateNba, type Fact, type NbaData,
 } from './model.ts';
-import { checkLock, DAYS_DIR, readLock } from './publish.ts';
+import { checkLock as checkPublishedLock, nextLock, parseSlate, scoringFingerprint } from '../../src/content/schema.ts';
+import { DAYS_DIR, laterDay, planPublish, readLock } from './publish.ts';
+import { reschedule } from './reschedule.ts';
 import { reportFiles } from './report.ts';
 
 const real = loadNbaData();
@@ -93,24 +93,60 @@ describe('NBA database: each gate catches what it should', () => {
 });
 
 describe('Content versioning', () => {
-  it('every day file matches its locked hash', () => {
-    expect(checkLock()).toEqual([]);
-  });
-  it('locks the days that were live before the NBA cutover', () => {
+  const slates = () =>
+    readdirSync(DAYS_DIR)
+      .filter((f) => f.endsWith('.json'))
+      .map((f) => parseSlate(JSON.parse(readFileSync(join(DAYS_DIR, f), 'utf8'))));
+  it('every day file matches its locked scoring fingerprint', () => {
     const lock = readLock();
-    for (const day of ['2026-11-15', '2026-11-16', '2026-11-17']) expect(lock.days[day]).toMatch(/^[0-9a-f]{64}$/);
+    for (const s of slates()) expect(lock[s.date], s.date).toEqual(scoringFingerprint(s));
   });
-  it('detects a silently changed published question', () => {
-    const dir = mkdtempSync(join(tmpdir(), 'sw-lock-'));
-    cpSync(DAYS_DIR, dir, { recursive: true });
-    const path = join(dir, '2026-11-15.json');
-    writeFileSync(path, readFileSync(path, 'utf8').replace('"answer": 73', '"answer": 74'));
-    expect(checkLock(dir).join('\n')).toMatch(/2026-11-15\.json changed since it was locked/);
+  it('keeps the mixed-sport launch days exactly as they were published', () => {
+    const lock = readLock();
+    expect(lock['2026-11-15']?.[0]).toBe('nba-gsw-2016-wins|73|40|82|1');
+    expect(lock['2026-11-16']?.[0]).toBe('mlb-bonds-2001-hr|73|30|100|1');
+    expect(real.calendar.cutover > '2026-11-16').toBe(true);
+  });
+  it('refuses a changed answer on a published day, but lets a future day change', () => {
+    const lock = readLock();
+    const all = slates();
+    const first = all.find((s) => s.date === '2026-11-15')!;
+    const edited = { ...first, questions: first.questions.map((q, i) => (i === 0 ? { ...q, answer: 74 } : q)) };
+    const others = all.filter((s) => s.date !== first.date);
+    expect(nextLock([edited, ...others], lock, '2026-11-16').refused).toEqual(['2026-11-15']);
+    expect(checkPublishedLock([edited, ...others], lock, '2026-11-16').errors.join('\n')).toMatch(/2026-11-15 is published/);
+    const future = all.at(-1)!;
+    const moved = { ...future, questions: future.questions.map((q, i) => (i === 0 ? { ...q, min: q.min - q.step } : q)) };
+    expect(nextLock([...all.slice(0, -1), moved], lock, '2026-11-16').refused).toEqual([]);
+  });
+  it('reports a published day whose file was deleted', () => {
+    const lock = readLock();
+    const rest = slates().filter((s) => s.date !== '2026-11-16');
+    expect(checkPublishedLock(rest, lock, '2026-11-16').errors.join('\n')).toMatch(/2026-11-16 is published but its file is missing/);
   });
   it('day files are exactly what data/nba generates', () => {
     for (const s of buildSlates(real)) {
       expect(readFileSync(join(DAYS_DIR, `${s.date}.json`), 'utf8')).toBe(serializeSlate(s));
     }
+  });
+  it('rescheduling keeps every theme, id and order, makes days consecutive, and refuses a past cutover', () => {
+    const next = reschedule(real.calendar, '2027-02-01', '2026-11-16');
+    expect(next.days.map((d) => d.questions)).toEqual(real.calendar.days.map((d) => d.questions));
+    expect(next.days.map((d) => d.theme)).toEqual(real.calendar.days.map((d) => d.theme));
+    expect(next.reserve).toEqual(real.calendar.reserve);
+    expect(next.days[0]!.date).toBe('2027-02-01');
+    expect(next.days[49]!.date).toBe('2027-03-22');
+    expect(() => reschedule(real.calendar, '2026-11-16', '2026-11-16')).toThrow(/after today/);
+  });
+  it('publishing as of a later day never plans a change to a published day', () => {
+    const plan = planPublish(real.calendar.days[10]!.date);
+    expect(plan.problems).toEqual([]);
+    expect(plan.write).toEqual([]);
+    expect(plan.remove).toEqual([]);
+  });
+  it('--today can only make the rule stricter', () => {
+    expect(laterDay('2026-01-01', '2026-11-16')).toBe('2026-11-16');
+    expect(laterDay('2026-12-01', '2026-11-16')).toBe('2026-12-01');
   });
 });
 

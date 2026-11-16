@@ -1,29 +1,29 @@
 {
   "date": "2026-11-29",
   "theme": {
-    "title": "Rock bottom",
-    "subtitle": "The NBA's worst seasons",
-    "recap": "The 1972–73 Sixers and 2011–12 Bobcats own the worst records ever, and both lost games in long runs."
+    "title": "Stockton to Malone",
+    "subtitle": "Utah Jazz, 1984–2003",
+    "recap": "John Stockton and Karl Malone played together longer than any teammates, and Stockton barely missed a game."
   },
   "questions": [
     {
-      "id": "nba-sixers73-wins",
+      "id": "nba-stockton90-apg",
       "sport": "NBA",
-      "prompt": "How many games did the 1972–73 Philadelphia 76ers win?",
-      "context": "Philadelphia 76ers · 1972–73 · 82 games",
-      "answer": 9,
+      "prompt": "In 1989–90 John Stockton set the NBA record for assists per game in a season. What was it?",
+      "context": "Utah Jazz · 1989–90",
+      "answer": 14.5,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "assist per game",
+        "plural": "assists per game"
       },
-      "min": 0,
-      "max": 40,
-      "step": 1,
-      "note": "Nine, finishing 9–73.",
+      "min": 9,
+      "max": 22,
+      "step": 0.1,
+      "note": "14.5 a game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-        "quote": "the 76ers lost their remaining 13 games to finish 9–73."
+        "url": "https://en.wikipedia.org/wiki/John_Stockton",
+        "quote": "As of 2019, Stockton also held the record for assists-per-game average over one season (14.5 in 1990)."
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-bobcats12-wins",
+      "id": "nba-stockton-malone-games",
       "sport": "NBA",
-      "prompt": "In the lockout-shortened 2011–12 season, how many games did the Charlotte Bobcats win?",
-      "context": "Charlotte Bobcats · 2011–12 · 66 games",
-      "answer": 7,
+      "prompt": "How many regular-season games did John Stockton and Karl Malone play together?",
+      "context": "Utah Jazz · 1985–2003",
+      "answer": 1412,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 0,
-      "max": 19,
-      "step": 1,
-      "note": "Seven, the lowest winning percentage in NBA history.",
+      "min": 400,
+      "max": 2000,
+      "step": 5,
+      "note": "1,412, a record for teammates.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
-        "quote": "Total: 7–59 (Home: 4–29; Road: 3–30)"
+        "url": "https://en.wikipedia.org/wiki/John_Stockton",
+        "quote": "The two played a record 1,412 regular season games together as teammates"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,73 +57,73 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-sixers73-games-back",
+      "id": "nba-stockton-missed",
       "sport": "NBA",
-      "prompt": "How many games behind first-place Boston did the 1972–73 Sixers finish in their division?",
-      "context": "Philadelphia 76ers · 1972–73 · Atlantic Division",
-      "answer": 59,
-      "unit": {
-        "singular": "game back",
-        "plural": "games back"
-      },
-      "min": 45,
-      "max": 95,
-      "step": 1,
-      "note": "59, an NBA record.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-        "quote": "The 76ers finished an NBA-record 59 games behind the Atlantic Division champion Boston Celtics."
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-bobcats12-losing-streak",
-      "sport": "NBA",
-      "prompt": "The 2011–12 Bobcats ended the season on a losing streak that carried into the next year. How long did it run?",
-      "context": "Charlotte Bobcats · 2011–12 into 2012–13",
-      "answer": 23,
-      "unit": {
-        "singular": "game",
-        "plural": "games"
-      },
-      "min": 10,
-      "max": 46,
-      "step": 1,
-      "note": "23 straight losses.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
-        "quote": "embarking on a 23-game losing streak that lasted until the start of the following season."
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-sixers14-losing-streak",
-      "sport": "NBA",
-      "prompt": "The 2013–14 Sixers tied what was then the NBA record for consecutive losses. How many?",
-      "context": "Philadelphia 76ers · 2013–14",
-      "answer": 26,
+      "prompt": "Over 19 seasons, how many games did John Stockton miss?",
+      "context": "Utah Jazz · 1984–2003",
+      "answer": 22,
       "unit": {
         "singular": "game",
         "plural": "games"
       },
       "min": 0,
-      "max": 36,
+      "max": 120,
       "step": 1,
-      "note": "26 in a row, matching Cleveland's mark.",
+      "note": "Just 22. He played every game in 17 seasons.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
-        "quote": "tying Cleveland's former NBA record for most consecutive losses with 26"
+        "url": "https://en.wikipedia.org/wiki/John_Stockton",
+        "quote": "missing only 22 games in his 19-season career and playing every game of 17 seasons"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-stockton91-28",
+      "sport": "NBA",
+      "prompt": "John Stockton's career high in assists came on January 15, 1991. How many?",
+      "context": "Utah Jazz vs San Antonio Spurs · 1990–91",
+      "answer": 28,
+      "unit": {
+        "singular": "assist",
+        "plural": "assists"
+      },
+      "min": 16,
+      "max": 48,
+      "step": 1,
+      "note": "28, with 20 points.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/John_Stockton",
+        "quote": "On January 15, 1991, Stockton scored 20 points and dished out a career-high and franchise-record 28 assists"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-malone-playoff-games",
+      "sport": "NBA",
+      "prompt": "Karl Malone never won an NBA title. How many playoff games did he play?",
+      "context": "Jazz and Lakers · 1985–2004",
+      "answer": 193,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 0,
+      "max": 240,
+      "step": 1,
+      "note": "193.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+        "quote": "He holds an NBA record for having played the most playoff games without winning a championship (193)"
       },
       "verified": {
         "on": "2026-11-16",

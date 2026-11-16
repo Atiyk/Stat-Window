@@ -1,29 +1,29 @@
 {
   "date": "2026-12-26",
   "theme": {
-    "title": "One year apart",
-    "subtitle": "The 2008 and 2009 Finals",
-    "recap": "The Lakers lost a 21-point first-quarter lead to Boston in 2008, then came back to win the 2009 title."
+    "title": "Swat team",
+    "subtitle": "Blocked-shot records",
+    "recap": "Blocks were first counted in 1973–74, and the records include Elmore Smith's 11 in a half and Dwight Howard's nine in a Finals game."
   },
   "questions": [
     {
-      "id": "nba-lakers09-title-number",
+      "id": "nba-howard09-g4-blocks",
       "sport": "NBA",
-      "prompt": "The 2009 title was which championship in Lakers history?",
-      "context": "Los Angeles Lakers · 2009 NBA Finals",
-      "answer": 15,
+      "prompt": "Dwight Howard set the Finals record for blocks in a game in 2009. How many?",
+      "context": "2009 NBA Finals · Game 4 · vs Lakers",
+      "answer": 9,
       "unit": {
-        "singular": "title",
-        "plural": "titles"
+        "singular": "block",
+        "plural": "blocks"
       },
-      "min": 0,
-      "max": 19,
+      "min": 5,
+      "max": 20,
       "step": 1,
-      "note": "Their 15th.",
+      "note": "Nine.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-        "quote": "The Lakers defeated the Magic in five games to win the franchise's 15th NBA championship"
+        "quote": "giving him a single-game NBA Finals record with 9 blocked shots"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-kobe09-finals-ppg",
+      "id": "nba-elmore73-half",
       "sport": "NBA",
-      "prompt": "Kobe Bryant won 2009 Finals MVP. What did he average in the series?",
-      "context": "2009 NBA Finals · five games vs Orlando",
-      "answer": 32.4,
+      "prompt": "In the first season blocks were counted, Elmore Smith set the record for blocks in a half. How many?",
+      "context": "Los Angeles Lakers · October 28, 1973",
+      "answer": 11,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "block",
+        "plural": "blocks"
       },
-      "min": 12,
-      "max": 40,
-      "step": 0.1,
-      "note": "32.4 points per game.",
+      "min": 0,
+      "max": 15,
+      "step": 1,
+      "note": "11.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-        "quote": "Bryant averaged 32.4 points, 5.6 rebounds, and 7.4 assists per game during the series"
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
+        "quote": "11 blocks in a half, setting the NBA record. 6 blocks in one quarter; 5 blocks in the other quarter"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-finals09-g2-q1",
+      "id": "nba-bol85-quarter",
       "sport": "NBA",
-      "prompt": "The Lakers and Magic set a Finals record low for combined first-quarter points in Game 2 of 2009. What was it?",
-      "context": "2009 NBA Finals · Game 2 · at Los Angeles",
-      "answer": 30,
+      "prompt": "Manute Bol set the record for blocks in a quarter in December 1985. How many?",
+      "context": "Washington Bullets · 1985–86",
+      "answer": 8,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "block",
+        "plural": "blocks"
       },
       "min": 0,
-      "max": 55,
+      "max": 12,
       "step": 1,
-      "note": "30.",
+      "note": "Eight in the first quarter.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-        "quote": "setting a record-low for combined score (30) in the first quarter of an NBA Finals game"
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
+        "quote": "8 blocks in the first quarter, setting the NBA record, and 11 blocks in the first half, tying the NBA record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,23 +82,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-celtics09-streak",
+      "id": "nba-raptors01-team-blocks",
       "sport": "NBA",
-      "prompt": "The defending champion Celtics set a franchise-record winning streak in 2008–09. How long was it?",
-      "context": "Boston Celtics · 2008–09",
-      "answer": 19,
+      "prompt": "In March 2001, Toronto set what was then the NBA record for team blocks in a game. How many?",
+      "context": "Toronto Raptors · 2000–01 regular season",
+      "answer": 23,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "block",
+        "plural": "blocks"
       },
-      "min": 6,
-      "max": 38,
+      "min": 0,
+      "max": 30,
       "step": 1,
-      "note": "19 games.",
+      "note": "23, an NBA record at the time.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-        "quote": "bringing an end to their franchise-high 19-game winning streak"
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
+        "quote": "The Raptors combined for 23 blocks, an NBA record at the time"
       },
       "verified": {
         "on": "2026-11-16",
@@ -107,24 +107,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-lakers08-g4-lead",
+      "id": "nba-robinson94-quadruple",
       "sport": "NBA",
-      "prompt": "In Game 4 of the 2008 Finals, the Lakers set a Finals record for a first-quarter lead. How big was it?",
-      "context": "2008 NBA Finals · Game 4 · vs Boston",
-      "answer": 21,
+      "prompt": "David Robinson's 1994 quadruple-double included 10 blocks. How many points did he score?",
+      "context": "Spurs vs Detroit Pistons · February 17, 1994",
+      "answer": 34,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 8,
-      "max": 40,
+      "min": 16,
+      "max": 58,
       "step": 1,
-      "note": "21 points, 35–14. Boston came back to win.",
+      "note": "34, plus 10 rebounds and 10 assists.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-        "quote": "a 35–14 lead after the first quarter, which was the largest first-quarter lead in NBA Finals history",
-        "derivation": "35 − 14 = 21"
+        "url": "https://en.wikipedia.org/wiki/David_Robinson",
+        "quote": "with 34 points, 10 rebounds, 10 assists, and 10 blocks against the Detroit Pistons on February 17, 1994"
       },
       "verified": {
         "on": "2026-11-16",

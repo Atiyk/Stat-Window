@@ -1,29 +1,29 @@
 {
   "date": "2027-01-01",
   "theme": {
-    "title": "Shortened seasons",
-    "subtitle": "Lockouts and the pandemic",
-    "recap": "The NBA has cut its schedule to 50 games, 66 games and 72 games, and the shortened years still produced champions."
+    "title": "Scoring outbursts",
+    "subtitle": "Big nights",
+    "recap": "Wilt owns most of the scoring records, but Devin Booker and Kobe Bryant added 60-plus nights at both ends of a career."
   },
   "questions": [
     {
-      "id": "nba-lockout99-games",
+      "id": "nba-booker17-70",
       "sport": "NBA",
-      "prompt": "The 1998–99 lockout cut the regular season to how many games per team?",
-      "context": "NBA · 1998–99 season",
-      "answer": 50,
+      "prompt": "Devin Booker is the youngest player to score 60 or more, at 20. How many points did he score that night?",
+      "context": "Phoenix Suns · 2016–17",
+      "answer": 70,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 15,
-      "max": 70,
+      "min": 25,
+      "max": 90,
       "step": 1,
-      "note": "50, starting February 5, 1999.",
+      "note": "70.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-        "quote": "Due to a lockout, the regular season began on February 5, 1999, and was cut from 82 games to 50."
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_scoring_leaders",
+        "quote": "Devin Booker (70 points; 20 years and 145 days)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-season21-games",
+      "id": "nba-wilt-60-point-games",
       "sport": "NBA",
-      "prompt": "How many regular-season games did each team play in 2020–21?",
-      "context": "NBA · 2020–21 season",
-      "answer": 72,
+      "prompt": "How many regular-season 60-point games did Wilt Chamberlain have?",
+      "context": "Wilt Chamberlain · 1959–1973",
+      "answer": 32,
       "unit": {
         "singular": "game",
         "plural": "games"
       },
-      "min": 44,
-      "max": 78,
+      "min": 0,
+      "max": 45,
       "step": 1,
-      "note": "72.",
+      "note": "32. Kobe Bryant had six.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-        "quote": "The regular season was reduced to 72 games for each team"
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_scoring_leaders",
+        "quote": "Wilt Chamberlain (32 times); Kobe Bryant (6 times)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-spurs99-wins",
+      "id": "nba-kobe16-final-game",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 1998–99 Spurs win in the lockout season?",
-      "context": "San Antonio Spurs · 1998–99",
-      "answer": 37,
+      "prompt": "How many points did Kobe Bryant score in his final NBA game, at age 37?",
+      "context": "Lakers vs Utah Jazz · April 13, 2016",
+      "answer": 60,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 10,
-      "max": 46,
+      "max": 75,
       "step": 1,
-      "note": "37, a league-best 37–13.",
+      "note": "60, the oldest player ever to score 60.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-        "quote": "The Spurs finished in first place in the Midwest Division with a league-best 37–13 record"
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_scoring_leaders",
+        "quote": "the oldest is Bryant (60 points; 37 years and 234 days)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,23 +82,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-sprewell99-g5",
+      "id": "nba-wilt-100-fga",
       "sport": "NBA",
-      "prompt": "The Knicks scored 39 second-half points in the 1999 clincher. How many were Latrell Sprewell's?",
-      "context": "1999 NBA Finals · Game 5 · vs San Antonio",
-      "answer": 25,
+      "prompt": "In his 100-point game, Wilt Chamberlain set a record for field-goal attempts. How many shots did he take?",
+      "context": "Philadelphia vs New York · March 2, 1962",
+      "answer": 63,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "shot",
+        "plural": "shots"
       },
-      "min": 0,
-      "max": 39,
+      "min": 20,
+      "max": 85,
       "step": 1,
-      "note": "25 of the 39.",
+      "note": "63, making 36.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-        "quote": "The Knicks scored 39 points in the second half, and Latrell Sprewell scored 25 of them"
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "Playing all 48 minutes of the game, Chamberlain set NBA records for field goals attempted (63) and made (36)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -107,23 +107,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-spurs99-memorial-day",
+      "id": "nba-wilt62-week-average",
       "sport": "NBA",
-      "prompt": "In Game 2 of the 1999 West finals, San Antonio came back from how many points down to win on Sean Elliott's \"Memorial Day Miracle\"?",
-      "context": "1999 West finals · Game 2 · vs Portland",
-      "answer": 17,
+      "prompt": "In the week of his 100-point game, what did Wilt average over four games?",
+      "context": "Philadelphia Warriors · March 1962",
+      "answer": 73,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 0,
-      "max": 22,
+      "min": 20,
+      "max": 100,
       "step": 1,
-      "note": "17.",
+      "note": "73 points a game, topping 60 every time.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-        "quote": "the Spurs trailed by 17 points against the Trail Blazers in Game 2"
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "He averaged 73 points in four games that week"
       },
       "verified": {
         "on": "2026-11-16",

@@ -1,29 +1,29 @@
 {
   "date": "2026-11-27",
   "theme": {
-    "title": "Rip City",
-    "subtitle": "Portland, 1976–77",
-    "recap": "Bill Walton's Blazers came from 0–2 down to win the 1977 title, then started the next season 50–10."
+    "title": "Mamba numbers",
+    "subtitle": "Kobe Bryant, 1996–2016",
+    "recap": "Kobe Bryant scored 81 in a night, 62 in three quarters and 40 or more nine games running."
   },
   "questions": [
     {
-      "id": "nba-walton77-g6-reb",
+      "id": "nba-kobe-81",
       "sport": "NBA",
-      "prompt": "In the 1977 title clincher, how many rebounds did Bill Walton grab?",
-      "context": "1977 NBA Finals · Game 6 · vs Philadelphia",
-      "answer": 23,
+      "prompt": "How many points did Kobe Bryant score against Toronto on January 22, 2006?",
+      "context": "Lakers vs Toronto Raptors · 2005–06",
+      "answer": 81,
       "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 10,
-      "max": 42,
+      "min": 40,
+      "max": 105,
       "step": 1,
-      "note": "23, with 20 points, 7 assists and 8 blocks.",
+      "note": "81, his career high.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-        "quote": "Bill Walton's 20 points, 23 rebounds, 7 assists and 8 blocks kept the game in Portland's favor."
+        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+        "quote": "On January 22, 2006, Bryant scored a career-high 81 points"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-blazers78-start",
+      "id": "nba-kobe03-threes",
       "sport": "NBA",
-      "prompt": "The year after their title, how many of their first 60 games did the 1977–78 Blazers win?",
-      "context": "Portland Trail Blazers · 1977–78",
-      "answer": 50,
+      "prompt": "On January 7, 2003, Kobe Bryant set the NBA record for threes in a game. How many did he make?",
+      "context": "Los Angeles Lakers · 2002–03 regular season",
+      "answer": 12,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 30,
-      "max": 60,
+      "min": 7,
+      "max": 26,
       "step": 1,
-      "note": "50.",
+      "note": "12, a record at the time.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-        "quote": "The 1977-78 Blazers started with 50 wins in their first 60 games"
+        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+        "quote": "Bryant also set an NBA record for three-pointers in a game on January 7, 2003, when he made 12"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-blazers77-g4-q3",
+      "id": "nba-kobe03-40-streak",
       "sport": "NBA",
-      "prompt": "Portland scored how many points in the third quarter of Game 4 of the 1977 Finals?",
-      "context": "1977 NBA Finals · Game 4 · at Portland",
-      "answer": 41,
+      "prompt": "In February 2003, Kobe Bryant scored 40 or more in how many consecutive games?",
+      "context": "Los Angeles Lakers · 2002–03",
+      "answer": 9,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 26,
-      "max": 68,
+      "min": 6,
+      "max": 25,
       "step": 1,
-      "note": "41.",
+      "note": "Nine straight, averaging 40.6 for the month.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-        "quote": "Portland quickly led the game by 17 points and never looked back, scoring 41 points in the third quarter"
+        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+        "quote": "posting 40 or more points in nine consecutive games while averaging 40.6 in the entire month of February"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,48 +82,48 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-blazers77-g4-margin",
+      "id": "nba-kobe05-62-three-quarters",
       "sport": "NBA",
-      "prompt": "By how many points did Portland win Game 4 of the 1977 Finals?",
-      "context": "1977 NBA Finals · Game 4 · vs Philadelphia",
-      "answer": 32,
+      "prompt": "Kobe Bryant sat out the fourth quarter against Dallas on December 20, 2005. How many points did he have through three?",
+      "context": "Lakers vs Dallas Mavericks · 2005–06",
+      "answer": 62,
       "unit": {
         "singular": "point",
         "plural": "points"
+      },
+      "min": 30,
+      "max": 85,
+      "step": 1,
+      "note": "62, one more than the whole Mavericks team had at that point.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+        "quote": "On December 20, 2005, Bryant scored 62 points in three quarters against the Dallas Mavericks"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-kobe10-g7-fga",
+      "sport": "NBA",
+      "prompt": "Kobe Bryant made just six field goals in Game 7 of the 2010 Finals. How many did he attempt?",
+      "context": "2010 NBA Finals · Game 7 · vs Boston",
+      "answer": 24,
+      "unit": {
+        "singular": "shot",
+        "plural": "shots"
       },
       "min": 0,
-      "max": 45,
+      "max": 34,
       "step": 1,
-      "note": "32, the largest Game 4 margin until 2024.",
+      "note": "6 for 24, though his 23 points led all scorers.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-        "quote": "the 32 point win being the largest margin of victory in a Finals game 4 until 2024"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-walton77-g5-dreb",
-      "sport": "NBA",
-      "prompt": "Bill Walton grabbed 24 rebounds in Game 5 of the 1977 Finals. How many were defensive?",
-      "context": "1977 NBA Finals · Game 5 · at Philadelphia",
-      "answer": 20,
-      "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
-      },
-      "min": 9,
-      "max": 24,
-      "step": 1,
-      "note": "20, a Blazers record.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-        "quote": "24 (20 defensive, another team record) of which belonged to Walton alone; his team record still stands."
+        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+        "quote": "Bryant, despite shooting 6 for 24 (25%) from the field, scored 10 of his game-high 23 points in the fourth quarter."
       },
       "verified": {
         "on": "2026-11-16",

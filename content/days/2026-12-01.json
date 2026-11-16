@@ -1,29 +1,29 @@
 {
   "date": "2026-12-01",
   "theme": {
-    "title": "Down 3–1",
-    "subtitle": "2016 Finals, Cleveland vs Golden State",
-    "recap": "Cleveland won the last three games, with LeBron James and Kyrie Irving scoring 41 each in Game 5 and the two teams dead level on points before Game 7."
+    "title": "Kareem and the Big O",
+    "subtitle": "Milwaukee, 1970–71",
+    "recap": "In only its third season Milwaukee won 66 games and a title behind Lew Alcindor and Oscar Robertson."
   },
   "questions": [
     {
-      "id": "nba-cavs16-g5-41",
+      "id": "nba-bucks71-wins",
       "sport": "NBA",
-      "prompt": "In Game 5 of the 2016 Finals, LeBron James and Kyrie Irving each scored how many points?",
-      "context": "2016 NBA Finals · Game 5 · at Golden State",
-      "answer": 41,
+      "prompt": "In only their third season, how many games did the 1970–71 Bucks win?",
+      "context": "Milwaukee Bucks · 1970–71 · 82 games",
+      "answer": 66,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 25,
-      "max": 75,
+      "min": 24,
+      "max": 82,
       "step": 1,
-      "note": "41 apiece, the first teammates to both reach 40 in a Finals game.",
+      "note": "66–16, then a title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-        "quote": "James and Irving each scored 41 points to become the first teammates in Finals history to score 40 or more"
+        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+        "quote": "Milwaukee posted a 66–16 record in only its third year of existence"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-lebron16-finals-ppg",
+      "id": "nba-alcindor71-ppg",
       "sport": "NBA",
-      "prompt": "What was LeBron James's scoring average in the 2016 Finals, when he was named MVP?",
-      "context": "2016 NBA Finals · seven games",
-      "answer": 29.7,
+      "prompt": "Lew Alcindor led the NBA in scoring in 1970–71. What was his average?",
+      "context": "Milwaukee Bucks · 1970–71",
+      "answer": 31.7,
       "unit": {
         "singular": "point per game",
         "plural": "points per game"
       },
-      "min": 20,
-      "max": 48,
+      "min": 24,
+      "max": 46,
       "step": 0.1,
-      "note": "29.7 points, plus 11.3 rebounds and 8.9 assists.",
+      "note": "31.7 points per game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-        "quote": "after averaging 29.7 points, 11.3 rebounds, 8.9 assists, 2.6 steals, and 2.3 blocks."
+        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+        "quote": "In only his second professional season, Lew Alcindor led the league in scoring at 31.7 ppg"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,48 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-green16-g7",
+      "id": "nba-bucks71-streak",
       "sport": "NBA",
-      "prompt": "Draymond Green led all scorers in Game 7 of the 2016 Finals. How many points did he score?",
-      "context": "2016 NBA Finals · Game 7 · Warriors lost",
-      "answer": 32,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 15,
-      "max": 65,
-      "step": 1,
-      "note": "32, more than anyone else that night.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-        "quote": "Draymond Green put up his best performance of the Finals, leading all scorers with 32 points,"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-kerr16-games-missed",
-      "sport": "NBA",
-      "prompt": "Coach Steve Kerr missed how many games at the start of 2015–16 with a back injury?",
-      "context": "Golden State Warriors · 2015–16 regular season",
-      "answer": 43,
+      "prompt": "The 1970–71 Bucks set what was then the NBA's longest winning streak. How many games?",
+      "context": "Milwaukee Bucks · 1970–71",
+      "answer": 20,
       "unit": {
         "singular": "game",
         "plural": "games"
       },
-      "min": 20,
-      "max": 90,
+      "min": 2,
+      "max": 34,
       "step": 1,
-      "note": "The first 43 games.",
+      "note": "20 straight.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-        "quote": "Steve Kerr missed the first 43 regular season games because of a back injury."
+        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+        "quote": "This season included a 20-game winning streak, the NBA's longest at the time, and still ranked fifth all-time"
       },
       "verified": {
         "on": "2026-11-16",
@@ -107,23 +82,48 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-finals16-610",
+      "id": "nba-oscar71-apg",
       "sport": "NBA",
-      "prompt": "Before Game 7 of the 2016 Finals, both teams had scored the exact same total over six games. What was it?",
-      "context": "2016 NBA Finals · Games 1–6 · Cavaliers and Warriors",
-      "answer": 610,
+      "prompt": "In his first Bucks season, how many assists per game did Oscar Robertson average?",
+      "context": "Milwaukee Bucks · 1970–71",
+      "answer": 8.3,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "assist per game",
+        "plural": "assists per game"
       },
-      "min": 440,
-      "max": 640,
-      "step": 1,
-      "note": "610 points each.",
+      "min": 4,
+      "max": 14.5,
+      "step": 0.1,
+      "note": "8.3, third in the league.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-        "quote": "both teams entered Game 7 with the same total points scored through six games (610 points each)."
+        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+        "quote": "Robertson ranked third in the league in assists at 8.3 apg and was the Bucks' No. 2 scorer at 19.4 ppg."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-kareem89-retire-age",
+      "sport": "NBA",
+      "prompt": "How old was Kareem Abdul-Jabbar when he retired after the 1989 Finals?",
+      "context": "Los Angeles Lakers · 1988–89 · his 20th season",
+      "answer": 42,
+      "unit": {
+        "singular": "year old",
+        "plural": "years old"
+      },
+      "min": 27,
+      "max": 48,
+      "step": 1,
+      "note": "42, after 20 seasons.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+        "quote": "announced his retirement from the NBA at age 42 at the end of his 20th season"
       },
       "verified": {
         "on": "2026-11-16",

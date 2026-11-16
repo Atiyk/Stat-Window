@@ -1,29 +1,29 @@
 {
   "date": "2026-12-08",
   "theme": {
-    "title": "Cup nights",
-    "subtitle": "The In-Season Tournament and NBA Cup",
-    "recap": "The new in-season event produced its own record nights, plus a prize of half a million dollars a player."
+    "title": "Detroit defense",
+    "subtitle": "Pistons, 1989 and 2004",
+    "recap": "Detroit won with defense twice: the Bad Boys of 1989 and the 2004 team that held five straight opponents under 70."
   },
   "questions": [
     {
-      "id": "nba-ad23-cup-final",
+      "id": "nba-pistons89-wins",
       "sport": "NBA",
-      "prompt": "How many points did Anthony Davis score in the first In-Season Tournament final?",
-      "context": "2023 In-Season Tournament final · Lakers vs Pacers",
-      "answer": 41,
+      "prompt": "How many games did the 1988–89 \"Bad Boys\" Pistons win?",
+      "context": "Detroit Pistons · 1988–89 · 82 games",
+      "answer": 63,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 8,
-      "max": 50,
+      "min": 50,
+      "max": 82,
       "step": 1,
-      "note": "41, with 20 rebounds.",
+      "note": "63–19, the league's best.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-        "quote": "Anthony Davis finished with 41 points on 16-for-24 shooting, 20 rebounds and 4 blocks;"
+        "url": "https://en.wikipedia.org/wiki/1988%E2%80%9389_Detroit_Pistons_season",
+        "quote": "finishing in first place in the Central Division with a league-best 63–19 record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-cup23-prize",
+      "id": "nba-dumars89-17-straight",
       "sport": "NBA",
-      "prompt": "How much prize money did each player on the 2023 In-Season Tournament champions earn?",
-      "context": "2023 In-Season Tournament · prize pool",
-      "answer": 500000,
+      "prompt": "In Game 3 of the 1989 Finals, Joe Dumars scored how many points in a row in the third quarter?",
+      "context": "1989 NBA Finals · Game 3 · at Los Angeles",
+      "answer": 17,
       "unit": {
-        "singular": "dollar",
-        "plural": "dollars"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 750000,
-      "step": 10000,
-      "note": "$500,000 each.",
+      "max": 26,
+      "step": 1,
+      "note": "17 in a row, on his way to 31.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-        "quote": "Players on the tournament championship team: $500,000 each"
+        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+        "quote": "Joe Dumars scored 31 points, scoring 17 consecutive points in the third quarter"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-lakers23-cup-paint",
+      "id": "nba-dumars89-finals-ppg",
       "sport": "NBA",
-      "prompt": "In the 2023 In-Season Tournament final, how many points in the paint did the Lakers score?",
-      "context": "2023 In-Season Tournament final · vs Indiana",
-      "answer": 86,
+      "prompt": "Joe Dumars was 1989 Finals MVP. What was his scoring average in the series?",
+      "context": "1989 NBA Finals · four games vs Lakers",
+      "answer": 27.3,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 55,
-      "max": 130,
-      "step": 1,
-      "note": "86, to Indiana's 44.",
+      "min": 6,
+      "max": 34,
+      "step": 0.1,
+      "note": "27.3 points per game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-        "quote": "The Lakers dominated the Pacers inside, edging them with an 86–44 edge in points in the paint."
+        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+        "quote": "Dumars was named Finals MVP after averaging 27.3 points per game during the series"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,48 +82,48 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-bucks24-cup-quarter",
+      "id": "nba-pistons04-under-70",
       "sport": "NBA",
-      "prompt": "In the 2024 NBA Cup final, Milwaukee held Oklahoma City to how many points in one quarter?",
-      "context": "2024 NBA Cup final · Bucks vs Thunder",
-      "answer": 14,
+      "prompt": "The 2003–04 Pistons were the first team to hold how many straight opponents under 70 points?",
+      "context": "Detroit Pistons · 2003–04 regular season",
+      "answer": 5,
       "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 4,
-      "max": 36,
-      "step": 1,
-      "note": "14.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
-        "quote": "holding the Thunder to just 14 points in the period."
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-thunder24-cup-3pa",
-      "sport": "NBA",
-      "prompt": "Oklahoma City made just five threes in the 2024 NBA Cup final. How many did it attempt?",
-      "context": "2024 NBA Cup final · vs Milwaukee",
-      "answer": 32,
-      "unit": {
-        "singular": "attempt",
-        "plural": "attempts"
+        "singular": "game",
+        "plural": "games"
       },
       "min": 0,
-      "max": 42,
+      "max": 10,
       "step": 1,
-      "note": "32, a season low in accuracy.",
+      "note": "Five in a row.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
-        "quote": "going 5-of-32 from long-range, setting season lows in both field goal and three-point percentage"
+        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+        "quote": "They became the first team in NBA history to hold five consecutive opponents under 70 points"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-lakers04-g3-68",
+      "sport": "NBA",
+      "prompt": "Detroit held the Lakers to a franchise playoff low in Game 3 of the 2004 Finals. How many points?",
+      "context": "2004 NBA Finals · Game 3 · at Detroit",
+      "answer": 68,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 30,
+      "max": 95,
+      "step": 1,
+      "note": "68 points, the Lakers' lowest ever in a playoff game.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+        "quote": "The 68 points scored by the Lakers set a franchise record for the lowest number of points scored in a playoff game"
       },
       "verified": {
         "on": "2026-11-16",

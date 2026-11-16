@@ -1,30 +1,29 @@
 {
   "date": "2026-12-14",
   "theme": {
-    "title": "Beyond the arc",
-    "subtitle": "The three-pointer, 1979 to today",
-    "recap": "It took the NBA years to use the three: the first record was eight in a game and the first 100-three season came in 1988."
+    "title": "Houston's high-volume years",
+    "subtitle": "Rockets, 2007–2019",
+    "recap": "Houston won 65 games, set a playoff record for missed threes and watched James Harden score 30 night after night."
   },
   "questions": [
     {
-      "id": "nba-three-point-distance",
+      "id": "nba-rockets18-wins",
       "sport": "NBA",
-      "prompt": "Away from the corners, how far is the NBA three-point arc from the center of the basket, in feet?",
-      "context": "NBA rules · arc distance",
-      "answer": 23.75,
+      "prompt": "How many regular-season games did the 2017–18 Rockets win?",
+      "context": "Houston Rockets · 2017–18 · 82 games",
+      "answer": 65,
       "unit": {
-        "singular": "foot",
-        "plural": "feet"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 21,
-      "max": 34,
-      "step": 0.25,
-      "note": "23 feet 9 inches, or 23.75 feet.",
+      "min": 20,
+      "max": 82,
+      "step": 1,
+      "note": "65.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-        "quote": "in the National Basketball Association (NBA) the arc is 23 feet 9 inches (7.24 m) from the center of the basket",
-        "derivation": "23 feet 9 inches = 23.75 feet"
+        "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
+        "quote": "with their 59th win against the New Orleans Pelicans, eventually totalling 65 wins on the season"
       },
       "verified": {
         "on": "2026-11-16",
@@ -33,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-barry80-threes",
+      "id": "nba-harden19-30-streak",
       "sport": "NBA",
-      "prompt": "Rick Barry set the first NBA record for threes in a game in February 1980. How many did he make?",
-      "context": "Houston Rockets vs Utah Jazz · 1979–80",
-      "answer": 8,
+      "prompt": "In 2018–19, James Harden scored 30 or more in how many straight games?",
+      "context": "Houston Rockets · December 2018 to February 2019",
+      "answer": 32,
       "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 0,
-      "max": 15,
+      "min": 4,
+      "max": 46,
       "step": 1,
-      "note": "Eight, against Utah.",
+      "note": "32.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-        "quote": "Barry would later set the original 3-point record at 8 in a single game on February 9, 1980 against the Utah Jazz."
+        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Houston_Rockets_season",
+        "quote": "his 30-point streak which started on December 13, all the way to a surprising 32 games until ending on February 25."
       },
       "verified": {
         "on": "2026-11-16",
@@ -58,73 +57,73 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-ainge88-threes",
+      "id": "nba-rockets18-27-misses",
       "sport": "NBA",
-      "prompt": "In 1987–88 Danny Ainge became the first player with 100 threes in a season. How many did he make?",
-      "context": "Boston Celtics · 1987–88",
-      "answer": 148,
-      "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
-      },
-      "min": 50,
-      "max": 210,
-      "step": 1,
-      "note": "148 threes.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-        "quote": "Danny Ainge was the first player to make over 100 three-pointers in a season in 1988, scoring 148 that season."
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-miller-career-threes",
-      "sport": "NBA",
-      "prompt": "Reggie Miller retired in 2005 as the career leader in threes. How many had he made?",
-      "context": "Indiana Pacers · 1987–2005",
-      "answer": 2560,
-      "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
-      },
-      "min": 0,
-      "max": 3200,
-      "step": 10,
-      "note": "2,560, a record at his retirement.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-        "quote": "eventually retiring with a record 2,560 three-pointers made."
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-gsw16-dec1-3pa",
-      "sport": "NBA",
-      "prompt": "On December 1, 2016, how many three-point attempts did the Warriors and their opponent combine for?",
-      "context": "Golden State Warriors · 2016–17 regular season",
-      "answer": 88,
+      "prompt": "In Game 7 of the 2018 West finals, Houston set a playoff record by missing how many threes in a row?",
+      "context": "2018 Western Conference finals · Game 7 · vs Golden State",
+      "answer": 27,
       "unit": {
         "singular": "attempt",
         "plural": "attempts"
       },
-      "min": 20,
-      "max": 105,
+      "min": 14,
+      "max": 52,
       "step": 1,
-      "note": "88 three-point attempts between the two teams.",
+      "note": "27 straight.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
-        "quote": "Most combined three-point attempts in a single game: 88"
+        "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
+        "quote": "set an NBA Playoff record by missing 27 straight 3-point shots"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-mcgrady04-35-seconds",
+      "sport": "NBA",
+      "prompt": "Tracy McGrady stunned San Antonio in December 2004 by scoring how many points in the final 35 seconds?",
+      "context": "Rockets vs Spurs · December 9, 2004",
+      "answer": 13,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 6,
+      "max": 30,
+      "step": 1,
+      "note": "13.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
+        "quote": "scoring 13 points in the final 35 seconds against the San Antonio Spurs"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-rockets08-streak",
+      "sport": "NBA",
+      "prompt": "The 2007–08 Rockets won how many games in a row, then the second-longest streak ever?",
+      "context": "Houston Rockets · 2007–08",
+      "answer": 22,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 10,
+      "max": 42,
+      "step": 1,
+      "note": "22.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
+        "quote": "the Rockets went on a 22-game winning streak, which was the then-second longest in NBA history"
       },
       "verified": {
         "on": "2026-11-16",

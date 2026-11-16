@@ -1,5 +1,36 @@
 # QA evidence
 
+## Sprint 2026-11-16: Daily Five polish (PR #5)
+
+Base: `main` at `c262b35` (PR #4 merged; its Vercel production status was green). Production could not be loaded from the build container (outbound access to vercel.app is blocked there), so the deployed site was checked through Vercel's GitHub status, not in a browser.
+
+| Check | Result on the branch |
+| --- | --- |
+| `npm run content:check` | 13 slates, 65 questions; published days match the lock; 12 days of runway from 2026-11-16 |
+| `npm run typecheck` | clean |
+| `npm test` | 81 passed (scoring, dates, game, storage incl. old saves and visits, summaries, challenge links, content schema and lock, analytics event paths) |
+| `npx playwright test --trace off` | 46 passed, 18 skipped by design (viewport sweep and axe run on desktop only; design study manual) |
+| CI on the PR | green |
+
+New browser coverage: challenge link opened in a second, clean browser after UTC midnight, with a refresh mid-run; a link for today; future, malformed and tampered links; a run in progress across midnight; share fallback with no share sheet and no clipboard; saved practice runs; layout at 320, 375, **390**, 768, **1024** and 1440 px including results and a challenge link; axe on challenge and results screens.
+
+Not covered: physical phones and screen readers (VoiceOver/TalkBack) were not available; screen-reader behaviour is inferred from roles, labels and live regions checked by axe and the tests. One e2e test (midnight run, mobile project) timed out once under load; the cause was a missing wait for the first round, fixed, and it then passed in every later run.
+
+### Independent critic
+
+A separate reviewer with a veto checked the branch: verdict **ship after fixes**. All five findings were fixed:
+
+| Finding | Fix |
+| --- | --- |
+| Major: existing players' saves had no visit record, so they would count as new browsers and inflate next-day returns | Visits are inferred from days already played (unit test) |
+| Major: 2026-11-17 Serena note said "the most in the Open Era" (Djokovic has 24) | Now "the most by any woman in the Open Era"; answer and scale unchanged |
+| Minor: racy midnight e2e test | Waits for the first round before playing |
+| Minor: deleting a published day passed the lock; `content:lock --today` could unlock published days | Deleting fails the check; `content:lock` always uses the real date |
+| Minor: event budget arithmetic in MEASUREMENT.md | Corrected |
+
+---
+
+
 What was checked before launch, how, and what is still known to be imperfect.
 
 ## Automated checks

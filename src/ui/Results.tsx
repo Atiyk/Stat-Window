@@ -1,16 +1,22 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Slate } from '../content/schema';
+import { challengeUrl } from '../engine/challenge';
 import { msUntilNextPuzzle } from '../engine/daily';
 import { totalPoints, type Mode, type RoundRecord } from '../engine/game';
 import { MAX_TOTAL, shareText, verdict, type PlayerStats } from '../engine/summary';
 import { formatCountdown, formatDay, formatValue } from '../lib/format';
-import { track } from '../lib/track';
+import { track, type PlayMode } from '../lib/track';
 import { useNow } from './hooks';
 
 type Props = {
   slate: Slate;
   number: number;
   mode: Mode;
+  playMode: PlayMode;
+  /** False when this is an earlier day (finished after midnight UTC, practice or a challenge). */
+  isToday: boolean;
+  /** The score a friend's link claimed. Unverified: shown for comparison only. */
+  vs: number | null;
   results: readonly RoundRecord[];
   stats: PlayerStats;
   archive: readonly string[];
@@ -18,7 +24,19 @@ type Props = {
   onBackToToday: () => void;
 };
 
-export function Results({ slate, number, mode, results, stats, archive, onPractice, onBackToToday }: Props) {
+/** "7:00 PM" in the player's own time zone, or null when that zone is UTC anyway. */
+function localTimeOf(at: Date): string | null {
+  if (at.getTimezoneOffset() === 0) return null;
+  return at.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
+}
+
+function comparison(total: number, vs: number): string {
+  if (total > vs) return `Your friend’s link says ${vs}. You beat it by ${total - vs}.`;
+  if (total === vs) return `Your friend’s link says ${vs}. Dead level.`;
+  return `Your friend’s link says ${vs}. They take this one by ${vs - total}.`;
+}
+
+export function Results({ slate, number, mode, playMode, isToday, vs, results, stats, archive, onPractice, onBackToToday }: Props) {
   const total = totalPoints(results);
   const now = useNow(1000);
   const [toast, setToast] = useState<string | null>(null);
@@ -36,23 +54,30 @@ export function Results({ slate, number, mode, results, stats, archive, onPracti
   }, [toast]);
 
   const share = async () => {
-    const text = shareText({ number, results, url: window.location.origin });
+    const text = shareText({ number, results, url: challengeUrl(window.location.origin, slate.date, total) });
     try {
       if (navigator.share && matchMedia('(pointer: coarse)').matches) {
         await navigator.share({ text });
-        track({ name: 'share', number, method: 'native' });
+        track({ name: 'share', mode: playMode, method: 'native' });
         return;
       }
+      if (!navigator.clipboard?.writeText) throw new Error('No clipboard');
       await navigator.clipboard.writeText(text);
       setToast('Copied. Paste it anywhere.');
-      track({ name: 'share', number, method: 'clipboard' });
+      track({ name: 'share', mode: playMode, method: 'clipboard' });
     } catch (e) {
-      if (e instanceof DOMException && e.name === 'AbortError') return;
+      if (e instanceof DOMException && e.name === 'AbortError') {
+        track({ name: 'share', mode: playMode, method: 'cancelled' });
+        return;
+      }
       setFallback(text);
       setToast('Couldn’t copy automatically. Select the text below.');
-      track({ name: 'share', number, method: 'failed' });
+      track({ name: 'share', mode: playMode, method: 'failed' });
     }
   };
+
+  const nextAt = new Date(now.getTime() + msUntilNextPuzzle(now));
+  const local = localTimeOf(nextAt);
 
   const practice = mode === 'practice';
 
@@ -60,7 +85,9 @@ export function Results({ slate, number, mode, results, stats, archive, onPracti
     <article className="results">
       <header className="results-head">
         <p className="context">
-          {practice ? `Practice · No. ${number} · ${formatDay(slate.date)} · not counted` : `No. ${number} · ${formatDay(slate.date)}`}
+          {practice
+            ? `${playMode === 'challenge' ? 'Challenge' : 'Practice'} · No. ${number} · ${formatDay(slate.date)} · not counted in your stats`
+            : `No. ${number} · ${formatDay(slate.date)}`}
           {slate.theme ? ` · ${slate.theme.title}` : ''}
         </p>
         <h1 className="results-title" ref={headingRef} tabIndex={-1}>
@@ -81,28 +108,35 @@ export function Results({ slate, number, mode, results, stats, archive, onPracti
           ))}
         </ol>
         {slate.theme && <p className="theme-recap">{slate.theme.recap}</p>}
+        {vs !== null && <p className="versus">{comparison(total, vs)}</p>}
       </header>
 
       <div className="results-actions">
-        {practice ? (
-          <button type="button" className="btn btn-primary" onClick={onBackToToday}>
-            Back to today
-          </button>
+        {practice || !isToday ? (
+          <>
+            <button type="button" className="btn btn-primary" onClick={onBackToToday}>
+              Play today’s puzzle
+            </button>
+            <button type="button" className="btn btn-quiet" onClick={share}>
+              Send these five to a friend
+            </button>
+          </>
         ) : (
           <button type="button" className="btn btn-primary" onClick={share}>
-            Share result
+            Challenge a friend
           </button>
         )}
-        {!practice && (
-          <p className="share-note">
-            {total > 0 ? `No answers in it. See if a friend can beat ${total}.` : 'No answers in it, so it’s safe to send to anyone.'}
-          </p>
-        )}
+        <p className="share-note">
+          {total > 0
+            ? `They get the same five questions and see your ${total}, never your answers.`
+            : 'They get the same five questions. No answers are in the link.'}
+        </p>
         {fallback && (
-          <textarea className="share-fallback" readOnly value={fallback} rows={3} aria-label="Your result to copy" onFocus={(e) => e.currentTarget.select()} />
+          <textarea className="share-fallback" readOnly value={fallback} rows={4} aria-label="Your result to copy" onFocus={(e) => e.currentTarget.select()} />
         )}
         <p className="next-window">
           Next puzzle in <span className="tabular">{formatCountdown(msUntilNextPuzzle(now))}</span>, at midnight UTC
+          {local ? ` (${local} your time)` : ''}.
         </p>
       </div>
 

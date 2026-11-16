@@ -1,29 +1,29 @@
 {
   "date": "2026-11-28",
   "theme": {
-    "title": "Mamba numbers",
-    "subtitle": "Kobe Bryant, 1996–2016",
-    "recap": "Kobe Bryant scored 81 in a night, 62 in three quarters and 40 or more nine games running."
+    "title": "Rock bottom",
+    "subtitle": "The NBA's worst seasons",
+    "recap": "The 1972–73 Sixers and 2011–12 Bobcats own the worst records ever, and both lost games in long runs."
   },
   "questions": [
     {
-      "id": "nba-kobe-81",
+      "id": "nba-sixers73-wins",
       "sport": "NBA",
-      "prompt": "How many points did Kobe Bryant score against Toronto on January 22, 2006?",
-      "context": "Lakers vs Toronto Raptors · 2005–06",
-      "answer": 81,
+      "prompt": "How many games did the 1972–73 Philadelphia 76ers win?",
+      "context": "Philadelphia 76ers · 1972–73 · 82 games",
+      "answer": 9,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 40,
-      "max": 105,
+      "min": 0,
+      "max": 40,
       "step": 1,
-      "note": "81, his career high.",
+      "note": "Nine, finishing 9–73.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
-        "quote": "On January 22, 2006, Bryant scored a career-high 81 points"
+        "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+        "quote": "the 76ers lost their remaining 13 games to finish 9–73."
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-kobe03-threes",
+      "id": "nba-bobcats12-wins",
       "sport": "NBA",
-      "prompt": "On January 7, 2003, Kobe Bryant set the NBA record for threes in a game. How many did he make?",
-      "context": "Los Angeles Lakers · 2002–03 regular season",
-      "answer": 12,
+      "prompt": "In the lockout-shortened 2011–12 season, how many games did the Charlotte Bobcats win?",
+      "context": "Charlotte Bobcats · 2011–12 · 66 games",
+      "answer": 7,
       "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 7,
-      "max": 26,
+      "min": 0,
+      "max": 19,
       "step": 1,
-      "note": "12, a record at the time.",
+      "note": "Seven, the lowest winning percentage in NBA history.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
-        "quote": "Bryant also set an NBA record for three-pointers in a game on January 7, 2003, when he made 12"
+        "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
+        "quote": "Total: 7–59 (Home: 4–29; Road: 3–30)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,48 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-kobe03-40-streak",
+      "id": "nba-sixers73-games-back",
       "sport": "NBA",
-      "prompt": "In February 2003, Kobe Bryant scored 40 or more in how many consecutive games?",
-      "context": "Los Angeles Lakers · 2002–03",
-      "answer": 9,
+      "prompt": "How many games behind first-place Boston did the 1972–73 Sixers finish in their division?",
+      "context": "Philadelphia 76ers · 1972–73 · Atlantic Division",
+      "answer": 59,
+      "unit": {
+        "singular": "game back",
+        "plural": "games back"
+      },
+      "min": 45,
+      "max": 95,
+      "step": 1,
+      "note": "59, an NBA record.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+        "quote": "The 76ers finished an NBA-record 59 games behind the Atlantic Division champion Boston Celtics."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-bobcats12-losing-streak",
+      "sport": "NBA",
+      "prompt": "The 2011–12 Bobcats ended the season on a losing streak that carried into the next year. How long did it run?",
+      "context": "Charlotte Bobcats · 2011–12 into 2012–13",
+      "answer": 23,
       "unit": {
         "singular": "game",
         "plural": "games"
       },
-      "min": 6,
-      "max": 25,
+      "min": 10,
+      "max": 46,
       "step": 1,
-      "note": "Nine straight, averaging 40.6 for the month.",
+      "note": "23 straight losses.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
-        "quote": "posting 40 or more points in nine consecutive games while averaging 40.6 in the entire month of February"
+        "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
+        "quote": "embarking on a 23-game losing streak that lasted until the start of the following season."
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,48 +107,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-kobe05-62-three-quarters",
+      "id": "nba-sixers14-losing-streak",
       "sport": "NBA",
-      "prompt": "Kobe Bryant sat out the fourth quarter against Dallas on December 20, 2005. How many points did he have through three?",
-      "context": "Lakers vs Dallas Mavericks · 2005–06",
-      "answer": 62,
+      "prompt": "The 2013–14 Sixers tied what was then the NBA record for consecutive losses. How many?",
+      "context": "Philadelphia 76ers · 2013–14",
+      "answer": 26,
       "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 30,
-      "max": 85,
-      "step": 1,
-      "note": "62, one more than the whole Mavericks team had at that point.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
-        "quote": "On December 20, 2005, Bryant scored 62 points in three quarters against the Dallas Mavericks"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-kobe10-g7-fga",
-      "sport": "NBA",
-      "prompt": "Kobe Bryant made just six field goals in Game 7 of the 2010 Finals. How many did he attempt?",
-      "context": "2010 NBA Finals · Game 7 · vs Boston",
-      "answer": 24,
-      "unit": {
-        "singular": "shot",
-        "plural": "shots"
+        "singular": "game",
+        "plural": "games"
       },
       "min": 0,
-      "max": 34,
+      "max": 36,
       "step": 1,
-      "note": "6 for 24, though his 23 points led all scorers.",
+      "note": "26 in a row, matching Cleveland's mark.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-        "quote": "Bryant, despite shooting 6 for 24 (25%) from the field, scored 10 of his game-high 23 points in the fourth quarter."
+        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
+        "quote": "tying Cleveland's former NBA record for most consecutive losses with 26"
       },
       "verified": {
         "on": "2026-11-16",

@@ -1,29 +1,29 @@
 {
   "date": "2026-12-19",
   "theme": {
-    "title": "Miller time",
-    "subtitle": "Reggie Miller's Pacers",
-    "recap": "Reggie Miller tormented the Knicks, made threes in 68 straight games and once scored eight points in under nine seconds."
+    "title": "Lakers lore",
+    "subtitle": "Minneapolis and Los Angeles",
+    "recap": "Long before Showtime the Lakers had Elgin Baylor's Finals record and a 1971–72 team that did not lose for two months."
   },
   "questions": [
     {
-      "id": "nba-miller92-57",
+      "id": "nba-lakers72-streak",
       "sport": "NBA",
-      "prompt": "What was Reggie Miller's career high in points?",
-      "context": "Pacers vs Charlotte Hornets · November 28, 1992",
-      "answer": 57,
+      "prompt": "The 1971–72 Lakers set the NBA record for consecutive wins. How long was the streak?",
+      "context": "Los Angeles Lakers · 1971–72",
+      "answer": 33,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 40,
-      "max": 90,
+      "min": 6,
+      "max": 48,
       "step": 1,
-      "note": "57.",
+      "note": "33 in a row, an NBA record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-        "quote": "he scored a career-high 57 points against the Charlotte Hornets in a 134–122 win"
+        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+        "quote": "they would also go on an NBA record 33-game winning streak"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-miller95-8-points",
+      "id": "nba-lakers72-wins",
       "sport": "NBA",
-      "prompt": "Against the Knicks in 1995, Reggie Miller scored how many points in 8.9 seconds?",
-      "context": "1995 East semifinals · Game 1 · at New York",
-      "answer": 8,
+      "prompt": "The 1971–72 Lakers set a regular-season wins record. What was their win total?",
+      "context": "Los Angeles Lakers · 1971–72 · 82 games",
+      "answer": 69,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 0,
-      "max": 12,
+      "min": 50,
+      "max": 82,
       "step": 1,
-      "note": "Eight unanswered points.",
+      "note": "69–13, a record that stood until the 1995–96 Bulls.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-        "quote": "scored eight unanswered points in 8.9 seconds in Game 1"
+        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+        "quote": "Record: 69–13 (.841)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-miller94-4q",
+      "id": "nba-lakers72-margin",
       "sport": "NBA",
-      "prompt": "In Game 5 of the 1994 East finals at Madison Square Garden, how many fourth-quarter points did Reggie Miller score?",
-      "context": "1994 East finals · Game 5 · at New York",
-      "answer": 25,
+      "prompt": "By how many points per game did the 1971–72 Lakers outscore their opponents?",
+      "context": "Los Angeles Lakers · 1971–72 regular season",
+      "answer": 12.3,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 2,
-      "max": 32,
-      "step": 1,
-      "note": "25 of his 39.",
+      "min": 0,
+      "max": 19,
+      "step": 0.1,
+      "note": "12.3 points a night.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-        "quote": "scored 39 points (25 in the fourth quarter alone) in the Pacers' 93–86 victory"
+        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+        "quote": "outscoring opponents by 12.3 points per game in the regular season"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,23 +82,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-pacers00-home-streak",
+      "id": "nba-wilt72-finals-reb",
       "sport": "NBA",
-      "prompt": "The 1999–2000 Pacers set a franchise record for consecutive home wins. How many?",
-      "context": "Indiana Pacers · 1999–2000",
-      "answer": 25,
+      "prompt": "In the game that clinched the 1972 title, Wilt Chamberlain had 24 points and how many rebounds?",
+      "context": "1972 NBA Finals · Game 5 · vs New York",
+      "answer": 29,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "rebound",
+        "plural": "rebounds"
       },
       "min": 0,
-      "max": 36,
+      "max": 34,
       "step": 1,
-      "note": "25.",
+      "note": "29 rebounds, and the Finals MVP award.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-        "quote": "including a franchise-best 25 game win streak at home"
+        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+        "quote": "Wilt Chamberlain scored 24 points and 29 rebounds and earned the NBA Finals MVP Award"
       },
       "verified": {
         "on": "2026-11-16",
@@ -107,23 +107,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-miller97-three-streak",
+      "id": "nba-baylor62-finals-61",
       "sport": "NBA",
-      "prompt": "From November 1996 to April 1997, Reggie Miller made a three in how many straight games?",
-      "context": "Indiana Pacers · 1996–97",
-      "answer": 68,
+      "prompt": "What is the NBA record for points in a Finals game, set by Elgin Baylor in 1962?",
+      "context": "Los Angeles Lakers vs Boston Celtics · 1962 NBA Finals",
+      "answer": 61,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 25,
-      "max": 130,
+      "min": 45,
+      "max": 95,
       "step": 1,
-      "note": "68.",
+      "note": "61 points, still the Finals record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-        "quote": "Miller made a three-pointer in 68 consecutive games from November 15, 1996, to April 6, 1997."
+        "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+        "quote": "Baylor set the still-standing NBA record for points in an NBA Finals game with 61."
       },
       "verified": {
         "on": "2026-11-16",

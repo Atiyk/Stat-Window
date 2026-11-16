@@ -1,29 +1,29 @@
 {
   "date": "2026-12-11",
   "theme": {
-    "title": "Shaq and Kobe's three-peat",
-    "subtitle": "Los Angeles Lakers, 2000–2002",
-    "recap": "Shaquille O'Neal dominated three straight Finals, and the 2001 Lakers lost just once in the playoffs."
+    "title": "Heat wave",
+    "subtitle": "Miami Heat, 2012–13",
+    "recap": "Miami won 27 in a row on the way to a second straight title, five years after a 15-win season."
   },
   "questions": [
     {
-      "id": "nba-lakers00-wins",
+      "id": "nba-heat13-streak",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 1999–2000 Lakers win?",
-      "context": "Los Angeles Lakers · 1999–2000 · 82 games",
-      "answer": 67,
+      "prompt": "How long was the Miami Heat's 2012–13 winning streak?",
+      "context": "Miami Heat · 2012–13 regular season",
+      "answer": 27,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 28,
-      "max": 82,
+      "min": 2,
+      "max": 38,
       "step": 1,
-      "note": "67–15.",
+      "note": "27 games in a row.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-        "quote": "They posted winning streaks of 11, 16, and 19 en route to a 67–15 record"
+        "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+        "quote": "the Heat embarked on a 27-game winning streak"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-shaq00-finals-ppg",
+      "id": "nba-battier13-g7-threes",
       "sport": "NBA",
-      "prompt": "Shaquille O'Neal averaged how many points in the 2000 Finals?",
-      "context": "2000 NBA Finals · six games vs Indiana",
-      "answer": 38,
+      "prompt": "How many three-pointers did Shane Battier make in Game 7 of the 2013 Finals?",
+      "context": "2013 NBA Finals · Game 7 · vs San Antonio",
+      "answer": 6,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 26,
-      "max": 54,
-      "step": 0.1,
-      "note": "38.0, plus 16.7 rebounds a game.",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "note": "Six, for 18 points.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-        "quote": "putting up 38.0 points, 16.7 rebounds, and 2.7 blocks per game"
+        "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
+        "quote": "Battier scored 18 points on six 3-pointers"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-iverson01-g1",
+      "id": "nba-heat13-month-wins",
       "sport": "NBA",
-      "prompt": "Allen Iverson handed the 2001 Lakers their only playoff loss in Finals Game 1. How many points did he score?",
-      "context": "2001 NBA Finals · Game 1 · at Los Angeles",
-      "answer": 48,
+      "prompt": "In 2012–13 Miami became the first team to win how many games in a single calendar month?",
+      "context": "Miami Heat · 2012–13 regular season",
+      "answer": 17,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 32,
-      "max": 72,
+      "min": 13,
+      "max": 31,
       "step": 1,
-      "note": "48, with five steals.",
+      "note": "17 wins in one month.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Los_Angeles_Lakers_season",
-        "quote": "Iverson scored 48 points along with 5 steals"
+        "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+        "quote": "becoming the first team in NBA history to win at least 17 games in a calendar month"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,23 +82,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-shaq00-g2-fta",
+      "id": "nba-andersen13-fg",
       "sport": "NBA",
-      "prompt": "How many free throws did Shaquille O'Neal attempt in Game 2 of the 2000 Finals?",
-      "context": "2000 NBA Finals · Game 2 · vs Indiana",
-      "answer": 39,
+      "prompt": "Chris \"Birdman\" Andersen shot what percentage from the field in the 2013 playoffs?",
+      "context": "Miami Heat · 2013 playoffs",
+      "answer": 80.7,
       "unit": {
-        "singular": "free-throw attempt",
-        "plural": "free-throw attempts"
+        "singular": "percent",
+        "plural": "percent"
       },
-      "min": 12,
-      "max": 54,
-      "step": 1,
-      "note": "39, a record. He made 18.",
+      "min": 55,
+      "max": 100,
+      "step": 0.5,
+      "note": "80.7%, 46 of 57.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-        "quote": "Shaq shot 39 free throws, making only 18, an NBA record for most free throws attempted"
+        "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+        "quote": "Chris \"Birdman\" Andersen shot 80.7 percent (46-of-57) from the field in the 2013 postseason"
       },
       "verified": {
         "on": "2026-11-16",
@@ -107,23 +107,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-shaq01-g2-blocks",
+      "id": "nba-heat08-wins",
       "sport": "NBA",
-      "prompt": "In Game 2 of the 2001 Finals, Shaq had 28 points, 20 rebounds, nine assists and how many blocks?",
-      "context": "2001 NBA Finals · Game 2 · vs Philadelphia",
-      "answer": 8,
+      "prompt": "Five years before the streak, how many games did the 2007–08 Heat win?",
+      "context": "Miami Heat · 2007–08 · 82 games",
+      "answer": 15,
       "unit": {
-        "singular": "block",
-        "plural": "blocks"
+        "singular": "win",
+        "plural": "wins"
       },
       "min": 0,
-      "max": 13,
+      "max": 50,
       "step": 1,
-      "note": "Eight blocks.",
+      "note": "15, tying the franchise's worst.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-        "quote": "O'Neal finished with 28 points, 20 rebounds, nine assists, and eight blocks"
+        "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+        "quote": "winning only 15 games, equaling the mark set by the team in"
       },
       "verified": {
         "on": "2026-11-16",

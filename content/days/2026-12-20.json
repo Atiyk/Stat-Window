@@ -1,29 +1,29 @@
 {
   "date": "2026-12-20",
   "theme": {
-    "title": "Lakers lore",
-    "subtitle": "Minneapolis and Los Angeles",
-    "recap": "Long before Showtime the Lakers had Elgin Baylor's Finals record and a 1971–72 team that did not lose for two months."
+    "title": "Crowds, ratings and parades",
+    "subtitle": "Who was watching",
+    "recap": "From 4,000 people in Hershey to 108,713 in Texas, the NBA's audience numbers swing wildly."
   },
   "questions": [
     {
-      "id": "nba-lakers72-streak",
+      "id": "nba-allstar10-attendance",
       "sport": "NBA",
-      "prompt": "The 1971–72 Lakers set the NBA record for consecutive wins. How long was the streak?",
-      "context": "Los Angeles Lakers · 1971–72",
-      "answer": 33,
+      "prompt": "The 2010 NBA All-Star Game set the attendance record for a basketball game. How many people were there?",
+      "context": "2010 NBA All-Star Game · held in a football stadium",
+      "answer": 108713,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "fan",
+        "plural": "fans"
       },
-      "min": 6,
-      "max": 48,
-      "step": 1,
-      "note": "33 in a row, an NBA record.",
+      "min": 10000,
+      "max": 150000,
+      "step": 1000,
+      "note": "108,713.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-        "quote": "they would also go on an NBA record 33-game winning streak"
+        "url": "https://en.wikipedia.org/wiki/NBA_All-Star_Game",
+        "quote": "In 2010, the NBA All-Star Game set the attendance record for a basketball game with 108,713 people"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-lakers72-wins",
+      "id": "nba-allstar24-east",
       "sport": "NBA",
-      "prompt": "The 1971–72 Lakers set a regular-season wins record. What was their win total?",
-      "context": "Los Angeles Lakers · 1971–72 · 82 games",
-      "answer": 69,
+      "prompt": "How many points did the East score in the 2024 All-Star Game?",
+      "context": "2024 NBA All-Star Game · East vs West",
+      "answer": 211,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 50,
-      "max": 82,
+      "min": 130,
+      "max": 270,
       "step": 1,
-      "note": "69–13, a record that stood until the 1995–96 Bulls.",
+      "note": "211, beating the West's 186.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-        "quote": "Record: 69–13 (.841)"
+        "url": "https://en.wikipedia.org/wiki/NBA_All-Star_Game",
+        "quote": "East 211 – 186 West"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,48 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-lakers72-margin",
+      "id": "nba-allstar51-attendance",
       "sport": "NBA",
-      "prompt": "By how many points per game did the 1971–72 Lakers outscore their opponents?",
-      "context": "Los Angeles Lakers · 1971–72 regular season",
-      "answer": 12.3,
+      "prompt": "How many fans attended the first NBA All-Star Game in 1951?",
+      "context": "1951 NBA All-Star Game · Boston",
+      "answer": 10094,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "fan",
+        "plural": "fans"
+      },
+      "min": 4000,
+      "max": 30000,
+      "step": 100,
+      "note": "10,094, when the average crowd was about 3,500.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/NBA_All-Star_Game",
+        "quote": "drawing an attendance of 10,094, much higher than that season's average attendance of 3,500."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-finals07-rating",
+      "sport": "NBA",
+      "prompt": "The 2007 Finals sweep set a record low TV rating. What was it?",
+      "context": "2007 NBA Finals · Spurs vs Cavaliers · ABC",
+      "answer": 6.2,
+      "unit": {
+        "singular": "rating point",
+        "plural": "rating points"
       },
       "min": 0,
-      "max": 19,
+      "max": 15,
       "step": 0.1,
-      "note": "12.3 points a night.",
+      "note": "6.2.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-        "quote": "outscoring opponents by 12.3 points per game in the regular season"
+        "url": "https://en.wikipedia.org/wiki/2007_NBA_Finals",
+        "quote": "San Antonio's four-game sweep of Cleveland finished with a record-low 6.2 television rating and 11 share on ABC"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,48 +107,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-wilt72-finals-reb",
+      "id": "nba-cavs16-parade",
       "sport": "NBA",
-      "prompt": "In the game that clinched the 1972 title, Wilt Chamberlain had 24 points and how many rebounds?",
-      "context": "1972 NBA Finals · Game 5 · vs New York",
-      "answer": 29,
+      "prompt": "About how many million people attended Cleveland's 2016 title parade?",
+      "context": "Cleveland Cavaliers · June 2016",
+      "answer": 1.3,
       "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
+        "singular": "million people",
+        "plural": "million people"
       },
-      "min": 0,
-      "max": 34,
-      "step": 1,
-      "note": "29 rebounds, and the Finals MVP award.",
+      "min": 0.2,
+      "max": 3.2,
+      "step": 0.1,
+      "note": "An estimated 1.3 million, then the largest NBA parade.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-        "quote": "Wilt Chamberlain scored 24 points and 29 rebounds and earned the NBA Finals MVP Award"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-baylor62-finals-61",
-      "sport": "NBA",
-      "prompt": "What is the NBA record for points in a Finals game, set by Elgin Baylor in 1962?",
-      "context": "Los Angeles Lakers vs Boston Celtics · 1962 NBA Finals",
-      "answer": 61,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 45,
-      "max": 95,
-      "step": 1,
-      "note": "61 points, still the Finals record.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-        "quote": "Baylor set the still-standing NBA record for points in an NBA Finals game with 61."
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "An estimated 1.3 million people attended the, then-largest, NBA championship parade in history."
       },
       "verified": {
         "on": "2026-11-16",

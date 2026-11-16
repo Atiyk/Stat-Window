@@ -1,29 +1,29 @@
 {
   "date": "2026-12-05",
   "theme": {
-    "title": "Silver and black",
-    "subtitle": "San Antonio, 1989–2003",
-    "recap": "David Robinson turned the Spurs around overnight, and Tim Duncan's arrival after a 20-win season started a dynasty."
+    "title": "The 1980s Finals",
+    "subtitle": "Celtics, Lakers and 76ers",
+    "recap": "Boston and Los Angeles traded titles through the decade, including a Game 5 in a Boston Garden with no air conditioning."
   },
   "questions": [
     {
-      "id": "nba-robinson94-71",
+      "id": "nba-celtics84-wins",
       "sport": "NBA",
-      "prompt": "How many points did David Robinson score against the Clippers on April 24, 1994?",
-      "context": "San Antonio Spurs · 1993–94",
-      "answer": 71,
+      "prompt": "How many wins did Larry Bird's 1983–84 Celtics post in the regular season?",
+      "context": "Boston Celtics · 1983–84 · 82 games",
+      "answer": 62,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 45,
-      "max": 110,
+      "min": 25,
+      "max": 82,
       "step": 1,
-      "note": "71, breaking George Gervin's Spurs record of 63.",
+      "note": "62, the league's best.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/David_Robinson",
-        "quote": "scoring 71 points (breaking George Gervin's single-game franchise record of 63) against the Los Angeles Clippers"
+        "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
+        "quote": "the Celtics won 62 games to lead the league."
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-spurs90-improvement",
+      "id": "nba-finals84-g5-heat",
       "sport": "NBA",
-      "prompt": "With rookie David Robinson in 1989–90, the Spurs improved by how many wins over the year before?",
-      "context": "San Antonio Spurs · 1989–90",
-      "answer": 35,
+      "prompt": "Game 5 of the 1984 Finals at Boston Garden had no air conditioning. How hot was it inside, in °F?",
+      "context": "1984 NBA Finals · Game 5 · Boston Garden",
+      "answer": 97,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "degree Fahrenheit",
+        "plural": "degrees Fahrenheit"
       },
-      "min": 15,
-      "max": 65,
+      "min": 82,
+      "max": 122,
       "step": 1,
-      "note": "35, going 56–26.",
+      "note": "97 °F.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/David_Robinson",
-        "quote": "The Spurs leaped to a record of 56–26 for a remarkable 35 game improvement"
+        "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
+        "quote": "as it was played under 97 °F (36 °C) heat, and without any air conditioning"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-spurs97-wins",
+      "id": "nba-floyd87-51",
       "sport": "NBA",
-      "prompt": "How many games did the Spurs win in 1996–97, the season before they drafted Tim Duncan?",
-      "context": "San Antonio Spurs · 1996–97 · 82 games",
-      "answer": 20,
+      "prompt": "The 1987 Lakers lost one game in the West playoffs, when Sleepy Floyd scored how many in Oakland?",
+      "context": "1987 West semifinals · Game 4 · Warriors vs Lakers",
+      "answer": 51,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 12,
-      "max": 54,
+      "min": 30,
+      "max": 80,
       "step": 1,
-      "note": "20, finishing 20–62.",
+      "note": "51.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/David_Robinson",
-        "quote": "finished the season with a 20–62 record"
+        "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+        "quote": "Their only loss was a Sleepy Floyd 51-point outburst in Game 4 in Oakland"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,48 +82,48 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-duncan03-g6-blocks",
+      "id": "nba-celtics87-g6-q3",
       "sport": "NBA",
-      "prompt": "Tim Duncan nearly had a quadruple-double in the 2003 title clincher. How many blocks did he have?",
-      "context": "2003 NBA Finals · Game 6 · vs New Jersey",
-      "answer": 8,
-      "unit": {
-        "singular": "block",
-        "plural": "blocks"
-      },
-      "min": 0,
-      "max": 13,
-      "step": 1,
-      "note": "Eight, with 21 points, 20 rebounds and 10 assists.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2003_NBA_Finals",
-        "quote": "finishing with 21 points, 20 rebounds, 10 assists and 8 blocks"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-spurs99-playoff-streak",
-      "sport": "NBA",
-      "prompt": "In 1999 the Spurs set a record for consecutive playoff wins. How many did they win before the streak ended in the Finals?",
-      "context": "San Antonio Spurs · 1999 playoffs",
+      "prompt": "In the 1987 title clincher, the Lakers won the third quarter 30 to what?",
+      "context": "1987 NBA Finals · Game 6 · at Los Angeles",
       "answer": 12,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 6,
-      "max": 24,
+      "min": 4,
+      "max": 36,
       "step": 1,
-      "note": "12 straight, the longest in NBA history at the time.",
+      "note": "12, an 18-point swing.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-        "quote": "This was the end of the Spurs' 12-game playoff winning streak, the longest in NBA history at the time."
+        "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+        "quote": "The Lakers outscored the Celtics 30–12 in the third quarter for an 18-point turnaround"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-wilkes80-g6",
+      "sport": "NBA",
+      "prompt": "Jamaal Wilkes scored a career high in the 1980 title clincher. How many points?",
+      "context": "1980 NBA Finals · Game 6 · at Philadelphia",
+      "answer": 37,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 2,
+      "max": 44,
+      "step": 1,
+      "note": "37, with 10 rebounds.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
+        "quote": "Wilkes had a career-high 37 points and added 10 rebounds."
       },
       "verified": {
         "on": "2026-11-16",

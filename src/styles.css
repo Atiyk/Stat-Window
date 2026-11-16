@@ -1777,3 +1777,20 @@ a {
     border-color: CanvasText;
   }
 }
+
+/* A friend's challenge link: their score, before the first round only. */
+.challenge-note {
+  margin: 0 0 8px;
+  font-size: 0.9375rem;
+  color: var(--ink);
+}
+.challenge-note b {
+  color: var(--brand);
+}
+
+/* Results: how this run compares with the score in the friend's link. */
+.versus {
+  margin: 14px 0 0;
+  font-size: 1rem;
+  color: var(--ink);
+}

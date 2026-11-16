@@ -1,126 +1,135 @@
 {
   "date": "2026-11-17",
+  "theme": {
+    "title": "Wilt's impossible season",
+    "subtitle": "Philadelphia Warriors, 1961–62",
+    "recap": "Wilt Chamberlain averaged 50.4 points, scored 100 in one night in front of a small crowd and barely left the floor all season."
+  },
   "questions": [
     {
-      "id": "nba-bulls-1996-wins",
-      "sport": "Basketball",
-      "prompt": "How many regular-season games did the 1995–96 Chicago Bulls win?",
-      "context": "NBA · 1995–96 season · 82 games",
-      "answer": 72,
+      "id": "nba-wilt-100",
+      "sport": "NBA",
+      "prompt": "How many points did Wilt Chamberlain score against the Knicks on March 2, 1962?",
+      "context": "Philadelphia Warriors vs New York Knicks · 1961–62",
+      "answer": 100,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
-      },
-      "min": 40,
-      "max": 82,
-      "step": 1,
-      "note": "They went 72–10.",
-      "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
-        "quote": "with a league-best 72–10 record"
-      },
-      "verified": {
-        "on": "2026-11-15",
-        "by": "Stat Window editorial"
-      }
-    },
-    {
-      "id": "ten-serena-slams",
-      "sport": "Tennis",
-      "prompt": "How many Grand Slam singles titles did Serena Williams win?",
-      "context": "Tennis · 1999–2017",
-      "answer": 23,
-      "unit": {
-        "singular": "title",
-        "plural": "titles"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 35,
+      "max": 120,
       "step": 1,
-      "note": "Twenty-three, the most in the Open Era.",
+      "note": "100, in a 169–147 win.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Serena_Williams",
-        "quote": "including 23 major women's singles titles—the most in the Open Era"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "by scoring 100 points for the Philadelphia Warriors in a 169–147 win over the New York Knicks on March 2, 1962"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "easy"
     },
     {
-      "id": "mlb-dimaggio-streak",
-      "sport": "Baseball",
-      "prompt": "How many games in a row did Joe DiMaggio get a hit during his 1941 streak?",
-      "context": "MLB · New York Yankees · 1941",
-      "answer": 56,
+      "id": "nba-wilt62-ppg",
+      "sport": "NBA",
+      "prompt": "What was Wilt Chamberlain's scoring average over the 1961–62 regular season?",
+      "context": "Philadelphia Warriors · 1961–62 · 80 games",
+      "answer": 50.4,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 20,
-      "max": 100,
-      "step": 1,
-      "note": "Fifty-six straight games with at least one hit.",
+      "min": 38,
+      "max": 70,
+      "step": 0.1,
+      "note": "50.4 points per game, a single-season record.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Joe_DiMaggio%27s_56-game_hitting_streak",
-        "quote": "recorded at least one hit in 56 consecutive games"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "Chamberlain averaged a single-season record 50.4 points per game"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "medium"
     },
     {
-      "id": "nhl-brodeur-shutouts",
-      "sport": "Hockey",
-      "prompt": "How many regular-season shutouts did goalie Martin Brodeur record in his NHL career?",
-      "context": "NHL · 1991–2015",
-      "answer": 125,
+      "id": "nba-wilt-100-ftm",
+      "sport": "NBA",
+      "prompt": "In his 100-point game, how many of his 32 free-throw attempts did Wilt Chamberlain make?",
+      "context": "Philadelphia vs New York · March 2, 1962",
+      "answer": 28,
       "unit": {
-        "singular": "shutout",
-        "plural": "shutouts"
+        "singular": "free throw",
+        "plural": "free throws"
       },
-      "min": 30,
-      "max": 200,
+      "min": 10,
+      "max": 32,
       "step": 1,
-      "note": "One hundred and twenty-five, the all-time record.",
+      "note": "28 of 32.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Martin_Brodeur",
-        "quote": "all-time regular season leader in wins (691), losses (397), shutouts (125)"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "Chamberlain made 36 of 63 field-goals and 28 of 32 free throws"
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "hard"
     },
     {
-      "id": "ten-isner-mahut-minutes",
-      "sport": "Tennis",
-      "prompt": "How many minutes did the Isner vs. Mahut match at Wimbledon last in total?",
-      "context": "Wimbledon first round · June 2010 · played over three days",
-      "answer": 665,
+      "id": "nba-wilt-100-crowd",
+      "sport": "NBA",
+      "prompt": "How many paying spectators watched Wilt Chamberlain's 100-point game?",
+      "context": "Philadelphia vs New York · March 2, 1962",
+      "answer": 4124,
+      "unit": {
+        "singular": "spectator",
+        "plural": "spectators"
+      },
+      "min": 2000,
+      "max": 17000,
+      "step": 100,
+      "note": "Only 4,124 paid to get in.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "only 4,124 spectators paid to see the game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-wilt62-minutes",
+      "sport": "NBA",
+      "prompt": "In 1961–62 Wilt played how many total minutes? (80 games of 48 minutes is 3,840.)",
+      "context": "Philadelphia Warriors · 1961–62 regular season",
+      "answer": 3882,
       "unit": {
         "singular": "minute",
         "plural": "minutes"
       },
-      "min": 200,
-      "max": 1000,
-      "step": 5,
-      "note": "Eleven hours and five minutes of tennis: 665 minutes.",
+      "min": 2500,
+      "max": 4600,
+      "step": 10,
+      "note": "3,882, more than 48 a game thanks to overtime.",
       "source": {
-        "name": "Wikipedia",
-        "url": "https://en.wikipedia.org/wiki/Isner%E2%80%93Mahut_match_at_the_2010_Wimbledon_Championships",
-        "quote": "Total match time was 11 hours, 5 minutes.",
-        "derivation": "11 × 60 + 5 = 665 minutes"
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "He played in a record 3,882 minutes—including every minute of 79 (a record) of 80 games."
       },
       "verified": {
-        "on": "2026-11-15",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
-      }
+      },
+      "difficulty": "expert"
     }
   ]
 }

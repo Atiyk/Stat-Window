@@ -1,29 +1,29 @@
 {
   "date": "2026-12-16",
   "theme": {
-    "title": "Bird's best Celtics",
-    "subtitle": "Boston, 1985–86",
-    "recap": "Larry Bird won a third straight MVP, Boston lost once at home all season and the Celtics beat Houston for the title."
+    "title": "Warriors vs Cavaliers",
+    "subtitle": "The 2015 and 2017 Finals",
+    "recap": "Golden State won the first and third of four straight Finals meetings, with both sides setting records along the way."
   },
   "questions": [
     {
-      "id": "nba-celtics86-wins",
+      "id": "nba-gsw15-combined-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 1985–86 Celtics win?",
-      "context": "Boston Celtics · 1985–86 · 82 games",
-      "answer": 67,
+      "prompt": "Counting the playoffs, how many games did the 2014–15 Warriors win?",
+      "context": "Golden State Warriors · 2014–15 · regular season plus playoffs",
+      "answer": 83,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 28,
-      "max": 82,
+      "min": 54,
+      "max": 96,
       "step": 1,
-      "note": "67–15, including 40–1 at home.",
+      "note": "83, against 20 losses.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
-        "quote": "They finished with the best record in the league at 67–15, including a 40–1 record at home"
+        "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+        "quote": "Combining regular season and playoff games, Golden State finished 83–20"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-jordan86-63",
+      "id": "nba-iguodala15-votes",
       "sport": "NBA",
-      "prompt": "Michael Jordan set a playoff scoring record against the 1986 Celtics in a loss. How many points did he score?",
-      "context": "1986 first round · Game 2 · at Boston",
-      "answer": 63,
+      "prompt": "Andre Iguodala won 2015 Finals MVP. How many of the 11 votes did he get?",
+      "context": "2015 NBA Finals · MVP voting",
+      "answer": 7,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "vote",
+        "plural": "votes"
       },
-      "min": 25,
-      "max": 80,
+      "min": 0,
+      "max": 11,
       "step": 1,
-      "note": "63 points, a playoff record, in a Bulls loss.",
+      "note": "Seven. LeBron James got the other four, from the losing team.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-        "quote": "despite a playoff record 63 points by Michael Jordan in Game 2"
+        "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+        "quote": "Iguodala received seven out 11 votes; the other four went to James"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,48 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-hawks86-third-quarter",
+      "id": "nba-curry15-g2-misses",
       "sport": "NBA",
-      "prompt": "Boston routed Atlanta 132–99 in the 1986 East semifinals. How many points did the Hawks score in the third quarter?",
-      "context": "1986 East semifinals · Celtics vs Hawks",
-      "answer": 6,
+      "prompt": "In Game 2 of the 2015 Finals, Stephen Curry set a Finals record for missed threes. How many?",
+      "context": "2015 NBA Finals · Game 2 · vs Cleveland",
+      "answer": 13,
+      "unit": {
+        "singular": "attempt",
+        "plural": "attempts"
+      },
+      "min": 3,
+      "max": 21,
+      "step": 1,
+      "note": "13 misses.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+        "quote": "Curry set an NBA record for most missed three-point attempts in an NBA Finals game with 13."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-cavs17-g4-q1",
+      "sport": "NBA",
+      "prompt": "Facing a sweep in 2017, Cleveland set a Finals record for points in a quarter. How many?",
+      "context": "2017 NBA Finals · Game 4 · first quarter",
+      "answer": 49,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 0,
-      "max": 26,
+      "min": 34,
+      "max": 72,
       "step": 1,
-      "note": "Six, as Boston won the quarter 36–6.",
+      "note": "49 in the first quarter of Game 4.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-        "quote": "Boston outscored Atlanta 36–6 in the third quarter in route to a 132–99 victory."
+        "url": "https://en.wikipedia.org/wiki/2017_NBA_Finals",
+        "quote": "Cleveland scored 49 points in the first quarter, the most points of any period in an NBA Finals game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,48 +107,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-bird85-opener-steals",
+      "id": "nba-lebron15-g1-fga",
       "sport": "NBA",
-      "prompt": "In the 1985–86 opener, Larry Bird posted a triple-double. How many steals did he add?",
-      "context": "Celtics vs New Jersey Nets · October 25, 1985",
-      "answer": 8,
+      "prompt": "LeBron James scored 44 points in Game 1 of the 2015 Finals. How many shots did he take?",
+      "context": "2015 NBA Finals · Game 1 · at Golden State",
+      "answer": 38,
       "unit": {
-        "singular": "steal",
-        "plural": "steals"
+        "singular": "shot",
+        "plural": "shots"
       },
-      "min": 0,
-      "max": 12,
+      "min": 24,
+      "max": 62,
       "step": 1,
-      "note": "Eight steals, with 21 points, 12 rebounds and 10 assists.",
+      "note": "38, a career playoff high.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
-        "quote": "recorded 21 points, 12 rebounds, 10 assists and 8 steals for the Celtics"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-bird86-finals-minutes",
-      "sport": "NBA",
-      "prompt": "Of the 288 possible minutes in the six-game 1986 Finals, how many did Larry Bird play?",
-      "context": "1986 NBA Finals · six games vs Houston",
-      "answer": 269,
-      "unit": {
-        "singular": "minute",
-        "plural": "minutes"
-      },
-      "min": 180,
-      "max": 288,
-      "step": 1,
-      "note": "269, resting for only 19 minutes all series.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-        "quote": "Bird got very little rest during the six-game series, logging 269 out of a possible 288 minutes of floor time."
+        "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+        "quote": "James had a career NBA Finals high of 44 points, while attempting a postseason career-high 38 shots"
       },
       "verified": {
         "on": "2026-11-16",

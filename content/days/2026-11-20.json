@@ -1,29 +1,29 @@
 {
   "date": "2026-11-20",
   "theme": {
-    "title": "Hakeem's Rockets",
-    "subtitle": "Houston, 1993–95",
-    "recap": "Houston started 15–0, won a seven-game Finals against New York and then won another title as a sixth seed."
+    "title": "Showtime",
+    "subtitle": "The Lakers of the 1980s",
+    "recap": "Magic Johnson's Lakers played fast, won big and left Finals marks behind, from a rookie's 42-point clincher to a perfect start to a postseason."
   },
   "questions": [
     {
-      "id": "nba-rockets94-start",
+      "id": "nba-lakers87-wins",
       "sport": "NBA",
-      "prompt": "The 1993–94 Rockets opened the season with how many straight wins?",
-      "context": "Houston Rockets · 1993–94",
-      "answer": 15,
+      "prompt": "How many regular-season games did the 1986–87 Lakers win?",
+      "context": "Los Angeles Lakers · 1986–87 · 82 games",
+      "answer": 65,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 2,
-      "max": 32,
+      "min": 25,
+      "max": 82,
       "step": 1,
-      "note": "15, tying the record at the time.",
+      "note": "65–17, the best record in the league.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Houston_Rockets_season",
-        "quote": "winning their first fifteen games of the regular season to tie the"
+        "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+        "quote": "The Lakers finished the regular season with a league-best 65–17 record."
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-ewing94-blocks",
+      "id": "nba-magic80-g6-points",
       "sport": "NBA",
-      "prompt": "Patrick Ewing set a Finals record for blocks in a series in 1994. How many?",
-      "context": "1994 NBA Finals · seven games vs Houston",
-      "answer": 30,
+      "prompt": "As a rookie in the title-clinching Game 6 of the 1980 Finals, how many points did Magic Johnson score?",
+      "context": "1980 NBA Finals · Game 6 · Lakers vs 76ers",
+      "answer": 42,
       "unit": {
-        "singular": "block",
-        "plural": "blocks"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 42,
+      "max": 50,
       "step": 1,
-      "note": "30 over seven games.",
+      "note": "42, and he made all 14 of his free throws.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1994_NBA_Finals",
-        "quote": "Ewing set an NBA finals record in the series with a total of 30 blocks"
+        "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
+        "quote": "Magic Johnson scored 42 points, including all 14 of his free-throw attempts."
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-starks94-g7-3pa",
+      "id": "nba-lakers89-playoff-start",
       "sport": "NBA",
-      "prompt": "John Starks went 0-for-what from three-point range in Game 7 of the 1994 Finals?",
-      "context": "1994 NBA Finals · Game 7 · at Houston",
+      "prompt": "The 1989 Lakers were the first team to win how many playoff games in a row to open a postseason?",
+      "context": "Los Angeles Lakers · 1989 playoffs",
       "answer": 11,
       "unit": {
-        "singular": "attempt",
-        "plural": "attempts"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 4,
-      "max": 30,
+      "min": 7,
+      "max": 20,
       "step": 1,
-      "note": "0 for 11, and 2 of 18 overall.",
+      "note": "11 straight, the first team ever to do it.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1994_NBA_Finals",
-        "quote": "Starks struggled severely, shooting 2-of-18 from the field (0-for-11 from three-point range)"
+        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+        "quote": "The Lakers became the first team to win their first 11 playoff games"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,23 +82,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-anderson95-ft",
+      "id": "nba-cooper87-threes",
       "sport": "NBA",
-      "prompt": "Late in Game 1 of the 1995 Finals, Nick Anderson missed how many free throws in a row?",
-      "context": "1995 NBA Finals · Game 1 · vs Houston",
-      "answer": 4,
+      "prompt": "Michael Cooper set a playoff record in Game 2 of the 1987 Finals by making how many three-pointers?",
+      "context": "1987 NBA Finals · Game 2 · vs Boston",
+      "answer": 6,
       "unit": {
-        "singular": "free throw",
-        "plural": "free throws"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
       "min": 0,
-      "max": 8,
+      "max": 20,
       "step": 1,
-      "note": "Four, and Houston won in overtime.",
+      "note": "Six, a playoff record at the time.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1995_NBA_Finals",
-        "quote": "Nick Anderson missed four consecutive free throws in the closing seconds of the game"
+        "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+        "quote": "He hit six 3 pointers, a playoff record."
       },
       "verified": {
         "on": "2026-11-16",
@@ -107,23 +107,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-rockets95-road-wins",
+      "id": "nba-magic84-assists",
       "sport": "NBA",
-      "prompt": "The 1995 Rockets were the first team to win how many road playoff games in one postseason?",
-      "context": "Houston Rockets · 1995 playoffs",
-      "answer": 9,
+      "prompt": "Magic Johnson set the NBA Finals record for assists in a game in 1984. How many did he dish out?",
+      "context": "1984 NBA Finals · Game 3 · vs Boston",
+      "answer": 21,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "assist",
+        "plural": "assists"
       },
-      "min": 5,
-      "max": 19,
+      "min": 12,
+      "max": 38,
       "step": 1,
-      "note": "Nine.",
+      "note": "21 assists in Game 3.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1995_NBA_Finals",
-        "quote": "the Rockets became the first NBA team to win nine road playoff games"
+        "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
+        "quote": "Magic Johnson dished out 21 assists, an NBA Finals record."
       },
       "verified": {
         "on": "2026-11-16",

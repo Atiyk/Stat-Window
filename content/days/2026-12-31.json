@@ -1,29 +1,29 @@
 {
   "date": "2026-12-31",
   "theme": {
-    "title": "Bubble and beyond",
-    "subtitle": "The 2020 and 2021 Finals",
-    "recap": "The Lakers won in the 2020 bubble; a year later Giannis Antetokounmpo scored 50 to finish Phoenix."
+    "title": "Shortened seasons",
+    "subtitle": "Lockouts and the pandemic",
+    "recap": "The NBA has cut its schedule to 50 games, 66 games and 72 games, and the shortened years still produced champions."
   },
   "questions": [
     {
-      "id": "nba-giannis21-g6",
+      "id": "nba-lockout99-games",
       "sport": "NBA",
-      "prompt": "How many points did Giannis Antetokounmpo score in the 2021 title clincher?",
-      "context": "2021 NBA Finals · Game 6 · vs Phoenix",
+      "prompt": "The 1998–99 lockout cut the regular season to how many games per team?",
+      "context": "NBA · 1998–99 season",
       "answer": 50,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "game",
+        "plural": "games"
       },
       "min": 15,
-      "max": 65,
+      "max": 70,
       "step": 1,
-      "note": "50, with 14 rebounds and five blocks.",
+      "note": "50, starting February 5, 1999.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-        "quote": "Giannis Antetokounmpo scored a playoff career-high 50 points and added 14 rebounds and five blocks"
+        "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
+        "quote": "Due to a lockout, the regular season began on February 5, 1999, and was cut from 82 games to 50."
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-lakers20-lead-record",
+      "id": "nba-season21-games",
       "sport": "NBA",
-      "prompt": "The 2019–20 Lakers never lost when leading after three quarters. How many such games did they win, playoffs included?",
-      "context": "Los Angeles Lakers · 2019–20 · regular season plus playoffs",
-      "answer": 57,
+      "prompt": "How many regular-season games did each team play in 2020–21?",
+      "context": "NBA · 2020–21 season",
+      "answer": 72,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 35,
-      "max": 85,
+      "min": 44,
+      "max": 78,
       "step": 1,
-      "note": "57, going 57–0.",
+      "note": "72.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
-        "quote": "to be undefeated in a season when leading entering the fourth quarter, going a combined 57–0 record"
+        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+        "quote": "The regular season was reduced to 72 games for each team"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-giannis21-g6-ft",
+      "id": "nba-spurs99-wins",
       "sport": "NBA",
-      "prompt": "In his 50-point clincher, how many of his 19 free throws did Giannis make?",
-      "context": "2021 NBA Finals · Game 6 · vs Phoenix",
-      "answer": 17,
+      "prompt": "How many regular-season games did the 1998–99 Spurs win in the lockout season?",
+      "context": "San Antonio Spurs · 1998–99",
+      "answer": 37,
       "unit": {
-        "singular": "free throw",
-        "plural": "free throws"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 7,
-      "max": 19,
+      "min": 10,
+      "max": 46,
       "step": 1,
-      "note": "17 of 19, a surprise from a weak free-throw shooter.",
+      "note": "37, a league-best 37–13.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-        "quote": "Antetokounmpo made 16 of his 25 shots, and was a surprising 17 for 19 on his free throws"
+        "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
+        "quote": "The Spurs finished in first place in the Midwest Division with a league-best 37–13 record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,23 +82,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-suns21-g1-ft",
+      "id": "nba-sprewell99-g5",
       "sport": "NBA",
-      "prompt": "In Game 1 of the 2021 Finals, Phoenix made how many free throws in a row before its first miss?",
-      "context": "2021 NBA Finals · Game 1 · vs Milwaukee",
+      "prompt": "The Knicks scored 39 second-half points in the 1999 clincher. How many were Latrell Sprewell's?",
+      "context": "1999 NBA Finals · Game 5 · vs San Antonio",
       "answer": 25,
       "unit": {
-        "singular": "free throw",
-        "plural": "free throws"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 14,
-      "max": 52,
+      "min": 0,
+      "max": 39,
       "step": 1,
-      "note": "25.",
+      "note": "25 of the 39.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-        "quote": "Phoenix made their first 25 free throws and nearly set a record for most free throws in a game without a miss"
+        "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+        "quote": "The Knicks scored 39 points in the second half, and Latrell Sprewell scored 25 of them"
       },
       "verified": {
         "on": "2026-11-16",
@@ -107,23 +107,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-paul21-seasons",
+      "id": "nba-spurs99-memorial-day",
       "sport": "NBA",
-      "prompt": "Chris Paul reached his first Finals in 2021. How many NBA seasons had he played by then?",
-      "context": "Phoenix Suns · 2021 NBA Finals",
-      "answer": 16,
+      "prompt": "In Game 2 of the 1999 West finals, San Antonio came back from how many points down to win on Sean Elliott's \"Memorial Day Miracle\"?",
+      "context": "1999 West finals · Game 2 · vs Portland",
+      "answer": 17,
       "unit": {
-        "singular": "season",
-        "plural": "seasons"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 2,
-      "max": 20,
+      "min": 0,
+      "max": 22,
       "step": 1,
-      "note": "16, with 10 All-NBA selections.",
+      "note": "17.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-        "quote": "At 36 years old, Paul made his first Finals appearance after 16 seasons in the league and 10 All-NBA selections."
+        "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
+        "quote": "the Spurs trailed by 17 points against the Trail Blazers in Game 2"
       },
       "verified": {
         "on": "2026-11-16",

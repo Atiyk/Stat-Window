@@ -1,29 +1,29 @@
 {
   "date": "2026-11-18",
   "theme": {
-    "title": "Wilt's impossible season",
-    "subtitle": "Philadelphia Warriors, 1961–62",
-    "recap": "Wilt Chamberlain averaged 50.4 points, scored 100 in one night in front of a small crowd and barely left the floor all season."
+    "title": "Banner 18",
+    "subtitle": "Boston, 2023–24",
+    "recap": "The Celtics led the league by a mile, lost three playoff games and won the franchise's 18th title."
   },
   "questions": [
     {
-      "id": "nba-wilt-100",
+      "id": "nba-celtics24-wins",
       "sport": "NBA",
-      "prompt": "How many points did Wilt Chamberlain score against the Knicks on March 2, 1962?",
-      "context": "Philadelphia Warriors vs New York Knicks · 1961–62",
-      "answer": 100,
+      "prompt": "What was Boston's regular-season win total in its 2023–24 title season?",
+      "context": "Boston Celtics · 2023–24 · 82 games",
+      "answer": 64,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 0,
-      "max": 120,
+      "min": 50,
+      "max": 82,
       "step": 1,
-      "note": "100, in a 169–147 win.",
+      "note": "64–18, the NBA's best.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-        "quote": "by scoring 100 points for the Philadelphia Warriors in a 169–147 win over the New York Knicks on March 2, 1962"
+        "url": "https://en.wikipedia.org/wiki/2023%E2%80%9324_Boston_Celtics_season",
+        "quote": "The Celtics had the best record (64–18) in the NBA"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-wilt62-ppg",
+      "id": "nba-celtics24-playoff-losses",
       "sport": "NBA",
-      "prompt": "What was Wilt Chamberlain's scoring average over the 1961–62 regular season?",
-      "context": "Philadelphia Warriors · 1961–62 · 80 games",
-      "answer": 50.4,
+      "prompt": "Boston won the 2024 title. How many playoff games did it lose along the way?",
+      "context": "Boston Celtics · 2024 playoffs",
+      "answer": 3,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "loss",
+        "plural": "losses"
       },
-      "min": 38,
-      "max": 70,
-      "step": 0.1,
-      "note": "50.4 points per game, a single-season record.",
+      "min": 0,
+      "max": 14,
+      "step": 1,
+      "note": "Three, a 16–3 run second only to the 2017 Warriors.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-        "quote": "Chamberlain averaged a single-season record 50.4 points per game"
+        "url": "https://en.wikipedia.org/wiki/2023%E2%80%9324_Boston_Celtics_season",
+        "quote": "With a playoff record of 16–3, the Celtics were second only to the 2016–17 Golden State Warriors"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,48 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-wilt-100-ftm",
+      "id": "nba-celtics24-ortg",
       "sport": "NBA",
-      "prompt": "In his 100-point game, how many of his 32 free-throw attempts did Wilt Chamberlain make?",
-      "context": "Philadelphia vs New York · March 2, 1962",
-      "answer": 28,
+      "prompt": "The 2023–24 Celtics set the record for offensive rating. How many points did they score per 100 possessions?",
+      "context": "Boston Celtics · 2023–24 regular season",
+      "answer": 123.2,
       "unit": {
-        "singular": "free throw",
-        "plural": "free throws"
+        "singular": "point per 100 possessions",
+        "plural": "points per 100 possessions"
       },
-      "min": 10,
-      "max": 32,
+      "min": 114,
+      "max": 146,
+      "step": 0.1,
+      "note": "123.2.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
+        "quote": "They had the highest offensive rating in NBA history at 123.2"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-mazzulla24-age",
+      "sport": "NBA",
+      "prompt": "How old was Celtics coach Joe Mazzulla when he reached the 2024 Finals?",
+      "context": "Boston Celtics · 2024 NBA Finals",
+      "answer": 35,
+      "unit": {
+        "singular": "year old",
+        "plural": "years old"
+      },
+      "min": 24,
+      "max": 58,
       "step": 1,
-      "note": "28 of 32.",
+      "note": "35, tying Bill Russell as the youngest coach to reach the Finals.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-        "quote": "Chamberlain made 36 of 63 field-goals and 28 of 32 free throws"
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
+        "quote": "the 35-year-old head coach appointed by the Celtics a season prior"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,48 +107,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-wilt-100-crowd",
+      "id": "nba-celtics24-seed-gap",
       "sport": "NBA",
-      "prompt": "How many paying spectators watched Wilt Chamberlain's 100-point game?",
-      "context": "Philadelphia vs New York · March 2, 1962",
-      "answer": 4124,
+      "prompt": "By how many games did Boston finish ahead of the East's second seed in 2023–24?",
+      "context": "Eastern Conference standings · 2023–24",
+      "answer": 14,
       "unit": {
-        "singular": "spectator",
-        "plural": "spectators"
+        "singular": "game back",
+        "plural": "games back"
       },
-      "min": 2000,
-      "max": 17000,
-      "step": 100,
-      "note": "Only 4,124 paid to get in.",
+      "min": 8,
+      "max": 34,
+      "step": 1,
+      "note": "14 games, the widest gap since 1976.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-        "quote": "only 4,124 spectators paid to see the game"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-wilt62-minutes",
-      "sport": "NBA",
-      "prompt": "In 1961–62 Wilt played how many total minutes? (80 games of 48 minutes is 3,840.)",
-      "context": "Philadelphia Warriors · 1961–62 regular season",
-      "answer": 3882,
-      "unit": {
-        "singular": "minute",
-        "plural": "minutes"
-      },
-      "min": 2500,
-      "max": 4600,
-      "step": 10,
-      "note": "3,882, more than 48 a game thanks to overtime.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-        "quote": "He played in a record 3,882 minutes—including every minute of 79 (a record) of 80 games."
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
+        "quote": "widest margin of wins between the first and second seeds in the Eastern Conference since 1976 at 14 games"
       },
       "verified": {
         "on": "2026-11-16",

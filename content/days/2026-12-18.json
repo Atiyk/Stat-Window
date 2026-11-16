@@ -1,29 +1,29 @@
 {
   "date": "2026-12-18",
   "theme": {
-    "title": "Philadelphia's juggernauts",
-    "subtitle": "76ers, 1966–67 and 1982–83",
-    "recap": "Philadelphia built two of the most dominant teams ever: Wilt's 68-win champions and the 1983 team that nearly swept the playoffs."
+    "title": "Miller time",
+    "subtitle": "Reggie Miller's Pacers",
+    "recap": "Reggie Miller tormented the Knicks, made threes in 68 straight games and once scored eight points in under nine seconds."
   },
   "questions": [
     {
-      "id": "nba-sixers67-wins",
+      "id": "nba-miller92-57",
       "sport": "NBA",
-      "prompt": "How many games did the 1966–67 Sixers win in an 81-game season?",
-      "context": "Philadelphia 76ers · 1966–67",
-      "answer": 68,
+      "prompt": "What was Reggie Miller's career high in points?",
+      "context": "Pacers vs Charlotte Hornets · November 28, 1992",
+      "answer": 57,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 50,
-      "max": 81,
+      "min": 40,
+      "max": 90,
       "step": 1,
-      "note": "68–13, the best record in league history at the time.",
+      "note": "57.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-        "quote": "They finished the season at 68–13, the best record in league history at the time."
+        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+        "quote": "he scored a career-high 57 points against the Charlotte Hornets in a 134–122 win"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-sixers67-start-losses",
+      "id": "nba-miller95-8-points",
       "sport": "NBA",
-      "prompt": "The 1966–67 Sixers had the best 50-game start in history. How many of those 50 did they lose?",
-      "context": "Philadelphia 76ers · 1966–67 · first 50 games",
-      "answer": 4,
+      "prompt": "Against the Knicks in 1995, Reggie Miller scored how many points in 8.9 seconds?",
+      "context": "1995 East semifinals · Game 1 · at New York",
+      "answer": 8,
       "unit": {
-        "singular": "loss",
-        "plural": "losses"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 15,
+      "max": 12,
       "step": 1,
-      "note": "Just four: 46–4. The 2015–16 Warriors later matched it.",
+      "note": "Eight unanswered points.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-        "quote": "The 76ers started the season at 46–4, which remains the best 50-game start in the NBA history"
+        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+        "quote": "scored eight unanswered points in 8.9 seconds in Game 1"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-sixers67-ppg",
+      "id": "nba-miller94-4q",
       "sport": "NBA",
-      "prompt": "How many points per game did the 1966–67 Sixers average?",
-      "context": "Philadelphia 76ers · 1966–67 regular season",
-      "answer": 125,
+      "prompt": "In Game 5 of the 1994 East finals at Madison Square Garden, how many fourth-quarter points did Reggie Miller score?",
+      "context": "1994 East finals · Game 5 · at New York",
+      "answer": 25,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 105,
-      "max": 155,
+      "min": 2,
+      "max": 32,
       "step": 1,
-      "note": "125, a record at the time.",
+      "note": "25 of his 39.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-        "quote": "The team averaged a record 125 points per game, leading all teams in shooting accuracy"
+        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+        "quote": "scored 39 points (25 in the fourth quarter alone) in the Pacers' 93–86 victory"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,23 +82,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-wilt67-fta",
+      "id": "nba-pacers00-home-streak",
       "sport": "NBA",
-      "prompt": "Wilt Chamberlain set a league record for free-throw attempts in 1966–67. How many did he take?",
-      "context": "Philadelphia 76ers · 1966–67 regular season",
-      "answer": 875,
+      "prompt": "The 1999–2000 Pacers set a franchise record for consecutive home wins. How many?",
+      "context": "Indiana Pacers · 1999–2000",
+      "answer": 25,
       "unit": {
-        "singular": "free-throw attempt",
-        "plural": "free-throw attempts"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 550,
-      "max": 1500,
-      "step": 5,
-      "note": "875, a league record.",
+      "min": 0,
+      "max": 36,
+      "step": 1,
+      "note": "25.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-        "quote": "he made a league-record 68% of his shots; his 875 free throw attempts, another league record"
+        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+        "quote": "including a franchise-best 25 game win streak at home"
       },
       "verified": {
         "on": "2026-11-16",
@@ -107,23 +107,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-sixers83-playoff-wins",
+      "id": "nba-miller97-three-streak",
       "sport": "NBA",
-      "prompt": "The 1983 Sixers lost only once in the playoffs. How many playoff games did they win?",
-      "context": "Philadelphia 76ers · 1983 playoffs",
-      "answer": 12,
+      "prompt": "From November 1996 to April 1997, Reggie Miller made a three in how many straight games?",
+      "context": "Indiana Pacers · 1996–97",
+      "answer": 68,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 4,
-      "max": 17,
+      "min": 25,
+      "max": 130,
       "step": 1,
-      "note": "12, going 12–1.",
+      "note": "68.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
-        "quote": "The 76ers completed one of the most dominating playoff runs in league history with a 12–1 mark"
+        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+        "quote": "Miller made a three-pointer in 68 consecutive games from November 15, 1996, to April 6, 1997."
       },
       "verified": {
         "on": "2026-11-16",

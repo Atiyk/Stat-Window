@@ -13,11 +13,13 @@ export function roundMark(r: RoundRecord): string {
   return '🟧'; // taste-skill-ignore
 }
 
+/** Spoiler-free share: score, one mark per round, an invitation and a link to the same five questions. */
 export function shareText(opts: { number: number; results: readonly RoundRecord[]; url: string }): string {
   const total = opts.results.reduce((s, r) => s + r.points, 0);
   return [
     `Stat Window No. ${opts.number}  ${total}/${MAX_TOTAL}`,
     opts.results.map(roundMark).join(''),
+    total > 0 ? `Same five questions. Can you beat ${total}?` : 'Same five questions. Your turn.',
     opts.url,
   ].join('\n');
 }

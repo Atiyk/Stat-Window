@@ -1,29 +1,30 @@
 {
   "date": "2026-12-13",
   "theme": {
-    "title": "The 1970 Finals",
-    "subtitle": "Knicks vs Lakers",
-    "recap": "The 1970 Finals had a 60-foot buzzer-beater and Willis Reed's walk-out in Game 7, where Walt Frazier did the damage."
+    "title": "Beyond the arc",
+    "subtitle": "The three-pointer, 1979 to today",
+    "recap": "It took the NBA years to use the three: the first record was eight in a game and the first 100-three season came in 1988."
   },
   "questions": [
     {
-      "id": "nba-knicks70-streak",
+      "id": "nba-three-point-distance",
       "sport": "NBA",
-      "prompt": "The 1969–70 Knicks set what was then a single-season record winning streak. How long was it?",
-      "context": "New York Knicks · 1969–70",
-      "answer": 18,
+      "prompt": "Away from the corners, how far is the NBA three-point arc from the center of the basket, in feet?",
+      "context": "NBA rules · arc distance",
+      "answer": 23.75,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "foot",
+        "plural": "feet"
       },
-      "min": 10,
-      "max": 42,
-      "step": 1,
-      "note": "18 straight, on the way to 60–22.",
+      "min": 21,
+      "max": 34,
+      "step": 0.25,
+      "note": "23 feet 9 inches, or 23.75 feet.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1969%E2%80%9370_New_York_Knicks_season",
-        "quote": "The Knicks had a then single-season NBA record 18 straight victories en route to 60–22 record"
+        "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
+        "quote": "in the National Basketball Association (NBA) the arc is 23 feet 9 inches (7.24 m) from the center of the basket",
+        "derivation": "23 feet 9 inches = 23.75 feet"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +33,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-frazier70-g7-ast",
+      "id": "nba-barry80-threes",
       "sport": "NBA",
-      "prompt": "Walt Frazier scored 36 points in Game 7 of the 1970 Finals. How many assists did he have?",
-      "context": "1970 NBA Finals · Game 7 · vs Lakers",
-      "answer": 19,
+      "prompt": "Rick Barry set the first NBA record for threes in a game in February 1980. How many did he make?",
+      "context": "Houston Rockets vs Utah Jazz · 1979–80",
+      "answer": 8,
       "unit": {
-        "singular": "assist",
-        "plural": "assists"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 12,
-      "max": 38,
+      "min": 0,
+      "max": 15,
       "step": 1,
-      "note": "19, in a 113–99 win.",
+      "note": "Eight, against Utah.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
-        "quote": "took it from there, finishing with 36 points and 19 assists as the Knicks won the championship, 113–99."
+        "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
+        "quote": "Barry would later set the original 3-point record at 8 in a single game on February 9, 1980 against the Utah Jazz."
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +58,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-reed70-g7-minutes",
+      "id": "nba-ainge88-threes",
       "sport": "NBA",
-      "prompt": "Willis Reed limped out for Game 7 of the 1970 Finals. How many minutes did he play?",
-      "context": "1970 NBA Finals · Game 7 · vs Lakers",
-      "answer": 27,
+      "prompt": "In 1987–88 Danny Ainge became the first player with 100 threes in a season. How many did he make?",
+      "context": "Boston Celtics · 1987–88",
+      "answer": 148,
       "unit": {
-        "singular": "minute",
-        "plural": "minutes"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 0,
-      "max": 48,
+      "min": 50,
+      "max": 210,
       "step": 1,
-      "note": "27. He did not leave after his first two baskets, despite the legend.",
+      "note": "148 threes.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1969%E2%80%9370_New_York_Knicks_season",
-        "quote": "Contrary to popular lore, he did not sit out after his first two baskets, but remained on the floor for 27 minutes"
+        "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
+        "quote": "Danny Ainge was the first player to make over 100 three-pointers in a season in 1988, scoring 148 that season."
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,23 +83,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-west70-60-foot",
+      "id": "nba-miller-career-threes",
       "sport": "NBA",
-      "prompt": "Jerry West forced overtime in Game 3 of the 1970 Finals with a buzzer-beater from how many feet?",
-      "context": "1970 NBA Finals · Game 3 · at New York",
-      "answer": 60,
+      "prompt": "Reggie Miller retired in 2005 as the career leader in threes. How many had he made?",
+      "context": "Indiana Pacers · 1987–2005",
+      "answer": 2560,
       "unit": {
-        "singular": "foot",
-        "plural": "feet"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
       "min": 0,
-      "max": 94,
-      "step": 1,
-      "note": "60 feet, tying it at 102.",
+      "max": 3200,
+      "step": 10,
+      "note": "2,560, a record at his retirement.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
-        "quote": "hit a desperation buzzer-beating 60-foot shot to tie it at 102 and force OT"
+        "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
+        "quote": "eventually retiring with a record 2,560 three-pointers made."
       },
       "verified": {
         "on": "2026-11-16",
@@ -107,23 +108,23 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-baylor-finals-losses",
+      "id": "nba-gsw16-dec1-3pa",
       "sport": "NBA",
-      "prompt": "Elgin Baylor led the Lakers to the Finals how many times, losing every one?",
-      "context": "Minneapolis and Los Angeles Lakers · 1958–1971",
-      "answer": 8,
+      "prompt": "On December 1, 2016, how many three-point attempts did the Warriors and their opponent combine for?",
+      "context": "Golden State Warriors · 2016–17 regular season",
+      "answer": 88,
       "unit": {
-        "singular": "Finals appearance",
-        "plural": "Finals appearances"
+        "singular": "attempt",
+        "plural": "attempts"
       },
-      "min": 0,
-      "max": 11,
+      "min": 20,
+      "max": 105,
       "step": 1,
-      "note": "Eight times.",
+      "note": "88 three-point attempts between the two teams.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-        "quote": "helped lead the team to the NBA Finals eight times, but the team lost each time."
+        "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+        "quote": "Most combined three-point attempts in a single game: 88"
       },
       "verified": {
         "on": "2026-11-16",

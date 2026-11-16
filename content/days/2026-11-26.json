@@ -1,29 +1,29 @@
 {
   "date": "2026-11-26",
   "theme": {
-    "title": "Splash season",
-    "subtitle": "Golden State, 2015–16",
-    "recap": "The Warriors won their first 24, reached the All-Star break at 48–4, never lost at home for more than a year and made threes at a rate nobody had seen."
+    "title": "Rip City",
+    "subtitle": "Portland, 1976–77",
+    "recap": "Bill Walton's Blazers came from 0–2 down to win the 1977 title, then started the next season 50–10."
   },
   "questions": [
     {
-      "id": "nba-gsw16-start",
+      "id": "nba-walton77-g6-reb",
       "sport": "NBA",
-      "prompt": "The 2015–16 Warriors opened the season with how many straight wins?",
-      "context": "Golden State Warriors · 2015–16",
-      "answer": 24,
+      "prompt": "In the 1977 title clincher, how many rebounds did Bill Walton grab?",
+      "context": "1977 NBA Finals · Game 6 · vs Philadelphia",
+      "answer": 23,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "rebound",
+        "plural": "rebounds"
       },
-      "min": 0,
-      "max": 30,
+      "min": 10,
+      "max": 42,
       "step": 1,
-      "note": "24 in a row before their first loss.",
+      "note": "23, with 20 points, 7 assists and 8 blocks.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-        "quote": "The Warriors began the 2015–16 season by winning their first 24 games,"
+        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+        "quote": "Bill Walton's 20 points, 23 rebounds, 7 assists and 8 blocks kept the game in Portland's favor."
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,23 +32,23 @@
       "difficulty": "easy"
     },
     {
-      "id": "nba-gsw16-allstar-wins",
+      "id": "nba-blazers78-start",
       "sport": "NBA",
-      "prompt": "What was the Warriors' win total at the 2016 All-Star break?",
-      "context": "Golden State Warriors · 2015–16 · first half of the season",
-      "answer": 48,
+      "prompt": "The year after their title, how many of their first 60 games did the 1977–78 Blazers win?",
+      "context": "Portland Trail Blazers · 1977–78",
+      "answer": 50,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 28,
+      "min": 30,
       "max": 60,
       "step": 1,
-      "note": "48–4, the best record ever at the break.",
+      "note": "50.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-        "quote": "Golden State reached the NBA All-Star break at 48–4, the best start to an NBA season at this juncture."
+        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+        "quote": "The 1977-78 Blazers started with 50 wins in their first 60 games"
       },
       "verified": {
         "on": "2026-11-16",
@@ -57,23 +57,23 @@
       "difficulty": "medium"
     },
     {
-      "id": "nba-gsw16-home-streak",
+      "id": "nba-blazers77-g4-q3",
       "sport": "NBA",
-      "prompt": "Golden State set an NBA record for consecutive regular-season home wins. How long was the streak?",
-      "context": "Golden State Warriors · spanning 2015 and 2016",
-      "answer": 54,
+      "prompt": "Portland scored how many points in the third quarter of Game 4 of the 1977 Finals?",
+      "context": "1977 NBA Finals · Game 4 · at Portland",
+      "answer": 41,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 35,
-      "max": 100,
+      "min": 26,
+      "max": 68,
       "step": 1,
-      "note": "54 straight home wins.",
+      "note": "41.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-        "quote": "The Warriors also set an NBA record 54-straight regular-season home-game winning streak,"
+        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+        "quote": "Portland quickly led the game by 17 points and never looked back, scoring 41 points in the third quarter"
       },
       "verified": {
         "on": "2026-11-16",
@@ -82,48 +82,48 @@
       "difficulty": "hard"
     },
     {
-      "id": "nba-gsw16-threes",
+      "id": "nba-blazers77-g4-margin",
       "sport": "NBA",
-      "prompt": "How many three-pointers did the 2015–16 Warriors make in the regular season?",
-      "context": "Golden State Warriors · 2015–16 · 82 games",
-      "answer": 1077,
-      "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
-      },
-      "min": 550,
-      "max": 1400,
-      "step": 10,
-      "note": "1,077, the first team past 1,000.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-        "quote": "They also became the first team to make over 1,000 three-pointers in the regular-season with 1,077,"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard"
-    },
-    {
-      "id": "nba-curry16-ot-points",
-      "sport": "NBA",
-      "prompt": "On May 9, 2016, Stephen Curry set an NBA record for points in an overtime period. How many did he score?",
-      "context": "2016 Western Conference semifinals · vs Portland",
-      "answer": 17,
+      "prompt": "By how many points did Portland win Game 4 of the 1977 Finals?",
+      "context": "1977 NBA Finals · Game 4 · vs Philadelphia",
+      "answer": 32,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
       "min": 0,
-      "max": 40,
+      "max": 45,
       "step": 1,
-      "note": "17, breaking the record of 16.",
+      "note": "32, the largest Game 4 margin until 2024.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-        "quote": "He scored 17 of his points in overtime, which broke the NBA record of 16"
+        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+        "quote": "the 32 point win being the largest margin of victory in a Finals game 4 until 2024"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard"
+    },
+    {
+      "id": "nba-walton77-g5-dreb",
+      "sport": "NBA",
+      "prompt": "Bill Walton grabbed 24 rebounds in Game 5 of the 1977 Finals. How many were defensive?",
+      "context": "1977 NBA Finals · Game 5 · at Philadelphia",
+      "answer": 20,
+      "unit": {
+        "singular": "rebound",
+        "plural": "rebounds"
+      },
+      "min": 9,
+      "max": 24,
+      "step": 1,
+      "note": "20, a Blazers record.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+        "quote": "24 (20 defensive, another team record) of which belonged to Walton alone; his team record still stands."
       },
       "verified": {
         "on": "2026-11-16",

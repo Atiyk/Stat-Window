@@ -1,12 +1,19 @@
+import { readFileSync } from 'node:fs';
 import { expect, type Page } from '@playwright/test';
 
 /** Day 1 at 15:00 UTC. Every test pins the clock so the slate is deterministic. */
 export const DAY1 = new Date('2026-11-15T15:00:00Z');
 export const DAY2 = new Date('2026-11-16T15:00:00Z');
-/** First, middle and last days of the NBA calendar (data/nba/calendar.json). */
-export const NBA_FIRST = new Date('2026-11-18T15:00:00Z');
-export const NBA_MIDDLE = new Date('2026-12-12T15:00:00Z');
-export const NBA_LAST = new Date('2027-01-06T15:00:00Z');
+/** First, middle and last days of the NBA calendar, read from data/nba/calendar.json so a reschedule needs no test edits. */
+const calendar = JSON.parse(readFileSync(new URL('../data/nba/calendar.json', import.meta.url), 'utf8')) as { cutover: string; days: { date: string }[] };
+export const NBA_DAYS = calendar.days.map((d) => d.date);
+export const NBA_CUTOVER = calendar.cutover;
+const at3pm = (day: string) => new Date(`${day}T15:00:00Z`);
+export const NBA_FIRST = at3pm(NBA_DAYS[0]!);
+export const NBA_MIDDLE = at3pm(NBA_DAYS[24]!);
+export const NBA_LAST = at3pm(NBA_DAYS.at(-1)!);
+/** Ten minutes after UTC midnight on a given day. */
+export const justAfterMidnight = (day: string) => new Date(`${day}T00:10:00Z`);
 
 export async function openAt(page: Page, when: Date, path = '/') {
   await page.clock.setFixedTime(when);

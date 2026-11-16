@@ -57,4 +57,13 @@ describe('analytics readout', () => {
     expect(ci.lo).toBeLessThan(0);
     expect(ci.hi).toBeGreaterThan(0.1);
   });
+  it('refuses impossible or malformed experiment counts instead of reporting a lift', () => {
+    expect(diffInterval(301, 300, 120, 300)).toBeNull();
+    expect(diffInterval(100, 300, 301, 300)).toBeNull();
+    expect(diffInterval(-1, 300, 100, 300)).toBeNull();
+    expect(diffInterval(100, 300, Number.NaN, 300)).toBeNull();
+    expect(diffInterval(100.5, 300, 100, 300)).toBeNull();
+    expect(diffInterval(100, 300, 100, Number.POSITIVE_INFINITY)).toBeNull();
+    expect(diffInterval(0, 200, 0, 200)).toEqual({ diff: 0, lo: 0, hi: 0 });
+  });
 });

@@ -251,18 +251,47 @@ test.describe('public flag (on): the offer, the gate, the events', () => {
   const views = (page: Page) =>
     page.evaluate(() => ((window as unknown as { vaq?: unknown[][] }).vaq ?? []).filter((c) => c[0] === 'pageview').map((c) => (c[1] as { path: string }).path));
 
-  test.beforeEach(async ({ page }) => {
-    await page.route('**/_vercel/insights/script.js', (r) => r.fulfill({ status: 200, contentType: 'text/javascript', body: '' }));
-    await page.emulateMedia({ reducedMotion: 'reduce' });
-  });
-
-  test('before the pool is ready: no button after the daily, and ?survival (even with asof) stays closed', async ({ page }) => {
-    await openAt(page, NBA_FIRST);
+  const ARM_KEY = 'stat-window:x:survival-cta:v1';
+  const setArm = (page: Page, arm: 'cta' | 'control') =>
+    page.addInitScript(([k, a]) => {
+      if (!localStorage.getItem(k!)) localStorage.setItem(k!, JSON.stringify({ arm: a }));
+    }, [ARM_KEY, arm]);
+  const finishDaily = async (page: Page) => {
     for (let r = 0; r < 5; r++) {
       await lockAndSettle(page);
       await next(page);
     }
     await expect(page.locator('.results-score')).toBeVisible();
+  };
+
+  test.beforeEach(async ({ page }) => {
+    await page.route('**/_vercel/insights/script.js', (r) => r.fulfill({ status: 200, contentType: 'text/javascript', body: '' }));
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+  });
+
+  test('experiment: control sees no button; exposure today, then daily-start and next-day-start tomorrow', async ({ page }) => {
+    await setArm(page, 'control');
+    await openAt(page, at('2026-12-20'));
+    await finishDaily(page);
+    await expect(page.getByRole('button', { name: /Try Survival/ })).toHaveCount(0);
+    await expect.poll(() => views(page)).toContain('/e/x/survival-cta/control/exposed');
+    expect(await views(page)).toContain('/e/x/survival-cta/control/first-exposure');
+    // Next UTC day, same browser.
+    await page.clock.setFixedTime(at('2026-12-21'));
+    await page.reload();
+    await expect(page.locator('.question')).toBeVisible();
+    await expect.poll(() => views(page)).toEqual(expect.arrayContaining(['/e/start/daily', '/e/x/survival-cta/control/daily-start', '/e/x/survival-cta/control/next-day-start']));
+    // A refresh doesn't count the start again.
+    await page.reload();
+    await expect(page.locator('.question')).toBeVisible();
+    await page.waitForTimeout(500);
+    expect((await views(page)).filter((p) => p.startsWith('/e/x/'))).toEqual([]);
+  });
+
+  test('before the pool is ready: no button after the daily, and ?survival (even with asof) stays closed', async ({ page }) => {
+    await setArm(page, 'cta');
+    await openAt(page, NBA_FIRST);
+    await finishDaily(page);
     await expect(page.getByRole('button', { name: /Try Survival/ })).toHaveCount(0);
     await page.goto('/?survival&asof=2027-01-10');
     await expect(page.getByText(/Not open yet/)).toBeVisible();
@@ -270,11 +299,9 @@ test.describe('public flag (on): the offer, the gate, the events', () => {
   });
 
   test('once the pool is ready: a quiet button after today’s daily, and fixed, non-identifying events', async ({ page }) => {
+    await setArm(page, 'cta');
     await openAt(page, at('2026-12-20'));
-    for (let r = 0; r < 5; r++) {
-      await lockAndSettle(page);
-      await next(page);
-    }
+    await finishDaily(page);
     await page.getByRole('button', { name: /Try Survival/ }).click();
     await page.getByRole('button', { name: 'Start a run' }).click();
     await expect(page.getByText('Survival · Round 1 of 20')).toBeVisible();
@@ -283,6 +310,7 @@ test.describe('public flag (on): the offer, the gate, the events', () => {
     await expect(page.getByRole('heading', { name: 'Out in round one.' })).toBeVisible();
     const v = await views(page);
     expect(v).toContain('/e/survival/start/cta');
+    expect(v).toContain('/e/x/survival-cta/cta/click');
     expect(v).toContain('/e/survival/end/r1-4/miss');
     // Every path is from the fixed vocabulary: no ids, answers or numbers beyond buckets.
     for (const p of v.filter((x) => x.startsWith('/e/survival'))) expect(p).toMatch(/^\/e\/survival\/(start\/(cta|link|again)|reach\/r(5|10|15)|end\/r\d+-\d+\/(miss|short)|win|share\/[a-z]+)$/);

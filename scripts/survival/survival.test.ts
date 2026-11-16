@@ -308,6 +308,16 @@ describe('survival storage', () => {
     expect(s.load().recent[0]).toEqual(ids);
     expect(s.load().started).toBe(2);
   });
+  it('a lost run replaced by another tab before its reveal was read still records the best', () => {
+    const s = createSurvivalStore(memoryStorage());
+    s.start(newRun('0000abcd', '2026-12-10', ids));
+    s.lock('0000abcd', 0, rec('q0', true, 60));
+    s.advance('0000abcd');
+    s.lock('0000abcd', 1, rec('q1', false, 0));
+    // No advance: the other tab starts a new run straight away.
+    s.start(newRun('1111abcd', '2026-12-10', ids));
+    expect(s.load().best[RULESET]).toMatchObject({ rounds: 1, points: 60, runId: '0000abcd' });
+  });
   it('a malformed or tampered save is set aside, never crashes', () => {
     const st = memoryStorage();
     st.setItem(SURVIVAL_KEY, '{"version":1,"current":{"id":"zz"}}');

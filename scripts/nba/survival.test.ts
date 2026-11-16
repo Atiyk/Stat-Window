@@ -32,4 +32,10 @@ describe('survival catalog', () => {
     a.source.quote = 'Nothing.';
     expect(leakHorizon(a, scheduled, [a, b]).notBefore).toBe('2026-11-21');
   });
+  it('a reveal that names another daily player and prints their answer is held (critic case: Wilt 78 vs Baylor 71)', () => {
+    const tag = buildCatalog(data).tags['nba-wilt61-78']!;
+    expect(tag.leaks).toContain('nba-baylor60-71');
+    const baylor = data.calendar.days.find((d) => d.questions.includes('nba-baylor60-71'))!.date;
+    expect(tag.notBefore! > baylor).toBe(true);
+  });
 });

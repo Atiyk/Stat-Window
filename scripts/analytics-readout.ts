@@ -92,8 +92,9 @@ export function readout(counts: Counts, min = 30): Row[] {
   // The experiment: per arm, per exposed browser-day.
   for (const arm of ['cta', 'control'] as const) {
     const exposed = sum(counts, `/e/x/survival-cta/${arm}/exposed`);
-    rows.push(row(`experiment ${arm}: next-day daily start per exposure`, `x/survival-cta/${arm}/next-day-start ÷ …/exposed (drop the range's last day from exposed)`, sum(counts, `/e/x/survival-cta/${arm}/next-day-start`), exposed));
-    rows.push(row(`experiment ${arm}: daily share attempts per exposure (guardrail)`, `x/survival-cta/${arm}/daily-share ÷ …/exposed`, sum(counts, `/e/x/survival-cta/${arm}/daily-share`), exposed));
+    rows.push(row(`experiment ${arm}: browsers exposed at least once`, `x/survival-cta/${arm}/first-exposure (a count, not a rate)`, sum(counts, `/e/x/survival-cta/${arm}/first-exposure`), sum(counts, `/e/x/survival-cta/${arm}/first-exposure`)));
+    rows.push(row(`experiment ${arm}: next-day daily start per exposed browser-day`, `x/survival-cta/${arm}/next-day-start ÷ …/exposed (the range's two edges roughly cancel; not exact)`, sum(counts, `/e/x/survival-cta/${arm}/next-day-start`), exposed));
+    rows.push(row(`experiment ${arm}: daily share attempts per exposed browser-day (guardrail)`, `x/survival-cta/${arm}/daily-share ÷ …/exposed`, sum(counts, `/e/x/survival-cta/${arm}/daily-share`), exposed));
   }
   return rows;
 }
@@ -127,11 +128,12 @@ if (process.argv[1]?.endsWith('analytics-readout.ts')) {
   console.log('| Metric | Count | Of | Rate | Equation |\n|---|---|---|---|---|');
   for (const r of readout(counts, min)) console.log(`| ${r.metric} | ${r.numerator} | ${r.denominator} | ${r.rate} | ${r.equation} |`);
   const x = (arm: string, step: string) => sum(counts, `/e/x/survival-cta/${arm}/${step}`);
-  const ci = diffInterval(x('cta', 'next-day-start'), x('cta', 'exposed'), x('control', 'next-day-start'), x('control', 'exposed'));
+  const enoughBrowsers = x('cta', 'first-exposure') >= 200 && x('control', 'first-exposure') >= 200;
+  const ci = enoughBrowsers ? diffInterval(x('cta', 'next-day-start'), x('cta', 'exposed'), x('control', 'next-day-start'), x('control', 'exposed')) : null;
   console.log(
     ci
-      ? `\nExperiment, next-day start, cta − control: ${(ci.diff * 100).toFixed(1)} points (95% interval ${(ci.lo * 100).toFixed(1)} to ${(ci.hi * 100).toFixed(1)}). An interval that crosses 0 is no evidence either way.`
-      : '\nExperiment: not enough data (needs 200 exposures in each arm).',
+      ? `\nExperiment, next-day start per exposed browser-day, cta − control: ${(ci.diff * 100).toFixed(1)} points (rough 95% interval ${(ci.lo * 100).toFixed(1)} to ${(ci.hi * 100).toFixed(1)}). It treats each browser-day as independent, so the real interval is wider; an interval near or across 0 is no evidence either way.`
+      : '\nExperiment: not enough data (needs 200 browsers exposed in each arm).',
   );
   console.log('\nBrowsers, not people; share attempts, not deliveries. See docs/MEASUREMENT.md.');
 }

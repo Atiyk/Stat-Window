@@ -24,6 +24,7 @@ import { need, roundLabel, RULESET, SURVIVAL_ROUNDS } from '../survival/rules';
 import { newSeed, pickRun } from '../survival/select';
 import { createSurvivalStore, SURVIVAL_KEY, SURVIVAL_PREVIEW_KEY, type SurvivalStore } from '../survival/storage';
 import { Round } from './Round';
+import { SURVIVAL_FLAG } from '../survival/flag';
 
 type Props = {
   /** Real UTC day. */
@@ -55,12 +56,16 @@ async function loadQuestions(catalog: SurvivalCatalog, ids: readonly string[]): 
 
 export default function Survival({ today, asOf, source, requireBeta, storage, onBackToDaily }: Props) {
   const day = asOf ?? today;
-  const preview = asOf !== null;
+  // Every preview build (with or without asof) keeps its runs apart and sends nothing.
+  const preview = SURVIVAL_FLAG !== 'on' || asOf !== null;
   const store: SurvivalStore = useMemo(() => createSurvivalStore(storage, preview ? SURVIVAL_PREVIEW_KEY : SURVIVAL_KEY), [storage, preview]);
   const [loaded, setLoaded] = useState<Loaded | null>(null);
   const [failed, setFailed] = useState(false);
   const [run, setRun] = useState<SurvivalRun | null>(() => store.load().current);
   const startSource = useRef<'cta' | 'link' | 'again'>(source);
+  const [notice, setNotice] = useState<string | null>(null);
+  // Bumped when another tab's save replaces what this tab shows, so the round remounts from the saved truth.
+  const [epoch, setEpoch] = useState(0);
   // No events from preview runs that pretend to be another day.
   const send = useCallback((key: string, e: Parameters<typeof track>[0]) => {
     if (!preview) trackOnce(key, today, e);
@@ -98,7 +103,10 @@ export default function Survival({ today, asOf, source, requireBeta, storage, on
       const saved = store.load().current;
       if (!saved) return;
       setRun((mine) => {
-        if (!mine || saved.id !== mine.id || saved.results.length > mine.results.length || saved.advanced > mine.advanced) return saved;
+        if (!mine || saved.id !== mine.id || saved.results.length > mine.results.length || saved.advanced > mine.advanced) {
+          setEpoch((e) => e + 1);
+          return saved;
+        }
         return mine;
       });
     };
@@ -115,13 +123,17 @@ export default function Survival({ today, asOf, source, requireBeta, storage, on
   const start = async () => {
     if (!loaded) return;
     const { catalog, pool, supply } = await loadPool(day);
-    if (!supply.playable || (requireBeta && !supply.beta)) return;
-    const recent = new Set(store.load().recent.flat());
+    const fail = () => setNotice('Couldn’t start a run: not enough eligible questions right now. Try again tomorrow.');
+    if (!supply.playable || (requireBeta && !supply.beta)) return fail();
+    // The run just finished is still `current` (it moves to `recent` only when the new one starts).
+    const saved = store.load();
+    const recent = new Set([...saved.recent.flat(), ...(saved.current?.questionIds ?? [])]);
     const seed = newSeed();
     const ids = pickRun(pool, seed, recent);
-    if (!ids) return;
+    if (!ids) return fail();
     const questions = await loadQuestions(catalog, ids);
-    if (ids.some((id) => !questions.has(id))) return;
+    if (ids.some((id) => !questions.has(id))) return fail();
+    setNotice(null);
     const stored = store.start(newRun(hex(seed), day, ids));
     setLoaded((l) => (l ? { ...l, questions: new Map([...l.questions, ...questions]) } : l));
     setRun(stored);
@@ -146,7 +158,7 @@ export default function Survival({ today, asOf, source, requireBeta, storage, on
     if (!q) return <p className="loading" aria-live="polite">Loading Survival…</p>;
     return (
       <SurvivalRound
-        key={`${run.id}:${round}`}
+        key={`${run.id}:${round}:${epoch}`}
         run={run}
         round={round}
         question={q}
@@ -158,9 +170,17 @@ export default function Survival({ today, asOf, source, requireBeta, storage, on
             setRun(store.load().current);
             return;
           }
+          const stored = next.results[round];
+          const mine = stored && stored.lo === rec.lo && stored.hi === rec.hi && stored.points === rec.points && stored.hit === rec.hit;
+          if (!mine) {
+            // Another tab locked this round first: show its result, not ours, and count nothing here.
+            setEpoch((e) => e + 1);
+            setRun(next);
+            return;
+          }
           setRun(next);
           const reason = endReason(rec, round);
-          if (reason && next.results.length === round + 1) send(`sv:end:${run.id}`, { name: 'survival_end', round: round + 1, reason });
+          if (reason) send(`sv:end:${run.id}`, { name: 'survival_end', round: round + 1, reason });
           if (runStatus(next) === 'won') send(`sv:win:${run.id}`, { name: 'survival_win' });
         }}
         onNext={() => {
@@ -184,6 +204,7 @@ export default function Survival({ today, asOf, source, requireBeta, storage, on
         canPlay={loaded.supply.playable && (!requireBeta || loaded.supply.beta)}
         preview={preview}
         questions={loaded.questions}
+        notice={notice}
         onAgain={() => {
           startSource.current = 'again';
           void start();
@@ -216,6 +237,7 @@ export default function Survival({ today, asOf, source, requireBeta, storage, on
           <button type="button" className="btn btn-primary" onClick={() => void start()}>
             Start a run
           </button>
+          {notice && <p className="archive-sub" role="status">{notice}</p>}
         </div>
       ) : (
         <p className="archive-sub" role="status">
@@ -258,14 +280,14 @@ function PreviewNote({ asOf }: { asOf: string | null }) {
 
 function Track({ run, round, phase }: { run: SurvivalRun; round: number; phase: string }) {
   return (
-    <ol className="survival-track" aria-label={`Round ${round + 1} of ${SURVIVAL_ROUNDS}`}>
+    <div className="survival-track" role="img" aria-label={`Round ${round + 1} of ${SURVIVAL_ROUNDS}, ${round} survived so far`}>
       {Array.from({ length: SURVIVAL_ROUNDS }, (_, i) => {
         const r = run.results[i];
         const shown = r && (i < round || phase === 'resolved');
         const status = shown ? (survives(r, i) ? 'hit' : 'miss') : i === round ? 'current' : 'todo';
-        return <li key={i} className="survival-cell" data-status={status} aria-hidden="true" />;
+        return <span key={i} className="survival-cell" data-status={status} />;
       })}
-    </ol>
+    </div>
   );
 }
 
@@ -341,6 +363,7 @@ function SurvivalEnd(props: {
   canPlay: boolean;
   preview: boolean;
   questions: Map<string, Question>;
+  notice: string | null;
   onAgain: () => void;
   onShare: (m: ShareMethod) => void;
   onBack: () => void;
@@ -423,6 +446,7 @@ function SurvivalEnd(props: {
         <button type="button" className="btn btn-quiet" onClick={() => void share()}>
           Share your run
         </button>
+        {props.notice && <p className="archive-sub" role="status">{props.notice}</p>}
         <p className="share-note">Shares your rounds and points, never the questions or answers.</p>
         <button type="button" className="btn btn-quiet" onClick={props.onBack}>
           Back to the Daily Five

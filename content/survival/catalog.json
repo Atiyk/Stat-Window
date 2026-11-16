@@ -2136,7 +2136,10 @@
       "era": "1970s",
       "steps": 45,
       "day": "2027-01-01",
-      "notBefore": "2027-01-02"
+      "notBefore": "2027-01-02",
+      "leaks": [
+        "nba-kobe16-final-game"
+      ]
     },
     "nba-kobe16-final-game": {
       "tier": "hard",
@@ -2343,7 +2346,8 @@
       "notBefore": "2027-01-06",
       "leaks": [
         "nba-bobcats12-wins",
-        "nba-bobcats12-losing-streak"
+        "nba-bobcats12-losing-streak",
+        "nba-miller95-8-points"
       ]
     },
     "nba-allen13-g6-seconds": {
@@ -2401,9 +2405,10 @@
       "era": "1960s",
       "steps": 60,
       "day": null,
-      "notBefore": "2026-11-18",
+      "notBefore": "2026-11-23",
       "leaks": [
-        "nba-wilt-100"
+        "nba-wilt-100",
+        "nba-baylor60-71"
       ]
     },
     "nba-wilt-100-combined": {

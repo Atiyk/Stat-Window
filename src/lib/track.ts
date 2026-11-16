@@ -42,7 +42,7 @@ export type TrackEvent =
   | { name: 'survival_win' }
   | { name: 'survival_share'; method: ShareMethod }
   /** The one experiment: arm is per browser, step is what happened. */
-  | { name: 'experiment'; arm: 'cta' | 'control'; step: 'exposed' | 'click' | 'daily-start' | 'next-day-start' | 'daily-share' };
+  | { name: 'experiment'; arm: 'cta' | 'control'; step: 'exposed' | 'first-exposure' | 'click' | 'daily-start' | 'next-day-start' | 'daily-share' };
 
 /** Rounds 1-4, 5-8 … so the end of a run lands in one of five rows. */
 export function survivalBand(round: number): string {

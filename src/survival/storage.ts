@@ -104,8 +104,9 @@ export function createSurvivalStore(storage: StorageLike | null, key = SURVIVAL_
     }
   }
 
-  function withBest(data: SurvivalSave, run: SurvivalRun): SurvivalSave {
-    if (!isOver(run)) return data;
+  /** `ended`: also count a lost or won run whose last reveal hasn't been read (it's being replaced). */
+  function withBest(data: SurvivalSave, run: SurvivalRun, ended = false): SurvivalSave {
+    if (!isOver(run) && !(ended && runStatus(run) !== 'playing')) return data;
     const score = runScore(run);
     const prev = data.best[run.ruleset];
     if (prev?.runId === run.id || !isBetter(score, prev)) return data;
@@ -122,7 +123,9 @@ export function createSurvivalStore(storage: StorageLike | null, key = SURVIVAL_
       const data = read();
       if (data.current && !isOver(data.current) && runStatus(data.current) === 'playing') return data.current;
       const recent = data.current ? [[...data.current.questionIds], ...data.recent].slice(0, RECENT_RUNS) : data.recent;
-      write({ ...data, current: run, recent, started: data.started + 1 });
+      // A finished run replaced before its last reveal was read still counts toward the best.
+      const kept = data.current ? withBest(data, data.current, true) : data;
+      write({ ...kept, current: run, recent, started: data.started + 1 });
       return run;
     },
     lock(runId, round, rec) {

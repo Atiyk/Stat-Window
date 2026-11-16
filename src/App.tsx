@@ -190,7 +190,7 @@ export function App() {
   };
 
   const openSurvival = () => {
-    if (offer.arm) track({ name: 'experiment', arm: offer.arm, step: 'click' });
+    if (offer.arm) trackOnce(`x:sv-cta:click:${today}`, today, { name: 'experiment', arm: offer.arm, step: 'click' });
     setSurvivalSource('cta');
     window.history.replaceState(null, '', '/?survival');
     setView('survival');
@@ -318,12 +318,7 @@ function Game(props: {
   const n = puzzleNumber(session.day);
   useEffect(() => {
     if (state.results.length === 0) {
-      const sent = trackOnce(`start:${playMode}:${session.kind}:${session.day}`, today, { name: 'run_start', mode: playMode });
-      // Experiment outcome: an official daily start, and whether it is a next-day return after an exposure.
-      if (sent && offer.arm && playMode === 'daily' && session.day === today) {
-        track({ name: 'experiment', arm: offer.arm, step: 'daily-start' });
-        if (exposedYesterday(props.storage, today)) track({ name: 'experiment', arm: offer.arm, step: 'next-day-start' });
-      }
+      trackOnce(`start:${playMode}:${session.kind}:${session.day}`, today, { name: 'run_start', mode: playMode });
     }
     // Only on mount of a fresh run.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -370,10 +365,22 @@ function Game(props: {
 
   const officialToday = playMode === 'daily' && session.day === today;
   const complete = state.phase === 'complete';
+  // Experiment outcome: today's official daily was started. The arm arrives after the pool
+  // check resolves, so this waits for it and has its own once-keys (not the run_start one).
+  const startedHere = useRef(state.results.length === 0);
+  useEffect(() => {
+    if (!offer.arm || !officialToday || !startedHere.current) return;
+    trackOnce(`x:sv-cta:start:${today}`, today, { name: 'experiment', arm: offer.arm, step: 'daily-start' });
+    if (exposedYesterday(props.storage, today)) {
+      trackOnce(`x:sv-cta:next:${today}`, today, { name: 'experiment', arm: offer.arm, step: 'next-day-start' });
+    }
+  }, [offer.arm, officialToday, props.storage, today]);
   // Experiment exposure: once per day, when today's official results are on screen (both arms).
   useEffect(() => {
     if (complete && officialToday && offer.arm && markExposed(props.storage, today)) {
       track({ name: 'experiment', arm: offer.arm, step: 'exposed' });
+      // Once per browser ever: the unit for the stop rule (200 browsers per arm).
+      trackOnce('x:sv-cta:first-exposure', today, { name: 'experiment', arm: offer.arm, step: 'first-exposure' });
     }
   }, [complete, officialToday, offer.arm, props.storage, today]);
 

@@ -2,7 +2,7 @@
 
 Daily Five stays the main game: five questions, once a day. Survival is the optional extra for chasing a personal best: 20 NBA questions, one life, replayable.
 
-**Status on 2026-11-16:** code is in `main`'s next release behind `VITE_SURVIVAL` (default `off`). With the flag off, the production bundle contains no Survival code at all (`e2e/survival.spec.ts` checks that no Survival chunk loads and no button appears). It must not be switched on before the pool passes the beta gate, projected for **2026-12-05 UTC** (see "Question supply").
+**Status on 2026-11-16:** code is in `main`'s next release behind `VITE_SURVIVAL` (default `off`). With the flag off, the Survival screens, the question catalog and the pool logic are left out of the production bundle and nothing Survival-related is reachable (`e2e/survival.spec.ts` checks that no Survival chunk loads and no button appears). A few kilobytes of shared code stay in the main bundle: the event path names, the experiment helper, the results-button text and `Round.tsx`'s optional Survival display. It must not be switched on before the pool passes the beta gate, projected for **2026-12-05 UTC** (see "Question supply").
 
 ## Rules (ruleset `sv1`, `src/survival/rules.ts`)
 
@@ -50,7 +50,7 @@ Two fairness rules in the picker (`src/survival/select.ts`):
 One selector, `eligiblePool()` in `src/survival/pool.ts`, runs in the browser against the real UTC date:
 - **Published Daily Five questions** only after their day is over (`day < today`). Never today's puzzle, never a future day, whatever the URL says. Only NBA days from the cutover on; the two mixed-sport launch days are excluded. A day file that is missing contributes nothing.
 - **Reserve facts** (26 in `data/nba/calendar.json`), which are reviewed but scheduled for no day.
-- **Leak holds.** `scripts/nba/survival.ts` scans every question's prompt, context, reveal and source quote for the printed answer of a related daily question (same season or same player). If it finds one, that question waits until the day after that daily has been played (`notBefore`). On today's data, 41 questions are held this way, including 5 reserves. The check is deliberately cautious, so some holds are false alarms; they cost a few days of supply, never a spoiler.
+- **Leak holds.** `scripts/nba/survival.ts` scans every question's prompt, context, reveal and source quote for the printed answer of a related daily question (same season, same player, or a text that names that daily's player by surname). If it finds one, that question waits until the day after that daily has been played (`notBefore`). On today's data, 42 questions are held this way, including 5 reserves; the critic found one the first version missed (reserve `nba-wilt61-78` reveals "breaking Baylor's 71", the 2026-11-22 answer), now held to 2026-11-23 and covered by a test. The check is cautious, so some holds are false alarms; they cost a few days of supply. It does not catch answers written as words ("seven") or a spoiler that names neither season nor player; editorial review still matters.
 - Rejected and quarantined facts are not in the calendar, so they never reach the catalog. Source attribution (Wikipedia, CC BY-SA 4.0) is shown on every reveal exactly as in the Daily Five.
 
 The catalog (`content/survival/catalog.json`) is generated from `data/nba` by `npm run survival:catalog`; CI fails when it is out of date (`npm run survival:catalog:check`). It also refuses a change that moves a reserve onto a Daily Five day, because once Survival is live a reserve may already have been seen. **Consequence for the owner:** after launch, the 26 reserves are spent as Daily Five backups. Emergency replacements for a broken daily question then need a newly written and verified fact.
@@ -63,8 +63,8 @@ Computed by the same function, with the tier counts the beta gate needs (per tie
 |---|---|---|---|---|---|---|---|
 | 2026-11-16 (today) | 21 | 0 | 10 | 9 | 2 | no | no |
 | 2026-11-17 (cutover) | 21 | 0 | 10 | 9 | 2 | no | no |
-| 2026-11-18 | 27 | 1 | 12 | 11 | 3 | no | no |
-| 2026-11-22 | 44 | 4 | 15 | 18 | 7 | yes | no |
+| 2026-11-18 | 26 | 1 | 11 | 11 | 3 | no | no |
+| 2026-11-22 | 43 | 4 | 14 | 18 | 7 | yes | no |
 | 2026-11-29 | 75 | 11 | 20 | 32 | 12 | yes | no |
 | 2026-12-04 | 98 | 16 | 25 | 41 | 16 | yes | no (total 98) |
 | **2026-12-05** | **104** | 17 | 27 | 43 | 17 | yes | **yes (first day)** |
@@ -88,7 +88,7 @@ Easy questions are the binding constraint: the reserve has none, so every easy q
 | `VITE_SURVIVAL` | What happens |
 |---|---|
 | unset / `off` | No Survival code in the bundle. `/?survival` opens the Daily Five. |
-| `preview` | `/?survival` opens Survival with a "Preview build" note. `&asof=YYYY-MM-DD` simulates a later UTC day, so the full pool can be tried today. Only for Vercel **Preview** deployments: `asof` can show questions from days that haven't been played. Preview runs send no events. |
+| `preview` | `/?survival` opens Survival with a "Preview build" note. `&asof=YYYY-MM-DD` simulates a later UTC day, so the full pool can be tried today. Only for Vercel **Preview** deployments: `asof` can show questions from days that haven't been played. A preview build never sends Survival events and keeps its runs under a separate key, with or without `asof`. |
 | `on` | Public. `/?survival` works and today's finished Daily Five results show a quiet "Try Survival: 20 rounds, one life" button, but **only while the pool passes the beta gate on that UTC day**; before that, `/?survival` shows "Not open yet" and no button appears. `asof` is ignored. |
 
 Limitation: the date comes from the player's device clock, as it does for the Daily Five. Someone who sets their clock forward can see later questions in either mode. All day files are public static files anyway (`docs/CONTENT.md`); the gate protects ordinary players from spoilers, not the content from a determined reader.
@@ -121,11 +121,11 @@ Built, off by default (`VITE_SURVIVAL_CTA_TEST=1`). It runs only when Survival i
 
 - **Assignment:** each browser, once, 50/50 at random, kept in `stat-window:x:survival-cta:v1`. A browser that can't store an arm sees the control screen and sends no experiment events.
 - **Treatment:** the quiet secondary button on today's results. **Control:** today's results unchanged. Everyone gets the same daily questions.
-- **Events:** `/e/x/survival-cta/{cta,control}/{exposed,click,daily-start,next-day-start,daily-share}`. `exposed` is once per browser per day when today's results are on screen; `next-day-start` is an official daily start by a browser that was exposed the day before.
-- **Primary outcome:** next-day participation = `next-day-start` ÷ `exposed` per arm, leaving out the last day of the range (its exposures have no tomorrow yet).
+- **Events:** `/e/x/survival-cta/{cta,control}/{exposed,first-exposure,click,daily-start,next-day-start,daily-share}`. `exposed` is once per browser per day when today's results are on screen (a browser-day); `first-exposure` is once per browser ever; `click` and `daily-start` are once per browser per day; `next-day-start` is an official daily start by a browser that was exposed the day before.
+- **Primary outcome:** next-day participation = `next-day-start` ÷ `exposed` per arm, per exposed browser-day. A Pages export covers one date range, so exposures on its last day and next-day starts on its first day are both cut off; over a range of two weeks or more these roughly cancel, but the rate is approximate.
 - **Secondary:** Survival starts and "again" restarts in the `cta` arm.
 - **Guardrail:** `daily-share` ÷ `exposed` must not drop in the `cta` arm.
-- **Stop rule:** at least 200 exposed browsers per arm, or two weeks, whichever is later. Report the raw counts and a 95% interval for the difference in proportions; with fewer than ~200 per arm, a difference smaller than about 10 points is noise. Don't declare a winner on less.
+- **Stop rule:** at least 200 browsers per arm (`first-exposure`), or two weeks, whichever is later. Report the raw counts and the readout's rough 95% interval for the difference. That interval treats each browser-day as independent, so it is too narrow when the same browsers come back many days; read it as a best case. With ~200 browsers per arm, differences under about 10 points are noise. Don't declare a winner on less.
 - **Not built:** fake social proof, countdowns, or anything that changes daily questions by arm.
 
 ## Release checklist for turning it on (owner decision)

@@ -32,10 +32,15 @@ function textOf(f: Fact): string {
   return [f.question.prompt, f.question.context, f.question.reveal, f.claim, f.source.quote, f.source.derivation ?? ''].join(' \n ');
 }
 
-/** Two facts are about the same thing when they share a season, or a named player. */
-function related(a: Fact, b: Fact): boolean {
+/**
+ * Two facts are about the same thing when they share a season or a player, or
+ * when `a`'s text names `b`'s player ("78, breaking Baylor's 71").
+ */
+export function related(a: Fact, b: Fact, text: string = textOf(a)): boolean {
   if (a.season && b.season && a.season === b.season) return true;
   if (a.player && b.player && a.player === b.player) return true;
+  const surname = b.player?.trim().split(/\s+/).at(-1);
+  if (surname && surname.length >= 3 && new RegExp(`\\b${surname.replace(/[^A-Za-z'’-]/g, '')}\\b`, 'i').test(text)) return true;
   return false;
 }
 
@@ -51,7 +56,7 @@ export function leakHorizon(f: Fact, scheduled: ReadonlyMap<string, string>, fac
   for (const g of facts) {
     if (g.id === f.id) continue;
     const day = scheduled.get(g.id);
-    if (!day || !related(f, g)) continue;
+    if (!day || !related(f, g, text)) continue;
     // 27 on a 0.1 scale is written "27.0" in the day file but "27" in prose: check both.
     const printed = leaksAnswer(text, g.answer, g.question.step) || (Number.isInteger(g.answer) && leaksAnswer(text, g.answer, 1));
     if (!printed) continue;

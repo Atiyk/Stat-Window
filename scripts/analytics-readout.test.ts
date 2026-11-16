@@ -47,8 +47,8 @@ describe('analytics readout', () => {
     expect(get('survival: survived round 5 per start').rate).toBe('50.0%');
     expect(get('survival: runs ending in rounds 5-8').numerator).toBe(35);
     expect(get('survival: ends that were inside but under the minimum').numerator).toBe(5);
-    expect(get('experiment cta: next-day daily start per exposure').rate).toBe('40.0%');
-    expect(get('experiment control: next-day daily start per exposure').rate).toMatch(/^not enough data/);
+    expect(get('experiment cta: next-day daily start per exposed browser-day').rate).toBe('40.0%');
+    expect(get('experiment control: next-day daily start per exposed browser-day').rate).toMatch(/^not enough data/);
   });
   it('gives an interval only with enough exposures per arm', () => {
     expect(diffInterval(10, 50, 5, 50)).toBeNull();

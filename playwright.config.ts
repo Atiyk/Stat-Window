@@ -2,7 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 
 // ANALYTICS_E2E=1 runs against a separate build with VITE_ANALYTICS=vercel (see e2e/analytics.spec.ts).
 // SURVIVAL_E2E=1 runs against two flagged builds: VITE_SURVIVAL=preview on 4175 and
-// VITE_SURVIVAL=on (analytics on, Vercel stubbed by the test) on 4176 (see e2e/survival.spec.ts).
+// VITE_SURVIVAL=on with the CTA experiment (analytics on, Vercel stubbed by the test) on 4176 (see e2e/survival.spec.ts).
 const ANALYTICS = !!process.env.ANALYTICS_E2E;
 const SURVIVAL = !!process.env.SURVIVAL_E2E;
 const PORT = ANALYTICS ? 4174 : SURVIVAL ? 4175 : 4173;
@@ -11,7 +11,7 @@ const BUILD = ANALYTICS
   : SURVIVAL
     ? `VITE_SURVIVAL=preview npx vite build --outDir dist-survival && npx vite preview --outDir dist-survival --port ${PORT} --strictPort`
     : `npm run build && npx vite preview --port ${PORT} --strictPort`;
-const SURVIVAL_ON = 'VITE_SURVIVAL=on VITE_ANALYTICS=vercel npx vite build --outDir dist-survival-on && npx vite preview --outDir dist-survival-on --port 4176 --strictPort';
+const SURVIVAL_ON = 'VITE_SURVIVAL=on VITE_SURVIVAL_CTA_TEST=1 VITE_ANALYTICS=vercel npx vite build --outDir dist-survival-on && npx vite preview --outDir dist-survival-on --port 4176 --strictPort';
 
 export default defineConfig({
   testDir: './e2e',

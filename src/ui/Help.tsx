@@ -29,6 +29,21 @@ export function Help({ open, onClose }: { open: boolean; onClose: () => void }) 
           <strong>Tighter pays more.</strong> A window one notch wide is worth 100. The whole ruler is worth 0. If the
           answer lands outside your window, that round scores 0.
         </p>
+        <ul className="help-examples">
+          <li data-kind="hit">
+            <span className="help-glyph" aria-hidden="true">✓</span>
+            <span>
+              <strong>Inside.</strong> Warriors’ wins: you framed 66–78, the answer was 73. That’s 54 points.
+            </span>
+          </li>
+          <li data-kind="miss">
+            <span className="help-glyph" aria-hidden="true">✕</span>
+            <span>
+              <strong>Outside.</strong> Phelps’ golds: you framed 10–16, the answer was 23. That’s 0, and the window is
+              shown hatched.
+            </span>
+          </li>
+        </ul>
         <table className="help-table">
           <caption>What a window is worth, if it’s right</caption>
           <tbody>

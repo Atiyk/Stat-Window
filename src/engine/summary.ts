@@ -37,6 +37,8 @@ export type PlayerStats = {
   best: number;
   streak: number;
   longest: number;
+  /** Completed days per 100-point band: 0–99, 100–199, 200–299, 300–399, 400–500. */
+  distribution: readonly number[];
 };
 
 const isComplete = (r: SavedRun | undefined) => (r?.results.length ?? 0) >= 5;
@@ -64,5 +66,6 @@ export function playerStats(runs: Readonly<Record<string, SavedRun>>, today: str
     best: totals.length ? Math.max(...totals) : 0,
     streak,
     longest,
+    distribution: [0, 1, 2, 3, 4].map((band) => totals.filter((t) => Math.min(4, Math.floor(t / 100)) === band).length),
   };
 }

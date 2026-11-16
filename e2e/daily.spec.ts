@@ -44,11 +44,16 @@ test('a full daily run scores every round, saves, and shares without spoilers', 
   await expect(page.locator('.recap-row')).toHaveCount(5);
 
   if (browserName === 'chromium' && test.info().project.name === 'desktop') {
-    await page.getByRole('button', { name: 'Share result' }).click();
+    await page.getByRole('button', { name: 'Challenge a friend' }).click();
     const shared = await page.evaluate(() => navigator.clipboard.readText());
-    expect(shared).toBe(`Stat Window No. 1  274/500\n🟩🟧⬛🟩🟩\n${new URL(page.url()).origin}`);
+    const origin = new URL(page.url()).origin;
+    expect(shared).toBe(
+      `Stat Window No. 1  274/500\n🟩🟧⬛🟩🟩\nSame five questions. Can you beat 274?\n${origin}/?day=2026-11-15&vs=274`,
+    );
     // Spoiler-free: no answer appears in the share text.
-    for (const answer of ['73', '23', '92', '138', '2632', '2,632']) expect(shared.split('\n')[1]).not.toContain(answer);
+    for (const answer of ['73', '23', '92', '138', '2632', '2,632']) {
+      for (const line of shared.split('\n').slice(1, 3)) expect(line).not.toContain(answer);
+    }
   }
 
   // Returning later the same day opens straight to the results.
@@ -103,7 +108,7 @@ test('practice on an earlier day does not touch the daily record', async ({ page
     await next(page);
   }
   await expect(page.locator('.results-head')).toContainText('not counted');
-  await page.getByRole('button', { name: 'Back to today' }).click();
+  await page.getByRole('button', { name: 'Play today’s puzzle' }).click();
   await expect(page.locator('.stats')).toContainText('Played1');
 });
 

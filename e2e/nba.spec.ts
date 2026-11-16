@@ -17,7 +17,7 @@ for (const when of [NBA_FIRST, NBA_MIDDLE, NBA_LAST]) {
       await expect(page.locator('.round-meta')).toContainText(`Round ${i + 1} of 5 · ${LADDER[i]}`);
       await expect(page.locator('.context')).toContainText('NBA ·');
       await lockAndSettle(page);
-      const href = await page.locator('.story-source a').getAttribute('href');
+      const href = await page.locator('.story-source a').first().getAttribute('href');
       expect(new URL(href!).host).toBe('en.wikipedia.org');
       await expect(page.locator('.story-source')).toContainText('Wikipedia contributors (CC BY-SA 4.0)');
       await next(page);

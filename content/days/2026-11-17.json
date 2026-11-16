@@ -73,7 +73,7 @@
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-        "quote": "Chamberlain made 36 of 63 field-goals and 28 of 32 free throws"
+        "quote": "Chamberlain made … 28 of 32 free throws"
       },
       "verified": {
         "on": "2026-11-16",
@@ -109,8 +109,8 @@
     {
       "id": "nba-wilt62-minutes",
       "sport": "NBA",
-      "prompt": "In 1961–62 Wilt played how many total minutes? (80 games of 48 minutes is 3,840.)",
-      "context": "Philadelphia Warriors · 1961–62 regular season",
+      "prompt": "In 1961–62 Wilt played how many total minutes?",
+      "context": "Philadelphia Warriors · 1961–62 · 80 games",
       "answer": 3882,
       "unit": {
         "singular": "minute",

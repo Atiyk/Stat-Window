@@ -18,7 +18,7 @@ Generated from data/nba by `npm run nba:report`. Cutover: 2026-11-17. Slots clim
 | 12 | 2026-11-28 | story | **Rock bottom** · The NBA's worst seasons | sixers73-wins (9); bobcats12-wins (7); sixers73-games-back (59); bobcats12-losing-streak (23); sixers14-losing-streak (26) |
 | 13 | 2026-11-29 | franchise | **Stockton to Malone** · Utah Jazz, 1984–2003 | stockton90-apg (14.5); stockton-malone-games (1412); stockton-missed (22); stockton91-28 (28); malone-playoff-games (193) |
 | 14 | 2026-11-30 | story | **Down 3–1** · 2016 Finals, Cleveland vs Golden State | cavs16-g5-41 (41); lebron16-finals-ppg (29.7); green16-g7 (32); kerr16-games-missed (43); finals16-610 (610) |
-| 15 | 2026-12-01 | story | **Kareem and the Big O** · Milwaukee, 1970–71 | bucks71-wins (66); alcindor71-ppg (31.7); bucks71-streak (20); oscar71-apg (8.3); kareem89-retire-age (42) |
+| 15 | 2026-12-01 | story | **Kareem and the Big O** · Milwaukee, 1970–71 | bucks71-wins (66); alcindor71-ppg (31.7); bucks71-streak (20); oscar71-apg (8); kareem89-retire-age (42) |
 | 16 | 2026-12-02 | team-season | **The Big Three's first year** · Boston, 2007–08 | celtics08-wins (66); celtics07-losing-streak (18); celtics08-playoff-games (26); celtics08-g6-margin (39); powe08-g2 (21) |
 | 17 | 2026-12-03 | story | **Clocks, rules and oddities** · Before and after the shot clock | shot-clock-24 (24); pistons50-19-18 (19); offensive-rebound-reset (14); six-overtime-game (6); hawks-wizards-45-ft (45) |
 | 18 | 2026-12-04 | franchise | **Silver and black** · San Antonio, 1989–2003 | robinson94-71 (71); spurs90-improvement (35); spurs97-wins (20); duncan03-g6-blocks (8); spurs99-playoff-streak (12) |

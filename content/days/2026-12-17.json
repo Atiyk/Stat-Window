@@ -109,7 +109,7 @@
     {
       "id": "nba-sixers83-playoff-wins",
       "sport": "NBA",
-      "prompt": "The 1983 Sixers lost only once in the playoffs. How many playoff games did they win?",
+      "prompt": "How many playoff games did the 1983 Sixers win on the way to the title?",
       "context": "Philadelphia 76ers · 1983 playoffs",
       "answer": 12,
       "unit": {
@@ -119,7 +119,7 @@
       "min": 4,
       "max": 17,
       "step": 1,
-      "note": "12, going 12–1.",
+      "note": "12, losing only once.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",

@@ -84,21 +84,22 @@
     {
       "id": "nba-oscar71-apg",
       "sport": "NBA",
-      "prompt": "In his first Bucks season, how many assists per game did Oscar Robertson average?",
+      "prompt": "In his first Bucks season, about how many assists per game did Oscar Robertson average, to the nearest whole number?",
       "context": "Milwaukee Bucks · 1970–71",
-      "answer": 8.3,
+      "answer": 8,
       "unit": {
         "singular": "assist per game",
         "plural": "assists per game"
       },
-      "min": 4,
-      "max": 14.5,
-      "step": 0.1,
-      "note": "8.3, third in the league.",
+      "min": 2,
+      "max": 14,
+      "step": 1,
+      "note": "About 8: the text says 8.3, the season table 8.25.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-        "quote": "Robertson ranked third in the league in assists at 8.3 apg and was the Bucks' No. 2 scorer at 19.4 ppg."
+        "quote": "Robertson ranked third in the league in assists at 8.3 apg and was the Bucks' No. 2 scorer at 19.4 ppg.",
+        "derivation": "The article’s text says 8.3; its season table gives 668 assists in 81 games, 8.25. Either way, 8 to the nearest whole number."
       },
       "verified": {
         "on": "2026-11-16",

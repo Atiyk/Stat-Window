@@ -237,8 +237,17 @@ export function Round({ state, dispatch, label, level, theme, showHint, challeng
           <p className="story-source">
             Source:{' '}
             <a href={q.source.url} target="_blank" rel="noopener noreferrer">
-              {q.source.name}
+              {q.source.name.replace(/ \(CC BY-SA 4\.0\)$/, '')}
             </a>
+            {/ \(CC BY-SA 4\.0\)$/.test(q.source.name) && (
+              <>
+                {' ('}
+                <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">
+                  CC BY-SA 4.0
+                </a>
+                {')'}
+              </>
+            )}
             {q.source.derivation ? ` (${q.source.derivation})` : ''}
           </p>
         </section>

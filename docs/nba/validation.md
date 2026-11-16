@@ -40,7 +40,7 @@ All gates pass: 0 errors.
 | daily_slate_questions | 250 |
 
 Integrity: integrity_check ok, no foreign-key violations, every fact verified and sourced.
-Canonical dump sha256 (status as of 2026-11-16): `60829e5ba9284f3e0ab759394106eda6dfcf809eea60283eeb99ee22181122c8`.
+Canonical dump sha256 (status as of 2026-11-16): `ea003fd928aa22c7a4f5ec2f0d107a9b011fc25788c25ec86f09fde7210a981a`.
 
 ## Difficulty
 
@@ -67,15 +67,15 @@ Where each answer sits on its scale (0 = min, 9 = top tenth). A flat spread mean
 |---|---|
 | 1 | 7 |
 | 2 | 31 |
-| 3 | 55 |
+| 3 | 54 |
 | 4 | 42 |
-| 5 | 21 |
+| 5 | 22 |
 | 6 | 55 |
-| 7 | 46 |
-| 8 | 19 |
+| 7 | 45 |
+| 8 | 20 |
 
-Share of answers in the middle fifth: 24.3% (gate: at most 35%).
-Simulated "always centre the window" player: mean 47.81 points per question, best 89 (gate: no question above 90).
+Share of answers in the middle fifth: 24.6% (gate: at most 35%).
+Simulated "always centre the window" player: mean 47.93 points per question, best 89 (gate: no question above 90).
 Every answer sits strictly inside its scale and at least 8% away from either end; every scale has 5–400 whole steps.
 
 ## Editorial balance, by week

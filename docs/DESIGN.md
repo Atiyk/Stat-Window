@@ -43,3 +43,15 @@ All motion is transform/opacity, interruptible where the user can act, and under
 
 ## Borrowed principles (not assets)
 From the Playlin chart: one hero interaction per screen (Size It Up), a metaphor that turns score into a place (Krillion's depth; here, the window on the ruler), 5 × 100 = 500 legibility (Size It Up, Hundo), a "lock it in" ritual (Hundo), a spoiler-free share. Range Squeeze uses the same low/high mechanic; Stat Window differs with sports-only verified facts, per-question real units and scales, a steep payoff curve, the caliper interaction, and the travelling reveal.
+
+## Ideas taken from the owner's five reference games (16 November 2026)
+Read from the live pages of Krillion, People, Size It Up, Layers and Waffle. Several of these are client-rendered, so only their static text could be read.
+- **Waffle's stats screen** led to "Your days": the player's own score distribution in 100-point bands, with today's band marked, plus their longest run. It's computed only from this browser's saved days, so nothing is invented.
+- **Waffle's how-to, which gives an example for each state,** led to the help panel's worked hit and miss examples, with the same ✓ and ✕ shapes the game uses.
+- **Already present:** Size It Up's five rounds of 100, the lock-in reveal and the scoring table; Layers' browser-only stats with copy-to-share; Krillion's "same for everyone" daily and archive.
+- **Not taken:**
+  - accounts and sign-in (Krillion, Layers, Waffle);
+  - ad-unlocked hints and archives (Layers, Waffle);
+  - paid streak protection (Layers);
+  - a local-midnight reset option (Waffle), which would break "the same five for everyone".
+

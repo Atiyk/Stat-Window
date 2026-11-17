@@ -40,3 +40,7 @@ The Vercel project builds `main` with `npm run build` and serves `dist/` (see `v
 - Future slates are public files in a static site. Fine for a free game; move slates behind an edge function before offering prizes.
 - The game launched with mixed-sport days (2026-11-15 and 11-16; they stay playable from the archive and by link). From the NBA cutover in `data/nba/calendar.json` it is NBA-only: 50 themed days built from a checked fact database in `data/nba` (see [docs/CONTENT.md](docs/CONTENT.md) and [docs/NBA_DATA_RIGHTS.md](docs/NBA_DATA_RIGHTS.md)). After the last day the game says there's no new puzzle until more are published.
 - Analytics are off until the owner enables Vercel Web Analytics and sets `VITE_ANALYTICS=vercel` (see docs/MEASUREMENT.md).
+
+## Adding questions in any sport
+
+All new content requests use the [Question Factory](docs/QUESTION-FACTORY.md). Start with `npm run factory -- init --sport NBA --topic "2019 Raptors"`, research and source the facts, then `generate`, independent editorial review, `check`, and `plan`. This is **sport-agnostic** (NBA, NFL, MLB, soccer, etc.) but staged only; it never rewrites published puzzles or skips the established publisher. Agents must follow [AGENTS.md](AGENTS.md). No additional paid tools are required.

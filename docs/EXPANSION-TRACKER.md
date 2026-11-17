@@ -12,8 +12,8 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: **20/50** additional consecutive NBA days (Jan6–Jan25), **100/250** new NBA questions generated; **30** further dates (Jan26–Feb24) and **150** unique questions remain.
-- [ ] Three-variant coverage: **146/510** question sets and **438/1530** independently sourced bonus variants **generated** (latest audit includes one previously covered historic question); **364** question sets / **1,092** variants remain.
+- [ ] Expansion: **20/50** NBA days (Jan 6–Jan 25) generated, **100/250** new NBA questions; **21st day (Jan 26: Barkley's 1993 Phoenix Suns)** newly source-authored with five distinct questions and 15 variants, awaiting publication/CI. **29** other new days/145 questions remain.
+- [ ] Three-variant coverage: **151/510** question sets and **453/1530** source-authored trivia variants; **146/438** generated, five new Phoenix sets/15 variants pending publisher. **359** question sets / **1,077** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -33,7 +33,7 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete remaining 364 three-variant sets and 30 new NBA days in verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete the remaining 359 trivia sets and 29 extra NBA days with primary-source review and regression testing. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
 ## Runbook for next source-verification batch
 - Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
 - Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
@@ -176,3 +176,6 @@ Free editorial generator run `44009601630` completed successfully and generated 
 
 ## Kobe Survival reserve spoiler fixed and regenerated
 CI `44009734129` correctly rejected a 2010 Finals bonus fact with numerical `23`, matching the answer to an unplayed Kobe reserve. The fact was reworded to reference the Lakers' offensive rebounding without the reserve answer. Standard free generator run `44009838431` succeeded, the updated `content/days/2026-11-27.json` has three sourced variants for each question, and NBA database report still shows 0 errors for 70 days / 350 NBA scheduled questions. This connector checkpoint triggers exact full CI, including the strict bonus fact/reserve audit. Do not merge/publish before it is verified.
+
+## January 26 Phoenix 1992–93 — editorial source batch
+Created five new questions for Barkley's Suns (62 regular-season wins; 14-game December streak; Barkley's 12.1 RPG; Dan Majerle's 167 made threes; the Suns' 98 in the 1993 Finals Game 6). Wrote 15 independent contextual facts with explicit supporting excerpts from the Wikipedia 1992–93 Suns season and 1993 Finals articles. Verified neither canonical IDs nor answers duplicate existing Phoenix facts, checked ranges against midpoint scoring and in-slate numerical spoilers, and preserved previous daily scoring data. Source authored only until free generator produces the January 26 daily file and exact GitHub CI passes.

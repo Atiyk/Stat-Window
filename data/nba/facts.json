@@ -17706,5 +17706,320 @@
         }
       ]
     }
+  },
+  {
+    "id": "nba-suns93-regular-wins",
+    "family": "wins-season",
+    "scope": "regular-season",
+    "season": "1992-93",
+    "eventDate": null,
+    "franchise": "PHX",
+    "player": null,
+    "answer": 62,
+    "unit": {
+      "singular": "win",
+      "plural": "wins"
+    },
+    "claim": "62 wins and the top seed in the West.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+      "quote": "league-best 62–20 record",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many regular-season games did Charles Barkley's 1992–93 Suns win?",
+      "context": "Phoenix Suns · 1992–93 · regular season",
+      "reveal": "62 wins and the top seed in the West.",
+      "min": 32,
+      "max": 82,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "The league-leading MVP Suns record is memorable and estimable.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 4
+      },
+      "funFacts": [
+        {
+          "text": "Barkley came from Philadelphia in a blockbuster offseason trade.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "the Suns acquiring controversial All-Star power forward Charles Barkley from the Philadelphia 76ers"
+          }
+        },
+        {
+          "text": "Phoenix moved into America West Arena, which had seating for 19,023.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "their new arena, the America West Arena, which had a seating capacity of 19,023"
+          }
+        },
+        {
+          "text": "The Suns introduced the Streaking Sun logo and new uniforms that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "the logo would be known as the \"Streaking Sun\" logo"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-suns93-december-win-streak",
+    "family": "win-streak",
+    "scope": "regular-season",
+    "season": "1992-93",
+    "eventDate": null,
+    "franchise": "PHX",
+    "player": null,
+    "answer": 14,
+    "unit": {
+      "singular": "game",
+      "plural": "games"
+    },
+    "claim": "14 straight wins during an undefeated month.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+      "quote": "posted a 14-game winning streak in December; the team posted a 14–0 record that month",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many consecutive games did Phoenix win during December in its Barkley MVP season?",
+      "context": "Phoenix Suns · December winning streak",
+      "reveal": "14 straight wins during an undefeated month.",
+      "min": 4,
+      "max": 34,
+      "step": 1,
+      "difficulty": "medium",
+      "difficultyReason": "An unusual month-long streak with a guessable range.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 4,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Phoenix started 7–4 before the team caught fire in December.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "the Suns got off to a 7–4 start to the regular season"
+          }
+        },
+        {
+          "text": "The Suns reached the All-Star break at 38–10.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "held a 38–10 record at the All-Star break"
+          }
+        },
+        {
+          "text": "Another 11-game winning streak came between March and April.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "posted an 11-game winning streak between March and April"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-barkley93-suns-rpg",
+    "family": "rebounds-average",
+    "scope": "regular-season",
+    "season": "1992-93",
+    "eventDate": null,
+    "franchise": "PHX",
+    "player": "Charles Barkley",
+    "answer": 12.1,
+    "unit": {
+      "singular": "rebound per game",
+      "plural": "rebounds per game"
+    },
+    "claim": "12.1 rebounds a night in an all-around MVP campaign.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+      "quote": "Barkley averaged 25.6 points, 12.1 rebounds, 5.1 assists and 1.6 steals per game",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "What was Charles Barkley's rebounding average during his Suns MVP season?",
+      "context": "Charles Barkley · Phoenix Suns · 1992–93",
+      "reveal": "12.1 rebounds a night in an all-around MVP campaign.",
+      "min": 5,
+      "max": 21,
+      "step": 0.1,
+      "difficulty": "hard",
+      "difficultyReason": "Fans know Barkley as a great rebounder but the exact decimal is hard.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Barkley also averaged 25.6 points and 5.1 assists per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "Barkley averaged 25.6 points, 12.1 rebounds, 5.1 assists"
+          }
+        },
+        {
+          "text": "He earned All-NBA First Team honors and won the league's MVP award.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "and was named to the All-NBA First Team, and was named the NBA Most Valuable Player of the Year"
+          }
+        },
+        {
+          "text": "Phoenix came back from a 2–0 deficit against the Lakers in the first playoff round.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+            "quote": "the Suns fell down 2–0 to the Los Angeles Lakers before rallying to defeat them in five games"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-majerle93-three-pointers",
+    "family": "threes-season",
+    "scope": "regular-season",
+    "season": "1992-93",
+    "eventDate": null,
+    "franchise": "PHX",
+    "player": "Dan Majerle",
+    "answer": 167,
+    "unit": {
+      "singular": "made three-pointer",
+      "plural": "made three-pointers"
+    },
+    "claim": "167 made threes, tying for the league lead.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+      "quote": "finished tied in first place in the league with 167 three-point field goals",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many three-pointers did Dan Majerle make during the Suns' 1992–93 season?",
+      "context": "Dan Majerle · regular-season three-point shooting",
+      "reveal": "167 made threes, tying for the league lead.",
+      "min": 60,
+      "max": 260,
+      "step": 1,
+      "difficulty": "hard",
+      "difficultyReason": "A pre-modern threes total is less predictable, with meaningful era context.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Majerle averaged 16.9 points and 1.7 steals a game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "Dan Majerle averaged 16.9 points and 1.7 steals per game"
+          }
+        },
+        {
+          "text": "He was named to the NBA's All-Defensive Second Team.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "was named to the NBA All-Defensive Second Team"
+          }
+        },
+        {
+          "text": "Reserve guard Danny Ainge also made 150 threes during the same season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "Ainge contributed 11.8 points per game and 150 three-point field goals, also off the bench"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-suns93-finals-g6-points",
+    "family": "points-team-game",
+    "scope": "finals",
+    "season": "1992-93",
+    "eventDate": null,
+    "franchise": "PHX",
+    "player": null,
+    "answer": 98,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "98 points, before a late Chicago three clinched the title.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+      "quote": "John Paxson's game-winning 3-pointer that gave them a 99–98 victory in Game 6",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many points did Phoenix score in the deciding Game 6 of the 1993 NBA Finals?",
+      "context": "Phoenix Suns vs Chicago Bulls · Finals Game 6",
+      "reveal": "98 points, before a late Chicago three clinched the title.",
+      "min": 65,
+      "max": 143,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A championship series' exact closing score is specialist knowledge.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "John Paxson's late three-pointer clinched the championship for Chicago.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+            "quote": "John Paxson's game-winning 3-pointer"
+          }
+        },
+        {
+          "text": "It was Phoenix's second NBA Finals appearance, after its first in 1976.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+            "quote": "It was the Suns' second NBA finals appearance since 1976"
+          }
+        },
+        {
+          "text": "Phoenix reached the Finals by defeating Seattle in a seven-game Western final.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+            "quote": "the conference finals they beat the Seattle SuperSonics in seven"
+          }
+        }
+      ]
+    }
   }
 ]

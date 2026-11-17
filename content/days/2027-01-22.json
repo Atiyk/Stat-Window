@@ -1,0 +1,265 @@
+{
+  "date": "2027-01-22",
+  "theme": {
+    "title": "CP3's New Orleans",
+    "subtitle": "New Orleans Hornets, 2007–08",
+    "recap": "Back home after Hurricane Katrina, the Hornets had a breakthrough season before a seven-game Spurs battle."
+  },
+  "questions": [
+    {
+      "id": "nba-hornets08-season-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did Chris Paul's 2007–08 Hornets win?",
+      "context": "New Orleans · first full season back in the city",
+      "answer": 56,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 23,
+      "max": 82,
+      "step": 1,
+      "note": "56 wins and a Southwest Division title.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+        "quote": "Record | 56–26 (.683)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy",
+      "funFacts": [
+        {
+          "text": "The Hornets returned full-time to New Orleans after two seasons partly in Oklahoma City.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "They returned to New Orleans full-time for the first time since 2004–05"
+          }
+        },
+        {
+          "text": "Byron Scott coached the franchise through its resurgence.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Head coach | Byron Scott"
+          }
+        },
+        {
+          "text": "The team finished second in the Western Conference standings.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Conference: 2nd (Western)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-paul08-regular-apg",
+      "sport": "NBA",
+      "prompt": "How many assists per game did Chris Paul average for New Orleans in 2008?",
+      "context": "Hornets · 2007–08 regular season",
+      "answer": 11.6,
+      "unit": {
+        "singular": "assist per game",
+        "plural": "assists per game"
+      },
+      "min": 5,
+      "max": 22,
+      "step": 0.1,
+      "note": "11.6 assists per game from the young star.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+        "quote": "Chris Paul | 80 | 80 | 37.6 | .488 | .369 | .851 | 4.0 | 11.6"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Paul also averaged 2.71 steals per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Chris Paul | 80 | 80 | 37.6 | .488 | .369 | .851 | 4.0 | 11.6 | 2.71"
+          }
+        },
+        {
+          "text": "He started all eighty regular-season games he played.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Chris Paul | 80 | 80 | 37.6"
+          }
+        },
+        {
+          "text": "His free-throw percentage was 85.1 percent.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Chris Paul | 80 | 80 | 37.6 | .488 | .369 | .851"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-chandler08-regular-rpg",
+      "sport": "NBA",
+      "prompt": "How many rebounds did Tyson Chandler average for the 2008 Hornets?",
+      "context": "New Orleans · 2007–08 regular season",
+      "answer": 11.7,
+      "unit": {
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
+      },
+      "min": 5,
+      "max": 27,
+      "step": 0.1,
+      "note": "11.7 rebounds per game with elite interior defense.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+        "quote": "Tyson Chandler | 79 | 79 | 35.2 | .623 | .000 | .593 | 11.7"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Chandler converted 62.3 percent of his field goals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Tyson Chandler | 79 | 79 | 35.2 | .623"
+          }
+        },
+        {
+          "text": "He started each of his seventy-nine regular-season appearances.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Tyson Chandler | 79 | 79"
+          }
+        },
+        {
+          "text": "Chandler averaged 11.8 points alongside the rebounding.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Tyson Chandler | 79 | 79 | 35.2 | .623 | .000 | .593 | 11.7 | 1.0 | .57 | 1.06 | 11.8"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-west08-season-ppg",
+      "sport": "NBA",
+      "prompt": "What was David West's scoring average on the 2007–08 Hornets?",
+      "context": "New Orleans · regular-season offense",
+      "answer": 20.6,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 9,
+      "max": 43,
+      "step": 0.1,
+      "note": "20.6 points per game next to Chris Paul.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+        "quote": "David West | 76 | 76 | 37.8 | .482 | .240 | .850 | 8.9 | 2.3 | .82 | 1.30 | 20.6"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "West grabbed 8.9 rebounds per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "David West | 76 | 76 | 37.8 | .482 | .240 | .850 | 8.9"
+          }
+        },
+        {
+          "text": "He made eighty-five percent of his foul shots.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "David West | 76 | 76 | 37.8 | .482 | .240 | .850"
+          }
+        },
+        {
+          "text": "West scored thirty in the first second-round victory over San Antonio.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "May 3 San Antonio 101–82 West (30)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-hornets08-spurs-g7-points",
+      "sport": "NBA",
+      "prompt": "How many points did the Hornets score in Game 7 against the 2008 Spurs?",
+      "context": "New Orleans · Western semifinals · elimination",
+      "answer": 82,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 45,
+      "max": 138,
+      "step": 1,
+      "note": "82 points in their season-ending loss.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+        "quote": "May 19 San Antonio 82–91 West (20) Chandler (15) Paul (14)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "New Orleans had led the series three games to two.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "May 13 San Antonio 101–79 West (38) West (14) Paul (14)"
+          }
+        },
+        {
+          "text": "Tyson Chandler grabbed fifteen rebounds in the decider.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "May 19 San Antonio 82–91 West (20) Chandler (15)"
+          }
+        },
+        {
+          "text": "Chris Paul supplied fourteen assists even in defeat.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "May 19 San Antonio 82–91 West (20) Chandler (15) Paul (14)"
+          }
+        }
+      ]
+    }
+  ]
+}

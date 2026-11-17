@@ -1,0 +1,265 @@
+{
+  "date": "2027-01-18",
+  "theme": {
+    "title": "Bird vs the Bulls",
+    "subtitle": "Indiana Pacers, 1997–98",
+    "recap": "Larry Bird transformed the Pacers and forced Michael Jordan's Bulls to a seventh game."
+  },
+  "questions": [
+    {
+      "id": "nba-pacers98-season-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did Larry Bird's 1998 Pacers win?",
+      "context": "Indiana · Bird's rookie coaching year",
+      "answer": 58,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 28,
+      "max": 82,
+      "step": 1,
+      "note": "58 wins in Bird's first coaching season.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+        "quote": "58–24 record"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy",
+      "funFacts": [
+        {
+          "text": "Larry Bird became Indiana's coach before this season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "hired former Indiana State University, and Boston Celtics All-Star legend Larry Bird as their new head coach"
+          }
+        },
+        {
+          "text": "The Pacers acquired Chris Mullin from Golden State.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "acquired All-Star forward Chris Mullin from the Golden State Warriors"
+          }
+        },
+        {
+          "text": "Indiana drafted Providence forward Austin Croshere twelfth overall.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "received the twelfth overall pick in the 1997 NBA draft"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-pacers98-road-wins",
+      "sport": "NBA",
+      "prompt": "How many away games did Indiana win during the 1997–98 regular season?",
+      "context": "Pacers · Larry Bird's first year",
+      "answer": 26,
+      "unit": {
+        "singular": "road win",
+        "plural": "road wins"
+      },
+      "min": 6,
+      "max": 40,
+      "step": 1,
+      "note": "26 road victories, a franchise milestone.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+        "quote": "26–15 road record"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Indiana lost five of its first seven games before finding form.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "losing five of their first seven games of the regular season"
+          }
+        },
+        {
+          "text": "The Pacers rebounded by winning fifteen of the next eighteen games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "winning 15 of their next 18 games"
+          }
+        },
+        {
+          "text": "Bird won Coach of the Year after a huge team turnaround.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Bird was named the NBA Coach of the Year"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-jackson98-regular-apg",
+      "sport": "NBA",
+      "prompt": "What was Mark Jackson's assists-per-game average for the 1998 Pacers?",
+      "context": "Indiana · 1997–98 regular season",
+      "answer": 8.7,
+      "unit": {
+        "singular": "assist per game",
+        "plural": "assists per game"
+      },
+      "min": 3,
+      "max": 19,
+      "step": 0.1,
+      "note": "8.7 assists per game from Indiana's veteran point guard.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+        "quote": "Mark Jackson | PG | 82 | 82 | 2,413 | 322 | 713 | 84 | 2 | 678 | 29.4 | 3.9 | 8.7"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Jackson distributed 713 assists in the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Mark Jackson | PG | 82 | 82 | 2,413 | 322 | 713"
+          }
+        },
+        {
+          "text": "He started all eighty-two regular-season games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Mark Jackson | PG | 82 | 82"
+          }
+        },
+        {
+          "text": "Jalen Rose played every game without making a single start.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Jalen Rose | SF | 82 | 0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-miller98-season-ppg",
+      "sport": "NBA",
+      "prompt": "How many points per game did Reggie Miller average in 1997–98?",
+      "context": "Pacers · season before Michael Jordan's final Bulls title",
+      "answer": 19.5,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 9,
+      "max": 42,
+      "step": 0.1,
+      "note": "19.5 points per game from Indiana's leading scorer.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+        "quote": "Reggie Miller | SG | 81 | 81 | 2,795 | 232 | 171 | 78 | 11 | 1,578 | 34.5 | 2.9 | 2.1 | 1.0 | .1 | 19.5"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Miller scored 1,578 points during the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Reggie Miller | SG | 81 | 81 | 2,795 | 232 | 171 | 78 | 11 | 1,578"
+          }
+        },
+        {
+          "text": "He spent 34.5 minutes per game on the floor.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Reggie Miller | SG | 81 | 81 | 2,795 | 232 | 171 | 78 | 11 | 1,578 | 34.5"
+          }
+        },
+        {
+          "text": "Miller led Indiana with twenty-eight points in the East finals' Game 3.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "May 23, 1998 Chicago W 107–105 Miller (28)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-smits98-bulls-g4-points",
+      "sport": "NBA",
+      "prompt": "How many points did Rik Smits score in Game 4 against the 1998 Bulls?",
+      "context": "Indiana · Eastern finals · home victory",
+      "answer": 26,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 12,
+      "max": 76,
+      "step": 1,
+      "note": "26 points in a dramatic two-point win.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+        "quote": "May 25, 1998 Chicago W 96–94 Smits (26)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "The Pacers won Game 4 by just two points at home.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "May 25, 1998 Chicago W 96–94"
+          }
+        },
+        {
+          "text": "Chris Mullin led Indiana with nine rebounds that night.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "May 25, 1998 Chicago W 96–94 Smits (26) Mullin (9)"
+          }
+        },
+        {
+          "text": "The Pacers won all three home games in that East final but none in Chicago.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Eastern Conference finals: 3–4 (home: 3–0; road: 0–4)"
+          }
+        }
+      ]
+    }
+  ]
+}

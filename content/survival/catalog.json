@@ -721,7 +721,10 @@
       "era": "2000s",
       "steps": 58,
       "day": "2026-12-02",
-      "notBefore": "2026-12-03"
+      "notBefore": "2027-01-23",
+      "leaks": [
+        "nba-hornets08-spurs-g7-points"
+      ]
     },
     "nba-celtics07-losing-streak": {
       "tier": "medium",
@@ -1172,7 +1175,10 @@
       "era": "2000s",
       "steps": 50,
       "day": "2026-12-11",
-      "notBefore": "2026-12-12"
+      "notBefore": "2027-01-23",
+      "leaks": [
+        "nba-hornets08-spurs-g7-points"
+      ]
     },
     "nba-knicks70-streak": {
       "tier": "easy",
@@ -1598,9 +1604,10 @@
       "era": "2010s",
       "steps": 30,
       "day": "2026-12-21",
-      "notBefore": "2026-12-22",
+      "notBefore": "2027-01-22",
       "leaks": [
-        "nba-spurs14-finals-margin"
+        "nba-spurs14-finals-margin",
+        "nba-spurs14-march-wins"
       ]
     },
     "nba-spurs14-international": {
@@ -1980,7 +1987,10 @@
       "era": "2000s",
       "steps": 50,
       "day": "2026-12-29",
-      "notBefore": "2026-12-30"
+      "notBefore": "2027-01-20",
+      "leaks": [
+        "nba-bibby02-regular-apg"
+      ]
     },
     "nba-celtics02-4q": {
       "tier": "medium",
@@ -2945,6 +2955,303 @@
       "steps": 34,
       "day": "2027-01-17",
       "notBefore": "2027-01-18"
+    },
+    "nba-pacers98-season-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "IND",
+      "era": "1990s",
+      "steps": 54,
+      "day": "2027-01-18",
+      "notBefore": "2027-01-19"
+    },
+    "nba-pacers98-road-wins": {
+      "tier": "medium",
+      "family": "wins-situational",
+      "franchise": "IND",
+      "era": "1990s",
+      "steps": 34,
+      "day": "2027-01-18",
+      "notBefore": "2027-01-19",
+      "leaks": [
+        "nba-smits98-bulls-g4-points"
+      ]
+    },
+    "nba-jackson98-regular-apg": {
+      "tier": "hard",
+      "family": "assists-average",
+      "franchise": "IND",
+      "era": "1990s",
+      "steps": 160,
+      "day": "2027-01-18",
+      "notBefore": "2027-01-19"
+    },
+    "nba-miller98-season-ppg": {
+      "tier": "hard",
+      "family": "scoring-average",
+      "franchise": "IND",
+      "era": "1990s",
+      "steps": 330,
+      "day": "2027-01-18",
+      "notBefore": "2027-01-19"
+    },
+    "nba-smits98-bulls-g4-points": {
+      "tier": "expert",
+      "family": "points-game",
+      "franchise": "IND",
+      "era": "1990s",
+      "steps": 64,
+      "day": "2027-01-18",
+      "notBefore": "2027-01-19",
+      "leaks": [
+        "nba-pacers98-road-wins"
+      ]
+    },
+    "nba-kings02-regular-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "SAC",
+      "era": "2000s",
+      "steps": 52,
+      "day": "2027-01-19",
+      "notBefore": "2027-01-20"
+    },
+    "nba-kings02-home-wins": {
+      "tier": "medium",
+      "family": "wins-situational",
+      "franchise": "SAC",
+      "era": "2000s",
+      "steps": 28,
+      "day": "2027-01-19",
+      "notBefore": "2027-01-20",
+      "leaks": [
+        "nba-celtics02-4q",
+        "nba-kings02-regular-wins",
+        "nba-bibby02-regular-apg"
+      ]
+    },
+    "nba-webber02-season-ppg": {
+      "tier": "hard",
+      "family": "scoring-average",
+      "franchise": "SAC",
+      "era": "2000s",
+      "steps": 340,
+      "day": "2027-01-19",
+      "notBefore": "2027-01-20"
+    },
+    "nba-bibby02-regular-apg": {
+      "tier": "hard",
+      "family": "assists-average",
+      "franchise": "SAC",
+      "era": "2000s",
+      "steps": 110,
+      "day": "2027-01-19",
+      "notBefore": "2027-01-20"
+    },
+    "nba-peja02-regular-three-pct": {
+      "tier": "expert",
+      "family": "shooting-pct",
+      "franchise": "SAC",
+      "era": "2000s",
+      "steps": 380,
+      "day": "2027-01-19",
+      "notBefore": "2027-01-20"
+    },
+    "nba-heat20-regular-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "MIA",
+      "era": "2010s",
+      "steps": 58,
+      "day": "2027-01-20",
+      "notBefore": "2027-01-21"
+    },
+    "nba-adebayo20-regular-rpg": {
+      "tier": "medium",
+      "family": "rebounds-average",
+      "franchise": "MIA",
+      "era": "2010s",
+      "steps": 180,
+      "day": "2027-01-20",
+      "notBefore": "2027-01-21"
+    },
+    "nba-butler20-regular-apg": {
+      "tier": "hard",
+      "family": "assists-average",
+      "franchise": "MIA",
+      "era": "2010s",
+      "steps": 140,
+      "day": "2027-01-20",
+      "notBefore": "2027-01-21"
+    },
+    "nba-robinson20-season-ppg": {
+      "tier": "hard",
+      "family": "scoring-average",
+      "franchise": "MIA",
+      "era": "2010s",
+      "steps": 240,
+      "day": "2027-01-20",
+      "notBefore": "2027-01-21"
+    },
+    "nba-herro20-celtics-g4-points": {
+      "tier": "expert",
+      "family": "points-game",
+      "franchise": "MIA",
+      "era": "2010s",
+      "steps": 51,
+      "day": "2027-01-20",
+      "notBefore": "2027-01-21"
+    },
+    "nba-spurs14-season-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "SAS",
+      "era": "2010s",
+      "steps": 66,
+      "day": "2027-01-21",
+      "notBefore": "2027-01-22",
+      "leaks": [
+        "nba-spurs14-finals-margin"
+      ]
+    },
+    "nba-spurs14-march-wins": {
+      "tier": "medium",
+      "family": "wins-month",
+      "franchise": "SAS",
+      "era": "2010s",
+      "steps": 19,
+      "day": "2027-01-21",
+      "notBefore": "2027-01-22"
+    },
+    "nba-duncan14-season-rpg": {
+      "tier": "hard",
+      "family": "rebounds-average",
+      "franchise": "SAS",
+      "era": "2010s",
+      "steps": 190,
+      "day": "2027-01-21",
+      "notBefore": "2027-01-22"
+    },
+    "nba-parker14-season-ppg": {
+      "tier": "hard",
+      "family": "scoring-average",
+      "franchise": "SAS",
+      "era": "2010s",
+      "steps": 290,
+      "day": "2027-01-21",
+      "notBefore": "2027-01-22",
+      "leaks": [
+        "nba-diaw14-heat-g4-assists"
+      ]
+    },
+    "nba-diaw14-heat-g4-assists": {
+      "tier": "expert",
+      "family": "assists-game",
+      "franchise": "SAS",
+      "era": "2010s",
+      "steps": 25,
+      "day": "2027-01-21",
+      "notBefore": "2027-01-22",
+      "leaks": [
+        "nba-spurs14-blowouts",
+        "nba-spurs14-finals-margin"
+      ]
+    },
+    "nba-hornets08-season-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "NOP",
+      "era": "2000s",
+      "steps": 59,
+      "day": "2027-01-22",
+      "notBefore": "2027-01-23",
+      "leaks": [
+        "nba-celtics08-playoff-games"
+      ]
+    },
+    "nba-paul08-regular-apg": {
+      "tier": "medium",
+      "family": "assists-average",
+      "franchise": "NOP",
+      "era": "2000s",
+      "steps": 170,
+      "day": "2027-01-22",
+      "notBefore": "2027-01-23"
+    },
+    "nba-chandler08-regular-rpg": {
+      "tier": "hard",
+      "family": "rebounds-average",
+      "franchise": "NOP",
+      "era": "2000s",
+      "steps": 220,
+      "day": "2027-01-22",
+      "notBefore": "2027-01-23"
+    },
+    "nba-west08-season-ppg": {
+      "tier": "hard",
+      "family": "scoring-average",
+      "franchise": "NOP",
+      "era": "2000s",
+      "steps": 340,
+      "day": "2027-01-22",
+      "notBefore": "2027-01-23"
+    },
+    "nba-hornets08-spurs-g7-points": {
+      "tier": "expert",
+      "family": "points-team-game",
+      "franchise": "NOP",
+      "era": "2000s",
+      "steps": 93,
+      "day": "2027-01-22",
+      "notBefore": "2027-01-23",
+      "leaks": [
+        "nba-heat08-wins"
+      ]
+    },
+    "nba-suns84-season-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "PHX",
+      "era": "1980s",
+      "steps": 56,
+      "day": "2027-01-23",
+      "notBefore": "2027-01-24"
+    },
+    "nba-davis84-regular-apg": {
+      "tier": "medium",
+      "family": "assists-average",
+      "franchise": "PHX",
+      "era": "1980s",
+      "steps": 120,
+      "day": "2027-01-23",
+      "notBefore": "2027-01-24"
+    },
+    "nba-lucas84-season-rpg": {
+      "tier": "hard",
+      "family": "rebounds-average",
+      "franchise": "PHX",
+      "era": "1980s",
+      "steps": 190,
+      "day": "2027-01-23",
+      "notBefore": "2027-01-24"
+    },
+    "nba-nance84-season-ppg": {
+      "tier": "hard",
+      "family": "scoring-average",
+      "franchise": "PHX",
+      "era": "1980s",
+      "steps": 240,
+      "day": "2027-01-23",
+      "notBefore": "2027-01-24"
+    },
+    "nba-suns84-lakers-g3-points": {
+      "tier": "expert",
+      "family": "points-team-game",
+      "franchise": "PHX",
+      "era": "1980s",
+      "steps": 140,
+      "day": "2027-01-23",
+      "notBefore": "2027-01-24"
     },
     "nba-bulls96-18-streak": {
       "tier": "medium",

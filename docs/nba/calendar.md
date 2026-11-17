@@ -54,5 +54,6 @@ Generated from data/nba by `npm run nba:report`. Cutover: 2026-11-17. Slots clim
 | 48 | 2027-01-03 | mixed | **The 2020s** · Recent records | jokic-draft-pick (41); butler23-56 (56); heat23-wins (44); jokic23-playoff-points (600); spurs24-losing-streak (18) |
 | 49 | 2027-01-04 | story | **Warriors, Cavs and Raptors** · The 2018 and 2019 Finals | lebron18-g1 (51); curry18-g2-threes (9); gsw19-g2-run (18); siakam19-g1 (32); gsw19-20-threes (20) |
 | 50 | 2027-01-05 | story | **Miami's Finals years** · Heat, 2012 and 2013 | lebron13-g7 (37); westbrook12-g4 (43); miller12-g5-threes (7); allen13-g6-seconds (5.2); spurs12-streak (20) |
+| 51 | 2027-01-06 | team-season | **Going to work** · Detroit Pistons, 2003–04 | detroit04-regular-wins (54); detroit04-winter-streak (13); detroit04-rasheed-finish (16); billups04-finals-ppg (21); benwallace04-finals-clincher-reb (22) |
 
 Reserve (26): bulls96-18-streak, sonics96-wins, finals96-combined-wins, wilt61-78, wilt-100-combined, wilt62-total-points, curry19-g3, kobe-three-titles-age, wade06-g5-fta, mavs07-wins, knicks94-playoff-games, celtics08-g6-steals, duncan14-finals-reb, diaw14-finals-ast, leonard14-age, lakers01-39, smith95-threes, middleton21-g4, tatum22-debut-ast, skiles90-30, lucas84-quarter-ast, celtics73-wins, pistons06-wins, sixers83-wins, heat13-wins, nets02-improvement

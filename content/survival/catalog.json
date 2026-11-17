@@ -2371,6 +2371,57 @@
       "day": "2027-01-05",
       "notBefore": "2027-01-06"
     },
+    "nba-detroit04-regular-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "DET",
+      "era": "2000s",
+      "steps": 32,
+      "day": "2027-01-06",
+      "notBefore": "2027-01-07"
+    },
+    "nba-detroit04-winter-streak": {
+      "tier": "medium",
+      "family": "win-streak",
+      "franchise": "DET",
+      "era": "2000s",
+      "steps": 18,
+      "day": "2027-01-06",
+      "notBefore": "2027-01-07"
+    },
+    "nba-detroit04-rasheed-finish": {
+      "tier": "hard",
+      "family": "wins-season",
+      "franchise": "DET",
+      "era": "2000s",
+      "steps": 18,
+      "day": "2027-01-06",
+      "notBefore": "2027-01-07"
+    },
+    "nba-billups04-finals-ppg": {
+      "tier": "hard",
+      "family": "scoring-average",
+      "franchise": "DET",
+      "era": "2000s",
+      "steps": 260,
+      "day": "2027-01-06",
+      "notBefore": "2027-01-07",
+      "leaks": [
+        "nba-pistons04-under-70"
+      ]
+    },
+    "nba-benwallace04-finals-clincher-reb": {
+      "tier": "expert",
+      "family": "rebounds-game",
+      "franchise": "DET",
+      "era": "2000s",
+      "steps": 32,
+      "day": "2027-01-06",
+      "notBefore": "2027-01-07",
+      "leaks": [
+        "nba-pistons04-under-70"
+      ]
+    },
     "nba-bulls96-18-streak": {
       "tier": "medium",
       "family": "win-streak",

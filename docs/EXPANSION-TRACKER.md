@@ -13,7 +13,7 @@
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
 - [ ] Expansion: **12/50** NBA additions (Jan 6–17) generated and **60/250** additional questions. **38** dates / **190** questions remain.
-- [ ] Three-variant coverage: **85/510** source-authored trivia-complete question sets / **255/1530** source-linked variants; **70/210** generated, another **15/45** pending publisher. **425** sets / **1,275** variants remain.
+- [ ] Three-variant coverage: **95/510** question sets with all three evidence-linked variants generated / **285/1530** variants generated; **415** sets / **1,245** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -132,3 +132,9 @@ Source-authored one NBA slate from `2004–05 Phoenix Suns season` Wikipedia: 33
 ## Nov 26 historic Rip City fun-fact batch — source stage
 - Five untouched original daily questions (Walton Game 6 boards, 1978 season start, Blazers Game 4 third-quarter points and victory margin, Walton Game 5 defensive boards) now each have three contextual sourced variants. **15 added**.
 - Individually checked supporting excerpts against the [1977 NBA Finals](https://en.wikipedia.org/wiki/1977_NBA_Finals) and [1976–77 Portland season](https://en.wikipedia.org/wiki/1976%E2%80%9377_Portland_Trail_Blazers_season). No following-round numerical answers are in the bonus texts. Original IDs, answers, scales and order were not modified. Generator, spoiler audit and CI must still validate.
+
+## Current generated checkpoint — exact-head full CI gate
+- Free branch-only editorial generator runs [44004253744](https://github.com/Atiyk/Stat-Window/actions/runs/44004253744), [44004437743](https://github.com/Atiyk/Stat-Window/actions/runs/44004437743) and [44004571329](https://github.com/Atiyk/Stat-Window/actions/runs/44004571329) succeeded. Latest bot head: `c0123f7e8b53826c9b517b2b60996610e623f7fb`.
+- Inspected four generated daily files: Jan15 Orlando, Jan16 Milwaukee, Jan17 Seattle, Nov26 Portland each contain exactly five questions with exactly three trivia variants per question; Warriors Nov25 also generated earlier. NBA report: **0 content errors**, **62 NBA dates**, **310 scheduled NBA questions**, 26 reserves.
+- Compared `content/published.lock.json` on production main with generated head: **all 52 pre-existing date fingerprints are unchanged**. Additional 12 dates (Jan 6–17) appended. Historic question IDs, answers, ranges and ordering retained.
+- This tracker-only checkpoint is intentionally used to trigger full branch CI on the exact generated artifacts. Do not claim CI success or independent critic sign-off until those gates genuinely pass. No PR/merge/production action.

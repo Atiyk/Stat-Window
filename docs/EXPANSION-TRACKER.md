@@ -12,8 +12,8 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: **6/50** new NBA days and **30/250** new NBA questions generated and NBA-validation-clean through Jan 11, 2027. **44** new days / **220** new questions remain. Full exact-head CI/independent critic/release gates outstanding.
-- [ ] Three-variant coverage: **55/510** question sets with **165/1530** distinct source-backed bonus variants **authored and generated** (five original November 17/18/19/20/23 NBA days + six new Jan6–11 days). **455** question sets / **1,365** variants remain.
+- [ ] Expansion: **6/50** new NBA days (Jan 6–11) generated; a **7th (Jan 12: 2004–05 Phoenix Suns)** with 5 unique source-checked questions is now authored for generator/QA. **35/250** new questions authored; **43** new days / **215** new questions still needed.
+- [ ] Three-variant coverage: **60/510** complete source-authored question sets / **180/1530** distinct evidenced bonus variants; **55/165** already generated, **5/15** Phoenix additions awaiting generator. **450** question sets / **1,350** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -33,7 +33,7 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete the remaining 455 three-variant sets and 44 new themed days in editorially verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete the remaining 450 three-variant sets and 43 new themed days in editorially verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
 ## Runbook for next source-verification batch
 - Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
 - Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
@@ -104,3 +104,6 @@ Three distinct Wikipedia-supported variants are authored for each of the five No
 
 ## November 23 generated trivia + runner efficiency
 Free editorial generator run `43995938307` passed and updated the historical Nov23 Bulls slate with 15 sourced bonus variants; all five published IDs/answers/ranges remain unchanged. The NBA report still says 0 errors. Added CI workflow concurrency keyed by PR/ref so a new source commit cancels old browser runs that would otherwise consume public free runners. The full check suite itself remains unchanged; only its scheduling is optimized. Remove the temporary milestone-branch CI trigger and editorial generator workflow before the final PR/release.
+
+## January 12 Phoenix Seven Seconds or Less
+Source-authored one NBA slate from `2004–05 Phoenix Suns season` Wikipedia: 33-win year-over-year improvement, Nash's 11.5 regular-season assists, 31 Phoenix road wins, Amar'e's 29.9 playoff scoring, and Nash's 39 in overtime against Dallas. Five original questions, each with three source-excerpt-backed variants (15). Source URL checked live, familiar franchises/eras and stat families spread across ladder; verified input bounds, midpoint exploit, source quotes, no numerical spoilers in future rounds. **Not counted generated until editorial-sync succeeds.**

@@ -12,7 +12,7 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: 0/50 additional days; 0/250 new source-verified questions.
+- [ ] Expansion: 1/50 additional days and 5/250 new questions **staged** for January 6, 2027; generated content, validator, CI and editorial release gates still pending.
 - [ ] Three-variant coverage: 10/510 questions; 30/1530 variants. The other 505 questions remain editorial work.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
@@ -33,7 +33,7 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete the remaining 500 three-variant sets and 50 new themed days in editorially verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete the remaining 495 three-variant sets and 49 new themed days in editorially verified batches, then independently verify the staged January 6 slate. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
 ## Runbook for next source-verification batch
 - Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
 - Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
@@ -42,3 +42,6 @@ Complete the remaining 500 three-variant sets and 50 new themed days in editoria
 ## Latest QA checkpoint
 - The first comprehensive branch CI run failed a legitimate tablet viewport test, traced to the extra trivia length. The layout has been adjusted and needs a new full CI pass.
 - NBA facts and the future days are not fully authored. The correct target is 510 total questions with 1,530 sourced fun-fact variants; do not imply completeness from an optional schema.
+
+## Working-branch generator (remove before final PR)
+`.github/workflows/editorial-sync.yml` is a temporary branch-scoped, free GitHub Actions workflow for authoring 50 verified new days. When the source facts/calendar change, standard ubuntu-latest runs the existing publisher, report and Survival catalog generators and commits their deterministic artifacts back to the same feature branch. No production deployment/merge is permitted until all release gates pass. Generated changes must be examined, not assumed correct. Remove the temporary workflow and branch-specific CI push trigger before the final comprehensive PR.

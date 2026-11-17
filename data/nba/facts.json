@@ -10470,5 +10470,320 @@
         "surprise": 5
       }
     }
+  },
+  {
+    "id": "nba-detroit04-regular-wins",
+    "family": "wins-season",
+    "scope": "regular-season",
+    "season": "2003-04",
+    "eventDate": null,
+    "franchise": "DET",
+    "player": null,
+    "answer": 54,
+    "unit": {
+      "singular": "win",
+      "plural": "wins"
+    },
+    "claim": "Detroit finished 54–28 en route to the 2004 championship.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+      "quote": "finishing second in the Central Division with a 54–28 record",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many regular-season games did the 2003–04 Pistons win?",
+      "context": "Detroit Pistons · 2003–04 · 82 games",
+      "reveal": "54–28, before the defense-first Pistons won the title.",
+      "min": 40,
+      "max": 70,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "A title-winning team usually wins around 50–60; the exact Pistons record is a useful opening question.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 4,
+        "estimability": 4,
+        "surprise": 4
+      },
+      "funFacts": [
+        {
+          "text": "Detroit used its 2003 second-overall draft pick on Darko Miličić, who played a limited reserve role during the title season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+            "quote": "They selected Darko Miličić as their top pick but only used him as a reserve"
+          }
+        },
+        {
+          "text": "Larry Brown arrived as head coach after Detroit reached the Eastern Conference finals the year before.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+            "quote": "After their first trip to the Conference Finals since 1991, the Pistons hired Larry Brown as head coach."
+          }
+        },
+        {
+          "text": "The Pistons clinched the title at their home arena, the Palace of Auburn Hills, outside downtown Detroit.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "The Palace of Auburn Hills, Auburn Hills, Michigan"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-detroit04-winter-streak",
+    "family": "win-streak",
+    "scope": "regular-season",
+    "season": "2003-04",
+    "eventDate": null,
+    "franchise": "DET",
+    "player": null,
+    "answer": 13,
+    "unit": {
+      "singular": "game",
+      "plural": "games"
+    },
+    "claim": "A 13-game winning streak straddled December and January.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+      "quote": "they went on a 13-game winning streak between December and January",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many straight games did Larry Brown's Pistons win across December and January?",
+      "context": "Detroit Pistons · 2003–04 · regular season",
+      "reveal": "Thirteen straight during Brown's first season in Detroit.",
+      "min": 6,
+      "max": 24,
+      "step": 1,
+      "difficulty": "medium",
+      "difficultyReason": "A memorable stretch from a famous team, but the number isn't normally memorized.",
+      "ratings": {
+        "interest": 3,
+        "recognizability": 3,
+        "estimability": 3,
+        "surprise": 4
+      },
+      "funFacts": [
+        {
+          "text": "That midwinter streak was part of Larry Brown's first year running Detroit, after he replaced the previous coaching staff.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+            "quote": "After their first trip to the Conference Finals since 1991, the Pistons hired Larry Brown as head coach."
+          }
+        },
+        {
+          "text": "The championship season wasn't all smooth: Detroit also suffered a six-game losing streak in February.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+            "quote": "they struggled in February, losing six straight games."
+          }
+        },
+        {
+          "text": "Detroit finished second in its own Central Division yet still went on to win the league championship.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+            "quote": "finishing second in the Central Division with a 54–28 record."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-detroit04-rasheed-finish",
+    "family": "wins-season",
+    "scope": "regular-season",
+    "season": "2003-04",
+    "eventDate": null,
+    "franchise": "DET",
+    "player": null,
+    "answer": 16,
+    "unit": {
+      "singular": "win",
+      "plural": "wins"
+    },
+    "claim": "After acquiring Rasheed Wallace, Detroit won 16 of its final 19 games.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+      "quote": "With the addition of Wallace, the Pistons won 16 of their final 19 games",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "After trading for Rasheed Wallace, how many of its final 19 games did Detroit win?",
+      "context": "Detroit Pistons · 2003–04 · post-trade finish",
+      "reveal": "Sixteen wins in the final 19 games helped lock in Detroit's playoff form.",
+      "min": 4,
+      "max": 22,
+      "step": 1,
+      "difficulty": "hard",
+      "difficultyReason": "The 19-game stretch is known only to close followers and a tight guess rewards careful estimation.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 3,
+        "estimability": 3,
+        "surprise": 4
+      },
+      "funFacts": [
+        {
+          "text": "Rasheed had played just one game for Atlanta before being moved to Detroit in the middle of the season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+            "quote": "the team acquired All-Star forward Rasheed Wallace from the Atlanta Hawks after playing just one game for them."
+          }
+        },
+        {
+          "text": "The Pistons had to recover from a dangerous deficit against New Jersey in Game 6 to stay alive in the Eastern playoffs.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+            "quote": "the Pistons were able to erase a 13–2 deficit and never trailed for the remainder of the game"
+          }
+        },
+        {
+          "text": "Detroit reached the Finals by eliminating the top-seeded Pacers in a defensive Eastern Conference finals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+            "quote": "they defeated the top-seeded Indiana Pacers in a defensive six game series"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-billups04-finals-ppg",
+    "family": "scoring-average",
+    "scope": "finals",
+    "season": "2003-04",
+    "eventDate": null,
+    "franchise": "DET",
+    "player": "Chauncey Billups",
+    "answer": 21,
+    "unit": {
+      "singular": "point per game",
+      "plural": "points per game"
+    },
+    "claim": "Billups averaged 21.0 points per game in the Finals and won MVP.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+      "quote": "Chauncey Billups | 5 | 5 | 38.4 | .509 | .471 | .929 | 3.2 | 5.2 | 1.2 | 0.0 | 21.0",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "What did 2004 Finals MVP Chauncey Billups average in points per game?",
+      "context": "Detroit Pistons vs Lakers · 2004 Finals · five games",
+      "reveal": "21.0 per game for the Finals MVP, on 50.9% shooting.",
+      "min": 10,
+      "max": 36,
+      "step": 0.1,
+      "difficulty": "hard",
+      "difficultyReason": "Finals MVP is familiar, but a precise series average is harder to remember.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 4,
+        "estimability": 2,
+        "surprise": 4
+      },
+      "funFacts": [
+        {
+          "text": "Billups shot better than 50% from the field and over 47% from three during the championship series.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "Chauncey Billups | 5 | 5 | 38.4 | .509 | .471 | .929 | 3.2 | 5.2 | 1.2 | 0.0 | 21.0"
+          }
+        },
+        {
+          "text": "The Lakers entered the matchup favored, with a lineup led by Kobe Bryant and Shaquille O'Neal.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "the Lakers, headed by Kobe Bryant and Shaquille O'Neal, were considered the heavy favorites"
+          }
+        },
+        {
+          "text": "Richard Hamilton actually averaged slightly more points than Billups in that series, despite Billups taking Finals MVP.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "Richard Hamilton | 5 | 5 | 44.4 | .402 | .400 | .853 | 5.2 | 4.0 | 0.8 | 0.0 | 21.4"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-benwallace04-finals-clincher-reb",
+    "family": "rebounds-game",
+    "scope": "finals",
+    "season": "2003-04",
+    "eventDate": "2004-06-15",
+    "franchise": "DET",
+    "player": "Ben Wallace",
+    "answer": 22,
+    "unit": {
+      "singular": "rebound",
+      "plural": "rebounds"
+    },
+    "claim": "Ben Wallace collected 22 rebounds in Detroit's 2004 championship clincher.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+      "quote": "Rebs: Ben Wallace 22",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many rebounds did Ben Wallace grab in Game 5 of the 2004 Finals?",
+      "context": "Detroit Pistons vs Lakers · June 15, 2004 · championship clincher",
+      "reveal": "Twenty-two rebounds in the win that sealed the title.",
+      "min": 10,
+      "max": 42,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A single player's rebound total in a particular Finals game is an obscure, high-variance number.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Detroit's title-clinching win was the only game of that Finals in which either team reached triple digits.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "The Pistons' 100 points was the first (and only) time either team scored triple digits in the series."
+          }
+        },
+        {
+          "text": "Karl Malone was unable to dress for the decisive Game 5 because of a knee injury, ending his last NBA Finals run.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "Karl Malone would play his last game, as a knee injury would not allow him to dress in Game 5."
+          }
+        },
+        {
+          "text": "Detroit owner William Davidson had celebrated another title just days earlier: his Tampa Bay Lightning won the Stanley Cup.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "Pistons' owner William Davidson became the first owner in American sports history to win two championships in one calendar year;"
+          }
+        }
+      ]
+    }
   }
 ]

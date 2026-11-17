@@ -13,7 +13,7 @@
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
 - [ ] Expansion: **21/50** additional NBA days (Jan6–Jan26) and **105/250** new NBA questions generated; **29** more NBA days (Jan27–Feb24) and **145** new questions remain.
-- [ ] Three-variant coverage: **161/510** daily question sets, **483/1530** individually source-backed bonus variants generated (pending latest exact-head strict trivia and full-browser CI); **349** question sets / **1,047** variants remain.
+- [ ] Three-variant coverage: **166/510** question sets and **498/1530** sourced variants authored; **161/483** published, 5/15 new 2016 Finals variants pending editor/validator. **344** sets / **1,032** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -33,7 +33,7 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete remaining 349 trivia sets and 29 additional NBA days, with independent source review and full QA. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete 344 remaining trivia sets and 29 further NBA days, retaining provenance and spoiler checks. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
 ## Runbook for next source-verification batch
 - Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
 - Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
@@ -192,3 +192,6 @@ Fifteen independently sourced variants (3 for each of 5 existing questions): Sto
 
 ## November 29 Stockton–Malone generation verified
 Free editorial-sync run `44010852873` succeeded and pushed bot commit `78b03a12`. The playable Nov29 day now contains three distinct source-supported trivia facts for each of the five existing questions with unchanged scoring fingerprints. NBA generator reports zero issues for 71 consecutive NBA days/355 NBA questions; current full strict bonus-fact/reserve spoiler audit remains an exact-head release gate, along with desktop/mobile browser and analytics/Survival checks. This connector-authored tracker checkpoint triggers that full CI on generated files.
+
+## Existing Nov30 2016 Finals: source-authored
+Created three new sourced contextual trivia variants on each of the five original Cleveland–Warriors 2016 Finals questions. Extra context includes Draymond's Game 5 suspension, LeBron's all-statistical-category Finals leadership, Green's Game 7 shooting and rebounding, Luke Walton's interim coaching start, and the final game's closing possessions. Evidence excerpts checked against the Wikipedia 2016 NBA Finals article. Original questions' scores/IDs/bounds unchanged. Await editorial regeneration, strict reserve-answer audit and exact full CI.

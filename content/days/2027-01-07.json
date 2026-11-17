@@ -1,0 +1,265 @@
+{
+  "date": "2027-01-07",
+  "theme": {
+    "title": "Mile High first",
+    "subtitle": "Denver Nuggets, 2022–23",
+    "recap": "Behind Jokić, Murray and a deep supporting cast, Denver earned the top Western seed and won the NBA championship for the first time."
+  },
+  "questions": [
+    {
+      "id": "nba-nuggets23-regular-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did the 2022–23 Nuggets win?",
+      "context": "Denver Nuggets · 2022–23 · 82 games",
+      "answer": 53,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 37,
+      "max": 78,
+      "step": 1,
+      "note": "53–29, and Denver reached the Finals for the first time.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
+        "quote": "Record | 53–29 (.646)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy",
+      "funFacts": [
+        {
+          "text": "Denver clinched the Western Conference's top seed for the first time in franchise history in early April.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
+            "quote": "On April 5, 2023, the Nuggets clinched the top seed in the Western Conference for the first time in franchise history."
+          }
+        },
+        {
+          "text": "The Nuggets swept the Lakers in the Western Conference Finals to make their first NBA Finals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
+            "quote": "The Nuggets made the Finals for the first time in history by sweeping the 7th seeded Los Angeles Lakers"
+          }
+        },
+        {
+          "text": "The title ended a 47-season wait in the NBA; Denver had also never won a championship in its ABA years.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
+            "quote": "The 2022–23 Denver Nuggets season was the 47th season for the franchise"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-jokic23-finals-average",
+      "sport": "NBA",
+      "prompt": "Nikola Jokić won 2023 Finals MVP. What did he average in points per game?",
+      "context": "2023 NBA Finals · Denver Nuggets vs Miami Heat",
+      "answer": 30.2,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 12,
+      "max": 42,
+      "step": 0.1,
+      "note": "30.2 points per game while leading Denver to its first title.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "after averaging 30.2 points, 14.0 rebounds, 7.2 assists, and 1.4 blocks"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Jokić became Denver's first Finals MVP, with every voter agreeing on the award.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Denver's Nikola Jokić was unanimously voted the NBA Finals Most Valuable Player"
+          }
+        },
+        {
+          "text": "Jokić's Finals stat line included 14.0 rebounds, 7.2 assists, and 1.4 blocks per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "after averaging 30.2 points, 14.0 rebounds, 7.2 assists, and 1.4 blocks"
+          }
+        },
+        {
+          "text": "Denver became only the second franchise from the old ABA to win an NBA title, following the Spurs.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "They became the second former American Basketball Association (ABA) team to win an NBA title"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-murray23-finals-apg",
+      "sport": "NBA",
+      "prompt": "How many assists per game did Jamal Murray average in the 2023 NBA Finals?",
+      "context": "Denver Nuggets · five-game 2023 championship series",
+      "answer": 10,
+      "unit": {
+        "singular": "assist per game",
+        "plural": "assists per game"
+      },
+      "min": 3,
+      "max": 19,
+      "step": 0.1,
+      "note": "10.0 assists a night, complementing Jokić's scoring and passing.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "Jamal Murray | 5 | 5 | 42.2 | .451 | .387 | .929 | 6.2 | 10.0 | 1.0 | 0.0 | 21.4"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Murray had torn his ACL before the 2021 playoffs and missed the entire following season while recovering.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Jamal Murray, who was crucial to the Nuggets' playoff runs in 2019 and 2020, tore his ACL a month before the start of the 2021 playoffs"
+          }
+        },
+        {
+          "text": "In Game 4 of the Finals, Murray recorded 12 assists without committing a single turnover.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Murray, who committed seven turnovers in game 3, finished the game with 12 assists and zero turnovers"
+          }
+        },
+        {
+          "text": "In Game 1, Murray and Jokić became the first Finals teammates since Magic Johnson and James Worthy to each have 25-plus points and 10 assists.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Jokić and Murray also became the second pair of teammates to each put up at least 25 points and 10 assists"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-gordon23-finals-g4-points",
+      "sport": "NBA",
+      "prompt": "How many points did Aaron Gordon score in Game 4 of the 2023 Finals?",
+      "context": "Denver Nuggets at Miami Heat · June 9, 2023",
+      "answer": 27,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 8,
+      "max": 41,
+      "step": 1,
+      "note": "27 points, his highest-scoring game of that Finals.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "Aaron Gordon's 27 points helped the Nuggets prevent a comeback attempt"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Gordon made 11 of his 15 field-goal attempts in the Game 4 victory.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Gordon dropped a game-high 27 points on 11 of 15 from the field"
+          }
+        },
+        {
+          "text": "The Game 4 win was Denver's fifth straight road victory of that postseason.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "The Nuggets won their fifth straight road game"
+          }
+        },
+        {
+          "text": "Bruce Brown supplied 11 fourth-quarter points off Denver's bench to help end a Miami comeback.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Bruce Brown came off the bench and scored 11 of his 21 points in the fourth quarter"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-braun22-draft-pick",
+      "sport": "NBA",
+      "prompt": "At what overall pick did Denver draft Christian Braun in 2022?",
+      "context": "Denver Nuggets · 2022 NBA draft · first round",
+      "answer": 21,
+      "unit": {
+        "singular": "overall pick",
+        "plural": "overall picks"
+      },
+      "min": 8,
+      "max": 52,
+      "step": 1,
+      "note": "21st overall; Braun was a rookie on the Nuggets' 2023 championship squad.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
+        "quote": "1 | 21 | Christian Braun | SG | United States | Kansas"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Braun joined Denver from the University of Kansas, where he had played college basketball.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
+            "quote": "1 | 21 | Christian Braun | SG | United States | Kansas"
+          }
+        },
+        {
+          "text": "As a rookie in the Finals, Braun appeared in all five games off the bench and averaged 16.4 minutes.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Christian Braun | 5 | 0 | 16.4 | .706 | .000 | .556 | 2.0 | 1.2 | 1.0 | 0.4 | 5.8"
+          }
+        },
+        {
+          "text": "Denver also obtained the draft rights to Peyton Watson in a deal with Oklahoma City on the same draft night.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
+            "quote": "Draft rights to Peyton Watson (No. 30)"
+          }
+        }
+      ]
+    }
+  ]
+}

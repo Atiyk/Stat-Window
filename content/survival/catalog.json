@@ -2250,7 +2250,10 @@
       "era": "2020s",
       "steps": 32,
       "day": "2027-01-03",
-      "notBefore": "2027-01-04"
+      "notBefore": "2027-01-08",
+      "leaks": [
+        "nba-nuggets23-regular-wins"
+      ]
     },
     "nba-jokic23-playoff-points": {
       "tier": "hard",
@@ -2421,6 +2424,54 @@
       "leaks": [
         "nba-pistons04-under-70"
       ]
+    },
+    "nba-nuggets23-regular-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "DEN",
+      "era": "2020s",
+      "steps": 41,
+      "day": "2027-01-07",
+      "notBefore": "2027-01-08",
+      "leaks": [
+        "nba-west69-g1"
+      ]
+    },
+    "nba-jokic23-finals-average": {
+      "tier": "medium",
+      "family": "scoring-average",
+      "franchise": "DEN",
+      "era": "2020s",
+      "steps": 300,
+      "day": "2027-01-07",
+      "notBefore": "2027-01-08"
+    },
+    "nba-murray23-finals-apg": {
+      "tier": "hard",
+      "family": "assists-average",
+      "franchise": "DEN",
+      "era": "2020s",
+      "steps": 160,
+      "day": "2027-01-07",
+      "notBefore": "2027-01-08"
+    },
+    "nba-gordon23-finals-g4-points": {
+      "tier": "hard",
+      "family": "points-game",
+      "franchise": "DEN",
+      "era": "2020s",
+      "steps": 33,
+      "day": "2027-01-07",
+      "notBefore": "2027-01-08"
+    },
+    "nba-braun22-draft-pick": {
+      "tier": "expert",
+      "family": "draft-pick",
+      "franchise": "DEN",
+      "era": "2020s",
+      "steps": 44,
+      "day": "2027-01-07",
+      "notBefore": "2027-01-08"
     },
     "nba-bulls96-18-streak": {
       "tier": "medium",

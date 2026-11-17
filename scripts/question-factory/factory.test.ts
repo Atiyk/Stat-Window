@@ -21,7 +21,7 @@ function fact(id: string, kind: ResearchFact['kind'], difficulty: ResearchFact['
     statistic: 'points', operation: 'literal',
     values: [{ value, source: {
       url: 'https://example.org/fictional-final', quote: `Team Alpha scored ${value} points`,
-      license: 'synthetic-fixture', verifiedBy: 'fact-auditor', verifiedOn: '2026-11-16',
+      license: 'synthetic-fixture', attribution: 'Synthetic test data author', verifiedBy: 'fact-auditor', verifiedOn: '2026-11-16',
     } }],
     context: 'fictional sports test season', note: 'A deliberately fictional result used only to test the factory.',
     unit: { singular: 'point', plural: 'points' }, scale: { min: 0, max: 200, step: 1 },

@@ -12,8 +12,8 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: **6/50** new NBA days (Jan 6–11) generated; a **7th (Jan 12: 2004–05 Phoenix Suns)** with 5 unique source-checked questions is now authored for generator/QA. **35/250** new questions authored; **43** new days / **215** new questions still needed.
-- [ ] Three-variant coverage: **60/510** complete source-authored question sets / **180/1530** distinct evidenced bonus variants; **55/165** already generated, **5/15** Phoenix additions awaiting generator. **450** question sets / **1,350** variants remain.
+- [ ] Expansion: **7/50** new NBA days (Jan 6–12) generated; Jan 13 Toronto and Jan 14 Atlanta now source-authored, generator pending. **45/250** new questions authored; **41** days / **205** new questions still needed.
+- [ ] Three-variant coverage: **70/510** complete source-authored question sets / **210/1530** evidence-linked bonus variants; **60/180** already generated, **10/30** Toronto/Atlanta additions pending generator. **440** sets / **1,320** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -107,3 +107,8 @@ Free editorial generator run `43995938307` passed and updated the historical Nov
 
 ## January 12 Phoenix Seven Seconds or Less
 Source-authored one NBA slate from `2004–05 Phoenix Suns season` Wikipedia: 33-win year-over-year improvement, Nash's 11.5 regular-season assists, 31 Phoenix road wins, Amar'e's 29.9 playoff scoring, and Nash's 39 in overtime against Dallas. Five original questions, each with three source-excerpt-backed variants (15). Source URL checked live, familiar franchises/eras and stat families spread across ladder; verified input bounds, midpoint exploit, source quotes, no numerical spoilers in future rounds. **Not counted generated until editorial-sync succeeds.**
+
+## January 13–14 source-authored editorial batch (await publisher and full CI)
+- Jan 13 Toronto 2018–19: 58 regular wins, Leonard's 30.5 playoff PPG, Lowry's 8.7 regular APG, 92 points in Philadelphia Game 7, 26 road wins. Fifteen contextual fun-fact variants with excerpt evidence from [Wikipedia's Raptors season](https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season). Existing Siakam Finals question intentionally not duplicated.
+- Jan 14 Atlanta 2014–15: 60 wins, perfect 17-win January, Korver's .492 three-point accuracy (0.492 × 100), Teague's 7.0 APG, 22-win improvement. Fifteen contextual fun facts with cited excerpt evidence from [Wikipedia's Hawks season](https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season).
+- 2 canonical slates, 10 new IDs, 30 evidence-linked bonus variants source-authored with per-item source URL/quote; verified basic bounds, new IDs and scoring-midpoint behavior in the authoring preflight. This is not independent editorial sign-off or generated-file/full CI confirmation. Production remains unchanged.

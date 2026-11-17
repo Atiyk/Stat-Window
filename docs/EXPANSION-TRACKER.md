@@ -12,8 +12,8 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: **6/50** additional days, **30/250** new unique NBA questions generated and NBA-validation-clean, January 6–11, 2027. **44** new days/220 new questions remain. Full CI/critic/release gates not yet passed for this candidate.
-- [ ] Three-variant coverage: **55/510** question sets and **165/1530** cited variants source-authored; **50/150** generated, **5/15** original November 23 Bulls variants awaiting publisher. **455** sets and **1,365** variants remain.
+- [ ] Expansion: **6/50** new NBA days and **30/250** new NBA questions generated and NBA-validation-clean through Jan 11, 2027. **44** new days / **220** new questions remain. Full exact-head CI/independent critic/release gates outstanding.
+- [ ] Three-variant coverage: **55/510** question sets with **165/1530** distinct source-backed bonus variants **authored and generated** (five original November 17/18/19/20/23 NBA days + six new Jan6–11 days). **455** question sets / **1,365** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -101,3 +101,6 @@ Standard free GitHub Actions editorial-sync run `43995580013` succeeded and gene
 
 ## Original Bulls 1995–96 trivia source batch
 Three distinct Wikipedia-supported variants are authored for each of the five November 23 original questions. Context covers the black alternate uniforms, reunion of former Pistons players, Rodman's early rebounding titles, Chicago's home and road dominance, and the 1996 championship series. All original question IDs, answers, ranges and chronology are untouched. Within-slate later-round number spoiler check passed; the publisher and full integration CI must still validate the new text.
+
+## November 23 generated trivia + runner efficiency
+Free editorial generator run `43995938307` passed and updated the historical Nov23 Bulls slate with 15 sourced bonus variants; all five published IDs/answers/ranges remain unchanged. The NBA report still says 0 errors. Added CI workflow concurrency keyed by PR/ref so a new source commit cancels old browser runs that would otherwise consume public free runners. The full check suite itself remains unchanged; only its scheduling is optimized. Remove the temporary milestone-branch CI trigger and editorial generator workflow before the final PR/release.

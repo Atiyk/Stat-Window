@@ -5,6 +5,12 @@ on:
   push:
     branches: [main, 'statwindow/editorial-season-two-20261116']
 
+# Retain rigorous checks, but avoid burning free runner time on obsolete intermediate
+# source commits while the editorial generator is publishing the new day's files.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 

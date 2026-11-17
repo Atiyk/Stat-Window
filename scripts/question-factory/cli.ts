@@ -87,18 +87,21 @@ function checkCandidateBatch(b: CandidateBatch, p: SourcePolicy | null): string[
   const errors = validateBatch(b);
   const known = existingPublished();
   const all = readdirSync(CANDIDATES).filter((n) => n.endsWith('.json'));
-  const otherIds = new Set<string>(), otherPrompts = new Set<string>();
+  const otherIds = new Set<string>(), otherPrompts = new Set<string>(), otherMeanings = new Set<string>();
   for (const n of all) {
     if (n === b.id + '.json') continue;
     for (const c of json<CandidateBatch>(join(CANDIDATES, n)).candidates) {
       otherIds.add(c.id);
       otherPrompts.add(normalized(c.prompt));
+      otherMeanings.add([c.sport,c.subject,c.event,c.statistic,String(c.answer)].map(normalized).join('|'));
     }
   }
   for (const c of b.candidates) {
     // Duplicates are errors even for drafts: editing the question is cheaper now than after publishing.
     if (known.ids.has(c.id) || otherIds.has(c.id)) errors.push(`${c.id}: ID already used in another question or published day`);
     if (known.prompts.has(normalized(c.prompt)) || otherPrompts.has(normalized(c.prompt))) errors.push(`${c.id}: prompt already used in another question or published day`);
+    if (otherMeanings.has([c.sport,c.subject,c.event,c.statistic,String(c.answer)].map(normalized).join('|')))
+      errors.push(`${c.id}: same underlying fact already exists in another research batch`);
     if (c.review?.status === 'approved') errors.push(...validateCandidate(c, p));
   }
   return errors;
@@ -131,6 +134,14 @@ function planBatch(): void {
   const latest = existingPublished().last;
   if (start <= latest) throw new Error(`Start must be after existing calendar ends (${latest}); published or scheduled puzzles cannot be overwritten`);
   const proposal: Proposal = plan(b, policy, start, Number(raw));
+  // Multiple proposed batches may be in progress at once; don't reserve identical days or IDs.
+  if (existsSync(PROPOSALS)) for (const name of readdirSync(PROPOSALS).filter((n) => n.endsWith('.json'))) {
+    const old = json<Proposal>(join(PROPOSALS, name));
+    const dates = new Set(old.days.map((d) => d.date));
+    const ids = new Set(old.candidateIds);
+    if (proposal.days.some((d) => dates.has(d.date)) || proposal.candidateIds.some((id) => ids.has(id)))
+      throw new Error(`Proposal conflicts with ${name}; choose later dates or reconcile batches`);
+  }
   // Test for all approved questions was completed inside plan(); review proposals manually before promotion.
   writeNew(proposalsPath(id), proposal);
   console.log(`Staged ${proposal.days.length} days / ${proposal.candidateIds.length} approved questions in ${proposalsPath(id)}.`);

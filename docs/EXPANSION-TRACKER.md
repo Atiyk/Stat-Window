@@ -12,8 +12,8 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: **18/50** new NBA days and **90/250** new questions generated through Jan 23; **Jan 24 Cleveland Cavaliers 2008–09** now source-authored (5 new questions), awaiting publisher/QA. Source-authored total 19/50 days and 95/250 new questions; 31 dates/155 questions still needed.
-- [ ] Three-variant coverage: **135/510** sets and **405/1530** variants source-authored (125/375 generated, 10 sets/30 variants awaiting generator); **375** sets / **1,125** variants remain.
+- [ ] Expansion: 19/50 new NBA days (Jan6–Jan24) and 95/250 questions generated; twentieth day Jan25 (1993–94 Seattle) now sourced and awaiting generator. 30 additional days / 150 new questions remain after Jan25.
+- [ ] Three-variant coverage: **140/510** question sets, **420/1530** independently evidenced variants authored; **135/405** generated, 5/15 new Seattle sets awaiting publication. **370** sets / **1,110** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -33,7 +33,7 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete remaining 375 three-variant sets and 31 new NBA days in verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete remaining 370 three-variant sets and 30 new NBA days in verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
 ## Runbook for next source-verification batch
 - Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
 - Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
@@ -163,3 +163,6 @@ Source-authored five new Cleveland 2008–09 themed questions from https://en.wi
 ## Fixed Cavs theme + November 24 Wade/Nowitzki source batch
 - Generator correctly blocked the Jan24 Cavaliers title `LeBron's 66-win Cavs` because it leaked first-round answer. Renamed to `LeBron's MVP leap`, no question scoring changes.
 - Added exactly three separately sourced spoiler-screened bonus variants to each historical Nov24 daily question (Wade Game3, Wade Finals PPG, Dallas Game4 quarter, Dirk's 2011 free throws, 2011 Dallas Finals Game2 comeback). Sources: verified Wikipedia 2006 NBA Finals, 2011 NBA Finals and 2010–11 Mavericks season. Total added: 5 complete question sets, 15 variants. No existing published question IDs, answers, scales or order changed; generated validation/CI still pending.
+
+## January 25 historical Seattle SuperSonics source batch
+Independently opened and inspected https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season. Five themed questions: 63 regular-season wins, 10-game opening streak, Kemp's 10.8 rebounds per game, Payton's 6.0 assists per game, and Seattle's 94-point Game 5 overtime loss to Denver. Fifteen diverse individually sourced bonus variants. Avoids original 1993–94 Seattle canonical duplicates, recycled stat families, the midpoint-guess scoring exploit and spoiler-bearing titles/prompts; editor/source generator and full CI remain pending. Theme deliberately omits the score and numeric answer.

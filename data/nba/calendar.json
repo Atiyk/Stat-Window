@@ -1173,6 +1173,23 @@
         "nba-mowilliams09-season-ppg",
         "nba-james09-magic-g1-points"
       ]
+    },
+    {
+      "date": "2027-01-25",
+      "theme": {
+        "id": "sonics94-top-seed-upset",
+        "kind": "team-season",
+        "title": "The upset nobody saw",
+        "subtitle": "Seattle against Denver",
+        "recap": "Kemp and Payton led the NBA's best regular-season team before the Nuggets stunned Seattle in the first round."
+      },
+      "questions": [
+        "nba-sonics94-regular-wins",
+        "nba-sonics94-opening-streak",
+        "nba-kemp94-rpg",
+        "nba-payton94-apg",
+        "nba-sonics94-nuggets-g5-points"
+      ]
     }
   ],
   "reserve": [

@@ -12,7 +12,7 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: 1/50 additional days and 5/250 new questions **staged** for January 6, 2027; generated content, validator, CI and editorial release gates still pending.
+- [ ] Expansion: 1/50 additional days and 5/250 new questions now **generated and NBA-validation-clean** for January 6, 2027; full exact-head CI, independent critique and final release gates remain pending.
 - [ ] Three-variant coverage: 10/510 questions; 30/1530 variants. The other 505 questions remain editorial work.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
@@ -45,3 +45,9 @@ Complete the remaining 495 three-variant sets and 49 new themed days in editoria
 
 ## Working-branch generator (remove before final PR)
 `.github/workflows/editorial-sync.yml` is a temporary branch-scoped, free GitHub Actions workflow for authoring 50 verified new days. When the source facts/calendar change, standard ubuntu-latest runs the existing publisher, report and Survival catalog generators and commits their deterministic artifacts back to the same feature branch. No production deployment/merge is permitted until all release gates pass. Generated changes must be examined, not assumed correct. Remove the temporary workflow and branch-specific CI push trigger before the final comprehensive PR.
+
+## Verified generator result — 2026-11-16
+- The branch-only standard `ubuntu-latest` regeneration job passed on source SHA `d2c26e6` and committed deterministic artifacts as `79bdb362`.
+- `content/days/2027-01-06.json` contains five new questions in easy/medium/hard/hard/expert order, each with three sourced trivia variants; the published lock contains that date's five fingerprints.
+- `docs/nba/validation.md` reports **0 NBA validation errors**, 281 canonical facts, 255 scheduled NBA questions and 51 NBA days. SQLite and Survival catalog generated successfully.
+- A separate connector-authored checkpoint commit triggers full CI on the generated exact SHA; do not describe it as passed until it does.

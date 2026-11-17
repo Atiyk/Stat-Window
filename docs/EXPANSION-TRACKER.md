@@ -12,8 +12,8 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: **9/50** new NBA days (Jan 6–14) generated, with **45/250** new questions. **41** days / **205** new questions still needed.
-- [ ] Three-variant coverage: **70/510** question sets with all 3 sourced variants / **210/1530** bonus variants now generated (including Toronto and Atlanta). **440** sets / **1,320** variants remain.
+- [ ] Expansion: **9/50** NBA additions (Jan 6–14) generated; Jan 15–17 Orlando, Milwaukee and Seattle source-authored and pending publisher. **60/250** new questions authored; **38** dates / **190** questions remain.
+- [ ] Three-variant coverage: **85/510** source-authored trivia-complete question sets / **255/1530** source-linked variants; **70/210** generated, another **15/45** pending publisher. **425** sets / **1,275** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -117,3 +117,9 @@ Source-authored one NBA slate from `2004–05 Phoenix Suns season` Wikipedia: 33
 - Free editorial-sync run [44001462249](https://github.com/Atiyk/Stat-Window/actions/runs/44001462249) succeeded and created bot commit `11918f65d5596a471048d4d9d75d8a8c2f7b8e1f`.
 - The generated 2027-01-13 and 2027-01-14 daily files each contain 5 source-backed questions and exactly 15 trivia variants, in easy/medium/hard/hard/expert order. `docs/nba/validation.md` reports **0 NBA validation errors**, 59 NBA days, 295 scheduled NBA questions, 26 reserves (321 canonical facts). Historical mixed days remain separate.
 - The original CI run 44001462244 failed before the publisher bot commit due to stale generated source artifacts. This small tracker checkpoint exists solely to trigger exact-generated-head CI. Do not call the milestone green until that new run passes.
+
+## Jan 15–17 substantive source-check batch — awaiting generated checks
+- Jan 15 Orlando 2008–09: 59 regular-season wins, a 23-three night in Sacramento, Howard's 13.8 rebounds per game, Türkoğlu's 4.9 assists, and Howard's 40-point Cleveland clincher. Individual evidence quotes and 15 contextual variants from [Wikipedia Orlando 2008–09](https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season).
+- Jan 16 Milwaukee 2020–21: 46 wins, Giannis's 30.2 playoff PPG, Jrue's 8.7 playoff APG, 86 points versus Brooklyn, and Forbes's 45.2% regular-season three-point shooting (source .452 converted with a documented calculation). 15 individual contextual facts from [Bucks season](https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season) and [2021 Finals](https://en.wikipedia.org/wiki/2021_NBA_Finals). Previously scheduled/reserved Giannis game-six numbers not reused.
+- Jan 17 Seattle 1978–79: 52 regular wins, ten January wins, Sikma's 33 versus Phoenix in Game 7, Gus Williams's 36 in Finals Game 4, and Sikma's 17 rebounds in the title clincher. 15 trivia excerpts sourced to [SuperSonics season](https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season); pre-existing Gus Williams Finals-average question untouched.
+- Preflight performed on 15 new question IDs and 45 facts: approved hosts, source evidence length, stat family registration, exact duplicate signatures, reasonable range/step, midpoint score, and later-question numeric spoilers. Corrected invalid stat-family and oversize slider **before committing**. This is a source-authored batch, not an assertion of full QA or independent editorial sign-off. Production unchanged.

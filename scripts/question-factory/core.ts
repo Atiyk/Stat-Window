@@ -95,11 +95,11 @@ export function sourceHost(s: string): string | null {
   try { const u = new URL(s); return u.protocol === 'https:' && !u.username && !u.password ? u.hostname.toLowerCase() : null; }
   catch { return null; }
 }
-function printedValue(n: number): string[] {
-  return [String(n), n.toLocaleString('en-US', { maximumFractionDigits: 8 })];
-}
 function quoteContains(n: number, quote: string): boolean {
-  return printedValue(n).some((s) => quote.includes(s));
+  // Require a complete numeric token, not "79" as a substring of "179".
+  // Both 1234 and 1,234 are accepted.
+  const tokens = quote.match(/-?\d[\d,]*(?:\.\d+)?/g) ?? [];
+  return tokens.some((token) => Number(token.replaceAll(',', '')) === n);
 }
 export function answerFor(f: ResearchFact): number {
   if (!f.values?.length) throw new Error(`${f.id}: missing source numbers`);
@@ -119,7 +119,8 @@ export function promptFor(f: ResearchFact): string {
       return `In ${f.event}, how many ${f.statistic} did ${f.subject} record?`;
     case 'meaningful-comparison':
     case 'estimable-derived':
-      if (!f.compareWith) throw new Error(`${f.id}: comparison needs compareWith or customPrompt`);
+      if (!f.compareWith || f.operation !== 'difference' || answerFor(f) < 0)
+        throw new Error(`${f.id}: comparison template requires positive difference and compareWith, or use customPrompt`);
       return `In ${f.event}, how many more ${f.statistic} did ${f.subject} have than ${f.compareWith}?`;
     case 'surprising-record':
       return `During ${f.event}, how many ${f.statistic} did ${f.subject} record?`;
@@ -183,6 +184,13 @@ export function validateCandidate(c: Candidate, policy: SourcePolicy | null): st
     if (Math.abs(steps - Math.round(steps)) > 1e-8 || steps < 5 || steps > 400) at('scale must have 5–400 whole steps');
     const pos = (c.answer - min) / (max - min);
     if (pos < .08 || pos > .92) at('answer too close to ruler edge');
+    if (steps >= 5) {
+      const middle = Math.round(steps / 2);
+      const answerStep = (c.answer - min) / step;
+      const width = Math.max(1, Math.ceil(Math.abs(answerStep - middle)) * 2);
+      const midpointScore = Math.round(100 * ((steps - width) / (steps - 1)) ** 2);
+      if (midpointScore > 90) at('centering the window is an unfair shortcut (scores >90)');
+    }
   }
   if (!c.ratings || Object.values(c.ratings).length !== 5 ||
       Object.values(c.ratings).some((v) => !Number.isInteger(v) || v < 1 || v > 5)) at('all five 1–5 editorial ratings required');
@@ -220,11 +228,21 @@ export function validateBatch(b: CandidateBatch): string[] {
   if (b.version !== VERSION || !ID.test(b.id) || !goodText(b.sport)) errors.push('invalid candidate batch header');
   const ids = new Set<string>();
   const prompts = new Set<string>();
+  const meanings = new Set<string>();
+  for (const t of b.themes) {
+    if (!ID.test(t.id) || !goodText(t.title) || t.title.length > 40 ||
+        !goodText(t.subtitle) || t.subtitle.length > 60 ||
+        !goodText(t.recap, 10) || t.recap.length > 220)
+      errors.push(ERR(t.id, 'theme title, subtitle or recap invalid for the live game'));
+  }
   for (const c of b.candidates) {
     if (ids.has(c.id)) errors.push(ERR(c.id, 'duplicate candidate id'));
     ids.add(c.id);
     if (prompts.has(normalized(c.prompt))) errors.push(ERR(c.id, 'duplicate prompt'));
     prompts.add(normalized(c.prompt));
+    const meaning = [c.sport, c.subject, c.event, c.statistic, String(c.answer)].map(normalized).join('|');
+    if (meanings.has(meaning)) errors.push(ERR(c.id, 'same underlying fact already used in batch'));
+    meanings.add(meaning);
     if (!b.themes.some((t) => t.id === c.theme)) errors.push(ERR(c.id, 'missing theme'));
     if (c.batchId !== b.id || c.sport.toLowerCase() !== b.sport.toLowerCase()) errors.push(ERR(c.id, 'batch/sport mismatch'));
   }
@@ -245,7 +263,7 @@ export function slateQuestion(c: Candidate): SlateQuestion {
   };
 }
 const order = (a: Candidate, b: Candidate) =>
-  b.qualityScore - a.qualityScore || a.id.localeCompare(b.id);
+  qualityScore(b.ratings) - qualityScore(a.ratings) || a.id.localeCompare(b.id);
 export function plan(b: CandidateBatch, policy: SourcePolicy | null, start: string, days: number): Proposal {
   if (!isDay(start) || !Number.isInteger(days) || days < 1 || days > 120) throw new Error('Require valid start date and 1–120 days');
   const errors = validateBatch(b);
@@ -269,7 +287,7 @@ export function plan(b: CandidateBatch, policy: SourcePolicy | null, start: stri
         if (pick) selected.push(pick);
       }
       if (selected.length !== 5 || new Set(selected.map((x) => x.kind)).size < 3) continue;
-      options.push({ t, selected, score: selected.reduce((s, x) => s + x.qualityScore, 0) });
+      options.push({ t, selected, score: selected.reduce((s, x) => s + qualityScore(x.ratings), 0) });
     }
     options.sort((a, c) => {
       const aRepeated = a.t.id === lastTheme.at(-1) ? 1 : 0;

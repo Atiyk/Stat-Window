@@ -12,7 +12,7 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: **9/50** NBA additions (Jan 6–14) generated; Jan 15–17 Orlando, Milwaukee and Seattle source-authored and pending publisher. **60/250** new questions authored; **38** dates / **190** questions remain.
+- [ ] Expansion: **12/50** NBA additions (Jan 6–17) generated and **60/250** additional questions. **38** dates / **190** questions remain.
 - [ ] Three-variant coverage: **85/510** source-authored trivia-complete question sets / **255/1530** source-linked variants; **70/210** generated, another **15/45** pending publisher. **425** sets / **1,275** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
@@ -123,3 +123,8 @@ Source-authored one NBA slate from `2004–05 Phoenix Suns season` Wikipedia: 33
 - Jan 16 Milwaukee 2020–21: 46 wins, Giannis's 30.2 playoff PPG, Jrue's 8.7 playoff APG, 86 points versus Brooklyn, and Forbes's 45.2% regular-season three-point shooting (source .452 converted with a documented calculation). 15 individual contextual facts from [Bucks season](https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season) and [2021 Finals](https://en.wikipedia.org/wiki/2021_NBA_Finals). Previously scheduled/reserved Giannis game-six numbers not reused.
 - Jan 17 Seattle 1978–79: 52 regular wins, ten January wins, Sikma's 33 versus Phoenix in Game 7, Gus Williams's 36 in Finals Game 4, and Sikma's 17 rebounds in the title clincher. 15 trivia excerpts sourced to [SuperSonics season](https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season); pre-existing Gus Williams Finals-average question untouched.
 - Preflight performed on 15 new question IDs and 45 facts: approved hosts, source evidence length, stat family registration, exact duplicate signatures, reasonable range/step, midpoint score, and later-question numeric spoilers. Corrected invalid stat-family and oversize slider **before committing**. This is a source-authored batch, not an assertion of full QA or independent editorial sign-off. Production unchanged.
+
+## Nov 25 existing Warriors trivia — original scoring untouched
+- Three distinct evidenced post-reveal variants each for opening-streak, All-Star-break wins, home streak, team threes and Curry overtime points: **5 legacy questions, 15 sourced variants**. Individual excerpts reviewed against the [2015–16 Golden State Warriors season article](https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season); trivia avoids all later daily question numerical answers.
+- All five existing `id`, `answer`, `min`, `max`, `step`, and ordering left unchanged in canonical source; published lock should remain fixed. Generator and exact-head CI pending. Do not count complete until tests pass.
+- Jan 15–17 publisher generated day files and refreshed report at `ef4f42cbe5b8aff2cd813f26c2ca8c3d4f9e9514` (NBA validation zero errors, 62 NBA days, 310 scheduled questions, 26 reserves). Full CI on regenerated head still required.

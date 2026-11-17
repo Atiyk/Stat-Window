@@ -13,7 +13,7 @@
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
 - [ ] Expansion: **20/50** additional consecutive NBA days (Jan6–Jan25), **100/250** new NBA questions generated; **30** further dates (Jan26–Feb24) and **150** unique questions remain.
-- [ ] Three-variant coverage: **145/510** sets and **435/1530** variants source-authored; **140/420** generated, 5/15 Nov27 Kobe variants awaiting publisher. **365** sets / **1,095** variants remain.
+- [ ] Three-variant coverage: **145/510** question sets, **435/1530** independently sourced bonus facts **generated**; **365** question sets / **1,095** bonus variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -170,3 +170,6 @@ Independently opened and inspected https://en.wikipedia.org/wiki/1993%E2%80%9394
 ## January 25 Seattle generated; November 27 Kobe source repair
 - Jan25 generated bot commit `23cbbd5f` has five original new Seattle questions, each with 3 cited distinct variants; source and NBA validation previously passed on generation. Theme does not leak numeric answers.
 - Original Nov27 Kobe day now source-authored with 15 spoiler-safe trivia facts across five rounds. For two 2002–03 Bryant statistics (12 made threes and nine consecutive 40+ games), replaced an outdated source page link and quote with current, explicitly supporting text on Wikipedia's Kobe Bryant biography. All existing question IDs, numeric answers and ruler bounds retained; await free editorial-sync and exact full CI.
+
+## Nov27 Kobe generation verified
+Free editorial generator run `44009601630` completed successfully and generated `content/days/2026-11-27.json` with three separate sourced variants for each of its five questions. Corrected stale 2003-era Kobe citations now point to the current biography page. Jan25 Seattle also has five validated 3-variant questions; total 70 NBA days (to Jan25) with NBA validation 0 errors. Next checkpoint triggers the exact-head full desktop/mobile/analytics/Survival CI, which must pass before any release claim.

@@ -12,8 +12,8 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: **20/50** NBA days (Jan 6–Jan 25) generated, **100/250** new NBA questions; **21st day (Jan 26: Barkley's 1993 Phoenix Suns)** newly source-authored with five distinct questions and 15 variants, awaiting publication/CI. **29** other new days/145 questions remain.
-- [ ] Three-variant coverage: **151/510** question sets and **453/1530** source-authored trivia variants; **146/438** generated, five new Phoenix sets/15 variants pending publisher. **359** question sets / **1,077** variants remain.
+- [ ] Expansion: **21/50** additional NBA days and **105/250** new NBA questions generated (Jan 6–26); **29** NBA days / **145** new questions remain. Latest exact-head CI and final editorial review pending.
+- [ ] Three-variant coverage: **156/510** question sets and **468/1530** variants source-authored (151/453 generated; 5/15 original Nov 28 Rock Bottom pending publisher). **354** sets / **1,062** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -33,7 +33,7 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete the remaining 359 trivia sets and 29 extra NBA days with primary-source review and regression testing. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete remaining 354 trivia sets and 29 additional NBA days in source-audited batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
 ## Runbook for next source-verification batch
 - Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
 - Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
@@ -179,3 +179,6 @@ CI `44009734129` correctly rejected a 2010 Finals bonus fact with numerical `23`
 
 ## January 26 Phoenix 1992–93 — editorial source batch
 Created five new questions for Barkley's Suns (62 regular-season wins; 14-game December streak; Barkley's 12.1 RPG; Dan Majerle's 167 made threes; the Suns' 98 in the 1993 Finals Game 6). Wrote 15 independent contextual facts with explicit supporting excerpts from the Wikipedia 1992–93 Suns season and 1993 Finals articles. Verified neither canonical IDs nor answers duplicate existing Phoenix facts, checked ranges against midpoint scoring and in-slate numerical spoilers, and preserved previous daily scoring data. Source authored only until free generator produces the January 26 daily file and exact GitHub CI passes.
+
+## Phoenix and original November 28 Rock Bottom
+Jan26 (Barkley's 1993 Suns) successfully generated on free standard runner and contains five new questions each with 3 sourced trivia variants. Existing Nov28 game has newly authored 15 variants about the 1972–73 Sixers, 2011–12 Bobcats and 2013–14 Sixers. Research source pages were opened and key claims checked against visible editorial quotes; preserves existing IDs, answers, ranges and source rights. All trivia screened for later-round numeric spoilers and individual source quote lengths. Await publisher regeneration and latest full CI.

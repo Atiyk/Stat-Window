@@ -8,14 +8,15 @@
  * npm run factory -- plan --batch nba-2019-raptors --days 2 --start 2027-01-06
  */
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   generate, normalized, plan, validateBatch, validateCandidate,
   type CandidateBatch, type ResearchBatch, type SourcePolicy, type Proposal,
 } from './core.ts';
 
-const ROOT = fileURLToPath(new URL('../../', import.meta.url));
+// Optional isolated root enables real CLI end-to-end tests without touching the repository.
+const ROOT = process.env.QUESTION_FACTORY_ROOT ? resolve(process.env.QUESTION_FACTORY_ROOT) : fileURLToPath(new URL('../../', import.meta.url));
 const BASE = join(ROOT, 'data', 'question-factory');
 const RESEARCH = join(BASE, 'batches');
 const CANDIDATES = join(BASE, 'candidates');

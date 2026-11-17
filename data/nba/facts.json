@@ -1681,8 +1681,8 @@
     },
     "claim": "63 points, a playoff record, in a Bulls loss.",
     "source": {
-      "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-      "quote": "despite a playoff record 63 points by Michael Jordan in Game 2",
+      "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Chicago_Bulls_season",
+      "quote": "Michael Jordan (63)",
       "derivation": null,
       "asOf": null
     },
@@ -1700,7 +1700,33 @@
         "recognizability": 4,
         "estimability": 3,
         "surprise": 5
-      }
+      },
+      "funFacts": [
+        {
+          "text": "Chicago needed two overtimes to settle the record-setting game in Boston, but the Celtics held on.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Chicago_Bulls_season",
+            "quote": "L 131-135 (2OT)"
+          }
+        },
+        {
+          "text": "Charles Oakley led the Bulls on the glass that night, pulling down fourteen rebounds.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Chicago_Bulls_season",
+            "quote": "Charles Oakley (14)"
+          }
+        },
+        {
+          "text": "Boston Garden drew a crowd of 14,890 for that historic first-round playoff game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Chicago_Bulls_season",
+            "quote": "Boston Garden 14,890"
+          }
+        }
+      ]
     }
   },
   {

@@ -1,0 +1,265 @@
+{
+  "date": "2027-01-11",
+  "theme": {
+    "title": "The youngest MVP",
+    "subtitle": "Chicago Bulls, 2010–11",
+    "recap": "Derrick Rose led Chicago to the NBA's best regular-season record before the Bulls' deep playoff run ended against Miami."
+  },
+  "questions": [
+    {
+      "id": "nba-bulls11-regular-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did Derrick Rose's 2010–11 Bulls win?",
+      "context": "Chicago Bulls · 2010–11 · full regular season",
+      "answer": 62,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 30,
+      "max": 82,
+      "step": 1,
+      "note": "62 wins, earning the top seed in the Eastern Conference.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+        "quote": "the Bulls finished the season with a 62–20 record, the best in the league"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy",
+      "funFacts": [
+        {
+          "text": "Derrick Rose became the youngest player to win NBA MVP, earning the award before his 23rd birthday.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "Derrick Rose won the NBA Most Valuable Player Award, becoming the youngest NBA player ever to win the award, at the age of 22."
+          }
+        },
+        {
+          "text": "Chicago head coach Tom Thibodeau won Coach of the Year in the same season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "Tom Thibodeau wins NBA Coach of the Year"
+          }
+        },
+        {
+          "text": "Rose led the league's best-record team without a single All-Star teammate.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "Derrick Rose won 2010-11 NBA MVP and led his team to the Best NBA Regular Season Record without any All-Star teammates."
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-rose11-season-ppg",
+      "sport": "NBA",
+      "prompt": "What was Derrick Rose's scoring average in his 2010–11 MVP season?",
+      "context": "Chicago Bulls · 2010–11 · regular season",
+      "answer": 25,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 14,
+      "max": 43,
+      "step": 0.1,
+      "note": "25.0 points per game alongside his playmaking.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+        "quote": "Derrick Rose | 81 | 81 | 37.4 | .445 | .332 | .858 | 4.1 | 7.7 | 1.05 | .63 | 25.0"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Rose also averaged 7.7 assists per game during his regular-season MVP campaign.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "Derrick Rose | 81 | 81 | 37.4 | .445 | .332 | .858 | 4.1 | 7.7 | 1.05 | .63 | 25.0"
+          }
+        },
+        {
+          "text": "Rose recorded his first career triple-double against Memphis in January of that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "Derrick Rose also had his first career triple-double at the Memphis Grizzlies on Jan 17, 2011."
+          }
+        },
+        {
+          "text": "His team's offseason additions included Carlos Boozer, Kyle Korver and Ronnie Brewer.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "Carlos Boozer | Signed 5-year contract for $80 Million | Utah Jazz"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-bulls11-home-wins",
+      "sport": "NBA",
+      "prompt": "How many home games did the 2010–11 Bulls win at the United Center?",
+      "context": "Chicago Bulls · 2010–11 · 41 home games",
+      "answer": 36,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 15,
+      "max": 41,
+      "step": 1,
+      "note": "36 wins at home against only five defeats.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+        "quote": "Total: 62–20 (home: 36–5; road: 26–15)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Chicago finished its regular season with only five home defeats.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "Total: 62–20 (home: 36–5; road: 26–15)"
+          }
+        },
+        {
+          "text": "The Bulls ended the season by winning every game they played during April.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "April: 8–0 (home: 4–0; road: 4–0)"
+          }
+        },
+        {
+          "text": "The team set a franchise mark for converted three-pointers in a March game against Utah.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "On March 12 the Bulls set a franchise record 18 converted 3-point shots"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-noah11-rebounds-average",
+      "sport": "NBA",
+      "prompt": "What did Joakim Noah average in rebounds in the 2010–11 regular season?",
+      "context": "Chicago Bulls · injury-hit season",
+      "answer": 10.4,
+      "unit": {
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
+      },
+      "min": 5,
+      "max": 22,
+      "step": 0.1,
+      "note": "10.4 rebounds per game despite substantial time missed.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+        "quote": "Joakim Noah | 48 | 48 | 32.8 | .525 | .0 | .740 | 10.4 | 2.2 | 1.00 | 1.50 | 11.7"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Noah underwent surgery for a hand ligament injury and returned late in the season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "Joakim Noah underwent surgery on December 16 to repair a torn ligament in his right hand."
+          }
+        },
+        {
+          "text": "Noah appeared in fewer than 50 regular-season games that year because of injury.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "Joakim Noah | 48 | 48 | 32.8 | .525 | .0 | .740 | 10.4"
+          }
+        },
+        {
+          "text": "He also earned a place on the NBA All-Defensive Second Team.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "Joakim Noah made the NBA All-Defensive Second Team"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-rose11-hawks-g3-points",
+      "sport": "NBA",
+      "prompt": "How many points did Derrick Rose score in Game 3 against Atlanta in the 2011 playoffs?",
+      "context": "Chicago Bulls · 2011 Eastern semifinals · Game 3",
+      "answer": 44,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 15,
+      "max": 65,
+      "step": 1,
+      "note": "44 points, a career high at the time in Chicago's road win.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+        "quote": "Derrick Rose scored a career high 44 pts vs the Atlanta Hawks on May 6, 2011."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Chicago won the game in Atlanta and took control of a competitive second-round series.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "May 6 @ Atlanta W 99–82"
+          }
+        },
+        {
+          "text": "The Bulls ultimately eliminated Atlanta in six games to reach the Eastern Conference finals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "defeated the Atlanta Hawks in six games in the semifinals"
+          }
+        },
+        {
+          "text": "Miami's LeBron James, Dwyane Wade and Chris Bosh later ended Chicago's playoff run.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "eliminated by the Miami Heat team led by LeBron James, Dwyane Wade, and Chris Bosh"
+          }
+        }
+      ]
+    }
+  ]
+}

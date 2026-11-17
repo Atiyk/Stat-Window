@@ -2608,6 +2608,55 @@
       "day": "2027-01-10",
       "notBefore": "2027-01-11"
     },
+    "nba-bulls11-regular-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "CHI",
+      "era": "2010s",
+      "steps": 52,
+      "day": "2027-01-11",
+      "notBefore": "2027-01-12"
+    },
+    "nba-rose11-season-ppg": {
+      "tier": "medium",
+      "family": "scoring-average",
+      "franchise": "CHI",
+      "era": "2010s",
+      "steps": 290,
+      "day": "2027-01-11",
+      "notBefore": "2027-01-12"
+    },
+    "nba-bulls11-home-wins": {
+      "tier": "hard",
+      "family": "wins-situational",
+      "franchise": "CHI",
+      "era": "2010s",
+      "steps": 26,
+      "day": "2027-01-11",
+      "notBefore": "2027-01-12",
+      "leaks": [
+        "nba-mavs11-g2-comeback",
+        "nba-bulls11-regular-wins"
+      ]
+    },
+    "nba-noah11-rebounds-average": {
+      "tier": "hard",
+      "family": "rebounds-average",
+      "franchise": "CHI",
+      "era": "2010s",
+      "steps": 170,
+      "day": "2027-01-11",
+      "notBefore": "2027-01-12"
+    },
+    "nba-rose11-hawks-g3-points": {
+      "tier": "expert",
+      "family": "points-game",
+      "franchise": "CHI",
+      "era": "2010s",
+      "steps": 50,
+      "day": "2027-01-11",
+      "notBefore": "2027-01-12"
+    },
     "nba-bulls96-18-streak": {
       "tier": "medium",
       "family": "win-streak",

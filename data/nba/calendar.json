@@ -1054,6 +1054,108 @@
         "nba-gus79-finals-g4-points",
         "nba-sikma79-finals-g5-rebounds"
       ]
+    },
+    {
+      "date": "2027-01-18",
+      "theme": {
+        "id": "bird-pacers-bulls-1998",
+        "kind": "team-season",
+        "title": "Bird vs the Bulls",
+        "subtitle": "Indiana Pacers, 1997–98",
+        "recap": "Larry Bird transformed the Pacers and forced Michael Jordan's Bulls to a seventh game."
+      },
+      "questions": [
+        "nba-pacers98-season-wins",
+        "nba-pacers98-road-wins",
+        "nba-jackson98-regular-apg",
+        "nba-miller98-season-ppg",
+        "nba-smits98-bulls-g4-points"
+      ]
+    },
+    {
+      "date": "2027-01-19",
+      "theme": {
+        "id": "sacramento-crownless-kings-2002",
+        "kind": "team-season",
+        "title": "Kings without crowns",
+        "subtitle": "Sacramento Kings, 2001–02",
+        "recap": "Webber, Bibby and Stojaković won the league's top seed but fell to the Lakers in a classic West final."
+      },
+      "questions": [
+        "nba-kings02-regular-wins",
+        "nba-kings02-home-wins",
+        "nba-webber02-season-ppg",
+        "nba-bibby02-regular-apg",
+        "nba-peja02-regular-three-pct"
+      ]
+    },
+    {
+      "date": "2027-01-20",
+      "theme": {
+        "id": "heat-bubble-run-2020",
+        "kind": "team-season",
+        "title": "Bubble fire",
+        "subtitle": "Miami Heat, 2019–20",
+        "recap": "Butler, Adebayo and a rookie guard carried Miami from the fifth seed to the NBA Finals."
+      },
+      "questions": [
+        "nba-heat20-regular-wins",
+        "nba-adebayo20-regular-rpg",
+        "nba-butler20-regular-apg",
+        "nba-robinson20-season-ppg",
+        "nba-herro20-celtics-g4-points"
+      ]
+    },
+    {
+      "date": "2027-01-21",
+      "theme": {
+        "id": "spurs-beautiful-game-2014",
+        "kind": "team-season",
+        "title": "The beautiful game",
+        "subtitle": "San Antonio Spurs, 2013–14",
+        "recap": "The Spurs answered their painful 2013 Finals defeat with depth, passing and a title-winning rematch."
+      },
+      "questions": [
+        "nba-spurs14-season-wins",
+        "nba-spurs14-march-wins",
+        "nba-duncan14-season-rpg",
+        "nba-parker14-season-ppg",
+        "nba-diaw14-heat-g4-assists"
+      ]
+    },
+    {
+      "date": "2027-01-22",
+      "theme": {
+        "id": "hornets-cp3-homecoming-2008",
+        "kind": "team-season",
+        "title": "CP3's New Orleans",
+        "subtitle": "New Orleans Hornets, 2007–08",
+        "recap": "Back home after Hurricane Katrina, the Hornets had a breakthrough season before a seven-game Spurs battle."
+      },
+      "questions": [
+        "nba-hornets08-season-wins",
+        "nba-paul08-regular-apg",
+        "nba-chandler08-regular-rpg",
+        "nba-west08-season-ppg",
+        "nba-hornets08-spurs-g7-points"
+      ]
+    },
+    {
+      "date": "2027-01-23",
+      "theme": {
+        "id": "suns-underdogs-1984",
+        "kind": "team-season",
+        "title": "The .500 underdogs",
+        "subtitle": "Phoenix Suns, 1983–84",
+        "recap": "An even regular season became a surprise Western finals run behind Davis, Lucas and Nance."
+      },
+      "questions": [
+        "nba-suns84-season-wins",
+        "nba-davis84-regular-apg",
+        "nba-lucas84-season-rpg",
+        "nba-nance84-season-ppg",
+        "nba-suns84-lakers-g3-points"
+      ]
     }
   ],
   "reserve": [

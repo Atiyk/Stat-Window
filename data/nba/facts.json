@@ -14900,5 +14900,1895 @@
         }
       ]
     }
+  },
+  {
+    "id": "nba-pacers98-season-wins",
+    "family": "wins-season",
+    "scope": "regular-season",
+    "season": "1997-98",
+    "eventDate": null,
+    "franchise": "IND",
+    "player": null,
+    "answer": 58,
+    "unit": {
+      "singular": "win",
+      "plural": "wins"
+    },
+    "claim": "58 wins in Bird's first coaching season.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+      "quote": "58–24 record",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many regular-season games did Larry Bird's 1998 Pacers win?",
+      "context": "Indiana · Bird's rookie coaching year",
+      "reveal": "58 wins in Bird's first coaching season.",
+      "min": 28,
+      "max": 82,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "A famous Pacers team but a tricky exact win total.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 4
+      },
+      "funFacts": [
+        {
+          "text": "Larry Bird became Indiana's coach before this season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "hired former Indiana State University, and Boston Celtics All-Star legend Larry Bird as their new head coach"
+          }
+        },
+        {
+          "text": "The Pacers acquired Chris Mullin from Golden State.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "acquired All-Star forward Chris Mullin from the Golden State Warriors"
+          }
+        },
+        {
+          "text": "Indiana drafted Providence forward Austin Croshere twelfth overall.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "received the twelfth overall pick in the 1997 NBA draft"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-pacers98-road-wins",
+    "family": "wins-situational",
+    "scope": "regular-season",
+    "season": "1997-98",
+    "eventDate": null,
+    "franchise": "IND",
+    "player": null,
+    "answer": 26,
+    "unit": {
+      "singular": "road win",
+      "plural": "road wins"
+    },
+    "claim": "26 road victories, a franchise milestone.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+      "quote": "26–15 road record",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many away games did Indiana win during the 1997–98 regular season?",
+      "context": "Pacers · Larry Bird's first year",
+      "reveal": "26 road victories, a franchise milestone.",
+      "min": 6,
+      "max": 40,
+      "step": 1,
+      "difficulty": "medium",
+      "difficultyReason": "Road splits are less familiar than a team's total wins.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Indiana lost five of its first seven games before finding form.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "losing five of their first seven games of the regular season"
+          }
+        },
+        {
+          "text": "The Pacers rebounded by winning fifteen of the next eighteen games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "winning 15 of their next 18 games"
+          }
+        },
+        {
+          "text": "Bird won Coach of the Year after a huge team turnaround.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Bird was named the NBA Coach of the Year"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-jackson98-regular-apg",
+    "family": "assists-average",
+    "scope": "regular-season",
+    "season": "1997-98",
+    "eventDate": null,
+    "franchise": "IND",
+    "player": "Mark Jackson",
+    "answer": 8.7,
+    "unit": {
+      "singular": "assist per game",
+      "plural": "assists per game"
+    },
+    "claim": "8.7 assists per game from Indiana's veteran point guard.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+      "quote": "Mark Jackson | PG | 82 | 82 | 2,413 | 322 | 713 | 84 | 2 | 678 | 29.4 | 3.9 | 8.7",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "What was Mark Jackson's assists-per-game average for the 1998 Pacers?",
+      "context": "Indiana · 1997–98 regular season",
+      "reveal": "8.7 assists per game from Indiana's veteran point guard.",
+      "min": 3,
+      "max": 19,
+      "step": 0.1,
+      "difficulty": "hard",
+      "difficultyReason": "A precise season average is a challenging historical recall.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Jackson distributed 713 assists in the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Mark Jackson | PG | 82 | 82 | 2,413 | 322 | 713"
+          }
+        },
+        {
+          "text": "He started all eighty-two regular-season games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Mark Jackson | PG | 82 | 82"
+          }
+        },
+        {
+          "text": "Jalen Rose played every game without making a single start.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Jalen Rose | SF | 82 | 0"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-miller98-season-ppg",
+    "family": "scoring-average",
+    "scope": "regular-season",
+    "season": "1997-98",
+    "eventDate": null,
+    "franchise": "IND",
+    "player": "Reggie Miller",
+    "answer": 19.5,
+    "unit": {
+      "singular": "point per game",
+      "plural": "points per game"
+    },
+    "claim": "19.5 points per game from Indiana's leading scorer.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+      "quote": "Reggie Miller | SG | 81 | 81 | 2,795 | 232 | 171 | 78 | 11 | 1,578 | 34.5 | 2.9 | 2.1 | 1.0 | .1 | 19.5",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many points per game did Reggie Miller average in 1997–98?",
+      "context": "Pacers · season before Michael Jordan's final Bulls title",
+      "reveal": "19.5 points per game from Indiana's leading scorer.",
+      "min": 9,
+      "max": 42,
+      "step": 0.1,
+      "difficulty": "hard",
+      "difficultyReason": "Miller's playoff moments overshadow his exact season average.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Miller scored 1,578 points during the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Reggie Miller | SG | 81 | 81 | 2,795 | 232 | 171 | 78 | 11 | 1,578"
+          }
+        },
+        {
+          "text": "He spent 34.5 minutes per game on the floor.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Reggie Miller | SG | 81 | 81 | 2,795 | 232 | 171 | 78 | 11 | 1,578 | 34.5"
+          }
+        },
+        {
+          "text": "Miller led Indiana with twenty-eight points in the East finals' Game 3.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "May 23, 1998 Chicago W 107–105 Miller (28)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-smits98-bulls-g4-points",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "1997-98",
+    "eventDate": "1998-05-25",
+    "franchise": "IND",
+    "player": "Rik Smits",
+    "answer": 26,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "26 points in a dramatic two-point win.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+      "quote": "May 25, 1998 Chicago W 96–94 Smits (26)",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many points did Rik Smits score in Game 4 against the 1998 Bulls?",
+      "context": "Indiana · Eastern finals · home victory",
+      "reveal": "26 points in a dramatic two-point win.",
+      "min": 12,
+      "max": 76,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A game-specific playoff score from the 1990s is obscure.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "The Pacers won Game 4 by just two points at home.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "May 25, 1998 Chicago W 96–94"
+          }
+        },
+        {
+          "text": "Chris Mullin led Indiana with nine rebounds that night.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "May 25, 1998 Chicago W 96–94 Smits (26) Mullin (9)"
+          }
+        },
+        {
+          "text": "The Pacers won all three home games in that East final but none in Chicago.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Eastern Conference finals: 3–4 (home: 3–0; road: 0–4)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-kings02-regular-wins",
+    "family": "wins-season",
+    "scope": "regular-season",
+    "season": "2001-02",
+    "eventDate": null,
+    "franchise": "SAC",
+    "player": null,
+    "answer": 61,
+    "unit": {
+      "singular": "win",
+      "plural": "wins"
+    },
+    "claim": "61 wins, the league's best record.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+      "quote": "61–21 record (.744 in winning percentage)",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many regular-season games did the 2001–02 Kings win?",
+      "context": "Sacramento · Webber, Peja and Bibby",
+      "reveal": "61 wins, the league's best record.",
+      "min": 30,
+      "max": 82,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "This celebrated team was elite; the precise total is less obvious.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 4
+      },
+      "funFacts": [
+        {
+          "text": "Sacramento acquired Mike Bibby from the Grizzlies before the season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "the Kings acquired Mike Bibby from the Vancouver Grizzlies on draft day"
+          }
+        },
+        {
+          "text": "Chris Webber missed the first twenty games with an ankle injury.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Chris Webber missing the first 20 games of the regular season"
+          }
+        },
+        {
+          "text": "The division title was the club's first since its Kansas City years.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "first division title since the 1978–79 season"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-kings02-home-wins",
+    "family": "wins-situational",
+    "scope": "regular-season",
+    "season": "2001-02",
+    "eventDate": null,
+    "franchise": "SAC",
+    "player": null,
+    "answer": 36,
+    "unit": {
+      "singular": "home win",
+      "plural": "home wins"
+    },
+    "claim": "36 home victories in a deafening arena.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+      "quote": "Sacramento Kings | 61 | 21 | .744 | – | 36–5 | 25–16",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many games did the 2002 Kings win at ARCO Arena?",
+      "context": "Sacramento · 41 regular-season home games",
+      "reveal": "36 home victories in a deafening arena.",
+      "min": 14,
+      "max": 42,
+      "step": 1,
+      "difficulty": "medium",
+      "difficultyReason": "A great home team but an unfamiliar precise split.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "The Kings suffered only five home losses during the season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Sacramento Kings | 61 | 21 | .744 | – | 36–5"
+          }
+        },
+        {
+          "text": "Their away record was 25–16, substantially less dominant.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Sacramento Kings | 61 | 21 | .744 | – | 36–5 | 25–16"
+          }
+        },
+        {
+          "text": "Sacramento enjoyed a twelve-game winning streak around the new year.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "posted a 12-game winning streak between December and January"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-webber02-season-ppg",
+    "family": "scoring-average",
+    "scope": "regular-season",
+    "season": "2001-02",
+    "eventDate": null,
+    "franchise": "SAC",
+    "player": "Chris Webber",
+    "answer": 24.5,
+    "unit": {
+      "singular": "point per game",
+      "plural": "points per game"
+    },
+    "claim": "24.5 points per game despite missed time.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+      "quote": "Webber averaged 24.5 points, 10.1 rebounds, 4.8 assists",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many points per game did Chris Webber score for the 2002 Kings?",
+      "context": "Sacramento · 2001–02 regular season",
+      "reveal": "24.5 points per game despite missed time.",
+      "min": 13,
+      "max": 47,
+      "step": 0.1,
+      "difficulty": "hard",
+      "difficultyReason": "Webber was the star, but his exact scoring average is tricky.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Webber also pulled down 10.1 rebounds a game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Webber averaged 24.5 points, 10.1 rebounds, 4.8 assists"
+          }
+        },
+        {
+          "text": "His passing added another 4.8 assists per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Webber averaged 24.5 points, 10.1 rebounds, 4.8 assists"
+          }
+        },
+        {
+          "text": "He made the All-NBA Second Team that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "and was named to the All-NBA Second Team"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-bibby02-regular-apg",
+    "family": "assists-average",
+    "scope": "regular-season",
+    "season": "2001-02",
+    "eventDate": null,
+    "franchise": "SAC",
+    "player": "Mike Bibby",
+    "answer": 5,
+    "unit": {
+      "singular": "assist per game",
+      "plural": "assists per game"
+    },
+    "claim": "5.0 assists per game as Sacramento's new point guard.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+      "quote": "Mike Bibby | 80 | 80 | 33.2 | .453 | .370 | .803 | 2.8 | 5.0",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many assists per game did Mike Bibby average for the 2002 Kings?",
+      "context": "Sacramento · first season after the Grizzlies trade",
+      "reveal": "5.0 assists per game as Sacramento's new point guard.",
+      "min": 1,
+      "max": 12,
+      "step": 0.1,
+      "difficulty": "hard",
+      "difficultyReason": "Bibby is remembered for clutch shots more than his assist rate.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Bibby started all eighty regular-season games he played.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Mike Bibby | 80 | 80 | 33.2"
+          }
+        },
+        {
+          "text": "He averaged 20.3 points in the ensuing playoffs.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Mike Bibby | 16 | 16 | 41.3 | .444 | .424 | .826 | 3.8 | 5.0 | 1.4 | .2 | 20.3"
+          }
+        },
+        {
+          "text": "His postseason three-point accuracy was 42.4 percent.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Mike Bibby | 16 | 16 | 41.3 | .444 | .424 | .826"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-peja02-regular-three-pct",
+    "family": "shooting-pct",
+    "scope": "regular-season",
+    "season": "2001-02",
+    "eventDate": null,
+    "franchise": "SAC",
+    "player": "Peja Stojaković",
+    "answer": 41.6,
+    "unit": {
+      "singular": "percent",
+      "plural": "percent"
+    },
+    "claim": "41.6 percent from deep.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+      "quote": "Peja Stojaković | 71 | 71 | 37.3 | .484 | .416 | .876",
+      "derivation": "Convert .416 source three-point percentage into 41.6% by multiplying by 100.",
+      "asOf": null
+    },
+    "question": {
+      "prompt": "What percent of his threes did Peja Stojaković make in 2001–02?",
+      "context": "Sacramento · regular season · one decimal",
+      "reveal": "41.6 percent from deep.",
+      "min": 24,
+      "max": 62,
+      "step": 0.1,
+      "difficulty": "expert",
+      "difficultyReason": "A historical season shooting percentage is difficult to estimate.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Peja made 129 three-pointers that regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "led the Kings with 129 three-point field goals"
+          }
+        },
+        {
+          "text": "He converted 87.6 percent of his free throws.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Peja Stojaković | 71 | 71 | 37.3 | .484 | .416 | .876"
+          }
+        },
+        {
+          "text": "Stojaković started every one of his seventy-one appearances.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Peja Stojaković | 71 | 71"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-heat20-regular-wins",
+    "family": "wins-season",
+    "scope": "regular-season",
+    "season": "2019-20",
+    "eventDate": null,
+    "franchise": "MIA",
+    "player": null,
+    "answer": 44,
+    "unit": {
+      "singular": "win",
+      "plural": "wins"
+    },
+    "claim": "44 regular-season wins, then a surprise Finals appearance.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+      "quote": "Record | 44–29 (.603)",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many games did Miami win before the 2020 Bubble playoffs?",
+      "context": "Heat · Jimmy Butler's first season · shortened schedule",
+      "reveal": "44 regular-season wins, then a surprise Finals appearance.",
+      "min": 22,
+      "max": 80,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "The bubble disrupted the usual 82-game baseline.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 4
+      },
+      "funFacts": [
+        {
+          "text": "This was Miami's first complete season without retired Dwyane Wade.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "It was the first time since 2016-17 that Dwyane Wade was not on the Miami Heat roster"
+          }
+        },
+        {
+          "text": "Jimmy Butler was in his first season with Miami.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "It was the first season for Jimmy Butler on the Heat"
+          }
+        },
+        {
+          "text": "Miami was among twenty-two teams invited to the NBA bubble.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "the Heat were one of 22 teams invited to the NBA Bubble"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-adebayo20-regular-rpg",
+    "family": "rebounds-average",
+    "scope": "regular-season",
+    "season": "2019-20",
+    "eventDate": null,
+    "franchise": "MIA",
+    "player": "Bam Adebayo",
+    "answer": 10.2,
+    "unit": {
+      "singular": "rebound per game",
+      "plural": "rebounds per game"
+    },
+    "claim": "10.2 rebounds a game while anchoring the paint.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+      "quote": "Bam Adebayo | PF | 72 | 72 | 2,417 | 735 | 368 | 82 | 93 | 1,146 | 33.6 | 10.2",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many rebounds per game did Bam Adebayo average for the 2020 Heat?",
+      "context": "Miami · 2019–20 regular season",
+      "reveal": "10.2 rebounds a game while anchoring the paint.",
+      "min": 5,
+      "max": 23,
+      "step": 0.1,
+      "difficulty": "medium",
+      "difficultyReason": "Bam's rebounding profile provides a rough anchor.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Bam joined Butler on Miami's 2020 All-Star contingent.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Jimmy Butler and Bam Adebayo were both selected into 2020 NBA All-Star Game"
+          }
+        },
+        {
+          "text": "Adebayo recorded 368 assists that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Bam Adebayo | PF | 72 | 72 | 2,417 | 735 | 368"
+          }
+        },
+        {
+          "text": "His rim protection included 93 blocks in the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Bam Adebayo | PF | 72 | 72 | 2,417 | 735 | 368 | 82 | 93"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-butler20-regular-apg",
+    "family": "assists-average",
+    "scope": "regular-season",
+    "season": "2019-20",
+    "eventDate": null,
+    "franchise": "MIA",
+    "player": "Jimmy Butler",
+    "answer": 6,
+    "unit": {
+      "singular": "assist per game",
+      "plural": "assists per game"
+    },
+    "claim": "6.0 assists per night as a creative forward.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+      "quote": "Jimmy Butler | SF | 58 | 58 | 1,959 | 386 | 350 | 103 | 32 | 1,157 | 33.8 | 6.7 | 6.0",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many assists per game did Jimmy Butler average in his first Heat season?",
+      "context": "Miami · 2019–20 regular season",
+      "reveal": "6.0 assists per night as a creative forward.",
+      "min": 2,
+      "max": 16,
+      "step": 0.1,
+      "difficulty": "hard",
+      "difficultyReason": "Butler is more often remembered for his defensive intensity.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Butler collected 103 steals in just fifty-eight appearances.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Jimmy Butler | SF | 58 | 58 | 1,959 | 386 | 350 | 103"
+          }
+        },
+        {
+          "text": "He averaged 19.9 points while also organizing Miami's offense.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Jimmy Butler | SF | 58 | 58 | 1,959 | 386 | 350 | 103 | 32 | 1,157 | 33.8 | 6.7 | 6.0 | 1.8 | .6 | 19.9"
+          }
+        },
+        {
+          "text": "Butler started all fifty-eight regular-season games he played.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Jimmy Butler | SF | 58 | 58"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-robinson20-season-ppg",
+    "family": "scoring-average",
+    "scope": "regular-season",
+    "season": "2019-20",
+    "eventDate": null,
+    "franchise": "MIA",
+    "player": "Duncan Robinson",
+    "answer": 13.5,
+    "unit": {
+      "singular": "point per game",
+      "plural": "points per game"
+    },
+    "claim": "13.5 points per game from the sharpshooter.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+      "quote": "Duncan Robinson | SG | 73 | 68 | 2,166 | 232 | 102 | 35 | 19 | 983 | 29.7 | 3.2 | 1.4 | .5 | .3 | 13.5",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many points per game did Duncan Robinson average for the 2020 Heat?",
+      "context": "Miami · breakout season · regular games",
+      "reveal": "13.5 points per game from the sharpshooter.",
+      "min": 5,
+      "max": 29,
+      "step": 0.1,
+      "difficulty": "hard",
+      "difficultyReason": "The exact scoring of a role player is a niche statistic.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Robinson appeared in all seventy-three of Miami's scheduled games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Duncan Robinson | SG | 73 | 68"
+          }
+        },
+        {
+          "text": "He started sixty-eight games in his breakout season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Duncan Robinson | SG | 73 | 68"
+          }
+        },
+        {
+          "text": "Robinson collected 232 rebounds and 102 assists.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Duncan Robinson | SG | 73 | 68 | 2,166 | 232 | 102"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-herro20-celtics-g4-points",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2019-20",
+    "eventDate": "2020-09-23",
+    "franchise": "MIA",
+    "player": "Tyler Herro",
+    "answer": 37,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "37 points in Miami's narrow win.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+      "quote": "September 23 Boston W 112–109 Tyler Herro (37)",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many points did rookie Tyler Herro score in Game 4 versus Boston?",
+      "context": "2020 Bubble · Eastern Conference finals",
+      "reveal": "37 points in Miami's narrow win.",
+      "min": 18,
+      "max": 69,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A single breakout rookie game is hard to recall precisely.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "The Heat escaped that game by a three-point margin.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "September 23 Boston W 112–109 Tyler Herro (37)"
+          }
+        },
+        {
+          "text": "Bam Adebayo collected twelve rebounds in the same contest.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "September 23 Boston W 112–109 Tyler Herro (37) Bam Adebayo (12)"
+          }
+        },
+        {
+          "text": "Miami took a three-games-to-one series lead with that victory.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "No In-Person Attendance 3–1"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-spurs14-season-wins",
+    "family": "wins-season",
+    "scope": "regular-season",
+    "season": "2013-14",
+    "eventDate": null,
+    "franchise": "SAS",
+    "player": null,
+    "answer": 62,
+    "unit": {
+      "singular": "win",
+      "plural": "wins"
+    },
+    "claim": "62 wins before the rematch with Miami.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+      "quote": "the best record in the league at 62–20",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many regular-season games did the 2013–14 champion Spurs win?",
+      "context": "San Antonio · the Beautiful Game title",
+      "reveal": "62 wins before the rematch with Miami.",
+      "min": 20,
+      "max": 86,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "Title success is famous; the season total less so.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 4
+      },
+      "funFacts": [
+        {
+          "text": "San Antonio entered the season with a then-record ten international players.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "an NBA-record ten international players"
+          }
+        },
+        {
+          "text": "The Spurs had lost their first NBA Finals series the prior year.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "marking the first time the Spurs lost in the NBA Finals"
+          }
+        },
+        {
+          "text": "Gregg Popovich led the team as both coach and president.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Head coach | Gregg Popovich"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-spurs14-march-wins",
+    "family": "wins-month",
+    "scope": "regular-season",
+    "season": "2013-14",
+    "eventDate": null,
+    "franchise": "SAS",
+    "player": null,
+    "answer": 16,
+    "unit": {
+      "singular": "March win",
+      "plural": "March wins"
+    },
+    "claim": "16 wins in an unblemished March.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+      "quote": "an unbeaten month in March (16–0)",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many games did San Antonio win in its unbeaten March of 2014?",
+      "context": "Spurs · March 2014 · undefeated month",
+      "reveal": "16 wins in an unblemished March.",
+      "min": 5,
+      "max": 24,
+      "step": 1,
+      "difficulty": "medium",
+      "difficultyReason": "The perfect month was historic, but its game count is tricky.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "The late-season surge continued into the start of April.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "a 19-game winning streak from late February to early April"
+          }
+        },
+        {
+          "text": "Dallas later stretched the Spurs to seven games in the playoff opener.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "defeated the Dallas Mavericks in seven games in the first round"
+          }
+        },
+        {
+          "text": "San Antonio returned to the Finals to face Miami in a rematch.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "back-to-back Finals appearances, also against the Miami Heat"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-duncan14-season-rpg",
+    "family": "rebounds-average",
+    "scope": "regular-season",
+    "season": "2013-14",
+    "eventDate": null,
+    "franchise": "SAS",
+    "player": "Tim Duncan",
+    "answer": 9.7,
+    "unit": {
+      "singular": "rebound per game",
+      "plural": "rebounds per game"
+    },
+    "claim": "9.7 rebounds per game in his later career.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+      "quote": "Tim Duncan | C | 74 | 74 | 2,158 | 721 | 220 | 43 | 139 | 1,119 | 29.2 | 9.7",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "What was Tim Duncan's rebound average in the 2014 title season?",
+      "context": "San Antonio · regular season · veteran center",
+      "reveal": "9.7 rebounds per game in his later career.",
+      "min": 3,
+      "max": 22,
+      "step": 0.1,
+      "difficulty": "hard",
+      "difficultyReason": "His career reputation helps, but the decimal is difficult.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Duncan blocked 139 shots during the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Tim Duncan | C | 74 | 74 | 2,158 | 721 | 220 | 43 | 139"
+          }
+        },
+        {
+          "text": "He started all seventy-four games he played.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Tim Duncan | C | 74 | 74"
+          }
+        },
+        {
+          "text": "Duncan scored 1,119 points during the season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Tim Duncan | C | 74 | 74 | 2,158 | 721 | 220 | 43 | 139 | 1,119"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-parker14-season-ppg",
+    "family": "scoring-average",
+    "scope": "regular-season",
+    "season": "2013-14",
+    "eventDate": null,
+    "franchise": "SAS",
+    "player": "Tony Parker",
+    "answer": 16.7,
+    "unit": {
+      "singular": "point per game",
+      "plural": "points per game"
+    },
+    "claim": "16.7 points per game as part of a deep team.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+      "quote": "Tony Parker | PG | 68 | 68 | 1,997 | 155 | 388 | 36 | 9 | 1,134 | 29.4 | 2.3 | 5.7 | .5 | .1 | 16.7",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many points per game did Tony Parker score for the 2014 Spurs?",
+      "context": "San Antonio · balanced championship attack",
+      "reveal": "16.7 points per game as part of a deep team.",
+      "min": 8,
+      "max": 37,
+      "step": 0.1,
+      "difficulty": "hard",
+      "difficultyReason": "A famous guard on a famously balanced roster.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Parker played nearly two thousand minutes across sixty-eight appearances.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Tony Parker | PG | 68 | 68 | 1,997"
+          }
+        },
+        {
+          "text": "He dished out 388 assists in the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Tony Parker | PG | 68 | 68 | 1,997 | 155 | 388"
+          }
+        },
+        {
+          "text": "Parker's passing average stood at 5.7 assists per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Tony Parker | PG | 68 | 68 | 1,997 | 155 | 388 | 36 | 9 | 1,134 | 29.4 | 2.3 | 5.7"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-diaw14-heat-g4-assists",
+    "family": "assists-game",
+    "scope": "finals",
+    "season": "2013-14",
+    "eventDate": "2014-06-12",
+    "franchise": "SAS",
+    "player": "Boris Diaw",
+    "answer": 9,
+    "unit": {
+      "singular": "assist",
+      "plural": "assists"
+    },
+    "claim": "9 assists from the versatile forward.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+      "quote": "June 12 @ Miami W 107–86 Kawhi Leonard (20) Kawhi Leonard (14) Boris Diaw (9)",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many assists did Boris Diaw record in Game 4 of the 2014 Finals?",
+      "context": "Spurs at Miami · a pivotal Finals road win",
+      "reveal": "9 assists from the versatile forward.",
+      "min": 1,
+      "max": 26,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Few remember a single-game passing total from a role player.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "San Antonio won the game by twenty-one points.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "June 12 @ Miami W 107–86"
+          }
+        },
+        {
+          "text": "Kawhi Leonard led the team with twenty points.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "June 12 @ Miami W 107–86 Kawhi Leonard (20)"
+          }
+        },
+        {
+          "text": "Leonard also collected fourteen rebounds that night.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "June 12 @ Miami W 107–86 Kawhi Leonard (20) Kawhi Leonard (14)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-hornets08-season-wins",
+    "family": "wins-season",
+    "scope": "regular-season",
+    "season": "2007-08",
+    "eventDate": null,
+    "franchise": "NOP",
+    "player": null,
+    "answer": 56,
+    "unit": {
+      "singular": "win",
+      "plural": "wins"
+    },
+    "claim": "56 wins and a Southwest Division title.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+      "quote": "Record | 56–26 (.683)",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many regular-season games did Chris Paul's 2007–08 Hornets win?",
+      "context": "New Orleans · first full season back in the city",
+      "reveal": "56 wins and a Southwest Division title.",
+      "min": 23,
+      "max": 82,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "Paul's breakout was well known; the precise record less so.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 4
+      },
+      "funFacts": [
+        {
+          "text": "The Hornets returned full-time to New Orleans after two seasons partly in Oklahoma City.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "They returned to New Orleans full-time for the first time since 2004–05"
+          }
+        },
+        {
+          "text": "Byron Scott coached the franchise through its resurgence.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Head coach | Byron Scott"
+          }
+        },
+        {
+          "text": "The team finished second in the Western Conference standings.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Conference: 2nd (Western)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-paul08-regular-apg",
+    "family": "assists-average",
+    "scope": "regular-season",
+    "season": "2007-08",
+    "eventDate": null,
+    "franchise": "NOP",
+    "player": "Chris Paul",
+    "answer": 11.6,
+    "unit": {
+      "singular": "assist per game",
+      "plural": "assists per game"
+    },
+    "claim": "11.6 assists per game from the young star.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+      "quote": "Chris Paul | 80 | 80 | 37.6 | .488 | .369 | .851 | 4.0 | 11.6",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many assists per game did Chris Paul average for New Orleans in 2008?",
+      "context": "Hornets · 2007–08 regular season",
+      "reveal": "11.6 assists per game from the young star.",
+      "min": 5,
+      "max": 22,
+      "step": 0.1,
+      "difficulty": "medium",
+      "difficultyReason": "His elite playmaking guides estimation.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Paul also averaged 2.71 steals per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Chris Paul | 80 | 80 | 37.6 | .488 | .369 | .851 | 4.0 | 11.6 | 2.71"
+          }
+        },
+        {
+          "text": "He started all eighty regular-season games he played.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Chris Paul | 80 | 80 | 37.6"
+          }
+        },
+        {
+          "text": "His free-throw percentage was 85.1 percent.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Chris Paul | 80 | 80 | 37.6 | .488 | .369 | .851"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-chandler08-regular-rpg",
+    "family": "rebounds-average",
+    "scope": "regular-season",
+    "season": "2007-08",
+    "eventDate": null,
+    "franchise": "NOP",
+    "player": "Tyson Chandler",
+    "answer": 11.7,
+    "unit": {
+      "singular": "rebound per game",
+      "plural": "rebounds per game"
+    },
+    "claim": "11.7 rebounds per game with elite interior defense.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+      "quote": "Tyson Chandler | 79 | 79 | 35.2 | .623 | .000 | .593 | 11.7",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many rebounds did Tyson Chandler average for the 2008 Hornets?",
+      "context": "New Orleans · 2007–08 regular season",
+      "reveal": "11.7 rebounds per game with elite interior defense.",
+      "min": 5,
+      "max": 27,
+      "step": 0.1,
+      "difficulty": "hard",
+      "difficultyReason": "A respected rebounder with an obscure exact split.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Chandler converted 62.3 percent of his field goals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Tyson Chandler | 79 | 79 | 35.2 | .623"
+          }
+        },
+        {
+          "text": "He started each of his seventy-nine regular-season appearances.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Tyson Chandler | 79 | 79"
+          }
+        },
+        {
+          "text": "Chandler averaged 11.8 points alongside the rebounding.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Tyson Chandler | 79 | 79 | 35.2 | .623 | .000 | .593 | 11.7 | 1.0 | .57 | 1.06 | 11.8"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-west08-season-ppg",
+    "family": "scoring-average",
+    "scope": "regular-season",
+    "season": "2007-08",
+    "eventDate": null,
+    "franchise": "NOP",
+    "player": "David West",
+    "answer": 20.6,
+    "unit": {
+      "singular": "point per game",
+      "plural": "points per game"
+    },
+    "claim": "20.6 points per game next to Chris Paul.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+      "quote": "David West | 76 | 76 | 37.8 | .482 | .240 | .850 | 8.9 | 2.3 | .82 | 1.30 | 20.6",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "What was David West's scoring average on the 2007–08 Hornets?",
+      "context": "New Orleans · regular-season offense",
+      "reveal": "20.6 points per game next to Chris Paul.",
+      "min": 9,
+      "max": 43,
+      "step": 0.1,
+      "difficulty": "hard",
+      "difficultyReason": "The exact score average of an overlooked All-Star.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "West grabbed 8.9 rebounds per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "David West | 76 | 76 | 37.8 | .482 | .240 | .850 | 8.9"
+          }
+        },
+        {
+          "text": "He made eighty-five percent of his foul shots.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "David West | 76 | 76 | 37.8 | .482 | .240 | .850"
+          }
+        },
+        {
+          "text": "West scored thirty in the first second-round victory over San Antonio.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "May 3 San Antonio 101–82 West (30)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-hornets08-spurs-g7-points",
+    "family": "points-team-game",
+    "scope": "playoffs",
+    "season": "2007-08",
+    "eventDate": "2008-05-19",
+    "franchise": "NOP",
+    "player": null,
+    "answer": 82,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "82 points in their season-ending loss.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+      "quote": "May 19 San Antonio 82–91 West (20) Chandler (15) Paul (14)",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many points did the Hornets score in Game 7 against the 2008 Spurs?",
+      "context": "New Orleans · Western semifinals · elimination",
+      "reveal": "82 points in their season-ending loss.",
+      "min": 45,
+      "max": 138,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "An unfamiliar defensive Game 7 score.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "New Orleans had led the series three games to two.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "May 13 San Antonio 101–79 West (38) West (14) Paul (14)"
+          }
+        },
+        {
+          "text": "Tyson Chandler grabbed fifteen rebounds in the decider.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "May 19 San Antonio 82–91 West (20) Chandler (15)"
+          }
+        },
+        {
+          "text": "Chris Paul supplied fourteen assists even in defeat.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "May 19 San Antonio 82–91 West (20) Chandler (15) Paul (14)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-suns84-season-wins",
+    "family": "wins-season",
+    "scope": "regular-season",
+    "season": "1983-84",
+    "eventDate": null,
+    "franchise": "PHX",
+    "player": null,
+    "answer": 41,
+    "unit": {
+      "singular": "win",
+      "plural": "wins"
+    },
+    "claim": "41 wins before their deep playoff run.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+      "quote": "Record | 41–41 (.500)",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many regular-season games did the 1983–84 Suns win?",
+      "context": "Phoenix · sixth seed · surprise West finalists",
+      "reveal": "41 wins before their deep playoff run.",
+      "min": 19,
+      "max": 75,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "A mediocre regular season became an unexpected playoff story.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 4
+      },
+      "funFacts": [
+        {
+          "text": "Larry Nance won the first NBA Slam Dunk Contest that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Larry Nance competed in the inaugural NBA Slam Dunk Contest"
+          }
+        },
+        {
+          "text": "Phoenix played at Arizona Veterans Memorial Coliseum.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Arena | Arizona Veterans Memorial Coliseum"
+          }
+        },
+        {
+          "text": "Walter Davis earned another Western Conference All-Star selection.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Walter Davis was selected as a reserve for the Western Conference"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-davis84-regular-apg",
+    "family": "assists-average",
+    "scope": "regular-season",
+    "season": "1983-84",
+    "eventDate": null,
+    "franchise": "PHX",
+    "player": "Walter Davis",
+    "answer": 5.5,
+    "unit": {
+      "singular": "assist per game",
+      "plural": "assists per game"
+    },
+    "claim": "5.5 assists per game from the veteran guard.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+      "quote": "Walter Davis | 78 | 70 | 32.6 | .512 | .230 | .863 | 2.6 | 5.5",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many assists per game did Walter Davis average for Phoenix in 1983–84?",
+      "context": "Suns · veteran scorer and creator",
+      "reveal": "5.5 assists per game from the veteran guard.",
+      "min": 1,
+      "max": 13,
+      "step": 0.1,
+      "difficulty": "medium",
+      "difficultyReason": "Davis's playmaking is less famous than his scoring.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Davis scored twenty points a game that year.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Walter Davis | 78 | 70 | 32.6 | .512 | .230 | .863 | 2.6 | 5.5 | 1.4 | .2 | 20.0"
+          }
+        },
+        {
+          "text": "He started seventy of his seventy-eight appearances.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Walter Davis | 78 | 70 | 32.6"
+          }
+        },
+        {
+          "text": "Davis hit 86.3 percent of his free throws.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Walter Davis | 78 | 70 | 32.6 | .512 | .230 | .863"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-lucas84-season-rpg",
+    "family": "rebounds-average",
+    "scope": "regular-season",
+    "season": "1983-84",
+    "eventDate": null,
+    "franchise": "PHX",
+    "player": "Maurice Lucas",
+    "answer": 9.7,
+    "unit": {
+      "singular": "rebound per game",
+      "plural": "rebounds per game"
+    },
+    "claim": "9.7 rebounds per game from the tough big man.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+      "quote": "Maurice Lucas | 75 | 69 | 30.8 | .497 | .000 | .765 | 9.7",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many rebounds did Maurice Lucas average in 1983–84?",
+      "context": "Phoenix Suns · veteran forward · regular season",
+      "reveal": "9.7 rebounds per game from the tough big man.",
+      "min": 3,
+      "max": 22,
+      "step": 0.1,
+      "difficulty": "hard",
+      "difficultyReason": "Lucas's exact Phoenix production is a deep cut.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Lucas also scored 15.9 points per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Maurice Lucas | 75 | 69 | 30.8 | .497 | .000 | .765 | 9.7 | 2.7 | .7 | .5 | 15.9"
+          }
+        },
+        {
+          "text": "He played seventy-five games and started sixty-nine.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Maurice Lucas | 75 | 69 | 30.8"
+          }
+        },
+        {
+          "text": "Lucas led the Suns with seventeen rebounds in their playoff overtime win against Los Angeles.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "May 18, 1984 Los Angeles W 135–127 (OT) Davis (34) Lucas (17)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-nance84-season-ppg",
+    "family": "scoring-average",
+    "scope": "regular-season",
+    "season": "1983-84",
+    "eventDate": null,
+    "franchise": "PHX",
+    "player": "Larry Nance",
+    "answer": 17.7,
+    "unit": {
+      "singular": "point per game",
+      "plural": "points per game"
+    },
+    "claim": "17.7 points per game from the athletic forward.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+      "quote": "Larry Nance | 82 | 82 | 35.4 | .576 | .000 | .707 | 8.3 | 2.6 | 1.0 | 2.1 | 17.7",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many points per game did Larry Nance average in 1983–84?",
+      "context": "Phoenix · first Slam Dunk champion · season scoring",
+      "reveal": "17.7 points per game from the athletic forward.",
+      "min": 9,
+      "max": 33,
+      "step": 0.1,
+      "difficulty": "hard",
+      "difficultyReason": "Dunk-contest fame overshadows the scoring average.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Nance started all eighty-two Suns games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Larry Nance | 82 | 82 | 35.4"
+          }
+        },
+        {
+          "text": "He averaged 8.3 boards and 2.1 blocks.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Larry Nance | 82 | 82 | 35.4 | .576 | .000 | .707 | 8.3 | 2.6 | 1.0 | 2.1"
+          }
+        },
+        {
+          "text": "His 57.6 percent field-goal accuracy was exceptional.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Larry Nance | 82 | 82 | 35.4 | .576"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-suns84-lakers-g3-points",
+    "family": "points-team-game",
+    "scope": "playoffs",
+    "season": "1983-84",
+    "eventDate": "1984-05-18",
+    "franchise": "PHX",
+    "player": null,
+    "answer": 135,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "135 points in a wild overtime win.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+      "quote": "May 18, 1984 Los Angeles W 135–127 (OT) Davis (34) Lucas (17)",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many points did Phoenix score against the Lakers in 1984 West finals Game 3?",
+      "context": "Phoenix Suns · home game that needed overtime",
+      "reveal": "135 points in a wild overtime win.",
+      "min": 85,
+      "max": 225,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Specific score of an old, high-scoring playoff night.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Walter Davis paced the Suns with thirty-four points.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "May 18, 1984 Los Angeles W 135–127 (OT) Davis (34)"
+          }
+        },
+        {
+          "text": "The victory required overtime to decide.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "May 18, 1984 Los Angeles W 135–127 (OT)"
+          }
+        },
+        {
+          "text": "Los Angeles eventually took the Western finals in six games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Western Conference Finals: 2–4 (home: 1–2; road: 1–2)"
+          }
+        }
+      ]
+    }
   }
 ]

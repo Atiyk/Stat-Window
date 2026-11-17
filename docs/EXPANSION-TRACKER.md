@@ -13,7 +13,7 @@
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
 - [ ] Expansion: **21/50** additional NBA days (Jan6–Jan26) and **105/250** new NBA questions generated; **29** more NBA days (Jan27–Feb24) and **145** new questions remain.
-- [ ] Three-variant coverage: **161/510** question sets and **483/1530** source-backed fact variants authored; **156/468** already generated, 5/15 historical Nov29 Stockton/Malone pending regeneration. **349** sets / **1,047** variants remain.
+- [ ] Three-variant coverage: **161/510** daily question sets, **483/1530** individually source-backed bonus variants generated (pending latest exact-head strict trivia and full-browser CI); **349** question sets / **1,047** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -189,3 +189,6 @@ Jan26 (Barkley's 1993 Suns) successfully generated on free standard runner and c
 
 ## November 29 Stockton–Malone authored trivia
 Fifteen independently sourced variants (3 for each of 5 existing questions): Stockton's nine assist titles and career assist total, Stockton/Malone pick-and-roll and Finals history, his durability and MCL injury, Utah's 1991 Spurs game, and Malone's last championship attempt with the Lakers. Verified text against Wikipedia's John Stockton biography and 2004 NBA Finals article; preserved original scoring fingerprints, checked later-round numerical spoilers and short excerpt attribution. Await branch-only publisher and strict trivia/Survival CI.
+
+## November 29 Stockton–Malone generation verified
+Free editorial-sync run `44010852873` succeeded and pushed bot commit `78b03a12`. The playable Nov29 day now contains three distinct source-supported trivia facts for each of the five existing questions with unchanged scoring fingerprints. NBA generator reports zero issues for 71 consecutive NBA days/355 NBA questions; current full strict bonus-fact/reserve spoiler audit remains an exact-head release gate, along with desktop/mobile browser and analytics/Survival checks. This connector-authored tracker checkpoint triggers that full CI on generated files.

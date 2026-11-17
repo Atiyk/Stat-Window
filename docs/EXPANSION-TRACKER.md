@@ -12,8 +12,8 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: **18/50** additional NBA days (Jan 6–23) **generated**, **90/250** additional questions; **32** more dates (Jan 24–Feb 24) and **160** new questions remain.
-- [ ] Three-variant coverage: **125/510** question sets with three source-backed variants **generated** / **375/1530** bonus variants; **385** sets / **1,155** variants remain.
+- [ ] Expansion: **18/50** new NBA days and **90/250** new questions generated through Jan 23; **Jan 24 Cleveland Cavaliers 2008–09** now source-authored (5 new questions), awaiting publisher/QA. Source-authored total 19/50 days and 95/250 new questions; 31 dates/155 questions still needed.
+- [ ] Three-variant coverage: **130/510** question sets and **390/1530** variants source-authored; **125/375** generated, **5/15** new Cleveland sets pending publisher. **380** question sets/1,140 variants still unwritten.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -33,7 +33,7 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete the remaining 450 three-variant sets and 43 new themed days in editorially verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete the remaining 380 three-variant sets and 31 new themed days in source-verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
 ## Runbook for next source-verification batch
 - Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
 - Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
@@ -156,3 +156,6 @@ Source-authored one NBA slate from `2004–05 Phoenix Suns season` Wikipedia: 33
 - Inspected canonical `facts.json` and `calendar.json`: 366 NBA facts, 68 consecutive NBA dates (November 17–January 23), 126 canonical NBA fact records with three bonus variants (378 variants), and 32 expansion dates (January 24–February 24) not yet authored. The separate ten mixed-sport questions are not counted in the 126.
 - Prior checkpoint CI run `44006377755` was cancelled by concurrency, not passed. This docs-only commit intentionally triggers a new full CI on the generated exact head; verify its eventual conclusion and job steps before claiming a green build.
 - Editorial correction for the December 15 Jordan/Boston 1986 playoff round is now included in generated artifacts; do not modify existing answer/scoring locks. No PR or production deployment authorized by this checkpoint.
+
+## January 24 LeBron first MVP — independently opened source page
+Source-authored five new Cleveland 2008–09 themed questions from https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season (web page reviewed 2026-11-16): 66 regular wins; 39 home wins; 7.2 LeBron APG; 17.8 Mo Williams PPG; LeBron's 49 in the Orlando Game 1 loss. Fifteen individually excerpt-supported, source-licensed trivia variants, with season-vs-playoff distinction and independently checked bounds, answers, spoilers and midpoint fairness. No existing 2008–09 CLE canonical fact duplicates. Waiting for the free generator and full exact-head CI before declaring playable.

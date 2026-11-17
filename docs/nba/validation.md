@@ -10,14 +10,14 @@ All gates pass: 0 errors.
 
 | Measure | Value |
 |---|---|
-| Verified facts (one question each) | 311 |
-| Scheduled questions | 285 |
+| Verified facts (one question each) | 321 |
+| Scheduled questions | 295 |
 | Reserve questions | 26 |
-| Days | 57 (2026-11-17 to 2027-01-12) |
-| Themed days (not "mixed") | 56 |
+| Days | 59 (2026-11-17 to 2027-01-14) |
+| Themed days (not "mixed") | 58 |
 | Stat families | 82 |
 | Franchises | 27 |
-| Players | 86 |
+| Players | 89 |
 | Seasons | 60 |
 | Rejected examples logged | 22 |
 
@@ -29,35 +29,35 @@ All gates pass: 0 errors.
 | sources | 5 |
 | franchises | 27 |
 | team_names | 42 |
-| players | 86 |
+| players | 89 |
 | seasons | 60 |
 | stat_families | 83 |
-| stat_facts | 311 |
-| question_candidates | 311 |
-| question_tags | 916 |
-| daily_themes | 57 |
-| daily_slates | 57 |
-| daily_slate_questions | 285 |
+| stat_facts | 321 |
+| question_candidates | 321 |
+| question_tags | 946 |
+| daily_themes | 59 |
+| daily_slates | 59 |
+| daily_slate_questions | 295 |
 
 Integrity: integrity_check ok, no foreign-key violations, every fact verified and sourced.
-Canonical dump sha256 (status as of 2026-11-16): `c765ca3816ae354e8bf70999393094d81ea93b49fb17845fa012799b28e5f27b`.
+Canonical dump sha256 (status as of 2026-11-16): `fbaae77148e81075b30bc0d88461046b17a33de37075c7e9b4c675da5d8bc777`.
 
 ## Difficulty
 
 | Difficulty | All facts | Scheduled |
 |---|---|---|
-| easy | 57 | 57 |
-| medium | 69 | 57 |
-| hard | 126 | 114 |
-| expert | 59 | 57 |
+| easy | 59 | 59 |
+| medium | 71 | 59 |
+| hard | 130 | 118 |
+| expert | 61 | 59 |
 
 Mean editorial ratings by slot (interest / recognizability / estimability / surprise):
 
-- Slot 1 (easy): 3.77 / 3.93 / 3.05 / 4.26
-- Slot 2 (medium): 3.53 / 3.26 / 2.77 / 4.68
-- Slot 3 (hard): 3.18 / 3.02 / 2.37 / 4.91
-- Slot 4 (hard): 3.11 / 2.93 / 2.26 / 4.95
-- Slot 5 (expert): 2.89 / 2.54 / 2.25 / 4.96
+- Slot 1 (easy): 3.81 / 3.95 / 3.08 / 4.27
+- Slot 2 (medium): 3.58 / 3.31 / 2.78 / 4.69
+- Slot 3 (hard): 3.22 / 3.07 / 2.36 / 4.90
+- Slot 4 (hard): 3.15 / 2.95 / 2.25 / 4.93
+- Slot 5 (expert): 2.93 / 2.56 / 2.24 / 4.97
 
 ## Range fairness
 
@@ -67,15 +67,15 @@ Where each answer sits on its scale (0 = min, 9 = top tenth). A flat spread mean
 |---|---|
 | 1 | 8 |
 | 2 | 32 |
-| 3 | 67 |
+| 3 | 69 |
 | 4 | 52 |
-| 5 | 27 |
-| 6 | 58 |
-| 7 | 46 |
+| 5 | 32 |
+| 6 | 60 |
+| 7 | 47 |
 | 8 | 21 |
 
-Share of answers in the middle fifth: 26.7% (gate: at most 35%).
-Simulated "always centre the window" player: mean 49.36 points per question, best 89 (gate: no question above 90).
+Share of answers in the middle fifth: 27.4% (gate: at most 35%).
+Simulated "always centre the window" player: mean 49.90 points per question, best 89 (gate: no question above 90).
 Every answer sits strictly inside its scale and at least 8% away from either end; every scale has 5–400 whole steps.
 
 ## Editorial balance, by week
@@ -95,7 +95,7 @@ Every rolling 7-day window is also checked: at least 6 families, at least 3 eras
 
 ## Novelty
 
-80 players and 27 franchises appear. 7 of 57 days introduce no new player or franchise.
+84 players and 27 franchises appear. 7 of 59 days introduce no new player or franchise.
 
 ## Eras
 
@@ -105,7 +105,7 @@ Every rolling 7-day window is also checked: at least 6 families, at least 3 eras
 - 1980s: 27
 - 1990s: 52
 - 2000s: 68
-- 2010s: 65
+- 2010s: 75
 - 2020s: 34
 - timeless: 2
 

@@ -2705,6 +2705,103 @@
       "day": "2027-01-12",
       "notBefore": "2027-01-13"
     },
+    "nba-raptors19-regular-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "TOR",
+      "era": "2010s",
+      "steps": 52,
+      "day": "2027-01-13",
+      "notBefore": "2027-01-14"
+    },
+    "nba-kawhi19-playoffs-ppg": {
+      "tier": "medium",
+      "family": "scoring-average",
+      "franchise": "TOR",
+      "era": "2010s",
+      "steps": 280,
+      "day": "2027-01-13",
+      "notBefore": "2027-01-14"
+    },
+    "nba-lowry19-regular-apg": {
+      "tier": "hard",
+      "family": "assists-average",
+      "franchise": "TOR",
+      "era": "2010s",
+      "steps": 100,
+      "day": "2027-01-13",
+      "notBefore": "2027-01-14"
+    },
+    "nba-raptors19-sixers-g7-points": {
+      "tier": "hard",
+      "family": "points-team-game",
+      "franchise": "TOR",
+      "era": "2010s",
+      "steps": 70,
+      "day": "2027-01-13",
+      "notBefore": "2027-01-14"
+    },
+    "nba-raptors19-road-wins": {
+      "tier": "expert",
+      "family": "wins-situational",
+      "franchise": "TOR",
+      "era": "2010s",
+      "steps": 37,
+      "day": "2027-01-13",
+      "notBefore": "2027-01-14",
+      "leaks": [
+        "nba-siakam19-g1",
+        "nba-harden19-30-streak"
+      ]
+    },
+    "nba-hawks15-regular-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "ATL",
+      "era": "2010s",
+      "steps": 56,
+      "day": "2027-01-14",
+      "notBefore": "2027-01-15",
+      "leaks": [
+        "nba-hawks15-year-win-improvement"
+      ]
+    },
+    "nba-hawks15-january-wins": {
+      "tier": "medium",
+      "family": "wins-situational",
+      "franchise": "ATL",
+      "era": "2010s",
+      "steps": 17,
+      "day": "2027-01-14",
+      "notBefore": "2027-01-15"
+    },
+    "nba-korver15-three-pct": {
+      "tier": "hard",
+      "family": "shooting-pct",
+      "franchise": "ATL",
+      "era": "2010s",
+      "steps": 370,
+      "day": "2027-01-14",
+      "notBefore": "2027-01-15"
+    },
+    "nba-teague15-assists-average": {
+      "tier": "hard",
+      "family": "assists-average",
+      "franchise": "ATL",
+      "era": "2010s",
+      "steps": 95,
+      "day": "2027-01-14",
+      "notBefore": "2027-01-15"
+    },
+    "nba-hawks15-year-win-improvement": {
+      "tier": "expert",
+      "family": "wins-change",
+      "franchise": "ATL",
+      "era": "2010s",
+      "steps": 36,
+      "day": "2027-01-14",
+      "notBefore": "2027-01-15"
+    },
     "nba-bulls96-18-streak": {
       "tier": "medium",
       "family": "win-streak",

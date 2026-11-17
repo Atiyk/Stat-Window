@@ -2518,6 +2518,51 @@
       "day": "2027-01-08",
       "notBefore": "2027-01-09"
     },
+    "nba-warriors75-season-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "GSW",
+      "era": "1970s",
+      "steps": 40,
+      "day": "2027-01-09",
+      "notBefore": "2027-01-10"
+    },
+    "nba-barry75-finals-g2-points": {
+      "tier": "medium",
+      "family": "points-game",
+      "franchise": "GSW",
+      "era": "1970s",
+      "steps": 44,
+      "day": "2027-01-09",
+      "notBefore": "2027-01-10"
+    },
+    "nba-bullets75-g1-halftime-lead": {
+      "tier": "hard",
+      "family": "comeback",
+      "franchise": "GSW",
+      "era": "1970s",
+      "steps": 31,
+      "day": "2027-01-09",
+      "notBefore": "2027-01-10"
+    },
+    "nba-unseld75-finals-g2-rebounds": {
+      "tier": "hard",
+      "family": "rebounds-game",
+      "franchise": "WAS",
+      "era": "1970s",
+      "steps": 38,
+      "day": "2027-01-09",
+      "notBefore": "2027-01-10"
+    },
+    "nba-warriors75-finals-g4-points": {
+      "tier": "expert",
+      "family": "points-team-game",
+      "franchise": "GSW",
+      "era": "1970s",
+      "steps": 62,
+      "day": "2027-01-09",
+      "notBefore": "2027-01-10"
+    },
     "nba-bulls96-18-streak": {
       "tier": "medium",
       "family": "win-streak",

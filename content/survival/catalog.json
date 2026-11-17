@@ -2657,6 +2657,54 @@
       "day": "2027-01-11",
       "notBefore": "2027-01-12"
     },
+    "nba-suns05-season-win-gain": {
+      "tier": "easy",
+      "family": "wins-change",
+      "franchise": "PHX",
+      "era": "2000s",
+      "steps": 40,
+      "day": "2027-01-12",
+      "notBefore": "2027-01-13"
+    },
+    "nba-nash05-regular-apg": {
+      "tier": "medium",
+      "family": "assists-average",
+      "franchise": "PHX",
+      "era": "2000s",
+      "steps": 160,
+      "day": "2027-01-12",
+      "notBefore": "2027-01-13"
+    },
+    "nba-suns05-road-victories": {
+      "tier": "hard",
+      "family": "wins-situational",
+      "franchise": "PHX",
+      "era": "2000s",
+      "steps": 24,
+      "day": "2027-01-12",
+      "notBefore": "2027-01-13",
+      "leaks": [
+        "nba-pistons05-g4-to"
+      ]
+    },
+    "nba-stoudemire05-playoff-ppg": {
+      "tier": "hard",
+      "family": "scoring-average",
+      "franchise": "PHX",
+      "era": "2000s",
+      "steps": 280,
+      "day": "2027-01-12",
+      "notBefore": "2027-01-13"
+    },
+    "nba-nash05-dallas-g6-points": {
+      "tier": "expert",
+      "family": "points-game",
+      "franchise": "PHX",
+      "era": "2000s",
+      "steps": 50,
+      "day": "2027-01-12",
+      "notBefore": "2027-01-13"
+    },
     "nba-bulls96-18-streak": {
       "tier": "medium",
       "family": "win-streak",

@@ -213,6 +213,16 @@ function main() {
     if (current === body) continue;
     if (check) {
       console.error(`error: docs/nba/${name} is stale; run npm run nba:report`);
+      const want = body.split('\\n');
+      const got = current.split('\\n');
+      const first = Array.from({ length: Math.max(want.length, got.length) }).findIndex(
+        (_, i) => want[i] !== got[i],
+      );
+      if (first >= 0) {
+        console.error(`  first mismatch at line ${first + 1}`);
+        console.error(`  committed: ${got[first] ?? '(missing)'}`);
+        console.error(`  generated: ${want[first] ?? '(missing)'}`);
+      }
       stale++;
     } else {
       writeFileSync(path, body);

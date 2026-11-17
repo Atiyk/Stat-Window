@@ -1,0 +1,9 @@
+{
+  "sport": "NBA",
+  "approvedHosts": [
+    "en.wikipedia.org"
+  ],
+  "reviewedBy": "Existing Stat Window rights register",
+  "reviewedOn": "2026-11-16",
+  "rationale": "Use only Wikipedia CC BY-SA 4.0 material under the documented terms and attribution review. Full evidence and source policy in docs/NBA_DATA_RIGHTS.md. No Basketball-Reference or NBA.com bulk dataset ingestion. Review the underlying Wikipedia usage and attribution before release."
+}

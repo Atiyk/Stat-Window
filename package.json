@@ -30,7 +30,9 @@
     "survival:catalog:check": "node --experimental-strip-types scripts/nba/survival.ts --check",
     "survival:sim": "node --experimental-strip-types scripts/survival-sim.ts",
     "test:e2e:survival": "SURVIVAL_E2E=1 playwright test e2e/survival.spec.ts",
-    "test:e2e:analytics": "ANALYTICS_E2E=1 playwright test e2e/analytics.spec.ts"
+    "test:e2e:analytics": "ANALYTICS_E2E=1 playwright test e2e/analytics.spec.ts",
+    "factory": "node --experimental-strip-types scripts/question-factory/cli.ts",
+    "factory:check": "node --experimental-strip-types scripts/question-factory/cli.ts check"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "^5.3.0",

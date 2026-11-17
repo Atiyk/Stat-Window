@@ -31,6 +31,8 @@ jobs:
         run: npm run content:trivia:check
       - name: NBA database (reproducible SQLite build, reports, day files and Survival catalog up to date)
         run: npm run nba:db -- --out build/nba.sqlite && npm run nba:report:check && npm run content:publish:check && npm run survival:catalog:check
+      - name: Review-gated cross-sport Question Factory
+        run: npm run factory:check
       - run: npm run typecheck
       - run: npm test
       - run: npm run build

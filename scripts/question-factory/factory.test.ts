@@ -1,4 +1,9 @@
 import { describe, expect, it } from 'vitest';
+import { spawnSync } from 'node:child_process';
+import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import {
   addDays, answerFor, eligible, generate, plan, promptFor, sourceHost,
   validateBatch, validateCandidate, type CandidateBatch, type ResearchBatch, type SourcePolicy,
@@ -108,4 +113,39 @@ describe('question factory', () => {
     expect(sourceHost('not a url')).toBeNull();
     expect(() => plan(reviewed(generate(batch)), policy, '2027-02-30', 1)).toThrow('valid start');
   });
+  it('runs init → generate → review → check → plan in an isolated repo without touching live content', () => {
+    const root = mkdtempSync(join(tmpdir(), 'stat-window-factory-'));
+    const cli = fileURLToPath(new URL('./cli.ts', import.meta.url));
+    const run = (...args: string[]) => spawnSync(process.execPath,
+      ['--experimental-strip-types', cli, ...args],
+      { env: { ...process.env, QUESTION_FACTORY_ROOT: root }, encoding: 'utf8' });
+    try {
+      mkdirSync(join(root, 'content', 'days'), { recursive: true });
+      expect(run('init', '--sport', 'TEST', '--topic', 'Fictional Final').status).toBe(0);
+      const dataDir = join(root, 'data', 'question-factory');
+      const batchId = 'test-fictional-final';
+      const sourcePath = join(dataDir, 'batches', batchId + '.json');
+      writeFileSync(sourcePath, JSON.stringify({ ...batch, id: batchId }));
+      writeFileSync(join(dataDir, 'policies', 'test.json'), JSON.stringify(policy));
+      const generated = run('generate', '--batch', batchId);
+      expect(generated.status, generated.stderr).toBe(0);
+      const candidatesFile = join(dataDir, 'candidates', batchId + '.json');
+      const draft = JSON.parse(readFileSync(candidatesFile, 'utf8')) as CandidateBatch;
+      expect(draft.candidates).toHaveLength(5);
+      expect(draft.candidates.every((c) => c.review.status === 'draft')).toBe(true);
+      const approved = reviewed(draft);
+      writeFileSync(candidatesFile, JSON.stringify(approved));
+      const check = run('check', '--batch', batchId);
+      expect(check.status, check.stderr).toBe(0);
+      const planned = run('plan', '--batch', batchId, '--start', '2027-01-06', '--days', '1');
+      expect(planned.status, planned.stderr).toBe(0);
+      const proposal = JSON.parse(readFileSync(join(dataDir, 'proposals', batchId + '.json'), 'utf8'));
+      expect(proposal.days).toHaveLength(1);
+      expect(proposal.days[0].questions).toHaveLength(5);
+      expect(proposal.warning).toContain('STAGED');
+      expect(run('plan', '--batch', batchId, '--start', '2027-01-06', '--days', '1').status).not.toBe(0);
+      expect(readFileSync(candidatesFile, 'utf8')).toContain('approved');
+    } finally { rmSync(root, { recursive: true, force: true }); }
+  });
+
 });

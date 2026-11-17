@@ -40,7 +40,7 @@ All gates pass: 0 errors.
 | daily_slate_questions | 310 |
 
 Integrity: integrity_check ok, no foreign-key violations, every fact verified and sourced.
-Canonical dump sha256 (status as of 2026-11-16): `d6ab25f4f4dfa559fd915b2b2824ff3a634ad8c644acc53cffb13bac71a73409`.
+Canonical dump sha256 (status as of 2026-11-16): `8f52c0901f02812f2ef5620876df5f48f0d0c5a62877865b9cc2975668c1ef33`.
 
 ## Difficulty
 

@@ -13,7 +13,7 @@
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
 - [ ] Expansion: **21/50** additional NBA days (Jan6–Jan26) and **105/250** new NBA questions generated; **29** more NBA days (Jan27–Feb24) and **145** new questions remain.
-- [ ] Three-variant coverage: **156/510** question sets and **468/1530** evidenced trivia variants generated across all days (pending strict source-trivia/Survival-reserve CI audit on exact head); **354** question sets / **1,062** variants remain.
+- [ ] Three-variant coverage: **161/510** question sets and **483/1530** source-backed fact variants authored; **156/468** already generated, 5/15 historical Nov29 Stockton/Malone pending regeneration. **349** sets / **1,047** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -33,7 +33,7 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete remaining 354 trivia sets and 29 additional NBA days in source-audited batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete remaining 349 trivia sets and 29 additional NBA days, with independent source review and full QA. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
 ## Runbook for next source-verification batch
 - Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
 - Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
@@ -186,3 +186,6 @@ Jan26 (Barkley's 1993 Suns) successfully generated on free standard runner and c
 ## January 26 Phoenix + November 28 Rock Bottom: verified generation
 - Free editorial-sync job `44010592624` succeeded. The generated Jan26 Suns file has five distinct original questions with three sourced variants each. The historical Nov28 Rock Bottom game now has five existing questions with three sourced variants each; all published IDs, answers, scales and order remain unchanged.
 - The canonical NBA validator reports **zero source/scoring integrity errors**, 71 consecutive NBA days and 355 scheduled NBA questions, plus 26 unpublished reserve facts. This docs-only connector checkpoint starts exact-head CI on the bot-generated files. Do not describe strict trivia/Survival check or all browser/device tests as passed until GitHub reports green.
+
+## November 29 Stockton–Malone authored trivia
+Fifteen independently sourced variants (3 for each of 5 existing questions): Stockton's nine assist titles and career assist total, Stockton/Malone pick-and-roll and Finals history, his durability and MCL injury, Utah's 1991 Spurs game, and Malone's last championship attempt with the Lakers. Verified text against Wikipedia's John Stockton biography and 2004 NBA Finals article; preserved original scoring fingerprints, checked later-round numerical spoilers and short excerpt attribution. Await branch-only publisher and strict trivia/Survival CI.

@@ -1,0 +1,265 @@
+{
+  "date": "2027-01-25",
+  "theme": {
+    "title": "The upset nobody saw",
+    "subtitle": "Seattle against Denver",
+    "recap": "Kemp and Payton led the NBA's best regular-season team before the Nuggets stunned Seattle in the first round."
+  },
+  "questions": [
+    {
+      "id": "nba-sonics94-regular-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did the 1993–94 Seattle SuperSonics win?",
+      "context": "Seattle · regular season · 82 games",
+      "answer": 63,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 34,
+      "max": 82,
+      "step": 1,
+      "note": "63 victories, before a shocking first-round elimination.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+        "quote": "league-best 63–19 record"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy",
+      "funFacts": [
+        {
+          "text": "Seattle acquired two-time Sixth Man of the Year Detlef Schrempf from Indiana before the season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "acquired All-Star forward, and 2-time Sixth Man of the Year Detlef Schrempf from the Indiana Pacers"
+          }
+        },
+        {
+          "text": "The Sonics also traded for Kendall Gill from Charlotte that offseason.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "acquired Kendall Gill from the Charlotte Hornets"
+          }
+        },
+        {
+          "text": "George Karl was chosen to coach the Western Conference's All-Star team.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "head coach George Karl was selected to coach the Western Conference"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-sonics94-opening-streak",
+      "sport": "NBA",
+      "prompt": "How many straight games did Seattle win to start its 1993–94 season?",
+      "context": "SuperSonics · opening winning streak",
+      "answer": 10,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 3,
+      "max": 28,
+      "step": 1,
+      "note": "Ten straight wins to start the campaign.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+        "quote": "winning their first ten games of the regular season"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Seattle reached a 26–3 record early in that spectacular regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "The team got off to a 26–3 start to the season"
+          }
+        },
+        {
+          "text": "By the All-Star break, the Sonics were 35–10 and led the entire NBA.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "held a league-best 35–10 record at the All-Star break"
+          }
+        },
+        {
+          "text": "Seattle finished the season by winning 17 of its last 19 games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "won 17 of their final 19 games of the season"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-kemp94-rpg",
+      "sport": "NBA",
+      "prompt": "How many rebounds per game did Shawn Kemp average for the Sonics?",
+      "context": "Shawn Kemp · Seattle · 1993–94",
+      "answer": 10.8,
+      "unit": {
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
+      },
+      "min": 5,
+      "max": 19,
+      "step": 0.1,
+      "note": "10.8 rebounds per game as one of the West's top forwards.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+        "quote": "Shawn Kemp averaged 18.1 points, 10.8 rebounds, 1.8 steals and 2.1 blocks per game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Kemp also averaged 2.1 blocks per game that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "10.8 rebounds, 1.8 steals and 2.1 blocks per game"
+          }
+        },
+        {
+          "text": "He earned All-NBA Second Team honors alongside Seattle's regular-season rise.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "and was named to the All-NBA Second Team"
+          }
+        },
+        {
+          "text": "Kemp competed in the Slam Dunk Contest for the fourth time in his career.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "Kemp also participated in the NBA Slam Dunk Contest for the fourth time"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-payton94-apg",
+      "sport": "NBA",
+      "prompt": "How many assists per game did Gary Payton average in Seattle's dominant season?",
+      "context": "Gary Payton · Seattle · regular season",
+      "answer": 6,
+      "unit": {
+        "singular": "assist per game",
+        "plural": "assists per game"
+      },
+      "min": 2,
+      "max": 13,
+      "step": 0.1,
+      "note": "6.0 assists per game, alongside elite on-ball defense.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+        "quote": "Gary Payton averaged 16.5 points, 6.0 assists and 2.3 steals per game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Payton made his first NBA All-Star team that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "it was Payton's first ever All-Star appearance"
+          }
+        },
+        {
+          "text": "He was also named to the NBA All-Defensive First Team.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "and to the NBA All-Defensive First Team"
+          }
+        },
+        {
+          "text": "Seattle reserve Nate McMillan averaged 3.0 steals per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "Nate McMillan provided with 6.0 points, 5.3 assists and 3.0 steals per game"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-sonics94-nuggets-g5-points",
+      "sport": "NBA",
+      "prompt": "How many points did Seattle score in its decisive Game 5 loss to Denver?",
+      "context": "NBA playoffs · first-round upset · Seattle vs Denver",
+      "answer": 94,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 48,
+      "max": 128,
+      "step": 1,
+      "note": "94 points in overtime as Denver completed a historic upset.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+        "quote": "losing Game 5 to the Nuggets at the Seattle Center Coliseum in overtime, 98–94"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Denver's roster featured Dikembe Mutombo and Mahmoud Abdul-Rauf.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "a team that featured defensive shot-blocker Dikembe Mutombo, Mahmoud Abdul-Rauf"
+          }
+        },
+        {
+          "text": "Seattle won the first two games at home before losing the next two on the road.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "The SuperSonics won the first two games over the Nuggets at home"
+          }
+        },
+        {
+          "text": "The Nuggets became the first No. 8 seed to eliminate a top seed in NBA playoff history.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "it was the first time in NBA playoffs history that a #8 seed defeated a #1 seeded team"
+          }
+        }
+      ]
+    }
+  ]
+}

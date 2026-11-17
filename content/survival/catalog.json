@@ -109,7 +109,10 @@
       "era": "1990s",
       "steps": 30,
       "day": "2026-11-19",
-      "notBefore": "2026-11-20"
+      "notBefore": "2027-01-26",
+      "leaks": [
+        "nba-sonics94-nuggets-g5-points"
+      ]
     },
     "nba-ewing94-blocks": {
       "tier": "medium",
@@ -818,7 +821,11 @@
       "era": "1990s",
       "steps": 65,
       "day": "2026-12-04",
-      "notBefore": "2026-12-05"
+      "notBefore": "2027-01-26",
+      "leaks": [
+        "nba-sonics94-regular-wins",
+        "nba-sonics94-nuggets-g5-points"
+      ]
     },
     "nba-spurs90-improvement": {
       "tier": "medium",
@@ -1885,7 +1892,10 @@
       "era": "1990s",
       "steps": 42,
       "day": "2026-12-26",
-      "notBefore": "2026-12-27"
+      "notBefore": "2027-01-26",
+      "leaks": [
+        "nba-sonics94-opening-streak"
+      ]
     },
     "nba-jordan93-g4-55": {
       "tier": "easy",
@@ -3300,6 +3310,63 @@
       "steps": 48,
       "day": "2027-01-24",
       "notBefore": "2027-01-25"
+    },
+    "nba-sonics94-regular-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "OKC",
+      "era": "1990s",
+      "steps": 48,
+      "day": "2027-01-25",
+      "notBefore": "2027-01-26",
+      "leaks": [
+        "nba-sonics94-nuggets-g5-points"
+      ]
+    },
+    "nba-sonics94-opening-streak": {
+      "tier": "medium",
+      "family": "win-streak",
+      "franchise": "OKC",
+      "era": "1990s",
+      "steps": 25,
+      "day": "2027-01-25",
+      "notBefore": "2027-01-26",
+      "leaks": [
+        "nba-sonics94-nuggets-g5-points"
+      ]
+    },
+    "nba-kemp94-rpg": {
+      "tier": "hard",
+      "family": "rebounds-average",
+      "franchise": "OKC",
+      "era": "1990s",
+      "steps": 140,
+      "day": "2027-01-25",
+      "notBefore": "2027-01-26",
+      "leaks": [
+        "nba-sonics94-nuggets-g5-points"
+      ]
+    },
+    "nba-payton94-apg": {
+      "tier": "hard",
+      "family": "assists-average",
+      "franchise": "OKC",
+      "era": "1990s",
+      "steps": 110,
+      "day": "2027-01-25",
+      "notBefore": "2027-01-26",
+      "leaks": [
+        "nba-sonics94-nuggets-g5-points"
+      ]
+    },
+    "nba-sonics94-nuggets-g5-points": {
+      "tier": "expert",
+      "family": "points-team-game",
+      "franchise": "OKC",
+      "era": "1990s",
+      "steps": 80,
+      "day": "2027-01-25",
+      "notBefore": "2027-01-26"
     },
     "nba-bulls96-18-streak": {
       "tier": "medium",

@@ -11,7 +11,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  generate, normalized, plan, sourceHost, validateBatch, validateCandidate, type Candidate,
+  generate, normalized, plan, validateBatch, validateCandidate,
   type CandidateBatch, type ResearchBatch, type SourcePolicy, type Proposal,
 } from './core.ts';
 
@@ -42,7 +42,6 @@ function policyFor(sport: string): SourcePolicy | null {
   const path = join(POLICIES, safeId(sport) + '.json');
   return existsSync(path) ? json<SourcePolicy>(path) : null;
 }
-function safeId(s: string): string { return normalized(s).replace(/\s+/g, '-'); }
 const batchPath = (id: string) => join(RESEARCH, id + '.json');
 const candidatesPath = (id: string) => join(CANDIDATES, id + '.json');
 const proposalsPath = (id: string) => join(PROPOSALS, id + '.json');

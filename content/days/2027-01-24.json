@@ -1,0 +1,265 @@
+{
+  "date": "2027-01-24",
+  "theme": {
+    "title": "LeBron's MVP leap",
+    "subtitle": "Cleveland Cavaliers, 2008–09",
+    "recap": "LeBron won his first MVP as Cleveland posted the NBA's best record, only for Dwight Howard's Magic to derail the championship dream."
+  },
+  "questions": [
+    {
+      "id": "nba-cavs09-record-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did LeBron's 2008–09 Cavaliers win?",
+      "context": "Cleveland Cavaliers · 2008–09 · 82 games",
+      "answer": 66,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 42,
+      "max": 82,
+      "step": 1,
+      "note": "66 victories, the best record in the NBA that season.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+        "quote": "They finished the regular season with 66 wins and 16 losses"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy",
+      "funFacts": [
+        {
+          "text": "LeBron won his first MVP award and finished runner-up in Defensive Player of the Year voting.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "LeBron James won his first MVP Award and finished second in Defensive Player of the Year voting."
+          }
+        },
+        {
+          "text": "Mike Brown earned Coach of the Year honors as Cleveland raced to the East's top seed.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "Mike Brown was named NBA Coach of the Year for the 2008–2009 season."
+          }
+        },
+        {
+          "text": "Cleveland ended its playoff run after sweeping both Detroit and Atlanta, before Orlando stopped them in the conference finals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "the Cavaliers swept the Detroit Pistons in the First Round in four games, swept the Atlanta Hawks in the Semifinals in four games"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-cavs09-home-wins",
+      "sport": "NBA",
+      "prompt": "How many home games did the Cavaliers win in their dominant 2008–09 season?",
+      "context": "Cleveland at Quicken Loans Arena · 41 home games",
+      "answer": 39,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 19,
+      "max": 41,
+      "step": 1,
+      "note": "39 home wins against just two losses.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+        "quote": "Total: 66–16 (home: 39–2; road: 27–14)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Cleveland also won 27 road games that season, giving the team balance away from its home arena.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "Total: 66–16 (home: 39–2; road: 27–14)"
+          }
+        },
+        {
+          "text": "The Lakers handed Cleveland a rare home loss during their February visit.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "February 8 L.A. Lakers L 91–101"
+          }
+        },
+        {
+          "text": "The Cavaliers lost their final regular-season home game in overtime against Philadelphia.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "April 15 Philadelphia L 110–111 (OT)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-james09-season-apg",
+      "sport": "NBA",
+      "prompt": "How many assists per game did LeBron average in his first MVP season?",
+      "context": "Cleveland Cavaliers · 2008–09 · regular season",
+      "answer": 7.2,
+      "unit": {
+        "singular": "assist per game",
+        "plural": "assists per game"
+      },
+      "min": 3,
+      "max": 15,
+      "step": 0.1,
+      "note": "7.2 assists per game while running Cleveland's attack.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+        "quote": "LeBron James | 81 | 81 | 37.7 | .489 | .344 | .780 | 7.6 | 7.2 | 1.7 | 1.1 | 28.4"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "LeBron also averaged 28.4 points and 7.6 rebounds in the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "LeBron James | 81 | 81 | 37.7 | .489 | .344 | .780 | 7.6 | 7.2 | 1.7 | 1.1 | 28.4"
+          }
+        },
+        {
+          "text": "In November, LeBron became the youngest player in league history to reach 11,000 career points.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "On November 18, LeBron James became the youngest player to reach 11,000 career points"
+          }
+        },
+        {
+          "text": "LeBron overtook Mark Price as Cleveland's all-time steals leader that December.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "LeBron James passed Mark Price to become the Cavaliers' all-time steals leader"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-mowilliams09-season-ppg",
+      "sport": "NBA",
+      "prompt": "How many points per game did Mo Williams average in his first Cavaliers season?",
+      "context": "Cleveland Cavaliers · 2008–09 · regular season",
+      "answer": 17.8,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 8,
+      "max": 31,
+      "step": 0.1,
+      "note": "17.8 points per game as LeBron's new backcourt partner.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+        "quote": "Mo Williams | 81 | 81 | 35.0 | .467 | .436 | .912 | 3.4 | 4.1 | .9 | .1 | 17.8"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Williams made 43.6% of his three-pointers that season, while shooting 91.2% at the line.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "Mo Williams | 81 | 81 | 35.0 | .467 | .436 | .912 | 3.4 | 4.1 | .9 | .1 | 17.8"
+          }
+        },
+        {
+          "text": "Cleveland acquired Williams from Milwaukee in a three-team trade during the offseason.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "To Milwaukee Bucks----Damon Jones----To Oklahoma City Thunder----Joe Smith | To Cleveland Cavaliers----Mo Williams"
+          }
+        },
+        {
+          "text": "Williams posted a season-high 44 points against Phoenix in February.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "February 11 Phoenix W 109–92 Maurice Williams (44)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-james09-magic-g1-points",
+      "sport": "NBA",
+      "prompt": "How many points did LeBron score in Game 1 of the 2009 Eastern finals?",
+      "context": "Cleveland vs Orlando · Eastern Conference finals · Game 1",
+      "answer": 49,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 21,
+      "max": 69,
+      "step": 1,
+      "note": "49 points, but Orlando won the opener by one.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+        "quote": "May 20 Orlando L 106–107 LeBron James (49)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Cleveland swept both Detroit and Atlanta before the Eastern Conference finals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "the Cavaliers swept the Detroit Pistons in the First Round in four games, swept the Atlanta Hawks in the Semifinals in four games"
+          }
+        },
+        {
+          "text": "LeBron averaged a remarkable 35.3 points during Cleveland's entire playoff run.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "LeBron James | 14 | 14 | 41.4 | .510 | .333 | .749 | 9.1 | 7.3 | 1.6 | .9 | 35.3"
+          }
+        },
+        {
+          "text": "The Magic eventually reached the NBA Finals but lost to Kobe Bryant's Lakers.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "The Magic would go on to lose to the Los Angeles Lakers in the NBA Finals in five games."
+          }
+        }
+      ]
+    }
+  ]
+}

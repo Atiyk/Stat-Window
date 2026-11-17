@@ -3253,6 +3253,54 @@
       "day": "2027-01-23",
       "notBefore": "2027-01-24"
     },
+    "nba-cavs09-record-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "CLE",
+      "era": "2000s",
+      "steps": 40,
+      "day": "2027-01-24",
+      "notBefore": "2027-01-25"
+    },
+    "nba-cavs09-home-wins": {
+      "tier": "medium",
+      "family": "wins-situational",
+      "franchise": "CLE",
+      "era": "2000s",
+      "steps": 22,
+      "day": "2027-01-24",
+      "notBefore": "2027-01-25",
+      "leaks": [
+        "nba-cavs09-record-wins"
+      ]
+    },
+    "nba-james09-season-apg": {
+      "tier": "hard",
+      "family": "assists-average",
+      "franchise": "CLE",
+      "era": "2000s",
+      "steps": 120,
+      "day": "2027-01-24",
+      "notBefore": "2027-01-25"
+    },
+    "nba-mowilliams09-season-ppg": {
+      "tier": "hard",
+      "family": "scoring-average",
+      "franchise": "CLE",
+      "era": "2000s",
+      "steps": 230,
+      "day": "2027-01-24",
+      "notBefore": "2027-01-25"
+    },
+    "nba-james09-magic-g1-points": {
+      "tier": "expert",
+      "family": "points-game",
+      "franchise": "CLE",
+      "era": "2000s",
+      "steps": 48,
+      "day": "2027-01-24",
+      "notBefore": "2027-01-25"
+    },
     "nba-bulls96-18-streak": {
       "tier": "medium",
       "family": "win-streak",

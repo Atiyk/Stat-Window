@@ -12,8 +12,8 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: **7/50** new NBA days (Jan 6–12) generated; Jan 13 Toronto and Jan 14 Atlanta now source-authored, generator pending. **45/250** new questions authored; **41** days / **205** new questions still needed.
-- [ ] Three-variant coverage: **70/510** complete source-authored question sets / **210/1530** evidence-linked bonus variants; **60/180** already generated, **10/30** Toronto/Atlanta additions pending generator. **440** sets / **1,320** variants remain.
+- [ ] Expansion: **9/50** new NBA days (Jan 6–14) generated, with **45/250** new questions. **41** days / **205** new questions still needed.
+- [ ] Three-variant coverage: **70/510** question sets with all 3 sourced variants / **210/1530** bonus variants now generated (including Toronto and Atlanta). **440** sets / **1,320** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -112,3 +112,8 @@ Source-authored one NBA slate from `2004–05 Phoenix Suns season` Wikipedia: 33
 - Jan 13 Toronto 2018–19: 58 regular wins, Leonard's 30.5 playoff PPG, Lowry's 8.7 regular APG, 92 points in Philadelphia Game 7, 26 road wins. Fifteen contextual fun-fact variants with excerpt evidence from [Wikipedia's Raptors season](https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season). Existing Siakam Finals question intentionally not duplicated.
 - Jan 14 Atlanta 2014–15: 60 wins, perfect 17-win January, Korver's .492 three-point accuracy (0.492 × 100), Teague's 7.0 APG, 22-win improvement. Fifteen contextual fun facts with cited excerpt evidence from [Wikipedia's Hawks season](https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season).
 - 2 canonical slates, 10 new IDs, 30 evidence-linked bonus variants source-authored with per-item source URL/quote; verified basic bounds, new IDs and scoring-midpoint behavior in the authoring preflight. This is not independent editorial sign-off or generated-file/full CI confirmation. Production remains unchanged.
+
+## January 13–14 generated artifacts — CI checkpoint
+- Free editorial-sync run [44001462249](https://github.com/Atiyk/Stat-Window/actions/runs/44001462249) succeeded and created bot commit `11918f65d5596a471048d4d9d75d8a8c2f7b8e1f`.
+- The generated 2027-01-13 and 2027-01-14 daily files each contain 5 source-backed questions and exactly 15 trivia variants, in easy/medium/hard/hard/expert order. `docs/nba/validation.md` reports **0 NBA validation errors**, 59 NBA days, 295 scheduled NBA questions, 26 reserves (321 canonical facts). Historical mixed days remain separate.
+- The original CI run 44001462244 failed before the publisher bot commit due to stale generated source artifacts. This small tracker checkpoint exists solely to trigger exact-generated-head CI. Do not call the milestone green until that new run passes.

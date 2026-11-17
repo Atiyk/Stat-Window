@@ -27,7 +27,12 @@ async function playOut(page: import('@playwright/test').Page, from = 0) {
 test('the last mixed-sport day is unthemed and the cutover day is the first NBA day', () => {
   expect(lastMixed.theme).toBeUndefined();
   expect(NBA_DAYS[0]).toBe(NBA_CUTOVER);
-  expect(NBA_DAYS).toHaveLength(50);
+  // The founding NBA calendar had 50 slates; expanding it must not break the launch cutover.
+  expect(NBA_DAYS.length).toBeGreaterThanOrEqual(50);
+  for (let i = 1; i < NBA_DAYS.length; i++) {
+    const expected = new Date(Date.parse(`${NBA_DAYS[i - 1]}T00:00:00Z`) + 86_400_000).toISOString().slice(0, 10);
+    expect(NBA_DAYS[i], `NBA day ${i + 1} should immediately follow its predecessor`).toBe(expected);
+  }
 });
 
 test('an unfinished mixed-sport run at midnight is finished on its own day, then the NBA day opens', async ({ page }) => {

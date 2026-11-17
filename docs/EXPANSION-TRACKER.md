@@ -12,7 +12,7 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: 2/50 additional days and 10/250 new questions **generated and NBA-validation-clean** on January 6–7; the third day (January 8, Iverson's Sixers) with five additional questions is **source-authored but pending generator and NBA validation**. Full CI/critic/release gates remain pending.
+- [ ] Expansion: 3/50 additional days and 15/250 new questions **generated and NBA-validation-clean** for January 6–8, 2027. Full exact-head CI/critic/release gates remain pending.
 - [ ] Three-variant coverage: 10/510 questions; 30/1530 variants. The other 505 questions remain editorial work.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
@@ -62,3 +62,7 @@ Source-authored `2027-01-07` Denver Nuggets, 2022–23: five new unique question
 
 ## January 8 Philadelphia source batch
 Authored `2027-01-08` covering the 2000–01 76ers: 56 wins, Allen Iverson's MVP-season 31.1 PPG, the opening 10-game streak, Mutombo's 12.4 post-trade RPG, and the 107-point overtime Game 1 Finals win. 15 distinct short sourced trivia variants. Facts screened against the existing question DB, quote and slider fairness gates, spoiler risk and source licensing before submitting to the generator; generated NBA validation is still the authority.
+
+## January 8 generator + cutover regression fix
+- The free branch generator produced `content/days/2027-01-08.json` from the canonical Philly source facts and regenerated the source audit, historical locks and Survival catalogue. The generated NBA validator reports **0 errors** for 53 NBA days and 265 scheduled NBA questions.
+- Earlier full CI found two desktop/mobile failures because `e2e/cutover.spec.ts` hardcoded `toHaveLength(50)`. Fixed the regression to assert **at least 50 consecutive NBA dates** while preserving the original mixed-to-NBA cutover contract. This test must pass on the next full CI candidate before release.

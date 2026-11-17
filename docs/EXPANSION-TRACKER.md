@@ -12,8 +12,8 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: 4/50 additional days and 20/250 new questions **generated and NBA-validation-clean** for January 6–9, 2027. Full CI on latest exact head, independent critic and production release remain pending.
-- [ ] Three-variant coverage: **40/510** question sets, **120/1530** distinct evidenced variants source-authored (35/105 already generated, 5/15 awaiting generator). **470** sets and **1,410** variants remain.
+- [ ] Expansion: **4/50** new NBA days (Jan 6–9) generated and NBA-validation-clean; **5th new day (Jan 10)** is authored with five sourced questions and 15 variants, awaiting publisher/QA. Total: **25/250** new questions authored; **225** new questions remain.
+- [ ] Three-variant coverage: **45/510** question sets, **135/1530** cited variants authored; **40/120** generated (including November 20 Showtime), **5/15** new Spurs questions pending publisher. **465** question sets / **1,395** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -33,7 +33,7 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete the remaining 470 three-variant sets and 46 new themed days in editorially verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete the remaining 465 three-variant sets and 45 new themed days in editorially verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
 ## Runbook for next source-verification batch
 - Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
 - Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
@@ -86,3 +86,6 @@ Generator run `43994131981` succeeded. The published daily-file generator replac
 
 ## Original NBA day 4 — 2026-11-20 Showtime
 Fifteen additional sourced bonus-fact variants (three per question) have been authored from the Wikipedia 1980, 1984, 1987 and 1989 Finals pages. They cover the Lakers' 1987 wins, Magic's 1980 game, Lakers' 1989 opening playoff run, Michael Cooper's long-range shooting, and Magic's 1984 Finals assists. All original question IDs, numerical answers, scales, order and scoring remain unchanged. Await source regeneration and exact full CI before declaring verified.
+
+## January 10 Spurs source batch
+New 1998–99 Spurs slate `2027-01-10` authored from the Wikipedia San Antonio season and 1999 Finals pages, covering Duncan's 27.4 Finals points average, 31 wins in the final 36 games, Robinson's 11.8 Finals rebounds, Avery Johnson's 7.2 Finals assists, and 527,357 Alamodome attendees. All five new IDs checked against existing questions and reserves; difficulty/range/midpoint heuristic and 15 per-question independent sourcing excerpts screened. The canonical verified quote for attendance includes a thousands separator, permitted by the validator. Editor/validator and generated artifact checks remain necessary.

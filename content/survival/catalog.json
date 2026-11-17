@@ -3368,6 +3368,51 @@
       "day": "2027-01-25",
       "notBefore": "2027-01-26"
     },
+    "nba-suns93-regular-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "PHX",
+      "era": "1990s",
+      "steps": 50,
+      "day": "2027-01-26",
+      "notBefore": "2027-01-27"
+    },
+    "nba-suns93-december-win-streak": {
+      "tier": "medium",
+      "family": "win-streak",
+      "franchise": "PHX",
+      "era": "1990s",
+      "steps": 30,
+      "day": "2027-01-26",
+      "notBefore": "2027-01-27"
+    },
+    "nba-barkley93-suns-rpg": {
+      "tier": "hard",
+      "family": "rebounds-average",
+      "franchise": "PHX",
+      "era": "1990s",
+      "steps": 160,
+      "day": "2027-01-26",
+      "notBefore": "2027-01-27"
+    },
+    "nba-majerle93-three-pointers": {
+      "tier": "hard",
+      "family": "threes-season",
+      "franchise": "PHX",
+      "era": "1990s",
+      "steps": 200,
+      "day": "2027-01-26",
+      "notBefore": "2027-01-27"
+    },
+    "nba-suns93-finals-g6-points": {
+      "tier": "expert",
+      "family": "points-team-game",
+      "franchise": "PHX",
+      "era": "1990s",
+      "steps": 78,
+      "day": "2027-01-26",
+      "notBefore": "2027-01-27"
+    },
     "nba-bulls96-18-streak": {
       "tier": "medium",
       "family": "win-streak",

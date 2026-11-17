@@ -12,8 +12,8 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: 19/50 new NBA days (Jan6–Jan24) and 95/250 questions generated; twentieth day Jan25 (1993–94 Seattle) now sourced and awaiting generator. 30 additional days / 150 new questions remain after Jan25.
-- [ ] Three-variant coverage: **140/510** question sets, **420/1530** independently evidenced variants authored; **135/405** generated, 5/15 new Seattle sets awaiting publication. **370** sets / **1,110** variants remain.
+- [ ] Expansion: **20/50** additional consecutive NBA days (Jan6–Jan25), **100/250** new NBA questions generated; **30** further dates (Jan26–Feb24) and **150** unique questions remain.
+- [ ] Three-variant coverage: **145/510** sets and **435/1530** variants source-authored; **140/420** generated, 5/15 Nov27 Kobe variants awaiting publisher. **365** sets / **1,095** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -33,7 +33,7 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete remaining 370 three-variant sets and 30 new NBA days in verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete remaining 365 three-variant sets and 30 new NBA days in verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
 ## Runbook for next source-verification batch
 - Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
 - Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
@@ -166,3 +166,7 @@ Source-authored five new Cleveland 2008–09 themed questions from https://en.wi
 
 ## January 25 historical Seattle SuperSonics source batch
 Independently opened and inspected https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season. Five themed questions: 63 regular-season wins, 10-game opening streak, Kemp's 10.8 rebounds per game, Payton's 6.0 assists per game, and Seattle's 94-point Game 5 overtime loss to Denver. Fifteen diverse individually sourced bonus variants. Avoids original 1993–94 Seattle canonical duplicates, recycled stat families, the midpoint-guess scoring exploit and spoiler-bearing titles/prompts; editor/source generator and full CI remain pending. Theme deliberately omits the score and numeric answer.
+
+## January 25 Seattle generated; November 27 Kobe source repair
+- Jan25 generated bot commit `23cbbd5f` has five original new Seattle questions, each with 3 cited distinct variants; source and NBA validation previously passed on generation. Theme does not leak numeric answers.
+- Original Nov27 Kobe day now source-authored with 15 spoiler-safe trivia facts across five rounds. For two 2002–03 Bryant statistics (12 made threes and nine consecutive 40+ games), replaced an outdated source page link and quote with current, explicitly supporting text on Wikipedia's Kobe Bryant biography. All existing question IDs, numeric answers and ruler bounds retained; await free editorial-sync and exact full CI.

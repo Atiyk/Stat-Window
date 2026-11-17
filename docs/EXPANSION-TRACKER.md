@@ -12,8 +12,8 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: **22/50** new NBA days and **110/250** new NBA questions generated through January 27, 2027. **28** new days and **140** new unique questions remain. Full latest exact-head CI and final independent review pending.
-- [ ] Three-variant coverage: **176/510** question sets and **528/1530** distinct source-backed variants authored; **171/513** already generated, 5/15 existing Dec 1 Bucks/Kareem variants awaiting free generator. **334** sets / **1,002** variants remain.
+- [ ] Expansion: **22/50** additional NBA days, **110/250** new questions generated through Jan 27, 2027. **28** further days and **140** unique new NBA questions remain; exact full CI/independent source critic/release gates pending.
+- [ ] Three-variant coverage: **176/510** question sets and **528/1530** individually source-backed variants now generated (strict trivia/reserve checks pending fresh exact-head CI); **334** sets / **1,002** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -201,3 +201,6 @@ Five sourced questions from the Wikipedia 2018–19 Bucks season: 60 wins, openi
 
 ## Jan27 Milwaukee generation + Dec1 original Bucks trivia
 Free editorial-sync generated five new original 2018–19 Bucks questions plus 15 variants for the Jan27 playable slate, including explicit 0.435-to-43.5% source derivation for Middleton. The canonical report is expected to show 72 consecutive NBA days after that generation; exact all-suite CI remains a gate. Now source-authored 15 additional variants for original Dec1 Milwaukee 1971 / 1989 Kareem question slate, referencing Wikipedia season and Finals sources. Original question scores, IDs, scales and order are preserved. Await publisher and full CI before any release.
+
+## December 1 existing NBA trivia regenerated
+Free generator run `44011594415` succeeded and bot wrote `7e87fe17`. All five existing December 1 (1970–71 Milwaukee Bucks and Kareem's later retirement) questions now contain three short cited bonus fact variants, with existing scoring fingerprints untouched. The NBA validation report is **0 errors**, 72 NBA dates/360 scheduled NBA questions (plus the two historic mixed days). This connector checkpoint forces exact-head GitHub CI on the generated files; do NOT mark it green until results (including browser, bonus spoiler, analytics and Survival gates) complete. Source-only CI failures before bot publisher are expected in this workflow.

@@ -33,7 +33,7 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete the remaining 485 three-variant sets and 47 new themed days in editorially verified batches, then independently validate the January 6–8 additions. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete the remaining 480 three-variant sets and 47 new themed days in editorially verified batches, then independently validate the January 6–8 additions. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
 ## Runbook for next source-verification batch
 - Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
 - Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
@@ -66,3 +66,6 @@ Authored `2027-01-08` covering the 2000–01 76ers: 56 wins, Allen Iverson's MVP
 ## January 8 generator + cutover regression fix
 - The free branch generator produced `content/days/2027-01-08.json` from the canonical Philly source facts and regenerated the source audit, historical locks and Survival catalogue. The generated NBA validator reports **0 errors** for 53 NBA days and 265 scheduled NBA questions.
 - Earlier full CI found two desktop/mobile failures because `e2e/cutover.spec.ts` hardcoded `toHaveLength(50)`. Fixed the regression to assert **at least 50 consecutive NBA dates** while preserving the original mixed-to-NBA cutover contract. This test must pass on the next full CI candidate before release.
+
+## Existing-calendar bonus-fact coverage: 2026-11-19
+Added 15 individually sourced and distinct trivia variants for the five already-scheduled 1993–95 Rockets questions: the opening streak, Ewing's series blocks, Starks' Game 7, Anderson's missed free throws and Houston's road playoff wins. Trivia sources are the corresponding Houston Rockets and 1994/1995 Finals Wikipedia pages. The five historical scoring fingerprints are intentionally unchanged. Await full generator check before counting this NBA slate as successfully regenerated.

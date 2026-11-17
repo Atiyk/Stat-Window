@@ -11,7 +11,7 @@ const policy: SourcePolicy = {
 };
 function fact(id: string, kind: ResearchFact['kind'], difficulty: ResearchFact['difficulty'], value: number): ResearchFact {
   return {
-    id, theme: 'historic-final', kind, subject: 'Team Alpha', event: 'a fictional final',
+    id, theme: 'historic-final', kind, subject: 'Team Alpha', event: `a fictional final involving ${id}`,
     statistic: 'points', operation: 'literal',
     values: [{ value, source: {
       url: 'https://example.org/fictional-final', quote: `Team Alpha scored ${value} points`,
@@ -78,25 +78,25 @@ describe('question factory', () => {
   });
   it('rejects missing signoffs, forbidden source hosts, unsupported arithmetic and score-based guessing shortcuts', () => {
     const draft = generate(batch).candidates[0]!;
-    expect(validateCandidate(draft, policy)).toContain(expect.stringContaining('not editorially approved'));
+    expect(validateCandidate(draft, policy)).toEqual(expect.arrayContaining([expect.stringContaining('not editorially approved')]))
     const approved = reviewed(generate(batch)).candidates[0]!;
     expect(validateCandidate({ ...approved, values: [{ ...approved.values[0]!,
       source: { ...approved.values[0]!.source, url: 'https://basketball-reference.com/teams/XYZ/' } }] }, policy))
-      .toContain(expect.stringContaining('restricted source hostname'));
+      .toEqual(expect.arrayContaining([expect.stringContaining('restricted source hostname')]))
     expect(validateCandidate({ ...approved, scale: { min: 74.8, max: 80, step: 0.1 } }, policy))
-      .toContain(expect.stringContaining('ruler edge'));
+      .toEqual(expect.arrayContaining([expect.stringContaining('ruler edge')]))
     expect(validateCandidate({ ...approved, ratings: { ...approved.ratings!, estimability: 1 } }, policy))
-      .toContain(expect.stringContaining('not reasonably estimable'));
+      .toEqual(expect.arrayContaining([expect.stringContaining('not reasonably estimable')]))
     expect(validateCandidate({ ...approved, values: [{ ...approved.values[0]!, value: 99 }] }, policy))
-      .toContain(expect.stringContaining('computed answer'));
+      .toEqual(expect.arrayContaining([expect.stringContaining('computed answer')]))
     expect(validateCandidate({ ...approved, review: { ...approved.review, editor: 'fact-auditor' } }, policy))
-      .toContain(expect.stringContaining('must differ'));
-    expect(validateCandidate(approved, null)).toContain(expect.stringContaining('source policy'));
+      .toEqual(expect.arrayContaining([expect.stringContaining('must differ')]))
+    expect(validateCandidate(approved, null)).toEqual(expect.arrayContaining([expect.stringContaining('source policy')]))
   });
   it('requires 3 distinct question types and refuses duplicates', () => {
     const approved = reviewed(generate(batch));
     expect(validateBatch({ ...approved, candidates: [...approved.candidates, approved.candidates[0]!] }))
-      .toContain(expect.stringContaining('duplicate candidate id'));
+      .toEqual(expect.arrayContaining([expect.stringContaining('duplicate candidate id')]))
     const onlyMoment = { ...approved, candidates: approved.candidates.map((c) => ({ ...c, kind: 'famous-moment' as const })) };
     expect(() => plan(onlyMoment, policy, '2027-01-06', 1)).toThrow('Only 0 of 1');
   });

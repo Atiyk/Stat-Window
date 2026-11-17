@@ -3,7 +3,7 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [main, 'statwindow/editorial-season-two-20261116']
+    branches: [main]
 
 # Retain rigorous checks, but avoid burning free runner time on obsolete intermediate
 # source commits while the editorial generator is publishing the new day's files.

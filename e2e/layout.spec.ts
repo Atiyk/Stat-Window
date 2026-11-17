@@ -95,6 +95,19 @@ test.describe('layout', () => {
     expect(await check()).toEqual([]);
   });
 
+  test('tablet shows Next while a long sourced fact remains scrollable', async ({ page }) => {
+    await page.setViewportSize({ width: 768, height: 900 });
+    await openAt(page, NBA_FIRST);
+    await lockAndSettle(page);
+    const action = page.getByRole('button', { name: 'Next question' });
+    await expect(action).toBeInViewport({ ratio: 1 });
+    await expect(page.locator('.story-extra-text')).toHaveText(/.{20,}/);
+    await page.locator('.story-extra-source').scrollIntoViewIfNeeded();
+    await expect(page.locator('.story-extra-source')).toBeInViewport();
+    await expect(action).toBeInViewport({ ratio: 1 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  });
+
   test('200% text zoom keeps the game usable', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 720 });
     await openAt(page, DAY1);

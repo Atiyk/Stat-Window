@@ -55,3 +55,40 @@ export function auditFunFacts(slates: readonly Slate[]): TriviaAudit {
   }
   return { totalQuestions, coveredQuestions, verifiedVariants, missingQuestionIds, errors };
 }
+
+/** Minimal metadata for cross-checks against unpublished Survival reserve answers. */
+export type NBAContext = {
+  id: string;
+  player: string | null;
+  franchise: string | null;
+  season: string | null;
+  answer: number;
+  step: number;
+};
+
+/**
+ * Trivia must never disclose a related, still-unplayed reserve question's answer.
+ * Exact numeric tokens avoid false positives such as 14 in a year like 2014.
+ */
+export function auditReserveSpoilers(
+  slates: readonly Slate[],
+  byId: ReadonlyMap<string, NBAContext>,
+  reserves: readonly NBAContext[],
+): string[] {
+  const errors: string[] = [];
+  for (const slate of slates) for (const question of slate.questions) {
+    const current = byId.get(question.id);
+    if (!current || !question.funFacts) continue;
+    for (const [index, trivia] of question.funFacts.entries()) for (const candidate of reserves) {
+      const samePlayer = !!current.player && current.player === candidate.player;
+      const sameTeamSeason =
+        !!current.franchise && current.franchise === candidate.franchise &&
+        !!current.season && current.season === candidate.season;
+      if (!samePlayer && !sameTeamSeason) continue;
+      const numerals = answerSpellings(candidate.answer, candidate.step).filter((v) => /\d/.test(v));
+      if (numerals.some((n) => containsNumericAnswer(trivia.text, n)))
+        errors.push(`${slate.date}:${question.id}#${index + 1}: may disclose reserve ${candidate.id} (${candidate.answer})`);
+    }
+  }
+  return errors;
+}

@@ -1642,6 +1642,26 @@ a {
   }
 }
 
+/* A longer sourced fact must not hide the next action on tablet screens.
+   Unlike ordinary sticky footers, this stays reachable before any scrolling.
+   Reserve scroll space so the last source link is never covered. */
+@media (min-width: 720px) and (max-width: 1023px) {
+  .round[data-phase='resolved'] {
+    padding-bottom: calc(86px + env(safe-area-inset-bottom));
+  }
+  .round[data-phase='resolved'] .action-bar {
+    position: fixed;
+    inset: auto 0 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 12px var(--gutter) max(14px, env(safe-area-inset-bottom));
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+    box-shadow: 0 -4px 18px rgb(19 34 26 / 8%);
+  }
+}
+
 /* ───────────── Wider screens ───────────── */
 @media (min-width: 720px) {
   .round .action-bar {

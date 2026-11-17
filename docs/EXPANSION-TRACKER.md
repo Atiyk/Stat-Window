@@ -12,7 +12,7 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: 2/50 additional days and 10/250 new questions **generated and NBA-validation-clean** for January 6–7, 2027. Full CI on the exact generated head, source critic and production release remain pending.
+- [ ] Expansion: 2/50 additional days and 10/250 new questions **generated and NBA-validation-clean** on January 6–7; the third day (January 8, Iverson's Sixers) with five additional questions is **source-authored but pending generator and NBA validation**. Full CI/critic/release gates remain pending.
 - [ ] Three-variant coverage: 10/510 questions; 30/1530 variants. The other 505 questions remain editorial work.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
@@ -33,7 +33,7 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete the remaining 490 three-variant sets and 48 new themed days in editorially verified batches, then independently validate both January 6–7 additions. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete the remaining 485 three-variant sets and 47 new themed days in editorially verified batches, then independently validate the January 6–8 additions. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
 ## Runbook for next source-verification batch
 - Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
 - Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
@@ -59,3 +59,6 @@ Source-authored `2027-01-07` Denver Nuggets, 2022–23: five new unique question
 - Generator run `43992495433` succeeded and pushed `af15e056` to the feature branch. New `content/days/2027-01-07.json` contains five unique questions and 15 cited bonus variants.
 - Source validator reports 0 NBA content errors for 52 days / 260 scheduled NBA questions, and the generator refreshed locks, CSV/report and Survival catalog.
 - A fresh connector-authored checkpoint triggers full CI on the regenerated content; don't mark full CI green based only on the source validator.
+
+## January 8 Philadelphia source batch
+Authored `2027-01-08` covering the 2000–01 76ers: 56 wins, Allen Iverson's MVP-season 31.1 PPG, the opening 10-game streak, Mutombo's 12.4 post-trade RPG, and the 107-point overtime Game 1 Finals win. 15 distinct short sourced trivia variants. Facts screened against the existing question DB, quote and slider fairness gates, spoiler risk and source licensing before submitting to the generator; generated NBA validation is still the authority.

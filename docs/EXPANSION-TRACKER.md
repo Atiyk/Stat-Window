@@ -69,3 +69,8 @@ Authored `2027-01-08` covering the 2000–01 76ers: 56 wins, Allen Iverson's MVP
 
 ## Existing-calendar bonus-fact coverage: 2026-11-19
 Added 15 individually sourced and distinct trivia variants for the five already-scheduled 1993–95 Rockets questions: the opening streak, Ewing's series blocks, Starks' Game 7, Anderson's missed free throws and Houston's road playoff wins. Trivia sources are the corresponding Houston Rockets and 1994/1995 Finals Wikipedia pages. The five historical scoring fingerprints are intentionally unchanged. Await full generator check before counting this NBA slate as successfully regenerated.
+
+## Hakeem’s Rockets generation verified
+- Free editorial-sync run `43993187933` succeeded and wrote the five NBA question records for `2026-11-19` with all 15 bonus variants.
+- Manually compared every `id`, `answer`, `min`, `max`, and `step` in this slate to production source `a58ab86`: identical. Published scoring/links remain intact.
+- The generated NBA validator reports 0 errors; a dedicated full-branch CI commit follows and must finish green before any release claim.

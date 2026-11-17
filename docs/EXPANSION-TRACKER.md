@@ -12,7 +12,7 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: 3/50 additional days and 15/250 new questions **generated and NBA-validation-clean** for January 6–8, 2027. Full exact-head CI/critic/release gates remain pending.
+- [ ] Expansion: 3/50 additional days and 15/250 new questions generated and NBA-validation-clean for January 6–8, 2027. Fourth new day, January 9 (1975 Warriors), with another 5 source-backed questions is now source-authored, awaiting generation and NBA validation.
 - [ ] Three-variant coverage: 10/510 questions; 30/1530 variants. The other 505 questions remain editorial work.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
@@ -33,7 +33,7 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete the remaining 480 three-variant sets and 47 new themed days in editorially verified batches, then independently validate the January 6–8 additions. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete the remaining 475 three-variant sets and 46 new themed days in editorially verified batches, then independently validate the January 6–8 additions. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
 ## Runbook for next source-verification batch
 - Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
 - Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
@@ -74,3 +74,6 @@ Added 15 individually sourced and distinct trivia variants for the five already-
 - Free editorial-sync run `43993187933` succeeded and wrote the five NBA question records for `2026-11-19` with all 15 bonus variants.
 - Manually compared every `id`, `answer`, `min`, `max`, and `step` in this slate to production source `a58ab86`: identical. Published scoring/links remain intact.
 - The generated NBA validator reports 0 errors; a dedicated full-branch CI commit follows and must finish green before any release claim.
+
+## January 9 historical Warriors source batch
+Authored five new distinct questions from the 1974–75 Warriors and 1975 Finals Wikipedia pages: 48 wins, Rick Barry's 36 in Game 2, the Bullets' 14-point halftime lead in Game 1, Golden State's 115 reserve points through Game 3, and the 96 points in the clincher. Three evidenced trivia variants per question (15 total). Tested the new answer ranges against the midpoint exploit and checked numerical later-round spoilers before committing. Source-authored, NOT yet complete until the automated validator/publisher passes.

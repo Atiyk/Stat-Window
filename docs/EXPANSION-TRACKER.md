@@ -12,8 +12,8 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: **21/50** additional NBA days (Jan6–Jan26) and **105/250** new NBA questions generated; **29** more NBA days (Jan27–Feb24) and **145** new questions remain.
-- [ ] Three-variant coverage: **166/510** question sets and **498/1530** sourced variants authored; **161/483** published, 5/15 new 2016 Finals variants pending editor/validator. **344** sets / **1,032** variants remain.
+- [ ] Expansion: **21/50** new days Jan6–Jan26 and **105/250** new questions generated; additional Jan27 Milwaukee Giannis first MVP slate (5 new questions/15 facts) source-authored for free validation, so **22/50** new days and **110/250** new questions source-authored; 28 new dates / 140 new questions remain.
+- [ ] Three-variant coverage: **171/510** question sets, **513/1530** source-backed variants authored (166/498 generated, five Jan27 Milwaukee sets/15 variants pending); **339** sets / **1,017** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -33,7 +33,7 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete 344 remaining trivia sets and 29 further NBA days, retaining provenance and spoiler checks. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete 339 remaining trivia sets and 28 further NBA days with source review and exact CI. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
 ## Runbook for next source-verification batch
 - Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
 - Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
@@ -195,3 +195,6 @@ Free editorial-sync run `44010852873` succeeded and pushed bot commit `78b03a12`
 
 ## Existing Nov30 2016 Finals: source-authored
 Created three new sourced contextual trivia variants on each of the five original Cleveland–Warriors 2016 Finals questions. Extra context includes Draymond's Game 5 suspension, LeBron's all-statistical-category Finals leadership, Green's Game 7 shooting and rebounding, Luke Walton's interim coaching start, and the final game's closing possessions. Evidence excerpts checked against the Wikipedia 2016 NBA Finals article. Original questions' scores/IDs/bounds unchanged. Await editorial regeneration, strict reserve-answer audit and exact full CI.
+
+## Jan27 Milwaukee 2018–19 authored new game
+Five sourced questions from the Wikipedia 2018–19 Bucks season: 60 wins, opening 7-game streak, Giannis's 12.5 RPG, Middleton's 43.5% playoff three-point shooting (derivation explicitly converts .435 to percent), and Brook Lopez's 29 points in first Toronto Eastern finals matchup. Fifteen distinct sourced bonus variants. Prepublication checks: unique canonical IDs, valid stat families, difficulty ladder, answer-safe theme, midpoint fairness, within-slate future answer leaks and quote length, no original scoring changes. Requires successful free generator and full exact-head CI before release.

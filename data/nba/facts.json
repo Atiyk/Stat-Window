@@ -18411,5 +18411,320 @@
         }
       ]
     }
+  },
+  {
+    "id": "nba-bucks19-season-wins",
+    "family": "wins-season",
+    "scope": "regular-season",
+    "season": "2018-19",
+    "eventDate": null,
+    "franchise": "MIL",
+    "player": null,
+    "answer": 60,
+    "unit": {
+      "singular": "win",
+      "plural": "wins"
+    },
+    "claim": "60 wins, the best record in the NBA.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+      "quote": "the Bucks finished the regular season with a 60–22 record",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many regular-season games did Giannis's 2018–19 Milwaukee Bucks win?",
+      "context": "Milwaukee Bucks · Giannis MVP season",
+      "reveal": "60 wins, the best record in the NBA.",
+      "min": 32,
+      "max": 82,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "A league-leading MVP season, with a recognizable win total.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 4
+      },
+      "funFacts": [
+        {
+          "text": "Milwaukee moved from the Bradley Center to the new Fiserv Forum before the campaign.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "The Bucks moved from the Bradley Center to the new Fiserv Forum"
+          }
+        },
+        {
+          "text": "Mike Budenholzer arrived as the team's head coach in May of the preceding offseason.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "On May 17, 2018, the Bucks hired Mike Budenholzer as head coach"
+          }
+        },
+        {
+          "text": "The Bucks finished with the best team defensive rating in the league.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "The Bucks had the best team defensive rating in the NBA"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-bucks19-opening-win-streak",
+    "family": "win-streak",
+    "scope": "regular-season",
+    "season": "2018-19",
+    "eventDate": null,
+    "franchise": "MIL",
+    "player": null,
+    "answer": 7,
+    "unit": {
+      "singular": "game",
+      "plural": "games"
+    },
+    "claim": "Seven in a row before their first defeat.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+      "quote": "The Bucks opened the season with seven straight wins",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many consecutive games did Milwaukee win to open 2018–19?",
+      "context": "Milwaukee Bucks · start of Giannis's first MVP season",
+      "reveal": "Seven in a row before their first defeat.",
+      "min": 0,
+      "max": 25,
+      "step": 1,
+      "difficulty": "medium",
+      "difficultyReason": "A memorable fast start, but the count is niche.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 4,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "The Bucks' season-opening victory was a one-point road win over Charlotte.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "October 17 @ Charlotte W 113–112"
+          }
+        },
+        {
+          "text": "Milwaukee's first loss came on the road against Boston in early November.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "November 1 @ Boston L 113–117"
+          }
+        },
+        {
+          "text": "That opening run marked the club's fastest start since its early-1970s title-contending era.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "the first time they started a season 7–0 since 1971–72"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-giannis19-regular-rpg",
+    "family": "rebounds-average",
+    "scope": "regular-season",
+    "season": "2018-19",
+    "eventDate": null,
+    "franchise": "MIL",
+    "player": "Giannis Antetokounmpo",
+    "answer": 12.5,
+    "unit": {
+      "singular": "rebound per game",
+      "plural": "rebounds per game"
+    },
+    "claim": "12.5 rebounds per game, while dominating both ends.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+      "quote": "Giannis Antetokounmpo | 72 | 72 | 32.8 | .578 | .256 | .729 | 12.5 | 5.9 | 1.3 | 1.5 | 27.7",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "What was Giannis Antetokounmpo's regular-season rebounding average in 2018–19?",
+      "context": "Giannis · Milwaukee Bucks · first MVP campaign",
+      "reveal": "12.5 rebounds per game, while dominating both ends.",
+      "min": 6,
+      "max": 21,
+      "step": 0.1,
+      "difficulty": "hard",
+      "difficultyReason": "The MVP's rebounding figure is difficult to recall exactly.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Giannis scored 27.7 points and dished out 5.9 assists per game that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "12.5 | 5.9 | 1.3 | 1.5 | 27.7"
+          }
+        },
+        {
+          "text": "He won his first NBA MVP award after Milwaukee led the Eastern Conference.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "Giannis Antetokounmpo was named league MVP after this season"
+          }
+        },
+        {
+          "text": "Giannis and Khris Middleton represented Milwaukee in the All-Star Game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "he and Khris Middleton were voted to play in the 2019 NBA All-Star Game"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-middleton19-playoff-three-pct",
+    "family": "shooting-pct",
+    "scope": "playoffs",
+    "season": "2018-19",
+    "eventDate": null,
+    "franchise": "MIL",
+    "player": "Khris Middleton",
+    "answer": 43.5,
+    "unit": {
+      "singular": "percent",
+      "plural": "percent"
+    },
+    "claim": "43.5%, a sharp shooting run despite Milwaukee's conference finals loss.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+      "quote": "Khris Middleton | 15 | 15 | 34.3 | .418 | .435 | .885 | 6.3 | 4.4 | .4 | .0 | 16.9",
+      "derivation": "Converted 0.435 three-point field-goal proportion in the playoff row to 43.5%.",
+      "asOf": null
+    },
+    "question": {
+      "prompt": "What percentage of his three-pointers did Khris Middleton make in the 2019 playoffs?",
+      "context": "Milwaukee Bucks · 2019 postseason · three-point shooting",
+      "reveal": "43.5%, a sharp shooting run despite Milwaukee's conference finals loss.",
+      "min": 20,
+      "max": 60,
+      "step": 0.5,
+      "difficulty": "hard",
+      "difficultyReason": "A playoff shooting percentage asks for estimation, not a household record.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 3,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Middleton averaged 16.9 points and 6.3 rebounds during Milwaukee's playoff run.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "6.3 | 4.4 | .4 | .0 | 16.9"
+          }
+        },
+        {
+          "text": "The Bucks swept Detroit before eliminating Boston in five games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "the Bucks defeated the Detroit Pistons in the First Round by a four-game sweep"
+          }
+        },
+        {
+          "text": "Middleton also shot 88.5% on free throws during that postseason.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "Khris Middleton | 15 | 15 | 34.3 | .418 | .435 | .885"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-brooklopez19-ecf-g1-points",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2018-19",
+    "eventDate": null,
+    "franchise": "MIL",
+    "player": "Brook Lopez",
+    "answer": 29,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "29 points to help Milwaukee take the series opener.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+      "quote": "May 15 Toronto W 108–100 Brook Lopez (29)",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many points did Brook Lopez score in Milwaukee's Eastern finals Game 1 against Toronto?",
+      "context": "Milwaukee Bucks vs Toronto Raptors · Eastern finals opener",
+      "reveal": "29 points to help Milwaukee take the series opener.",
+      "min": 13,
+      "max": 51,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A supporting center's exact game total from a specific conference final is obscure.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 4,
+        "estimability": 2,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Lopez signed with Milwaukee in free agency after spending the preceding season with the Lakers.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "Brook Lopez | July 17, 2018 | Los Angeles Lakers"
+          }
+        },
+        {
+          "text": "He averaged 2.2 blocks per game in the regular season while stretching the floor.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "Brook Lopez | 81 | 81 | 28.7 | .435 | .365 | .842 | 4.9 | 1.2 | .6 | 2.2 | 12.5"
+          }
+        },
+        {
+          "text": "Milwaukee won both of its opening games against Toronto, but the Raptors came back to take the series.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "where they faced the Toronto Raptors and lost to the eventual NBA Champion in six games, despite taking the first two"
+          }
+        }
+      ]
+    }
   }
 ]

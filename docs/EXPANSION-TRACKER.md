@@ -10,12 +10,14 @@
 ## Work actually staged on the milestone branch
 - [x] Optional three-variant source-checked schema. Optional by design: never fabricate filler to meet a completeness target.
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
-- [x] First example: Wilt Chamberlain 100-point game, three different details all supported by Wikipedia and avoiding spoilers for later rounds.
+- [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
 - [ ] Expansion: 0/50 additional days; 0/250 new source-verified questions.
-- [ ] Three-variant coverage: 1/510 questions; 3/1530 variants.
+- [ ] Three-variant coverage: 5/510 questions; 15/1530 variants. The other 505 questions remain editorial work.
 - [ ] Review all editorial facts and copyright/attribution.
 - [ ] Other audited fixes, real receipt of analytics, mobile device QA and baseline-controlled experiments.
+- [x] Add standalone fun-fact coverage/spoiler audit with optional final-release completeness gate.
+- [x] Include the durable milestone branch in free GitHub CI push triggers; remove the special branch trigger before final merge.
 - [ ] Run full test suite, independent critic, single integrated PR and release.
 
 ## Editorial QA policy
@@ -28,4 +30,8 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete the remaining 509 three-variant sets and 50 new themed days in editorially verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete the remaining 505 three-variant sets and 50 new themed days in editorially verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+## Runbook for next source-verification batch
+- Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
+- Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
+- GitHub CI on this durable milestone branch is used for substantive checkpoints without creating premature PRs. Once the milestone is ready, remove the branch-specific CI push trigger and open exactly one comprehensive PR.

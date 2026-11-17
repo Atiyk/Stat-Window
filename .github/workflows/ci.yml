@@ -3,7 +3,7 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, 'statwindow/editorial-season-two-20261116']
 
 permissions:
   contents: read
@@ -21,6 +21,8 @@ jobs:
       - run: npm ci
       - name: Content check (fails on bad data, warns when fewer than 7 days remain)
         run: npm run content:check
+      - name: Bonus-fact coverage and spoiler audit (partial editorial milestone)
+        run: npm run content:trivia:check
       - name: NBA database (reproducible SQLite build, reports, day files and Survival catalog up to date)
         run: npm run nba:db -- --out build/nba.sqlite && npm run nba:report:check && npm run content:publish:check && npm run survival:catalog:check
       - run: npm run typecheck

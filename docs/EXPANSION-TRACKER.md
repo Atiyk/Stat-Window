@@ -12,7 +12,7 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: 1/50 additional days and 5/250 new questions **generated and NBA-validation-clean** for January 6; a second new day and five questions for January 7 are **source-authored only, pending the generator and its validation**. Total source-authored 2/50 days and 10/250 new questions; neither is production released.
+- [ ] Expansion: 2/50 additional days and 10/250 new questions **generated and NBA-validation-clean** for January 6–7, 2027. Full CI on the exact generated head, source critic and production release remain pending.
 - [ ] Three-variant coverage: 10/510 questions; 30/1530 variants. The other 505 questions remain editorial work.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
@@ -54,3 +54,8 @@ Complete the remaining 490 three-variant sets and 48 new themed days in editoria
 
 ## January 7 Denver source batch
 Source-authored `2027-01-07` Denver Nuggets, 2022–23: five new unique questions (53 regular season wins, 30.2 Jokić Finals PPG, 10.0 Murray Finals APG, Aaron Gordon's 27 Game 4 points, Braun's 21st draft slot). All 15 additional trivia variants carry specific Wikipedia evidence quotes. Range fairness, unique IDs, numerical later-round spoilers, quote lengths and source licensing checked before submitting. Automated NBA calendar and generated-file checks will be the authority; do not mark passed until their exact runs complete.
+
+## Verified generation — January 7 Denver
+- Generator run `43992495433` succeeded and pushed `af15e056` to the feature branch. New `content/days/2027-01-07.json` contains five unique questions and 15 cited bonus variants.
+- Source validator reports 0 NBA content errors for 52 days / 260 scheduled NBA questions, and the generator refreshed locks, CSV/report and Survival catalog.
+- A fresh connector-authored checkpoint triggers full CI on the regenerated content; don't mark full CI green based only on the source validator.

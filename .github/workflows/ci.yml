@@ -27,8 +27,8 @@ jobs:
       - run: npm ci
       - name: Content check (fails on bad data, warns when fewer than 7 days remain)
         run: npm run content:check
-      - name: Bonus-fact coverage and spoiler audit (partial editorial milestone)
-        run: npm run content:trivia:check
+      - name: Original 52-day trivia completeness, provenance and spoiler gate
+        run: npm run content:trivia:check -- --require-original
       - name: NBA database (reproducible SQLite build, reports, day files and Survival catalog up to date)
         run: npm run nba:db -- --out build/nba.sqlite && npm run nba:report:check && npm run content:publish:check && npm run survival:catalog:check
       - name: Review-gated cross-sport Question Factory

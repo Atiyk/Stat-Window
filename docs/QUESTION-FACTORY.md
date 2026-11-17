@@ -45,6 +45,7 @@ The same commands work for `--sport NFL`, `--sport MLB`, `--sport NHL`, `--sport
       "url": "https://example.org/fictional",
       "quote": "Fictional Club recorded 79 points",
       "license": "synthetic-fixture",
+      "attribution": "Synthetic test data author",
       "verifiedBy": "reviewer-a",
       "verifiedOn": "2026-11-16"
     }}

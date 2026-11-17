@@ -12,8 +12,8 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: **4/50** new NBA days (Jan 6–9) generated and NBA-validation-clean; **5th new day (Jan 10)** is authored with five sourced questions and 15 variants, awaiting publisher/QA. Total: **25/250** new questions authored; **225** new questions remain.
-- [ ] Three-variant coverage: **45/510** question sets, **135/1530** cited variants authored; **40/120** generated (including November 20 Showtime), **5/15** new Spurs questions pending publisher. **465** question sets / **1,395** variants remain.
+- [ ] Expansion: **5/50** additional NBA days and **25/250** new unique questions generated and NBA-validation-clean through January 10, 2027. **45** new days / **225** new questions remain; final browser CI, independent critic and production release remain pending.
+- [ ] Three-variant coverage: **45/510** question sets, **135/1530** sourced variants authored and generated (the four original NBA days Nov 17–20 and five new days Jan 6–10). **465** question sets / **1,395** sourced variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -89,3 +89,6 @@ Fifteen additional sourced bonus-fact variants (three per question) have been au
 
 ## January 10 Spurs source batch
 New 1998–99 Spurs slate `2027-01-10` authored from the Wikipedia San Antonio season and 1999 Finals pages, covering Duncan's 27.4 Finals points average, 31 wins in the final 36 games, Robinson's 11.8 Finals rebounds, Avery Johnson's 7.2 Finals assists, and 527,357 Alamodome attendees. All five new IDs checked against existing questions and reserves; difficulty/range/midpoint heuristic and 15 per-question independent sourcing excerpts screened. The canonical verified quote for attendance includes a thousands separator, permitted by the validator. Editor/validator and generated artifact checks remain necessary.
+
+## January 10 generated Spurs slate
+Free editorial-sync run `43995181969` succeeded, pushed bot commit `39cd98c7` and regenerated `content/days/2027-01-10.json`, historical scoring lock, proof reports and the Survival catalog. NBA validation is **0 errors** with 55 consecutive NBA days and 275 scheduled NBA questions (301 sourced canonical facts incl 26 reserves). All five original answers and source citations/three variants are present; scoring fingerprint does not affect existing November published results. Full exact-head CI and independent critic remain outstanding; no production release yet.

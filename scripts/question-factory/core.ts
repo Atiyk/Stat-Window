@@ -13,7 +13,7 @@ export type Kind = (typeof TYPES)[number];
 export type Difficulty = 'easy' | 'medium' | 'hard' | 'expert';
 export type Operation = 'literal' | 'difference' | 'sum';
 export type Source = {
-  url: string; quote: string; license: string;
+  url: string; quote: string; license: string; attribution: string;
   /** Human review of the source content, NOT automatic URL validation. */
   verifiedBy?: string; verifiedOn?: string;
 };
@@ -216,7 +216,7 @@ export function validateCandidate(c: Candidate, policy: SourcePolicy | null): st
     if (policy && (!host || !policy.approvedHosts.includes(host))) at(`source ${host ?? s.url} not approved by sport policy`);
     if (!goodText(s.quote, 3) || s.quote.length > 160) at('source quote must be 3–160 characters');
     else if (!quoteContains(v.value, s.quote)) at('source quote does not state the input number');
-    if (!goodText(s.license) || !goodText(s.verifiedBy) || !isDay(s.verifiedOn ?? '')) at('source license and documented human verification required');
+    if (!goodText(s.license) || !goodText(s.attribution) || !goodText(s.verifiedBy) || !isDay(s.verifiedOn ?? '')) at('source license, attribution and documented human verification required');
     if (host) hosts.add(s.url);
   }
   if (hosts.size > 1) at('multi-source derived answers need a multi-citation display before publication');
@@ -258,7 +258,7 @@ export function slateQuestion(c: Candidate): SlateQuestion {
   return {
     id: c.id, sport: c.sport, prompt: c.prompt, context: c.context, answer: c.answer,
     unit: c.unit, min: c.scale.min, max: c.scale.max, step: c.scale.step,
-    note: c.note, source: { name: `${base.license} · ${sourceHost(base.url)}`, url: base.url, quote: base.quote, ...(derivation ? { derivation } : {}) },
+    note: c.note, source: { name: base.attribution, url: base.url, quote: base.quote, ...(derivation ? { derivation } : {}) },
     verified: { on: c.review.reviewedOn!, by: c.review.factChecker! }, difficulty: c.difficulty,
   };
 }

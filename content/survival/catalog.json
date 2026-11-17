@@ -2563,6 +2563,51 @@
       "day": "2027-01-09",
       "notBefore": "2027-01-10"
     },
+    "nba-duncan99-finals-ppg": {
+      "tier": "easy",
+      "family": "scoring-average",
+      "franchise": "SAS",
+      "era": "1990s",
+      "steps": 240,
+      "day": "2027-01-10",
+      "notBefore": "2027-01-11"
+    },
+    "nba-spurs99-final36-wins": {
+      "tier": "medium",
+      "family": "wins-situational",
+      "franchise": "SAS",
+      "era": "1990s",
+      "steps": 28,
+      "day": "2027-01-10",
+      "notBefore": "2027-01-11"
+    },
+    "nba-robinson99-finals-rpg": {
+      "tier": "hard",
+      "family": "rebounds-average",
+      "franchise": "SAS",
+      "era": "1990s",
+      "steps": 160,
+      "day": "2027-01-10",
+      "notBefore": "2027-01-11"
+    },
+    "nba-avery99-finals-apg": {
+      "tier": "hard",
+      "family": "assists-average",
+      "franchise": "SAS",
+      "era": "1990s",
+      "steps": 150,
+      "day": "2027-01-10",
+      "notBefore": "2027-01-11"
+    },
+    "nba-spurs99-alamodome-attendance": {
+      "tier": "expert",
+      "family": "attendance",
+      "franchise": "SAS",
+      "era": "1990s",
+      "steps": 140,
+      "day": "2027-01-10",
+      "notBefore": "2027-01-11"
+    },
     "nba-bulls96-18-streak": {
       "tier": "medium",
       "family": "win-streak",

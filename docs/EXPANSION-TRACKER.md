@@ -13,7 +13,7 @@
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
 - [ ] Expansion: 4/50 additional days and 20/250 new questions **generated and NBA-validation-clean** for January 6–9, 2027. Full CI on latest exact head, independent critic and production release remain pending.
-- [ ] Three-variant coverage: 10/510 questions; 30/1530 variants. The other 505 questions remain editorial work.
+- [ ] Three-variant coverage: **40/510** question sets, **120/1530** distinct evidenced variants source-authored (35/105 already generated, 5/15 awaiting generator). **470** sets and **1,410** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -33,7 +33,7 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete the remaining 475 three-variant sets and 46 new themed days in editorially verified batches, then independently validate the January 6–8 additions. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete the remaining 470 three-variant sets and 46 new themed days in editorially verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
 ## Runbook for next source-verification batch
 - Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
 - Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
@@ -83,3 +83,6 @@ The first January 9 generation correctly rejected a duplicate of existing reserv
 
 ## January 9 generation verified
 Generator run `43994131981` succeeded. The published daily-file generator replaced the duplicate bench-total question with a separate Wes Unseld Game 2 rebound figure and removed a date-based clue that had contained the answer. The NBA report confirms **zero errors**, 54 consecutive NBA days, 270 scheduled NBA questions and 296 canonical source-backed facts (26 in reserve). January 9 has five questions in difficulty-ladder order and exactly three variants each. A connector checkpoint was committed to run full CI on the generated exact candidate.
+
+## Original NBA day 4 — 2026-11-20 Showtime
+Fifteen additional sourced bonus-fact variants (three per question) have been authored from the Wikipedia 1980, 1984, 1987 and 1989 Finals pages. They cover the Lakers' 1987 wins, Magic's 1980 game, Lakers' 1989 opening playoff run, Michael Cooper's long-range shooting, and Magic's 1984 Finals assists. All original question IDs, numerical answers, scales, order and scoring remain unchanged. Await source regeneration and exact full CI before declaring verified.

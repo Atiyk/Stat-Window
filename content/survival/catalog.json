@@ -2473,6 +2473,51 @@
       "day": "2027-01-07",
       "notBefore": "2027-01-08"
     },
+    "nba-sixers01-regular-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "PHI",
+      "era": "2000s",
+      "steps": 43,
+      "day": "2027-01-08",
+      "notBefore": "2027-01-09"
+    },
+    "nba-iverson01-season-ppg": {
+      "tier": "medium",
+      "family": "scoring-average",
+      "franchise": "PHI",
+      "era": "2000s",
+      "steps": 280,
+      "day": "2027-01-08",
+      "notBefore": "2027-01-09"
+    },
+    "nba-sixers01-opening-streak": {
+      "tier": "hard",
+      "family": "win-streak",
+      "franchise": "PHI",
+      "era": "2000s",
+      "steps": 22,
+      "day": "2027-01-08",
+      "notBefore": "2027-01-09"
+    },
+    "nba-mutombo01-posttrade-rpg": {
+      "tier": "hard",
+      "family": "rebounds-average",
+      "franchise": "PHI",
+      "era": "2000s",
+      "steps": 170,
+      "day": "2027-01-08",
+      "notBefore": "2027-01-09"
+    },
+    "nba-sixers01-finals-g1-points": {
+      "tier": "expert",
+      "family": "points-team-game",
+      "franchise": "PHI",
+      "era": "2000s",
+      "steps": 43,
+      "day": "2027-01-08",
+      "notBefore": "2027-01-09"
+    },
     "nba-bulls96-18-streak": {
       "tier": "medium",
       "family": "win-streak",

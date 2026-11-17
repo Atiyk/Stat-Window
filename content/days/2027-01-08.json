@@ -1,0 +1,265 @@
+{
+  "date": "2027-01-08",
+  "theme": {
+    "title": "The Answer's run",
+    "subtitle": "Philadelphia, 2000–01",
+    "recap": "An MVP guard, a midseason defensive anchor and two Game 7 battles took Philadelphia all the way to a hard-fought Finals."
+  },
+  "questions": [
+    {
+      "id": "nba-sixers01-regular-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did Allen Iverson's 2000–01 76ers win?",
+      "context": "Philadelphia 76ers · 2000–01 · 82 games",
+      "answer": 56,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 37,
+      "max": 80,
+      "step": 1,
+      "note": "56–26, giving the Sixers the top seed in the East.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+        "quote": "The 76ers finished in first place in the Atlantic Division with a 56–26 record"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy",
+      "funFacts": [
+        {
+          "text": "Philadelphia traded Theo Ratliff, Toni Kukoč and Nazr Mohammed to Atlanta for center Dikembe Mutombo during the season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "the team traded Theo Ratliff, Toni Kukoč, and Nazr Mohammed to the Atlanta Hawks in exchange for All-Star center Dikembe Mutombo"
+          }
+        },
+        {
+          "text": "Larry Brown was named NBA Coach of the Year as Philadelphia improved by seven wins over the previous season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "Head coach Larry Brown was named the NBA Coach of the Year, after leading the 76ers to a seven-game improvement"
+          }
+        },
+        {
+          "text": "The Sixers changed the look of their white home and black road uniforms that season, including the lettering and collar design.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "the 76ers slightly updated their white home uniforms and black road uniforms"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-iverson01-season-ppg",
+      "sport": "NBA",
+      "prompt": "What was Allen Iverson's scoring average during his 2000–01 MVP season?",
+      "context": "Philadelphia 76ers · 2000–01 · regular season",
+      "answer": 31.1,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 16,
+      "max": 44,
+      "step": 0.1,
+      "note": "31.1 a night, enough to lead the league and win MVP.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+        "quote": "All-Star guard Allen Iverson averaged 31.1 points, 4.6 assists and 2.5 steals per game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Iverson led the NBA not only in scoring but also in steals that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "leading the league in both scoring and steals"
+          }
+        },
+        {
+          "text": "Iverson also won All-Star Game MVP in Washington, D.C., where the East beat the West by a single point.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "Iverson scored 25 points along with 5 assists and 4 steals, and was named the All-Star Game Most Valuable Player"
+          }
+        },
+        {
+          "text": "Philadelphia had an unusual awards sweep: teammate Aaron McKie was Sixth Man of the Year and Mutombo was Defensive Player of the Year.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "Aaron McKie provided the team with 11.6 points, 5.0 assists and 1.4 steals per game, and was named the NBA Sixth Man of the Year"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-sixers01-opening-streak",
+      "sport": "NBA",
+      "prompt": "How many games did the 2000–01 Sixers win in a row to start the season?",
+      "context": "Philadelphia 76ers · opening streak · 2000–01",
+      "answer": 10,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 3,
+      "max": 25,
+      "step": 1,
+      "note": "Ten straight wins before their first loss.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+        "quote": "The 76ers won their first ten games of the regular season"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Philadelphia had built a 36–14 record by the All-Star break before its midseason roster overhaul.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "later on held a 36–14 record at the All-Star break"
+          }
+        },
+        {
+          "text": "Starting guard Eric Snow missed a large chunk of the season with a stress fracture in his right ankle.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "only played just 50 games due to a stress fracture in his right ankle"
+          }
+        },
+        {
+          "text": "The Sixers reached a 42–14 record at one point but went 14–12 over the rest of the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "At one point, the team's record was 42–14, but finished 14–12 the rest of the way"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-mutombo01-posttrade-rpg",
+      "sport": "NBA",
+      "prompt": "What was Dikembe Mutombo's rebounding average after joining the 2000–01 Sixers?",
+      "context": "Philadelphia 76ers · post-trade regular-season stint",
+      "answer": 12.4,
+      "unit": {
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
+      },
+      "min": 5,
+      "max": 22,
+      "step": 0.1,
+      "note": "12.4 rebounds per game for Philadelphia.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+        "quote": "Mutombo averaged 11.7 points, 12.4 rebounds and 2.5 blocks per game in 26 games after the trade"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Mutombo won Defensive Player of the Year for the fourth time in his career that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "and was named the NBA Defensive Player of the Year for the fourth time"
+          }
+        },
+        {
+          "text": "The trade was partly driven by a season-ending wrist injury to Theo Ratliff, who had previously been the Sixers' starting center.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "prior to the trade, Ratliff was sidelined due to a season-ending wrist injury"
+          }
+        },
+        {
+          "text": "During his short Philadelphia regular-season stint, Mutombo also averaged 2.5 blocks a game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "Mutombo averaged 11.7 points, 12.4 rebounds and 2.5 blocks per game in 26 games after the trade"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-sixers01-finals-g1-points",
+      "sport": "NBA",
+      "prompt": "How many points did the 76ers score in their overtime Game 1 win over the Lakers in 2001?",
+      "context": "2001 NBA Finals · June 6 · Philadelphia at Los Angeles",
+      "answer": 107,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 76,
+      "max": 119,
+      "step": 1,
+      "note": "107, the Lakers' only defeat during that postseason.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+        "quote": "June 6 @ L.A. Lakers W 107–101 (OT)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "That opening-game overtime win was the Lakers' only loss across their entire 2001 playoff run.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
+            "quote": "By the end of the series, the 2000–01 Lakers held the record for the best postseason record with 15–1."
+          }
+        },
+        {
+          "text": "Philadelphia outscored Los Angeles 13–7 in overtime after a close regulation contest.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
+            "quote": "Scoring by quarter: 22–23, 34–27, 23–27, 15–17, Overtime: 13–7"
+          }
+        },
+        {
+          "text": "The Sixers had just survived two straight seven-game playoff series against Toronto and Milwaukee before reaching the Finals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
+            "quote": "had just come out of two straight seven-game series against the Toronto Raptors and Milwaukee Bucks"
+          }
+        }
+      ]
+    }
+  ]
+}

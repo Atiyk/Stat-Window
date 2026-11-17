@@ -2759,7 +2759,10 @@
       "era": "2010s",
       "steps": 70,
       "day": "2027-01-13",
-      "notBefore": "2027-01-14"
+      "notBefore": "2027-01-28",
+      "leaks": [
+        "nba-bucks19-opening-win-streak"
+      ]
     },
     "nba-raptors19-road-wins": {
       "tier": "expert",
@@ -3412,6 +3415,51 @@
       "steps": 78,
       "day": "2027-01-26",
       "notBefore": "2027-01-27"
+    },
+    "nba-bucks19-season-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "MIL",
+      "era": "2010s",
+      "steps": 50,
+      "day": "2027-01-27",
+      "notBefore": "2027-01-28"
+    },
+    "nba-bucks19-opening-win-streak": {
+      "tier": "medium",
+      "family": "win-streak",
+      "franchise": "MIL",
+      "era": "2010s",
+      "steps": 25,
+      "day": "2027-01-27",
+      "notBefore": "2027-01-28"
+    },
+    "nba-giannis19-regular-rpg": {
+      "tier": "hard",
+      "family": "rebounds-average",
+      "franchise": "MIL",
+      "era": "2010s",
+      "steps": 150,
+      "day": "2027-01-27",
+      "notBefore": "2027-01-28"
+    },
+    "nba-middleton19-playoff-three-pct": {
+      "tier": "hard",
+      "family": "shooting-pct",
+      "franchise": "MIL",
+      "era": "2010s",
+      "steps": 80,
+      "day": "2027-01-27",
+      "notBefore": "2027-01-28"
+    },
+    "nba-brooklopez19-ecf-g1-points": {
+      "tier": "expert",
+      "family": "points-game",
+      "franchise": "MIL",
+      "era": "2010s",
+      "steps": 38,
+      "day": "2027-01-27",
+      "notBefore": "2027-01-28"
     },
     "nba-bulls96-18-streak": {
       "tier": "medium",

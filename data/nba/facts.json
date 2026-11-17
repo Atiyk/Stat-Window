@@ -11569,7 +11569,7 @@
     "question": {
       "prompt": "How many regular-season games did the 1974–75 Warriors win?",
       "context": "Golden State Warriors · 1974–75 · 82 games",
-      "reveal": "48 wins, and the Warriors still took the title.",
+      "reveal": "48 wins, before the Warriors took the title.",
       "min": 32,
       "max": 72,
       "step": 1,
@@ -11736,37 +11736,37 @@
     }
   },
   {
-    "id": "nba-warriors75-first3-bench",
-    "family": "points-series",
+    "id": "nba-unseld75-finals-g2-rebounds",
+    "family": "rebounds-game",
     "scope": "finals",
     "season": "1974-75",
-    "eventDate": "1975-05-23",
-    "franchise": "GSW",
-    "player": null,
-    "answer": 115,
+    "eventDate": "1975-05-20",
+    "franchise": "WAS",
+    "player": "Wes Unseld",
+    "answer": 20,
     "unit": {
-      "singular": "point",
-      "plural": "points"
+      "singular": "rebound",
+      "plural": "rebounds"
     },
-    "claim": "Golden State's bench scored 115 points across the first three Finals games.",
+    "claim": "Wes Unseld collected 20 rebounds in Game 2 of the 1975 Finals.",
     "source": {
       "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-      "quote": "the Warriors' bench players had outscored the Bullets' reserves 115–53",
+      "quote": "Rebs: Wes Unseld 20",
       "derivation": null,
       "asOf": null
     },
     "question": {
-      "prompt": "Through three games of the 1975 Finals, how many points had Warriors reserves scored?",
-      "context": "Golden State · 1975 Finals · bench production",
-      "reveal": "115 bench points: Golden State's reserves overwhelmed Washington's.",
-      "min": 50,
-      "max": 170,
+      "prompt": "How many rebounds did Wes Unseld grab in Game 2 of the 1975 Finals?",
+      "context": "Washington Bullets at Golden State · May 20, 1975",
+      "reveal": "20 rebounds, but Washington lost the game by a single point.",
+      "min": 5,
+      "max": 43,
       "step": 1,
       "difficulty": "hard",
-      "difficultyReason": "An unusual bench-total statistic, difficult but estimable over three games.",
+      "difficultyReason": "A single-player rebound total from a vintage Finals game is difficult to recall; a fair range invites estimation.",
       "ratings": {
-        "interest": 3,
-        "recognizability": 2,
+        "interest": 4,
+        "recognizability": 3,
         "estimability": 2,
         "surprise": 5
       },

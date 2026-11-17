@@ -77,3 +77,6 @@ Added 15 individually sourced and distinct trivia variants for the five already-
 
 ## January 9 historical Warriors source batch
 Authored five new distinct questions from the 1974–75 Warriors and 1975 Finals Wikipedia pages: 48 wins, Rick Barry's 36 in Game 2, the Bullets' 14-point halftime lead in Game 1, Golden State's 115 reserve points through Game 3, and the 96 points in the clincher. Three evidenced trivia variants per question (15 total). Tested the new answer ranges against the midpoint exploit and checked numerical later-round spoilers before committing. Source-authored, NOT yet complete until the automated validator/publisher passes.
+
+## Golden State 1975 editorial correction
+The first January 9 generation correctly rejected a duplicate of existing reserve `nba-warriors75-bench` and a standing-record wording issue. Replaced the fourth daily question with a verified 20-rebound Wes Unseld Game 2 number (different family/player/franchise) and tightened the 48-wins reveal wording. Do not mark this slate validated until generator, source gates, and full CI pass.

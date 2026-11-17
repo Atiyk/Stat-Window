@@ -12,7 +12,7 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: 1/50 additional days and 5/250 new questions now **generated and NBA-validation-clean** for January 6, 2027; full exact-head CI, independent critique and final release gates remain pending.
+- [ ] Expansion: 1/50 additional days and 5/250 new questions **generated and NBA-validation-clean** for January 6; a second new day and five questions for January 7 are **source-authored only, pending the generator and its validation**. Total source-authored 2/50 days and 10/250 new questions; neither is production released.
 - [ ] Three-variant coverage: 10/510 questions; 30/1530 variants. The other 505 questions remain editorial work.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
@@ -33,7 +33,7 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete the remaining 495 three-variant sets and 49 new themed days in editorially verified batches, then independently verify the staged January 6 slate. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete the remaining 490 three-variant sets and 48 new themed days in editorially verified batches, then independently validate both January 6–7 additions. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
 ## Runbook for next source-verification batch
 - Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
 - Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
@@ -51,3 +51,6 @@ Complete the remaining 495 three-variant sets and 49 new themed days in editoria
 - `content/days/2027-01-06.json` contains five new questions in easy/medium/hard/hard/expert order, each with three sourced trivia variants; the published lock contains that date's five fingerprints.
 - `docs/nba/validation.md` reports **0 NBA validation errors**, 281 canonical facts, 255 scheduled NBA questions and 51 NBA days. SQLite and Survival catalog generated successfully.
 - A separate connector-authored checkpoint commit triggers full CI on the generated exact SHA; do not describe it as passed until it does.
+
+## January 7 Denver source batch
+Source-authored `2027-01-07` Denver Nuggets, 2022–23: five new unique questions (53 regular season wins, 30.2 Jokić Finals PPG, 10.0 Murray Finals APG, Aaron Gordon's 27 Game 4 points, Braun's 21st draft slot). All 15 additional trivia variants carry specific Wikipedia evidence quotes. Range fairness, unique IDs, numerical later-round spoilers, quote lengths and source licensing checked before submitting. Automated NBA calendar and generated-file checks will be the authority; do not mark passed until their exact runs complete.

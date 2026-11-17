@@ -1,0 +1,266 @@
+{
+  "date": "2027-01-16",
+  "theme": {
+    "title": "Fear the deer",
+    "subtitle": "Milwaukee Bucks, 2020–21",
+    "recap": "With Giannis at the center, Holiday in the backcourt and a deep cast, Milwaukee survived Brooklyn and brought a championship home."
+  },
+  "questions": [
+    {
+      "id": "nba-bucks21-regular-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did the 2020–21 champion Bucks win?",
+      "context": "Milwaukee · pandemic-shortened NBA season",
+      "answer": 46,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 20,
+      "max": 80,
+      "step": 1,
+      "note": "46 wins, enough for the East's third seed.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+        "quote": "The Bucks finished the season with a 46–26 record"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy",
+      "funFacts": [
+        {
+          "text": "Milwaukee swept Miami to open the playoffs after losing to the Heat the previous postseason.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "The Bucks began their playoff run by sweeping the sixth-seeded Miami Heat"
+          }
+        },
+        {
+          "text": "Jrue Holiday arrived from New Orleans in a complicated offseason trade.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "Jrue Holiday (from New Orleans)"
+          }
+        },
+        {
+          "text": "Milwaukee claimed its Central Division title after beating Chicago in late April.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "the Bucks clinched the Central Division for a record 10th time with a win over the Chicago Bulls"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-giannis21-playoffs-ppg",
+      "sport": "NBA",
+      "prompt": "What was Giannis Antetokounmpo's points average in the 2021 playoffs?",
+      "context": "Milwaukee · entire postseason, not only the Finals",
+      "answer": 30.2,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 15,
+      "max": 52,
+      "step": 0.1,
+      "note": "30.2 points per game over the Bucks' championship run.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+        "quote": "Giannis Antetokounmpo | 21 | 21 | 38.1 | .569 | .186 | .587 | 12.8 | 5.1 | 1.0 | 1.2 | 30.2"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "He also averaged 12.8 rebounds a game during that postseason.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "Giannis Antetokounmpo | 21 | 21 | 38.1 | .569 | .186 | .587 | 12.8"
+          }
+        },
+        {
+          "text": "Giannis started every playoff game he appeared in.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "Giannis Antetokounmpo | 21 | 21 | 38.1"
+          }
+        },
+        {
+          "text": "He was named Finals Most Valuable Player after Milwaukee defeated Phoenix.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "Giannis Antetokounmpo was named NBA Finals Most Valuable Player"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-holiday21-playoffs-apg",
+      "sport": "NBA",
+      "prompt": "How many assists per game did Jrue Holiday average in the 2021 playoffs?",
+      "context": "Bucks · full postseason · title run",
+      "answer": 8.7,
+      "unit": {
+        "singular": "assist per game",
+        "plural": "assists per game"
+      },
+      "min": 3,
+      "max": 17,
+      "step": 0.1,
+      "note": "8.7 assists a game from Milwaukee's two-way guard.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+        "quote": "Jrue Holiday | 23 | 23 | 39.7 | .406 | .303 | .714 | 5.7 | 8.7 | 1.7"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Holiday started all 23 of Milwaukee's playoff games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "Jrue Holiday | 23 | 23 | 39.7"
+          }
+        },
+        {
+          "text": "His late steal against Devin Booker set up an alley-oop that swung Finals Game 5.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "Jrue Holiday stole the ball from Devin Booker and passed it to Giannis Antetokounmpo for an alley-oop"
+          }
+        },
+        {
+          "text": "Holiday had been acquired from New Orleans in Milwaukee's offseason reshuffle.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "Jrue Holiday (from New Orleans)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-bucks21-nets-g3-points",
+      "sport": "NBA",
+      "prompt": "How many points did the Bucks score in their crucial Game 3 win over Brooklyn?",
+      "context": "2021 East semifinals · Milwaukee at home",
+      "answer": 86,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 48,
+      "max": 148,
+      "step": 1,
+      "note": "86 points were just enough to stay alive in the series.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+        "quote": "June 10 Brooklyn W 86–83 Khris Middleton (35)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Khris Middleton scored 35 to lead Milwaukee in that defensive battle.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "June 10 Brooklyn W 86–83 Khris Middleton (35)"
+          }
+        },
+        {
+          "text": "Brooklyn managed just 83 points, despite winning both previous games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "June 10 Brooklyn W 86–83"
+          }
+        },
+        {
+          "text": "The Bucks later won the series in an overtime Game 7 on the road.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "June 19 @ Brooklyn W 115–111 (OT)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-forbes21-three-pct",
+      "sport": "NBA",
+      "prompt": "What percentage of threes did Bryn Forbes make for the champion Bucks?",
+      "context": "Milwaukee · 2020–21 regular season",
+      "answer": 45.2,
+      "unit": {
+        "singular": "percent",
+        "plural": "percent"
+      },
+      "min": 22,
+      "max": 62,
+      "step": 0.1,
+      "note": "45.2%, a key source of floor spacing for Milwaukee.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+        "quote": "Bryn Forbes | 70 | 10 | 19.3 | .473 | .452 | .770 | 1.6 | .6",
+        "derivation": "Source records .452 three-point accuracy; multiply by 100 for 45.2 percent."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Forbes played 70 regular-season games but started only ten.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "Bryn Forbes | 70 | 10 | 19.3"
+          }
+        },
+        {
+          "text": "Milwaukee signed Forbes from the San Antonio Spurs in free agency.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "Bryn Forbes | November 26 | San Antonio Spurs"
+          }
+        },
+        {
+          "text": "His three-point accuracy dropped during the title-winning playoffs.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "Bryn Forbes | 20 | 0 | 13.7 | .411 | .371"
+          }
+        }
+      ]
+    }
+  ]
+}

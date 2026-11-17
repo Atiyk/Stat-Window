@@ -2802,6 +2802,150 @@
       "day": "2027-01-14",
       "notBefore": "2027-01-15"
     },
+    "nba-magic09-regular-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "ORL",
+      "era": "2000s",
+      "steps": 52,
+      "day": "2027-01-15",
+      "notBefore": "2027-01-16",
+      "leaks": [
+        "nba-magic09-kings-threes"
+      ]
+    },
+    "nba-magic09-kings-threes": {
+      "tier": "medium",
+      "family": "threes-game",
+      "franchise": "ORL",
+      "era": "2000s",
+      "steps": 45,
+      "day": "2027-01-15",
+      "notBefore": "2027-01-16"
+    },
+    "nba-howard09-regular-rpg": {
+      "tier": "hard",
+      "family": "rebounds-average",
+      "franchise": "ORL",
+      "era": "2000s",
+      "steps": 260,
+      "day": "2027-01-15",
+      "notBefore": "2027-01-16"
+    },
+    "nba-turkoglu09-regular-apg": {
+      "tier": "hard",
+      "family": "assists-average",
+      "franchise": "ORL",
+      "era": "2000s",
+      "steps": 130,
+      "day": "2027-01-15",
+      "notBefore": "2027-01-16",
+      "leaks": [
+        "nba-celtics09-streak"
+      ]
+    },
+    "nba-howard09-cavs-g6-points": {
+      "tier": "expert",
+      "family": "points-game",
+      "franchise": "ORL",
+      "era": "2000s",
+      "steps": 58,
+      "day": "2027-01-15",
+      "notBefore": "2027-01-16"
+    },
+    "nba-bucks21-regular-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "MIL",
+      "era": "2020s",
+      "steps": 60,
+      "day": "2027-01-16",
+      "notBefore": "2027-01-17"
+    },
+    "nba-giannis21-playoffs-ppg": {
+      "tier": "medium",
+      "family": "scoring-average",
+      "franchise": "MIL",
+      "era": "2020s",
+      "steps": 370,
+      "day": "2027-01-16",
+      "notBefore": "2027-01-17"
+    },
+    "nba-holiday21-playoffs-apg": {
+      "tier": "hard",
+      "family": "assists-average",
+      "franchise": "MIL",
+      "era": "2020s",
+      "steps": 140,
+      "day": "2027-01-16",
+      "notBefore": "2027-01-17"
+    },
+    "nba-bucks21-nets-g3-points": {
+      "tier": "hard",
+      "family": "points-team-game",
+      "franchise": "MIL",
+      "era": "2020s",
+      "steps": 100,
+      "day": "2027-01-16",
+      "notBefore": "2027-01-17"
+    },
+    "nba-forbes21-three-pct": {
+      "tier": "expert",
+      "family": "shooting-pct",
+      "franchise": "MIL",
+      "era": "2020s",
+      "steps": 400,
+      "day": "2027-01-16",
+      "notBefore": "2027-01-17"
+    },
+    "nba-sonics79-season-wins": {
+      "tier": "easy",
+      "family": "wins-season",
+      "franchise": "OKC",
+      "era": "1970s",
+      "steps": 68,
+      "day": "2027-01-17",
+      "notBefore": "2027-01-18"
+    },
+    "nba-sonics79-january-wins": {
+      "tier": "medium",
+      "family": "wins-month",
+      "franchise": "OKC",
+      "era": "1970s",
+      "steps": 23,
+      "day": "2027-01-17",
+      "notBefore": "2027-01-18"
+    },
+    "nba-sikma79-suns-g7-points": {
+      "tier": "hard",
+      "family": "points-game",
+      "franchise": "OKC",
+      "era": "1970s",
+      "steps": 55,
+      "day": "2027-01-17",
+      "notBefore": "2027-01-18",
+      "leaks": [
+        "nba-sikma79-finals-g5-rebounds"
+      ]
+    },
+    "nba-gus79-finals-g4-points": {
+      "tier": "hard",
+      "family": "points-game",
+      "franchise": "OKC",
+      "era": "1970s",
+      "steps": 72,
+      "day": "2027-01-17",
+      "notBefore": "2027-01-18"
+    },
+    "nba-sikma79-finals-g5-rebounds": {
+      "tier": "expert",
+      "family": "rebounds-game",
+      "franchise": "OKC",
+      "era": "1970s",
+      "steps": 34,
+      "day": "2027-01-17",
+      "notBefore": "2027-01-18"
+    },
     "nba-bulls96-18-streak": {
       "tier": "medium",
       "family": "win-streak",

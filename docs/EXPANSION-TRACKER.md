@@ -12,8 +12,8 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: **5/50** new NBA days generated (Jan6–10), and sixth new day **Jan11 2010–11 Bulls** is source-authored, pending generator and NBA validation; **30/250** new questions authored, **220** new questions remain.
-- [ ] Three-variant coverage: **50/510** question sets and **150/1530** snippets source-authored; **45/135** already generated, 5/15 pending for Jan11. **460** sets / **1,380** bonus variants remain.
+- [ ] Expansion: **6/50** additional days, **30/250** new unique NBA questions generated and NBA-validation-clean, January 6–11, 2027. **44** new days/220 new questions remain. Full CI/critic/release gates not yet passed for this candidate.
+- [ ] Three-variant coverage: **50/510** complete question sets, **150/1530** source-backed trivia variants **authored and generated**; **460** question sets / **1,380** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -33,7 +33,7 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete the remaining 460 three-variant sets and 44 new themed days in verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete the remaining 460 three-variant sets and 44 new themed days in editorially verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
 ## Runbook for next source-verification batch
 - Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
 - Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
@@ -95,3 +95,6 @@ Free editorial-sync run `43995181969` succeeded, pushed bot commit `39cd98c7` an
 
 ## January 11 Chicago source batch
 Staged five new source-backed 2010–11 Bulls questions from the season's Wikipedia record: 62 regular wins, Rose's 25.0 PPG, 36 home wins, Joakim Noah's 10.4 RPG, and Rose's 44-point Atlanta playoff game. Each question includes three distinct sourced trivia variants. IDs compared against canonical fact library; input quotes, units, bounds, centre-guess scoring and within-day spoiler audit checked. Source-only until generator and full CI confirm.
+
+## January 11 verified content-generation checkpoint
+Standard free GitHub Actions editorial-sync run `43995580013` succeeded and generated the Bulls slate as bot commit `0751c2d07ec1bae912c024ca3083f9718847d6f2`. `content/days/2027-01-11.json` has five distinct source-backed questions and 15 trivia variants. The NBA validation report says **0 errors**, 56 consecutive NBA dates, 280 scheduled NBA questions, 306 canonical facts (26 reserve). Creating this connector checkpoint triggers CI on the exact generated candidate; no PR/merge/deployment before that CI finishes.

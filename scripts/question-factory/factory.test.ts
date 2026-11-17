@@ -83,7 +83,7 @@ describe('question factory', () => {
     expect(validateCandidate({ ...approved, values: [{ ...approved.values[0]!,
       source: { ...approved.values[0]!.source, url: 'https://basketball-reference.com/teams/XYZ/' } }] }, policy))
       .toContain(expect.stringContaining('restricted source hostname'));
-    expect(validateCandidate({ ...approved, scale: { min: 70, max: 76, step: 1 } }, policy))
+    expect(validateCandidate({ ...approved, scale: { min: 74.8, max: 80, step: 0.1 } }, policy))
       .toContain(expect.stringContaining('ruler edge'));
     expect(validateCandidate({ ...approved, ratings: { ...approved.ratings!, estimability: 1 } }, policy))
       .toContain(expect.stringContaining('not reasonably estimable'));

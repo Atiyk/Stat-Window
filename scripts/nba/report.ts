@@ -213,8 +213,8 @@ function main() {
     if (current === body) continue;
     if (check) {
       console.error(`error: docs/nba/${name} is stale; run npm run nba:report`);
-      const want = body.split('\\n');
-      const got = current.split('\\n');
+      const want = body.split('\n');
+      const got = current.split('\n');
       const first = Array.from({ length: Math.max(want.length, got.length) }).findIndex(
         (_, i) => want[i] !== got[i],
       );

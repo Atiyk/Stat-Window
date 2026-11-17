@@ -12,7 +12,7 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: 3/50 additional days and 15/250 new questions generated and NBA-validation-clean for January 6–8, 2027. Fourth new day, January 9 (1975 Warriors), with another 5 source-backed questions is now source-authored, awaiting generation and NBA validation.
+- [ ] Expansion: 4/50 additional days and 20/250 new questions **generated and NBA-validation-clean** for January 6–9, 2027. Full CI on latest exact head, independent critic and production release remain pending.
 - [ ] Three-variant coverage: 10/510 questions; 30/1530 variants. The other 505 questions remain editorial work.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
@@ -80,3 +80,6 @@ Authored five new distinct questions from the 1974–75 Warriors and 1975 Finals
 
 ## Golden State 1975 editorial correction
 The first January 9 generation correctly rejected a duplicate of existing reserve `nba-warriors75-bench` and a standing-record wording issue. Replaced the fourth daily question with a verified 20-rebound Wes Unseld Game 2 number (different family/player/franchise) and tightened the 48-wins reveal wording. Do not mark this slate validated until generator, source gates, and full CI pass.
+
+## January 9 generation verified
+Generator run `43994131981` succeeded. The published daily-file generator replaced the duplicate bench-total question with a separate Wes Unseld Game 2 rebound figure and removed a date-based clue that had contained the answer. The NBA report confirms **zero errors**, 54 consecutive NBA days, 270 scheduled NBA questions and 296 canonical source-backed facts (26 in reserve). January 9 has five questions in difficulty-ladder order and exactly three variants each. A connector checkpoint was committed to run full CI on the generated exact candidate.

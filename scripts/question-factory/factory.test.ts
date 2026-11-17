@@ -4,6 +4,7 @@ import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { parseSlate } from '../../src/content/schema.ts';
 import {
   addDays, answerFor, eligible, generate, plan, promptFor, sourceHost,
   validateBatch, validateCandidate, type CandidateBatch, type ResearchBatch, type SourcePolicy,
@@ -142,6 +143,7 @@ describe('question factory', () => {
       const proposal = JSON.parse(readFileSync(join(dataDir, 'proposals', batchId + '.json'), 'utf8'));
       expect(proposal.days).toHaveLength(1);
       expect(proposal.days[0].questions).toHaveLength(5);
+      expect(() => parseSlate(proposal.days[0])).not.toThrow();
       expect(proposal.warning).toContain('STAGED');
       expect(run('plan', '--batch', batchId, '--start', '2027-01-06', '--days', '1').status).not.toBe(0);
       expect(readFileSync(candidatesFile, 'utf8')).toContain('approved');

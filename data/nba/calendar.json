@@ -935,6 +935,23 @@
         "nba-avery99-finals-apg",
         "nba-spurs99-alamodome-attendance"
       ]
+    },
+    {
+      "date": "2027-01-11",
+      "theme": {
+        "id": "rose-mvp-2011",
+        "kind": "team-season",
+        "title": "The youngest MVP",
+        "subtitle": "Chicago Bulls, 2010–11",
+        "recap": "Derrick Rose led Chicago to the NBA's best regular-season record before the Bulls' deep playoff run ended against Miami."
+      },
+      "questions": [
+        "nba-bulls11-regular-wins",
+        "nba-rose11-season-ppg",
+        "nba-bulls11-home-wins",
+        "nba-noah11-rebounds-average",
+        "nba-rose11-hawks-g3-points"
+      ]
     }
   ],
   "reserve": [

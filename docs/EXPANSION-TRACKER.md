@@ -12,8 +12,8 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: **5/50** additional NBA days and **25/250** new unique questions generated and NBA-validation-clean through January 10, 2027. **45** new days / **225** new questions remain; final browser CI, independent critic and production release remain pending.
-- [ ] Three-variant coverage: **45/510** question sets, **135/1530** sourced variants authored and generated (the four original NBA days Nov 17–20 and five new days Jan 6–10). **465** question sets / **1,395** sourced variants remain.
+- [ ] Expansion: **5/50** new NBA days generated (Jan6–10), and sixth new day **Jan11 2010–11 Bulls** is source-authored, pending generator and NBA validation; **30/250** new questions authored, **220** new questions remain.
+- [ ] Three-variant coverage: **50/510** question sets and **150/1530** snippets source-authored; **45/135** already generated, 5/15 pending for Jan11. **460** sets / **1,380** bonus variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -33,7 +33,7 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete the remaining 465 three-variant sets and 45 new themed days in editorially verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete the remaining 460 three-variant sets and 44 new themed days in verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
 ## Runbook for next source-verification batch
 - Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
 - Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
@@ -92,3 +92,6 @@ New 1998–99 Spurs slate `2027-01-10` authored from the Wikipedia San Antonio s
 
 ## January 10 generated Spurs slate
 Free editorial-sync run `43995181969` succeeded, pushed bot commit `39cd98c7` and regenerated `content/days/2027-01-10.json`, historical scoring lock, proof reports and the Survival catalog. NBA validation is **0 errors** with 55 consecutive NBA days and 275 scheduled NBA questions (301 sourced canonical facts incl 26 reserves). All five original answers and source citations/three variants are present; scoring fingerprint does not affect existing November published results. Full exact-head CI and independent critic remain outstanding; no production release yet.
+
+## January 11 Chicago source batch
+Staged five new source-backed 2010–11 Bulls questions from the season's Wikipedia record: 62 regular wins, Rose's 25.0 PPG, 36 home wins, Joakim Noah's 10.4 RPG, and Rose's 44-point Atlanta playoff game. Each question includes three distinct sourced trivia variants. IDs compared against canonical fact library; input quotes, units, bounds, centre-guess scoring and within-day spoiler audit checked. Source-only until generator and full CI confirm.

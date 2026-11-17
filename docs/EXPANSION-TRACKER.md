@@ -12,8 +12,8 @@
 - [x] Stable per-browser variant choice; one fact shown after reveal, no network identity or scores changed.
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
-- [ ] Expansion: **21/50** additional NBA days and **105/250** new NBA questions generated (Jan 6–26); **29** NBA days / **145** new questions remain. Latest exact-head CI and final editorial review pending.
-- [ ] Three-variant coverage: **156/510** question sets and **468/1530** variants source-authored (151/453 generated; 5/15 original Nov 28 Rock Bottom pending publisher). **354** sets / **1,062** variants remain.
+- [ ] Expansion: **21/50** additional NBA days (Jan6–Jan26) and **105/250** new NBA questions generated; **29** more NBA days (Jan27–Feb24) and **145** new questions remain.
+- [ ] Three-variant coverage: **156/510** question sets and **468/1530** evidenced trivia variants generated across all days (pending strict source-trivia/Survival-reserve CI audit on exact head); **354** question sets / **1,062** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -182,3 +182,7 @@ Created five new questions for Barkley's Suns (62 regular-season wins; 14-game D
 
 ## Phoenix and original November 28 Rock Bottom
 Jan26 (Barkley's 1993 Suns) successfully generated on free standard runner and contains five new questions each with 3 sourced trivia variants. Existing Nov28 game has newly authored 15 variants about the 1972–73 Sixers, 2011–12 Bobcats and 2013–14 Sixers. Research source pages were opened and key claims checked against visible editorial quotes; preserves existing IDs, answers, ranges and source rights. All trivia screened for later-round numeric spoilers and individual source quote lengths. Await publisher regeneration and latest full CI.
+
+## January 26 Phoenix + November 28 Rock Bottom: verified generation
+- Free editorial-sync job `44010592624` succeeded. The generated Jan26 Suns file has five distinct original questions with three sourced variants each. The historical Nov28 Rock Bottom game now has five existing questions with three sourced variants each; all published IDs, answers, scales and order remain unchanged.
+- The canonical NBA validator reports **zero source/scoring integrity errors**, 71 consecutive NBA days and 355 scheduled NBA questions, plus 26 unpublished reserve facts. This docs-only connector checkpoint starts exact-head CI on the bot-generated files. Do not describe strict trivia/Survival check or all browser/device tests as passed until GitHub reports green.

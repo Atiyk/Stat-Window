@@ -13,7 +13,7 @@
 - [x] The complete five-question Wilt day now has 15 curated, individually sourced variants; text checked against the cited Wikipedia article and screened for later-round spoilers.
 - [x] Preserve an adjusted-but-unlocked first round through the UTC midnight rollover, with an automated browser regression test.
 - [ ] Expansion: **18/50** new NBA days and **90/250** new questions generated through Jan 23; **Jan 24 Cleveland Cavaliers 2008–09** now source-authored (5 new questions), awaiting publisher/QA. Source-authored total 19/50 days and 95/250 new questions; 31 dates/155 questions still needed.
-- [ ] Three-variant coverage: **130/510** question sets and **390/1530** variants source-authored; **125/375** generated, **5/15** new Cleveland sets pending publisher. **380** question sets/1,140 variants still unwritten.
+- [ ] Three-variant coverage: **135/510** sets and **405/1530** variants source-authored (125/375 generated, 10 sets/30 variants awaiting generator); **375** sets / **1,125** variants remain.
 - [ ] Review all editorial facts and copyright/attribution.
 - [x] Source-checked the opening **two** five-question NBA days (Nov 17–18), with 30 distinct, cited variants and preserved scoring.
 - [x] Fixed tablet reveal layout: the next action remains on-screen at 768px without hiding the bonus source below the fold. Added a 768px browser regression test.
@@ -33,7 +33,7 @@
 7. No paid platform/services. Analytics should be enabled only if its free-tier quota and policy have been checked; no commercial features on a noncommercial hosting tier.
 
 ## Next integrated work
-Complete the remaining 380 three-variant sets and 31 new themed days in source-verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
+Complete remaining 375 three-variant sets and 31 new NBA days in verified batches. Expand content and regression gates, repair any real product defects, verify mobile/desktop, then open one comprehensive PR only after review.
 ## Runbook for next source-verification batch
 - Run `npm run content:trivia:check` after every batch to detect numerical spoilers and report true coverage; `npm run content:trivia:complete` is an intentional FINAL gate and will fail while variants are missing.
 - Source review must include opening the cited article and confirming each evidence excerpt, not just a syntactically valid URL.
@@ -159,3 +159,7 @@ Source-authored one NBA slate from `2004–05 Phoenix Suns season` Wikipedia: 33
 
 ## January 24 LeBron first MVP — independently opened source page
 Source-authored five new Cleveland 2008–09 themed questions from https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season (web page reviewed 2026-11-16): 66 regular wins; 39 home wins; 7.2 LeBron APG; 17.8 Mo Williams PPG; LeBron's 49 in the Orlando Game 1 loss. Fifteen individually excerpt-supported, source-licensed trivia variants, with season-vs-playoff distinction and independently checked bounds, answers, spoilers and midpoint fairness. No existing 2008–09 CLE canonical fact duplicates. Waiting for the free generator and full exact-head CI before declaring playable.
+
+## Fixed Cavs theme + November 24 Wade/Nowitzki source batch
+- Generator correctly blocked the Jan24 Cavaliers title `LeBron's 66-win Cavs` because it leaked first-round answer. Renamed to `LeBron's MVP leap`, no question scoring changes.
+- Added exactly three separately sourced spoiler-screened bonus variants to each historical Nov24 daily question (Wade Game3, Wade Finals PPG, Dallas Game4 quarter, Dirk's 2011 free throws, 2011 Dallas Finals Game2 comeback). Sources: verified Wikipedia 2006 NBA Finals, 2011 NBA Finals and 2010–11 Mavericks season. Total added: 5 complete question sets, 15 variants. No existing published question IDs, answers, scales or order changed; generated validation/CI still pending.

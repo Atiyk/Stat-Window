@@ -1,6 +1,6 @@
 # Formal launch (Day 1) runbook
 
-**Phase 1 does not switch the launch on.** Production stays in the public beta: same numbers ("No. 4" on 2026-11-18), same slates, same links, same saved games. This page is the single future step.
+**Phase 1 does not switch the launch on.** Production stays in the public beta: same numbers ("No. 4" on 2026-11-18), same slates, same links, same saved games. This page describes the one step that switches it on.
 
 ## How numbering works (`src/engine/season.ts`)
 
@@ -11,7 +11,7 @@
 | Season | `beta`, then `s1` from the launch day | yes, by config |
 | Public number | beta: days since 2026-11-15 + 1; launch: days since `LAUNCH_DAY` + 1 | yes |
 
-- The slate for launch day *L* is simply the slate already scheduled at *L*. Nothing is renumbered in the content, nothing is republished, no released date gets a different puzzle. That is the lowest-risk option: the only thing that changes is the label.
+- The slate for launch day *L* is simply the slate already scheduled at *L*. Nothing in the content is renumbered or republished, and no released date gets a different puzzle. Only the label changes, which keeps the risk low.
 - From *L*, *L* is "No. 1", *L+1* "No. 2"; every earlier day shows as "Beta No. N" in the header, results, share text and archive. Old `?day=` links still open the same five questions with the same answers.
 - Stats, streaks and averages on the results screen count only the current season's runs, so beta games never inflate an official streak. Beta history stays saved and playable.
 - Score percentiles are partitioned by season on the server (`sw:v1:production:s1:<day>`), and analytics paths get an `/e/s1/…` prefix, so beta and launch numbers never mix.
@@ -41,7 +41,7 @@ then redeploy production (or merge anything) **before** 00:00 UTC on *L*. Both m
 
 Delete both variables and redeploy. Labels return to beta numbering, stats include all runs again, and season-`s1` score data stays in its own keys (it never mixed with beta).
 
-## Not done in Phase 1, on purpose
+## Left out of Phase 1
 
 - No reset of anyone's saved games, ever.
 - No public "Day 1" announcement or numbering change in production.

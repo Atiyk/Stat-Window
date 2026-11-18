@@ -25,7 +25,7 @@ For a total `s` among `N` eligible submissions for one canonical UTC puzzle day 
 
 Ties get half credit, so it is labelled "Xth percentile today", never "beat X% of players". The player's own score is in `N`. Later submissions can move it; the line says "as of" and offers Refresh. Unit tests: `src/engine/percentile.test.ts` (0, 500, ties, all tied, one and two players, empty, malformed).
 
-**Threshold:** `N >= 100` (`PERCENTILE_MIN_SAMPLE`). The `PERCENTILE_MIN_SAMPLE` env var can only *raise* it in production (the server clamps it to at least 100), and the published client independently refuses to show a percentile from fewer than 100 games. It is a product-quality floor so early numbers aren't wildly unstable, not a claim of representativeness: players who finish and keep comparison on are self-selected. Below it the API returns only `n`, never buckets, so a tiny day can't reveal one person's score.
+**Threshold:** `N >= 100` (`PERCENTILE_MIN_SAMPLE`). The `PERCENTILE_MIN_SAMPLE` env var can only *raise* it in production (the server clamps it to at least 100), and the published client independently refuses to show a percentile from fewer than 100 games. The floor keeps early numbers from swinging wildly. The sample is still self-selected: only players who finish and keep comparison on are in it. Below it the API returns only `n`, never buckets, so a tiny day can't reveal one person's score.
 
 ## Eligibility (server decides, from its own clock)
 
@@ -35,7 +35,9 @@ Ties get half credit, so it is labelled "Xth percentile today", never "beat X% o
 - A first play of today's puzzle that arrived through a friend's `?day=…&vs=…` link is eligible (the client marks it a daily run; the `vs` value is never sent). Past-day challenge links and archive practice are not.
 - Season comes from server config (`LAUNCH_DAY`), never from the client. `test: true` (set by `?qa=1`, remembered) goes to season `qa`, which no ranking reads. Preview and development deployments write under their own key prefix (`sw:v1:preview:…`), never production. On Vercel the function **fails closed**: if `VERCEL_ENV` is missing (and no `SCORES_NAMESPACE` is set), or `SCORE_HASH_SECRET` is missing or shorter than 32 characters, it collects nothing.
 
-## Consent flow (nothing identifying before a yes)
+## Consent flow
+
+Nothing identifying is sent before a yes.
 
 1. A player who hasn't chosen finishes today's daily. The client sends a *probe*: `{day, consent: "default"}`, with no browser code and no windows. No code is created yet.
 2. The server checks `x-vercel-ip-country` first. In a consent country (or unknown) it answers `409 consent-required`; the client remembers "this location asks first" (so next time the question appears without a round trip, and the Privacy switch shows off).
@@ -53,12 +55,12 @@ Keys (`env` = production | preview | development):
 | `sw:v1:{env}:{season}:{day}:sub:{hmac}` | string | the stored total | 7 days |
 | `sw:v1:{env}:rl:{hmac(ip, day)}:{minute}` | counter | POST/DELETE requests this minute | 120 s |
 | `sw:v1:{env}:ipd:{hmac(ip, day)}` | counter | scores stored from this network today | 26 h |
-| `sw:v1:budget:d:{utcDay}` | counter | estimated Upstash commands today, **all environments** | 2 days |
-| `sw:v1:budget:m:{YYYY-MM}` | counter | estimated Upstash commands this month, **all environments** | 32 days |
+| `sw:v1:budget:d:{utcDay}` | counter | estimated Upstash commands today, all environments | 2 days |
+| `sw:v1:budget:m:{YYYY-MM}` | counter | estimated Upstash commands this month, all environments | 32 days |
 
 `hmac` = HMAC-SHA-256 with `SCORE_HASH_SECRET`, truncated. `ip` is the IPv4 address or the IPv6 /64. Raw browser codes and IPs are never stored. `n` is recomputed from the buckets on read. Every write path is one Lua `EVAL`, atomic on the server. `server/redis.test.ts` runs the production scripts on a real `redis-server` in CI.
 
-## Abuse and integrity limits (honest version)
+## Abuse and integrity limits
 
 Perfect anti-cheat is impossible: the game and future slates are public static files, so anyone can compute a perfect window and post it, and anyone can mint new browser codes. What we do:
 
@@ -70,15 +72,15 @@ Perfect anti-cheat is impossible: the game and future slates are public static f
 - hard daily and monthly command budgets across all endpoints (below);
 - sample gate before any number is shown.
 
-Treat percentiles as a friendly comparison among anonymous browsers, not a verified leaderboard. If a day shows an implausible spike of 500s, export it (below) and note it; a real leaderboard needs accounts and server-held slates (Phase 2+).
+Treat percentiles as a friendly comparison among unverified browsers. A real leaderboard needs accounts and server-held slates (Phase 2+). If a day shows an implausible spike of 500s, export it (below) and note it.
 
-## Cost: $0 by construction
+## Cost ($0)
 
 - Upstash Free: 500,000 commands/month, 250 MB, 1 database, no card on file (created 2026-11-18 via the Vercel Marketplace, plan "Free", region iad1). Without a card the plan cannot be billed; over the monthly limit "the exceeding commands return an exception" ([Upstash FAQ](https://upstash.com/docs/redis/help/faq)), which the app shows as "isn't available right now".
 - Upstash bills a script as "one command, plus one command for every `redis.call`" ([billing](https://upstash.com/docs/redis/overall/billing)). Each script checks the counters first and, unless paused, charges its upper bound before doing anything else: submit 18, read 8, delete 6 + 4 per day/season pair. A paused call charges nothing (so it can't eat the deletion reserve) (`server/store.ts` `COST`).
 - **Monthly ceiling: 380,000** estimated commands across all environments (`SCORES_MONTHLY_BUDGET` can only lower it). **Daily: 14,000** (`SCORES_DAILY_BUDGET`), roughly 800 first completions a day, so one busy day can't spend the month. The remaining ~120K/month covers rate-limited and paused calls, the deletion reserve (20,000, usable even when everything else is paused) and the export script.
 - When a budget is spent the instance remembers it (until 00:00 UTC, or the 1st of next month) and stops calling the store at all; every other instance pays one short call (about 5 real commands, uncharged) to learn the same.
-- Residual risk, stated plainly: a deliberate distributed flood (many addresses) still costs about 3 commands per request before it is limited, and could use up the free month early. The consequence is that percentiles stop until the next month; nothing is billed. If that ever happens, the optional mitigation is one Vercel WAF rate-limit rule on `/api/scores` (Hobby includes one rule and 1M allowed requests; check the pricing dialog shows $0 before saving it). Not set up in Phase 1.
+- Remaining risk: a deliberate distributed flood (many addresses) still costs about 3 commands per request before it is limited, and could use up the free month early. The consequence is that percentiles stop until the next month; nothing is billed. If that ever happens, the optional mitigation is one Vercel WAF rate-limit rule on `/api/scores` (Hobby includes one rule and 1M allowed requests; check the pricing dialog shows $0 before saving it). Not set up in Phase 1.
 - GET responses are cached at Vercel's edge for 5 minutes (`s-maxage=300`).
 - Vercel Hobby: functions are well inside 1M invocations / 4 CPU-hours; over a Hobby limit Vercel pauses, it does not bill.
 - Data size: one hash per day (≤ 501 fields) + short-lived small strings. Years of days fit in a few MB.

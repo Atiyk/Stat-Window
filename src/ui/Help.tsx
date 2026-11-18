@@ -63,8 +63,8 @@ export function Help({ open, onClose, onPrivacy }: { open: boolean; onClose: () 
           A new puzzle opens every day at midnight UTC, the same five for everyone. From {formatDay(NBA_CUTOVER)} every puzzle is NBA; the earlier mixed-sport days stay playable. Your progress stays in this browser;
           there’s no account.{' '}
           {analyticsEnabled
-            ? 'We count plays without cookies or IDs (rounds locked, games finished, shares) to improve the game. Today’s total can feed a daily percentile, kept with a random code from this browser for 7 days; your windows are checked, then discarded. No names, no answers kept.'
-            : 'Today’s total can feed a daily percentile, kept with a random code from this browser for 7 days; your windows are checked, then discarded. No names, no answers kept.'}{' '}
+            ? 'We count plays without cookies or IDs (rounds locked, games finished, shares) to improve the game. Today’s total can feed a daily percentile, kept with a random code from this browser for 7 days; your windows are checked, then discarded. Names and answers are never kept.'
+            : 'Today’s total can feed a daily percentile, kept with a random code from this browser for 7 days; your windows are checked, then discarded. Names and answers are never kept.'}{' '}
           {onPrivacy && (
             <>
               <button type="button" className="btn-link" onClick={onPrivacy}>

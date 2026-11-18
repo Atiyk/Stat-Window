@@ -12,7 +12,9 @@ Nothing here has been validated with real players yet. No retention, completion 
 - **Auto-tracking is off; the real page view is sent by hand.** The Vercel script remembers the last `path` passed to `pageview()` and reuses it for later automatic page views (read from `va.vercel-scripts.com/v1/script.debug.js`, v0.1.3, on 2026-11-16), so with auto-tracking on, a real visit could be filed under a stale `/e/…` path. `startAnalytics()` injects with `disableAutoTrack: true` and sends `pageview({ route: '/', path: '/' })` once per page load.
 - **Counted once** (from the NBA release on 2026-11-16; before it, a refresh before the first lock re-counted a start, so don't compare start or first-touch counts across that date). `start` and `first-touch` are sent once per browser, mode and day (`trackOnce`, kept 14 days in localStorage), so a refresh, a remount or a second tab doesn't add a second start. A lock is counted by the tab that made it; a tab that adopts rounds from another tab doesn't recount them. React StrictMode double effects only happen in development, where nothing is sent.
 - **What has been proven, and what hasn't.** `npm run test:e2e:analytics` builds with `VITE_ANALYTICS=vercel`, stubs Vercel's script and checks the exact queue of page views the app hands it (funnel order, no duplicates after reloads, challenge vs daily, query string stripped, nothing at all under GPC/DNT). It does **not** prove Vercel receives them: that needs the production check in "Turning it on", step 4. As of 2026-11-16 that check has not been done.
-- **Privacy:** no cookies or identifiers from us, no answers, no typed text, no scores beyond a 100-point band. Every path segment comes from the fixed list below. Real page-view URLs are stripped of their query string, so challenge links (`?day=…&vs=…`) are not collected. Browsers that send Global Privacy Control or Do Not Track send nothing. The help dialog says what is counted.
+- **Privacy:** no cookies or identifiers from us, no answers, no typed text, no scores beyond a 100-point band. Every path segment comes from the fixed list below. Real page-view URLs are stripped of their query string, so challenge links (`?day=…&vs=…`) are not collected. Full notice: `docs/PRIVACY.md`, served as `/privacy.html`.
+- **Choices (from Phase 1, 2026-11-18).** "Privacy and your data" (results footer, and the help dialog) has an on/off switch for usage counts, stored in `stat-window:privacy:v1`. Browsers that send Global Privacy Control or Do Not Track start with it **off**; only an explicit tap in that dialog turns it on for that browser. The sink re-checks the choice before every event, so switching off stops the next event, not the next page load.
+- **Cohorts.** Paths are prefixed so test and launch traffic never mix with the beta: `/e/qa/…` for any browser opened once with `?qa=1` (kept in `stat-window:qa`; use it for every manual production check), `/e/s1/…` once the formal launch is active (`docs/LAUNCH.md`). Unprefixed `/e/…` is the public beta.
 
 ### Production status (checked 2026-11-16, 16:00 UTC)
 
@@ -87,6 +89,9 @@ Report small numbers as counts with an interval, not as rates: 7 of 10 is "somew
 | `/e/complete/{mode}/{0-99,…,400-500}` | round 5 locked | completion, score bands |
 | `/e/share/{mode}/{native,clipboard,failed,cancelled}` | share button result | share attempts |
 | `/e/challenge-open/{today,past,future,invalid}[/with-score]` | page opened with a `?day=` link | challenge links that worked |
+| `/e/share/{mode}/{native-image,image-saved}` | share sheet sent the PNG score card / "Save score card" downloaded it | does the card get used? |
+| `/e/percentile/{stored,gathering,ready,consent,ineligible,disabled,unavailable}` | once per browser and day, when the results screen settles the comparison | how many players see a real percentile vs the "not enough games" line |
+| `/e/privacy/{scores-on,scores-off,deleted}` | a comparison choice or a deletion in the app | consent and deletion rates |
 
 Survival and its experiment add the paths in `docs/SURVIVAL.md` ("Measurement"); they are only sent from a build with `VITE_SURVIVAL=on`, which production does not have.
 

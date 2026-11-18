@@ -18,7 +18,7 @@ test('a full daily run scores every round, saves, and shares without spoilers', 
 
   const points: number[] = [];
   for (const [i, round] of DAY1_PLAN.entries()) {
-    await expect(page.locator('.round-meta')).toContainText(`Round ${i + 1} of 5`);
+    await expect(page.locator('.round-meta')).toContainText(`Question ${i + 1} of 5`);
     await typeWindow(page, round.lo, round.hi);
     await expect(lowBracket(page)).toHaveAttribute('aria-valuenow', String(round.lo));
     await expect(highBracket(page)).toHaveAttribute('aria-valuenow', String(round.hi));
@@ -30,7 +30,8 @@ test('a full daily run scores every round, saves, and shares without spoilers', 
       await expect(page.locator('.outcome-miss')).toContainText('Missed by 3 goals');
     }
     points.push(round.points);
-    await expect(page.locator('.story-source a')).toHaveAttribute('href', /^https:\/\//);
+    await page.locator('.sources summary').click();
+    await expect(page.locator('.sources a').first()).toHaveAttribute('href', /^https:\/\//);
     await next(page);
   }
 
@@ -71,7 +72,8 @@ test('verified NBA bonus trivia appears only after a reveal and stays stable aft
   await expect(fact).toBeVisible();
   const first = await fact.textContent();
   expect(first?.length).toBeGreaterThan(20);
-  await expect(page.locator('.story-extra-source')).toHaveAttribute('href', /^https:\/\/en\.wikipedia\.org\//);
+  await page.locator('.sources summary').click();
+  await expect(page.locator('.sources').getByRole('link').nth(2)).toHaveAttribute('href', /^https:\/\/en\.wikipedia\.org\//);
   await page.reload();
   await expect(page.locator('.story-extra-text')).toHaveText(first!);
 });
@@ -85,9 +87,9 @@ test('refreshing mid-reveal keeps the locked window and shows its result', async
   await expect(page.locator('.outcome-miss')).toBeVisible();
   await expect(lowBracket(page)).toHaveAttribute('aria-valuenow', '60');
   await next(page);
-  await expect(page.locator('.round-meta')).toContainText('Round 2 of 5');
+  await expect(page.locator('.round-meta')).toContainText('Question 2 of 5');
   await page.reload();
-  await expect(page.locator('.round-meta')).toContainText('Round 2 of 5');
+  await expect(page.locator('.round-meta')).toContainText('Question 2 of 5');
   await expect(page.locator('.ledger-cell').first()).toHaveAttribute('data-status', 'miss');
 });
 
@@ -151,12 +153,12 @@ test('the game still works when storage is blocked', async ({ page }) => {
   await expect(page.locator('.storage-note')).toBeVisible();
   await lockAndSettle(page);
   await next(page);
-  await expect(page.locator('.round-meta')).toContainText('Round 2 of 5');
+  await expect(page.locator('.round-meta')).toContainText('Question 2 of 5');
   expect(errors).toEqual([]);
 });
 
 test('corrupted save data is set aside instead of crashing', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('stat-window:v1', '{"version":1,"runs":{"2026-11-15":{"results":"nope"}}}'));
   await openAt(page, DAY1);
-  await expect(page.locator('.round-meta')).toContainText('Round 1 of 5');
+  await expect(page.locator('.round-meta')).toContainText('Question 1 of 5');
 });

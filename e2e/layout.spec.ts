@@ -102,8 +102,8 @@ test.describe('layout', () => {
     const action = page.getByRole('button', { name: 'Next question' });
     await expect(action).toBeInViewport({ ratio: 1 });
     await expect(page.locator('.story-extra-text')).toHaveText(/.{20,}/);
-    await page.locator('.story-extra-source').scrollIntoViewIfNeeded();
-    await expect(page.locator('.story-extra-source')).toBeInViewport();
+    await page.locator('.sources summary').scrollIntoViewIfNeeded();
+    await expect(page.locator('.sources summary')).toBeInViewport();
     await expect(action).toBeInViewport({ ratio: 1 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   });

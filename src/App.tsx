@@ -102,6 +102,8 @@ const SEASON: SeasonConfig = seasonConfigFrom(
   { launchDay: import.meta.env.VITE_LAUNCH_DAY, preview: import.meta.env.VITE_LAUNCH_PREVIEW },
   typeof window === 'undefined' ? '' : window.location.search,
 );
+// Set before any component mounts, so even a child's first event carries the QA or season prefix.
+if (typeof window !== 'undefined') setCohort(isQa() ? 'qa' : currentSeason(puzzleDay(new Date()), SEASON));
 
 /** A daily run that has started but not finished (or is mid-reveal) must not be swapped out under the player. */
 function inProgress(store: SaveStore, day: string): boolean {
@@ -445,7 +447,7 @@ function Game(props: {
   // Difficulty and the day's theme stay in the content for editors and validators; players
   // see a plain count. The header already names the puzzle; this only says what kind of run it is.
   const where = daily || session.viaLink ? '' : 'Practice · ';
-  const label = `${where}Question ${state.round + 1} of ${ROUNDS}`;
+  const label = `${where}Question\u00a0${state.round + 1} of\u00a0${ROUNDS}`;
 
   return (
     <Round

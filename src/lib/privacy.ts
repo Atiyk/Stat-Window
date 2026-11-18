@@ -15,8 +15,12 @@ export type Privacy = {
   analytics: 'on' | 'off' | 'unset';
   scores: ScoreChoice;
   key: string | null;
-  /** Days this browser's score was accepted (for deletion), newest last. */
+  /** Days a score may have been sent (recorded before sending, so deletion never misses one). */
   sent: string[];
+  /** Days the server confirmed it holds this browser's score (later visits only read the tally). */
+  done: string[];
+  /** The server said this location needs an explicit yes (so "unset" means "not counted"). */
+  asked: boolean;
 };
 
 export const PRIVACY_KEY = 'stat-window:privacy:v1';
@@ -25,7 +29,9 @@ const DAY_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 type Store = { getItem(k: string): string | null; setItem(k: string, v: string): void };
 
-const empty = (): Privacy => ({ analytics: 'unset', scores: 'unset', key: null, sent: [] });
+const empty = (): Privacy => ({ analytics: 'unset', scores: 'unset', key: null, sent: [], done: [], asked: false });
+/** Submission records live 7 days on the server (plus a grace day), so older days need no tracking. */
+const KEEP_DAYS = 9;
 let memory: Privacy = empty();
 
 function storage(): Store | null {
@@ -36,6 +42,9 @@ function storage(): Store | null {
   }
 }
 
+const days = (v: unknown): string[] =>
+  Array.isArray(v) ? [...new Set(v.filter((d): d is string => typeof d === 'string' && DAY_RE.test(d)))].sort().slice(-KEEP_DAYS) : [];
+
 export function loadPrivacy(s: Store | null = storage()): Privacy {
   if (!s) return memory;
   try {
@@ -45,7 +54,9 @@ export function loadPrivacy(s: Store | null = storage()): Privacy {
       analytics: raw.analytics === 'on' || raw.analytics === 'off' ? raw.analytics : 'unset',
       scores: raw.scores === 'on' || raw.scores === 'off' ? raw.scores : 'unset',
       key: typeof raw.key === 'string' && KEY_RE.test(raw.key) ? raw.key : null,
-      sent: Array.isArray(raw.sent) ? raw.sent.filter((d): d is string => typeof d === 'string' && DAY_RE.test(d)).slice(-60) : [],
+      sent: days(raw.sent),
+      done: days(raw.done),
+      asked: raw.asked === true,
     };
   } catch {
     return empty();
@@ -54,7 +65,8 @@ export function loadPrivacy(s: Store | null = storage()): Privacy {
 
 export function savePrivacy(patch: Partial<Privacy>, s: Store | null = storage()): Privacy {
   const next = { ...loadPrivacy(s), ...patch };
-  next.sent = [...new Set(next.sent)].sort().slice(-60);
+  next.sent = days(next.sent);
+  next.done = days(next.done);
   memory = next;
   try {
     s?.setItem(PRIVACY_KEY, JSON.stringify(next));
@@ -90,9 +102,15 @@ export function analyticsAllowed(p: Privacy, signal: boolean): boolean {
   return p.analytics === 'on' || (p.analytics === 'unset' && !signal);
 }
 
+/** Whether the player is (or would be) counted, as the Privacy dialog shows it. */
+export function scoresShownOn(p: Privacy, signal: boolean): boolean {
+  return p.scores === 'on' || (p.scores === 'unset' && !signal && !p.asked);
+}
+
 /** What to do with a finished official daily: send it, ask first, or leave it. */
 export function scoreIntent(p: Privacy, signal: boolean): 'send' | 'ask' | 'skip' {
   if (p.scores === 'off') return 'skip';
   if (p.scores === 'on') return 'send';
-  return signal ? 'ask' : 'send';
+  // Asked before in this location, or a browser privacy signal: ask without a network round trip.
+  return signal || p.asked ? 'ask' : 'send';
 }

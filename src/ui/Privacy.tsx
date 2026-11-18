@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { analyticsAllowed, browserSignal, loadPrivacy, savePrivacy, type Privacy as Prefs } from '../lib/privacy';
+import { analyticsAllowed, browserSignal, loadPrivacy, savePrivacy, scoresShownOn, type Privacy as Prefs } from '../lib/privacy';
 import { deleteMyScores } from '../lib/scores';
 import { analyticsEnabled, track } from '../lib/track';
 
@@ -25,7 +25,8 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
   }, [open]);
 
   const counting = analyticsAllowed(prefs, signal);
-  const scoring = prefs.scores === 'on' || (prefs.scores === 'unset' && !signal);
+  // Unticked until the player says yes wherever the server asked first (or the browser sends GPC/DNT).
+  const scoring = scoresShownOn(prefs, signal);
 
   return (
     <dialog ref={ref} className="help privacy" aria-labelledby="privacy-title" onClose={onClose} onClick={(e) => e.target === ref.current && onClose()}>
@@ -60,9 +61,10 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
             }}
           />
           <span>
-            <strong>Today’s score in the daily comparison.</strong> Your total for today’s official puzzle (not your answers) joins an
-            anonymous tally so you can see your percentile. It’s linked to a random code made in this browser, kept for 7 days, then
-            only the anonymous count remains.
+            <strong>Today’s score in the daily comparison.</strong> Your total for today’s official puzzle joins a tally of scores so you
+            can see your percentile. It’s linked to a random code made in this browser for 7 days, then only an unlinked count remains.
+            Your five windows are checked by the server and not kept.
+            {prefs.scores === 'unset' && prefs.asked && ' Where you are, we ask first: it’s off until you tick it or tap “Count my score”.'}
           </span>
         </label>
         {signal && (

@@ -3,7 +3,7 @@
  * contract between them is tested end to end without a network.
  */
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { handle } from './api.ts';
+import { DEFAULT_LIMITS, handle } from './api.ts';
 import { DAY, NOON, roundsFor, testContext } from './fixtures.ts';
 import type { RoundRecord } from '../src/engine/game.ts';
 import { loadPrivacy, savePrivacy } from '../src/lib/privacy.ts';
@@ -39,12 +39,17 @@ describe('submitDaily → server → comparison', () => {
     const first = await submitDaily({ day: DAY, results, consent: false }, fetchFor(ctx));
     expect(first).toMatchObject({ kind: 'gathering', n: 1, threshold: 100 });
     expect(loadPrivacy().sent).toEqual([DAY]);
-    const again = await submitDaily({ day: DAY, results, consent: false }, fetchFor(ctx));
+    // Later visits only read the (edge-cached) tally instead of submitting again.
+    let methods: string[] = [];
+    const f = fetchFor(ctx);
+    const again = await submitDaily({ day: DAY, results, consent: false }, ((i: RequestInfo | URL, init?: RequestInit) => (methods.push(init?.method ?? 'GET'), f(i, init))) as typeof fetch);
     expect(again).toMatchObject({ kind: 'gathering', n: 1 });
+    expect(methods).toEqual(['GET']);
+    methods = [];
   });
 
   it('crossing the gate gives a midrank percentile, and refresh recomputes it from the cached distribution', async () => {
-    const { ctx } = testContext({ minSample: 3, limits: { subTtl: 604800, distTtl: 1e7, dailyBudget: 1000, ratePerMinute: 100 } });
+    const { ctx } = testContext({ minSample: 3, limits: { ...DEFAULT_LIMITS, subTtl: 604800, distTtl: 1e7, dailyBudget: 1000, ratePerMinute: 100 } });
     for (const w of [20, 10]) {
       mem.clear();
       await submitDaily({ day: DAY, results: await records(w), consent: false }, fetchFor(ctx));
@@ -61,8 +66,13 @@ describe('submitDaily → server → comparison', () => {
   it('asks for consent where required and stores only after a yes', async () => {
     const { ctx } = testContext();
     const results = await records(2);
-    expect(await submitDaily({ day: DAY, results, consent: false }, fetchFor(ctx, 'FR'))).toEqual({ kind: 'consent' });
-    expect(loadPrivacy().sent).toEqual([]);
+    const bodies: unknown[] = [];
+    const spy = fetchFor(ctx, 'FR');
+    const watching = ((input: RequestInfo | URL, init?: RequestInit) => (bodies.push(JSON.parse(String(init?.body ?? 'null'))), spy(input, init))) as typeof fetch;
+    expect(await submitDaily({ day: DAY, results, consent: false }, watching)).toEqual({ kind: 'consent' });
+    // Before a yes: no key is made, and nothing identifying or gameplay-related is sent.
+    expect(bodies).toEqual([{ day: DAY, consent: 'default' }]);
+    expect(loadPrivacy()).toMatchObject({ key: null, sent: [], asked: true });
     expect(await submitDaily({ day: DAY, results, consent: true }, fetchFor(ctx, 'FR'))).toMatchObject({ kind: 'gathering' });
   });
 

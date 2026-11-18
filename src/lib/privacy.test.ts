@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { analyticsAllowed, browserSignal, loadPrivacy, newKey, PRIVACY_KEY, savePrivacy, scoreIntent, scoreKey } from './privacy';
+import { analyticsAllowed, browserSignal, loadPrivacy, newKey, PRIVACY_KEY, savePrivacy, scoreIntent, scoreKey, scoresShownOn } from './privacy';
 
 const mem = () => {
   const m = new Map<string, string>();
@@ -42,18 +42,27 @@ describe('privacy choices', () => {
   it('survives corrupt storage and drops bad fields', () => {
     const s = mem();
     s.setItem(PRIVACY_KEY, '{not json');
-    expect(loadPrivacy(s)).toEqual({ analytics: 'unset', scores: 'unset', key: null, sent: [] });
+    expect(loadPrivacy(s)).toEqual({ analytics: 'unset', scores: 'unset', key: null, sent: [], done: [], asked: false });
     s.setItem(PRIVACY_KEY, JSON.stringify({ analytics: 'maybe', scores: 'on', key: 'short', sent: ['2026-11-18', 'x', 5] }));
-    expect(loadPrivacy(s)).toEqual({ analytics: 'unset', scores: 'on', key: null, sent: ['2026-11-18'] });
+    expect(loadPrivacy(s)).toEqual({ analytics: 'unset', scores: 'on', key: null, sent: ['2026-11-18'], done: [], asked: false });
   });
 
   it('keeps sent days unique, sorted and bounded', () => {
     const s = mem();
     const days = Array.from({ length: 70 }, (_, i) => `2027-01-${String((i % 28) + 1).padStart(2, '0')}`);
-    expect(savePrivacy({ sent: [...days, '2026-11-18'] }, s).sent.length).toBeLessThanOrEqual(60);
+    expect(savePrivacy({ sent: [...days, '2026-11-18'] }, s).sent.length).toBeLessThanOrEqual(9);
   });
 
   it('works with no storage at all', () => {
     expect(savePrivacy({ scores: 'off' }, null).scores).toBe('off');
+  });
+});
+
+describe('consent where the server asks first', () => {
+  it('shows the score switch off, and asks without a network round trip, once a location needed a yes', () => {
+    const p = { analytics: 'unset', scores: 'unset', key: null, sent: [], done: [], asked: true } as const;
+    expect(scoresShownOn({ ...p, sent: [], done: [] }, false)).toBe(false);
+    expect(scoreIntent({ ...p, sent: [], done: [] }, false)).toBe('ask');
+    expect(scoresShownOn({ ...p, sent: [], done: [], asked: false }, false)).toBe(true);
   });
 });

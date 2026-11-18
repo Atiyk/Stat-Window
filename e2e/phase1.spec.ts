@@ -23,6 +23,14 @@ async function stubScores(page: Page, answer: (p: Posted, n: number) => { status
     const req = route.request();
     const p = { method: req.method(), body: req.postData() ? (JSON.parse(req.postData()!) as Record<string, unknown>) : null };
     calls.push(p);
+    // The consent probe (no browser code yet) just learns whether this location needs a yes first.
+    if (p.method === 'POST' && p.body && !('player' in p.body)) {
+      const a = answer(p, calls.length);
+      if (a !== 'abort' && a.status === 409) return route.fulfill({ status: 409, contentType: 'application/json', body: JSON.stringify(a.body) });
+      if (a === 'abort') return route.abort('internetdisconnected');
+      if (a.status !== 200) return route.fulfill({ status: a.status, contentType: 'application/json', body: JSON.stringify(a.body) });
+      return route.fulfill({ status: 200, contentType: 'application/json', body: '{"status":"proceed"}' });
+    }
     const a = answer(p, calls.length);
     if (a === 'abort') return route.abort('internetdisconnected');
     return route.fulfill({ status: a.status, contentType: 'application/json', body: JSON.stringify(a.body) });
@@ -41,10 +49,11 @@ test('below the sample gate: an honest "not enough games" line, and nothing clai
   await openAt(page, NBA_FIRST);
   await playOut(page);
   await expect(page.locator('.percentile')).toContainText('Not enough completed games for today’s percentile yet (12 of 100 needed)');
-  expect(calls).toHaveLength(1);
-  const body = calls[0]!.body!;
-  // Only what the server needs: day, the five windows, a random key. No answers, URL or score claim from a link.
-  expect(Object.keys(body).sort()).toEqual(['consent', 'day', 'player', 'rounds', 'total', 'v']);
+  expect(calls).toHaveLength(2);
+  // First a probe with nothing identifying, then only what the server needs: day, the five windows, a random key.
+  expect(calls[0]!.body).toEqual({ day: DAY, consent: 'default' });
+  const body = calls[1]!.body!;
+  expect(Object.keys(body).sort()).toEqual(['consent', 'day', 'player', 'rounds', 'total']);
   expect(body.player).toMatch(/^[A-Za-z0-9_-]{22}$/);
   expect((body.rounds as unknown[]).length).toBe(5);
   if (browserName === 'chromium' && test.info().project.name === 'desktop') {
@@ -77,9 +86,22 @@ test('where consent is required, nothing is stored until the player says yes', a
   await openAt(page, NBA_FIRST);
   await playOut(page);
   await expect(page.getByRole('group', { name: 'See how today’s score compares?' })).toBeVisible();
+  // Nothing identifying went up before the yes.
+  expect(calls.map((c) => c.body)).toEqual([{ day: DAY, consent: 'default' }]);
+  // Both answers carry the same weight.
+  const yes = await page.getByRole('button', { name: 'Count my score' }).boundingBox();
+  const no = await page.getByRole('button', { name: 'No thanks' }).boundingBox();
+  expect(no!.height).toBeGreaterThanOrEqual(44);
+  expect(Math.abs(yes!.height - no!.height)).toBeLessThan(1);
+  // The Privacy switch shows the truth: not counted until the player says so.
+  await page.getByRole('button', { name: 'Privacy and your data' }).click();
+  await expect(page.getByRole('checkbox', { name: /Today’s score in the daily comparison/ })).not.toBeChecked();
+  await page.getByRole('button', { name: 'Done' }).click();
   await page.getByRole('button', { name: 'Count my score' }).click();
   await expect(page.locator('.percentile')).toContainText('Not enough completed games');
+  await expect(page.locator('.percentile-slot')).toBeFocused();
   expect(calls.map((c) => c.body?.consent)).toEqual(['default', 'granted']);
+  expect(calls[1]!.body!.player).toMatch(/^[A-Za-z0-9_-]{22}$/);
 });
 
 test('Global Privacy Control: no request at all unless asked, and "No thanks" is remembered', async ({ page }) => {
@@ -108,9 +130,9 @@ test('a same-day friend link is a legitimate first play and is submitted, withou
   const calls = await stubScores(page, stored());
   await openAt(page, NBA_FIRST, `/?day=${DAY}&vs=321`);
   await playOut(page);
-  expect(calls).toHaveLength(1);
-  expect(calls[0]!.body!.day).toBe(DAY);
-  expect(JSON.stringify(calls[0]!.body)).not.toContain('321');
+  expect(calls).toHaveLength(2);
+  expect(calls[1]!.body!.day).toBe(DAY);
+  expect(JSON.stringify(calls)).not.toContain('321');
 });
 
 test('server down or switched off: the score still shows and the game stays playable', async ({ page, browser }) => {

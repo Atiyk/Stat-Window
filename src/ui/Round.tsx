@@ -154,7 +154,7 @@ export function Round({ state, dispatch, label, showHint, challenge = null, onFi
             return (
               <li key={i} className="ledger-cell" data-status={status}>
                 <span className="sr-only">
-                  Round {i + 1}: {shown ? `${r.points} points` : i === state.round ? 'now playing' : 'to play'}
+                  Question {i + 1}: {shown ? `${r.points} points` : i === state.round ? 'now playing' : 'to play'}
                 </span>
                                 <span className="ledger-num" aria-hidden="true">{shown ? r.points : i + 1}</span>
               </li>
@@ -162,7 +162,7 @@ export function Round({ state, dispatch, label, showHint, challenge = null, onFi
           })}
         </ol>}
         <p className="round-meta">
-          <span>{label}</span>
+          <span className="round-label">{label}</span>
           <span className="round-total">
             <span className="tabular">{runningTotal}</span> pts
           </span>

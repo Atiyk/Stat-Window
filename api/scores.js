@@ -120,16 +120,30 @@ function seasonOf(day, config) {
 * clock, and derives the season from its own config. A browser key is never stored;
 * only a salted hash per day and season is, for at most a week.
 */
+var newMemo = () => ({
+	pausedUntil: 0,
+	limitedUntil: /* @__PURE__ */ new Map()
+});
+/**
+* Budgets are in estimated Upstash commands (store.ts COST). Upstash Free allows 500K a month;
+* 380K leaves room for the deletion reserve, rate-limited and paused calls, and the export script.
+*/
 var DEFAULT_LIMITS = {
 	subTtl: 604800,
 	distTtl: 3456e4,
-	dailyBudget: 1500,
-	ratePerMinute: 6
+	dailyBudget: 14e3,
+	monthlyBudget: 38e4,
+	eraseReserve: 2e4,
+	ratePerMinute: 6,
+	ipDailyStored: 10
 };
 var PLAYER = /^[A-Za-z0-9_-]{22}$/;
 var ID = /^[a-z0-9-]{1,80}$/;
-/** EU/EEA, UK and Switzerland: score submission there needs an explicit yes. */
-var CONSENT_COUNTRIES = new Set("AT BE BG HR CY CZ DK EE FI FR DE GR HU IE IT LV LT LU MT NL PL PT RO SK SI ES SE IS LI NO GB CH".split(" "));
+/**
+* EU/EEA, UK and Switzerland, including territories with their own ISO codes (Åland, the
+* French outermost regions, Gibraltar and the Crown Dependencies): score submission there needs an explicit yes.
+*/
+var CONSENT_COUNTRIES = new Set("AT BE BG HR CY CZ DK EE FI FR DE GR HU IE IT LV LT LU MT NL PL PT RO SK SI ES SE IS LI NO GB CH AX GF GP MQ RE YT MF GI JE GG IM".split(" "));
 var json = (status, body, headers = {}) => new Response(JSON.stringify(body), {
 	status,
 	headers: {
@@ -158,6 +172,36 @@ function eligibleDay(day, now, graceSeconds) {
 function keyPrefix(ctx, season, day) {
 	return `sw:v1:${ctx.env}:${season}:${day}`;
 }
+function budgetKeys(ctx, now) {
+	return {
+		day: `${ctx.budgetPrefix}:d:${utcDay(now)}`,
+		month: `${ctx.budgetPrefix}:m:${utcDay(now).slice(0, 7)}`
+	};
+}
+var nextUtcMidnight = (now) => Date.parse(`${addDays(utcDay(now), 1)}T00:00:00Z`);
+var nextUtcMonth = (now) => Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 1);
+function rememberPause(ctx, now, scope) {
+	ctx.memo.pausedUntil = scope === "month" ? nextUtcMonth(now) : nextUtcMidnight(now);
+}
+function rememberLimited(ctx, client, now) {
+	if (ctx.memo.limitedUntil.size > 5e3) ctx.memo.limitedUntil.clear();
+	ctx.memo.limitedUntil.set(client, (Math.floor(now.getTime() / 6e4) + 1) * 6e4);
+}
+/** IPv4 as is; IPv6 cut to its /64, so one home or phone network is one client. */
+function ipPrefix(ip) {
+	if (!ip.includes(":")) return ip;
+	const [head = "", tail = ""] = ip.toLowerCase().split("::");
+	const left = head ? head.split(":") : [];
+	const right = ip.includes("::") && tail ? tail.split(":") : [];
+	return (ip.includes("::") ? [
+		...left,
+		...Array(Math.max(0, 8 - left.length - right.length)).fill("0"),
+		...right
+	] : left).slice(0, 4).map((h) => h.replace(/^0+(?=.)/, "")).join(":") + "::/64";
+}
+function clientIp(req) {
+	return ipPrefix((req.headers.get("x-real-ip") ?? req.headers.get("x-forwarded-for") ?? "").split(",")[0].trim() || "unknown");
+}
 function sameOrigin(req, ctx) {
 	if (req.headers.get("sec-fetch-site") === "cross-site") return false;
 	const origin = req.headers.get("origin");
@@ -172,11 +216,28 @@ function sameOrigin(req, ctx) {
 }
 async function readBody(req) {
 	if (!(req.headers.get("content-type") ?? "").startsWith("application/json")) return void 0;
-	if (Number(req.headers.get("content-length") ?? 0) > 2048) return void 0;
-	const text = await req.text();
-	if (text.length > 2048) return void 0;
+	if (Number(req.headers.get("content-length") ?? 0) > 2048 || !req.body) return void 0;
+	const reader = req.body.getReader();
+	const chunks = [];
+	let size = 0;
+	for (;;) {
+		const { done, value } = await reader.read();
+		if (done) break;
+		size += value.byteLength;
+		if (size > 2048) {
+			await reader.cancel().catch(() => {});
+			return;
+		}
+		chunks.push(value);
+	}
+	const bytes = new Uint8Array(size);
+	let at = 0;
+	for (const c of chunks) {
+		bytes.set(c, at);
+		at += c.byteLength;
+	}
 	try {
-		return JSON.parse(text);
+		return JSON.parse(new TextDecoder().decode(bytes));
 	} catch {
 		return;
 	}
@@ -222,18 +283,25 @@ async function handle(req, ctx) {
 		"POST",
 		"DELETE"
 	].includes(req.method)) return json(405, { status: "method" }, { Allow: "GET, POST, DELETE" });
-	if (!ctx.enabled || !ctx.store || !ctx.secret) return json(503, { status: "disabled" });
+	if (!ctx.store || !ctx.secret || !ctx.enabled && req.method !== "DELETE") return json(503, { status: "disabled" });
 	if (!sameOrigin(req, ctx)) return json(403, { status: "origin" });
 	const now = ctx.now();
 	const asOf = now.toISOString();
+	const today = utcDay(now);
+	const budget = budgetKeys(ctx, now);
+	const paused = req.method !== "DELETE" && ctx.memo.pausedUntil > now.getTime();
 	try {
 		if (req.method === "GET") {
-			const day = new URL(req.url).searchParams.get("day");
-			if (!isIsoDay(day) || day > utcDay(now) || day < addDays(utcDay(now), -1)) return json(422, { status: "invalid" });
+			const url = new URL(req.url);
+			const day = url.searchParams.get("day");
+			if ([...url.searchParams.keys()].length !== 1 || !isIsoDay(day) || day > today || day < addDays(today, -1)) return json(422, { status: "invalid" });
+			if (paused) return json(503, { status: "paused" });
 			const season = seasonOf(day, { launchDay: ctx.launchDay });
-			const p = keyPrefix(ctx, season, day);
-			const read = await ctx.store.read(`${p}:dist`, `sw:v1:${ctx.env}:budget:${utcDay(now)}`, ctx.limits);
-			if (read === "paused") return json(503, { status: "paused" });
+			const read = await ctx.store.read(`${keyPrefix(ctx, season, day)}:dist`, budget, ctx.limits);
+			if ("paused" in read) {
+				rememberPause(ctx, now, read.paused);
+				return json(503, { status: "paused" });
+			}
 			const ready = read.n >= ctx.minSample;
 			const counts = ready ? Object.fromEntries(read.counts.flatMap((c, s) => c > 0 ? [[s, c]] : [])) : void 0;
 			return json(200, {
@@ -248,23 +316,36 @@ async function handle(req, ctx) {
 			}, { "Cache-Control": "public, max-age=0, s-maxage=300, stale-while-revalidate=600" });
 		}
 		const body = await readBody(req);
-		if (!body || typeof body !== "object") return json(422, { status: "invalid" });
-		const player = body.player;
-		if (typeof player !== "string" || !PLAYER.test(player)) return json(422, { status: "invalid" });
-		const budget = `sw:v1:${ctx.env}:budget:${utcDay(now)}`;
+		if (!body || typeof body !== "object" || Array.isArray(body)) return json(422, { status: "invalid" });
+		const ipHash = await hmac(ctx.secret, `ip:${today}:${clientIp(req)}`, 16);
+		if ((ctx.memo.limitedUntil.get(ipHash) ?? 0) > now.getTime()) return json(429, { status: "limited" }, { "Retry-After": "60" });
+		const rate = `sw:v1:${ctx.env}:rl:${ipHash}:${Math.floor(now.getTime() / 6e4)}`;
 		if (req.method === "DELETE") {
-			const days = Array.isArray(body.days) ? body.days.filter(isIsoDay).slice(0, 60) : [];
-			let removed = 0;
-			for (const day of new Set(days)) for (const season of /* @__PURE__ */ new Set([seasonOf(day, { launchDay: ctx.launchDay }), "qa"])) {
+			const player = body.player;
+			if (typeof player !== "string" || !PLAYER.test(player)) return json(422, { status: "invalid" });
+			const oldest = addDays(today, -8);
+			const days = [...new Set(Array.isArray(body.days) ? body.days.filter(isIsoDay) : [])].filter((d) => d >= oldest && d <= today).slice(0, 9);
+			const pairs = [];
+			for (const day of days) for (const season of /* @__PURE__ */ new Set([seasonOf(day, { launchDay: ctx.launchDay }), "qa"])) {
 				const p = keyPrefix(ctx, season, day);
-				const sub = `${p}:sub:${await hmac(ctx.secret, `${season}:${day}:${player}`, 32)}`;
-				const r = await ctx.store.remove(sub, `${p}:dist`, budget, ctx.limits);
-				if (r === "paused") return json(503, { status: "paused" });
-				if (r) removed++;
+				pairs.push({
+					sub: `${p}:sub:${await hmac(ctx.secret, `${season}:${day}:${player}`, 32)}`,
+					dist: `${p}:dist`
+				});
 			}
+			if (pairs.length === 0) return json(200, {
+				status: "ok",
+				removed: 0
+			});
+			const r = await ctx.store.removeMany(pairs, rate, budget, ctx.limits);
+			if (r === "limited") {
+				rememberLimited(ctx, ipHash, now);
+				return json(429, { status: "limited" }, { "Retry-After": "60" });
+			}
+			if (r === "paused") return json(503, { status: "paused" });
 			return json(200, {
 				status: "ok",
-				removed
+				removed: r
 			});
 		}
 		const day = body.day;
@@ -276,6 +357,9 @@ async function handle(req, ctx) {
 		});
 		const country = (req.headers.get("x-vercel-ip-country") ?? "").toUpperCase();
 		if (body.consent !== "granted" && (!country || CONSENT_COUNTRIES.has(country))) return json(409, { status: "consent-required" });
+		if (body.player === void 0 && body.rounds === void 0) return json(200, { status: "proceed" });
+		const player = body.player;
+		if (typeof player !== "string" || !PLAYER.test(player)) return json(422, { status: "invalid" });
 		const slate = await ctx.loadSlate(day);
 		if (!slate || slate.date !== day) return json(200, {
 			status: "ineligible",
@@ -284,17 +368,24 @@ async function handle(req, ctx) {
 		});
 		const total = verifyRounds(slate, body.rounds);
 		if (total === null || body.total !== void 0 && body.total !== total) return json(422, { status: "invalid" });
+		if (paused) return json(503, { status: "paused" });
 		const season = body.test === true ? "qa" : seasonOf(day, { launchDay: ctx.launchDay });
 		const p = keyPrefix(ctx, season, day);
-		const ip = (req.headers.get("x-real-ip") ?? req.headers.get("x-forwarded-for") ?? "").split(",")[0].trim() || "unknown";
 		const out = await ctx.store.submit({
 			sub: `${p}:sub:${await hmac(ctx.secret, `${season}:${day}:${player}`, 32)}`,
 			dist: `${p}:dist`,
-			budget,
-			rate: `sw:v1:${ctx.env}:rl:${await hmac(ctx.secret, `ip:${utcDay(now)}:${ip}`, 16)}:${Math.floor(now.getTime() / 6e4)}`
+			rate,
+			ipDay: `sw:v1:${ctx.env}:ipd:${ipHash}`,
+			budget
 		}, total, ctx.limits);
-		if (out.status === "limited") return json(429, { status: "limited" }, { "Retry-After": "60" });
-		if (out.status === "paused") return json(503, { status: "paused" });
+		if (out.status === "limited") {
+			rememberLimited(ctx, ipHash, now);
+			return json(429, { status: "limited" }, { "Retry-After": "60" });
+		}
+		if (out.status === "paused") {
+			rememberPause(ctx, now, out.scope);
+			return json(503, { status: "paused" });
+		}
 		return json(200, {
 			status: out.status,
 			day,
@@ -310,21 +401,28 @@ async function handle(req, ctx) {
 /** Builds the context from environment variables (server-only; never VITE_-prefixed). */
 function contextFromEnv(env, deps) {
 	const num = (v, d) => v && /^\d+$/.test(v) ? Number(v) : d;
+	const onVercel = env.VERCEL === "1";
+	const ns = (env.SCORES_NAMESPACE && /^[a-z0-9-]{1,24}$/.test(env.SCORES_NAMESPACE) ? env.SCORES_NAMESPACE : null) ?? (env.VERCEL_ENV === "production" ? "production" : env.VERCEL_ENV === "preview" ? "preview" : onVercel ? "" : "development");
+	const secret = env.SCORE_HASH_SECRET && (!onVercel || env.SCORE_HASH_SECRET.length >= 32) ? env.SCORE_HASH_SECRET : onVercel ? "" : "local-development-only";
+	const minSample = num(env.PERCENTILE_MIN_SAMPLE, 100);
 	return {
-		enabled: env.SCORES_ENABLED === "1",
+		enabled: env.SCORES_ENABLED === "1" && ns !== "",
 		store: deps.store,
-		secret: env.SCORE_HASH_SECRET ?? env.UPSTASH_REDIS_REST_TOKEN ?? env.KV_REST_API_TOKEN ?? "",
-		env: env.VERCEL_ENV === "production" ? "production" : env.VERCEL_ENV === "preview" ? "preview" : "development",
+		secret: ns === "" ? "" : secret,
+		env: ns,
 		launchDay: parseLaunchDay(env.LAUNCH_DAY ?? env.VITE_LAUNCH_DAY),
 		loadSlate: deps.loadSlate,
 		now: () => /* @__PURE__ */ new Date(),
 		limits: {
 			...DEFAULT_LIMITS,
-			dailyBudget: num(env.SCORES_DAILY_BUDGET, DEFAULT_LIMITS.dailyBudget)
+			dailyBudget: num(env.SCORES_DAILY_BUDGET, DEFAULT_LIMITS.dailyBudget),
+			monthlyBudget: Math.min(num(env.SCORES_MONTHLY_BUDGET, DEFAULT_LIMITS.monthlyBudget), DEFAULT_LIMITS.monthlyBudget)
 		},
 		graceSeconds: 7200,
-		minSample: num(env.PERCENTILE_MIN_SAMPLE, 100),
-		allowedOrigins: (env.SCORES_ALLOWED_ORIGINS ?? "https://stat-window.vercel.app").split(",").map((s) => s.trim()).filter(Boolean)
+		minSample: ns === "production" ? Math.max(100, minSample) : minSample,
+		allowedOrigins: (env.SCORES_ALLOWED_ORIGINS ?? "https://stat-window.vercel.app").split(",").map((s) => s.trim()).filter(Boolean),
+		budgetPrefix: "sw:v1:budget",
+		memo: newMemo()
 	};
 }
 // server/slates.ts
@@ -360,42 +458,79 @@ function fileSlates(root = process.cwd()) {
 	};
 }
 // server/store.ts
-var BUDGET_TTL = 172800;
-/** KEYS: sub, dist, budget, rate. ARGV: total, subTtl, distTtl, dailyBudget, ratePerMinute, budgetTtl. */
+/**
+* Upstash bills an EVAL as one command plus one per redis.call it runs
+* (https://upstash.com/docs/redis/overall/billing, "Lua scripts"). These are upper bounds
+* per script, charged up front, so the counters never under-count.
+*/
+var COST = {
+	submit: 16,
+	read: 6,
+	remove: (pairs) => 6 + 4 * pairs
+};
+var DAY_TTL = 172800;
+var MONTH_TTL = 2764800;
+var IP_DAY_TTL = 93600;
+/**
+* KEYS: sub, dist, rate, ipDay, budgetDay, budgetMonth.
+* ARGV: total, subTtl, distTtl, dailyBudget, monthlyBudget, ratePerMinute, ipDailyStored, cost, dayTtl, monthTtl, ipDayTtl.
+* The rate check runs first, so a flooding client is turned away before it can spend the shared budget.
+*/
 var SUBMIT_LUA = `
-local b = redis.call('INCR', KEYS[3])
-if b == 1 then redis.call('EXPIRE', KEYS[3], ARGV[6]) end
-if b > tonumber(ARGV[4]) then return {'paused', -1} end
-local r = redis.call('INCR', KEYS[4])
-if r == 1 then redis.call('EXPIRE', KEYS[4], 120) end
-if r > tonumber(ARGV[5]) then return {'limited', -1} end
+local r = redis.call('INCR', KEYS[3])
+if r == 1 then redis.call('EXPIRE', KEYS[3], 120) end
+if r > tonumber(ARGV[6]) then return {'limited'} end
+local cost = tonumber(ARGV[8])
+local d = redis.call('INCRBY', KEYS[5], cost)
+if d == cost then redis.call('EXPIRE', KEYS[5], ARGV[9]) end
+local m = redis.call('INCRBY', KEYS[6], cost)
+if m == cost then redis.call('EXPIRE', KEYS[6], ARGV[10]) end
+if m > tonumber(ARGV[5]) then return {'paused', 'month'} end
+if d > tonumber(ARGV[4]) then return {'paused', 'day'} end
 local prev = redis.call('GET', KEYS[1])
 if prev then return {'duplicate', tonumber(prev), redis.call('HGETALL', KEYS[2])} end
+local s = tonumber(redis.call('GET', KEYS[4]) or '0')
+if s >= tonumber(ARGV[7]) then return {'limited'} end
 redis.call('SET', KEYS[1], ARGV[1], 'EX', ARGV[2])
 redis.call('HINCRBY', KEYS[2], ARGV[1], 1)
-redis.call('HINCRBY', KEYS[2], 'n', 1)
 redis.call('EXPIRE', KEYS[2], ARGV[3])
+if redis.call('INCR', KEYS[4]) == 1 then redis.call('EXPIRE', KEYS[4], ARGV[11]) end
 return {'stored', tonumber(ARGV[1]), redis.call('HGETALL', KEYS[2])}
 `;
-/** KEYS: dist, budget. ARGV: dailyBudget, budgetTtl. */
+/** KEYS: dist, budgetDay, budgetMonth. ARGV: dailyBudget, monthlyBudget, cost, dayTtl, monthTtl. */
 var READ_LUA = `
-local b = redis.call('INCR', KEYS[2])
-if b == 1 then redis.call('EXPIRE', KEYS[2], ARGV[2]) end
-if b > tonumber(ARGV[1]) then return {'paused'} end
+local cost = tonumber(ARGV[3])
+local d = redis.call('INCRBY', KEYS[2], cost)
+if d == cost then redis.call('EXPIRE', KEYS[2], ARGV[4]) end
+local m = redis.call('INCRBY', KEYS[3], cost)
+if m == cost then redis.call('EXPIRE', KEYS[3], ARGV[5]) end
+if m > tonumber(ARGV[2]) then return {'paused', 'month'} end
+if d > tonumber(ARGV[1]) then return {'paused', 'day'} end
 return {'ok', redis.call('HGETALL', KEYS[1])}
 `;
-/** KEYS: sub, dist, budget. ARGV: dailyBudget, budgetTtl. */
+/**
+* KEYS: rate, budgetMonth, then (sub, dist) pairs. ARGV: monthlyBudget + eraseReserve, ratePerMinute, cost, monthTtl.
+* Deletion ignores the daily budget and has its own monthly reserve, so it keeps working when submissions are paused.
+*/
 var REMOVE_LUA = `
-local b = redis.call('INCR', KEYS[3])
-if b == 1 then redis.call('EXPIRE', KEYS[3], ARGV[2]) end
-if b > tonumber(ARGV[1]) then return {'paused'} end
-local prev = redis.call('GET', KEYS[1])
-if not prev then return {'none'} end
-redis.call('DEL', KEYS[1])
-local left = redis.call('HINCRBY', KEYS[2], prev, -1)
-if left <= 0 then redis.call('HDEL', KEYS[2], prev) end
-redis.call('HINCRBY', KEYS[2], 'n', -1)
-return {'removed'}
+local r = redis.call('INCR', KEYS[1])
+if r == 1 then redis.call('EXPIRE', KEYS[1], 120) end
+if r > tonumber(ARGV[2]) then return {'limited'} end
+local cost = tonumber(ARGV[3])
+local m = redis.call('INCRBY', KEYS[2], cost)
+if m == cost then redis.call('EXPIRE', KEYS[2], ARGV[4]) end
+if m > tonumber(ARGV[1]) then return {'paused'} end
+local removed = 0
+for i = 3, #KEYS, 2 do
+  local prev = redis.call('GET', KEYS[i])
+  if prev then
+    redis.call('DEL', KEYS[i])
+    local left = redis.call('HINCRBY', KEYS[i + 1], prev, -1)
+    if left <= 0 then redis.call('HDEL', KEYS[i + 1], prev) end
+    removed = removed + 1
+  end
+end
+return {'ok', removed}
 `;
 function countsFromHash(flat) {
 	const counts = Array.from({ length: 501 }, () => 0);
@@ -414,40 +549,66 @@ function countsFromHash(flat) {
 function redisStore(evaluate) {
 	return {
 		async submit(keys, total, limits) {
-			const [status, stored, flat] = await evaluate(SUBMIT_LUA, [
+			const [status, second, flat] = await evaluate(SUBMIT_LUA, [
 				keys.sub,
 				keys.dist,
-				keys.budget,
-				keys.rate
+				keys.rate,
+				keys.ipDay,
+				keys.budget.day,
+				keys.budget.month
 			], [
 				total,
 				limits.subTtl,
 				limits.distTtl,
 				limits.dailyBudget,
+				limits.monthlyBudget,
 				limits.ratePerMinute,
-				BUDGET_TTL
+				limits.ipDailyStored,
+				COST.submit,
+				DAY_TTL,
+				MONTH_TTL,
+				IP_DAY_TTL
 			]);
 			if (status === "stored" || status === "duplicate") return {
 				status,
-				total: Number(stored),
+				total: Number(second),
 				...countsFromHash(flat ?? [])
 			};
 			if (status === "limited") return { status };
-			return { status: "paused" };
+			return {
+				status: "paused",
+				scope: second === "month" ? "month" : "day"
+			};
 		},
 		async read(dist, budget, limits) {
-			const out = await evaluate(READ_LUA, [dist, budget], [limits.dailyBudget, BUDGET_TTL]);
-			if (out[0] !== "ok") return "paused";
+			const out = await evaluate(READ_LUA, [
+				dist,
+				budget.day,
+				budget.month
+			], [
+				limits.dailyBudget,
+				limits.monthlyBudget,
+				COST.read,
+				DAY_TTL,
+				MONTH_TTL
+			]);
+			if (out[0] !== "ok") return { paused: out[1] === "month" ? "month" : "day" };
 			return countsFromHash(out[1] ?? []);
 		},
-		async remove(sub, dist, budget, limits) {
+		async removeMany(pairs, rate, budget, limits) {
 			const out = await evaluate(REMOVE_LUA, [
-				sub,
-				dist,
-				budget
-			], [limits.dailyBudget, BUDGET_TTL]);
-			if (out[0] === "paused") return "paused";
-			return out[0] === "removed";
+				rate,
+				budget.month,
+				...pairs.flatMap((p) => [p.sub, p.dist])
+			], [
+				limits.monthlyBudget + limits.eraseReserve,
+				limits.ratePerMinute,
+				COST.remove(pairs.length),
+				MONTH_TTL
+			]);
+			if (out[0] === "limited") return "limited";
+			if (out[0] !== "ok") return "paused";
+			return Number(out[1]);
 		}
 	};
 }

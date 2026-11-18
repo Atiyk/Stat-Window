@@ -3,7 +3,7 @@
  * Every call fails soft: the game, the score and sharing never wait on it.
  */
 import type { RoundRecord } from '../engine/game';
-import { midrankPercentile, emptyDistribution } from '../engine/percentile';
+import { midrankPercentile, emptyDistribution, PERCENTILE_MIN_SAMPLE } from '../engine/percentile';
 import { loadPrivacy, newKey, savePrivacy, scoreKey } from './privacy';
 
 export type Comparison =
@@ -26,6 +26,8 @@ type ApiBody = {
 };
 
 const ENDPOINT = '/api/scores';
+/** The published build never shows a percentile from fewer than 100 games, whatever a server says. */
+const FLOOR = (import.meta as ImportMeta & { env?: { DEV?: boolean } }).env?.DEV ? 0 : PERCENTILE_MIN_SAMPLE;
 
 /** QA runs (`?qa=1` once, remembered) go to a separate season that never reaches real rankings. */
 export function isQa(): boolean {
@@ -43,8 +45,9 @@ function toComparison(status: number, b: ApiBody | null): Comparison {
   if (b?.status === 'disabled' || status === 404 || status === 405) return { kind: 'disabled' };
   if ((b?.status === 'stored' || b?.status === 'duplicate') && typeof b.n === 'number' && typeof b.score === 'number') {
     const asOf = b.asOf ?? new Date().toISOString();
-    if (b.ready && b.percentile) return { kind: 'ready', percentile: b.percentile.rounded, n: b.n, score: b.score, asOf };
-    return { kind: 'gathering', n: b.n, threshold: b.threshold ?? 100, score: b.score, asOf };
+    const threshold = Math.max(b.threshold ?? PERCENTILE_MIN_SAMPLE, FLOOR);
+    if (b.ready && b.percentile && b.n >= threshold) return { kind: 'ready', percentile: b.percentile.rounded, n: b.n, score: b.score, asOf };
+    return { kind: 'gathering', n: b.n, threshold, score: b.score, asOf };
   }
   return { kind: 'unavailable' };
 }
@@ -71,19 +74,34 @@ export async function submitDaily(
   fetchImpl: typeof fetch = fetch,
 ): Promise<Comparison> {
   if (opts.results.length !== 5) return { kind: 'ineligible' };
+  const total = opts.results.reduce((s, r) => s + r.points, 0);
+  // Already counted (first completion wins): just read the tally, which the edge caches.
+  if (loadPrivacy().done.includes(opts.day)) return refreshComparison(opts.day, total, fetchImpl);
   try {
+    const consent = opts.consent ? 'granted' : 'default';
+    if (!opts.consent) {
+      // Ask the server whether this location needs a yes first, sending nothing identifying:
+      // no key is made or sent, and no windows, until the answer is "go ahead".
+      const [status, b] = await call('POST', { day: opts.day, consent }, fetchImpl);
+      if (b?.status !== 'proceed') {
+        const c = toComparison(status, b);
+        if (c.kind === 'consent') savePrivacy({ asked: true });
+        return c;
+      }
+    }
     const body = {
-      v: 1,
       day: opts.day,
       player: scoreKey(),
       rounds: opts.results.map((r) => ({ id: r.questionId, lo: r.lo, hi: r.hi })),
-      total: opts.results.reduce((s, r) => s + r.points, 0),
-      consent: opts.consent ? 'granted' : 'default',
+      total,
+      consent,
       ...(isQa() ? { test: true } : {}),
     };
+    // Recorded before sending, so a lost response can't leave a stored score that "Delete" doesn't know about.
+    savePrivacy({ sent: [...loadPrivacy().sent, opts.day] });
     const [status, b] = await call('POST', body, fetchImpl);
     const c = toComparison(status, b);
-    if (c.kind === 'ready' || c.kind === 'gathering') savePrivacy({ sent: [...loadPrivacy().sent, opts.day] });
+    if (c.kind === 'ready' || c.kind === 'gathering') savePrivacy({ done: [...loadPrivacy().done, opts.day] });
     return c;
   } catch {
     return { kind: 'unavailable' };
@@ -97,7 +115,8 @@ export async function refreshComparison(day: string, score: number, fetchImpl: t
     const b = (await res.json().catch(() => null)) as ApiBody | null;
     if (!res.ok || b?.status !== 'ok' || typeof b.n !== 'number') return toComparison(res.status, b);
     const asOf = b.asOf ?? new Date().toISOString();
-    if (!b.ready || !b.counts) return { kind: 'gathering', n: b.n, threshold: b.threshold ?? 100, score, asOf };
+    const threshold = Math.max(b.threshold ?? PERCENTILE_MIN_SAMPLE, FLOOR);
+    if (!b.ready || !b.counts || b.n < threshold) return { kind: 'gathering', n: b.n, threshold, score, asOf };
     const counts = emptyDistribution();
     for (const [s, c] of Object.entries(b.counts)) if (/^\d{1,3}$/.test(s) && Number(s) <= 500) counts[Number(s)] = c;
     const p = midrankPercentile(counts, score);
@@ -111,13 +130,14 @@ export async function refreshComparison(day: string, score: number, fetchImpl: t
 export async function deleteMyScores(fetchImpl: typeof fetch = fetch): Promise<'deleted' | 'nothing' | 'failed'> {
   const p = loadPrivacy();
   if (!p.key || p.sent.length === 0) {
-    savePrivacy({ key: null, sent: [] });
+    savePrivacy({ key: null, sent: [], done: [] });
     return 'nothing';
   }
   try {
     const [status] = await call('DELETE', { player: p.key, days: p.sent }, fetchImpl);
     if (status !== 200) return 'failed';
-    savePrivacy({ key: newKey(), sent: [] });
+    // A fresh key, so nothing new can ever be linked to what was deleted.
+    savePrivacy({ key: newKey(), sent: [], done: [] });
     return 'deleted';
   } catch {
     return 'failed';

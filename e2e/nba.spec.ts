@@ -46,7 +46,7 @@ test('a save from before the NBA cutover still loads, and its day still plays th
   await next(page);
   // Later, the first NBA day opens fresh and the launch-day run is kept.
   await openAt(page, NBA_FIRST);
-  await expect(page.locator('.round-meta')).toHaveText(/^Question 1 of 5/);
+  await expect(page.locator('.round-meta')).toHaveText(/^Question\s1 of\s5/);
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') ?? '{}'));
   expect(Object.keys(saved.runs ?? {})).toContain('2026-11-15');
   expect(saved.runs['2026-11-15'].results).toHaveLength(1);

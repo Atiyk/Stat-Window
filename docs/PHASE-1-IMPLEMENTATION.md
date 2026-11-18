@@ -23,6 +23,20 @@ Branch `feat/phase-1-release`, base `main` @ `555c071` (PR #10 merge, 2026-11-18
 - **Analytics stays page-view based** (Hobby has no custom events). Activation = `VITE_ANALYTICS=vercel` in Production.
 - **Consent:** EU/EEA/UK/CH and unknown locations must tap "Count my score"; GPC/DNT start both features off. Analytics is cookieless; opt-out in app.
 - **Launch numbering:** the label changes, content never moves (see `docs/LAUNCH.md`).
+- **Critic review (round 1, 2026-11-18):** two independent reviewers (engineering/security/privacy/cost; UX/content/licensing) both requested changes. Fixed:
+  - **Cost:** budgets are now in estimated Upstash commands (scripts are billed as 1 + each `redis.call`, per Upstash's billing page), shared across environments, with a monthly ceiling of 380K (env can only lower it) and a 14K daily cap. Rate checks run before the budget, and paused or limited states are remembered per instance so they stop costing commands.
+  - **Abuse:** GET accepts only `?day`. DELETE is one script over at most 9 days × 2 seasons, rate-limited, with its own reserve, and works with the switch off. There is a per-network daily cap of 10 stored scores, and IPv6 is counted per /64.
+  - **Consent:** a code-less probe goes first, so no key is created or sent before a yes. The Privacy switch shows "off" where the server asks first. The two consent buttons are now equal.
+  - **Fail closed on Vercel:** without `VERCEL_ENV` or a 32+ character `SCORE_HASH_SECRET`, the API is off. Production clamps the 100-game gate, and the client enforces it too.
+  - **UX:**
+    - 44px targets for inline links.
+    - The consent box moved below the share buttons, and a fixed-height percentile slot stops the layout jumping.
+    - Focus returns after a choice.
+    - Bare "Wikipedia" sources now get "Wikipedia contributors" and the CC BY-SA link.
+    - Clean "Method:" sentence.
+    - Reactions no longer echo "Inside."/"Outside." or overclaim, and near-miss is tightened.
+    - The share card is pre-rendered, with a clipboard fallback when share is refused.
+    - The label no longer breaks mid-number at 320px.
 
 ## Production activation status
 

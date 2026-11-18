@@ -1,6 +1,8 @@
 import type { Question } from '../content/schema';
 
 const CC_BY_SA = / \(CC BY-SA 4\.0\)$/;
+/** Any Wikipedia article is CC BY-SA 4.0, however its source line was written in older day files. */
+const WIKIPEDIA = /(^|\.)wikipedia\.org$/;
 const LICENSE_URL = 'https://creativecommons.org/licenses/by-sa/4.0/';
 
 type Source = { name: string; url: string };
@@ -13,13 +15,35 @@ function host(url: string): string {
   }
 }
 
+function isWikipedia(url: string): boolean {
+  try {
+    return WIKIPEDIA.test(new URL(url).hostname);
+  } catch {
+    return false;
+  }
+}
+
+/** The credit to show: Wikipedia sources always as "Wikipedia contributors". */
+export function creditFor(source: Source): { name: string; licensed: boolean } {
+  const wiki = isWikipedia(source.url);
+  const licensed = wiki || CC_BY_SA.test(source.name);
+  const name = source.name.replace(CC_BY_SA, '').trim();
+  return { name: wiki && !/contributors/i.test(name) ? 'Wikipedia contributors' : name, licensed };
+}
+
+/** Joins our derivation note as its own sentence, whatever case and punctuation it was written in. */
+export function methodSentence(derivation: string): string {
+  const t = derivation.trim().replace(/[.\s]+$/, '');
+  return t ? `Method: ${t.charAt(0).toUpperCase()}${t.slice(1)}.` : '';
+}
+
 /** "Wikipedia contributors" with the license link, when the source is CC BY-SA. */
 function Credit({ source }: { source: Source }) {
-  const licensed = CC_BY_SA.test(source.name);
+  const { name, licensed } = creditFor(source);
   return (
     <>
       <a href={source.url} target="_blank" rel="noopener noreferrer">
-        {source.name.replace(CC_BY_SA, '')}
+        {name}
         <span className="sr-only"> (opens in a new tab)</span>
       </a>
       {licensed && (
@@ -52,16 +76,17 @@ export function SourcesDisclosure({ question: q, extra }: { question: Question; 
       </summary>
       <div className="sources-body">
         <p>
-          Answer: <Credit source={q.source} />
-          {q.source.derivation ? <>. Worked out as {q.source.derivation}</> : null}.
+          Answer: <Credit source={q.source} />.
         </p>
+        {q.source.derivation && <p>{methodSentence(q.source.derivation)}</p>}
         {extra && (
           <p>
             Bonus fact: <Credit source={extra.source} />.
           </p>
         )}
         <p className="sources-method">
-          Each number is checked by hand against the linked page, which states it for the same team, season and scope. Facts are
+          Each number is checked by hand against the linked page, which states it (or the figures it is worked out from) for the same
+          team, season and scope. Facts are
           restated in our own words; text from Wikipedia is by its contributors and used under CC BY-SA 4.0.
         </p>
       </div>

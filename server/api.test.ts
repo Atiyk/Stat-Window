@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { eligibleDay, handle, verifyRounds } from './api.ts';
+import { contextFromEnv, DEFAULT_LIMITS, eligibleDay, handle, ipPrefix, verifyRounds } from './api.ts';
+import { COST, memoryStore, type ScoreStore } from './store.ts';
+import { fileSlates } from './slates.ts';
 import { DAY, NOON, player, post, roundsFor, testContext } from './fixtures.ts';
 
 const submit = async (ctx: Parameters<typeof handle>[1], body: Record<string, unknown>, headers: Record<string, string> = {}) => {
@@ -44,7 +46,7 @@ describe('POST /api/scores', () => {
   });
 
   it('races: ten simultaneous submissions from one browser count once', async () => {
-    const { ctx } = testContext({ limits: { subTtl: 604800, distTtl: 1e7, dailyBudget: 1000, ratePerMinute: 100 } });
+    const { ctx } = testContext({ limits: { ...DEFAULT_LIMITS, subTtl: 604800, distTtl: 1e7, dailyBudget: 1000, ratePerMinute: 100 } });
     const a = await roundsFor(DAY, 2);
     const outs = await Promise.all(Array.from({ length: 10 }, () => submit(ctx, { day: DAY, player: player(2), rounds: a.rounds })));
     expect(outs.filter((o) => o.body.status === 'stored')).toHaveLength(1);
@@ -114,25 +116,82 @@ describe('POST /api/scores', () => {
     expect((await handle(new Request('https://stat-window.vercel.app/api/scores', { method: 'PUT' }), ctx)).status).toBe(405);
   });
 
-  it('rate-limits one client and pauses everything at the daily budget', async () => {
-    const { ctx } = testContext({ limits: { subTtl: 604800, distTtl: 1e7, dailyBudget: 9, ratePerMinute: 3 } });
+  it('rate-limits one client before it can spend the budget, then pauses everything at the daily budget', async () => {
+    const { ctx } = testContext({ limits: { ...DEFAULT_LIMITS, dailyBudget: COST.submit * 7, ratePerMinute: 3 } });
     const a = await roundsFor(DAY, 2);
     const codes: number[] = [];
     for (let i = 0; i < 5; i++) codes.push((await submit(ctx, { day: DAY, player: player(100 + i), rounds: a.rounds })).code);
     expect(codes).toEqual([200, 200, 200, 429, 429]);
+    // The two limited calls cost nothing, so four more fit before the pause.
     for (let i = 0; i < 5; i++) codes.push((await submit(ctx, { day: DAY, player: player(200 + i), rounds: a.rounds }, { 'x-real-ip': `198.51.100.${i}` })).code);
     expect(codes.slice(5)).toEqual([200, 200, 200, 200, 503]);
   });
 
-  it('is off until SCORES_ENABLED=1 and a store are configured', async () => {
+  it('once paused, an instance stops calling the store until the next UTC day', async () => {
+    const { ctx, nowRef } = testContext({ limits: { ...DEFAULT_LIMITS, dailyBudget: COST.submit } });
+    const a = await roundsFor(DAY, 2);
+    expect((await submit(ctx, { day: DAY, player: player(1), rounds: a.rounds })).code).toBe(200);
+    expect((await submit(ctx, { day: DAY, player: player(2), rounds: a.rounds })).code).toBe(503);
+    let calls = 0;
+    const real = ctx.store!;
+    ctx.store = { submit: (...x) => (calls++, real.submit(...x)), read: (...x) => (calls++, real.read(...x)), removeMany: (...x) => (calls++, real.removeMany(...x)) };
+    expect((await submit(ctx, { day: DAY, player: player(3), rounds: a.rounds })).code).toBe(503);
+    expect((await handle(new Request(`https://stat-window.vercel.app/api/scores?day=${DAY}`), ctx)).status).toBe(503);
+    expect(calls).toBe(0);
+    // Deletion is never paused by the daily budget.
+    expect((await handle(post({ player: player(1), days: [DAY] }, {}, 'DELETE'), ctx)).status).toBe(200);
+    expect(calls).toBe(1);
+    nowRef.t += 86_400_000;
+    const tomorrow = await roundsFor('2026-11-19', 2);
+    expect((await submit(ctx, { day: '2026-11-19', player: player(4), rounds: tomorrow.rounds })).code).toBe(200);
+  });
+
+  it('pauses for the rest of the month at the monthly ceiling, which an env var can only lower', async () => {
+    const { ctx } = testContext({ limits: { ...DEFAULT_LIMITS, monthlyBudget: COST.submit } });
+    const a = await roundsFor(DAY, 2);
+    expect((await submit(ctx, { day: DAY, player: player(1), rounds: a.rounds })).code).toBe(200);
+    expect((await submit(ctx, { day: DAY, player: player(2), rounds: a.rounds })).code).toBe(503);
+    expect(ctx.memo.pausedUntil).toBe(Date.UTC(2026, 11, 1));
+    const env = { SCORES_ENABLED: '1', SCORE_HASH_SECRET: 'x', SCORES_MONTHLY_BUDGET: '9999999' };
+    expect(contextFromEnv(env, { store: null, loadSlate: fileSlates() }).limits.monthlyBudget).toBe(DEFAULT_LIMITS.monthlyBudget);
+  });
+
+  it('caps scores stored from one network per day, and treats an IPv6 /64 as one network', async () => {
+    const { ctx, nowRef } = testContext({ limits: { ...DEFAULT_LIMITS, ipDailyStored: 2 } });
+    const a = await roundsFor(DAY, 2);
+    const codes: number[] = [];
+    for (let i = 0; i < 3; i++) {
+      codes.push((await submit(ctx, { day: DAY, player: player(400 + i), rounds: a.rounds }, { 'x-real-ip': `2001:db8:1:2::${i + 1}` })).code);
+      nowRef.t += 61_000;
+    }
+    expect(codes).toEqual([200, 200, 429]);
+    expect(ipPrefix('2001:db8:1:2:aaaa::1')).toBe('2001:db8:1:2::/64');
+    expect(ipPrefix('2001:0db8:0001:0002:0:0:0:9')).toBe('2001:db8:1:2::/64');
+    expect(ipPrefix('::1')).toBe('0:0:0:0::/64');
+    expect(ipPrefix('203.0.113.7')).toBe('203.0.113.7');
+  });
+
+  it('is off until SCORES_ENABLED=1 and a store are configured, but deletion keeps working', async () => {
     const { ctx } = testContext({ enabled: false });
     expect((await handle(post({}), ctx)).status).toBe(503);
+    expect((await handle(post({ player: player(1), days: [DAY] }, {}, 'DELETE'), ctx)).status).toBe(200);
     const { ctx: noStore } = testContext({ store: null });
     expect((await handle(post({}), noStore)).status).toBe(503);
   });
 
+  it('fails closed on Vercel without a known environment or a long hash secret', () => {
+    const deps = { store: memoryStore() as ScoreStore, loadSlate: fileSlates() };
+    const long = 'k'.repeat(40);
+    expect(contextFromEnv({ VERCEL: '1', SCORES_ENABLED: '1', SCORE_HASH_SECRET: long }, deps)).toMatchObject({ enabled: false, secret: '' });
+    expect(contextFromEnv({ VERCEL: '1', VERCEL_ENV: 'production', SCORES_ENABLED: '1', SCORE_HASH_SECRET: 'short' }, deps).secret).toBe('');
+    expect(contextFromEnv({ VERCEL: '1', VERCEL_ENV: 'production', SCORES_ENABLED: '1', UPSTASH_REDIS_REST_TOKEN: long }, deps).secret).toBe('');
+    const prod = contextFromEnv({ VERCEL: '1', VERCEL_ENV: 'production', SCORES_ENABLED: '1', SCORE_HASH_SECRET: long, PERCENTILE_MIN_SAMPLE: '3' }, deps);
+    expect(prod).toMatchObject({ enabled: true, env: 'production', minSample: 100 });
+    expect(contextFromEnv({ VERCEL: '1', SCORES_NAMESPACE: 'staging', SCORES_ENABLED: '1', SCORE_HASH_SECRET: long }, deps)).toMatchObject({ enabled: true, env: 'staging' });
+  });
+
   it('fails soft when the store throws', async () => {
-    const { ctx } = testContext({ store: { submit: () => Promise.reject(new Error('down')), read: () => Promise.reject(new Error('down')), remove: () => Promise.reject(new Error('down')) } });
+    const { ctx } = testContext({ store: { submit: () => Promise.reject(new Error('down')), read: () => Promise.reject(new Error('down')), removeMany: () => Promise.reject(new Error('down')) } });
     const a = await roundsFor(DAY, 2);
     expect(await submit(ctx, { day: DAY, player: player(1), rounds: a.rounds })).toMatchObject({ code: 503, body: { status: 'unavailable' } });
   });
@@ -140,7 +199,7 @@ describe('POST /api/scores', () => {
 
 describe('percentiles past the sample gate', () => {
   it('stays gated below the threshold and reports midrank once it is crossed', async () => {
-    const { ctx } = testContext({ minSample: 4, limits: { subTtl: 604800, distTtl: 1e7, dailyBudget: 1000, ratePerMinute: 100 } });
+    const { ctx } = testContext({ minSample: 4, limits: { ...DEFAULT_LIMITS, subTtl: 604800, distTtl: 1e7, dailyBudget: 1000, ratePerMinute: 100 } });
     const widths = [30, 20, 10, 10];
     const outs = [];
     for (const [i, w] of widths.entries()) {
@@ -167,6 +226,8 @@ describe('percentiles past the sample gate', () => {
     expect(text).not.toContain('counts');
     expect(text).not.toContain(player(1));
     expect((await handle(new Request('https://stat-window.vercel.app/api/scores?day=2026-11-20'), ctx)).status).toBe(422);
+    // Junk parameters would bypass the edge cache, so they are refused.
+    expect((await handle(new Request(`https://stat-window.vercel.app/api/scores?day=${DAY}&x=1`), ctx)).status).toBe(422);
   });
 });
 
@@ -182,5 +243,15 @@ describe('DELETE /api/scores', () => {
     expect(await again.json()).toMatchObject({ removed: 0 });
     const re = await submit(ctx, { day: DAY, player: player(3), rounds: a.rounds });
     expect(re.body.n).toBe(2);
+  });
+
+  it('only looks at days whose records can still exist, in one store call', async () => {
+    const { ctx } = testContext();
+    let pairs = 0;
+    const real = ctx.store!;
+    ctx.store = { ...real, removeMany: (p, ...rest) => ((pairs = p.length), real.removeMany(p, ...rest)) };
+    const days = Array.from({ length: 60 }, (_, i) => new Date(NOON.getTime() - i * 86_400_000).toISOString().slice(0, 10));
+    expect((await handle(post({ player: player(1), days }, {}, 'DELETE'), ctx)).status).toBe(200);
+    expect(pairs).toBe(9 * 2);
   });
 });

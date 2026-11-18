@@ -8,7 +8,7 @@
  * Prints, per day: n, quartiles and mean, plus the raw 0..500 histogram with --json.
  * One HGETALL per day; a month of days costs ~30 commands of the free 500K.
  */
-import { countsFromHash, upstashEval } from '../server/store.ts';
+import { countsFromHash } from '../server/store.ts';
 
 const arg = (name: string, d?: string) => {
   const i = process.argv.indexOf(`--${name}`);
@@ -25,7 +25,13 @@ const to = arg('to', from)!;
 const season = arg('season', 'beta')!;
 const env = arg('env', 'production')!;
 const asJson = process.argv.includes('--json');
-const evaluate = upstashEval(url, token);
+/** A plain read command (not EVAL), so Upstash's read-only token works. */
+async function hgetall(key: string): Promise<unknown[]> {
+  const res = await fetch(url!, { method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify(['HGETALL', key]) });
+  const body = (await res.json().catch(() => null)) as { result?: unknown[]; error?: string } | null;
+  if (!res.ok || !body || body.error !== undefined) throw new Error(`store error ${res.status}`);
+  return body.result ?? [];
+}
 
 const quantile = (counts: number[], n: number, q: number) => {
   let seen = 0;
@@ -39,7 +45,7 @@ const quantile = (counts: number[], n: number, q: number) => {
 const rows = [];
 for (let t = Date.parse(`${from}T00:00:00Z`); t <= Date.parse(`${to}T00:00:00Z`); t += 86_400_000) {
   const day = new Date(t).toISOString().slice(0, 10);
-  const flat = (await evaluate("return redis.call('HGETALL', KEYS[1])", [`sw:v1:${env}:${season}:${day}:dist`], [])) as unknown[];
+  const flat = await hgetall(`sw:v1:${env}:${season}:${day}:dist`);
   const { counts, n } = countsFromHash(flat ?? []);
   const mean = n ? counts.reduce((a, c, s) => a + c * s, 0) / n : 0;
   rows.push({ day, season, n, p25: n ? quantile(counts, n, 0.25) : null, median: n ? quantile(counts, n, 0.5) : null, p75: n ? quantile(counts, n, 0.75) : null, mean: Number(mean.toFixed(1)), ...(asJson ? { counts } : {}) });

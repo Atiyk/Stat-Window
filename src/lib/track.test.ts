@@ -128,8 +128,8 @@ describe('Phase 1 analytics controls', () => {
       },
     };
   };
-  const off = { analytics: 'off', scores: 'unset', key: null, sent: [] } as const;
-  const on = { analytics: 'on', scores: 'unset', key: null, sent: [] } as const;
+  const off = { analytics: 'off', scores: 'unset', key: null, sent: [], done: [], asked: false } as const;
+  const on = { analytics: 'on', scores: 'unset', key: null, sent: [], done: [], asked: false } as const;
 
   it('the in-app switch turns analytics off, and an explicit yes overrides GPC/DNT', () => {
     const g = globalThis as { window?: unknown };
@@ -137,10 +137,10 @@ describe('Phase 1 analytics controls', () => {
     g.window = g.window ?? {};
     try {
       const a = vercelFake();
-      expect(startAnalytics({ enabled: true, nav: {} as Navigator, vercel: a.vercel, privacy: { ...off, sent: [] } })).toBe(false);
+      expect(startAnalytics({ enabled: true, nav: {} as Navigator, vercel: a.vercel, privacy: { ...off, sent: [], done: [] } })).toBe(false);
       expect(a.calls).toEqual([]);
       const b = vercelFake();
-      expect(startAnalytics({ enabled: true, nav: { globalPrivacyControl: true } as unknown as Navigator, vercel: b.vercel, privacy: { ...on, sent: [] } })).toBe(true);
+      expect(startAnalytics({ enabled: true, nav: { globalPrivacyControl: true } as unknown as Navigator, vercel: b.vercel, privacy: { ...on, sent: [], done: [] } })).toBe(true);
     } finally {
       setTrackSink(() => {});
       if (!had) delete g.window;

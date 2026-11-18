@@ -34,11 +34,16 @@ describe('classifyReaction: misses', () => {
     expect(classifyReaction(miss(6))).toBe('miss');
   });
 
-  it('a wider window stretches near miss to half its width, capped at 10% of range', () => {
-    expect(classifyReaction(miss(8, { lo: 30, hi: 46 }))).toBe('near-miss');
-    expect(classifyReaction(miss(9, { lo: 30, hi: 46 }))).toBe('miss');
-    expect(classifyReaction(miss(10, { lo: 10, hi: 70 }))).toBe('near-miss');
-    expect(classifyReaction(miss(11, { lo: 10, hi: 70 }))).toBe('miss');
+  it('a wide window does not stretch a near miss ("by a hair" stays true)', () => {
+    expect(classifyReaction(miss(8, { lo: 30, hi: 46 }))).toBe('miss');
+    expect(classifyReaction(miss(10, { lo: 10, hi: 70 }))).toBe('miss');
+    expect(classifyReaction(miss(5, { lo: 10, hi: 70 }))).toBe('near-miss');
+  });
+
+  it('no line repeats the verdict printed above it, or claims more than the round shows', () => {
+    const all = Object.values(REACTIONS).flat();
+    expect(all.filter((l) => /^(Inside|Outside)\b/.test(l))).toEqual([]);
+    expect(all.filter((l) => /covered everything|every value|tightest|wrong end/i.test(l))).toEqual([]);
   });
 
   it('one step is always a near miss on a coarse ruler', () => {

@@ -5,19 +5,19 @@
  */
 :root {
   /* Palette (Clubhouse) */
-  --paper: #f7f5ee;          /* page */
-  --surface: #fffdf9;        /* the field card */
-  --paper-2: #eeece3;        /* neutral fills */
+  --paper: #f1efe9;          /* page: a neutral off-white, not cream */
+  --surface: #f8f7f3;        /* raised surfaces off the field */
+  --paper-2: #e4e1d8;        /* neutral fills */
   --line: #dde2da;
-  --ink: #20312b;
-  --ink-soft: #5b6c63;       /* muted text, 4.9:1 on paper */
-  --brand: #2f614d;          /* pine: brackets, buttons, hits */
-  --brand-press: #244c3c;
+  --ink: #121a16;
+  --ink-soft: #4d5a53;       /* muted text */
+  --brand: #1f4d3c;          /* pine: the field, hits */
+  --brand-press: #163a2d;
   --brand-soft: #e6efe5;
   --band: #c8ddcd;           /* the window you are drawing */
   --band-hit: color-mix(in srgb, var(--brand) 30%, var(--surface));
-  --accent: #cf775f;         /* terracotta: the answer */
-  --accent-ink: #2a1a14;     /* text on terracotta, 5.1:1 */
+  --accent: #ff7a1f;         /* ball orange: the answer */
+  --accent-ink: #1c0c02;     /* text on orange */
   --on-brand: #ffffff;
   --tick: #86938a;           /* ruler axis, 3.1:1 on the card */
 
@@ -27,9 +27,9 @@
   --hi: var(--band);
   --miss: var(--accent);
 
-  --font-display: 'Fraunces Variable', 'Fraunces', Georgia, 'Times New Roman', serif;
-  --radius: 12px;
-  --radius-sm: 8px;
+  --font-display: 'DM Sans Variable', 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --radius: 0px;
+  --radius-sm: 0px;
   --font: 'DM Sans Variable', 'DM Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -2004,3 +2004,90 @@ a {
 }
 .privacy-row input { width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--brand); }
 .privacy-foot { margin: 28px 0 0; color: var(--ink-soft); font-size: 0.9375rem; }
+
+/* ───────────── Court: the field is a solid block of pine, the page is ink on off-white ─────────────
+ * One family (DM Sans), heavy and tight for the question and numbers. Square corners throughout.
+ * Inside the field the roles flip: chalk is the foreground, the window is chalk, the answer is orange.
+ */
+.wordmark { font-weight: 850; letter-spacing: -0.035em; }
+
+.question {
+  font-weight: 820;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  font-size: clamp(1.875rem, 1.1rem + 3.4vw, 3.75rem);
+  max-width: 20ch;
+}
+.context { margin: 14px 0 0; color: var(--ink-soft); font-size: 1rem; }
+
+.ledger { border-bottom: 0; padding-bottom: 0; gap: 6px; }
+.ledger-cell { width: 42px; height: 42px; background: var(--paper-2); }
+.ledger-cell[data-status='current'] { background: var(--ink); box-shadow: none; }
+.ledger-cell[data-status='current'] .ledger-num { color: var(--paper); }
+.ledger-cell[data-status='todo'] .ledger-num { color: var(--ink-soft); }
+.ledger-num { font-weight: 850; font-size: 1.0625rem; }
+.round-meta { color: var(--ink); font-size: 1rem; }
+.round-total { font-weight: 850; font-size: 1.25rem; }
+
+.field {
+  --surface: var(--brand);
+  --chalk: #f4f2ea;
+  --chalk-soft: #b7cbbf;
+  --ink: #f4f2ea;
+  --ink-soft: #b7cbbf;
+  --tick: #8fae9d;
+  --band: #f4f2ea;
+  --band-hit: #ffd2b0;
+  --brand-soft: #2c5f4b;
+  --paper-2: #2c5f4b;
+  --on-brand: var(--brand);
+  color: var(--chalk);
+}
+.field .bracket-shape::before { border-color: var(--chalk); }
+.field .bracket-shape::after { background: var(--chalk); }
+.field .bracket-grip { background: var(--chalk); }
+.field .bracket-grip::before { border-color: var(--brand); }
+.field .bracket:focus-visible .bracket-grip,
+.field .ruler[data-dragging] .bracket-grip { background: #ffffff; outline-color: var(--accent); }
+.field .band { background: color-mix(in srgb, var(--chalk) 28%, var(--brand)); }
+.field .ruler[data-state='hit'] .band { background: color-mix(in srgb, var(--chalk) 44%, var(--brand)); outline-color: var(--chalk); }
+.field .ruler[data-state='miss'] .band { outline-color: var(--chalk-soft); }
+.field .worth b, .field .outcome-hit .outcome-word, .field .outcome-points { color: var(--chalk); }
+.field .bracket-tag { background: var(--chalk); color: var(--brand); }
+.field .tick-major { background: var(--chalk-soft); }
+.field-inner { border: 0; border-radius: 0; }
+.bound { font-weight: 850; letter-spacing: -0.04em; }
+
+.btn { border-radius: 0; font-weight: 800; }
+.btn-primary { background: var(--ink); color: var(--paper); }
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:not(:disabled):not(.btn-skip):hover { background: #000; }
+}
+.btn-primary:disabled,
+.round[data-phase='ready'] .btn-primary:disabled { background: var(--paper-2); color: var(--ink-soft); outline: 0; }
+.btn-primary.btn-skip { color: var(--ink); outline-color: var(--ink); }
+.btn-quiet { background: var(--paper-2); box-shadow: none; }
+
+.story-reaction { font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+.story-extra { border-left: 0; background: var(--paper-2); }
+.story-extra-title { letter-spacing: 0; text-transform: none; font-size: 0.9375rem; color: var(--ink); }
+
+@media (max-width: 719px) {
+  .field { padding: 0; }
+  .field-inner { padding: 18px var(--gutter) 12px; }
+  .round[data-phase='resolved'] .action-bar { border-top: 0; }
+}
+
+.field { --band-hit: #d9e8de; }
+.field .ruler[data-state='hit'] .band { background: color-mix(in srgb, var(--chalk) 62%, var(--brand)); }
+.results-title { font-weight: 850; letter-spacing: -0.04em; line-height: 0.98; }
+.results-context { margin: 12px 0 0; }
+.stats { border-top: 0; border-bottom: 0; gap: 4px; }
+.stats div { background: var(--paper-2); padding: 12px 12px 14px; }
+.stats div + div { border-left: 0; }
+.stats dd { font-weight: 850; }
+@media (max-width: 400px) {
+  .round-top .ledger-cell { width: 38px; height: 38px; }
+  .round-top .ledger { gap: 4px; }
+}
+.round-top { flex-wrap: wrap; }

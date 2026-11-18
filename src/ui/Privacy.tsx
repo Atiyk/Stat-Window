@@ -45,8 +45,8 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
             onChange={(e) => setPrefs(savePrivacy({ analytics: e.target.checked ? 'on' : 'off' }))}
           />
           <span>
-            <strong>Anonymous play counts.</strong> Events like “round 3 locked” or “game finished”, with a 100-point score band, sent to
-            Vercel Web Analytics. No cookies, no IDs from us, no answers, no full links.
+            <strong>Play counts.</strong> Events like “round 3 locked” or “game finished”, with a 100-point score band, go to
+            Vercel Web Analytics. We set no cookies or IDs, and answers and full links are never sent.
             {!analyticsEnabled && ' Not active on this site build.'}
           </span>
         </label>

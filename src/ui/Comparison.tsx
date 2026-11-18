@@ -20,7 +20,8 @@ export const ComparisonLine = forwardRef<HTMLDivElement, { comparison: Compariso
   ref,
 ) {
   const s = c.state;
-  if (s.kind === 'none') return null;
+  // Switched off or not eligible: nothing at all, not an empty gap.
+  if (s.kind === 'none' || s.kind === 'disabled' || s.kind === 'ineligible') return null;
   return (
     <div className="percentile-slot" ref={ref} tabIndex={-1} aria-live="polite">
       {line(c, onPrivacy)}

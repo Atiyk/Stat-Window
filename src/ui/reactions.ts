@@ -89,7 +89,7 @@ export function classifyReaction(input: ReactionInput): ReactionSituation {
 export const REACTIONS: Record<ReactionSituation, readonly string[]> = {
   perfect: [
     'Nailed to the notch.',
-    'As tight as it gets.',
+    'Right on it.',
     'Full marks. No hedging.',
     'Every point on the table.',
     'No wiggle room needed.',
@@ -150,7 +150,7 @@ export const REACTIONS: Record<ReactionSituation, readonly string[]> = {
     'A touch wider would have done it.',
   ],
   miss: [
-    'Close-ish. Not close enough.',
+    'Not this one.',
     'Not this time.',
     'The number got away.',
     'Off the mark.',

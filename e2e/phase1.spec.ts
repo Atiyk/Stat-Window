@@ -49,7 +49,8 @@ test('below the sample gate: an honest "not enough games" line, and nothing clai
   await openAt(page, NBA_FIRST);
   await playOut(page);
   await expect(page.locator('.percentile')).toContainText('Not enough completed games for today’s percentile yet (12 of 100 needed)');
-  expect(calls).toHaveLength(2);
+  // The run goes up only after the probe answers, so wait for it rather than racing it.
+  await expect.poll(() => calls.length).toBe(2);
   // First a probe with nothing identifying, then only what the server needs: day, the five windows, a random key.
   expect(calls[0]!.body).toEqual({ day: DAY, consent: 'default' });
   const body = calls[1]!.body!;
@@ -130,7 +131,7 @@ test('a same-day friend link is a legitimate first play and is submitted, withou
   const calls = await stubScores(page, stored());
   await openAt(page, NBA_FIRST, `/?day=${DAY}&vs=321`);
   await playOut(page);
-  expect(calls).toHaveLength(2);
+  await expect.poll(() => calls.length).toBe(2);
   expect(calls[1]!.body!.day).toBe(DAY);
   expect(JSON.stringify(calls)).not.toContain('321');
 });

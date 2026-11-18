@@ -1975,6 +1975,10 @@ a {
 .percentile-detail,
 .percentile-quiet { color: var(--ink-soft); font-size: 0.9375rem; }
 .percentile-slot { min-height: 3.5rem; outline: none; }
+@media (max-width: 400px) {
+  /* The ready line can run to three lines on a phone. */
+  .percentile-slot { min-height: 5.25rem; }
+}
 .percentile-slot:focus-visible { outline: 2px solid var(--brand); outline-offset: 4px; border-radius: 4px; }
 
 .consent {

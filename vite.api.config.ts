@@ -2,6 +2,8 @@ import { defineConfig } from 'vite';
 
 /** Bundles the score API into one self-contained ES module for Vercel (npm run api:build). */
 export default defineConfig({
+  // Never copy public/ into api/: only the bundle belongs there.
+  publicDir: false,
   build: {
     ssr: 'server/vercel-entry.ts',
     outDir: 'api',

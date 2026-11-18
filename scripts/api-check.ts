@@ -3,7 +3,7 @@
  * sources, so production can never run code the tests didn't cover. Fix: npm run api:build.
  */
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, readdirSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 
@@ -19,6 +19,12 @@ try {
   }
   if (fresh !== committed) {
     console.error('api/scores.js is out of date with server/ or src/engine. Run: npm run api:build');
+    process.exit(1);
+  }
+  // Every file in api/ becomes a route on Vercel; only the bundle belongs there.
+  const extra = readdirSync('api').filter((f) => f !== 'scores.js');
+  if (extra.length) {
+    console.error(`Unexpected files in api/: ${extra.join(', ')}`);
     process.exit(1);
   }
   console.log('api/scores.js matches its sources.');

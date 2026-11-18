@@ -40,13 +40,19 @@ Branch `feat/phase-1-release`, base `main` @ `555c071` (PR #10 merge, 2026-11-18
 
 ## Production activation status
 
+Merged as PR #11 (head `af85bc4`, merge `c30d612`) on 2026-11-18 after both reviewers approved and CI passed on the exact head. Production deployment `71ugeEY6Z` went Ready.
+
 | Item | State |
 |---|---|
-| Vercel Web Analytics (Hobby, 50K events/month, "Capped data ingestion") | Enabled 2026-11-18 ~06:05 UTC in the dashboard |
-| Upstash Redis Free `upstash-kv-amber-magnet` (iad1) linked to Production + Preview | Created 2026-11-18 ~06:10 UTC |
-| `VITE_ANALYTICS=vercel`, `SCORES_ENABLED=1`, `SCORE_HASH_SECRET` (Production) | see PR description for final state |
-| Live receipt check | see PR description / `docs/MEASUREMENT.md` |
+| Vercel Web Analytics (Hobby, 50K events/month, capped ingestion) | Enabled 2026-11-18 |
+| Upstash Redis Free (iad1), linked to Production and Preview | Created 2026-11-18 |
+| `SCORES_ENABLED=1`, `SCORES_NAMESPACE=production`, `SCORE_HASH_SECRET` (40 chars) | Production only. Preview has no `SCORES_ENABLED`, so its API answers 503 `disabled`. |
+| `VITE_ANALYTICS=vercel` | Production only. It missed the `c30d612` build; the next production build picks it up (see `docs/MEASUREMENT.md`). |
+| Live score round trip | Checked on production with `?qa=1`: a full game stored under the `qa` season, the slot showed "1 of 100 needed", and "Delete my scores" returned `removed: 1` and replaced the browser's code. |
+| Formal Day 1 | Not active. `VITE_LAUNCH_DAY` and `LAUNCH_DAY` are unset (`docs/LAUNCH.md`). |
 
-## Next actions
+## Emergency switches
 
-See the PR checklist. Critic review → fixes → CI on exact head → preview check → merge → production check.
+- Percentiles: set `SCORES_ENABLED=0` (or remove it) for Production and redeploy. Deletion keeps working while it is off.
+- Analytics: remove `VITE_ANALYTICS` and redeploy.
+- Anything else: Instant Rollback to the previous production deployment in the Vercel dashboard.

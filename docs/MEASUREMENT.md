@@ -11,24 +11,21 @@ Nothing here has been validated with real players yet. No retention, completion 
 - **Off by default.** Events are sent only when the build sets `VITE_ANALYTICS=vercel`. Local runs, CI and builds without the variable send nothing (in development they log to the console instead).
 - **Auto-tracking is off; the real page view is sent by hand.** The Vercel script remembers the last `path` passed to `pageview()` and reuses it for later automatic page views (read from `va.vercel-scripts.com/v1/script.debug.js`, v0.1.3, on 2026-11-16), so with auto-tracking on, a real visit could be filed under a stale `/e/…` path. `startAnalytics()` injects with `disableAutoTrack: true` and sends `pageview({ route: '/', path: '/' })` once per page load.
 - **Counted once** (from the NBA release on 2026-11-16; before it, a refresh before the first lock re-counted a start, so don't compare start or first-touch counts across that date). `start` and `first-touch` are sent once per browser, mode and day (`trackOnce`, kept 14 days in localStorage), so a refresh, a remount or a second tab doesn't add a second start. A lock is counted by the tab that made it; a tab that adopts rounds from another tab doesn't recount them. React StrictMode double effects only happen in development, where nothing is sent.
-- **What has been proven, and what hasn't.** `npm run test:e2e:analytics` builds with `VITE_ANALYTICS=vercel`, stubs Vercel's script and checks the exact queue of page views the app hands it (funnel order, no duplicates after reloads, challenge vs daily, query string stripped, nothing at all under GPC/DNT). It does **not** prove Vercel receives them: that needs the production check in "Turning it on", step 4. As of 2026-11-16 that check has not been done.
+- **What has been proven, and what hasn't.** `npm run test:e2e:analytics` builds with `VITE_ANALYTICS=vercel`, stubs Vercel's script and checks the exact queue of page views the app hands it (funnel order, no duplicates after reloads, challenge vs daily, query string stripped, nothing at all under GPC/DNT). It does **not** prove Vercel receives them: that needs the production check in "Turning it on", step 4 (see "Production status").
 - **Privacy:** no cookies or identifiers from us, no answers, no typed text, no scores beyond a 100-point band. Every path segment comes from the fixed list below. Real page-view URLs are stripped of their query string, so challenge links (`?day=…&vs=…`) are not collected. Full notice: `docs/PRIVACY.md`, served as `/privacy.html`.
 - **Choices (from Phase 1, 2026-11-18).** "Privacy and your data" (results footer, and the help dialog) has an on/off switch for usage counts, stored in `stat-window:privacy:v1`. Browsers that send Global Privacy Control or Do Not Track start with it **off**; only an explicit tap in that dialog turns it on for that browser. The sink re-checks the choice before every event, so switching off stops the next event, not the next page load.
 - **Cohorts.** Paths are prefixed so test and launch traffic never mix with the beta: `/e/qa/…` for any browser opened once with `?qa=1` (kept in `stat-window:qa`; use it for every manual production check), `/e/s1/…` once the formal launch is active (`docs/LAUNCH.md`). Unprefixed `/e/…` is the public beta.
 
-### Production status (checked 2026-11-16, 16:00 UTC)
-
-**Not verified. Treat production analytics as off.** What was and wasn't checkable from the build agent:
+### Production status (checked 2026-11-18)
 
 | Check | Result |
 |---|---|
-| `main` and the production deployment | `d4ec037` (PR #6); GitHub's Vercel status for that commit: success, "Deployment has completed" |
-| `VITE_ANALYTICS=vercel` set for Production | **Unknown.** The agent has no Vercel dashboard or API access. The last reading (an earlier session, 2026-11-16) showed no environment variables at all, so the live build sends nothing. |
-| Web Analytics enabled for the project | **Unknown**, same reason. |
-| A real `POST …/view` with status 200, and rows in Analytics → Pages | **Not observed.** The agent's network blocks `stat-window.vercel.app`, and no browser or device was reachable. |
-| What *is* proven | `npm run test:e2e:analytics`: with the variable set, the app hands Vercel's (stubbed) script exactly the documented paths, once each, with query strings stripped and nothing under GPC/DNT. That is the hand-off, not a receipt. |
+| Web Analytics enabled for the project | Yes. Enabled in the dashboard on 2026-11-18 (Hobby, capped ingestion). |
+| `VITE_ANALYTICS=vercel` set for Production | Yes, as a Config variable, Production only. Preview and local builds still send nothing. |
+| Phase 1 production build (`c30d612`) | Built **without** the variable: the variable was saved within the same minute as the merge and missed that build. The live bundle had analytics compiled off and the Privacy dialog said "Not active on this site build". |
+| Fix | This docs commit is the next production build, so it is the first one that reads the variable. The receipt check (step 4 below, from a `?qa=1` browser so rows land under `/e/qa/…`) is recorded in this commit's pull request. |
 
-Until someone does step 4 below and sees the rows, every count is "not collected", not "zero".
+Read every count before the receipt check as "not collected", not "zero".
 
 ### Turning it on (owner, about two minutes)
 

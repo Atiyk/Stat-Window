@@ -20,7 +20,7 @@ We do not sell or share this data, build profiles, track you across sites, or fi
 - **Turn either off** any time: the "Privacy and your data" button on the results screen, or "Privacy choices" in How it works. Turning analytics off takes effect immediately.
 - **Global Privacy Control / Do Not Track:** if your browser sends either signal, both start **off**. Analytics stays off; the results screen asks before adding your score. You can still switch either on yourself.
 - **EU, EEA, UK and Switzerland:** your score is only added after you tap "Count my score" (the server checks the country of the request, which it does not store). If the location is unknown we ask too. Before you answer, the app sends only today's date to ask whether a yes is needed: no code is created and your windows are not sent.
-- **Delete my scores:** removes every score your browser sent that is still linked to its code (the last 7 days), then replaces the code. Clearing this site's data in your browser deletes your local history and the code.
+- **Delete my scores:** removes every score your browser sent that is still linked to its code (the last 7 days), then replaces the code and turns the daily comparison off, so the same days aren't sent again. You can tick it back on. Clearing this site's data in your browser deletes your local history and the code.
 - Gameplay never depends on either: if they are blocked, offline or off, the game works the same.
 
 ## Children

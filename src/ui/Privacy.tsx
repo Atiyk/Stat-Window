@@ -81,9 +81,9 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
               setPrefs(loadPrivacy());
               setStatus(
                 r === 'deleted'
-                  ? 'Done. Scores this browser sent in the last 7 days are deleted, and its code is replaced.'
+                  ? 'Done. Scores this browser sent in the last 7 days are deleted, its code is replaced, and the daily comparison is off until you tick it again.'
                   : r === 'nothing'
-                    ? 'Nothing to delete: this browser hasn’t sent a score that’s still kept.'
+                    ? 'Nothing to delete: this browser hasn’t sent a score that’s still kept. The daily comparison is now off.'
                     : 'Couldn’t reach the server. Try again later.',
               );
             }}

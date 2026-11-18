@@ -7,7 +7,7 @@
  * per path then show up in the Vercel dashboard's Pages list. At the Hobby limit
  * Vercel pauses collection; it never bills a Hobby team.
  *
- * Off unless the build sets VITE_ANALYTICS=vercel (so local runs, CI and preview
+ * Off unless on the production host or the build sets VITE_ANALYTICS=vercel (so local runs, CI and preview
  * builds send nothing). Also off when the browser sends Global Privacy Control or
  * Do Not Track. No cookies, no identifiers, no answers, no free text: every path
  * segment comes from the fixed vocabulary below.
@@ -184,7 +184,25 @@ export function privacySignal(nav: Navigator): boolean {
   return n.globalPrivacyControl === true || n.doNotTrack === '1';
 }
 
-export const analyticsEnabled = import.meta.env.VITE_ANALYTICS === 'vercel';
+/** The production hostname. Analytics runs there unless the build sets VITE_ANALYTICS=off. */
+export const PRODUCTION_HOST = 'stat-window.vercel.app';
+
+/**
+ * On when the build sets VITE_ANALYTICS=vercel (any host, used by the analytics e2e build), or on the
+ * production hostname unless the build sets VITE_ANALYTICS=off (the emergency switch). Previews,
+ * local runs and CI are on other hosts, so they send nothing.
+ */
+export function analyticsOn(flag: string | undefined, host: string | undefined): boolean {
+  const f = (flag ?? '').trim().toLowerCase();
+  if (f === 'off') return false;
+  if (f === 'vercel') return true;
+  return host === PRODUCTION_HOST;
+}
+
+export const analyticsEnabled = analyticsOn(
+  import.meta.env.VITE_ANALYTICS as string | undefined,
+  typeof location === 'undefined' ? undefined : location.hostname,
+);
 
 type Vercel = { inject: typeof inject; pageview: typeof pageview };
 

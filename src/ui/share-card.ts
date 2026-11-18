@@ -15,13 +15,13 @@ export type CardInput = {
 };
 
 const C = {
-  paper: '#f7f5ee',
-  surface: '#fffdf9',
-  ink: '#20312b',
-  soft: '#5b6c63',
-  brand: '#2f614d',
+  paper: '#f1efe9',
+  surface: '#f8f7f3',
+  ink: '#121a16',
+  soft: '#4d5a53',
+  brand: '#1f4d3c',
   band: '#c8ddcd',
-  accent: '#cf775f',
+  accent: '#ff7a1f',
   line: '#dde2da',
 };
 
@@ -38,7 +38,7 @@ export function tileKind(r: RoundRecord): 'miss' | 'high' | 'mid' | 'low' {
 export function drawCard(ctx: CanvasRenderingContext2D, input: CardInput): void {
   const S = CARD_SIZE;
   const total = input.results.reduce((s, r) => s + r.points, 0);
-  const display = "'Fraunces Variable', Georgia, serif";
+  const display = "'DM Sans Variable', system-ui, sans-serif";
   const sans = "'DM Sans Variable', system-ui, sans-serif";
   ctx.fillStyle = C.paper;
   ctx.fillRect(0, 0, S, S);
@@ -53,7 +53,7 @@ export function drawCard(ctx: CanvasRenderingContext2D, input: CardInput): void 
   ctx.fillRect(156, 156, 26, 12);
   ctx.fillRect(134, 120, 12, 32);
   ctx.fillStyle = C.ink;
-  ctx.font = `600 58px ${display}`;
+  ctx.font = `850 58px ${display}`;
   ctx.textBaseline = 'alphabetic';
   ctx.fillText('Stat Window', 210, 158);
   ctx.fillStyle = C.soft;
@@ -115,7 +115,7 @@ export function drawCard(ctx: CanvasRenderingContext2D, input: CardInput): void 
     y = 945;
   }
   ctx.fillStyle = C.ink;
-  ctx.font = `600 54px ${display}`;
+  ctx.font = `850 54px ${display}`;
   ctx.fillText(total > 0 ? `Same five questions. Beat ${total}?` : 'Same five questions. Your turn.', 96, y);
   ctx.fillStyle = C.soft;
   ctx.font = `500 34px ${sans}`;

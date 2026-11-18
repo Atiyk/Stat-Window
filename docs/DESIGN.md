@@ -1,5 +1,15 @@
 # Visual identity and design rationale
 
+## Court (proposed 2026-11-18, replaces the Clubhouse colours if approved)
+The Clubhouse look (cream paper, pine, terracotta, a soft serif, a white rounded card with a hairline border) had become the default look of generated pages, so it read as AI-made. Court keeps the pine identity and the caliper interaction and changes the rest:
+- **The field is a solid block of pine,** edge to edge on phones. Inside it the roles flip: chalk `#F4F2EA` is the foreground, the window is a chalk tint and a hit brightens it.
+- **The answer is ball orange `#FF7A1F`,** the only warm colour on the screen.
+- **The page is ink `#121A16` on a neutral off-white `#F1EFE9`.** The main button is ink.
+- **One family:** DM Sans at 820 to 850 for the question, the numbers and the wordmark, tracked tight. Fraunces is no longer loaded.
+- **Square corners everywhere.** No hairline borders or outlined boxes: surfaces separate by a tone step.
+- **The context line** ("NBA · Boston Celtics · 2023–24") sits under the question instead of above it, and the results date line sits under the score.
+- **The five round cells** are larger filled squares: the current one is ink, played ones show their points.
+
 ## The idea
 **Clubhouse: a warm editorial daily puzzle.** Paper and pine, with the game on a card at the centre. The player draws a window between two pine caliper brackets. The answer arrives as a terracotta pin. Colour is spent in two places, the window and the reveal, and everything else stays quiet: about 80% neutral, 15% pine and 5% terracotta.
 

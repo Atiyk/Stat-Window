@@ -181,12 +181,12 @@ export function Round({ state, dispatch, label, showHint, challenge = null, onFi
             )}
           </p>
         )}
-        <p className="context">
-          {q.sport} · {q.context}
-        </p>
         <h1 className="question" ref={headingRef} tabIndex={-1}>
           {q.prompt}
         </h1>
+        <p className="context">
+          {q.sport} · {q.context}
+        </p>
       </header>
       </div>
 

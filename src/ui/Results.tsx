@@ -164,11 +164,6 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
   return (
     <article className="results">
       <header className="results-head">
-        <p className="context">
-          {practice
-            ? `${playMode === 'challenge' ? 'Challenge' : 'Practice'} · ${label} · ${formatDay(slate.date)} · not counted in your stats`
-            : `${label} · ${formatDay(slate.date)}`}
-        </p>
         <h1 className="results-title" ref={headingRef} tabIndex={-1}>
           {verdict(total)}
         </h1>
@@ -186,6 +181,11 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
             </li>
           ))}
         </ol>
+        <p className="context results-context">
+          {practice
+            ? `${playMode === 'challenge' ? 'Challenge' : 'Practice'} · ${label} · ${formatDay(slate.date)} · not counted in your stats`
+            : `${label} · ${formatDay(slate.date)}`}
+        </p>
         <ComparisonLine comparison={comparison} onPrivacy={onPrivacy} ref={slotRef} />
         {vs !== null && <p className="versus">{friendLine(total, vs)}</p>}
       </header>

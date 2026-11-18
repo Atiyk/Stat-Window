@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { eventPath, privacySignal, setCohort, setTrackSink, startAnalytics, totalBand, track, trackOnce, type TrackEvent } from './track';
+import { analyticsOn, eventPath, privacySignal, setCohort, setTrackSink, startAnalytics, totalBand, track, trackOnce, type TrackEvent } from './track';
 
 describe('eventPath', () => {
   it('maps every event to a fixed, low-cardinality path with no answers or ids', () => {
@@ -163,5 +163,20 @@ describe('Phase 1 analytics controls', () => {
       setCohort('beta');
     }
     expect(eventPath({ name: 'run_start', mode: 'daily' })).toBe('/e/start/daily');
+  });
+});
+
+describe('analyticsOn', () => {
+  it('runs on the production host unless the build switches it off', () => {
+    expect(analyticsOn(undefined, 'stat-window.vercel.app')).toBe(true);
+    expect(analyticsOn('', 'stat-window.vercel.app')).toBe(true);
+    expect(analyticsOn('off', 'stat-window.vercel.app')).toBe(false);
+    expect(analyticsOn(' OFF ', 'stat-window.vercel.app')).toBe(false);
+  });
+  it('stays off on previews, local runs and CI unless the build asks for it', () => {
+    expect(analyticsOn(undefined, 'stat-window-git-main-atiyk-a.vercel.app')).toBe(false);
+    expect(analyticsOn(undefined, 'localhost')).toBe(false);
+    expect(analyticsOn(undefined, undefined)).toBe(false);
+    expect(analyticsOn('vercel', 'localhost')).toBe(true);
   });
 });

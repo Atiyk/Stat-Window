@@ -97,6 +97,8 @@ describe('submitDaily → server → comparison', () => {
     expect(await deleteMyScores(fetchFor(ctx))).toBe('deleted');
     expect(loadPrivacy().sent).toEqual([]);
     expect(loadPrivacy().key).not.toBe(key);
+    // Deleting also stops: the next results screen must not send the same day again.
+    expect(loadPrivacy().scores).toBe('off');
     expect(await deleteMyScores(fetchFor(ctx))).toBe('nothing');
     savePrivacy({ sent: [DAY], key: 'a'.repeat(22) });
     const down = (() => Promise.reject(new TypeError('offline'))) as unknown as typeof fetch;

@@ -130,14 +130,15 @@ export async function refreshComparison(day: string, score: number, fetchImpl: t
 export async function deleteMyScores(fetchImpl: typeof fetch = fetch): Promise<'deleted' | 'nothing' | 'failed'> {
   const p = loadPrivacy();
   if (!p.key || p.sent.length === 0) {
-    savePrivacy({ key: null, sent: [], done: [] });
+    // Deleting is also a "stop": without this, the next results screen would send today's score again.
+    savePrivacy({ key: null, sent: [], done: [], scores: 'off' });
     return 'nothing';
   }
   try {
     const [status] = await call('DELETE', { player: p.key, days: p.sent }, fetchImpl);
     if (status !== 200) return 'failed';
-    // A fresh key, so nothing new can ever be linked to what was deleted.
-    savePrivacy({ key: newKey(), sent: [], done: [] });
+    // A fresh key, and the comparison switched off so the same days aren't sent again on the next visit.
+    savePrivacy({ key: newKey(), sent: [], done: [], scores: 'off' });
     return 'deleted';
   } catch {
     return 'failed';

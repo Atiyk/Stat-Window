@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy · Stat Window</title>
+<meta name="description" content="What Stat Window collects, why, where it goes, how long it is kept, and how to turn it off or delete it.">
+<meta name="theme-color" content="#F7F5EE">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+body{margin:0;background:#f7f5ee;color:#20312b;font:16px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:46rem;margin:0 auto;padding:28px clamp(16px,4.5vw,40px) 64px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;line-height:1.15;margin:12px 0 4px}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:1.3rem;margin:32px 0 8px}
+a{color:#2f614d;text-underline-offset:.18em}
+.meta{color:#5b6c63;margin:0 0 20px}
+.t{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.9375rem}
+th,td{text-align:left;vertical-align:top;padding:10px 8px;border-top:1px solid #dde2da}
+thead th{color:#5b6c63;font-weight:600}
+code{font-size:.875em;background:#eeece3;padding:1px 4px;border-radius:4px}
+:focus-visible{outline:3px solid #2f614d;outline-offset:2px}
+</style>
+</head>
+<body>
+<main>
+<p><a href="/">&larr; Back to Stat Window</a></p>
+<h1>Privacy</h1>
+<p class="meta">Stat Window · last updated 18 November 2026</p>
+<h2>What Stat Window collects</h2>
+<p>Stat Window has no accounts, no ads, no tracking cookies and no third-party marketing pixels. Your game history (rounds, scores, streaks, settings) is saved <strong>in your own browser</strong> (localStorage) and never uploaded.</p>
+<p>Two optional things leave your browser:</p>
+<div class="t"><table><thead><tr><th scope="col">What</th><th scope="col">Exactly what is sent</th><th scope="col">Why</th><th scope="col">Where it goes</th><th scope="col">How long</th></tr></thead><tbody><tr><th scope="row"><strong>Anonymous play counts</strong></th><td>A page view, then one virtual page view per game event from a fixed list (for example <code>/e/lock/daily/r3/hit</code>, <code>/e/complete/daily/300-399</code>). Score is only a 100-point band. No answers, no typed text, no query strings, no identifier from us. Vercel derives coarse country, browser and device type from the request; it says it does not use cookies.</td><td>To see whether new players understand the game, where they drop off and whether they come back.</td><td>Vercel Web Analytics (Vercel Inc., USA), as our processor.</td><td>Shown in our dashboard for 30 days on the Hobby plan; Vercel's own retention per its policy.</td></tr><tr><th scope="row"><strong>Today's score in the daily comparison</strong></th><td>The day, your five windows (the low and high end you locked, used only to re-score your game on the server), and a random 22-character code made in your browser. The server stores <strong>only</strong> your total (0 to 500) under a salted hash of that code, plus a count per score. Your IP address (for IPv6, its network part) is used as a salted hash to limit abuse: a per-minute request count (2 minutes) and a per-day count of stored scores (about a day). It is never stored with your score.</td><td>So you can see where today's score sits among other players (your percentile), and so one browser counts once.</td><td>Upstash Redis (Upstash Inc., US East region) via Vercel Functions (Vercel Inc., USA), as our processors.</td><td>The record linked to your code: 7 days, then it expires. The anonymous count per score (no codes): up to 400 days.</td></tr></tbody></table></div>
+<p>We do not sell or share this data, build profiles, track you across sites, or fingerprint your device. A browser is not a person: we cannot link your phone and laptop, and we never claim to.</p>
+<h2>Your choices</h2>
+<ul><li><strong>Turn either off</strong> any time: the "Privacy and your data" button on the results screen, or "Privacy choices" in How it works. Turning analytics off takes effect immediately.</li><li><strong>Global Privacy Control / Do Not Track:</strong> if your browser sends either signal, both start <strong>off</strong>. Analytics stays off; the results screen asks before adding your score. You can still switch either on yourself.</li><li><strong>EU, EEA, UK and Switzerland:</strong> your score is only added after you tap "Count my score" (the server checks the country of the request, which it does not store). If the location is unknown we ask too. Before you answer, the app sends only today's date to ask whether a yes is needed: no code is created and your windows are not sent.</li><li><strong>Delete my scores:</strong> removes every score your browser sent that is still linked to its code (the last 7 days), then replaces the code. Clearing this site's data in your browser deletes your local history and the code.</li><li>Gameplay never depends on either: if they are blocked, offline or off, the game works the same.</li></ul>
+<h2>Children</h2>
+<p>Stat Window is a general-audience sports game and is not directed at children under 13. It collects no names, emails or contact details from anyone.</p>
+<h2>Changes and contact</h2>
+<p>Material changes are noted on this page with a new date. Questions: open an issue at <a href="https://github.com/Atiyk/Stat-Window/issues">https://github.com/Atiyk/Stat-Window/issues</a> (do not post personal information there).</p>
+</main>
+</body>
+</html>

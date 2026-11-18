@@ -41,6 +41,10 @@ test.describe('layout', () => {
       // The next step is on screen after every reveal, without scrolling.
       await expect(page.getByRole('button', { name: 'Next question' })).toBeInViewport({ ratio: 1 });
       await page.screenshot({ path: `${shots}/${tag}-reveal.png`, fullPage: true });
+      // Every link in the sources panel is a 44px target.
+      await page.locator('.sources summary').click();
+      for (const link of await page.locator('.sources-body a').all()) expect((await link.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+      await page.locator('.sources summary').click();
       await page.screenshot({ path: `${shots}/${tag}-reveal-fold.png` });
       for (let i = 0; i < 4; i++) {
         await page.mouse.wheel(0, 600);
@@ -54,6 +58,10 @@ test.describe('layout', () => {
       await expect(page.locator('.results-score')).toBeVisible();
       expect(await noOverflow()).toBe(true);
       await page.screenshot({ path: `${shots}/${tag}-results.png`, fullPage: true });
+      // Including the percentile line's Refresh (when shown) and the privacy link: no control under 44px tall.
+      for (const el of await page.locator('.results button:visible').all()) {
+        expect((await el.boundingBox())!.height, (await el.textContent()) ?? '').toBeGreaterThanOrEqual(44);
+      }
       await expect(page.getByRole('button', { name: 'Challenge a friend' })).toBeVisible();
       if (day.name === 'launch') {
         // A friend's challenge link at the same width, in a browser that hasn't played that day.
@@ -102,8 +110,8 @@ test.describe('layout', () => {
     const action = page.getByRole('button', { name: 'Next question' });
     await expect(action).toBeInViewport({ ratio: 1 });
     await expect(page.locator('.story-extra-text')).toHaveText(/.{20,}/);
-    await page.locator('.story-extra-source').scrollIntoViewIfNeeded();
-    await expect(page.locator('.story-extra-source')).toBeInViewport();
+    await page.locator('.sources summary').scrollIntoViewIfNeeded();
+    await expect(page.locator('.sources summary')).toBeInViewport();
     await expect(action).toBeInViewport({ ratio: 1 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   });

@@ -4,14 +4,22 @@ import { challengeUrl } from '../engine/challenge';
 import { msUntilNextPuzzle } from '../engine/daily';
 import { totalPoints, type Mode, type RoundRecord } from '../engine/game';
 import { MAX_TOTAL, shareText, verdict, type PlayerStats } from '../engine/summary';
+import { ordinal } from '../engine/percentile';
 import { formatCountdown, formatDay, formatValue } from '../lib/format';
 import { isMixedSportDay } from '../content/cutover';
-import { track, type PlayMode } from '../lib/track';
+import { track, type PlayMode, type ShareMethod } from '../lib/track';
 import { useNow } from './hooks';
+import { ComparisonLine, ConsentChoice } from './Comparison';
+import { cardBlob } from './share-card';
+import { useComparison } from './use-comparison';
 
 type Props = {
   slate: Slate;
-  number: number;
+  /** Public puzzle label: "No. 4", or "Beta No. 4" once a formal season has launched. */
+  label: string;
+  /** First completed run of today's official puzzle: may join the daily comparison. */
+  eligible: boolean;
+  onPrivacy?: (() => void) | undefined;
   mode: Mode;
   playMode: PlayMode;
   /** False when this is an earlier day (finished after midnight UTC, practice or a challenge). */
@@ -24,7 +32,7 @@ type Props = {
   onPractice: (day: string) => void;
   onBackToToday: () => void;
   /** Called after a share attempt (for the experiment's guardrail). */
-  onShared?: ((method: 'native' | 'clipboard' | 'failed' | 'cancelled') => void) | undefined;
+  onShared?: ((method: ShareMethod) => void) | undefined;
   /** Survival is open and this player is offered it: a quiet secondary button. */
   survivalCta?: (() => void) | null | undefined;
 };
@@ -35,14 +43,28 @@ function localTimeOf(at: Date): string | null {
   return at.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
 }
 
-function comparison(total: number, vs: number): string {
+function friendLine(total: number, vs: number): string {
   if (total > vs) return `Your friend’s link says ${vs}. You beat it by ${total - vs}.`;
   if (total === vs) return `Your friend’s link says ${vs}. Dead level.`;
   return `Your friend’s link says ${vs}. They take this one by ${vs - total}.`;
 }
 
-export function Results({ slate, number, mode, playMode, isToday, vs, results, stats, archive, onPractice, onBackToToday, onShared, survivalCta = null }: Props) {
+export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isToday, vs, results, stats, archive, onPractice, onBackToToday, onShared, survivalCta = null }: Props) {
   const total = totalPoints(results);
+  const raw = useComparison(eligible, slate.date, results);
+  const slotRef = useRef<HTMLDivElement>(null);
+  // After a yes or no the buttons go away; keep focus on the line that now answers.
+  const refocus = () => window.requestAnimationFrame(() => slotRef.current?.focus({ preventScroll: true }));
+  const comparison = { ...raw, join: () => (raw.join(), refocus()), decline: () => (raw.decline(), refocus()) };
+  const verified = comparison.state.kind === 'ready' ? comparison.state : null;
+  const percentileLine = verified ? `${ordinal(verified.percentile)} percentile today (${verified.n.toLocaleString('en-US')} games)` : null;
+  const cardInput = () => ({
+    label,
+    date: formatDay(slate.date),
+    results,
+    percentile: verified ? { label: `${ordinal(verified.percentile)} percentile today`, detail: `based on ${verified.n.toLocaleString('en-US')} eligible completed games` } : null,
+    host: window.location.host || 'stat-window.vercel.app',
+  });
   const now = useNow(1000);
   const [toast, setToast] = useState<string | null>(null);
   const [fallback, setFallback] = useState<string | null>(null);
@@ -58,31 +80,80 @@ export function Results({ slate, number, mode, playMode, isToday, vs, results, s
     return () => window.clearTimeout(t);
   }, [toast]);
 
+  const report = (m: ShareMethod) => {
+    track({ name: 'share', mode: playMode, method: m });
+    onShared?.(m);
+  };
+
+  const nativeShare = typeof navigator !== 'undefined' && !!navigator.share && matchMedia('(pointer: coarse)').matches;
+  // The card is drawn ahead of the tap: Safari only allows share() straight from the gesture,
+  // so awaiting fonts and a canvas inside the click could cost the share sheet.
+  const cardKey = `${label}|${total}|${percentileLine ?? ''}`;
+  const card = useRef<{ key: string; blob: Blob | null } | null>(null);
+  useEffect(() => {
+    if (!nativeShare) return;
+    let live = true;
+    void cardBlob(cardInput()).then((blob) => {
+      if (live) card.current = { key: cardKey, blob };
+    });
+    return () => {
+      live = false;
+    };
+    // cardInput is derived from cardKey's parts.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nativeShare, cardKey]);
+
   const share = async () => {
-    const text = shareText({ number, results, url: challengeUrl(window.location.origin, slate.date, total) });
+    const url = challengeUrl(window.location.origin, slate.date, total);
+    const text = shareText({ label, results, url, percentile: percentileLine });
     try {
-      if (navigator.share && matchMedia('(pointer: coarse)').matches) {
-        await navigator.share({ text });
-        track({ name: 'share', mode: playMode, method: 'native' });
-      onShared?.('native');
-        return;
+      // Native share sheet on touch devices; with the image card when the browser accepts files.
+      if (nativeShare) {
+        // Normally ready; drawn now only if the tap beat the first render.
+        const blob = card.current?.key === cardKey ? card.current.blob : await cardBlob(cardInput());
+        const file = blob ? new File([blob], `stat-window-${slate.date}.png`, { type: 'image/png' }) : null;
+        const withFile = file && navigator.canShare?.({ files: [file] }) ? { files: [file] } : {};
+        try {
+          await navigator.share({ text, ...withFile });
+          // The sheet closed with a target picked. Whether anything was sent isn't observable.
+          report('files' in withFile ? 'native-image' : 'native');
+          return;
+        } catch (e) {
+          if (e instanceof DOMException && e.name === 'AbortError') throw e;
+          // Refused (for example NotAllowedError): fall through to the clipboard.
+        }
       }
       if (!navigator.clipboard?.writeText) throw new Error('No clipboard');
       await navigator.clipboard.writeText(text);
       setToast('Copied. Paste it anywhere.');
-      track({ name: 'share', mode: playMode, method: 'clipboard' });
-      onShared?.('clipboard');
+      report('clipboard');
     } catch (e) {
       if (e instanceof DOMException && e.name === 'AbortError') {
-        track({ name: 'share', mode: playMode, method: 'cancelled' });
-      onShared?.('cancelled');
+        report('cancelled');
         return;
       }
       setFallback(text);
       setToast('Couldn’t copy automatically. Select the text below.');
-      track({ name: 'share', mode: playMode, method: 'failed' });
-      onShared?.('failed');
+      report('failed');
     }
+  };
+
+  const saveCard = async () => {
+    const blob = await cardBlob(cardInput());
+    if (!blob) {
+      setToast('Couldn’t make the image in this browser.');
+      return;
+    }
+    const href = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = href;
+    a.download = `stat-window-${slate.date}.png`;
+    document.body.append(a);
+    a.click();
+    a.remove();
+    window.setTimeout(() => URL.revokeObjectURL(href), 10_000);
+    setToast('Score card ready. No answers on it.');
+    report('image-saved');
   };
 
   const nextAt = new Date(now.getTime() + msUntilNextPuzzle(now));
@@ -95,9 +166,8 @@ export function Results({ slate, number, mode, playMode, isToday, vs, results, s
       <header className="results-head">
         <p className="context">
           {practice
-            ? `${playMode === 'challenge' ? 'Challenge' : 'Practice'} · No. ${number} · ${formatDay(slate.date)} · not counted in your stats`
-            : `No. ${number} · ${formatDay(slate.date)}`}
-          {slate.theme ? ` · ${slate.theme.title}` : ''}
+            ? `${playMode === 'challenge' ? 'Challenge' : 'Practice'} · ${label} · ${formatDay(slate.date)} · not counted in your stats`
+            : `${label} · ${formatDay(slate.date)}`}
         </p>
         <h1 className="results-title" ref={headingRef} tabIndex={-1}>
           {verdict(total)}
@@ -106,18 +176,18 @@ export function Results({ slate, number, mode, playMode, isToday, vs, results, s
           <span className="results-score tabular">{total}</span>
           <span className="results-max">of {MAX_TOTAL}</span>
         </p>
-        <ol className="ledger scorecard" aria-label="Round by round">
+        <ol className="ledger scorecard" aria-label="Question by question">
           {results.map((r, i) => (
             <li key={i} className="ledger-cell" data-status={!r.hit ? 'miss' : r.points > 0 ? 'hit' : 'zero'} style={{ animationDelay: `${i * 70}ms` }}>
               <span className="sr-only">
-                Round {i + 1}: {r.points} points
+                Question {i + 1}: {r.points} points
               </span>
               <span className="ledger-num" aria-hidden="true">{r.points}</span>
             </li>
           ))}
         </ol>
-        {slate.theme && <p className="theme-recap">{slate.theme.recap}</p>}
-        {vs !== null && <p className="versus">{comparison(total, vs)}</p>}
+        <ComparisonLine comparison={comparison} onPrivacy={onPrivacy} ref={slotRef} />
+        {vs !== null && <p className="versus">{friendLine(total, vs)}</p>}
       </header>
 
       <div className="results-actions">
@@ -140,6 +210,9 @@ export function Results({ slate, number, mode, playMode, isToday, vs, results, s
             ? `They get the same five questions and see your ${total}, never your answers.`
             : 'They get the same five questions. No answers are in the link.'}
         </p>
+        <button type="button" className="btn btn-link" onClick={saveCard}>
+          Save score card (no answers on it)
+        </button>
         {fallback && (
           <textarea className="share-fallback" readOnly value={fallback} rows={4} aria-label="Your result to copy" onFocus={(e) => e.currentTarget.select()} />
         )}
@@ -148,6 +221,7 @@ export function Results({ slate, number, mode, playMode, isToday, vs, results, s
             Try Survival: 20 rounds, one life
           </button>
         )}
+        <ConsentChoice comparison={comparison} onPrivacy={onPrivacy} />
         <p className="next-window">
           Next puzzle in <span className="tabular">{formatCountdown(msUntilNextPuzzle(now))}</span>, at midnight UTC
           {local ? ` (${local} your time)` : ''}.
@@ -231,6 +305,14 @@ export function Results({ slate, number, mode, playMode, isToday, vs, results, s
             ))}
           </ul>
         </section>
+      )}
+
+      {onPrivacy && (
+        <p className="privacy-foot">
+          <button type="button" className="btn-link" onClick={onPrivacy}>
+            Privacy and your data
+          </button>
+        </p>
       )}
 
       <div className="toast" role="status" aria-live="polite" data-visible={toast !== null}>

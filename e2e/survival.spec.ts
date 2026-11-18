@@ -73,7 +73,7 @@ test.describe('flag off (the production build)', () => {
     const urls: string[] = [];
     page.on('request', (r) => urls.push(r.url()));
     await openAt(page, at('2026-12-20'), '/?survival&asof=2027-01-10');
-    await expect(page.getByText('Round 1 of 5')).toBeVisible();
+    await expect(page.getByText('Question 1 of 5')).toBeVisible();
     await expect(page.getByText(/Survival/)).toHaveCount(0);
     expect(urls.some((u) => /Survival|catalog/.test(u))).toBe(false);
     for (let r = 0; r < 5; r++) {
@@ -197,7 +197,7 @@ test.describe('preview build', () => {
     await play(page, true);
     await page.getByRole('button', { name: 'Next round' }).click();
     await page.goto('/');
-    await expect(page.getByText('Round 1 of 5')).toBeVisible();
+    await expect(page.getByText('Question 1 of 5')).toBeVisible();
     await page.goto('/?survival&asof=2026-12-20');
     await expect(page.getByText('Survival · Round 2 of 20')).toBeVisible();
   });

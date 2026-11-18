@@ -1,0 +1,145 @@
+/**
+ * Browser side of the daily comparison (server: server/api.ts, spec: docs/PERCENTILES.md).
+ * Every call fails soft: the game, the score and sharing never wait on it.
+ */
+import type { RoundRecord } from '../engine/game';
+import { midrankPercentile, emptyDistribution, PERCENTILE_MIN_SAMPLE } from '../engine/percentile';
+import { loadPrivacy, newKey, savePrivacy, scoreKey } from './privacy';
+
+export type Comparison =
+  | { kind: 'ready'; percentile: number; n: number; score: number; asOf: string }
+  | { kind: 'gathering'; n: number; threshold: number; score: number; asOf: string }
+  | { kind: 'consent' }
+  | { kind: 'ineligible' }
+  | { kind: 'disabled' }
+  | { kind: 'unavailable' };
+
+type ApiBody = {
+  status?: string;
+  n?: number;
+  threshold?: number;
+  ready?: boolean;
+  score?: number;
+  percentile?: { rounded: number } | null;
+  counts?: Record<string, number>;
+  asOf?: string;
+};
+
+const ENDPOINT = '/api/scores';
+/** The published build never shows a percentile from fewer than 100 games, whatever a server says. */
+const FLOOR = (import.meta as ImportMeta & { env?: { DEV?: boolean } }).env?.DEV ? 0 : PERCENTILE_MIN_SAMPLE;
+
+/** QA runs (`?qa=1` once, remembered) go to a separate season that never reaches real rankings. */
+export function isQa(): boolean {
+  try {
+    if (new URLSearchParams(window.location.search).get('qa') === '1') window.localStorage.setItem('stat-window:qa', '1');
+    return window.localStorage.getItem('stat-window:qa') === '1';
+  } catch {
+    return false;
+  }
+}
+
+function toComparison(status: number, b: ApiBody | null): Comparison {
+  if (status === 409 || b?.status === 'consent-required') return { kind: 'consent' };
+  if (b?.status === 'ineligible') return { kind: 'ineligible' };
+  if (b?.status === 'disabled' || status === 404 || status === 405) return { kind: 'disabled' };
+  if ((b?.status === 'stored' || b?.status === 'duplicate') && typeof b.n === 'number' && typeof b.score === 'number') {
+    const asOf = b.asOf ?? new Date().toISOString();
+    const threshold = Math.max(b.threshold ?? PERCENTILE_MIN_SAMPLE, FLOOR);
+    if (b.ready && b.percentile && b.n >= threshold) return { kind: 'ready', percentile: b.percentile.rounded, n: b.n, score: b.score, asOf };
+    return { kind: 'gathering', n: b.n, threshold, score: b.score, asOf };
+  }
+  return { kind: 'unavailable' };
+}
+
+async function call(method: 'POST' | 'DELETE', body: unknown, fetchImpl: typeof fetch): Promise<[number, ApiBody | null]> {
+  const res = await fetchImpl(ENDPOINT, {
+    method,
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+    credentials: 'omit',
+    cache: 'no-store',
+    signal: AbortSignal.timeout(6000),
+  });
+  return [res.status, (await res.json().catch(() => null)) as ApiBody | null];
+}
+
+/**
+ * Sends a finished official daily (first completion wins on the server, so a retry,
+ * a refresh or a second tab is safe). Only the five windows go up, never answers
+ * typed text or the URL; the server re-scores them.
+ */
+export async function submitDaily(
+  opts: { day: string; results: readonly RoundRecord[]; consent: boolean },
+  fetchImpl: typeof fetch = fetch,
+): Promise<Comparison> {
+  if (opts.results.length !== 5) return { kind: 'ineligible' };
+  const total = opts.results.reduce((s, r) => s + r.points, 0);
+  // Already counted (first completion wins): just read the tally, which the edge caches.
+  if (loadPrivacy().done.includes(opts.day)) return refreshComparison(opts.day, total, fetchImpl);
+  try {
+    const consent = opts.consent ? 'granted' : 'default';
+    if (!opts.consent) {
+      // Ask the server whether this location needs a yes first, sending nothing identifying:
+      // no key is made or sent, and no windows, until the answer is "go ahead".
+      const [status, b] = await call('POST', { day: opts.day, consent }, fetchImpl);
+      if (b?.status !== 'proceed') {
+        const c = toComparison(status, b);
+        if (c.kind === 'consent') savePrivacy({ asked: true });
+        return c;
+      }
+    }
+    const body = {
+      day: opts.day,
+      player: scoreKey(),
+      rounds: opts.results.map((r) => ({ id: r.questionId, lo: r.lo, hi: r.hi })),
+      total,
+      consent,
+      ...(isQa() ? { test: true } : {}),
+    };
+    // Recorded before sending, so a lost response can't leave a stored score that "Delete" doesn't know about.
+    savePrivacy({ sent: [...loadPrivacy().sent, opts.day] });
+    const [status, b] = await call('POST', body, fetchImpl);
+    const c = toComparison(status, b);
+    if (c.kind === 'ready' || c.kind === 'gathering') savePrivacy({ done: [...loadPrivacy().done, opts.day] });
+    return c;
+  } catch {
+    return { kind: 'unavailable' };
+  }
+}
+
+/** Re-reads today's distribution (cached at the edge for a few minutes) for a score already submitted. */
+export async function refreshComparison(day: string, score: number, fetchImpl: typeof fetch = fetch): Promise<Comparison> {
+  try {
+    const res = await fetchImpl(`${ENDPOINT}?day=${encodeURIComponent(day)}`, { credentials: 'omit', signal: AbortSignal.timeout(6000) });
+    const b = (await res.json().catch(() => null)) as ApiBody | null;
+    if (!res.ok || b?.status !== 'ok' || typeof b.n !== 'number') return toComparison(res.status, b);
+    const asOf = b.asOf ?? new Date().toISOString();
+    const threshold = Math.max(b.threshold ?? PERCENTILE_MIN_SAMPLE, FLOOR);
+    if (!b.ready || !b.counts || b.n < threshold) return { kind: 'gathering', n: b.n, threshold, score, asOf };
+    const counts = emptyDistribution();
+    for (const [s, c] of Object.entries(b.counts)) if (/^\d{1,3}$/.test(s) && Number(s) <= 500) counts[Number(s)] = c;
+    const p = midrankPercentile(counts, score);
+    return p ? { kind: 'ready', percentile: p.rounded, n: p.n, score, asOf } : { kind: 'unavailable' };
+  } catch {
+    return { kind: 'unavailable' };
+  }
+}
+
+/** Deletes every score this browser sent that the server still links to it, then forgets the key. */
+export async function deleteMyScores(fetchImpl: typeof fetch = fetch): Promise<'deleted' | 'nothing' | 'failed'> {
+  const p = loadPrivacy();
+  if (!p.key || p.sent.length === 0) {
+    savePrivacy({ key: null, sent: [], done: [] });
+    return 'nothing';
+  }
+  try {
+    const [status] = await call('DELETE', { player: p.key, days: p.sent }, fetchImpl);
+    if (status !== 200) return 'failed';
+    // A fresh key, so nothing new can ever be linked to what was deleted.
+    savePrivacy({ key: newKey(), sent: [], done: [] });
+    return 'deleted';
+  } catch {
+    return 'failed';
+  }
+}

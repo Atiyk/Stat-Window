@@ -43,12 +43,12 @@ test('an unfinished mixed-sport run at midnight is finished on its own day, then
   await lockAndSettle(page);
   await next(page);
   await page.clock.fastForward('04:00');
-  await expect(page.locator('.round-meta')).toContainText('Round 2 of 5');
+  await expect(page.locator('.round-meta')).toContainText('Question 2 of 5');
   await expect(page.locator('.question')).toContainText(lastMixed.questions[1]!.prompt);
   await expect(page.locator('.theme-line')).toHaveCount(0);
   await playOut(page, 1);
   await page.getByRole('button', { name: 'Play today’s puzzle' }).click();
-  await expect(page.locator('.theme-line')).toHaveText(firstNba.theme.title);
+  await expect(page.locator('.question')).toContainText(firstNba.questions[0]!.prompt);
   await expect(page.locator('.question')).toContainText(firstNba.questions[0]!.prompt);
   expect(errors).toEqual([]);
 });
@@ -59,7 +59,7 @@ test('a tab idle on the finished mixed day moves to the NBA day at midnight', as
   await expect(page.locator('.question')).toBeVisible();
   await playOut(page);
   await page.clock.fastForward('11:00');
-  await expect(page.locator('.theme-line')).toHaveText(firstNba.theme.title);
+  await expect(page.locator('.question')).toContainText(firstNba.questions[0]!.prompt);
 });
 
 test('after the cutover, a friend link to a mixed-sport day still plays that day, and the archive labels it', async ({ page }) => {
@@ -75,7 +75,7 @@ test('after the cutover, a friend link to a mixed-sport day still plays that day
 
 test('on the cutover day, a link to the next NBA day is refused as a future day', async ({ page }) => {
   await openAt(page, new Date(`${NBA_CUTOVER}T12:00:00Z`), `/?day=${NBA_DAYS[1]}&vs=300`);
-  await expect(page.locator('.theme-line')).toHaveText(firstNba.theme.title);
+  await expect(page.locator('.question')).toContainText(firstNba.questions[0]!.prompt);
   await expect(page.locator('.challenge-note')).toHaveCount(0);
 });
 
@@ -90,7 +90,7 @@ test('a tab from before a deploy reloads once when its day file has gone, then p
   });
   await page.clock.setFixedTime(new Date(`${NBA_CUTOVER}T12:00:00Z`));
   await page.goto('/');
-  await expect(page.locator('.theme-line')).toHaveText(firstNba.theme.title);
+  await expect(page.locator('.question')).toContainText(firstNba.questions[0]!.prompt);
   expect(refused).toBe(1);
 });
 

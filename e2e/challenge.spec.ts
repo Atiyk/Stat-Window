@@ -33,7 +33,7 @@ test('a friend opens a challenge link after UTC midnight and gets the same five 
   await openAt(b, new Date('2026-11-17T00:05:00Z'), `/?day=2026-11-16&vs=${total}`);
   await expect(b.locator('.question')).toContainText(BONDS);
   await expect(b.locator('.day-label')).toHaveText('No. 2');
-  await expect(b.locator('.round-meta')).toContainText('Round 1 of 5');
+  await expect(b.locator('.round-meta')).toContainText('Question 1 of 5');
   await expect(b.locator('.challenge-note')).toContainText(`A friend scored ${total}`);
   // No spoilers before play: the answer and its note are not on the page yet.
   await expect(b.locator('.story')).toHaveCount(0);
@@ -42,7 +42,7 @@ test('a friend opens a challenge link after UTC midnight and gets the same five 
   await lockAndSettle(b);
   await next(b);
   await b.reload();
-  await expect(b.locator('.round-meta')).toContainText('Round 2 of 5');
+  await expect(b.locator('.round-meta')).toContainText('Question 2 of 5');
   await playOut(b, 1);
   await expect(b.locator('.results-head')).toContainText('Challenge · No. 2');
   await expect(b.locator('.results-head')).toContainText('not counted in your stats');
@@ -51,7 +51,7 @@ test('a friend opens a challenge link after UTC midnight and gets the same five 
   // Their own daily (No. 3) is untouched and still to play.
   await b.getByRole('button', { name: 'Play today’s puzzle' }).click();
   await expect(b.locator('.day-label')).toHaveText('No. 3');
-  await expect(b.locator('.round-meta')).toContainText('Round 1 of 5');
+  await expect(b.locator('.round-meta')).toContainText('Question 1 of 5');
   await expect(b).toHaveURL(/\/$/);
   expect(errors).toEqual([]);
   await recipient.close();
@@ -94,7 +94,7 @@ test('a run in progress at UTC midnight is finished on its own day, then today o
   await page.clock.fastForward('02:00');
   // Still No. 1, round 2: midnight does not pull the player out of a run.
   await expect(page.locator('.day-label')).toHaveText('No. 1');
-  await expect(page.locator('.round-meta')).toContainText('Round 2 of 5');
+  await expect(page.locator('.round-meta')).toContainText('Question 2 of 5');
   await playOut(page, 1);
   await expect(page.locator('.stats')).toContainText('Played1');
   await page.getByRole('button', { name: 'Play today’s puzzle' }).click();
@@ -127,6 +127,6 @@ test('practice runs of earlier days are saved, so a refresh does not re-roll the
   // Reload goes back to today (finished); the practice run waits where it was left.
   await expect(page.locator('.results-title')).toBeVisible();
   await page.getByRole('button', { name: 'Nov 15' }).click();
-  await expect(page.locator('.round-meta')).toContainText('Round 2 of 5');
+  await expect(page.locator('.round-meta')).toContainText('Question 2 of 5');
   await expect(page.locator('.stats')).toHaveCount(0);
 });

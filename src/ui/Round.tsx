@@ -7,15 +7,14 @@ import { Readout } from './Readout';
 import { Ruler, type RulerReveal } from './Ruler';
 import { usePrefersReducedMotion } from './hooks';
 import { browserFunFactSeed, pickFunFact } from './fun-facts';
+import { pickReactions } from './reactions';
+import { SourcesDisclosure } from './Sources';
 
 type Props = {
   state: GameState;
   dispatch: Dispatch<GameAction>;
+  /** "Question 2 of 5" (difficulty and daily themes stay internal and are never shown). */
   label: string;
-  /** Difficulty of this round (Easy … Expert), when the slate has one. */
-  level?: string | undefined;
-  /** The day's theme title, when the slate has one. */
-  theme?: string | undefined;
   showHint: boolean;
   /** Set when the run came from a friend's link: shown before the first round only. */
   challenge?: { vs: number | null } | null;
@@ -42,20 +41,22 @@ const TRAVEL_MS = 1050;
 const CLAMP_MS = 260;
 const easeOutQuint = (t: number) => 1 - (1 - t) ** 5;
 
-function hitLine(points: number): string {
-  if (points === 100) return 'Nailed to the notch.';
-  if (points >= 85) return 'Bang on.';
-  if (points >= 60) return 'Tight. Good.';
-  if (points >= 30) return 'Caught it.';
-  return 'Caught, but loose.';
-}
-
-export function Round({ state, dispatch, label, level, theme, showHint, challenge = null, onFirstTouch, survival }: Props) {
+export function Round({ state, dispatch, label, showHint, challenge = null, onFirstTouch, survival }: Props) {
   const q = currentQuestion(state);
   const reduced = usePrefersReducedMotion();
   const [factSeed] = useState(browserFunFactSeed);
   const extra = pickFunFact(q, factSeed);
   const last = state.results[state.round];
+  // One short reaction per reveal, stable across refreshes and not repeated within a run.
+  const reaction = last
+    ? pickReactions(
+        state.results.slice(0, state.round + 1).map((r, i) => {
+          const rq = state.slate.questions[i] ?? q;
+          return { questionId: r.questionId, input: { ...r, min: rq.min, max: rq.max, step: rq.step, round: i, rounds: ROUNDS } };
+        }),
+        factSeed,
+      ).at(-1)?.text
+    : undefined;
   const [progress, setProgress] = useState(0);
   const [shownPoints, setShownPoints] = useState(0);
   const actionRef = useRef<HTMLButtonElement>(null);
@@ -153,7 +154,7 @@ export function Round({ state, dispatch, label, level, theme, showHint, challeng
             return (
               <li key={i} className="ledger-cell" data-status={status}>
                 <span className="sr-only">
-                  Round {i + 1}: {shown ? `${r.points} points` : i === state.round ? 'now playing' : 'to play'}
+                  Question {i + 1}: {shown ? `${r.points} points` : i === state.round ? 'now playing' : 'to play'}
                 </span>
                                 <span className="ledger-num" aria-hidden="true">{shown ? r.points : i + 1}</span>
               </li>
@@ -161,13 +162,7 @@ export function Round({ state, dispatch, label, level, theme, showHint, challeng
           })}
         </ol>}
         <p className="round-meta">
-          <span>{label}</span>
-          {level && (
-            <span className="round-level">
-              <span className="sr-only"> · </span>
-              {level}
-            </span>
-          )}
+          <span className="round-label">{label}</span>
           <span className="round-total">
             <span className="tabular">{runningTotal}</span> pts
           </span>
@@ -186,7 +181,6 @@ export function Round({ state, dispatch, label, level, theme, showHint, challeng
             )}
           </p>
         )}
-        {theme && <p className="theme-line">{theme}</p>}
         <p className="context">
           {q.sport} · {q.context}
         </p>
@@ -208,7 +202,7 @@ export function Round({ state, dispatch, label, level, theme, showHint, challeng
                 <p className="outcome outcome-hit">
                   <span className="outcome-word">
                     <span className="outcome-glyph" aria-hidden="true">✓</span>
-                    {hitLine(last.points)}
+                    Inside.
                   </span>
                   <span className="outcome-points tabular">+{shownPoints}</span>
                 </p>
@@ -264,6 +258,7 @@ export function Round({ state, dispatch, label, level, theme, showHint, challeng
 
       {resolved && (
         <section className="story" aria-label="About this answer">
+          {reaction && !survival && <p className="story-reaction">{reaction}</p>}
           <p className="story-answer">
             <span className="tabular">{formatValue(q.answer, q.step)}</span> {unitFor(q.answer, q.unit)}
           </p>
@@ -272,27 +267,9 @@ export function Round({ state, dispatch, label, level, theme, showHint, challeng
             <aside className="story-extra" aria-label="Bonus sports fact">
               <p className="story-extra-title">One more thing</p>
               <p className="story-extra-text">{extra.text}</p>
-              <a className="story-extra-source" href={extra.source.url} target="_blank" rel="noopener noreferrer">
-                Source: {extra.source.name}
-              </a>
             </aside>
           )}
-          <p className="story-source">
-            Source:{' '}
-            <a href={q.source.url} target="_blank" rel="noopener noreferrer">
-              {q.source.name.replace(/ \(CC BY-SA 4\.0\)$/, '')}
-            </a>
-            {/ \(CC BY-SA 4\.0\)$/.test(q.source.name) && (
-              <>
-                {' ('}
-                <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">
-                  CC BY-SA 4.0
-                </a>
-                {')'}
-              </>
-            )}
-            {q.source.derivation ? ` (${q.source.derivation})` : ''}
-          </p>
+          <SourcesDisclosure question={q} extra={extra} />
         </section>
       )}
 

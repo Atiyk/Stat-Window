@@ -14,11 +14,20 @@ export function roundMark(r: RoundRecord): string {
 }
 
 /** Spoiler-free share: score, one mark per round, an invitation and a link to the same five questions. */
-export function shareText(opts: { number: number; results: readonly RoundRecord[]; url: string }): string {
+export function shareText(opts: {
+  number?: number;
+  /** Public label ("No. 4", "Beta No. 4"); wins over `number`. */
+  label?: string;
+  results: readonly RoundRecord[];
+  url: string;
+  /** Only a verified, sample-gated line ("82nd percentile today, 214 games"). */
+  percentile?: string | null;
+}): string {
   const total = opts.results.reduce((s, r) => s + r.points, 0);
   return [
-    `Stat Window No. ${opts.number}  ${total}/${MAX_TOTAL}`,
+    `Stat Window ${opts.label ?? `No. ${opts.number ?? 0}`}  ${total}/${MAX_TOTAL}`,
     opts.results.map(roundMark).join(''),
+    ...(opts.percentile ? [opts.percentile] : []),
     total > 0 ? `Same five questions. Can you beat ${total}?` : 'Same five questions. Your turn.',
     opts.url,
   ].join('\n');

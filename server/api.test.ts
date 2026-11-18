@@ -152,6 +152,9 @@ describe('POST /api/scores', () => {
     expect((await submit(ctx, { day: DAY, player: player(1), rounds: a.rounds })).code).toBe(200);
     expect((await submit(ctx, { day: DAY, player: player(2), rounds: a.rounds })).code).toBe(503);
     expect(ctx.memo.pausedUntil).toBe(Date.UTC(2026, 11, 1));
+    // A paused call charges nothing, so the deletion reserve stays whole.
+    const month = (ctx.store as unknown as { dump(): Map<string, unknown> }).dump().get(`sw:v1:budget:m:${DAY.slice(0, 7)}`);
+    expect(month).toBe(COST.submit);
     const env = { SCORES_ENABLED: '1', SCORE_HASH_SECRET: 'x', SCORES_MONTHLY_BUDGET: '9999999' };
     expect(contextFromEnv(env, { store: null, loadSlate: fileSlates() }).limits.monthlyBudget).toBe(DEFAULT_LIMITS.monthlyBudget);
   });
@@ -169,6 +172,7 @@ describe('POST /api/scores', () => {
     expect(ipPrefix('2001:0db8:0001:0002:0:0:0:9')).toBe('2001:db8:1:2::/64');
     expect(ipPrefix('::1')).toBe('0:0:0:0::/64');
     expect(ipPrefix('203.0.113.7')).toBe('203.0.113.7');
+    expect(ipPrefix('::ffff:198.51.100.4')).toBe('198.51.100.4');
   });
 
   it('is off until SCORES_ENABLED=1 and a store are configured, but deletion keeps working', async () => {
@@ -227,7 +231,9 @@ describe('percentiles past the sample gate', () => {
     expect(text).not.toContain(player(1));
     expect((await handle(new Request('https://stat-window.vercel.app/api/scores?day=2026-11-20'), ctx)).status).toBe(422);
     // Junk parameters would bypass the edge cache, so they are refused.
-    expect((await handle(new Request(`https://stat-window.vercel.app/api/scores?day=${DAY}&x=1`), ctx)).status).toBe(422);
+    for (const q of [`?day=${DAY}&x=1`, `?day=${DAY}&`, `?day=${DAY}&&&`, `?%64ay=${DAY}`, `?d%61y=${DAY}&`]) {
+      expect((await handle(new Request(`https://stat-window.vercel.app/api/scores${q}`), ctx)).status).toBe(422);
+    }
   });
 });
 

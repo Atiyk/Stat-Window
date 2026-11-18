@@ -59,7 +59,7 @@ export type ScoreStore = {
  * (https://upstash.com/docs/redis/overall/billing, "Lua scripts"). These are upper bounds
  * per script, charged up front, so the counters never under-count.
  */
-export const COST = { submit: 16, read: 6, remove: (pairs: number) => 6 + 4 * pairs } as const;
+export const COST = { submit: 18, read: 8, remove: (pairs: number) => 6 + 4 * pairs } as const;
 const DAY_TTL = 2 * 86_400;
 const MONTH_TTL = 32 * 86_400;
 const IP_DAY_TTL = 26 * 3_600;
@@ -74,12 +74,11 @@ local r = redis.call('INCR', KEYS[3])
 if r == 1 then redis.call('EXPIRE', KEYS[3], 120) end
 if r > tonumber(ARGV[6]) then return {'limited'} end
 local cost = tonumber(ARGV[8])
-local d = redis.call('INCRBY', KEYS[5], cost)
-if d == cost then redis.call('EXPIRE', KEYS[5], ARGV[9]) end
-local m = redis.call('INCRBY', KEYS[6], cost)
-if m == cost then redis.call('EXPIRE', KEYS[6], ARGV[10]) end
-if m > tonumber(ARGV[5]) then return {'paused', 'month'} end
-if d > tonumber(ARGV[4]) then return {'paused', 'day'} end
+-- Read first: a paused call charges nothing, so it can't eat the deletion reserve.
+if tonumber(redis.call('GET', KEYS[6]) or '0') + cost > tonumber(ARGV[5]) then return {'paused', 'month'} end
+if tonumber(redis.call('GET', KEYS[5]) or '0') + cost > tonumber(ARGV[4]) then return {'paused', 'day'} end
+if redis.call('INCRBY', KEYS[5], cost) == cost then redis.call('EXPIRE', KEYS[5], ARGV[9]) end
+if redis.call('INCRBY', KEYS[6], cost) == cost then redis.call('EXPIRE', KEYS[6], ARGV[10]) end
 local prev = redis.call('GET', KEYS[1])
 if prev then return {'duplicate', tonumber(prev), redis.call('HGETALL', KEYS[2])} end
 local s = tonumber(redis.call('GET', KEYS[4]) or '0')
@@ -94,12 +93,10 @@ return {'stored', tonumber(ARGV[1]), redis.call('HGETALL', KEYS[2])}
 /** KEYS: dist, budgetDay, budgetMonth. ARGV: dailyBudget, monthlyBudget, cost, dayTtl, monthTtl. */
 export const READ_LUA = `
 local cost = tonumber(ARGV[3])
-local d = redis.call('INCRBY', KEYS[2], cost)
-if d == cost then redis.call('EXPIRE', KEYS[2], ARGV[4]) end
-local m = redis.call('INCRBY', KEYS[3], cost)
-if m == cost then redis.call('EXPIRE', KEYS[3], ARGV[5]) end
-if m > tonumber(ARGV[2]) then return {'paused', 'month'} end
-if d > tonumber(ARGV[1]) then return {'paused', 'day'} end
+if tonumber(redis.call('GET', KEYS[3]) or '0') + cost > tonumber(ARGV[2]) then return {'paused', 'month'} end
+if tonumber(redis.call('GET', KEYS[2]) or '0') + cost > tonumber(ARGV[1]) then return {'paused', 'day'} end
+if redis.call('INCRBY', KEYS[2], cost) == cost then redis.call('EXPIRE', KEYS[2], ARGV[4]) end
+if redis.call('INCRBY', KEYS[3], cost) == cost then redis.call('EXPIRE', KEYS[3], ARGV[5]) end
 return {'ok', redis.call('HGETALL', KEYS[1])}
 `;
 
@@ -112,9 +109,8 @@ local r = redis.call('INCR', KEYS[1])
 if r == 1 then redis.call('EXPIRE', KEYS[1], 120) end
 if r > tonumber(ARGV[2]) then return {'limited'} end
 local cost = tonumber(ARGV[3])
-local m = redis.call('INCRBY', KEYS[2], cost)
-if m == cost then redis.call('EXPIRE', KEYS[2], ARGV[4]) end
-if m > tonumber(ARGV[1]) then return {'paused'} end
+if tonumber(redis.call('GET', KEYS[2]) or '0') + cost > tonumber(ARGV[1]) then return {'paused'} end
+if redis.call('INCRBY', KEYS[2], cost) == cost then redis.call('EXPIRE', KEYS[2], ARGV[4]) end
 local removed = 0
 for i = 3, #KEYS, 2 do
   local prev = redis.call('GET', KEYS[i])
@@ -212,9 +208,12 @@ export function memoryStore(now: () => number = Date.now): ScoreStore & { dump()
   };
   const hash = (k: string) => (get(k) as Map<string, number> | undefined) ?? new Map<string, number>();
   const spend = (budget: BudgetKeys, cost: number, limits: Limits): 'day' | 'month' | null => {
-    const d = incrBy(budget.day, cost, DAY_TTL);
-    const m = incrBy(budget.month, cost, MONTH_TTL);
-    return m > limits.monthlyBudget ? 'month' : d > limits.dailyBudget ? 'day' : null;
+    const used = (k: string) => (get(k) as number | undefined) ?? 0;
+    if (used(budget.month) + cost > limits.monthlyBudget) return 'month';
+    if (used(budget.day) + cost > limits.dailyBudget) return 'day';
+    incrBy(budget.day, cost, DAY_TTL);
+    incrBy(budget.month, cost, MONTH_TTL);
+    return null;
   };
   return {
     dump: () => new Map([...data].map(([k, e]) => [k, e.v])),
@@ -239,7 +238,9 @@ export function memoryStore(now: () => number = Date.now): ScoreStore & { dump()
     },
     async removeMany(pairs, rate, budget, limits) {
       if (incrBy(rate, 1, 120) > limits.ratePerMinute) return 'limited';
-      if (incrBy(budget.month, COST.remove(pairs.length), MONTH_TTL) > limits.monthlyBudget + limits.eraseReserve) return 'paused';
+      const cost = COST.remove(pairs.length);
+      if (((get(budget.month) as number | undefined) ?? 0) + cost > limits.monthlyBudget + limits.eraseReserve) return 'paused';
+      incrBy(budget.month, cost, MONTH_TTL);
       let removed = 0;
       for (const { sub, dist } of pairs) {
         const prev = get(sub) as number | undefined;

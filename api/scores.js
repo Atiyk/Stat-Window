@@ -135,7 +135,7 @@ var DEFAULT_LIMITS = {
 	monthlyBudget: 38e4,
 	eraseReserve: 2e4,
 	ratePerMinute: 6,
-	ipDailyStored: 10
+	ipDailyStored: 30
 };
 var PLAYER = /^[A-Za-z0-9_-]{22}$/;
 var ID = /^[a-z0-9-]{1,80}$/;
@@ -189,6 +189,8 @@ function rememberLimited(ctx, client, now) {
 }
 /** IPv4 as is; IPv6 cut to its /64, so one home or phone network is one client. */
 function ipPrefix(ip) {
+	const mapped = /^::ffff:(\d{1,3}(?:\.\d{1,3}){3})$/i.exec(ip);
+	if (mapped) return mapped[1];
 	if (!ip.includes(":")) return ip;
 	const [head = "", tail = ""] = ip.toLowerCase().split("::");
 	const left = head ? head.split(":") : [];
@@ -294,7 +296,7 @@ async function handle(req, ctx) {
 		if (req.method === "GET") {
 			const url = new URL(req.url);
 			const day = url.searchParams.get("day");
-			if ([...url.searchParams.keys()].length !== 1 || !isIsoDay(day) || day > today || day < addDays(today, -1)) return json(422, { status: "invalid" });
+			if (!isIsoDay(day) || url.search !== `?day=${day}` || day > today || day < addDays(today, -1)) return json(422, { status: "invalid" });
 			if (paused) return json(503, { status: "paused" });
 			const season = seasonOf(day, { launchDay: ctx.launchDay });
 			const read = await ctx.store.read(`${keyPrefix(ctx, season, day)}:dist`, budget, ctx.limits);
@@ -464,8 +466,8 @@ function fileSlates(root = process.cwd()) {
 * per script, charged up front, so the counters never under-count.
 */
 var COST = {
-	submit: 16,
-	read: 6,
+	submit: 18,
+	read: 8,
 	remove: (pairs) => 6 + 4 * pairs
 };
 var DAY_TTL = 172800;
@@ -481,12 +483,11 @@ local r = redis.call('INCR', KEYS[3])
 if r == 1 then redis.call('EXPIRE', KEYS[3], 120) end
 if r > tonumber(ARGV[6]) then return {'limited'} end
 local cost = tonumber(ARGV[8])
-local d = redis.call('INCRBY', KEYS[5], cost)
-if d == cost then redis.call('EXPIRE', KEYS[5], ARGV[9]) end
-local m = redis.call('INCRBY', KEYS[6], cost)
-if m == cost then redis.call('EXPIRE', KEYS[6], ARGV[10]) end
-if m > tonumber(ARGV[5]) then return {'paused', 'month'} end
-if d > tonumber(ARGV[4]) then return {'paused', 'day'} end
+-- Read first: a paused call charges nothing, so it can't eat the deletion reserve.
+if tonumber(redis.call('GET', KEYS[6]) or '0') + cost > tonumber(ARGV[5]) then return {'paused', 'month'} end
+if tonumber(redis.call('GET', KEYS[5]) or '0') + cost > tonumber(ARGV[4]) then return {'paused', 'day'} end
+if redis.call('INCRBY', KEYS[5], cost) == cost then redis.call('EXPIRE', KEYS[5], ARGV[9]) end
+if redis.call('INCRBY', KEYS[6], cost) == cost then redis.call('EXPIRE', KEYS[6], ARGV[10]) end
 local prev = redis.call('GET', KEYS[1])
 if prev then return {'duplicate', tonumber(prev), redis.call('HGETALL', KEYS[2])} end
 local s = tonumber(redis.call('GET', KEYS[4]) or '0')
@@ -500,12 +501,10 @@ return {'stored', tonumber(ARGV[1]), redis.call('HGETALL', KEYS[2])}
 /** KEYS: dist, budgetDay, budgetMonth. ARGV: dailyBudget, monthlyBudget, cost, dayTtl, monthTtl. */
 var READ_LUA = `
 local cost = tonumber(ARGV[3])
-local d = redis.call('INCRBY', KEYS[2], cost)
-if d == cost then redis.call('EXPIRE', KEYS[2], ARGV[4]) end
-local m = redis.call('INCRBY', KEYS[3], cost)
-if m == cost then redis.call('EXPIRE', KEYS[3], ARGV[5]) end
-if m > tonumber(ARGV[2]) then return {'paused', 'month'} end
-if d > tonumber(ARGV[1]) then return {'paused', 'day'} end
+if tonumber(redis.call('GET', KEYS[3]) or '0') + cost > tonumber(ARGV[2]) then return {'paused', 'month'} end
+if tonumber(redis.call('GET', KEYS[2]) or '0') + cost > tonumber(ARGV[1]) then return {'paused', 'day'} end
+if redis.call('INCRBY', KEYS[2], cost) == cost then redis.call('EXPIRE', KEYS[2], ARGV[4]) end
+if redis.call('INCRBY', KEYS[3], cost) == cost then redis.call('EXPIRE', KEYS[3], ARGV[5]) end
 return {'ok', redis.call('HGETALL', KEYS[1])}
 `;
 /**
@@ -517,9 +516,8 @@ local r = redis.call('INCR', KEYS[1])
 if r == 1 then redis.call('EXPIRE', KEYS[1], 120) end
 if r > tonumber(ARGV[2]) then return {'limited'} end
 local cost = tonumber(ARGV[3])
-local m = redis.call('INCRBY', KEYS[2], cost)
-if m == cost then redis.call('EXPIRE', KEYS[2], ARGV[4]) end
-if m > tonumber(ARGV[1]) then return {'paused'} end
+if tonumber(redis.call('GET', KEYS[2]) or '0') + cost > tonumber(ARGV[1]) then return {'paused'} end
+if redis.call('INCRBY', KEYS[2], cost) == cost then redis.call('EXPIRE', KEYS[2], ARGV[4]) end
 local removed = 0
 for i = 3, #KEYS, 2 do
   local prev = redis.call('GET', KEYS[i])

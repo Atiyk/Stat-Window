@@ -53,7 +53,7 @@ export const DEFAULT_LIMITS: Limits = {
   monthlyBudget: 380_000,
   eraseReserve: 20_000,
   ratePerMinute: 6,
-  ipDailyStored: 10,
+  ipDailyStored: 30,
 };
 /** Days back that DELETE looks (submission records live 7 days; one more for the grace period). */
 const DELETE_DAYS = 8;
@@ -114,6 +114,9 @@ function rememberLimited(ctx: ApiContext, client: string, now: Date) {
 
 /** IPv4 as is; IPv6 cut to its /64, so one home or phone network is one client. */
 export function ipPrefix(ip: string): string {
+  // IPv4-mapped IPv6 (::ffff:1.2.3.4) is an IPv4 client.
+  const mapped = /^::ffff:(\d{1,3}(?:\.\d{1,3}){3})$/i.exec(ip);
+  if (mapped) return mapped[1]!;
   if (!ip.includes(':')) return ip;
   const [head = '', tail = ''] = ip.toLowerCase().split('::');
   const left = head ? head.split(':') : [];
@@ -212,7 +215,8 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
       const url = new URL(req.url);
       const day = url.searchParams.get('day');
       // Exactly one parameter, so the edge cache can't be bypassed with junk query strings.
-      if ([...url.searchParams.keys()].length !== 1 || !isIsoDay(day) || day > today || day < addDays(today, -1)) return json(422, { status: 'invalid' });
+      // The raw query must be exactly ?day=YYYY-MM-DD: the edge cache keys on the raw string, so `&`, `%64ay` and friends would each miss it.
+      if (!isIsoDay(day) || url.search !== `?day=${day}` || day > today || day < addDays(today, -1)) return json(422, { status: 'invalid' });
       if (paused) return json(503, { status: 'paused' });
       const season = seasonOf(day, { launchDay: ctx.launchDay });
       const read = await ctx.store.read(`${keyPrefix(ctx, season, day)}:dist`, budget, ctx.limits);

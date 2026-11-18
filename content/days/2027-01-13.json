@@ -1,0 +1,265 @@
+{
+  "date": "2027-01-13",
+  "theme": {
+    "title": "We the North",
+    "subtitle": "Toronto Raptors, 2018–19",
+    "recap": "Kawhi Leonard arrived, the Raptors survived a Game 7 buzzer-beater and then won Canada's first NBA championship."
+  },
+  "questions": [
+    {
+      "id": "nba-raptors19-regular-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did the 2018–19 champion Raptors win?",
+      "context": "Toronto · Kawhi Leonard's lone Raptors season",
+      "answer": 58,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 28,
+      "max": 80,
+      "step": 1,
+      "note": "58 wins, earning second place in the East.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+        "quote": "58–24 (.707)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy",
+      "funFacts": [
+        {
+          "text": "Toronto exchanged DeMar DeRozan, Jakob Poeltl and a protected pick for Kawhi Leonard and Danny Green.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "DeMar DeRozan (who spent his first nine seasons in the NBA with the Raptors)"
+          }
+        },
+        {
+          "text": "The Raptors added Marc Gasol from Memphis at the trade deadline for a package led by Jonas Valančiūnas.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "Memphis Grizzlies traded Marc Gasol to the Raptors"
+          }
+        },
+        {
+          "text": "Nick Nurse was promoted from assistant coach after Toronto dismissed Dwane Casey.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "the Raptors promoted assistant coach Nick Nurse as their head coach"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-kawhi19-playoffs-ppg",
+      "sport": "NBA",
+      "prompt": "How many points per game did Kawhi Leonard score during the Raptors' 2019 playoffs?",
+      "context": "Toronto · entire 2019 postseason, not just Finals",
+      "answer": 30.5,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 15,
+      "max": 43,
+      "step": 0.1,
+      "note": "30.5 per game across Toronto's championship postseason.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+        "quote": "Kawhi Leonard | SF | 24 | 24 | 939 | 218 | 94 | 40 | 17 | 732 | 39.1 | 9.1 | 3.9 | 1.7 | .7 | 30.5"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Leonard started every Toronto playoff game and logged 939 minutes during the run.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "24 | 24 | 939 | 218 | 94 | 40 | 17 | 732"
+          }
+        },
+        {
+          "text": "Toronto rallied from a two-game series deficit by winning four straight against Milwaukee.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "winning the last four games of the series after being down 0–2"
+          }
+        },
+        {
+          "text": "The Raptors became the first team based outside the United States to win the NBA championship.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "first non-US team to win the NBA title"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-lowry19-regular-apg",
+      "sport": "NBA",
+      "prompt": "What was Kyle Lowry's regular-season assists average for the champion Raptors?",
+      "context": "Toronto · 2018–19 regular season",
+      "answer": 8.7,
+      "unit": {
+        "singular": "assist per game",
+        "plural": "assists per game"
+      },
+      "min": 3,
+      "max": 13,
+      "step": 0.1,
+      "note": "8.7 assists per game from Toronto's lead guard.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+        "quote": "Kyle Lowry | PG | 65 | 65 | 2,213 | 312 | 564 | 91 | 31 | 926 | 34.0 | 4.8 | 8.7"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Lowry racked up 564 total assists during the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "312 | 564 | 91 | 31 | 926"
+          }
+        },
+        {
+          "text": "He started all 65 games in which he appeared that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "Kyle Lowry | PG | 65 | 65"
+          }
+        },
+        {
+          "text": "Lowry handed out ten assists in the road victory that clinched Toronto's first title.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "Kyle Lowry (10) Oracle Arena"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-raptors19-sixers-g7-points",
+      "sport": "NBA",
+      "prompt": "How many points did Toronto score in Game 7 against Philadelphia in 2019?",
+      "context": "Eastern semifinals · Kawhi's buzzer-beater",
+      "answer": 92,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 65,
+      "max": 135,
+      "step": 1,
+      "note": "92 points, including the shot that advanced Toronto.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+        "quote": "a 92–90 victory in the series-clinching game 7"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Leonard's series-winning buzzer-beater came over Joel Embiid.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "Kawhi Leonard's buzzer-beater over Joel Embiid"
+          }
+        },
+        {
+          "text": "The Raptors needed the full seven games to survive Philadelphia.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "edged the Philadelphia 76ers in seven games in the semifinals"
+          }
+        },
+        {
+          "text": "That win sent Toronto into an Eastern final against Milwaukee.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "The Raptors defeated the Milwaukee Bucks in the Eastern Conference Finals"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-raptors19-road-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season road games did Toronto win on its 2019 title run?",
+      "context": "Raptors · 41 away games · before the playoffs",
+      "answer": 26,
+      "unit": {
+        "singular": "road win",
+        "plural": "road wins"
+      },
+      "min": 4,
+      "max": 41,
+      "step": 1,
+      "note": "26 wins away from home during the regular season.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+        "quote": "32‍–‍9  | 26‍–‍15"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Toronto's regular-season home record was stronger than its road record.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "32‍–‍9  | 26‍–‍15"
+          }
+        },
+        {
+          "text": "Milwaukee finished just ahead of Toronto atop the Eastern Conference standings.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "Milwaukee Bucks"
+          }
+        },
+        {
+          "text": "The Raptors won all three Finals games played on Golden State's home floor.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "NBA Finals: 4–2 (home: 1–2; road: 3–0)"
+          }
+        }
+      ]
+    }
+  ]
+}

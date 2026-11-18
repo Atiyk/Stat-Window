@@ -24,6 +24,17 @@ describe('parseSlate', () => {
   it('accepts a well-formed slate', () => {
     expect(parseSlate(slate('2026-11-15', 'a')).questions).toHaveLength(5);
   });
+  it('accepts three independently sourced fun-fact variants', () => {
+    const s = slate('2026-11-15', 'a');
+    const funFacts = [1, 2, 3].map((n) => ({
+      text: `A distinct basketball fact number ${n} adds useful context.`,
+      source: { name: 'Wikipedia', url: 'https://en.wikipedia.org/wiki/X', quote: `supporting verified excerpt ${n}` },
+    }));
+    expect(parseSlate({ ...s, questions: s.questions.map((q, i) => i ? q : { ...q, funFacts }) }).questions[0]?.funFacts).toHaveLength(3);
+    const duplicated = [funFacts[0], funFacts[0], funFacts[2]];
+    expect(() => parseSlate({ ...s, questions: s.questions.map((q, i) => i ? q : { ...q, funFacts: duplicated }) })).toThrow(/distinct/);
+    expect(() => parseSlate({ ...s, questions: s.questions.map((q, i) => i ? q : { ...q, funFacts: funFacts.slice(0, 2) }) })).toThrow();
+  });
   it('rejects a slate without exactly five questions', () => {
     const s = slate('2026-11-15', 'a');
     expect(() => parseSlate({ ...s, questions: s.questions.slice(0, 4) })).toThrow();

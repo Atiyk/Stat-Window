@@ -1,0 +1,265 @@
+{
+  "date": "2027-01-23",
+  "theme": {
+    "title": "The .500 underdogs",
+    "subtitle": "Phoenix Suns, 1983–84",
+    "recap": "An even regular season became a surprise Western finals run behind Davis, Lucas and Nance."
+  },
+  "questions": [
+    {
+      "id": "nba-suns84-season-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did the 1983–84 Suns win?",
+      "context": "Phoenix · sixth seed · surprise West finalists",
+      "answer": 41,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 19,
+      "max": 75,
+      "step": 1,
+      "note": "41 wins before their deep playoff run.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+        "quote": "Record | 41–41 (.500)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy",
+      "funFacts": [
+        {
+          "text": "Larry Nance won the first NBA Slam Dunk Contest that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Larry Nance competed in the inaugural NBA Slam Dunk Contest"
+          }
+        },
+        {
+          "text": "Phoenix played at Arizona Veterans Memorial Coliseum.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Arena | Arizona Veterans Memorial Coliseum"
+          }
+        },
+        {
+          "text": "Walter Davis earned another Western Conference All-Star selection.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Walter Davis was selected as a reserve for the Western Conference"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-davis84-regular-apg",
+      "sport": "NBA",
+      "prompt": "How many assists per game did Walter Davis average for Phoenix in 1983–84?",
+      "context": "Suns · veteran scorer and creator",
+      "answer": 5.5,
+      "unit": {
+        "singular": "assist per game",
+        "plural": "assists per game"
+      },
+      "min": 1,
+      "max": 13,
+      "step": 0.1,
+      "note": "5.5 assists per game from the veteran guard.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+        "quote": "Walter Davis | 78 | 70 | 32.6 | .512 | .230 | .863 | 2.6 | 5.5"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Davis scored twenty points a game that year.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Walter Davis | 78 | 70 | 32.6 | .512 | .230 | .863 | 2.6 | 5.5 | 1.4 | .2 | 20.0"
+          }
+        },
+        {
+          "text": "He started seventy of his seventy-eight appearances.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Walter Davis | 78 | 70 | 32.6"
+          }
+        },
+        {
+          "text": "Davis hit 86.3 percent of his free throws.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Walter Davis | 78 | 70 | 32.6 | .512 | .230 | .863"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-lucas84-season-rpg",
+      "sport": "NBA",
+      "prompt": "How many rebounds did Maurice Lucas average in 1983–84?",
+      "context": "Phoenix Suns · veteran forward · regular season",
+      "answer": 9.7,
+      "unit": {
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
+      },
+      "min": 3,
+      "max": 22,
+      "step": 0.1,
+      "note": "9.7 rebounds per game from the tough big man.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+        "quote": "Maurice Lucas | 75 | 69 | 30.8 | .497 | .000 | .765 | 9.7"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Lucas also scored 15.9 points per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Maurice Lucas | 75 | 69 | 30.8 | .497 | .000 | .765 | 9.7 | 2.7 | .7 | .5 | 15.9"
+          }
+        },
+        {
+          "text": "He played seventy-five games and started sixty-nine.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Maurice Lucas | 75 | 69 | 30.8"
+          }
+        },
+        {
+          "text": "Lucas led the Suns with seventeen rebounds in their playoff overtime win against Los Angeles.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "May 18, 1984 Los Angeles W 135–127 (OT) Davis (34) Lucas (17)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-nance84-season-ppg",
+      "sport": "NBA",
+      "prompt": "How many points per game did Larry Nance average in 1983–84?",
+      "context": "Phoenix · first Slam Dunk champion · season scoring",
+      "answer": 17.7,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 9,
+      "max": 33,
+      "step": 0.1,
+      "note": "17.7 points per game from the athletic forward.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+        "quote": "Larry Nance | 82 | 82 | 35.4 | .576 | .000 | .707 | 8.3 | 2.6 | 1.0 | 2.1 | 17.7"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Nance started all eighty-two Suns games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Larry Nance | 82 | 82 | 35.4"
+          }
+        },
+        {
+          "text": "He averaged 8.3 boards and 2.1 blocks.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Larry Nance | 82 | 82 | 35.4 | .576 | .000 | .707 | 8.3 | 2.6 | 1.0 | 2.1"
+          }
+        },
+        {
+          "text": "His 57.6 percent field-goal accuracy was exceptional.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Larry Nance | 82 | 82 | 35.4 | .576"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-suns84-lakers-g3-points",
+      "sport": "NBA",
+      "prompt": "How many points did Phoenix score against the Lakers in 1984 West finals Game 3?",
+      "context": "Phoenix Suns · home game that needed overtime",
+      "answer": 135,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 85,
+      "max": 225,
+      "step": 1,
+      "note": "135 points in a wild overtime win.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+        "quote": "May 18, 1984 Los Angeles W 135–127 (OT) Davis (34) Lucas (17)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Walter Davis paced the Suns with thirty-four points.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "May 18, 1984 Los Angeles W 135–127 (OT) Davis (34)"
+          }
+        },
+        {
+          "text": "The victory required overtime to decide.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "May 18, 1984 Los Angeles W 135–127 (OT)"
+          }
+        },
+        {
+          "text": "Los Angeles eventually took the Western finals in six games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Western Conference Finals: 2–4 (home: 1–2; road: 1–2)"
+          }
+        }
+      ]
+    }
+  ]
+}

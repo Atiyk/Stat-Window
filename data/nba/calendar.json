@@ -850,6 +850,380 @@
         "nba-allen13-g6-seconds",
         "nba-spurs12-streak"
       ]
+    },
+    {
+      "date": "2027-01-06",
+      "theme": {
+        "id": "detroit-04-going-to-work",
+        "kind": "team-season",
+        "title": "Going to work",
+        "subtitle": "Detroit Pistons, 2003–04",
+        "recap": "Detroit's defense-first underdogs rallied after a midseason trade and toppled a star-studded Lakers team for the title."
+      },
+      "questions": [
+        "nba-detroit04-regular-wins",
+        "nba-detroit04-winter-streak",
+        "nba-detroit04-rasheed-finish",
+        "nba-billups04-finals-ppg",
+        "nba-benwallace04-finals-clincher-reb"
+      ]
+    },
+    {
+      "date": "2027-01-07",
+      "theme": {
+        "id": "denvers-first-crown",
+        "kind": "team-season",
+        "title": "Mile High first",
+        "subtitle": "Denver Nuggets, 2022–23",
+        "recap": "Behind Jokić, Murray and a deep supporting cast, Denver earned the top Western seed and won the NBA championship for the first time."
+      },
+      "questions": [
+        "nba-nuggets23-regular-wins",
+        "nba-jokic23-finals-average",
+        "nba-murray23-finals-apg",
+        "nba-gordon23-finals-g4-points",
+        "nba-braun22-draft-pick"
+      ]
+    },
+    {
+      "date": "2027-01-08",
+      "theme": {
+        "id": "iversons-philly-charge",
+        "kind": "team-season",
+        "title": "The Answer's run",
+        "subtitle": "Philadelphia, 2000–01",
+        "recap": "An MVP guard, a midseason defensive anchor and two Game 7 battles took Philadelphia all the way to a hard-fought Finals."
+      },
+      "questions": [
+        "nba-sixers01-regular-wins",
+        "nba-iverson01-season-ppg",
+        "nba-sixers01-opening-streak",
+        "nba-mutombo01-posttrade-rpg",
+        "nba-sixers01-finals-g1-points"
+      ]
+    },
+    {
+      "date": "2027-01-09",
+      "theme": {
+        "id": "cow-palace-sweep",
+        "kind": "story",
+        "title": "The Cow Palace sweep",
+        "subtitle": "Golden State, 1974–75",
+        "recap": "The Warriors defeated the favored Bullets by winning close games behind Rick Barry, a deep bench and a relentless second-half defense."
+      },
+      "questions": [
+        "nba-warriors75-season-wins",
+        "nba-barry75-finals-g2-points",
+        "nba-bullets75-g1-halftime-lead",
+        "nba-unseld75-finals-g2-rebounds",
+        "nba-warriors75-finals-g4-points"
+      ]
+    },
+    {
+      "date": "2027-01-10",
+      "theme": {
+        "id": "twin-towers-first-title",
+        "kind": "team-season",
+        "title": "Twin Towers rise",
+        "subtitle": "San Antonio Spurs, 1998–99",
+        "recap": "The Spurs overcame a difficult lockout-season start and rode Duncan and Robinson to the franchise's first championship."
+      },
+      "questions": [
+        "nba-duncan99-finals-ppg",
+        "nba-spurs99-final36-wins",
+        "nba-robinson99-finals-rpg",
+        "nba-avery99-finals-apg",
+        "nba-spurs99-alamodome-attendance"
+      ]
+    },
+    {
+      "date": "2027-01-11",
+      "theme": {
+        "id": "rose-mvp-2011",
+        "kind": "team-season",
+        "title": "The youngest MVP",
+        "subtitle": "Chicago Bulls, 2010–11",
+        "recap": "Derrick Rose led Chicago to the NBA's best regular-season record before the Bulls' deep playoff run ended against Miami."
+      },
+      "questions": [
+        "nba-bulls11-regular-wins",
+        "nba-rose11-season-ppg",
+        "nba-bulls11-home-wins",
+        "nba-noah11-rebounds-average",
+        "nba-rose11-hawks-g3-points"
+      ]
+    },
+    {
+      "date": "2027-01-12",
+      "theme": {
+        "id": "seven-seconds-or-less",
+        "kind": "team-season",
+        "title": "Seven Seconds or Less",
+        "subtitle": "Phoenix Suns, 2004–05",
+        "recap": "Steve Nash returned to Phoenix, Mike D'Antoni unleashed a rapid-fire attack, and the Suns transformed into the league's most electric regular-season team."
+      },
+      "questions": [
+        "nba-suns05-season-win-gain",
+        "nba-nash05-regular-apg",
+        "nba-suns05-road-victories",
+        "nba-stoudemire05-playoff-ppg",
+        "nba-nash05-dallas-g6-points"
+      ]
+    },
+    {
+      "date": "2027-01-13",
+      "theme": {
+        "id": "raptors-north-2019",
+        "kind": "team-season",
+        "title": "We the North",
+        "subtitle": "Toronto Raptors, 2018–19",
+        "recap": "Kawhi Leonard arrived, the Raptors survived a Game 7 buzzer-beater and then won Canada's first NBA championship."
+      },
+      "questions": [
+        "nba-raptors19-regular-wins",
+        "nba-kawhi19-playoffs-ppg",
+        "nba-lowry19-regular-apg",
+        "nba-raptors19-sixers-g7-points",
+        "nba-raptors19-road-wins"
+      ]
+    },
+    {
+      "date": "2027-01-14",
+      "theme": {
+        "id": "atlanta-sixty-win-shock",
+        "kind": "team-season",
+        "title": "The ATL uprising",
+        "subtitle": "Atlanta Hawks, 2014–15",
+        "recap": "A balanced Atlanta team went unbeaten in January, won a franchise-record 60 games and claimed the East's top seed."
+      },
+      "questions": [
+        "nba-hawks15-regular-wins",
+        "nba-hawks15-january-wins",
+        "nba-korver15-three-pct",
+        "nba-teague15-assists-average",
+        "nba-hawks15-year-win-improvement"
+      ]
+    },
+    {
+      "date": "2027-01-15",
+      "theme": {
+        "id": "orlando-dwight-shooters-09",
+        "kind": "team-season",
+        "title": "Magic in the air",
+        "subtitle": "Orlando Magic, 2008–09",
+        "recap": "Dwight Howard anchored Orlando's defense while its shooters carried the Magic past Boston and Cleveland to the Finals."
+      },
+      "questions": [
+        "nba-magic09-regular-wins",
+        "nba-magic09-kings-threes",
+        "nba-howard09-regular-rpg",
+        "nba-turkoglu09-regular-apg",
+        "nba-howard09-cavs-g6-points"
+      ]
+    },
+    {
+      "date": "2027-01-16",
+      "theme": {
+        "id": "milwaukee-bucks-title-21",
+        "kind": "team-season",
+        "title": "Fear the deer",
+        "subtitle": "Milwaukee Bucks, 2020–21",
+        "recap": "With Giannis at the center, Holiday in the backcourt and a deep cast, Milwaukee survived Brooklyn and brought a championship home."
+      },
+      "questions": [
+        "nba-bucks21-regular-wins",
+        "nba-giannis21-playoffs-ppg",
+        "nba-holiday21-playoffs-apg",
+        "nba-bucks21-nets-g3-points",
+        "nba-forbes21-three-pct"
+      ]
+    },
+    {
+      "date": "2027-01-17",
+      "theme": {
+        "id": "seattle-sonics-1979-champs",
+        "kind": "team-season",
+        "title": "Seattle's crown",
+        "subtitle": "Seattle SuperSonics, 1978–79",
+        "recap": "Lenny Wilkens's Sonics survived Phoenix in seven games and avenged their Finals loss to Washington to claim Seattle's NBA title."
+      },
+      "questions": [
+        "nba-sonics79-season-wins",
+        "nba-sonics79-january-wins",
+        "nba-sikma79-suns-g7-points",
+        "nba-gus79-finals-g4-points",
+        "nba-sikma79-finals-g5-rebounds"
+      ]
+    },
+    {
+      "date": "2027-01-18",
+      "theme": {
+        "id": "bird-pacers-bulls-1998",
+        "kind": "team-season",
+        "title": "Bird vs the Bulls",
+        "subtitle": "Indiana Pacers, 1997–98",
+        "recap": "Larry Bird transformed the Pacers and forced Michael Jordan's Bulls to a seventh game."
+      },
+      "questions": [
+        "nba-pacers98-season-wins",
+        "nba-pacers98-road-wins",
+        "nba-jackson98-regular-apg",
+        "nba-miller98-season-ppg",
+        "nba-smits98-bulls-g4-points"
+      ]
+    },
+    {
+      "date": "2027-01-19",
+      "theme": {
+        "id": "sacramento-crownless-kings-2002",
+        "kind": "team-season",
+        "title": "Kings without crowns",
+        "subtitle": "Sacramento Kings, 2001–02",
+        "recap": "Webber, Bibby and Stojaković won the league's top seed but fell to the Lakers in a classic West final."
+      },
+      "questions": [
+        "nba-kings02-regular-wins",
+        "nba-kings02-home-wins",
+        "nba-webber02-season-ppg",
+        "nba-bibby02-regular-apg",
+        "nba-peja02-regular-three-pct"
+      ]
+    },
+    {
+      "date": "2027-01-20",
+      "theme": {
+        "id": "heat-bubble-run-2020",
+        "kind": "team-season",
+        "title": "Bubble fire",
+        "subtitle": "Miami Heat, 2019–20",
+        "recap": "Butler, Adebayo and a rookie guard carried Miami from the fifth seed to the NBA Finals."
+      },
+      "questions": [
+        "nba-heat20-regular-wins",
+        "nba-adebayo20-regular-rpg",
+        "nba-butler20-regular-apg",
+        "nba-robinson20-season-ppg",
+        "nba-herro20-celtics-g4-points"
+      ]
+    },
+    {
+      "date": "2027-01-21",
+      "theme": {
+        "id": "spurs-beautiful-game-2014",
+        "kind": "team-season",
+        "title": "The beautiful game",
+        "subtitle": "San Antonio Spurs, 2013–14",
+        "recap": "The Spurs answered their painful 2013 Finals defeat with depth, passing and a title-winning rematch."
+      },
+      "questions": [
+        "nba-spurs14-season-wins",
+        "nba-spurs14-march-wins",
+        "nba-duncan14-season-rpg",
+        "nba-parker14-season-ppg",
+        "nba-diaw14-heat-g4-assists"
+      ]
+    },
+    {
+      "date": "2027-01-22",
+      "theme": {
+        "id": "hornets-cp3-homecoming-2008",
+        "kind": "team-season",
+        "title": "CP3's New Orleans",
+        "subtitle": "New Orleans Hornets, 2007–08",
+        "recap": "Back home after Hurricane Katrina, the Hornets had a breakthrough season before a seven-game Spurs battle."
+      },
+      "questions": [
+        "nba-hornets08-season-wins",
+        "nba-paul08-regular-apg",
+        "nba-chandler08-regular-rpg",
+        "nba-west08-season-ppg",
+        "nba-hornets08-spurs-g7-points"
+      ]
+    },
+    {
+      "date": "2027-01-23",
+      "theme": {
+        "id": "suns-underdogs-1984",
+        "kind": "team-season",
+        "title": "The .500 underdogs",
+        "subtitle": "Phoenix Suns, 1983–84",
+        "recap": "An even regular season became a surprise Western finals run behind Davis, Lucas and Nance."
+      },
+      "questions": [
+        "nba-suns84-season-wins",
+        "nba-davis84-regular-apg",
+        "nba-lucas84-season-rpg",
+        "nba-nance84-season-ppg",
+        "nba-suns84-lakers-g3-points"
+      ]
+    },
+    {
+      "date": "2027-01-24",
+      "theme": {
+        "id": "lebron-cavs-first-mvp-2009",
+        "kind": "team-season",
+        "title": "LeBron's MVP leap",
+        "subtitle": "Cleveland Cavaliers, 2008–09",
+        "recap": "LeBron won his first MVP as Cleveland posted the NBA's best record, only for Dwight Howard's Magic to derail the championship dream."
+      },
+      "questions": [
+        "nba-cavs09-record-wins",
+        "nba-cavs09-home-wins",
+        "nba-james09-season-apg",
+        "nba-mowilliams09-season-ppg",
+        "nba-james09-magic-g1-points"
+      ]
+    },
+    {
+      "date": "2027-01-25",
+      "theme": {
+        "id": "sonics94-top-seed-upset",
+        "kind": "team-season",
+        "title": "The upset nobody saw",
+        "subtitle": "Seattle against Denver",
+        "recap": "Kemp and Payton led the NBA's best regular-season team before the Nuggets stunned Seattle in the first round."
+      },
+      "questions": [
+        "nba-sonics94-regular-wins",
+        "nba-sonics94-opening-streak",
+        "nba-kemp94-rpg",
+        "nba-payton94-apg",
+        "nba-sonics94-nuggets-g5-points"
+      ]
+    },
+    {
+      "date": "2027-01-26",
+      "theme": {
+        "id": "barkley-suns93-run",
+        "kind": "team-season",
+        "title": "Barkley lights the Valley",
+        "subtitle": "Phoenix's Finals season",
+        "recap": "Barkley joined a new-look Phoenix team, won league MVP and led the Suns on an unforgettable title chase."
+      },
+      "questions": [
+        "nba-suns93-regular-wins",
+        "nba-suns93-december-win-streak",
+        "nba-barkley93-suns-rpg",
+        "nba-majerle93-three-pointers",
+        "nba-suns93-finals-g6-points"
+      ]
+    },
+    {
+      "date": "2027-01-27",
+      "theme": {
+        "id": "bucks-giannis19-rise",
+        "kind": "team-season",
+        "title": "Fear the Deer",
+        "subtitle": "Milwaukee's first MVP Giannis run",
+        "recap": "The Bucks opened a new arena, raced through the East under Mike Budenholzer, and discovered the strength of the Raptors in May."
+      },
+      "questions": [
+        "nba-bucks19-season-wins",
+        "nba-bucks19-opening-win-streak",
+        "nba-giannis19-regular-rpg",
+        "nba-middleton19-playoff-three-pct",
+        "nba-brooklopez19-ecf-g1-points"
+      ]
     }
   ],
   "reserve": [

@@ -108,6 +108,8 @@ export function App() {
   const [today, setToday] = useState(() => puzzleDay(new Date()));
   const offer = useSurvivalOffer(today, storage);
   const [session, setSession] = useState<Session | null>(null);
+  // Unlock bracket changes are not stored yet; protect the active run across UTC midnight.
+  const activeWindowRef = useRef(false);
   const [missing, setMissing] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
 
@@ -130,6 +132,7 @@ export function App() {
       const isToday = day === puzzleDay(new Date());
       const kind: RunKind = isToday || store.load().runs[day] ? 'runs' : 'practice';
       setMissing(false);
+      activeWindowRef.current = false;
       setSession({
         mode: kind === 'runs' ? 'daily' : 'practice',
         kind,
@@ -173,7 +176,7 @@ export function App() {
       if (d === today) return;
       setToday(d);
       const s = sessionRef.current;
-      if (!s || (s.kind === 'runs' && !inProgress(store, s.day))) void open(d);
+      if (!s || (s.kind === 'runs' && !activeWindowRef.current && !inProgress(store, s.day))) void open(d);
     };
     const id = window.setInterval(check, 30_000);
     document.addEventListener('visibilitychange', check);
@@ -251,6 +254,8 @@ export function App() {
             today={today}
             showHint={!settings.introSeen}
             onFirstTouch={() => !settings.introSeen && updateSettings({ introSeen: true })}
+            onWindowActive={() => { activeWindowRef.current = true; }}
+            onRunComplete={() => { activeWindowRef.current = false; }}
             archive={archive}
             onPractice={(d) => void open(d)}
             onBackToToday={backToToday}
@@ -282,6 +287,8 @@ function Game(props: {
   today: string;
   showHint: boolean;
   onFirstTouch: () => void;
+  onWindowActive: () => void;
+  onRunComplete: () => void;
   archive: readonly string[];
   onPractice: (day: string) => void;
   onBackToToday: () => void;
@@ -300,13 +307,14 @@ function Game(props: {
 
   const dispatch = useCallback(
     (a: GameAction) => {
+      if (a.type === 'setWindow') props.onWindowActive();
       if (a.type === 'next' && state.phase === 'resolved') track({ name: 'round_next', mode: playMode, round: state.round + 1 });
       if (a.type === 'setWindow' && state.round === 0 && state.phase === 'ready' && state.results.length === 0) {
         trackOnce(`touch:${playMode}:${session.kind}:${session.day}`, today, { name: 'first_touch', mode: playMode });
       }
       rawDispatch(a);
     },
-    [state.phase, state.round, state.results.length, playMode, session.kind, session.day, today],
+    [state.phase, state.round, state.results.length, playMode, session.kind, session.day, today, props.onWindowActive],
   );
 
   // Persist every locked round immediately (before the reveal), so a refresh can't re-roll it.
@@ -323,6 +331,9 @@ function Game(props: {
     // Only on mount of a fresh run.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  useEffect(() => {
+    if (state.phase === 'complete') props.onRunComplete();
+  }, [state.phase, props.onRunComplete]);
   const lastLocked = useRef(state.results.length);
   useEffect(() => {
     if (state.results.length > lastLocked.current) {
@@ -423,7 +434,7 @@ function Game(props: {
       theme={session.slate.theme?.title}
       showHint={props.showHint && state.round === 0}
       challenge={session.viaLink && state.round === 0 && state.results.length === 0 ? { vs: session.vs } : null}
-      onFirstTouch={props.onFirstTouch}
+      onFirstTouch={() => { props.onWindowActive(); props.onFirstTouch(); }}
     />
   );
 }

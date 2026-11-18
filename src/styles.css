@@ -926,6 +926,30 @@ a {
   max-width: 60ch;
 }
 
+.story-extra {
+  margin: 14px 0 12px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--brand);
+  background: var(--brand-soft);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  max-width: 62ch;
+}
+.story-extra-title {
+  margin: 0 0 4px;
+  color: var(--brand);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.story-extra-text { margin: 0; font-size: 1rem; line-height: 1.45; }
+.story-extra-source {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 0;
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+}
 .story-source {
   margin: 6px 0 0;
   font-size: 0.9375rem;
@@ -1615,6 +1639,26 @@ a {
   }
   .worth b {
     font-size: 1.5rem;
+  }
+}
+
+/* A longer sourced fact must not hide the next action on tablet screens.
+   Unlike ordinary sticky footers, this stays reachable before any scrolling.
+   Reserve scroll space so the last source link is never covered. */
+@media (min-width: 720px) and (max-width: 1023px) {
+  .round[data-phase='resolved'] {
+    padding-bottom: calc(86px + env(safe-area-inset-bottom));
+  }
+  .round[data-phase='resolved'] .action-bar {
+    position: fixed;
+    inset: auto 0 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 12px var(--gutter) max(14px, env(safe-area-inset-bottom));
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+    box-shadow: 0 -4px 18px rgb(19 34 26 / 8%);
   }
 }
 

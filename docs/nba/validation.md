@@ -10,14 +10,14 @@ All gates pass: 0 errors.
 
 | Measure | Value |
 |---|---|
-| Verified facts (one question each) | 276 |
-| Scheduled questions | 250 |
+| Verified facts (one question each) | 386 |
+| Scheduled questions | 360 |
 | Reserve questions | 26 |
-| Days | 50 (2026-11-17 to 2027-01-05) |
-| Themed days (not "mixed") | 49 |
+| Days | 72 (2026-11-17 to 2027-01-27) |
+| Themed days (not "mixed") | 71 |
 | Stat families | 82 |
-| Franchises | 27 |
-| Players | 74 |
+| Franchises | 28 |
+| Players | 113 |
 | Seasons | 60 |
 | Rejected examples logged | 22 |
 
@@ -27,37 +27,37 @@ All gates pass: 0 errors.
 |---|---|
 | schema_migrations | 1 |
 | sources | 5 |
-| franchises | 27 |
-| team_names | 42 |
-| players | 74 |
+| franchises | 28 |
+| team_names | 45 |
+| players | 113 |
 | seasons | 60 |
 | stat_families | 83 |
-| stat_facts | 276 |
-| question_candidates | 276 |
-| question_tags | 811 |
-| daily_themes | 50 |
-| daily_slates | 50 |
-| daily_slate_questions | 250 |
+| stat_facts | 386 |
+| question_candidates | 386 |
+| question_tags | 1141 |
+| daily_themes | 72 |
+| daily_slates | 72 |
+| daily_slate_questions | 360 |
 
 Integrity: integrity_check ok, no foreign-key violations, every fact verified and sourced.
-Canonical dump sha256 (status as of 2026-11-16): `acad613620f3b530c9873199aff641f49e4ab4f7152e658f0689612f3c052df5`.
+Canonical dump sha256 (status as of 2026-11-16): `d5cd187e9b912e5f80bbdd91ff46835239ace5f25a4acb46711e9379ad022f6a`.
 
 ## Difficulty
 
 | Difficulty | All facts | Scheduled |
 |---|---|---|
-| easy | 50 | 50 |
-| medium | 62 | 50 |
-| hard | 112 | 100 |
-| expert | 52 | 50 |
+| easy | 72 | 72 |
+| medium | 84 | 72 |
+| hard | 156 | 144 |
+| expert | 74 | 72 |
 
 Mean editorial ratings by slot (interest / recognizability / estimability / surprise):
 
-- Slot 1 (easy): 3.68 / 3.90 / 2.92 / 4.26
-- Slot 2 (medium): 3.40 / 3.12 / 2.74 / 4.74
-- Slot 3 (hard): 3.08 / 2.96 / 2.40 / 4.94
-- Slot 4 (hard): 2.96 / 2.84 / 2.28 / 4.98
-- Slot 5 (expert): 2.70 / 2.46 / 2.28 / 4.98
+- Slot 1 (easy): 4.03 / 4.08 / 3.25 / 4.24
+- Slot 2 (medium): 3.78 / 3.43 / 2.82 / 4.74
+- Slot 3 (hard): 3.51 / 3.19 / 2.29 / 4.89
+- Slot 4 (hard): 3.42 / 3.01 / 2.21 / 4.94
+- Slot 5 (expert): 3.28 / 2.74 / 2.19 / 4.97
 
 ## Range fairness
 
@@ -66,16 +66,17 @@ Where each answer sits on its scale (0 = min, 9 = top tenth). A flat spread mean
 | Tenth | Questions |
 |---|---|
 | 1 | 8 |
-| 2 | 31 |
-| 3 | 54 |
-| 4 | 42 |
-| 5 | 22 |
-| 6 | 54 |
-| 7 | 45 |
-| 8 | 20 |
+| 2 | 38 |
+| 3 | 99 |
+| 4 | 63 |
+| 5 | 44 |
+| 6 | 64 |
+| 7 | 48 |
+| 8 | 21 |
+| 9 | 1 |
 
-Share of answers in the middle fifth: 24.6% (gate: at most 35%).
-Simulated "always centre the window" player: mean 47.66 points per question, best 89 (gate: no question above 90).
+Share of answers in the middle fifth: 29.3% (gate: at most 35%).
+Simulated "always centre the window" player: mean 51.16 points per question, best 89 (gate: no question above 90).
 Every answer sits strictly inside its scale and at least 8% away from either end; every scale has 5–400 whole steps.
 
 ## Editorial balance, by week
@@ -89,23 +90,26 @@ Every answer sits strictly inside its scale and at least 8% away from either end
 | 2026-12-15 to 2026-12-21 | 25 | 8 | IND (5) |
 | 2026-12-22 to 2026-12-28 | 23 | 6 | GSW (9) |
 | 2026-12-29 to 2027-01-04 | 19 | 6 | BOS (6) |
+| 2027-01-05 to 2027-01-11 | 14 | 5 | SAS (6) |
+| 2027-01-12 to 2027-01-18 | 12 | 5 | ATL (5) |
+| 2027-01-19 to 2027-01-25 | 11 | 4 | CLE (5) |
 
 Every rolling 7-day window is also checked: at least 6 families, at least 3 eras, at most 10 questions about one franchise, and no two days in a row led by the same franchise. Each day has at most 2 questions from one family and at most 1 simple scoring average.
 
 ## Novelty
 
-68 players and 27 franchises appear. 7 of 50 days introduce no new player or franchise.
+110 players and 28 franchises appear. 7 of 72 days introduce no new player or franchise.
 
 ## Eras
 
 - 1950s: 4
 - 1960s: 25
-- 1970s: 29
-- 1980s: 27
-- 1990s: 47
-- 2000s: 53
-- 2010s: 60
-- 2020s: 29
+- 1970s: 39
+- 1980s: 32
+- 1990s: 67
+- 2000s: 88
+- 2010s: 90
+- 2020s: 39
 - timeless: 2
 
 ## Rejected candidates (examples)

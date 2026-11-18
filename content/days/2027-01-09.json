@@ -1,0 +1,265 @@
+{
+  "date": "2027-01-09",
+  "theme": {
+    "title": "The Cow Palace sweep",
+    "subtitle": "Golden State, 1974–75",
+    "recap": "The Warriors defeated the favored Bullets by winning close games behind Rick Barry, a deep bench and a relentless second-half defense."
+  },
+  "questions": [
+    {
+      "id": "nba-warriors75-season-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did the 1974–75 Warriors win?",
+      "context": "Golden State Warriors · 1974–75 · 82 games",
+      "answer": 48,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 32,
+      "max": 72,
+      "step": 1,
+      "note": "48 wins, before the Warriors took the title.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1974%E2%80%9375_Golden_State_Warriors_season",
+        "quote": "Record | 48–34 (.585)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy",
+      "funFacts": [
+        {
+          "text": "The Bullets entered the Finals with far more regular-season wins than Golden State.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "Golden State Warriors (48–34) played against the Eastern Conference champion Washington Bullets (60–22)"
+          }
+        },
+        {
+          "text": "The championship was Golden State's first since 1956, when the franchise played in Philadelphia.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "win their first championship since 1956, when the team was still based in Philadelphia"
+          }
+        },
+        {
+          "text": "Golden State traded future Hall of Famer Nate Thurmond to Chicago for young center Clifford Ray before the season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "they traded future Hall of Famer Nate Thurmond to the Chicago Bulls for young center Clifford Ray"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-barry75-finals-g2-points",
+      "sport": "NBA",
+      "prompt": "How many points did Rick Barry score in Game 2 of the 1975 Finals?",
+      "context": "Golden State vs Washington · 1975 Finals · Game 2",
+      "answer": 36,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 16,
+      "max": 60,
+      "step": 1,
+      "note": "36 points in a one-point Warriors win.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+        "quote": "led by 36 points from Rick Barry"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "The Warriors had to play their home Finals games at the Cow Palace because Oakland Arena was booked for the Ice Follies.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "the Oakland facility being unavailable due to the Ice Follies"
+          }
+        },
+        {
+          "text": "Washington got a final chance in Game 2 with six seconds remaining but missed both shots.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "Washington got the ball back with six seconds left but missed two shots"
+          }
+        },
+        {
+          "text": "Barry had previously played for the rival ABA before returning to the Warriors.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "briefly lost Rick Barry to the American Basketball Association"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-bullets75-g1-halftime-lead",
+      "sport": "NBA",
+      "prompt": "How many points ahead were the Bullets at halftime of Game 1 of the 1975 Finals?",
+      "context": "Washington Bullets vs Golden State · Game 1",
+      "answer": 14,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 4,
+      "max": 35,
+      "step": 1,
+      "note": "14 points, before Golden State's second-half comeback.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+        "quote": "the Bullets built a 14-point lead at the half over the Warriors"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Warriors reserve Phil Smith provided an unexpected scoring boost off the bench during the comeback.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "Phil Smith coming off the bench to score 20 points in 31 minutes"
+          }
+        },
+        {
+          "text": "The opening game took place at the Capital Centre in Landover, Maryland, outside Washington.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "Capital Centre, Landover, Maryland"
+          }
+        },
+        {
+          "text": "Golden State reached the Finals after defeating the Chicago Bulls in a seven-game Western final.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "then eliminated Thurmond and the Bulls in seven games to advance to the Finals"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-unseld75-finals-g2-rebounds",
+      "sport": "NBA",
+      "prompt": "How many rebounds did Wes Unseld grab in Game 2 of the 1975 Finals?",
+      "context": "Washington Bullets at Golden State · 1975 Finals",
+      "answer": 20,
+      "unit": {
+        "singular": "rebound",
+        "plural": "rebounds"
+      },
+      "min": 5,
+      "max": 43,
+      "step": 1,
+      "note": "20 rebounds, but Washington lost the game by a single point.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+        "quote": "Rebs: Wes Unseld 20"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Jamaal Wilkes's undersized but effective defense on Elvin Hayes proved decisive.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "the defensive play of the seemingly undersized Jamaal Wilkes on Bullets' power forward Elvin Hayes"
+          }
+        },
+        {
+          "text": "Reserve center George Johnson added 10 points and nine rebounds in Game 3.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "backup center George Johnson had 10 points and nine rebounds off the bench"
+          }
+        },
+        {
+          "text": "Rick Barry had 38 points in Game 3 as the Warriors moved within a win of the title.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "Rick Barry poured in 38 points"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-warriors75-finals-g4-points",
+      "sport": "NBA",
+      "prompt": "How many points did Golden State score in Game 4 to clinch the 1975 Finals?",
+      "context": "Golden State at Washington · May 25, 1975",
+      "answer": 96,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 60,
+      "max": 122,
+      "step": 1,
+      "note": "96 points, one more than Washington in the title clincher.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+        "quote": "Golden State Warriors 96, Washington Bullets 95"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Coach Al Attles was ejected after a confrontation with Mike Riordan, leaving assistant Joe Roberts to finish the game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "Attles bolted onto the court and initiated a fight of his own with Riordan"
+          }
+        },
+        {
+          "text": "The 1975 Finals are the oldest NBA championship series with full television coverage still surviving.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "The 1975 Finals is also the oldest NBA championship series whose TV coverage still exists in its entirety"
+          }
+        },
+        {
+          "text": "Rick Barry went on to work as a broadcaster for the next six NBA Finals, including while still an active player.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "Barry went on to cover the next six NBA Finals, five of which while still an active player"
+          }
+        }
+      ]
+    }
+  ]
+}

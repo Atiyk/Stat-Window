@@ -16,6 +16,8 @@
     "test:watch": "vitest",
     "test:e2e": "npm run build && playwright test",
     "content:check": "node --experimental-strip-types scripts/content-check.ts",
+    "content:trivia:check": "node --experimental-strip-types scripts/trivia-audit.ts",
+    "content:trivia:complete": "node --experimental-strip-types scripts/trivia-audit.ts --require-complete",
     "content:new": "node --experimental-strip-types scripts/content-new.ts",
     "nba:db": "node --experimental-strip-types scripts/nba/db.ts",
     "nba:report": "node --experimental-strip-types scripts/nba/report.ts",

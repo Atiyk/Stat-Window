@@ -58,6 +58,7 @@ export type Fact = {
     difficulty: Difficulty;
     difficultyReason: string;
     ratings: Ratings;
+    funFacts?: Question['funFacts'];
   };
 };
 
@@ -235,6 +236,22 @@ export function validateNba(data: NbaData): Report {
     const quote = f.source.quote;
     if (quote.length < 3 || quote.length > 160) at('source quote must be 3–160 characters');
     const q = f.question;
+    if (q.funFacts) {
+      if (q.funFacts.length !== 3) at('fun facts must have exactly three variants');
+      const unique = new Set(q.funFacts.map((v) => v.text.trim().toLowerCase()));
+      if (unique.size !== q.funFacts.length) at('fun facts must be distinct');
+      for (const [index, entry] of q.funFacts.entries()) {
+        try {
+          const host = new URL(entry.source.url).host;
+          if (BANNED_HOSTS.test(host) || !approvedHosts.has(host))
+            at(`fun fact ${index + 1} uses an unapproved source: ${host}`);
+        } catch {
+          at(`fun fact ${index + 1} has an invalid URL`);
+        }
+        if (!entry.source.quote || entry.source.quote.length > 160)
+          at(`fun fact ${index + 1} lacks short supporting evidence`);
+      }
+    }
     const hasFigure = answerSpellings(f.answer, q.step).some((s) => quote.toLowerCase().includes(s.toLowerCase()));
     if (!hasFigure && !f.source.derivation) at('source quote must contain the answer, or give a derivation');
     if (AS_OF_WORDS.test(quote) && !f.source.asOf) at('quote describes a standing record ("still", "remains"…) but has no asOf date');
@@ -425,6 +442,7 @@ export function questionFromFact(f: Fact): Question & { difficulty: Difficulty }
     },
     verified: { on: INSPECTED_ON, by: VERIFIED_BY },
     difficulty: q.difficulty,
+    ...(q.funFacts ? { funFacts: q.funFacts } : {}),
   };
 }
 

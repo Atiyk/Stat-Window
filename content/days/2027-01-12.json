@@ -1,0 +1,265 @@
+{
+  "date": "2027-01-12",
+  "theme": {
+    "title": "Seven Seconds or Less",
+    "subtitle": "Phoenix Suns, 2004–05",
+    "recap": "Steve Nash returned to Phoenix, Mike D'Antoni unleashed a rapid-fire attack, and the Suns transformed into the league's most electric regular-season team."
+  },
+  "questions": [
+    {
+      "id": "nba-suns05-season-win-gain",
+      "sport": "NBA",
+      "prompt": "How many more regular-season games did the 2004–05 Suns win than the season before?",
+      "context": "Phoenix Suns · Steve Nash's return · 2004–05",
+      "answer": 33,
+      "unit": {
+        "singular": "additional win",
+        "plural": "additional wins"
+      },
+      "min": 15,
+      "max": 55,
+      "step": 1,
+      "note": "33 more wins after Nash's arrival transformed the team.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+        "quote": "The 33-win improvement over the 2003–04 campaign constituted the third-best year-to-year jump in NBA history."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy",
+      "funFacts": [
+        {
+          "text": "Phoenix brought Steve Nash back from Dallas on a major free-agent contract.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "the Suns re-acquired All-Star guard Steve Nash from the Dallas Mavericks"
+          }
+        },
+        {
+          "text": "Mike D'Antoni's attack prioritized quick ball movement, pick-and-rolls and frequent three-pointers.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "emphasized rapid ball movement, pick-and-rolls, and high-volume three-point shooting"
+          }
+        },
+        {
+          "text": "A white memorial patch on the Suns' jerseys honored former coach and broadcaster Cotton Fitzsimmons.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "wearing a white patch on their jerseys for the entire season"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-nash05-regular-apg",
+      "sport": "NBA",
+      "prompt": "What was Steve Nash's assists-per-game average for the 2004–05 Suns?",
+      "context": "Phoenix Suns · 2004–05 regular season",
+      "answer": 11.5,
+      "unit": {
+        "singular": "assist per game",
+        "plural": "assists per game"
+      },
+      "min": 6,
+      "max": 22,
+      "step": 0.1,
+      "note": "11.5 assists each night in his first MVP season.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+        "quote": "Nash finished the season averaging 11.5 assists per game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Nash shot 50.2% from the field and 43.1% from three during the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "while making 50.2% of his field goals and 43.1% of his three-pointers"
+          }
+        },
+        {
+          "text": "Nash won MVP while Mike D'Antoni took Coach of the Year and Bryan Colangelo Executive of the Year.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "He ended up winning the MVP award. D'Antoni was awarded Coach of the Year"
+          }
+        },
+        {
+          "text": "Quentin Richardson won the Three-Point Shootout during the same season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "Quentin Richardson won the Three-Point Shootout"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-suns05-road-victories",
+      "sport": "NBA",
+      "prompt": "How many road games did Phoenix win during the 2004–05 regular season?",
+      "context": "Phoenix Suns · 41 regular-season away games",
+      "answer": 31,
+      "unit": {
+        "singular": "road win",
+        "plural": "road wins"
+      },
+      "min": 17,
+      "max": 41,
+      "step": 1,
+      "note": "31 road victories—matching the team's home wins.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+        "quote": "Phoenix Suns | 62 | 20 | .756 | – | 31–10 | 31–10 | 12–4"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Phoenix posted the same 31–10 record at home and on the road.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "Phoenix Suns | 62 | 20 | .756 | – | 31–10 | 31–10 | 12–4"
+          }
+        },
+        {
+          "text": "The Suns were the NBA's youngest top-seeded team since playoff seeding began in 1984, a mark later displaced by Oklahoma City.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "youngest team to earn the 1-seed since seeding began in 1984"
+          }
+        },
+        {
+          "text": "Phoenix swept the Memphis Grizzlies in the opening playoff round.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "In the first round of the playoffs, the Suns swept the Memphis Grizzlies in four games"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-stoudemire05-playoff-ppg",
+      "sport": "NBA",
+      "prompt": "How many points per game did Amar'e Stoudemire average in the 2005 playoffs?",
+      "context": "Phoenix Suns · postseason scoring average",
+      "answer": 29.9,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 19,
+      "max": 47,
+      "step": 0.1,
+      "note": "29.9 points per game across Phoenix's playoff run.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+        "quote": "Amar'e Stoudemire | 15 | 15 | 40.1 | .539 | .000 | .781 | 10.7 | 1.2 | 0.7 | 2.0 | 29.9"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Stoudemire also averaged 10.7 rebounds during that postseason.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "Amar'e Stoudemire | 15 | 15 | 40.1 | .539 | .000 | .781 | 10.7"
+          }
+        },
+        {
+          "text": "He scored 40 points in the opening game of Phoenix's series against Dallas.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "May 9 Dallas W 127–102 Amar'e Stoudemire (40)"
+          }
+        },
+        {
+          "text": "Phoenix's postseason ended in the Western Conference Finals against the eventual champion San Antonio Spurs.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "the Suns lost 4–1 to the 2-seed, and eventual NBA champion, San Antonio Spurs"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-nash05-dallas-g6-points",
+      "sport": "NBA",
+      "prompt": "How many points did Steve Nash score in the 2005 playoff clincher against Dallas?",
+      "context": "Phoenix at Dallas · conference semifinals · Game 6",
+      "answer": 39,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 20,
+      "max": 70,
+      "step": 1,
+      "note": "39 points in Phoenix's overtime series-clinching win.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+        "quote": "6 May 20 @ Dallas W 130–126 (OT) Steve Nash (39)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Phoenix eliminated Nash's former Dallas team in six games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "defeated Nash's former team, the Dallas Mavericks, in six games"
+          }
+        },
+        {
+          "text": "The clincher ended in a 130–126 overtime win for Phoenix.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "W 130–126 (OT)"
+          }
+        },
+        {
+          "text": "Shawn Marion grabbed 16 rebounds during that same decisive game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "Steve Nash (39) Shawn Marion (16) Steve Nash (12)"
+          }
+        }
+      ]
+    }
+  ]
+}

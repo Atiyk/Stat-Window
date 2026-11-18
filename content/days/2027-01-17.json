@@ -1,0 +1,265 @@
+{
+  "date": "2027-01-17",
+  "theme": {
+    "title": "Seattle's crown",
+    "subtitle": "Seattle SuperSonics, 1978–79",
+    "recap": "Lenny Wilkens's Sonics survived Phoenix in seven games and avenged their Finals loss to Washington to claim Seattle's NBA title."
+  },
+  "questions": [
+    {
+      "id": "nba-sonics79-season-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did Seattle win on its 1979 title run?",
+      "context": "Seattle SuperSonics · 1978–79 season",
+      "answer": 52,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 22,
+      "max": 90,
+      "step": 1,
+      "note": "52 wins under coach Lenny Wilkens.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+        "quote": "Record | 52–30 (.634)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy",
+      "funFacts": [
+        {
+          "text": "Coach Lenny Wilkens guided the Seattle team from the Kingdome sidelines.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "Head coach | Lenny Wilkens"
+          }
+        },
+        {
+          "text": "Finals MVP Dennis Johnson also made the All-Defensive First Team.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "Dennis Johnson, NBA All-Defensive First Team"
+          }
+        },
+        {
+          "text": "Seattle beat Washington in the Finals after losing to the Bullets the previous year.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "The Sonics would go on to avenge their NBA Finals loss and defeat the Bullets"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-sonics79-january-wins",
+      "sport": "NBA",
+      "prompt": "How many games did Seattle win in January of its 1979 championship season?",
+      "context": "SuperSonics · January 1979 · monthly record",
+      "answer": 10,
+      "unit": {
+        "singular": "January win",
+        "plural": "January wins"
+      },
+      "min": 1,
+      "max": 24,
+      "step": 1,
+      "note": "Ten wins in January, powered by strong road form.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+        "quote": "January: 10–4 (home: 3–3; road: 7–1)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Seattle won seven January road games and lost only once away from home.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "January: 10–4 (home: 3–3; road: 7–1)"
+          }
+        },
+        {
+          "text": "The Sonics won a tight January game at Washington, a preview of the Finals matchup.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "January 23 @ Washington W 103–100"
+          }
+        },
+        {
+          "text": "The Sonics also won a tight January game on the road in Phoenix.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "January 11 @ Phoenix W 109–106"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-sikma79-suns-g7-points",
+      "sport": "NBA",
+      "prompt": "How many points did Jack Sikma score in Game 7 against Phoenix in 1979?",
+      "context": "Seattle · Western Conference finals · deciding game",
+      "answer": 33,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 14,
+      "max": 69,
+      "step": 1,
+      "note": "33 points from Sikma to put Seattle into the Finals.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+        "quote": "May 17 Phoenix W 114–110 Jack Sikma (33)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Fred Brown led the Sonics with five assists in the winner-take-all contest.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "May 17 Phoenix W 114–110 Jack Sikma (33) Jack Sikma (11) Fred Brown (5)"
+          }
+        },
+        {
+          "text": "Over thirty-seven thousand fans watched Seattle survive the deciding game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "37,552 4–3"
+          }
+        },
+        {
+          "text": "The Sonics advanced to face the defending champion Washington Bullets again.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "facing the defending NBA champion Washington Bullets"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-gus79-finals-g4-points",
+      "sport": "NBA",
+      "prompt": "How many points did Gus Williams score in overtime Game 4 of the 1979 Finals?",
+      "context": "SuperSonics vs Bullets · 1979 Finals",
+      "answer": 36,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 10,
+      "max": 82,
+      "step": 1,
+      "note": "36 points in a pivotal overtime win.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+        "quote": "May 29 Washington W 114–112 (OT) Gus Williams (36)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "The game needed overtime before Seattle escaped with a win.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "May 29 Washington W 114–112 (OT)"
+          }
+        },
+        {
+          "text": "John Johnson dished out 13 assists in the same Game 4.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "May 29 Washington W 114–112 (OT) Gus Williams (36) Jack Sikma (17) John Johnson (13)"
+          }
+        },
+        {
+          "text": "The victory put Seattle one win away from the championship.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "May 29 Washington W 114–112 (OT)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-sikma79-finals-g5-rebounds",
+      "sport": "NBA",
+      "prompt": "How many rebounds did Jack Sikma grab in the 1979 title-clinching Game 5?",
+      "context": "Seattle at Washington · 1979 NBA Finals",
+      "answer": 17,
+      "unit": {
+        "singular": "rebound",
+        "plural": "rebounds"
+      },
+      "min": 5,
+      "max": 39,
+      "step": 1,
+      "note": "17 rebounds in Seattle's road championship clincher.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+        "quote": "June 1 @ Washington W 97–93 Gus Williams (23) Jack Sikma (17)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Gus Williams led Seattle in the clincher with 23 points.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "June 1 @ Washington W 97–93 Gus Williams (23)"
+          }
+        },
+        {
+          "text": "Seattle won the final game 97–93 in Washington.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "June 1 @ Washington W 97–93"
+          }
+        },
+        {
+          "text": "The victory secured Seattle's first NBA championship.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "winning their first and only NBA championship"
+          }
+        }
+      ]
+    }
+  ]
+}

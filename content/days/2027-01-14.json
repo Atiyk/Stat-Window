@@ -1,0 +1,266 @@
+{
+  "date": "2027-01-14",
+  "theme": {
+    "title": "The ATL uprising",
+    "subtitle": "Atlanta Hawks, 2014–15",
+    "recap": "A balanced Atlanta team went unbeaten in January, won a franchise-record 60 games and claimed the East's top seed."
+  },
+  "questions": [
+    {
+      "id": "nba-hawks15-regular-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did the 2014–15 Hawks win?",
+      "context": "Atlanta · surprise top seed · 2014–15",
+      "answer": 60,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 26,
+      "max": 82,
+      "step": 1,
+      "note": "60 wins, a franchise best and the East's top seed.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+        "quote": "60–22 record for a franchise high in wins"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy",
+      "funFacts": [
+        {
+          "text": "Atlanta's division crown was its first since it competed in the Central Division in 1994.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "first for the Hawks since winning the Central Division in 1994"
+          }
+        },
+        {
+          "text": "It was the first Southeast Division title won by a team outside Florida.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "division title was not won by a team from the state of Florida"
+          }
+        },
+        {
+          "text": "The Hawks reached the Eastern finals for the first time in the league's two-conference era.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "their first-ever Conference finals since the NBA was split into two conferences"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-hawks15-january-wins",
+      "sport": "NBA",
+      "prompt": "How many games did the 2015 Hawks win in an undefeated January?",
+      "context": "Atlanta · January 2015 · unbeaten calendar month",
+      "answer": 17,
+      "unit": {
+        "singular": "January win",
+        "plural": "January wins"
+      },
+      "min": 5,
+      "max": 22,
+      "step": 1,
+      "note": "17 January wins without a defeat.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+        "quote": "January: 17–0 (home: 9–0; road: 8–0)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Atlanta stayed perfect both at Philips Arena and away from home during January.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "January: 17–0 (home: 9–0; road: 8–0)"
+          }
+        },
+        {
+          "text": "The month closed with a home victory over Philadelphia.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "January 31 Philadelphia W 91–85"
+          }
+        },
+        {
+          "text": "The Hawks entered January at 23–8 and exited at 40–8.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "19,006 40–8"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-korver15-three-pct",
+      "sport": "NBA",
+      "prompt": "What percentage of his threes did Kyle Korver make in 2014–15?",
+      "context": "Atlanta Hawks · regular season · one decimal place",
+      "answer": 49.2,
+      "unit": {
+        "singular": "percent",
+        "plural": "percent"
+      },
+      "min": 28,
+      "max": 65,
+      "step": 0.1,
+      "note": "49.2%, an extraordinary season from distance.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+        "quote": "Kyle Korver | 75 | 75 | 32.2 | .487 | .492 | .900 | 4.1 | 2.6",
+        "derivation": "Wikipedia lists .492 three-point percentage; multiply by 100 to express it as 49.2 percent."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Korver also converted 90 percent of his free throws that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "Kyle Korver | 75 | 75 | 32.2 | .487 | .492 | .900"
+          }
+        },
+        {
+          "text": "He started every regular-season game in which he appeared.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "Kyle Korver | 75 | 75"
+          }
+        },
+        {
+          "text": "A broken nose briefly sidelined Korver in March.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "Kyle Korver | March 15, 2015 | March 21, 2015 | Broken nose"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-teague15-assists-average",
+      "sport": "NBA",
+      "prompt": "How many assists per game did Jeff Teague average for the 2015 Hawks?",
+      "context": "Atlanta · 2014–15 regular season",
+      "answer": 7,
+      "unit": {
+        "singular": "assist per game",
+        "plural": "assists per game"
+      },
+      "min": 1,
+      "max": 10.5,
+      "step": 0.1,
+      "note": "7.0 assists per game as Atlanta's starting point guard.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+        "quote": "Jeff Teague | 73 | 72 | 30.5 | .460 | .343 | .860 | 2.5 | 7.0 | 1.7 | 0.4 | 15.9"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Teague scored 15.9 points per game alongside his playmaking.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "7.0 | 1.7 | 0.4 | 15.9"
+          }
+        },
+        {
+          "text": "A hamstring injury cost Teague multiple games in December.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "Jeff Teague | December 17, 2014 | December 22, 2014 | Hamstring"
+          }
+        },
+        {
+          "text": "Teague paced Atlanta's scoring against Memphis in a January home win.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "January 7 Memphis W 96–86 Jeff Teague (25)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-hawks15-year-win-improvement",
+      "sport": "NBA",
+      "prompt": "By how many wins did Atlanta improve from 2013–14 to 2014–15?",
+      "context": "Hawks · year-over-year regular-season improvement",
+      "answer": 22,
+      "unit": {
+        "singular": "extra win",
+        "plural": "extra wins"
+      },
+      "min": 8,
+      "max": 44,
+      "step": 1,
+      "note": "22 more wins than the previous season.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+        "quote": "Their 22 wins improvement was the second largest by a team"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Atlanta was the first No. 1 seed swept in a playoff series since Detroit in 2003.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "first #1 seed to get swept in a playoff series since the Detroit Pistons"
+          }
+        },
+        {
+          "text": "The Hawks did not reach another conference final until 2021.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "The Hawks would not return to the conference finals until 2021"
+          }
+        },
+        {
+          "text": "Former Hawks coach Mike Budenholzer led Milwaukee past Atlanta in that later appearance.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "led by former Hawks coach Mike Budenholzer"
+          }
+        }
+      ]
+    }
+  ]
+}

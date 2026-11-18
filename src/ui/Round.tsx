@@ -6,6 +6,7 @@ import { feedback } from './feedback';
 import { Readout } from './Readout';
 import { Ruler, type RulerReveal } from './Ruler';
 import { usePrefersReducedMotion } from './hooks';
+import { browserFunFactSeed, pickFunFact } from './fun-facts';
 
 type Props = {
   state: GameState;
@@ -52,6 +53,8 @@ function hitLine(points: number): string {
 export function Round({ state, dispatch, label, level, theme, showHint, challenge = null, onFirstTouch, survival }: Props) {
   const q = currentQuestion(state);
   const reduced = usePrefersReducedMotion();
+  const [factSeed] = useState(browserFunFactSeed);
+  const extra = pickFunFact(q, factSeed);
   const last = state.results[state.round];
   const [progress, setProgress] = useState(0);
   const [shownPoints, setShownPoints] = useState(0);
@@ -265,6 +268,15 @@ export function Round({ state, dispatch, label, level, theme, showHint, challeng
             <span className="tabular">{formatValue(q.answer, q.step)}</span> {unitFor(q.answer, q.unit)}
           </p>
           <p className="story-note">{q.note}</p>
+          {extra && (
+            <aside className="story-extra" aria-label="Bonus sports fact">
+              <p className="story-extra-title">One more thing</p>
+              <p className="story-extra-text">{extra.text}</p>
+              <a className="story-extra-source" href={extra.source.url} target="_blank" rel="noopener noreferrer">
+                Source: {extra.source.name}
+              </a>
+            </aside>
+          )}
           <p className="story-source">
             Source:{' '}
             <a href={q.source.url} target="_blank" rel="noopener noreferrer">

@@ -1,0 +1,265 @@
+{
+  "date": "2027-01-15",
+  "theme": {
+    "title": "Magic in the air",
+    "subtitle": "Orlando Magic, 2008–09",
+    "recap": "Dwight Howard anchored Orlando's defense while its shooters carried the Magic past Boston and Cleveland to the Finals."
+  },
+  "questions": [
+    {
+      "id": "nba-magic09-regular-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did Dwight Howard's 2008–09 Magic win?",
+      "context": "Orlando · Eastern Conference champions",
+      "answer": 59,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 31,
+      "max": 83,
+      "step": 1,
+      "note": "59 wins under coach Stan Van Gundy.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+        "quote": "the team finished the regular season with a 59–23 record"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy",
+      "funFacts": [
+        {
+          "text": "Dwight Howard became the youngest Defensive Player of the Year winner that spring.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "becoming the youngest player to win the award"
+          }
+        },
+        {
+          "text": "A shoulder injury to All-Star Jameer Nelson forced Orlando to reshape its backcourt.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "Jameer Nelson left a game after dislocating his right shoulder"
+          }
+        },
+        {
+          "text": "Hedo Türkoğlu hit a game-winner against Philadelphia in the opening playoff round.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "Hedo Türkoğlu's game winner in game four of that series"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-magic09-kings-threes",
+      "sport": "NBA",
+      "prompt": "How many three-pointers did Orlando make against Sacramento in January 2009?",
+      "context": "Magic at Kings · long-range barrage",
+      "answer": 23,
+      "unit": {
+        "singular": "made three-pointer",
+        "plural": "made three-pointers"
+      },
+      "min": 10,
+      "max": 55,
+      "step": 1,
+      "note": "23 made threes in a high-scoring win.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+        "quote": "The Magic scored an NBA record 23 three-pointers against the Sacramento Kings"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Nine different Orlando players made at least one three-pointer that night.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "Nine of the twelve Magic players who played that night scored at least one three pointer"
+          }
+        },
+        {
+          "text": "Jameer Nelson hit five threes and JJ Redick added four.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "Jameer Nelson (5), JJ Redick (4), Keith Bogans (4)"
+          }
+        },
+        {
+          "text": "The Magic won the game 139–107 in Sacramento.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "January 13 @ Sacramento W 139–107"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-howard09-regular-rpg",
+      "sport": "NBA",
+      "prompt": "How many rebounds per game did Dwight Howard average in 2008–09?",
+      "context": "Orlando Magic · regular season",
+      "answer": 13.8,
+      "unit": {
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
+      },
+      "min": 4,
+      "max": 30,
+      "step": 0.1,
+      "note": "13.8 rebounds a night from Orlando's dominant center.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+        "quote": "Dwight Howard | C | 79 | 79 | 2,821 | 1,093 | 112 | 77 | 231 | 1,624 | 35.7 | 13.8"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "He swatted 231 shots that regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "Dwight Howard | C | 79 | 79 | 2,821 | 1,093 | 112 | 77 | 231"
+          }
+        },
+        {
+          "text": "Howard won Defensive Player of the Year and made the All-NBA First Team.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "Dwight Howard – Defensive Player of the Year, All-NBA 1st Team"
+          }
+        },
+        {
+          "text": "A sore knee ended Howard's streak of consecutive games played since entering the NBA.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "missed the first game of his professional career, ending a streak of 351 consecutive games played"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-turkoglu09-regular-apg",
+      "sport": "NBA",
+      "prompt": "What was Hedo Türkoğlu's assists-per-game average in 2008–09?",
+      "context": "Magic · point-forward in a Finals season",
+      "answer": 4.9,
+      "unit": {
+        "singular": "assist per game",
+        "plural": "assists per game"
+      },
+      "min": 1,
+      "max": 14,
+      "step": 0.1,
+      "note": "4.9 assists per game while running much of Orlando's offense.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+        "quote": "Hedo Türkoğlu | SF | 77 | 77 | 2,815 | 410 | 375 | 64 | 19 | 1,294 | 36.6 | 5.3 | 4.9"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Türkoğlu collected 375 assists across the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "Hedo Türkoğlu | SF | 77 | 77 | 2,815 | 410 | 375"
+          }
+        },
+        {
+          "text": "His late-game heroics helped Orlando survive Philadelphia early in the playoffs.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "highlighted by forward Hedo Türkoğlu's game winner in game four of that series"
+          }
+        },
+        {
+          "text": "After the season, Orlando sent Türkoğlu to Toronto in a multi-team deal.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "Following the season, Türkoğlu was traded to the Toronto Raptors"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-howard09-cavs-g6-points",
+      "sport": "NBA",
+      "prompt": "How many points did Howard score to eliminate Cleveland in the 2009 East finals?",
+      "context": "Magic vs Cavaliers · conference finals Game 6",
+      "answer": 40,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 22,
+      "max": 80,
+      "step": 1,
+      "note": "40 points to send Orlando back to the NBA Finals.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+        "quote": "thanks to Howard's 40 points and 10 rebounds in Game 6"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Howard also grabbed ten rebounds in the decisive game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "Howard's 40 points and 10 rebounds in Game 6"
+          }
+        },
+        {
+          "text": "Orlando eliminated the top-seeded Cavaliers to reach its first Finals since the Shaq era.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "defeated the top-seeded Cleveland Cavaliers in six games"
+          }
+        },
+        {
+          "text": "The Lakers defeated Orlando in the NBA Finals that followed.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "would lose to the Kobe Bryant-led Los Angeles Lakers in five games"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,265 @@
+{
+  "date": "2027-01-20",
+  "theme": {
+    "title": "Bubble fire",
+    "subtitle": "Miami Heat, 2019–20",
+    "recap": "Butler, Adebayo and a rookie guard carried Miami from the fifth seed to the NBA Finals."
+  },
+  "questions": [
+    {
+      "id": "nba-heat20-regular-wins",
+      "sport": "NBA",
+      "prompt": "How many games did Miami win before the 2020 Bubble playoffs?",
+      "context": "Heat · Jimmy Butler's first season · shortened schedule",
+      "answer": 44,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 22,
+      "max": 80,
+      "step": 1,
+      "note": "44 regular-season wins, then a surprise Finals appearance.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+        "quote": "Record | 44–29 (.603)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy",
+      "funFacts": [
+        {
+          "text": "This was Miami's first complete season without retired Dwyane Wade.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "It was the first time since 2016-17 that Dwyane Wade was not on the Miami Heat roster"
+          }
+        },
+        {
+          "text": "Jimmy Butler was in his first season with Miami.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "It was the first season for Jimmy Butler on the Heat"
+          }
+        },
+        {
+          "text": "Miami was among twenty-two teams invited to the NBA bubble.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "the Heat were one of 22 teams invited to the NBA Bubble"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-adebayo20-regular-rpg",
+      "sport": "NBA",
+      "prompt": "How many rebounds per game did Bam Adebayo average for the 2020 Heat?",
+      "context": "Miami · 2019–20 regular season",
+      "answer": 10.2,
+      "unit": {
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
+      },
+      "min": 5,
+      "max": 23,
+      "step": 0.1,
+      "note": "10.2 rebounds a game while anchoring the paint.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+        "quote": "Bam Adebayo | PF | 72 | 72 | 2,417 | 735 | 368 | 82 | 93 | 1,146 | 33.6 | 10.2"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Bam joined Butler on Miami's 2020 All-Star contingent.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Jimmy Butler and Bam Adebayo were both selected into 2020 NBA All-Star Game"
+          }
+        },
+        {
+          "text": "Adebayo recorded 368 assists that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Bam Adebayo | PF | 72 | 72 | 2,417 | 735 | 368"
+          }
+        },
+        {
+          "text": "His rim protection included 93 blocks in the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Bam Adebayo | PF | 72 | 72 | 2,417 | 735 | 368 | 82 | 93"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-butler20-regular-apg",
+      "sport": "NBA",
+      "prompt": "How many assists per game did Jimmy Butler average in his first Heat season?",
+      "context": "Miami · 2019–20 regular season",
+      "answer": 6,
+      "unit": {
+        "singular": "assist per game",
+        "plural": "assists per game"
+      },
+      "min": 2,
+      "max": 16,
+      "step": 0.1,
+      "note": "6.0 assists per night as a creative forward.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+        "quote": "Jimmy Butler | SF | 58 | 58 | 1,959 | 386 | 350 | 103 | 32 | 1,157 | 33.8 | 6.7 | 6.0"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Butler collected 103 steals in just fifty-eight appearances.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Jimmy Butler | SF | 58 | 58 | 1,959 | 386 | 350 | 103"
+          }
+        },
+        {
+          "text": "He averaged 19.9 points while also organizing Miami's offense.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Jimmy Butler | SF | 58 | 58 | 1,959 | 386 | 350 | 103 | 32 | 1,157 | 33.8 | 6.7 | 6.0 | 1.8 | .6 | 19.9"
+          }
+        },
+        {
+          "text": "Butler started all fifty-eight regular-season games he played.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Jimmy Butler | SF | 58 | 58"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-robinson20-season-ppg",
+      "sport": "NBA",
+      "prompt": "How many points per game did Duncan Robinson average for the 2020 Heat?",
+      "context": "Miami · breakout season · regular games",
+      "answer": 13.5,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 5,
+      "max": 29,
+      "step": 0.1,
+      "note": "13.5 points per game from the sharpshooter.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+        "quote": "Duncan Robinson | SG | 73 | 68 | 2,166 | 232 | 102 | 35 | 19 | 983 | 29.7 | 3.2 | 1.4 | .5 | .3 | 13.5"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Robinson appeared in all seventy-three of Miami's scheduled games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Duncan Robinson | SG | 73 | 68"
+          }
+        },
+        {
+          "text": "He started sixty-eight games in his breakout season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Duncan Robinson | SG | 73 | 68"
+          }
+        },
+        {
+          "text": "Robinson collected 232 rebounds and 102 assists.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Duncan Robinson | SG | 73 | 68 | 2,166 | 232 | 102"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-herro20-celtics-g4-points",
+      "sport": "NBA",
+      "prompt": "How many points did rookie Tyler Herro score in Game 4 versus Boston?",
+      "context": "2020 Bubble · Eastern Conference finals",
+      "answer": 37,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 18,
+      "max": 69,
+      "step": 1,
+      "note": "37 points in Miami's narrow win.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+        "quote": "September 23 Boston W 112–109 Tyler Herro (37)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "The Heat escaped that game by a three-point margin.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "September 23 Boston W 112–109 Tyler Herro (37)"
+          }
+        },
+        {
+          "text": "Bam Adebayo collected twelve rebounds in the same contest.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "September 23 Boston W 112–109 Tyler Herro (37) Bam Adebayo (12)"
+          }
+        },
+        {
+          "text": "Miami took a three-games-to-one series lead with that victory.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "No In-Person Attendance 3–1"
+          }
+        }
+      ]
+    }
+  ]
+}

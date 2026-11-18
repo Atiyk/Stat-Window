@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { collectErrors, DAY1, DAY2, highBracket, lockAndSettle, lowBracket, next, openAt, typeWindow } from './helpers';
+import { collectErrors, DAY1, DAY2, NBA_FIRST, highBracket, lockAndSettle, lowBracket, next, openAt, typeWindow } from './helpers';
 
 // Day 1 answers (content/days/2026-11-15.json): 73, 23, 92, 138, 2632
 const DAY1_PLAN = [
@@ -63,6 +63,19 @@ test('a full daily run scores every round, saves, and shares without spoilers', 
   expect(errors).toEqual([]);
 });
 
+test('verified NBA bonus trivia appears only after a reveal and stays stable after reload', async ({ page }) => {
+  await openAt(page, NBA_FIRST);
+  await expect(page.locator('.story-extra')).toHaveCount(0);
+  await lockAndSettle(page);
+  const fact = page.locator('.story-extra-text');
+  await expect(fact).toBeVisible();
+  const first = await fact.textContent();
+  expect(first?.length).toBeGreaterThan(20);
+  await expect(page.locator('.story-extra-source')).toHaveAttribute('href', /^https:\/\/en\.wikipedia\.org\//);
+  await page.reload();
+  await expect(page.locator('.story-extra-text')).toHaveText(first!);
+});
+
 test('refreshing mid-reveal keeps the locked window and shows its result', async ({ page }) => {
   await openAt(page, DAY1);
   await typeWindow(page, 60, 70); // misses 73
@@ -92,6 +105,19 @@ test('a tab left open across midnight moves to the new puzzle', async ({ page })
   await expect(page.locator('.day-label')).toHaveText('No. 1');
   await page.clock.fastForward('01:00');
   await expect(page.locator('.day-label')).toHaveText('No. 2');
+});
+
+test('an adjusted but not locked first window survives UTC midnight', async ({ page }) => {
+  await page.clock.install({ time: new Date('2026-11-15T23:59:30Z') });
+  await page.goto('/');
+  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  const low = lowBracket(page);
+  await low.focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(low).toHaveAttribute('aria-valuenow', '41');
+  await page.clock.fastForward('01:00');
+  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(lowBracket(page)).toHaveAttribute('aria-valuenow', '41');
 });
 
 test('practice on an earlier day does not touch the daily record', async ({ page }) => {

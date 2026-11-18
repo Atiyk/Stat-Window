@@ -1,0 +1,265 @@
+{
+  "date": "2027-01-21",
+  "theme": {
+    "title": "The beautiful game",
+    "subtitle": "San Antonio Spurs, 2013–14",
+    "recap": "The Spurs answered their painful 2013 Finals defeat with depth, passing and a title-winning rematch."
+  },
+  "questions": [
+    {
+      "id": "nba-spurs14-season-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season games did the 2013–14 champion Spurs win?",
+      "context": "San Antonio · the Beautiful Game title",
+      "answer": 62,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 20,
+      "max": 86,
+      "step": 1,
+      "note": "62 wins before the rematch with Miami.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+        "quote": "the best record in the league at 62–20"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy",
+      "funFacts": [
+        {
+          "text": "San Antonio entered the season with a then-record ten international players.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "an NBA-record ten international players"
+          }
+        },
+        {
+          "text": "The Spurs had lost their first NBA Finals series the prior year.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "marking the first time the Spurs lost in the NBA Finals"
+          }
+        },
+        {
+          "text": "Gregg Popovich led the team as both coach and president.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Head coach | Gregg Popovich"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-spurs14-march-wins",
+      "sport": "NBA",
+      "prompt": "How many games did San Antonio win in its unbeaten March of 2014?",
+      "context": "Spurs · March 2014 · undefeated month",
+      "answer": 16,
+      "unit": {
+        "singular": "March win",
+        "plural": "March wins"
+      },
+      "min": 5,
+      "max": 24,
+      "step": 1,
+      "note": "16 wins in an unblemished March.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+        "quote": "an unbeaten month in March (16–0)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "The late-season surge continued into the start of April.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "a 19-game winning streak from late February to early April"
+          }
+        },
+        {
+          "text": "Dallas later stretched the Spurs to seven games in the playoff opener.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "defeated the Dallas Mavericks in seven games in the first round"
+          }
+        },
+        {
+          "text": "San Antonio returned to the Finals to face Miami in a rematch.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "back-to-back Finals appearances, also against the Miami Heat"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-duncan14-season-rpg",
+      "sport": "NBA",
+      "prompt": "What was Tim Duncan's rebound average in the 2014 title season?",
+      "context": "San Antonio · regular season · veteran center",
+      "answer": 9.7,
+      "unit": {
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
+      },
+      "min": 3,
+      "max": 22,
+      "step": 0.1,
+      "note": "9.7 rebounds per game in his later career.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+        "quote": "Tim Duncan | C | 74 | 74 | 2,158 | 721 | 220 | 43 | 139 | 1,119 | 29.2 | 9.7"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Duncan blocked 139 shots during the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Tim Duncan | C | 74 | 74 | 2,158 | 721 | 220 | 43 | 139"
+          }
+        },
+        {
+          "text": "He started all seventy-four games he played.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Tim Duncan | C | 74 | 74"
+          }
+        },
+        {
+          "text": "Duncan scored 1,119 points during the season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Tim Duncan | C | 74 | 74 | 2,158 | 721 | 220 | 43 | 139 | 1,119"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-parker14-season-ppg",
+      "sport": "NBA",
+      "prompt": "How many points per game did Tony Parker score for the 2014 Spurs?",
+      "context": "San Antonio · balanced championship attack",
+      "answer": 16.7,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 8,
+      "max": 37,
+      "step": 0.1,
+      "note": "16.7 points per game as part of a deep team.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+        "quote": "Tony Parker | PG | 68 | 68 | 1,997 | 155 | 388 | 36 | 9 | 1,134 | 29.4 | 2.3 | 5.7 | .5 | .1 | 16.7"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Parker played nearly two thousand minutes across sixty-eight appearances.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Tony Parker | PG | 68 | 68 | 1,997"
+          }
+        },
+        {
+          "text": "He dished out 388 assists in the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Tony Parker | PG | 68 | 68 | 1,997 | 155 | 388"
+          }
+        },
+        {
+          "text": "Parker's passing average stood at 5.7 assists per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Tony Parker | PG | 68 | 68 | 1,997 | 155 | 388 | 36 | 9 | 1,134 | 29.4 | 2.3 | 5.7"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-diaw14-heat-g4-assists",
+      "sport": "NBA",
+      "prompt": "How many assists did Boris Diaw record in Game 4 of the 2014 Finals?",
+      "context": "Spurs at Miami · a pivotal Finals road win",
+      "answer": 9,
+      "unit": {
+        "singular": "assist",
+        "plural": "assists"
+      },
+      "min": 1,
+      "max": 26,
+      "step": 1,
+      "note": "9 assists from the versatile forward.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+        "quote": "June 12 @ Miami W 107–86 Kawhi Leonard (20) Kawhi Leonard (14) Boris Diaw (9)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "San Antonio won the game by twenty-one points.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "June 12 @ Miami W 107–86"
+          }
+        },
+        {
+          "text": "Kawhi Leonard led the team with twenty points.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "June 12 @ Miami W 107–86 Kawhi Leonard (20)"
+          }
+        },
+        {
+          "text": "Leonard also collected fourteen rebounds that night.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "June 12 @ Miami W 107–86 Kawhi Leonard (20) Kawhi Leonard (14)"
+          }
+        }
+      ]
+    }
+  ]
+}

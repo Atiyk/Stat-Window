@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { eventPath, privacySignal, setTrackSink, startAnalytics, totalBand, track, trackOnce, type TrackEvent } from './track';
+import { eventPath, privacySignal, setCohort, setTrackSink, startAnalytics, totalBand, track, trackOnce, type TrackEvent } from './track';
 
 describe('eventPath', () => {
   it('maps every event to a fixed, low-cardinality path with no answers or ids', () => {
@@ -114,5 +114,54 @@ describe('startAnalytics wiring (simulated window)', () => {
       setTrackSink(() => {});
       if (!had) delete g.window;
     }
+  });
+});
+
+describe('Phase 1 analytics controls', () => {
+  const vercelFake = () => {
+    const calls: unknown[][] = [];
+    return {
+      calls,
+      vercel: {
+        inject: ((props: unknown) => void calls.push(['inject', props])) as never,
+        pageview: ((p: unknown) => void calls.push(['pageview', p])) as never,
+      },
+    };
+  };
+  const off = { analytics: 'off', scores: 'unset', key: null, sent: [] } as const;
+  const on = { analytics: 'on', scores: 'unset', key: null, sent: [] } as const;
+
+  it('the in-app switch turns analytics off, and an explicit yes overrides GPC/DNT', () => {
+    const g = globalThis as { window?: unknown };
+    const had = 'window' in g;
+    g.window = g.window ?? {};
+    try {
+      const a = vercelFake();
+      expect(startAnalytics({ enabled: true, nav: {} as Navigator, vercel: a.vercel, privacy: { ...off, sent: [] } })).toBe(false);
+      expect(a.calls).toEqual([]);
+      const b = vercelFake();
+      expect(startAnalytics({ enabled: true, nav: { globalPrivacyControl: true } as unknown as Navigator, vercel: b.vercel, privacy: { ...on, sent: [] } })).toBe(true);
+    } finally {
+      setTrackSink(() => {});
+      if (!had) delete g.window;
+    }
+  });
+
+  it('new events stay low-cardinality and carry no score, key or URL', () => {
+    expect(eventPath({ name: 'percentile', outcome: 'ready' })).toBe('/e/percentile/ready');
+    expect(eventPath({ name: 'privacy', choice: 'deleted' })).toBe('/e/privacy/deleted');
+    expect(eventPath({ name: 'share', mode: 'daily', method: 'native-image' })).toBe('/e/share/daily/native-image');
+  });
+
+  it('prefixes a launch season or QA cohort, and leaves beta paths unchanged', () => {
+    try {
+      setCohort('s1');
+      expect(eventPath({ name: 'run_start', mode: 'daily' })).toBe('/e/s1/start/daily');
+      setCohort('qa');
+      expect(eventPath({ name: 'run_start', mode: 'daily' })).toBe('/e/qa/start/daily');
+    } finally {
+      setCohort('beta');
+    }
+    expect(eventPath({ name: 'run_start', mode: 'daily' })).toBe('/e/start/daily');
   });
 });

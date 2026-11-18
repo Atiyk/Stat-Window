@@ -13,10 +13,12 @@
  * segment comes from the fixed vocabulary below.
  */
 import { inject, pageview } from '@vercel/analytics';
+import { analyticsAllowed, loadPrivacy, type Privacy } from './privacy';
 
 export type PlayMode = 'daily' | 'practice' | 'challenge';
 export type ChallengeOpen = 'today' | 'past' | 'future' | 'invalid';
-export type ShareMethod = 'native' | 'clipboard' | 'failed' | 'cancelled';
+export type ShareMethod = 'native' | 'native-image' | 'clipboard' | 'image-saved' | 'failed' | 'cancelled';
+export type ScoreOutcome = 'stored' | 'gathering' | 'ready' | 'consent' | 'ineligible' | 'disabled' | 'unavailable';
 
 export type TrackEvent =
   /** First time this browser opens the game. */
@@ -34,6 +36,10 @@ export type TrackEvent =
   | { name: 'run_complete'; mode: PlayMode; total: number }
   | { name: 'share'; mode: PlayMode; method: ShareMethod }
   | { name: 'challenge_open'; kind: ChallengeOpen; withScore: boolean }
+  /** What the daily comparison showed on the results screen (exposure, not a verified ranking). */
+  | { name: 'percentile'; outcome: ScoreOutcome }
+  /** A privacy choice made in the app. */
+  | { name: 'privacy'; choice: 'scores-on' | 'scores-off' | 'deleted' }
   /** Survival (docs/SURVIVAL.md). `again` = the player pressed "Run it again". */
   | { name: 'survival_start'; source: 'cta' | 'link' | 'again' }
   | { name: 'survival_reach'; round: 5 | 10 | 15 }
@@ -61,8 +67,22 @@ export function totalBand(total: number): string {
   return lo === 400 ? '400-500' : `${lo}-${lo + 99}`;
 }
 
+/**
+ * Cohort prefix: none for the public beta (so its paths stay comparable with every
+ * earlier release), `/s1` once a formal launch season is live, `/qa` for QA browsers.
+ */
+let cohort = '';
+export function setCohort(c: 'beta' | 's1' | 'qa'): void {
+  cohort = c === 'beta' ? '' : `/${c}`;
+}
+
 /** The fixed path each event is counted under. */
 export function eventPath(e: TrackEvent): string {
+  const p = basePath(e);
+  return cohort ? p.replace(/^\/e\//, `/e${cohort}/`) : p;
+}
+
+function basePath(e: TrackEvent): string {
   switch (e.name) {
     case 'visit_new':
       return '/e/visit/new';
@@ -87,6 +107,10 @@ export function eventPath(e: TrackEvent): string {
       return `/e/share/${e.mode}/${e.method}`;
     case 'challenge_open':
       return `/e/challenge-open/${e.kind}${e.withScore ? '/with-score' : ''}`;
+    case 'percentile':
+      return `/e/percentile/${e.outcome}`;
+    case 'privacy':
+      return `/e/privacy/${e.choice}`;
     case 'survival_start':
       return `/e/survival/start/${e.source}`;
     case 'survival_reach':
@@ -172,11 +196,12 @@ type Vercel = { inject: typeof inject; pageview: typeof pageview };
  * views, which would file a real visit under a stale `/e/…` path.
  */
 export function startAnalytics(
-  opts: { enabled?: boolean; nav?: Navigator; vercel?: Vercel } = {},
+  opts: { enabled?: boolean; nav?: Navigator; vercel?: Vercel; privacy?: Privacy } = {},
 ): boolean {
   const enabled = opts.enabled ?? analyticsEnabled;
   if (!enabled || typeof window === 'undefined') return false;
-  if (privacySignal(opts.nav ?? navigator)) return false;
+  // GPC/DNT and the in-app switch both stop analytics; an explicit "on" in the app overrides GPC/DNT.
+  if (!analyticsAllowed(opts.privacy ?? loadPrivacy(), privacySignal(opts.nav ?? navigator))) return false;
   const v = opts.vercel ?? { inject, pageview };
   v.inject({
     mode: 'production',
@@ -193,6 +218,7 @@ export function startAnalytics(
   });
   v.pageview({ route: '/', path: '/' });
   setTrackSink((e) => {
+    if (!analyticsAllowed(loadPrivacy(), privacySignal(opts.nav ?? navigator))) return; // switched off this session
     const path = eventPath(e);
     v.pageview({ route: path, path });
   });

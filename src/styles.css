@@ -353,32 +353,9 @@ a {
   padding-bottom: clamp(18px, 3vw, 28px);
 }
 
-.round-level {
-  font-size: 0.8125rem;
-  color: var(--ink-soft);
-}
-
 .context {
   margin: 0 0 10px;
   font-size: 0.9375rem;
-  color: var(--ink-soft);
-}
-
-/* The day's theme: a quiet eyebrow above the question, and one line of recap after the game. */
-.theme-line {
-  margin: 0 0 4px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-}
-
-.theme-recap {
-  margin: 14px 0 0;
-  max-width: 34rem;
-  font-size: 0.9375rem;
-  line-height: 1.45;
   color: var(--ink-soft);
 }
 
@@ -913,6 +890,15 @@ a {
   animation: story-in 360ms var(--ease-out) 80ms both;
 }
 
+.story-reaction {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--brand);
+}
+
 .story-answer {
   margin: 0;
   font-weight: 700;
@@ -943,24 +929,50 @@ a {
   text-transform: uppercase;
 }
 .story-extra-text { margin: 0; font-size: 1rem; line-height: 1.45; }
-.story-extra-source {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 6px 0;
+
+/* Sources & method: one quiet line that names the source; the licence and links one tap away. */
+.sources {
+  margin: 4px 0 0;
+  max-width: 62ch;
   color: var(--ink-soft);
   font-size: 0.875rem;
 }
-.story-source {
-  margin: 6px 0 0;
-  font-size: 0.9375rem;
-  color: var(--ink-soft);
+.sources summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  cursor: pointer;
+  list-style: none;
 }
-
-.story-source a {
+.sources-label {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+.sources summary::-webkit-details-marker { display: none; }
+.sources summary::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  rotate: 45deg;
+  translate: 0 -2px;
+  transition: rotate 160ms var(--ease-out);
+}
+.sources[open] summary::after { rotate: 225deg; translate: 0 2px; }
+.sources-via { text-decoration: none; }
+.sources-body {
+  padding: 2px 0 6px;
+}
+.sources-body p { margin: 0 0 6px; line-height: 1.45; }
+.sources-body a {
   display: inline-block;
-  padding: 10px 0;
-  margin: -10px 0;
+  padding: 6px 0;
+  margin: -6px 0;
 }
+.sources-method { font-size: 0.8125rem; }
 
 @keyframes story-in {
   from {
@@ -1918,3 +1930,62 @@ a {
   grid-area: auto;
   grid-row: auto;
 }
+
+/* ───────────── Daily percentile, consent and privacy ───────────── */
+.btn-link {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+.btn.btn-link {
+  display: inline-flex;
+  min-height: 44px;
+  padding: 0;
+  background: none;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+.btn-small { min-height: 44px; padding: 0 18px; font-size: 0.9375rem; }
+
+.percentile {
+  margin: 12px 0 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.percentile b { font-weight: 760; color: var(--brand); }
+.percentile-detail,
+.percentile-quiet { color: var(--ink-soft); font-size: 0.9375rem; }
+.percentile .btn-link { min-height: 0; }
+
+.consent {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  max-width: 34rem;
+}
+.consent-q { margin: 0; font-weight: 700; }
+.consent-detail { margin: 4px 0 10px; color: var(--ink-soft); font-size: 0.9375rem; line-height: 1.4; }
+.consent-actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+
+.privacy-row {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 12px;
+  align-items: start;
+  margin: 0 0 14px;
+  line-height: 1.45;
+}
+.privacy-row input { width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--brand); }
+.privacy-foot { margin: 28px 0 0; color: var(--ink-soft); font-size: 0.9375rem; }
+.privacy-foot .btn-link { padding: 10px 0; }

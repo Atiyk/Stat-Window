@@ -164,7 +164,7 @@ export const REACTIONS: Record<ReactionSituation, readonly string[]> = {
   ],
   'wide-miss': [
     'Way off this time.',
-    'Not even close. It happens.',
+    'That one ran away from you.',
     'That number was far away.',
     'Wrong end of the ruler.',
     'A long way outside.',

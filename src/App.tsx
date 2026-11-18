@@ -4,15 +4,18 @@ import { inventoryDays, loadSlate } from './content/inventory';
 import type { Slate } from './content/schema';
 import { parseChallenge } from './engine/challenge';
 import { addDays, puzzleDay, puzzleNumber } from './engine/daily';
+import { currentSeason, inSeason, publicNumber, seasonConfigFrom, type SeasonConfig } from './engine/season';
+import { isQa } from './lib/scores';
 import { gameReducer, initGame, ROUNDS, type GameAction, type GameState, type Mode } from './engine/game';
 import { createSaveStore, type RunKind, type SaveStore, type StorageLike } from './engine/storage';
 import { playerStats } from './engine/summary';
-import { analyticsEnabled, track, trackOnce, type PlayMode, type ShareMethod } from './lib/track';
+import { analyticsEnabled, setCohort, track, trackOnce, type PlayMode, type ShareMethod } from './lib/track';
 import { CTA_TEST, previewAsOf, SURVIVAL_FLAG, wantsSurvival } from './survival/flag';
 import { armFor, exposedYesterday, markExposed, type Arm } from './survival/experiment';
 import { formatDay } from './lib/format';
 import { setSoundEnabled } from './ui/feedback';
 import { Help } from './ui/Help';
+import { PrivacyDialog } from './ui/Privacy';
 import { Mark } from './ui/Mark';
 import { Results } from './ui/Results';
 import { Round } from './ui/Round';
@@ -91,6 +94,15 @@ function reloadForNewVersion(): boolean {
 
 const daysBetween = (a: string, b: string) => puzzleNumber(b) - puzzleNumber(a);
 
+/**
+ * Beta unless the build sets VITE_LAUNCH_DAY (docs/LAUNCH.md). Non-production builds with
+ * VITE_LAUNCH_PREVIEW=1 can try a launch day with ?launch-preview=YYYY-MM-DD.
+ */
+const SEASON: SeasonConfig = seasonConfigFrom(
+  { launchDay: import.meta.env.VITE_LAUNCH_DAY, preview: import.meta.env.VITE_LAUNCH_PREVIEW },
+  typeof window === 'undefined' ? '' : window.location.search,
+);
+
 /** A daily run that has started but not finished (or is mid-reveal) must not be swapped out under the player. */
 function inProgress(store: SaveStore, day: string): boolean {
   const run = store.load().runs[day];
@@ -107,11 +119,13 @@ export function App() {
   const [settings, setSettings] = useState(() => store.load().settings);
   const [today, setToday] = useState(() => puzzleDay(new Date()));
   const offer = useSurvivalOffer(today, storage);
+  useEffect(() => setCohort(isQa() ? 'qa' : currentSeason(today, SEASON)), [today]);
   const [session, setSession] = useState<Session | null>(null);
   // Unlock bracket changes are not stored yet; protect the active run across UTC midnight.
   const activeWindowRef = useRef(false);
   const [missing, setMissing] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
+  const [privacyOpen, setPrivacyOpen] = useState(() => new URLSearchParams(window.location.search).has('privacy'));
 
   useEffect(() => setSoundEnabled(settings.sound), [settings.sound]);
 
@@ -205,7 +219,7 @@ export function App() {
     setSettings((s) => ({ ...s, ...patch }));
   };
 
-  const number = session ? puzzleNumber(session.day) : puzzleNumber(today);
+  const number = publicNumber(session ? session.day : today, SEASON).label;
   const archive = inventoryDays.filter((d) => d < today).reverse();
 
   return (
@@ -217,7 +231,7 @@ export function App() {
         </a>
         <div className="topbar-right">
           <span className="day-label">
-            {view === 'survival' ? 'Survival' : <>No. {number}</>}
+            {view === 'survival' ? 'Survival' : number}
           </span>
           <button
             type="button"
@@ -262,6 +276,7 @@ export function App() {
             offer={offer}
             storage={storage}
             onSurvival={openSurvival}
+            onPrivacy={() => setPrivacyOpen(true)}
           />
         ) : missing ? (
           <NoPuzzle today={today} archive={archive} onPractice={(d) => void open(d)} />
@@ -276,7 +291,8 @@ export function App() {
         </p>
       )}
 
-      <Help open={helpOpen} onClose={() => setHelpOpen(false)} />
+      <Help open={helpOpen} onClose={() => setHelpOpen(false)} onPrivacy={() => { setHelpOpen(false); setPrivacyOpen(true); }} />
+      <PrivacyDialog open={privacyOpen} onClose={() => setPrivacyOpen(false)} />
     </div>
   );
 }
@@ -295,6 +311,7 @@ function Game(props: {
   offer: SurvivalOffer;
   storage: StorageLike | null;
   onSurvival: () => void;
+  onPrivacy: () => void;
 }) {
   const { session, store, today, offer } = props;
   const daily = session.mode === 'daily';
@@ -323,7 +340,7 @@ function Game(props: {
     store.saveRun(session.day, { results: state.results, advanced }, session.kind);
   }, [store, session.day, session.kind, state.results, advanced]);
 
-  const n = puzzleNumber(session.day);
+  const pub = publicNumber(session.day, SEASON);
   useEffect(() => {
     if (state.results.length === 0) {
       trackOnce(`start:${playMode}:${session.kind}:${session.day}`, today, { name: 'run_start', mode: playMode });
@@ -396,11 +413,18 @@ function Game(props: {
   }, [complete, officialToday, offer.arm, props.storage, today]);
 
   if (state.phase === 'complete') {
-    const stats = playerStats(store.load().runs, today);
+    // Only the current season's runs count, so beta history never inflates an official launch.
+    const season = currentSeason(today, SEASON);
+    const stats = playerStats(inSeason(store.load().runs, season, SEASON), today);
+    // The comparison takes only the first completed run of today's official puzzle
+    // (or yesterday's, finished just after midnight). The server re-checks all of it.
+    const eligible = session.kind === 'runs' && (session.day === today || session.day === addDays(today, -1));
     return (
       <Results
         slate={session.slate}
-        number={n}
+        label={pub.label}
+        eligible={eligible}
+        onPrivacy={props.onPrivacy}
         mode={session.mode}
         playMode={playMode}
         isToday={session.day === today}
@@ -418,20 +442,16 @@ function Game(props: {
     );
   }
 
-  // Difficulty is a quiet hint under the round count, not a headline.
-  const difficulty = session.slate.questions[state.round]?.difficulty;
-  const level = difficulty ? `${difficulty[0]!.toUpperCase()}${difficulty.slice(1)}` : undefined;
-  // The header already names the puzzle (No. N); this line only says what kind of run it is.
+  // Difficulty and the day's theme stay in the content for editors and validators; players
+  // see a plain count. The header already names the puzzle; this only says what kind of run it is.
   const where = daily || session.viaLink ? '' : 'Practice · ';
-  const label = `${where}Round ${state.round + 1} of 5`;
+  const label = `${where}Question ${state.round + 1} of ${ROUNDS}`;
 
   return (
     <Round
       state={state}
       dispatch={dispatch}
       label={label}
-      level={level}
-      theme={session.slate.theme?.title}
       showHint={props.showHint && state.round === 0}
       challenge={session.viaLink && state.round === 0 && state.results.length === 0 ? { vs: session.vs } : null}
       onFirstTouch={() => { props.onWindowActive(); props.onFirstTouch(); }}

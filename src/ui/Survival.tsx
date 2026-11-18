@@ -20,7 +20,7 @@ import {
 } from '../survival/engine';
 import { loadPool } from '../survival/gate';
 import type { Supply } from '../survival/pool';
-import { need, roundLabel, RULESET, SURVIVAL_ROUNDS } from '../survival/rules';
+import { need, RULESET, SURVIVAL_ROUNDS } from '../survival/rules';
 import { newSeed, pickRun } from '../survival/select';
 import { createSurvivalStore, SURVIVAL_KEY, SURVIVAL_PREVIEW_KEY, type SurvivalStore } from '../survival/storage';
 import { Round } from './Round';
@@ -342,7 +342,6 @@ function SurvivalRound(props: {
         state={state}
         dispatch={dispatch}
         label={`Survival · Round ${round + 1} of ${SURVIVAL_ROUNDS}`}
-        level={roundLabel(round)}
         showHint={false}
         onFirstTouch={() => {}}
         survival={{
@@ -430,7 +429,7 @@ function SurvivalEnd(props: {
         </p>
         {status === 'lost' && last && lastQ && (
           <p className="versus">
-            Round {run.results.length} ({roundLabel(run.results.length - 1)}, needed {need(run.results.length - 1)}):{' '}
+            Round {run.results.length} (needed {need(run.results.length - 1)}):{' '}
             {reason === 'miss' ? 'the answer was outside your window.' : `you caught it, but ${last.points} was under the minimum.`}
           </p>
         )}

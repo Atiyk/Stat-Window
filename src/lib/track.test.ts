@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { savePrivacy } from './privacy';
-import { analyticsOn, eventPath, privacySignal, resumeAnalytics, setCohort, setTrackSink, startAnalytics, totalBand, track, trackOnce, type TrackEvent } from './track';
+import { analyticsHosts, analyticsOn, eventPath, privacySignal, resumeAnalytics, setCohort, setTrackSink, startAnalytics, totalBand, track, trackOnce, type TrackEvent } from './track';
 
 describe('eventPath', () => {
   it('maps every event to a fixed, low-cardinality path with no answers or ids', () => {
@@ -249,5 +249,28 @@ describe('turning analytics on in the Privacy dialog (CR-5)', () => {
       setTrackSink(() => {});
       vi.unstubAllGlobals();
     }
+  });
+});
+
+describe('analytics host allow-list (A-1, VITE_ANALYTICS_HOSTS)', () => {
+  it('defaults to stat-window.vercel.app', () => {
+    expect(analyticsHosts(undefined)).toEqual(['stat-window.vercel.app']);
+    expect(analyticsHosts(' , ')).toEqual(['stat-window.vercel.app']);
+  });
+  it('takes a comma-separated list of exact hostnames, so a new domain needs no code change', () => {
+    const hosts = analyticsHosts(' StatWindow.example , stat-window.vercel.app,');
+    expect(hosts).toEqual(['statwindow.example', 'stat-window.vercel.app']);
+    expect(analyticsOn(undefined, 'statwindow.example', hosts)).toBe(true);
+    expect(analyticsOn(undefined, 'STATWINDOW.example', hosts)).toBe(true);
+    expect(analyticsOn(undefined, 'stat-window.vercel.app', hosts)).toBe(true);
+    expect(analyticsOn('off', 'statwindow.example', hosts)).toBe(false);
+    // Exact match only: previews, subdomains and look-alikes stay off.
+    expect(analyticsOn(undefined, 'www.statwindow.example', hosts)).toBe(false);
+    expect(analyticsOn(undefined, 'stat-window-git-main-atiyk-a.vercel.app', hosts)).toBe(false);
+    expect(analyticsOn(undefined, 'localhost', hosts)).toBe(false);
+  });
+  it('ignores entries that are not plain hostnames', () => {
+    expect(analyticsHosts('https://statwindow.example/,*.vercel.app,statwindow.example')).toEqual(['statwindow.example']);
+    expect(analyticsHosts('*')).toEqual(['stat-window.vercel.app']);
   });
 });

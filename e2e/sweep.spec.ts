@@ -251,3 +251,34 @@ test.describe('BUG-05: a bad ?day= link says so and cleans the address bar', () 
     await expect(page.getByText('That link’s puzzle isn’t available')).toHaveCount(0);
   });
 });
+
+test.describe('BUG-11: the share fallback', () => {
+  test('the copy box comes into view selected, and the toast does not cover the share button', async ({ page }) => {
+    await page.addInitScript(() => {
+      Object.defineProperty(navigator, 'share', { value: undefined, configurable: true });
+      Object.defineProperty(navigator, 'clipboard', { value: undefined, configurable: true });
+    });
+    await page.setViewportSize({ width: 320, height: 568 });
+    await openAt(page, NOV21);
+    await playFive(page);
+    const button = page.getByRole('button', { name: 'Challenge a friend' });
+    await button.scrollIntoViewIfNeeded();
+    await button.click();
+    const box = page.getByRole('textbox', { name: 'Your result to copy' });
+    await expect(box).toBeInViewport({ ratio: 1 });
+    await expect(box).toBeFocused();
+    const selected = await box.evaluate((el: HTMLTextAreaElement) => [el.selectionStart, el.selectionEnd, el.value.length]);
+    expect(selected[0]).toBe(0);
+    expect(selected[1]).toBe(selected[2]);
+    const toast = page.locator('.toast');
+    await expect(toast).toHaveText(/Couldn’t copy automatically/);
+    await page.waitForTimeout(300);
+    await page.screenshot({ path: `${shots}/bug11-320-fallback.png` });
+    const t = (await toast.boundingBox())!;
+    for (const el of [button, box]) {
+      const b = (await el.boundingBox())!;
+      const overlap = t.x < b.x + b.width && b.x < t.x + t.width && t.y < b.y + b.height && b.y < t.y + t.height;
+      expect(overlap).toBe(false);
+    }
+  });
+});

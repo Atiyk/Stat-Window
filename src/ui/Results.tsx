@@ -70,6 +70,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
   const [toast, setToast] = useState<string | null>(null);
   const [fallback, setFallback] = useState<string | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const fallbackRef = useRef<HTMLTextAreaElement>(null);
 
   // The last round may have left the page scrolled down to its fact: open the day at the top,
   // with focus on the heading the player can see (as each new round does).
@@ -77,6 +78,16 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
     window.scrollTo({ top: 0, behavior: 'instant' });
     headingRef.current?.focus({ preventScroll: true });
   }, []);
+
+  // The copy-me box appears right under the share button: bring it into view, focused and selected,
+  // so "select the text below" is already done for the player.
+  useEffect(() => {
+    const box = fallbackRef.current;
+    if (!fallback || !box) return;
+    box.focus({ preventScroll: true });
+    box.select();
+    box.scrollIntoView({ block: 'center', behavior: 'instant' });
+  }, [fallback]);
 
   useEffect(() => {
     if (!toast) return;
@@ -137,7 +148,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
         return;
       }
       setFallback(text);
-      setToast('Couldn’t copy automatically. Select the text below.');
+      setToast('Couldn’t copy automatically. The text below is selected.');
       report('failed');
     }
   };
@@ -199,6 +210,11 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
         <button type="button" className="btn btn-primary" onClick={share}>
           Challenge a friend
         </button>
+        {fallback && (
+          <textarea
+            ref={fallbackRef}
+            className="share-fallback" readOnly value={fallback} rows={5} aria-label="Your result to copy" onFocus={(e) => e.currentTarget.select()} />
+        )}
         {(practice || !isToday) && (
           <button type="button" className="btn btn-quiet" onClick={onBackToToday}>
             Play today’s puzzle
@@ -212,9 +228,6 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
         <button type="button" className="btn btn-link" onClick={saveCard}>
           Save score card (no answers on it)
         </button>
-        {fallback && (
-          <textarea className="share-fallback" readOnly value={fallback} rows={4} aria-label="Your result to copy" onFocus={(e) => e.currentTarget.select()} />
-        )}
         {survivalCta && (
           <button type="button" className="btn btn-quiet" onClick={survivalCta}>
             Try Survival: 20 rounds, one life

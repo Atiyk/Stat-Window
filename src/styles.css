@@ -2128,3 +2128,7 @@ a {
 .stats { grid-template-columns: repeat(auto-fit, minmax(min(100%, 4rem), 1fr)); }
 .stats dt { overflow-wrap: break-word; }
 .results-head, .results-actions, .recap-text { min-width: 0; overflow-wrap: break-word; }
+
+/* A hit worth 0 (BUG-03): inside, but too wide to score. Quieter than a scoring hit. */
+.field .outcome-hit[data-zero] .outcome-word { font-size: 1.25rem; color: var(--chalk-soft); }
+.field .outcome-hit[data-zero] .outcome-points { color: var(--chalk-soft); }

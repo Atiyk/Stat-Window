@@ -192,17 +192,26 @@ export function Round({ state, dispatch, label, showHint, challenge = null, onFi
 
       <section className="field" aria-label="Your window">
         <div className="field-inner">
-          <Readout question={q} window={state.window} editable={interactive} onChange={(w, m) => dispatch({ type: 'setWindow', window: w, moving: m })} />
+          <Readout
+            question={q}
+            window={state.window}
+            editable={interactive}
+            onChange={(w, m) => {
+              // Typing a number is a first move too, so it retires the first-time hint like a drag does.
+              onFirstTouch();
+              dispatch({ type: 'setWindow', window: w, moving: m });
+            }}
+          />
 
           <div className="verdict-line" aria-live="polite">
             {resolved && survival ? (
               <SurvivalOutcome points={last.points} hit={last.hit} need={survival.need} shown={shownPoints} missBy={`${formatValue(last.missBy, q.step)} ${unitFor(last.missBy, q.unit)}`} />
             ) : resolved ? (
               last.hit ? (
-                <p className="outcome outcome-hit">
+                <p className="outcome outcome-hit" data-zero={last.points === 0 || undefined}>
                   <span className="outcome-word">
                     <span className="outcome-glyph" aria-hidden="true">✓</span>
-                    Inside.
+                    {last.points === 0 ? 'Inside, but too wide to score.' : 'Inside.'}
                   </span>
                   <span className="outcome-points tabular">+{shownPoints}</span>
                 </p>
@@ -228,6 +237,11 @@ export function Round({ state, dispatch, label, showHint, challenge = null, onFi
                 ) : (
                   <>Worth <b className="tabular">{worth}</b> if it’s inside. You need {survival.need}.</>
                 )}
+              </p>
+            ) : worth === 0 && canLock(state) ? (
+              // Lockable, but so wide it rounds to 0: say so before the lock, not after.
+              <p className="worth" data-zero>
+                Worth <b className="tabular">0</b> even if it’s inside. Pull in further.
               </p>
             ) : worth === 0 ? (
               <p className="worth">

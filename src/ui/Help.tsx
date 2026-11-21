@@ -29,8 +29,9 @@ export function Help({ open, onClose, onPrivacy }: { open: boolean; onClose: () 
           sure the answer sits inside. Then lock it and watch where the real number lands.
         </p>
         <p>
-          <strong>Tighter pays more.</strong> A window one notch wide is worth 100. The whole ruler is worth 0. If the
-          answer lands outside your window, that round scores 0.
+          <strong>Tighter pays more.</strong> A window one notch wide is worth 100. The whole ruler is worth 0, and
+          so is nearly the whole ruler: even if the answer lands inside, it scores 0. If the answer lands outside your
+          window, that round scores 0.
         </p>
         <ul className="help-examples">
           <li data-kind="hit">

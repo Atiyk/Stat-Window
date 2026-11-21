@@ -1,5 +1,5 @@
 import { expect, test, type Locator, type Page } from '@playwright/test';
-import { lockAndSettle, next, openAt } from './helpers';
+import { lockAndSettle, next, openAt, typeWindow } from './helpers';
 
 /** 2026-11-21 (No. 7 of the beta): Q1 is 25–100, answer 73. */
 const NOV21 = new Date('2026-11-21T15:00:00Z');
@@ -72,4 +72,39 @@ test.describe('BUG-08: 200% text on the results page', () => {
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
     });
   }
+});
+
+test.describe('BUG-03: a window worth 0 is honest before and after the lock', () => {
+  for (const returning of [false, true]) {
+    test(`26 to 100 warns it scores 0, and the reveal says why (${returning ? 'returning' : 'first-time'} player)`, async ({ page }) => {
+      await openAt(page, NOV21);
+      if (returning) {
+        // Finish the first-time hint the normal way, then reload as a returning player.
+        await page.getByRole('slider', { name: 'Low end of your window' }).focus();
+        await page.keyboard.press('ArrowRight');
+        await page.keyboard.press('ArrowLeft');
+        await page.reload();
+        await expect(page.locator('.question')).toBeVisible();
+        await expect(page.locator('.verdict-line')).toHaveText('Pull the brackets in to start scoring.');
+      }
+      await typeWindow(page, 26, 100);
+      const lock = page.getByRole('button', { name: 'Lock the window' });
+      await expect(lock).toBeEnabled();
+      await expect(page.locator('.verdict-line')).toContainText('Worth 0 even if it’s inside');
+      await expect(page.locator('.verdict-line')).not.toContainText('Drag a bracket in');
+      await expect(page.locator('.verdict-line')).not.toContainText('to start scoring');
+      await page.screenshot({ path: `${shots}/bug03-prelock-${returning ? 'returning' : 'first'}.png` });
+      await lock.click();
+      await expect(page.locator('.story')).toBeVisible({ timeout: 5000 });
+      await expect(page.locator('.outcome-hit')).toContainText('too wide to score');
+      await expect(page.locator('.outcome-points')).toHaveText('+0');
+      await page.screenshot({ path: `${shots}/bug03-reveal-${returning ? 'returning' : 'first'}.png` });
+    });
+  }
+
+  test('Help explains that a nearly whole ruler also scores 0', async ({ page }) => {
+    await openAt(page, NOV21);
+    await page.getByRole('button', { name: 'How to play' }).click();
+    await expect(page.getByRole('dialog', { name: 'How it works' })).toContainText(/nearly the whole ruler.*scores? 0/i);
+  });
 });

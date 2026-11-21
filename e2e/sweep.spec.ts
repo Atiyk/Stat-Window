@@ -175,3 +175,55 @@ test.describe('BUG-04: the percentile slot while games are gathering', () => {
     expect(calls.map((c) => c.method)).toEqual(['GET']);
   });
 });
+
+test.describe('BUG-06: practice and challenge results lead with "Challenge a friend"', () => {
+  const firstAction = (page: Page) => page.locator('.results-actions .btn').first();
+
+  async function sharedText(page: Page) {
+    await page.getByRole('button', { name: 'Challenge a friend' }).click();
+    return page.evaluate(() => navigator.clipboard.readText());
+  }
+
+  test('a practice run from the archive', async ({ page, context }) => {
+    test.skip(test.info().project.name !== 'desktop', 'clipboard read is checked on desktop Chromium');
+    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+    await openAt(page, NOV21);
+    await playFive(page);
+    await page.getByRole('button', { name: 'Nov 18' }).click();
+    await expect(page.locator('.round-meta')).toContainText('Practice');
+    await playFive(page);
+    await expect(firstAction(page)).toHaveText('Challenge a friend');
+    await expect(page.getByRole('button', { name: 'Play today’s puzzle' })).toBeVisible();
+    const total = await page.locator('.results-score').textContent();
+    await page.screenshot({ path: `${shots}/bug06-practice-results.png` });
+    expect(await sharedText(page)).toMatch(new RegExp(`/\\?day=2026-11-18&vs=${total}$`));
+  });
+
+  test('a friend’s challenge link', async ({ page, context }) => {
+    test.skip(test.info().project.name !== 'desktop', 'clipboard read is checked on desktop Chromium');
+    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+    await openAt(page, NOV21, '/?day=2026-11-18&vs=250');
+    await playFive(page);
+    await expect(page.locator('.versus')).toBeVisible();
+    await expect(firstAction(page)).toHaveText('Challenge a friend');
+    const total = await page.locator('.results-score').textContent();
+    await page.screenshot({ path: `${shots}/bug06-challenge-results.png` });
+    expect(await sharedText(page)).toMatch(new RegExp(`/\\?day=2026-11-18&vs=${total}$`));
+  });
+
+  test('EU flow: after "Count my score" the answer is brought into view', async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 568 });
+    await page.route('**/api/scores**', (route) => {
+      const body = JSON.parse(route.request().postData() ?? '{}') as Record<string, unknown>;
+      if (body.consent !== 'granted') return route.fulfill({ status: 409, contentType: 'application/json', body: '{"status":"consent-required"}' });
+      return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ status: 'stored', day: '2026-11-21', season: 'beta', score: body.total, n: 64, threshold: 100, ready: false, percentile: null, asOf: '2026-11-21T15:00:00Z' }) });
+    });
+    await openAt(page, NOV21);
+    await playFive(page);
+    await page.getByRole('button', { name: 'Count my score' }).click();
+    await expect(page.locator('.percentile')).toContainText('64 so far');
+    await expect(page.locator('.percentile-slot')).toBeFocused();
+    await expect(page.locator('.percentile-slot')).toBeInViewport();
+    await page.screenshot({ path: `${shots}/bug06-320-after-yes.png` });
+  });
+});

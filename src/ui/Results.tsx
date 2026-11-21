@@ -54,7 +54,8 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
   const raw = useComparison(eligible, slate.date, results);
   const slotRef = useRef<HTMLDivElement>(null);
   // After a yes or no the buttons go away; keep focus on the line that now answers.
-  const refocus = () => window.requestAnimationFrame(() => slotRef.current?.focus({ preventScroll: true }));
+  // The slot sits well above the consent box on phones, so bring it into view rather than move focus off-screen.
+  const refocus = () => window.requestAnimationFrame(() => slotRef.current?.focus());
   const comparison = { ...raw, join: () => (raw.join(), refocus()), decline: () => (raw.decline(), refocus()) };
   const verified = comparison.state.kind === 'ready' ? comparison.state : null;
   const percentileLine = verified ? `${ordinal(verified.percentile)} percentile today (${verified.n.toLocaleString('en-US')} games)` : null;
@@ -194,18 +195,13 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
       </header>
 
       <div className="results-actions">
-        {practice || !isToday ? (
-          <>
-            <button type="button" className="btn btn-primary" onClick={onBackToToday}>
-              Play today’s puzzle
-            </button>
-            <button type="button" className="btn btn-quiet" onClick={share}>
-              Send these five to a friend
-            </button>
-          </>
-        ) : (
-          <button type="button" className="btn btn-primary" onClick={share}>
-            Challenge a friend
+        {/* The share of the day just played always comes first, on practice and challenge runs too. */}
+        <button type="button" className="btn btn-primary" onClick={share}>
+          Challenge a friend
+        </button>
+        {(practice || !isToday) && (
+          <button type="button" className="btn btn-quiet" onClick={onBackToToday}>
+            Play today’s puzzle
           </button>
         )}
         <p className="share-note">

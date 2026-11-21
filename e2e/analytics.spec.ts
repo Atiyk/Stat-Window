@@ -83,3 +83,29 @@ test('Do Not Track and Global Privacy Control send nothing and load no script', 
   expect(await views(page)).toEqual([]);
   expect(loaded).toBe(false);
 });
+
+test('a completed daily sends one streak event, bucketed 1, 2-6 or 7plus; practice sends none', async ({ page }) => {
+  const playFive = async () => {
+    for (let r = 1; r <= 5; r++) {
+      await lockAndSettle(page);
+      await next(page);
+    }
+    await expect(page.locator('.results-score')).toBeVisible();
+  };
+  await openAt(page, new Date('2026-11-20T15:00:00Z'));
+  await playFive();
+  await expect.poll(async () => (await views(page)).filter((p) => p.startsWith('/e/streak/'))).toEqual(['/e/streak/daily/1']);
+  // Reloading the finished day sends no second streak event.
+  await page.reload();
+  await expect(page.locator('.results-score')).toBeVisible();
+  await expect.poll(() => views(page)).toEqual(['/']);
+  // The next day: a two-day streak.
+  await openAt(page, new Date('2026-11-21T15:00:00Z'));
+  await playFive();
+  await expect.poll(async () => (await views(page)).filter((p) => p.startsWith('/e/streak/'))).toEqual(['/e/streak/daily/2-6']);
+  // A practice run of an earlier day is not a daily.
+  await page.getByRole('button', { name: 'Nov 18' }).click();
+  await expect(page.locator('.round-meta')).toContainText('Practice');
+  await playFive();
+  expect((await views(page)).filter((p) => p.startsWith('/e/streak/'))).toEqual(['/e/streak/daily/2-6']);
+});

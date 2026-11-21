@@ -34,6 +34,8 @@ export type TrackEvent =
   /** Page hidden or closed with a run in progress (best effort: browsers may drop it). */
   | { name: 'run_exit'; mode: PlayMode; round: number }
   | { name: 'run_complete'; mode: PlayMode; total: number }
+  /** A daily run finished; days = the daily streak it leaves (counted from the daily record). */
+  | { name: 'streak'; days: number }
   | { name: 'share'; mode: PlayMode; method: ShareMethod }
   | { name: 'challenge_open'; kind: ChallengeOpen; withScore: boolean }
   /** What the daily comparison showed on the results screen (exposure, not a verified ranking). */
@@ -103,6 +105,8 @@ function basePath(e: TrackEvent): string {
       return `/e/exit/${e.mode}/r${e.round}`;
     case 'run_complete':
       return `/e/complete/${e.mode}/${totalBand(e.total)}`;
+    case 'streak':
+      return `/e/streak/daily/${gapBucket(e.days)}`;
     case 'share':
       return `/e/share/${e.mode}/${e.method}`;
     case 'challenge_open':

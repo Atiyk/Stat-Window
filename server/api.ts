@@ -340,7 +340,11 @@ export function contextFromEnv(env: Record<string, string | undefined>, deps: { 
   const ns = named ?? (env.VERCEL_ENV === 'production' ? 'production' : env.VERCEL_ENV === 'preview' ? 'preview' : onVercel ? '' : 'development');
   // On Vercel the hash secret must be its own long random value (never a database token, which rotates).
   const secret = env.SCORE_HASH_SECRET && (!onVercel || env.SCORE_HASH_SECRET.length >= 32) ? env.SCORE_HASH_SECRET : onVercel ? '' : 'local-development-only';
-  const minSample = num(env.PERCENTILE_MIN_SAMPLE, PERCENTILE_MIN_SAMPLE);
+  // The 100-game floor holds everywhere, whatever the namespace is called. Only the explicit test-only
+  // switch lowers it, and that switch is ignored on a production deployment or in the production namespace.
+  const lowSampleForTests = env.SCORES_TEST_LOW_SAMPLE === '1' && env.VERCEL_ENV !== 'production' && ns !== 'production';
+  const requested = num(env.PERCENTILE_MIN_SAMPLE, PERCENTILE_MIN_SAMPLE);
+  const minSample = lowSampleForTests ? requested : Math.max(PERCENTILE_MIN_SAMPLE, requested);
   return {
     enabled: env.SCORES_ENABLED === '1' && ns !== '',
     store: deps.store,
@@ -356,8 +360,8 @@ export function contextFromEnv(env: Record<string, string | undefined>, deps: { 
       monthlyBudget: Math.min(num(env.SCORES_MONTHLY_BUDGET, DEFAULT_LIMITS.monthlyBudget), DEFAULT_LIMITS.monthlyBudget),
     },
     graceSeconds: 2 * 3600,
-    // Production can never show a percentile from fewer than 100 games.
-    minSample: ns === 'production' ? Math.max(PERCENTILE_MIN_SAMPLE, minSample) : minSample,
+    // Production can never show a percentile (or return buckets) from fewer than 100 games.
+    minSample,
     allowedOrigins: (env.SCORES_ALLOWED_ORIGINS ?? 'https://stat-window.vercel.app').split(',').map((s) => s.trim()).filter(Boolean),
     budgetPrefix: 'sw:v1:budget',
     memo: newMemo(),

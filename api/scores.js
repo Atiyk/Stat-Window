@@ -428,7 +428,9 @@ function contextFromEnv(env, deps) {
 	const onVercel = env.VERCEL === "1";
 	const ns = (env.SCORES_NAMESPACE && /^[a-z0-9-]{1,24}$/.test(env.SCORES_NAMESPACE) ? env.SCORES_NAMESPACE : null) ?? (env.VERCEL_ENV === "production" ? "production" : env.VERCEL_ENV === "preview" ? "preview" : onVercel ? "" : "development");
 	const secret = env.SCORE_HASH_SECRET && (!onVercel || env.SCORE_HASH_SECRET.length >= 32) ? env.SCORE_HASH_SECRET : onVercel ? "" : "local-development-only";
-	const minSample = num(env.PERCENTILE_MIN_SAMPLE, 100);
+	const lowSampleForTests = env.SCORES_TEST_LOW_SAMPLE === "1" && env.VERCEL_ENV !== "production" && ns !== "production";
+	const requested = num(env.PERCENTILE_MIN_SAMPLE, 100);
+	const minSample = lowSampleForTests ? requested : Math.max(100, requested);
 	return {
 		enabled: env.SCORES_ENABLED === "1" && ns !== "",
 		store: deps.store,
@@ -443,7 +445,7 @@ function contextFromEnv(env, deps) {
 			monthlyBudget: Math.min(num(env.SCORES_MONTHLY_BUDGET, DEFAULT_LIMITS.monthlyBudget), DEFAULT_LIMITS.monthlyBudget)
 		},
 		graceSeconds: 7200,
-		minSample: ns === "production" ? Math.max(100, minSample) : minSample,
+		minSample,
 		allowedOrigins: (env.SCORES_ALLOWED_ORIGINS ?? "https://stat-window.vercel.app").split(",").map((s) => s.trim()).filter(Boolean),
 		budgetPrefix: "sw:v1:budget",
 		memo: newMemo()

@@ -345,3 +345,34 @@ describe('resubmits cannot drain the daily budget (CR-2)', () => {
     expect(COST.duplicate).toBeLessThan(COST.submit);
   });
 });
+
+describe('the 100-game floor does not depend on the namespace name (CR-4)', () => {
+  const deps = () => ({ store: memoryStore(() => NOON.getTime()) as ScoreStore, loadSlate: fileSlates() });
+  const long = 'k'.repeat(40);
+
+  it('production with a custom SCORES_NAMESPACE keeps the floor, and GET shows no buckets for a tiny day', async () => {
+    const d = deps();
+    const env = { VERCEL: '1', VERCEL_ENV: 'production', SCORES_ENABLED: '1', SCORE_HASH_SECRET: long, SCORES_NAMESPACE: 'prod', PERCENTILE_MIN_SAMPLE: '1' };
+    const base = contextFromEnv(env, d);
+    expect(base.env).toBe('prod');
+    expect(base.minSample).toBe(100);
+    const ctx = { ...base, now: () => NOON };
+    const a = await roundsFor(DAY, 2);
+    expect((await submit(ctx, { day: DAY, player: player(1), rounds: a.rounds })).code).toBe(200);
+    const text = await (await handle(new Request(`https://stat-window.vercel.app/api/scores?day=${DAY}`), ctx)).text();
+    expect(JSON.parse(text)).toMatchObject({ n: 1, ready: false });
+    expect(text).not.toContain('counts');
+  });
+
+  it('only an explicit test-only switch lowers it, and never in production', () => {
+    const d = deps();
+    const low = { SCORES_ENABLED: '1', SCORE_HASH_SECRET: long, PERCENTILE_MIN_SAMPLE: '3' };
+    expect(contextFromEnv({ ...low, VERCEL: '1', VERCEL_ENV: 'preview' }, d).minSample).toBe(100);
+    expect(contextFromEnv({ ...low, VERCEL: '1', SCORES_NAMESPACE: 'staging' }, d).minSample).toBe(100);
+    expect(contextFromEnv(low, d).minSample).toBe(100);
+    expect(contextFromEnv({ ...low, SCORES_TEST_LOW_SAMPLE: '1' }, d).minSample).toBe(3);
+    expect(contextFromEnv({ ...low, VERCEL: '1', VERCEL_ENV: 'preview', SCORES_TEST_LOW_SAMPLE: '1' }, d).minSample).toBe(3);
+    expect(contextFromEnv({ ...low, VERCEL: '1', VERCEL_ENV: 'production', SCORES_NAMESPACE: 'prod', SCORES_TEST_LOW_SAMPLE: '1' }, d).minSample).toBe(100);
+    expect(contextFromEnv({ ...low, VERCEL: '1', VERCEL_ENV: 'preview', SCORES_NAMESPACE: 'production', SCORES_TEST_LOW_SAMPLE: '1' }, d).minSample).toBe(100);
+  });
+});

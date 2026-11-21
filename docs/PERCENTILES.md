@@ -25,7 +25,7 @@ For a total `s` among `N` eligible submissions for one canonical UTC puzzle day 
 
 Ties get half credit, so it is labelled "Xth percentile today", never "beat X% of players". The player's own score is in `N`. Later submissions can move it; the line says "as of" and offers Refresh. Unit tests: `src/engine/percentile.test.ts` (0, 500, ties, all tied, one and two players, empty, malformed).
 
-**Threshold:** `N >= 100` (`PERCENTILE_MIN_SAMPLE`). The `PERCENTILE_MIN_SAMPLE` env var can only *raise* it in production (the server clamps it to at least 100), and the published client independently refuses to show a percentile from fewer than 100 games. The floor keeps early numbers from swinging wildly. The sample is still self-selected: only players who finish and keep comparison on are in it. Below it the API returns only `n`, never buckets, so a tiny day can't reveal one person's score.
+**Threshold:** `N >= 100` (`PERCENTILE_MIN_SAMPLE`). The `PERCENTILE_MIN_SAMPLE` env var can only *raise* it: the server clamps it to at least 100 on every deployment, whatever `SCORES_NAMESPACE` is called. Only the test-only switch `SCORES_TEST_LOW_SAMPLE=1` lets it go lower, and the server ignores that switch when `VERCEL_ENV=production` or the namespace is `production`. Also, the published client independently refuses to show a percentile from fewer than 100 games. The floor keeps early numbers from swinging wildly. The sample is still self-selected: only players who finish and keep comparison on are in it. Below it the API returns only `n`, never buckets, so a tiny day can't reveal one person's score.
 
 ## Eligibility (server decides, from its own clock)
 
@@ -99,7 +99,9 @@ Treat percentiles as a friendly comparison among unverified browsers. A real lea
 | `SCORE_HASH_SECRET` | Production, Preview | **required on Vercel**: 32+ random characters, its own value (never the store token). Changing it unlinks the last 7 days of records (first-wins and deletion restart) |
 | `SCORES_DAILY_BUDGET` | optional | default 14000 estimated commands |
 | `SCORES_MONTHLY_BUDGET` | optional | default and maximum 380000 |
-| `SCORES_NAMESPACE` | optional | overrides the environment prefix (lowercase, ≤ 24 chars) |
+| `SCORES_NAMESPACE` | optional | overrides the environment prefix (lowercase, ≤ 24 chars). It never changes the 100-game floor |
+| `PERCENTILE_MIN_SAMPLE` | optional | raises the sample threshold (never below 100) |
+| `SCORES_TEST_LOW_SAMPLE` | tests only, never Production | `1` lets `PERCENTILE_MIN_SAMPLE` go below 100; ignored on production deployments |
 | `LAUNCH_DAY` | only at formal launch | see `docs/LAUNCH.md` |
 
 ## Emergency disable / rollback

@@ -11,7 +11,8 @@
 
 export type SubmitOutcome =
   | { status: 'stored' | 'duplicate'; total: number; counts: number[]; n: number }
-  | { status: 'limited' }
+  /** `minute`: the per-minute rate; `day`: one of the per-network daily caps (retrying before 00:00 UTC can't help). */
+  | { status: 'limited'; until: 'minute' | 'day' }
   | { status: 'paused'; scope: 'day' | 'month' };
 
 /**
@@ -33,6 +34,8 @@ export type SubmitKeys = {
   rate: string;
   /** Scores stored from one hashed IP prefix today. */
   ipDay: string;
+  /** Submissions from one hashed IP prefix today that got past the rate limit (stored, duplicate or capped). */
+  ipCalls: string;
   budget: BudgetKeys;
 };
 
@@ -51,6 +54,8 @@ export type Limits = {
   ratePerMinute: number;
   /** Scores that may be stored from one IP prefix per UTC day. */
   ipDailyStored: number;
+  /** Submissions allowed from one IP prefix per UTC day, whatever their outcome (checked before anything is charged). */
+  ipDailyCalls: number;
   /** Deletion requests allowed from one IP prefix per UTC day (checked before anything is charged). */
   ipDailyDeletes: number;
 };
@@ -74,7 +79,9 @@ export type ScoreStore = {
  * per script, charged up front, so the counters never under-count.
  */
 export const COST = {
-  submit: 18,
+  submit: 20,
+  /** A resend of a run already stored: checked before the full charge, and it stops after the GET and HGETALL. */
+  duplicate: 13,
   read: 8,
   /** Deletion's upper bound, checked against the erase reserve before any record is read. */
   remove: (pairs: number) => 8 + 4 * pairs,
@@ -86,24 +93,30 @@ const MONTH_TTL = 32 * 86_400;
 const IP_DAY_TTL = 26 * 3_600;
 
 /**
- * KEYS: sub, dist, rate, ipDay, budgetDay, budgetMonth.
- * ARGV: total, subTtl, distTtl, dailyBudget, monthlyBudget, ratePerMinute, ipDailyStored, cost, dayTtl, monthTtl, ipDayTtl.
- * The rate check runs first, so a flooding client is turned away before it can spend the shared budget.
+ * KEYS: sub, dist, rate, ipDay, budgetDay, budgetMonth, ipCalls.
+ * ARGV: total, subTtl, distTtl, dailyBudget, monthlyBudget, ratePerMinute, ipDailyStored, cost, dayTtl, monthTtl, ipDayTtl,
+ *       ipDailyCalls, duplicateCost.
+ * The per-minute rate and the per-network daily call cap run first, and the duplicate check before the charge,
+ * so neither a flood nor endless resends of one run can spend more than a small, fixed share of the shared budget.
  */
 export const SUBMIT_LUA = `
 local r = redis.call('INCR', KEYS[3])
 if r == 1 then redis.call('EXPIRE', KEYS[3], 120) end
-if r > tonumber(ARGV[6]) then return {'limited'} end
+if r > tonumber(ARGV[6]) then return {'limited', 'minute'} end
+local c = redis.call('INCR', KEYS[7])
+if c == 1 then redis.call('EXPIRE', KEYS[7], ARGV[11]) end
+if c > tonumber(ARGV[12]) then return {'limited', 'day'} end
+local prev = redis.call('GET', KEYS[1])
 local cost = tonumber(ARGV[8])
+if prev then cost = tonumber(ARGV[13]) end
 -- Read first: a paused call charges nothing, so it can't eat the deletion reserve.
 if tonumber(redis.call('GET', KEYS[6]) or '0') + cost > tonumber(ARGV[5]) then return {'paused', 'month'} end
 if tonumber(redis.call('GET', KEYS[5]) or '0') + cost > tonumber(ARGV[4]) then return {'paused', 'day'} end
 if redis.call('INCRBY', KEYS[5], cost) == cost then redis.call('EXPIRE', KEYS[5], ARGV[9]) end
 if redis.call('INCRBY', KEYS[6], cost) == cost then redis.call('EXPIRE', KEYS[6], ARGV[10]) end
-local prev = redis.call('GET', KEYS[1])
 if prev then return {'duplicate', tonumber(prev), redis.call('HGETALL', KEYS[2])} end
 local s = tonumber(redis.call('GET', KEYS[4]) or '0')
-if s >= tonumber(ARGV[7]) then return {'limited'} end
+if s >= tonumber(ARGV[7]) then return {'limited', 'day'} end
 redis.call('SET', KEYS[1], ARGV[1], 'EX', ARGV[2])
 redis.call('HINCRBY', KEYS[2], ARGV[1], 1)
 redis.call('EXPIRE', KEYS[2], ARGV[3])
@@ -169,13 +182,13 @@ export type Eval = (script: string, keys: readonly string[], args: readonly (str
 export function redisStore(evaluate: Eval): ScoreStore {
   return {
     async submit(keys, total, limits) {
-      const out = (await evaluate(SUBMIT_LUA, [keys.sub, keys.dist, keys.rate, keys.ipDay, keys.budget.day, keys.budget.month], [
+      const out = (await evaluate(SUBMIT_LUA, [keys.sub, keys.dist, keys.rate, keys.ipDay, keys.budget.day, keys.budget.month, keys.ipCalls], [
         total, limits.subTtl, limits.distTtl, limits.dailyBudget, limits.monthlyBudget, limits.ratePerMinute, limits.ipDailyStored,
-        COST.submit, DAY_TTL, MONTH_TTL, IP_DAY_TTL,
+        COST.submit, DAY_TTL, MONTH_TTL, IP_DAY_TTL, limits.ipDailyCalls, COST.duplicate,
       ])) as [string, unknown?, unknown[]?];
       const [status, second, flat] = out;
       if (status === 'stored' || status === 'duplicate') return { status, total: Number(second), ...countsFromHash(flat ?? []) };
-      if (status === 'limited') return { status };
+      if (status === 'limited') return { status, until: second === 'day' ? 'day' : 'minute' };
       return { status: 'paused', scope: second === 'month' ? 'month' : 'day' };
     },
     async read(dist, budget, limits) {
@@ -244,12 +257,13 @@ export function memoryStore(now: () => number = Date.now): ScoreStore & { dump()
   return {
     dump: () => new Map([...data].map(([k, e]) => [k, e.v])),
     async submit(keys, total, limits) {
-      if (incrBy(keys.rate, 1, 120) > limits.ratePerMinute) return { status: 'limited' };
-      const paused = spend(keys.budget, COST.submit, limits);
-      if (paused) return { status: 'paused', scope: paused };
+      if (incrBy(keys.rate, 1, 120) > limits.ratePerMinute) return { status: 'limited', until: 'minute' };
+      if (incrBy(keys.ipCalls, 1, IP_DAY_TTL) > limits.ipDailyCalls) return { status: 'limited', until: 'day' };
       const prev = get(keys.sub) as number | undefined;
+      const paused = spend(keys.budget, prev !== undefined ? COST.duplicate : COST.submit, limits);
+      if (paused) return { status: 'paused', scope: paused };
       if (prev !== undefined) return { status: 'duplicate', total: prev, ...countsFromHash([...hash(keys.dist)].flat()) };
-      if (((get(keys.ipDay) as number | undefined) ?? 0) >= limits.ipDailyStored) return { status: 'limited' };
+      if (((get(keys.ipDay) as number | undefined) ?? 0) >= limits.ipDailyStored) return { status: 'limited', until: 'day' };
       set(keys.sub, total, limits.subTtl);
       const h = new Map(hash(keys.dist));
       h.set(String(total), (h.get(String(total)) ?? 0) + 1);

@@ -67,6 +67,18 @@ describe.skipIf(!url)('Lua scripts on a real redis-server', () => {
     expect(month).toBe(COST.submit * 2);
   });
 
+  it('charges a resend less than a first submission, and stops a network after its daily calls (CR-2)', async () => {
+    const env = `${run}e`;
+    const prefix = `sw:v1:${env}:budget`;
+    const { ctx } = testContext({ store: redisStore(client.evaluate), limits: { ...limits, ipDailyCalls: 3 }, env, budgetPrefix: prefix });
+    const a = await roundsFor(DAY, 2);
+    const send = () => handle(post({ day: DAY, player: player(40), rounds: a.rounds }), ctx);
+    const out = [];
+    for (let i = 0; i < 4; i++) out.push(((await (await send()).json()) as { status: string }).status);
+    expect(out).toEqual(['stored', 'duplicate', 'duplicate', 'limited']);
+    expect(Number(await client.command(['GET', `${prefix}:d:${DAY}`]))).toBe(COST.submit + 2 * COST.duplicate);
+  });
+
   it('deletion spends only its own counter, charges what it touched, and stops after the per-network daily cap (CR-1)', async () => {
     const env = `${run}d`;
     const prefix = `sw:v1:${env}:budget`;

@@ -303,3 +303,45 @@ describe('DELETE cannot drain the shared budget (CR-1)', () => {
     expect(erase).toBeLessThan(COST.remove(18));
   });
 });
+
+describe('resubmits cannot drain the daily budget (CR-2)', () => {
+  const dayCounter = (store: ReturnType<typeof testContext>['store']) => (store.dump().get(`sw:v1:budget:d:${DAY}`) as number | undefined) ?? 0;
+
+  it('one network resending the same run all day spends a small, bounded share and never pauses anyone', async () => {
+    const { ctx, store, nowRef } = testContext({}, { t: Date.parse(`${DAY}T00:00:00Z`) });
+    const a = await roundsFor(DAY, 2);
+    let paused = false;
+    // The old code paused everyone after ~130 minutes of this.
+    for (let m = 0; m < 24 * 60 - 1; m++) {
+      for (let i = 0; i < 6; i++) {
+        const res = await handle(post({ day: DAY, player: player(1000), rounds: a.rounds, total: a.total }), ctx);
+        if (res.status === 503) paused = true;
+      }
+      nowRef.t += 60_000;
+    }
+    expect(paused).toBe(false);
+    expect(dayCounter(store)).toBeLessThanOrEqual(COST.submit + (DEFAULT_LIMITS.ipDailyCalls - 1) * COST.duplicate);
+    const other = await submit(ctx, { day: DAY, player: player(1), rounds: a.rounds }, { 'x-real-ip': '198.51.100.9' });
+    expect(other.code).toBe(200);
+  });
+
+  it('fresh keys from one network are cut off for the day once its calls are used up', async () => {
+    const { ctx, store, nowRef } = testContext({}, { t: Date.parse(`${DAY}T00:00:00Z`) });
+    const a = await roundsFor(DAY, 2);
+    for (let m = 0; m < 24 * 60 - 1; m++) {
+      for (let i = 0; i < 6; i++) await handle(post({ day: DAY, player: player(5000 + m * 6 + i), rounds: a.rounds }), ctx);
+      nowRef.t += 60_000;
+    }
+    expect(dayCounter(store)).toBeLessThanOrEqual(DEFAULT_LIMITS.ipDailyCalls * COST.submit);
+  });
+
+  it('a duplicate is checked before the full charge and costs less', async () => {
+    const { ctx, store } = testContext();
+    const a = await roundsFor(DAY, 2);
+    await submit(ctx, { day: DAY, player: player(1), rounds: a.rounds });
+    expect(dayCounter(store)).toBe(COST.submit);
+    expect((await submit(ctx, { day: DAY, player: player(1), rounds: a.rounds })).body.status).toBe('duplicate');
+    expect(dayCounter(store)).toBe(COST.submit + COST.duplicate);
+    expect(COST.duplicate).toBeLessThan(COST.submit);
+  });
+});

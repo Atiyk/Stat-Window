@@ -54,6 +54,7 @@ export const DEFAULT_LIMITS: Limits = {
   eraseReserve: 20_000,
   ratePerMinute: 6,
   ipDailyStored: 30,
+  ipDailyCalls: 40,
   ipDailyDeletes: 5,
 };
 /** Days back that DELETE looks (submission records live 7 days; one more for the grace period). */
@@ -240,6 +241,7 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
     if (!body || typeof body !== 'object' || Array.isArray(body)) return json(422, { status: 'invalid' });
     const ipHash = await hmac(ctx.secret, `ip:${today}:${clientIp(req)}`, 16);
     if (isLimited(ctx, ipHash, now)) return json(429, { status: 'limited' }, { 'Retry-After': '60' });
+    const untilMidnight = { 'Retry-After': String(Math.ceil((nextUtcMidnight(now) - now.getTime()) / 1000)) };
     const rate = `sw:v1:${ctx.env}:rl:${ipHash}:${Math.floor(now.getTime() / 60_000)}`;
 
     if (req.method === 'DELETE') {
@@ -248,7 +250,7 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
       // A network that used up today's deletions is turned away here, before any hashing or store call.
       // Its own memo key, so it never blocks that network's submissions.
       const delClient = `del:${ipHash}`;
-      if (isLimited(ctx, delClient, now)) return json(429, { status: 'limited' }, { 'Retry-After': String(Math.ceil((nextUtcMidnight(now) - now.getTime()) / 1000)) });
+      if (isLimited(ctx, delClient, now)) return json(429, { status: 'limited' }, untilMidnight);
       const oldest = addDays(today, -DELETE_DAYS);
       // Only days whose records can still exist; older ones were already unlinked by their TTL.
       const days = [...new Set(Array.isArray(body.days) ? body.days.filter(isIsoDay) : [])].filter((d) => d >= oldest && d <= today).slice(0, DELETE_DAYS + 1);
@@ -264,7 +266,7 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
       if (typeof r === 'object') {
         if (r.limited === 'day') {
           rememberLimited(ctx, delClient, now, 'day');
-          return json(429, { status: 'limited' }, { 'Retry-After': String(Math.ceil((nextUtcMidnight(now) - now.getTime()) / 1000)) });
+          return json(429, { status: 'limited' }, untilMidnight);
         }
         rememberLimited(ctx, ipHash, now);
         return json(429, { status: 'limited' }, { 'Retry-After': '60' });
@@ -274,6 +276,9 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
     }
 
     // POST: one eligible first completion of today's official puzzle.
+    // A network that used up today's submissions is turned away before any store call (its own memo key, so deletion still works).
+    const postClient = `post:${ipHash}`;
+    if (isLimited(ctx, postClient, now)) return json(429, { status: 'limited' }, untilMidnight);
     const day = body.day;
     if (!isIsoDay(day)) return json(422, { status: 'invalid' });
     if (!eligibleDay(day, now, ctx.graceSeconds)) return json(200, { status: 'ineligible', reason: 'not-today', asOf });
@@ -300,12 +305,17 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
         dist: `${p}:dist`,
         rate,
         ipDay: `sw:v1:${ctx.env}:ipd:${ipHash}`,
+        ipCalls: `sw:v1:${ctx.env}:ipc:${ipHash}`,
         budget,
       },
       total,
       ctx.limits,
     );
     if (out.status === 'limited') {
+      if (out.until === 'day') {
+        rememberLimited(ctx, postClient, now, 'day');
+        return json(429, { status: 'limited' }, untilMidnight);
+      }
       rememberLimited(ctx, ipHash, now);
       return json(429, { status: 'limited' }, { 'Retry-After': '60' });
     }

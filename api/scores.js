@@ -136,6 +136,7 @@ var DEFAULT_LIMITS = {
 	eraseReserve: 2e4,
 	ratePerMinute: 6,
 	ipDailyStored: 30,
+	ipDailyCalls: 40,
 	ipDailyDeletes: 5
 };
 var PLAYER = /^[A-Za-z0-9_-]{22}$/;
@@ -325,12 +326,13 @@ async function handle(req, ctx) {
 		if (!body || typeof body !== "object" || Array.isArray(body)) return json(422, { status: "invalid" });
 		const ipHash = await hmac(ctx.secret, `ip:${today}:${clientIp(req)}`, 16);
 		if (isLimited(ctx, ipHash, now)) return json(429, { status: "limited" }, { "Retry-After": "60" });
+		const untilMidnight = { "Retry-After": String(Math.ceil((nextUtcMidnight(now) - now.getTime()) / 1e3)) };
 		const rate = `sw:v1:${ctx.env}:rl:${ipHash}:${Math.floor(now.getTime() / 6e4)}`;
 		if (req.method === "DELETE") {
 			const player = body.player;
 			if (typeof player !== "string" || !PLAYER.test(player)) return json(422, { status: "invalid" });
 			const delClient = `del:${ipHash}`;
-			if (isLimited(ctx, delClient, now)) return json(429, { status: "limited" }, { "Retry-After": String(Math.ceil((nextUtcMidnight(now) - now.getTime()) / 1e3)) });
+			if (isLimited(ctx, delClient, now)) return json(429, { status: "limited" }, untilMidnight);
 			const oldest = addDays(today, -8);
 			const days = [...new Set(Array.isArray(body.days) ? body.days.filter(isIsoDay) : [])].filter((d) => d >= oldest && d <= today).slice(0, 9);
 			const pairs = [];
@@ -352,7 +354,7 @@ async function handle(req, ctx) {
 			if (typeof r === "object") {
 				if (r.limited === "day") {
 					rememberLimited(ctx, delClient, now, "day");
-					return json(429, { status: "limited" }, { "Retry-After": String(Math.ceil((nextUtcMidnight(now) - now.getTime()) / 1e3)) });
+					return json(429, { status: "limited" }, untilMidnight);
 				}
 				rememberLimited(ctx, ipHash, now);
 				return json(429, { status: "limited" }, { "Retry-After": "60" });
@@ -363,6 +365,8 @@ async function handle(req, ctx) {
 				removed: r
 			});
 		}
+		const postClient = `post:${ipHash}`;
+		if (isLimited(ctx, postClient, now)) return json(429, { status: "limited" }, untilMidnight);
 		const day = body.day;
 		if (!isIsoDay(day)) return json(422, { status: "invalid" });
 		if (!eligibleDay(day, now, ctx.graceSeconds)) return json(200, {
@@ -391,9 +395,14 @@ async function handle(req, ctx) {
 			dist: `${p}:dist`,
 			rate,
 			ipDay: `sw:v1:${ctx.env}:ipd:${ipHash}`,
+			ipCalls: `sw:v1:${ctx.env}:ipc:${ipHash}`,
 			budget
 		}, total, ctx.limits);
 		if (out.status === "limited") {
+			if (out.until === "day") {
+				rememberLimited(ctx, postClient, now, "day");
+				return json(429, { status: "limited" }, untilMidnight);
+			}
 			rememberLimited(ctx, ipHash, now);
 			return json(429, { status: "limited" }, { "Retry-After": "60" });
 		}
@@ -479,7 +488,9 @@ function fileSlates(root = process.cwd()) {
 * per script, charged up front, so the counters never under-count.
 */
 var COST = {
-	submit: 18,
+	submit: 20,
+	/** A resend of a run already stored: checked before the full charge, and it stops after the GET and HGETALL. */
+	duplicate: 13,
 	read: 8,
 	/** Deletion's upper bound, checked against the erase reserve before any record is read. */
 	remove: (pairs) => 8 + 4 * pairs,
@@ -490,24 +501,30 @@ var DAY_TTL = 172800;
 var MONTH_TTL = 2764800;
 var IP_DAY_TTL = 93600;
 /**
-* KEYS: sub, dist, rate, ipDay, budgetDay, budgetMonth.
-* ARGV: total, subTtl, distTtl, dailyBudget, monthlyBudget, ratePerMinute, ipDailyStored, cost, dayTtl, monthTtl, ipDayTtl.
-* The rate check runs first, so a flooding client is turned away before it can spend the shared budget.
+* KEYS: sub, dist, rate, ipDay, budgetDay, budgetMonth, ipCalls.
+* ARGV: total, subTtl, distTtl, dailyBudget, monthlyBudget, ratePerMinute, ipDailyStored, cost, dayTtl, monthTtl, ipDayTtl,
+*       ipDailyCalls, duplicateCost.
+* The per-minute rate and the per-network daily call cap run first, and the duplicate check before the charge,
+* so neither a flood nor endless resends of one run can spend more than a small, fixed share of the shared budget.
 */
 var SUBMIT_LUA = `
 local r = redis.call('INCR', KEYS[3])
 if r == 1 then redis.call('EXPIRE', KEYS[3], 120) end
-if r > tonumber(ARGV[6]) then return {'limited'} end
+if r > tonumber(ARGV[6]) then return {'limited', 'minute'} end
+local c = redis.call('INCR', KEYS[7])
+if c == 1 then redis.call('EXPIRE', KEYS[7], ARGV[11]) end
+if c > tonumber(ARGV[12]) then return {'limited', 'day'} end
+local prev = redis.call('GET', KEYS[1])
 local cost = tonumber(ARGV[8])
+if prev then cost = tonumber(ARGV[13]) end
 -- Read first: a paused call charges nothing, so it can't eat the deletion reserve.
 if tonumber(redis.call('GET', KEYS[6]) or '0') + cost > tonumber(ARGV[5]) then return {'paused', 'month'} end
 if tonumber(redis.call('GET', KEYS[5]) or '0') + cost > tonumber(ARGV[4]) then return {'paused', 'day'} end
 if redis.call('INCRBY', KEYS[5], cost) == cost then redis.call('EXPIRE', KEYS[5], ARGV[9]) end
 if redis.call('INCRBY', KEYS[6], cost) == cost then redis.call('EXPIRE', KEYS[6], ARGV[10]) end
-local prev = redis.call('GET', KEYS[1])
 if prev then return {'duplicate', tonumber(prev), redis.call('HGETALL', KEYS[2])} end
 local s = tonumber(redis.call('GET', KEYS[4]) or '0')
-if s >= tonumber(ARGV[7]) then return {'limited'} end
+if s >= tonumber(ARGV[7]) then return {'limited', 'day'} end
 redis.call('SET', KEYS[1], ARGV[1], 'EX', ARGV[2])
 redis.call('HINCRBY', KEYS[2], ARGV[1], 1)
 redis.call('EXPIRE', KEYS[2], ARGV[3])
@@ -575,7 +592,8 @@ function redisStore(evaluate) {
 				keys.rate,
 				keys.ipDay,
 				keys.budget.day,
-				keys.budget.month
+				keys.budget.month,
+				keys.ipCalls
 			], [
 				total,
 				limits.subTtl,
@@ -587,14 +605,19 @@ function redisStore(evaluate) {
 				COST.submit,
 				DAY_TTL,
 				MONTH_TTL,
-				IP_DAY_TTL
+				IP_DAY_TTL,
+				limits.ipDailyCalls,
+				COST.duplicate
 			]);
 			if (status === "stored" || status === "duplicate") return {
 				status,
 				total: Number(second),
 				...countsFromHash(flat ?? [])
 			};
-			if (status === "limited") return { status };
+			if (status === "limited") return {
+				status,
+				until: second === "day" ? "day" : "minute"
+			};
 			return {
 				status: "paused",
 				scope: second === "month" ? "month" : "day"

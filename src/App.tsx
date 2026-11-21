@@ -388,10 +388,10 @@ function Game(props: {
       track({ name: 'round_lock', mode: playMode, round: state.results.length, hit: r.hit });
       if (state.results.length === ROUNDS) {
         track({ name: 'run_complete', mode: playMode, total: state.results.reduce((s, x) => s + x.points, 0) });
-        // Once per completed daily (the daily record, even when opened from a same-day link). The run
-        // was saved by the effect above, so the streak already includes it.
+        // Once per completed daily (the daily record, even when opened from a same-day link): the streak
+        // that ends on the day just finished. The run was saved by the effect above, so it is included.
         if (session.kind === 'runs') {
-          const streak = playerStats(inSeason(store.load().runs, currentSeason(today, SEASON), SEASON), today).streak;
+          const streak = playerStats(inSeason(store.load().runs, currentSeason(today, SEASON), SEASON), session.day).streak;
           trackOnce(`streak:${session.day}`, today, { name: 'streak', days: Math.max(1, streak) });
         }
       }

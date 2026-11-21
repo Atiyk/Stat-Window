@@ -213,12 +213,13 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
         {fallback && (
           <textarea
             ref={fallbackRef}
-            className="share-fallback" readOnly value={fallback} rows={5} aria-label="Your result to copy" onFocus={(e) => e.currentTarget.select()} />
-        )}
-        {(practice || !isToday) && (
-          <button type="button" className="btn btn-quiet" onClick={onBackToToday}>
-            Play today’s puzzle
-          </button>
+            className="share-fallback"
+            readOnly
+            value={fallback}
+            rows={5}
+            aria-label="Your result to copy"
+            onFocus={(e) => e.currentTarget.select()}
+          />
         )}
         <p className="share-note">
           {total > 0
@@ -228,6 +229,11 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
         <button type="button" className="btn btn-link" onClick={saveCard}>
           Save score card (no answers on it)
         </button>
+        {(practice || !isToday) && (
+          <button type="button" className="btn btn-quiet" onClick={onBackToToday}>
+            Play today’s puzzle
+          </button>
+        )}
         {survivalCta && (
           <button type="button" className="btn btn-quiet" onClick={survivalCta}>
             Try Survival: 20 rounds, one life

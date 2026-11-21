@@ -66,7 +66,7 @@ test.describe('BUG-08: 200% text on the results page', () => {
       await page.screenshot({ path: `${shots}/bug08-${width}-results.png`, fullPage: true });
       const over = await page.evaluate(() => {
         const vw = window.innerWidth;
-        return [...document.querySelectorAll('body *')].filter((e) => e.getBoundingClientRect().right > vw + 1).map((e) => e.className).slice(0, 8);
+        return Array.from(document.querySelectorAll('body *')).filter((e) => e.getBoundingClientRect().right > vw + 1).map((e) => e.className).slice(0, 8);
       });
       expect(over).toEqual([]);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
@@ -106,5 +106,72 @@ test.describe('BUG-03: a window worth 0 is honest before and after the lock', ()
     await openAt(page, NOV21);
     await page.getByRole('button', { name: 'How to play' }).click();
     await expect(page.getByRole('dialog', { name: 'How it works' })).toContainText(/nearly the whole ruler.*scores? 0/i);
+  });
+});
+
+test.describe('BUG-04: the percentile slot while games are gathering', () => {
+  const DAY = '2026-11-21';
+  type Call = { method: string; url: string; body: Record<string, unknown> | null };
+  /** A stub of /api/scores that keeps the beta and qa tallies apart, as the real server does. */
+  async function stub(page: Page, tally: { beta: number; qa: number }) {
+    const calls: Call[] = [];
+    await page.route('**/api/scores**', async (route) => {
+      const req = route.request();
+      const body = req.postData() ? (JSON.parse(req.postData()!) as Record<string, unknown>) : null;
+      calls.push({ method: req.method(), url: req.url(), body });
+      const json = (b: unknown) => route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(b) });
+      if (req.method() === 'GET') return json({ status: 'ok', day: DAY, season: 'beta', n: tally.beta, threshold: 100, ready: false, asOf: `${DAY}T15:00:00Z` });
+      if (body && !('player' in body)) return json({ status: 'proceed' });
+      const season = body?.test === true ? 'qa' : 'beta';
+      const seen = calls.filter((c) => c.method === 'POST' && c.body && 'player' in c.body).length > 1;
+      return json({ status: seen ? 'duplicate' : 'stored', day: DAY, season, score: body?.total ?? 0, n: tally[season], threshold: 100, ready: false, percentile: null, asOf: `${DAY}T15:00:00Z` });
+    });
+    return calls;
+  }
+
+  test('under 50 games the line is hidden entirely', async ({ page }) => {
+    await stub(page, { beta: 12, qa: 12 });
+    await openAt(page, NOV21);
+    await playFive(page);
+    await expect(page.locator('.results-score')).toBeVisible();
+    await page.waitForTimeout(500);
+    await expect(page.locator('.results')).not.toContainText('needed');
+    await expect(page.locator('.percentile:visible')).toHaveCount(0);
+  });
+
+  test('from 50 games: "Percentiles unlock at 100 games today: N so far"', async ({ page }) => {
+    await stub(page, { beta: 60, qa: 60 });
+    await openAt(page, NOV21);
+    await playFive(page);
+    await expect(page.locator('.percentile')).toContainText('Percentiles unlock at 100 games today: 60 so far');
+    await expect(page.locator('.results')).not.toContainText('needed');
+    await page.screenshot({ path: `${shots}/bug04-gathering-60.png` });
+  });
+
+  test('a QA reload reads the qa tally, once', async ({ page }) => {
+    const calls = await stub(page, { beta: 0, qa: 70 });
+    await openAt(page, NOV21, '/?qa=1');
+    await playFive(page);
+    await expect(page.locator('.percentile')).toContainText('70 so far');
+    calls.length = 0;
+    await page.reload();
+    await expect(page.locator('.results-score')).toBeVisible();
+    await expect(page.locator('.percentile')).toContainText('70 so far');
+    await page.waitForTimeout(800);
+    expect(calls.filter((c) => c.method === 'GET')).toEqual([]);
+    const keys = calls.map((c) => `${c.method} ${c.url} ${JSON.stringify(c.body)}`);
+    expect(new Set(keys).size).toBe(keys.length);
+  });
+
+  test('a normal reload reads the tally once', async ({ page }) => {
+    const calls = await stub(page, { beta: 60, qa: 0 });
+    await openAt(page, NOV21);
+    await playFive(page);
+    await expect(page.locator('.percentile')).toContainText('60 so far');
+    calls.length = 0;
+    await page.reload();
+    await expect(page.locator('.percentile')).toContainText('60 so far');
+    await page.waitForTimeout(800);
+    expect(calls.map((c) => c.method)).toEqual(['GET']);
   });
 });

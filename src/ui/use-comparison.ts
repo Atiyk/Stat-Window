@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { RoundRecord } from '../engine/game';
 import { browserSignal, loadPrivacy, savePrivacy, scoreIntent } from '../lib/privacy';
-import { refreshComparison, submitDaily, type Comparison } from '../lib/scores';
+import { isQa, refreshComparison, submitDaily, type Comparison } from '../lib/scores';
 import { track, trackOnce } from '../lib/track';
 
 export type ComparisonState = Comparison | { kind: 'none' } | { kind: 'loading' } | { kind: 'off' };
@@ -61,6 +61,8 @@ export function useComparison(eligible: boolean, day: string, results: readonly 
     },
     refresh: () => {
       if (state.kind !== 'ready' && state.kind !== 'gathering') return;
+      // QA reads its own season's tally by sending the run again (see submitDaily).
+      if (isQa()) return send(loadPrivacy().scores === 'on');
       const score = state.score;
       void refreshComparison(day, score).then((c) => setState(c.kind === 'unavailable' ? state : c));
     },

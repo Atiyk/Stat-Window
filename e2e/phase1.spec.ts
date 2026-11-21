@@ -48,7 +48,10 @@ test('below the sample gate: an honest "not enough games" line, and nothing clai
   const calls = await stubScores(page, stored());
   await openAt(page, NBA_FIRST);
   await playOut(page);
-  await expect(page.locator('.percentile')).toContainText('Not enough completed games for today’s percentile yet (12 of 100 needed)');
+  // Owner decision (2026-11-21 UI sweep, BUG-04): under 50 games no tally line is shown at all.
+  await expect(page.locator('.percentile-slot')).toHaveText('Your score is in today’s tally.');
+  await expect(page.locator('.percentile:visible')).toHaveCount(0);
+  await expect(page.locator('.results')).not.toContainText('needed');
   // The run goes up only after the probe answers, so wait for it rather than racing it.
   await expect.poll(() => calls.length).toBe(2);
   // First a probe with nothing identifying, then only what the server needs: day, the five windows, a random key.
@@ -99,7 +102,8 @@ test('where consent is required, nothing is stored until the player says yes', a
   await expect(page.getByRole('checkbox', { name: /Today’s score in the daily comparison/ })).not.toBeChecked();
   await page.getByRole('button', { name: 'Done' }).click();
   await page.getByRole('button', { name: 'Count my score' }).click();
-  await expect(page.locator('.percentile')).toContainText('Not enough completed games');
+  // 12 games: under the 50-game line, so the slot only carries the screen-reader confirmation (BUG-04).
+  await expect(page.locator('.percentile-slot')).toHaveText('Your score is in today’s tally.');
   await expect(page.locator('.percentile-slot')).toBeFocused();
   expect(calls.map((c) => c.body?.consent)).toEqual(['default', 'granted']);
   expect(calls[1]!.body!.player).toMatch(/^[A-Za-z0-9_-]{22}$/);

@@ -9,7 +9,8 @@ Under the score on the results screen of **today's official puzzle**:
 | State | Copy |
 |---|---|
 | `n >= 100` | **82nd percentile today** · based on 214 eligible completed games, as of 9:41 AM. Refresh |
-| `n < 100` | Not enough completed games for today's percentile yet (37 of 100 needed). Refresh |
+| `50 <= n < 100` | Percentiles unlock at 100 games today: 62 so far. Refresh |
+| `n < 50` (`PERCENTILE_PROGRESS_FROM`) | no visible line; screen readers hear "Your score is in today's tally." (owner decision, 2026-11-21 UI sweep) |
 | server unreachable / budget spent | Today's percentile isn't available right now. Your score is saved here. |
 | consent needed (EU/EEA/UK/CH and their territories, unknown location, or GPC/DNT) | a quiet line under the score, and below the share buttons "See how today's score compares?" with two equal buttons, *Count my score* / *No thanks* |
 | player said no | You're not in today's comparison. Change |
@@ -111,3 +112,7 @@ Treat percentiles as a friendly comparison among unverified browsers. A real lea
 ## Migration
 
 Key prefix is versioned (`sw:v1`). A schema change writes `sw:v2:*` and reads both during a transition; never rewrite `v1` in place.
+
+## QA readings (from the 2026-11-21 UI sweep)
+QA scores (`?qa=1`) are stored in the `qa` season, but `GET /api/scores` reads only the public season. So in QA the client never uses the GET: on reload, and on Refresh, it sends the run again and reads the `qa` tally from the server's `duplicate` answer (first completion still wins). The double GET reported in the sweep did not reproduce on the Chromium preview build; `e2e/sweep.spec.ts` asserts exactly one request on a normal reload.
+

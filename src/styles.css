@@ -2132,3 +2132,6 @@ a {
 /* A hit worth 0 (BUG-03): inside, but too wide to score. Quieter than a scoring hit. */
 .field .outcome-hit[data-zero] .outcome-word { font-size: 1.25rem; color: var(--chalk-soft); }
 .field .outcome-hit[data-zero] .outcome-points { color: var(--chalk-soft); }
+
+/* Under PERCENTILE_PROGRESS_FROM games the slot has nothing to show, so it leaves no gap (BUG-04). */
+.percentile-slot[data-empty] { min-height: 0; }

@@ -76,7 +76,9 @@ export async function submitDaily(
   if (opts.results.length !== 5) return { kind: 'ineligible' };
   const total = opts.results.reduce((s, r) => s + r.points, 0);
   // Already counted (first completion wins): just read the tally, which the edge caches.
-  if (loadPrivacy().done.includes(opts.day)) return refreshComparison(opts.day, total, fetchImpl);
+  // Not in QA: the GET reads the public season's tally, while QA scores go to the 'qa' season,
+  // so QA sends the run again and reads its own tally from the 'duplicate' answer instead.
+  if (loadPrivacy().done.includes(opts.day) && !isQa()) return refreshComparison(opts.day, total, fetchImpl);
   try {
     const consent = opts.consent ? 'granted' : 'default';
     if (!opts.consent) {
@@ -98,10 +100,12 @@ export async function submitDaily(
       ...(isQa() ? { test: true } : {}),
     };
     // Recorded before sending, so a lost response can't leave a stored score that "Delete" doesn't know about.
-    savePrivacy({ sent: [...loadPrivacy().sent, opts.day] });
+    const sent = loadPrivacy().sent;
+    if (!sent.includes(opts.day)) savePrivacy({ sent: [...sent, opts.day] });
     const [status, b] = await call('POST', body, fetchImpl);
     const c = toComparison(status, b);
-    if (c.kind === 'ready' || c.kind === 'gathering') savePrivacy({ done: [...loadPrivacy().done, opts.day] });
+    const done = loadPrivacy().done;
+    if ((c.kind === 'ready' || c.kind === 'gathering') && !done.includes(opts.day)) savePrivacy({ done: [...done, opts.day] });
     return c;
   } catch {
     return { kind: 'unavailable' };

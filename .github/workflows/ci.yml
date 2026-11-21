@@ -45,8 +45,8 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
-      - name: Install Playwright browser
-        run: npx playwright install --with-deps chromium
+      - name: Install Playwright browsers (Chromium, and WebKit for the webkit-mobile project)
+        run: npx playwright install --with-deps chromium webkit
       - name: End-to-end tests
         run: npx playwright test
       - name: Analytics wiring (VITE_ANALYTICS=vercel build, Vercel script stubbed, nothing sent)

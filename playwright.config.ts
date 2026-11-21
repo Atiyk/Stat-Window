@@ -26,6 +26,15 @@ export default defineConfig({
   projects: [
     { name: 'desktop', use: { ...devices['Desktop Chrome'], viewport: { width: 1440, height: 900 } } },
     { name: 'mobile', use: { ...devices['Pixel 7'] } },
+    // Safari coverage (iOS WebKit). isMobile is true, so every desktop-only skip (`isMobile`) skips here too.
+    // Left out: the CDP touch test (CDP is Chromium-only; the Chromium mobile project covers touch), and the
+    // analytics, Survival and design-study specs, which run once on the Chromium projects by design.
+    {
+      name: 'webkit-mobile',
+      use: { ...devices['iPhone 13'] },
+      testIgnore: ['**/analytics.spec.ts', '**/survival.spec.ts', '**/study.spec.ts'],
+      grepInvert: /touch: dragging a bracket moves it and never scrolls the page/,
+    },
   ],
   webServer: process.env.BASE_URL
     ? undefined

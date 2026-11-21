@@ -31,6 +31,17 @@ export function creditFor(source: Source): { name: string; licensed: boolean } {
   return { name: wiki && !/contributors/i.test(name) ? 'Wikipedia contributors' : name, licensed };
 }
 
+/** "List of NBA regular season records" from a Wikipedia article URL, or null for anything else. */
+export function articleTitle(url: string): string | null {
+  if (!isWikipedia(url)) return null;
+  try {
+    const m = /^\/wiki\/(.+)$/.exec(new URL(url).pathname);
+    return m ? decodeURIComponent(m[1]!).replace(/_/g, ' ').trim() || null : null;
+  } catch {
+    return null;
+  }
+}
+
 /** Joins our derivation note as its own sentence, whatever case and punctuation it was written in. */
 export function methodSentence(derivation: string): string {
   const t = derivation.trim().replace(/[.\s]+$/, '');
@@ -40,10 +51,12 @@ export function methodSentence(derivation: string): string {
 /** "Wikipedia contributors" with the license link, when the source is CC BY-SA. */
 function Credit({ source }: { source: Source }) {
   const { name, licensed } = creditFor(source);
+  // Two Wikipedia sources must not share one link name: lead with the article's title.
+  const title = articleTitle(source.url);
   return (
     <>
       <a href={source.url} target="_blank" rel="noopener noreferrer">
-        {name}
+        {title ? `“${title}”, ${name}` : name}
         <span className="sr-only"> (opens in a new tab)</span>
       </a>
       {licensed && (

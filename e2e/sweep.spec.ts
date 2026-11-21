@@ -282,3 +282,80 @@ test.describe('BUG-11: the share fallback', () => {
     }
   });
 });
+
+test.describe('BUG-09, BUG-10, BUG-13: layout, colour and copy nits', () => {
+  const overlaps = (a: { x: number; y: number; width: number; height: number }, b: typeof a) =>
+    a.x < b.x + b.width && b.x < a.x + a.width && a.y < b.y + b.height && b.y < a.y + a.height;
+
+  test('BUG-09: with 200% text at 320 the wordmark never prints over the puzzle number', async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 720 });
+    await openAt(page, NOV21);
+    await page.addStyleTag({ content: 'html{font-size:200%}' });
+    await page.waitForTimeout(200);
+    await page.screenshot({ path: `${shots}/bug09-320-text200.png` });
+    const word = page.locator('.wordmark');
+    if (await word.isVisible()) {
+      const w = (await word.boundingBox())!;
+      for (const sel of ['.day-label', '.topbar-right']) expect(overlaps(w, (await page.locator(sel).boundingBox())!), sel).toBe(false);
+    }
+    await expect(page.getByRole('link', { name: 'Stat Window, today’s puzzle' })).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+  });
+
+  test('BUG-10: at 200% zoom on a 1440x900 laptop (720x450) the field starts on the first screen', async ({ page }) => {
+    await page.setViewportSize({ width: 720, height: 450 });
+    await openAt(page, NOV21);
+    await page.waitForTimeout(200);
+    await page.screenshot({ path: `${shots}/bug10-720x450.png` });
+    expect(await clearOfDock(page, page.locator('.readout'))).toMatchObject({ ok: true });
+    expect(await clearOfDock(page, page.locator('.verdict-line p'))).toMatchObject({ ok: true });
+    // The window and its scale (the top 64px of the track) are on screen above the docked button.
+    const track = (await page.locator('.ruler-track').boundingBox())!;
+    const bar = (await page.locator('.action-bar').boundingBox())!;
+    expect(track.y + 64).toBeLessThanOrEqual(bar.y);
+  });
+
+  test('BUG-13: archive chips, the 320 round header and the stats row', async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 720 });
+    await openAt(page, NOV21);
+    const ledger = (await page.locator('.round-top .ledger').boundingBox())!;
+    const meta = (await page.locator('.round-meta').boundingBox())!;
+    // One row: the label and the total sit beside the ledger, not wrapped under it.
+    expect(meta.y).toBeLessThan(ledger.y + ledger.height);
+    await page.setViewportSize({ width: 390, height: 844 });
+    await playFive(page);
+    // The space before the dot was in the DOM but collapsed on screen: measure the rendered gap.
+    const gap = await page.getByRole('button', { name: /Nov 16/ }).locator('.archive-tag').evaluate((tag) => {
+      const range = document.createRange();
+      range.setStart(tag.firstChild!, 0);
+      range.setEnd(tag.firstChild!, 1);
+      return range.getBoundingClientRect().width;
+    });
+    expect(gap).toBeGreaterThan(2);
+    const tops = await page.locator('.stats dd').evaluateAll((els) => els.map((e) => Math.round(e.getBoundingClientRect().top)));
+    expect(new Set(tops).size).toBe(1);
+  });
+
+  test('BUG-13: the answer pin is ball orange on hits and misses; the grip focus ring is not', async ({ page }) => {
+    await openAt(page, NOV21);
+    await page.getByRole('slider', { name: 'Low end of your window' }).focus();
+    await page.keyboard.press('ArrowRight');
+    const ring = await page.locator('.bracket-lo .bracket-grip').evaluate((e) => getComputedStyle(e).outlineColor);
+    expect(ring).not.toBe('rgb(255, 122, 31)');
+    await playFive(page);
+    const pins = await page.locator('.recap-pin').evaluateAll((els) => els.map((e) => getComputedStyle(e).backgroundColor));
+    expect(pins).toHaveLength(5);
+    for (const c of pins) expect(c).toBe('rgb(255, 122, 31)');
+  });
+
+  test('BUG-13: the two Sources links name their articles', async ({ page }) => {
+    await openAt(page, NOV21);
+    await lockAndSettle(page);
+    await page.locator('.sources summary').click();
+    const names = await page.locator('.sources-body a[href*="wikipedia.org"]').allInnerTexts();
+    expect(names.length).toBeGreaterThanOrEqual(1);
+    expect(names[0]).toContain('List of NBA regular season records');
+    expect(new Set(names).size).toBe(names.length);
+    for (const n of names) expect(n).toContain('Wikipedia contributors');
+  });
+});

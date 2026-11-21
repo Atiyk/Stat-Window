@@ -1209,9 +1209,6 @@ a {
   outline: 2px solid var(--surface);
 }
 
-.recap-row[data-hit='true'] .recap-pin {
-  background: var(--ink);
-}
 
 .results-actions {
   display: grid;
@@ -2048,7 +2045,7 @@ a {
 .field .bracket-grip { background: var(--chalk); }
 .field .bracket-grip::before { border-color: var(--brand); }
 .field .bracket:focus-visible .bracket-grip,
-.field .ruler[data-dragging] .bracket-grip { background: #ffffff; outline-color: var(--accent); }
+.field .ruler[data-dragging] .bracket-grip { background: #ffffff; outline-color: var(--chalk); } /* orange is only the answer (DESIGN.md) */
 .field .band { background: color-mix(in srgb, var(--chalk) 28%, var(--brand)); }
 .field .ruler[data-state='hit'] .band { background: color-mix(in srgb, var(--chalk) 44%, var(--brand)); outline-color: var(--chalk); }
 .field .ruler[data-state='miss'] .band { outline-color: var(--chalk-soft); }
@@ -2099,9 +2096,10 @@ a {
  */
 @media (max-width: 719px) and (max-height: 700px), (max-width: 359px) {
   .topbar { padding-top: max(4px, env(safe-area-inset-top)); padding-bottom: 4px; }
-  .round-top { flex-wrap: nowrap; align-items: center; gap: 10px; padding-top: 2px; }
+  .round-top { flex-wrap: wrap; align-items: center; gap: 4px 10px; padding-top: 2px; }
+  .round-meta { margin-left: auto; }
   .round-top .ledger { gap: 4px; }
-  .round-top .ledger-cell { width: 30px; height: 30px; }
+  .round-top .ledger-cell { width: max(30px, 1.6em); height: max(30px, 1.6em); font-size: 0.9375rem; }
   .round-top .ledger-num { font-size: 0.9375rem; }
   .round-meta { font-size: 0.875rem; line-height: 1.2; }
   .round-total { font-size: 1rem; }
@@ -2156,3 +2154,51 @@ a {
 /* On the results screen the share buttons sit low, so the toast floats at the top instead (BUG-11). */
 .results .toast { top: max(12px, env(safe-area-inset-top)); bottom: auto; width: max-content; max-width: calc(100vw - 24px); transform: translate(-50%, -16px); }
 .results .toast[data-visible='true'] { transform: translate(-50%, 0); }
+
+/* ───────────── Short wide screens: 200% browser zoom on a laptop (BUG-10) ─────────────
+ * 1440x900 at 200% is 720x450 CSS px. The question sits beside the ledger, as on desktop,
+ * and everything is set smaller so the field starts on the first screen, clear of the docked button.
+ */
+@media (min-width: 720px) and (max-height: 520px) {
+  .topbar { padding-top: max(4px, env(safe-area-inset-top)); padding-bottom: 4px; }
+  .round-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: 'question top';
+    align-items: end;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    column-gap: 32px;
+  }
+  .round-head .round-top,
+  .round-head .question-block { padding-left: 0; padding-right: 0; margin: 0; }
+  .round-top { grid-area: top; flex-direction: column-reverse; align-items: flex-end; gap: 6px; padding-bottom: 10px; }
+  .round-top .ledger { gap: 4px; }
+  .round-top .ledger-cell { width: 30px; height: 30px; }
+  .round-top .ledger-num { font-size: 0.9375rem; }
+  .question-block { grid-area: question; padding-top: 6px; padding-bottom: 10px; }
+  .question { font-size: 1.5rem; line-height: 1.08; max-width: none; }
+  .context { margin: 6px 0 0; font-size: 0.875rem; }
+  .field-inner { padding-top: 10px; padding-bottom: 6px; }
+  .bound { font-size: 3rem; }
+  .verdict-line { min-height: 2.75rem; }
+  .round[data-phase='ready'] .ruler,
+  .round[data-phase='adjusting'] .ruler { padding-top: 30px; }
+  .round .action-bar { padding-top: 8px; padding-bottom: max(8px, env(safe-area-inset-bottom)); }
+  .round .action-bar .btn { min-height: 48px; }
+}
+
+/* ───────────── Nits (BUG-09, BUG-13) ───────────── */
+/* The leading space before "· mixed sports" collapsed inside the flex button. */
+.archive-tag { white-space: pre; }
+/* "Days in a row" wraps at 390: keep every number on the same baseline row. */
+.stats div { display: flex; flex-direction: column; }
+.stats dd { margin-top: auto; padding-top: 4px; }
+/* When the top bar is too narrow for its text (large text sizes on small phones), drop the wordmark
+   rather than print it over the puzzle number. em here is the top bar's own font size, so this
+   follows the text size, not just the screen width. The link keeps its accessible name. */
+.topbar { container: topbar / inline-size; }
+@container topbar (max-width: 17em) {
+  .wordmark { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}

@@ -2135,3 +2135,20 @@ a {
 
 /* Under PERCENTILE_PROGRESS_FROM games the slot has nothing to show, so it leaves no gap (BUG-04). */
 .percentile-slot[data-empty] { min-height: 0; }
+
+/* A ?day= link that couldn't be honoured (BUG-05): one quiet, dismissible line above the round. */
+.link-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  max-width: calc(var(--maxw) - 2 * var(--gutter));
+  margin: 0 var(--gutter) 6px;
+  padding: 6px 0 6px 12px;
+  background: var(--paper-2);
+  font-size: 0.9375rem;
+  line-height: 1.3;
+}
+.link-note span { flex: 1 1 auto; min-width: 0; }
+.link-note .btn-link { flex: none; margin: -6px 0; padding: 0 12px; }
+@media (min-width: 1228px) { .link-note { margin-left: auto; margin-right: auto; } }

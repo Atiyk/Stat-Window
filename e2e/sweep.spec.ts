@@ -227,3 +227,27 @@ test.describe('BUG-06: practice and challenge results lead with "Challenge a fri
     await page.screenshot({ path: `${shots}/bug06-320-after-yes.png` });
   });
 });
+
+test.describe('BUG-05: a bad ?day= link says so and cleans the address bar', () => {
+  for (const q of ['/?day=2026-11-25&vs=250', '/?day=2099-01-01', '/?day=2026-13-45&vs=250', '/?day=garbage&vs=999', '/?day=2025-01-01&vs=100', '/?day=%E0%A4%A']) {
+    test(`${q} opens today with a dismissible note`, async ({ page }) => {
+      await openAt(page, NOV21, q);
+      await expect(page.locator('.day-label')).toHaveText('No. 7');
+      const note = page.getByRole('status').filter({ hasText: 'That link’s puzzle isn’t available, so here’s today’s.' });
+      await expect(note).toBeVisible();
+      await expect.poll(() => page.evaluate(() => location.search)).toBe('');
+      if (q.includes('garbage')) await page.screenshot({ path: `${shots}/bug05-garbage-note.png` });
+      await note.getByRole('button', { name: 'Dismiss' }).click();
+      await expect(note).toHaveCount(0);
+    });
+  }
+
+  test('other parameters survive the clean-up, and a good link shows no note', async ({ page }) => {
+    await openAt(page, NOV21, '/?qa=1&day=garbage&vs=3');
+    await expect(page.getByText('That link’s puzzle isn’t available')).toBeVisible();
+    await expect.poll(() => page.evaluate(() => location.search)).toBe('?qa=1');
+    await openAt(page, NOV21, '/?day=2026-11-18&vs=250');
+    await expect(page.locator('.challenge-note')).toBeVisible();
+    await expect(page.getByText('That link’s puzzle isn’t available')).toHaveCount(0);
+  });
+});

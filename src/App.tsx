@@ -92,6 +92,20 @@ function reloadForNewVersion(): boolean {
   return true;
 }
 
+/** The current address without the challenge parameters (`day`, `vs`); anything else (`qa`, a hash) stays. */
+function withoutChallenge(loc: Pick<Location, 'pathname' | 'search' | 'hash'>): string {
+  let params: URLSearchParams;
+  try {
+    params = new URLSearchParams(loc.search);
+  } catch {
+    return loc.pathname;
+  }
+  params.delete('day');
+  params.delete('vs');
+  const rest = params.toString();
+  return `${loc.pathname}${rest ? `?${rest}` : ''}${loc.hash}`;
+}
+
 const daysBetween = (a: string, b: string) => puzzleNumber(b) - puzzleNumber(a);
 
 /**
@@ -128,6 +142,8 @@ export function App() {
   const [missing, setMissing] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
   const [privacyOpen, setPrivacyOpen] = useState(() => new URLSearchParams(window.location.search).has('privacy'));
+  // A ?day= link that can't be honoured (future, malformed or unpublished): say so once, then today opens.
+  const [badLink, setBadLink] = useState(false);
 
   useEffect(() => setSoundEnabled(settings.sound), [settings.sound]);
 
@@ -175,6 +191,10 @@ export function App() {
         kind: link.kind === 'day' ? (link.day === today ? 'today' : 'past') : link.kind,
         withScore: link.kind === 'day' && link.vs !== null,
       });
+    }
+    if (link.kind === 'invalid' || link.kind === 'future') {
+      setBadLink(true);
+      window.history.replaceState(null, '', withoutChallenge(window.location));
     }
     if (link.kind === 'day') void open(link.day, { vs: link.vs });
     else void open(today);
@@ -251,6 +271,14 @@ export function App() {
       </header>
 
       <main className="main" id="main">
+        {badLink && view === 'daily' && (
+          <p className="link-note" role="status">
+            <span>That link’s puzzle isn’t available, so here’s today’s.</span>
+            <button type="button" className="btn-link" onClick={() => setBadLink(false)}>
+              Dismiss
+            </button>
+          </p>
+        )}
         {view === 'survival' && Survival ? (
           <Suspense fallback={<p className="loading" aria-live="polite">Loading Survival…</p>}>
             <Survival

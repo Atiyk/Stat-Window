@@ -1397,6 +1397,8 @@ a {
   padding: 0;
   list-style: none;
 }
+/* Large text: a day button wraps instead of pushing past the screen edge. */
+.archive-list li { max-width: 100%; }
 
 .toast {
   position: fixed;
@@ -2191,7 +2193,7 @@ a {
 
 /* ───────────── Nits (BUG-09, BUG-13) ───────────── */
 /* The leading space before "· mixed sports" collapsed inside the flex button. */
-.archive-tag { white-space: pre; }
+.archive-tag { white-space: pre-wrap; }
 /* "Days in a row" wraps at 390: keep every number on the same baseline row. */
 .stats div { display: flex; flex-direction: column; }
 .stats dd { margin-top: auto; padding-top: 4px; }
@@ -2202,3 +2204,6 @@ a {
 @container topbar (max-width: 17em) {
   .wordmark { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 }
+
+/* BUG-08: with large text an archive day wraps instead of pushing past the screen edge. */
+.archive-list .btn.btn-quiet { display: inline-block; max-width: 100%; white-space: normal; text-align: center; padding-block: 12px; line-height: 1.3; height: auto; }

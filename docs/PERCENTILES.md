@@ -55,8 +55,10 @@ Keys (`env` = production | preview | development):
 | `sw:v1:{env}:{season}:{day}:sub:{hmac}` | string | the stored total | 7 days |
 | `sw:v1:{env}:rl:{hmac(ip, day)}:{minute}` | counter | POST/DELETE requests this minute | 120 s |
 | `sw:v1:{env}:ipd:{hmac(ip, day)}` | counter | scores stored from this network today | 26 h |
+| `sw:v1:{env}:ipdel:{hmac(ip, day)}` | counter | DELETE requests from this network today | 26 h |
 | `sw:v1:budget:d:{utcDay}` | counter | estimated Upstash commands today, all environments | 2 days |
 | `sw:v1:budget:m:{YYYY-MM}` | counter | estimated Upstash commands this month, all environments | 32 days |
+| `sw:v1:budget:e:{YYYY-MM}` | counter | estimated Upstash commands spent on deletion this month (its own counter, capped at the erase reserve) | 32 days |
 
 `hmac` = HMAC-SHA-256 with `SCORE_HASH_SECRET`, truncated. `ip` is the IPv4 address or the IPv6 /64. Raw browser codes and IPs are never stored. `n` is recomputed from the buckets on read. Every write path is one Lua `EVAL`, atomic on the server. `server/redis.test.ts` runs the production scripts on a real `redis-server` in CI.
 
@@ -67,6 +69,7 @@ Perfect anti-cheat is impossible: the game and future slates are public static f
 - re-score on the server; reject anything off-slate, off-grid, malformed or over 2 KB;
 - same-origin check (`Origin`/`Sec-Fetch-Site`), JSON content type (forces a CORS preflight we don't answer);
 - 6 POST/DELETE requests per minute per hashed network, checked *before* anything is charged to the budget, and remembered in the function instance for the rest of the minute so a flood stops reaching the store;
+- at most 5 DELETE requests per network per UTC day, checked before anything is charged and then remembered by the instance until 00:00 UTC (under its own memo key, so it never blocks that network's submissions). Deletion spends its own monthly counter, never the shared one, so a deletion flood can't pause submissions or reads for anyone;
 - at most 30 stored scores per network per UTC day, so one address can't fill a day's cohort (a large school or carrier NAT sharing one address may hit it; they then see "isn't available right now", and play is unaffected);
 - GET accepts only the exact raw query `?day=YYYY-MM-DD` (no extra `&`, no percent-encoded variants), so junk query strings can't bypass the 5-minute edge cache;
 - hard daily and monthly command budgets across all endpoints (below);
@@ -77,8 +80,8 @@ Treat percentiles as a friendly comparison among unverified browsers. A real lea
 ## Cost ($0)
 
 - Upstash Free: 500,000 commands/month, 250 MB, 1 database, no card on file (created 2026-11-18 via the Vercel Marketplace, plan "Free", region iad1). Without a card the plan cannot be billed; over the monthly limit "the exceeding commands return an exception" ([Upstash FAQ](https://upstash.com/docs/redis/help/faq)), which the app shows as "isn't available right now".
-- Upstash bills a script as "one command, plus one command for every `redis.call`" ([billing](https://upstash.com/docs/redis/overall/billing)). Each script checks the counters first and, unless paused, charges its upper bound before doing anything else: submit 18, read 8, delete 6 + 4 per day/season pair. A paused call charges nothing (so it can't eat the deletion reserve) (`server/store.ts` `COST`).
-- **Monthly ceiling: 380,000** estimated commands across all environments (`SCORES_MONTHLY_BUDGET` can only lower it). **Daily: 14,000** (`SCORES_DAILY_BUDGET`), roughly 800 first completions a day, so one busy day can't spend the month. The remaining ~120K/month covers rate-limited and paused calls, the deletion reserve (20,000, usable even when everything else is paused) and the export script.
+- Upstash bills a script as "one command, plus one command for every `redis.call`" ([billing](https://upstash.com/docs/redis/overall/billing)). Each script checks the counters first and, unless paused, charges its upper bound before doing anything else: submit 18, read 8. A paused call charges nothing (so it can't eat the deletion reserve) (`server/store.ts` `COST`). Delete checks its upper bound (8 + 4 per day/season pair) against the erase reserve first, then charges what it really ran: 8 + 1 per pair + 3 per record that existed, to the erase counter only.
+- **Monthly ceiling: 380,000** estimated commands across all environments (`SCORES_MONTHLY_BUDGET` can only lower it). **Daily: 14,000** (`SCORES_DAILY_BUDGET`), roughly 800 first completions a day, so one busy day can't spend the month. The remaining ~120K/month covers rate-limited and paused calls, the deletion reserve (20,000 on its own counter, usable even when everything else is paused; one network can spend at most 5 deletions a day of it) and the export script.
 - When a budget is spent the instance remembers it (until 00:00 UTC, or the 1st of next month) and stops calling the store at all; every other instance pays one short call (about 5 real commands, uncharged) to learn the same.
 - Remaining risk: a deliberate distributed flood (many addresses) still costs about 3 commands per request before it is limited, and could use up the free month early. The consequence is that percentiles stop until the next month; nothing is billed. If that ever happens, the optional mitigation is one Vercel WAF rate-limit rule on `/api/scores` (Hobby includes one rule and 1M allowed requests; check the pricing dialog shows $0 before saving it). Not set up in Phase 1.
 - GET responses are cached at Vercel's edge for 5 minutes (`s-maxage=300`).

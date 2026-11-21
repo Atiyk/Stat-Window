@@ -261,3 +261,45 @@ describe('DELETE /api/scores', () => {
     expect(pairs).toBe(9 * 2);
   });
 });
+
+describe('DELETE cannot drain the shared budget (CR-1)', () => {
+  const days9 = Array.from({ length: 9 }, (_, i) => new Date(NOON.getTime() - i * 86_400_000).toISOString().slice(0, 10));
+  const del = (ctx: Parameters<typeof handle>[1], p: string, headers: Record<string, string> = {}) =>
+    handle(post({ player: p, days: days9 }, headers, 'DELETE'), ctx).then((r) => r.status);
+
+  it('a flood from one network spends nothing shared, is cut off for the day, and real players can still delete', async () => {
+    const { ctx, store, nowRef } = testContext();
+    // A real player on another network stores a score first.
+    const a = await roundsFor(DAY, 2);
+    expect((await submit(ctx, { day: DAY, player: player(1), rounds: a.rounds }, { 'x-real-ip': '198.51.100.1' })).code).toBe(200);
+    const sharedBefore = store.dump().get(`sw:v1:budget:m:${DAY.slice(0, 7)}`);
+    // One network deletes as fast as the rate limit allows, for an hour (the old code took ~14.5 h to empty the month).
+    const codes: number[] = [];
+    for (let m = 0; m < 60; m++) {
+      for (let i = 0; i < 6; i++) codes.push(await del(ctx, player(9)));
+      nowRef.t += 60_000;
+    }
+    // The shared counter that pauses POST and GET is untouched by deletion.
+    expect(store.dump().get(`sw:v1:budget:m:${DAY.slice(0, 7)}`)).toBe(sharedBefore);
+    // Only a handful of deletions a day get through from one network, so the erase reserve can't be emptied either.
+    const ok = codes.filter((c) => c === 200).length;
+    expect(ok).toBeGreaterThan(0);
+    expect(ok).toBeLessThanOrEqual(DEFAULT_LIMITS.ipDailyDeletes);
+    expect(codes.at(-1)).toBe(429);
+    const erase = store.dump().get(`sw:v1:budget:e:${DAY.slice(0, 7)}`) as number;
+    expect(erase).toBeLessThanOrEqual(DEFAULT_LIMITS.ipDailyDeletes * COST.remove(18));
+    // Everyone else is unaffected: a new score is stored, and the real player can delete, even with scores switched off.
+    expect((await submit(ctx, { day: DAY, player: player(2), rounds: a.rounds }, { 'x-real-ip': '198.51.100.2' })).code).toBe(200);
+    ctx.enabled = false;
+    const res = await handle(post({ player: player(1), days: [DAY] }, { 'x-real-ip': '198.51.100.1' }, 'DELETE'), ctx);
+    expect(await res.json()).toMatchObject({ status: 'ok', removed: 1 });
+  });
+
+  it('charges deletion for the records it actually touched, not the upper bound', async () => {
+    const { ctx, store } = testContext();
+    expect(await del(ctx, player(9))).toBe(200);
+    const erase = store.dump().get(`sw:v1:budget:e:${DAY.slice(0, 7)}`) as number;
+    expect(erase).toBe(COST.removeSpent(18, 0));
+    expect(erase).toBeLessThan(COST.remove(18));
+  });
+});

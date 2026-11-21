@@ -54,6 +54,7 @@ export const DEFAULT_LIMITS: Limits = {
   eraseReserve: 20_000,
   ratePerMinute: 6,
   ipDailyStored: 30,
+  ipDailyDeletes: 5,
 };
 /** Days back that DELETE looks (submission records live 7 days; one more for the grace period). */
 const DELETE_DAYS = 8;
@@ -97,7 +98,8 @@ function keyPrefix(ctx: ApiContext, season: string, day: string) {
 }
 
 function budgetKeys(ctx: ApiContext, now: Date): BudgetKeys {
-  return { day: `${ctx.budgetPrefix}:d:${utcDay(now)}`, month: `${ctx.budgetPrefix}:m:${utcDay(now).slice(0, 7)}` };
+  const month = utcDay(now).slice(0, 7);
+  return { day: `${ctx.budgetPrefix}:d:${utcDay(now)}`, month: `${ctx.budgetPrefix}:m:${month}`, erase: `${ctx.budgetPrefix}:e:${month}` };
 }
 
 const nextUtcMidnight = (now: Date) => Date.parse(`${addDays(utcDay(now), 1)}T00:00:00Z`);
@@ -107,10 +109,12 @@ function rememberPause(ctx: ApiContext, now: Date, scope: 'day' | 'month') {
   ctx.memo.pausedUntil = scope === 'month' ? nextUtcMonth(now) : nextUtcMidnight(now);
 }
 
-function rememberLimited(ctx: ApiContext, client: string, now: Date) {
+function rememberLimited(ctx: ApiContext, client: string, now: Date, until: 'minute' | 'day' = 'minute') {
   if (ctx.memo.limitedUntil.size > 5_000) ctx.memo.limitedUntil.clear();
-  ctx.memo.limitedUntil.set(client, (Math.floor(now.getTime() / 60_000) + 1) * 60_000);
+  ctx.memo.limitedUntil.set(client, until === 'day' ? nextUtcMidnight(now) : (Math.floor(now.getTime() / 60_000) + 1) * 60_000);
 }
+
+const isLimited = (ctx: ApiContext, client: string, now: Date) => (ctx.memo.limitedUntil.get(client) ?? 0) > now.getTime();
 
 /** IPv4 as is; IPv6 cut to its /64, so one home or phone network is one client. */
 export function ipPrefix(ip: string): string {
@@ -235,12 +239,16 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
     const body = (await readBody(req)) as Record<string, unknown> | undefined;
     if (!body || typeof body !== 'object' || Array.isArray(body)) return json(422, { status: 'invalid' });
     const ipHash = await hmac(ctx.secret, `ip:${today}:${clientIp(req)}`, 16);
-    if ((ctx.memo.limitedUntil.get(ipHash) ?? 0) > now.getTime()) return json(429, { status: 'limited' }, { 'Retry-After': '60' });
+    if (isLimited(ctx, ipHash, now)) return json(429, { status: 'limited' }, { 'Retry-After': '60' });
     const rate = `sw:v1:${ctx.env}:rl:${ipHash}:${Math.floor(now.getTime() / 60_000)}`;
 
     if (req.method === 'DELETE') {
       const player = body.player;
       if (typeof player !== 'string' || !PLAYER.test(player)) return json(422, { status: 'invalid' });
+      // A network that used up today's deletions is turned away here, before any hashing or store call.
+      // Its own memo key, so it never blocks that network's submissions.
+      const delClient = `del:${ipHash}`;
+      if (isLimited(ctx, delClient, now)) return json(429, { status: 'limited' }, { 'Retry-After': String(Math.ceil((nextUtcMidnight(now) - now.getTime()) / 1000)) });
       const oldest = addDays(today, -DELETE_DAYS);
       // Only days whose records can still exist; older ones were already unlinked by their TTL.
       const days = [...new Set(Array.isArray(body.days) ? body.days.filter(isIsoDay) : [])].filter((d) => d >= oldest && d <= today).slice(0, DELETE_DAYS + 1);
@@ -252,8 +260,12 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
         }
       }
       if (pairs.length === 0) return json(200, { status: 'ok', removed: 0 });
-      const r = await ctx.store.removeMany(pairs, rate, budget, ctx.limits);
-      if (r === 'limited') {
+      const r = await ctx.store.removeMany(pairs, { rate, ipDay: `sw:v1:${ctx.env}:ipdel:${ipHash}` }, budget, ctx.limits);
+      if (typeof r === 'object') {
+        if (r.limited === 'day') {
+          rememberLimited(ctx, delClient, now, 'day');
+          return json(429, { status: 'limited' }, { 'Retry-After': String(Math.ceil((nextUtcMidnight(now) - now.getTime()) / 1000)) });
+        }
         rememberLimited(ctx, ipHash, now);
         return json(429, { status: 'limited' }, { 'Retry-After': '60' });
       }

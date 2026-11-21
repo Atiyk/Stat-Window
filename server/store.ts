@@ -14,8 +14,15 @@ export type SubmitOutcome =
   | { status: 'limited' }
   | { status: 'paused'; scope: 'day' | 'month' };
 
-/** The cost ceiling: two counters of *estimated Upstash commands*, shared by every environment on the database. */
-export type BudgetKeys = { day: string; month: string };
+/**
+ * The cost ceiling: counters of *estimated Upstash commands*, shared by every environment on the database.
+ * `day` and `month` pause submissions and reads; `erase` is deletion's own monthly counter, so deleting
+ * can never spend the budget everyone else plays on.
+ */
+export type BudgetKeys = { day: string; month: string; erase: string };
+
+/** Per-client keys for deletion: the one-minute rate counter and today's count of deletions from this network. */
+export type RemoveKeys = { rate: string; ipDay: string };
 
 export type SubmitKeys = {
   /** One record per hashed browser key per puzzle day and season. */
@@ -38,12 +45,14 @@ export type Limits = {
   dailyBudget: number;
   /** Estimated commands allowed per calendar month (UTC) before submissions and reads pause. */
   monthlyBudget: number;
-  /** Extra monthly commands only deletion may use, so erasure still works when everything else is paused. */
+  /** Monthly commands deletion may use, on its own counter, so erasure still works when everything else is paused. */
   eraseReserve: number;
   /** Requests allowed per client per minute (POST and DELETE). */
   ratePerMinute: number;
   /** Scores that may be stored from one IP prefix per UTC day. */
   ipDailyStored: number;
+  /** Deletion requests allowed from one IP prefix per UTC day (checked before anything is charged). */
+  ipDailyDeletes: number;
 };
 
 export type ScoreStore = {
@@ -51,7 +60,12 @@ export type ScoreStore = {
   /** Returns raw counts (index = score) and n, or 'paused' when the budget is spent. */
   read(dist: string, budget: BudgetKeys, limits: Limits): Promise<{ counts: number[]; n: number } | { paused: 'day' | 'month' }>;
   /** Removes browser-linked submissions and their contributions in one call. Returns how many existed. */
-  removeMany(pairs: readonly { sub: string; dist: string }[], rate: string, budget: BudgetKeys, limits: Limits): Promise<number | 'paused' | 'limited'>;
+  removeMany(
+    pairs: readonly { sub: string; dist: string }[],
+    client: RemoveKeys,
+    budget: BudgetKeys,
+    limits: Limits,
+  ): Promise<number | 'paused' | { limited: 'minute' | 'day' }>;
 };
 
 /**
@@ -59,7 +73,14 @@ export type ScoreStore = {
  * (https://upstash.com/docs/redis/overall/billing, "Lua scripts"). These are upper bounds
  * per script, charged up front, so the counters never under-count.
  */
-export const COST = { submit: 18, read: 8, remove: (pairs: number) => 6 + 4 * pairs } as const;
+export const COST = {
+  submit: 18,
+  read: 8,
+  /** Deletion's upper bound, checked against the erase reserve before any record is read. */
+  remove: (pairs: number) => 8 + 4 * pairs,
+  /** What deletion actually spends: a GET per pair, plus DEL, HINCRBY and HDEL for each record that existed. */
+  removeSpent: (pairs: number, removed: number) => 8 + pairs + 3 * removed,
+} as const;
 const DAY_TTL = 2 * 86_400;
 const MONTH_TTL = 32 * 86_400;
 const IP_DAY_TTL = 26 * 3_600;
@@ -101,18 +122,22 @@ return {'ok', redis.call('HGETALL', KEYS[1])}
 `;
 
 /**
- * KEYS: rate, budgetMonth, then (sub, dist) pairs. ARGV: monthlyBudget + eraseReserve, ratePerMinute, cost, monthTtl.
- * Deletion ignores the daily budget and has its own monthly reserve, so it keeps working when submissions are paused.
+ * KEYS: rate, ipDay (deletions from this network today), budgetErase, then (sub, dist) pairs.
+ * ARGV: eraseReserve, ratePerMinute, maxCost, monthTtl, ipDailyDeletes, ipDayTtl, pairs.
+ * Deletion never touches the shared day/month counters: it spends its own monthly counter (capped at the
+ * erase reserve), so a deletion flood can only use up deletion, and only a few calls a day per network.
+ * Both per-client caps run before anything is charged; the charge is what the call really cost.
  */
 export const REMOVE_LUA = `
 local r = redis.call('INCR', KEYS[1])
 if r == 1 then redis.call('EXPIRE', KEYS[1], 120) end
-if r > tonumber(ARGV[2]) then return {'limited'} end
-local cost = tonumber(ARGV[3])
-if tonumber(redis.call('GET', KEYS[2]) or '0') + cost > tonumber(ARGV[1]) then return {'paused'} end
-if redis.call('INCRBY', KEYS[2], cost) == cost then redis.call('EXPIRE', KEYS[2], ARGV[4]) end
+if r > tonumber(ARGV[2]) then return {'limited', 'minute'} end
+local d = redis.call('INCR', KEYS[2])
+if d == 1 then redis.call('EXPIRE', KEYS[2], ARGV[6]) end
+if d > tonumber(ARGV[5]) then return {'limited', 'day'} end
+if tonumber(redis.call('GET', KEYS[3]) or '0') + tonumber(ARGV[3]) > tonumber(ARGV[1]) then return {'paused'} end
 local removed = 0
-for i = 3, #KEYS, 2 do
+for i = 4, #KEYS, 2 do
   local prev = redis.call('GET', KEYS[i])
   if prev then
     redis.call('DEL', KEYS[i])
@@ -121,6 +146,8 @@ for i = 3, #KEYS, 2 do
     removed = removed + 1
   end
 end
+local cost = 8 + tonumber(ARGV[7]) + 3 * removed
+if redis.call('INCRBY', KEYS[3], cost) == cost then redis.call('EXPIRE', KEYS[3], ARGV[4]) end
 return {'ok', removed}
 `;
 
@@ -159,13 +186,12 @@ export function redisStore(evaluate: Eval): ScoreStore {
       if (out[0] !== 'ok') return { paused: out[1] === 'month' ? 'month' : 'day' };
       return countsFromHash((out[1] as unknown[] | undefined) ?? []);
     },
-    async removeMany(pairs, rate, budget, limits) {
-      const keys = [rate, budget.month, ...pairs.flatMap((p) => [p.sub, p.dist])];
-      const out = (await evaluate(REMOVE_LUA, keys, [limits.monthlyBudget + limits.eraseReserve, limits.ratePerMinute, COST.remove(pairs.length), MONTH_TTL])) as [
-        string,
-        unknown?,
-      ];
-      if (out[0] === 'limited') return 'limited';
+    async removeMany(pairs, client, budget, limits) {
+      const keys = [client.rate, client.ipDay, budget.erase, ...pairs.flatMap((p) => [p.sub, p.dist])];
+      const out = (await evaluate(REMOVE_LUA, keys, [
+        limits.eraseReserve, limits.ratePerMinute, COST.remove(pairs.length), MONTH_TTL, limits.ipDailyDeletes, IP_DAY_TTL, pairs.length,
+      ])) as [string, unknown?];
+      if (out[0] === 'limited') return { limited: out[1] === 'day' ? 'day' : 'minute' };
       if (out[0] !== 'ok') return 'paused';
       return Number(out[1]);
     },
@@ -236,11 +262,10 @@ export function memoryStore(now: () => number = Date.now): ScoreStore & { dump()
       if (paused) return { paused };
       return countsFromHash([...hash(dist)].flat());
     },
-    async removeMany(pairs, rate, budget, limits) {
-      if (incrBy(rate, 1, 120) > limits.ratePerMinute) return 'limited';
-      const cost = COST.remove(pairs.length);
-      if (((get(budget.month) as number | undefined) ?? 0) + cost > limits.monthlyBudget + limits.eraseReserve) return 'paused';
-      incrBy(budget.month, cost, MONTH_TTL);
+    async removeMany(pairs, client, budget, limits) {
+      if (incrBy(client.rate, 1, 120) > limits.ratePerMinute) return { limited: 'minute' };
+      if (incrBy(client.ipDay, 1, IP_DAY_TTL) > limits.ipDailyDeletes) return { limited: 'day' };
+      if (((get(budget.erase) as number | undefined) ?? 0) + COST.remove(pairs.length) > limits.eraseReserve) return 'paused';
       let removed = 0;
       for (const { sub, dist } of pairs) {
         const prev = get(sub) as number | undefined;
@@ -253,6 +278,7 @@ export function memoryStore(now: () => number = Date.now): ScoreStore & { dump()
         set(dist, h);
         removed++;
       }
+      incrBy(budget.erase, COST.removeSpent(pairs.length, removed), MONTH_TTL);
       return removed;
     },
   };

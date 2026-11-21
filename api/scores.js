@@ -135,7 +135,8 @@ var DEFAULT_LIMITS = {
 	monthlyBudget: 38e4,
 	eraseReserve: 2e4,
 	ratePerMinute: 6,
-	ipDailyStored: 30
+	ipDailyStored: 30,
+	ipDailyDeletes: 5
 };
 var PLAYER = /^[A-Za-z0-9_-]{22}$/;
 var ID = /^[a-z0-9-]{1,80}$/;
@@ -173,9 +174,11 @@ function keyPrefix(ctx, season, day) {
 	return `sw:v1:${ctx.env}:${season}:${day}`;
 }
 function budgetKeys(ctx, now) {
+	const month = utcDay(now).slice(0, 7);
 	return {
 		day: `${ctx.budgetPrefix}:d:${utcDay(now)}`,
-		month: `${ctx.budgetPrefix}:m:${utcDay(now).slice(0, 7)}`
+		month: `${ctx.budgetPrefix}:m:${month}`,
+		erase: `${ctx.budgetPrefix}:e:${month}`
 	};
 }
 var nextUtcMidnight = (now) => Date.parse(`${addDays(utcDay(now), 1)}T00:00:00Z`);
@@ -183,10 +186,11 @@ var nextUtcMonth = (now) => Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1
 function rememberPause(ctx, now, scope) {
 	ctx.memo.pausedUntil = scope === "month" ? nextUtcMonth(now) : nextUtcMidnight(now);
 }
-function rememberLimited(ctx, client, now) {
+function rememberLimited(ctx, client, now, until = "minute") {
 	if (ctx.memo.limitedUntil.size > 5e3) ctx.memo.limitedUntil.clear();
-	ctx.memo.limitedUntil.set(client, (Math.floor(now.getTime() / 6e4) + 1) * 6e4);
+	ctx.memo.limitedUntil.set(client, until === "day" ? nextUtcMidnight(now) : (Math.floor(now.getTime() / 6e4) + 1) * 6e4);
 }
+var isLimited = (ctx, client, now) => (ctx.memo.limitedUntil.get(client) ?? 0) > now.getTime();
 /** IPv4 as is; IPv6 cut to its /64, so one home or phone network is one client. */
 function ipPrefix(ip) {
 	const mapped = /^::ffff:(\d{1,3}(?:\.\d{1,3}){3})$/i.exec(ip);
@@ -320,11 +324,13 @@ async function handle(req, ctx) {
 		const body = await readBody(req);
 		if (!body || typeof body !== "object" || Array.isArray(body)) return json(422, { status: "invalid" });
 		const ipHash = await hmac(ctx.secret, `ip:${today}:${clientIp(req)}`, 16);
-		if ((ctx.memo.limitedUntil.get(ipHash) ?? 0) > now.getTime()) return json(429, { status: "limited" }, { "Retry-After": "60" });
+		if (isLimited(ctx, ipHash, now)) return json(429, { status: "limited" }, { "Retry-After": "60" });
 		const rate = `sw:v1:${ctx.env}:rl:${ipHash}:${Math.floor(now.getTime() / 6e4)}`;
 		if (req.method === "DELETE") {
 			const player = body.player;
 			if (typeof player !== "string" || !PLAYER.test(player)) return json(422, { status: "invalid" });
+			const delClient = `del:${ipHash}`;
+			if (isLimited(ctx, delClient, now)) return json(429, { status: "limited" }, { "Retry-After": String(Math.ceil((nextUtcMidnight(now) - now.getTime()) / 1e3)) });
 			const oldest = addDays(today, -8);
 			const days = [...new Set(Array.isArray(body.days) ? body.days.filter(isIsoDay) : [])].filter((d) => d >= oldest && d <= today).slice(0, 9);
 			const pairs = [];
@@ -339,8 +345,15 @@ async function handle(req, ctx) {
 				status: "ok",
 				removed: 0
 			});
-			const r = await ctx.store.removeMany(pairs, rate, budget, ctx.limits);
-			if (r === "limited") {
+			const r = await ctx.store.removeMany(pairs, {
+				rate,
+				ipDay: `sw:v1:${ctx.env}:ipdel:${ipHash}`
+			}, budget, ctx.limits);
+			if (typeof r === "object") {
+				if (r.limited === "day") {
+					rememberLimited(ctx, delClient, now, "day");
+					return json(429, { status: "limited" }, { "Retry-After": String(Math.ceil((nextUtcMidnight(now) - now.getTime()) / 1e3)) });
+				}
 				rememberLimited(ctx, ipHash, now);
 				return json(429, { status: "limited" }, { "Retry-After": "60" });
 			}
@@ -468,7 +481,10 @@ function fileSlates(root = process.cwd()) {
 var COST = {
 	submit: 18,
 	read: 8,
-	remove: (pairs) => 6 + 4 * pairs
+	/** Deletion's upper bound, checked against the erase reserve before any record is read. */
+	remove: (pairs) => 8 + 4 * pairs,
+	/** What deletion actually spends: a GET per pair, plus DEL, HINCRBY and HDEL for each record that existed. */
+	removeSpent: (pairs, removed) => 8 + pairs + 3 * removed
 };
 var DAY_TTL = 172800;
 var MONTH_TTL = 2764800;
@@ -508,18 +524,22 @@ if redis.call('INCRBY', KEYS[3], cost) == cost then redis.call('EXPIRE', KEYS[3]
 return {'ok', redis.call('HGETALL', KEYS[1])}
 `;
 /**
-* KEYS: rate, budgetMonth, then (sub, dist) pairs. ARGV: monthlyBudget + eraseReserve, ratePerMinute, cost, monthTtl.
-* Deletion ignores the daily budget and has its own monthly reserve, so it keeps working when submissions are paused.
+* KEYS: rate, ipDay (deletions from this network today), budgetErase, then (sub, dist) pairs.
+* ARGV: eraseReserve, ratePerMinute, maxCost, monthTtl, ipDailyDeletes, ipDayTtl, pairs.
+* Deletion never touches the shared day/month counters: it spends its own monthly counter (capped at the
+* erase reserve), so a deletion flood can only use up deletion, and only a few calls a day per network.
+* Both per-client caps run before anything is charged; the charge is what the call really cost.
 */
 var REMOVE_LUA = `
 local r = redis.call('INCR', KEYS[1])
 if r == 1 then redis.call('EXPIRE', KEYS[1], 120) end
-if r > tonumber(ARGV[2]) then return {'limited'} end
-local cost = tonumber(ARGV[3])
-if tonumber(redis.call('GET', KEYS[2]) or '0') + cost > tonumber(ARGV[1]) then return {'paused'} end
-if redis.call('INCRBY', KEYS[2], cost) == cost then redis.call('EXPIRE', KEYS[2], ARGV[4]) end
+if r > tonumber(ARGV[2]) then return {'limited', 'minute'} end
+local d = redis.call('INCR', KEYS[2])
+if d == 1 then redis.call('EXPIRE', KEYS[2], ARGV[6]) end
+if d > tonumber(ARGV[5]) then return {'limited', 'day'} end
+if tonumber(redis.call('GET', KEYS[3]) or '0') + tonumber(ARGV[3]) > tonumber(ARGV[1]) then return {'paused'} end
 local removed = 0
-for i = 3, #KEYS, 2 do
+for i = 4, #KEYS, 2 do
   local prev = redis.call('GET', KEYS[i])
   if prev then
     redis.call('DEL', KEYS[i])
@@ -528,6 +548,8 @@ for i = 3, #KEYS, 2 do
     removed = removed + 1
   end
 end
+local cost = 8 + tonumber(ARGV[7]) + 3 * removed
+if redis.call('INCRBY', KEYS[3], cost) == cost then redis.call('EXPIRE', KEYS[3], ARGV[4]) end
 return {'ok', removed}
 `;
 function countsFromHash(flat) {
@@ -593,18 +615,22 @@ function redisStore(evaluate) {
 			if (out[0] !== "ok") return { paused: out[1] === "month" ? "month" : "day" };
 			return countsFromHash(out[1] ?? []);
 		},
-		async removeMany(pairs, rate, budget, limits) {
+		async removeMany(pairs, client, budget, limits) {
 			const out = await evaluate(REMOVE_LUA, [
-				rate,
-				budget.month,
+				client.rate,
+				client.ipDay,
+				budget.erase,
 				...pairs.flatMap((p) => [p.sub, p.dist])
 			], [
-				limits.monthlyBudget + limits.eraseReserve,
+				limits.eraseReserve,
 				limits.ratePerMinute,
 				COST.remove(pairs.length),
-				MONTH_TTL
+				MONTH_TTL,
+				limits.ipDailyDeletes,
+				IP_DAY_TTL,
+				pairs.length
 			]);
-			if (out[0] === "limited") return "limited";
+			if (out[0] === "limited") return { limited: out[1] === "day" ? "day" : "minute" };
 			if (out[0] !== "ok") return "paused";
 			return Number(out[1]);
 		}

@@ -66,4 +66,22 @@ describe.skipIf(!url)('Lua scripts on a real redis-server', () => {
     const month = Number(await client.command(['GET', `sw:v1:${env}:budget:m:${DAY.slice(0, 7)}`]));
     expect(month).toBe(COST.submit * 2);
   });
+
+  it('deletion spends only its own counter, charges what it touched, and stops after the per-network daily cap (CR-1)', async () => {
+    const env = `${run}d`;
+    const prefix = `sw:v1:${env}:budget`;
+    const { ctx } = testContext({ store: redisStore(client.evaluate), limits: { ...limits, ipDailyDeletes: 2 }, env, budgetPrefix: prefix });
+    const a = await roundsFor(DAY, 2);
+    await handle(post({ day: DAY, player: player(30), rounds: a.rounds }, { 'x-real-ip': '198.51.100.30' }), ctx);
+    const shared = Number(await client.command(['GET', `${prefix}:m:${DAY.slice(0, 7)}`]));
+    const del = (p: string) => handle(post({ player: p, days: [DAY] }, {}, 'DELETE'), ctx);
+    expect(await (await del(player(31))).json()).toMatchObject({ removed: 0 });
+    expect((await del(player(31))).status).toBe(200);
+    expect((await del(player(31))).status).toBe(429);
+    expect(Number(await client.command(['GET', `${prefix}:m:${DAY.slice(0, 7)}`]))).toBe(shared);
+    expect(Number(await client.command(['GET', `${prefix}:e:${DAY.slice(0, 7)}`]))).toBe(2 * COST.removeSpent(2, 0));
+    // Another network's real player still deletes their stored score.
+    expect(await (await handle(post({ player: player(30), days: [DAY] }, { 'x-real-ip': '198.51.100.30' }, 'DELETE'), ctx)).json()).toMatchObject({ removed: 1 });
+    expect(Number(await client.command(['GET', `${prefix}:e:${DAY.slice(0, 7)}`]))).toBe(3 * COST.removeSpent(2, 0) + 3);
+  });
 });

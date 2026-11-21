@@ -1,9 +1,17 @@
 import { expect, test, type Locator, type Page } from '@playwright/test';
-import { lockAndSettle, openAt } from './helpers';
+import { lockAndSettle, next, openAt } from './helpers';
 
 /** 2026-11-21 (No. 7 of the beta): Q1 is 25–100, answer 73. */
 const NOV21 = new Date('2026-11-21T15:00:00Z');
-const shots = 'test-results/screens/sweep';
+const shots = process.env.SWEEP_SHOTS ?? 'test-results/screens/sweep';
+
+async function playFive(page: Page, beforeLast?: () => Promise<void>) {
+  for (let i = 0; i < 5; i++) {
+    await lockAndSettle(page);
+    if (i === 4 && beforeLast) await beforeLast();
+    await next(page);
+  }
+}
 
 /** True when `el` is fully on screen and nothing docked (the sticky action bar) covers it. */
 async function clearOfDock(page: Page, el: Locator) {
@@ -28,5 +36,20 @@ test.describe('BUG-01: 320x568 first screen and reveal', () => {
     expect(await clearOfDock(page, page.locator('.verdict-line .outcome'))).toMatchObject({ ok: true });
     expect(await clearOfDock(page, page.locator('.ruler-track'))).toMatchObject({ ok: true });
     await expect(page.getByRole('button', { name: 'Next question' })).toBeInViewport({ ratio: 1 });
+  });
+});
+
+test.describe('BUG-02: results open at the top', () => {
+  test('at 320x568 the results start at scrollY 0 with the visible heading focused', async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 568 });
+    await openAt(page, NOV21);
+    await playFive(page, () => page.mouse.wheel(0, 400));
+    await expect(page.locator('.results-title')).toBeVisible();
+    await page.waitForTimeout(200);
+    await page.screenshot({ path: `${shots}/bug02-320-results.png` });
+    expect(await page.evaluate(() => window.scrollY)).toBe(0);
+    await expect(page.locator('.results-title')).toBeFocused();
+    await expect(page.locator('.results-title')).toBeInViewport({ ratio: 1 });
+    await expect(page.locator('.results-score')).toBeInViewport({ ratio: 1 });
   });
 });

@@ -70,7 +70,10 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
   const [fallback, setFallback] = useState<string | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
+  // The last round may have left the page scrolled down to its fact: open the day at the top,
+  // with focus on the heading the player can see (as each new round does).
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
     headingRef.current?.focus({ preventScroll: true });
   }, []);
 

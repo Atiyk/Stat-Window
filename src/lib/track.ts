@@ -206,6 +206,10 @@ export const analyticsEnabled = analyticsOn(
 
 type Vercel = { inject: typeof inject; pageview: typeof pageview };
 
+/** What `startAnalytics` was given when the build and host allow analytics, so the Privacy dialog can start it later. */
+let pending: { nav: Navigator; vercel: Vercel } | null = null;
+let active = false;
+
 /**
  * Starts Vercel Web Analytics and routes events to it. Safe to call once at startup.
  *
@@ -217,10 +221,29 @@ export function startAnalytics(
   opts: { enabled?: boolean; nav?: Navigator; vercel?: Vercel; privacy?: Privacy } = {},
 ): boolean {
   const enabled = opts.enabled ?? analyticsEnabled;
+  pending = null;
+  active = false;
   if (!enabled || typeof window === 'undefined') return false;
+  pending = { nav: opts.nav ?? navigator, vercel: opts.vercel ?? { inject, pageview } };
   // GPC/DNT and the in-app switch both stop analytics; an explicit "on" in the app overrides GPC/DNT.
-  if (!analyticsAllowed(opts.privacy ?? loadPrivacy(), privacySignal(opts.nav ?? navigator))) return false;
-  const v = opts.vercel ?? { inject, pageview };
+  if (!analyticsAllowed(opts.privacy ?? loadPrivacy(), privacySignal(pending.nav))) return false;
+  activate(pending);
+  return true;
+}
+
+/**
+ * Starts analytics now if the build and host allow it and the player's choice allows it, for when
+ * it was off at startup and the player switches it on in the Privacy dialog. Never starts twice.
+ */
+export function resumeAnalytics(): boolean {
+  if (active) return true;
+  if (!pending || !analyticsAllowed(loadPrivacy(), privacySignal(pending.nav))) return false;
+  activate(pending);
+  return true;
+}
+
+function activate({ nav, vercel: v }: { nav: Navigator; vercel: Vercel }): void {
+  active = true;
   v.inject({
     mode: 'production',
     disableAutoTrack: true,
@@ -236,9 +259,8 @@ export function startAnalytics(
   });
   v.pageview({ route: '/', path: '/' });
   setTrackSink((e) => {
-    if (!analyticsAllowed(loadPrivacy(), privacySignal(opts.nav ?? navigator))) return; // switched off this session
+    if (!analyticsAllowed(loadPrivacy(), privacySignal(nav))) return; // switched off this session
     const path = eventPath(e);
     v.pageview({ route: path, path });
   });
-  return true;
 }

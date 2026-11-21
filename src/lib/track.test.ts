@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { savePrivacy } from './privacy';
-import { analyticsOn, eventPath, privacySignal, setCohort, setTrackSink, startAnalytics, totalBand, track, trackOnce, type TrackEvent } from './track';
+import { analyticsOn, eventPath, privacySignal, resumeAnalytics, setCohort, setTrackSink, startAnalytics, totalBand, track, trackOnce, type TrackEvent } from './track';
 
 describe('eventPath', () => {
   it('maps every event to a fixed, low-cardinality path with no answers or ids', () => {
@@ -192,6 +192,59 @@ describe('opting out when localStorage writes fail (CR-3)', () => {
       expect(savePrivacy({ analytics: 'off' }).analytics).toBe('off'); // the Privacy dialog's onChange
       track({ name: 'run_start', mode: 'daily' });
       expect(views).toEqual(['/']);
+    } finally {
+      setTrackSink(() => {});
+      vi.unstubAllGlobals();
+    }
+  });
+});
+
+describe('turning analytics on in the Privacy dialog (CR-5)', () => {
+  const setup = () => {
+    const m = new Map<string, string>();
+    vi.stubGlobal('window', { localStorage: { getItem: (k: string) => m.get(k) ?? null, setItem: (k: string, v: string) => void m.set(k, v) } });
+    const views: string[] = [];
+    let injects = 0;
+    const vercel = { inject: (() => void injects++) as never, pageview: ((o: { path: string }) => void views.push(o.path)) as never };
+    return { views, vercel, injects: () => injects };
+  };
+
+  it('starts analytics at once when it began off under GPC/DNT', () => {
+    const t = setup();
+    try {
+      expect(startAnalytics({ enabled: true, nav: { globalPrivacyControl: true } as unknown as Navigator, vercel: t.vercel })).toBe(false);
+      expect(t.injects()).toBe(0);
+      savePrivacy({ analytics: 'on' }); // the dialog's onChange
+      expect(resumeAnalytics()).toBe(true);
+      track({ name: 'run_start', mode: 'daily' });
+      expect(t.views).toEqual(['/', '/e/start/daily']);
+      // Idempotent: a second tick (or a remount) never injects twice.
+      expect(resumeAnalytics()).toBe(true);
+      expect(t.injects()).toBe(1);
+      // And off again still stops it.
+      savePrivacy({ analytics: 'off' });
+      track({ name: 'run_complete', mode: 'daily', total: 100 });
+      expect(t.views).toEqual(['/', '/e/start/daily']);
+    } finally {
+      setTrackSink(() => {});
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('starts after an earlier "off", but never when the build or host has analytics off', () => {
+    const t = setup();
+    try {
+      savePrivacy({ analytics: 'off' });
+      expect(startAnalytics({ enabled: false, nav: {} as Navigator, vercel: t.vercel })).toBe(false);
+      savePrivacy({ analytics: 'on' });
+      expect(resumeAnalytics()).toBe(false);
+      expect(t.injects()).toBe(0);
+      savePrivacy({ analytics: 'off' });
+      expect(startAnalytics({ enabled: true, nav: {} as Navigator, vercel: t.vercel })).toBe(false);
+      expect(resumeAnalytics()).toBe(false); // still off: nothing to start
+      savePrivacy({ analytics: 'on' });
+      expect(resumeAnalytics()).toBe(true);
+      expect(t.injects()).toBe(1);
     } finally {
       setTrackSink(() => {});
       vi.unstubAllGlobals();

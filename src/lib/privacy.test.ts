@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { analyticsAllowed, browserSignal, loadPrivacy, newKey, PRIVACY_KEY, savePrivacy, scoreIntent, scoreKey, scoresShownOn } from './privacy';
 
 const mem = () => {
@@ -64,5 +64,28 @@ describe('consent where the server asks first', () => {
     expect(scoresShownOn({ ...p, sent: [], done: [] }, false)).toBe(false);
     expect(scoreIntent({ ...p, sent: [], done: [] }, false)).toBe('ask');
     expect(scoresShownOn({ ...p, sent: [], done: [], asked: false }, false)).toBe(true);
+  });
+
+  it('keeps choices in memory for the session when storage writes fail (CR-3)', () => {
+    const full = { getItem: () => null, setItem: () => { throw new DOMException('full', 'QuotaExceededError'); } };
+    expect(savePrivacy({ analytics: 'off' }, full).analytics).toBe('off');
+    expect(loadPrivacy(full).analytics).toBe('off');
+    expect(analyticsAllowed(loadPrivacy(full), false)).toBe(false);
+    // "No thanks" (or an untick) holds for the rest of the session, so the next results screen sends nothing.
+    savePrivacy({ scores: 'off' }, full);
+    expect(scoreIntent(loadPrivacy(full), false)).toBe('skip');
+    expect(loadPrivacy(full)).toMatchObject({ analytics: 'off', scores: 'off' });
+    // The key and sent days survive too, so "Delete my scores" still knows what to delete.
+    const key = scoreKey(full);
+    savePrivacy({ scores: 'on', sent: ['2026-11-18'] }, full);
+    expect(loadPrivacy(full)).toMatchObject({ key, sent: ['2026-11-18'], analytics: 'off', scores: 'on' });
+    // A storage that works is unaffected.
+    expect(loadPrivacy(mem()).analytics).toBe('unset');
+  });
+
+  it('also holds when reads throw after a failed write', () => {
+    const broken = { getItem: vi.fn(() => { throw new Error('blocked'); }), setItem: () => { throw new Error('blocked'); } };
+    savePrivacy({ analytics: 'off', scores: 'off' }, broken);
+    expect(loadPrivacy(broken)).toMatchObject({ analytics: 'off', scores: 'off' });
   });
 });

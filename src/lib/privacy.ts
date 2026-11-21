@@ -33,6 +33,12 @@ const empty = (): Privacy => ({ analytics: 'unset', scores: 'unset', key: null, 
 /** Submission records live 7 days on the server (plus a grace day), so older days need no tracking. */
 const KEEP_DAYS = 9;
 let memory: Privacy = empty();
+/**
+ * The storage whose last write failed (quota full, Safari private mode…). Until a write to it
+ * succeeds again, `memory` is the truth for this session: otherwise an opt-out would read back as
+ * "unset" and events or score sends would carry on while the dialog shows "off".
+ */
+let unwritable: Store | null = null;
 
 function storage(): Store | null {
   try {
@@ -46,7 +52,7 @@ const days = (v: unknown): string[] =>
   Array.isArray(v) ? [...new Set(v.filter((d): d is string => typeof d === 'string' && DAY_RE.test(d)))].sort().slice(-KEEP_DAYS) : [];
 
 export function loadPrivacy(s: Store | null = storage()): Privacy {
-  if (!s) return memory;
+  if (!s || s === unwritable) return memory;
   try {
     const raw = JSON.parse(s.getItem(PRIVACY_KEY) ?? 'null') as Partial<Privacy> | null;
     if (!raw || typeof raw !== 'object') return empty();
@@ -70,8 +76,10 @@ export function savePrivacy(patch: Partial<Privacy>, s: Store | null = storage()
   memory = next;
   try {
     s?.setItem(PRIVACY_KEY, JSON.stringify(next));
+    if (s === unwritable) unwritable = null;
   } catch {
-    /* memory only */
+    // Memory only, for the rest of this session.
+    unwritable = s;
   }
   return next;
 }

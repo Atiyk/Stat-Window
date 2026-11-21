@@ -1,4 +1,5 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+import { savePrivacy } from './privacy';
 import { analyticsOn, eventPath, privacySignal, setCohort, setTrackSink, startAnalytics, totalBand, track, trackOnce, type TrackEvent } from './track';
 
 describe('eventPath', () => {
@@ -178,5 +179,22 @@ describe('analyticsOn', () => {
     expect(analyticsOn(undefined, 'localhost')).toBe(false);
     expect(analyticsOn(undefined, undefined)).toBe(false);
     expect(analyticsOn('vercel', 'localhost')).toBe(true);
+  });
+});
+
+describe('opting out when localStorage writes fail (CR-3)', () => {
+  it('stops events at once, though the choice could not be stored', () => {
+    vi.stubGlobal('window', { localStorage: { getItem: () => null, setItem: () => { throw new DOMException('full', 'QuotaExceededError'); } } });
+    try {
+      const views: string[] = [];
+      const vercel = { inject: (() => {}) as never, pageview: ((o: { path: string }) => void views.push(o.path)) as never };
+      expect(startAnalytics({ enabled: true, nav: {} as Navigator, vercel })).toBe(true);
+      expect(savePrivacy({ analytics: 'off' }).analytics).toBe('off'); // the Privacy dialog's onChange
+      track({ name: 'run_start', mode: 'daily' });
+      expect(views).toEqual(['/']);
+    } finally {
+      setTrackSink(() => {});
+      vi.unstubAllGlobals();
+    }
   });
 });

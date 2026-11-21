@@ -53,3 +53,23 @@ test.describe('BUG-02: results open at the top', () => {
     await expect(page.locator('.results-score')).toBeInViewport({ ratio: 1 });
   });
 });
+
+test.describe('BUG-08: 200% text on the results page', () => {
+  for (const width of [390, 320]) {
+    test(`no sideways scroll on results at ${width} with 200% text`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 720 });
+      await openAt(page, NOV21);
+      await page.addStyleTag({ content: 'html{font-size:200%}' });
+      await playFive(page);
+      await expect(page.locator('.results-score')).toBeVisible();
+      await page.waitForTimeout(300);
+      await page.screenshot({ path: `${shots}/bug08-${width}-results.png`, fullPage: true });
+      const over = await page.evaluate(() => {
+        const vw = window.innerWidth;
+        return [...document.querySelectorAll('body *')].filter((e) => e.getBoundingClientRect().right > vw + 1).map((e) => e.className).slice(0, 8);
+      });
+      expect(over).toEqual([]);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);
+    });
+  }
+});

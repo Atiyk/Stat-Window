@@ -2117,3 +2117,14 @@ a {
   .round .action-bar { padding-top: 8px; padding-bottom: max(8px, env(safe-area-inset-bottom)); }
   .round .action-bar .btn { min-height: 52px; }
 }
+
+/* ───────────── Large text on the results page (BUG-08) ─────────────
+ * With 200% text the heading, the big score and the stats used to push the page sideways.
+ * The viewport caps only bite at large text sizes; at normal sizes the clamps above still decide.
+ */
+.results-title { font-size: min(clamp(2.25rem, 1.4rem + 4vw, 4.5rem), 16vw); overflow-wrap: break-word; }
+.results-total { flex-wrap: wrap; row-gap: 4px; }
+.results-score { font-size: min(clamp(6rem, 3rem + 16vw, 12rem), 34vw); }
+.stats { grid-template-columns: repeat(auto-fit, minmax(min(100%, 4rem), 1fr)); }
+.stats dt { overflow-wrap: break-word; }
+.results-head, .results-actions, .recap-text { min-width: 0; overflow-wrap: break-word; }

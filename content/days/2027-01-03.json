@@ -58,23 +58,23 @@
       ]
     },
     {
-      "id": "nba-paul08-regular-apg",
+      "id": "nba-booker17-70",
       "sport": "NBA",
-      "prompt": "How many assists per game did Chris Paul average for New Orleans in 2008?",
-      "context": "Hornets · 2007–08 regular season",
-      "answer": 11.6,
+      "prompt": "Devin Booker became the youngest player to score 60 or more, at 20, in a regular-season game. How many points did he score?",
+      "context": "Phoenix Suns · 2016–17",
+      "answer": 70,
       "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 5,
-      "max": 22,
-      "step": 0.1,
-      "note": "11.6 assists per game from the young star.",
+      "min": 25,
+      "max": 90,
+      "step": 1,
+      "note": "70.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
-        "quote": "Chris Paul | 80 | 80 | 37.6 | .488 | .369 | .851 | 4.0 | 11.6"
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_scoring_leaders",
+        "quote": "Devin Booker (70 points; 20 years and 145 days)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,27 +83,27 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Paul also averaged 2.71 steals per game.",
+          "text": "Booker's historic scoring performance came in a loss to Boston rather than a Phoenix victory.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
-            "quote": "Chris Paul | 80 | 80 | 37.6 | .488 | .369 | .851 | 4.0 | 11.6 | 2.71"
+            "url": "https://en.wikipedia.org/wiki/Devin_Booker",
+            "quote": "against the Boston Celtics, Booker became the sixth player in NBA history to score 70 points in a game"
           }
         },
         {
-          "text": "He started all eighty regular-season games he played.",
+          "text": "His night was not just shooting: he also supplied eight rebounds and six assists for the Suns.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
-            "quote": "Chris Paul | 80 | 80 | 37.6"
+            "url": "https://en.wikipedia.org/wiki/Devin_Booker",
+            "quote": "Booker also added eight rebounds and six assists in 45 minutes"
           }
         },
         {
-          "text": "His free-throw percentage was 85.1 percent.",
+          "text": "Booker's scoring average jumped sharply in his second pro season as his role in Phoenix expanded.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
-            "quote": "Chris Paul | 80 | 80 | 37.6 | .488 | .369 | .851"
+            "url": "https://en.wikipedia.org/wiki/Devin_Booker",
+            "quote": "Booker ended the season averaging 22.1 points per game, a near 9-point increment"
           }
         }
       ]

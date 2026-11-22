@@ -58,23 +58,23 @@
       ]
     },
     {
-      "id": "nba-rose11-season-ppg",
+      "id": "nba-jordan93-g4-55",
       "sport": "NBA",
-      "prompt": "What was Derrick Rose's scoring average in his 2010–11 MVP season?",
-      "context": "Chicago Bulls · 2010–11 · regular season",
-      "answer": 25,
+      "prompt": "How many points did Michael Jordan score in Game 4 of the 1993 Finals against Phoenix?",
+      "context": "1993 NBA Finals · Game 4 · Chicago Stadium",
+      "answer": 55,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 14,
-      "max": 43,
-      "step": 0.1,
-      "note": "25.0 points per game alongside his playmaking.",
+      "min": 35,
+      "max": 85,
+      "step": 1,
+      "note": "55 at Chicago Stadium.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-        "quote": "Derrick Rose | 81 | 81 | 37.4 | .445 | .332 | .858 | 4.1 | 7.7 | 1.05 | .63 | 25.0"
+        "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+        "quote": "In Game 4, Michael Jordan was unstoppable, scoring 55 points at Chicago Stadium"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,27 +83,27 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Rose also averaged 7.7 assists per game during his regular-season MVP campaign.",
+          "text": "Jordan faced reigning league MVP Charles Barkley, who had lifted the Suns to the league's best record.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "Derrick Rose | 81 | 81 | 37.4 | .445 | .332 | .858 | 4.1 | 7.7 | 1.05 | .63 | 25.0"
+            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+            "quote": "winners of 62 games and led by regular season MVP Charles Barkley"
           }
         },
         {
-          "text": "Rose recorded his first career triple-double against Memphis in January of that season.",
+          "text": "Scott Williams joked that he and fellow North Carolina alumnus Jordan had combined for an absurd scoring total.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "Derrick Rose also had his first career triple-double at the Memphis Grizzlies on Jan 17, 2011."
+            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+            "quote": "Scott Williams, who like MJ played his college basketball at UNC"
           }
         },
         {
-          "text": "His team's offseason additions included Carlos Boozer, Kyle Korver and Ronnie Brewer.",
+          "text": "Earlier in the series, Phoenix had won a marathon triple-overtime game at Chicago Stadium.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "Carlos Boozer | Signed 5-year contract for $80 Million | Utah Jazz"
+            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+            "quote": "The Phoenix Suns won Game 3 in triple overtime"
           }
         }
       ]

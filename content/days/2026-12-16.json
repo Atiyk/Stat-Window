@@ -58,23 +58,23 @@
       ]
     },
     {
-      "id": "nba-lebron16-finals-ppg",
+      "id": "nba-spurs14-streak",
       "sport": "NBA",
-      "prompt": "What was LeBron James's scoring average in the 2016 Finals, when he was named MVP?",
-      "context": "2016 NBA Finals · seven games",
-      "answer": 29.7,
+      "prompt": "The 2013–14 Spurs' longest winning streak lasted how many games?",
+      "context": "San Antonio Spurs · 2013–14 regular season",
+      "answer": 19,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 20,
-      "max": 48,
-      "step": 0.1,
-      "note": "29.7 points, plus 11.3 rebounds and 8.9 assists.",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "note": "19, including a 16–0 March.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-        "quote": "after averaging 29.7 points, 11.3 rebounds, 8.9 assists, 2.6 steals, and 2.3 blocks."
+        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+        "quote": "Emboldened by a 19-game winning streak from late February to early April, including an unbeaten month in March (16–0)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,27 +83,27 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "LeBron also averaged 11.3 rebounds and 8.9 assists per game in that series.",
+          "text": "San Antonio's title was revenge for a heartbreaking Finals loss to Miami the previous season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-            "quote": "averaging 29.7 points, 11.3 rebounds, 8.9 assists, 2.6 steals, and 2.3 blocks"
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "The Spurs avenged their 2013 NBA Finals loss and became NBA champions"
           }
         },
         {
-          "text": "He became the first player to lead an entire Finals series in points, rebounds, assists, steals and blocks.",
+          "text": "The team's run included an undefeated March, a remarkable display of consistency across a packed schedule.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-            "quote": "lead all players in a playoff series in points, rebounds, assists, steals, and blocks"
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "including an unbeaten month in March (16–0)"
           }
         },
         {
-          "text": "Every Finals MVP voter picked LeBron after Cleveland's comeback title.",
+          "text": "Dallas nearly ruined the championship march, taking the Spurs to the limit in the opening playoff round.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-            "quote": "LeBron James was unanimously voted the NBA Finals Most Valuable Player"
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "the Mavericks in the regular season for 2 consecutive years. San Antonio won 4–3"
           }
         }
       ]

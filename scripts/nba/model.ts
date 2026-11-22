@@ -365,8 +365,10 @@ export function validateNba(data: NbaData): Report {
       }
       const opening = fs[0]!.question.ratings;
       const engaging = opening.recognizability >= 4 && opening.interest >= 4 && opening.estimability >= 3;
-      // 42 verified, engaging openers exist for 66 dates; the remaining 24 require
-      // additional source-backed research rather than falsely relabelling trivia.
+      // This is a release-blocking editorial finding for future dates; the
+      // standalone editorial audit lists each remaining weak opening hook.
+      // Source-verified, recognizably estimable Q2 candidates can be reviewed
+      // and re-sequenced, but no rating should be inflated to silence this gate.
       if (!engaging) {
         if (d.date <= '2027-01-03') at('Q1 is not a recognizable, interesting, estimable NBA hook');
         else warnings.push(`${d.date}: Q1 needs a stronger sourced replacement before launch`);

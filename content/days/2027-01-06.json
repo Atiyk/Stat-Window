@@ -7,23 +7,23 @@
   },
   "questions": [
     {
-      "id": "nba-howard09-g4-blocks",
+      "id": "nba-spurs14-march-wins",
       "sport": "NBA",
-      "prompt": "Dwight Howard set the Finals record for blocks in a game in 2009. How many?",
-      "context": "2009 NBA Finals · Game 4 · vs Lakers",
-      "answer": 9,
+      "prompt": "How many games did San Antonio win in its unbeaten March of 2014?",
+      "context": "Spurs · March 2014 · undefeated month",
+      "answer": 16,
       "unit": {
-        "singular": "block",
-        "plural": "blocks"
+        "singular": "March win",
+        "plural": "March wins"
       },
       "min": 5,
-      "max": 20,
+      "max": 24,
       "step": 1,
-      "note": "Nine.",
+      "note": "16 wins in an unblemished March.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-        "quote": "giving him a single-game NBA Finals record with 9 blocked shots"
+        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+        "quote": "an unbeaten month in March (16–0)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,27 +32,27 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Orlando's center threatened Los Angeles near the end, but Derek Fisher hit a crucial late three.",
+          "text": "The late-season surge continued into the start of April.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-            "quote": "Trevor Ariza was able to hit a 3-pointer as the shot clock expired"
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "a 19-game winning streak from late February to early April"
           }
         },
         {
-          "text": "The Magic squandered foul-shot opportunities in a tight Game 4 despite leading at halftime.",
+          "text": "Dallas later stretched the Spurs to seven games in the playoff opener.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-            "quote": "but were unable to increase the lead due to poor free-throw shooting"
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "defeated the Dallas Mavericks in seven games in the first round"
           }
         },
         {
-          "text": "Orlando had earned its very first NBA Finals game victory only in the preceding game.",
+          "text": "San Antonio returned to the Finals to face Miami in a rematch.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-            "quote": "This win marked the first Finals win in Magic franchise history"
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "back-to-back Finals appearances, also against the Miami Heat"
           }
         }
       ]

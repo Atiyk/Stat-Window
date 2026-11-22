@@ -7,23 +7,23 @@
   },
   "questions": [
     {
-      "id": "nba-lakers00-wins",
+      "id": "nba-jokic23-finals-average",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 1999–2000 Lakers win?",
-      "context": "Los Angeles Lakers · 1999–2000 · 82 games",
-      "answer": 67,
+      "prompt": "Nikola Jokić won 2023 Finals MVP. What did he average in points per game?",
+      "context": "2023 NBA Finals · Denver Nuggets vs Miami Heat",
+      "answer": 30.2,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 28,
-      "max": 82,
-      "step": 1,
-      "note": "67–15.",
+      "min": 12,
+      "max": 42,
+      "step": 0.1,
+      "note": "30.2 points per game while leading Denver to its first title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-        "quote": "They posted winning streaks of 11, 16, and 19 en route to a 67–15 record"
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "after averaging 30.2 points, 14.0 rebounds, 7.2 assists, and 1.4 blocks"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,27 +32,27 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The Lakers hired Phil Jackson shortly after the Spurs swept them out of the previous postseason.",
+          "text": "Jokić became Denver's first Finals MVP, with every voter agreeing on the award.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-            "quote": "Twenty-four days after being swept by the eventual league champion, the Lakers signed Phil Jackson as head coach"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Denver's Nikola Jokić was unanimously voted the NBA Finals Most Valuable Player"
           }
         },
         {
-          "text": "Jackson installed the triangle offense around Shaquille O'Neal and Kobe Bryant, borrowing the system from his Bulls years.",
+          "text": "Jokić's Finals stat line included 14.0 rebounds, 7.2 assists, and 1.4 blocks per game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-            "quote": "Jackson, famous for coaching Michael Jordan and the six-time champion Chicago Bulls, would build his triangle offense"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "after averaging 30.2 points, 14.0 rebounds, 7.2 assists, and 1.4 blocks"
           }
         },
         {
-          "text": "This was the Lakers' inaugural season playing home games at Staples Center, their newly opened arena.",
+          "text": "Denver became only the second franchise from the old ABA to win an NBA title, following the Spurs.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-            "quote": "Another huge change for the Lakers was that it was their inaugural season at the Staples Center"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "They became the second former American Basketball Association (ABA) team to win an NBA title"
           }
         }
       ]

@@ -24,7 +24,8 @@ export async function startDailyIfNeeded(page: Page) {
     if (await skip.isVisible()) return 'skip';
     if (await start.isVisible()) return 'start';
     if (await page.locator('.question').isVisible()) return 'playing';
-    if (await page.locator('.results-title').isVisible()) return 'unavailable';
+    // Do not mistake stale previous-day results during async archive navigation
+    // for a finished new navigation; wait for the destination Start gate.
     return 'waiting';
   }, { timeout: 5000 }).not.toBe('waiting');
   if (await skip.isVisible()) await skip.click();

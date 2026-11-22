@@ -7,23 +7,23 @@
   },
   "questions": [
     {
-      "id": "nba-miller92-57",
+      "id": "nba-kawhi19-playoffs-ppg",
       "sport": "NBA",
-      "prompt": "What was Reggie Miller's career high in points?",
-      "context": "Pacers vs Charlotte Hornets · November 28, 1992",
-      "answer": 57,
+      "prompt": "How many points per game did Kawhi Leonard score during the Raptors' 2019 playoffs?",
+      "context": "Toronto · entire 2019 postseason, not just Finals",
+      "answer": 30.5,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 40,
-      "max": 90,
-      "step": 1,
-      "note": "57.",
+      "min": 15,
+      "max": 43,
+      "step": 0.1,
+      "note": "30.5 per game across Toronto's championship postseason.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-        "quote": "he scored a career-high 57 points against the Charlotte Hornets in a 134–122 win"
+        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+        "quote": "Kawhi Leonard | SF | 24 | 24 | 939 | 218 | 94 | 40 | 17 | 732 | 39.1 | 9.1 | 3.9 | 1.7 | .7 | 30.5"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Pacers fans booed the draft selection that brought Miller to Indiana; they had wanted hometown favorite Steve Alford.",
+          "text": "Leonard started every Toronto playoff game and logged 939 minutes during the run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "fans watching the 1987 NBA draft booed Pacers President Donnie Walsh for the selection"
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "24 | 24 | 939 | 218 | 94 | 40 | 17 | 732"
           }
         },
         {
-          "text": "Miller became the Pacers' primary scoring option after Indiana traded Chuck Person in the offseason.",
+          "text": "Toronto rallied from a two-game series deficit by winning four straight against Milwaukee.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "After Chuck Person was traded from the Pacers during the 1992 offseason"
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "winning the last four games of the series after being down 0–2"
           }
         },
         {
-          "text": "Years later, Jermaine O'Neal stopped scoring late in a big night rather than surpass his veteran teammate's franchise mark.",
+          "text": "The Raptors became the first team based outside the United States to win the NBA championship.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "left the game with 1:43 remaining to preserve Miller's 57-point record"
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "first non-US team to win the NBA title"
           }
         }
       ]
     },
     {
-      "id": "nba-nash05-regular-apg",
+      "id": "nba-rockets18-wins",
       "sport": "NBA",
-      "prompt": "What was Steve Nash's assists-per-game average for the 2004–05 Suns?",
-      "context": "Phoenix Suns · 2004–05 regular season",
-      "answer": 11.5,
+      "prompt": "How many regular-season games did the 2017–18 Rockets win?",
+      "context": "Houston Rockets · 2017–18 · 82 games",
+      "answer": 65,
       "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 6,
-      "max": 22,
-      "step": 0.1,
-      "note": "11.5 assists each night in his first MVP season.",
+      "min": 20,
+      "max": 82,
+      "step": 1,
+      "note": "65.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-        "quote": "Nash finished the season averaging 11.5 assists per game"
+        "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
+        "quote": "with their 59th win against the New Orleans Pelicans, eventually totalling 65 wins on the season"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,27 +83,27 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Nash shot 50.2% from the field and 43.1% from three during the regular season.",
+          "text": "The Rockets added Chris Paul from the Clippers that summer, pairing him with James Harden for a title push.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "while making 50.2% of his field goals and 43.1% of his three-pointers"
+            "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
+            "quote": "The Rockets acquired star point guard Chris Paul from the Los Angeles Clippers"
           }
         },
         {
-          "text": "Nash won MVP while Mike D'Antoni took Coach of the Year and Bryan Colangelo Executive of the Year.",
+          "text": "Houston clinched the West's top seed for the first time in franchise history, finishing ahead of Golden State.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "He ended up winning the MVP award. D'Antoni was awarded Coach of the Year"
+            "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
+            "quote": "the Rockets clinched the No. 1 seed for the first time in franchise history"
           }
         },
         {
-          "text": "Quentin Richardson won the Three-Point Shootout during the same season.",
+          "text": "Before facing the Warriors, Houston eliminated Minnesota and Utah in five games apiece.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "Quentin Richardson won the Three-Point Shootout"
+            "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
+            "quote": "they defeated the Utah Jazz in five games"
           }
         }
       ]

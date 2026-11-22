@@ -45,3 +45,24 @@ This change remixes **only the 66 not-yet-published NBA slates** (2026-11-23 onw
 **Editorial caveat:** 66 opening slots but only 42 existing eligible easy questions currently meet the combined interest >=4, recognizability >=4, estimability >=3 bar. We front-load those 42 into the first 42 future days. The final 24 days retain the less compelling sourced easy candidates pending new independent fact research and verification. No weaker easy is reclassified merely to pass a numerical gate. All future slates are labelled as mixed; the previous single-team theme title and recap no longer represent the content.
 
 **Remaining human gate:** an independent basketball editor must review each remixed five-question arc, especially Q5, and confirm that the daily variety feels fun rather than mechanically shuffled. The scripts and automated checks alone cannot establish enjoyment. Run full `content:publish:check`, `content:check`, `nba:report:check`, `survival:catalog:check`, `factory:check` and complete CI before merging. This worker cannot claim those checks ran locally.
+
+## Editorial re-sequencing follow-up — 2026-11-22
+
+This worker swapped **13** previously source-documented, already high-rated medium Q2 questions into weaker future Q1 slots, and moved each displaced weaker opener to the vacated Q2 slot. Original numerical answers, source URLs, source excerpts, fun facts and ratings were **not altered**. Only difficulty labels and editorial reasons were changed for the swapped facts. 22 future daily slates and their future-only scoring locks were regenerated deterministically from the canonical NBA data shape. No published day on or before 2026-11-22 was changed.
+
+This is **partial remediation, not editorial PASS**: 11 future Q1 remain below the engagement threshold. The moved specialist Q2 questions and all Q5 finales still need independent basketball-fan review; source excerpts are inherited from the existing corpus and were not independently re-opened in this run. The existing Q1 validator still warns on post-January-3 dates. Run `node --experimental-strip-types scripts/nba/editorial-audit.ts --strict` to inspect remaining failures; it intentionally fails while there are blockers. Run the canonical publisher and full content/source/CI gates before integrating. No rating was inflated to meet the threshold.
+
+Swap record (date, new opener, old opener moved to source date Q2):
+- 2027-01-14: nba-hawks15-january-wins ⇄ 2026-11-27: nba-warriors75-season-wins
+- 2027-01-23: nba-paul08-regular-apg ⇄ 2027-01-03: nba-booker17-70
+- 2027-01-09: nba-nash05-regular-apg ⇄ 2027-01-04: nba-rockets18-wins
+- 2027-01-16: nba-miller95-8-points ⇄ 2027-01-08: nba-celtics84-wins
+- 2027-01-04: nba-kawhi19-playoffs-ppg ⇄ 2026-12-01: nba-miller92-57
+- 2027-01-10: nba-giannis21-playoffs-ppg ⇄ 2026-12-11: nba-bucks71-wins
+- 2027-01-12: nba-cavs09-home-wins ⇄ 2026-11-26: nba-shot-clock-24
+- 2027-01-15: nba-iverson01-season-ppg ⇄ 2026-12-18: nba-pistons89-wins
+- 2027-01-05: nba-jordan86-63 ⇄ 2027-01-10: nba-allstar10-attendance
+- 2027-01-06: nba-spurs14-march-wins ⇄ 2027-01-12: nba-howard09-g4-blocks
+- 2027-01-07: nba-rose11-season-ppg ⇄ 2026-12-10: nba-jordan93-g4-55
+- 2027-01-13: nba-jokic23-finals-average ⇄ 2027-01-05: nba-lakers00-wins
+- 2027-01-18: nba-lebron16-finals-ppg ⇄ 2026-12-16: nba-spurs14-streak

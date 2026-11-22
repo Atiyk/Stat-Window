@@ -7,23 +7,23 @@
   },
   "questions": [
     {
-      "id": "nba-allstar10-attendance",
+      "id": "nba-jordan86-63",
       "sport": "NBA",
-      "prompt": "The 2010 NBA All-Star Game set the attendance record for a basketball game. How many people were there?",
-      "context": "2010 NBA All-Star Game · held in a football stadium",
-      "answer": 108713,
+      "prompt": "Michael Jordan set a playoff scoring record against the 1986 Celtics in a loss. How many points did he score?",
+      "context": "1986 first round · Game 2 · at Boston",
+      "answer": 63,
       "unit": {
-        "singular": "fan",
-        "plural": "fans"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 10000,
-      "max": 150000,
-      "step": 1000,
-      "note": "108,713.",
+      "min": 25,
+      "max": 80,
+      "step": 1,
+      "note": "63 points, a playoff record, in a Bulls loss.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/NBA_All-Star_Game",
-        "quote": "In 2010, the NBA All-Star Game set the attendance record for a basketball game with 108,713 people"
+        "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Chicago_Bulls_season",
+        "quote": "Michael Jordan (63)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The All-Star spectacle took place in Cowboys Stadium rather than the Dallas Mavericks' basketball arena.",
+          "text": "Chicago needed two overtimes to settle the record-setting game in Boston, but the Celtics held on.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_All-Star_Game",
-            "quote": "The venue for the game on February 14 was Cowboys Stadium"
+            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Chicago_Bulls_season",
+            "quote": "L 131-135 (2OT)"
           }
         },
         {
-          "text": "The pregame festivities and Saturday contests were staged at a separate venue, American Airlines Center.",
+          "text": "Charles Oakley led the Bulls on the glass that night, pulling down fourteen rebounds.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_All-Star_Game",
-            "quote": "NBA All-Star Saturday Night events were held on February 12 and February 13, 2010"
+            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Chicago_Bulls_season",
+            "quote": "Charles Oakley (14)"
           }
         },
         {
-          "text": "For the first time, neither All-Star team wore white: the East donned blue, while the West wore red.",
+          "text": "Boston Garden drew a crowd of 14,890 for that historic first-round playoff game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_All-Star_Game",
-            "quote": "This marked the first All-Star game where neither team wore a white uniform"
+            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Chicago_Bulls_season",
+            "quote": "Boston Garden 14,890"
           }
         }
       ]
     },
     {
-      "id": "nba-jokic23-finals-average",
+      "id": "nba-lakers00-wins",
       "sport": "NBA",
-      "prompt": "Nikola Jokić won 2023 Finals MVP. What did he average in points per game?",
-      "context": "2023 NBA Finals · Denver Nuggets vs Miami Heat",
-      "answer": 30.2,
+      "prompt": "How many regular-season games did the 1999–2000 Lakers win?",
+      "context": "Los Angeles Lakers · 1999–2000 · 82 games",
+      "answer": 67,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 12,
-      "max": 42,
-      "step": 0.1,
-      "note": "30.2 points per game while leading Denver to its first title.",
+      "min": 28,
+      "max": 82,
+      "step": 1,
+      "note": "67–15.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-        "quote": "after averaging 30.2 points, 14.0 rebounds, 7.2 assists, and 1.4 blocks"
+        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+        "quote": "They posted winning streaks of 11, 16, and 19 en route to a 67–15 record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,27 +83,27 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Jokić became Denver's first Finals MVP, with every voter agreeing on the award.",
+          "text": "The Lakers hired Phil Jackson shortly after the Spurs swept them out of the previous postseason.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Denver's Nikola Jokić was unanimously voted the NBA Finals Most Valuable Player"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "Twenty-four days after being swept by the eventual league champion, the Lakers signed Phil Jackson as head coach"
           }
         },
         {
-          "text": "Jokić's Finals stat line included 14.0 rebounds, 7.2 assists, and 1.4 blocks per game.",
+          "text": "Jackson installed the triangle offense around Shaquille O'Neal and Kobe Bryant, borrowing the system from his Bulls years.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "after averaging 30.2 points, 14.0 rebounds, 7.2 assists, and 1.4 blocks"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "Jackson, famous for coaching Michael Jordan and the six-time champion Chicago Bulls, would build his triangle offense"
           }
         },
         {
-          "text": "Denver became only the second franchise from the old ABA to win an NBA title, following the Spurs.",
+          "text": "This was the Lakers' inaugural season playing home games at Staples Center, their newly opened arena.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "They became the second former American Basketball Association (ABA) team to win an NBA title"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "Another huge change for the Lakers was that it was their inaugural season at the Staples Center"
           }
         }
       ]

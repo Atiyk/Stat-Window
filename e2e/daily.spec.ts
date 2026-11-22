@@ -113,6 +113,7 @@ test('an adjusted but not locked first window survives Eastern midnight', async 
   await page.clock.install({ time: new Date('2026-11-16T04:59:50Z') });
   await page.goto('/');
   await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await page.getByRole('button', { name: 'Skip tutorial and start' }).click();
   const low = lowBracket(page);
   await low.focus();
   await page.keyboard.press('ArrowRight');
@@ -130,6 +131,8 @@ test('practice on an earlier day does not touch the daily record', async ({ page
   }
   await expect(page.locator('.stats')).toContainText('Played1');
   await page.getByRole('button', { name: 'Nov 15' }).click();
+  // Archive/practice also has a deliberate first-question Start.
+  await page.getByRole('button', { name: "Start today's five" }).click();
   await expect(page.locator('.round-meta')).toContainText('Practice');
   for (let i = 0; i < 5; i++) {
     await lockAndSettle(page);

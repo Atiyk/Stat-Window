@@ -123,7 +123,16 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
   if(!['GET','POST','DELETE'].includes(req.method))return json(405,{status:'method'});
   if(req.headers.get('sec-fetch-site')==='cross-site')return json(403,{status:'origin'});
   const origin=req.headers.get('origin');
-  if(origin) { try { const o=new URL(origin); if(o.host!==(req.headers.get('x-forwarded-host')??req.headers.get('host')??new URL(req.url).host)&&!ctx.allowedOrigins.includes(o.origin))return json(403,{status:'origin'}); }catch{return json(403,{status:'origin'});} }
+  // The canonical Request URL is the same-origin authority. Never compare
+  // Origin to client-provided X-Forwarded-Host/Host headers: a forged header
+  // could grant an attacker-controlled origin access to an opt-in score API.
+  if(origin) {
+    try {
+      const requestOrigin=new URL(req.url).origin;
+      const suppliedOrigin=new URL(origin).origin;
+      if(suppliedOrigin!==requestOrigin&&!ctx.allowedOrigins.includes(suppliedOrigin))return json(403,{status:'origin'});
+    } catch { return json(403,{status:'origin'}); }
+  }
   if(!ctx.store||!ctx.secret||!ctx.env||(!ctx.enabled&&req.method!=='DELETE'))return json(503,{status:'disabled'});
   const now=ctx.now(), today=puzzleDay(now), prefix='sw:v3:'+ctx.env,utc=now.toISOString().slice(0,10);
   const budget=[ 'sw:v1:budget:d:'+utc,'sw:v1:budget:m:'+utc.slice(0,7),'sw:v1:budget:e:'+utc.slice(0,7),prefix+':budget:m:'+utc.slice(0,7) ];

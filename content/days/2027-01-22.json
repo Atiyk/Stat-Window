@@ -211,23 +211,24 @@
       ]
     },
     {
-      "id": "nba-spurs99-memorial-day",
+      "id": "nba-lebron16-finals-game7-block-110s",
       "sport": "NBA",
-      "prompt": "In Game 2 of the 1999 West finals, San Antonio came back from how many points down to win on Sean Elliott's \"Memorial Day Miracle\"?",
-      "context": "1999 West finals · Game 2 · vs Portland",
-      "answer": 17,
+      "prompt": "LeBron's iconic chase-down block preserved a Game 7 tie in 2016. How many seconds were left when he blocked Iguodala?",
+      "context": "LeBron James · Cavaliers at Warriors · 2016 Finals Game 7",
+      "answer": 110,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "second",
+        "plural": "seconds"
       },
       "min": 0,
-      "max": 22,
+      "max": 300,
       "step": 1,
-      "note": "17.",
+      "note": "110 seconds (1:50). The Block helped Cleveland finish its historic Finals comeback.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-        "quote": "the Spurs trailed by 17 points against the Trail Blazers in Game 2"
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "with the score tied at 89 and 1:50 remaining in the game.",
+        "derivation": "Convert 1:50 to seconds: 1 × 60 + 50 = 110 seconds."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +237,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Sean Elliott hit the decisive long-distance shot to sink Portland in the conference finals.",
+          "text": "The Cavaliers ultimately beat Golden State 93–89.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-            "quote": "a game-winning three-pointer from Elliott, which was dubbed as the \"Memorial Day Miracle\""
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "The Cavaliers defeated the Warriors 93–89 in Game 7"
           }
         },
         {
-          "text": "San Antonio went on to sweep Portland, becoming the first former ABA franchise to reach the NBA Finals.",
+          "text": "The teams had scored identically through the first six Finals games.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-            "quote": "becoming the first former ABA team to advance to the NBA Finals"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "both teams entered Game 7 with the same total points scored through six games (610 points each)"
           }
         },
         {
-          "text": "Before the Portland showdown, San Antonio had swept Kobe Bryant and Shaquille O'Neal's Lakers.",
+          "text": "Kyrie Irving later drilled the go-ahead three over Stephen Curry.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-            "quote": "the Lakers, who were led by the All-Star trio of Shaquille O'Neal, Kobe Bryant and Glen Rice"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "Kyrie Irving made a go-ahead three-point field goal over Stephen Curry"
           }
         }
       ]

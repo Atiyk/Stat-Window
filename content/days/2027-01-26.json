@@ -211,23 +211,24 @@
       ]
     },
     {
-      "id": "nba-finals22-g1-threes",
+      "id": "nba-blazers19-nuggets-game3-four-overtimes",
       "sport": "NBA",
-      "prompt": "Boston and Golden State set a Finals record for combined threes in Game 1 of 2022. How many?",
-      "context": "2022 NBA Finals · Game 1 · at Golden State",
-      "answer": 40,
+      "prompt": "Portland and Denver played a marathon 2019 playoff Game 3. How many overtimes did it take to decide it?",
+      "context": "Trail Blazers vs Nuggets · 2019 West semifinals Game 3",
+      "answer": 4,
       "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
+        "singular": "overtime",
+        "plural": "overtimes"
       },
-      "min": 8,
-      "max": 50,
+      "min": 0,
+      "max": 9,
       "step": 1,
-      "note": "40.",
+      "note": "Four overtimes! It was the first quadruple-overtime playoff game of the shot-clock era.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-        "quote": "Both teams made a combined 40 three-pointers, the most ever in an NBA Finals game"
+        "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+        "quote": "Game 3 of the Trail Blazers–Nuggets series was the first quadruple overtime game played in the playoffs since 1955",
+        "derivation": "Quadruple overtime means four distinct overtime periods: 4."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +237,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Al Horford finally reached his first Finals after years of playoff appearances, then led Boston's scoring in the opener.",
+          "text": "It was the first quadruple-overtime playoff game of the shot-clock era.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-            "quote": "After playing 141 playoff games without an NBA Finals appearance"
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "the first quadruple overtime game ever played during the shot clock era."
           }
         },
         {
-          "text": "The Celtics rallied in the fourth quarter after facing a double-digit deficit against the Warriors.",
+          "text": "Portland eventually won the series and reached the West finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-            "quote": "the Celtics outscored the Warriors 40–16"
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "With their Game 7 victory Portland Trail Blazers advanced to the Western Conference finals"
           }
         },
         {
-          "text": "Jayson Tatum struggled to shoot in the opener but set a Finals-debut record for assists.",
+          "text": "A pre-shot-clock playoff game had also lasted that many overtimes.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-            "quote": "the most ever for a player in his Finals debut"
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "Game three became the second playoff game in NBA history to go into quadruple-overtime, joining a 1953 game"
           }
         }
       ]

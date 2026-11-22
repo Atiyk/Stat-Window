@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-james09-magic-g1-points",
+      "id": "nba-shaq00-birthday-clippers-sixtyone",
       "sport": "NBA",
-      "prompt": "How many points did LeBron score in Game 1 of the 2009 Eastern finals?",
-      "context": "Cleveland vs Orlando · Eastern Conference finals · Game 1",
-      "answer": 49,
+      "prompt": "On Shaq's birthday in 2000, he demolished the crosstown Clippers. How many points did he pour in?",
+      "context": "Shaquille O'Neal · Lakers at Clippers · March 2000",
+      "answer": 61,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 21,
-      "max": 69,
+      "min": 10,
+      "max": 140,
       "step": 1,
-      "note": "49 points, but Orlando won the opener by one.",
+      "note": "61 points on his birthday, alongside a huge rebounding night. Shaq's career high!",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-        "quote": "May 20 Orlando L 106–107 LeBron James (49)"
+        "url": "https://en.wikipedia.org/wiki/Shaquille_O%27Neal",
+        "quote": "On O'Neal's 28th birthday on March 6, 2000, he scored a career-high 61 points"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Cleveland swept both Detroit and Atlanta before the Eastern Conference finals.",
+          "text": "His career-high eruption came on his birthday.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-            "quote": "the Cavaliers swept the Detroit Pistons in the First Round in four games, swept the Atlanta Hawks in the Semifinals in four games"
+            "url": "https://en.wikipedia.org/wiki/Shaquille_O%27Neal",
+            "quote": "On O'Neal's 28th birthday on March 6, 2000, he scored a career-high 61 points"
           }
         },
         {
-          "text": "LeBron averaged a remarkable 35.3 points during Cleveland's entire playoff run.",
+          "text": "He also dominated the glass in a monster double-double.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-            "quote": "LeBron James | 14 | 14 | 41.4 | .510 | .333 | .749 | 9.1 | 7.3 | 1.6 | .9 | 35.3"
+            "url": "https://en.wikipedia.org/wiki/Shaquille_O%27Neal",
+            "quote": "to go along with 23 rebounds and 3 assists"
           }
         },
         {
-          "text": "The Magic eventually reached the NBA Finals but lost to Kobe Bryant's Lakers.",
+          "text": "Shaq narrowly missed becoming the league's first unanimous MVP that year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-            "quote": "The Magic would go on to lose to the Los Angeles Lakers in the NBA Finals in five games."
+            "url": "https://en.wikipedia.org/wiki/Shaquille_O%27Neal",
+            "quote": "one vote short of becoming the first unanimous MVP in NBA history"
           }
         }
       ]

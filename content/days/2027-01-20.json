@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-wilt72-total-reb",
+      "id": "nba-lakers01-shaq-kobe-fifteen-playoff-wins",
       "sport": "NBA",
-      "prompt": "Rodman's 1991–92 rebound total was the most since Wilt Chamberlain's total in 1971–72. How many did Wilt grab that season?",
-      "context": "Los Angeles Lakers · 1971–72",
-      "answer": 1572,
+      "prompt": "Shaq and Kobe's 2001 Lakers lost only once in the entire postseason. How many playoff games did they win?",
+      "context": "Los Angeles Lakers · 2001 NBA championship run",
+      "answer": 15,
       "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 300,
-      "max": 1800,
-      "step": 5,
-      "note": "1,572.",
+      "min": 0,
+      "max": 26,
+      "step": 1,
+      "note": "15 wins against just one loss—the Lakers swept the first three rounds and then beat Iverson's Sixers.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
-        "quote": "1,530 season rebounds (the most since Wilt Chamberlain's 1,572 in the 1971–1972 season)"
+        "url": "https://en.wikipedia.org/wiki/2001_NBA_playoffs",
+        "quote": "the Lakers put together the most dominant postseason in NBA history, going 15–1."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Chamberlain's later-career Lakers reinvented his role around rebounding, defending and outlet passing.",
+          "text": "Iverson's Sixers handed the Lakers their sole playoff loss.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-            "quote": "He re-tooled Wilt Chamberlain's game to focus on defense, rebounding"
+            "url": "https://en.wikipedia.org/wiki/2001_NBA_playoffs",
+            "quote": "The Philadelphia 76ers giving the Lakers their only loss of the postseason (107–101 in Overtime)."
           }
         },
         {
-          "text": "Rodman's sensational Pistons season was the closest a modern rebounding specialist came to Wilt's older benchmark.",
+          "text": "Los Angeles swept all three Western Conference series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
-            "quote": "His 1,530 season rebounds (the most since Wilt Chamberlain's 1,572 in the 1971–1972 season)"
+            "url": "https://en.wikipedia.org/wiki/2001_NBA_playoffs",
+            "quote": "winning their first 11 post–season games and sweeping three series in the post-season."
           }
         },
         {
-          "text": "That Lakers squad reached the title series by eliminating Kareem's defending-champion Milwaukee Bucks.",
+          "text": "The Lakers went undefeated in road playoff games.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-            "quote": "Western Conference Finals: 4–2"
+            "url": "https://en.wikipedia.org/wiki/2001_NBA_playoffs",
+            "quote": "going undefeated in regulation and on the road (finishing 8–0 in the latter category)"
           }
         }
       ]

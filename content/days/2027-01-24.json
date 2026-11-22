@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-paul21-seasons",
+      "id": "nba-kings23-light-beam-sixteen-drought",
       "sport": "NBA",
-      "prompt": "Chris Paul reached his first Finals in 2021. How many NBA seasons had he played by then?",
-      "context": "Phoenix Suns · 2021 NBA Finals",
+      "prompt": "When Sacramento's 'Light the Beam' Kings finally made the 2023 playoffs, how many straight seasons had they missed?",
+      "context": "Sacramento Kings · 2023 return to the playoffs",
       "answer": 16,
       "unit": {
         "singular": "season",
         "plural": "seasons"
       },
-      "min": 2,
-      "max": 20,
+      "min": 0,
+      "max": 35,
       "step": 1,
-      "note": "16, with 10 All-NBA selections.",
+      "note": "16 straight missed postseasons. The long-suffering Kings finally got a playoff celebration.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-        "quote": "At 36 years old, Paul made his first Finals appearance after 16 seasons in the league and 10 All-NBA selections."
+        "url": "https://en.wikipedia.org/wiki/Sacramento_Kings",
+        "quote": "breaking a 16-year playoff drought, which at the time was the longest active playoff drought"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Paul arrived in Phoenix via an offseason trade from Oklahoma City, part of the Suns' rapid turnaround.",
+          "text": "The beam became a homegrown celebration after Kings wins.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-            "quote": "the Suns' Chris Paul, acquired from the Oklahoma City Thunder in the offseason"
+            "url": "https://en.wikipedia.org/wiki/Sacramento_Kings",
+            "quote": "the Kings began lighting a large, purple beam into the night sky after every game won"
           }
         },
         {
-          "text": "The Bucks and Suns were both expansion franchises that began playing in the same year.",
+          "text": "Sacramento officially clinched its return with a win in Portland.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-            "quote": "Phoenix and Milwaukee each began play as expansion teams in 1968"
+            "url": "https://en.wikipedia.org/wiki/Sacramento_Kings",
+            "quote": "On March 29, the Kings beat the Portland Trail Blazers 120–80 to clinch a playoff spot"
           }
         },
         {
-          "text": "Paul became the first player ever to lose four NBA playoff series after holding a two-games-to-none lead.",
+          "text": "Coach Mike Brown earned league Coach of the Year honors.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-            "quote": "Paul became the first player in NBA playoff history to lose four series in which his team led 2–0"
+            "url": "https://en.wikipedia.org/wiki/Sacramento_Kings",
+            "quote": "Mike Brown was named NBA Coach Of The Year for his role in ending the playoff drought."
           }
         }
       ]

@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-raptors19-road-wins",
+      "id": "nba-mavs22-suns-game7-halftime-thirty",
       "sport": "NBA",
-      "prompt": "How many regular-season road games did Toronto win on its 2019 title run?",
-      "context": "Raptors · 41 away games · before the playoffs",
-      "answer": 26,
+      "prompt": "In Luka's shocking 2022 Game 7 rout of top-seeded Phoenix, by how many points were the Mavericks ahead at halftime?",
+      "context": "Mavericks at Suns · May 2022 · Game 7",
+      "answer": 30,
       "unit": {
-        "singular": "road win",
-        "plural": "road wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 4,
-      "max": 41,
+      "min": 0,
+      "max": 65,
       "step": 1,
-      "note": "26 wins away from home during the regular season.",
+      "note": "Dallas led by 30 at halftime, 57–27. Phoenix never recovered from the Game 7 embarrassment.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-        "quote": "32‍–‍9  | 26‍–‍15"
+        "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+        "quote": "going into halftime leading 57–27; the halftime deficit of 30 being the largest in game 7 history."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Toronto's regular-season home record was stronger than its road record.",
+          "text": "Dallas never trailed during the whole game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-            "quote": "32‍–‍9  | 26‍–‍15"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "The Mavericks dominated the entire game, never giving the Suns the lead"
           }
         },
         {
-          "text": "Milwaukee finished just ahead of Toronto atop the Eastern Conference standings.",
+          "text": "Luka finished with 35 points and ten rebounds.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-            "quote": "Milwaukee Bucks"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "Luka Dončić shined in the victory with a double-double (35 points, 10 rebounds, and 4 assists)"
           }
         },
         {
-          "text": "The Raptors won all three Finals games played on Golden State's home floor.",
+          "text": "The Dallas lead ballooned to as many as 46.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-            "quote": "NBA Finals: 4–2 (home: 1–2; road: 3–0)"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "The lead would later grow to as much as 46"
           }
         }
       ]

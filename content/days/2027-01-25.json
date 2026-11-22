@@ -212,23 +212,24 @@
       ]
     },
     {
-      "id": "nba-lakers04-g3-68",
+      "id": "nba-mavs24-finals-g4-blowout-margin",
       "sport": "NBA",
-      "prompt": "How many points did Detroit hold the Lakers to in Game 3 of the 2004 Finals?",
-      "context": "2004 NBA Finals · Game 3 · at Detroit",
-      "answer": 68,
+      "prompt": "Facing a sweep in the 2024 Finals, by how many points did Luka's Mavericks crush Boston in Game 4?",
+      "context": "Dallas Mavericks vs Boston Celtics · 2024 Finals Game 4",
+      "answer": 38,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 30,
-      "max": 95,
+      "min": 0,
+      "max": 90,
       "step": 1,
-      "note": "68, in an 88–68 loss.",
+      "note": "By 38 points—Dallas won 122–84, delaying Boston's championship celebration.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-        "quote": "The 68 points scored by the Lakers set a franchise record for the lowest number of points scored in a playoff game"
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
+        "quote": "The Mavericks avoided a sweep by the Celtics with a 122–84 blowout victory",
+        "derivation": "Dallas scored 122 and Boston scored 84, so 122 − 84 = 38 points."
       },
       "verified": {
         "on": "2026-11-16",
@@ -237,27 +238,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Tayshaun Prince and Detroit's defense held Kobe Bryant scoreless in the first half.",
+          "text": "Luka led Dallas in scoring and contributed across the box score.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "with Bryant going scoreless in the first half"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
+            "quote": "Luka Dončić led Dallas with 29 points, five rebounds, five assists and three steals."
           }
         },
         {
-          "text": "Richard Hamilton led all scorers with 31 points in the pivotal Game 3 victory.",
+          "text": "Boston conceded early and pulled its starters in the third quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "Pts: Richard Hamilton 31"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
+            "quote": "the Celtics ceded defeat by substituting out his starters"
           }
         },
         {
-          "text": "Detroit ultimately won the championship series in five games against the favored Lakers.",
+          "text": "Rookie Dereck Lively made his first NBA three-pointer in the rout.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "Detroit wins NBA Finals, 4–1"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
+            "quote": "Midway through the first quarter, Lively scored his first career three-pointer"
           }
         }
       ]

@@ -138,12 +138,15 @@ describe('supply and the beta gate', () => {
         break;
       }
     }
-    // New source-checked editorial reserves can improve the first playable day.
-    // Maintain the promised no-later-than Dec 6 gate without freezing an
-    // incidental calendar date that changes as future content is curated.
-    expect(first).not.toBeNull();
-    expect(first! > CUTOVER).toBe(true);
-    expect(first! <= '2026-12-06').toBe(true);
+    // The finalized source-reviewed reserves and embargoes first meet the UNCHANGED
+    // beta gate on Dec 6. Test both sides of that exact threshold with the real
+    // eligiblePool/supplyOf functions, plus the independently scanned first day.
+    // Dec 5 has 98 eligible questions (<100); Dec 6 has 103 (all tiers sufficient).
+    const dayBefore = '2026-12-05';
+    const firstPassing = '2026-12-06';
+    expect(supplyOf(poolOn(dayBefore), dayBefore).beta).toBe(false);
+    expect(supplyOf(poolOn(firstPassing), firstPassing).beta).toBe(true);
+    expect(first).toBe(firstPassing);
   });
 });
 

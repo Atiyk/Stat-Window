@@ -52,6 +52,9 @@ if tonumber(redis.call('GET',KEYS[10]) or '0')>=20 then return 'limited' end
 local daily=redis.call('INCR',KEYS[10])
 if daily==1 then redis.call('EXPIRE',KEYS[10],93600) end
 if daily>20 then return 'limited' end
+-- A prior DELETE locks this browser code out, even if a late POST arrives
+-- from a second tab after the corresponding score/ledger has been removed.
+if redis.call('EXISTS',KEYS[11])==1 then return 'revoked' end
 if redis.call('HEXISTS',KEYS[1],ARGV[2])==1 then return 'duplicate' end
 if tonumber(redis.call('GET',KEYS[9]) or '0')+55>tonumber(ARGV[4]) or tonumber(redis.call('GET',KEYS[6]) or '0')+55>tonumber(ARGV[3]) or tonumber(redis.call('GET',KEYS[7]) or '0')+55>380000 then return 'paused' end
 redis.call('INCRBY',KEYS[9],55) redis.call('EXPIRE',KEYS[9],2764800)
@@ -73,11 +76,12 @@ if tonumber(redis.call('GET',KEYS[5]) or '0')>=6 then return 'limited' end
 local daily=redis.call('INCR',KEYS[5])
 if daily==1 then redis.call('EXPIRE',KEYS[5],93600) end
 if daily>6 then return 'limited' end
--- KEYS[7+] are the complete, deterministic board universe for both
+-- KEYS[7] is the revocation tombstone; KEYS[8+] declare the complete
+-- deterministic board universe for both
 -- retained 120-day ledger blocks. Under Upstash Lua strict locking every
 -- mutated board must have been declared in the EVAL key list.
 local declared={}
-for k=7,#KEYS do declared[KEYS[k]]=k end
+for k=8,#KEYS do declared[KEYS[k]]=k end
 local totalByBoard={}
 local uniqueBoards=0
 local count=0
@@ -100,14 +104,17 @@ for k=1,2 do
     end
   end
 end
-if count==0 then return 'nothing' end
--- One ZSCORE and at most one ZREM/ZINCRBY per distinct board, not per day.
--- Upstash bills EVAL + every redis.call; 20 + 3*boards bounds those calls.
-local cost=20+3*uniqueBoards
+-- Even an empty DELETE must atomically block any in-flight POST that
+-- would otherwise resurrect a score after successful erasure.
+-- Reserve for EVAL, throttling, both budget counters and the tombstone SET.
+-- One ZSCORE and at most one ZREM/ZINCRBY per distinct board.
+local cost=count==0 and 18 or 21+3*uniqueBoards
 if tonumber(redis.call('GET',KEYS[3]) or '0')+cost>20000 or
    tonumber(redis.call('GET',KEYS[6]) or '0')+cost>tonumber(ARGV[1]) then return 'paused' end
 redis.call('INCRBY',KEYS[3],cost) redis.call('EXPIRE',KEYS[3],2764800)
 redis.call('INCRBY',KEYS[6],cost) redis.call('EXPIRE',KEYS[6],2764800)
+redis.call('SET',KEYS[7],'1','EX',172800)
+if count==0 then return 'nothing' end
 for name,score in pairs(totalByBoard) do
   local board=KEYS[declared[name]]
   -- Never recreate a board that already expired; mutate a member once.
@@ -138,7 +145,7 @@ export function leaderboardRedis(evaluate:Eval):LBStore {
       return {rows,count:Number(out[1]),...(mine?{mine}:{})};
     },
     async submit(keys,member,day,score,caps,expiries) {
-      return String(await evaluate(SUBMIT_LUA,keys,[score,day,caps[0]!,caps[1]!,member,...expiries])) as 'stored'|'duplicate'|'limited'|'paused';
+      return String(await evaluate(SUBMIT_LUA,keys,[score,day,caps[0]!,caps[1]!,member,...expiries])) as 'stored'|'duplicate'|'limited'|'paused'|'revoked';
     },
     async remove(keys,member,caps) {
       return String(await evaluate(REMOVE_LUA,keys,[caps[2]!,member])) as 'removed'|'nothing'|'limited'|'paused';

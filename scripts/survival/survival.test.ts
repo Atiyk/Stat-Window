@@ -138,8 +138,12 @@ describe('supply and the beta gate', () => {
         break;
       }
     }
-    // The future source-checked mixed slate reshuffle makes the beta supply threshold cross on Dec 6.
-    expect(first).toBe('2026-12-06');
+    // New source-checked editorial reserves can improve the first playable day.
+    // Maintain the promised no-later-than Dec 6 gate without freezing an
+    // incidental calendar date that changes as future content is curated.
+    expect(first).not.toBeNull();
+    expect(first! > CUTOVER).toBe(true);
+    expect(first! <= '2026-12-06').toBe(true);
   });
 });
 

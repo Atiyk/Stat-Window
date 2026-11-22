@@ -2,7 +2,12 @@
 import { loadNbaData, LADDER } from './model.ts';
 const { calendar, facts } = loadNbaData();
 const by = new Map(facts.map(f => [f.id, f]));
-const cutoff = process.argv.find(a => /^\d{4}-\d{2}-\d{2}$/.test(a)) ?? '2026-11-22';
+// Locks advance with the New York puzzle day. Explicit overrides can only tighten it.
+const localToday = new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit',
+}).format(new Date());
+const requestedCutoff = process.argv.find(a => /^\d{4}-\d{2}-\d{2}$/.test(a));
+const cutoff = requestedCutoff && requestedCutoff > localToday ? requestedCutoff : localToday;
 const days = calendar.days.filter(d => d.date > cutoff);
 const weak: string[] = [];
 const weakFinale: string[] = [];

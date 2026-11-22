@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import type { Slate } from '../content/schema';
 import { challengeUrl } from '../engine/challenge';
 import { msUntilNextPuzzle } from '../engine/daily';
+import { REMIND_COPY, followsPuzzleClock, googleCalendarUrl, icsPath, nextReminder, reminderHour, reminderTime } from '../engine/remind';
 import { totalPoints, type Mode, type RoundRecord } from '../engine/game';
 import { MAX_TOTAL, answerTimeMs, formatAnswerTime, shareText, verdict, type PlayerStats } from '../engine/summary';
 import { ordinal } from '../engine/percentile';
@@ -74,7 +75,23 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
     host: window.location.host || 'stat-window.vercel.app',
   });
   const now = useNow(1000);
-  const [toast, setToast] = useState<string | null>(null);
+  // The reminder slot is fixed when the screen opens, not every second.
+  const remind = useMemo(() => {
+    const at = new Date();
+    return {
+      href: icsPath(reminderHour(at)),
+      google: googleCalendarUrl(at),
+      time: reminderTime(nextReminder(at)),
+      note: REMIND_COPY.note(followsPuzzleClock(at)),
+    };
+  }, []);
+  const [toast, setToastText] = useState<string | null>(null);
+  // Bumped on every show, so a repeat of the same message restarts its timer instead of vanishing early.
+  const [toastShown, setToastShown] = useState(0);
+  const setToast = (text: string | null) => {
+    setToastText(text);
+    if (text) setToastShown((n) => n + 1);
+  };
   const [fallback, setFallback] = useState<string | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const fallbackRef = useRef<HTMLTextAreaElement>(null);
@@ -98,9 +115,9 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
 
   useEffect(() => {
     if (!toast) return;
-    const t = window.setTimeout(() => setToast(null), 2400);
+    const t = window.setTimeout(() => setToastText(null), 2400);
     return () => window.clearTimeout(t);
-  }, [toast]);
+  }, [toast, toastShown]);
 
   const report = (m: ShareMethod) => {
     track({ name: 'share', mode: playMode, method: m });
@@ -178,6 +195,11 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
     report('image-saved');
   };
 
+  const remindTapped = (method: 'ics' | 'google') => {
+    track({ name: 'remind', method });
+    setToast(REMIND_COPY.toast);
+  };
+
   const nextAt = new Date(now.getTime() + msUntilNextPuzzle(now));
   const local = localTimeOf(nextAt);
 
@@ -252,6 +274,28 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
           Next puzzle in <span className="tabular">{formatCountdown(msUntilNextPuzzle(now))}</span>, at 12:00 AM Eastern
           {local ? ` (${local} your time)` : ''}.
         </p>
+        <div className="remind">
+          <p className="remind-row">
+            {REMIND_COPY.label(remind.time)}{' '}
+            <span className="remind-keep">
+              <a className="btn-link" href={remind.href} onClick={() => remindTapped('ics')}>
+                {REMIND_COPY.ics}
+              </a>
+              <span aria-hidden="true">{'\u00a0·'}</span>
+            </span>{' '}
+            <a
+              className="btn-link"
+              href={remind.google}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={REMIND_COPY.googleName}
+              onClick={() => remindTapped('google')}
+            >
+              {REMIND_COPY.google}
+            </a>
+          </p>
+          <p className="remind-note">{remind.note}</p>
+        </div>
       </div>
 
       <ol className="recap" aria-label="Your five windows">

@@ -91,6 +91,8 @@ Report small numbers as counts with an interval, not as rates: 7 of 10 is "somew
 | `/e/share/{mode}/{native-image,image-saved}` | share sheet sent the PNG score card / "Save score card" downloaded it | does the card get used? |
 | `/e/percentile/{stored,gathering,ready,consent,ineligible,disabled,unavailable}` | once per browser and day, when the results screen settles the comparison | how many players see a real percentile vs the "not enough games" line |
 | `/e/privacy/{scores-on,scores-off,deleted}` | a comparison choice or a deletion in the app | consent and deletion rates |
+| `/e/remind/{ics,google}` | a calendar reminder link is tapped on any results screen (each tap) | how many players try to add a daily reminder |
+| `/e/remind/open` | the page is opened from the reminder event's link (`?from=calendar`), once per browser and puzzle day (midnight-to-midnight New York time), before `/e/start/*`. The parameter is then removed from the address | opens the reminder caused |
 
 Survival and its experiment add the paths in `docs/SURVIVAL.md` ("Measurement"); they are only sent from a build with `VITE_SURVIVAL=on`, which production does not have.
 
@@ -106,6 +108,10 @@ Survival and its experiment add the paths in `docs/SURVIVAL.md` ("Measurement");
 | Next-day return | `visit/return/…/day1` ÷ `visit/new` from the previous day (the readout uses the same range for both, which overstates it slightly when new visitors are growing) | > 25% |
 | Streak mix | `streak/daily/2-6` + `streak/daily/7plus` ÷ `streak/daily/*` | rises week over week |
 | Day-7 return | `visit/return/…/day7` ÷ `visit/new` seven days earlier | > 15% |
+| Reminder uptake | `remind/{ics,google}` ÷ `complete/*/*` | > 3% |
+| Reminder pull | `remind/open` per day, next to `visit/return/gap-1` for the same day. A lower bound: blocked script, and players who see the alarm but open a bookmark, are missed | any is a signal |
+
+The reminder events don't change the per-game budget above: taps are rare and the open replaces nothing a game sends. Next-day return before and after the reminder shipped is directional only, because the players who add one are already keen; a causal number needs an A/B arm (`/e/x/remind/{offer,control}/…`), which is not built.
 
 ## What these numbers are not
 

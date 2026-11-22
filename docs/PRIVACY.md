@@ -1,6 +1,6 @@
 # Privacy (source for /privacy.html)
 
-Plain-language notice for players. The served page is `public/privacy.html`; keep the two in step. Last updated 2026-11-18.
+Plain-language notice for players. The served page is `public/privacy.html`; keep the two in step. Last updated 2026-11-22.
 
 ## What Stat Window collects
 
@@ -21,6 +21,7 @@ We do not sell or share this data, build profiles, track you across sites, or fi
 - **Global Privacy Control / Do Not Track:** if your browser sends either signal, both start **off**. Analytics stays off; the results screen asks before adding your score. You can still switch either on yourself.
 - **EU, EEA, UK and Switzerland:** your score is only added after you tap "Count my score" (the server checks the country of the request, which it does not store). If the location is unknown we ask too. Before you answer, the app sends only today's date to ask whether a yes is needed: no code is created and your windows are not sent.
 - **Delete my scores:** removes every score your browser sent that is still linked to its code (the last 7 days), then replaces the code and turns the daily comparison off, so the same days aren't sent again. You can tick it back on. Clearing this site's data in your browser deletes your local history and the code.
+- **Daily calendar reminder:** the results screen offers a repeating event for your own calendar, at the same New York (US Eastern) hour each day, like the puzzle, which opens at midnight New York time. The `.ics` file is static and the same for everyone who picks that hour; fetching it is an ordinary request to our host (Vercel), like loading the page. The Google Calendar link opens Google with fixed text, that hour and the New York time zone (never yours), and Google's own policy applies there. The app doesn't store whether you added a reminder. Opening the game from the event adds one dated entry to the app's existing list of counts already sent today, so it is counted once a day. We only count taps on the links and opens from the event, and only if play counts are on. Delete the event in your calendar to stop.
 - Gameplay never depends on either: if they are blocked, offline or off, the game works the same.
 
 ## Children

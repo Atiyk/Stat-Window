@@ -2491,17 +2491,16 @@
       "day": "2027-01-07",
       "notBefore": "2027-01-08"
     },
-    "nba-robinson94-71": {
+    "nba-kobe06-second-half-55": {
       "tier": "easy",
-      "family": "points-game",
-      "franchise": "SAS",
-      "era": "1990s",
-      "steps": 65,
+      "family": "points-period",
+      "franchise": "LAL",
+      "era": "2000s",
+      "steps": 55,
       "day": "2027-01-08",
       "notBefore": "2027-01-09",
       "leaks": [
-        "nba-sonics94-regular-wins",
-        "nba-sonics94-nuggets-g5-points"
+        "nba-kobe-81"
       ]
     },
     "nba-celtics84-wins": {
@@ -3266,12 +3265,12 @@
       "day": "2027-01-23",
       "notBefore": "2027-01-24"
     },
-    "nba-gsw15-combined-wins": {
+    "nba-curry16-season-threes-402": {
       "tier": "easy",
-      "family": "wins-combined",
+      "family": "threes-season",
       "franchise": "GSW",
       "era": "2010s",
-      "steps": 42,
+      "steps": 320,
       "day": "2027-01-24",
       "notBefore": "2027-01-25"
     },
@@ -3710,6 +3709,28 @@
       "leaks": [
         "nba-kidd02-finals-td"
       ]
+    },
+    "nba-robinson94-71": {
+      "tier": "easy",
+      "family": "points-game",
+      "franchise": "SAS",
+      "era": "1990s",
+      "steps": 65,
+      "day": null,
+      "notBefore": "2027-01-09",
+      "leaks": [
+        "nba-sonics94-regular-wins",
+        "nba-sonics94-nuggets-g5-points"
+      ]
+    },
+    "nba-gsw15-combined-wins": {
+      "tier": "easy",
+      "family": "wins-combined",
+      "franchise": "GSW",
+      "era": "2010s",
+      "steps": 42,
+      "day": null,
+      "notBefore": "2027-01-25"
     }
   },
   "reserves": [
@@ -4363,6 +4384,108 @@
         "by": "Stat Window editorial"
       },
       "difficulty": "hard"
+    },
+    {
+      "id": "nba-robinson94-71",
+      "sport": "NBA",
+      "prompt": "How many points did David Robinson score against the Clippers on April 24, 1994?",
+      "context": "San Antonio Spurs · 1993–94",
+      "answer": 71,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 45,
+      "max": 110,
+      "step": 1,
+      "note": "71, breaking George Gervin's Spurs record of 63.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/David_Robinson",
+        "quote": "scoring 71 points (breaking George Gervin's single-game franchise record of 63) against the Los Angeles Clippers"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy",
+      "funFacts": [
+        {
+          "text": "Robinson's scoring-title chase came down to a direct duel with Shaquille O'Neal.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "he became locked in a duel for the NBA scoring title with Shaquille O'Neal"
+          }
+        },
+        {
+          "text": "His outburst surpassed George Gervin's longstanding Spurs single-game points record.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "breaking George Gervin's single-game franchise record of 63"
+          }
+        },
+        {
+          "text": "That season, Robinson also averaged double-digit rebounds and more than three blocks per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "10.7 rebounds per game, career-high 4.8 assists per game and 3.3 blocks per game"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-gsw15-combined-wins",
+      "sport": "NBA",
+      "prompt": "Counting the playoffs, how many games did the 2014–15 Warriors win?",
+      "context": "Golden State Warriors · 2014–15 · regular season plus playoffs",
+      "answer": 83,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 54,
+      "max": 96,
+      "step": 1,
+      "note": "83, against 20 losses.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+        "quote": "Combining regular season and playoff games, Golden State finished 83–20"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "easy",
+      "funFacts": [
+        {
+          "text": "Golden State's championship ended a drought dating to 1975, long before the Splash Brothers were born.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+            "quote": "winning their first championship since 1975, and fourth overall"
+          }
+        },
+        {
+          "text": "Steve Kerr became the first rookie head coach to win an NBA title since Pat Riley.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+            "quote": "Kerr became the first rookie coach to win a title since Pat Riley"
+          }
+        },
+        {
+          "text": "That Warriors roster won the championship despite having no players with prior NBA Finals experience.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+            "quote": "The Warriors were the first team since the 1990–91 Bulls to win a title with a roster that did not have any players with Finals experience"
+          }
+        }
+      ]
     }
   ]
 }

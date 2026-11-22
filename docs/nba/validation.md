@@ -10,9 +10,9 @@ All gates pass: 0 errors.
 
 | Measure | Value |
 |---|---|
-| Verified facts (one question each) | 386 |
+| Verified facts (one question each) | 388 |
 | Scheduled questions | 360 |
-| Reserve questions | 26 |
+| Reserve questions | 28 |
 | Days | 72 (2026-11-17 to 2027-01-27) |
 | Themed days (not "mixed") | 6 |
 | Stat families | 82 |
@@ -32,28 +32,28 @@ All gates pass: 0 errors.
 | players | 113 |
 | seasons | 60 |
 | stat_families | 83 |
-| stat_facts | 386 |
-| question_candidates | 386 |
-| question_tags | 1141 |
+| stat_facts | 388 |
+| question_candidates | 388 |
+| question_tags | 1147 |
 | daily_themes | 72 |
 | daily_slates | 72 |
 | daily_slate_questions | 360 |
 
 Integrity: integrity_check ok, no foreign-key violations, every fact verified and sourced.
-Canonical dump sha256 (status as of 2026-11-16): `61295840de0ad64fcd234ff399dd80b693a2a6e07e493b2e5f002f4554d689b2`.
+Canonical dump sha256 (status as of 2026-11-16): `2221148439aedb79cafaf456f54c921913ade0eaa8bb0979edd5d34e7842e345`.
 
 ## Difficulty
 
 | Difficulty | All facts | Scheduled |
 |---|---|---|
-| easy | 72 | 72 |
+| easy | 74 | 72 |
 | medium | 84 | 72 |
 | hard | 156 | 144 |
 | expert | 74 | 72 |
 
 Mean editorial ratings by slot (interest / recognizability / estimability / surprise):
 
-- Slot 1 (easy): 4.32 / 4.24 / 3.26 / 4.31
+- Slot 1 (easy): 4.36 / 4.29 / 3.28 / 4.29
 - Slot 2 (medium): 3.49 / 3.28 / 2.81 / 4.67
 - Slot 3 (hard): 3.46 / 3.13 / 2.28 / 4.92
 - Slot 4 (hard): 3.47 / 3.08 / 2.22 / 4.92
@@ -70,13 +70,13 @@ Where each answer sits on its scale (0 = min, 9 = top tenth). A flat spread mean
 | 3 | 99 |
 | 4 | 63 |
 | 5 | 44 |
-| 6 | 64 |
+| 6 | 66 |
 | 7 | 48 |
 | 8 | 21 |
 | 9 | 1 |
 
-Share of answers in the middle fifth: 29.3% (gate: at most 35%).
-Simulated "always centre the window" player: mean 51.16 points per question, best 89 (gate: no question above 90).
+Share of answers in the middle fifth: 29.1% (gate: at most 35%).
+Simulated "always centre the window" player: mean 51.19 points per question, best 89 (gate: no question above 90).
 Every answer sits strictly inside its scale and at least 8% away from either end; every scale has 5–400 whole steps.
 
 ## Editorial balance, by week
@@ -90,7 +90,7 @@ Every answer sits strictly inside its scale and at least 8% away from either end
 | 2026-12-15 to 2026-12-21 | 24 | 6 | MIL (5) |
 | 2026-12-22 to 2026-12-28 | 20 | 8 | SAS (6) |
 | 2026-12-29 to 2027-01-04 | 21 | 8 | CLE (4) |
-| 2027-01-05 to 2027-01-11 | 23 | 8 | LAL (5) |
+| 2027-01-05 to 2027-01-11 | 24 | 8 | LAL (6) |
 | 2027-01-12 to 2027-01-18 | 20 | 7 | CLE (4) |
 | 2027-01-19 to 2027-01-25 | 25 | 8 | BOS (4) |
 
@@ -107,8 +107,8 @@ Every rolling 7-day window is also checked: at least 6 families, at least 3 eras
 - 1970s: 39
 - 1980s: 32
 - 1990s: 67
-- 2000s: 88
-- 2010s: 90
+- 2000s: 89
+- 2010s: 91
 - 2020s: 39
 - timeless: 2
 

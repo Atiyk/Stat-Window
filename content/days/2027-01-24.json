@@ -7,23 +7,23 @@
   },
   "questions": [
     {
-      "id": "nba-gsw15-combined-wins",
+      "id": "nba-curry16-season-threes-402",
       "sport": "NBA",
-      "prompt": "Counting the playoffs, how many games did the 2014–15 Warriors win?",
-      "context": "Golden State Warriors · 2014–15 · regular season plus playoffs",
-      "answer": 83,
+      "prompt": "In the Warriors' record 73-win 2015–16 season, how many three-pointers did Stephen Curry make?",
+      "context": "Stephen Curry · Golden State · 2015–16 regular season",
+      "answer": 402,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 54,
-      "max": 96,
+      "min": 200,
+      "max": 520,
       "step": 1,
-      "note": "83, against 20 losses.",
+      "note": "402 threes. Curry became the first NBA player to make 400 in one season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
-        "quote": "Combining regular season and playoff games, Golden State finished 83–20"
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "he finished with 402"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,27 +32,27 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Golden State's championship ended a drought dating to 1975, long before the Splash Brothers were born.",
+          "text": "Golden State finished the regular season 73–9.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
-            "quote": "winning their first championship since 1975, and fourth overall"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "finishing with a record of 73–9"
           }
         },
         {
-          "text": "Steve Kerr became the first rookie head coach to win an NBA title since Pat Riley.",
+          "text": "Curry became the first player to make 400 threes in a season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
-            "quote": "Kerr became the first rookie coach to win a title since Pat Riley"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "the first player in NBA history to hit 400 threes in a single season"
           }
         },
         {
-          "text": "That Warriors roster won the championship despite having no players with prior NBA Finals experience.",
+          "text": "Curry averaged 30.1 points per game that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
-            "quote": "The Warriors were the first team since the 1990–91 Bulls to win a title with a roster that did not have any players with Finals experience"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "Curry finished the season averaging 30.1 points per game"
           }
         }
       ]

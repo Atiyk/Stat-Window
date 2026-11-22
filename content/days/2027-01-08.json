@@ -7,23 +7,23 @@
   },
   "questions": [
     {
-      "id": "nba-robinson94-71",
+      "id": "nba-kobe06-second-half-55",
       "sport": "NBA",
-      "prompt": "How many points did David Robinson score against the Clippers on April 24, 1994?",
-      "context": "San Antonio Spurs · 1993–94",
-      "answer": 71,
+      "prompt": "Kobe Bryant scored 81 against Toronto in 2006. How many of those points came after halftime?",
+      "context": "Lakers vs. Raptors · January 22, 2006",
+      "answer": 55,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 45,
-      "max": 110,
+      "min": 20,
+      "max": 75,
       "step": 1,
-      "note": "71, breaking George Gervin's Spurs record of 63.",
+      "note": "55 after halftime. The Lakers had trailed by 14 at the break before Kobe took over.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/David_Robinson",
-        "quote": "scoring 71 points (breaking George Gervin's single-game franchise record of 63) against the Los Angeles Clippers"
+        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+        "quote": "with 55 points in the second half"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,27 +32,27 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Robinson's scoring-title chase came down to a direct duel with Shaquille O'Neal.",
+          "text": "The Lakers trailed Toronto 63–49 at halftime.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "he became locked in a duel for the NBA scoring title with Shaquille O'Neal"
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+            "quote": "the Lakers trailed 63–49 at halftime"
           }
         },
         {
-          "text": "His outburst surpassed George Gervin's longstanding Spurs single-game points record.",
+          "text": "Bryant played 42 minutes in the 81-point game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "breaking George Gervin's single-game franchise record of 63"
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+            "quote": "saw Bryant play 42 minutes"
           }
         },
         {
-          "text": "That season, Robinson also averaged double-digit rebounds and more than three blocks per game.",
+          "text": "Bryant made seven three-pointers in that game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "10.7 rebounds per game, career-high 4.8 assists per game and 3.3 blocks per game"
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+            "quote": "including 7-of-13 on three-pointers"
           }
         }
       ]

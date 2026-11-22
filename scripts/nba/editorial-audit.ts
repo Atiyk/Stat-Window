@@ -2,7 +2,7 @@
 import { loadNbaData, LADDER } from './model.ts';
 const { calendar, facts } = loadNbaData();
 const by = new Map(facts.map(f => [f.id, f]));
-const cutoff = process.argv.find(a => /^\\d{4}-\\d{2}-\\d{2}$/.test(a)) ?? '2026-11-22';
+const cutoff = process.argv.find(a => /^\d{4}-\d{2}-\d{2}$/.test(a)) ?? '2026-11-22';
 const days = calendar.days.filter(d => d.date > cutoff);
 const weak: string[] = [];
 const weakFinale: string[] = [];

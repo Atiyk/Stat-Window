@@ -38,6 +38,40 @@ test.describe('real leaderboard UI fail-closed and consent states', () => {
     });
   }
 
+  test('GPC enabled after opting in hides personal identifier on GET but still allows erasure', async ({ page }) => {
+    await page.addInitScript(() => {
+      Object.defineProperty(navigator,'globalPrivacyControl',{configurable:true,value:true});
+    });
+    const code='a'.repeat(22);
+    await page.goto('/');
+    await page.evaluate(value => localStorage.setItem('stat-window:leaderboard:v1',
+      JSON.stringify({consent:true,key:value,sent:[]})),code);
+    let getHeaders=0,deleted=0;
+    await page.route('**/api/leaderboard*', route => {
+      const request=route.request();
+      if(request.method()==='GET'){
+        getHeaders++;
+        expect(request.headers()['x-stat-window-player']).toBeUndefined();
+        return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({
+          status:'ok',period:'day',entries:[],totalPlayers:0,asOf:'2026-11-17T15:00:00Z',unverified:true,
+        })});
+      }
+      if(request.method()==='DELETE'){
+        deleted++;
+        const data=JSON.parse(request.postData()??'{}') as {player?:string};
+        expect(data.player).toBe(code);
+        return route.fulfill({status:200,contentType:'application/json',body:'{"status":"ok","removed":1}'});
+      }
+      throw new Error('privacy-signal browser unexpectedly submitted a leaderboard score');
+    });
+    await finishToday(page);
+    await expect(page.getByRole('button',{name:'Leave and delete my rankings'})).toBeVisible();
+    await page.getByRole('button',{name:'Leave and delete my rankings'}).click();
+    await expect(page.getByText('Your linked rankings were removed.')).toBeVisible();
+    expect(deleted).toBe(1);
+    expect(getHeaders).toBeGreaterThan(0);
+  });
+
   test('disabled service shows honest state and does not offer fake Join', async ({ page }) => {
     await page.route('**/api/leaderboard*', route => route.fulfill({
       status: 503, contentType: 'application/json',

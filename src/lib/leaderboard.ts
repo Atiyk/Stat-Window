@@ -20,7 +20,10 @@ async function request(method:'GET'|'POST'|'DELETE',body?:unknown,period?:Period
 export async function standings(period:Period):Promise<Standings>{
   try{
     const c=choice();
-    const r=await request('GET',undefined,period,c.consent&&c.key?c.key:undefined);
+    // Turning on GPC/DNT after opting in must stop identifying GET requests;
+    // deletion still needs the original key, which leave() sends separately.
+    const person=!browserSignal()&&c.consent&&c.key?c.key:undefined;
+    const r=await request('GET',undefined,period,person);
     const x=await r.json();
     if(r.status===503)return {status:x.status==='disabled'?'disabled':'paused'};
     if(!r.ok||x.status!=='ok'||!Array.isArray(x.entries))return {status:'unavailable'};

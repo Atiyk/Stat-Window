@@ -128,6 +128,7 @@ test('a completed daily sends one streak event, bucketed 1, 2-6 or 7plus; practi
   await expect.poll(async () => (await views(page)).filter((p) => p.startsWith('/e/streak/'))).toEqual(['/e/streak/daily/2-6']);
   // A practice run of an earlier day is not a daily.
   await page.getByRole('button', { name: 'Nov 18' }).click();
+  await page.getByRole('button', { name: "Start today's five" }).click();
   await expect(page.locator('.round-meta')).toContainText('Practice');
   await playFive();
   expect((await views(page)).filter((p) => p.startsWith('/e/streak/'))).toEqual(['/e/streak/daily/2-6']);

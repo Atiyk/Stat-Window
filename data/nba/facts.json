@@ -3465,69 +3465,6 @@
     }
   },
   {
-    "id": "nba-bulls99-wins",
-    "family": "wins-season",
-    "scope": "regular-season",
-    "season": "1998-99",
-    "eventDate": null,
-    "franchise": "CHI",
-    "player": null,
-    "answer": 13,
-    "unit": {
-      "singular": "win",
-      "plural": "wins"
-    },
-    "claim": "13, in the lockout-shortened season after their sixth title.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-      "quote": "winning just 13 of 50 games",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "In the lockout season after their sixth title, how many games did the Bulls win?",
-      "context": "Chicago Bulls · 1998–99 · lockout-shortened season",
-      "reveal": "13, in the lockout-shortened season after their sixth title.",
-      "min": 6,
-      "max": 42,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "The collapse is sharper than most guess.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 3,
-        "estimability": 3,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Jordan's retirement and departures of Pippen and Rodman broke up the Bulls dynasty after the second three-peat.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_Chicago_Bulls_season",
-            "quote": "Dennis Rodman (who signed with the Los Angeles Lakers as a free agent), and Jordan's second retirement"
-          }
-        },
-        {
-          "text": "Tim Floyd replaced Phil Jackson on the Chicago bench and inherited a team that lost most of its opening games.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_Chicago_Bulls_season",
-            "quote": "Under Floyd, and with the addition of Barry and Bryant, the Bulls were a shell of their former selves"
-          }
-        },
-        {
-          "text": "Toni Kukoč became Chicago's leading scorer in the first post-dynasty season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_Chicago_Bulls_season",
-            "quote": "Toni Kukoč became the team's scoring leader"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-celtics-eight-straight",
     "family": "titles",
     "scope": "franchise",
@@ -4026,69 +3963,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
             "quote": "Wilt Chamberlain, NBA Most Valuable Player Award"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-sixers83-playoff-wins",
-    "family": "wins-playoffs",
-    "scope": "playoffs",
-    "season": "1982-83",
-    "eventDate": null,
-    "franchise": "PHI",
-    "player": null,
-    "answer": 1,
-    "unit": {
-      "singular": "loss",
-      "plural": "losses"
-    },
-    "claim": "One: they went 12–1.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
-      "quote": "The 76ers completed one of the most dominating playoff runs in league history with a 12–1 mark",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many playoff games did the 1983 champion Sixers lose?",
-      "context": "Philadelphia 76ers · 1983 playoffs",
-      "reveal": "One: they went 12–1.",
-      "min": 0,
-      "max": 8,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Requires knowing the series lengths and byes of 1983.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Moses Malone had boldly predicted an unbeaten playoff run, repeatedly calling for four-game sweeps.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
-            "quote": "Malone predicted the team would win in four games in each of the three rounds"
-          }
-        },
-        {
-          "text": "Philadelphia had acquired Moses from Houston specifically to counter the Lakers' Kareem Abdul-Jabbar.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
-            "quote": "the 76ers acquired Moses Malone from the Houston Rockets in an effort to counter Abdul-Jabbar"
-          }
-        },
-        {
-          "text": "The Sixers swept Los Angeles in the Finals, reversing the previous championship-series losses to the Lakers.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
-            "quote": "The 76ers lost their first two Finals meetings with the Lakers in 1980 and 1982"
           }
         }
       ]
@@ -9135,69 +9009,6 @@
     }
   },
   {
-    "id": "nba-miller97-three-streak",
-    "family": "threes-streak",
-    "scope": "regular-season",
-    "season": "1996-97",
-    "eventDate": null,
-    "franchise": "IND",
-    "player": "Reggie Miller",
-    "answer": 68,
-    "unit": {
-      "singular": "game",
-      "plural": "games"
-    },
-    "claim": "68.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-      "quote": "Miller made a three-pointer in 68 consecutive games from November 15, 1996, to April 6, 1997.",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "From November 1996 to April 1997, Reggie Miller made a three in how many straight games?",
-      "context": "Indiana Pacers · 1996–97",
-      "reveal": "68.",
-      "min": 25,
-      "max": 130,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "The dates bound it, but it needs counting games in five months.",
-      "ratings": {
-        "interest": 2,
-        "recognizability": 2,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Miller remained with Indiana for his entire playing career, an increasingly rare feat for a long-tenured star.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "played his entire 18-year career in the National Basketball Association (NBA) with the Indiana Pacers"
-          }
-        },
-        {
-          "text": "He eventually joined the exclusive fifty-forty-ninety shooting club, combining accuracy at the line and from the field.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "He is one of only nine players to join the 50–40–90 club"
-          }
-        },
-        {
-          "text": "Miller's career three-pointer record eventually passed first to Ray Allen, then to Stephen Curry.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "His record was later broken by Ray Allen, who was later surpassed by Stephen Curry"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-rodman-reb-titles",
     "family": "titles-stat",
     "scope": "career",
@@ -9759,69 +9570,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Shot_clock",
             "quote": "The NBA tried several rule changes in the early 1950s to speed up the game"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-hawks-wizards-45-ft",
-    "family": "free-throws",
-    "scope": "regular-season",
-    "season": "2021-22",
-    "eventDate": "2021-11-01",
-    "franchise": "ATL",
-    "player": null,
-    "answer": 45,
-    "unit": {
-      "singular": "free throw",
-      "plural": "free throws"
-    },
-    "claim": "45: Atlanta 29-for-29, Washington 16-for-16.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
-      "quote": "45 between Atlanta Hawks (29-for-29) and Washington Wizards (16-for-16) on November 1, 2021",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "On November 1, 2021, Atlanta and Washington combined to make how many free throws without a single miss?",
-      "context": "Hawks vs Wizards · 2021–22",
-      "reveal": "45: Atlanta 29-for-29, Washington 16-for-16.",
-      "min": 20,
-      "max": 80,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Perfect nights at the line are hard to size.",
-      "ratings": {
-        "interest": 2,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Atlanta's share of the perfect night was an extraordinary 29 makes in 29 free-throw attempts.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
-            "quote": "Atlanta Hawks (29-for-29) and Washington Wizards (16-for-16)"
-          }
-        },
-        {
-          "text": "The separate single-team flawless free-throw record belongs to Miami's 2023 Heat.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
-            "quote": "40 by the Miami Heat on January 10, 2023"
-          }
-        },
-        {
-          "text": "At the opposite extreme, Detroit once converted only three of 17 foul shots in a game.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
-            "quote": "18% (3/17) by the Detroit Pistons vs. the New Orleans Pelicans"
           }
         }
       ]
@@ -13482,69 +13230,6 @@
     }
   },
   {
-    "id": "nba-wilkes80-g6",
-    "family": "points-game",
-    "scope": "finals",
-    "season": "1979-80",
-    "eventDate": "1980-05-16",
-    "franchise": "LAL",
-    "player": "Jamaal Wilkes",
-    "answer": 37,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "37, with 10 rebounds.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-      "quote": "Wilkes had a career-high 37 points and added 10 rebounds.",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "Jamaal Wilkes scored a career high in the 1980 title clincher. How many points?",
-      "context": "1980 NBA Finals · Game 6 · at Philadelphia",
-      "reveal": "37, with 10 rebounds.",
-      "min": 10,
-      "max": 50,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "The night is remembered for someone else.",
-      "ratings": {
-        "interest": 2,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "The Lakers had to play the title clincher without Kareem, whose ankle had been badly sprained.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-            "quote": "Kareem Abdul-Jabbar was the league's MVP, but midway through Game 5, the Lakers center suffered a severely sprained ankle"
-          }
-        },
-        {
-          "text": "Rookie Magic Johnson started at center and played all five positions during the closeout.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-            "quote": "started the game at center and eventually played all five positions"
-          }
-        },
-        {
-          "text": "Much of the United States saw the decisive game on tape delay while CBS aired regular prime-time shows.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-            "quote": "So Game 6 was shown at 11:30pm Eastern (10:30pm Central) in all but eight US cities"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-season21-games",
     "family": "season-length",
     "scope": "regular-season",
@@ -16580,69 +16265,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
             "quote": "Rick Barry poured in 38 points"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-warriors75-finals-g4-points",
-    "family": "points-team-game",
-    "scope": "finals",
-    "season": "1974-75",
-    "eventDate": "1975-05-25",
-    "franchise": "GSW",
-    "player": null,
-    "answer": 96,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "Golden State scored 96 points in its 1975 Finals Game 4 clincher.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-      "quote": "Golden State Warriors 96, Washington Bullets 95",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many points did Golden State score in Game 4 to clinch the 1975 Finals?",
-      "context": "Golden State at Washington · May 25, 1975",
-      "reveal": "96 points, one more than Washington in the title clincher.",
-      "min": 60,
-      "max": 122,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Exact vintage Finals team totals are rare recall even for serious fans.",
-      "ratings": {
-        "interest": 4,
-        "recognizability": 2,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Coach Al Attles was ejected after a confrontation with Mike Riordan, leaving assistant Joe Roberts to finish the game.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "Attles bolted onto the court and initiated a fight of his own with Riordan"
-          }
-        },
-        {
-          "text": "The 1975 Finals are the oldest NBA championship series with full television coverage still surviving.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "The 1975 Finals is also the oldest NBA championship series whose TV coverage still exists in its entirety"
-          }
-        },
-        {
-          "text": "Rick Barry went on to work as a broadcaster for the next six NBA Finals, including while still an active player.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "Barry went on to cover the next six NBA Finals, five of which while still an active player"
           }
         }
       ]
@@ -23825,6 +23447,384 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
             "quote": "the Lakers did give Baylor a championship ring for his contributions at the start of the 1971–72 season"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-luka20-clippers-buzzer-43",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2019-20",
+    "eventDate": "2020-08-23",
+    "franchise": "DAL",
+    "player": "Luka Dončić",
+    "answer": 43,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "43 points, plus 17 boards and 13 assists, capped by his step-back game winner.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs",
+      "quote": "His winning shot capped an incredible triple-double performance with 43 points, 17 rebounds, and 13 assists.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Luka Dončić's unforgettable 2020 bubble overtime winner against the Clippers, how many points did he score?",
+      "context": "Luka Dončić · Mavericks vs Clippers · 2020 playoffs",
+      "reveal": "43 points, plus 17 boards and 13 assists, capped by his step-back game winner.",
+      "min": 15,
+      "max": 95,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Luka's celebrated bubble buzzer-beater against the Clippers is a recognizable, estimable superstar scoring night.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Luka nailed the three-pointer at the end of overtime.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs",
+            "quote": "Down by 1, Luka Dončić hit the game-winning 3 point buzzer-beater at the end of overtime."
+          }
+        },
+        {
+          "text": "He was the youngest playoff game-winner on a buzzer-beater.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs",
+            "quote": "He becomes the youngest player to hit a buzzer-beater in the playoffs."
+          }
+        },
+        {
+          "text": "Dallas won the overtime thriller by two.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs",
+            "quote": "Dallas Mavericks 135, Los Angeles Clippers 133 (OT)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-brunson24-philly-47",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2023-24",
+    "eventDate": "2024-04-28",
+    "franchise": "NYK",
+    "player": "Jalen Brunson",
+    "answer": 47,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "47 points, a Knicks playoff record, alongside 10 assists in Philadelphia.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+      "quote": "Jalen Brunson scored 47 points, setting a Knicks franchise playoff record en route to securing a commanding 3–1 series lead back to New York.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Against Embiid's Sixers in the 2024 playoffs, how many points did Jalen Brunson score to set a Knicks playoff record?",
+      "context": "Jalen Brunson · Knicks at 76ers · April 2024",
+      "reveal": "47 points, a Knicks playoff record, alongside 10 assists in Philadelphia.",
+      "min": 15,
+      "max": 105,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A modern Knicks leader in a marquee Sixers series; estimate a record-breaking offensive night, not an obscure statistic.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Brunson made 18 of 34 shots.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "Brunson shot 18-of-34 from the field"
+          }
+        },
+        {
+          "text": "He recorded 10 assists to only one turnover.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "finished with an assist-turnover ratio of 10 to 1"
+          }
+        },
+        {
+          "text": "Brunson surpassed Bernard King's Knicks postseason mark.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "he surpassed the 46 points scored by Bernard King in 1984"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-harden19-msg-61",
+    "family": "points-game",
+    "scope": "regular-season",
+    "season": "2018-19",
+    "eventDate": "2019-01-23",
+    "franchise": "HOU",
+    "player": "James Harden",
+    "answer": 61,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "61 points and 15 rebounds, extending his astonishing 2018–19 scoring run.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/James_Harden",
+      "quote": "On January 23, Harden scored a career-high 61 points to go with 15 rebounds in a 114–110 win over the New York Knicks",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "At Madison Square Garden in January 2019, how many points did James Harden score against the Knicks?",
+      "context": "James Harden · Houston Rockets at Knicks · January 2019",
+      "reveal": "61 points and 15 rebounds, extending his astonishing 2018–19 scoring run.",
+      "min": 0,
+      "max": 95,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Harden's career-high MSG showcase is a recognizable scorer-at-a-famous-arena challenge with a fair point-total range.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Harden grabbed 15 rebounds that night.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/James_Harden",
+            "quote": "61 points to go with 15 rebounds"
+          }
+        },
+        {
+          "text": "Houston narrowly won at the Garden.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/James_Harden",
+            "quote": "in a 114–110 win over the New York Knicks"
+          }
+        },
+        {
+          "text": "He matched this career high again later that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/James_Harden",
+            "quote": "he matched his career high with 61 points, including 27 in the first quarter"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-dame21-playoffs-12-threes",
+    "family": "threes-game",
+    "scope": "playoffs",
+    "season": "2020-21",
+    "eventDate": "2021-06-01",
+    "franchise": "POR",
+    "player": "Damian Lillard",
+    "answer": 12,
+    "unit": {
+      "singular": "three-pointer",
+      "plural": "three-pointers"
+    },
+    "claim": "12 threes, a playoff record, as Dame scored 55 in a heartbreaking defeat.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+      "quote": "behind an NBA playoff record 12 made three-pointers, as well as 10 assists.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Damian Lillard's incredible double-overtime 2021 playoff battle with Denver, how many threes did he make?",
+      "context": "Damian Lillard · Blazers at Nuggets · 2021 playoffs",
+      "reveal": "12 threes, a playoff record, as Dame scored 55 in a heartbreaking defeat.",
+      "min": 2,
+      "max": 30,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Dame's famous double-overtime shooting eruption invites a plausible estimate of an extraordinary three-point total.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Dame set a playoff career high in points that night.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+            "quote": "Lillard scored a playoff career-high 55 points"
+          }
+        },
+        {
+          "text": "He tied it late in regulation and again in overtime.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+            "quote": "Lillard hit game-tying threes near the end of regulation and near the end of the first overtime"
+          }
+        },
+        {
+          "text": "Denver prevailed after two overtimes.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+            "quote": "the Nuggets rallied to a 147–140 double-overtime victory to take a 3–2 series lead"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-curry13-knicks-54",
+    "family": "points-game",
+    "scope": "regular-season",
+    "season": "2012-13",
+    "eventDate": "2013-02-27",
+    "franchise": "GSW",
+    "player": "Stephen Curry",
+    "answer": 54,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "54 points and 11 threes, but New York still won the game.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+      "quote": "On February 27, 2013, Stephen Curry scored 54 points but his Warriors lost to the Knicks, 109–105.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Years before his championships, how many points did Steph Curry score against the Knicks at MSG in 2013?",
+      "context": "Stephen Curry · Warriors at Knicks · February 2013",
+      "reveal": "54 points and 11 threes, but New York still won the game.",
+      "min": 5,
+      "max": 75,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Curry's famous MSG arrival as a scoring superstar is a known moment with an estimable high game total.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Steph hit 11 three-pointers against New York.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+            "quote": "making a Warriors franchise-record 11 three-pointers on 11 of 13 shooting from 3-point range"
+          }
+        },
+        {
+          "text": "Curry shot 18-for-28 overall.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+            "quote": "He shot 18 for 28 from the field"
+          }
+        },
+        {
+          "text": "New York won despite Curry's scoring display.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+            "quote": "his Warriors lost to the Knicks, 109–105"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-jokic-murray23-finals-g3-20-assists",
+    "family": "assists-game",
+    "scope": "finals",
+    "season": "2022-23",
+    "eventDate": "2023-06-07",
+    "franchise": "DEN",
+    "player": null,
+    "answer": 20,
+    "unit": {
+      "singular": "assist",
+      "plural": "assists"
+    },
+    "claim": "20 combined assists, matching Miami's entire team, as both stars logged 30-point triple-doubles.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+      "quote": "while their 20 assists matched Miami's total of 20.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "When Jokić and Murray made history with twin 30-point triple-doubles in the 2023 Finals, how many assists did they combine for?",
+      "context": "Jokić + Murray · Denver vs Miami · 2023 Finals Game 3",
+      "reveal": "20 combined assists, matching Miami's entire team, as both stars logged 30-point triple-doubles.",
+      "min": 5,
+      "max": 55,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "First-ever duo of 30-point triple-doubles in a Finals game supplies an iconic and estimable two-playmaker assist total.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "They were the first NBA teammates with 30-point triple-doubles in one game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Jokić and Murray became the first pair of teammates in NBA history to each record a 30-point triple-double in the same game"
+          }
+        },
+        {
+          "text": "Denver retook the Finals lead in a comfortable win.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "as the Nuggets won 109–94, reclaiming the series lead"
+          }
+        },
+        {
+          "text": "The pair nearly matched all of Miami's rebounds.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "grabbing a combined 31 rebounds to the Heat's total of 33"
           }
         }
       ]

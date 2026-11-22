@@ -143,3 +143,6 @@ Future Q5s December 6–11 have been replaced by genuinely memorable estimable N
 
 **Numerical audit:** 0/66 future weak Q1 and 47/66 future weak Q5 under 4/4/3/4. This is a subjective editorial estimate, not player testing; source excerpts need independent review. The strict Q5 gate must remain red while any finale fails. Regenerate official future daily files, locks, NBA report and Survival using one-time free worker-only publisher with full build, source, trivia, factory and test checks. No PR, integration, main or deployment changes.
 
+### Strict Q1 hard-gate regression (2026-11-22)
+
+Removed the January 3, 2027 warning exemption from `scripts/nba/model.ts`: every mixed slate on or after November 23, 2026 now fails canonical NBA validation if Q1 interest <4, recognizability <4 or estimability <3. Three new negative tests lower one rating at a time on January 27 and require errors (never warnings). Existing published dates, numerical facts, scoring ranges and generated puzzle order were not changed. This strengthens the publisher's release gate; it does **not** excuse the 47 weak Q5 finalists, which continue to fail the strict editorial audit.

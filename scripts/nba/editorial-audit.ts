@@ -1,5 +1,6 @@
 /** Deterministic NBA future editorial quality audit. No automatic score/rating changes. */
 import { loadNbaData, LADDER } from './model.ts';
+import { middleNeedsReview } from './editorial-ratings.ts';
 const { calendar, facts } = loadNbaData();
 const by = new Map(facts.map(f => [f.id, f]));
 // Locks advance with the New York puzzle day. Explicit overrides can only tighten it.
@@ -11,6 +12,10 @@ const cutoff = requestedCutoff && requestedCutoff > localToday ? requestedCutoff
 const days = calendar.days.filter(d => d.date > cutoff);
 const weak: string[] = [];
 const weakFinale: string[] = [];
+// Inventory only: do NOT invent or inflate ratings, alter facts or automatically fail publication.
+const weakMiddle: { date: string; round: number; id: string; ratings: { interest: number; recognizability: number; estimability: number } }[] = [];
+const weakMiddleDays = new Set<string>();
+const weakMiddleByRound = [0, 0, 0];
 const structural: string[] = [];
 const provenance: string[] = [];
 const sourceHost = 'en.wikipedia.org';
@@ -30,6 +35,16 @@ for (const day of days) {
   }
   const r = q[0]!.question.ratings;
   if (r.interest < 4 || r.recognizability < 4 || r.estimability < 3) weak.push(day.date + ': ' + q[0]!.id);
+  for (let index = 1; index <= 3; index++) {
+    const ratings = q[index]!.question.ratings;
+    if (middleNeedsReview(ratings)) {
+      weakMiddle.push({ date: day.date, round: index + 1, id: q[index]!.id, ratings: {
+        interest: ratings.interest, recognizability: ratings.recognizability, estimability: ratings.estimability,
+      } });
+      weakMiddleDays.add(day.date);
+      weakMiddleByRound[index - 1] = (weakMiddleByRound[index - 1] ?? 0) + 1;
+    }
+  }
   const end = q[4]!.question.ratings;
   if (end.interest < 4 || end.recognizability < 4 || end.estimability < 3 || end.surprise < 4) weakFinale.push(day.date + ': ' + q[4]!.id);
   if (q.some((f,i) => f.question.difficulty !== LADDER[i])) structural.push(day.date + ': ladder');
@@ -42,7 +57,7 @@ for (const day of days) {
     if ([...counts.values()].some(n => n > 2)) structural.push(day.date + ': repeated ' + key);
   }
 }
-console.log(JSON.stringify({cutoff,days:days.length,weakQ1:weak.length,weakQ5:weakFinale.length,structuralCount:structural.length,weak,weakFinale,structural},null,2));
+console.log(JSON.stringify({cutoff,days:days.length,weakQ1:weak.length,weakQ5:weakFinale.length,weakMiddleCount:weakMiddle.length,weakMiddleDays:weakMiddleDays.size,weakQ2:weakMiddleByRound[0],weakQ3:weakMiddleByRound[1],weakQ4:weakMiddleByRound[2],weakMiddle,structuralCount:structural.length,weak,weakFinale,structural},null,2));
 // Q1 is always a publication failure; --strict additionally enforces Q5 and slate structure.
 // --report-only is for inventory, never for publication/CI.
 if (!process.argv.includes('--report-only') && (weak.length || provenance.length)) process.exitCode=1;

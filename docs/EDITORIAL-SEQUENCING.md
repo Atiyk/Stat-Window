@@ -1,5 +1,13 @@
 # NBA daily question selection and sequence — editorial gate
 
+## Current middle-round quality inventory — November 22, 2026
+
+As of the November 22 New York publication cutoff, **66 future NBA days** have **119 of 198 Q2–Q4 entries** flagged for editorial review under the *triage-only* rule interest < 3 **or** recognizability < 3 **or** estimability < 3. By round: **Q2 17, Q3 50, Q4 52**; **64 of 66 future days** contain at least one flag. This is a weak-midgame risk despite Q1/Q5 satisfying their current numerical thresholds; ratings do not measure actual player enjoyment.
+
+**Fix sequence for the editorial worker, future-only:** Nov 23 (Q3 Kyle Lowry regular-season assists; Q4 Spurs lockout wins), Nov 24 (Q2 Kobe's 2003 threes and Q3 1987 Lakers quarter score), Nov 26 (Q4 2007 Finals TV rating), Nov 28 (Q3 Jamal Murray Finals APG and Q4 2009 Finals first-quarter points), Nov 29 (Q2 Shane Battier threes, Q3 NBA Cup quarter points, Q4 2015–16 Warriors seasonal threes); then complete Nov 30–Dec 14 and remaining days. Focus on genuine 24-second estimability and a recognizable basketball story. Do not raise a rating on its own or call a replacement verified without primary approved Wikipedia quotes, independent review and canonical publisher/spoiler/Survival/lock checks. Already released days stay unchanged.
+
+The CLI `node --experimental-strip-types scripts/nba/editorial-audit.ts --report-only` now reports **weakMiddleCount**, **weakMiddleDays**, per-round totals and each affected day/question ID/rating. The numerical flag is *diagnostic*, not an automatic hard publication gate; manual source and engagement decisions remain necessary.
+
 ## Goal
 Not five increasingly obscure facts. Five satisfying basketball judgments that make someone want to finish, compare and return tomorrow.
 

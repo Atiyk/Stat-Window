@@ -89,8 +89,16 @@ for _,item in ipairs(records) do
   local score=item[1]
   for j=2,5 do
     local board=item[j]
-    local new=redis.call('ZINCRBY',board,-score,ARGV[2])
-    if tonumber(new)<=0 then redis.call('ZREM',board,ARGV[2]) end
+    -- Expired boards must never be recreated by erasure. Only subtract a
+    -- contribution while the member still exists on this retained board.
+    local current=redis.call('ZSCORE',board,ARGV[2])
+    if current then
+      if tonumber(current)<=tonumber(score) then
+        redis.call('ZREM',board,ARGV[2])
+      else
+        redis.call('ZINCRBY',board,-score,ARGV[2])
+      end
+    end
   end
 end
 redis.call('DEL',KEYS[1],KEYS[2])

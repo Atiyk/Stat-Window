@@ -9,16 +9,35 @@ local daily=redis.call('INCR',KEYS[6])
 if daily==1 then redis.call('EXPIRE',KEYS[6],93600) end
 if daily>60 then return {'limited'} end
 local own=tonumber(redis.call('GET',KEYS[4]) or '0')
-if own+12>tonumber(ARGV[2]) then return {'paused'} end
+if own+24>tonumber(ARGV[2]) then return {'paused'} end
 local d=tonumber(redis.call('GET',KEYS[2]) or '0')
 local m=tonumber(redis.call('GET',KEYS[3]) or '0')
-if d+12>tonumber(ARGV[1]) or m+12>380000 then return {'paused'} end
-redis.call('INCRBY',KEYS[4],12) redis.call('EXPIRE',KEYS[4],2764800)
-redis.call('INCRBY',KEYS[2],12) redis.call('EXPIRE',KEYS[2],172800)
-redis.call('INCRBY',KEYS[3],12) redis.call('EXPIRE',KEYS[3],2764800)
+if d+24>tonumber(ARGV[1]) or m+24>380000 then return {'paused'} end
+redis.call('INCRBY',KEYS[4],24) redis.call('EXPIRE',KEYS[4],2764800)
+redis.call('INCRBY',KEYS[2],24) redis.call('EXPIRE',KEYS[2],172800)
+redis.call('INCRBY',KEYS[3],24) redis.call('EXPIRE',KEYS[3],2764800)
 local n=redis.call('ZCARD',KEYS[1])
 local top=redis.call('ZREVRANGE',KEYS[1],0,19,'WITHSCORES')
-return {'ok',n,top}
+local mine={}
+if ARGV[3] and ARGV[3]~='' then
+  local myScore=redis.call('ZSCORE',KEYS[1],ARGV[3])
+  if myScore then
+    -- Share the same place among tied scores; never enumerate other players.
+    local higher=redis.call('ZCOUNT',KEYS[1],'('..myScore,'+inf')
+    -- A participant can play at most once per day. Their bounded player hash
+    -- already stores exactly which boards each of those days contributes to.
+    local ownDays=redis.call('HGETALL',KEYS[7])
+    local days=0
+    for i=2,#ownDays,2 do
+      local item=cjson.decode(ownDays[i])
+      for j=2,5 do
+        if item[j]==KEYS[1] then days=days+1 break end
+      end
+    end
+    mine={tonumber(higher)+1,tonumber(myScore),days}
+  end
+end
+return {'ok',n,top,mine}
 `;
 export const SUBMIT_LUA=`
 local rate=redis.call('INCR',KEYS[8])
@@ -64,14 +83,17 @@ return 'removed'
 `;
 export function leaderboardRedis(evaluate:Eval):LBStore {
   return {
-    async read(board,budget,caps,rateKeys) {
-      const out=await evaluate(READ_LUA,[board,budget[0]!,budget[1]!,budget[3]!,...rateKeys],[caps[0]!,caps[1]!]) as unknown[];
+    async read(board,budget,caps,rateKeys,profileKey,member) {
+      const out=await evaluate(READ_LUA,[board,budget[0]!,budget[1]!,budget[3]!,...rateKeys,profileKey],[caps[0]!,caps[1]!,member??'']) as unknown[];
       if(out[0]==='paused')return 'paused';
       if(out[0]==='limited')return 'limited';
       const flat=out[2] as unknown[];
       const rows:[string,number][]=[];
       for(let i=0;i<flat.length;i+=2)rows.push([String(flat[i]),Number(flat[i+1])]);
-      return {rows,count:Number(out[1])};
+      const own=out[3] as unknown[] | undefined;
+      const mine=Array.isArray(own)&&own.length===3
+        ? {rank:Number(own[0]),score:Number(own[1]),days:Number(own[2])}:undefined;
+      return {rows,count:Number(out[1]),...(mine?{mine}:{})};
     },
     async submit(keys,member,day,score,caps,expiries) {
       return String(await evaluate(SUBMIT_LUA,keys,[score,day,caps[0]!,caps[1]!,member,...expiries])) as 'stored'|'duplicate'|'limited'|'paused';

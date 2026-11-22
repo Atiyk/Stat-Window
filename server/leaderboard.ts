@@ -24,9 +24,10 @@ export function expiryFor(period: Period, day: string): number {
   }
   return end + RETAIN_DAYS*86400;
 }
-export const LB_COST = { read: 12, submit: 55, remove: 2000 };
+export const LB_COST = { read: 24, submit: 55, remove: 2000 };
 export type LBStore = {
-  read(board: string, budget: string[], caps: number[], rateKeys: string[]): Promise<'paused'|'limited' | { rows: [string,number][]; count: number }>;
+  /** Optional member is the HMAC of a participant's random browser code, never their raw code. */
+  read(board: string, budget: string[], caps: number[], rateKeys: string[], profileKey: string, member: string | null): Promise<'paused'|'limited' | { rows: [string,number][]; count: number; mine?: {rank:number;score:number;days:number} }>;
   submit(keys: string[], member: string, day: string, score: number, caps: number[], expiries: number[]): Promise<'stored'|'duplicate'|'limited'|'paused'>;
   remove(keys: string[], member: string, caps: number[]): Promise<'removed'|'nothing'|'limited'|'paused'>;
 };
@@ -71,10 +72,23 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
       const u=new URL(req.url),period=u.searchParams.get('period');
       if(!PERIODS.includes(period as Period)||u.search!==('?period='+period))return json(422,{status:'invalid'});
       const key=periodKey(period as Period,today,ctx.launchDay);
-      const r=await ctx.store.read(prefix+':board:'+period+':'+key,budget,ctx.caps,[prefix+':read:minute:'+network+':'+Math.floor(now.getTime()/60000),prefix+':read:day:'+network+':'+utc]);
+      // A random browser code is sent only in a request header, never in the
+      // public URL, page metadata or the leaderboard response. The server
+      // hashes it before looking up this participant's own rank.
+      const code=req.headers.get('x-stat-window-player');
+      if(code!==null && !PLAYER.test(code))return json(422,{status:'invalid'});
+      const member=code===null?null:hash(ctx.secret,'lb-player:'+code);
+      const board=prefix+':board:'+period+':'+key;
+      const r=await ctx.store.read(board,budget,ctx.caps,[prefix+':read:minute:'+network+':'+Math.floor(now.getTime()/60000),prefix+':read:day:'+network+':'+utc],prefix+':player:'+(member??'anonymous'),member);
       if(r==='limited')return json(429,{status:'limited'});
       if(r==='paused')return json(503,{status:'paused'});
-      return json(200,{status:'ok',period,periodKey:key,entries:r.rows.map(([id,score])=>({name:pseudonym(id),score})),totalPlayers:r.count,asOf:now.toISOString(),unverified:true});
+      let topRank=0;
+      const entries=r.rows.map(([id,score],index)=>{
+        if(index===0 || r.rows[index-1]![1]!==score)topRank=index+1;
+        return {rank:topRank,name:pseudonym(id),score};
+      });
+      const mine=r.mine && member?{...r.mine,name:pseudonym(member)}:undefined;
+      return json(200,{status:'ok',period,periodKey:key,entries,totalPlayers:r.count,asOf:now.toISOString(),unverified:true,...(mine?{mine}:{})});
     }
     const body=await readBody(req);
     if(!body||typeof body.player!=='string'||!PLAYER.test(body.player))return json(422,{status:'invalid'});

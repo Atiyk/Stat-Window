@@ -26,12 +26,14 @@ if ARGV[3] and ARGV[3]~='' then
     local higher=redis.call('ZCOUNT',KEYS[1],'('..myScore,'+inf')
     -- A participant can play at most once per day. Their bounded player hash
     -- already stores exactly which boards each of those days contributes to.
-    local ownDays=redis.call('HGETALL',KEYS[7])
     local days=0
-    for i=2,#ownDays,2 do
-      local item=cjson.decode(ownDays[i])
-      for j=2,5 do
-        if item[j]==KEYS[1] then days=days+1 break end
+    for k=7,8 do
+      local ownDays=redis.call('HGETALL',KEYS[k])
+      for i=2,#ownDays,2 do
+        local item=cjson.decode(ownDays[i])
+        for j=2,5 do
+          if item[j]==KEYS[1] then days=days+1 break end
+        end
       end
     end
     mine={tonumber(higher)+1,tonumber(myScore),days}
@@ -52,7 +54,7 @@ redis.call('INCRBY',KEYS[9],55) redis.call('EXPIRE',KEYS[9],2764800)
 redis.call('INCRBY',KEYS[6],55) redis.call('EXPIRE',KEYS[6],172800)
 redis.call('INCRBY',KEYS[7],55) redis.call('EXPIRE',KEYS[7],2764800)
 redis.call('HSET',KEYS[1],ARGV[2],cjson.encode({tonumber(ARGV[1]),KEYS[2],KEYS[3],KEYS[4],KEYS[5]}))
-local hashExpiry=math.max(tonumber(ARGV[6]),tonumber(ARGV[7]),tonumber(ARGV[8]),tonumber(ARGV[9]))
+local hashExpiry=tonumber(ARGV[10])
 if redis.call('TTL',KEYS[1])==-1 then redis.call('EXPIREAT',KEYS[1],hashExpiry)
 else redis.call('EXPIREAT',KEYS[1],hashExpiry,'GT') end
 for i=2,5 do redis.call('ZINCRBY',KEYS[i],tonumber(ARGV[1]),ARGV[5]) redis.call('EXPIREAT',KEYS[i],tonumber(ARGV[i+4])) end
@@ -65,12 +67,25 @@ if rate>2 then return 'limited' end
 local daily=redis.call('INCR',KEYS[5])
 if daily==1 then redis.call('EXPIRE',KEYS[5],93600) end
 if daily>6 then return 'limited' end
-if tonumber(redis.call('GET',KEYS[3]) or '0')+2000>tonumber(ARGV[1]) then return 'paused' end
-redis.call('INCRBY',KEYS[3],2000) redis.call('EXPIRE',KEYS[3],2764800)
-local all=redis.call('HGETALL',KEYS[1])
-if #all==0 then return 'nothing' end
-for i=2,#all,2 do
-  local item=cjson.decode(all[i])
+local records={}
+local count=0
+for k=1,2 do
+  local all=redis.call('HGETALL',KEYS[k])
+  for i=2,#all,2 do
+    count=count+1
+    if count>240 then return 'paused' end
+    records[#records+1]=cjson.decode(all[i])
+  end
+end
+if count==0 then return 'nothing' end
+-- Upper bound covers ZINCRBY + ZREM per board, counter writes and scanning.
+-- Never debit the shared erase reserve or leaderboard subcap for empty ledgers.
+local cost=20+14*count
+if tonumber(redis.call('GET',KEYS[3]) or '0')+cost>20000 or
+   tonumber(redis.call('GET',KEYS[6]) or '0')+cost>tonumber(ARGV[1]) then return 'paused' end
+redis.call('INCRBY',KEYS[3],cost) redis.call('EXPIRE',KEYS[3],2764800)
+redis.call('INCRBY',KEYS[6],cost) redis.call('EXPIRE',KEYS[6],2764800)
+for _,item in ipairs(records) do
   local score=item[1]
   for j=2,5 do
     local board=item[j]
@@ -78,13 +93,13 @@ for i=2,#all,2 do
     if tonumber(new)<=0 then redis.call('ZREM',board,ARGV[2]) end
   end
 end
-redis.call('DEL',KEYS[1])
+redis.call('DEL',KEYS[1],KEYS[2])
 return 'removed'
 `;
 export function leaderboardRedis(evaluate:Eval):LBStore {
   return {
-    async read(board,budget,caps,rateKeys,profileKey,member) {
-      const out=await evaluate(READ_LUA,[board,budget[0]!,budget[1]!,budget[3]!,...rateKeys,profileKey],[caps[0]!,caps[1]!,member??'']) as unknown[];
+    async read(board,budget,caps,rateKeys,profileKeys,member) {
+      const out=await evaluate(READ_LUA,[board,budget[0]!,budget[1]!,budget[3]!,...rateKeys,...profileKeys],[caps[0]!,caps[1]!,member??'']) as unknown[];
       if(out[0]==='paused')return 'paused';
       if(out[0]==='limited')return 'limited';
       const flat=out[2] as unknown[];

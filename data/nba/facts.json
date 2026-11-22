@@ -24837,5 +24837,383 @@
         }
       ]
     }
+  },
+  {
+    "id": "nba-kobe10-finals-game7-twentyfive-percent",
+    "family": "shooting-pct",
+    "scope": "finals",
+    "season": "2009-10",
+    "eventDate": "2010-06-17",
+    "franchise": "LAL",
+    "player": "Kobe Bryant",
+    "answer": 25,
+    "unit": {
+      "singular": "percent",
+      "plural": "percent"
+    },
+    "claim": "Kobe Bryant shot 25 percent from the field (6 of 24) in the Lakers' 2010 NBA Finals Game 7 win over Boston.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+      "quote": "Bryant, despite shooting 6 for 24 (25%) from the field",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Kobe won the gritty 2010 Finals Game 7 over Boston despite a brutal shooting night. What percent did he shoot from the field?",
+      "context": "Kobe Bryant · Lakers vs Celtics · 2010 Finals Game 7",
+      "reveal": "Just 25%—6 of 24. Kobe still scored 23 and secured his fifth ring.",
+      "min": 0,
+      "max": 75,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Kobe's iconic gritty Celtics Game 7 won despite a stunning 6-of-24 field-goal line creates a high-impact estimable final reveal.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Kobe finished with 23 points, ten in the fourth quarter.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "scored 10 of his game-high 23 points in the fourth quarter"
+          }
+        },
+        {
+          "text": "Los Angeles secured 23 offensive rebounds in the decider.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "The Lakers had 23 offensive rebounds and out-rebounded the Celtics, 53–40."
+          }
+        },
+        {
+          "text": "It was Phil Jackson's first Finals Game 7 as a head coach.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "as well as head coach Phil Jackson’s first-ever Finals Game 7"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-mavs22-suns-game7-halftime-thirty",
+    "family": "margin-halftime",
+    "scope": "playoffs",
+    "season": "2021-22",
+    "eventDate": "2022-05-15",
+    "franchise": "DAL",
+    "player": null,
+    "answer": 30,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Dallas took a 57–27 halftime lead over Phoenix in 2022 Game 7, then the largest halftime lead in a Game 7.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+      "quote": "going into halftime leading 57–27; the halftime deficit of 30 being the largest in game 7 history.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Luka's shocking 2022 Game 7 rout of top-seeded Phoenix, by how many points were the Mavericks ahead at halftime?",
+      "context": "Mavericks at Suns · May 2022 · Game 7",
+      "reveal": "Dallas led by 30 at halftime, 57–27. Phoenix never recovered from the Game 7 embarrassment.",
+      "min": 0,
+      "max": 65,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "The infamous Luka-led Suns collapse is widely remembered; its staggering halftime lead is a fair numeric estimation.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Dallas never trailed during the whole game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "The Mavericks dominated the entire game, never giving the Suns the lead"
+          }
+        },
+        {
+          "text": "Luka finished with 35 points and ten rebounds.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "Luka Dončić shined in the victory with a double-double (35 points, 10 rebounds, and 4 assists)"
+          }
+        },
+        {
+          "text": "The Dallas lead ballooned to as many as 46.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "The lead would later grow to as much as 46"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-herro20-bubble-ecf-g4-thirtyseven",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2019-20",
+    "eventDate": "2020-09-23",
+    "franchise": "MIA",
+    "player": "Tyler Herro",
+    "answer": 37,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Tyler Herro scored 37 points in 2020 East finals Game 4 as a Miami rookie.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Tyler_Herro",
+      "quote": "In game 4 of the 2020 Eastern Conference Finals, he scored a career-high 37 points",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "As a rookie in the 2020 bubble East finals against Boston, how many points did Tyler Herro explode for in Game 4?",
+      "context": "Tyler Herro · Heat vs Celtics · 2020 East finals Game 4",
+      "reveal": "37 points from a 20-year-old rookie. Herro helped power Miami's surprise Finals run.",
+      "min": 0,
+      "max": 90,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Tyler Herro's explosive rookie bubble game is recognizable and surprising without obscure stat-combination arithmetic.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Herro was just 20 years and 247 days old.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Tyler_Herro",
+            "quote": "the youngest player (at 20 years, 247 days old) to score 30-plus points"
+          }
+        },
+        {
+          "text": "He was the first player born in the 2000s to play in an NBA Finals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Tyler_Herro",
+            "quote": "Herro became the first player born in the 2000s to play in an NBA Finals."
+          }
+        },
+        {
+          "text": "He made the NBA All-Rookie Second Team in 2020.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Tyler_Herro",
+            "quote": "he was named to the 2019–20 NBA All-Rookie Second Team"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-lakers01-shaq-kobe-fifteen-playoff-wins",
+    "family": "wins-playoffs",
+    "scope": "playoffs",
+    "season": "2000-01",
+    "eventDate": null,
+    "franchise": "LAL",
+    "player": null,
+    "answer": 15,
+    "unit": {
+      "singular": "win",
+      "plural": "wins"
+    },
+    "claim": "The 2001 Shaq–Kobe Lakers won 15 games and lost one on their way to the NBA title.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2001_NBA_playoffs",
+      "quote": "the Lakers put together the most dominant postseason in NBA history, going 15–1.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Shaq and Kobe's 2001 Lakers lost only once in the entire postseason. How many playoff games did they win?",
+      "context": "Los Angeles Lakers · 2001 NBA championship run",
+      "reveal": "15 wins against just one loss—the Lakers swept the first three rounds and then beat Iverson's Sixers.",
+      "min": 0,
+      "max": 26,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "The iconic three-peat Lakers' near-perfect run rewards reasoning through the old best-of-five first round.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Iverson's Sixers handed the Lakers their sole playoff loss.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001_NBA_playoffs",
+            "quote": "The Philadelphia 76ers giving the Lakers their only loss of the postseason (107–101 in Overtime)."
+          }
+        },
+        {
+          "text": "Los Angeles swept all three Western Conference series.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001_NBA_playoffs",
+            "quote": "winning their first 11 post–season games and sweeping three series in the post-season."
+          }
+        },
+        {
+          "text": "The Lakers went undefeated in road playoff games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001_NBA_playoffs",
+            "quote": "going undefeated in regulation and on the road (finishing 8–0 in the latter category)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-mavs11-heat-finals-g2-comeback-fifteen",
+    "family": "comeback",
+    "scope": "finals",
+    "season": "2010-11",
+    "eventDate": "2011-06-02",
+    "franchise": "DAL",
+    "player": null,
+    "answer": 15,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Dallas erased a 15-point Miami lead late in Game 2 of the 2011 Finals.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+      "quote": "The Mavs' 15-point comeback was the biggest in an NBA Finals game",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Down late in Game 2 of the 2011 Finals against LeBron's Heat, how large a deficit did Dirk's Mavericks erase to win?",
+      "context": "Dallas Mavericks at Miami Heat · 2011 Finals Game 2",
+      "reveal": "15 points. Dirk hit a go-ahead three and then the winning layup to stun Miami, 95–93.",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A landmark Dirk comeback against the Heat's Big Three is familiar to fans and estimate-friendly without specialist tables.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Dirk hit a go-ahead three with under 30 seconds left.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "Dirk Nowitzki hit a 3 with 26.7 seconds left to give the Mavericks a 93–90 lead."
+          }
+        },
+        {
+          "text": "Nowitzki delivered the winner with his injured left hand.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "Nowitzki then made a driving layup with his injured left hand with 3.6 seconds left"
+          }
+        },
+        {
+          "text": "Dwyane Wade's final attempt bounced off the rim.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "Dwyane Wade's potential game-winning 3 hit the back rim at the buzzer"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-lebron16-finals-game7-block-110s",
+    "family": "time",
+    "scope": "finals",
+    "season": "2015-16",
+    "eventDate": "2016-06-19",
+    "franchise": "CLE",
+    "player": "LeBron James",
+    "answer": 110,
+    "unit": {
+      "singular": "second",
+      "plural": "seconds"
+    },
+    "claim": "LeBron James blocked Iguodala with 1:50 left in the tied 2016 Finals Game 7.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+      "quote": "with the score tied at 89 and 1:50 remaining in the game.",
+      "derivation": "Convert 1:50 to seconds: 1 × 60 + 50 = 110 seconds.",
+      "asOf": null
+    },
+    "question": {
+      "prompt": "LeBron's iconic chase-down block preserved a Game 7 tie in 2016. How many seconds were left when he blocked Iguodala?",
+      "context": "LeBron James · Cavaliers at Warriors · 2016 Finals Game 7",
+      "reveal": "110 seconds (1:50). The Block helped Cleveland finish its historic Finals comeback.",
+      "min": 0,
+      "max": 300,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "The most memorable defensive play in modern Finals history invites a rare and satisfying clutch-clock estimate.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "The Cavaliers ultimately beat Golden State 93–89.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "The Cavaliers defeated the Warriors 93–89 in Game 7"
+          }
+        },
+        {
+          "text": "The teams had scored identically through the first six Finals games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "both teams entered Game 7 with the same total points scored through six games (610 points each)"
+          }
+        },
+        {
+          "text": "Kyrie Irving later drilled the go-ahead three over Stephen Curry.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "Kyrie Irving made a go-ahead three-point field goal over Stephen Curry"
+          }
+        }
+      ]
+    }
   }
 ]

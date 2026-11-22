@@ -6,15 +6,15 @@ Ranking seasons are fixed 120-day UTC blocks anchored to 2026-01-01, rather than
 
 GET requests have atomic per-network limits of 12 per two-minute bucket and 60 per UTC day; POST has 4 per two-minute bucket and 20 per UTC day; DELETE has 2 per two-minute bucket and 6 per UTC day, returning 429 with Retry-After. These counters are Redis operations and need vendor command-cost validation; they are not yet accounted in the existing estimate.
 
-## Remaining blockers
+## Verification status and launch blockers (2026-11-22)
 
-- Validate fixed EXPIREAT lifecycle in real Redis, including post-inactivity erasure and all-period deletion. Existing pre-migration keys require a migration/cleanup plan before activation.
-- Need real Redis Lua integration tests for 20-way same-member races, rollovers, deletion, TTL and budgets. No tests or CI are claimed green by this worker.
-- Need days-played counts and securely authenticated own-rank; currently public top-20 only.
-- Need stronger GET/POST/DELETE network rate caps, GPC/DNT handling and privacy copy aligned with actual retention.
-- Need independent security/privacy/cost PASS on the exact integration SHA, plus verified Upstash billing and aggregate quota headroom.
-
-Do not enable LEADERBOARDS_ENABLED or merge as release-ready on this evidence alone.
+- Integration PR #23 at `c92983422955f7335c083728a5d2695f955b41a0` previously reported 372 Vitest passes, including 10 Redis 7 leaderboard tests (CI run 45055339467). **Those results are not a pass for this worker branch**; new code and tests have not executed in CI.
+- **New deletion safety:** `erasureBoardKeys` enumerates the finite board universe for the current and previous 120-day blocks (one key per day plus deduplicated week, month and season keys). DELETE passes these names as explicit `EVAL KEYS[7+]`; Lua verifies every ledger reference against the declared list **before** reserving money or changing a score. Unexpected keys return `paused`, never a false deletion success. The atomic script uses exactly the declared keys when updating rankings. No database-wide `SCAN` or user-supplied key names.
+- Upstash documents that **Lua strict key locking can reject undeclared keys**, whereas ordinary scripts without the strict setting use its global lock (https://upstash.com/docs/redis/features/key-locking). The explicit-key change aligns with that documented rule, but **no actual Upstash REST + strict-locking test has been performed**. Test on isolated free-tier data with existing authorized configuration only, never on production participant records.
+- Upstash bills one command for `EVAL` **plus one for each nested** `redis.call`/`redis.pcall` (https://upstash.com/docs/redis/overall/billing). The present 24/55/read-submit budget weights and 20 + 14*N deletion weights are conservative estimates of successful script paths, **not measured provider accounting**, and failed/limited calls still incur commands. An attacker can repeatedly invoke capped requests; Redis-side counters alone cannot guarantee the 500K vendor quota. Verify billed usage, traffic forecasts, reserved percentile/erasure headroom and free-tier account status before enabling.
+- Real deletion must also be tested with a ledger containing an out-of-range board, an expired daily board, a multi-block retained participant, and a fully consumed erasure budget. The deletion endpoint must return an error, not success, whenever records remain.
+- Production client-IP/header provenance and real Vercel request handling remain to be verified; `X-Real-IP` is documented by Vercel as equivalent to edge-overwritten `X-Forwarded-For` (https://vercel.com/docs/headers/request-headers). The unknown-address fallback is intentionally shared, which may limit legitimate users.
+- Independent security/privacy/cost critic approval on the **exact final integrated SHA** is still required. Do **not** enable `LEADERBOARDS_ENABLED` merely because the local Redis tests pass.
 
 Redis 7 `EXPIREAT ... GT` prevents late submissions from shortening the owner hash's existing expiry. A disposable Redis integration suite now covers concurrency, deletion, budgets, read caps, monotonic expiration and POST daily caps; it must run with `REDIS_URL` against an isolated local/CI Redis 7 service before any release approval. Daily rate-limit counters themselves are not included in the vendor command cost proof. Keep feature disabled.
 
@@ -41,3 +41,7 @@ DELETE requires the original random browser code but **does not require ongoing 
 Erasure now checks `ZSCORE` before subtracting a retained daily contribution. When an earlier daily board has expired, deletion skips that missing board rather than recreating it through `ZINCRBY` with a negative score. The Redis integration test explicitly removes the daily board before deleting the participant, then checks that the board remains absent and the other period entries are removed. This test has **not yet run on the new worker commit**. The derived-key Upstash strict-locking compatibility issue is **still unresolved**; do not activate the leaderboard based on this change alone.
 
 Network throttling now ignores client-forgeable `X-Forwarded-For` and uses `X-Real-IP` when present, otherwise a conservative shared bucket. Verify the production edge guarantees that `X-Real-IP` is trusted before enabling. GPC and DNT explicitly reject new score submissions even when the body claims consent; erasure remains available after withdrawal.
+
+## Explicit keys for atomic erasure
+
+The delete store contract reserves `KEYS[1..6]` for the two player ledgers, monthly erasure reserve, short-window rate, daily rate and leaderboard erasure subcap. Every potential day/week/month/season ranking key for those ledger blocks is passed through `KEYS[7..]`. The Lua script maps the declared names to their exact indexes, validates **all** ledger rows and only then performs budget charges and removal. It never uses a Redis key discovered during script execution unless that key is already declared, so default-global and strict-key locking paths share the same atomic semantics. This declaration-only change does not add nested `redis.call` commands; it increases the request key list size and lock fan-out, which require latency and vendor-compatibility measurement. The feature remains off pending those measurements.

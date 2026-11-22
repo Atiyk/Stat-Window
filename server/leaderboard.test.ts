@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { createHmac } from 'node:crypto';
-import { periodKey, boards, expiryFor, pseudonym, handleLeaderboard, leaderboardContext, blockNumber } from './leaderboard.ts';
+import { periodKey, boards, expiryFor, pseudonym, handleLeaderboard, leaderboardContext, blockNumber, blockExpiry, PERIODS, SEASON_DAYS } from './leaderboard.ts';
 describe('Eastern calendar leaderboard periods',()=>{
  it('weeks start Monday including Sunday before and after DST',()=>{expect(periodKey('week','2026-03-08',null)).toBe('2026-03-02');expect(periodKey('week','2026-03-09',null)).toBe('2026-03-09');expect(periodKey('week','2026-11-01',null)).toBe('2026-10-26');});
  it('months and seasons use calendar keys',()=>{expect(periodKey('month','2026-12-31',null)).toBe('2026-12');expect(periodKey('month','2027-01-01',null)).toBe('2027-01');expect(boards('test','2026-11-22',null)).toHaveLength(4);});
@@ -38,6 +38,24 @@ describe('Eastern calendar leaderboard periods',()=>{
      method:'DELETE',headers:{'Content-Type':'application/json'},
      body:JSON.stringify({player:'a'.repeat(22),consent:'granted'})
    }),ctx)).status).toBe(503);
+ });
+ it('fast ledger expiry equals the last retained deadline among all 120 dates',()=>{
+   const epoch=Date.parse('2026-01-01T00:00:00Z');
+   for(const block of [0,2,6]){
+     let exhaustive=0;
+     for(let n=0;n<SEASON_DAYS;n++){
+       const day=new Date(epoch+(block*SEASON_DAYS+n)*86400000).toISOString().slice(0,10);
+       for(const period of PERIODS)exhaustive=Math.max(exhaustive,expiryFor(period,day));
+     }
+     expect(blockExpiry(block)).toBe(exhaustive);
+   }
+ });
+ it('does not enable rankings with an impractically small deletion subcap',()=>{
+   const env={VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',LEADERBOARDS_ENABLED:'1',
+     LEADERBOARDS_DAILY_BUDGET:'1000',LEADERBOARDS_MONTHLY_BUDGET:'20000',
+     LEADERBOARDS_ERASE_BUDGET:'4999',SCORE_HASH_SECRET:'a'.repeat(32)};
+   expect(leaderboardContext(env,null,async()=>null).enabled).toBe(false);
+   expect(leaderboardContext({...env,LEADERBOARDS_ERASE_BUDGET:'5000'},null,async()=>null).enabled).toBe(true);
  });
  it('pseudonyms are stable and do not expose raw member',()=>{const id='a'.repeat(40);expect(pseudonym(id)).toBe(pseudonym(id));expect(pseudonym(id)).not.toContain(id);});
  it('defaults to disabled without explicit budgets',()=>{const c=leaderboardContext({VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',SCORE_HASH_SECRET:'a'.repeat(32)},null,async()=>null);expect(c.enabled).toBe(false);});

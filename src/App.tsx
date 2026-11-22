@@ -386,13 +386,14 @@ function Game(props: {
   }, [store, session.day, session.kind, state.results, advanced]);
 
   const pub = publicNumber(session.day, SEASON);
+  // A mounted game is not a started game: the tutorial/ready card can be
+  // abandoned without ever playing. Count an actual Start, including a resumed
+  // Q1 whose deadline was already persisted before a page reload.
   useEffect(() => {
-    if (state.results.length === 0) {
+    if (started && state.results.length === 0) {
       trackOnce(`start:${playMode}:${session.kind}:${session.day}`, today, { name: 'run_start', mode: playMode });
     }
-    // Only on mount of a fresh run.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [started, state.results.length, playMode, session.kind, session.day, today]);
   useEffect(() => {
     if (state.phase === 'complete') props.onRunComplete();
   }, [state.phase, props.onRunComplete]);
@@ -417,7 +418,7 @@ function Game(props: {
   // Leaving with a run part-way done (best effort; see docs/MEASUREMENT.md).
   const exitRef = useRef({ started: false, round: 0 });
   exitRef.current = {
-    started: state.phase !== 'complete' && (state.results.length > 0 || state.phase === 'adjusting'),
+    started: started && state.phase !== 'complete',
     round: state.round + 1,
   };
   useEffect(() => {
@@ -448,12 +449,12 @@ function Game(props: {
   // check resolves, so this waits for it and has its own once-keys (not the run_start one).
   const startedHere = useRef(state.results.length === 0);
   useEffect(() => {
-    if (!offer.arm || !officialToday || !startedHere.current) return;
+    if (!started || !offer.arm || !officialToday || !startedHere.current) return;
     trackOnce(`x:sv-cta:start:${today}`, today, { name: 'experiment', arm: offer.arm, step: 'daily-start' });
     if (exposedYesterday(props.storage, today)) {
       trackOnce(`x:sv-cta:next:${today}`, today, { name: 'experiment', arm: offer.arm, step: 'next-day-start' });
     }
-  }, [offer.arm, officialToday, props.storage, today]);
+  }, [started, offer.arm, officialToday, props.storage, today]);
   // Experiment exposure: once per day, when today's official results are on screen (both arms).
   useEffect(() => {
     if (complete && officialToday && offer.arm && markExposed(props.storage, today)) {

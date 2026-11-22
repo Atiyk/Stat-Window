@@ -186,7 +186,7 @@ test('reduced-motion first-play practice preserves focus and layout across five 
   await expect(page.locator('.round:not(.onboarding-play) .question')).toHaveCount(0);
   await expect(page.locator('.shot-clock')).toContainText('No timer');
 
-  for (const [width,height] of [[320,568],[375,667],[390,844],[720,450],[1440,900]]) {
+  for (const [width,height] of [[320,568],[375,667],[390,844],[720,450],[1440,900]] as const) {
     await page.setViewportSize({ width, height });
     await expect(headline).toBeVisible();
     await expect(page.locator('.onboarding-play .ruler')).toBeVisible();

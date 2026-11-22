@@ -276,6 +276,6 @@ describe.skipIf(!url)('leaderboard retention and daily caps on real Redis', () =
     expect(await store.submit(keys,'another','2028-02-01',90,caps,expiration('2028-02-01'))).toBe('limited');
     for(let i=0;i<50;i++)expect(await store.submit(keys,'another','2028-02-01',90,caps,expiration('2028-02-01'))).toBe('limited');
     expect(Number(await client.command(['GET',daily]))).toBe(20);
-    expect(Number(await client.command(['GET',keys[7]!]))).toBe(1);
+    expect(Number(await client.command(['GET',keys[7]!]))).toBe(4); // minute counter reaches its cap even when daily cap denies
   });
 });

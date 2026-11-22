@@ -283,9 +283,9 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
           {q.prompt}
         </h1>
         <p className="context">
-          {theme && state.round === 0 && !survival ? (
-            <><span className="puzzle-theme">Today: <strong>{theme.title}</strong></span><span className="theme-subtitle"> · {theme.subtitle}</span></>
-          ) : <>{q.sport} · {q.context}</>}
+          {q.sport} · {theme && state.round === 0 && !survival ? (
+            <><span className="puzzle-theme"><strong>{theme.title}</strong></span><span className="theme-subtitle"> · {theme.subtitle}</span></>
+          ) : q.context}
         </p>
       </header>
       </div>

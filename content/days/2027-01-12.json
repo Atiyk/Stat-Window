@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-butler20-g3-ast",
+      "id": "nba-lakers11-mavs-game4-only-86",
       "sport": "NBA",
-      "prompt": "Jimmy Butler had 40 points and 11 rebounds in Game 3 of the 2020 Finals. How many assists did he add?",
-      "context": "2020 NBA Finals · Game 3 · vs Lakers",
-      "answer": 13,
+      "prompt": "When the Mavs swept Kobe's two-time defending champion Lakers in 2011, how few points did L.A. score in the Game 4 blowout?",
+      "context": "Lakers at Mavericks · 2011 West semifinals · Game 4",
+      "answer": 86,
       "unit": {
-        "singular": "assist",
-        "plural": "assists"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 0,
-      "max": 16,
+      "min": 40,
+      "max": 140,
       "step": 1,
-      "note": "13, a 40-point triple-double.",
+      "note": "Just 86 points. Dallas scored 122 and ended Phil Jackson's coaching career with a sweep.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
-        "quote": "Butler finished with 40 points, 11 rebounds and 13 assists for a triple-double to lead Miami to a 115–104 win"
+        "url": "https://en.wikipedia.org/wiki/2011_NBA_playoffs",
+        "quote": "In Game 4, the Mavericks blew out the Lakers, 122–86, sweeping the two-time defending NBA champions."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Miami won that game without starters Bam Adebayo and Goran Dragić, who were sidelined.",
+          "text": "Dallas sank 20 threes in that elimination game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
-            "quote": "as Heat starters Adebayo and Dragić remained sidelined"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_playoffs",
+            "quote": "The Dallas Mavericks set an NBA record with 20 three pointers"
           }
         },
         {
-          "text": "Butler became the first player to outscore, outrebound and out-assist LeBron James in the same Finals game.",
+          "text": "Jason Terry supplied nine of the Mavericks' threes.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
-            "quote": "Butler also became the first player to have more points, rebounds and assists in a Finals game than James"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_playoffs",
+            "quote": "with Jason Terry shooting nine of them"
           }
         },
         {
-          "text": "Miami's starters outscored the Lakers' starters despite the Heat entering the game behind in the series.",
+          "text": "It became Phil Jackson's last game as an NBA head coach.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
-            "quote": "Miami's starters outscored the Lakers' starters 89–51"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_playoffs",
+            "quote": "This would also prove to be Phil Jackson's final game as an NBA head coach."
           }
         }
       ]

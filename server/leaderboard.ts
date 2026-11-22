@@ -109,7 +109,12 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
       // hashes it before looking up this participant's own rank.
       const code=req.headers.get('x-stat-window-player');
       if(code!==null && !PLAYER.test(code))return json(422,{status:'invalid'});
-      const member=code===null?null:hash(ctx.secret,'lb-player:'+code);
+      // Privacy signals override any browser code: old clients, extensions or
+      // direct requests must not trigger a personal-score lookup under GPC/DNT.
+      // Anonymous public top-20 reads remain available. DELETE still accepts
+      // the original code after consent is withdrawn, for full erasure.
+      const privateRead=req.headers.get('sec-gpc')==='1'||req.headers.get('dnt')==='1';
+      const member=code===null||privateRead?null:hash(ctx.secret,'lb-player:'+code);
       const board=prefix+':board:'+period+':'+key;
       const r=await ctx.store.read(board,budget,ctx.caps,[prefix+':read:minute:'+network+':'+Math.floor(now.getTime()/60000),prefix+':read:day:'+network+':'+utc],[blockLedger(prefix,member??'anonymous',blockNumber(today)),blockLedger(prefix,member??'anonymous',blockNumber(today)-1)],member);
       if(r==='limited')return json(429,{status:'limited'});

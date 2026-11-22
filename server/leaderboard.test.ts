@@ -106,3 +106,35 @@ describe('leaderboard opt-out and network identity hardening',()=>{
    expect(rateKeys[0]).toEqual(rateKeys[1]);
  });
 });
+
+
+describe('server-enforced anonymous reads under browser privacy signals',()=>{
+ it('does not look up or return a personal rank if GPC or DNT is set, even with a valid player header',async()=>{
+   const code='abcdefghijklmnopqrstuv',seen:(string|null)[]=[];
+   const ctx=leaderboardContext({
+     VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',LEADERBOARDS_ENABLED:'1',
+     LEADERBOARDS_DAILY_BUDGET:'1000',LEADERBOARDS_MONTHLY_BUDGET:'20000',
+     LEADERBOARDS_ERASE_BUDGET:'10000',SCORE_HASH_SECRET:'s'.repeat(32),
+   },{
+     read:async(_board:string,_budget:string[],_caps:number[],_rates:string[],_profile:string[],member:string|null)=>{
+       seen.push(member);
+       return {rows:[['a'.repeat(40),90]] as [string,number][],count:1,
+         // Deliberately include a mock profile: the API must suppress it as well.
+         mine:{rank:1,score:90,days:1}};
+     },
+   } as never,async()=>null);
+   ctx.now=()=>new Date('2026-11-22T16:00:00Z');
+   for(const signal of ['Sec-GPC','DNT'] as const){
+     const headers=new Headers({'X-Stat-Window-Player':code});
+     headers.set(signal,'1');
+     const res=await handleLeaderboard(new Request('https://stat-window.vercel.app/api/leaderboard?period=week',{headers}),ctx);
+     expect(res.status).toBe(200);
+     const body=await res.json();
+     expect(body.status).toBe('ok');
+     expect(body.entries).toHaveLength(1);
+     expect(body.mine).toBeUndefined();
+     expect(JSON.stringify(body)).not.toContain(code);
+   }
+   expect(seen).toEqual([null,null]);
+ });
+});

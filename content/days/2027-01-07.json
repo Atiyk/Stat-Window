@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-thunder24-cup-3pa",
+      "id": "nba-ad20-lakers-ten-straight-wcf-winner",
       "sport": "NBA",
-      "prompt": "Oklahoma City made just five threes in the 2024 NBA Cup final. How many did it attempt?",
-      "context": "2024 NBA Cup final · vs Milwaukee",
-      "answer": 32,
+      "prompt": "In his famous 2020 bubble playoff buzzer-beater over Denver, how many straight Lakers points did Anthony Davis score to finish?",
+      "context": "Anthony Davis · Lakers vs Nuggets · 2020 Western finals",
+      "answer": 10,
       "unit": {
-        "singular": "attempt",
-        "plural": "attempts"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 42,
+      "max": 50,
       "step": 1,
-      "note": "32, a season low in accuracy.",
+      "note": "AD scored the Lakers' final 10, including the game-winning three at the buzzer.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
-        "quote": "going 5-of-32 from long-range, setting season lows in both field goal and three-point percentage"
+        "url": "https://en.wikipedia.org/wiki/Anthony_Davis",
+        "quote": "scoring the last 10 points for the Lakers in a 105–103 win for 2–0 lead in the series."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Milwaukee's 97–81 win gave the franchise its first NBA Cup title.",
+          "text": "He drilled a game-winning three against Denver.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
-            "quote": "The Bucks won their first NBA Cup title"
+            "url": "https://en.wikipedia.org/wiki/Anthony_Davis",
+            "quote": "Davis hit a game winning 3-pointer against the Denver Nuggets"
           }
         },
         {
-          "text": "Taurean Prince became the first player to win two NBA Cups, having won with the Lakers previously.",
+          "text": "That shot put Los Angeles two games to none ahead.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
-            "quote": "Taurean Prince, who won the 2023 title with the Los Angeles Lakers, became the first player to win multiple NBA Cups"
+            "url": "https://en.wikipedia.org/wiki/Anthony_Davis",
+            "quote": "for 2–0 lead in the series"
           }
         },
         {
-          "text": "The 2024 tournament was the first with Emirates as the NBA Cup's naming sponsor.",
+          "text": "It was Davis's first playoff buzzer-beating winner.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
-            "quote": "the first year of a multiyear deal with the airline company Emirates"
+            "url": "https://en.wikipedia.org/wiki/Anthony_Davis",
+            "quote": "It was Davis second career (first in the playoff) game-winning buzzer beater."
           }
         }
       ]

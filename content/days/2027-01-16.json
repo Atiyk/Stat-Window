@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-rodman96-finals-oreb",
+      "id": "nba-jordan98-last-shot-five-point-two",
       "sport": "NBA",
-      "prompt": "In Game 2 of the 1996 Finals, Dennis Rodman tied the Finals record for offensive rebounds. How many did he grab?",
-      "context": "1996 NBA Finals · Game 2 · vs Seattle",
-      "answer": 11,
+      "prompt": "On Michael Jordan's famous 'Last Shot' against Utah in the 1998 Finals, how many seconds remained after the ball went in?",
+      "context": "Michael Jordan · Bulls at Jazz · 1998 Finals Game 6",
+      "answer": 5.2,
       "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
+        "singular": "second",
+        "plural": "seconds"
       },
       "min": 0,
-      "max": 19,
-      "step": 1,
-      "note": "11 offensive rebounds, tying the Finals record.",
+      "max": 20,
+      "step": 0.1,
+      "note": "5.2 seconds. Jordan's jumper helped clinch Chicago's sixth title in eight seasons.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1996_NBA_Finals",
-        "quote": "Dennis Rodman tied an NBA Finals record with 11 offensive rebounds"
+        "url": "https://en.wikipedia.org/wiki/Game_6_of_the_1998_NBA_Finals",
+        "quote": "Jordan then hit a 20-footer to give the Bulls an 87–86 lead with 5.2 seconds left."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Michael Jordan earned Finals MVP for the fourth time as Chicago began a second three-title run.",
+          "text": "Jordan stole the ball from Karl Malone just before the shot.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1996_NBA_Finals",
-            "quote": "Michael Jordan was named NBA Finals MVP, his fourth time winning the award"
+            "url": "https://en.wikipedia.org/wiki/Game_6_of_the_1998_NBA_Finals",
+            "quote": "Jordan stole the ball from Karl Malone in the low post and dribbled down the court."
           }
         },
         {
-          "text": "Seattle reached the Finals behind Gary Payton and Shawn Kemp after defeating Utah in a seven-game Western final.",
+          "text": "John Stockton missed Utah's final chance to win it.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1996_NBA_Finals",
-            "quote": "They then beat the Utah Jazz in seven games in the western finals"
+            "url": "https://en.wikipedia.org/wiki/Game_6_of_the_1998_NBA_Finals",
+            "quote": "John Stockton took the inbound pass, and missed a game-winning 3-pointer"
           }
         },
         {
-          "text": "The Bulls had fallen to Orlando a season earlier; in 1996 they swept the Magic on their way to the Finals.",
+          "text": "Jordan finished the deciding game with 45 points.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1996_NBA_Finals",
-            "quote": "the Bulls swept the Magic to gain entry into the Finals"
+            "url": "https://en.wikipedia.org/wiki/Game_6_of_the_1998_NBA_Finals",
+            "quote": "Michael Jordan took 35 of the Bulls' 67 shots, leading the team in scoring and minutes played with 45 points"
           }
         }
       ]

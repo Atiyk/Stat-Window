@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-hornets08-spurs-g7-points",
+      "id": "nba-pacers24-msg-game7-671-shooting",
       "sport": "NBA",
-      "prompt": "How many points did the Hornets score in Game 7 against the 2008 Spurs?",
-      "context": "New Orleans · Western semifinals · elimination",
-      "answer": 82,
+      "prompt": "In the Pacers' unbelievable 2024 Game 7 shootout at Madison Square Garden, what percent did Indiana shoot from the field?",
+      "context": "Indiana Pacers at Knicks · May 2024 · East semifinals Game 7",
+      "answer": 67.1,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "percent",
+        "plural": "percent"
       },
       "min": 45,
-      "max": 138,
-      "step": 1,
-      "note": "82 points in their season-ending loss.",
+      "max": 80,
+      "step": 0.1,
+      "note": "67.1% from the field in a road Game 7. One of the most scorching playoff shooting nights ever.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
-        "quote": "May 19 San Antonio 82–91 West (20) Chandler (15) Paul (14)"
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+        "quote": "The Pacers set an NBA playoff record for shooting percentage, making 67.1% of their shots in game 7 against the Knicks."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "New Orleans had led the series three games to two.",
+          "text": "Indiana shot a staggering 76.3% in the first half.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
-            "quote": "May 13 San Antonio 101–79 West (38) West (14) Paul (14)"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "The Pacers also set the highest shooting percentage rate in a half with 76.3%"
           }
         },
         {
-          "text": "Tyson Chandler grabbed fifteen rebounds in the decider.",
+          "text": "They made 29 of 38 first-half shots.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
-            "quote": "May 19 San Antonio 82–91 West (20) Chandler (15)"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "making 29 out of 38 shots in the first half"
           }
         },
         {
-          "text": "Chris Paul supplied fourteen assists even in defeat.",
+          "text": "Indiana recovered from an 0–2 series deficit to advance.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
-            "quote": "May 19 San Antonio 82–91 West (20) Chandler (15) Paul (14)"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "the Pacers ultimately prevailed and overcame an 0–2 series deficit for the first time ever."
           }
         }
       ]

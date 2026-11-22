@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-cavs16-parade",
+      "id": "nba-durant17-finals-g3-shot-45seconds",
       "sport": "NBA",
-      "prompt": "About how many million people attended Cleveland's 2016 title parade?",
-      "context": "Cleveland Cavaliers · June 2016",
-      "answer": 1.3,
+      "prompt": "In Durant's famous pull-up Finals Game 3 three over LeBron in 2017, how many seconds were left?",
+      "context": "Kevin Durant · Warriors at Cavaliers · 2017 Finals Game 3",
+      "answer": 45.3,
       "unit": {
-        "singular": "million people",
-        "plural": "million people"
+        "singular": "second",
+        "plural": "seconds"
       },
-      "min": 0.2,
-      "max": 3.2,
+      "min": 20,
+      "max": 60,
       "step": 0.1,
-      "note": "An estimated 1.3 million, then the largest NBA parade.",
+      "note": "45.3 seconds. KD's three capped Golden State's furious comeback on the way to his first title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-        "quote": "An estimated 1.3 million people attended the, then-largest, NBA championship parade in history."
+        "url": "https://en.wikipedia.org/wiki/2017_NBA_Finals",
+        "quote": "Kevin Durant drilled the go-ahead three-pointer for Golden State with 45.3 seconds remaining"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Cleveland Browns legend and civil-rights advocate Jim Brown attended the Cavaliers' championship celebration.",
+          "text": "Golden State went on an unanswered 11-point run to steal the game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-            "quote": "Cleveland Browns Hall of Fame running back and Civil Rights activist Jim Brown attended the parade"
+            "url": "https://en.wikipedia.org/wiki/2017_NBA_Finals",
+            "quote": "the Warriors scored 11 unanswered points to steal the road win"
           }
         },
         {
-          "text": "Cavaliers announcer Fred McLeod likened the moment to Jim Brown passing Cleveland's sporting torch to LeBron.",
+          "text": "Durant finished Game 3 with 31 points.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-            "quote": "Fred McLeod narrated the scene to the crowd"
+            "url": "https://en.wikipedia.org/wiki/2017_NBA_Finals",
+            "quote": "Durant led the Warriors with 31 points"
           }
         },
         {
-          "text": "After Golden State's loss, Draymond Green called the front office to press for Kevin Durant's signing.",
+          "text": "Iguodala blocked a potential tying LeBron three.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-            "quote": "made a phone call to general manager Bob Myers to urge him to try and sign"
+            "url": "https://en.wikipedia.org/wiki/2017_NBA_Finals",
+            "quote": "Iguodala blocked LeBron James' potential game-tying 3"
           }
         }
       ]

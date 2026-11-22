@@ -40,7 +40,7 @@
           }
         },
         {
-          "text": "Jokić's Finals stat line included 14.0 rebounds, 7.2 assists, and 1.4 blocks per game.",
+          "text": "Jokić added better than seven assists and a block per game to his Finals scoring.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-spurs99-alamodome-attendance",
+      "id": "nba-spurs14-finals-avg-margin-fourteen",
       "sport": "NBA",
-      "prompt": "What was San Antonio's total home attendance in the shortened 1998–99 season?",
-      "context": "Spurs home games · Alamodome",
-      "answer": 527357,
+      "prompt": "In the 2014 Spurs–Heat Finals revenge series, by how many points per game did San Antonio outscore Miami on average?",
+      "context": "San Antonio Spurs vs Miami Heat · 2014 NBA Finals",
+      "answer": 14,
       "unit": {
-        "singular": "attendee",
-        "plural": "attendees"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 200000,
-      "max": 900000,
-      "step": 5000,
-      "note": "527,357 attended Spurs home games despite the shorter schedule.",
+      "min": 0,
+      "max": 35,
+      "step": 0.1,
+      "note": "14 points per game. The Spurs won four games by at least 15 in a five-game Finals.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-        "quote": "an attendance of 527,357 at the Alamodome during the regular season"
+        "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+        "quote": "outscored them by an average of 14.0 points per game in the series"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "The Spurs ranked second in home attendance during the season, trailing only Chicago.",
+          "text": "San Antonio won the title in five games.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-            "quote": "The Spurs finished second in the NBA in home-game attendance behind the Chicago Bulls"
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "win the series, 4–1"
           }
         },
         {
-          "text": "The season ended with the first NBA championship in San Antonio franchise history.",
+          "text": "All four Spurs wins came by at least 15 points.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "The Spurs defeated the Knicks in five games to win their first NBA championship."
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "They defeated Miami by margins of at least 15 points in each of their four wins"
           }
         },
         {
-          "text": "The entire league had to play a compressed calendar after the lockout delayed opening night.",
+          "text": "Kawhi Leonard took the Finals MVP award.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-            "quote": "Due to a lockout, the regular season began on February 5, 1999"
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "The Spurs' Kawhi Leonard was named the Finals MVP"
           }
         }
       ]

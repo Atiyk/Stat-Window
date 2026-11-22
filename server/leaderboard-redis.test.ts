@@ -151,6 +151,17 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     }
   });
 
+  it('denied DELETE requests stop incrementing network counters and do not charge erase budgets',async()=>{
+    const store=leaderboardRedis(client.evaluate),scope='delete-limit',p=`${prefix}:${scope}`,b=budget(scope);
+    const keys=[blockLedger(p,member,blockNumber(day1)),blockLedger(p,member,blockNumber(day1)-1),b[2]!,`${p}:delete:minute`,`${p}:delete:day`,`${p}:delete:subcap`,...erasureBoardKeys(p,day1)];
+    for(let i=0;i<2;i++)expect(await store.remove(keys,member,caps)).toBe('nothing');
+    for(let i=0;i<50;i++)expect(await store.remove(keys,member,caps)).toBe('limited');
+    expect(Number(await client.command(['GET',keys[3]!]))).toBe(2);
+    expect(Number(await client.command(['GET',keys[4]!]))).toBe(2);
+    expect(await client.command(['GET',b[2]!])).toBeNull();
+    expect(await client.command(['GET',keys[5]!])).toBeNull();
+  });
+
   it('cross-block week participation and atomic deletion remove both seasons',async()=>{
     const store=leaderboardRedis(client.evaluate),scope='boundary',p=`${prefix}:${scope}`,b=budget(scope);
     const old='2027-08-23',next='2027-08-24';
@@ -227,6 +238,10 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     }
     expect(await store.read(boards(p,day1,null)[0]!,b,caps,rateKeys,[blockLedger(p,'anonymous',blockNumber(day1)),blockLedger(p,'anonymous',blockNumber(day1)-1)],null)).toBe('limited');
     expect(Number(await client.command(['GET',b[3]!]))).toBe(12*24);
+    for(let i=0;i<50;i++)expect(await store.read(boards(p,day1,null)[0]!,b,caps,rateKeys,[blockLedger(p,'anonymous',blockNumber(day1)),blockLedger(p,'anonymous',blockNumber(day1)-1)],null)).toBe('limited');
+    expect(Number(await client.command(['GET',rateKeys[0]!]))).toBe(12);
+    expect(Number(await client.command(['GET',rateKeys[1]!]))).toBe(12);
+    expect(Number(await client.command(['GET',b[3]!]))).toBe(12*24);
   });
 });
 
@@ -259,5 +274,8 @@ describe.skipIf(!url)('leaderboard retention and daily caps on real Redis', () =
     const keys=writeKeys(scope,'2028-02-01','last');
     keys[9]=daily;
     expect(await store.submit(keys,'another','2028-02-01',90,caps,expiration('2028-02-01'))).toBe('limited');
+    for(let i=0;i<50;i++)expect(await store.submit(keys,'another','2028-02-01',90,caps,expiration('2028-02-01'))).toBe('limited');
+    expect(Number(await client.command(['GET',daily]))).toBe(20);
+    expect(Number(await client.command(['GET',keys[8]!]))).toBe(1);
   });
 });

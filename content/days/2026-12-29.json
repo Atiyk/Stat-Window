@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-benwallace04-finals-clincher-reb",
+      "id": "nba-tatum22-bucks-g6-46",
       "sport": "NBA",
-      "prompt": "How many rebounds did Ben Wallace grab in Game 5 of the 2004 Finals?",
-      "context": "Detroit Pistons vs Lakers · June 15, 2004 · championship clincher",
-      "answer": 22,
+      "prompt": "Facing elimination against Giannis and the Bucks in 2022 Game 6, how many points did Jayson Tatum score?",
+      "context": "Jayson Tatum · Celtics at Bucks · 2022 playoffs",
+      "answer": 46,
       "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 10,
-      "max": 42,
+      "max": 120,
       "step": 1,
-      "note": "Twenty-two rebounds in the win that sealed the title.",
+      "note": "46 points, plus nine boards, to force Game 7 and keep Boston alive.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-        "quote": "Rebs: Ben Wallace 22"
+        "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+        "quote": "Jayson Tatum led the way with 46 points, nine rebounds and four assists"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Detroit's title-clinching win was the only game of that Finals in which either team reached triple digits.",
+          "text": "Tatum pulled down nine rebounds and handed out four assists.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "The Pistons' 100 points was the first (and only) time either team scored triple digits in the series."
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "nine rebounds and four assists"
           }
         },
         {
-          "text": "Karl Malone was unable to dress for the decisive Game 5 because of a knee injury, ending his last NBA Finals run.",
+          "text": "Boston forced a seventh game in its home arena.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "Karl Malone would play his last game, as a knee injury would not allow him to dress in Game 5."
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "force a game 7 in Boston"
           }
         },
         {
-          "text": "Detroit owner William Davidson had celebrated another title just days earlier: his Tampa Bay Lightning won the Stanley Cup.",
+          "text": "The Celtics beat Milwaukee on the road.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "Pistons' owner William Davidson became the first owner in American sports history to win two championships in one calendar year;"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "Boston Celtics 108, Milwaukee Bucks 95"
           }
         }
       ]

@@ -60,6 +60,22 @@ export function periodKey(period: Period, day: string, launchDay: string|null): 
 export function boards(prefix:string,day:string,launchDay:string|null):string[] {
   return PERIODS.map(p=>prefix+':board:'+p+':'+periodKey(p,day,launchDay));
 }
+/**
+ * Explicitly declare every board a retained two-block player ledger may cite.
+ * Upstash strict Lua locking rejects writes to keys absent from EVAL's KEYS.
+ * The bound is two fixed 120-day blocks; never scan Redis or trust client keys.
+ */
+export function erasureBoardKeys(prefix:string,day:string):string[] {
+  const anchor=Date.parse('2026-01-01T00:00:00Z');
+  const current=blockNumber(day), result=new Set<string>();
+  for(let block=current-1;block<=current;block++) {
+    for(let i=0;i<SEASON_DAYS;i++) {
+      const date=new Date(anchor+(block*SEASON_DAYS+i)*86400000).toISOString().slice(0,10);
+      for(const board of boards(prefix,date,null)) result.add(board);
+    }
+  }
+  return [...result];
+}
 export function pseudonym(member:string):string {
   const adjectives=['Quiet','Swift','Clever','Steady','Sharp','Lucky','Calm','Bold'];
   const nouns=['Hooper','Shooter','Playmaker','Rookie','Veteran','Closer','Defender','Coach'];
@@ -79,7 +95,9 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
   if(!ctx.store||!ctx.secret||!ctx.env||(!ctx.enabled&&req.method!=='DELETE'))return json(503,{status:'disabled'});
   const now=ctx.now(), today=puzzleDay(now), prefix='sw:v3:'+ctx.env,utc=now.toISOString().slice(0,10);
   const budget=[ 'sw:v1:budget:d:'+utc,'sw:v1:budget:m:'+utc.slice(0,7),'sw:v1:budget:e:'+utc.slice(0,7),prefix+':budget:m:'+utc.slice(0,7) ];
-  const ip=(req.headers.get('x-real-ip')??req.headers.get('x-forwarded-for')??'unknown').split(',')[0]!.trim();
+  // Never trust the user-controlled leftmost X-Forwarded-For address for throttling.
+  // Use the edge-provided address, or one conservative shared fallback bucket.
+  const ip=(req.headers.get('x-real-ip')??'unknown').trim().slice(0,128);
   const network=hash(ctx.secret,'lb-ip:'+ip);
   try {
     if(req.method==='GET') {
@@ -107,11 +125,11 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
     const body=await readBody(req);
     if(!body||typeof body.player!=='string'||!PLAYER.test(body.player))return json(422,{status:'invalid'});
     // Withdrawal of consent must never prevent erasure (including GPC/DNT opt-out).
-    if(req.method==='POST' && body.consent!=='granted')return json(409,{status:'consent-required'});
+    if(req.method==='POST' && (body.consent!=='granted' || req.headers.get('sec-gpc')==='1' || req.headers.get('dnt')==='1'))return json(409,{status:'consent-required'});
     const member=hash(ctx.secret,'lb-player:'+body.player);
     const rate=prefix+':rate:'+network+':'+Math.floor(now.getTime()/60000);
     if(req.method==='DELETE') {
-      const result=await ctx.store.remove([blockLedger(prefix,member,blockNumber(today)),blockLedger(prefix,member,blockNumber(today)-1),budget[2]!,rate,prefix+':delete:day:'+network+':'+utc,prefix+':budget:erase:'+utc.slice(0,7)],member,ctx.caps);
+      const result=await ctx.store.remove([blockLedger(prefix,member,blockNumber(today)),blockLedger(prefix,member,blockNumber(today)-1),budget[2]!,rate,prefix+':delete:day:'+network+':'+utc,prefix+':budget:erase:'+utc.slice(0,7),...erasureBoardKeys(prefix,today)],member,ctx.caps);
       return result==='limited'?json(429,{status:'limited'}):result==='paused'?json(503,{status:'paused'}):json(200,{status:'ok',removed:result==='removed'?1:0});
     }
     const submittedDay = body.day;

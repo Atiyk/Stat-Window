@@ -1449,69 +1449,6 @@
     }
   },
   {
-    "id": "nba-finals16-610",
-    "family": "points-series",
-    "scope": "finals",
-    "season": "2015-16",
-    "eventDate": null,
-    "franchise": null,
-    "player": null,
-    "answer": 610,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "610 points each.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-      "quote": "both teams entered Game 7 with the same total points scored through six games (610 points each).",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "Before Game 7 of the 2016 Finals, both teams had scored the exact same total over six games. What was it?",
-      "context": "2016 NBA Finals · Games 1–6 · Cavaliers and Warriors",
-      "reveal": "610 points each.",
-      "min": 440,
-      "max": 640,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Requires multiplying an unremembered per-game average by six.",
-      "ratings": {
-        "interest": 4,
-        "recognizability": 1,
-        "estimability": 3,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Cleveland won the final game 93–89, with 20 lead changes and 11 ties.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-            "quote": "The Cavaliers defeated the Warriors 93–89 in Game 7"
-          }
-        },
-        {
-          "text": "LeBron's chase-down block on Andre Iguodala came with the score tied late in Game 7.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-            "quote": "LeBron James delivered what became known as \"The Block\""
-          }
-        },
-        {
-          "text": "The Warriors went the final four minutes and 39 seconds without a made basket.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-            "quote": "failed to score a basket during the last 4:39 of the game"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-gsw16-start",
     "family": "win-streak",
     "scope": "regular-season",
@@ -12474,69 +12411,6 @@
     }
   },
   {
-    "id": "nba-baylor-finals-losses",
-    "family": "finals-appearances",
-    "scope": "career",
-    "season": "1970-71",
-    "eventDate": null,
-    "franchise": "LAL",
-    "player": "Elgin Baylor",
-    "answer": 8,
-    "unit": {
-      "singular": "Finals appearance",
-      "plural": "Finals appearances"
-    },
-    "claim": "Eight times.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-      "quote": "helped lead the team to the NBA Finals eight times, but the team lost each time.",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "Elgin Baylor led the Lakers to the Finals how many times, losing every one?",
-      "context": "Minneapolis and Los Angeles Lakers · 1958–1971",
-      "reveal": "Eight times.",
-      "min": 0,
-      "max": 11,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "The heartbreak is known; the count is not.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 3,
-        "estimability": 3,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Baylor retired just before the Lakers embarked on their landmark winning streak and won the championship.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-            "quote": "Baylor missed two historic achievements: the Lakers' first game afterwards began an NBA record 33-game win streak"
-          }
-        },
-        {
-          "text": "During an Army Reserve deployment, Baylor could join the Lakers only on weekend passes and flew coach to games.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-            "quote": "he could play for the Lakers only when on a weekend pass"
-          }
-        },
-        {
-          "text": "The Lakers were struggling financially when Baylor arrived; their owner credited him with keeping the franchise alive.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-            "quote": "Baylor immediately exceeded expectations and ultimately saved the Lakers franchise"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-celtics84-wins",
     "family": "wins-season",
     "scope": "regular-season",
@@ -14948,69 +14822,6 @@
     }
   },
   {
-    "id": "nba-benwallace04-finals-clincher-reb",
-    "family": "rebounds-game",
-    "scope": "finals",
-    "season": "2003-04",
-    "eventDate": "2004-06-15",
-    "franchise": "DET",
-    "player": "Ben Wallace",
-    "answer": 22,
-    "unit": {
-      "singular": "rebound",
-      "plural": "rebounds"
-    },
-    "claim": "Ben Wallace collected 22 rebounds in Detroit's 2004 championship clincher.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-      "quote": "Rebs: Ben Wallace 22",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many rebounds did Ben Wallace grab in Game 5 of the 2004 Finals?",
-      "context": "Detroit Pistons vs Lakers · June 15, 2004 · championship clincher",
-      "reveal": "Twenty-two rebounds in the win that sealed the title.",
-      "min": 10,
-      "max": 42,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "A single player's rebound total in a particular Finals game is an obscure, high-variance number.",
-      "ratings": {
-        "interest": 4,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Detroit's title-clinching win was the only game of that Finals in which either team reached triple digits.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "The Pistons' 100 points was the first (and only) time either team scored triple digits in the series."
-          }
-        },
-        {
-          "text": "Karl Malone was unable to dress for the decisive Game 5 because of a knee injury, ending his last NBA Finals run.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "Karl Malone would play his last game, as a knee injury would not allow him to dress in Game 5."
-          }
-        },
-        {
-          "text": "Detroit owner William Davidson had celebrated another title just days earlier: his Tampa Bay Lightning won the Stanley Cup.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "Pistons' owner William Davidson became the first owner in American sports history to win two championships in one calendar year;"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-nuggets23-regular-wins",
     "family": "wins-season",
     "scope": "regular-season",
@@ -17216,69 +17027,6 @@
     }
   },
   {
-    "id": "nba-hawks15-year-win-improvement",
-    "family": "wins-change",
-    "scope": "regular-season",
-    "season": "2014-15",
-    "eventDate": null,
-    "franchise": "ATL",
-    "player": null,
-    "answer": 22,
-    "unit": {
-      "singular": "extra win",
-      "plural": "extra wins"
-    },
-    "claim": "The 2014–15 Hawks improved by 22 wins over the previous season.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
-      "quote": "Their 22 wins improvement was the second largest by a team",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "By how many wins did Atlanta improve from 2013–14 to 2014–15?",
-      "context": "Hawks · year-over-year regular-season improvement",
-      "reveal": "22 more wins than the previous season.",
-      "min": 8,
-      "max": 44,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Year-to-year jumps for a non-champion conference finalist are niche.",
-      "ratings": {
-        "interest": 4,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Atlanta was the first No. 1 seed swept in a playoff series since Detroit in 2003.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
-            "quote": "first #1 seed to get swept in a playoff series since the Detroit Pistons"
-          }
-        },
-        {
-          "text": "The Hawks did not reach another conference final until 2021.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
-            "quote": "The Hawks would not return to the conference finals until 2021"
-          }
-        },
-        {
-          "text": "Former Hawks coach Mike Budenholzer led Milwaukee past Atlanta in that later appearance.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
-            "quote": "led by former Hawks coach Mike Budenholzer"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-magic09-regular-wins",
     "family": "wins-season",
     "scope": "regular-season",
@@ -17777,69 +17525,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
             "quote": "June 19 @ Brooklyn W 115–111 (OT)"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-forbes21-three-pct",
-    "family": "shooting-pct",
-    "scope": "regular-season",
-    "season": "2020-21",
-    "eventDate": null,
-    "franchise": "MIL",
-    "player": "Bryn Forbes",
-    "answer": 45.2,
-    "unit": {
-      "singular": "percent",
-      "plural": "percent"
-    },
-    "claim": "45.2%, a key source of floor spacing for Milwaukee.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-      "quote": "Bryn Forbes | 70 | 10 | 19.3 | .473 | .452 | .770 | 1.6 | .6",
-      "derivation": "Source records .452 three-point accuracy; multiply by 100 for 45.2 percent.",
-      "asOf": null
-    },
-    "question": {
-      "prompt": "What percentage of threes did Bryn Forbes make for the champion Bucks?",
-      "context": "Milwaukee · 2020–21 regular season",
-      "reveal": "45.2%, a key source of floor spacing for Milwaukee.",
-      "min": 22,
-      "max": 62,
-      "step": 0.1,
-      "difficulty": "expert",
-      "difficultyReason": "A role player's specific shooting split requires detailed season knowledge.",
-      "ratings": {
-        "interest": 4,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Forbes played 70 regular-season games but started only ten.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "Bryn Forbes | 70 | 10 | 19.3"
-          }
-        },
-        {
-          "text": "Milwaukee signed Forbes from the San Antonio Spurs in free agency.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "Bryn Forbes | November 26 | San Antonio Spurs"
-          }
-        },
-        {
-          "text": "His three-point accuracy dropped during the title-winning playoffs.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "Bryn Forbes | 20 | 0 | 13.7 | .411 | .371"
           }
         }
       ]
@@ -18350,69 +18035,6 @@
     }
   },
   {
-    "id": "nba-smits98-bulls-g4-points",
-    "family": "points-game",
-    "scope": "playoffs",
-    "season": "1997-98",
-    "eventDate": "1998-05-25",
-    "franchise": "IND",
-    "player": "Rik Smits",
-    "answer": 26,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "26 points in a dramatic two-point win.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-      "quote": "May 25, 1998 Chicago W 96–94 Smits (26)",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many points did Rik Smits score in Game 4 against the 1998 Bulls?",
-      "context": "Indiana · Eastern finals · home victory",
-      "reveal": "26 points in a dramatic two-point win.",
-      "min": 12,
-      "max": 76,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "A game-specific playoff score from the 1990s is obscure.",
-      "ratings": {
-        "interest": 5,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "The Pacers won Game 4 by just two points at home.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "May 25, 1998 Chicago W 96–94"
-          }
-        },
-        {
-          "text": "Chris Mullin led Indiana with nine rebounds that night.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "May 25, 1998 Chicago W 96–94 Smits (26) Mullin (9)"
-          }
-        },
-        {
-          "text": "The Pacers won all three home games in that East final but none in Chicago.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "Eastern Conference finals: 3–4 (home: 3–0; road: 0–4)"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-kings02-regular-wins",
     "family": "wins-season",
     "scope": "regular-season",
@@ -18911,69 +18533,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
             "quote": "Duncan Robinson | SG | 73 | 68 | 2,166 | 232 | 102"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-herro20-celtics-g4-points",
-    "family": "points-game",
-    "scope": "playoffs",
-    "season": "2019-20",
-    "eventDate": "2020-09-23",
-    "franchise": "MIA",
-    "player": "Tyler Herro",
-    "answer": 37,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "37 points in Miami's narrow win.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-      "quote": "September 23 Boston W 112–109 Tyler Herro (37)",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many points did rookie Tyler Herro score in Game 4 versus Boston?",
-      "context": "2020 Bubble · Eastern Conference finals",
-      "reveal": "37 points in Miami's narrow win.",
-      "min": 18,
-      "max": 69,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "A single breakout rookie game is hard to recall precisely.",
-      "ratings": {
-        "interest": 5,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "The Heat escaped that game by a three-point margin.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "September 23 Boston W 112–109 Tyler Herro (37)"
-          }
-        },
-        {
-          "text": "Bam Adebayo collected twelve rebounds in the same contest.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "September 23 Boston W 112–109 Tyler Herro (37) Bam Adebayo (12)"
-          }
-        },
-        {
-          "text": "Miami took a three-games-to-one series lead with that victory.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "No In-Person Attendance 3–1"
           }
         }
       ]
@@ -20423,69 +19982,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
             "quote": "Nate McMillan provided with 6.0 points, 5.3 assists and 3.0 steals per game"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-sonics94-nuggets-g5-points",
-    "family": "points-team-game",
-    "scope": "playoffs",
-    "season": "1993-94",
-    "eventDate": null,
-    "franchise": "OKC",
-    "player": null,
-    "answer": 94,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "Seattle scored 94 in the overtime Game 5 loss to Denver in the 1994 playoffs.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-      "quote": "losing Game 5 to the Nuggets at the Seattle Center Coliseum in overtime, 98–94",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many points did Seattle score in its decisive Game 5 loss to Denver?",
-      "context": "NBA playoffs · first-round upset · Seattle vs Denver",
-      "reveal": "94 points in overtime as Denver completed a historic upset.",
-      "min": 48,
-      "max": 128,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "A legendary upset but a tough final-game score to recall.",
-      "ratings": {
-        "interest": 5,
-        "recognizability": 4,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Denver's roster featured Dikembe Mutombo and Mahmoud Abdul-Rauf.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "a team that featured defensive shot-blocker Dikembe Mutombo, Mahmoud Abdul-Rauf"
-          }
-        },
-        {
-          "text": "Seattle won the first two games at home before losing the next two on the road.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "The SuperSonics won the first two games over the Nuggets at home"
-          }
-        },
-        {
-          "text": "The Nuggets became the first No. 8 seed to eliminate a top seed in NBA playoff history.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "it was the first time in NBA playoffs history that a #8 seed defeated a #1 seeded team"
           }
         }
       ]
@@ -23825,6 +23321,510 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
             "quote": "Asts: Trae Young 11"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-kawhi19-philly-game7-41",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2018-19",
+    "eventDate": "2019-05-12",
+    "franchise": "TOR",
+    "player": "Kawhi Leonard",
+    "answer": 41,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "41 points. Kawhi's four-bounce jumper sent Toronto through in a legendary Game 7.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+      "quote": "He finished the game with 41 points on 16-of-39 shooting.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "When Kawhi Leonard hit the four-bounce Game 7 winner against Philadelphia in 2019, how many points did he score?",
+      "context": "Kawhi Leonard · Raptors vs 76ers · 2019 playoffs",
+      "reveal": "41 points. Kawhi's four-bounce jumper sent Toronto through in a legendary Game 7.",
+      "min": 10,
+      "max": 110,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A universally replayed Raptors title-run moment; a fan can estimate Kawhi's high-stakes Game 7 scoring output.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Kawhi's shot bounced on the rim four times before dropping.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+            "quote": "bounced off the rim four times before falling"
+          }
+        },
+        {
+          "text": "Toronto escaped with a two-point victory.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+            "quote": "92–90 victory over the 76ers"
+          }
+        },
+        {
+          "text": "It was the league's first winning buzzer-beater in a Game 7.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+            "quote": "first game 7 buzzer beater in NBA history"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-ja22-warriors-game2-47",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2021-22",
+    "eventDate": "2022-05-03",
+    "franchise": "MEM",
+    "player": "Ja Morant",
+    "answer": 47,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "47 points, including Memphis's final 15, to even the series.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+      "quote": "Ja Morant scored 47 points to match his postseason high",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Memphis's 2022 playoff showdown against Steph Curry's Warriors, how many points did Ja Morant score in Game 2?",
+      "context": "Ja Morant · Grizzlies vs Warriors · May 2022",
+      "reveal": "47 points, including Memphis's final 15, to even the series.",
+      "min": 10,
+      "max": 120,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Ja versus Curry is an engaging modern rivalry, with an estimable near-50-point star playoff night.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Ja scored his team's last 15 points of the night.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "Morant scored the last 15 points for Memphis"
+          }
+        },
+        {
+          "text": "Memphis won Game 2 by five points.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "106–101 victory over the Warriors"
+          }
+        },
+        {
+          "text": "The result leveled the best-of-seven series.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "Series tied, 1–1"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-luka24-wolves-g2-32",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2023-24",
+    "eventDate": "2024-05-24",
+    "franchise": "DAL",
+    "player": "Luka Dončić",
+    "answer": 32,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "32 points, a triple-double and a go-ahead three over the Defensive Player of the Year.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+      "quote": "Pts: Luka Dončić 32",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In the 2024 West finals, Luka buried a Game 2 winner over Rudy Gobert. How many points did he score?",
+      "context": "Luka Dončić · Mavericks at Timberwolves · 2024 playoffs",
+      "reveal": "32 points, a triple-double and a go-ahead three over the Defensive Player of the Year.",
+      "min": 5,
+      "max": 85,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Luka's clutch shot over Gobert was a recent widely shared highlight; his point total is an approachable postseason estimate.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Luka made the game-winner over the Defensive Player of the Year.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "game-winning three-pointer over the Defensive Player of the Year (Rudy Gobert)"
+          }
+        },
+        {
+          "text": "He distributed 13 assists in the game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "Asts: Luka Dončić 13"
+          }
+        },
+        {
+          "text": "Dallas escaped with a one-point win.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "Dallas Mavericks 109, Minnesota Timberwolves 108"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-tatum22-bucks-g6-46",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2021-22",
+    "eventDate": "2022-05-13",
+    "franchise": "BOS",
+    "player": "Jayson Tatum",
+    "answer": 46,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "46 points, plus nine boards, to force Game 7 and keep Boston alive.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+      "quote": "Jayson Tatum led the way with 46 points, nine rebounds and four assists",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Facing elimination against Giannis and the Bucks in 2022 Game 6, how many points did Jayson Tatum score?",
+      "context": "Jayson Tatum · Celtics at Bucks · 2022 playoffs",
+      "reveal": "46 points, plus nine boards, to force Game 7 and keep Boston alive.",
+      "min": 10,
+      "max": 120,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A recent Tatum-versus-Giannis elimination-game duel; guessing a star's rescue performance is understandable and exciting.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Tatum pulled down nine rebounds and handed out four assists.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "nine rebounds and four assists"
+          }
+        },
+        {
+          "text": "Boston forced a seventh game in its home arena.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "force a game 7 in Boston"
+          }
+        },
+        {
+          "text": "The Celtics beat Milwaukee on the road.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "Boston Celtics 108, Milwaukee Bucks 95"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-curry21-blazers-62",
+    "family": "points-game",
+    "scope": "regular-season",
+    "season": "2020-21",
+    "eventDate": "2021-01-03",
+    "franchise": "GSW",
+    "player": "Stephen Curry",
+    "answer": 62,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "62 points, a Curry career high, as Golden State beat Portland.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
+      "quote": "On January 3, 2021, Curry scored a career-high 62 points on 18-of-31 shooting",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Against Damian Lillard's Portland team in January 2021, how many points did Steph Curry score in his career-best game?",
+      "context": "Stephen Curry · Warriors vs Blazers · January 2021",
+      "reveal": "62 points, a Curry career high, as Golden State beat Portland.",
+      "min": 15,
+      "max": 140,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Two famous rivals and Curry's historic personal scoring peak make a natural, estimable superstar night.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Steph hit 18 of his 31 field-goal attempts.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
+            "quote": "18-of-31 shooting"
+          }
+        },
+        {
+          "text": "The Warriors beat the Blazers by fifteen.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
+            "quote": "137–122 win against the Portland Trail Blazers"
+          }
+        },
+        {
+          "text": "He earned a conference weekly honor the next day.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
+            "quote": "named the Player of the Week for the Western Conference"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-love10-knicks-thirty-one-boards",
+    "family": "rebounds-game",
+    "scope": "regular-season",
+    "season": "2010-11",
+    "eventDate": "2010-11-12",
+    "franchise": "MIN",
+    "player": "Kevin Love",
+    "answer": 31,
+    "unit": {
+      "singular": "rebound",
+      "plural": "rebounds"
+    },
+    "claim": "31 rebounds, matching his 31 points in one of the NBA's rare 30–30 games.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Kevin_Love",
+      "quote": "when he recorded 31 points along with a career-high 31 rebounds.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Kevin Love's famous 2010 '30–30' game against the Knicks, how many rebounds did he grab?",
+      "context": "Kevin Love · Timberwolves vs Knicks · November 2010",
+      "reveal": "31 rebounds, matching his 31 points in one of the NBA's rare 30–30 games.",
+      "min": 5,
+      "max": 85,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "The celebrated Kevin Love 30–30 game offers a familiar all-around feat and an estimable extraordinary rebound total.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "The performance broke Minnesota's franchise rebounding record.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kevin_Love",
+            "quote": "His 31 rebounds set a Timberwolves franchise record"
+          }
+        },
+        {
+          "text": "Love was the first to record a 30–30 since Moses Malone.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kevin_Love",
+            "quote": "first player to record a 30–30 game since Moses Malone in 1982"
+          }
+        },
+        {
+          "text": "He did it against New York.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kevin_Love",
+            "quote": "a home game against the New York Knicks on November 12, 2010"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-melo14-knicks-msg-62",
+    "family": "points-game",
+    "scope": "regular-season",
+    "season": "2013-14",
+    "eventDate": "2014-01-24",
+    "franchise": "NYK",
+    "player": "Carmelo Anthony",
+    "answer": 62,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Melo scored 62 against Charlotte, setting Knicks and MSG single-game scoring records.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Carmelo_Anthony",
+      "quote": "a 62-point, 13-rebound, 0 turnover effort against the Charlotte Bobcats.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In his unforgettable 2014 Madison Square Garden scoring explosion against Charlotte, how many points did Carmelo Anthony score?",
+      "context": "Carmelo Anthony · Knicks vs Bobcats · January 2014",
+      "reveal": "62 points, a Knicks and MSG record, with 13 rebounds and no turnovers.",
+      "min": 15,
+      "max": 140,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Carmelo's MSG career-best scoring night is a recognizable Knicks milestone and an estimable massive star performance.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Melo also grabbed 13 rebounds.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Carmelo_Anthony",
+            "quote": "62-point, 13-rebound, 0 turnover effort"
+          }
+        },
+        {
+          "text": "He scored without committing a turnover.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Carmelo_Anthony",
+            "quote": "13-rebound, 0 turnover effort"
+          }
+        },
+        {
+          "text": "That night set a Madison Square Garden scoring record.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Carmelo_Anthony",
+            "quote": "Madison Square Garden record for single-game scoring"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-lebron12-boston-g6-45",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2011-12",
+    "eventDate": "2012-06-07",
+    "franchise": "MIA",
+    "player": "LeBron James",
+    "answer": 45,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "LeBron scored 45 and grabbed 15 rebounds to force 2012 East finals Game 7 in Boston.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/LeBron_James",
+      "quote": "Facing elimination in Game 6, James recorded 45 points and 15 rebounds",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Facing elimination at Boston in 2012, how many points did LeBron score in his defining East finals Game 6?",
+      "context": "LeBron James · Miami Heat at Boston Celtics · June 2012",
+      "reveal": "45 points and 15 rebounds. Miami survived and won LeBron's first championship.",
+      "min": 10,
+      "max": 125,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "LeBron's pivotal 2012 Eastern finals Game 6 against Boston is an iconic playoff rescue with an intuitive huge scoring range.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "He hauled in 15 rebounds that night.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/LeBron_James",
+            "quote": "James recorded 45 points and 15 rebounds"
+          }
+        },
+        {
+          "text": "The Heat won the deciding game afterward.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/LeBron_James",
+            "quote": "Miami won Game 7 to advance to the Finals"
+          }
+        },
+        {
+          "text": "LeBron earned his first Finals MVP following the run.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/LeBron_James",
+            "quote": "James was voted Finals MVP with averages of 28.6 points"
           }
         }
       ]

@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-sonics94-nuggets-g5-points",
+      "id": "nba-luka24-wolves-g2-32",
       "sport": "NBA",
-      "prompt": "How many points did Seattle score in its decisive Game 5 loss to Denver?",
-      "context": "NBA playoffs · first-round upset · Seattle vs Denver",
-      "answer": 94,
+      "prompt": "In the 2024 West finals, Luka buried a Game 2 winner over Rudy Gobert. How many points did he score?",
+      "context": "Luka Dončić · Mavericks at Timberwolves · 2024 playoffs",
+      "answer": 32,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 48,
-      "max": 128,
+      "min": 5,
+      "max": 85,
       "step": 1,
-      "note": "94 points in overtime as Denver completed a historic upset.",
+      "note": "32 points, a triple-double and a go-ahead three over the Defensive Player of the Year.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-        "quote": "losing Game 5 to the Nuggets at the Seattle Center Coliseum in overtime, 98–94"
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+        "quote": "Pts: Luka Dončić 32"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Denver's roster featured Dikembe Mutombo and Mahmoud Abdul-Rauf.",
+          "text": "Luka made the game-winner over the Defensive Player of the Year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "a team that featured defensive shot-blocker Dikembe Mutombo, Mahmoud Abdul-Rauf"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "game-winning three-pointer over the Defensive Player of the Year (Rudy Gobert)"
           }
         },
         {
-          "text": "Seattle won the first two games at home before losing the next two on the road.",
+          "text": "He distributed 13 assists in the game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "The SuperSonics won the first two games over the Nuggets at home"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "Asts: Luka Dončić 13"
           }
         },
         {
-          "text": "The Nuggets became the first No. 8 seed to eliminate a top seed in NBA playoff history.",
+          "text": "Dallas escaped with a one-point win.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "it was the first time in NBA playoffs history that a #8 seed defeated a #1 seeded team"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "Dallas Mavericks 109, Minnesota Timberwolves 108"
           }
         }
       ]

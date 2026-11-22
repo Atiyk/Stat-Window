@@ -211,24 +211,23 @@
       ]
     },
     {
-      "id": "nba-forbes21-three-pct",
+      "id": "nba-melo14-knicks-msg-62",
       "sport": "NBA",
-      "prompt": "What percentage of threes did Bryn Forbes make for the champion Bucks?",
-      "context": "Milwaukee · 2020–21 regular season",
-      "answer": 45.2,
+      "prompt": "In his unforgettable 2014 Madison Square Garden scoring explosion against Charlotte, how many points did Carmelo Anthony score?",
+      "context": "Carmelo Anthony · Knicks vs Bobcats · January 2014",
+      "answer": 62,
       "unit": {
-        "singular": "percent",
-        "plural": "percent"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 22,
-      "max": 62,
-      "step": 0.1,
-      "note": "45.2%, a key source of floor spacing for Milwaukee.",
+      "min": 15,
+      "max": 140,
+      "step": 1,
+      "note": "62 points, a Knicks and MSG record, with 13 rebounds and no turnovers.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-        "quote": "Bryn Forbes | 70 | 10 | 19.3 | .473 | .452 | .770 | 1.6 | .6",
-        "derivation": "Source records .452 three-point accuracy; multiply by 100 for 45.2 percent."
+        "url": "https://en.wikipedia.org/wiki/Carmelo_Anthony",
+        "quote": "a 62-point, 13-rebound, 0 turnover effort against the Charlotte Bobcats."
       },
       "verified": {
         "on": "2026-11-16",
@@ -237,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Forbes played 70 regular-season games but started only ten.",
+          "text": "Melo also grabbed 13 rebounds.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "Bryn Forbes | 70 | 10 | 19.3"
+            "url": "https://en.wikipedia.org/wiki/Carmelo_Anthony",
+            "quote": "62-point, 13-rebound, 0 turnover effort"
           }
         },
         {
-          "text": "Milwaukee signed Forbes from the San Antonio Spurs in free agency.",
+          "text": "He scored without committing a turnover.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "Bryn Forbes | November 26 | San Antonio Spurs"
+            "url": "https://en.wikipedia.org/wiki/Carmelo_Anthony",
+            "quote": "13-rebound, 0 turnover effort"
           }
         },
         {
-          "text": "His three-point accuracy dropped during the title-winning playoffs.",
+          "text": "That night set a Madison Square Garden scoring record.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "Bryn Forbes | 20 | 0 | 13.7 | .411 | .371"
+            "url": "https://en.wikipedia.org/wiki/Carmelo_Anthony",
+            "quote": "Madison Square Garden record for single-game scoring"
           }
         }
       ]

@@ -2,9 +2,11 @@
 import type { LBStore } from './leaderboard.ts';
 import type { Eval } from './store.ts';
 export const READ_LUA=`
+if tonumber(redis.call('GET',KEYS[5]) or '0')>=12 then return {'limited'} end
 local minute=redis.call('INCR',KEYS[5])
 if minute==1 then redis.call('EXPIRE',KEYS[5],120) end
 if minute>12 then return {'limited'} end
+if tonumber(redis.call('GET',KEYS[6]) or '0')>=60 then return {'limited'} end
 local daily=redis.call('INCR',KEYS[6])
 if daily==1 then redis.call('EXPIRE',KEYS[6],93600) end
 if daily>60 then return {'limited'} end
@@ -42,9 +44,11 @@ end
 return {'ok',n,top,mine}
 `;
 export const SUBMIT_LUA=`
+if tonumber(redis.call('GET',KEYS[8]) or '0')>=4 then return 'limited' end
 local rate=redis.call('INCR',KEYS[8])
 if rate==1 then redis.call('EXPIRE',KEYS[8],120) end
 if rate>4 then return 'limited' end
+if tonumber(redis.call('GET',KEYS[10]) or '0')>=20 then return 'limited' end
 local daily=redis.call('INCR',KEYS[10])
 if daily==1 then redis.call('EXPIRE',KEYS[10],93600) end
 if daily>20 then return 'limited' end
@@ -61,36 +65,59 @@ for i=2,5 do redis.call('ZINCRBY',KEYS[i],tonumber(ARGV[1]),ARGV[5]) redis.call(
 return 'stored'
 `;
 export const REMOVE_LUA=`
+if tonumber(redis.call('GET',KEYS[4]) or '0')>=2 then return 'limited' end
 local rate=redis.call('INCR',KEYS[4])
 if rate==1 then redis.call('EXPIRE',KEYS[4],120) end
 if rate>2 then return 'limited' end
+if tonumber(redis.call('GET',KEYS[5]) or '0')>=6 then return 'limited' end
 local daily=redis.call('INCR',KEYS[5])
 if daily==1 then redis.call('EXPIRE',KEYS[5],93600) end
 if daily>6 then return 'limited' end
-local records={}
+-- KEYS[7+] are the complete, deterministic board universe for both
+-- retained 120-day ledger blocks. Under Upstash Lua strict locking every
+-- mutated board must have been declared in the EVAL key list.
+local declared={}
+for k=7,#KEYS do declared[KEYS[k]]=k end
+local totalByBoard={}
+local uniqueBoards=0
 local count=0
 for k=1,2 do
   local all=redis.call('HGETALL',KEYS[k])
   for i=2,#all,2 do
     count=count+1
     if count>240 then return 'paused' end
-    records[#records+1]=cjson.decode(all[i])
+    local item=cjson.decode(all[i])
+    if type(item)~='table' or #item~=5 or type(item[1])~='number' or item[1]<0 then return 'paused' end
+    -- Preflight every ledger row before touching any public ranking.
+    for j=2,5 do
+      local board=item[j]
+      if not declared[board] then return 'paused' end
+      if totalByBoard[board]==nil then
+        totalByBoard[board]=0
+        uniqueBoards=uniqueBoards+1
+      end
+      totalByBoard[board]=totalByBoard[board]+item[1]
+    end
   end
 end
 if count==0 then return 'nothing' end
--- Upper bound covers ZINCRBY + ZREM per board, counter writes and scanning.
--- Never debit the shared erase reserve or leaderboard subcap for empty ledgers.
-local cost=20+14*count
+-- One ZSCORE and at most one ZREM/ZINCRBY per distinct board, not per day.
+-- Upstash bills EVAL + every redis.call; 20 + 3*boards bounds those calls.
+local cost=20+3*uniqueBoards
 if tonumber(redis.call('GET',KEYS[3]) or '0')+cost>20000 or
    tonumber(redis.call('GET',KEYS[6]) or '0')+cost>tonumber(ARGV[1]) then return 'paused' end
 redis.call('INCRBY',KEYS[3],cost) redis.call('EXPIRE',KEYS[3],2764800)
 redis.call('INCRBY',KEYS[6],cost) redis.call('EXPIRE',KEYS[6],2764800)
-for _,item in ipairs(records) do
-  local score=item[1]
-  for j=2,5 do
-    local board=item[j]
-    local new=redis.call('ZINCRBY',board,-score,ARGV[2])
-    if tonumber(new)<=0 then redis.call('ZREM',board,ARGV[2]) end
+for name,score in pairs(totalByBoard) do
+  local board=KEYS[declared[name]]
+  -- Never recreate a board that already expired; mutate a member once.
+  local current=redis.call('ZSCORE',board,ARGV[2])
+  if current then
+    if tonumber(current)<=score then
+      redis.call('ZREM',board,ARGV[2])
+    else
+      redis.call('ZINCRBY',board,-score,ARGV[2])
+    end
   end
 end
 redis.call('DEL',KEYS[1],KEYS[2])

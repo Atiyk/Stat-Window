@@ -44,7 +44,7 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
   if(origin) { try { const o=new URL(origin); if(o.host!==(req.headers.get('x-forwarded-host')??req.headers.get('host')??new URL(req.url).host)&&!ctx.allowedOrigins.includes(o.origin))return json(403,{status:'origin'}); }catch{return json(403,{status:'origin'});} }
   if(!ctx.store||!ctx.secret||!ctx.env||(!ctx.enabled&&req.method!=='DELETE'))return json(503,{status:'disabled'});
   const now=ctx.now(), today=puzzleDay(now), prefix='sw:v3:'+ctx.env,utc=now.toISOString().slice(0,10);
-  const budget=[ 'sw:v1:budget:d:'+utc,'sw:v1:budget:m:'+utc.slice(0,7),'sw:v1:budget:e:'+utc.slice(0,7) ];
+  const budget=[ 'sw:v1:budget:d:'+utc,'sw:v1:budget:m:'+utc.slice(0,7),'sw:v1:budget:e:'+utc.slice(0,7),prefix+':budget:m:'+utc.slice(0,7) ];
   try {
     if(req.method==='GET') {
       const u=new URL(req.url),period=u.searchParams.get('period');
@@ -69,7 +69,7 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
     if(!slate||slate.date!==body.day)return json(200,{status:'ineligible'});
     const score=verifyRounds(slate,body.rounds);
     if(score===null||(body.total!==undefined&&body.total!==score))return json(422,{status:'invalid'});
-    const result=await ctx.store.submit([prefix+':player:'+member,...boards(prefix,body.day,ctx.launchDay),budget[0]!,budget[1]!,rate],member,body.day,score,ctx.caps);
+    const result=await ctx.store.submit([prefix+':player:'+member,...boards(prefix,body.day,ctx.launchDay),budget[0]!,budget[1]!,rate,budget[3]!],member,body.day,score,ctx.caps);
     return result==='limited'?json(429,{status:'limited'}):result==='paused'?json(503,{status:'paused'}):json(200,{status:result,day:body.day,score});
   }catch{return json(503,{status:'unavailable'});}
 }

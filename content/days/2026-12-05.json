@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-sixers01-finals-g1-points",
+      "id": "nba-howard09-cavs-g6-points",
       "sport": "NBA",
-      "prompt": "How many points did the 76ers score in their overtime Game 1 win over the Lakers in 2001?",
-      "context": "2001 NBA Finals · June 6 · Philadelphia at Los Angeles",
-      "answer": 107,
+      "prompt": "How many points did Howard score to eliminate Cleveland in the 2009 East finals?",
+      "context": "Magic vs Cavaliers · conference finals Game 6",
+      "answer": 40,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 76,
-      "max": 119,
+      "min": 22,
+      "max": 80,
       "step": 1,
-      "note": "107, the Lakers' only defeat during that postseason.",
+      "note": "40 points to send Orlando back to the NBA Finals.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-        "quote": "June 6 @ L.A. Lakers W 107–101 (OT)"
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+        "quote": "thanks to Howard's 40 points and 10 rebounds in Game 6"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "That opening-game overtime win was the Lakers' only loss across their entire 2001 playoff run.",
+          "text": "Howard also grabbed ten rebounds in the decisive game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "By the end of the series, the 2000–01 Lakers held the record for the best postseason record with 15–1."
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "Howard's 40 points and 10 rebounds in Game 6"
           }
         },
         {
-          "text": "Philadelphia outscored Los Angeles 13–7 in overtime after a close regulation contest.",
+          "text": "Orlando eliminated the top-seeded Cavaliers to reach its first Finals since the Shaq era.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "Scoring by quarter: 22–23, 34–27, 23–27, 15–17, Overtime: 13–7"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "defeated the top-seeded Cleveland Cavaliers in six games"
           }
         },
         {
-          "text": "The Sixers had just survived two straight seven-game playoff series against Toronto and Milwaukee before reaching the Finals.",
+          "text": "The Lakers defeated Orlando in the NBA Finals that followed.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "had just come out of two straight seven-game series against the Toronto Raptors and Milwaukee Bucks"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "would lose to the Kobe Bryant-led Los Angeles Lakers in five games"
           }
         }
       ]

@@ -160,23 +160,23 @@
       ]
     },
     {
-      "id": "nba-green16-g7",
+      "id": "nba-giannis19-regular-rpg",
       "sport": "NBA",
-      "prompt": "Draymond Green led all scorers in Game 7 of the 2016 Finals. How many points did he score?",
-      "context": "2016 NBA Finals · Game 7 · Warriors lost",
-      "answer": 32,
+      "prompt": "What was Giannis Antetokounmpo's regular-season rebounding average in 2018–19?",
+      "context": "Giannis · Milwaukee Bucks · first MVP campaign",
+      "answer": 12.5,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
       },
-      "min": 15,
-      "max": 65,
-      "step": 1,
-      "note": "32, more than anyone else that night.",
+      "min": 6,
+      "max": 21,
+      "step": 0.1,
+      "note": "12.5 rebounds per game, while dominating both ends.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-        "quote": "Draymond Green put up his best performance of the Finals, leading all scorers with 32 points,"
+        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+        "quote": "Giannis Antetokounmpo | 72 | 72 | 32.8 | .578 | .256 | .729 | 12.5 | 5.9 | 1.3 | 1.5 | 27.7"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,27 +185,27 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Green shot an outstanding six of eight from beyond the arc in the final game.",
+          "text": "Giannis scored 27.7 points and dished out 5.9 assists per game that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-            "quote": "including 6-of-8 from three-point range"
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "12.5 | 5.9 | 1.3 | 1.5 | 27.7"
           }
         },
         {
-          "text": "His stat line also included 15 rebounds and nine assists.",
+          "text": "He won his first NBA MVP award after Milwaukee led the Eastern Conference.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-            "quote": "along with 15 rebounds and nine assists"
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "Giannis Antetokounmpo was named league MVP after this season"
           }
         },
         {
-          "text": "Kyrie Irving added 26 points for Cleveland during the decisive game.",
+          "text": "Giannis and Khris Middleton represented Milwaukee in the All-Star Game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-            "quote": "Kyrie Irving added 26 points for Cleveland"
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "he and Khris Middleton were voted to play in the 2019 NBA All-Star Game"
           }
         }
       ]

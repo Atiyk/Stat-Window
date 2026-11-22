@@ -58,23 +58,23 @@
       ]
     },
     {
-      "id": "nba-jokic23-finals-average",
+      "id": "nba-kings02-home-wins",
       "sport": "NBA",
-      "prompt": "Nikola Jokić won 2023 Finals MVP. What did he average in points per game?",
-      "context": "2023 NBA Finals · Denver Nuggets vs Miami Heat",
-      "answer": 30.2,
+      "prompt": "How many games did the 2002 Kings win at ARCO Arena?",
+      "context": "Sacramento · 41 regular-season home games",
+      "answer": 36,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "home win",
+        "plural": "home wins"
       },
-      "min": 12,
+      "min": 14,
       "max": 42,
-      "step": 0.1,
-      "note": "30.2 points per game while leading Denver to its first title.",
+      "step": 1,
+      "note": "36 home victories in a deafening arena.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-        "quote": "after averaging 30.2 points, 14.0 rebounds, 7.2 assists, and 1.4 blocks"
+        "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+        "quote": "Sacramento Kings | 61 | 21 | .744 | – | 36–5 | 25–16"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,27 +83,27 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Jokić became Denver's first Finals MVP, with every voter agreeing on the award.",
+          "text": "The Kings suffered only five home losses during the season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Denver's Nikola Jokić was unanimously voted the NBA Finals Most Valuable Player"
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Sacramento Kings | 61 | 21 | .744 | – | 36–5"
           }
         },
         {
-          "text": "Jokić's Finals stat line included 14.0 rebounds, 7.2 assists, and 1.4 blocks per game.",
+          "text": "Their away record was 25–16, substantially less dominant.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "after averaging 30.2 points, 14.0 rebounds, 7.2 assists, and 1.4 blocks"
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Sacramento Kings | 61 | 21 | .744 | – | 36–5 | 25–16"
           }
         },
         {
-          "text": "Denver became only the second franchise from the old ABA to win an NBA title, following the Spurs.",
+          "text": "Sacramento enjoyed a twelve-game winning streak around the new year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "They became the second former American Basketball Association (ABA) team to win an NBA title"
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "posted a 12-game winning streak between December and January"
           }
         }
       ]
@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-howard09-cavs-g6-points",
+      "id": "nba-sixers01-finals-g1-points",
       "sport": "NBA",
-      "prompt": "How many points did Howard score to eliminate Cleveland in the 2009 East finals?",
-      "context": "Magic vs Cavaliers · conference finals Game 6",
-      "answer": 40,
+      "prompt": "How many points did the 76ers score in their overtime Game 1 win over the Lakers in 2001?",
+      "context": "2001 NBA Finals · June 6 · Philadelphia at Los Angeles",
+      "answer": 107,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 22,
-      "max": 80,
+      "min": 76,
+      "max": 119,
       "step": 1,
-      "note": "40 points to send Orlando back to the NBA Finals.",
+      "note": "107, the Lakers' only defeat during that postseason.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-        "quote": "thanks to Howard's 40 points and 10 rebounds in Game 6"
+        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+        "quote": "June 6 @ L.A. Lakers W 107–101 (OT)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Howard also grabbed ten rebounds in the decisive game.",
+          "text": "That opening-game overtime win was the Lakers' only loss across their entire 2001 playoff run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "Howard's 40 points and 10 rebounds in Game 6"
+            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
+            "quote": "By the end of the series, the 2000–01 Lakers held the record for the best postseason record with 15–1."
           }
         },
         {
-          "text": "Orlando eliminated the top-seeded Cavaliers to reach its first Finals since the Shaq era.",
+          "text": "Philadelphia outscored Los Angeles 13–7 in overtime after a close regulation contest.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "defeated the top-seeded Cleveland Cavaliers in six games"
+            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
+            "quote": "Scoring by quarter: 22–23, 34–27, 23–27, 15–17, Overtime: 13–7"
           }
         },
         {
-          "text": "The Lakers defeated Orlando in the NBA Finals that followed.",
+          "text": "The Sixers had just survived two straight seven-game playoff series against Toronto and Milwaukee before reaching the Finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "would lose to the Kobe Bryant-led Los Angeles Lakers in five games"
+            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
+            "quote": "had just come out of two straight seven-game series against the Toronto Raptors and Milwaukee Bucks"
           }
         }
       ]

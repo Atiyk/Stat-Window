@@ -109,23 +109,23 @@
       ]
     },
     {
-      "id": "nba-murray23-finals-apg",
+      "id": "nba-barkley93-suns-rpg",
       "sport": "NBA",
-      "prompt": "How many assists per game did Jamal Murray average in the 2023 NBA Finals?",
-      "context": "Denver Nuggets · five-game 2023 championship series",
-      "answer": 10,
+      "prompt": "What was Charles Barkley's rebounding average during his Suns MVP season?",
+      "context": "Charles Barkley · Phoenix Suns · 1992–93",
+      "answer": 12.1,
       "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
       },
-      "min": 3,
-      "max": 19,
+      "min": 5,
+      "max": 21,
       "step": 0.1,
-      "note": "10.0 assists a night, complementing Jokić's scoring and passing.",
+      "note": "12.1 rebounds a night in an all-around MVP campaign.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-        "quote": "Jamal Murray | 5 | 5 | 42.2 | .451 | .387 | .929 | 6.2 | 10.0 | 1.0 | 0.0 | 21.4"
+        "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+        "quote": "Barkley averaged 25.6 points, 12.1 rebounds, 5.1 assists and 1.6 steals per game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,27 +134,27 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Murray had torn his ACL before the 2021 playoffs and missed the entire following season while recovering.",
+          "text": "Barkley also averaged 25.6 points and 5.1 assists per game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Jamal Murray, who was crucial to the Nuggets' playoff runs in 2019 and 2020, tore his ACL a month before the start of the 2021 playoffs"
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "Barkley averaged 25.6 points, 12.1 rebounds, 5.1 assists"
           }
         },
         {
-          "text": "In Game 4 of the Finals, Murray recorded 12 assists without committing a single turnover.",
+          "text": "He earned All-NBA First Team honors and won the league's MVP award.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Murray, who committed seven turnovers in game 3, finished the game with 12 assists and zero turnovers"
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "and was named to the All-NBA First Team, and was named the NBA Most Valuable Player of the Year"
           }
         },
         {
-          "text": "In Game 1, Murray and Jokić became the first Finals teammates since Magic Johnson and James Worthy to each have 25-plus points and 10 assists.",
+          "text": "Phoenix came back from a 2–0 deficit against the Lakers in the first playoff round.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Jokić and Murray also became the second pair of teammates to each put up at least 25 points and 10 assists"
+            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+            "quote": "the Suns fell down 2–0 to the Los Angeles Lakers before rallying to defeat them in five games"
           }
         }
       ]

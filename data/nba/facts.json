@@ -23640,5 +23640,131 @@
         }
       ]
     }
+  },
+  {
+    "id": "nba-kobe06-second-half-55",
+    "family": "points-period",
+    "scope": "regular-season",
+    "season": "2005-06",
+    "eventDate": "2006-01-22",
+    "franchise": "LAL",
+    "player": "Kobe Bryant",
+    "answer": 55,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Kobe scored 55 of his 81 points after halftime against Toronto.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+      "quote": "with 55 points in the second half",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Kobe Bryant scored 81 against Toronto in 2006. How many of those points came after halftime?",
+      "context": "Lakers vs. Raptors · January 22, 2006",
+      "reveal": "55 after halftime. The Lakers had trailed by 14 at the break before Kobe took over.",
+      "min": 20,
+      "max": 75,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "The 81-point game is iconic, and the known 81 total anchors a reasonable estimate of the second-half share; still needs independent editor confirmation as an opener.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 5,
+        "estimability": 3,
+        "surprise": 4
+      },
+      "funFacts": [
+        {
+          "text": "The Lakers trailed Toronto 63–49 at halftime.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+            "quote": "the Lakers trailed 63–49 at halftime"
+          }
+        },
+        {
+          "text": "Bryant played 42 minutes in the 81-point game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+            "quote": "saw Bryant play 42 minutes"
+          }
+        },
+        {
+          "text": "Bryant made seven three-pointers in that game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+            "quote": "including 7-of-13 on three-pointers"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-curry16-season-threes-402",
+    "family": "threes-season",
+    "scope": "regular-season",
+    "season": "2015-16",
+    "eventDate": null,
+    "franchise": "GSW",
+    "player": "Stephen Curry",
+    "answer": 402,
+    "unit": {
+      "singular": "three-pointer",
+      "plural": "three-pointers"
+    },
+    "claim": "Curry made 402 three-pointers in the Warriors' 73-win 2015–16 regular season.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+      "quote": "he finished with 402",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In the Warriors' record 73-win 2015–16 season, how many three-pointers did Stephen Curry make?",
+      "context": "Stephen Curry · Golden State · 2015–16 regular season",
+      "reveal": "402 threes. Curry became the first NBA player to make 400 in one season.",
+      "min": 200,
+      "max": 520,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "Curry's landmark 400-three season and the 73-win Warriors are recognizable; 400 is a clear estimation anchor, pending independent editor confirmation.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 4
+      },
+      "funFacts": [
+        {
+          "text": "Golden State finished the regular season 73–9.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "finishing with a record of 73–9"
+          }
+        },
+        {
+          "text": "Curry became the first player to make 400 threes in a season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "the first player in NBA history to hit 400 threes in a single season"
+          }
+        },
+        {
+          "text": "Curry averaged 30.1 points per game that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "Curry finished the season averaging 30.1 points per game"
+          }
+        }
+      ]
+    }
   }
 ]

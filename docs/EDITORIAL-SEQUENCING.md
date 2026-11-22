@@ -66,3 +66,12 @@ Swap record (date, new opener, old opener moved to source date Q2):
 - 2027-01-07: nba-rose11-season-ppg ⇄ 2026-12-10: nba-jordan93-g4-55
 - 2027-01-13: nba-jokic23-finals-average ⇄ 2027-01-05: nba-lakers00-wins
 - 2027-01-18: nba-lebron16-finals-ppg ⇄ 2026-12-16: nba-spurs14-streak
+
+
+## Future-only source-verified opener replacement — 2026-11-22
+
+Two independently checked Wikipedia article excerpts substantiate new numeric questions. On future 2027-01-08, the opening `nba-robinson94-71` is replaced by `nba-kobe06-second-half-55` (55 second-half points in Kobe Bryant's 81-point game, https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game). On future 2027-01-24, `nba-gsw15-combined-wins` is replaced by `nba-curry16-season-threes-402` (402 made threes in Curry's 2015–16 season, https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season). Five-question difficulty and diversity checks were preserved; no previous answer/rating was inflated. The displaced January questions remain in reserve, with canonical `calendar.reserveNotBefore` holds until 2027-01-09 and 2027-01-25, respectively, so they **cannot appear early in Survival**. A regression test protects this embargo.
+
+One-time GitHub Actions publisher run [45067168488](https://github.com/Atiyk/Stat-Window/actions/runs/45067168488) passed `content:publish`, `nba:db`, `nba:report:check`, `content:publish:check`, `survival:catalog:check`, content/trivia/factory checks, typecheck, 373 unit tests and build. It generated exactly two future day files, the scoring lock, reports and Survival catalog. No day on or before November 22 was altered. The temporary workflow was removed after success.
+
+**Still blocked, not editorial PASS:** after these changes, 9 future Q1 and 66 future Q5 are flagged under the agreed rating thresholds. Automated ratings are triage, not evidence that a fan enjoys a question; each final needs independently checked editorial quality and provenance. Do not release as a complete V3 editorial slate before the remaining work and final exact-SHA CI, WebKit and independent editorial critic approval.

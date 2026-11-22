@@ -99,6 +99,21 @@ describe('catalog', () => {
     expect(catalog.reserves.map((q) => q.id)).toEqual(calendar.reserve);
     for (const id of calendar.reserve) expect(catalog.tags[id]!.day).toBeNull();
   });
+  it('holds displaced future daily questions until after their original publication dates', () => {
+    const embargoes = [
+      ['nba-robinson94-71', '2027-01-09'],
+      ['nba-gsw15-combined-wins', '2027-01-25'],
+    ] as const;
+    for (const [id, earliest] of embargoes) {
+      expect(calendar.reserve).toContain(id);
+      const tag = catalog.tags[id];
+      expect(tag, id).toBeDefined();
+      expect(tag!.day).toBeNull();
+      expect(tag!.notBefore).not.toBeNull();
+      expect(tag!.notBefore! >= earliest).toBe(true);
+      expect(poolOn(addDays(earliest, -1)).some((e) => e.id === id)).toBe(false);
+    }
+  });
   it('covers every scheduled question', () => {
     const scheduled = slates.filter((s) => s.date >= CUTOVER).flatMap((s) => s.questions.map((q) => q.id));
     for (const id of scheduled) expect(catalog.tags[id], id).toBeDefined();

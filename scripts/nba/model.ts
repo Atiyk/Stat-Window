@@ -64,7 +64,7 @@ export type Fact = {
 
 export type Theme = { id: string; kind: (typeof THEME_KINDS)[number]; title: string; subtitle: string; recap: string };
 export type CalendarDay = { date: string; theme: Theme; questions: string[] };
-export type Calendar = { cutover: string; days: CalendarDay[]; reserve: string[] };
+export type Calendar = { cutover: string; days: CalendarDay[]; reserve: string[]; reserveNotBefore?: Record<string, string> };
 export type Family = { id: string; label: string; firstSeason: string | null; simpleScoringAverage: boolean };
 export type Franchise = { id: string; currentName: string; formerNames: string[] };
 export type Source = {
@@ -389,6 +389,14 @@ export function validateNba(data: NbaData): Report {
   for (const id of calendar.reserve) {
     if (!byId.has(id)) errors.push(`reserve: unknown question ${id}`);
     if (used.has(id)) errors.push(`reserve: ${id} is also scheduled on ${used.get(id)}`);
+  }
+  // A future scheduled puzzle moved into reserve must not become playable in
+  // Survival immediately. Reserve embargoes preserve the original daily
+  // publication date plus one day, even after re-sequencing.
+  for (const [id, notBefore] of Object.entries(calendar.reserveNotBefore ?? {})) {
+    if (!calendar.reserve.includes(id)) errors.push(`reserve: embargo for non-reserve question ${id}`);
+    if (!isValidDate(notBefore) || notBefore <= calendar.cutover)
+      errors.push(`reserve: invalid release embargo ${id} -> ${notBefore}`);
   }
   const unplaced = facts.filter((f) => !used.has(f.id) && !calendar.reserve.includes(f.id));
   for (const f of unplaced) errors.push(`${f.id}: neither scheduled nor in reserve`);

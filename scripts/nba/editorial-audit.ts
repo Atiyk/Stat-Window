@@ -2,7 +2,12 @@
 import { loadNbaData, LADDER } from './model.ts';
 const { calendar, facts } = loadNbaData();
 const by = new Map(facts.map(f => [f.id, f]));
-const cutoff = process.argv.find(a => /^\d{4}-\d{2}-\d{2}$/.test(a)) ?? '2026-11-22';
+// Locks advance with the New York puzzle day. Explicit overrides can only tighten it.
+const localToday = new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit',
+}).format(new Date());
+const requestedCutoff = process.argv.find(a => /^\d{4}-\d{2}-\d{2}$/.test(a));
+const cutoff = requestedCutoff && requestedCutoff > localToday ? requestedCutoff : localToday;
 const days = calendar.days.filter(d => d.date > cutoff);
 const weak: string[] = [];
 const weakFinale: string[] = [];
@@ -38,6 +43,7 @@ for (const day of days) {
   }
 }
 console.log(JSON.stringify({cutoff,days:days.length,weakQ1:weak.length,weakQ5:weakFinale.length,structuralCount:structural.length,weak,weakFinale,structural},null,2));
-// Q1 is a non-negotiable publication gate; --strict additionally enforces Q5 and slate structure.
-if (process.argv.includes('--strict-q1') && (weak.length || provenance.length)) process.exitCode=1;
+// Q1 is always a publication failure; --strict additionally enforces Q5 and slate structure.
+// --report-only is for inventory, never for publication/CI.
+if (!process.argv.includes('--report-only') && (weak.length || provenance.length)) process.exitCode=1;
 if (process.argv.includes('--strict') && (weak.length || weakFinale.length || structural.length || provenance.length)) process.exitCode=1;

@@ -6,6 +6,30 @@ Ranking seasons are fixed 120-day UTC blocks anchored to 2026-01-01, rather than
 
 GET requests have atomic per-network limits of 12 per two-minute bucket and 60 per UTC day; POST has 4 per two-minute bucket and 20 per UTC day; DELETE has 2 per two-minute bucket and 6 per UTC day, returning 429 with Retry-After. These counters are Redis operations and need vendor command-cost validation; they are not yet accounted in the existing estimate.
 
+## Eastern deadlines and legacy guard (additional worker hardening)
+
+Period labels remain Eastern calendar dates. Redis day/week/month/120-day-season
+expiration now happens at **New York midnight** 30 **calendar** days after
+the relevant period closes, including the spring-forward and fall-back dates.
+A block ledger's final retention deadline is derived from its last date;
+each of the four deadlines is nondecreasing, so there is no need to recompute
+480 expiry candidates on every submission.
+
+A legacy, unpartitioned `player:<member>` key makes DELETE return
+`503 paused` without erasing partial data or charging the erasure reserve.
+**This is a fail-closed alarm, not a migration.** A legacy hash which has
+already expired cannot be reliably recovered from a remaining board entry;
+an environment with legacy submissions requires pre-activation cleanup or a
+separately verified migration.
+
+Upstash confirms that ordinary Lua scripts without `allow-key-locking`
+default to a global lock and can use dynamic keys; its optional **Lua Strict
+Key Locking** setting makes undeclared dynamic board keys fail. These
+scripts deliberately do not request key-based locking. Check the actual
+Upstash database setting and test the production-shaped EVAL via REST before
+activation; this source-level finding is not an executed vendor test.
+Reference: https://upstash.com/docs/redis/features/key-locking
+
 ## Remaining blockers
 
 - Validate fixed EXPIREAT lifecycle in real Redis, including post-inactivity erasure and all-period deletion. Existing pre-migration keys require a migration/cleanup plan before activation.

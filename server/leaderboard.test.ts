@@ -9,8 +9,35 @@ describe('Eastern calendar leaderboard periods',()=>{
    expect(periodKey('season','2026-04-30',null)).toBe('block-0');
    expect(periodKey('season','2026-05-01',null)).toBe('block-1');
    expect(expiryFor('season','2026-01-01')).toBe(expiryFor('season','2026-04-30'));
-   expect(expiryFor('day','2026-03-08')).toBe(Date.parse('2026-04-08T00:00:00Z')/1000);
-   expect(expiryFor('week','2026-11-01')).toBe(Date.parse('2026-12-02T00:00:00Z')/1000);
+   expect(expiryFor('day','2026-03-08')).toBe(Date.parse('2026-04-08T04:00:00Z')/1000);
+   expect(expiryFor('week','2026-11-01')).toBe(Date.parse('2026-12-02T05:00:00Z')/1000);
+ });
+ it('uses Eastern midnight on DST rollover days, with 30 calendar days of grace',()=>{
+   expect(expiryFor('day','2026-03-07')).toBe(Date.parse('2026-04-07T04:00:00Z')/1000);
+   expect(expiryFor('day','2026-03-08')).toBe(Date.parse('2026-04-08T04:00:00Z')/1000);
+   expect(expiryFor('day','2026-10-31')).toBe(Date.parse('2026-12-01T05:00:00Z')/1000);
+   expect(expiryFor('day','2026-11-01')).toBe(Date.parse('2026-12-02T05:00:00Z')/1000);
+   expect(expiryFor('month','2026-03-08')).toBe(Date.parse('2026-05-01T04:00:00Z')/1000);
+ });
+ it('cannot report deleted on a blocked, throttled, or failed erasure',async()=>{
+   const env={VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',LEADERBOARDS_ENABLED:'1',
+     LEADERBOARDS_DAILY_BUDGET:'1000',LEADERBOARDS_MONTHLY_BUDGET:'20000',
+     LEADERBOARDS_ERASE_BUDGET:'10000',SCORE_HASH_SECRET:'a'.repeat(32)};
+   for(const [out,status] of [['paused',503],['limited',429]] as const){
+     const ctx=leaderboardContext(env,{remove:async()=>out} as never,async()=>null);
+     ctx.now=()=>new Date('2026-11-22T16:00:00Z');
+     const res=await handleLeaderboard(new Request('https://stat-window.vercel.app/api/leaderboard',{
+       method:'DELETE',headers:{'Content-Type':'application/json'},
+       body:JSON.stringify({player:'a'.repeat(22),consent:'granted'})
+     }),ctx);
+     expect(res.status).toBe(status);
+     expect((await res.json()).removed).toBeUndefined();
+   }
+   const ctx=leaderboardContext(env,{remove:async()=>{throw Error('storage failure');}} as never,async()=>null);
+   expect((await handleLeaderboard(new Request('https://stat-window.vercel.app/api/leaderboard',{
+     method:'DELETE',headers:{'Content-Type':'application/json'},
+     body:JSON.stringify({player:'a'.repeat(22),consent:'granted'})
+   }),ctx)).status).toBe(503);
  });
  it('pseudonyms are stable and do not expose raw member',()=>{const id='a'.repeat(40);expect(pseudonym(id)).toBe(pseudonym(id));expect(pseudonym(id)).not.toContain(id);});
  it('defaults to disabled without explicit budgets',()=>{const c=leaderboardContext({VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',SCORE_HASH_SECRET:'a'.repeat(32)},null,async()=>null);expect(c.enabled).toBe(false);});

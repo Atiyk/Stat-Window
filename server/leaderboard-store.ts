@@ -67,6 +67,9 @@ if rate>2 then return 'limited' end
 local daily=redis.call('INCR',KEYS[5])
 if daily==1 then redis.call('EXPIRE',KEYS[5],93600) end
 if daily>6 then return 'limited' end
+-- An unpartitioned legacy ledger may still back public boards. Never say
+-- deletion succeeded without knowing and erasing all its contributions.
+if redis.call('EXISTS',KEYS[7])==1 then return 'paused' end
 local records={}
 local count=0
 for k=1,2 do

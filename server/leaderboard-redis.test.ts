@@ -78,7 +78,7 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     expect(mine.mine).toMatchObject({rank:1,score:340,days:2});
     const ttl=Number(await client.command(['TTL',blockLedger(p,member,blockNumber(day1))]));
     expect(ttl).toBeGreaterThan(0); // hash must survive short-lived daily boards
-    const removed=await store.remove([blockLedger(p,member,blockNumber(day2)),blockLedger(p,member,blockNumber(day2)-1),b[2]!,`${p}:delete:rate:1`,`${p}:delete:day:1`,`${p}:delete:subcap`],member,caps);
+    const removed=await store.remove([blockLedger(p,member,blockNumber(day2)),blockLedger(p,member,blockNumber(day2)-1),b[2]!,`${p}:delete:rate:1`,`${p}:delete:day:1`,`${p}:delete:subcap`,p+':player:'+member],member,caps);
     expect(removed).toBe('removed');
     for (const day of [day1,day2]) {
       for (const board of boards(p,day,null))
@@ -106,6 +106,38 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     expect(blockExpiry(blockNumber('2027-04-26'))).toBeLessThan(blockExpiry(blockNumber('2027-08-24')));
   });
 
+  it('legacy unpartitioned player data prevents false deletion acknowledgement',async()=>{
+    const store=leaderboardRedis(client.evaluate),scope='legacy-guard',p=`${prefix}:${scope}`,b=budget(scope);
+    const day='2027-11-18',ledger=blockLedger(p,member,blockNumber(day));
+    const legacy=p+':player:'+member;
+    expect(await store.submit(writeKeys(scope,day,'submit'),member,day,95,caps,expiration(day))).toBe('stored');
+    await client.command(['HSET',legacy,day,'legacy-record']);
+    const keys=[ledger,blockLedger(p,member,blockNumber(day)-1),b[2]!,
+      p+':delete:rate',p+':delete:day',p+':delete:subcap',legacy];
+    expect(await store.remove(keys,member,caps)).toBe('paused');
+    expect(await client.command(['GET',b[2]!])).toBeNull();
+    expect(await client.command(['ZSCORE',boards(p,day,null)[0]!,member])).toBe('95');
+    await client.command(['DEL',legacy]);
+    expect(await store.remove(keys,member,caps)).toBe('removed');
+    expect(await client.command(['ZSCORE',boards(p,day,null)[0]!,member])).toBeNull();
+  });
+
+  it('network erasure minute and UTC-day limits remain atomic and cost no erase reserve on empty ledgers',async()=>{
+    const store=leaderboardRedis(client.evaluate),scope='erase-cap',p=`${prefix}:${scope}`,b=budget(scope);
+    const keys=(minute:number)=>[
+      blockLedger(p,member,blockNumber(day1)),
+      blockLedger(p,member,blockNumber(day1)-1),
+      b[2]!,p+':erase:minute:'+minute,p+':erase:day',p+':erase:subcap',p+':player:'+member
+    ];
+    const three=await Promise.all([0,1,2].map(()=>store.remove(keys(0),member,caps)));
+    expect(three.filter(x=>x==='nothing')).toHaveLength(2);
+    expect(three.filter(x=>x==='limited')).toHaveLength(1);
+    for(let i=1;i<=4;i++)expect(await store.remove(keys(i),member,caps)).toBe('nothing');
+    expect(await store.remove(keys(5),member,caps)).toBe('limited');
+    expect(await client.command(['GET',b[2]!])).toBeNull();
+    expect(await client.command(['GET',p+':erase:subcap'])).toBeNull();
+  });
+
   it('two participants can erase in one month, and empty erasure does not debit reserves',async()=>{
     const store=leaderboardRedis(client.evaluate),scope='multi-erase',p=`${prefix}:${scope}`,b=budget(scope);
     const other='c'.repeat(40),day='2027-11-18';
@@ -117,7 +149,7 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     const erase=(who:string,n:string)=>store.remove([
       blockLedger(p,who,blockNumber(day)),blockLedger(p,who,blockNumber(day)-1),
       b[2]!,`${p}:erase:minute:${n}`,`${p}:erase:day:${n}`,`${p}:erase:subcap`
-    ],who,caps);
+    ,p+':player:'+who],who,caps);
     expect(await erase(member,'1')).toBe('removed');
     expect(await erase(other,'2')).toBe('removed');
     expect(Number(await client.command(['GET',b[2]!]))).toBe(68);

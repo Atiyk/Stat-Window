@@ -11,18 +11,32 @@ const DAY = /^\d{4}-\d{2}-\d{2}$/;
 /** Fixed 120-day leaderboard seasons, never an unbounded beta/s1 key. */
 export const SEASON_DAYS = 120;
 export const RETAIN_DAYS = 30;
+/** New York calendar-period retention: 30 local dates after the period ends. */
+function easternMidnight(day:string):number {
+  // 05:00Z is midnight in EST and 01:00 in EDT. New York's DST
+  // switch is at 02:00 local, so this also handles both transition dates.
+  const atFive=Date.parse(day+'T05:00:00Z');
+  if(!Number.isFinite(atFive))throw new RangeError('invalid Eastern day');
+  const hour=Number(new Intl.DateTimeFormat('en-US',{
+    timeZone:'America/New_York',hour:'2-digit',hourCycle:'h23',
+  }).format(new Date(atFive)));
+  if(hour!==0&&hour!==1)throw new RangeError('invalid Eastern midnight');
+  return (atFive-(hour===1?3600000:0))/1000;
+}
 export function expiryFor(period: Period, day: string): number {
-  const start = Date.parse(day+'T00:00:00Z') / 1000;
-  const d = new Date(day+'T00:00:00Z');
-  let end: number;
-  if (period === 'day') end = start + 86400;
-  else if (period === 'week') end = start + (7 - ((d.getUTCDay()+6)%7))*86400;
-  else if (period === 'month') end = Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+1,1)/1000;
+  const start=Date.parse(day+'T00:00:00Z');
+  if(!Number.isFinite(start))throw new RangeError('invalid day');
+  const d=new Date(start);
+  let endDay:string;
+  if(period==='day')endDay=addDays(day,1);
+  else if(period==='week')endDay=addDays(day,7-((d.getUTCDay()+6)%7));
+  else if(period==='month')endDay=new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+1,1)).toISOString().slice(0,10);
   else {
-    const anchor=Date.parse('2026-01-01T00:00:00Z')/1000;
-    end=anchor+(Math.floor((start-anchor)/(SEASON_DAYS*86400))+1)*SEASON_DAYS*86400;
+    const anchor=Date.parse('2026-01-01T00:00:00Z');
+    const block=Math.floor((start-anchor)/(SEASON_DAYS*86400000));
+    endDay=new Date(anchor+(block+1)*SEASON_DAYS*86400000).toISOString().slice(0,10);
   }
-  return end + RETAIN_DAYS*86400;
+  return easternMidnight(addDays(endDay,RETAIN_DAYS));
 }
 export const LB_COST = { read: 24, submit: 55, remove: 20 };
 export const ERASE_RESERVE = 20000;
@@ -31,13 +45,12 @@ export function blockNumber(day:string):number { return Number(periodKey('season
 export function blockLedger(prefix:string,member:string,block:number):string { return prefix+':player:'+member+':block-'+block; }
 /** Finite lifetime for a 120-day ledger, including month/week overlap. */
 export function blockExpiry(block:number):number {
+  // All four board deadlines are nondecreasing across a block: only the
+  // final day can have the maximum. Avoid 480 date/time-zone conversions
+  // on every POST, while still retaining every board's erasure ledger.
   const anchor=Date.parse('2026-01-01T00:00:00Z');
-  let expiry=0;
-  for(let i=0;i<SEASON_DAYS;i++){
-    const day=new Date(anchor+(block*SEASON_DAYS+i)*86400000).toISOString().slice(0,10);
-    for(const period of PERIODS) expiry=Math.max(expiry,expiryFor(period,day));
-  }
-  return expiry;
+  const lastDay=new Date(anchor+((block+1)*SEASON_DAYS-1)*86400000).toISOString().slice(0,10);
+  return Math.max(...PERIODS.map(period=>expiryFor(period,lastDay)));
 }
 export type LBStore = {
   /** Optional member is the HMAC of a participant's random browser code, never their raw code. */
@@ -110,7 +123,7 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
     const member=hash(ctx.secret,'lb-player:'+body.player);
     const rate=prefix+':rate:'+network+':'+Math.floor(now.getTime()/60000);
     if(req.method==='DELETE') {
-      const result=await ctx.store.remove([blockLedger(prefix,member,blockNumber(today)),blockLedger(prefix,member,blockNumber(today)-1),budget[2]!,rate,prefix+':delete:day:'+network+':'+utc,prefix+':budget:erase:'+utc.slice(0,7)],member,ctx.caps);
+      const result=await ctx.store.remove([blockLedger(prefix,member,blockNumber(today)),blockLedger(prefix,member,blockNumber(today)-1),budget[2]!,rate,prefix+':delete:day:'+network+':'+utc,prefix+':budget:erase:'+utc.slice(0,7),prefix+':player:'+member],member,ctx.caps);
       return result==='limited'?json(429,{status:'limited'}):result==='paused'?json(503,{status:'paused'}):json(200,{status:'ok',removed:result==='removed'?1:0});
     }
     if(body.test===true||typeof body.day!=='string'||!DAY.test(body.day)||!eligibleDay(body.day,now,7200))return json(200,{status:'ineligible'});

@@ -22457,7 +22457,7 @@
       "singular": "point",
       "plural": "points"
     },
-    "claim": "54 points and 11 threes, but New York still won the game.",
+    "claim": "Curry scored 54 points and made 11 threes in a loss to New York.",
     "source": {
       "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
       "quote": "On February 27, 2013, Stephen Curry scored 54 points but his Warriors lost to the Knicks, 109–105.",
@@ -22467,7 +22467,7 @@
     "question": {
       "prompt": "Years before his championships, how many points did Steph Curry score against the Knicks at MSG in 2013?",
       "context": "Stephen Curry · Warriors at Knicks · February 2013",
-      "reveal": "54 points and 11 threes, although the Knicks nevertheless won the game.",
+      "reveal": "Curry scored 54 points and made 11 threes, but New York won 109–105.",
       "min": 5,
       "max": 75,
       "step": 1,

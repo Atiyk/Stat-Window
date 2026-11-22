@@ -1275,10 +1275,12 @@ a {
   color: var(--ink);
   line-height: 1.4;
 }
-/* The separator stays with the first link, so a wrap never starts a line with it. */
+/* The separator is joined to the first link by a no-break space, so a wrap never starts a line with it.
+   The link text itself may wrap, so large text can't push the row past the screen edge. */
 .remind-keep {
-  white-space: nowrap;
+  white-space: normal;
 }
+.remind { min-width: 0; }
 .remind-note {
   margin: 0;
   font-size: 0.9375rem;

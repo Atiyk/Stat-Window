@@ -73,7 +73,13 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
     const at = new Date();
     return { href: icsPath(reminderHour(at)), google: googleCalendarUrl(at), time: reminderTime(nextReminder(at)) };
   }, []);
-  const [toast, setToast] = useState<string | null>(null);
+  const [toast, setToastText] = useState<string | null>(null);
+  // Bumped on every show, so a repeat of the same message restarts its timer instead of vanishing early.
+  const [toastShown, setToastShown] = useState(0);
+  const setToast = (text: string | null) => {
+    setToastText(text);
+    if (text) setToastShown((n) => n + 1);
+  };
   const [fallback, setFallback] = useState<string | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const fallbackRef = useRef<HTMLTextAreaElement>(null);
@@ -97,9 +103,9 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
 
   useEffect(() => {
     if (!toast) return;
-    const t = window.setTimeout(() => setToast(null), 2400);
+    const t = window.setTimeout(() => setToastText(null), 2400);
     return () => window.clearTimeout(t);
-  }, [toast]);
+  }, [toast, toastShown]);
 
   const report = (m: ShareMethod) => {
     track({ name: 'share', mode: playMode, method: m });
@@ -262,7 +268,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
               <a className="btn-link" href={remind.href} onClick={() => remindTapped('ics')}>
                 {REMIND_COPY.ics}
               </a>
-              <span aria-hidden="true"> ·</span>
+              <span aria-hidden="true">{'\u00a0·'}</span>
             </span>{' '}
             <a
               className="btn-link"

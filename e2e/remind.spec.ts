@@ -67,6 +67,17 @@ test.describe('New York', () => {
     expect(await storageDump(page)).toEqual(before);
   });
 
+  test('a second tap restarts the toast instead of letting the first one expire it', async ({ page, context }) => {
+    await stubCalendars(context);
+    await openAt(page, NBA_FIRST);
+    await playFive(page);
+    await icsLink(page).click();
+    await page.waitForTimeout(1800);
+    await icsLink(page).click();
+    await page.waitForTimeout(1200); // 3.0 s after the first tap: past its 2.4 s timer, inside the second's
+    await expect(page.locator('.toast')).toHaveAttribute('data-visible', 'true');
+  });
+
   test('the row also appears after a practice run and a challenge run, with no console errors', async ({ page }) => {
     const errors = collectErrors(page);
     await openAt(page, NBA_MIDDLE);

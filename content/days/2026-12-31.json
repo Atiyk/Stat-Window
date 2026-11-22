@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-baylor-finals-losses",
+      "id": "nba-love10-knicks-thirty-one-boards",
       "sport": "NBA",
-      "prompt": "Elgin Baylor led the Lakers to the Finals how many times, losing every one?",
-      "context": "Minneapolis and Los Angeles Lakers · 1958–1971",
-      "answer": 8,
+      "prompt": "In Kevin Love's famous 2010 '30–30' game against the Knicks, how many rebounds did he grab?",
+      "context": "Kevin Love · Timberwolves vs Knicks · November 2010",
+      "answer": 31,
       "unit": {
-        "singular": "Finals appearance",
-        "plural": "Finals appearances"
+        "singular": "rebound",
+        "plural": "rebounds"
       },
-      "min": 0,
-      "max": 11,
+      "min": 5,
+      "max": 85,
       "step": 1,
-      "note": "Eight times.",
+      "note": "31 rebounds, matching his 31 points in one of the NBA's rare 30–30 games.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-        "quote": "helped lead the team to the NBA Finals eight times, but the team lost each time."
+        "url": "https://en.wikipedia.org/wiki/Kevin_Love",
+        "quote": "when he recorded 31 points along with a career-high 31 rebounds."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Baylor retired just before the Lakers embarked on their landmark winning streak and won the championship.",
+          "text": "The performance broke Minnesota's franchise rebounding record.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-            "quote": "Baylor missed two historic achievements: the Lakers' first game afterwards began an NBA record 33-game win streak"
+            "url": "https://en.wikipedia.org/wiki/Kevin_Love",
+            "quote": "His 31 rebounds set a Timberwolves franchise record"
           }
         },
         {
-          "text": "During an Army Reserve deployment, Baylor could join the Lakers only on weekend passes and flew coach to games.",
+          "text": "Love was the first to record a 30–30 since Moses Malone.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-            "quote": "he could play for the Lakers only when on a weekend pass"
+            "url": "https://en.wikipedia.org/wiki/Kevin_Love",
+            "quote": "first player to record a 30–30 game since Moses Malone in 1982"
           }
         },
         {
-          "text": "The Lakers were struggling financially when Baylor arrived; their owner credited him with keeping the franchise alive.",
+          "text": "He did it against New York.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-            "quote": "Baylor immediately exceeded expectations and ultimately saved the Lakers franchise"
+            "url": "https://en.wikipedia.org/wiki/Kevin_Love",
+            "quote": "a home game against the New York Knicks on November 12, 2010"
           }
         }
       ]

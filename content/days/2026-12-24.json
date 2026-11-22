@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-hawks15-year-win-improvement",
+      "id": "nba-kawhi19-philly-game7-41",
       "sport": "NBA",
-      "prompt": "By how many wins did Atlanta improve from 2013–14 to 2014–15?",
-      "context": "Hawks · year-over-year regular-season improvement",
-      "answer": 22,
+      "prompt": "When Kawhi Leonard hit the four-bounce Game 7 winner against Philadelphia in 2019, how many points did he score?",
+      "context": "Kawhi Leonard · Raptors vs 76ers · 2019 playoffs",
+      "answer": 41,
       "unit": {
-        "singular": "extra win",
-        "plural": "extra wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 8,
-      "max": 44,
+      "min": 10,
+      "max": 110,
       "step": 1,
-      "note": "22 more wins than the previous season.",
+      "note": "41 points. Kawhi's four-bounce jumper sent Toronto through in a legendary Game 7.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
-        "quote": "Their 22 wins improvement was the second largest by a team"
+        "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+        "quote": "He finished the game with 41 points on 16-of-39 shooting."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Atlanta was the first No. 1 seed swept in a playoff series since Detroit in 2003.",
+          "text": "Kawhi's shot bounced on the rim four times before dropping.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
-            "quote": "first #1 seed to get swept in a playoff series since the Detroit Pistons"
+            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+            "quote": "bounced off the rim four times before falling"
           }
         },
         {
-          "text": "The Hawks did not reach another conference final until 2021.",
+          "text": "Toronto escaped with a two-point victory.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
-            "quote": "The Hawks would not return to the conference finals until 2021"
+            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+            "quote": "92–90 victory over the 76ers"
           }
         },
         {
-          "text": "Former Hawks coach Mike Budenholzer led Milwaukee past Atlanta in that later appearance.",
+          "text": "It was the league's first winning buzzer-beater in a Game 7.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
-            "quote": "led by former Hawks coach Mike Budenholzer"
+            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+            "quote": "first game 7 buzzer beater in NBA history"
           }
         }
       ]

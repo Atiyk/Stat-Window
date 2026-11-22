@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-smits98-bulls-g4-points",
+      "id": "nba-ja22-warriors-game2-47",
       "sport": "NBA",
-      "prompt": "How many points did Rik Smits score in Game 4 against the 1998 Bulls?",
-      "context": "Indiana · Eastern finals · home victory",
-      "answer": 26,
+      "prompt": "In Memphis's 2022 playoff showdown against Steph Curry's Warriors, how many points did Ja Morant score in Game 2?",
+      "context": "Ja Morant · Grizzlies vs Warriors · May 2022",
+      "answer": 47,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 12,
-      "max": 76,
+      "min": 10,
+      "max": 120,
       "step": 1,
-      "note": "26 points in a dramatic two-point win.",
+      "note": "47 points, including Memphis's final 15, to even the series.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-        "quote": "May 25, 1998 Chicago W 96–94 Smits (26)"
+        "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+        "quote": "Ja Morant scored 47 points to match his postseason high"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "The Pacers won Game 4 by just two points at home.",
+          "text": "Ja scored his team's last 15 points of the night.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "May 25, 1998 Chicago W 96–94"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "Morant scored the last 15 points for Memphis"
           }
         },
         {
-          "text": "Chris Mullin led Indiana with nine rebounds that night.",
+          "text": "Memphis won Game 2 by five points.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "May 25, 1998 Chicago W 96–94 Smits (26) Mullin (9)"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "106–101 victory over the Warriors"
           }
         },
         {
-          "text": "The Pacers won all three home games in that East final but none in Chicago.",
+          "text": "The result leveled the best-of-seven series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "Eastern Conference finals: 3–4 (home: 3–0; road: 0–4)"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "Series tied, 1–1"
           }
         }
       ]

@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-finals16-610",
+      "id": "nba-curry21-blazers-62",
       "sport": "NBA",
-      "prompt": "Before Game 7 of the 2016 Finals, both teams had scored the exact same total over six games. What was it?",
-      "context": "2016 NBA Finals · Games 1–6 · Cavaliers and Warriors",
-      "answer": 610,
+      "prompt": "Against Damian Lillard's Portland team in January 2021, how many points did Steph Curry score in his career-best game?",
+      "context": "Stephen Curry · Warriors vs Blazers · January 2021",
+      "answer": 62,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 440,
-      "max": 640,
+      "min": 15,
+      "max": 140,
       "step": 1,
-      "note": "610 points each.",
+      "note": "62 points, a Curry career high, as Golden State beat Portland.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-        "quote": "both teams entered Game 7 with the same total points scored through six games (610 points each)."
+        "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
+        "quote": "On January 3, 2021, Curry scored a career-high 62 points on 18-of-31 shooting"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Cleveland won the final game 93–89, with 20 lead changes and 11 ties.",
+          "text": "Steph hit 18 of his 31 field-goal attempts.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-            "quote": "The Cavaliers defeated the Warriors 93–89 in Game 7"
+            "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
+            "quote": "18-of-31 shooting"
           }
         },
         {
-          "text": "LeBron's chase-down block on Andre Iguodala came with the score tied late in Game 7.",
+          "text": "The Warriors beat the Blazers by fifteen.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-            "quote": "LeBron James delivered what became known as \"The Block\""
+            "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
+            "quote": "137–122 win against the Portland Trail Blazers"
           }
         },
         {
-          "text": "The Warriors went the final four minutes and 39 seconds without a made basket.",
+          "text": "He earned a conference weekly honor the next day.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-            "quote": "failed to score a basket during the last 4:39 of the game"
+            "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
+            "quote": "named the Player of the Week for the Western Conference"
           }
         }
       ]

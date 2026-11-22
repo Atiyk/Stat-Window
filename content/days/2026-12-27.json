@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-herro20-celtics-g4-points",
+      "id": "nba-lebron12-boston-g6-45",
       "sport": "NBA",
-      "prompt": "How many points did rookie Tyler Herro score in Game 4 versus Boston?",
-      "context": "2020 Bubble · Eastern Conference finals",
-      "answer": 37,
+      "prompt": "Facing elimination at Boston in 2012, how many points did LeBron score in his defining East finals Game 6?",
+      "context": "LeBron James · Miami Heat at Boston Celtics · June 2012",
+      "answer": 45,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 18,
-      "max": 69,
+      "min": 10,
+      "max": 125,
       "step": 1,
-      "note": "37 points in Miami's narrow win.",
+      "note": "45 points and 15 rebounds. Miami survived and won LeBron's first championship.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-        "quote": "September 23 Boston W 112–109 Tyler Herro (37)"
+        "url": "https://en.wikipedia.org/wiki/LeBron_James",
+        "quote": "Facing elimination in Game 6, James recorded 45 points and 15 rebounds"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "The Heat escaped that game by a three-point margin.",
+          "text": "He hauled in 15 rebounds that night.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "September 23 Boston W 112–109 Tyler Herro (37)"
+            "url": "https://en.wikipedia.org/wiki/LeBron_James",
+            "quote": "James recorded 45 points and 15 rebounds"
           }
         },
         {
-          "text": "Bam Adebayo collected twelve rebounds in the same contest.",
+          "text": "The Heat won the deciding game afterward.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "September 23 Boston W 112–109 Tyler Herro (37) Bam Adebayo (12)"
+            "url": "https://en.wikipedia.org/wiki/LeBron_James",
+            "quote": "Miami won Game 7 to advance to the Finals"
           }
         },
         {
-          "text": "Miami took a three-games-to-one series lead with that victory.",
+          "text": "LeBron earned his first Finals MVP following the run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "No In-Person Attendance 3–1"
+            "url": "https://en.wikipedia.org/wiki/LeBron_James",
+            "quote": "James was voted Finals MVP with averages of 28.6 points"
           }
         }
       ]

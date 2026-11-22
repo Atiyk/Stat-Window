@@ -2265,9 +2265,11 @@ a {
 .onboarding { width: min(100%, 560px); margin: 3rem auto; padding: 1.5rem; display: grid; gap: 1.1rem; }
 .onboarding h1 { font-size: clamp(2rem, 6vw, 3.25rem); letter-spacing: -.045em; line-height: 1.06; }
 .onboarding p { line-height: 1.5; }
-.onboarding-demo { border: 1px solid #d6d9dd; border-radius: 16px; padding: 1.25rem; display: grid; gap: .8rem; }
+.onboarding-demo { border: 1px solid var(--line); background: var(--surface); padding: 1.25rem; display: grid; gap: .8rem; min-width: 0; }
 .onboarding-prompt { font-size: 1.15rem; font-weight: 600; }
-.onboarding-demo label { display: flex; justify-content: space-between; }
-.onboarding-demo input[type=range] { width: 100%; min-height: 44px; accent-color: #327d75; }
+.onboarding-demo label { display: flex; justify-content: space-between; gap: 12px; }
+.onboarding-demo input[type=range] { width: 100%; min-height: 44px; accent-color: var(--brand); }
 .onboarding button { min-height: 48px; }
+.onboarding button:focus-visible, .onboarding-demo input:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.onboarding .btn-quiet { width: 100%; }
 @media(max-width:375px) { .onboarding { margin: 1.5rem auto; padding: 1rem; } .onboarding-demo { padding: 1rem; } }

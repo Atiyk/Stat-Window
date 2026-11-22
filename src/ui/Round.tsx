@@ -7,6 +7,7 @@ import { feedback } from './feedback';
 import { Readout } from './Readout';
 import { Ruler, type RulerReveal } from './Ruler';
 import { usePrefersReducedMotion } from './hooks';
+import { clearShotStart, readShotStart, rememberShotStart, shotStorageKey } from '../lib/shot-clock';
 import { browserFunFactSeed, pickFunFact } from './fun-facts';
 import { pickReactions } from './reactions';
 import { SourcesDisclosure } from './Sources';
@@ -69,37 +70,29 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
   // 24 seconds while React effects hydrate the saved deadline.
   const [secondsLeft, setSecondsLeft] = useState(() => {
     if (survival || typeof window === 'undefined') return 24;
-    try {
-      const startedAt = Number(window.sessionStorage.getItem(`stat-window:shot:v1:${q.id}`));
-      if (!Number.isFinite(startedAt) || startedAt <= 0) return 24;
-      return Math.ceil(Math.max(0, SHOT_CLOCK_MS - (Date.now() - startedAt)) / 1000);
-    } catch {
-      return 24;
-    }
+    const startedAt = readShotStart(shotStorageKey(q.id));
+    return startedAt === null ? 24 : Math.ceil(Math.max(0, SHOT_CLOCK_MS - (Date.now() - startedAt)) / 1000);
   });
   const shot = useRef<{ startedAt: number | null; stopped: boolean }>({ startedAt: null, stopped: false });
   const dispatchRef = useRef(dispatch);
   dispatchRef.current = dispatch;
   const timed = survival === undefined;
-  const shotKey = `stat-window:shot:v1:${q.id}`;
+  const shotKey = shotStorageKey(q.id);
   // The browser-local timestamp prevents free time from refreshing or switching tabs.
   // It is never sent to the server or analytics; it cannot provide cheat-proof ranking.
-  const rememberStart = (at: number) => {
-    try { window.sessionStorage.setItem(shotKey, String(at)); } catch { /* storage blocked: memory timer still works */ }
-  };
+  const rememberStart = (at: number) => rememberShotStart(shotKey, at);
   const elapsed = () =>
     shot.current.startedAt === null ? 0 : Math.max(0, Math.min(SHOT_CLOCK_MS, Date.now() - shot.current.startedAt));
   const startShot = () => {
     if (!timed || shot.current.startedAt !== null || shot.current.stopped) return;
-    shot.current.startedAt = Date.now();
-    rememberStart(shot.current.startedAt);
+    shot.current.startedAt = rememberStart(Date.now());
   };
   const stopShot = () => {
     const spent = Math.round(elapsed());
     shot.current.stopped = true;
     // After a locked answer, no deadline remains to restore. Keeping one
     // could instantly expire a fresh replay if a player resets their save.
-    try { window.sessionStorage.removeItem(shotKey); } catch { /* blocked storage */ }
+    try { clearShotStart(shotKey); } catch { /* blocked storage */ }
     return spent;
   };
   const lockShot = () => {
@@ -113,16 +106,9 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
   useEffect(() => {
     let startedAt: number | null = null;
     if (timed) {
-      try {
-        const raw = window.sessionStorage.getItem(shotKey);
-        const value = raw === null ? NaN : Number(raw);
-        if (Number.isFinite(value) && value > 0) startedAt = value;
-      } catch { /* storage may be blocked */ }
-      // Question is only mounted after Start, so the deadline begins at appearance.
-      if (startedAt === null) {
-        startedAt = Date.now();
-        rememberStart(startedAt);
-      }
+      startedAt = readShotStart(shotKey);
+      // Mounting the question must not grant time back after a second tab starts.
+      if (startedAt === null) startedAt = rememberStart(Date.now());
     }
     shot.current = { startedAt, stopped: false };
     setSecondsLeft(startedAt === null ? 24 : Math.ceil(Math.max(0, SHOT_CLOCK_MS - (Date.now() - startedAt)) / 1000));
@@ -142,16 +128,30 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
       setSecondsLeft(Math.ceil(left / 1000));
       if (left === 0) {
         s.stopped = true;
-        try { window.sessionStorage.removeItem(shotKey); } catch { /* blocked storage */ }
+        try { clearShotStart(shotKey); } catch { /* blocked storage */ }
         dispatchRef.current({ type: 'timeout', elapsedMs: SHOT_CLOCK_MS });
       }
     };
     // Browser intervals may be throttled in background tabs. The authoritative
     // deadline uses Date.now, and is rechecked immediately when the tab returns.
+    const onSharedStart = (event: StorageEvent) => {
+      if (event.key !== shotKey || !event.newValue) return;
+      const earlier = Number(event.newValue);
+      if (Number.isFinite(earlier) && earlier > 0 &&
+          (shot.current.startedAt === null || earlier < shot.current.startedAt)) {
+        shot.current.startedAt = earlier;
+        tick();
+      }
+    };
     const id = window.setInterval(tick, 100);
     document.addEventListener('visibilitychange', tick);
+    window.addEventListener('storage', onSharedStart);
     tick();
-    return () => { window.clearInterval(id); document.removeEventListener('visibilitychange', tick); };
+    return () => {
+      window.clearInterval(id);
+      document.removeEventListener('visibilitychange', tick);
+      window.removeEventListener('storage', onSharedStart);
+    };
   }, [timed, interactive, state.round]);
 
   // New round: reset the reveal and move focus to the question for screen readers.

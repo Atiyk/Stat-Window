@@ -6,6 +6,7 @@ import { parseChallenge } from './engine/challenge';
 import { addDays, puzzleDay, puzzleNumber } from './engine/daily';
 import { currentSeason, inSeason, publicNumber, seasonConfigFrom, type SeasonConfig } from './engine/season';
 import { isQa } from './lib/scores';
+import { readShotStart, rememberShotStart, shotStorageKey } from './lib/shot-clock';
 import { gameReducer, initGame, ROUNDS, type GameAction, type GameState, type Mode } from './engine/game';
 import { createSaveStore, type RunKind, type SaveStore, type StorageLike } from './engine/storage';
 import { playerStats } from './engine/summary';
@@ -356,14 +357,14 @@ function Game(props: {
     return initGame(session.slate, session.mode, saved?.results ?? [], saved?.advanced ?? 0);
   });
 
-  const firstShotKey = `stat-window:shot:v1:${session.slate.questions[0]?.id ?? ''}`;
+  const firstShotKey = shotStorageKey(session.slate.questions[0]?.id ?? '');
   const [started, setStarted] = useState(() => {
     if ((store.load()[session.kind]?.[session.day]?.results.length ?? 0) > 0) return true;
-    try { return window.sessionStorage.getItem(firstShotKey) !== null; } catch { return false; }
+    return readShotStart(firstShotKey) !== null;
   });
   const start = () => {
     // Persist before mounting Q1 so an immediate refresh cannot grant fresh time.
-    try { if (!window.sessionStorage.getItem(firstShotKey)) window.sessionStorage.setItem(firstShotKey, String(Date.now())); } catch { /* private mode fallback */ }
+    rememberShotStart(firstShotKey, Date.now());
     trackOnce(`start:${playMode}:${session.kind}:${session.day}`, today, { name: 'run_start', mode: playMode });
     props.onWindowActive(); setStarted(true);
   };
@@ -431,6 +432,7 @@ function Game(props: {
       if (saved && saved.results.length > state.results.length && (state.phase === 'ready' || state.phase === 'adjusting')) {
         // Those rounds were counted by the tab that locked them.
         lastLocked.current = saved.results.length;
+        setStarted(true);
         rawDispatch({ type: 'hydrate', state: initGame(session.slate, session.mode, saved.results, saved.advanced) });
       }
     };

@@ -1,0 +1,30 @@
+name: V3 one-time shared browser shot-clock deadline QA
+on:
+  push:
+    branches: [statwindow/v3-cross-tab-deadline-fix-20261122]
+    paths: [.github/workflows/v3-cross-tab-deadline-proof.yml]
+permissions: {contents: write}
+jobs:
+  verify:
+    if: github.repository == 'Atiyk/Stat-Window'
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck && npm test
+      - run: npx playwright install --with-deps chromium
+      - name: Desktop and mobile shot timer, cross-tab and private storage regression
+        run: npx playwright test e2e/shot-clock.spec.ts --project=desktop --project=mobile
+      - name: Remove QA workflow after success
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/v3-cross-tab-deadline-proof.yml
+          git commit -m "Remove successful one-time shared shot-clock QA"
+          git push origin HEAD:refs/heads/statwindow/v3-cross-tab-deadline-fix-20261122

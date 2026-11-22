@@ -88,6 +88,46 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     expect(Number(await client.command(['GET', b[2]!]))).toBe(48);
   });
 
+
+  it('two participants can erase in one month, and empty erasure does not debit reserves',async()=>{
+    const store=leaderboardRedis(client.evaluate),scope='multi-erase',p=`${prefix}:${scope}`,b=budget(scope);
+    const other='c'.repeat(40),day='2027-11-18';
+    const first=writeKeys(scope,day,'first');
+    const second=writeKeys(scope,day,'second');
+    second[0]=blockLedger(p,other,blockNumber(day));
+    expect(await store.submit(first,member,day,90,caps,expiration(day))).toBe('stored');
+    expect(await store.submit(second,other,day,80,caps,expiration(day))).toBe('stored');
+    const erase=(who:string,n:string)=>store.remove([
+      blockLedger(p,who,blockNumber(day)),blockLedger(p,who,blockNumber(day)-1),
+      b[2]!,`${p}:erase:minute:${n}`,`${p}:erase:day:${n}`,`${p}:erase:subcap`
+    ],who,caps);
+    expect(await erase(member,'1')).toBe('removed');
+    expect(await erase(other,'2')).toBe('removed');
+    expect(Number(await client.command(['GET',b[2]!]))).toBe(68);
+    expect(await erase(member,'3')).toBe('nothing');
+    expect(Number(await client.command(['GET',b[2]!]))).toBe(68);
+    for(const board of boards(p,day,null)){
+      expect(await client.command(['ZCARD',board])).toBe(0);
+    }
+  });
+
+  it('cross-block week participation and atomic deletion remove both seasons',async()=>{
+    const store=leaderboardRedis(client.evaluate),scope='boundary',p=`${prefix}:${scope}`,b=budget(scope);
+    const old='2026-04-30',next='2026-05-01';
+    expect(blockNumber(next)).toBe(blockNumber(old)+1);
+    expect(await store.submit(writeKeys(scope,old,'old'),member,old,100,caps,expiration(old))).toBe('stored');
+    expect(await store.submit(writeKeys(scope,next,'next'),member,next,140,caps,expiration(next))).toBe('stored');
+    const weekly=boards(p,next,null)[1]!;
+    const result=await store.read(weekly,b,caps,[`${p}:read:minute`,`${p}:read:day`],
+      [blockLedger(p,member,blockNumber(next)),blockLedger(p,member,blockNumber(old))],member);
+    if(typeof result==='string')throw new Error(result);
+    expect(result.mine).toMatchObject({score:240,days:2,rank:1});
+    expect(await store.remove([blockLedger(p,member,blockNumber(next)),blockLedger(p,member,blockNumber(old)),
+      b[2]!,`${p}:delete:minute`,`${p}:delete:day`,`${p}:delete:subcap`],member,caps)).toBe('removed');
+    for(const day of [old,next])for(const board of boards(p,day,null))
+      expect(await client.command(['ZSCORE',board,member])).toBeNull();
+  });
+
   it('ties share rank while personal days played reflects actual accepted dates', async () => {
     const store=leaderboardRedis(client.evaluate);
     const scope='ties',p=`${prefix}:${scope}`,b=budget(scope);

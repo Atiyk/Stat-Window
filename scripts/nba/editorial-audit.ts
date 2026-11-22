@@ -57,8 +57,18 @@ for (const day of days) {
     if ([...counts.values()].some(n => n > 2)) structural.push(day.date + ': repeated ' + key);
   }
 }
-console.log(JSON.stringify({cutoff,days:days.length,weakQ1:weak.length,weakQ5:weakFinale.length,weakMiddleCount:weakMiddle.length,weakMiddleDays:weakMiddleDays.size,weakQ2:weakMiddleByRound[0],weakQ3:weakMiddleByRound[1],weakQ4:weakMiddleByRound[2],weakMiddle,structuralCount:structural.length,weak,weakFinale,structural},null,2));
+// Cross-day engagement: four identical finale stat families in a row is monotonous,
+ // even if each individual expert question is independently strong.
+const finaleMonotony: string[] = [];
+for (let i = 3; i < days.length; i++) {
+  const window = days.slice(i - 3, i + 1);
+  const families = window.map(day => by.get(day.questions[4]!)?.family);
+  if (families[0] && families.every(family => family === families[0])) {
+    finaleMonotony.push(window[0]!.date + '–' + window[3]!.date + ': ' + families[0]);
+  }
+}
+console.log(JSON.stringify({cutoff,days:days.length,weakQ1:weak.length,weakQ5:weakFinale.length,weakMiddleCount:weakMiddle.length,weakMiddleDays:weakMiddleDays.size,weakQ2:weakMiddleByRound[0],weakQ3:weakMiddleByRound[1],weakQ4:weakMiddleByRound[2],weakMiddle,structuralCount:structural.length,finaleMonotonyCount:finaleMonotony.length,weak,weakFinale,structural,finaleMonotony},null,2));
 // Q1 is always a publication failure; --strict additionally enforces Q5 and slate structure.
 // --report-only is for inventory, never for publication/CI.
 if (!process.argv.includes('--report-only') && (weak.length || provenance.length)) process.exitCode=1;
-if (process.argv.includes('--strict') && (weak.length || weakFinale.length || structural.length || provenance.length)) process.exitCode=1;
+if (process.argv.includes('--strict') && (weak.length || weakFinale.length || structural.length || finaleMonotony.length || provenance.length)) process.exitCode=1;

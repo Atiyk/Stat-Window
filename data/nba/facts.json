@@ -23390,69 +23390,6 @@
     }
   },
   {
-    "id": "nba-magic80-finalsg6-center-42",
-    "family": "points-game",
-    "scope": "finals",
-    "season": "1979-80",
-    "eventDate": "1980-05-16",
-    "franchise": "LAL",
-    "player": "Magic Johnson",
-    "answer": 42,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "42 points, plus 15 rebounds and seven assists. Rookie Magic closed out the title.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-      "quote": "Magic Johnson scored 42 points, including all 14 of his free-throw attempts.",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "As a rookie filling in for injured Kareem at center, how many points did Magic Johnson score to win the 1980 Finals?",
-      "context": "Magic Johnson · Lakers at 76ers · 1980 Finals Game 6",
-      "reveal": "42 points, plus 15 rebounds and seven assists. Rookie Magic closed out the title.",
-      "min": 10,
-      "max": 115,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Magic's all-position 1980 rookie Finals clincher is a memorable NBA legend and estimable huge scoring game.",
-      "ratings": {
-        "interest": 5,
-        "recognizability": 5,
-        "estimability": 4,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Magic was asked to jump center because Kareem was injured.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-            "quote": "asking Magic Johnson to jump center"
-          }
-        },
-        {
-          "text": "He made every free throw he attempted in the clincher.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-            "quote": "all 14 of his free-throw attempts"
-          }
-        },
-        {
-          "text": "The Lakers won the championship on the road.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-            "quote": "Los Angeles Lakers 123, Philadelphia 76ers 107"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-ja22-warriors-game2-47",
     "family": "points-game",
     "scope": "playoffs",
@@ -23510,69 +23447,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
             "quote": "Series tied, 1–1"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-jordan97-flu-g5-38",
-    "family": "points-game",
-    "scope": "finals",
-    "season": "1996-97",
-    "eventDate": "1997-06-11",
-    "franchise": "CHI",
-    "player": "Michael Jordan",
-    "answer": 38,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "38 points. Jordan fought through illness and hit a decisive late three.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
-      "quote": "Jordan played 44 minutes, finishing the game with 38 points, 7 rebounds, 5 assists, 3 steals and 1 block.",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "While badly ill in the famous 1997 Finals 'Flu Game' against Utah, how many points did Michael Jordan score?",
-      "context": "Michael Jordan · Bulls at Jazz · 1997 Finals",
-      "reveal": "38 points. Jordan fought through illness and hit a decisive late three.",
-      "min": 10,
-      "max": 105,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "The unforgettable Jordan Flu Game is recognizable across generations; estimating his scoring while ill is a fair challenge.",
-      "ratings": {
-        "interest": 5,
-        "recognizability": 5,
-        "estimability": 4,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Jordan was so exhausted he fell into Scottie Pippen's arms.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
-            "quote": "Jordan collapsed into Scottie Pippen's arms"
-          }
-        },
-        {
-          "text": "Chicago survived in Utah by two points.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
-            "quote": "Chicago Bulls 90, Utah Jazz 88"
-          }
-        },
-        {
-          "text": "Jordan played nearly the entire game despite his condition.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
-            "quote": "Jordan played 44 minutes"
           }
         }
       ]
@@ -23825,6 +23699,132 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Kevin_Love",
             "quote": "a home game against the New York Knicks on November 12, 2010"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-melo14-knicks-msg-62",
+    "family": "points-game",
+    "scope": "regular-season",
+    "season": "2013-14",
+    "eventDate": "2014-01-24",
+    "franchise": "NYK",
+    "player": "Carmelo Anthony",
+    "answer": 62,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Melo scored 62 against Charlotte, setting Knicks and MSG single-game scoring records.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Carmelo_Anthony",
+      "quote": "a 62-point, 13-rebound, 0 turnover effort against the Charlotte Bobcats.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In his unforgettable 2014 Madison Square Garden scoring explosion against Charlotte, how many points did Carmelo Anthony score?",
+      "context": "Carmelo Anthony · Knicks vs Bobcats · January 2014",
+      "reveal": "62 points, a Knicks and MSG record, with 13 rebounds and no turnovers.",
+      "min": 15,
+      "max": 140,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Carmelo's MSG career-best scoring night is a recognizable Knicks milestone and an estimable massive star performance.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Melo also grabbed 13 rebounds.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Carmelo_Anthony",
+            "quote": "62-point, 13-rebound, 0 turnover effort"
+          }
+        },
+        {
+          "text": "He scored without committing a turnover.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Carmelo_Anthony",
+            "quote": "13-rebound, 0 turnover effort"
+          }
+        },
+        {
+          "text": "That night set a Madison Square Garden scoring record.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Carmelo_Anthony",
+            "quote": "Madison Square Garden record for single-game scoring"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-lebron12-boston-g6-45",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2011-12",
+    "eventDate": "2012-06-07",
+    "franchise": "MIA",
+    "player": "LeBron James",
+    "answer": 45,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "LeBron scored 45 and grabbed 15 rebounds to force 2012 East finals Game 7 in Boston.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/LeBron_James",
+      "quote": "Facing elimination in Game 6, James recorded 45 points and 15 rebounds",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Facing elimination at Boston in 2012, how many points did LeBron score in his defining East finals Game 6?",
+      "context": "LeBron James · Miami Heat at Boston Celtics · June 2012",
+      "reveal": "45 points and 15 rebounds. Miami survived and won LeBron's first championship.",
+      "min": 10,
+      "max": 125,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "LeBron's pivotal 2012 Eastern finals Game 6 against Boston is an iconic playoff rescue with an intuitive huge scoring range.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "He hauled in 15 rebounds that night.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/LeBron_James",
+            "quote": "James recorded 45 points and 15 rebounds"
+          }
+        },
+        {
+          "text": "The Heat won the deciding game afterward.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/LeBron_James",
+            "quote": "Miami won Game 7 to advance to the Finals"
+          }
+        },
+        {
+          "text": "LeBron earned his first Finals MVP following the run.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/LeBron_James",
+            "quote": "James was voted Finals MVP with averages of 28.6 points"
           }
         }
       ]

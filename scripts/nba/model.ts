@@ -390,6 +390,7 @@ export function validateNba(data: NbaData): Report {
   }
   const unplaced = facts.filter((f) => !used.has(f.id) && !calendar.reserve.includes(f.id));
   for (const f of unplaced) errors.push(`${f.id}: neither scheduled nor in reserve`);
+  const themed = days.filter((d) => d.theme?.kind !== 'mixed').length;
   const mixed = days.filter((d) => d.theme?.kind === 'mixed').length;
   // V3 intentionally replaced same-team slates with five-subject mixes. Keep the
   // original 30-day editorial coverage floor, now applying it to mixed days.

@@ -38,6 +38,7 @@ for (const day of days) {
   }
 }
 console.log(JSON.stringify({cutoff,days:days.length,weakQ1:weak.length,weakQ5:weakFinale.length,structuralCount:structural.length,weak,weakFinale,structural},null,2));
-// Q1 is a non-negotiable publication gate; --strict additionally enforces Q5 and slate structure.
-if (process.argv.includes('--strict-q1') && (weak.length || provenance.length)) process.exitCode=1;
+// Q1 is always a publication failure; --strict additionally enforces Q5 and slate structure.
+// --report-only is for inventory, never for publication/CI.
+if (!process.argv.includes('--report-only') && (weak.length || provenance.length)) process.exitCode=1;
 if (process.argv.includes('--strict') && (weak.length || weakFinale.length || structural.length || provenance.length)) process.exitCode=1;

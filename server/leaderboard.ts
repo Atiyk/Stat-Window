@@ -106,7 +106,8 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
     }
     const body=await readBody(req);
     if(!body||typeof body.player!=='string'||!PLAYER.test(body.player))return json(422,{status:'invalid'});
-    if(body.consent!=='granted')return json(409,{status:'consent-required'});
+    // Withdrawal of consent must never prevent erasure (including GPC/DNT opt-out).
+    if(req.method==='POST' && body.consent!=='granted')return json(409,{status:'consent-required'});
     const member=hash(ctx.secret,'lb-player:'+body.player);
     const rate=prefix+':rate:'+network+':'+Math.floor(now.getTime()/60000);
     if(req.method==='DELETE') {

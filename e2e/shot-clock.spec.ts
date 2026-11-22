@@ -210,3 +210,24 @@ test('reduced-motion first-play practice preserves focus and layout across five 
   await expect(page.locator('.round:not(.onboarding-play) .question')).toBeVisible();
   await expect(page.locator('.shot-clock')).toContainText('24s');
 });
+
+test('second tab inherits the unfinished daily shot-clock deadline instead of a free 24 seconds', async ({ page, context }) => {
+  await openTimed(page);
+  await page.clock.fastForward('00:10');
+  const second = await context.newPage();
+  try {
+    await second.clock.install({ time: new Date(DAY1.getTime() + 10_000) });
+    await second.goto('/');
+    await startDailyIfNeeded(second);
+    await expect(second.locator('.question')).toBeVisible();
+    const remain = Number((await second.locator('.shot-clock').textContent())?.match(/(\d+)s/)?.[1]);
+    expect(remain).toBeGreaterThanOrEqual(13);
+    expect(remain).toBeLessThanOrEqual(15);
+    // Refresh the second tab; neither session nor shared local storage gives time back.
+    await second.clock.fastForward('00:05');
+    await second.reload();
+    await expect.poll(async () => Number((await second.locator('.shot-clock').textContent())?.match(/(\d+)s/)?.[1])).toBeLessThanOrEqual(10);
+  } finally {
+    await second.close();
+  }
+});

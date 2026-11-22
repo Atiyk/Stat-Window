@@ -443,10 +443,7 @@
       "era": "2000s",
       "steps": 58,
       "day": "2026-11-26",
-      "notBefore": "2027-01-15",
-      "leaks": [
-        "nba-hornets08-spurs-g7-points"
-      ]
+      "notBefore": "2026-11-27"
     },
     "nba-shot-clock-24": {
       "tier": "medium",
@@ -970,10 +967,7 @@
       "era": "2010s",
       "steps": 80,
       "day": "2026-12-06",
-      "notBefore": "2027-01-13",
-      "leaks": [
-        "nba-butler20-g3-ast"
-      ]
+      "notBefore": "2026-12-07"
     },
     "nba-pacers98-season-wins": {
       "tier": "easy",
@@ -1419,9 +1413,10 @@
       "era": "2010s",
       "steps": 30,
       "day": "2026-12-16",
-      "notBefore": "2027-01-07",
+      "notBefore": "2027-01-14",
       "leaks": [
-        "nba-spurs14-march-wins"
+        "nba-spurs14-march-wins",
+        "nba-spurs14-finals-avg-margin-fourteen"
       ]
     },
     "nba-kobe16-final-game": {
@@ -1615,9 +1610,10 @@
       "era": "2010s",
       "steps": 66,
       "day": "2026-12-20",
-      "notBefore": "2026-12-26",
+      "notBefore": "2027-01-14",
       "leaks": [
-        "nba-melo14-knicks-msg-62"
+        "nba-melo14-knicks-msg-62",
+        "nba-spurs14-finals-avg-margin-fourteen"
       ]
     },
     "nba-barry80-threes": {
@@ -2051,7 +2047,10 @@
       "era": "2010s",
       "steps": 14,
       "day": "2026-12-29",
-      "notBefore": "2026-12-30"
+      "notBefore": "2027-01-14",
+      "leaks": [
+        "nba-spurs14-finals-avg-margin-fourteen"
+      ]
     },
     "nba-majerle93-three-pointers": {
       "tier": "hard",
@@ -2740,12 +2739,12 @@
       "day": "2027-01-12",
       "notBefore": "2027-01-13"
     },
-    "nba-butler20-g3-ast": {
+    "nba-lakers11-mavs-game4-only-86": {
       "tier": "expert",
-      "family": "assists-game",
-      "franchise": "MIA",
+      "family": "points-team-game",
+      "franchise": "LAL",
       "era": "2010s",
-      "steps": 16,
+      "steps": 100,
       "day": "2027-01-12",
       "notBefore": "2027-01-13"
     },
@@ -2785,12 +2784,12 @@
       "day": "2027-01-13",
       "notBefore": "2027-01-14"
     },
-    "nba-spurs99-alamodome-attendance": {
+    "nba-spurs14-finals-avg-margin-fourteen": {
       "tier": "expert",
-      "family": "attendance",
+      "family": "margin-average",
       "franchise": "SAS",
-      "era": "1990s",
-      "steps": 140,
+      "era": "2010s",
+      "steps": 350,
       "day": "2027-01-13",
       "notBefore": "2027-01-14"
     },
@@ -2833,17 +2832,14 @@
         "nba-diaw14-heat-g4-assists"
       ]
     },
-    "nba-hornets08-spurs-g7-points": {
+    "nba-pacers24-msg-game7-671-shooting": {
       "tier": "expert",
-      "family": "points-team-game",
-      "franchise": "NOP",
-      "era": "2000s",
-      "steps": 93,
+      "family": "shooting-pct",
+      "franchise": "IND",
+      "era": "2020s",
+      "steps": 350,
       "day": "2027-01-14",
-      "notBefore": "2027-01-15",
-      "leaks": [
-        "nba-cp3-2022-perfect-playoff-shots"
-      ]
+      "notBefore": "2027-01-15"
     },
     "nba-iverson01-season-ppg": {
       "tier": "easy",
@@ -2881,14 +2877,17 @@
       "day": "2027-01-15",
       "notBefore": "2027-01-16"
     },
-    "nba-kareem89-retire-age": {
+    "nba-murray20-utah-g6-nine-threes": {
       "tier": "expert",
-      "family": "age",
-      "franchise": "LAL",
-      "era": "1980s",
-      "steps": 21,
+      "family": "threes-game",
+      "franchise": "DEN",
+      "era": "2010s",
+      "steps": 25,
       "day": "2027-01-15",
-      "notBefore": "2027-01-16"
+      "notBefore": "2027-01-16",
+      "leaks": [
+        "nba-butler20-regular-apg"
+      ]
     },
     "nba-miller95-8-points": {
       "tier": "easy",
@@ -2926,12 +2925,12 @@
       "day": "2027-01-16",
       "notBefore": "2027-01-17"
     },
-    "nba-rodman96-finals-oreb": {
+    "nba-jordan98-last-shot-five-point-two": {
       "tier": "expert",
-      "family": "offensive-rebounds",
+      "family": "time",
       "franchise": "CHI",
       "era": "1990s",
-      "steps": 19,
+      "steps": 200,
       "day": "2027-01-16",
       "notBefore": "2027-01-17"
     },
@@ -3083,7 +3082,8 @@
       "day": "2027-01-19",
       "notBefore": "2027-01-20",
       "leaks": [
-        "nba-spurs14-blowouts"
+        "nba-spurs14-blowouts",
+        "nba-spurs14-finals-avg-margin-fourteen"
       ]
     },
     "nba-jokic23-playoff-triple-doubles": {
@@ -3835,10 +3835,7 @@
       "era": "2000s",
       "steps": 50,
       "day": null,
-      "notBefore": "2027-01-15",
-      "leaks": [
-        "nba-hornets08-spurs-g7-points"
-      ]
+      "notBefore": "2027-01-10"
     },
     "nba-spurs24-losing-streak": {
       "tier": "expert",
@@ -3857,6 +3854,54 @@
       "steps": 30,
       "day": null,
       "notBefore": "2027-01-12"
+    },
+    "nba-butler20-g3-ast": {
+      "tier": "expert",
+      "family": "assists-game",
+      "franchise": "MIA",
+      "era": "2010s",
+      "steps": 16,
+      "day": null,
+      "notBefore": "2027-01-13"
+    },
+    "nba-spurs99-alamodome-attendance": {
+      "tier": "expert",
+      "family": "attendance",
+      "franchise": "SAS",
+      "era": "1990s",
+      "steps": 140,
+      "day": null,
+      "notBefore": "2027-01-14"
+    },
+    "nba-hornets08-spurs-g7-points": {
+      "tier": "expert",
+      "family": "points-team-game",
+      "franchise": "NOP",
+      "era": "2000s",
+      "steps": 93,
+      "day": null,
+      "notBefore": "2027-01-15",
+      "leaks": [
+        "nba-cp3-2022-perfect-playoff-shots"
+      ]
+    },
+    "nba-kareem89-retire-age": {
+      "tier": "expert",
+      "family": "age",
+      "franchise": "LAL",
+      "era": "1980s",
+      "steps": 21,
+      "day": null,
+      "notBefore": "2027-01-16"
+    },
+    "nba-rodman96-finals-oreb": {
+      "tier": "expert",
+      "family": "offensive-rebounds",
+      "franchise": "CHI",
+      "era": "1990s",
+      "steps": 19,
+      "day": null,
+      "notBefore": "2027-01-17"
     }
   },
   "reserves": [
@@ -5221,6 +5266,261 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
             "quote": "made a phone call to general manager Bob Myers to urge him to try and sign"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-butler20-g3-ast",
+      "sport": "NBA",
+      "prompt": "Jimmy Butler had 40 points and 11 rebounds in Game 3 of the 2020 Finals. How many assists did he add?",
+      "context": "2020 NBA Finals · Game 3 · vs Lakers",
+      "answer": 13,
+      "unit": {
+        "singular": "assist",
+        "plural": "assists"
+      },
+      "min": 0,
+      "max": 16,
+      "step": 1,
+      "note": "13, a 40-point triple-double.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
+        "quote": "Butler finished with 40 points, 11 rebounds and 13 assists for a triple-double to lead Miami to a 115–104 win"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Miami won that game without starters Bam Adebayo and Goran Dragić, who were sidelined.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
+            "quote": "as Heat starters Adebayo and Dragić remained sidelined"
+          }
+        },
+        {
+          "text": "Butler became the first player to outscore, outrebound and out-assist LeBron James in the same Finals game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
+            "quote": "Butler also became the first player to have more points, rebounds and assists in a Finals game than James"
+          }
+        },
+        {
+          "text": "Miami's starters outscored the Lakers' starters despite the Heat entering the game behind in the series.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
+            "quote": "Miami's starters outscored the Lakers' starters 89–51"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-spurs99-alamodome-attendance",
+      "sport": "NBA",
+      "prompt": "What was San Antonio's total home attendance in the shortened 1998–99 season?",
+      "context": "Spurs home games · Alamodome",
+      "answer": 527357,
+      "unit": {
+        "singular": "attendee",
+        "plural": "attendees"
+      },
+      "min": 200000,
+      "max": 900000,
+      "step": 5000,
+      "note": "527,357 attended Spurs home games despite the shorter schedule.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
+        "quote": "an attendance of 527,357 at the Alamodome during the regular season"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "The Spurs ranked second in home attendance during the season, trailing only Chicago.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
+            "quote": "The Spurs finished second in the NBA in home-game attendance behind the Chicago Bulls"
+          }
+        },
+        {
+          "text": "The season ended with the first NBA championship in San Antonio franchise history.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+            "quote": "The Spurs defeated the Knicks in five games to win their first NBA championship."
+          }
+        },
+        {
+          "text": "The entire league had to play a compressed calendar after the lockout delayed opening night.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
+            "quote": "Due to a lockout, the regular season began on February 5, 1999"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-hornets08-spurs-g7-points",
+      "sport": "NBA",
+      "prompt": "How many points did the Hornets score in Game 7 against the 2008 Spurs?",
+      "context": "New Orleans · Western semifinals · elimination",
+      "answer": 82,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 45,
+      "max": 138,
+      "step": 1,
+      "note": "82 points in their season-ending loss.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+        "quote": "May 19 San Antonio 82–91 West (20) Chandler (15) Paul (14)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "New Orleans had led the series three games to two.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "May 13 San Antonio 101–79 West (38) West (14) Paul (14)"
+          }
+        },
+        {
+          "text": "Tyson Chandler grabbed fifteen rebounds in the decider.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "May 19 San Antonio 82–91 West (20) Chandler (15)"
+          }
+        },
+        {
+          "text": "Chris Paul supplied fourteen assists even in defeat.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "May 19 San Antonio 82–91 West (20) Chandler (15) Paul (14)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-kareem89-retire-age",
+      "sport": "NBA",
+      "prompt": "How old was Kareem Abdul-Jabbar when he retired after the 1989 Finals?",
+      "context": "Los Angeles Lakers · 1988–89",
+      "answer": 42,
+      "unit": {
+        "singular": "year old",
+        "plural": "years old"
+      },
+      "min": 27,
+      "max": 48,
+      "step": 1,
+      "note": "42, after 20 seasons.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+        "quote": "announced his retirement from the NBA at age 42 at the end of his 20th season"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Abdul-Jabbar's 1989 retirement capped an NBA career spanning twenty seasons.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+            "quote": "at the end of his 20th season"
+          }
+        },
+        {
+          "text": "Detroit swept the Lakers in Kareem's final championship series.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+            "quote": "The Pistons won the series in a four-game sweep of the injury-riddled Lakers"
+          }
+        },
+        {
+          "text": "Joe Dumars was named Finals MVP after Detroit won its first NBA championship.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+            "quote": "Pistons guard Joe Dumars was named NBA Finals Most Valuable Player"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-rodman96-finals-oreb",
+      "sport": "NBA",
+      "prompt": "In Game 2 of the 1996 Finals, Dennis Rodman tied the Finals record for offensive rebounds. How many did he grab?",
+      "context": "1996 NBA Finals · Game 2 · vs Seattle",
+      "answer": 11,
+      "unit": {
+        "singular": "rebound",
+        "plural": "rebounds"
+      },
+      "min": 0,
+      "max": 19,
+      "step": 1,
+      "note": "11 offensive rebounds, tying the Finals record.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1996_NBA_Finals",
+        "quote": "Dennis Rodman tied an NBA Finals record with 11 offensive rebounds"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Michael Jordan earned Finals MVP for the fourth time as Chicago began a second three-title run.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1996_NBA_Finals",
+            "quote": "Michael Jordan was named NBA Finals MVP, his fourth time winning the award"
+          }
+        },
+        {
+          "text": "Seattle reached the Finals behind Gary Payton and Shawn Kemp after defeating Utah in a seven-game Western final.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1996_NBA_Finals",
+            "quote": "They then beat the Utah Jazz in seven games in the western finals"
+          }
+        },
+        {
+          "text": "The Bulls had fallen to Orlando a season earlier; in 1996 they swept the Magic on their way to the Finals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1996_NBA_Finals",
+            "quote": "the Bulls swept the Magic to gain entry into the Finals"
           }
         }
       ]

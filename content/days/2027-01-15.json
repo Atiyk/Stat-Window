@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-kareem89-retire-age",
+      "id": "nba-murray20-utah-g6-nine-threes",
       "sport": "NBA",
-      "prompt": "How old was Kareem Abdul-Jabbar when he retired after the 1989 Finals?",
-      "context": "Los Angeles Lakers · 1988–89",
-      "answer": 42,
+      "prompt": "With Denver facing elimination in the bubble's 2020 Jazz–Nuggets Game 6, how many threes did Jamal Murray hit?",
+      "context": "Jamal Murray · Nuggets at Jazz · 2020 first-round Game 6",
+      "answer": 9,
       "unit": {
-        "singular": "year old",
-        "plural": "years old"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 27,
-      "max": 48,
+      "min": 0,
+      "max": 25,
       "step": 1,
-      "note": "42, after 20 seasons.",
+      "note": "Nine made threes on only 12 attempts! Murray scored 50 to force Game 7.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-        "quote": "announced his retirement from the NBA at age 42 at the end of his 20th season"
+        "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+        "quote": "Murray again scored 50 points, shooting 9–12 from three and helping the Nuggets extend the series to a Game 7"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Abdul-Jabbar's 1989 retirement capped an NBA career spanning twenty seasons.",
+          "text": "Murray scored 50 points to force the deciding game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-            "quote": "at the end of his 20th season"
+            "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+            "quote": "Murray again scored 50 points, shooting 9–12 from three and helping the Nuggets extend the series to a Game 7"
           }
         },
         {
-          "text": "Detroit swept the Lakers in Kareem's final championship series.",
+          "text": "Denver entered the comeback facing a 3–1 series deficit.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-            "quote": "The Pistons won the series in a four-game sweep of the injury-riddled Lakers"
+            "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+            "quote": "In a potential elimination game in Game 5 with Denver down 3–1 in the series"
           }
         },
         {
-          "text": "Joe Dumars was named Finals MVP after Detroit won its first NBA championship.",
+          "text": "His emotional postgame interview drew attention beyond basketball.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-            "quote": "Pistons guard Joe Dumars was named NBA Finals Most Valuable Player"
+            "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+            "quote": "Following Game 6, Murray became emotional during the postgame interview with TNT’s Jared Greenberg"
           }
         }
       ]

@@ -106,6 +106,19 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     expect(blockExpiry(blockNumber('2027-04-26'))).toBeLessThan(blockExpiry(blockNumber('2027-08-24')));
   });
 
+  it('deleting after a daily board expires never recreates an expired negative-score board',async()=>{
+    const store=leaderboardRedis(client.evaluate),scope='expired-board',p=`${prefix}:${scope}`,b=budget(scope);
+    expect(await store.submit(writeKeys(scope,day1,'expired'),member,day1,90,caps,expiration(day1))).toBe('stored');
+    const expired=boards(p,day1,null)[0]!;
+    await client.command(['DEL',expired]); // simulate the earlier board's natural TTL
+    const result=await store.remove([blockLedger(p,member,blockNumber(day1)),blockLedger(p,member,blockNumber(day1)-1),b[2]!,`${p}:delete:minute:expired`,`${p}:delete:day:expired`,`${p}:delete:subcap:expired`],member,caps);
+    expect(result).toBe('removed');
+    expect(await client.command(['EXISTS',expired])).toBe(0);
+    for(const board of boards(p,day1,null).slice(1))
+      expect(await client.command(['ZSCORE',board,member])).toBeNull();
+    expect(await client.command(['EXISTS',blockLedger(p,member,blockNumber(day1))])).toBe(0);
+  });
+
   it('two participants can erase in one month, and empty erasure does not debit reserves',async()=>{
     const store=leaderboardRedis(client.evaluate),scope='multi-erase',p=`${prefix}:${scope}`,b=budget(scope);
     const other='c'.repeat(40),day='2027-11-18';

@@ -18,6 +18,7 @@
     "content:check": "node --experimental-strip-types scripts/content-check.ts",
     "content:trivia:check": "node --experimental-strip-types scripts/trivia-audit.ts",
     "content:trivia:complete": "node --experimental-strip-types scripts/trivia-audit.ts --require-complete",
+    "remind:ics": "node --experimental-strip-types scripts/remind-ics.ts",
     "content:new": "node --experimental-strip-types scripts/content-new.ts",
     "nba:db": "node --experimental-strip-types scripts/nba/db.ts",
     "nba:report": "node --experimental-strip-types scripts/nba/report.ts",

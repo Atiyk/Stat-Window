@@ -42,6 +42,10 @@ export type TrackEvent =
   | { name: 'percentile'; outcome: ScoreOutcome }
   /** A privacy choice made in the app. */
   | { name: 'privacy'; choice: 'scores-on' | 'scores-off' | 'deleted' }
+  /** A calendar reminder link was tapped on the results screen (src/engine/remind.ts). */
+  | { name: 'remind'; method: 'ics' | 'google' }
+  /** The page was opened from the reminder event's link (?from=calendar), once per browser and UTC day. */
+  | { name: 'remind_open' }
   /** Survival (docs/SURVIVAL.md). `again` = the player pressed "Run it again". */
   | { name: 'survival_start'; source: 'cta' | 'link' | 'again' }
   | { name: 'survival_reach'; round: 5 | 10 | 15 }
@@ -115,6 +119,10 @@ function basePath(e: TrackEvent): string {
       return `/e/percentile/${e.outcome}`;
     case 'privacy':
       return `/e/privacy/${e.choice}`;
+    case 'remind':
+      return `/e/remind/${e.method}`;
+    case 'remind_open':
+      return '/e/remind/open';
     case 'survival_start':
       return `/e/survival/start/${e.source}`;
     case 'survival_reach':

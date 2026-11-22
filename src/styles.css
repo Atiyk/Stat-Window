@@ -1260,6 +1260,32 @@ a {
   font-weight: 700;
 }
 
+/* Daily calendar reminder: as quiet as the countdown above it. */
+.remind {
+  display: grid;
+  gap: 4px;
+}
+.remind-row {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 2.75; /* 44px rows, so wrapped links keep full targets without overlapping */
+  color: var(--ink-soft);
+}
+.remind-row .btn-link {
+  color: var(--ink);
+  line-height: 1.4;
+}
+/* The separator stays with the first link, so a wrap never starts a line with it. */
+.remind-keep {
+  white-space: nowrap;
+}
+.remind-note {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
 .stats {
   margin: 0;
   display: grid;

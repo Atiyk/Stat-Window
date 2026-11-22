@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import type { Slate } from '../content/schema';
 import { challengeUrl } from '../engine/challenge';
 import { msUntilNextPuzzle } from '../engine/daily';
+import { REMIND_COPY, googleCalendarUrl, icsPath, nextReminder, reminderHour, reminderTime } from '../engine/remind';
 import { totalPoints, type Mode, type RoundRecord } from '../engine/game';
 import { MAX_TOTAL, shareText, verdict, type PlayerStats } from '../engine/summary';
 import { ordinal } from '../engine/percentile';
@@ -67,6 +68,11 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
     host: window.location.host || 'stat-window.vercel.app',
   });
   const now = useNow(1000);
+  // The reminder slot is fixed when the screen opens, not every second.
+  const remind = useMemo(() => {
+    const at = new Date();
+    return { href: icsPath(reminderHour(at)), google: googleCalendarUrl(at), time: reminderTime(nextReminder(at)) };
+  }, []);
   const [toast, setToast] = useState<string | null>(null);
   const [fallback, setFallback] = useState<string | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -171,6 +177,11 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
     report('image-saved');
   };
 
+  const remindTapped = (method: 'ics' | 'google') => {
+    track({ name: 'remind', method });
+    setToast(REMIND_COPY.toast);
+  };
+
   const nextAt = new Date(now.getTime() + msUntilNextPuzzle(now));
   const local = localTimeOf(nextAt);
 
@@ -244,6 +255,28 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
           Next puzzle in <span className="tabular">{formatCountdown(msUntilNextPuzzle(now))}</span>, at midnight UTC
           {local ? ` (${local} your time)` : ''}.
         </p>
+        <div className="remind">
+          <p className="remind-row">
+            {REMIND_COPY.label(remind.time)}{' '}
+            <span className="remind-keep">
+              <a className="btn-link" href={remind.href} onClick={() => remindTapped('ics')}>
+                {REMIND_COPY.ics}
+              </a>
+              <span aria-hidden="true"> ·</span>
+            </span>{' '}
+            <a
+              className="btn-link"
+              href={remind.google}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={REMIND_COPY.googleName}
+              onClick={() => remindTapped('google')}
+            >
+              {REMIND_COPY.google}
+            </a>
+          </p>
+          <p className="remind-note">{REMIND_COPY.note}</p>
+        </div>
       </div>
 
       <ol className="recap" aria-label="Your five windows">

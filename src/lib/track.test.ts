@@ -180,3 +180,47 @@ describe('analyticsOn', () => {
     expect(analyticsOn('vercel', 'localhost')).toBe(true);
   });
 });
+
+describe('calendar reminder events', () => {
+  it('map to fixed paths, with the cohort prefix', () => {
+    expect(eventPath({ name: 'remind', method: 'ics' })).toBe('/e/remind/ics');
+    expect(eventPath({ name: 'remind', method: 'google' })).toBe('/e/remind/google');
+    expect(eventPath({ name: 'remind_open' })).toBe('/e/remind/open');
+    try {
+      setCohort('qa');
+      expect(eventPath({ name: 'remind_open' })).toBe('/e/qa/remind/open');
+      expect(eventPath({ name: 'remind', method: 'ics' })).toBe('/e/qa/remind/ics');
+    } finally {
+      setCohort('beta');
+    }
+  });
+
+  it('are never sent under GPC, DNT or the in-app off switch', () => {
+    const g = globalThis as { window?: unknown };
+    const had = 'window' in g;
+    g.window = g.window ?? {};
+    const unset = { analytics: 'unset', scores: 'unset', key: null, sent: [], done: [], asked: false } as const;
+    const cases: [Navigator, typeof unset | { analytics: 'off' } & Omit<typeof unset, 'analytics'>][] = [
+      [{ globalPrivacyControl: true } as unknown as Navigator, unset],
+      [{ doNotTrack: '1' } as unknown as Navigator, unset],
+      [{} as Navigator, { ...unset, analytics: 'off' }],
+    ];
+    try {
+      for (const [nav, privacy] of cases) {
+        const calls: unknown[][] = [];
+        const vercel = {
+          inject: ((props: unknown) => void calls.push(['inject', props])) as never,
+          pageview: ((p: unknown) => void calls.push(['pageview', p])) as never,
+        };
+        expect(startAnalytics({ enabled: true, nav, vercel, privacy: { ...privacy, sent: [], done: [] } })).toBe(false);
+        track({ name: 'remind', method: 'ics' });
+        track({ name: 'remind', method: 'google' });
+        track({ name: 'remind_open' });
+        expect(calls).toEqual([]);
+      }
+    } finally {
+      setTrackSink(() => {});
+      if (!had) delete g.window;
+    }
+  });
+});

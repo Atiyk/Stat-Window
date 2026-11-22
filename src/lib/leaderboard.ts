@@ -29,13 +29,15 @@ export async function standings(period:Period):Promise<Standings>{
   }catch{return {status:'unavailable'};}
 }
 export async function enroll(day:string,results:readonly RoundRecord[]):Promise<'stored'|'duplicate'|'failed'|'disabled'>{
-  if(results.length!==5||isQa())return 'failed';
+  // Honor the browser's privacy signal before persisting any opt-in choice.
+  // The server independently rejects submissions under Sec-GPC/DNT.
+  if(results.length!==5||isQa()||browserSignal())return 'failed';
   const c=choice();if(!c.consent)return 'failed';
   const key=c.key??newKey(),sent=[...new Set([...c.sent,day])].slice(-90);
   save({consent:true,key,sent});if(choice().key!==key)return 'failed';
   try {const r=await request('POST',{player:key,day,consent:'granted',rounds:results.map(x=>({id:x.questionId,lo:x.lo,hi:x.hi})),total:results.reduce((s,x)=>s+x.points,0)});const x=await r.json();if(x.status==='stored'||x.status==='duplicate')return x.status;if(x.status==='disabled')return 'disabled';return 'failed';}catch{return 'failed';}
 }
-export function optIn(){const c=choice();save({...c,consent:true});return choice().consent;}
+export function optIn(){if(browserSignal())return false;const c=choice();save({...c,consent:true});return choice().consent;}
 export async function leave():Promise<'deleted'|'failed'|'nothing'>{
   const c=choice();if(!c.key){save(empty());return 'nothing';}
   try{const r=await request('DELETE',{player:c.key,consent:'granted'});if(!r.ok)return 'failed';save(empty());return 'deleted';}catch{return 'failed';}

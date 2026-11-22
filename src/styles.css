@@ -2271,3 +2271,35 @@ a {
 .onboarding-demo input[type=range] { width: 100%; min-height: 44px; accent-color: #327d75; }
 .onboarding button { min-height: 48px; }
 @media(max-width:375px) { .onboarding { margin: 1.5rem auto; padding: 1rem; } .onboarding-demo { padding: 1rem; } }
+
+
+/* First play is a playable one-question rehearsal of the real round, not a
+   separate slider form. Ruler, readout, lock and reveal inherit game styles. */
+.onboarding-play .question-block { padding-top: clamp(16px, 3vw, 30px); }
+.onboarding-lede {
+  margin: 12px 0 8px;
+  max-width: 42ch;
+  font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem);
+  line-height: 1.45;
+  color: var(--ink);
+}
+.onboarding-coach {
+  margin: 0 0 20px;
+  max-width: 60ch;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.onboarding-play .story:focus { outline: none; }
+.onboarding-actions { display: grid; gap: 10px; }
+.onboarding-actions > .btn { min-height: 48px; }
+.onboarding-footnote {
+  margin: 8px 0 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+@media (max-width: 375px) {
+  .onboarding-play .question-block { padding-top: 14px; }
+  .onboarding-coach { margin-bottom: 12px; }
+}

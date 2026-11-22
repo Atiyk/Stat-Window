@@ -81,10 +81,21 @@ test('interactive tutorial is not scored and requires an explicit start', async 
   await page.clock.install({ time: DAY1 });
   await page.goto('/');
   await expect(page.getByRole('heading', { name: 'Catch the number.' })).toBeVisible();
+  await expect(page.locator('.onboarding-play .ruler')).toBeVisible();
+  await expect(page.locator('.onboarding-play .readout')).toBeVisible();
   await expect(page.locator('.question')).toHaveCount(0);
-  await page.getByRole('slider', { name: 'Practice low end' }).fill('40');
-  await page.getByRole('button', { name: 'Reveal practice answer' }).click();
-  await expect(page.getByRole('status')).toContainText('42');
+  await expect(page.getByRole('slider', { name: 'Low end of your window' })).toBeVisible();
+  await expect(page.getByRole('slider', { name: 'High end of your window' })).toBeVisible();
+  await expect(page.locator('.shot-clock')).toContainText('No timer');
+  // Real input interaction: tap the large number and type an exact bound.
+  await page.getByRole('button', { name: /^Low end: / }).click();
+  await page.getByRole('textbox', { name: /^Low end, between/ }).fill('30');
+  await page.keyboard.press('Enter');
+  await page.getByRole('button', { name: 'Lock the window' }).click();
+  await expect(page.locator('.onboarding-play .story-answer')).toContainText('42');
+  await expect(page.locator('.onboarding-play .ruler[data-state="hit"]')).toBeVisible();
+  const unsaved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
+  expect(unsaved.runs?.['2026-11-15']?.results ?? []).toHaveLength(0);
   await page.getByRole('button', { name: "Start today's five" }).click();
   await expect(page.locator('.question')).toBeVisible();
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
@@ -130,4 +141,24 @@ test('opening and abandoning the tutorial does not start the clock or a scored r
   }));
   expect(after.deadline).not.toBeNull();
   expect(Object.keys(after.sent).filter(key => key.startsWith('start:'))).toHaveLength(1);
+});
+
+
+test('first-play rehearsal allows a miss and a retry without starting any daily shot clock', async ({ page }) => {
+  await page.clock.install({ time: DAY1 });
+  await page.goto('/');
+  await expect(page.locator('.onboarding-play')).toBeVisible();
+  const clockKey = 'stat-window:shot:v1:nba-gsw-2016-wins';
+  await expect(page.getByRole('button', { name: 'Pull the brackets in first' })).toBeDisabled();
+  await page.getByRole('slider', { name: 'High end of your window' }).focus();
+  await page.keyboard.press('Home'); // moves the high bracket near the minimum, missing 42
+  await page.getByRole('button', { name: 'Lock the window' }).click();
+  await expect(page.locator('.onboarding-play .outcome-word')).toContainText('Outside.');
+  await expect(page.locator('.onboarding-play .story-answer')).toContainText('42');
+  expect(await page.evaluate(k => sessionStorage.getItem(k), clockKey)).toBeNull();
+  await page.getByRole('button', { name: 'Try another window' }).click();
+  await expect(page.locator('.onboarding-play .story-answer')).toHaveCount(0);
+  await expect(page.locator('.onboarding-play .ruler')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Pull the brackets in first' })).toBeDisabled();
+  expect(await page.evaluate(k => sessionStorage.getItem(k), clockKey)).toBeNull();
 });

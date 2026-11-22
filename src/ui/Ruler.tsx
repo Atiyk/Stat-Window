@@ -15,7 +15,7 @@ export type RulerReveal = {
 };
 
 type Props = {
-  question: Question;
+  question: Pick<Question, 'min' | 'max' | 'step' | 'answer' | 'unit'>;
   window: Window;
   interactive: boolean;
   reveal: RulerReveal | null;

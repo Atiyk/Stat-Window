@@ -4,7 +4,7 @@ import type { Window } from '../engine/scoring';
 import { formatValue, unitFor } from '../lib/format';
 
 type Props = {
-  question: Question;
+  question: Pick<Question, 'min' | 'max' | 'step' | 'unit'>;
   window: Window;
   editable: boolean;
   onFirstTouch?: (() => void) | undefined;
@@ -28,7 +28,7 @@ export function Readout({ question: q, window: w, editable, onChange, onFirstTou
 
 function Bound(props: {
   which: 'lo' | 'hi';
-  q: Question;
+  q: Pick<Question, 'min' | 'max' | 'step' | 'unit'>;
   value: number;
   editable: boolean;
   editing: boolean;

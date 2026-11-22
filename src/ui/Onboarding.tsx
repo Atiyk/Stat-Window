@@ -1,26 +1,156 @@
 import { useEffect, useRef, useState } from 'react';
-/** Fictional practice value: never used as real NBA trivia or a scored round. */
+import type { Question } from '../content/schema';
+import { normalizeWindow } from '../engine/game';
+import { potentialPoints, scoreWindow, type RoundScore, type Window } from '../engine/scoring';
+import { usePrefersReducedMotion } from './hooks';
+import { Readout } from './Readout';
+import { Ruler, type RulerReveal } from './Ruler';
+
+/**
+ * A tiny, entirely fictional round. The real Readout, Ruler, scoring and
+ * reveal components are reused, but this never loads or saves a daily slate.
+ * In particular, the 24-second shot clock is not mounted until onDone().
+ */
+const PRACTICE: Pick<Question, 'min' | 'max' | 'step' | 'answer' | 'unit'> = {
+  min: 0,
+  max: 80,
+  step: 1,
+  answer: 42,
+  unit: { singular: 'point', plural: 'points' },
+};
+
 export function Onboarding({ onDone }: { onDone: () => void }) {
-  const [lo, setLo] = useState(25);
-  const [hi, setHi] = useState(75);
-  const [revealed, setRevealed] = useState(false);
-  const heading = useRef<HTMLHeadingElement>(null);
-  useEffect(() => { heading.current?.focus(); }, []);
-  return <article className="onboarding" aria-label="First-play tutorial">
-    <p className="context">FIRST TIME HERE?</p>
-    <h1 ref={heading} tabIndex={-1}>Catch the number.</h1>
-    <p>Five NBA questions. Put a window around your best guess. A tighter window scores more if the answer is inside.</p>
-    <section className="onboarding-demo" aria-label="Interactive practice">
-      <p className="context">PRACTICE ONLY · made-up number</p>
-      <p className="onboarding-prompt">A mystery player scored between 0 and 100. Can you catch the number?</p>
-      <label htmlFor="tutorial-low">Low end: <strong>{lo}</strong></label>
-      <input id="tutorial-low" aria-label="Practice low end" type="range" min={0} max={hi - 1} value={lo} disabled={revealed} onChange={e => setLo(Number(e.target.value))} />
-      <label htmlFor="tutorial-high">High end: <strong>{hi}</strong></label>
-      <input id="tutorial-high" aria-label="Practice high end" type="range" min={lo + 1} max={100} value={hi} disabled={revealed} onChange={e => setHi(Number(e.target.value))} />
-      <p role="status">{revealed ? `The pretend answer was 42. ${lo <= 42 && 42 <= hi ? 'You caught it! Narrower earns more points.' : 'You missed it. A miss earns zero.'}` : 'Adjust both ends, then reveal the answer.'}</p>
-    </section>
-    {revealed ? <button type="button" className="btn btn-primary" onClick={onDone}>Start today's five</button> : <button type="button" className="btn btn-primary" onClick={() => setRevealed(true)}>Reveal practice answer</button>}
-    <button type="button" className="btn btn-quiet" onClick={onDone}>Skip tutorial and start</button>
-    <p className="context">Each real question has 24 seconds, starting the moment it appears.</p>
-  </article>;
+  const [window, setWindow] = useState<Window>({ lo: PRACTICE.min, hi: PRACTICE.max });
+  const [score, setScore] = useState<RoundScore | null>(null);
+  const [progress, setProgress] = useState(0);
+  const [landed, setLanded] = useState(false);
+  const reducedMotion = usePrefersReducedMotion();
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const answerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => { titleRef.current?.focus({ preventScroll: true }); }, []);
+  useEffect(() => {
+    if (!score) return;
+    if (reducedMotion) { setProgress(1); setLanded(true); return; }
+    let frame = 0;
+    const started = performance.now();
+    const animate = (now: number) => {
+      const t = Math.min(1, (now - started) / 650);
+      setProgress(1 - (1 - t) ** 5);
+      if (t < 1) frame = window.requestAnimationFrame(animate);
+      else setLanded(true);
+    };
+    frame = window.requestAnimationFrame(animate);
+    return () => window.cancelAnimationFrame(frame);
+  }, [score, reducedMotion]);
+  useEffect(() => {
+    if (landed) answerRef.current?.focus({ preventScroll: true });
+  }, [landed]);
+
+  const editable = score === null;
+  const moved = window.lo > PRACTICE.min || window.hi < PRACTICE.max;
+  const worth = potentialPoints(PRACTICE, window);
+  const reveal: RulerReveal | null = score
+    ? { progress, hit: score.hit, from: PRACTICE.max }
+    : null;
+  const change = (next: Window, moving?: 'lo' | 'hi') => {
+    if (editable) setWindow(normalizeWindow(PRACTICE, next, moving));
+  };
+  const lock = () => {
+    if (editable && moved) {
+      setProgress(0);
+      setLanded(false);
+      setScore(scoreWindow(PRACTICE, window));
+    }
+  };
+  const replay = () => {
+    setScore(null);
+    setLanded(false);
+    setProgress(0);
+    setWindow({ lo: PRACTICE.min, hi: PRACTICE.max });
+    titleRef.current?.focus({ preventScroll: true });
+  };
+
+  return (
+    <article className="round onboarding-play" aria-label="First-play tutorial" data-phase={landed ? 'resolved' : editable ? 'ready' : 'revealing'}>
+      <div className="round-head">
+        <div className="round-top">
+          <ol className="ledger" aria-label="Five rounds in a real game">
+            {Array.from({ length: 5 }, (_, i) => (
+              <li className="ledger-cell" data-status={i === 0 ? landed ? score?.hit ? 'hit' : 'miss' : 'current' : 'todo'} key={i}>
+                <span className="ledger-num" aria-hidden="true">{i === 0 ? 'P' : i + 1}</span>
+              </li>
+            ))}
+          </ol>
+          <p className="round-meta">
+            <span className="round-label">Practice · not counted</span>
+            <span className="shot-clock" aria-label="The practice clock is off">No timer</span>
+          </p>
+        </div>
+        <header className="question-block">
+          <p className="context">FIRST TIME? · ONE PRACTICE ROUND</p>
+          <h1 className="question" ref={titleRef} tabIndex={-1}>Catch the number.</h1>
+          <p className="onboarding-lede">A fictional NBA player has <strong>20 points at halftime</strong>. How many do they finish with?</p>
+          <p className="context">Made-up example · The answer is hidden until you lock</p>
+        </header>
+      </div>
+
+      <section className="field" aria-label="Your practice window">
+        <div className="field-inner">
+          <p className="onboarding-coach">
+            {editable
+              ? 'Drag the two brackets around your guess, or tap either big number to type. Tighter means more points if you catch the answer.'
+              : 'Your window is locked. Watch where the answer lands.'}
+          </p>
+          <Readout question={PRACTICE} window={window} editable={editable} onChange={change} />
+          <div className="verdict-line" aria-live="polite">
+            {landed && score ? score.hit ? (
+              <p className="outcome outcome-hit">
+                <span className="outcome-word">Inside.</span>
+                <span className="outcome-points tabular">+{score.points}</span>
+              </p>
+            ) : (
+              <p className="outcome outcome-miss">
+                <span className="outcome-word">Outside.</span>
+                <span className="outcome-detail">A miss earns zero.</span>
+              </p>
+            ) : score ? (
+              <p className="worth worth-locked">Locked at {worth} points. Here it comes…</p>
+            ) : (
+              <p className="worth">
+                {worth === 0 ? 'Pull the brackets in to start scoring.' : <>Worth <b className="tabular">{worth}</b> if it's inside, 0 if not.</>}
+              </p>
+            )}
+          </div>
+          <Ruler question={PRACTICE} window={window} interactive={editable} reveal={reveal}
+            onChange={change} onCommit={lock} onFirstTouch={() => undefined} />
+        </div>
+      </section>
+
+      {landed && score && (
+        <section className="story" aria-label="Practice answer" ref={answerRef} tabIndex={-1}>
+          <p className="story-answer"><span className="tabular">42</span> points</p>
+          <p className="story-note">{score.hit
+            ? score.points === 0 ? 'You caught 42, but the window was too wide to earn points.' : 'You caught 42! A smaller window earns more when the answer is inside.'
+            : '42 fell outside your window. Try again to find a safer range.'}</p>
+          <p className="context">Practice only. This example is fictional, and no score was saved.</p>
+        </section>
+      )}
+
+      <div className="action-bar onboarding-actions">
+        {editable ? (
+          <button type="button" className="btn btn-primary" disabled={!moved} onClick={lock}>
+            {moved ? 'Lock the window' : 'Pull the brackets in first'}
+          </button>
+        ) : landed ? (
+          <button type="button" className="btn btn-primary" onClick={onDone}>Start today's five</button>
+        ) : (
+          <button type="button" className="btn btn-primary" disabled>Revealing…</button>
+        )}
+        {landed && <button type="button" className="btn btn-quiet" onClick={replay}>Try another window</button>}
+        {editable && <button type="button" className="btn btn-quiet" onClick={onDone}>Skip tutorial and start</button>}
+        <p className="onboarding-footnote">Real game: five questions, 24 seconds each. Your first clock starts only when you press Start.</p>
+      </div>
+    </article>
+  );
 }

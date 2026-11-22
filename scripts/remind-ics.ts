@@ -1,5 +1,5 @@
 /**
- * Writes public/remind/00.ics … 22.ics (one per offered UTC hour) from src/engine/remind.ts and
+ * Writes public/remind/00.ics … 22.ics (one per offered New York hour) from src/engine/remind.ts and
  * removes any other file there. src/engine/remind.test.ts fails if a committed file differs.
  *
  *   npm run remind:ics

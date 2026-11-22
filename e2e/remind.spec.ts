@@ -1,4 +1,5 @@
 import { expect, test, type BrowserContext, type Page } from '@playwright/test';
+import { addDays, puzzleStartUtcMs } from '../src/engine/daily';
 import { collectErrors, lockAndSettle, NBA_DAYS, NBA_FIRST, NBA_MIDDLE, next, openAt } from './helpers';
 
 /** The daily calendar reminder on the results screen (src/engine/remind.ts). */
@@ -30,25 +31,37 @@ const storageDump = (page: Page) =>
 test.describe('New York', () => {
   test.use({ timezoneId: 'America/New_York', locale: 'en-US' });
 
-  test('the row offers the same UTC hour tomorrow, shown in local time with minutes', async ({ page }) => {
+  test('the row offers the same New York hour tomorrow, shown in local time with minutes', async ({ page }) => {
     await openAt(page, NBA_FIRST); // 15:00Z = 10:00 AM EST
     await playFive(page);
     const row = page.locator('.remind');
     await expect(row).toContainText('Get a daily nudge at 10:00 AM:');
-    await expect(row).toContainText('moves with daylight saving, like the puzzle');
+    await expect(row).toContainText('The time moves with daylight saving, like the puzzle.');
+    await expect(row).not.toContainText('US Eastern');
     await expect(row).toContainText('We only count taps here and opens from the event.');
-    await expect(icsLink(page)).toHaveAttribute('href', '/remind/15.ics');
+    await expect(icsLink(page)).toHaveAttribute('href', '/remind/10.ics');
     expect(await icsLink(page).getAttribute('download')).toBeNull();
     const g = googleLink(page);
     await expect(g).toHaveAttribute('target', '_blank');
     expect(await g.getAttribute('rel')).toContain('noreferrer');
     const u = new URL((await g.getAttribute('href'))!);
     expect(u.host).toBe('calendar.google.com');
-    expect(u.searchParams.get('ctz')).toBe('UTC');
-    expect(u.searchParams.get('dates')).toMatch(/^\d{8}T150000Z\/\d{8}T150500Z$/);
+    expect(u.searchParams.get('ctz')).toBe('America/New_York');
+    const tomorrow = addDays(NBA_DAYS[0]!, 1).replace(/-/g, '');
+    expect(u.searchParams.get('dates')).toBe(`${tomorrow}T100000/${tomorrow}T100500`);
     // Directly under the countdown.
     const after = await page.locator('.next-window + .remind').count();
     expect(after).toBe(1);
+  });
+
+  test('finishing at 11:30 PM Eastern offers 12:00 AM, when the next puzzle opens, and the 00 file', async ({ page }) => {
+    await openAt(page, new Date(puzzleStartUtcMs(addDays(NBA_DAYS[0]!, 1)) - 30 * 60_000));
+    await playFive(page);
+    await expect(page.locator('.remind')).toContainText('Get a daily nudge at 12:00 AM:');
+    await expect(icsLink(page)).toHaveAttribute('href', '/remind/00.ics');
+    const u = new URL((await googleLink(page).getAttribute('href'))!);
+    const tomorrow = addDays(NBA_DAYS[0]!, 1).replace(/-/g, '');
+    expect(u.searchParams.get('dates')).toBe(`${tomorrow}T000000/${tomorrow}T000500`);
   });
 
   test('tapping either link shows the toast and writes nothing to storage or cookies', async ({ page, context }) => {
@@ -100,22 +113,40 @@ test.describe('New York', () => {
 test.describe('UTC', () => {
   test.use({ timezoneId: 'UTC', locale: 'en-US' });
 
-  test('finishing at 23:30Z offers 12:00 AM, the reset, and the 00Z file', async ({ page }) => {
-    await openAt(page, new Date(`${NBA_DAYS[0]}T23:30:00Z`));
+  test('finishing at 15:00Z (10 AM Eastern) offers 3:00 PM and says it follows US Eastern time', async ({ page }) => {
+    await openAt(page, NBA_FIRST);
     await playFive(page);
-    await expect(page.locator('.remind')).toContainText('Get a daily nudge at 12:00 AM:');
-    await expect(icsLink(page)).toHaveAttribute('href', '/remind/00.ics');
+    const row = page.locator('.remind');
+    await expect(row).toContainText('Get a daily nudge at 3:00 PM:');
+    await expect(row).toContainText('It follows US Eastern time, like the puzzle, so here it can move by an hour when US clocks change.');
+    await expect(row).not.toContainText('moves with daylight saving');
+    await expect(icsLink(page)).toHaveAttribute('href', '/remind/10.ics');
+  });
+});
+
+test.describe('Kolkata (+5:30)', () => {
+  test.use({ timezoneId: 'Asia/Kolkata', locale: 'en-US' });
+
+  test('finishing at 05:10 IST (6:40 PM Eastern) offers 4:30 AM, the 18 file, and the plain Eastern note', async ({ page }) => {
+    // 23:40Z on the first day: still the first puzzle day in New York.
+    await openAt(page, new Date(`${NBA_DAYS[0]}T23:40:00Z`));
+    await playFive(page);
+    const row = page.locator('.remind');
+    await expect(row).toContainText('Get a daily nudge at 4:30 AM:');
+    await expect(row).toContainText('It follows US Eastern time, like the puzzle');
+    await expect(icsLink(page)).toHaveAttribute('href', '/remind/18.ics');
   });
 });
 
 test('the .ics files are served as calendars', async ({ request }) => {
-  const res = await request.get('/remind/15.ics');
+  const res = await request.get('/remind/10.ics');
   expect(res.status()).toBe(200);
   expect(res.headers()['content-type']).toContain('text/calendar');
   const body = await res.text();
   expect(body.startsWith('BEGIN:VCALENDAR\r\n')).toBe(true);
-  expect(body).toContain('\r\nDTSTART:20261101T150000Z\r\n');
-  // 23Z is never offered (it would be the hour before the reset), so no file exists for it.
+  expect(body).toContain('\r\nBEGIN:VTIMEZONE\r\nTZID:America/New_York\r\n');
+  expect(body).toContain('\r\nDTSTART;TZID=America/New_York:20261115T100000\r\n');
+  // 23 (New York) is never offered (it would be the hour before the reset), so no file exists for it.
   const none = await request.get('/remind/23.ics');
   expect(none.status() === 200 && (none.headers()['content-type'] ?? '').includes('text/calendar')).toBe(false);
 });

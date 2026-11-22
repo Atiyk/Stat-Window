@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { Slate } from '../content/schema';
 import { challengeUrl } from '../engine/challenge';
 import { msUntilNextPuzzle } from '../engine/daily';
-import { REMIND_COPY, googleCalendarUrl, icsPath, nextReminder, reminderHour, reminderTime } from '../engine/remind';
+import { REMIND_COPY, followsPuzzleClock, googleCalendarUrl, icsPath, nextReminder, reminderHour, reminderTime } from '../engine/remind';
 import { totalPoints, type Mode, type RoundRecord } from '../engine/game';
 import { MAX_TOTAL, answerTimeMs, formatAnswerTime, shareText, verdict, type PlayerStats } from '../engine/summary';
 import { ordinal } from '../engine/percentile';
@@ -78,7 +78,12 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
   // The reminder slot is fixed when the screen opens, not every second.
   const remind = useMemo(() => {
     const at = new Date();
-    return { href: icsPath(reminderHour(at)), google: googleCalendarUrl(at), time: reminderTime(nextReminder(at)) };
+    return {
+      href: icsPath(reminderHour(at)),
+      google: googleCalendarUrl(at),
+      time: reminderTime(nextReminder(at)),
+      note: REMIND_COPY.note(followsPuzzleClock(at)),
+    };
   }, []);
   const [toast, setToastText] = useState<string | null>(null);
   // Bumped on every show, so a repeat of the same message restarts its timer instead of vanishing early.
@@ -289,7 +294,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
               {REMIND_COPY.google}
             </a>
           </p>
-          <p className="remind-note">{REMIND_COPY.note}</p>
+          <p className="remind-note">{remind.note}</p>
         </div>
       </div>
 

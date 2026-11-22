@@ -44,7 +44,7 @@ export type TrackEvent =
   | { name: 'privacy'; choice: 'scores-on' | 'scores-off' | 'deleted' }
   /** A calendar reminder link was tapped on the results screen (src/engine/remind.ts). */
   | { name: 'remind'; method: 'ics' | 'google' }
-  /** The page was opened from the reminder event's link (?from=calendar), once per browser and UTC day. */
+  /** The page was opened from the reminder event's link (?from=calendar), once per browser and puzzle day. */
   | { name: 'remind_open' }
   /** Survival (docs/SURVIVAL.md). `again` = the player pressed "Run it again". */
   | { name: 'survival_start'; source: 'cta' | 'link' | 'again' }

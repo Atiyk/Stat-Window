@@ -92,7 +92,7 @@ Report small numbers as counts with an interval, not as rates: 7 of 10 is "somew
 | `/e/percentile/{stored,gathering,ready,consent,ineligible,disabled,unavailable}` | once per browser and day, when the results screen settles the comparison | how many players see a real percentile vs the "not enough games" line |
 | `/e/privacy/{scores-on,scores-off,deleted}` | a comparison choice or a deletion in the app | consent and deletion rates |
 | `/e/remind/{ics,google}` | a calendar reminder link is tapped on any results screen (each tap) | how many players try to add a daily reminder |
-| `/e/remind/open` | the page is opened from the reminder event's link (`?from=calendar`), once per browser and UTC day, before `/e/start/*`. The parameter is then removed from the address | opens the reminder caused |
+| `/e/remind/open` | the page is opened from the reminder event's link (`?from=calendar`), once per browser and puzzle day (midnight-to-midnight New York time), before `/e/start/*`. The parameter is then removed from the address | opens the reminder caused |
 
 Survival and its experiment add the paths in `docs/SURVIVAL.md` ("Measurement"); they are only sent from a build with `VITE_SURVIVAL=on`, which production does not have.
 

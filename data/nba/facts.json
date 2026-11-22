@@ -23829,5 +23829,383 @@
         }
       ]
     }
+  },
+  {
+    "id": "nba-rose18-emotional-fifty",
+    "family": "points-game",
+    "scope": "regular-season",
+    "season": "2018-19",
+    "eventDate": "2018-10-31",
+    "franchise": "MIN",
+    "player": "Derrick Rose",
+    "answer": 50,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Derrick Rose scored an emotional career-high 50 points in Minnesota's 2018 win over Utah.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+      "quote": "Rose scored a career-high 50 points in a 128–125 win over the Utah Jazz",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "After years of injuries, Derrick Rose's emotional Halloween 2018 comeback against Utah ended with how many points?",
+      "context": "Derrick Rose · Timberwolves vs Jazz · October 2018",
+      "reveal": "50 points. Rose blocked Utah's last attempt, then left the court in tears.",
+      "min": 10,
+      "max": 110,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Rose's tearful 2018 return is an emotional NBA moment with a fair superstar scoring guess.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Rose sealed the win with a block on Utah's final shot.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+            "quote": "securing the victory with a block on Utah's final shot as time expired"
+          }
+        },
+        {
+          "text": "He shot 19-for-31 in 41 minutes.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+            "quote": "Rose shot 19-of-31 in 41 minutes on the court"
+          }
+        },
+        {
+          "text": "His teammates mobbed him as he cried after the buzzer.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+            "quote": "an emotional Rose burst into tears as his teammates swarmed him"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-isiah88-finals-injured-quarter-25",
+    "family": "points-period",
+    "scope": "finals",
+    "season": "1987-88",
+    "eventDate": "1988-06-19",
+    "franchise": "DET",
+    "player": "Isiah Thomas",
+    "answer": 25,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Isiah Thomas scored 25 third-quarter points after injuring his ankle in 1988 Finals Game 6.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/1988_NBA_Finals",
+      "quote": "Thomas, with his bad ankle, scored 11 of the Pistons' last 15 points of the quarter to finish with 25",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "After badly spraining his ankle in 1988 Finals Game 6, how many third-quarter points did Isiah Thomas score?",
+      "context": "Isiah Thomas · Pistons at Lakers · 1988 Finals Game 6",
+      "reveal": "25 points in one quarter on a badly hurt ankle. Detroit lost that game by a single point.",
+      "min": 0,
+      "max": 70,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Isiah's injured-ankle Finals legend makes an extraordinary quarter a meaningful NBA history estimate.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "He scored Detroit's next 14 points during his early burst.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1988_NBA_Finals",
+            "quote": "He scored his team's next 14 points"
+          }
+        },
+        {
+          "text": "He returned from the ankle injury with 3:44 left in the quarter.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1988_NBA_Finals",
+            "quote": "Thomas returned to the game with 3:44 left"
+          }
+        },
+        {
+          "text": "Isiah still put up 43 total points and eight assists.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1988_NBA_Finals",
+            "quote": "Thomas had 43 points and eight assists despite his ankle injury"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-lebron07-final-twentyfive",
+    "family": "points-run",
+    "scope": "playoffs",
+    "season": "2006-07",
+    "eventDate": "2007-05-31",
+    "franchise": "CLE",
+    "player": "LeBron James",
+    "answer": 25,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "In double-overtime Game 5 of the 2007 East finals, LeBron scored Cleveland's last 25 points against Detroit.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2007_NBA_playoffs",
+      "quote": "James scored the Cavaliers' final 25 points, including all 18 points in overtime",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Against Detroit in the 2007 East finals, how many straight Cavaliers points did young LeBron score to win Game 5?",
+      "context": "LeBron James · Cavaliers at Pistons · 2007 East finals",
+      "reveal": "25 straight to close double overtime. At age 22, LeBron almost single-handedly won Game 5.",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A superstar's 25 unanswered team points in a double-OT playoff thriller offers an iconic estimable comeback.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "The game went into double overtime.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007_NBA_playoffs",
+            "quote": "In a match that went into double overtime"
+          }
+        },
+        {
+          "text": "James finished with a playoff career-high 48 points.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007_NBA_playoffs",
+            "quote": "LeBron James' playoff career-high 48-point performance"
+          }
+        },
+        {
+          "text": "His late layup came with 2.2 seconds left in the second overtime.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007_NBA_playoffs",
+            "quote": "made a driving layup with 2.2 seconds left in the second OT"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-celtics08-finals-g4-comeback-24",
+    "family": "comeback",
+    "scope": "finals",
+    "season": "2007-08",
+    "eventDate": "2008-06-12",
+    "franchise": "BOS",
+    "player": null,
+    "answer": 24,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Boston erased a 24-point Lakers lead to win Game 4 of the 2008 Finals.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+      "quote": "The Lakers held their ground for most of the third quarter, leading by as many as 24 points.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In the 2008 Finals, how big a deficit did the Celtics erase against Kobe's Lakers to steal Game 4?",
+      "context": "Boston Celtics · 2008 Finals Game 4 · Los Angeles",
+      "reveal": "24 points. Boston stormed back in L.A. for a 97–91 win and a 3–1 series lead.",
+      "min": 0,
+      "max": 80,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A dramatic Kobe-era championship comeback is more memorable and estimable than an obscure combined three-pointer total.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Los Angeles led 35–14 at the end of the first quarter.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "The Lakers jumped out to a 35–14 lead after the first quarter"
+          }
+        },
+        {
+          "text": "Boston ripped off a 21–3 run to end the third.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "the Celtics went on a 21–3 run to end the third quarter"
+          }
+        },
+        {
+          "text": "The Celtics took their first lead with 4:07 remaining.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "With 4:07 remaining in the fourth quarter, the Celtics took their first lead in the game"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-mitchell20-bubble-fiftyseven",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2019-20",
+    "eventDate": "2020-08-17",
+    "franchise": "UTA",
+    "player": "Donovan Mitchell",
+    "answer": 57,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Donovan Mitchell scored 57 points against Denver in Utah's 2020 bubble playoff opener.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+      "quote": "On August 17, 2020, Mitchell scored 57 points in a 125–135 overtime loss to the Nuggets",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In the bubble's wild 2020 Jazz–Nuggets opening playoff game, how many points did Donovan Mitchell score?",
+      "context": "Donovan Mitchell · Jazz vs Nuggets · 2020 bubble",
+      "reveal": "57 points in an overtime loss. It began a blistering playoff scoring duel with Jamal Murray.",
+      "min": 10,
+      "max": 130,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "The televised bubble shootout and Donovan Mitchell's huge performance are memorable for contemporary NBA fans.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Utah lost that opener in overtime.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+            "quote": "Mitchell scored 57 points in a 125–135 overtime loss to the Nuggets"
+          }
+        },
+        {
+          "text": "He scored 51 more points in another game six days later.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+            "quote": "Six days later, he scored 51 points"
+          }
+        },
+        {
+          "text": "His opener ranked third-highest in playoff scoring history at the time.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+            "quote": "the third most in playoff history"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-bird85-hawks-sixty",
+    "family": "points-game",
+    "scope": "regular-season",
+    "season": "1984-85",
+    "eventDate": "1985-03-12",
+    "franchise": "BOS",
+    "player": "Larry Bird",
+    "answer": 60,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Larry Bird scored a career-high 60 points against Atlanta in March 1985.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Larry_Bird",
+      "quote": "Bird scored a career-high and franchise record 60 points in a game against the Atlanta Hawks.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "When Larry Bird caught fire against Atlanta in March 1985, how many points did he score?",
+      "context": "Larry Bird · Celtics at Hawks · March 1985",
+      "reveal": "60 points—just nine days after teammate Kevin McHale had scored 56.",
+      "min": 10,
+      "max": 130,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Bird's legendary 60-point answer is a distinctive 1980s story and a reasonable high-end scoring guess.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Kevin McHale had scored 56 only nine days earlier.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Larry_Bird",
+            "quote": "The performance came just nine days after Kevin McHale set the previous Celtics record for points in a game with 56"
+          }
+        },
+        {
+          "text": "Bird won his second straight MVP that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Larry_Bird",
+            "quote": "Bird was named MVP for the second consecutive season"
+          }
+        },
+        {
+          "text": "He hit a playoff career-high 43 later that spring.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Larry_Bird",
+            "quote": "Bird scored his playoff career-high 43 points against the Detroit Pistons"
+          }
+        }
+      ]
+    }
   }
 ]

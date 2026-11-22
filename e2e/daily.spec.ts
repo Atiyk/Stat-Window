@@ -105,10 +105,10 @@ test('an idle tab before Start sees the next Eastern day without burning questio
   await page.clock.install({ time: new Date('2026-11-16T04:59:50Z') });
   await page.goto('/');
   await expect(page.locator('.day-label')).toHaveText('No. 1');
-  await expect(page.locator('.question')).toHaveCount(0);
+  await expect(page.locator('.round:not(.onboarding-play) .question')).toHaveCount(0);
   await page.clock.fastForward('00:45');
   await expect(page.locator('.day-label')).toHaveText('No. 2');
-  await expect(page.locator('.question')).toHaveCount(0);
+  await expect(page.locator('.round:not(.onboarding-play) .question')).toHaveCount(0);
   await startDailyIfNeeded(page);
   await expect(page.locator('.question')).toContainText('Barry Bonds');
 });

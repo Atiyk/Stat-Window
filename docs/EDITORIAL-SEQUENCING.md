@@ -126,3 +126,5 @@ Eight future Q5 questions on November 28–December 5 now cover well-known NBA m
 After this batch: Q1 failing thresholds 0; Q5 failing 4/4/3/4 53/66. All editorial ratings remain human judgments, not actual fan playtest results. A strict Q5 audit and independent critic approval remain mandatory before integration. Canonical regeneration through the one-time worker branch workflow and original publisher, trivia, Survival, source/factory, typecheck, unit and build gates is required.
 
 NBA canonical franchises: `MIN` (Minnesota Timberwolves) added to `data/nba/franchises.json` to support the cited May 2024 Denver elimination finale; no player/client/server changes. Exact NBA franchise identifier, not a warning suppression.
+
+**Survival regression preservation:** Elgin Baylor's originally sourced 1962 Finals scoring record remains a non-daily expert reserve, embargoed until December 3 (the day after its previously scheduled December 2 future slot). This preserves the validator's standing-record-with-as-of fixture without weakening tests and prevents early Survival spoilers. The new December 2 Timberwolves finale stays scheduled.

@@ -23766,5 +23766,68 @@
         }
       ]
     }
+  },
+  {
+    "id": "nba-baylor62-finals-61",
+    "family": "points-game",
+    "scope": "finals",
+    "season": "1961-62",
+    "eventDate": null,
+    "franchise": "LAL",
+    "player": "Elgin Baylor",
+    "answer": 61,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "61 points, still the Finals record.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+      "quote": "Baylor set the still-standing NBA record for points in an NBA Finals game with 61.",
+      "derivation": null,
+      "asOf": "2026-11-16"
+    },
+    "question": {
+      "prompt": "What is the NBA record for points in a Finals game, set by Elgin Baylor in 1962?",
+      "context": "Los Angeles Lakers vs Boston Celtics · 1962 NBA Finals",
+      "reveal": "61 points, still the Finals record.",
+      "min": 45,
+      "max": 95,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Many assume a more recent star owns this record.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 2,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Baylor helped turn basketball into a vertical spectacle; later high-flying stars modeled their moves on his.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+            "quote": "Baylor introduced a creative and acrobatic playing style that would later be emulated"
+          }
+        },
+        {
+          "text": "Seattle University eventually named its basketball court for Baylor, honoring the former college star.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+            "quote": "they named its basketball court in honor of him"
+          }
+        },
+        {
+          "text": "Although Baylor retired before the Lakers' breakthrough, the team presented him with a championship ring.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+            "quote": "the Lakers did give Baylor a championship ring for his contributions at the start of the 1971–72 season"
+          }
+        }
+      ]
+    }
   }
 ]

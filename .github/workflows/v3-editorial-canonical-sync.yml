@@ -1,0 +1,71 @@
+name: V3 editorial once - canonical source publication
+on:
+  push:
+    branches:
+      - statwindow/v3-editorial-final-worker
+    paths:
+      - .github/workflows/v3-editorial-canonical-sync.yml
+permissions:
+  contents: write
+jobs:
+  publisher:
+    if: github.repository == 'Atiyk/Stat-Window'
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    services:
+      redis:
+        image: redis:7-alpine
+        ports: ['6379:6379']
+        options: >-
+          --health-cmd "redis-cli ping" --health-interval 2s --health-timeout 2s --health-retries 15
+    env:
+      REDIS_URL: redis://127.0.0.1:6379
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Generate canonical artifacts
+        run: |
+          npm run content:publish
+          npm run nba:report
+          npm run survival:catalog
+      - name: Verify historical locks and day files unchanged
+        run: |
+          node --input-type=module <<'NODE'
+          import { execFileSync } from 'node:child_process';
+          import { readFileSync } from 'node:fs';
+          const previous=JSON.parse(execFileSync('git',['show','HEAD:content/published.lock.json'],{encoding:'utf8'}));
+          const next=JSON.parse(readFileSync('content/published.lock.json','utf8'));
+          const cutoff=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+          for(const [day,lock] of Object.entries(previous))if(day<=cutoff&&JSON.stringify(next[day])!==JSON.stringify(lock))throw Error('Historical lock changed: '+day);
+          const modified=execFileSync('git',['diff','--name-only','--','content/days'],{encoding:'utf8'}).trim().split('\n').filter(Boolean);
+          for(const path of modified){const d=/content\/days\/(\d{4}-\d{2}-\d{2})\.json$/.exec(path)?.[1];if(d&&d<=cutoff)throw Error('Historical puzzle changed: '+path);}
+          console.log('Historical artifacts protected through '+cutoff+'; generated future days '+modified.length);
+          NODE
+      - name: Full canonical validation
+        run: |
+          npm run content:publish:check
+          npm run nba:report:check
+          npm run survival:catalog:check
+          npm run content:check
+          npm run content:trivia:check -- --require-original
+          npm run factory:check
+          node --experimental-strip-types scripts/nba/editorial-audit.ts
+          npm run typecheck
+          npm test
+          npm run build
+      - name: Commit generated files and remove this one-time workflow
+        run: |
+          git add -- content/days content/published.lock.json content/survival/catalog.json docs/nba
+          git rm -- .github/workflows/v3-editorial-canonical-sync.yml
+          git diff --cached --check
+          git diff --cached --stat
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Regenerate and validate editorial future NBA content'
+          git push origin HEAD:refs/heads/statwindow/v3-editorial-final-worker

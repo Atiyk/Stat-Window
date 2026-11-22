@@ -1,0 +1,35 @@
+name: V3 one-time daily-percentile origin and IP abuse QA
+on:
+  push:
+    branches: [statwindow/v3-percentile-origin-ip-qa-20261122]
+    paths: [.github/workflows/v3-percentile-origin-ip-proof.yml]
+permissions: {contents: write}
+jobs:
+  verify:
+    if: github.repository == 'Atiyk/Stat-Window'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      redis:
+        image: redis:7-alpine
+        ports: ['6379:6379']
+        options: >-
+          --health-cmd "redis-cli ping" --health-interval 2s --health-timeout 2s --health-retries 15
+    env: {REDIS_URL: "redis://127.0.0.1:6379"}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22, cache: npm}
+      - run: npm ci
+      - name: Verify TypeScript and all unit tests including real Redis 7
+        run: npm run typecheck && npm test
+      - name: Validate built API parity
+        run: npm run api:build && npm run api:check
+      - name: Remove one-time proof after success
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/v3-percentile-origin-ip-proof.yml
+          git commit -m "Remove completed one-time daily-percentile security proof"
+          git push origin HEAD:refs/heads/statwindow/v3-percentile-origin-ip-qa-20261122

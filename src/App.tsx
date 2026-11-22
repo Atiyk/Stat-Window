@@ -411,7 +411,9 @@ function Game(props: {
   // Leaving with a run part-way done (best effort; see docs/MEASUREMENT.md).
   const exitRef = useRef({ started: false, round: 0 });
   exitRef.current = {
-    started: state.phase !== 'complete' && (state.results.length > 0 || state.phase === 'adjusting'),
+    // Pressing Start counts as an active run even if a player closes without
+    // moving a bracket; otherwise onboarding drop-off is undercounted.
+    started: started && state.phase !== 'complete',
     round: state.round + 1,
   };
   useEffect(() => {
@@ -442,12 +444,14 @@ function Game(props: {
   // check resolves, so this waits for it and has its own once-keys (not the run_start one).
   const startedHere = useRef(state.results.length === 0);
   useEffect(() => {
-    if (!offer.arm || !officialToday || !startedHere.current) return;
+    // The daily-start experiment must be recorded only after the deliberate
+    // Start gate, never from a tutorial/ready-screen impression.
+    if (!started || !offer.arm || !officialToday || !startedHere.current) return;
     trackOnce(`x:sv-cta:start:${today}`, today, { name: 'experiment', arm: offer.arm, step: 'daily-start' });
     if (exposedYesterday(props.storage, today)) {
       trackOnce(`x:sv-cta:next:${today}`, today, { name: 'experiment', arm: offer.arm, step: 'next-day-start' });
     }
-  }, [offer.arm, officialToday, props.storage, today]);
+  }, [started, offer.arm, officialToday, props.storage, today]);
   // Experiment exposure: once per day, when today's official results are on screen (both arms).
   useEffect(() => {
     if (complete && officialToday && offer.arm && markExposed(props.storage, today)) {

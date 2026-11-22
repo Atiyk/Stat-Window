@@ -101,11 +101,15 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     const pausedRead=await sample(READ_LUA,[...readKeys.slice(0,4),`${p}:read:minute:paused`,`${p}:read:day:paused`,...readKeys.slice(6)],[0,caps[1]!,'']);
     expect(pausedRead.status).toBe('paused');
     expect(pausedRead.billed).toBeLessThanOrEqual(24);
-    const pausedPostKeys=writeKeys(scope,day2,'paused');
+    // Use a different synthetic namespace: DELETE above deliberately
+    // revokes this member's code for 48h. Reusing it would correctly return
+    // 'revoked' before the budget check and would not test a paused budget.
+    const pausedScope='metered-post-budget', pausedPrefix=`${prefix}:${pausedScope}`;
+    const pausedPostKeys=writeKeys(pausedScope,day2,'paused');
     const pausedPost=await sample(SUBMIT_LUA,pausedPostKeys,[100,day2,0,caps[1]!,member,...expiration(day2)]);
     expect(pausedPost.status).toBe('paused');
     expect(pausedPost.billed).toBeLessThanOrEqual(55);
-    expect(await client.command(['ZSCORE',boards(p,day2,null)[0]!,member])).toBeNull();
+    expect(await client.command(['ZSCORE',boards(pausedPrefix,day2,null)[0]!,member])).toBeNull();
     const pausedDeleteKeys=[...deleteKeys.slice(0,3),`${p}:delete:minute:paused`,`${p}:delete:day:paused`,...deleteKeys.slice(5)];
     const pausedDelete=await sample(REMOVE_LUA,pausedDeleteKeys,[0,member]);
     expect(pausedDelete.status).toBe('paused');

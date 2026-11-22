@@ -1,4 +1,5 @@
 name: V3 leaderboard denied-request proof (temporary worker QA)
+# Retest metered paused POST with a non-revoked synthetic namespace.
 on:
   push:
     branches: [statwindow/v3-leaderboard-final-worker]

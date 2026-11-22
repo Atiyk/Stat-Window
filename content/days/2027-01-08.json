@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-spurs99-playoff-streak",
+      "id": "nba-lillard14-rockets-series-winner-nine-tenths",
       "sport": "NBA",
-      "prompt": "In 1999 the Spurs set a record for consecutive playoff wins. How many did they win before the streak ended in the Finals?",
-      "context": "San Antonio Spurs · 1999 playoffs",
-      "answer": 12,
+      "prompt": "Before Damian Lillard's iconic 2014 series-winning three against Houston, how many seconds did Portland have left to inbound?",
+      "context": "Damian Lillard · Blazers vs Rockets · 2014 first round",
+      "answer": 0.9,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "second",
+        "plural": "seconds"
       },
-      "min": 6,
-      "max": 24,
-      "step": 1,
-      "note": "12 straight, the longest in NBA history at the time.",
+      "min": 0,
+      "max": 5,
+      "step": 0.1,
+      "note": "Just 0.9 seconds. Lillard caught the inbound and hit the buzzer-beater to eliminate Houston.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-        "quote": "This was the end of the Spurs' 12-game playoff winning streak, the longest in NBA history at the time."
+        "url": "https://en.wikipedia.org/wiki/2014_NBA_playoffs",
+        "quote": "Chandler Parsons hit a reverse layup with 0.9 seconds remaining but the Rockets' hearts were broken when Damian Lillard"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "That championship came after a lockout shortened the regular season to 50 games.",
+          "text": "Portland advanced to the second round for the first time since 2000.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "was shortened from the usual 82-game schedule to 50 games per team"
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_playoffs",
+            "quote": "Portland advanced to the second-round appearance for the first time since 2000"
           }
         },
         {
-          "text": "The Knicks became the first eighth-seeded team to advance all the way to the NBA Finals.",
+          "text": "John Stockton had hit the previous playoff-series-ending buzzer-beater.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "the first team in North American sports history to reach a championship series as an eighth seed"
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_playoffs",
+            "quote": "The most recent person to hit a series-winning buzzer beater prior to Lillard was John Stockton"
           }
         },
         {
-          "text": "San Antonio swept both the Lakers and Trail Blazers en route to its first Finals trip.",
+          "text": "Houston had beaten Portland three games to one during the regular season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "recorded back-to-back sweeps in the second round and the conference finals"
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_playoffs",
+            "quote": "Houston won 3–1 in the regular-season series"
           }
         }
       ]

@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-heat08-wins",
+      "id": "nba-cavs-warriors16-game7-tied-six-games-610",
       "sport": "NBA",
-      "prompt": "Five years before the streak, how many games did the 2007–08 Heat win?",
-      "context": "Miami Heat · 2007–08 · 82 games",
-      "answer": 15,
+      "prompt": "Before the famous 2016 Finals Game 7, the Cavs and Warriors had the same total points through six games. How many each?",
+      "context": "Cleveland vs Golden State · 2016 Finals · through Game 6",
+      "answer": 610,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point per team",
+        "plural": "points per team"
       },
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "note": "15, tying the franchise's worst.",
+      "min": 350,
+      "max": 950,
+      "step": 2,
+      "note": "610 each. The 2016 Finals were perfectly even in total points before Cleveland's historic Game 7 win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
-        "quote": "winning only 15 games, equaling the mark set by the team in"
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "both teams entered Game 7 with the same total points scored through six games (610 points each)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Pat Riley stepped down as Heat head coach after that season, passing the bench to Erik Spoelstra.",
+          "text": "Cleveland edged Golden State in the decider, 93–89.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_Miami_Heat_season",
-            "quote": "He did, however, remain as team president and was replaced as head coach by Erik Spoelstra"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "The Cavaliers defeated the Warriors 93–89 in Game 7"
           }
         },
         {
-          "text": "Miami marked the franchise's anniversary with a special Roman-numeral patch on its jerseys.",
+          "text": "The decider featured 20 lead changes and 11 ties.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_Miami_Heat_season",
-            "quote": "the Heat jerseys bear a XX on the rightmost part"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "The game was close, with 20 lead changes and 11 ties."
           }
         },
         {
-          "text": "Alonzo Mourning's last playing season was derailed by a severe knee injury in Atlanta.",
+          "text": "LeBron's legendary chase-down block preserved an 89-all tie.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_Miami_Heat_season",
-            "quote": "Alonzo had suffered a season-ending and a possibly career-ending knee injury"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "LeBron James delivered what became known as \"The Block\" on a layup attempt by Andre Iguodala with the score tied at 89"
           }
         }
       ]

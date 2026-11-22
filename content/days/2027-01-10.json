@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-spurs24-losing-streak",
+      "id": "nba-curry22-allstar-sixteen-threes",
       "sport": "NBA",
-      "prompt": "In Victor Wembanyama's rookie year, San Antonio lost how many games in a row?",
-      "context": "San Antonio Spurs · 2023–24",
-      "answer": 18,
+      "prompt": "In his jaw-dropping 50-point 2022 All-Star Game, how many three-pointers did Stephen Curry make?",
+      "context": "Stephen Curry · 2022 NBA All-Star Game · Cleveland",
+      "answer": 16,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 10,
-      "max": 38,
+      "min": 0,
+      "max": 45,
       "step": 1,
-      "note": "18, a franchise record.",
+      "note": "16 threes in one All-Star Game. Curry earned MVP after putting on an unprecedented long-range show.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023%E2%80%9324_San_Antonio_Spurs_season",
-        "quote": "lost 18 consecutive games between November 5 and December 15, the longest losing streak in franchise history."
+        "url": "https://en.wikipedia.org/wiki/2022_NBA_All-Star_Game",
+        "quote": "set the record for most three-pointers made in an All-Star quarter (6), half (8), and game (16)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "The Spurs won the draft lottery and made Victor Wembanyama their first overall selection.",
+          "text": "He scored 50 points in the Cleveland exhibition.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023%E2%80%9324_San_Antonio_Spurs_season",
-            "quote": "selecting French center Victor Wembanyama as their third #1 pick in franchise history"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_All-Star_Game",
+            "quote": "Team LeBron's Stephen Curry, who scored 50 points"
           }
         },
         {
-          "text": "San Antonio had previously used first overall picks on two future legends, David Robinson and Tim Duncan.",
+          "text": "Curry took home the Kobe Bryant All-Star MVP trophy.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023%E2%80%9324_San_Antonio_Spurs_season",
-            "quote": "after previously selecting Tim Duncan in 1997 and David Robinson in 1987"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_All-Star_Game",
+            "quote": "was also named the All-Star Game Kobe Bryant Most Valuable Player"
           }
         },
         {
-          "text": "Even with the much-hyped rookie, the Spurs missed the postseason for another year.",
+          "text": "Team LeBron edged Team Durant, 163–160.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023%E2%80%9324_San_Antonio_Spurs_season",
-            "quote": "were eliminated from playoff contention for the fifth consecutive season"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_All-Star_Game",
+            "quote": "Team LeBron won the game 163–160."
           }
         }
       ]

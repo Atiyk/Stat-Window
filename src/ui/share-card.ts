@@ -5,12 +5,14 @@
  * The percentile line appears only when the caller passes a verified, gated result.
  */
 import type { RoundRecord } from '../engine/game';
+import { formatAnswerTime } from '../engine/summary';
 
 export type CardInput = {
   label: string; // "No. 4" or "Beta No. 4"
   date: string; // "Nov 18"
   results: readonly RoundRecord[];
   percentile?: { label: string; detail: string } | null;
+  answerMs?: number | null;
   host: string; // "stat-window.vercel.app"
 };
 
@@ -71,6 +73,12 @@ export function drawCard(ctx: CanvasRenderingContext2D, input: CardInput): void 
   ctx.fillStyle = C.soft;
   ctx.font = `500 60px ${sans}`;
   ctx.fillText('of 500', 90 + w + 28, 520);
+
+  if (input.answerMs !== undefined && input.answerMs !== null) {
+    ctx.fillStyle = C.soft;
+    ctx.font = `600 34px ${sans}`;
+    ctx.fillText(`Answer time ${formatAnswerTime(input.answerMs)}`, 96, 558);
+  }
 
   // One tile per round
   const tile = 156;

@@ -15,7 +15,7 @@ export type ChallengeLink =
   | { kind: 'none' }
   | { kind: 'invalid' }
   | { kind: 'future' }
-  | { kind: 'day'; day: string; vs: number | null };
+  | { kind: 'day'; day: string; vs: number | null; vsTime: number | null };
 
 const DAY = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -43,12 +43,15 @@ export function parseChallenge(search: string, today: string, published: readonl
   if (!isRealDay(day)) return { kind: 'invalid' };
   if (day > today) return { kind: 'future' };
   if (!published.includes(day)) return { kind: 'invalid' };
-  return { kind: 'day', day, vs: parseScore(params.get('vs')) };
+  const time = params.get('time');
+  const vsTime = time && /^\d{1,6}$/.test(time) && Number(time) <= 120_000 ? Number(time) : null;
+  return { kind: 'day', day, vs: parseScore(params.get('vs')), vsTime };
 }
 
-export function challengeUrl(origin: string, day: string, total?: number): string {
+export function challengeUrl(origin: string, day: string, total?: number, answerMs?: number | null): string {
   const u = new URL('/', origin);
   u.searchParams.set('day', day);
   if (total !== undefined) u.searchParams.set('vs', String(total));
+  if (answerMs !== undefined && answerMs !== null) u.searchParams.set('time', String(Math.round(answerMs)));
   return u.toString();
 }

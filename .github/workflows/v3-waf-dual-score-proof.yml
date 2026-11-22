@@ -1,0 +1,51 @@
+name: V3 one-time public edge dual-score API WAF verification
+on:
+  push:
+    branches: [statwindow/v3-waf-dual-api-qa-20261122]
+    paths: [.github/workflows/v3-waf-dual-score-proof.yml]
+permissions: {contents: write}
+jobs:
+  verify:
+    if: github.repository == 'Atiyk/Stat-Window'
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prove the one included WAF rule rate-limits BOTH API paths before database use
+        shell: bash
+        run: |
+          set -euo pipefail
+          # All GETs intentionally use invalid/missing day data on public V2.
+          # No player code, user score, cookies, token, PUT/POST or DELETE.
+          scores429=0
+          board429=0
+          outcomes=""
+          for n in $(seq 1 20); do
+            if (( n % 2 == 0 )); then
+              url='https://stat-window.vercel.app/api/scores?day=not-a-day'
+              group=scores
+            else
+              url='https://stat-window.vercel.app/api/leaderboard?period=day'
+              group=leaderboard
+            fi
+            code=$(curl --retry 0 --connect-timeout 5 --max-time 12 -sS -o /dev/null -w '%{http_code}' "$url")
+            outcomes="$outcomes $group:$code"
+            if [ "$code" = "429" ]; then
+              if [ "$group" = "scores" ]; then scores429=$((scores429 + 1)); fi
+              if [ "$group" = "leaderboard" ]; then board429=$((board429 + 1)); fi
+            fi
+          done
+          echo "Public V2 read-only edge requests: $outcomes"
+          echo "429 counts: scores=$scores429 leaderboard=$board429"
+          if [ "$scores429" -lt 1 ] || [ "$board429" -lt 1 ]; then
+            echo "::error::Both score API paths must be covered by one IP-based edge rate rule."
+            exit 1
+          fi
+      - name: Remove the one-time workflow after successful evidence
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/v3-waf-dual-score-proof.yml
+          git commit -m "Remove completed dual-score WAF proof workflow"
+          git push origin HEAD:refs/heads/statwindow/v3-waf-dual-api-qa-20261122

@@ -37,11 +37,11 @@ export function Onboarding({ onDone }: { onDone: () => void }) {
     const animate = (now: number) => {
       const t = Math.min(1, (now - started) / 650);
       setProgress(1 - (1 - t) ** 5);
-      if (t < 1) frame = window.requestAnimationFrame(animate);
+      if (t < 1) frame = requestAnimationFrame(animate);
       else setLanded(true);
     };
-    frame = window.requestAnimationFrame(animate);
-    return () => window.cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
   }, [score, reducedMotion]);
   useEffect(() => {
     if (landed) answerRef.current?.focus({ preventScroll: true });

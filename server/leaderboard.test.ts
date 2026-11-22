@@ -47,3 +47,22 @@ describe('Eastern calendar leaderboard periods',()=>{
  });
 
 });
+
+describe('privacy erasure after consent withdrawal',()=>{
+ it('permits DELETE with GPC/DNT and denied consent while POST stays blocked',async()=>{
+   let removed=0;
+   const ctx=leaderboardContext({VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',SCORE_HASH_SECRET:'x'.repeat(32)},
+     {remove:async()=>{removed++;return 'removed';}} as never,async()=>null);
+   ctx.now=()=>new Date('2026-11-22T16:00:00Z');
+   const request=(method:'POST'|'DELETE')=>new Request('https://stat-window.vercel.app/api/leaderboard',{
+     method,headers:{'Content-Type':'application/json','Sec-GPC':'1','DNT':'1'},
+     body:JSON.stringify({player:'a'.repeat(22),consent:'denied'})});
+   const erased=await handleLeaderboard(request('DELETE'),ctx);
+   expect(erased.status).toBe(200);
+   expect(await erased.json()).toMatchObject({status:'ok',removed:1});
+   expect(removed).toBe(1);
+   const rejected=await handleLeaderboard(request('POST'),{...ctx,enabled:true});
+   expect(rejected.status).toBe(409);
+   expect(removed).toBe(1);
+ });
+});

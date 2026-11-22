@@ -1,17 +1,33 @@
 /** Separate opt-in leaderboard API; deliberately disabled until its shared Upstash cost budget is approved. */
 import { createHmac } from 'node:crypto';
 import { puzzleDay, addDays } from '../src/engine/daily.ts';
-import { seasonOf, parseLaunchDay } from '../src/engine/season.ts';
+import { parseLaunchDay } from '../src/engine/season.ts';
 import { eligibleDay, verifyRounds, type ServerSlate } from './api.ts';
 
 export type Period = 'day' | 'week' | 'month' | 'season';
 export const PERIODS: Period[] = ['day','week','month','season'];
 const PLAYER = /^[A-Za-z0-9_-]{22}$/;
 const DAY = /^\d{4}-\d{2}-\d{2}$/;
+/** Fixed 120-day leaderboard seasons, never an unbounded beta/s1 key. */
+export const SEASON_DAYS = 120;
+export const RETAIN_DAYS = 30;
+export function expiryFor(period: Period, day: string): number {
+  const start = Date.parse(day+'T00:00:00Z') / 1000;
+  const d = new Date(day+'T00:00:00Z');
+  let end: number;
+  if (period === 'day') end = start + 86400;
+  else if (period === 'week') end = start + (7 - ((d.getUTCDay()+6)%7))*86400;
+  else if (period === 'month') end = Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+1,1)/1000;
+  else {
+    const anchor=Date.parse('2026-01-01T00:00:00Z')/1000;
+    end=anchor+(Math.floor((start-anchor)/(SEASON_DAYS*86400))+1)*SEASON_DAYS*86400;
+  }
+  return end + RETAIN_DAYS*86400;
+}
 export const LB_COST = { read: 12, submit: 55, remove: 2000 };
 export type LBStore = {
   read(board: string, budget: string[], caps: number[]): Promise<'paused' | { rows: [string,number][]; count: number }>;
-  submit(keys: string[], member: string, day: string, score: number, caps: number[]): Promise<'stored'|'duplicate'|'limited'|'paused'>;
+  submit(keys: string[], member: string, day: string, score: number, caps: number[], expiries: number[]): Promise<'stored'|'duplicate'|'limited'|'paused'>;
   remove(keys: string[], member: string, caps: number[]): Promise<'removed'|'nothing'|'limited'|'paused'>;
 };
 export type LBContext = { enabled: boolean; store: LBStore | null; secret: string; env: string; launchDay: string | null; now:()=>Date; loadSlate:(day:string)=>Promise<ServerSlate|null>; allowedOrigins: string[]; caps: number[] };
@@ -19,7 +35,10 @@ export function periodKey(period: Period, day: string, launchDay: string|null): 
   if (!DAY.test(day) || Number.isNaN(Date.parse(day+'T00:00:00Z'))) throw new RangeError('invalid day');
   if (period === 'day') return day;
   if (period === 'month') return day.slice(0,7);
-  if (period === 'season') return seasonOf(day,{launchDay});
+  if (period === 'season') {
+    const anchor=Date.parse('2026-01-01T00:00:00Z');
+    return 'block-'+Math.floor((Date.parse(day+'T00:00:00Z')-anchor)/(SEASON_DAYS*86400000));
+  }
   const weekday = new Date(day+'T00:00:00Z').getUTCDay();
   return addDays(day,-((weekday+6)%7));
 }
@@ -69,7 +88,7 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
     if(!slate||slate.date!==body.day)return json(200,{status:'ineligible'});
     const score=verifyRounds(slate,body.rounds);
     if(score===null||(body.total!==undefined&&body.total!==score))return json(422,{status:'invalid'});
-    const result=await ctx.store.submit([prefix+':player:'+member,...boards(prefix,body.day,ctx.launchDay),budget[0]!,budget[1]!,rate,budget[3]!],member,body.day,score,ctx.caps);
+    const result=await ctx.store.submit([prefix+':player:'+member,...boards(prefix,body.day,ctx.launchDay),budget[0]!,budget[1]!,rate,budget[3]!],member,body.day,score,ctx.caps,PERIODS.map(p=>expiryFor(p,body.day)));
     return result==='limited'?json(429,{status:'limited'}):result==='paused'?json(503,{status:'paused'}):json(200,{status:result,day:body.day,score});
   }catch{return json(503,{status:'unavailable'});}
 }

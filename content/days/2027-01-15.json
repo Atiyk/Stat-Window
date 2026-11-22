@@ -7,23 +7,23 @@
   },
   "questions": [
     {
-      "id": "nba-pistons89-wins",
+      "id": "nba-iverson01-season-ppg",
       "sport": "NBA",
-      "prompt": "How many games did the 1988–89 \"Bad Boys\" Pistons win?",
-      "context": "Detroit Pistons · 1988–89 · 82 games",
-      "answer": 63,
+      "prompt": "What was Allen Iverson's scoring average during his 2000–01 MVP season?",
+      "context": "Philadelphia 76ers · 2000–01 · regular season",
+      "answer": 31.1,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 50,
-      "max": 82,
-      "step": 1,
-      "note": "63–19, the league's best.",
+      "min": 16,
+      "max": 44,
+      "step": 0.1,
+      "note": "31.1 a night, enough to lead the league and win MVP.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1988%E2%80%9389_Detroit_Pistons_season",
-        "quote": "finishing in first place in the Central Division with a league-best 63–19 record"
+        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+        "quote": "All-Star guard Allen Iverson averaged 31.1 points, 4.6 assists and 2.5 steals per game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,27 +32,27 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "That season marked the Bad Boys' first in the brand-new Palace of Auburn Hills.",
+          "text": "Iverson led the NBA not only in scoring but also in steals that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1988%E2%80%9389_Detroit_Pistons_season",
-            "quote": "moved from the Pontiac Silverdome to their brand-new arena known as The Palace of Auburn Hills"
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "leading the league in both scoring and steals"
           }
         },
         {
-          "text": "Detroit traded Adrian Dantley to Dallas midseason for Mark Aguirre, a longtime friend of Isiah Thomas.",
+          "text": "Iverson also won All-Star Game MVP in Washington, D.C., where the East beat the West by a single point.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1988%E2%80%9389_Detroit_Pistons_season",
-            "quote": "traded Dantley to the Dallas Mavericks in exchange for All-Star forward Mark Aguirre"
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "Iverson scored 25 points along with 5 assists and 4 steals, and was named the All-Star Game Most Valuable Player"
           }
         },
         {
-          "text": "Detroit opened its regular season with eight consecutive wins — an early sign of the championship run to come.",
+          "text": "Philadelphia had an unusual awards sweep: teammate Aaron McKie was Sixth Man of the Year and Mutombo was Defensive Player of the Year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1988%E2%80%9389_Detroit_Pistons_season",
-            "quote": "The Pistons got off to a fast start by winning their first eight games of the regular season."
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "Aaron McKie provided the team with 11.6 points, 5.0 assists and 1.4 steals per game, and was named the NBA Sixth Man of the Year"
           }
         }
       ]

@@ -58,23 +58,23 @@
       ]
     },
     {
-      "id": "nba-giannis21-playoffs-ppg",
+      "id": "nba-bucks71-wins",
       "sport": "NBA",
-      "prompt": "What was Giannis Antetokounmpo's points average in the 2021 playoffs?",
-      "context": "Milwaukee · entire postseason, not only the Finals",
-      "answer": 30.2,
+      "prompt": "In only their third season, how many games did the 1970–71 Bucks win?",
+      "context": "Milwaukee Bucks · 1970–71 · 82 games",
+      "answer": 66,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 15,
-      "max": 52,
-      "step": 0.1,
-      "note": "30.2 points per game over the Bucks' championship run.",
+      "min": 24,
+      "max": 82,
+      "step": 1,
+      "note": "66–16, then a title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-        "quote": "Giannis Antetokounmpo | 21 | 21 | 38.1 | .569 | .186 | .587 | 12.8 | 5.1 | 1.0 | 1.2 | 30.2"
+        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+        "quote": "Milwaukee posted a 66–16 record in only its third year of existence"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,27 +83,27 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "He also averaged 12.8 rebounds a game during that postseason.",
+          "text": "The arrival of Oscar Robertson gave young star Lew Alcindor a legendary partner.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "Giannis Antetokounmpo | 21 | 21 | 38.1 | .569 | .186 | .587 | 12.8"
+            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+            "quote": "A key part of this championship season was the acquisition of Oscar Robertson"
           }
         },
         {
-          "text": "Giannis started every playoff game he appeared in.",
+          "text": "Milwaukee beat the Baltimore Bullets in a four-game Finals sweep to win its first title.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "Giannis Antetokounmpo | 21 | 21 | 38.1"
+            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+            "quote": "They faced off against the Baltimore Bullets and swept them in four games"
           }
         },
         {
-          "text": "He was named Finals Most Valuable Player after Milwaukee defeated Phoenix.",
+          "text": "Role players included Lucius Allen, Bob Boozer and Dick Cunningham behind the star pairing.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-            "quote": "Giannis Antetokounmpo was named NBA Finals Most Valuable Player"
+            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+            "quote": "key reserves such as Lucius Allen, Bob Boozer and Dick Cunningham"
           }
         }
       ]

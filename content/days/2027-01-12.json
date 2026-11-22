@@ -7,23 +7,23 @@
   },
   "questions": [
     {
-      "id": "nba-shot-clock-24",
+      "id": "nba-cavs09-home-wins",
       "sport": "NBA",
-      "prompt": "How many seconds does an NBA team have to shoot under the shot clock?",
-      "context": "NBA rules · since 1954",
-      "answer": 24,
+      "prompt": "How many home games did the Cavaliers win in their dominant 2008–09 season?",
+      "context": "Cleveland at Quicken Loans Arena · 41 home games",
+      "answer": 39,
       "unit": {
-        "singular": "second",
-        "plural": "seconds"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 10,
-      "max": 55,
+      "min": 19,
+      "max": 41,
       "step": 1,
-      "note": "24.",
+      "note": "39 home wins against just two losses.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Shot_clock",
-        "quote": "The NBA has had a 24-second limit since 1954."
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+        "quote": "Total: 66–16 (home: 39–2; road: 27–14)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Danny Biasone and Leo Ferris first tested the shot-clock idea at a Syracuse Nationals scrimmage.",
+          "text": "Cleveland also won 27 road games that season, giving the team balance away from its home arena.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Shot_clock",
-            "quote": "Danny Biasone and general manager Leo Ferris experimented with a 24-second shot clock during a scrimmage"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "Total: 66–16 (home: 39–2; road: 27–14)"
           }
         },
         {
-          "text": "Biasone arrived at the timing by counting shot attempts in basketball's most entertaining games.",
+          "text": "The Lakers handed Cleveland a rare home loss during their February visit.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Shot_clock",
-            "quote": "I noticed each team took about 60 shots. That meant 120 shots per game."
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "February 8 L.A. Lakers L 91–101"
           }
         },
         {
-          "text": "Before the rule, teams protecting a lead could stall endlessly by passing without shooting.",
+          "text": "The Cavaliers lost their final regular-season home game in overtime against Philadelphia.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Shot_clock",
-            "quote": "Teams in the lead were running out the clock, passing the ball incessantly"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "April 15 Philadelphia L 110–111 (OT)"
           }
         }
       ]
     },
     {
-      "id": "nba-spurs14-march-wins",
+      "id": "nba-howard09-g4-blocks",
       "sport": "NBA",
-      "prompt": "How many games did San Antonio win in its unbeaten March of 2014?",
-      "context": "Spurs · March 2014 · undefeated month",
-      "answer": 16,
+      "prompt": "Dwight Howard set the Finals record for blocks in a game in 2009. How many?",
+      "context": "2009 NBA Finals · Game 4 · vs Lakers",
+      "answer": 9,
       "unit": {
-        "singular": "March win",
-        "plural": "March wins"
+        "singular": "block",
+        "plural": "blocks"
       },
       "min": 5,
-      "max": 24,
+      "max": 20,
       "step": 1,
-      "note": "16 wins in an unblemished March.",
+      "note": "Nine.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-        "quote": "an unbeaten month in March (16–0)"
+        "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+        "quote": "giving him a single-game NBA Finals record with 9 blocked shots"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,27 +83,27 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "The late-season surge continued into the start of April.",
+          "text": "Orlando's center threatened Los Angeles near the end, but Derek Fisher hit a crucial late three.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "a 19-game winning streak from late February to early April"
+            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+            "quote": "Trevor Ariza was able to hit a 3-pointer as the shot clock expired"
           }
         },
         {
-          "text": "Dallas later stretched the Spurs to seven games in the playoff opener.",
+          "text": "The Magic squandered foul-shot opportunities in a tight Game 4 despite leading at halftime.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "defeated the Dallas Mavericks in seven games in the first round"
+            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+            "quote": "but were unable to increase the lead due to poor free-throw shooting"
           }
         },
         {
-          "text": "San Antonio returned to the Finals to face Miami in a rematch.",
+          "text": "Orlando had earned its very first NBA Finals game victory only in the preceding game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "back-to-back Finals appearances, also against the Miami Heat"
+            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+            "quote": "This win marked the first Finals win in Magic franchise history"
           }
         }
       ]

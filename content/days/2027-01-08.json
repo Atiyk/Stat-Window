@@ -58,23 +58,23 @@
       ]
     },
     {
-      "id": "nba-miller95-8-points",
+      "id": "nba-celtics84-wins",
       "sport": "NBA",
-      "prompt": "Against the Knicks in 1995, Reggie Miller scored how many points in 8.9 seconds?",
-      "context": "1995 East semifinals · Game 1 · at New York",
-      "answer": 8,
+      "prompt": "How many wins did Larry Bird's 1983–84 Celtics post in the regular season?",
+      "context": "Boston Celtics · 1983–84 · 82 games",
+      "answer": 62,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 0,
-      "max": 12,
+      "min": 25,
+      "max": 82,
       "step": 1,
-      "note": "Eight unanswered points.",
+      "note": "62, the league's best.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-        "quote": "scored eight unanswered points in 8.9 seconds in Game 1"
+        "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
+        "quote": "the Celtics won 62 games to lead the league."
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,27 +83,27 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "The comeback featured a stolen inbounds pass from Anthony Mason between Miller's dramatic jumpers.",
+          "text": "Boston traded for Dennis Johnson because its perimeter defense needed help.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "stole the inbound pass from Anthony Mason"
+            "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
+            "quote": "Boston's most crucial addition was Dennis Johnson, whom they acquired from the Phoenix Suns"
           }
         },
         {
-          "text": "John Starks missed both free throws on New York's next possession, leaving the door open for Indiana.",
+          "text": "Kevin McHale was named the league's Sixth Man Award winner that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "Starks missed both free throws"
+            "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
+            "quote": "first-time all-star and Sixth Man Award winner Kevin McHale"
           }
         },
         {
-          "text": "Patrick Ewing grabbed the offensive rebound but his putback bounced off the back rim.",
+          "text": "The Celtics survived a seven-game second-round battle with the Knicks.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "his shot was just a bit long and hit the back rim"
+            "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
+            "quote": "the New York Knicks in seven"
           }
         }
       ]

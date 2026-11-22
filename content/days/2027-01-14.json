@@ -7,23 +7,23 @@
   },
   "questions": [
     {
-      "id": "nba-warriors75-season-wins",
+      "id": "nba-hawks15-january-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 1974–75 Warriors win?",
-      "context": "Golden State Warriors · 1974–75 · 82 games",
-      "answer": 48,
+      "prompt": "How many games did the 2015 Hawks win in an undefeated January?",
+      "context": "Atlanta · January 2015 · unbeaten calendar month",
+      "answer": 17,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "January win",
+        "plural": "January wins"
       },
-      "min": 32,
-      "max": 72,
+      "min": 5,
+      "max": 22,
       "step": 1,
-      "note": "48 wins, before the Warriors took the title.",
+      "note": "17 January wins without a defeat.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1974%E2%80%9375_Golden_State_Warriors_season",
-        "quote": "Record | 48–34 (.585)"
+        "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+        "quote": "January: 17–0 (home: 9–0; road: 8–0)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,27 +32,27 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The Bullets entered the Finals with far more regular-season wins than Golden State.",
+          "text": "Atlanta stayed perfect both at Philips Arena and away from home during January.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "Golden State Warriors (48–34) played against the Eastern Conference champion Washington Bullets (60–22)"
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "January: 17–0 (home: 9–0; road: 8–0)"
           }
         },
         {
-          "text": "The championship was Golden State's first since 1956, when the franchise played in Philadelphia.",
+          "text": "The month closed with a home victory over Philadelphia.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "win their first championship since 1956, when the team was still based in Philadelphia"
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "January 31 Philadelphia W 91–85"
           }
         },
         {
-          "text": "Golden State traded future Hall of Famer Nate Thurmond to Chicago for young center Clifford Ray before the season.",
+          "text": "The Hawks entered January at 23–8 and exited at 40–8.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "they traded future Hall of Famer Nate Thurmond to the Chicago Bulls for young center Clifford Ray"
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "19,006 40–8"
           }
         }
       ]

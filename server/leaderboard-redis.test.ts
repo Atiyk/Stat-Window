@@ -52,11 +52,11 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     expect(race.filter((r) => r === 'duplicate')).toHaveLength(19);
     const p = `${prefix}:${scope}`, b = budget(scope);
     const rows = await store.read(boards(p, day1, null)[0]!, b, caps,
-      [`${p}:read:minute:race`, `${p}:read:day:race`]);
+      [`${p}:read:minute:race`, `${p}:read:day:race`], `${p}:player:${member}`, member);
     if (typeof rows === 'string') throw new Error(`read was unexpectedly ${rows}`);
-    expect(rows).toMatchObject({count:1, rows:[[member,87]]});
-    expect(Number(await client.command(['GET', b[1]!]))).toBe(55 + 12);
-    expect(Number(await client.command(['GET', b[3]!]))).toBe(55 + 12);
+    expect(rows).toMatchObject({count:1, rows:[[member,87]],mine:{rank:1,score:87,days:1}});
+    expect(Number(await client.command(['GET', b[1]!]))).toBe(55 + 24);
+    expect(Number(await client.command(['GET', b[3]!]))).toBe(55 + 24);
   });
 
   it('adds daily scores to week/month/season, then deletes every linked period', async () => {
@@ -73,6 +73,9 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
       const value=Number(await client.command(['ZSCORE',boards(p,day,null)[0]!,member]));
       expect(value).toBe(score);
     }
+    const mine=await store.read(periodBoards[1]!,b,caps,[`${p}:read:minute:own`,`${p}:read:day:own`],`${p}:player:${member}`,member);
+    if(typeof mine==='string')throw new Error('weekly board unexpectedly unavailable');
+    expect(mine.mine).toMatchObject({rank:1,score:340,days:2});
     const ttl=Number(await client.command(['TTL',`${p}:player:${member}`]));
     expect(ttl).toBeGreaterThan(0); // hash must survive short-lived daily boards
     const removed=await store.remove([`${p}:player:${member}`,p,b[2]!,`${p}:delete:rate:1`,`${p}:delete:day:1`],member,caps);
@@ -83,6 +86,25 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     }
     expect(await client.command(['EXISTS',`${p}:player:${member}`])).toBe(0);
     expect(Number(await client.command(['GET', b[2]!]))).toBe(2000);
+  });
+
+  it('ties share rank while personal days played reflects actual accepted dates', async () => {
+    const store=leaderboardRedis(client.evaluate);
+    const scope='ties',p=`${prefix}:${scope}`,b=budget(scope);
+    const second='b'.repeat(40);
+    expect(await store.submit(writeKeys(scope,day1,'1'),member,day1,100,caps,expiration(day1))).toBe('stored');
+    expect(await store.submit(writeKeys(scope,day2,'2'),member,day2,240,caps,expiration(day2))).toBe('stored');
+    const keys=writeKeys(scope,day2,'3');
+    keys[0]=`${p}:player:${second}`;
+    expect(await store.submit(keys,second,day2,340,caps,expiration(day2))).toBe('stored');
+    const week=boards(p,day2,null)[1]!;
+    const one=await store.read(week,b,caps,[`${p}:read:minute:one`,`${p}:read:day:one`],`${p}:player:${member}`,member);
+    const two=await store.read(week,b,caps,[`${p}:read:minute:two`,`${p}:read:day:two`],`${p}:player:${second}`,second);
+    if(typeof one==='string'||typeof two==='string')throw new Error('board unexpectedly unavailable');
+    expect(one.rows).toHaveLength(2);
+    expect(two.rows).toHaveLength(2);
+    expect(one.mine).toMatchObject({rank:1,score:340,days:2});
+    expect(two.mine).toMatchObject({rank:1,score:340,days:1});
   });
 
   it('shared monthly cap and leaderboard suballocation deny writes before score mutation', async () => {
@@ -104,12 +126,12 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     const scope='getcap',b=budget(scope),p=`${prefix}:${scope}`;
     const rateKeys=[`${p}:read:minute:one`,`${p}:read:day:one`];
     for(let n=0;n<12;n++) {
-      const r=await store.read(boards(p,day1,null)[0]!,b,caps,rateKeys);
+      const r=await store.read(boards(p,day1,null)[0]!,b,caps,rateKeys,`${p}:player:anonymous`,null);
       expect(r).not.toBe('limited');
       expect(r).not.toBe('paused');
     }
-    expect(await store.read(boards(p,day1,null)[0]!,b,caps,rateKeys)).toBe('limited');
-    expect(Number(await client.command(['GET',b[3]!]))).toBe(12*12);
+    expect(await store.read(boards(p,day1,null)[0]!,b,caps,rateKeys,`${p}:player:anonymous`,null)).toBe('limited');
+    expect(Number(await client.command(['GET',b[3]!]))).toBe(12*24);
   });
 });
 

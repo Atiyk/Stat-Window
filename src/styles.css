@@ -360,7 +360,8 @@ a {
   color: var(--ink-soft);
 }
 
-.question {
+.question,
+.onboarding-practice-title {
   margin: 0;
   max-width: 24ch;
   font-family: var(--font-display);
@@ -371,7 +372,8 @@ a {
   text-wrap: balance;
 }
 
-.question:focus {
+.question:focus,
+.onboarding-practice-title:focus {
   outline: none;
 }
 
@@ -2276,13 +2278,7 @@ a {
 /* First play is a playable one-question rehearsal of the real round, not a
    separate slider form. Ruler, readout, lock and reveal inherit game styles. */
 .onboarding-play .question-block { padding-top: clamp(16px, 3vw, 30px); }
-.onboarding-lede {
-  margin: 12px 0 8px;
-  max-width: 42ch;
-  font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem);
-  line-height: 1.45;
-  color: var(--ink);
-}
+.onboarding-example-note { margin-top: 12px; }
 .onboarding-coach {
   margin: 0 0 20px;
   max-width: 60ch;

@@ -80,7 +80,7 @@ test('a completed question clears its shot deadline, so fresh challenges can rep
 test('interactive tutorial is not scored and requires an explicit start', async ({ page }) => {
   await page.clock.install({ time: DAY1 });
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Catch the number.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /^A fictional NBA player has 20 points/ })).toBeVisible();
   await expect(page.locator('.onboarding-play .ruler')).toBeVisible();
   await expect(page.locator('.onboarding-play .readout')).toBeVisible();
   await expect(page.locator('.question')).toHaveCount(0);
@@ -101,6 +101,18 @@ test('interactive tutorial is not scored and requires an explicit start', async 
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
   expect(saved.settings.introSeen).toBe(true);
 });
+test('first-play practice mirrors the real round on 320px mobile without horizontal scrolling', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.clock.install({ time: DAY1 });
+  await page.goto('/');
+  await expect(page.locator('h1.onboarding-practice-title')).toBeVisible();
+  await expect(page.locator('.onboarding-play .readout')).toBeVisible();
+  await expect(page.locator('.onboarding-play .ruler')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Skip tutorial and start' })).toBeVisible();
+  await expect(page.locator('.question')).toHaveCount(0);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(321);
+});
+
 test('refreshing untouched Q1 preserves the running deadline', async ({ page }) => {
   await openTimed(page);
   await page.clock.fastForward('00:09');
@@ -123,7 +135,7 @@ test('Q2 countdown begins on Next without touching the window', async ({ page })
 test('opening and abandoning the tutorial does not start the clock or a scored run', async ({ page }) => {
   await page.clock.install({ time: DAY1 });
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Catch the number.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /^A fictional NBA player has 20 points/ })).toBeVisible();
   await expect(page.locator('.question')).toHaveCount(0);
   const before = await page.evaluate(() => ({
     deadline: sessionStorage.getItem('stat-window:shot:v1:nba-gsw-2016-wins'),
@@ -132,7 +144,7 @@ test('opening and abandoning the tutorial does not start the clock or a scored r
   expect(before.deadline).toBeNull();
   expect(Object.keys(before.sent).some(key => key.startsWith('start:'))).toBe(false);
   await page.reload();
-  await expect(page.getByRole('heading', { name: 'Catch the number.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /^A fictional NBA player has 20 points/ })).toBeVisible();
   await page.getByRole('button', { name: 'Skip tutorial and start' }).click();
   await expect(page.locator('.question')).toBeVisible();
   const after = await page.evaluate(() => ({

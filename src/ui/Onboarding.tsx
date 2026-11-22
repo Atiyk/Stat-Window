@@ -88,10 +88,9 @@ export function Onboarding({ onDone }: { onDone: () => void }) {
           </p>
         </div>
         <header className="question-block">
-          <p className="context">FIRST TIME? · ONE PRACTICE ROUND</p>
-          <h1 className="question" ref={titleRef} tabIndex={-1}>Catch the number.</h1>
-          <p className="onboarding-lede">A fictional NBA player has <strong>20 points at halftime</strong>. How many do they finish with?</p>
-          <p className="context">Made-up example · The answer is hidden until you lock</p>
+          <p className="context">PRACTICE · CATCH THE NUMBER</p>
+          <h1 className="onboarding-practice-title" ref={titleRef} tabIndex={-1}>A fictional NBA player has 20 points at halftime. How many points do they finish with?</h1>
+          <p className="context onboarding-example-note">Made-up example · No timer · One practice guess</p>
         </header>
       </div>
 
@@ -129,7 +128,7 @@ export function Onboarding({ onDone }: { onDone: () => void }) {
 
       {landed && score && (
         <section className="story" aria-label="Practice answer" ref={answerRef} tabIndex={-1}>
-          <p className="story-answer"><span className="tabular">42</span> points</p>
+          <p className="story-answer"><span className="tabular">{PRACTICE.answer}</span> points</p>
           <p className="story-note">{score.hit
             ? score.points === 0 ? 'You caught 42, but the window was too wide to earn points.' : 'You caught 42! A smaller window earns more when the answer is inside.'
             : '42 fell outside your window. Try again to find a safer range.'}</p>

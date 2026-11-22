@@ -377,13 +377,22 @@ function Game(props: {
   const dispatch = useCallback(
     (a: GameAction) => {
       if (a.type === 'setWindow') props.onWindowActive();
-      if (a.type === 'next' && state.phase === 'resolved') track({ name: 'round_next', mode: playMode, round: state.round + 1 });
+      if (a.type === 'next' && state.phase === 'resolved') {
+        track({ name: 'round_next', mode: playMode, round: state.round + 1 });
+        // Like Q1's explicit Start, save Q2–Q5's appearance deadline before
+        // rendering the next question: even a rapid reload cannot re-grant 24s.
+        const nextQuestion = session.slate.questions[state.results.length];
+        if (nextQuestion) {
+          const key = `stat-window:shot:v1:${nextQuestion.id}`;
+          try { if (window.sessionStorage.getItem(key) === null) window.sessionStorage.setItem(key, String(Date.now())); } catch { /* private mode */ }
+        }
+      }
       if (a.type === 'setWindow' && state.round === 0 && state.phase === 'ready' && state.results.length === 0) {
         trackOnce(`touch:${playMode}:${session.kind}:${session.day}`, today, { name: 'first_touch', mode: playMode });
       }
       rawDispatch(a);
     },
-    [state.phase, state.round, state.results.length, playMode, session.kind, session.day, today, props.onWindowActive],
+    [state.phase, state.round, state.results.length, playMode, session.kind, session.day, session.slate.questions, today, props.onWindowActive],
   );
 
   // Persist every locked round immediately (before the reveal), so a refresh can't re-roll it.

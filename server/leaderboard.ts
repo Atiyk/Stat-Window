@@ -26,7 +26,7 @@ export function expiryFor(period: Period, day: string): number {
 }
 export const LB_COST = { read: 12, submit: 55, remove: 2000 };
 export type LBStore = {
-  read(board: string, budget: string[], caps: number[]): Promise<'paused' | { rows: [string,number][]; count: number }>;
+  read(board: string, budget: string[], caps: number[], rateKeys: string[]): Promise<'paused'|'limited' | { rows: [string,number][]; count: number }>;
   submit(keys: string[], member: string, day: string, score: number, caps: number[], expiries: number[]): Promise<'stored'|'duplicate'|'limited'|'paused'>;
   remove(keys: string[], member: string, caps: number[]): Promise<'removed'|'nothing'|'limited'|'paused'>;
 };
@@ -51,7 +51,7 @@ export function pseudonym(member:string):string {
   return adjectives[parseInt(member.slice(0,4),16)%8]!+nouns[parseInt(member.slice(4,8),16)%8]!+'-'+member.slice(-4).toUpperCase();
 }
 function hash(secret:string,value:string) { return createHmac('sha256',secret).update(value).digest('hex').slice(0,40); }
-function json(status:number,body:unknown) { return new Response(JSON.stringify(body),{status,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}}); }
+function json(status:number,body:unknown) { return new Response(JSON.stringify(body),{status,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff',...(status===429?{'Retry-After':'120'}:{})}}); }
 async function readBody(req:Request):Promise<Record<string,unknown>|null> {
   if (!(req.headers.get('content-type')??'').startsWith('application/json') || Number(req.headers.get('content-length')??0)>2048) return null;
   try { const text=await req.text(); if(new TextEncoder().encode(text).length>2048)return null; const x:unknown=JSON.parse(text); return x && typeof x==='object' && !Array.isArray(x)?x as Record<string,unknown>:null; } catch { return null; }
@@ -64,12 +64,15 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
   if(!ctx.store||!ctx.secret||!ctx.env||(!ctx.enabled&&req.method!=='DELETE'))return json(503,{status:'disabled'});
   const now=ctx.now(), today=puzzleDay(now), prefix='sw:v3:'+ctx.env,utc=now.toISOString().slice(0,10);
   const budget=[ 'sw:v1:budget:d:'+utc,'sw:v1:budget:m:'+utc.slice(0,7),'sw:v1:budget:e:'+utc.slice(0,7),prefix+':budget:m:'+utc.slice(0,7) ];
+  const ip=(req.headers.get('x-real-ip')??req.headers.get('x-forwarded-for')??'unknown').split(',')[0]!.trim();
+  const network=hash(ctx.secret,'lb-ip:'+ip);
   try {
     if(req.method==='GET') {
       const u=new URL(req.url),period=u.searchParams.get('period');
       if(!PERIODS.includes(period as Period)||u.search!==('?period='+period))return json(422,{status:'invalid'});
       const key=periodKey(period as Period,today,ctx.launchDay);
-      const r=await ctx.store.read(prefix+':board:'+period+':'+key,budget,ctx.caps);
+      const r=await ctx.store.read(prefix+':board:'+period+':'+key,budget,ctx.caps,[prefix+':read:minute:'+network+':'+Math.floor(now.getTime()/60000),prefix+':read:day:'+network+':'+utc]);
+      if(r==='limited')return json(429,{status:'limited'});
       if(r==='paused')return json(503,{status:'paused'});
       return json(200,{status:'ok',period,periodKey:key,entries:r.rows.map(([id,score])=>({name:pseudonym(id),score})),totalPlayers:r.count,asOf:now.toISOString(),unverified:true});
     }
@@ -77,8 +80,7 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
     if(!body||typeof body.player!=='string'||!PLAYER.test(body.player))return json(422,{status:'invalid'});
     if(body.consent!=='granted')return json(409,{status:'consent-required'});
     const member=hash(ctx.secret,'lb-player:'+body.player);
-    const ip=(req.headers.get('x-real-ip')??req.headers.get('x-forwarded-for')??'unknown').split(',')[0]!.trim();
-    const rate=prefix+':rate:'+hash(ctx.secret,'lb-ip:'+ip)+':'+Math.floor(now.getTime()/60000);
+    const rate=prefix+':rate:'+network+':'+Math.floor(now.getTime()/60000);
     if(req.method==='DELETE') {
       const result=await ctx.store.remove([prefix+':player:'+member,prefix,budget[2]!,rate],member,ctx.caps);
       return result==='limited'?json(429,{status:'limited'}):result==='paused'?json(503,{status:'paused'}):json(200,{status:'ok',removed:result==='removed'?1:0});

@@ -2,6 +2,12 @@
 import type { LBStore } from './leaderboard.ts';
 import type { Eval } from './store.ts';
 export const READ_LUA=`
+local minute=redis.call('INCR',KEYS[5])
+if minute==1 then redis.call('EXPIRE',KEYS[5],120) end
+if minute>12 then return {'limited'} end
+local daily=redis.call('INCR',KEYS[6])
+if daily==1 then redis.call('EXPIRE',KEYS[6],93600) end
+if daily>60 then return {'limited'} end
 local own=tonumber(redis.call('GET',KEYS[4]) or '0')
 if own+12>tonumber(ARGV[2]) then return {'paused'} end
 local d=tonumber(redis.call('GET',KEYS[2]) or '0')
@@ -48,9 +54,10 @@ return 'removed'
 `;
 export function leaderboardRedis(evaluate:Eval):LBStore {
   return {
-    async read(board,budget,caps) {
-      const out=await evaluate(READ_LUA,[board,budget[0]!,budget[1]!,budget[3]!],[caps[0]!,caps[1]!]) as unknown[];
+    async read(board,budget,caps,rateKeys) {
+      const out=await evaluate(READ_LUA,[board,budget[0]!,budget[1]!,budget[3]!,...rateKeys],[caps[0]!,caps[1]!]) as unknown[];
       if(out[0]==='paused')return 'paused';
+      if(out[0]==='limited')return 'limited';
       const flat=out[2] as unknown[];
       const rows:[string,number][]=[];
       for(let i=0;i<flat.length;i+=2)rows.push([String(flat[i]),Number(flat[i+1])]);

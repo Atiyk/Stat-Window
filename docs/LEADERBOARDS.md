@@ -4,6 +4,8 @@ The opt-in leaderboard remains disabled by default. The worker fixes the shared 
 
 Ranking seasons are fixed 120-day UTC blocks anchored to 2026-01-01, rather than the unbounded beta/s1 game season. Day/week/month/120-day-season boards expire 30 days after the end of their respective periods. The browser-linked hash expires at the latest of those four fixed deadlines; this prevents the hash expiring before a still-retained season board when another player refreshes the board. Scores are not verified against cheating; no prizes. Scores are not verified against cheating; no prizes.
 
+GET requests now have atomic per-network limits of 12 per two-minute bucket and 60 per UTC day, returning 429 with Retry-After. These counters are Redis operations and need vendor command-cost validation; they are not yet accounted in the existing estimate.
+
 ## Remaining blockers
 
 - Validate fixed EXPIREAT lifecycle in real Redis, including post-inactivity erasure and all-period deletion. Existing pre-migration keys require a migration/cleanup plan before activation.

@@ -6,6 +6,21 @@ Ranking seasons are fixed 120-day UTC blocks anchored to 2026-01-01, rather than
 
 GET requests have atomic per-network limits of 12 per two-minute bucket and 60 per UTC day; POST has 4 per two-minute bucket and 20 per UTC day; DELETE has 2 per two-minute bucket and 6 per UTC day, returning 429 with Retry-After. These counters are Redis operations and need vendor command-cost validation; they are not yet accounted in the existing estimate.
 
+## Atomic deletion revocation (additional P0 worker hardening)
+
+A successful DELETE creates a 180-day short-lived tombstone containing
+**only the HMAC-derived member key**, not the raw browser code, and expires
+automatically. A no-record DELETE likewise writes the tombstone but does
+**not** consume the shared erasure reserve. SUBMIT tests that marker inside
+the same Redis Lua transaction as ledger writes. This prevents a delayed
+in-flight POST or an old browser tab from silently repopulating public
+rankings after a successful deletion. Joining again generates a new browser
+code. Deletion remains limited to 2/minute and 6/day per network.
+The extra SETEX and EXISTS commands are covered by the existing
+conservative per-operation command estimates; independently verify with
+Upstash before activation. An exhausted budget/legacy guard returns an
+error without a success acknowledgment or revocation claim.
+
 ## Eastern deadlines and legacy guard (additional worker hardening)
 
 Period labels remain Eastern calendar dates. Redis day/week/month/120-day-season

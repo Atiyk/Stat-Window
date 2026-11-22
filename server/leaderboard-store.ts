@@ -48,6 +48,9 @@ if rate>4 then return 'limited' end
 local daily=redis.call('INCR',KEYS[10])
 if daily==1 then redis.call('EXPIRE',KEYS[10],93600) end
 if daily>20 then return 'limited' end
+-- DELETE tombstones the old code in the same atomic Redis event. A delayed
+-- POST cannot recreate a board entry after a successful erasure.
+if redis.call('EXISTS',KEYS[11])==1 then return 'paused' end
 if redis.call('HEXISTS',KEYS[1],ARGV[2])==1 then return 'duplicate' end
 if tonumber(redis.call('GET',KEYS[9]) or '0')+55>tonumber(ARGV[4]) or tonumber(redis.call('GET',KEYS[6]) or '0')+55>tonumber(ARGV[3]) or tonumber(redis.call('GET',KEYS[7]) or '0')+55>380000 then return 'paused' end
 redis.call('INCRBY',KEYS[9],55) redis.call('EXPIRE',KEYS[9],2764800)
@@ -80,7 +83,12 @@ for k=1,2 do
     records[#records+1]=cjson.decode(all[i])
   end
 end
-if count==0 then return 'nothing' end
+-- Even if there is nothing yet, a concurrent/in-flight POST must not re-add
+-- this browser code after the player was told erasure completed.
+if count==0 then
+  redis.call('SETEX',KEYS[8],15552000,'1')
+  return 'nothing'
+end
 -- Upper bound covers ZINCRBY + ZREM per board, counter writes and scanning.
 -- Never debit the shared erase reserve or leaderboard subcap for empty ledgers.
 local cost=20+14*count
@@ -97,6 +105,7 @@ for _,item in ipairs(records) do
   end
 end
 redis.call('DEL',KEYS[1],KEYS[2])
+redis.call('SETEX',KEYS[8],15552000,'1')
 return 'removed'
 `;
 export function leaderboardRedis(evaluate:Eval):LBStore {

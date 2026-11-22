@@ -35,3 +35,9 @@ Erasure uses two fixed ledger keys and an atomic Lua script. The ledger records 
 ## Erasure after consent withdrawal
 
 DELETE requires the original random browser code but **does not require ongoing consent**. A participant may withdraw consent or enable GPC/DNT and still request removal; new POST submissions continue to require affirmative consent. Erasure remains accessible when leaderboard reads/writes are disabled, provided the store and secret are configured. An unavailable or paused Redis store must return an error, never falsely acknowledge deletion. Independent Upstash Lua dynamic-key compatibility and billing proof remain required.
+
+## Erasure of already-expired boards (worker fix, pending CI)
+
+Erasure now checks `ZSCORE` before subtracting a retained daily contribution. When an earlier daily board has expired, deletion skips that missing board rather than recreating it through `ZINCRBY` with a negative score. The Redis integration test explicitly removes the daily board before deleting the participant, then checks that the board remains absent and the other period entries are removed. This test has **not yet run on the new worker commit**. The derived-key Upstash strict-locking compatibility issue is **still unresolved**; do not activate the leaderboard based on this change alone.
+
+Network throttling now ignores client-forgeable `X-Forwarded-For` and uses `X-Real-IP` when present, otherwise a conservative shared bucket. Verify the production edge guarantees that `X-Real-IP` is trusted before enabling. GPC and DNT explicitly reject new score submissions even when the body claims consent; erasure remains available after withdrawal.

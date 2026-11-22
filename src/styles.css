@@ -2207,3 +2207,14 @@ a {
 
 /* BUG-08: with large text an archive day wraps instead of pushing past the screen edge. */
 .archive-list .btn.btn-quiet { display: inline-block; max-width: 100%; white-space: normal; text-align: center; padding-block: 12px; line-height: 1.3; height: auto; }
+
+/* Daily shot-clock and new-player guidance. */
+.shot-clock { display: block; font-variant-numeric: tabular-nums; font-size: 0.9375rem; font-weight: 850; color: var(--brand); }
+.shot-clock[data-urgent='true'] { color: #b64122; }
+.puzzle-theme { margin: 0 0 8px; color: var(--brand); font-weight: 600; font-size: 0.9375rem; }
+.puzzle-theme span { color: var(--ink-soft); font-weight: 400; }
+.first-play-guide { margin: 0 0 10px; font-size: 0.875rem; line-height: 1.35; max-width: 62ch; color: var(--ink-soft); }
+.first-play-guide strong { color: var(--ink); }
+.results-time { margin: 8px 0 0; font-size: 0.9375rem; color: var(--ink-soft); }
+.results-time strong { color: var(--ink); font-size: 1.125rem; }
+@media (max-width: 359px), (max-height: 700px) { .first-play-guide { margin: 0 0 4px; font-size: 0.8125rem; } .shot-clock { font-size: 0.8125rem; } .puzzle-theme { margin-bottom: 4px; } }

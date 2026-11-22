@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type Dispatch, type ReactNode } from 'react';
 import { canLock, currentQuestion, ROUNDS, totalPoints, type GameAction, type GameState } from '../engine/game';
+import type { Theme } from '../content/schema';
 import { potentialPoints } from '../engine/scoring';
 import { formatValue, unitFor } from '../lib/format';
 import { feedback } from './feedback';
@@ -16,8 +17,9 @@ type Props = {
   /** "Question 2 of 5" (difficulty and daily themes stay internal and are never shown). */
   label: string;
   showHint: boolean;
+  theme?: Theme | undefined;
   /** Set when the run came from a friend's link: shown before the first round only. */
-  challenge?: { vs: number | null } | null;
+  challenge?: { vs: number | null; vsTime: number | null } | null;
   onFirstTouch: () => void;
   /**
    * Survival mode only. Everything else about the round (window, lock, reveal,
@@ -36,19 +38,20 @@ export type SurvivalChrome = {
   nextLabel: string;
 };
 
-const FIRST_TRAVEL_MS = 1350;
-const TRAVEL_MS = 1050;
-const CLAMP_MS = 260;
+const FIRST_TRAVEL_MS = 1000;
+const TRAVEL_MS = 650;
+const CLAMP_MS = 150;
+const SHOT_CLOCK_MS = 24_000;
 const easeOutQuint = (t: number) => 1 - (1 - t) ** 5;
 
-export function Round({ state, dispatch, label, showHint, challenge = null, onFirstTouch, survival }: Props) {
+export function Round({ state, dispatch, label, showHint, theme, challenge = null, onFirstTouch, survival }: Props) {
   const q = currentQuestion(state);
   const reduced = usePrefersReducedMotion();
   const [factSeed] = useState(browserFunFactSeed);
   const extra = pickFunFact(q, factSeed);
   const last = state.results[state.round];
   // One short reaction per reveal, stable across refreshes and not repeated within a run.
-  const reaction = last
+  const reaction = last && !last.timedOut
     ? pickReactions(
         state.results.slice(0, state.round + 1).map((r, i) => {
           const rq = state.slate.questions[i] ?? q;
@@ -62,9 +65,70 @@ export function Round({ state, dispatch, label, showHint, challenge = null, onFi
   const actionRef = useRef<HTMLButtonElement>(null);
   const skipRef = useRef(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const [secondsLeft, setSecondsLeft] = useState(24);
+  const shot = useRef({ elapsed: 0, startedAt: performance.now(), started: !showHint, active: !showHint, stopped: false });
+  const dispatchRef = useRef(dispatch);
+  dispatchRef.current = dispatch;
+  const timed = survival === undefined;
+  const elapsed = () => {
+    const s = shot.current;
+    return Math.min(SHOT_CLOCK_MS, s.elapsed + (s.active ? Math.max(0, performance.now() - s.startedAt) : 0));
+  };
+  const startShot = () => {
+    if (!timed || shot.current.started || shot.current.stopped) return;
+    shot.current.started = true;
+    shot.current.active = true;
+    shot.current.startedAt = performance.now();
+  };
+  const stopShot = () => {
+    const time = Math.round(elapsed());
+    shot.current.elapsed = time;
+    shot.current.active = false;
+    shot.current.stopped = true;
+    return time;
+  };
+  const lockShot = () => {
+    if (survival) dispatch({ type: 'lock' });
+    else dispatch({ type: 'lock', elapsedMs: stopShot() });
+  };
+  useEffect(() => {
+    shot.current = { elapsed: 0, startedAt: performance.now(), started: !showHint, active: !showHint, stopped: false };
+    setSecondsLeft(24);
+    // The first-play hint disappears on touch; that must never restart the clock.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.round]);
 
   const interactive = state.phase === 'ready' || state.phase === 'adjusting';
   const worth = potentialPoints(q, state.window);
+
+  useEffect(() => {
+    if (!timed || !interactive) return;
+    const tick = () => {
+      const s = shot.current;
+      if (!s.started || !s.active || s.stopped) return;
+      const left = Math.max(0, SHOT_CLOCK_MS - elapsed());
+      setSecondsLeft(Math.ceil(left / 1000));
+      if (left === 0) {
+        s.stopped = true;
+        s.active = false;
+        s.elapsed = SHOT_CLOCK_MS;
+        dispatchRef.current({ type: 'timeout', elapsedMs: SHOT_CLOCK_MS });
+      }
+    };
+    const visibility = () => {
+      const s = shot.current;
+      if (document.hidden && s.active) {
+        s.elapsed = elapsed();
+        s.active = false;
+      } else if (!document.hidden && s.started && !s.stopped && !s.active) {
+        s.startedAt = performance.now();
+        s.active = true;
+      }
+    };
+    const id = window.setInterval(tick, 100);
+    document.addEventListener('visibilitychange', visibility);
+    return () => { window.clearInterval(id); document.removeEventListener('visibilitychange', visibility); };
+  }, [timed, interactive, state.round]);
 
   // New round: reset the reveal and move focus to the question for screen readers.
   useEffect(() => {
@@ -104,7 +168,7 @@ export function Round({ state, dispatch, label, showHint, challenge = null, onFi
       else {
         if (last.hit) feedback.hit(last.points);
         else feedback.miss();
-        window.setTimeout(() => dispatch({ type: 'settle' }), 420);
+        window.setTimeout(() => dispatch({ type: 'settle' }), 220);
       }
     };
     raf = requestAnimationFrame(step);
@@ -123,7 +187,7 @@ export function Round({ state, dispatch, label, showHint, challenge = null, onFi
     let raf = 0;
     const start = performance.now();
     const step = (now: number) => {
-      const t = Math.min(1, (now - start) / 520);
+      const t = Math.min(1, (now - start) / 350);
       setShownPoints(Math.round(last.points * easeOutQuint(t)));
       if (t < 1) raf = requestAnimationFrame(step);
     };
@@ -166,17 +230,28 @@ export function Round({ state, dispatch, label, showHint, challenge = null, onFi
           <span className="round-total">
             <span className="tabular">{runningTotal}</span> pts
           </span>
+          {timed && <span className="shot-clock" data-urgent={interactive && secondsLeft <= 5 || undefined} role="timer"
+            aria-label={interactive ? `Shot clock: ${secondsLeft} seconds left` : 'Shot clock stopped'}>
+            {!shot.current.started && interactive ? '24s · ready' : `${secondsLeft}s`}
+          </span>}
         </p>
       </div>
 
       <header className="question-block">
+        {theme && state.round === 0 && !survival && (
+          <p className="puzzle-theme">Today: <strong>{theme.title}</strong> <span>· {theme.subtitle}</span></p>
+        )}
+        {showHint && timed && interactive && (
+          <p className="first-play-guide"><strong>First window:</strong> Drag both brackets around your best guess.
+            Narrower = more points. Lock before the buzzer. Your 24 seconds start when you move.</p>
+        )}
         {challenge && interactive && (
           <p className="challenge-note">
             {challenge.vs === null ? (
               'A friend sent you these five.'
             ) : (
               <>
-                A friend scored <b className="tabular">{challenge.vs}</b> on these five.
+                Beat your friend’s <b className="tabular">{challenge.vs}</b> points{challenge.vsTime !== null ? ` in ${Math.ceil(challenge.vsTime / 1000)}s` : ''}.
               </>
             )}
           </p>
@@ -197,14 +272,18 @@ export function Round({ state, dispatch, label, showHint, challenge = null, onFi
             window={state.window}
             editable={interactive}
             onChange={(w, m) => {
-              // Typing a number is a first move too, so it retires the first-time hint like a drag does.
+              // Typing an exact number also starts the clock and retires the tutorial.
+              startShot();
               onFirstTouch();
               dispatch({ type: 'setWindow', window: w, moving: m });
             }}
           />
 
           <div className="verdict-line" aria-live="polite">
-            {resolved && survival ? (
+            {resolved && last.timedOut ? (
+              <p className="outcome outcome-miss"><span className="outcome-word">Shot clock violation.</span>
+                <span className="outcome-detail">Buzzer. +0. The answer is below.</span></p>
+            ) : resolved && survival ? (
               <SurvivalOutcome points={last.points} hit={last.hit} need={survival.need} shown={shownPoints} missBy={`${formatValue(last.missBy, q.step)} ${unitFor(last.missBy, q.unit)}`} />
             ) : resolved ? (
               last.hit ? (
@@ -261,11 +340,11 @@ export function Round({ state, dispatch, label, showHint, challenge = null, onFi
             window={state.window}
             interactive={interactive}
             reveal={reveal}
-            onChange={(w, m) => dispatch({ type: 'setWindow', window: w, ...(m ? { moving: m } : {}) })}
+            onChange={(w, m) => { startShot(); dispatch({ type: 'setWindow', window: w, ...(m ? { moving: m } : {}) }); }}
             onCommit={() => {
-              if (!short) dispatch({ type: 'lock' });
+              if (!short) lockShot();
             }}
-            onFirstTouch={onFirstTouch}
+            onFirstTouch={() => { startShot(); onFirstTouch(); }}
           />
         </div>
       </section>
@@ -289,7 +368,7 @@ export function Round({ state, dispatch, label, showHint, challenge = null, onFi
 
       <div className="action-bar">
         {interactive ? (
-          <button type="button" className="btn btn-primary" disabled={!lockable} onClick={() => dispatch({ type: 'lock' })}>
+          <button type="button" className="btn btn-primary" disabled={!lockable} onClick={lockShot}>
             {lockable ? 'Lock the window' : survival && canLock(state) ? `Tighten to ${survival.need}+ to lock` : 'Pull the brackets in first'}
           </button>
         ) : state.phase === 'revealing' ? (

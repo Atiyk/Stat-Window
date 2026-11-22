@@ -71,7 +71,7 @@ function safeLocalStorage(): StorageLike | null {
  * `viaLink` marks a run opened from a friend's same-puzzle link; `vs` is the score
  * that link claimed, shown for comparison only.
  */
-type Session = { mode: Mode; kind: RunKind; day: string; slate: Slate; viaLink: boolean; vs: number | null };
+type Session = { mode: Mode; kind: RunKind; day: string; slate: Slate; viaLink: boolean; vs: number | null; vsTime: number | null };
 
 /**
  * A tab opened before a deploy still holds the old list of day files. If one of
@@ -148,7 +148,7 @@ export function App() {
   useEffect(() => setSoundEnabled(settings.sound), [settings.sound]);
 
   const open = useCallback(
-    async (day: string, link?: { vs: number | null }) => {
+    async (day: string, link?: { vs: number | null; vsTime: number | null }) => {
       let slate: Slate | null;
       try {
         slate = await loadSlate(day);
@@ -172,6 +172,7 @@ export function App() {
         slate,
         viaLink: link !== undefined,
         vs: link?.vs ?? null,
+        vsTime: link?.vsTime ?? null,
       });
     },
     [store],
@@ -196,7 +197,7 @@ export function App() {
       setBadLink(true);
       window.history.replaceState(null, '', withoutChallenge(window.location));
     }
-    if (link.kind === 'day') void open(link.day, { vs: link.vs });
+    if (link.kind === 'day') void open(link.day, { vs: link.vs, vsTime: link.vsTime });
     else void open(today);
     // Mount only: later day changes are handled below.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -465,6 +466,7 @@ function Game(props: {
         playMode={playMode}
         isToday={session.day === today}
         vs={session.vs}
+        vsTime={session.vsTime}
         results={state.results}
         stats={stats}
         archive={props.archive.filter((d) => d !== session.day)}
@@ -489,7 +491,8 @@ function Game(props: {
       dispatch={dispatch}
       label={label}
       showHint={props.showHint && state.round === 0}
-      challenge={session.viaLink && state.round === 0 && state.results.length === 0 ? { vs: session.vs } : null}
+      theme={session.slate.theme}
+      challenge={session.viaLink && state.round === 0 && state.results.length === 0 ? { vs: session.vs, vsTime: session.vsTime } : null}
       onFirstTouch={() => { props.onWindowActive(); props.onFirstTouch(); }}
     />
   );

@@ -79,7 +79,9 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
   if(!ctx.store||!ctx.secret||!ctx.env||(!ctx.enabled&&req.method!=='DELETE'))return json(503,{status:'disabled'});
   const now=ctx.now(), today=puzzleDay(now), prefix='sw:v3:'+ctx.env,utc=now.toISOString().slice(0,10);
   const budget=[ 'sw:v1:budget:d:'+utc,'sw:v1:budget:m:'+utc.slice(0,7),'sw:v1:budget:e:'+utc.slice(0,7),prefix+':budget:m:'+utc.slice(0,7) ];
-  const ip=(req.headers.get('x-real-ip')??req.headers.get('x-forwarded-for')??'unknown').split(',')[0]!.trim();
+  // Never trust the user-controlled leftmost X-Forwarded-For address for throttling.
+  // Use the edge-provided address, or one conservative shared fallback bucket.
+  const ip=(req.headers.get('x-real-ip')??'unknown').trim().slice(0,128);
   const network=hash(ctx.secret,'lb-ip:'+ip);
   try {
     if(req.method==='GET') {
@@ -107,7 +109,7 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
     const body=await readBody(req);
     if(!body||typeof body.player!=='string'||!PLAYER.test(body.player))return json(422,{status:'invalid'});
     // Withdrawal of consent must never prevent erasure (including GPC/DNT opt-out).
-    if(req.method==='POST' && body.consent!=='granted')return json(409,{status:'consent-required'});
+    if(req.method==='POST' && (body.consent!=='granted' || req.headers.get('sec-gpc')==='1' || req.headers.get('dnt')==='1'))return json(409,{status:'consent-required'});
     const member=hash(ctx.secret,'lb-player:'+body.player);
     const rate=prefix+':rate:'+network+':'+Math.floor(now.getTime()/60000);
     if(req.method==='DELETE') {

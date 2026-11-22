@@ -364,8 +364,15 @@ function Game(props: {
   const start = () => {
     // Persist before mounting Q1 so an immediate refresh cannot grant fresh time.
     try { if (!window.sessionStorage.getItem(firstShotKey)) window.sessionStorage.setItem(firstShotKey, String(Date.now())); } catch { /* private mode fallback */ }
-    props.onWindowActive(); setStarted(true);
+    props.onWindowActive();
+    setStarted(true);
   };
+
+  // A fresh or restored untouched Q1 is already an active timed run. Without
+  // this, the midnight day-change check could replace it after a reload.
+  useEffect(() => {
+    if (started && state.phase !== 'complete') props.onWindowActive();
+  }, [started, state.phase, props.onWindowActive]);
 
   const dispatch = useCallback(
     (a: GameAction) => {
@@ -387,12 +394,11 @@ function Game(props: {
 
   const pub = publicNumber(session.day, SEASON);
   useEffect(() => {
-    if (state.results.length === 0) {
+    // Loading a slate or looking at the tutorial is not a run start.
+    if (started && state.results.length === 0) {
       trackOnce(`start:${playMode}:${session.kind}:${session.day}`, today, { name: 'run_start', mode: playMode });
     }
-    // Only on mount of a fresh run.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [started, state.results.length, playMode, session.kind, session.day, today]);
   useEffect(() => {
     if (state.phase === 'complete') props.onRunComplete();
   }, [state.phase, props.onRunComplete]);
@@ -417,7 +423,7 @@ function Game(props: {
   // Leaving with a run part-way done (best effort; see docs/MEASUREMENT.md).
   const exitRef = useRef({ started: false, round: 0 });
   exitRef.current = {
-    started: state.phase !== 'complete' && (state.results.length > 0 || state.phase === 'adjusting'),
+    started: state.phase !== 'complete' && (started || state.results.length > 0 || state.phase === 'adjusting'),
     round: state.round + 1,
   };
   useEffect(() => {
@@ -448,12 +454,12 @@ function Game(props: {
   // check resolves, so this waits for it and has its own once-keys (not the run_start one).
   const startedHere = useRef(state.results.length === 0);
   useEffect(() => {
-    if (!offer.arm || !officialToday || !startedHere.current) return;
+    if (!offer.arm || !officialToday || !started || !startedHere.current) return;
     trackOnce(`x:sv-cta:start:${today}`, today, { name: 'experiment', arm: offer.arm, step: 'daily-start' });
     if (exposedYesterday(props.storage, today)) {
       trackOnce(`x:sv-cta:next:${today}`, today, { name: 'experiment', arm: offer.arm, step: 'next-day-start' });
     }
-  }, [offer.arm, officialToday, props.storage, today]);
+  }, [offer.arm, officialToday, started, props.storage, today]);
   // Experiment exposure: once per day, when today's official results are on screen (both arms).
   useEffect(() => {
     if (complete && officialToday && offer.arm && markExposed(props.storage, today)) {

@@ -2253,3 +2253,11 @@ a {
   .round-top .round-total { font-size: 0.875rem; }
   .round-top .shot-clock { font-size: 0.8125rem; }
 }
+
+/* The theme lives in the existing context line on mobile; the existing worth
+   hint provides first-play instructions without pushing the ruler off screen. */
+.puzzle-theme { margin: 0; display: inline; }
+@media (max-width: 719px) {
+  .first-play-guide { display: none; }
+  .theme-subtitle { display: none; }
+}

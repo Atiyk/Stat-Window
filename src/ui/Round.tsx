@@ -95,8 +95,12 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
     rememberStart(shot.current.startedAt);
   };
   const stopShot = () => {
+    const spent = Math.round(elapsed());
     shot.current.stopped = true;
-    return Math.round(elapsed());
+    // After a locked answer, no deadline remains to restore. Keeping one
+    // could instantly expire a fresh replay if a player resets their save.
+    try { window.sessionStorage.removeItem(shotKey); } catch { /* blocked storage */ }
+    return spent;
   };
   const lockShot = () => {
     if (!canLock(state) || (survival && worth < survival.need)) return;
@@ -138,6 +142,7 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
       setSecondsLeft(Math.ceil(left / 1000));
       if (left === 0) {
         s.stopped = true;
+        try { window.sessionStorage.removeItem(shotKey); } catch { /* blocked storage */ }
         dispatchRef.current({ type: 'timeout', elapsedMs: SHOT_CLOCK_MS });
       }
     };
@@ -251,15 +256,14 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
           </span>
           {timed && <span className="shot-clock" data-urgent={interactive && secondsLeft <= 5 || undefined} role="timer"
             aria-label={interactive ? `Shot clock: ${secondsLeft} seconds left` : 'Shot clock stopped'}>
-            {shot.current.startedAt === null && interactive ? '24s · ready' : `${secondsLeft}s`}
+            {!interactive && last?.elapsedMs !== undefined
+              ? `${Math.ceil(Math.max(0, SHOT_CLOCK_MS - last.elapsedMs) / 1000)}s`
+              : shot.current.startedAt === null && interactive ? '24s · ready' : `${secondsLeft}s`}
           </span>}
         </p>
       </div>
 
       <header className="question-block">
-        {theme && state.round === 0 && !survival && (
-          <p className="puzzle-theme">Today: <strong>{theme.title}</strong> <span>· {theme.subtitle}</span></p>
-        )}
         {showHint && timed && interactive && (
           <p className="first-play-guide"><strong>First window:</strong> Drag both brackets around your best guess.
             Narrower = more points. Lock before the buzzer. Your 24 seconds start when you move.</p>
@@ -279,7 +283,9 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
           {q.prompt}
         </h1>
         <p className="context">
-          {q.sport} · {q.context}
+          {theme && state.round === 0 && !survival ? (
+            <><span className="puzzle-theme">Today: <strong>{theme.title}</strong></span><span className="theme-subtitle"> · {theme.subtitle}</span></>
+          ) : <>{q.sport} · {q.context}</>}
         </p>
       </header>
       </div>
@@ -345,7 +351,7 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
             ) : worth === 0 ? (
               <p className="worth">
                 {showHint
-                  ? 'Drag a bracket in. Tighter scores more, up to 100. A miss scores 0.'
+                  ? 'Drag brackets in. Your 24s start on first move. Tighter scores more.'
                   : 'Pull the brackets in to start scoring.'}
               </p>
             ) : (

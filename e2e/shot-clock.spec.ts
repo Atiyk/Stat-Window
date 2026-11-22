@@ -63,3 +63,17 @@ test('a late lock cannot score after the deadline, even before the next timer ti
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
   expect(saved.runs['2026-11-15'].results[0]).toMatchObject({ points: 0, timedOut: true });
 });
+
+
+test('a completed question clears its shot deadline, so fresh challenges can replay it', async ({ page }) => {
+  await openTimed(page);
+  await lowBracket(page).focus();
+  await page.keyboard.press('ArrowRight');
+  await page.getByRole('button', { name: 'Lock the window' }).click();
+  const key = 'stat-window:shot:v1:nba-gsw-2016-wins';
+  expect(await page.evaluate((k) => sessionStorage.getItem(k), key)).toBeNull();
+  await page.evaluate(() => localStorage.clear());
+  await page.goto('/?day=2026-11-15&vs=200');
+  await expect(page.locator('.challenge-note')).toContainText('200');
+  await expect(page.locator('.shot-clock')).toContainText('24s · ready');
+});

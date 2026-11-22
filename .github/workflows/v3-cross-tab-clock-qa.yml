@@ -1,0 +1,20 @@
+name: V3 cross-tab shot-clock QA
+on:
+  push:
+    branches: [statwindow/v3-cross-tab-clock-qa-20261122]
+permissions:
+  contents: read
+jobs:
+  clock:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test e2e/shot-clock.spec.ts --project=desktop --project=mobile

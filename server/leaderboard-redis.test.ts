@@ -6,7 +6,7 @@
  * disposable redis-server service in GitHub Actions or local development.
  */
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { boards, expiryFor, PERIODS, blockLedger, blockNumber, blockExpiry } from './leaderboard.ts';
+import { boards, expiryFor, PERIODS, blockLedger, blockNumber, blockExpiry, erasureBoardKeys } from './leaderboard.ts';
 import { leaderboardRedis } from './leaderboard-store.ts';
 import { respClient } from './resp.ts';
 
@@ -78,7 +78,7 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     expect(mine.mine).toMatchObject({rank:1,score:340,days:2});
     const ttl=Number(await client.command(['TTL',blockLedger(p,member,blockNumber(day1))]));
     expect(ttl).toBeGreaterThan(0); // hash must survive short-lived daily boards
-    const removed=await store.remove([blockLedger(p,member,blockNumber(day2)),blockLedger(p,member,blockNumber(day2)-1),b[2]!,`${p}:delete:rate:1`,`${p}:delete:day:1`,`${p}:delete:subcap`],member,caps);
+    const removed=await store.remove([blockLedger(p,member,blockNumber(day2)),blockLedger(p,member,blockNumber(day2)-1),b[2]!,`${p}:delete:rate:1`,`${p}:delete:day:1`,`${p}:delete:subcap`,...erasureBoardKeys(p,day2)],member,caps);
     expect(removed).toBe('removed');
     for (const day of [day1,day2]) {
       for (const board of boards(p,day,null))
@@ -111,7 +111,7 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     expect(await store.submit(writeKeys(scope,day1,'expired'),member,day1,90,caps,expiration(day1))).toBe('stored');
     const expired=boards(p,day1,null)[0]!;
     await client.command(['DEL',expired]); // simulate the earlier board's natural TTL
-    const result=await store.remove([blockLedger(p,member,blockNumber(day1)),blockLedger(p,member,blockNumber(day1)-1),b[2]!,`${p}:delete:minute:expired`,`${p}:delete:day:expired`,`${p}:delete:subcap:expired`],member,caps);
+    const result=await store.remove([blockLedger(p,member,blockNumber(day1)),blockLedger(p,member,blockNumber(day1)-1),b[2]!,`${p}:delete:minute:expired`,`${p}:delete:day:expired`,`${p}:delete:subcap:expired`,...erasureBoardKeys(p,day1)],member,caps);
     expect(result).toBe('removed');
     expect(await client.command(['EXISTS',expired])).toBe(0);
     for(const board of boards(p,day1,null).slice(1))
@@ -129,7 +129,7 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     expect(await store.submit(second,other,day,80,caps,expiration(day))).toBe('stored');
     const erase=(who:string,n:string)=>store.remove([
       blockLedger(p,who,blockNumber(day)),blockLedger(p,who,blockNumber(day)-1),
-      b[2]!,`${p}:erase:minute:${n}`,`${p}:erase:day:${n}`,`${p}:erase:subcap`
+      b[2]!,`${p}:erase:minute:${n}`,`${p}:erase:day:${n}`,`${p}:erase:subcap`,...erasureBoardKeys(p,day)
     ],who,caps);
     expect(await erase(member,'1')).toBe('removed');
     expect(await erase(other,'2')).toBe('removed');
@@ -153,7 +153,7 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     if(typeof result==='string')throw new Error(result);
     expect(result.mine).toMatchObject({score:240,days:2,rank:1});
     expect(await store.remove([blockLedger(p,member,blockNumber(next)),blockLedger(p,member,blockNumber(old)),
-      b[2]!,`${p}:delete:minute`,`${p}:delete:day`,`${p}:delete:subcap`],member,caps)).toBe('removed');
+      b[2]!,`${p}:delete:minute`,`${p}:delete:day`,`${p}:delete:subcap`,...erasureBoardKeys(p,next)],member,caps)).toBe('removed');
     for(const day of [old,next])for(const board of boards(p,day,null))
       expect(await client.command(['ZSCORE',board,member])).toBeNull();
   });
@@ -175,6 +175,21 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     expect(two.rows).toHaveLength(2);
     expect(one.mine).toMatchObject({rank:1,score:340,days:2});
     expect(two.mine).toMatchObject({rank:1,score:340,days:1});
+  });
+
+  it('undeclared or corrupted period key in a player ledger aborts deletion without partial changes',async()=>{
+    const store=leaderboardRedis(client.evaluate),scope='undeclared',p=`${prefix}:${scope}`,b=budget(scope);
+    const key=writeKeys(scope,day1,'first');
+    expect(await store.submit(key,member,day1,90,caps,expiration(day1))).toBe('stored');
+    const original=JSON.parse(String(await client.command(['HGET',key[0]!,day1]))) as [number,string,string,string,string];
+    const tampered=[...original];
+    tampered[1]=`${p}:board:day:1999-01-01`;
+    await client.command(['HSET',key[0]!,day1,JSON.stringify(tampered)]);
+    const response=await store.remove([blockLedger(p,member,blockNumber(day1)),blockLedger(p,member,blockNumber(day1)-1),b[2]!,`${p}:delete:minute:bad`,`${p}:delete:day:bad`,`${p}:delete:subcap:bad`,...erasureBoardKeys(p,day1)],member,caps);
+    expect(response).toBe('paused');
+    expect(await client.command(['ZSCORE',boards(p,day1,null)[0]!,member])).toBe('90');
+    expect(await client.command(['EXISTS',key[0]!])).toBe(1);
+    expect(await client.command(['GET',b[2]!])).toBeNull();
   });
 
   it('shared monthly cap and leaderboard suballocation deny writes before score mutation', async () => {

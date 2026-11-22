@@ -14,6 +14,7 @@
 import { scoreWindow, toSteps, rangeSteps, type Window } from '../src/engine/scoring.ts';
 import { midrankPercentile, PERCENTILE_MIN_SAMPLE } from '../src/engine/percentile.ts';
 import { isIsoDay, parseLaunchDay, seasonOf } from '../src/engine/season.ts';
+import { puzzleDay, puzzleStartUtcMs, addDays as addPuzzleDays } from '../src/engine/daily.ts';
 import type { BudgetKeys, Limits, ScoreStore } from './store.ts';
 
 export type ServerSlate = { date: string; questions: { id: string; answer: number; min: number; max: number; step: number }[] };
@@ -29,7 +30,7 @@ export type ApiContext = {
   loadSlate: (day: string) => Promise<ServerSlate | null>;
   now: () => Date;
   limits: Limits;
-  /** Seconds after 00:00 UTC that yesterday's run still counts (started before midnight). */
+  /** Seconds after 00:00 Eastern that yesterday's run still counts (started before midnight). */
   graceSeconds: number;
   minSample: number;
   allowedOrigins: readonly string[];
@@ -86,10 +87,10 @@ async function hmac(secret: string, message: string, hexChars: number): Promise<
 
 /** Today's official day, or yesterday's during the grace period after midnight. */
 export function eligibleDay(day: string, now: Date, graceSeconds: number): boolean {
-  const today = utcDay(now);
+  const today = puzzleDay(now);
   if (day === today) return true;
-  const sinceMidnight = (now.getTime() - Date.parse(`${today}T00:00:00Z`)) / 1000;
-  return day === addDays(today, -1) && sinceMidnight < graceSeconds;
+  const sinceMidnight = (now.getTime() - puzzleStartUtcMs(today)) / 1000;
+  return day === addPuzzleDays(today, -1) && sinceMidnight < graceSeconds;
 }
 
 function keyPrefix(ctx: ApiContext, season: string, day: string) {
@@ -207,7 +208,7 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
   if (!sameOrigin(req, ctx)) return json(403, { status: 'origin' });
   const now = ctx.now();
   const asOf = now.toISOString();
-  const today = utcDay(now);
+  const today = puzzleDay(now);
   const budget = budgetKeys(ctx, now);
   const paused = req.method !== 'DELETE' && ctx.memo.pausedUntil > now.getTime();
   try {

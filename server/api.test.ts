@@ -10,11 +10,11 @@ const submit = async (ctx: Parameters<typeof handle>[1], body: Record<string, un
 };
 
 describe('eligibility from the server clock', () => {
-  it('accepts today, and yesterday only in the two hours after midnight UTC', () => {
+  it('accepts today, and yesterday only in the two hours after midnight Eastern', () => {
     expect(eligibleDay(DAY, NOON, 7200)).toBe(true);
     expect(eligibleDay('2026-11-17', NOON, 7200)).toBe(false);
-    expect(eligibleDay('2026-11-17', new Date(`${DAY}T01:59:00Z`), 7200)).toBe(true);
-    expect(eligibleDay('2026-11-17', new Date(`${DAY}T02:00:00Z`), 7200)).toBe(false);
+    expect(eligibleDay('2026-11-17', new Date(`${DAY}T06:59:00Z`), 7200)).toBe(true);
+    expect(eligibleDay('2026-11-17', new Date(`${DAY}T07:00:00Z`), 7200)).toBe(false);
     expect(eligibleDay('2026-11-19', NOON, 7200)).toBe(false);
   });
 });
@@ -71,7 +71,7 @@ describe('POST /api/scores', () => {
   });
 
   it('counts yesterday’s run finished just after midnight under yesterday', async () => {
-    const { ctx } = testContext({}, { t: Date.parse('2026-11-19T00:20:00Z') });
+    const { ctx } = testContext({}, { t: Date.parse('2026-11-19T05:20:00Z') });
     const a = await roundsFor(DAY, 2);
     const r = await submit(ctx, { day: DAY, player: player(5), rounds: a.rounds });
     expect(r.body).toMatchObject({ status: 'stored', day: DAY });

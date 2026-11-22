@@ -2229,3 +2229,15 @@ a {
 /* Shot clock stays visually distinct without increasing the first-screen header height. */
 .round-meta { flex-wrap: wrap; }
 @media (max-width: 359px), (max-height: 520px) { .shot-clock { line-height: 1; } }
+
+/* Critic fix: place points and shot clock on one row instead of stacking a third
+   header line that pushes the ruler behind the 320px mobile action dock. */
+.round-meta { display: grid; grid-template-columns: auto auto; align-items: baseline; justify-content: end; column-gap: 8px; }
+.round-label { grid-column: 1 / -1; }
+.round-total { grid-column: 1; }
+.shot-clock { grid-column: 2; }
+@media (max-width: 359px), (max-height: 700px) {
+  .round-meta { column-gap: 6px; }
+  .question-block { padding-top: 10px; padding-bottom: 10px; }
+  .round .field-inner { padding-top: 6px; }
+}

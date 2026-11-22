@@ -196,7 +196,7 @@ test.describe('BUG-06: practice and challenge results lead with "Challenge a fri
     await expect(page.getByRole('button', { name: 'Play today’s puzzle' })).toBeVisible();
     const total = await page.locator('.results-score').textContent();
     await page.screenshot({ path: `${shots}/bug06-practice-results.png` });
-    expect(await sharedText(page)).toMatch(new RegExp(`/\\?day=2026-11-18&vs=${total}$`));
+    expect(await sharedText(page)).toMatch(new RegExp(`/\\?day=2026-11-18&vs=${total}&time=\\d+$`));
   });
 
   test('a friend’s challenge link', async ({ page, context }) => {
@@ -208,7 +208,7 @@ test.describe('BUG-06: practice and challenge results lead with "Challenge a fri
     await expect(firstAction(page)).toHaveText('Challenge a friend');
     const total = await page.locator('.results-score').textContent();
     await page.screenshot({ path: `${shots}/bug06-challenge-results.png` });
-    expect(await sharedText(page)).toMatch(new RegExp(`/\\?day=2026-11-18&vs=${total}$`));
+    expect(await sharedText(page)).toMatch(new RegExp(`/\\?day=2026-11-18&vs=${total}&time=\\d+$`));
   });
 
   test('EU flow: after "Count my score" the answer is brought into view', async ({ page }) => {

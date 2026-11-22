@@ -1,5 +1,9 @@
 # Instructions for coding agents working on Stat Window
 
+## When asked to audit, coordinate, test, fix or release the app
+
+Follow [docs/RELEASE-ORCHESTRATION.md](docs/RELEASE-ORCHESTRATION.md). One manager owns the integration candidate; checks are bounded and evidence-backed. Independent critic sign-off is a release gate. Do not claim CI or browser testing passed if it did not, and do not represent manager self-review as an independent agent. Prefer one comprehensive PR and one coordinated production deploy.
+
 ## When asked to add questions, daily games, sports, or Survival content
 
 **Always start with [docs/QUESTION-FACTORY.md](docs/QUESTION-FACTORY.md).** The sport-independent Question Factory is the canonical research, candidate-generation, editorial-review and slate-proposal workflow. Use `npm run factory -- init|generate|check|plan`; do not bypass its source, editorial or duplicate gates just because the model can generate plausible trivia.

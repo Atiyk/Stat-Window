@@ -279,6 +279,10 @@ test.describe('public flag (on): the offer, the gate, the events', () => {
     // Next UTC day, same browser.
     await page.clock.setFixedTime(at('2026-12-21'));
     await page.reload();
+    // Merely seeing the ready card must not count as starting the new day.
+    await expect(page.getByRole('heading', { name: 'Ready for five?' })).toBeVisible();
+    expect(await views(page)).not.toContain('/e/start/daily');
+    await page.getByRole('button', { name: "Start today's five" }).click();
     await expect(page.locator('.question')).toBeVisible();
     await expect.poll(() => views(page)).toEqual(expect.arrayContaining(['/e/start/daily', '/e/x/survival-cta/control/daily-start', '/e/x/survival-cta/control/next-day-start']));
     // A refresh doesn't count the start again.

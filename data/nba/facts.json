@@ -25215,5 +25215,320 @@
         }
       ]
     }
+  },
+  {
+    "id": "nba-clippers19-warriors-g2-31-comeback",
+    "family": "comeback",
+    "scope": "playoffs",
+    "season": "2018-19",
+    "eventDate": "2019-04-15",
+    "franchise": "LAC",
+    "player": null,
+    "answer": 31,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "The Los Angeles Clippers recovered from a 31-point deficit against the reigning champion Warriors in 2019 playoff Game 2.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+      "quote": "overcoming a 31-point deficit, the largest comeback in NBA playoff history.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "When the underdog Clippers stunned the dynasty Warriors in 2019 playoff Game 2, how far behind had L.A. fallen?",
+      "context": "Los Angeles Clippers at Warriors · 2019 first round",
+      "reveal": "31 points down! The Clippers stole a comeback win in Golden State's own arena.",
+      "min": 0,
+      "max": 75,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A memorable historic playoff comeback against Curry-era Golden State gives fans a dramatic, bounded deficit to guess.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "The comeback began after the Clippers fell far behind late in the third quarter.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "The Clippers trailed 94–63 with 7:31 remaining in the third quarter of Game 2."
+          }
+        },
+        {
+          "text": "Los Angeles overwhelmed Golden State on the scoreboard afterward.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "They would go on to outscore Golden State 72–37 en route to overcoming a 31-point deficit"
+          }
+        },
+        {
+          "text": "The Clippers pulled off their upset against the defending champions.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "In Game 2 of their series against the reigning champion Golden State Warriors"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-kings23-light-beam-sixteen-drought",
+    "family": "seasons-count",
+    "scope": "regular-season",
+    "season": "2022-23",
+    "eventDate": "2023-03-29",
+    "franchise": "SAC",
+    "player": null,
+    "answer": 16,
+    "unit": {
+      "singular": "season",
+      "plural": "seasons"
+    },
+    "claim": "Sacramento ended a sixteen-season NBA playoff drought by clinching a berth in March 2023.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Sacramento_Kings",
+      "quote": "breaking a 16-year playoff drought, which at the time was the longest active playoff drought",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "When Sacramento's 'Light the Beam' Kings finally made the 2023 playoffs, how many straight seasons had they missed?",
+      "context": "Sacramento Kings · 2023 return to the playoffs",
+      "reveal": "16 straight missed postseasons. The long-suffering Kings finally got a playoff celebration.",
+      "min": 0,
+      "max": 35,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "The Light the Beam era's emotional payoff is a recognizable fandom moment with an intuitive decade-scale guess.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "The beam became a homegrown celebration after Kings wins.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Sacramento_Kings",
+            "quote": "the Kings began lighting a large, purple beam into the night sky after every game won"
+          }
+        },
+        {
+          "text": "Sacramento officially clinched its return with a win in Portland.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Sacramento_Kings",
+            "quote": "On March 29, the Kings beat the Portland Trail Blazers 120–80 to clinch a playoff spot"
+          }
+        },
+        {
+          "text": "Coach Mike Brown earned league Coach of the Year honors.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Sacramento_Kings",
+            "quote": "Mike Brown was named NBA Coach Of The Year for his role in ending the playoff drought."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-mavs24-finals-g4-blowout-margin",
+    "family": "margin",
+    "scope": "finals",
+    "season": "2023-24",
+    "eventDate": "2024-06-14",
+    "franchise": "DAL",
+    "player": null,
+    "answer": 38,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Dallas beat Boston by 38 points in Game 4 of the 2024 Finals, avoiding a sweep.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
+      "quote": "The Mavericks avoided a sweep by the Celtics with a 122–84 blowout victory",
+      "derivation": "Dallas scored 122 and Boston scored 84, so 122 − 84 = 38 points.",
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Facing a sweep in the 2024 Finals, by how many points did Luka's Mavericks crush Boston in Game 4?",
+      "context": "Dallas Mavericks vs Boston Celtics · 2024 Finals Game 4",
+      "reveal": "By 38 points—Dallas won 122–84, delaying Boston's championship celebration.",
+      "min": 0,
+      "max": 90,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Luka's Finals win against Boston was a spectacular recent blowout; the final margin is intuitive and surprising.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Luka led Dallas in scoring and contributed across the box score.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
+            "quote": "Luka Dončić led Dallas with 29 points, five rebounds, five assists and three steals."
+          }
+        },
+        {
+          "text": "Boston conceded early and pulled its starters in the third quarter.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
+            "quote": "the Celtics ceded defeat by substituting out his starters"
+          }
+        },
+        {
+          "text": "Rookie Dereck Lively made his first NBA three-pointer in the rout.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
+            "quote": "Midway through the first quarter, Lively scored his first career three-pointer"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-blazers19-nuggets-game3-four-overtimes",
+    "family": "overtimes",
+    "scope": "playoffs",
+    "season": "2018-19",
+    "eventDate": "2019-05-03",
+    "franchise": "POR",
+    "player": null,
+    "answer": 4,
+    "unit": {
+      "singular": "overtime",
+      "plural": "overtimes"
+    },
+    "claim": "Portland defeated Denver in Game 3 of the 2019 conference semifinals in quadruple overtime.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+      "quote": "Game 3 of the Trail Blazers–Nuggets series was the first quadruple overtime game played in the playoffs since 1955",
+      "derivation": "Quadruple overtime means four distinct overtime periods: 4.",
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Portland and Denver played a marathon 2019 playoff Game 3. How many overtimes did it take to decide it?",
+      "context": "Trail Blazers vs Nuggets · 2019 West semifinals Game 3",
+      "reveal": "Four overtimes! It was the first quadruple-overtime playoff game of the shot-clock era.",
+      "min": 0,
+      "max": 9,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A genuinely wild playoff marathon provides an unusual and estimable counting question, not another box-score total.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "It was the first quadruple-overtime playoff game of the shot-clock era.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "the first quadruple overtime game ever played during the shot clock era."
+          }
+        },
+        {
+          "text": "Portland eventually won the series and reached the West finals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "With their Game 7 victory Portland Trail Blazers advanced to the Western Conference finals"
+          }
+        },
+        {
+          "text": "A pre-shot-clock playoff game had also lasted that many overtimes.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "Game three became the second playoff game in NBA history to go into quadruple-overtime, joining a 1953 game"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-shaq00-birthday-clippers-sixtyone",
+    "family": "points-game",
+    "scope": "regular-season",
+    "season": "1999-00",
+    "eventDate": "2000-03-06",
+    "franchise": "LAL",
+    "player": "Shaquille O'Neal",
+    "answer": 61,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Shaquille O'Neal scored 61 points against the Clippers on his birthday in March 2000, his career high.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Shaquille_O%27Neal",
+      "quote": "On O'Neal's 28th birthday on March 6, 2000, he scored a career-high 61 points",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "On Shaq's birthday in 2000, he demolished the crosstown Clippers. How many points did he pour in?",
+      "context": "Shaquille O'Neal · Lakers at Clippers · March 2000",
+      "reveal": "61 points on his birthday, alongside a huge rebounding night. Shaq's career high!",
+      "min": 10,
+      "max": 140,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Shaq's birthday massacre of the Clippers is a vivid superstar milestone that can end the existing runway memorably.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "His career-high eruption came on his birthday.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Shaquille_O%27Neal",
+            "quote": "On O'Neal's 28th birthday on March 6, 2000, he scored a career-high 61 points"
+          }
+        },
+        {
+          "text": "He also dominated the glass in a monster double-double.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Shaquille_O%27Neal",
+            "quote": "to go along with 23 rebounds and 3 assists"
+          }
+        },
+        {
+          "text": "Shaq narrowly missed becoming the league's first unanimous MVP that year.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Shaquille_O%27Neal",
+            "quote": "one vote short of becoming the first unanimous MVP in NBA history"
+          }
+        }
+      ]
+    }
   }
 ]

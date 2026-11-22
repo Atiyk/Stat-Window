@@ -138,11 +138,12 @@ describe('supply and the beta gate', () => {
         break;
       }
     }
-    // The current source-reviewed future reserve mix and embargo graph crosses the *unchanged*
-    // beta supply thresholds on Dec 5. Guard both sides, not just a magic date:
-    // tightening spoiler holds or changing eligible tiers must be reviewed explicitly.
-    const dayBefore = '2026-12-04';
-    const firstPassing = '2026-12-05';
+    // The finalized source-reviewed reserves and embargoes first meet the UNCHANGED
+    // beta gate on Dec 6. Test both sides of that exact threshold with the real
+    // eligiblePool/supplyOf functions, plus the independently scanned first day.
+    // Dec 5 has 98 eligible questions (<100); Dec 6 has 103 (all tiers sufficient).
+    const dayBefore = '2026-12-05';
+    const firstPassing = '2026-12-06';
     expect(supplyOf(poolOn(dayBefore), dayBefore).beta).toBe(false);
     expect(supplyOf(poolOn(firstPassing), firstPassing).beta).toBe(true);
     expect(first).toBe(firstPassing);

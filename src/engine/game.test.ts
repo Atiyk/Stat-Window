@@ -128,3 +128,17 @@ describe('resuming', () => {
     expect(s.results).toEqual([]);
   });
 });
+
+
+describe('24-second shot clock', () => {
+  it('saves a fast lock, then a buzzer zero without repeatable timeout', () => {
+    let s = initGame(slate, 'daily', []);
+    s = gameReducer(s, { type: 'setWindow', window: { lo: 70, hi: 80 } });
+    s = gameReducer(s, { type: 'lock', elapsedMs: 4200 });
+    expect(s.results[0]).toMatchObject({ points: 83, elapsedMs: 4200 });
+    s = gameReducer(gameReducer(s, { type: 'settle' }), { type: 'next' });
+    s = gameReducer(s, { type: 'timeout', elapsedMs: 24000 });
+    expect(s.results[1]).toMatchObject({ lo: 0, hi: 100, points: 0, hit: false, timedOut: true, elapsedMs: 24000 });
+    expect(gameReducer(s, { type: 'timeout', elapsedMs: 24000 }).results).toHaveLength(2);
+  });
+});

@@ -48,9 +48,9 @@ test('a full daily run scores every round, saves, and shares without spoilers', 
     await page.getByRole('button', { name: 'Challenge a friend' }).click();
     const shared = await page.evaluate(() => navigator.clipboard.readText());
     const origin = new URL(page.url()).origin;
-    expect(shared).toBe(
-      `Stat Window No. 1  274/500\n🟩🟧⬛🟩🟩\nSame five questions. Can you beat 274?\n${origin}/?day=2026-11-15&vs=274`,
-    );
+    expect(shared).toContain('Stat Window No. 1  274/500');
+    expect(shared).toContain('Same five questions. Can you beat 274?');
+    expect(shared).toContain(`${origin}/?day=2026-11-15&vs=274&time=`);
     // Spoiler-free: no answer appears in the share text.
     for (const answer of ['73', '23', '92', '138', '2632', '2,632']) {
       for (const line of shared.split('\n').slice(1, 3)) expect(line).not.toContain(answer);
@@ -93,31 +93,31 @@ test('refreshing mid-reveal keeps the locked window and shows its result', async
   await expect(page.locator('.ledger-cell').first()).toHaveAttribute('data-status', 'miss');
 });
 
-test('everyone gets the slate for the UTC date, and a new one at UTC midnight', async ({ page }) => {
-  await openAt(page, new Date('2026-11-15T23:59:00Z'));
+test('everyone gets the slate for the Eastern date, and a new one at midnight Eastern', async ({ page }) => {
+  await openAt(page, new Date('2026-11-16T04:59:00Z'));
   await expect(page.locator('.question')).toContainText('Golden State Warriors');
-  await openAt(page, new Date('2026-11-16T00:00:30Z'));
+  await openAt(page, new Date('2026-11-16T05:00:30Z'));
   await expect(page.locator('.day-label')).toHaveText('No. 2');
   await expect(page.locator('.question')).toContainText('Barry Bonds');
 });
 
 test('a tab left open across midnight moves to the new puzzle', async ({ page }) => {
-  await page.clock.install({ time: new Date('2026-11-15T23:59:30Z') });
+  await page.clock.install({ time: new Date('2026-11-16T04:59:50Z') });
   await page.goto('/');
   await expect(page.locator('.day-label')).toHaveText('No. 1');
-  await page.clock.fastForward('01:00');
+  await page.clock.fastForward('00:15');
   await expect(page.locator('.day-label')).toHaveText('No. 2');
 });
 
-test('an adjusted but not locked first window survives UTC midnight', async ({ page }) => {
-  await page.clock.install({ time: new Date('2026-11-15T23:59:30Z') });
+test('an adjusted but not locked first window survives Eastern midnight', async ({ page }) => {
+  await page.clock.install({ time: new Date('2026-11-16T04:59:50Z') });
   await page.goto('/');
   await expect(page.locator('.day-label')).toHaveText('No. 1');
   const low = lowBracket(page);
   await low.focus();
   await page.keyboard.press('ArrowRight');
   await expect(low).toHaveAttribute('aria-valuenow', '41');
-  await page.clock.fastForward('01:00');
+  await page.clock.fastForward('00:15');
   await expect(page.locator('.day-label')).toHaveText('No. 1');
   await expect(lowBracket(page)).toHaveAttribute('aria-valuenow', '41');
 });

@@ -12,7 +12,7 @@ async function playOut(page: Page, from = 0) {
   await expect(page.locator('.results-title')).toBeVisible();
 }
 
-test('a friend opens a challenge link after UTC midnight and gets the same five questions', async ({ browser }) => {
+test('a friend opens a challenge link after Eastern midnight and gets the same five questions', async ({ browser }) => {
   // Sender: plays No. 2 on Nov 16 in their own browser.
   const sender = await browser.newContext();
   const a = await sender.newPage();
@@ -30,11 +30,11 @@ test('a friend opens a challenge link after UTC midnight and gets the same five 
   const recipient = await browser.newContext();
   const b = await recipient.newPage();
   const errors = collectErrors(b);
-  await openAt(b, new Date('2026-11-17T00:05:00Z'), `/?day=2026-11-16&vs=${total}`);
+  await openAt(b, new Date('2026-11-17T05:05:00Z'), `/?day=2026-11-16&vs=${total}`);
   await expect(b.locator('.question')).toContainText(BONDS);
   await expect(b.locator('.day-label')).toHaveText('No. 2');
   await expect(b.locator('.round-meta')).toContainText('Question 1 of 5');
-  await expect(b.locator('.challenge-note')).toContainText(`A friend scored ${total}`);
+  await expect(b.locator('.challenge-note')).toContainText(`Beat your friend’s ${total}`);
   // No spoilers before play: the answer and its note are not on the page yet.
   await expect(b.locator('.story')).toHaveCount(0);
 
@@ -46,7 +46,7 @@ test('a friend opens a challenge link after UTC midnight and gets the same five 
   await playOut(b, 1);
   await expect(b.locator('.results-head')).toContainText('Challenge · No. 2');
   await expect(b.locator('.results-head')).toContainText('not counted in your stats');
-  await expect(b.locator('.versus')).toContainText(`Your friend’s link says ${total}.`);
+  await expect(b.locator('.versus')).toContainText(`Your friend leads by`);
 
   // Their own daily (No. 3) is untouched and still to play.
   await b.getByRole('button', { name: 'Play today’s puzzle' }).click();
@@ -84,14 +84,14 @@ test('future, malformed and tampered links fall back to today without leaking an
   expect(errors).toEqual([]);
 });
 
-test('a run in progress at UTC midnight is finished on its own day, then today opens', async ({ page }) => {
-  await page.clock.install({ time: new Date('2026-11-15T23:59:00Z') });
+test('a run in progress at Eastern midnight is finished on its own day, then today opens', async ({ page }) => {
+  await page.clock.install({ time: new Date('2026-11-16T04:59:50Z') });
   await page.goto('/');
   await expect(page.locator('.question')).toBeVisible();
   await expect(page.locator('.day-label')).toHaveText('No. 1');
   await lockAndSettle(page);
   await next(page);
-  await page.clock.fastForward('02:00');
+  await page.clock.fastForward('00:15');
   // Still No. 1, round 2: midnight does not pull the player out of a run.
   await expect(page.locator('.day-label')).toHaveText('No. 1');
   await expect(page.locator('.round-meta')).toContainText('Question 2 of 5');
@@ -112,7 +112,7 @@ test('sharing falls back to selectable text when there is no share sheet or clip
   await page.getByRole('button', { name: 'Challenge a friend' }).click();
   const box = page.getByRole('textbox', { name: 'Your result to copy' });
   await expect(box).toBeVisible();
-  await expect(box).toHaveValue(/\/\?day=2026-11-16&vs=\d+$/);
+  await expect(box).toHaveValue(/\/\?day=2026-11-16&vs=\d+&time=\d+$/);
   await expect(box).toHaveValue(/Same five questions/);
 });
 

@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
 import { collectErrors, lockAndSettle, NBA_CUTOVER, NBA_DAYS, next, openAt } from './helpers';
+import { puzzleStartUtcMs } from '../src/engine/daily';
 
 /**
  * The move from the mixed-sport launch days to the NBA calendar. Dates come from
@@ -37,12 +38,12 @@ test('the last mixed-sport day is unthemed and the cutover day is the first NBA 
 
 test('an unfinished mixed-sport run at midnight is finished on its own day, then the NBA day opens', async ({ page }) => {
   const errors = collectErrors(page);
-  await page.clock.install({ time: new Date(`${dayBefore}T23:58:00Z`) });
+  await page.clock.install({ time: new Date(puzzleStartUtcMs(NBA_CUTOVER) - 10_000) });
   await page.goto('/');
   await expect(page.locator('.question')).toContainText(lastMixed.questions[0]!.prompt);
   await lockAndSettle(page);
   await next(page);
-  await page.clock.fastForward('04:00');
+  await page.clock.fastForward('00:15');
   await expect(page.locator('.round-meta')).toContainText('Question 2 of 5');
   await expect(page.locator('.question')).toContainText(lastMixed.questions[1]!.prompt);
   await expect(page.locator('.theme-line')).toHaveCount(0);
@@ -54,7 +55,7 @@ test('an unfinished mixed-sport run at midnight is finished on its own day, then
 });
 
 test('a tab idle on the finished mixed day moves to the NBA day at midnight', async ({ page }) => {
-  await page.clock.install({ time: new Date(`${dayBefore}T23:50:00Z`) });
+  await page.clock.install({ time: new Date(puzzleStartUtcMs(NBA_CUTOVER) - 10 * 60_000) });
   await page.goto('/');
   await expect(page.locator('.question')).toBeVisible();
   await playOut(page);

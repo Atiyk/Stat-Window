@@ -113,12 +113,13 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
       const result=await ctx.store.remove([blockLedger(prefix,member,blockNumber(today)),blockLedger(prefix,member,blockNumber(today)-1),budget[2]!,rate,prefix+':delete:day:'+network+':'+utc,prefix+':budget:erase:'+utc.slice(0,7)],member,ctx.caps);
       return result==='limited'?json(429,{status:'limited'}):result==='paused'?json(503,{status:'paused'}):json(200,{status:'ok',removed:result==='removed'?1:0});
     }
-    if(body.test===true||typeof body.day!=='string'||!DAY.test(body.day)||!eligibleDay(body.day,now,7200))return json(200,{status:'ineligible'});
-    const slate=await ctx.loadSlate(body.day);
-    if(!slate||slate.date!==body.day)return json(200,{status:'ineligible'});
+    const submittedDay = body.day;
+    if(body.test===true||typeof submittedDay!=='string'||!DAY.test(submittedDay)||!eligibleDay(submittedDay,now,7200))return json(200,{status:'ineligible'});
+    const slate=await ctx.loadSlate(submittedDay);
+    if(!slate||slate.date!==submittedDay)return json(200,{status:'ineligible'});
     const score=verifyRounds(slate,body.rounds);
     if(score===null||(body.total!==undefined&&body.total!==score))return json(422,{status:'invalid'});
-    const result=await ctx.store.submit([blockLedger(prefix,member,blockNumber(body.day)),...boards(prefix,body.day,ctx.launchDay),budget[0]!,budget[1]!,rate,budget[3]!,prefix+':submit:day:'+network+':'+utc],member,body.day,score,ctx.caps,[...PERIODS.map(p=>expiryFor(p,body.day)),blockExpiry(blockNumber(body.day))]);
+    const result=await ctx.store.submit([blockLedger(prefix,member,blockNumber(submittedDay)),...boards(prefix,submittedDay,ctx.launchDay),budget[0]!,budget[1]!,rate,budget[3]!,prefix+':submit:day:'+network+':'+utc],member,submittedDay,score,ctx.caps,[...PERIODS.map(p=>expiryFor(p,submittedDay)),blockExpiry(blockNumber(submittedDay))]);
     return result==='limited'?json(429,{status:'limited'}):result==='paused'?json(503,{status:'paused'}):json(200,{status:result,day:body.day,score});
   }catch{return json(503,{status:'unavailable'});}
 }

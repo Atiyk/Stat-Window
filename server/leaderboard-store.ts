@@ -33,7 +33,9 @@ redis.call('INCRBY',KEYS[9],55) redis.call('EXPIRE',KEYS[9],2764800)
 redis.call('INCRBY',KEYS[6],55) redis.call('EXPIRE',KEYS[6],172800)
 redis.call('INCRBY',KEYS[7],55) redis.call('EXPIRE',KEYS[7],2764800)
 redis.call('HSET',KEYS[1],ARGV[2],cjson.encode({tonumber(ARGV[1]),KEYS[2],KEYS[3],KEYS[4],KEYS[5]}))
-redis.call('EXPIREAT',KEYS[1],math.max(tonumber(ARGV[6]),tonumber(ARGV[7]),tonumber(ARGV[8]),tonumber(ARGV[9])),'GT')
+local hashExpiry=math.max(tonumber(ARGV[6]),tonumber(ARGV[7]),tonumber(ARGV[8]),tonumber(ARGV[9]))
+if redis.call('TTL',KEYS[1])==-1 then redis.call('EXPIREAT',KEYS[1],hashExpiry)
+else redis.call('EXPIREAT',KEYS[1],hashExpiry,'GT') end
 for i=2,5 do redis.call('ZINCRBY',KEYS[i],tonumber(ARGV[1]),ARGV[5]) redis.call('EXPIREAT',KEYS[i],tonumber(ARGV[i+4])) end
 return 'stored'
 `;

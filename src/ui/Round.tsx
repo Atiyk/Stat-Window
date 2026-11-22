@@ -14,7 +14,7 @@ import { SourcesDisclosure } from './Sources';
 type Props = {
   state: GameState;
   dispatch: Dispatch<GameAction>;
-  /** "Question 2 of 5" (difficulty and daily themes stay internal and are never shown). */
+  /** Plain question index; difficulty remains an internal editorial label. */
   label: string;
   showHint: boolean;
   theme?: Theme | undefined;
@@ -88,6 +88,7 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
     return time;
   };
   const lockShot = () => {
+    if (!canLock(state) || (survival && worth < survival.need)) return;
     if (survival) dispatch({ type: 'lock' });
     else dispatch({ type: 'lock', elapsedMs: stopShot() });
   };

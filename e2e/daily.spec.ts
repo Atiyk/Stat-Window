@@ -105,7 +105,7 @@ test('a tab left open across midnight moves to the new puzzle', async ({ page })
   await page.clock.install({ time: new Date('2026-11-16T04:59:50Z') });
   await page.goto('/');
   await expect(page.locator('.day-label')).toHaveText('No. 1');
-  await page.clock.fastForward('00:15');
+  await page.clock.fastForward('00:45');
   await expect(page.locator('.day-label')).toHaveText('No. 2');
 });
 

@@ -43,7 +43,8 @@ test('an unfinished mixed-sport run at midnight is finished on its own day, then
   await expect(page.locator('.question')).toContainText(lastMixed.questions[0]!.prompt);
   await lockAndSettle(page);
   await next(page);
-  await page.clock.fastForward('00:15');
+  await page.clock.setFixedTime(new Date(puzzleStartUtcMs(NBA_CUTOVER) + 45_000));
+  await page.evaluate(() => document.dispatchEvent(new Event('visibilitychange')));
   await expect(page.locator('.round-meta')).toContainText('Question 2 of 5');
   await expect(page.locator('.question')).toContainText(lastMixed.questions[1]!.prompt);
   await expect(page.locator('.theme-line')).toHaveCount(0);

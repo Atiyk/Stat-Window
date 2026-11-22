@@ -2218,3 +2218,10 @@ a {
 .results-time { margin: 8px 0 0; font-size: 0.9375rem; color: var(--ink-soft); }
 .results-time strong { color: var(--ink); font-size: 1.125rem; }
 @media (max-width: 359px), (max-height: 700px) { .first-play-guide { margin: 0 0 4px; font-size: 0.8125rem; } .shot-clock { font-size: 0.8125rem; } .puzzle-theme { margin-bottom: 4px; } }
+
+/* Under very short or narrow screens, preserve space for the actual ruler and lock target.
+   Existing readout hints still onboard first-time players without a full-size help paragraph. */
+@media (max-width: 359px), (max-height: 520px) {
+  .first-play-guide { display: none; }
+  .puzzle-theme { display: none; }
+}

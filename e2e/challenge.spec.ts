@@ -91,7 +91,8 @@ test('a run in progress at Eastern midnight is finished on its own day, then tod
   await expect(page.locator('.day-label')).toHaveText('No. 1');
   await lockAndSettle(page);
   await next(page);
-  await page.clock.fastForward('00:15');
+  await page.clock.setFixedTime(new Date('2026-11-16T05:00:45Z'));
+  await page.evaluate(() => document.dispatchEvent(new Event('visibilitychange')));
   // Still No. 1, round 2: midnight does not pull the player out of a run.
   await expect(page.locator('.day-label')).toHaveText('No. 1');
   await expect(page.locator('.round-meta')).toContainText('Question 2 of 5');

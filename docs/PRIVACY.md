@@ -4,7 +4,7 @@ Plain-language notice for players. The served page is `public/privacy.html`; kee
 
 ## What Stat Window collects
 
-Stat Window has no accounts, no ads, no tracking cookies and no third-party marketing pixels. Your game history (rounds, scores, streaks, settings) is saved **in your own browser** (localStorage) and never uploaded.
+Stat Window has no accounts, no ads, no tracking cookies and no third-party marketing pixels. Your game history (rounds, scores, active answer times, streaks, settings) is saved **in your own browser** (localStorage) and never uploaded.
 
 Two optional things leave your browser:
 

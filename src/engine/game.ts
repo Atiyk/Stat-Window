@@ -11,9 +11,9 @@ export type RoundRecord = {
   readonly points: number;
   readonly missBy: number;
   /** Active seconds spent answering; absent for legacy pre-shot-clock scores. */
-  readonly elapsedMs?: number;
+  readonly elapsedMs?: number | undefined;
   /** The buzzer expired; a timed-out window always earns zero. */
-  readonly timedOut?: boolean;
+  readonly timedOut?: boolean | undefined;
 };
 
 /**

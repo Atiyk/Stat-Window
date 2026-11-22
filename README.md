@@ -2,7 +2,7 @@
 
 A daily NBA numbers game. Five real, sourced NBA facts a day; for each one, drag two brackets to frame a window you're sure the answer sits inside. The tighter the window, the more it scores. Miss, and the round scores zero.
 
-Free, no sign-up, same puzzle for everyone, new one at midnight UTC.
+Free, no sign-up, same puzzle for everyone, new one at 12:00 AM Eastern. A 24-second shot clock runs for each question; faster answer time breaks ties between equal scores.
 
 ## Run it
 ```bash
@@ -15,7 +15,7 @@ npm run build          # content check + typecheck + production build to dist/
 
 ## How it's built
 - Vite + React 19 + strict TypeScript. No backend, no database, no paid services.
-- `src/engine/`: the game, independent of React. Pure scoring (`scoring.ts`), UTC day policy (`daily.ts`), an explicit state machine (`game.ts`: ready → adjusting → locked → revealing → resolved → complete), validated browser save (`storage.ts`), stats and share text (`summary.ts`).
+- `src/engine/`: the game, independent of React. Pure scoring (`scoring.ts`), midnight-Eastern daily policy (`daily.ts`), an explicit state machine (`game.ts`: ready → adjusting → locked → revealing → resolved → complete), validated browser save (`storage.ts`), stats and share text (`summary.ts`).
 - `src/content/`: zod schema for questions, and a lazy loader so only the day being played is downloaded.
 - `content/days/YYYY-MM-DD.json`: one file per day, five questions each, with source URL and quote. NBA days are generated from `data/nba` by `npm run content:publish`, never edited by hand.
 - `content/published.lock.json`: the scoring fields (ids, answers, scales, order) of every day. `npm run content:check` fails if a published day changes them; `npm run content:lock` records changes to days not yet out.
@@ -33,7 +33,7 @@ npm run build          # content check + typecheck + production build to dist/
 - [Skill application ledger](docs/SKILLS.md)
 
 ## Deploying
-The Vercel project builds `main` with `npm run build` and serves `dist/` (see `vercel.json`). Merging to `main` publishes; pull requests get preview deployments. The build fails if any content is invalid, so bad data can't ship.
+The Vercel project builds `main` with `npm run build` (which regenerates the checked score API bundle) and serves `dist/` (see `vercel.json`). Merging to `main` publishes; pull requests get preview deployments. The build fails if any content is invalid, so bad data can't ship.
 
 ## Known limitations
 - Progress is stored in this browser only (localStorage). It is not anti-cheat, and it doesn't sync across devices.

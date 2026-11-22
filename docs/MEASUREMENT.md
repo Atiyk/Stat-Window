@@ -77,7 +77,7 @@ Report small numbers as counts with an interval, not as rates: 7 of 10 is "somew
 | Path | Fired when | Answers |
 | --- | --- | --- |
 | `/e/visit/new` | first time this browser opens the game (needs working localStorage) | new browsers |
-| `/e/visit/return/gap-{1,2-6,7plus}[/day1,/day7]` | first open on a new UTC day by a browser seen before. `gap` = days since its last visit. `/day1` or `/day7` is added when the browser's first visit was exactly 1 or 7 days earlier | next-day and day-7 returns |
+| `/e/visit/return/gap-{1,2-6,7plus}[/day1,/day7]` | first open on a new Eastern puzzle day by a browser seen before. `gap` = days since its last visit. `/day1` or `/day7` is added when the browser's first visit was exactly 1 or 7 days earlier | next-day and day-7 returns |
 | `/e/start/{mode}` | a fresh run opens (no rounds saved yet) | game starts |
 | `/e/first-touch/{mode}` | first bracket move of round 1 | did the first screen make sense? |
 | `/e/lock/{mode}/r{1-5}/{hit,miss}` | a round is locked | drop-off by round, hit rate per round |

@@ -20,7 +20,7 @@ Practice, archive and past-day challenge runs show nothing. The share text and t
 
 ## Definition
 
-For a total `s` among `N` eligible submissions for one canonical UTC puzzle day and season:
+For a total `s` among `N` eligible submissions for one canonical Eastern puzzle day and season:
 
 `p(s) = 100 × (count(score < s) + 0.5 × count(score = s)) / N`, rounded to a whole number.
 
@@ -30,7 +30,7 @@ Ties get half credit, so it is labelled "Xth percentile today", never "beat X% o
 
 ## Eligibility (server decides, from its own clock)
 
-- `day` is today in UTC, or yesterday during the first 2 hours after 00:00 UTC (a run started before midnight).
+- `day` is today in New York, or yesterday during the first 2 hours after midnight Eastern (a run started before midnight).
 - The five windows match today's published slate exactly: same question ids in order, on the step grid, inside the scale, at least one step wide. The server re-scores them with `src/engine/scoring.ts` (the same code the game uses); a client `total` that disagrees is rejected.
 - One per browser code per day per season: **first stored wins** (`SET` only if absent inside one Lua script). A refresh, a retry or 20 simultaneous tabs count once and get the first score back (`duplicate`).
 - A first play of today's puzzle that arrived through a friend's `?day=…&vs=…` link is eligible (the client marks it a daily run; the `vs` value is never sent). Past-day challenge links and archive practice are not.

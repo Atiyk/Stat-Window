@@ -361,7 +361,11 @@ function Game(props: {
     if ((store.load()[session.kind]?.[session.day]?.results.length ?? 0) > 0) return true;
     try { return window.sessionStorage.getItem(firstShotKey) !== null; } catch { return false; }
   });
-  const start = () => { props.onWindowActive(); setStarted(true); };
+  const start = () => {
+    // Persist before mounting Q1 so an immediate refresh cannot grant fresh time.
+    try { if (!window.sessionStorage.getItem(firstShotKey)) window.sessionStorage.setItem(firstShotKey, String(Date.now())); } catch { /* private mode fallback */ }
+    props.onWindowActive(); setStarted(true);
+  };
 
   const dispatch = useCallback(
     (a: GameAction) => {

@@ -14,7 +14,7 @@ describe('Eastern calendar leaderboard periods',()=>{
  });
  it('pseudonyms are stable and do not expose raw member',()=>{const id='a'.repeat(40);expect(pseudonym(id)).toBe(pseudonym(id));expect(pseudonym(id)).not.toContain(id);});
  it('defaults to disabled without explicit budgets',()=>{const c=leaderboardContext({VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',SCORE_HASH_SECRET:'a'.repeat(32)},null,async()=>null);expect(c.enabled).toBe(false);});
- it('rejects unconsented POST even if a store is present',async()=>{const c=leaderboardContext({VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',LEADERBOARDS_ENABLED:'1',LEADERBOARDS_DAILY_BUDGET:'1000',LEADERBOARDS_MONTHLY_BUDGET:'20000',LEADERBOARDS_ERASE_BUDGET:'2000',SCORE_HASH_SECRET:'a'.repeat(32)},{} as never,async()=>null);const r=await handleLeaderboard(new Request('https://stat-window.vercel.app/api/leaderboard',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({player:'a'.repeat(22)})}),c);expect(r.status).toBe(409);});
+ it('rejects unconsented POST even if a store is present',async()=>{const c=leaderboardContext({VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',LEADERBOARDS_ENABLED:'1',LEADERBOARDS_DAILY_BUDGET:'1000',LEADERBOARDS_MONTHLY_BUDGET:'20000',LEADERBOARDS_ERASE_BUDGET:'10000',SCORE_HASH_SECRET:'a'.repeat(32)},{} as never,async()=>null);const r=await handleLeaderboard(new Request('https://stat-window.vercel.app/api/leaderboard',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({player:'a'.repeat(22)})}),c);expect(r.status).toBe(409);});
  it('does not leak leaderboard data when disabled',async()=>{const c=leaderboardContext({},null,async()=>null);const r=await handleLeaderboard(new Request('https://example.com/api/leaderboard?period=day'),c);expect(r.status).toBe(503);});
  it('returns only the authenticated participant’s own tied rank and played days',async()=>{
    const code='abcdefghijklmnopqrstuv',secret='a'.repeat(32);
@@ -39,7 +39,7 @@ describe('Eastern calendar leaderboard periods',()=>{
    expect(data.mine).toMatchObject({rank:1,score:340,days:2,name:pseudonym(member)});
    expect(data.entries).toMatchObject([{rank:1,score:340},{rank:1,score:340}]);
    expect(JSON.stringify(data)).not.toContain(code);
-   expect(captured).toEqual(['sw:v3:production:player:'+member,member]);
+   expect(captured).toEqual([['sw:v3:production:player:'+member+':block-'+blockNumber('2026-11-22'),'sw:v3:production:player:'+member+':block-'+(blockNumber('2026-11-22')-1)].join(','),member]);
    const publicRes=await handleLeaderboard(new Request(url),ctx);
    expect((await publicRes.json()).mine).toBeUndefined();
    const invalid=await handleLeaderboard(new Request(url,{headers:{'X-Stat-Window-Player':'not-valid'}}),ctx);

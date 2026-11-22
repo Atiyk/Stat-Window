@@ -32,7 +32,7 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Luka made 25 of 33 field goals that night.",
+          "text": "Luka converted more than three-quarters of his field-goal attempts that night.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87",
@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-curry16-ot-points",
+      "id": "nba-kobe10-finals-game7-twentyfive-percent",
       "sport": "NBA",
-      "prompt": "On May 9, 2016, Stephen Curry set an NBA record for points in an overtime period. How many did he score?",
-      "context": "2016 Western Conference semifinals · vs Portland",
-      "answer": 17,
+      "prompt": "Kobe won the gritty 2010 Finals Game 7 over Boston despite a brutal shooting night. What percent did he shoot from the field?",
+      "context": "Kobe Bryant · Lakers vs Celtics · 2010 Finals Game 7",
+      "answer": 25,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "percent",
+        "plural": "percent"
       },
       "min": 0,
-      "max": 40,
+      "max": 75,
       "step": 1,
-      "note": "17, breaking the record of 16.",
+      "note": "Just 25%—6 of 24. Kobe put up 23 points and claimed his fifth championship.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-        "quote": "He scored 17 of his points in overtime, which broke the NBA record of 16"
+        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+        "quote": "Bryant, despite shooting 6 for 24 (25%) from the field"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Curry returned from an MCL injury absence to score forty points against Portland.",
+          "text": "Kobe led everyone in scoring and found his shot in the final quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "Curry scored 40 points in his first game back after being out injured for 15 days with an MCL sprain"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "scored 10 of his game-high 23 points in the fourth quarter"
           }
         },
         {
-          "text": "The previous overtime-period scoring mark belonged to Gilbert Arenas.",
+          "text": "The Lakers dominated the offensive glass in the championship decider.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "broke the NBA record of 16 held by Gilbert Arenas for most points scored in an overtime period"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "The Lakers had 23 offensive rebounds and out-rebounded the Celtics, 53–40."
           }
         },
         {
-          "text": "The following day, Curry became the NBA's first unanimous regular-season MVP.",
+          "text": "It was Phil Jackson's first Finals Game 7 as a head coach.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "Curry is the 11th player to win back-to-back MVP honors and is the first unanimous winner"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "as well as head coach Phil Jackson’s first-ever Finals Game 7"
           }
         }
       ]

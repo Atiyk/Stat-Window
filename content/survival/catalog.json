@@ -536,9 +536,8 @@
       "era": "2010s",
       "steps": 18,
       "day": "2026-11-28",
-      "notBefore": "2027-01-18",
+      "notBefore": "2026-12-12",
       "leaks": [
-        "nba-curry16-ot-points",
         "nba-curry15-g2-misses"
       ]
     },
@@ -1071,7 +1070,10 @@
       "era": "2010s",
       "steps": 95,
       "day": "2026-12-08",
-      "notBefore": "2026-12-09"
+      "notBefore": "2027-01-23",
+      "leaks": [
+        "nba-lebron16-finals-game7-block-110s"
+      ]
     },
     "nba-gsw16-start": {
       "tier": "easy",
@@ -2539,9 +2541,10 @@
       "era": "2010s",
       "steps": 26,
       "day": "2027-01-08",
-      "notBefore": "2027-01-09",
+      "notBefore": "2027-01-22",
       "leaks": [
-        "nba-bulls11-regular-wins"
+        "nba-bulls11-regular-wins",
+        "nba-mavs11-heat-finals-g2-comeback-fifteen"
       ]
     },
     "nba-lillard14-rockets-series-winner-nine-tenths": {
@@ -2827,10 +2830,7 @@
       "era": "2010s",
       "steps": 290,
       "day": "2027-01-14",
-      "notBefore": "2027-01-20",
-      "leaks": [
-        "nba-diaw14-heat-g4-assists"
-      ]
+      "notBefore": "2027-01-15"
     },
     "nba-pacers24-msg-game7-671-shooting": {
       "tier": "expert",
@@ -2970,18 +2970,14 @@
       "day": "2027-01-17",
       "notBefore": "2027-01-18"
     },
-    "nba-curry16-ot-points": {
+    "nba-kobe10-finals-game7-twentyfive-percent": {
       "tier": "expert",
-      "family": "points-period",
-      "franchise": "GSW",
-      "era": "2010s",
-      "steps": 40,
+      "family": "shooting-pct",
+      "franchise": "LAL",
+      "era": "2000s",
+      "steps": 75,
       "day": "2027-01-17",
-      "notBefore": "2027-01-18",
-      "leaks": [
-        "nba-curry18-g2-threes",
-        "nba-curry22-allstar-sixteen-threes"
-      ]
+      "notBefore": "2027-01-18"
     },
     "nba-lebron16-finals-ppg": {
       "tier": "easy",
@@ -3019,19 +3015,14 @@
       "day": "2027-01-18",
       "notBefore": "2027-01-19"
     },
-    "nba-raptors19-road-wins": {
+    "nba-mavs22-suns-game7-halftime-thirty": {
       "tier": "expert",
-      "family": "wins-situational",
-      "franchise": "TOR",
-      "era": "2010s",
-      "steps": 37,
+      "family": "margin-halftime",
+      "franchise": "DAL",
+      "era": "2020s",
+      "steps": 65,
       "day": "2027-01-18",
-      "notBefore": "2027-01-20",
-      "leaks": [
-        "nba-siakam19-g1",
-        "nba-harden19-30-streak",
-        "nba-kawhi19-philly-game7-41"
-      ]
+      "notBefore": "2027-01-19"
     },
     "nba-embiid24-70-spurs": {
       "tier": "easy",
@@ -3073,18 +3064,14 @@
       "day": "2027-01-19",
       "notBefore": "2027-01-20"
     },
-    "nba-diaw14-heat-g4-assists": {
+    "nba-herro20-bubble-ecf-g4-thirtyseven": {
       "tier": "expert",
-      "family": "assists-game",
-      "franchise": "SAS",
+      "family": "points-game",
+      "franchise": "MIA",
       "era": "2010s",
-      "steps": 25,
+      "steps": 90,
       "day": "2027-01-19",
-      "notBefore": "2027-01-20",
-      "leaks": [
-        "nba-spurs14-blowouts",
-        "nba-spurs14-finals-avg-margin-fourteen"
-      ]
+      "notBefore": "2027-01-20"
     },
     "nba-jokic23-playoff-triple-doubles": {
       "tier": "easy",
@@ -3128,12 +3115,12 @@
       "day": "2027-01-20",
       "notBefore": "2027-01-21"
     },
-    "nba-wilt72-total-reb": {
+    "nba-lakers01-shaq-kobe-fifteen-playoff-wins": {
       "tier": "expert",
-      "family": "rebounds-season",
+      "family": "wins-playoffs",
       "franchise": "LAL",
-      "era": "1970s",
-      "steps": 300,
+      "era": "2000s",
+      "steps": 26,
       "day": "2027-01-20",
       "notBefore": "2027-01-21"
     },
@@ -3176,10 +3163,10 @@
       "day": "2027-01-21",
       "notBefore": "2027-01-22"
     },
-    "nba-rose11-hawks-g3-points": {
+    "nba-mavs11-heat-finals-g2-comeback-fifteen": {
       "tier": "expert",
-      "family": "points-game",
-      "franchise": "CHI",
+      "family": "comeback",
+      "franchise": "DAL",
       "era": "2010s",
       "steps": 50,
       "day": "2027-01-21",
@@ -3224,14 +3211,18 @@
         "nba-celtics09-streak"
       ]
     },
-    "nba-spurs99-memorial-day": {
+    "nba-lebron16-finals-game7-block-110s": {
       "tier": "expert",
-      "family": "comeback",
-      "franchise": "SAS",
-      "era": "1990s",
-      "steps": 22,
+      "family": "time",
+      "franchise": "CLE",
+      "era": "2010s",
+      "steps": 300,
       "day": "2027-01-22",
-      "notBefore": "2027-01-23"
+      "notBefore": "2027-01-23",
+      "leaks": [
+        "nba-iguodala15-votes",
+        "nba-kobe16-final-game"
+      ]
     },
     "nba-paul08-regular-apg": {
       "tier": "easy",
@@ -3450,10 +3441,7 @@
       "era": "2010s",
       "steps": 260,
       "day": "2027-01-27",
-      "notBefore": "2027-01-28",
-      "leaks": [
-        "nba-curry16-ot-points"
-      ]
+      "notBefore": "2027-01-28"
     },
     "nba-chandler08-regular-rpg": {
       "tier": "hard",
@@ -3902,6 +3890,73 @@
       "steps": 19,
       "day": null,
       "notBefore": "2027-01-17"
+    },
+    "nba-curry16-ot-points": {
+      "tier": "expert",
+      "family": "points-period",
+      "franchise": "GSW",
+      "era": "2010s",
+      "steps": 40,
+      "day": null,
+      "notBefore": "2027-01-18",
+      "leaks": [
+        "nba-curry18-g2-threes",
+        "nba-curry22-allstar-sixteen-threes"
+      ]
+    },
+    "nba-raptors19-road-wins": {
+      "tier": "expert",
+      "family": "wins-situational",
+      "franchise": "TOR",
+      "era": "2010s",
+      "steps": 37,
+      "day": null,
+      "notBefore": "2027-01-20",
+      "leaks": [
+        "nba-siakam19-g1",
+        "nba-harden19-30-streak",
+        "nba-kawhi19-philly-game7-41"
+      ]
+    },
+    "nba-diaw14-heat-g4-assists": {
+      "tier": "expert",
+      "family": "assists-game",
+      "franchise": "SAS",
+      "era": "2010s",
+      "steps": 25,
+      "day": null,
+      "notBefore": "2027-01-20",
+      "leaks": [
+        "nba-spurs14-blowouts",
+        "nba-spurs14-finals-avg-margin-fourteen"
+      ]
+    },
+    "nba-wilt72-total-reb": {
+      "tier": "expert",
+      "family": "rebounds-season",
+      "franchise": "LAL",
+      "era": "1970s",
+      "steps": 300,
+      "day": null,
+      "notBefore": "2027-01-21"
+    },
+    "nba-rose11-hawks-g3-points": {
+      "tier": "expert",
+      "family": "points-game",
+      "franchise": "CHI",
+      "era": "2010s",
+      "steps": 50,
+      "day": null,
+      "notBefore": "2027-01-22"
+    },
+    "nba-spurs99-memorial-day": {
+      "tier": "expert",
+      "family": "comeback",
+      "franchise": "SAS",
+      "era": "1990s",
+      "steps": 22,
+      "day": null,
+      "notBefore": "2027-01-23"
     }
   },
   "reserves": [
@@ -5521,6 +5576,312 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1996_NBA_Finals",
             "quote": "the Bulls swept the Magic to gain entry into the Finals"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-curry16-ot-points",
+      "sport": "NBA",
+      "prompt": "On May 9, 2016, Stephen Curry set an NBA record for points in an overtime period. How many did he score?",
+      "context": "2016 Western Conference semifinals · vs Portland",
+      "answer": 17,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "note": "17, breaking the record of 16.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "He scored 17 of his points in overtime, which broke the NBA record of 16"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Curry returned from an MCL injury absence to score forty points against Portland.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "Curry scored 40 points in his first game back after being out injured for 15 days with an MCL sprain"
+          }
+        },
+        {
+          "text": "The previous overtime-period scoring mark belonged to Gilbert Arenas.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "broke the NBA record of 16 held by Gilbert Arenas for most points scored in an overtime period"
+          }
+        },
+        {
+          "text": "The following day, Curry became the NBA's first unanimous regular-season MVP.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "Curry is the 11th player to win back-to-back MVP honors and is the first unanimous winner"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-raptors19-road-wins",
+      "sport": "NBA",
+      "prompt": "How many regular-season road games did Toronto win on its 2019 title run?",
+      "context": "Raptors · 41 away games · before the playoffs",
+      "answer": 26,
+      "unit": {
+        "singular": "road win",
+        "plural": "road wins"
+      },
+      "min": 4,
+      "max": 41,
+      "step": 1,
+      "note": "26 wins away from home during the regular season.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+        "quote": "32‍–‍9  | 26‍–‍15"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Toronto's regular-season home record was stronger than its road record.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "32‍–‍9  | 26‍–‍15"
+          }
+        },
+        {
+          "text": "Milwaukee finished just ahead of Toronto atop the Eastern Conference standings.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "Milwaukee Bucks"
+          }
+        },
+        {
+          "text": "The Raptors won all three Finals games played on Golden State's home floor.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "NBA Finals: 4–2 (home: 1–2; road: 3–0)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-diaw14-heat-g4-assists",
+      "sport": "NBA",
+      "prompt": "How many assists did Boris Diaw record in Game 4 of the 2014 Finals?",
+      "context": "Spurs at Miami · a pivotal Finals road win",
+      "answer": 9,
+      "unit": {
+        "singular": "assist",
+        "plural": "assists"
+      },
+      "min": 1,
+      "max": 26,
+      "step": 1,
+      "note": "9 assists from the versatile forward.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+        "quote": "June 12 @ Miami W 107–86 Kawhi Leonard (20) Kawhi Leonard (14) Boris Diaw (9)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "San Antonio won the game by twenty-one points.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "June 12 @ Miami W 107–86"
+          }
+        },
+        {
+          "text": "Kawhi Leonard led the team with twenty points.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "June 12 @ Miami W 107–86 Kawhi Leonard (20)"
+          }
+        },
+        {
+          "text": "Leonard also collected fourteen rebounds that night.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "June 12 @ Miami W 107–86 Kawhi Leonard (20) Kawhi Leonard (14)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-wilt72-total-reb",
+      "sport": "NBA",
+      "prompt": "Rodman's 1991–92 rebound total was the most since Wilt Chamberlain's total in 1971–72. How many did Wilt grab that season?",
+      "context": "Los Angeles Lakers · 1971–72",
+      "answer": 1572,
+      "unit": {
+        "singular": "rebound",
+        "plural": "rebounds"
+      },
+      "min": 300,
+      "max": 1800,
+      "step": 5,
+      "note": "1,572.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+        "quote": "1,530 season rebounds (the most since Wilt Chamberlain's 1,572 in the 1971–1972 season)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Chamberlain's later-career Lakers reinvented his role around rebounding, defending and outlet passing.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+            "quote": "He re-tooled Wilt Chamberlain's game to focus on defense, rebounding"
+          }
+        },
+        {
+          "text": "Rodman's sensational Pistons season was the closest a modern rebounding specialist came to Wilt's older benchmark.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+            "quote": "His 1,530 season rebounds (the most since Wilt Chamberlain's 1,572 in the 1971–1972 season)"
+          }
+        },
+        {
+          "text": "That Lakers squad reached the title series by eliminating Kareem's defending-champion Milwaukee Bucks.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+            "quote": "Western Conference Finals: 4–2"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-rose11-hawks-g3-points",
+      "sport": "NBA",
+      "prompt": "How many points did Derrick Rose score in Game 3 against Atlanta in the 2011 playoffs?",
+      "context": "Chicago Bulls · 2011 Eastern semifinals · Game 3",
+      "answer": 44,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 15,
+      "max": 65,
+      "step": 1,
+      "note": "44 points, a career high at the time in Chicago's road win.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+        "quote": "Derrick Rose scored a career high 44 pts vs the Atlanta Hawks on May 6, 2011."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Chicago won the game in Atlanta and took control of a competitive second-round series.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "May 6 @ Atlanta W 99–82"
+          }
+        },
+        {
+          "text": "The Bulls ultimately eliminated Atlanta in six games to reach the Eastern Conference finals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "defeated the Atlanta Hawks in six games in the semifinals"
+          }
+        },
+        {
+          "text": "Miami's LeBron James, Dwyane Wade and Chris Bosh later ended Chicago's playoff run.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "eliminated by the Miami Heat team led by LeBron James, Dwyane Wade, and Chris Bosh"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-spurs99-memorial-day",
+      "sport": "NBA",
+      "prompt": "In Game 2 of the 1999 West finals, San Antonio came back from how many points down to win on Sean Elliott's \"Memorial Day Miracle\"?",
+      "context": "1999 West finals · Game 2 · vs Portland",
+      "answer": 17,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 22,
+      "step": 1,
+      "note": "17.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
+        "quote": "the Spurs trailed by 17 points against the Trail Blazers in Game 2"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Sean Elliott hit the decisive long-distance shot to sink Portland in the conference finals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
+            "quote": "a game-winning three-pointer from Elliott, which was dubbed as the \"Memorial Day Miracle\""
+          }
+        },
+        {
+          "text": "San Antonio went on to sweep Portland, becoming the first former ABA franchise to reach the NBA Finals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
+            "quote": "becoming the first former ABA team to advance to the NBA Finals"
+          }
+        },
+        {
+          "text": "Before the Portland showdown, San Antonio had swept Kobe Bryant and Shaquille O'Neal's Lakers.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
+            "quote": "the Lakers, who were led by the All-Star trio of Shaquille O'Neal, Kobe Bryant and Glen Rice"
           }
         }
       ]

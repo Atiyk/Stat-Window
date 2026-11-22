@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-rose11-hawks-g3-points",
+      "id": "nba-mavs11-heat-finals-g2-comeback-fifteen",
       "sport": "NBA",
-      "prompt": "How many points did Derrick Rose score in Game 3 against Atlanta in the 2011 playoffs?",
-      "context": "Chicago Bulls · 2011 Eastern semifinals · Game 3",
-      "answer": 44,
+      "prompt": "Down late in Game 2 of the 2011 Finals against LeBron's Heat, how large a deficit did Dirk's Mavericks erase to win?",
+      "context": "Dallas Mavericks at Miami Heat · 2011 Finals Game 2",
+      "answer": 15,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 15,
-      "max": 65,
+      "min": 0,
+      "max": 50,
       "step": 1,
-      "note": "44 points, a career high at the time in Chicago's road win.",
+      "note": "15 points. Dirk hit a go-ahead three and then the winning layup to stun Miami, 95–93.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-        "quote": "Derrick Rose scored a career high 44 pts vs the Atlanta Hawks on May 6, 2011."
+        "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+        "quote": "The Mavs' 15-point comeback was the biggest in an NBA Finals game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Chicago won the game in Atlanta and took control of a competitive second-round series.",
+          "text": "Dirk hit a go-ahead three with under 30 seconds left.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "May 6 @ Atlanta W 99–82"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "Dirk Nowitzki hit a 3 with 26.7 seconds left to give the Mavericks a 93–90 lead."
           }
         },
         {
-          "text": "The Bulls ultimately eliminated Atlanta in six games to reach the Eastern Conference finals.",
+          "text": "Nowitzki delivered the winner with his injured left hand.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "defeated the Atlanta Hawks in six games in the semifinals"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "Nowitzki then made a driving layup with his injured left hand with 3.6 seconds left"
           }
         },
         {
-          "text": "Miami's LeBron James, Dwyane Wade and Chris Bosh later ended Chicago's playoff run.",
+          "text": "Dwyane Wade's final attempt bounced off the rim.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "eliminated by the Miami Heat team led by LeBron James, Dwyane Wade, and Chris Bosh"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "Dwyane Wade's potential game-winning 3 hit the back rim at the buzzer"
           }
         }
       ]

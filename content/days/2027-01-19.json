@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-diaw14-heat-g4-assists",
+      "id": "nba-herro20-bubble-ecf-g4-thirtyseven",
       "sport": "NBA",
-      "prompt": "How many assists did Boris Diaw record in Game 4 of the 2014 Finals?",
-      "context": "Spurs at Miami · a pivotal Finals road win",
-      "answer": 9,
+      "prompt": "As a rookie in the 2020 bubble East finals against Boston, how many points did Tyler Herro explode for in Game 4?",
+      "context": "Tyler Herro · Heat vs Celtics · 2020 East finals Game 4",
+      "answer": 37,
       "unit": {
-        "singular": "assist",
-        "plural": "assists"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 1,
-      "max": 26,
+      "min": 0,
+      "max": 90,
       "step": 1,
-      "note": "9 assists from the versatile forward.",
+      "note": "37 points from a 20-year-old rookie. Herro helped power Miami's surprise Finals run.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-        "quote": "June 12 @ Miami W 107–86 Kawhi Leonard (20) Kawhi Leonard (14) Boris Diaw (9)"
+        "url": "https://en.wikipedia.org/wiki/Tyler_Herro",
+        "quote": "In game 4 of the 2020 Eastern Conference Finals, he scored a career-high 37 points"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "San Antonio won the game by twenty-one points.",
+          "text": "Herro was just 20 years and 247 days old.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "June 12 @ Miami W 107–86"
+            "url": "https://en.wikipedia.org/wiki/Tyler_Herro",
+            "quote": "the youngest player (at 20 years, 247 days old) to score 30-plus points"
           }
         },
         {
-          "text": "Kawhi Leonard led the team with twenty points.",
+          "text": "He was the first player born in the 2000s to play in an NBA Finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "June 12 @ Miami W 107–86 Kawhi Leonard (20)"
+            "url": "https://en.wikipedia.org/wiki/Tyler_Herro",
+            "quote": "Herro became the first player born in the 2000s to play in an NBA Finals."
           }
         },
         {
-          "text": "Leonard also collected fourteen rebounds that night.",
+          "text": "He made the NBA All-Rookie Second Team in 2020.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "June 12 @ Miami W 107–86 Kawhi Leonard (20) Kawhi Leonard (14)"
+            "url": "https://en.wikipedia.org/wiki/Tyler_Herro",
+            "quote": "he was named to the 2019–20 NBA All-Rookie Second Team"
           }
         }
       ]

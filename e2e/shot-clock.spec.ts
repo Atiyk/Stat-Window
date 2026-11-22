@@ -38,7 +38,10 @@ test('refresh does not buy another 24 seconds', async ({ page }) => {
   await lowBracket(page).focus();
   await page.keyboard.press('ArrowRight');
   await page.clock.fastForward('00:09');
+  const firstTimestamp = await page.evaluate(() => sessionStorage.getItem('stat-window:shot:v1:nba-gsw-2016-wins'));
+  expect(firstTimestamp).not.toBeNull();
   await page.reload();
+  await expect.poll(async () => Number((await page.locator('.shot-clock').textContent())?.match(/(\d+)s/)?.[1])).toBeLessThanOrEqual(16);
   const left = Number((await page.locator('.shot-clock').textContent())?.match(/(\d+)s/)?.[1]);
   expect(left).toBeGreaterThanOrEqual(13);
   expect(left).toBeLessThanOrEqual(16);

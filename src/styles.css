@@ -2241,3 +2241,15 @@ a {
   .question-block { padding-top: 10px; padding-bottom: 10px; }
   .round .field-inner { padding-top: 6px; }
 }
+
+/* 320px phone: five noninteractive score chips must fit beside question/points/timer.
+   Otherwise the header wraps and hides the actual answer ruler behind the dock. */
+@media (max-width: 359px) {
+  .round-top { flex-wrap: nowrap; align-items: center; gap: 4px; }
+  .round-top .ledger { flex: 0 0 auto; gap: 2px; }
+  .round-top .ledger-cell { width: 25px; height: 25px; }
+  .round-top .ledger-num { font-size: 0.8125rem; }
+  .round-top .round-meta { min-width: 0; flex: 0 1 auto; font-size: 0.8125rem; white-space: nowrap; column-gap: 5px; }
+  .round-top .round-total { font-size: 0.875rem; }
+  .round-top .shot-clock { font-size: 0.8125rem; }
+}

@@ -65,7 +65,18 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
   const actionRef = useRef<HTMLButtonElement>(null);
   const skipRef = useRef(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
-  const [secondsLeft, setSecondsLeft] = useState(24);
+  // Restore the elapsed clock on the first render rather than briefly flashing
+  // 24 seconds while React effects hydrate the saved deadline.
+  const [secondsLeft, setSecondsLeft] = useState(() => {
+    if (survival || typeof window === 'undefined') return 24;
+    try {
+      const startedAt = Number(window.sessionStorage.getItem(`stat-window:shot:v1:${q.id}`));
+      if (!Number.isFinite(startedAt) || startedAt <= 0) return 24;
+      return Math.ceil(Math.max(0, SHOT_CLOCK_MS - (Date.now() - startedAt)) / 1000);
+    } catch {
+      return 24;
+    }
+  });
   const shot = useRef<{ startedAt: number | null; stopped: boolean }>({ startedAt: null, stopped: false });
   const dispatchRef = useRef(dispatch);
   dispatchRef.current = dispatch;

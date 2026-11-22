@@ -40,7 +40,7 @@ All gates pass: 0 errors.
 | daily_slate_questions | 360 |
 
 Integrity: integrity_check ok, no foreign-key violations, every fact verified and sourced.
-Canonical dump sha256 (status as of 2026-11-16): `49a73dd03e0c907f52d7faf47eb3341943b31fdca86e273140dd04aca980db3a`.
+Canonical dump sha256 (status as of 2026-11-16): `f8dd9dd4a5996262a29ddbf5d4f735b5b4c32cd9d1dbf8bc60cbfcea71d08114`.
 
 ## Difficulty
 
@@ -57,7 +57,7 @@ Mean editorial ratings by slot (interest / recognizability / estimability / surp
 - Slot 2 (medium): 3.49 / 3.28 / 2.81 / 4.67
 - Slot 3 (hard): 3.46 / 3.13 / 2.28 / 4.92
 - Slot 4 (hard): 3.47 / 3.08 / 2.22 / 4.92
-- Slot 5 (expert): 3.57 / 3.06 / 2.40 / 4.96
+- Slot 5 (expert): 3.75 / 3.22 / 2.56 / 4.96
 
 ## Range fairness
 
@@ -65,18 +65,18 @@ Where each answer sits on its scale (0 = min, 9 = top tenth). A flat spread mean
 
 | Tenth | Questions |
 |---|---|
-| 1 | 8 |
+| 1 | 6 |
 | 2 | 36 |
-| 3 | 102 |
-| 4 | 59 |
-| 5 | 50 |
+| 3 | 106 |
+| 4 | 57 |
+| 5 | 49 |
 | 6 | 71 |
-| 7 | 43 |
+| 7 | 44 |
 | 8 | 19 |
 | 9 | 1 |
 
-Share of answers in the middle fifth: 29.6% (gate: at most 35%).
-Simulated "always centre the window" player: mean 52.12 points per question, best 90 (gate: no question above 90).
+Share of answers in the middle fifth: 28.8% (gate: at most 35%).
+Simulated "always centre the window" player: mean 52.14 points per question, best 90 (gate: no question above 90).
 Every answer sits strictly inside its scale and at least 8% away from either end; every scale has 5–400 whole steps.
 
 ## Editorial balance, by week
@@ -86,7 +86,7 @@ Every answer sits strictly inside its scale and at least 8% away from either end
 | 2026-11-17 to 2026-11-23 | 25 | 7 | BOS (7) |
 | 2026-11-24 to 2026-11-30 | 19 | 8 | DEN (4) |
 | 2026-12-01 to 2026-12-07 | 20 | 7 | BOS (4) |
-| 2026-12-08 to 2026-12-14 | 22 | 7 | GSW (8) |
+| 2026-12-08 to 2026-12-14 | 21 | 7 | GSW (9) |
 | 2026-12-15 to 2026-12-21 | 24 | 6 | MIL (5) |
 | 2026-12-22 to 2026-12-28 | 20 | 8 | SAS (6) |
 | 2026-12-29 to 2027-01-04 | 21 | 8 | CLE (4) |
@@ -98,18 +98,18 @@ Every rolling 7-day window is also checked: at least 6 families, at least 3 eras
 
 ## Novelty
 
-111 players and 29 franchises appear. 10 of 72 days introduce no new player or franchise.
+111 players and 29 franchises appear. 11 of 72 days introduce no new player or franchise.
 
 ## Eras
 
 - 1950s: 4
 - 1960s: 23
-- 1970s: 36
-- 1980s: 31
-- 1990s: 66
+- 1970s: 34
+- 1980s: 30
+- 1990s: 64
 - 2000s: 85
-- 2010s: 94
-- 2020s: 49
+- 2010s: 97
+- 2020s: 51
 - timeless: 1
 
 ## Rejected candidates (examples)

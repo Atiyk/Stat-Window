@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-miller97-three-streak",
+      "id": "nba-dame21-playoffs-12-threes",
       "sport": "NBA",
-      "prompt": "From November 1996 to April 1997, Reggie Miller made a three in how many straight games?",
-      "context": "Indiana Pacers · 1996–97",
-      "answer": 68,
+      "prompt": "In Damian Lillard's incredible double-overtime 2021 playoff battle with Denver, how many threes did he make?",
+      "context": "Damian Lillard · Blazers at Nuggets · 2021 playoffs",
+      "answer": 12,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 25,
-      "max": 130,
+      "min": 2,
+      "max": 30,
       "step": 1,
-      "note": "68.",
+      "note": "12 threes, a playoff record, as Dame scored 55 in a heartbreaking defeat.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-        "quote": "Miller made a three-pointer in 68 consecutive games from November 15, 1996, to April 6, 1997."
+        "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+        "quote": "behind an NBA playoff record 12 made three-pointers, as well as 10 assists."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Miller remained with Indiana for his entire playing career, an increasingly rare feat for a long-tenured star.",
+          "text": "Dame set a playoff career high in points that night.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "played his entire 18-year career in the National Basketball Association (NBA) with the Indiana Pacers"
+            "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+            "quote": "Lillard scored a playoff career-high 55 points"
           }
         },
         {
-          "text": "He eventually joined the exclusive fifty-forty-ninety shooting club, combining accuracy at the line and from the field.",
+          "text": "He tied it late in regulation and again in overtime.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "He is one of only nine players to join the 50–40–90 club"
+            "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+            "quote": "Lillard hit game-tying threes near the end of regulation and near the end of the first overtime"
           }
         },
         {
-          "text": "Miller's career three-pointer record eventually passed first to Ray Allen, then to Stephen Curry.",
+          "text": "Denver prevailed after two overtimes.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "His record was later broken by Ray Allen, who was later surpassed by Stephen Curry"
+            "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+            "quote": "the Nuggets rallied to a 147–140 double-overtime victory to take a 3–2 series lead"
           }
         }
       ]

@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-sixers83-playoff-wins",
+      "id": "nba-harden19-msg-61",
       "sport": "NBA",
-      "prompt": "How many playoff games did the 1983 champion Sixers lose?",
-      "context": "Philadelphia 76ers · 1983 playoffs",
-      "answer": 1,
+      "prompt": "At Madison Square Garden in January 2019, how many points did James Harden score against the Knicks?",
+      "context": "James Harden · Houston Rockets at Knicks · January 2019",
+      "answer": 61,
       "unit": {
-        "singular": "loss",
-        "plural": "losses"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 8,
+      "max": 95,
       "step": 1,
-      "note": "One: they went 12–1.",
+      "note": "61 points and 15 rebounds, extending his astonishing 2018–19 scoring run.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
-        "quote": "The 76ers completed one of the most dominating playoff runs in league history with a 12–1 mark"
+        "url": "https://en.wikipedia.org/wiki/James_Harden",
+        "quote": "On January 23, Harden scored a career-high 61 points to go with 15 rebounds in a 114–110 win over the New York Knicks"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Moses Malone had boldly predicted an unbeaten playoff run, repeatedly calling for four-game sweeps.",
+          "text": "Harden grabbed 15 rebounds that night.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
-            "quote": "Malone predicted the team would win in four games in each of the three rounds"
+            "url": "https://en.wikipedia.org/wiki/James_Harden",
+            "quote": "61 points to go with 15 rebounds"
           }
         },
         {
-          "text": "Philadelphia had acquired Moses from Houston specifically to counter the Lakers' Kareem Abdul-Jabbar.",
+          "text": "Houston narrowly won at the Garden.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
-            "quote": "the 76ers acquired Moses Malone from the Houston Rockets in an effort to counter Abdul-Jabbar"
+            "url": "https://en.wikipedia.org/wiki/James_Harden",
+            "quote": "in a 114–110 win over the New York Knicks"
           }
         },
         {
-          "text": "The Sixers swept Los Angeles in the Finals, reversing the previous championship-series losses to the Lakers.",
+          "text": "He matched this career high again later that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
-            "quote": "The 76ers lost their first two Finals meetings with the Lakers in 1980 and 1982"
+            "url": "https://en.wikipedia.org/wiki/James_Harden",
+            "quote": "he matched his career high with 61 points, including 27 in the first quarter"
           }
         }
       ]

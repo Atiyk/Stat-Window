@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-wilkes80-g6",
+      "id": "nba-curry13-knicks-54",
       "sport": "NBA",
-      "prompt": "Jamaal Wilkes scored a career high in the 1980 title clincher. How many points?",
-      "context": "1980 NBA Finals · Game 6 · at Philadelphia",
-      "answer": 37,
+      "prompt": "Years before his championships, how many points did Steph Curry score against the Knicks at MSG in 2013?",
+      "context": "Stephen Curry · Warriors at Knicks · February 2013",
+      "answer": 54,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 10,
-      "max": 50,
+      "min": 5,
+      "max": 75,
       "step": 1,
-      "note": "37, with 10 rebounds.",
+      "note": "54 points and 11 threes, although the Knicks nevertheless won the game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-        "quote": "Wilkes had a career-high 37 points and added 10 rebounds."
+        "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+        "quote": "On February 27, 2013, Stephen Curry scored 54 points but his Warriors lost to the Knicks, 109–105."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "The Lakers had to play the title clincher without Kareem, whose ankle had been badly sprained.",
+          "text": "Steph hit 11 three-pointers against New York.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-            "quote": "Kareem Abdul-Jabbar was the league's MVP, but midway through Game 5, the Lakers center suffered a severely sprained ankle"
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+            "quote": "making a Warriors franchise-record 11 three-pointers on 11 of 13 shooting from 3-point range"
           }
         },
         {
-          "text": "Rookie Magic Johnson started at center and played all five positions during the closeout.",
+          "text": "Curry shot 18-for-28 overall.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-            "quote": "started the game at center and eventually played all five positions"
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+            "quote": "He shot 18 for 28 from the field"
           }
         },
         {
-          "text": "Much of the United States saw the decisive game on tape delay while CBS aired regular prime-time shows.",
+          "text": "New York won despite Curry's scoring display.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-            "quote": "So Game 6 was shown at 11:30pm Eastern (10:30pm Central) in all but eight US cities"
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+            "quote": "his Warriors lost to the Knicks, 109–105"
           }
         }
       ]

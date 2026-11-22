@@ -389,7 +389,12 @@ function Game(props: {
   // Persist every locked round immediately (before the reveal), so a refresh can't re-roll it.
   const advanced = state.phase === 'complete' ? state.results.length : state.round;
   useEffect(() => {
-    store.saveRun(session.day, { results: state.results, advanced }, session.kind);
+    const committed = store.saveRun(session.day, { results: state.results, advanced }, session.kind);
+    // Clear only deadlines whose result has been durably saved (first lock wins).
+    // Clearing in Round before the save made a precisely timed reload grant 24s.
+    for (const result of committed.results) {
+      try { window.sessionStorage.removeItem(`stat-window:shot:v1:${result.questionId}`); } catch { /* unavailable in private mode */ }
+    }
   }, [store, session.day, session.kind, state.results, advanced]);
 
   const pub = publicNumber(session.day, SEASON);

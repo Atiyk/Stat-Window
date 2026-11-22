@@ -50,6 +50,9 @@ describe('Eastern calendar leaderboard periods',()=>{
    const data=await res.json();
    expect(data.mine).toMatchObject({rank:1,score:340,days:2,name:pseudonym(member)});
    expect(data.entries).toMatchObject([{rank:1,score:340},{rank:1,score:340}]);
+   // Until a cost-bounded, migration-safe per-board days index exists,
+   // do not fabricate participation counts for public competitors.
+   expect(data.entries.every((entry:Record<string,unknown>)=>!Object.hasOwn(entry,'days'))).toBe(true);
    expect(JSON.stringify(data)).not.toContain(code);
    expect(captured).toEqual([['sw:v3:production:player:'+member+':block-'+blockNumber('2026-11-22'),'sw:v3:production:player:'+member+':block-'+(blockNumber('2026-11-22')-1)].join(','),member]);
    const publicRes=await handleLeaderboard(new Request(url),ctx);

@@ -1,29 +1,29 @@
 {
   "date": "2027-01-01",
   "theme": {
-    "title": "Scoring outbursts",
-    "subtitle": "Big nights",
-    "recap": "Wilt owns most of the scoring records, but Devin Booker and Kobe Bryant added 60-plus nights at both ends of a career."
+    "title": "NBA Mix 40",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-booker17-70",
+      "id": "nba-westbrook17-td",
       "sport": "NBA",
-      "prompt": "Devin Booker became the youngest player to score 60 or more, at 20, in a regular-season game. How many points did he score?",
-      "context": "Phoenix Suns · 2016–17",
-      "answer": 70,
+      "prompt": "On April 9, 2017, Russell Westbrook broke the record for triple-doubles in a season. What number did he reach?",
+      "context": "Oklahoma City Thunder · 2016–17",
+      "answer": 42,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "triple-double",
+        "plural": "triple-doubles"
       },
-      "min": 25,
-      "max": 90,
+      "min": 0,
+      "max": 55,
       "step": 1,
-      "note": "70.",
+      "note": "42, passing Oscar Robertson's 41.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_scoring_leaders",
-        "quote": "Devin Booker (70 points; 20 years and 145 days)"
+        "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Oklahoma_City_Thunder_season",
+        "quote": "On April 9th, Russell Westbrook broke Oscar Robertson's record for most triple-doubles in a season with 42."
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Booker's historic scoring performance came in a loss to Boston rather than a Phoenix victory.",
+          "text": "Oklahoma City finished sixth in the West, then fell to Houston in the first round.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Devin_Booker",
-            "quote": "against the Boston Celtics, Booker became the sixth player in NBA history to score 70 points in a game"
+            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Oklahoma_City_Thunder_season",
+            "quote": "securing the 6th seed. In the playoffs, they faced off against the Houston Rockets"
           }
         },
         {
-          "text": "His night was not just shooting: he also supplied eight rebounds and six assists for the Suns.",
+          "text": "This was Oklahoma City's first season after Kevin Durant left for Golden State.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Devin_Booker",
-            "quote": "Booker also added eight rebounds and six assists in 45 minutes"
+            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Oklahoma_City_Thunder_season",
+            "quote": "without Kevin Durant, as he left the Thunder and signed with the Golden State Warriors"
           }
         },
         {
-          "text": "Booker's scoring average jumped sharply in his second pro season as his role in Phoenix expanded.",
+          "text": "Westbrook won the league MVP award that June, after his record-setting regular season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Devin_Booker",
-            "quote": "Booker ended the season averaging 22.1 points per game, a near 9-point increment"
+            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Oklahoma_City_Thunder_season",
+            "quote": "Westbrook would go on to be named the League's MVP in June"
           }
         }
       ]
     },
     {
-      "id": "nba-wilt-60-point-games",
+      "id": "nba-frazier70-g7-ast",
       "sport": "NBA",
-      "prompt": "How many regular-season 60-point games did Wilt Chamberlain have?",
-      "context": "Wilt Chamberlain · 1959–1973",
-      "answer": 32,
+      "prompt": "Walt Frazier scored 36 points in Game 7 of the 1970 Finals. How many assists did he have?",
+      "context": "1970 NBA Finals · Game 7 · vs Lakers",
+      "answer": 19,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "assist",
+        "plural": "assists"
       },
-      "min": 0,
-      "max": 45,
+      "min": 12,
+      "max": 38,
       "step": 1,
-      "note": "32. Kobe Bryant had six.",
+      "note": "19, in a 113–99 win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_scoring_leaders",
-        "quote": "Wilt Chamberlain (32 times); Kobe Bryant (6 times)"
+        "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
+        "quote": "took it from there, finishing with 36 points and 19 assists as the Knicks won the championship, 113–99."
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Chamberlain occupies a tier of his own, with many more explosive games than the next man, Kobe Bryant.",
+          "text": "Clyde also registered six steals in the decider, showing how much of his masterpiece came on defense.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_scoring_leaders",
-            "quote": "Only 10 players have scored 60 or more points on more than one occasion"
+            "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
+            "quote": "tallying 36 points, seven rebounds, 19 assists, and six steals"
           }
         },
         {
-          "text": "Several modern scorers have reached that rare milestone multiple times, including Damian Lillard and James Harden.",
+          "text": "The Finals were the first to be broadcast nationally in full, with ABC calling the series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_scoring_leaders",
-            "quote": "Damian Lillard (5 times); Michael Jordan and James Harden (4 times)"
+            "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
+            "quote": "The 1970 NBA Finals were the first to be nationally televised in full, with ABC providing the coverage"
           }
         },
         {
-          "text": "Wilt also set the single-game scoring record at Hershey, Pennsylvania, rather than an NBA team's usual arena.",
+          "text": "New Yorkers could not see the clincher live on local ABC television because the telecast was blacked out.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-            "quote": "at Hershey Sports Arena in Hershey, Pennsylvania"
+            "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
+            "quote": "the Knicks' victory in Game 7 was not seen live on broadcast TV in New York"
           }
         }
       ]
     },
     {
-      "id": "nba-kobe16-final-game",
+      "id": "nba-hawks86-third-quarter",
       "sport": "NBA",
-      "prompt": "How many points did Kobe Bryant score in his final NBA game, at age 37?",
-      "context": "Lakers vs Utah Jazz · April 13, 2016",
-      "answer": 60,
+      "prompt": "Boston routed Atlanta 132–99 in the 1986 East semifinals. How many points did the Hawks score in the third quarter?",
+      "context": "1986 East semifinals · Celtics vs Hawks",
+      "answer": 6,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 10,
-      "max": 75,
+      "min": 0,
+      "max": 26,
       "step": 1,
-      "note": "60, the oldest player ever to score 60.",
+      "note": "Six, as Boston won the quarter 36–6.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_scoring_leaders",
-        "quote": "the oldest is Bryant (60 points; 37 years and 234 days)"
+        "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
+        "quote": "Boston outscored Atlanta 36–6 in the third quarter in route to a 132–99 victory."
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,100 +134,100 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "The Lakers later retired both of Kobe's jersey numbers, an unprecedented honor for one NBA player.",
+          "text": "Before that Hawks blowout, Boston had already swept Michael Jordan's Bulls in the first round.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
-            "quote": "making him the only NBA player to have multiple numbers retired by one franchise"
+            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
+            "quote": "Boston needed just three games to defeat the Chicago Bulls in the first round"
           }
         },
         {
-          "text": "Kobe had entered the league straight from high school and won a slam dunk contest while still a teenager.",
+          "text": "The Celtics subsequently swept Milwaukee to reach the championship round without a conference-finals loss.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
-            "quote": "won the 1997 Slam Dunk Contest, the youngest dunk champion at age 18"
+            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
+            "quote": "in the conference finals, Boston swept the Milwaukee Bucks in four games"
           }
         },
         {
-          "text": "His final seasons were repeatedly interrupted by injuries after the end of his championship years.",
+          "text": "That season's championship series marked the first official use of the 'NBA Finals' branding.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
-            "quote": "His remaining playing career was hampered by injuries and reduced playing time"
+            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
+            "quote": "this series marked the first time the \"NBA Finals\" branding was officially used"
           }
         }
       ]
     },
     {
-      "id": "nba-wilt-100-fga",
+      "id": "nba-billups04-finals-ppg",
       "sport": "NBA",
-      "prompt": "In his 100-point game, Wilt Chamberlain set a record for field-goal attempts. How many shots did he take?",
-      "context": "Philadelphia vs New York · March 2, 1962",
-      "answer": 63,
-      "unit": {
-        "singular": "shot",
-        "plural": "shots"
-      },
-      "min": 20,
-      "max": 85,
-      "step": 1,
-      "note": "63, making 36.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-        "quote": "Playing all 48 minutes of the game, Chamberlain set NBA records for field goals attempted (63) and made (36)"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "That night was never televised; the surviving recording is a radio call from the final quarter.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-            "quote": "The game was not televised, and no video footage of the game has been recovered"
-          }
-        },
-        {
-          "text": "New York began intentionally fouling other Warriors to prevent Wilt from getting the ball in the fourth quarter.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-            "quote": "the Knicks began fouling other players to keep the ball away from Chamberlain"
-          }
-        },
-        {
-          "text": "Wilt set a free-throw record despite his reputation as an unreliable shooter from the line.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-            "quote": "Chamberlain set five other league records that game, including most free throws made"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-wilt62-week-average",
-      "sport": "NBA",
-      "prompt": "In the week of his 100-point game, what did Wilt average over four games?",
-      "context": "Philadelphia Warriors · March 1962",
-      "answer": 73,
+      "prompt": "What did 2004 Finals MVP Chauncey Billups average in points per game?",
+      "context": "Detroit Pistons vs Lakers · 2004 Finals · five games",
+      "answer": 21,
       "unit": {
         "singular": "point per game",
         "plural": "points per game"
       },
-      "min": 20,
-      "max": 100,
-      "step": 1,
-      "note": "73 points a game, topping 60 every time.",
+      "min": 10,
+      "max": 36,
+      "step": 0.1,
+      "note": "21.0 per game for the Finals MVP, on 50.9% shooting.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-        "quote": "He averaged 73 points in four games that week"
+        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+        "quote": "Chauncey Billups | 5 | 5 | 38.4 | .509 | .471 | .929 | 3.2 | 5.2 | 1.2 | 0.0 | 21.0"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Billups shot better than 50% from the field and over 47% from three during the championship series.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "Chauncey Billups | 5 | 5 | 38.4 | .509 | .471 | .929 | 3.2 | 5.2 | 1.2 | 0.0 | 21.0"
+          }
+        },
+        {
+          "text": "The Lakers entered the matchup favored, with a lineup led by Kobe Bryant and Shaquille O'Neal.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "the Lakers, headed by Kobe Bryant and Shaquille O'Neal, were considered the heavy favorites"
+          }
+        },
+        {
+          "text": "Richard Hamilton actually averaged slightly more points than Billups in that series, despite Billups taking Finals MVP.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "Richard Hamilton | 5 | 5 | 44.4 | .402 | .400 | .853 | 5.2 | 4.0 | 0.8 | 0.0 | 21.4"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-rockets08-streak",
+      "sport": "NBA",
+      "prompt": "The 2007–08 Rockets won how many games in a row, then the second-longest streak ever?",
+      "context": "Houston Rockets · 2007–08",
+      "answer": 22,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 10,
+      "max": 42,
+      "step": 1,
+      "note": "22.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
+        "quote": "the Rockets went on a 22-game winning streak, which was the then-second longest in NBA history"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "In the three earlier games that week, Wilt had already scored enormous totals on successive nights.",
+          "text": "Yao Ming missed part of Houston's long streak, leaving a patchwork roster to keep winning without its star center.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-            "quote": "In three earlier games that week, Chamberlain had scored 67, 65, and 61 points respectively"
+            "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
+            "quote": "despite missing Yao Ming during that stretch"
           }
         },
         {
-          "text": "Coach Frank McGuire built the Warriors offense around feeding his towering center at every opportunity.",
+          "text": "Houston finished fifth in the West and drew a first-round rematch with the Utah Jazz.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-            "quote": "started the season vowing to get the ball to Chamberlain \"two-thirds of the time.\""
+            "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
+            "quote": "Houston finished the season as the West's fifth seed, earning them a rematch with the Jazz in the first round"
           }
         },
         {
-          "text": "Wilt was close to an unprecedented season scoring total; no other player had reached even three thousand at that point.",
+          "text": "McGrady scored forty in the decisive playoff Game 6, but Utah still eliminated Houston.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-            "quote": "no other player had ever scored 3,000 points at that point"
+            "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
+            "quote": "a strong 40-point and 10-rebound performance from McGrady in the decisive Game 6"
           }
         }
       ]

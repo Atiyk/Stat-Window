@@ -37,3 +37,11 @@ A 24-second per-question shot clock means every prompt must be scannable and **e
 - Future pre-release changes go through the NBA calendar publisher, content locks and full CI, not client-only runtime reshuffling.
 - Test the candidate slate with five casual NBA fans and five enthusiast NBA fans; record which question caused stall, frustration, laughter or surprise. A 24-second timer is a content stress test.
 - Measure first-round touch, each lock, five-question completion and next-day return. Retention effects are hypotheses until actual cohort data are collected.
+
+## V3 mixed-slate publication — 2026-11-22
+
+This change remixes **only the 66 not-yet-published NBA slates** (2026-11-23 onward) from already sourced, reviewed numeric facts. Every question retains its original ID, answer, scoring scale, source excerpt, reveal and difficulty; no new sourced claims are invented. Each day uses five different storylines/teams rather than five splits of a single club. The canonical `data/nba/calendar.json` and generated `content/days/*.json` plus future entries of `content/published.lock.json` must stay byte-consistent.
+
+**Editorial caveat:** 66 opening slots but only 42 existing eligible easy questions currently meet the combined interest >=4, recognizability >=4, estimability >=3 bar. We front-load those 42 into the first 42 future days. The final 24 days retain the less compelling sourced easy candidates pending new independent fact research and verification. No weaker easy is reclassified merely to pass a numerical gate. All future slates are labelled as mixed; the previous single-team theme title and recap no longer represent the content.
+
+**Remaining human gate:** an independent basketball editor must review each remixed five-question arc, especially Q5, and confirm that the daily variety feels fun rather than mechanically shuffled. The scripts and automated checks alone cannot establish enjoyment. Run full `content:publish:check`, `content:check`, `nba:report:check`, `survival:catalog:check`, `factory:check` and complete CI before merging. This worker cannot claim those checks ran locally.

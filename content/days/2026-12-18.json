@@ -1,29 +1,29 @@
 {
   "date": "2026-12-18",
   "theme": {
-    "title": "Miller time",
-    "subtitle": "Reggie Miller's Pacers",
-    "recap": "Reggie Miller tormented the Knicks, made threes in 68 straight games and once scored eight points in under nine seconds."
+    "title": "NBA Mix 26",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-miller92-57",
+      "id": "nba-giannis21-g6",
       "sport": "NBA",
-      "prompt": "What was Reggie Miller's career high in points?",
-      "context": "Pacers vs Charlotte Hornets · November 28, 1992",
-      "answer": 57,
+      "prompt": "How many points did Giannis Antetokounmpo score in the 2021 title clincher?",
+      "context": "2021 NBA Finals · Game 6 · vs Phoenix",
+      "answer": 50,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 40,
-      "max": 90,
+      "min": 15,
+      "max": 65,
       "step": 1,
-      "note": "57.",
+      "note": "50, with 14 rebounds and five blocks.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-        "quote": "he scored a career-high 57 points against the Charlotte Hornets in a 134–122 win"
+        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+        "quote": "Giannis Antetokounmpo scored a playoff career-high 50 points and added 14 rebounds and five blocks"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Pacers fans booed the draft selection that brought Miller to Indiana; they had wanted hometown favorite Steve Alford.",
+          "text": "Giannis reached the championship series after hyperextending his left knee against Atlanta in the East finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "fans watching the 1987 NBA draft booed Pacers President Donnie Walsh for the selection"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "Antetokounmpo went down in game four with a hyperextension to his left knee"
           }
         },
         {
-          "text": "Miller became the Pacers' primary scoring option after Indiana traded Chuck Person in the offseason.",
+          "text": "Milwaukee rallied from losing the first two Finals games in Phoenix to claim its long-awaited title.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "After Chuck Person was traded from the Pacers during the 1992 offseason"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "the Bucks won the next four games"
           }
         },
         {
-          "text": "Years later, Jermaine O'Neal stopped scoring late in a big night rather than surpass his veteran teammate's franchise mark.",
+          "text": "Jrue Holiday's arrival from New Orleans had bolstered the Bucks' defense before the championship run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "left the game with 1:43 remaining to preserve Miller's 57-point record"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "the Bucks acquired guard Jrue Holiday, a highly respected defensive player"
           }
         }
       ]
     },
     {
-      "id": "nba-miller95-8-points",
+      "id": "nba-iverson01-season-ppg",
       "sport": "NBA",
-      "prompt": "Against the Knicks in 1995, Reggie Miller scored how many points in 8.9 seconds?",
-      "context": "1995 East semifinals · Game 1 · at New York",
-      "answer": 8,
+      "prompt": "What was Allen Iverson's scoring average during his 2000–01 MVP season?",
+      "context": "Philadelphia 76ers · 2000–01 · regular season",
+      "answer": 31.1,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 0,
-      "max": 12,
-      "step": 1,
-      "note": "Eight unanswered points.",
+      "min": 16,
+      "max": 44,
+      "step": 0.1,
+      "note": "31.1 a night, enough to lead the league and win MVP.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-        "quote": "scored eight unanswered points in 8.9 seconds in Game 1"
+        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+        "quote": "All-Star guard Allen Iverson averaged 31.1 points, 4.6 assists and 2.5 steals per game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,100 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "The comeback featured a stolen inbounds pass from Anthony Mason between Miller's dramatic jumpers.",
+          "text": "Iverson led the NBA not only in scoring but also in steals that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "stole the inbound pass from Anthony Mason"
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "leading the league in both scoring and steals"
           }
         },
         {
-          "text": "John Starks missed both free throws on New York's next possession, leaving the door open for Indiana.",
+          "text": "Iverson also won All-Star Game MVP in Washington, D.C., where the East beat the West by a single point.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "Starks missed both free throws"
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "Iverson scored 25 points along with 5 assists and 4 steals, and was named the All-Star Game Most Valuable Player"
           }
         },
         {
-          "text": "Patrick Ewing grabbed the offensive rebound but his putback bounced off the back rim.",
+          "text": "Philadelphia had an unusual awards sweep: teammate Aaron McKie was Sixth Man of the Year and Mutombo was Defensive Player of the Year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "his shot was just a bit long and hit the back rim"
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "Aaron McKie provided the team with 11.6 points, 5.0 assists and 1.4 steals per game, and was named the NBA Sixth Man of the Year"
           }
         }
       ]
     },
     {
-      "id": "nba-miller94-4q",
+      "id": "nba-butler20-regular-apg",
       "sport": "NBA",
-      "prompt": "In Game 5 of the 1994 East finals at Madison Square Garden, how many fourth-quarter points did Reggie Miller score?",
-      "context": "1994 East finals · Game 5 · at New York",
-      "answer": 25,
+      "prompt": "How many assists per game did Jimmy Butler average in his first Heat season?",
+      "context": "Miami · 2019–20 regular season",
+      "answer": 6,
+      "unit": {
+        "singular": "assist per game",
+        "plural": "assists per game"
+      },
+      "min": 2,
+      "max": 16,
+      "step": 0.1,
+      "note": "6.0 assists per night as a creative forward.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+        "quote": "Jimmy Butler | SF | 58 | 58 | 1,959 | 386 | 350 | 103 | 32 | 1,157 | 33.8 | 6.7 | 6.0"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Butler collected 103 steals in just fifty-eight appearances.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Jimmy Butler | SF | 58 | 58 | 1,959 | 386 | 350 | 103"
+          }
+        },
+        {
+          "text": "He averaged 19.9 points while also organizing Miami's offense.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Jimmy Butler | SF | 58 | 58 | 1,959 | 386 | 350 | 103 | 32 | 1,157 | 33.8 | 6.7 | 6.0 | 1.8 | .6 | 19.9"
+          }
+        },
+        {
+          "text": "Butler started all fifty-eight regular-season games he played.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Jimmy Butler | SF | 58 | 58"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-green16-g7",
+      "sport": "NBA",
+      "prompt": "Draymond Green led all scorers in Game 7 of the 2016 Finals. How many points did he score?",
+      "context": "2016 NBA Finals · Game 7 · Warriors lost",
+      "answer": 32,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 2,
-      "max": 32,
+      "min": 15,
+      "max": 65,
       "step": 1,
-      "note": "25 of his 39.",
+      "note": "32, more than anyone else that night.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-        "quote": "scored 39 points (25 in the fourth quarter alone) in the Pacers' 93–86 victory"
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "Draymond Green put up his best performance of the Finals, leading all scorers with 32 points,"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,100 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Director Spike Lee was seated courtside at Madison Square Garden, and Miller talked animatedly at him.",
+          "text": "Green shot an outstanding six of eight from beyond the arc in the final game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "engaged in an animated discussion of his ongoing performance with noted Knicks fan Spike Lee"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "including 6-of-8 from three-point range"
           }
         },
         {
-          "text": "That explosive road performance put the Pacers ahead in the series, but the Knicks ultimately eliminated Indiana.",
+          "text": "His stat line also included 15 rebounds and nine assists.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "but they lost the next two games and the series"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "along with 15 rebounds and nine assists"
           }
         },
         {
-          "text": "The player later earned the nickname 'Knick Killer' for his repeated postseason torment of New York.",
+          "text": "Kyrie Irving added 26 points for Cleveland during the decisive game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "most notably against the New York Knicks, for which he earned the nickname \"Knick Killer\""
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "Kyrie Irving added 26 points for Cleveland"
           }
         }
       ]
     },
     {
-      "id": "nba-pacers00-home-streak",
+      "id": "nba-mavs11-g2-comeback",
       "sport": "NBA",
-      "prompt": "The 1999–2000 Pacers set a franchise record for consecutive home wins. How many?",
-      "context": "Indiana Pacers · 1999–2000",
-      "answer": 25,
+      "prompt": "Dallas won Game 2 of the 2011 Finals after trailing by how many points?",
+      "context": "2011 NBA Finals · Game 2 · at Miami",
+      "answer": 15,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 36,
+      "max": 26,
       "step": 1,
-      "note": "25.",
+      "note": "15, the biggest Finals comeback since Boston rallied from 24 down in 2008.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-        "quote": "including a franchise-best 25 game win streak at home"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "The Pacers finally defeated the rival Knicks in the Eastern finals to reach their first NBA championship series.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "The Pacers advanced to the NBA Finals for the first time in franchise history"
-          }
-        },
-        {
-          "text": "Indiana's coach during that Finals run was former Boston Celtics star Larry Bird.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-            "quote": "Indiana Pacers  Larry Bird"
-          }
-        },
-        {
-          "text": "Both finalists were playing in newly opened home arenas, Indiana's Fieldhouse and Los Angeles's Staples Center.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-            "quote": "both teams in the Finals featured newly built arenas"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-miller97-three-streak",
-      "sport": "NBA",
-      "prompt": "From November 1996 to April 1997, Reggie Miller made a three in how many straight games?",
-      "context": "Indiana Pacers · 1996–97",
-      "answer": 68,
-      "unit": {
-        "singular": "game",
-        "plural": "games"
-      },
-      "min": 25,
-      "max": 130,
-      "step": 1,
-      "note": "68.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-        "quote": "Miller made a three-pointer in 68 consecutive games from November 15, 1996, to April 6, 1997."
+        "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+        "quote": "The Mavs' 15-point comeback was the biggest in an NBA Finals game since the 24-point comeback"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Miller remained with Indiana for his entire playing career, an increasingly rare feat for a long-tenured star.",
+          "text": "Dirk finished the comeback with a driving layup using his injured left hand.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "played his entire 18-year career in the National Basketball Association (NBA) with the Indiana Pacers"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "Nowitzki then made a driving layup with his injured left hand with 3.6 seconds left."
           }
         },
         {
-          "text": "He eventually joined the exclusive fifty-forty-ninety shooting club, combining accuracy at the line and from the field.",
+          "text": "Mario Chalmers briefly tied the game on a three-pointer before Dallas took the decisive possession.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "He is one of only nine players to join the 50–40–90 club"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "However, Mario Chalmers tied it with a 3 of his own with 24.5 seconds left"
           }
         },
         {
-          "text": "Miller's career three-pointer record eventually passed first to Ray Allen, then to Stephen Curry.",
+          "text": "The Mavericks' victory ended a nine-game home playoff winning streak for Miami.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "His record was later broken by Ray Allen, who was later surpassed by Stephen Curry"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "The Mavs' win broke the Heat's 9-game home winning streak in the playoffs"
           }
         }
       ]

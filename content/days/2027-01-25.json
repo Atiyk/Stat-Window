@@ -1,29 +1,29 @@
 {
   "date": "2027-01-25",
   "theme": {
-    "title": "The upset nobody saw",
-    "subtitle": "Seattle against Denver",
-    "recap": "Kemp and Payton led the NBA's best regular-season team before the Nuggets stunned Seattle in the first round."
+    "title": "NBA Mix 64",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-sonics94-regular-wins",
+      "id": "nba-pierce02-46",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 1993–94 Seattle SuperSonics win?",
-      "context": "Seattle · regular season · 82 games",
-      "answer": 63,
+      "prompt": "In the deciding Game 5 of the 2002 first round against Philadelphia, Paul Pierce scored how many points?",
+      "context": "2002 East first round · Game 5 · vs 76ers",
+      "answer": 46,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 34,
-      "max": 82,
+      "min": 25,
+      "max": 75,
       "step": 1,
-      "note": "63 victories, before a shocking first-round elimination.",
+      "note": "46, with 8 of 10 threes.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-        "quote": "league-best 63–19 record"
+        "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
+        "quote": "Paul Pierce led the way with 46, on 8-10 shooting from downtown"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Seattle acquired two-time Sixth Man of the Year Detlef Schrempf from Indiana before the season.",
+          "text": "Boston had reached the playoffs for the first time in seven years before meeting Philadelphia.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "acquired All-Star forward, and 2-time Sixth Man of the Year Detlef Schrempf from the Indiana Pacers"
+            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
+            "quote": "This series marked the return of the Celtics to the playoffs for the first time in seven years"
           }
         },
         {
-          "text": "The Sonics also traded for Kendall Gill from Charlotte that offseason.",
+          "text": "The 76ers came into the matchup as defending Eastern Conference champions behind Allen Iverson.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "acquired Kendall Gill from the Charlotte Hornets"
+            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
+            "quote": "they faced the reigning Eastern Conference champion in the first round"
           }
         },
         {
-          "text": "George Karl was chosen to coach the Western Conference's All-Star team.",
+          "text": "Antoine Walker shared the scoring burden during the series and helped Boston turn back Philadelphia's rally.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "head coach George Karl was selected to coach the Western Conference"
+            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
+            "quote": "Antoine Walker stepped up for the Celtics"
           }
         }
       ]
     },
     {
-      "id": "nba-sonics94-opening-streak",
+      "id": "nba-season21-games",
       "sport": "NBA",
-      "prompt": "How many straight games did Seattle win to start its 1993–94 season?",
-      "context": "SuperSonics · opening winning streak",
-      "answer": 10,
+      "prompt": "How many regular-season games did each team play in 2020–21?",
+      "context": "NBA · 2020–21 season",
+      "answer": 72,
       "unit": {
         "singular": "game",
         "plural": "games"
       },
-      "min": 3,
-      "max": 28,
+      "min": 44,
+      "max": 78,
       "step": 1,
-      "note": "Ten straight wins to start the campaign.",
+      "note": "72.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-        "quote": "winning their first ten games of the regular season"
+        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+        "quote": "The regular season was reduced to 72 games for each team"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Seattle reached a 26–3 record early in that spectacular regular season.",
+          "text": "The pandemic pushed the Bucks–Suns championship series into July, far later than the normal schedule.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "The team got off to a 26–3 start to the season"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "the start date of the series was pushed from its usual time in late May or early June to July 6"
           }
         },
         {
-          "text": "By the All-Star break, the Sonics were 35–10 and led the entire NBA.",
+          "text": "Milwaukee bolstered its defense by trading for Jrue Holiday ahead of its championship run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "held a league-best 35–10 record at the All-Star break"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "The Bucks acquired Jrue Holiday from the New Orleans Pelicans in the offseason"
           }
         },
         {
-          "text": "Seattle finished the season by winning 17 of its last 19 games.",
+          "text": "Phoenix brought in Chris Paul after years of losing seasons, triggering an immediate turnaround.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "won 17 of their final 19 games of the season"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "The Suns' Chris Paul, acquired from the Oklahoma City Thunder in the offseason"
           }
         }
       ]
     },
     {
-      "id": "nba-kemp94-rpg",
+      "id": "nba-lakers72-margin",
       "sport": "NBA",
-      "prompt": "How many rebounds per game did Shawn Kemp average for the Sonics?",
-      "context": "Shawn Kemp · Seattle · 1993–94",
-      "answer": 10.8,
+      "prompt": "By how many points per game did the 1971–72 Lakers outscore their opponents?",
+      "context": "Los Angeles Lakers · 1971–72 regular season",
+      "answer": 12.3,
       "unit": {
-        "singular": "rebound per game",
-        "plural": "rebounds per game"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 5,
+      "min": 0,
       "max": 19,
       "step": 0.1,
-      "note": "10.8 rebounds per game as one of the West's top forwards.",
+      "note": "12.3 points a night.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-        "quote": "Shawn Kemp averaged 18.1 points, 10.8 rebounds, 1.8 steals and 2.1 blocks per game"
+        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+        "quote": "outscoring opponents by 12.3 points per game in the regular season"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,50 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Kemp also averaged 2.1 blocks per game that season.",
+          "text": "In March, Los Angeles put on a staggering scoring display in a home rout of Golden State.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "10.8 rebounds, 1.8 steals and 2.1 blocks per game"
+            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+            "quote": "78 March 19 Golden State 99–162 Gail Goodrich"
           }
         },
         {
-          "text": "He earned All-NBA Second Team honors alongside Seattle's regular-season rise.",
+          "text": "Gail Goodrich lit up Houston during a December road victory, leading the Lakers' attack.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "and was named to the All-NBA Second Team"
+            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+            "quote": "27 December 8 @ Houston 125–120 Gail Goodrich (42)"
           }
         },
         {
-          "text": "Kemp competed in the Slam Dunk Contest for the fourth time in his career.",
+          "text": "The club's home record was exceptional, but its road success was nearly as impressive.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "Kemp also participated in the NBA Slam Dunk Contest for the fourth time"
+            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+            "quote": "1971–72 game log\nTotal: 69–13 (Home: 36–5; Road: 33–8)"
           }
         }
       ]
     },
     {
-      "id": "nba-payton94-apg",
+      "id": "nba-oscar71-apg",
       "sport": "NBA",
-      "prompt": "How many assists per game did Gary Payton average in Seattle's dominant season?",
-      "context": "Gary Payton · Seattle · regular season",
-      "answer": 6,
+      "prompt": "In his first Bucks season, about how many assists per game did Oscar Robertson average, to the nearest whole number?",
+      "context": "Milwaukee Bucks · 1970–71",
+      "answer": 8,
       "unit": {
         "singular": "assist per game",
         "plural": "assists per game"
       },
       "min": 2,
-      "max": 13,
-      "step": 0.1,
-      "note": "6.0 assists per game, alongside elite on-ball defense.",
+      "max": 14,
+      "step": 1,
+      "note": "About 8: the text says 8.3, the season table 8.25.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-        "quote": "Gary Payton averaged 16.5 points, 6.0 assists and 2.3 steals per game"
+        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+        "quote": "Robertson ranked third in the league in assists at 8.3 apg and was the Bucks' No. 2 scorer at 19.4 ppg.",
+        "derivation": "The article’s text says 8.3; its season table gives 668 assists in 81 games, 8.25. Either way, 8 to the nearest whole number."
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +186,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Payton made his first NBA All-Star team that season.",
+          "text": "Robertson also scored 19.4 points per game while partnering Alcindor.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "it was Payton's first ever All-Star appearance"
+            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+            "quote": "the Bucks' No. 2 scorer at 19.4 ppg"
           }
         },
         {
-          "text": "He was also named to the NBA All-Defensive First Team.",
+          "text": "Oscar finished third in the league in assists during his debut Bucks season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "and to the NBA All-Defensive First Team"
+            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+            "quote": "Robertson ranked third in the league in assists"
           }
         },
         {
-          "text": "Seattle reserve Nate McMillan averaged 3.0 steals per game.",
+          "text": "Milwaukee's title came just a year after the franchise brought Oscar in from Cincinnati.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "Nate McMillan provided with 6.0 points, 5.3 assists and 3.0 steals per game"
+            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+            "quote": "A key part of this championship season was the acquisition of Oscar Robertson"
           }
         }
       ]
     },
     {
-      "id": "nba-sonics94-nuggets-g5-points",
+      "id": "nba-lakers04-g3-68",
       "sport": "NBA",
-      "prompt": "How many points did Seattle score in its decisive Game 5 loss to Denver?",
-      "context": "NBA playoffs · first-round upset · Seattle vs Denver",
-      "answer": 94,
+      "prompt": "How many points did Detroit hold the Lakers to in Game 3 of the 2004 Finals?",
+      "context": "2004 NBA Finals · Game 3 · at Detroit",
+      "answer": 68,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 48,
-      "max": 128,
+      "min": 30,
+      "max": 95,
       "step": 1,
-      "note": "94 points in overtime as Denver completed a historic upset.",
+      "note": "68, in an 88–68 loss.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-        "quote": "losing Game 5 to the Nuggets at the Seattle Center Coliseum in overtime, 98–94"
+        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+        "quote": "The 68 points scored by the Lakers set a franchise record for the lowest number of points scored in a playoff game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +237,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Denver's roster featured Dikembe Mutombo and Mahmoud Abdul-Rauf.",
+          "text": "Tayshaun Prince and Detroit's defense held Kobe Bryant scoreless in the first half.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "a team that featured defensive shot-blocker Dikembe Mutombo, Mahmoud Abdul-Rauf"
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "with Bryant going scoreless in the first half"
           }
         },
         {
-          "text": "Seattle won the first two games at home before losing the next two on the road.",
+          "text": "Richard Hamilton led all scorers with 31 points in the pivotal Game 3 victory.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "The SuperSonics won the first two games over the Nuggets at home"
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "Pts: Richard Hamilton 31"
           }
         },
         {
-          "text": "The Nuggets became the first No. 8 seed to eliminate a top seed in NBA playoff history.",
+          "text": "Detroit ultimately won the championship series in five games against the favored Lakers.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-            "quote": "it was the first time in NBA playoffs history that a #8 seed defeated a #1 seeded team"
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "Detroit wins NBA Finals, 4–1"
           }
         }
       ]

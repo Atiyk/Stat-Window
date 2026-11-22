@@ -1,29 +1,29 @@
 {
   "date": "2026-12-31",
   "theme": {
-    "title": "Shortened seasons",
-    "subtitle": "Lockouts and the pandemic",
-    "recap": "The NBA has cut its schedule to 50 games, 66 games and 72 games, and the shortened years still produced champions."
+    "title": "NBA Mix 39",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-lockout99-games",
+      "id": "nba-cavs09-record-wins",
       "sport": "NBA",
-      "prompt": "The 1998–99 lockout cut the regular season to how many games per team?",
-      "context": "NBA · 1998–99 season",
-      "answer": 50,
+      "prompt": "How many regular-season games did LeBron's 2008–09 Cavaliers win?",
+      "context": "Cleveland Cavaliers · 2008–09 · 82 games",
+      "answer": 66,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 15,
-      "max": 70,
+      "min": 42,
+      "max": 82,
       "step": 1,
-      "note": "50, starting February 5, 1999.",
+      "note": "66 victories, the best record in the NBA that season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-        "quote": "Due to a lockout, the regular season began on February 5, 1999, and was cut from 82 games to 50."
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+        "quote": "They finished the regular season with 66 wins and 16 losses"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The season began unusually late after the league and players' association settled their labor dispute.",
+          "text": "LeBron won his first MVP award and finished runner-up in Defensive Player of the Year voting.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "the season, which began on February 5, 1999"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "LeBron James won his first MVP Award and finished second in Defensive Player of the Year voting."
           }
         },
         {
-          "text": "Chicago's championship dynasty disintegrated during the stoppage, with Jordan and Phil Jackson leaving.",
+          "text": "Mike Brown earned Coach of the Year honors as Cleveland raced to the East's top seed.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "Phil Jackson and Michael Jordan temporarily retire"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "Mike Brown was named NBA Coach of the Year for the 2008–2009 season."
           }
         },
         {
-          "text": "The New York Knicks reached the Finals from the bottom playoff seed, an extraordinary outcome.",
+          "text": "Cleveland ended its playoff run after sweeping both Detroit and Atlanta, before Orlando stopped them in the conference finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "this was the only NBA Finals to feature an eighth-seeded team"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "the Cavaliers swept the Detroit Pistons in the First Round in four games, swept the Atlanta Hawks in the Semifinals in four games"
           }
         }
       ]
     },
     {
-      "id": "nba-season21-games",
+      "id": "nba-detroit04-winter-streak",
       "sport": "NBA",
-      "prompt": "How many regular-season games did each team play in 2020–21?",
-      "context": "NBA · 2020–21 season",
-      "answer": 72,
+      "prompt": "How many straight games did Larry Brown's Pistons win across December and January?",
+      "context": "Detroit Pistons · 2003–04 · regular season",
+      "answer": 13,
       "unit": {
         "singular": "game",
         "plural": "games"
       },
-      "min": 44,
-      "max": 78,
+      "min": 6,
+      "max": 24,
       "step": 1,
-      "note": "72.",
+      "note": "Thirteen straight during Brown's first season in Detroit.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-        "quote": "The regular season was reduced to 72 games for each team"
+        "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+        "quote": "they went on a 13-game winning streak between December and January"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "The pandemic pushed the Bucks–Suns championship series into July, far later than the normal schedule.",
+          "text": "That midwinter streak was part of Larry Brown's first year running Detroit, after he replaced the previous coaching staff.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-            "quote": "the start date of the series was pushed from its usual time in late May or early June to July 6"
+            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+            "quote": "After their first trip to the Conference Finals since 1991, the Pistons hired Larry Brown as head coach."
           }
         },
         {
-          "text": "Milwaukee bolstered its defense by trading for Jrue Holiday ahead of its championship run.",
+          "text": "The championship season wasn't all smooth: Detroit also suffered a six-game losing streak in February.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-            "quote": "The Bucks acquired Jrue Holiday from the New Orleans Pelicans in the offseason"
+            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+            "quote": "they struggled in February, losing six straight games."
           }
         },
         {
-          "text": "Phoenix brought in Chris Paul after years of losing seasons, triggering an immediate turnaround.",
+          "text": "Detroit finished second in its own Central Division yet still went on to win the league championship.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-            "quote": "The Suns' Chris Paul, acquired from the Oklahoma City Thunder in the offseason"
+            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+            "quote": "finishing second in the Central Division with a 54–28 record."
           }
         }
       ]
     },
     {
-      "id": "nba-spurs99-wins",
+      "id": "nba-holiday21-playoffs-apg",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 1998–99 Spurs win in the lockout season?",
-      "context": "San Antonio Spurs · 1998–99",
-      "answer": 37,
+      "prompt": "How many assists per game did Jrue Holiday average in the 2021 playoffs?",
+      "context": "Bucks · full postseason · title run",
+      "answer": 8.7,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "assist per game",
+        "plural": "assists per game"
       },
-      "min": 10,
-      "max": 46,
-      "step": 1,
-      "note": "37, going 37–13, tied with Utah for the league’s best.",
+      "min": 3,
+      "max": 17,
+      "step": 0.1,
+      "note": "8.7 assists a game from Milwaukee's two-way guard.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-        "quote": "The Spurs finished in first place in the Midwest Division with a league-best 37–13 record"
+        "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+        "quote": "Jrue Holiday | 23 | 23 | 39.7 | .406 | .303 | .714 | 5.7 | 8.7 | 1.7"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "The Spurs started slowly before tearing through March and the rest of the shortened schedule.",
+          "text": "Holiday started all 23 of Milwaukee's playoff games.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-            "quote": "the Spurs got off to a slow start to the regular season by posting a 6–8 record in February"
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "Jrue Holiday | 23 | 23 | 39.7"
           }
         },
         {
-          "text": "San Antonio added ex-Bulls sharpshooter Steve Kerr to its roster that summer.",
+          "text": "His late steal against Devin Booker set up an alley-oop that swung Finals Game 5.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-            "quote": "acquired three-point specialist Steve Kerr from the Chicago Bulls"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "Jrue Holiday stole the ball from Devin Booker and passed it to Giannis Antetokounmpo for an alley-oop"
           }
         },
         {
-          "text": "Tim Duncan earned All-Defensive First Team honors alongside his fellow frontcourt force David Robinson.",
+          "text": "Holiday had been acquired from New Orleans in Milwaukee's offseason reshuffle.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-            "quote": "was named to the All-NBA First Team, and to the NBA All-Defensive First Team"
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "Jrue Holiday (from New Orleans)"
           }
         }
       ]
     },
     {
-      "id": "nba-sprewell99-g5",
+      "id": "nba-sikma79-suns-g7-points",
       "sport": "NBA",
-      "prompt": "The Knicks scored 39 second-half points in the 1999 clincher. How many were Latrell Sprewell's?",
-      "context": "1999 NBA Finals · Game 5 · vs San Antonio",
-      "answer": 25,
+      "prompt": "How many points did Jack Sikma score in Game 7 against Phoenix in 1979?",
+      "context": "Seattle · Western Conference finals · deciding game",
+      "answer": 33,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 0,
-      "max": 39,
+      "min": 14,
+      "max": 69,
       "step": 1,
-      "note": "25 of the 39.",
+      "note": "33 points from Sikma to put Seattle into the Finals.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-        "quote": "The Knicks scored 39 points in the second half, and Latrell Sprewell scored 25 of them"
+        "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+        "quote": "May 17 Phoenix W 114–110 Jack Sikma (33)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "An Avery Johnson jumper became the championship-clinching basket as the Knicks fell just short.",
+          "text": "Fred Brown led the Sonics with five assists in the winner-take-all contest.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "Avery Johnson hit the game-winner with 66 seconds remaining"
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "May 17 Phoenix W 114–110 Jack Sikma (33) Jack Sikma (11) Fred Brown (5)"
           }
         },
         {
-          "text": "New York's Cinderella run came without injured franchise center Patrick Ewing.",
+          "text": "Over thirty-seven thousand fans watched Seattle survive the deciding game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "Patrick Ewing (2008; did not play)"
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "37,552 4–3"
           }
         },
         {
-          "text": "The Knicks came from the last East playoff seed and still won a Finals game at Madison Square Garden.",
+          "text": "The Sonics advanced to face the defending champion Washington Bullets again.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "the first time an eighth-seeded team won an NBA Finals game"
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "facing the defending NBA champion Washington Bullets"
           }
         }
       ]
     },
     {
-      "id": "nba-spurs99-memorial-day",
+      "id": "nba-baylor-finals-losses",
       "sport": "NBA",
-      "prompt": "In Game 2 of the 1999 West finals, San Antonio came back from how many points down to win on Sean Elliott's \"Memorial Day Miracle\"?",
-      "context": "1999 West finals · Game 2 · vs Portland",
-      "answer": 17,
+      "prompt": "Elgin Baylor led the Lakers to the Finals how many times, losing every one?",
+      "context": "Minneapolis and Los Angeles Lakers · 1958–1971",
+      "answer": 8,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "Finals appearance",
+        "plural": "Finals appearances"
       },
       "min": 0,
-      "max": 22,
+      "max": 11,
       "step": 1,
-      "note": "17.",
+      "note": "Eight times.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-        "quote": "the Spurs trailed by 17 points against the Trail Blazers in Game 2"
+        "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+        "quote": "helped lead the team to the NBA Finals eight times, but the team lost each time."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Sean Elliott hit the decisive long-distance shot to sink Portland in the conference finals.",
+          "text": "Baylor retired just before the Lakers embarked on their landmark winning streak and won the championship.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-            "quote": "a game-winning three-pointer from Elliott, which was dubbed as the \"Memorial Day Miracle\""
+            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+            "quote": "Baylor missed two historic achievements: the Lakers' first game afterwards began an NBA record 33-game win streak"
           }
         },
         {
-          "text": "San Antonio went on to sweep Portland, becoming the first former ABA franchise to reach the NBA Finals.",
+          "text": "During an Army Reserve deployment, Baylor could join the Lakers only on weekend passes and flew coach to games.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-            "quote": "becoming the first former ABA team to advance to the NBA Finals"
+            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+            "quote": "he could play for the Lakers only when on a weekend pass"
           }
         },
         {
-          "text": "Before the Portland showdown, San Antonio had swept Kobe Bryant and Shaquille O'Neal's Lakers.",
+          "text": "The Lakers were struggling financially when Baylor arrived; their owner credited him with keeping the franchise alive.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-            "quote": "the Lakers, who were led by the All-Star trio of Shaquille O'Neal, Kobe Bryant and Glen Rice"
+            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+            "quote": "Baylor immediately exceeded expectations and ultimately saved the Lakers franchise"
           }
         }
       ]

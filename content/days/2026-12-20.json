@@ -1,29 +1,29 @@
 {
   "date": "2026-12-20",
   "theme": {
-    "title": "Crowds, ratings and parades",
-    "subtitle": "Who was watching",
-    "recap": "From 4,000 people in Hershey to 108,713 in Texas, the NBA's audience numbers swing wildly."
+    "title": "NBA Mix 28",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-allstar10-attendance",
+      "id": "nba-spurs14-season-wins",
       "sport": "NBA",
-      "prompt": "The 2010 NBA All-Star Game set the attendance record for a basketball game. How many people were there?",
-      "context": "2010 NBA All-Star Game · held in a football stadium",
-      "answer": 108713,
+      "prompt": "How many regular-season games did the 2013–14 champion Spurs win?",
+      "context": "San Antonio · the Beautiful Game title",
+      "answer": 62,
       "unit": {
-        "singular": "fan",
-        "plural": "fans"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 10000,
-      "max": 150000,
-      "step": 1000,
-      "note": "108,713.",
+      "min": 20,
+      "max": 86,
+      "step": 1,
+      "note": "62 wins before the rematch with Miami.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/NBA_All-Star_Game",
-        "quote": "In 2010, the NBA All-Star Game set the attendance record for a basketball game with 108,713 people"
+        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+        "quote": "the best record in the league at 62–20"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The All-Star spectacle took place in Cowboys Stadium rather than the Dallas Mavericks' basketball arena.",
+          "text": "San Antonio entered the season with a then-record ten international players.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_All-Star_Game",
-            "quote": "The venue for the game on February 14 was Cowboys Stadium"
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "an NBA-record ten international players"
           }
         },
         {
-          "text": "The pregame festivities and Saturday contests were staged at a separate venue, American Airlines Center.",
+          "text": "The Spurs had lost their first NBA Finals series the prior year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_All-Star_Game",
-            "quote": "NBA All-Star Saturday Night events were held on February 12 and February 13, 2010"
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "marking the first time the Spurs lost in the NBA Finals"
           }
         },
         {
-          "text": "For the first time, neither All-Star team wore white: the East donned blue, while the West wore red.",
+          "text": "Gregg Popovich led the team as both coach and president.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_All-Star_Game",
-            "quote": "This marked the first All-Star game where neither team wore a white uniform"
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Head coach | Gregg Popovich"
           }
         }
       ]
     },
     {
-      "id": "nba-allstar24-east",
+      "id": "nba-barry80-threes",
       "sport": "NBA",
-      "prompt": "How many points did the East score in the 2024 All-Star Game?",
-      "context": "2024 NBA All-Star Game · East vs West",
-      "answer": 211,
+      "prompt": "Rick Barry set the first NBA record for threes in a game in February 1980. How many did he make?",
+      "context": "Houston Rockets vs Utah Jazz · 1979–80",
+      "answer": 8,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 130,
-      "max": 270,
+      "min": 0,
+      "max": 15,
       "step": 1,
-      "note": "211, beating the West's 186.",
+      "note": "Eight, against Utah.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/NBA_All-Star_Game",
-        "quote": "East 211 – 186 West"
+        "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
+        "quote": "Barry would later set the original 3-point record at 8 in a single game on February 9, 1980 against the Utah Jazz."
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,100 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "The league restored the traditional East-versus-West format after years of captains drafting teams.",
+          "text": "Barry's final season overlapped with Larry Bird's Boston debut; both were present for an early NBA three.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2024_NBA_All-Star_Game",
-            "quote": "the return of the Eastern Conference versus Western Conference format"
+            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
+            "quote": "Rick Barry of the Houston Rockets, in his final season, also made one in the same game"
           }
         },
         {
-          "text": "Damian Lillard earned the All-Star MVP award during the high-scoring Indianapolis spectacle.",
+          "text": "Julius Erving made the only three of the entire 1980 NBA Finals, showing how rare the shot still was.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2024_NBA_All-Star_Game",
-            "quote": "MVP  | Damian Lillard (East)"
+            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
+            "quote": "In the 1980 NBA Finals, Julius Erving made the only three of the series"
           }
         },
         {
-          "text": "The game used Gainbridge Fieldhouse, while Lucas Oil Stadium hosted Saturday night's contests.",
+          "text": "In one 1980 Finals game, neither team even attempted a three-pointer.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2024_NBA_All-Star_Game",
-            "quote": "Gainbridge Fieldhouse (All-Star Game)"
+            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
+            "quote": "in Game 4, neither team attempted a single shot beyond the arc"
           }
         }
       ]
     },
     {
-      "id": "nba-allstar51-attendance",
+      "id": "nba-gsw19-g2-run",
       "sport": "NBA",
-      "prompt": "How many fans attended the first NBA All-Star Game in 1951?",
-      "context": "1951 NBA All-Star Game · Boston",
-      "answer": 10094,
+      "prompt": "Golden State opened the second half of Game 2 of the 2019 Finals with how many unanswered points?",
+      "context": "2019 NBA Finals · Game 2 · at Toronto",
+      "answer": 18,
       "unit": {
-        "singular": "fan",
-        "plural": "fans"
-      },
-      "min": 4000,
-      "max": 30000,
-      "step": 100,
-      "note": "10,094, when the average crowd was about 3,500.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/NBA_All-Star_Game",
-        "quote": "drawing an attendance of 10,094, much higher than that season's average attendance of 3,500."
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "The first All-Star Game came out of a public-relations push following a college basketball point-shaving scandal.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1951_NBA_All-Star_Game",
-            "quote": "the basketball world had just been rocked by the college basketball point-shaving scandal"
-          }
-        },
-        {
-          "text": "Celtics owner Walter Brown offered to host the event and cover any losses himself.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1951_NBA_All-Star_Game",
-            "quote": "Brown remained confident that it would be a success. He even offered to host the game"
-          }
-        },
-        {
-          "text": "The original All-Stars were chosen by sportswriters who were not allowed to vote for players from their own cities.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1951_NBA_All-Star_Game",
-            "quote": "They were not allowed to select players from their own cities"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-finals07-rating",
-      "sport": "NBA",
-      "prompt": "The 2007 Finals sweep set what was then a record-low TV rating. What was it?",
-      "context": "2007 NBA Finals · Spurs vs Cavaliers · ABC",
-      "answer": 6.2,
-      "unit": {
-        "singular": "rating point",
-        "plural": "rating points"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 15,
-      "step": 0.1,
-      "note": "6.2, the lowest until 2020.",
+      "max": 24,
+      "step": 1,
+      "note": "18, the most to start a half in Finals history.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2007_NBA_Finals",
-        "quote": "San Antonio's four-game sweep of Cleveland finished with a record-low 6.2 television rating and 11 share on ABC"
+        "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
+        "quote": "The Warriors' 18 unanswered points to begin the second half were the most in NBA Finals history to start a half."
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +134,101 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Cleveland was appearing in its first NBA Finals, as was its young superstar LeBron James.",
+          "text": "Klay Thompson's night ended after he landed awkwardly while attempting a three and injured his hamstring.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2007_NBA_Finals",
-            "quote": "This was Cleveland's first trip to the NBA Finals in their franchise history"
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
+            "quote": "Thompson left the game in the fourth quarter with a left hamstring injury"
           }
         },
         {
-          "text": "San Antonio guard Tony Parker earned Finals MVP after the Spurs swept Cleveland.",
+          "text": "Andre Iguodala hit a late outside shot to prevent Toronto's comeback from forcing another ending.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2007_NBA_Finals",
-            "quote": "Tony Parker was named the series' MVP"
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
+            "quote": "Iguodala cemented the win with a three-pointer with 5.9 seconds remaining"
           }
         },
         {
-          "text": "The 2007 championship series was the last four-game Finals sweep until 2018, also featuring Cleveland.",
+          "text": "DeMarcus Cousins made a rare Finals start and added rebounds and assists after returning from injury.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2007_NBA_Finals",
-            "quote": "This series was the last sweep in the NBA Finals until 2018"
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
+            "quote": "Cousins, who was moved into the starting lineup, had 11 points, 10 rebounds and six assists"
           }
         }
       ]
     },
     {
-      "id": "nba-cavs16-parade",
+      "id": "nba-gus79-finals-g4-points",
       "sport": "NBA",
-      "prompt": "About how many million people attended Cleveland's 2016 title parade?",
-      "context": "Cleveland Cavaliers · June 2016",
-      "answer": 1.3,
+      "prompt": "How many points did Gus Williams score in overtime Game 4 of the 1979 Finals?",
+      "context": "SuperSonics vs Bullets · 1979 Finals",
+      "answer": 36,
       "unit": {
-        "singular": "million people",
-        "plural": "million people"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 0.2,
-      "max": 3.2,
-      "step": 0.1,
-      "note": "An estimated 1.3 million, then the largest NBA parade.",
+      "min": 10,
+      "max": 82,
+      "step": 1,
+      "note": "36 points in a pivotal overtime win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-        "quote": "An estimated 1.3 million people attended the, then-largest, NBA championship parade in history."
+        "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+        "quote": "May 29 Washington W 114–112 (OT) Gus Williams (36)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "The game needed overtime before Seattle escaped with a win.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "May 29 Washington W 114–112 (OT)"
+          }
+        },
+        {
+          "text": "John Johnson dished out 13 assists in the same Game 4.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "May 29 Washington W 114–112 (OT) Gus Williams (36) Jack Sikma (17) John Johnson (13)"
+          }
+        },
+        {
+          "text": "The victory put Seattle one win away from the championship.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "May 29 Washington W 114–112 (OT)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-peja02-regular-three-pct",
+      "sport": "NBA",
+      "prompt": "What percent of his threes did Peja Stojaković make in 2001–02?",
+      "context": "Sacramento · regular season · one decimal",
+      "answer": 41.6,
+      "unit": {
+        "singular": "percent",
+        "plural": "percent"
+      },
+      "min": 24,
+      "max": 62,
+      "step": 0.1,
+      "note": "41.6 percent from deep.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+        "quote": "Peja Stojaković | 71 | 71 | 37.3 | .484 | .416 | .876",
+        "derivation": "Convert .416 source three-point percentage into 41.6% by multiplying by 100."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +237,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Cleveland Browns legend and civil-rights advocate Jim Brown attended the Cavaliers' championship celebration.",
+          "text": "Peja made 129 three-pointers that regular season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-            "quote": "Cleveland Browns Hall of Fame running back and Civil Rights activist Jim Brown attended the parade"
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "led the Kings with 129 three-point field goals"
           }
         },
         {
-          "text": "Cavaliers announcer Fred McLeod likened the moment to Jim Brown passing Cleveland's sporting torch to LeBron.",
+          "text": "He converted 87.6 percent of his free throws.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-            "quote": "Fred McLeod narrated the scene to the crowd"
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Peja Stojaković | 71 | 71 | 37.3 | .484 | .416 | .876"
           }
         },
         {
-          "text": "After Golden State's loss, Draymond Green called the front office to press for Kevin Durant's signing.",
+          "text": "Stojaković started every one of his seventy-one appearances.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-            "quote": "made a phone call to general manager Bob Myers to urge him to try and sign"
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Peja Stojaković | 71 | 71"
           }
         }
       ]

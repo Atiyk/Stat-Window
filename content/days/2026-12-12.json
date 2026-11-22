@@ -1,29 +1,29 @@
 {
   "date": "2026-12-12",
   "theme": {
-    "title": "The 1970 Finals",
-    "subtitle": "Knicks vs Lakers",
-    "recap": "The 1970 Finals had a 60-foot buzzer-beater and Willis Reed's walk-out in Game 7, where Walt Frazier did the damage."
+    "title": "NBA Mix 20",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-knicks70-streak",
+      "id": "nba-rodman-reb-titles",
       "sport": "NBA",
-      "prompt": "The 1969–70 Knicks set what was then a single-season record winning streak. How long was it?",
-      "context": "New York Knicks · 1969–70",
-      "answer": 18,
+      "prompt": "Dennis Rodman led the NBA in rebounding for how many seasons in a row?",
+      "context": "Pistons, Spurs and Bulls · 1991–92 onward",
+      "answer": 7,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "season",
+        "plural": "seasons"
       },
-      "min": 10,
-      "max": 42,
+      "min": 2,
+      "max": 14,
       "step": 1,
-      "note": "18 straight, on the way to 60–22.",
+      "note": "Seven, a record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1969%E2%80%9370_New_York_Knicks_season",
-        "quote": "The Knicks had a then single-season NBA record 18 straight victories en route to 60–22 record"
+        "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+        "quote": "He also led the NBA in rebounds per game for a record seven consecutive years and won five NBA championships."
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "That Knicks team also started the season at a record pace before Golden State broke its early-season mark decades later.",
+          "text": "Rodman originally played small forward before reinventing himself as a relentless power forward.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1969%E2%80%9370_New_York_Knicks_season",
-            "quote": "They set the record for the best start in the first 24 games of a season at 23–1"
+            "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+            "quote": "Rodman played at the small forward position in his early years before becoming a power forward"
           }
         },
         {
-          "text": "The Knicks went through Baltimore and Milwaukee before meeting the Lakers in the championship series.",
+          "text": "His number was eventually retired by the Pistons, and he entered the Hall of Fame that same year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1969%E2%80%9370_New_York_Knicks_season",
-            "quote": "After defeating the Bullets in the Eastern Division semifinals and the Milwaukee Bucks in the Eastern Division finals"
+            "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+            "quote": "the Pistons retired Rodman's No."
           }
         },
         {
-          "text": "Their title run later became the subject of the documentary When the Garden Was Eden.",
+          "text": "The Worm even entered professional wrestling, joining Hulk Hogan's nWo faction.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1969%E2%80%9370_New_York_Knicks_season",
-            "quote": "Their journey was chronicled in various books and films, most recently in When the Garden was Eden"
+            "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+            "quote": "He was a member of the nWo and fought alongside Hulk Hogan"
           }
         }
       ]
     },
     {
-      "id": "nba-frazier70-g7-ast",
+      "id": "nba-barry75-finals-g2-points",
       "sport": "NBA",
-      "prompt": "Walt Frazier scored 36 points in Game 7 of the 1970 Finals. How many assists did he have?",
-      "context": "1970 NBA Finals · Game 7 · vs Lakers",
-      "answer": 19,
+      "prompt": "How many points did Rick Barry score in Game 2 of the 1975 Finals?",
+      "context": "Golden State vs Washington · 1975 Finals · Game 2",
+      "answer": 36,
       "unit": {
-        "singular": "assist",
-        "plural": "assists"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 12,
-      "max": 38,
+      "min": 16,
+      "max": 60,
       "step": 1,
-      "note": "19, in a 113–99 win.",
+      "note": "36 points in a one-point Warriors win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
-        "quote": "took it from there, finishing with 36 points and 19 assists as the Knicks won the championship, 113–99."
+        "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+        "quote": "led by 36 points from Rick Barry"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Clyde also registered six steals in the decider, showing how much of his masterpiece came on defense.",
+          "text": "The Warriors had to play their home Finals games at the Cow Palace because Oakland Arena was booked for the Ice Follies.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
-            "quote": "tallying 36 points, seven rebounds, 19 assists, and six steals"
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "the Oakland facility being unavailable due to the Ice Follies"
           }
         },
         {
-          "text": "The Finals were the first to be broadcast nationally in full, with ABC calling the series.",
+          "text": "Washington got a final chance in Game 2 with six seconds remaining but missed both shots.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
-            "quote": "The 1970 NBA Finals were the first to be nationally televised in full, with ABC providing the coverage"
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "Washington got the ball back with six seconds left but missed two shots"
           }
         },
         {
-          "text": "New Yorkers could not see the clincher live on local ABC television because the telecast was blacked out.",
+          "text": "Barry had previously played for the rival ABA before returning to the Warriors.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
-            "quote": "the Knicks' victory in Game 7 was not seen live on broadcast TV in New York"
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "briefly lost Rick Barry to the American Basketball Association"
           }
         }
       ]
     },
     {
-      "id": "nba-reed70-g7-minutes",
+      "id": "nba-tatum22-turnovers",
       "sport": "NBA",
-      "prompt": "Willis Reed limped out for Game 7 of the 1970 Finals. How many minutes did he play?",
-      "context": "1970 NBA Finals · Game 7 · vs Lakers",
-      "answer": 27,
+      "prompt": "Jayson Tatum set the record for turnovers in one postseason in 2022. How many?",
+      "context": "Boston Celtics · 2022 playoffs",
+      "answer": 100,
       "unit": {
-        "singular": "minute",
-        "plural": "minutes"
+        "singular": "turnover",
+        "plural": "turnovers"
       },
-      "min": 0,
-      "max": 48,
+      "min": 20,
+      "max": 140,
       "step": 1,
-      "note": "27. He did not leave after his first two baskets, despite the legend.",
+      "note": "100.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1969%E2%80%9370_New_York_Knicks_season",
-        "quote": "Contrary to popular lore, he did not sit out after his first two baskets, but remained on the floor for 27 minutes"
+        "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+        "quote": "Tatum set the NBA record for most turnovers in a single postseason with 100."
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Reed's entrance was so improbable because a torn thigh muscle had kept him out of the previous game.",
+          "text": "Tatum's first Finals game was a passing showcase despite a poor shooting night against Golden State.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
-            "quote": "Due to a severe thigh injury suffered in Game 5, a torn muscle that kept him out of Game 6"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+            "quote": "he finished with a career-high 13 assists, the most ever for a player in his Finals debut"
           }
         },
         {
-          "text": "He made New York's opening two baskets on his first two attempts, electrifying Madison Square Garden.",
+          "text": "Boston erased a shaky regular-season start to reach its first NBA Finals in over a decade.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
-            "quote": "he scored the Knicks' first two field goals on his first two shot attempts"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+            "quote": "After starting the season 16–19 and in 10th place"
           }
         },
         {
-          "text": "On defense, the injured Reed held Wilt Chamberlain to two makes on nine attempts while he was guarding him.",
+          "text": "Golden State's defense held Tatum to a rough shooting night in the championship clincher.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
-            "quote": "limiting him to two shots made in nine attempts"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+            "quote": "Tatum finished with 13, shooting just 6-of-18 from the field"
           }
         }
       ]
     },
     {
-      "id": "nba-west70-60-foot",
+      "id": "nba-howard09-regular-rpg",
       "sport": "NBA",
-      "prompt": "Jerry West forced overtime in Game 3 of the 1970 Finals with a buzzer-beater from how many feet?",
-      "context": "1970 NBA Finals · Game 3 · at New York",
-      "answer": 60,
+      "prompt": "How many rebounds per game did Dwight Howard average in 2008–09?",
+      "context": "Orlando Magic · regular season",
+      "answer": 13.8,
       "unit": {
-        "singular": "foot",
-        "plural": "feet"
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
       },
-      "min": 0,
-      "max": 94,
-      "step": 1,
-      "note": "60 feet, tying it at 102.",
+      "min": 4,
+      "max": 30,
+      "step": 0.1,
+      "note": "13.8 rebounds a night from Orlando's dominant center.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
-        "quote": "hit a desperation buzzer-beating 60-foot shot to tie it at 102 and force OT"
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+        "quote": "Dwight Howard | C | 79 | 79 | 2,821 | 1,093 | 112 | 77 | 231 | 1,624 | 35.7 | 13.8"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "West's miracle shot counted for only two because the NBA had not yet adopted the three-point line.",
+          "text": "He swatted 231 shots that regular season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
-            "quote": "It counted only for two points, as only the ABA had a three-point shot at the time"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "Dwight Howard | C | 79 | 79 | 2,821 | 1,093 | 112 | 77 | 231"
           }
         },
         {
-          "text": "Moments earlier, Dave DeBusschere had given New York a late lead, setting up West's desperation heave.",
+          "text": "Howard won Defensive Player of the Year and made the All-NBA First Team.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
-            "quote": "Dave DeBusschere made a shot with three seconds left to give New York a 102–100 edge"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "Dwight Howard – Defensive Player of the Year, All-NBA 1st Team"
           }
         },
         {
-          "text": "The Knicks still won that overtime game despite West's heroics, holding the advantage in the series.",
+          "text": "A sore knee ended Howard's streak of consecutive games played since entering the NBA.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
-            "quote": "the Knicks were able to win, 111–108"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "missed the first game of his professional career, ending a streak of 351 consecutive games played"
           }
         }
       ]
     },
     {
-      "id": "nba-baylor-finals-losses",
+      "id": "nba-suns84-lakers-g3-points",
       "sport": "NBA",
-      "prompt": "Elgin Baylor led the Lakers to the Finals how many times, losing every one?",
-      "context": "Minneapolis and Los Angeles Lakers · 1958–1971",
-      "answer": 8,
+      "prompt": "How many points did Phoenix score against the Lakers in 1984 West finals Game 3?",
+      "context": "Phoenix Suns · home game that needed overtime",
+      "answer": 135,
       "unit": {
-        "singular": "Finals appearance",
-        "plural": "Finals appearances"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 0,
-      "max": 11,
+      "min": 85,
+      "max": 225,
       "step": 1,
-      "note": "Eight times.",
+      "note": "135 points in a wild overtime win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-        "quote": "helped lead the team to the NBA Finals eight times, but the team lost each time."
+        "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+        "quote": "May 18, 1984 Los Angeles W 135–127 (OT) Davis (34) Lucas (17)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Baylor retired just before the Lakers embarked on their landmark winning streak and won the championship.",
+          "text": "Walter Davis paced the Suns with thirty-four points.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-            "quote": "Baylor missed two historic achievements: the Lakers' first game afterwards began an NBA record 33-game win streak"
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "May 18, 1984 Los Angeles W 135–127 (OT) Davis (34)"
           }
         },
         {
-          "text": "During an Army Reserve deployment, Baylor could join the Lakers only on weekend passes and flew coach to games.",
+          "text": "The victory required overtime to decide.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-            "quote": "he could play for the Lakers only when on a weekend pass"
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "May 18, 1984 Los Angeles W 135–127 (OT)"
           }
         },
         {
-          "text": "The Lakers were struggling financially when Baylor arrived; their owner credited him with keeping the franchise alive.",
+          "text": "Los Angeles eventually took the Western finals in six games.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-            "quote": "Baylor immediately exceeded expectations and ultimately saved the Lakers franchise"
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Western Conference Finals: 2–4 (home: 1–2; road: 1–2)"
           }
         }
       ]

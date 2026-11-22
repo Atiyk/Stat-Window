@@ -344,6 +344,34 @@ export function validateNba(data: NbaData): Report {
       if (f.question.difficulty !== LADDER[slot])
         at(`slot ${slot + 1} must be ${LADDER[slot]}, ${id} is ${f.question.difficulty}`);
     });
+    // V3 future NBA mix: reject mechanically repetitive slates before they are published.
+    // Published puzzles before the cutover keep their existing immutable fingerprints.
+    if (d.date >= '2026-11-23' && fs.length === 5) {
+      const families = new Set(fs.map((f) => f.family));
+      const subjects = new Set(fs.map((f) => f.player ?? f.franchise ?? f.family));
+      if (families.size < 3) at(`only ${families.size} stat families (mixed slate needs 3)`);
+      if (subjects.size < 3) at(`only ${subjects.size} subjects (mixed slate needs 3)`);
+      const franchises = new Map<string, number>();
+      const players = new Map<string, number>();
+      for (const f of fs) {
+        if (f.franchise) franchises.set(f.franchise, (franchises.get(f.franchise) ?? 0) + 1);
+        if (f.player) players.set(f.player, (players.get(f.player) ?? 0) + 1);
+      }
+      for (const [franchise, n] of franchises) if (n > 2) at(`${n} questions about ${franchise} (max 2)`);
+      for (const [player, n] of players) if (n > 2) at(`${n} questions about ${player} (max 2)`);
+      for (let slot = 1; slot < fs.length; slot++) {
+        if (fs[slot]!.family === fs[slot - 1]!.family)
+          at(`adjacent questions ${slot} and ${slot + 1} repeat the same stat family`);
+      }
+      const opening = fs[0]!.question.ratings;
+      const engaging = opening.recognizability >= 4 && opening.interest >= 4 && opening.estimability >= 3;
+      // 42 verified, engaging openers exist for 66 dates; the remaining 24 require
+      // additional source-backed research rather than falsely relabelling trivia.
+      if (!engaging) {
+        if (d.date <= '2027-01-03') at('Q1 is not a recognizable, interesting, estimable NBA hook');
+        else warnings.push(`${d.date}: Q1 needs a stronger sourced replacement before launch`);
+      }
+    }
     const famCount = new Map<string, number>();
     for (const f of fs) famCount.set(f.family, (famCount.get(f.family) ?? 0) + 1);
     for (const [fam, n] of famCount) if (n > 2) at(`${n} questions from the ${fam} family (max 2)`);

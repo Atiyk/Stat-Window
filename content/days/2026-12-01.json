@@ -1,29 +1,29 @@
 {
   "date": "2026-12-01",
   "theme": {
-    "title": "Kareem and the Big O",
-    "subtitle": "Milwaukee, 1970–71",
-    "recap": "In only its third season Milwaukee won 66 games and a title behind Lew Alcindor and Oscar Robertson."
+    "title": "NBA Mix 09",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-bucks71-wins",
+      "id": "nba-magic09-regular-wins",
       "sport": "NBA",
-      "prompt": "In only their third season, how many games did the 1970–71 Bucks win?",
-      "context": "Milwaukee Bucks · 1970–71 · 82 games",
-      "answer": 66,
+      "prompt": "How many regular-season games did Dwight Howard's 2008–09 Magic win?",
+      "context": "Orlando · Eastern Conference champions",
+      "answer": 59,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 24,
-      "max": 82,
+      "min": 31,
+      "max": 83,
       "step": 1,
-      "note": "66–16, then a title.",
+      "note": "59 wins under coach Stan Van Gundy.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-        "quote": "Milwaukee posted a 66–16 record in only its third year of existence"
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+        "quote": "the team finished the regular season with a 59–23 record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The arrival of Oscar Robertson gave young star Lew Alcindor a legendary partner.",
+          "text": "Dwight Howard became the youngest Defensive Player of the Year winner that spring.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "A key part of this championship season was the acquisition of Oscar Robertson"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "becoming the youngest player to win the award"
           }
         },
         {
-          "text": "Milwaukee beat the Baltimore Bullets in a four-game Finals sweep to win its first title.",
+          "text": "A shoulder injury to All-Star Jameer Nelson forced Orlando to reshape its backcourt.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "They faced off against the Baltimore Bullets and swept them in four games"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "Jameer Nelson left a game after dislocating his right shoulder"
           }
         },
         {
-          "text": "Role players included Lucius Allen, Bob Boozer and Dick Cunningham behind the star pairing.",
+          "text": "Hedo Türkoğlu hit a game-winner against Philadelphia in the opening playoff round.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "key reserves such as Lucius Allen, Bob Boozer and Dick Cunningham"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "Hedo Türkoğlu's game winner in game four of that series"
           }
         }
       ]
     },
     {
-      "id": "nba-alcindor71-ppg",
+      "id": "nba-kawhi19-playoffs-ppg",
       "sport": "NBA",
-      "prompt": "Lew Alcindor led the NBA in scoring in 1970–71. What was his average?",
-      "context": "Milwaukee Bucks · 1970–71",
-      "answer": 31.7,
+      "prompt": "How many points per game did Kawhi Leonard score during the Raptors' 2019 playoffs?",
+      "context": "Toronto · entire 2019 postseason, not just Finals",
+      "answer": 30.5,
       "unit": {
         "singular": "point per game",
         "plural": "points per game"
       },
-      "min": 24,
-      "max": 46,
+      "min": 15,
+      "max": 43,
       "step": 0.1,
-      "note": "31.7 points per game.",
+      "note": "30.5 per game across Toronto's championship postseason.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-        "quote": "In only his second professional season, Lew Alcindor led the league in scoring at 31.7 ppg"
+        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+        "quote": "Kawhi Leonard | SF | 24 | 24 | 939 | 218 | 94 | 40 | 17 | 732 | 39.1 | 9.1 | 3.9 | 1.7 | .7 | 30.5"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Alcindor won both the league MVP and Finals MVP awards during Milwaukee's title season.",
+          "text": "Leonard started every Toronto playoff game and logged 939 minutes during the run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "Lew Alcindor won MVP and Finals MVP honors"
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "24 | 24 | 939 | 218 | 94 | 40 | 17 | 732"
           }
         },
         {
-          "text": "Milwaukee made its first Finals appearance in only its third year as a franchise.",
+          "text": "Toronto rallied from a two-game series deficit by winning four straight against Milwaukee.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "The Bucks made their way into the Finals for the first time in NBA history in just their third year"
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "winning the last four games of the series after being down 0–2"
           }
         },
         {
-          "text": "Bob Dandridge provided another major scoring option with 18.4 points a game.",
+          "text": "The Raptors became the first team based outside the United States to win the NBA championship.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "Bob Dandridge (18.4 ppg)"
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "first non-US team to win the NBA title"
           }
         }
       ]
     },
     {
-      "id": "nba-bucks71-streak",
+      "id": "nba-oscar62-assists",
       "sport": "NBA",
-      "prompt": "The 1970–71 Bucks set what was then the NBA's longest winning streak. How many games?",
-      "context": "Milwaukee Bucks · 1970–71",
-      "answer": 20,
+      "prompt": "Oscar Robertson broke Bob Cousy's single-season assist record of 715. How many did he log?",
+      "context": "Cincinnati Royals · 1961–62",
+      "answer": 899,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "assist",
+        "plural": "assists"
       },
-      "min": 2,
-      "max": 34,
-      "step": 1,
-      "note": "20 straight.",
+      "min": 200,
+      "max": 1050,
+      "step": 5,
+      "note": "899.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-        "quote": "This season included a 20-game winning streak, the NBA's longest at the time, and still ranked fifth all-time"
+        "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+        "quote": "He broke the assists record by Bob Cousy, who had recorded 715 assists two seasons earlier, by logging 899"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,50 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Larry Costello was Milwaukee's head coach during the championship run.",
+          "text": "Robertson's Royals reached the 1962 playoffs but were eliminated by Detroit in the first round.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "Head coach  | Larry Costello"
+            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+            "quote": "The Royals earned a berth to the 1962 NBA playoffs; however, they were eliminated in the first round"
           }
         },
         {
-          "text": "The Bucks dispatched the Lakers in five games to win the Western Conference finals.",
+          "text": "His 1961–62 season also featured a triple-double average in points, rebounds and assists.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "the team dispatched the Lakers in 5 games"
+            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+            "quote": "Robertson became the first player in NBA history to average a triple-double for an entire season"
           }
         },
         {
-          "text": "Milwaukee became the first franchise from the Midwest Division to claim an NBA championship.",
+          "text": "Two seasons later, Robertson won the regular-season MVP award while playing for Cincinnati.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "The Bucks became the first team from the Midwest Division to win the NBA title"
+            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+            "quote": "He won the NBA MVP award and became the only player other than"
           }
         }
       ]
     },
     {
-      "id": "nba-oscar71-apg",
+      "id": "nba-mcgrady04-35-seconds",
       "sport": "NBA",
-      "prompt": "In his first Bucks season, about how many assists per game did Oscar Robertson average, to the nearest whole number?",
-      "context": "Milwaukee Bucks · 1970–71",
-      "answer": 8,
+      "prompt": "Tracy McGrady stunned San Antonio in December 2004 by scoring how many points in the final 35 seconds?",
+      "context": "Rockets vs Spurs · December 9, 2004",
+      "answer": 13,
       "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 2,
-      "max": 14,
+      "min": 6,
+      "max": 30,
       "step": 1,
-      "note": "About 8: the text says 8.3, the season table 8.25.",
+      "note": "13.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-        "quote": "Robertson ranked third in the league in assists at 8.3 apg and was the Bucks' No. 2 scorer at 19.4 ppg.",
-        "derivation": "The article’s text says 8.3; its season table gives 668 assists in 81 games, 8.25. Either way, 8 to the nearest whole number."
+        "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
+        "quote": "scoring 13 points in the final 35 seconds against the San Antonio Spurs"
       },
       "verified": {
         "on": "2026-11-16",
@@ -186,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Robertson also scored 19.4 points per game while partnering Alcindor.",
+          "text": "Houston acquired McGrady from Orlando in a seven-player deal that also sent Steve Francis and Cuttino Mobley away.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "the Bucks' No. 2 scorer at 19.4 ppg"
+            "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
+            "quote": "McGrady, Juwan Howard, Tyronn Lue, and Reece Gaines were traded to the Houston Rockets as part of a seven-player deal"
           }
         },
         {
-          "text": "Oscar finished third in the league in assists during his debut Bucks season.",
+          "text": "His late explosion included consecutive triples, one converted into a four-point play and another to win at the buzzer.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "Robertson ranked third in the league in assists"
+            "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
+            "quote": "one of which was part of a four-point play and the last of which was a game-winner in the final two seconds"
           }
         },
         {
-          "text": "Milwaukee's title came just a year after the franchise brought Oscar in from Cincinnati.",
+          "text": "That Rockets team rebounded from a losing start and finished the season fifth in the West.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "A key part of this championship season was the acquisition of Oscar Robertson"
+            "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
+            "quote": "After the All-Star break, Houston rebounded from their slow start, finishing the season with 51 wins"
           }
         }
       ]
     },
     {
-      "id": "nba-kareem89-retire-age",
+      "id": "nba-bird86-finals-minutes",
       "sport": "NBA",
-      "prompt": "How old was Kareem Abdul-Jabbar when he retired after the 1989 Finals?",
-      "context": "Los Angeles Lakers · 1988–89",
-      "answer": 42,
+      "prompt": "Of the 288 possible minutes in the six-game 1986 Finals, how many did Larry Bird play?",
+      "context": "1986 NBA Finals · six games vs Houston",
+      "answer": 269,
       "unit": {
-        "singular": "year old",
-        "plural": "years old"
+        "singular": "minute",
+        "plural": "minutes"
       },
-      "min": 27,
-      "max": 48,
+      "min": 180,
+      "max": 288,
       "step": 1,
-      "note": "42, after 20 seasons.",
+      "note": "269, resting for only 19 minutes all series.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-        "quote": "announced his retirement from the NBA at age 42 at the end of his 20th season"
+        "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
+        "quote": "Bird got very little rest during the six-game series, logging 269 out of a possible 288 minutes of floor time."
       },
       "verified": {
         "on": "2026-11-16",
@@ -237,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Abdul-Jabbar's 1989 retirement capped an NBA career spanning twenty seasons.",
+          "text": "Scott Wedman's wrist injury reduced Boston's wing depth and helped explain Bird's huge Finals workload.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-            "quote": "at the end of his 20th season"
+            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
+            "quote": "With backup forward Scott Wedman sidelined due to a wrist injury"
           }
         },
         {
-          "text": "Detroit swept the Lakers in Kareem's final championship series.",
+          "text": "Reserve Bill Walton made a crucial basket late in Game 4 while Robert Parish rested.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-            "quote": "The Pistons won the series in a four-game sweep of the injury-riddled Lakers"
+            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
+            "quote": "with Bill Walton coming off the bench for a tired Robert Parish to score a crucial basket"
           }
         },
         {
-          "text": "Joe Dumars was named Finals MVP after Detroit won its first NBA championship.",
+          "text": "The fifth Finals game erupted when Ralph Sampson clashed with the much shorter Jerry Sichting and was ejected.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-            "quote": "Pistons guard Joe Dumars was named NBA Finals Most Valuable Player"
+            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
+            "quote": "Ralph Sampson ignited a brawl with Jerry Sichting, a player 15 inches (380 mm) shorter than Sampson"
           }
         }
       ]

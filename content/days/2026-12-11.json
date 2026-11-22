@@ -1,29 +1,29 @@
 {
   "date": "2026-12-11",
   "theme": {
-    "title": "Heat wave",
-    "subtitle": "Miami Heat, 2012–13",
-    "recap": "Miami won 27 in a row on the way to a second straight title, five years after a 15-win season."
+    "title": "NBA Mix 19",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-heat13-streak",
+      "id": "nba-bulls96-combined-wins",
       "sport": "NBA",
-      "prompt": "How long was the Miami Heat's 2012–13 winning streak?",
-      "context": "Miami Heat · 2012–13 regular season",
-      "answer": 27,
+      "prompt": "Counting the regular season and playoffs together, how many games did the 1995–96 Bulls win?",
+      "context": "Chicago Bulls · 1995–96 · regular season plus playoffs",
+      "answer": 87,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 2,
-      "max": 38,
+      "min": 55,
+      "max": 105,
       "step": 1,
-      "note": "27 games in a row.",
+      "note": "87 wins and 13 losses, the best combined record in NBA history.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
-        "quote": "the Heat embarked on a 27-game winning streak"
+        "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
+        "quote": "The 1995–96 Bulls have the best combined regular and postseason record in NBA history at 87–13"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The winning run began with a Super Bowl Sunday victory over Toronto and eventually became a franchise record.",
+          "text": "That Bulls team introduced black alternate road uniforms with red pinstripes, a look closely associated with the dynasty.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
-            "quote": "The Heat defeated the Toronto Raptors on Super Bowl Sunday to start what would become the longest winning streak"
+            "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
+            "quote": "the Bulls revealed new black alternate road uniforms, which featured red pinstripes"
           }
         },
         {
-          "text": "Miami rallied from a huge third-quarter deficit in Cleveland during the run, then won the game.",
+          "text": "Chicago reunited several former Detroit Bad Boys teammates by adding Rodman, James Edwards and John Salley.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
-            "quote": "The Heat overcame a league high 27-point third-quarter deficit to defeat the Cleveland Cavaliers"
+            "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
+            "quote": "Rodman, Edwards and Salley were all teammates on the Detroit Pistons during the \"Bad Boy\" era"
           }
         },
         {
-          "text": "Chicago finally stopped Miami's historic run in late March, although the Heat would still secure the top East seed.",
+          "text": "The Bulls swept Orlando in the Eastern Conference finals, avenging the previous season's playoff elimination.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
-            "quote": "The Heat fall 101–97 to the Chicago Bulls, ending their winning streak"
+            "url": "https://en.wikipedia.org/wiki/1996_NBA_Finals",
+            "quote": "the Bulls swept the Magic to gain entry into the Finals"
           }
         }
       ]
     },
     {
-      "id": "nba-battier13-g7-threes",
+      "id": "nba-blazers78-start",
       "sport": "NBA",
-      "prompt": "How many three-pointers did Shane Battier make in Game 7 of the 2013 Finals?",
-      "context": "2013 NBA Finals · Game 7 · vs San Antonio",
-      "answer": 6,
+      "prompt": "The year after their title, how many of their first 60 games did the 1977–78 Blazers win?",
+      "context": "Portland Trail Blazers · 1977–78",
+      "answer": 50,
       "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 0,
-      "max": 10,
+      "min": 30,
+      "max": 60,
       "step": 1,
-      "note": "Six, for 18 points.",
+      "note": "50.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
-        "quote": "Battier scored 18 points on six 3-pointers"
+        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+        "quote": "The 1977-78 Blazers started with 50 wins in their first 60 games"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,151 +83,151 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "With the series in the balance, Battier defended Tim Duncan's missed close-range shot and follow-up attempt.",
+          "text": "A Bill Walton foot injury derailed Portland's momentum and the team went 8–14 after its scorching opening.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
-            "quote": "Duncan, guarded by Shane Battier, missed a shot under the basket and a follow-up tip-in attempt"
+            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+            "quote": "due to Bill Walton's foot injury they only managed to go 8–14 the rest of the way"
           }
         },
         {
-          "text": "The championship decider followed Ray Allen's unforgettable game-tying three-pointer in the preceding matchup.",
+          "text": "That brilliant follow-up season proved to be Walton's last playing for Portland.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
-            "quote": "Ray Allen made a game-tying three-pointer to send Game 6 to overtime"
+            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+            "quote": "This would be Walton's last season with the club"
           }
         },
         {
-          "text": "Battier's bench scoring offset scoreless performances from Chris Bosh and Ray Allen in the deciding game.",
+          "text": "The championship roster had been transformed partly by adding ABA star Maurice Lucas.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
-            "quote": "Battier scored 18 points on six 3-pointers to offset scoreless nights by Bosh and Allen"
+            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+            "quote": "Portland had benefited from the resulting ABA dispersal draft as they acquired"
           }
         }
       ]
     },
     {
-      "id": "nba-heat13-month-wins",
+      "id": "nba-mcdonald76-ot",
       "sport": "NBA",
-      "prompt": "In 2012–13 Miami became the first team to win how many games in a single calendar month?",
-      "context": "Miami Heat · 2012–13 regular season",
-      "answer": 17,
+      "prompt": "In the triple-overtime Game 5 of 1976, reserve Glenn McDonald scored how many points?",
+      "context": "1976 NBA Finals · Game 5 · vs Phoenix",
+      "answer": 8,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
-      },
-      "min": 13,
-      "max": 31,
-      "step": 1,
-      "note": "17, going 17–1 in March 2013.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
-        "quote": "becoming the first team in NBA history to win at least 17 games in a calendar month"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "During that remarkable stretch, Miami completed a sweep of all opposing NBA franchises by beating Indiana.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
-            "quote": "the Heat beat every single team in the NBA with their victory against the Indiana Pacers"
-          }
-        },
-        {
-          "text": "Miami even won in San Antonio while James, Wade and Chalmers were out of the lineup.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
-            "quote": "The Heat defeated the San Antonio Spurs 88-86 without all-stars LeBron James and Dwyane Wade"
-          }
-        },
-        {
-          "text": "Comebacks became routine: Miami erased a double-digit deficit against Detroit late in the streak.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
-            "quote": "The Heat overcame an 11-point deficit to defeat the Detroit Pistons"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-andersen13-fg",
-      "sport": "NBA",
-      "prompt": "Chris \"Birdman\" Andersen shot what percentage from the field in the 2013 playoffs?",
-      "context": "Miami Heat · 2013 playoffs",
-      "answer": 80.7,
-      "unit": {
-        "singular": "percent",
-        "plural": "percent"
-      },
-      "min": 55,
-      "max": 100,
-      "step": 0.5,
-      "note": "80.7%, 46 of 57.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
-        "quote": "Chris \"Birdman\" Andersen shot 80.7 percent (46-of-57) from the field in the 2013 postseason"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Birdman arrived on a short ten-day contract in January rather than starting the year on Miami's roster.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
-            "quote": "January 20: Chris Andersen signed to a ten-day contract"
-          }
-        },
-        {
-          "text": "Birdman's nickname came from his wingspan and shot-blocking style, not from his colorful tattoos.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Chris_Andersen",
-            "quote": "Nicknamed \"Birdman\" for his wingspan and blocking prowess"
-          }
-        },
-        {
-          "text": "In the Finals against San Antonio, Andersen contributed off the bench rather than starting a game.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
-            "quote": "Chris Andersen  | 5  | 0  | 14.2"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-heat08-wins",
-      "sport": "NBA",
-      "prompt": "Five years before the streak, how many games did the 2007–08 Heat win?",
-      "context": "Miami Heat · 2007–08 · 82 games",
-      "answer": 15,
-      "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 50,
+      "max": 15,
       "step": 1,
-      "note": "15, tying the franchise's worst.",
+      "note": "Eight, all in overtime.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
-        "quote": "winning only 15 games, equaling the mark set by the team in"
+        "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
+        "quote": "Glenn McDonald scored eight points in the game, all in overtime."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Phoenix's Paul Westphal deliberately called a timeout the Suns didn't have to gain a tactical advantage.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
+            "quote": "The Suns' Paul Westphal also intentionally called a timeout even though his team had no more remaining"
+          }
+        },
+        {
+          "text": "John Havlicek appeared to win the epic with a late basket, only for more time to remain on the clock.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
+            "quote": "Havlicek hit what appeared to be the game-winning shot at the end of the second overtime"
+          }
+        },
+        {
+          "text": "The dramatic winner came from a lightly used Boston reserve, not one of the celebrated starters.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
+            "quote": "Glenn McDonald, a little-used Celtic reserve player"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-curry15-g2-misses",
+      "sport": "NBA",
+      "prompt": "In Game 2 of the 2015 Finals, Stephen Curry set a Finals record for missed threes. How many?",
+      "context": "2015 NBA Finals · Game 2 · vs Cleveland",
+      "answer": 13,
+      "unit": {
+        "singular": "missed three",
+        "plural": "missed threes"
+      },
+      "min": 3,
+      "max": 21,
+      "step": 1,
+      "note": "13 misses, a Finals record.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+        "quote": "Curry set an NBA record for most missed three-point attempts in an NBA Finals game with 13."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Matthew Dellavedova's physical defense held Curry scoreless from the field on his attempts against him.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+            "quote": "Matthew Dellavedova's defense on Curry was huge as Curry was 0–for–8 against him"
+          }
+        },
+        {
+          "text": "The overtime victory was Cleveland's first Finals game win in franchise history, after its earlier sweep in 2007.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+            "quote": "The victory for Cleveland was their first ever single game Finals victory"
+          }
+        },
+        {
+          "text": "LeBron dubbed the undermanned Cavs 'The Grit Squad' as injuries forced a slower, tougher style.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+            "quote": "James had dubbed the undermanned Cavaliers as \"The Grit Squad\""
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-hawks-wizards-45-ft",
+      "sport": "NBA",
+      "prompt": "On November 1, 2021, Atlanta and Washington combined to make how many free throws without a single miss?",
+      "context": "Hawks vs Wizards · 2021–22",
+      "answer": 45,
+      "unit": {
+        "singular": "free throw",
+        "plural": "free throws"
+      },
+      "min": 20,
+      "max": 80,
+      "step": 1,
+      "note": "45: Atlanta 29-for-29, Washington 16-for-16.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
+        "quote": "45 between Atlanta Hawks (29-for-29) and Washington Wizards (16-for-16) on November 1, 2021"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Pat Riley stepped down as Heat head coach after that season, passing the bench to Erik Spoelstra.",
+          "text": "Atlanta's share of the perfect night was an extraordinary 29 makes in 29 free-throw attempts.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_Miami_Heat_season",
-            "quote": "He did, however, remain as team president and was replaced as head coach by Erik Spoelstra"
+            "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
+            "quote": "Atlanta Hawks (29-for-29) and Washington Wizards (16-for-16)"
           }
         },
         {
-          "text": "Miami marked the franchise's anniversary with a special Roman-numeral patch on its jerseys.",
+          "text": "The separate single-team flawless free-throw record belongs to Miami's 2023 Heat.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_Miami_Heat_season",
-            "quote": "the Heat jerseys bear a XX on the rightmost part"
+            "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
+            "quote": "40 by the Miami Heat on January 10, 2023"
           }
         },
         {
-          "text": "Alonzo Mourning's last playing season was derailed by a severe knee injury in Atlanta.",
+          "text": "At the opposite extreme, Detroit once converted only three of 17 foul shots in a game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_Miami_Heat_season",
-            "quote": "Alonzo had suffered a season-ending and a possibly career-ending knee injury"
+            "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
+            "quote": "18% (3/17) by the Detroit Pistons vs. the New Orleans Pelicans"
           }
         }
       ]

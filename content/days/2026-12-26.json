@@ -1,29 +1,29 @@
 {
   "date": "2026-12-26",
   "theme": {
-    "title": "Swat team",
-    "subtitle": "Blocked-shot records",
-    "recap": "Blocks were first counted in 1973–74, and the records include Elmore Smith's 11 in a half and Dwight Howard's nine in a Finals game."
+    "title": "NBA Mix 34",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-howard09-g4-blocks",
+      "id": "nba-sonics94-regular-wins",
       "sport": "NBA",
-      "prompt": "Dwight Howard set the Finals record for blocks in a game in 2009. How many?",
-      "context": "2009 NBA Finals · Game 4 · vs Lakers",
-      "answer": 9,
+      "prompt": "How many regular-season games did the 1993–94 Seattle SuperSonics win?",
+      "context": "Seattle · regular season · 82 games",
+      "answer": 63,
       "unit": {
-        "singular": "block",
-        "plural": "blocks"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 5,
-      "max": 20,
+      "min": 34,
+      "max": 82,
       "step": 1,
-      "note": "Nine.",
+      "note": "63 victories, before a shocking first-round elimination.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-        "quote": "giving him a single-game NBA Finals record with 9 blocked shots"
+        "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+        "quote": "league-best 63–19 record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Orlando's center threatened Los Angeles near the end, but Derek Fisher hit a crucial late three.",
+          "text": "Seattle acquired two-time Sixth Man of the Year Detlef Schrempf from Indiana before the season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-            "quote": "Trevor Ariza was able to hit a 3-pointer as the shot clock expired"
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "acquired All-Star forward, and 2-time Sixth Man of the Year Detlef Schrempf from the Indiana Pacers"
           }
         },
         {
-          "text": "The Magic squandered foul-shot opportunities in a tight Game 4 despite leading at halftime.",
+          "text": "The Sonics also traded for Kendall Gill from Charlotte that offseason.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-            "quote": "but were unable to increase the lead due to poor free-throw shooting"
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "acquired Kendall Gill from the Charlotte Hornets"
           }
         },
         {
-          "text": "Orlando had earned its very first NBA Finals game victory only in the preceding game.",
+          "text": "George Karl was chosen to coach the Western Conference's All-Star team.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-            "quote": "This win marked the first Finals win in Magic franchise history"
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "head coach George Karl was selected to coach the Western Conference"
           }
         }
       ]
     },
     {
-      "id": "nba-elmore73-half",
+      "id": "nba-sixers67-start-losses",
       "sport": "NBA",
-      "prompt": "In the first season blocks were counted, Elmore Smith set the record for blocks in a half. How many?",
-      "context": "Los Angeles Lakers · October 28, 1973",
-      "answer": 11,
+      "prompt": "The 1966–67 Sixers’ 50-game start is still tied for the best ever. How many of those 50 did they lose?",
+      "context": "Philadelphia 76ers · 1966–67 · first 50 games",
+      "answer": 4,
       "unit": {
-        "singular": "block",
-        "plural": "blocks"
+        "singular": "loss",
+        "plural": "losses"
       },
       "min": 0,
       "max": 15,
       "step": 1,
-      "note": "11.",
+      "note": "Just four: 46–4. The 2015–16 Warriors later matched it.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
-        "quote": "11 blocks in a half, setting the NBA record. 6 blocks in one quarter; 5 blocks in the other quarter"
+        "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+        "quote": "The 76ers started the season at 46–4, which remains the best 50-game start in the NBA history"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Smith's record came in a Los Angeles Lakers victory over Portland during the league's first season tracking blocks.",
+          "text": "The 1966–67 start would eventually be matched by Golden State's celebrated 2015–16 regular season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
-            "quote": "Elmore Smith  | Los Angeles Lakers  | October 28, 1973  | Portland Trail Blazers"
+            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+            "quote": "remains the best 50-game start in the NBA history (though tied in the Warriors 2015-16 season)"
           }
         },
         {
-          "text": "That same performance also included a hefty rebounding total and a triple-double.",
+          "text": "Philadelphia ended Boston's streak of eight consecutive championships in the Eastern finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
-            "quote": "48  | 12  | 16  | 2  | Yes  | Yes"
+            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+            "quote": "defeated the Boston Celtics (a team that had won eight consecutive titles"
           }
         },
         {
-          "text": "Only a few days earlier, Smith had also posted a huge blocked-shot game against Detroit.",
+          "text": "The Sixers first swept the Cincinnati Royals before dispatching their historic rivals in the next round.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
-            "quote": "Elmore Smith  (2)  | Los Angeles Lakers  | October 26, 1973"
+            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+            "quote": "In the 1st round of the playoffs, they swept the Cincinnati Royals"
           }
         }
       ]
     },
     {
-      "id": "nba-bol85-quarter",
+      "id": "nba-bucks71-streak",
       "sport": "NBA",
-      "prompt": "Manute Bol set the record for blocks in a quarter in December 1985. How many?",
-      "context": "Washington Bullets · 1985–86",
-      "answer": 8,
+      "prompt": "The 1970–71 Bucks set what was then the NBA's longest winning streak. How many games?",
+      "context": "Milwaukee Bucks · 1970–71",
+      "answer": 20,
       "unit": {
-        "singular": "block",
-        "plural": "blocks"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 0,
-      "max": 12,
+      "min": 2,
+      "max": 34,
       "step": 1,
-      "note": "Eight in the first quarter.",
+      "note": "20 straight.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
-        "quote": "8 blocks in the first quarter, setting the NBA record, and 11 blocks in the first half, tying the NBA record"
+        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+        "quote": "This season included a 20-game winning streak, the NBA's longest at the time, and still ranked fifth all-time"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Bol set his mark while playing for Washington in an overtime victory against the Milwaukee Bucks.",
+          "text": "Larry Costello was Milwaukee's head coach during the championship run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
-            "quote": "Washington Bullets  | December 12, 1985  | Milwaukee Bucks"
+            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+            "quote": "Head coach  | Larry Costello"
           }
         },
         {
-          "text": "The rookie also reached a huge first-half swat total in the same game against Milwaukee.",
+          "text": "The Bucks dispatched the Lakers in five games to win the Western Conference finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
-            "quote": "11 blocks in the first half, tying the NBA record"
+            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+            "quote": "the team dispatched the Lakers in 5 games"
           }
         },
         {
-          "text": "Bol later repeated the feat in a fourth quarter against Indiana during his Washington years.",
+          "text": "Milwaukee became the first franchise from the Midwest Division to claim an NBA championship.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
-            "quote": "8 blocks in the fourth quarter, tying the NBA record"
+            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+            "quote": "The Bucks became the first team from the Midwest Division to win the NBA title"
           }
         }
       ]
     },
     {
-      "id": "nba-raptors01-team-blocks",
+      "id": "nba-sixers73-games-back",
       "sport": "NBA",
-      "prompt": "In March 2001, Toronto set what was then the NBA record for team blocks in a game. How many?",
-      "context": "Toronto Raptors · 2000–01 regular season",
-      "answer": 23,
+      "prompt": "How many games behind first-place Boston did the 1972–73 Sixers finish in their division?",
+      "context": "Philadelphia 76ers · 1972–73 · Atlantic Division",
+      "answer": 59,
       "unit": {
-        "singular": "block",
-        "plural": "blocks"
+        "singular": "game back",
+        "plural": "games back"
       },
-      "min": 0,
-      "max": 30,
+      "min": 45,
+      "max": 95,
       "step": 1,
-      "note": "23, an NBA record at the time.",
+      "note": "59, an NBA record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
-        "quote": "The Raptors combined for 23 blocks, an NBA record at the time"
+        "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+        "quote": "The 76ers finished an NBA-record 59 games behind the Atlantic Division champion Boston Celtics."
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Toronto reserve Keon Clark supplied the biggest share of the swats despite not starting against Atlanta.",
+          "text": "Only six seasons earlier, Philadelphia had set an NBA record for regular-season wins.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
-            "quote": "Keon Clark  | Toronto Raptors  | March 23, 2001"
+            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+            "quote": "Only six seasons earlier, the 76ers had set the NBA record for most wins in a season"
           }
         },
         {
-          "text": "Clark astonishingly committed no personal fouls while sending shot after shot away.",
+          "text": "Philadelphia's average scoring margin was an abysmal minus 12.1 points per game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
-            "quote": "Did not commit a personal foul; holds the NBA record for most blocks"
+            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+            "quote": "their −12.1 points per game point differential"
           }
         },
         {
-          "text": "The Raptors' defensive masterpiece came against the Atlanta Hawks in a comfortable win.",
+          "text": "The struggling roster was playing its tenth season in Philadelphia.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
-            "quote": "Atlanta Hawks  | 112–86"
+            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+            "quote": "their 24th season in the NBA and tenth in Philadelphia"
           }
         }
       ]
     },
     {
-      "id": "nba-robinson94-quadruple",
+      "id": "nba-smits98-bulls-g4-points",
       "sport": "NBA",
-      "prompt": "David Robinson's 1994 quadruple-double included 10 blocks. How many points did he score?",
-      "context": "Spurs vs Detroit Pistons · February 17, 1994",
-      "answer": 34,
+      "prompt": "How many points did Rik Smits score in Game 4 against the 1998 Bulls?",
+      "context": "Indiana · Eastern finals · home victory",
+      "answer": 26,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 16,
-      "max": 58,
+      "min": 12,
+      "max": 76,
       "step": 1,
-      "note": "34, plus 10 rebounds and 10 assists.",
+      "note": "26 points in a dramatic two-point win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/David_Robinson",
-        "quote": "with 34 points, 10 rebounds, 10 assists, and 10 blocks against the Detroit Pistons on February 17, 1994"
+        "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+        "quote": "May 25, 1998 Chicago W 96–94 Smits (26)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Robinson joined an exceptionally small group of players who recorded double figures in four statistical categories.",
+          "text": "The Pacers won Game 4 by just two points at home.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "one of only four players to have officially recorded a quadruple-double"
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "May 25, 1998 Chicago W 96–94"
           }
         },
         {
-          "text": "The Admiral had attended the Naval Academy and was so tall that he could not serve aboard Navy ships.",
+          "text": "Chris Mullin led Indiana with nine rebounds that night.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "which later prevented him from serving on any U.S. Navy ships"
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "May 25, 1998 Chicago W 96–94 Smits (26) Mullin (9)"
           }
         },
         {
-          "text": "Robinson won championships both before and after the turn of the millennium, playing his entire career in San Antonio.",
+          "text": "The Pacers won all three home games in that East final but none in Chicago.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "2× NBA champion (1999, 2003)"
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Eastern Conference finals: 3–4 (home: 3–0; road: 0–4)"
           }
         }
       ]

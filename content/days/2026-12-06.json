@@ -1,29 +1,29 @@
 {
   "date": "2026-12-06",
   "theme": {
-    "title": "Jordan in the Finals",
-    "subtitle": "Chicago Bulls, 1991–98",
-    "recap": "Michael Jordan's Finals nights, from 13 straight makes in 1991 to the flu game and the last shot in Utah."
+    "title": "NBA Mix 14",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-jordan98-g6",
+      "id": "nba-celtics86-wins",
       "sport": "NBA",
-      "prompt": "How many points did Michael Jordan score in Game 6 of the 1998 Finals, the night of his title-winning last shot?",
-      "context": "1998 NBA Finals · Game 6 · at Utah",
-      "answer": 45,
+      "prompt": "How many regular-season games did the 1985–86 Celtics win?",
+      "context": "Boston Celtics · 1985–86 · 82 games",
+      "answer": 67,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 30,
-      "max": 80,
+      "min": 28,
+      "max": 82,
       "step": 1,
-      "note": "45, capped by the game-winner over Bryon Russell.",
+      "note": "67–15, including 40–1 at home.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Chicago_Bulls_season",
-        "quote": "Jordan scored 45 points, and hit a memorable game-winning shot over Jazz forward Bryon Russell"
+        "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
+        "quote": "They finished with the best record in the league at 67–15, including a 40–1 record at home"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Scottie Pippen aggravated his back injury on the opening dunk of the title clincher.",
+          "text": "Boston's Garden-era home dominance was extraordinary: the team lost only once at home all regular season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-            "quote": "aggravated his injury when he dunked the opening basket of the game"
+            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
+            "quote": "including a 40–1 record at home (37–1 at the Boston Garden, 3–0 at the Hartford Civic Center)"
           }
         },
         {
-          "text": "Karl Malone led Utah with 31 points but could not prevent Chicago's final title.",
+          "text": "Bill Walton won Sixth Man of the Year as a reserve behind Bird, Parish and McHale.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-            "quote": "Pts: Karl Malone 31"
+            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
+            "quote": "Bill Walton won the Sixth Man of the Year Award"
           }
         },
         {
-          "text": "Jordan stripped the ball from Malone before setting up his winning jumper over Bryon Russell.",
+          "text": "Larry Bird collected a third straight league MVP award during the championship season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-            "quote": "When John Stockton passed the ball to Karl Malone, Jordan stole the ball away"
+            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
+            "quote": "Larry Bird won his third consecutive MVP award"
           }
         }
       ]
     },
     {
-      "id": "nba-jordan91-straight-makes",
+      "id": "nba-allstar24-east",
       "sport": "NBA",
-      "prompt": "In Game 2 of the 1991 Finals, Michael Jordan made how many shots in a row?",
-      "context": "1991 NBA Finals · Game 2 · vs Lakers",
-      "answer": 13,
+      "prompt": "How many points did the East score in the 2024 All-Star Game?",
+      "context": "2024 NBA All-Star Game · East vs West",
+      "answer": 211,
       "unit": {
-        "singular": "shot",
-        "plural": "shots"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 0,
-      "max": 20,
+      "min": 130,
+      "max": 270,
       "step": 1,
-      "note": "13 straight.",
+      "note": "211, beating the West's 186.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1991_NBA_Finals",
-        "quote": "Jordan would hit his next 13 shots in compensation"
+        "url": "https://en.wikipedia.org/wiki/NBA_All-Star_Game",
+        "quote": "East 211 – 186 West"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Phil Jackson put Scottie Pippen on Magic Johnson as the key defensive adjustment.",
+          "text": "The league restored the traditional East-versus-West format after years of captains drafting teams.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1991_NBA_Finals",
-            "quote": "The biggest decision of the game was putting Scottie Pippen on Magic Johnson"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_All-Star_Game",
+            "quote": "the return of the Eastern Conference versus Western Conference format"
           }
         },
         {
-          "text": "The Lakers had won the opener in Chicago before the Bulls responded in Game 2.",
+          "text": "Damian Lillard earned the All-Star MVP award during the high-scoring Indianapolis spectacle.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1991_NBA_Finals",
-            "quote": "Game 1  | June 2  | Los Angeles Lakers  | 93–91 (1–0)  | Chicago Bulls"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_All-Star_Game",
+            "quote": "MVP  | Damian Lillard (East)"
           }
         },
         {
-          "text": "Marv Albert's call of Jordan's midair, switch-handed layup became one of his signature broadcasts.",
+          "text": "The game used Gainbridge Fieldhouse, while Lucas Oil Stadium hosted Saturday night's contests.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1991_NBA_Finals",
-            "quote": "one of Albert's most iconic calls"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_All-Star_Game",
+            "quote": "Gainbridge Fieldhouse (All-Star Game)"
           }
         }
       ]
     },
     {
-      "id": "nba-jordan93-finals-ppg",
+      "id": "nba-jackson98-regular-apg",
       "sport": "NBA",
-      "prompt": "What did Michael Jordan average per game in the 1993 Finals against Phoenix, a Finals record?",
-      "context": "1993 NBA Finals · six games vs Phoenix",
-      "answer": 41,
+      "prompt": "What was Mark Jackson's assists-per-game average for the 1998 Pacers?",
+      "context": "Indiana · 1997–98 regular season",
+      "answer": 8.7,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "assist per game",
+        "plural": "assists per game"
       },
-      "min": 28,
-      "max": 60,
+      "min": 3,
+      "max": 19,
       "step": 0.1,
-      "note": "41.0 points per game.",
+      "note": "8.7 assists per game from Indiana's veteran point guard.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
-        "quote": "averaged a Finals-record 41.0 PPG during the six-game series"
+        "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+        "quote": "Mark Jackson | PG | 82 | 82 | 2,413 | 322 | 713 | 84 | 2 | 678 | 29.4 | 3.9 | 8.7"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,100 +134,100 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "The Suns traded Jeff Hornacek, Tim Perry and Andrew Lang to Philadelphia for Charles Barkley.",
+          "text": "Jackson distributed 713 assists in the regular season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
-            "quote": "acquiring Charles Barkley from the Philadelphia 76ers in exchange for Jeff Hornacek, Tim Perry, and Andrew Lang"
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Mark Jackson | PG | 82 | 82 | 2,413 | 322 | 713"
           }
         },
         {
-          "text": "Phoenix forced a rare triple-overtime Game 3, then won it at Chicago Stadium.",
+          "text": "He started all eighty-two regular-season games.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
-            "quote": "The Phoenix Suns won Game 3 in triple overtime, 129–121"
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Mark Jackson | PG | 82 | 82"
           }
         },
         {
-          "text": "Scottie Pippen also filled the box score with over nine rebounds and seven assists per game.",
+          "text": "Jalen Rose played every game without making a single start.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
-            "quote": "Scottie Pippen  | 6  | 6  | 44.3  | .439  | .000  | .543  | 9.2  | 7.7"
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Jalen Rose | SF | 82 | 0"
           }
         }
       ]
     },
     {
-      "id": "nba-jordan97-flu-game",
+      "id": "nba-noah11-rebounds-average",
       "sport": "NBA",
-      "prompt": "Sick before Game 5 of the 1997 Finals, how many points did Michael Jordan score in the \"Flu Game\"?",
-      "context": "1997 NBA Finals · Game 5 · at Utah",
-      "answer": 38,
+      "prompt": "What did Joakim Noah average in rebounds in the 2010–11 regular season?",
+      "context": "Chicago Bulls · injury-hit season",
+      "answer": 10.4,
+      "unit": {
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
+      },
+      "min": 5,
+      "max": 22,
+      "step": 0.1,
+      "note": "10.4 rebounds per game despite substantial time missed.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+        "quote": "Joakim Noah | 48 | 48 | 32.8 | .525 | .0 | .740 | 10.4 | 2.2 | 1.00 | 1.50 | 11.7"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Noah underwent surgery for a hand ligament injury and returned late in the season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "Joakim Noah underwent surgery on December 16 to repair a torn ligament in his right hand."
+          }
+        },
+        {
+          "text": "Noah appeared in fewer than 50 regular-season games that year because of injury.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "Joakim Noah | 48 | 48 | 32.8 | .525 | .0 | .740 | 10.4"
+          }
+        },
+        {
+          "text": "He also earned a place on the NBA All-Defensive Second Team.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "Joakim Noah made the NBA All-Defensive Second Team"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-warriors75-finals-g4-points",
+      "sport": "NBA",
+      "prompt": "How many points did Golden State score in Game 4 to clinch the 1975 Finals?",
+      "context": "Golden State at Washington · May 25, 1975",
+      "answer": 96,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 5,
-      "max": 60,
+      "min": 60,
+      "max": 122,
       "step": 1,
-      "note": "38 in 44 minutes.",
+      "note": "96 points, one more than Washington in the title clincher.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
-        "quote": "Jordan played 44 minutes, finishing the game with 38 points, 7 rebounds, 5 assists, 3 steals and 1 block."
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Jordan awoke in the early morning with severe stomach symptoms before Game 5.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
-            "quote": "Jordan woke up and began to experience vomiting and diarrhea"
-          }
-        },
-        {
-          "text": "He later said he believed food poisoning from a pizza caused the illness.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
-            "quote": "Jordan eventually claimed it was food poisoning in the 2020 docuseries The Last Dance"
-          }
-        },
-        {
-          "text": "At the final buzzer, an exhausted Jordan collapsed into teammate Scottie Pippen's arms.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
-            "quote": "Jordan collapsed into Scottie Pippen's arms"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-finals98-rating",
-      "sport": "NBA",
-      "prompt": "The 1998 Finals drew the highest Nielsen TV rating in NBA history. What was it?",
-      "context": "1998 NBA Finals · Bulls vs Jazz · US television",
-      "answer": 18.7,
-      "unit": {
-        "singular": "rating point",
-        "plural": "rating points"
-      },
-      "min": 2,
-      "max": 30,
-      "step": 0.1,
-      "note": "An 18.7 rating.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-        "quote": "garnered the highest Nielsen TV ratings in NBA history at 18.7"
+        "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+        "quote": "Golden State Warriors 96, Washington Bullets 95"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "That year's NBA title series drew a bigger U.S. television rating than the World Series.",
+          "text": "Coach Al Attles was ejected after a confrontation with Mike Riordan, leaving assistant Joe Roberts to finish the game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-            "quote": "even surpassed the Nielsen ratings for the 1998 World Series"
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "Attles bolted onto the court and initiated a fight of his own with Riordan"
           }
         },
         {
-          "text": "Phil Jackson had called the Bulls' farewell campaign 'The Last Dance' before the season began.",
+          "text": "The 1975 Finals are the oldest NBA championship series with full television coverage still surviving.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-            "quote": "Phil Jackson wrote on the chalk board and named the season \"The Last Dance\""
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "The 1975 Finals is also the oldest NBA championship series whose TV coverage still exists in its entirety"
           }
         },
         {
-          "text": "The Jazz and Bulls had also faced each other in the Finals the preceding season.",
+          "text": "Rick Barry went on to work as a broadcaster for the next six NBA Finals, including while still an active player.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-            "quote": "the same two teams met in the Finals in consecutive years"
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "Barry went on to cover the next six NBA Finals, five of which while still an active player"
           }
         }
       ]

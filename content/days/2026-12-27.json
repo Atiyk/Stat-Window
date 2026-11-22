@@ -1,29 +1,29 @@
 {
   "date": "2026-12-27",
   "theme": {
-    "title": "The dynasty years",
-    "subtitle": "Chicago Bulls, 1991–98",
-    "recap": "Chicago won 69 games a year after 72, buried Utah by 42 in a Finals game and then fell to 13 wins once the team broke up."
+    "title": "NBA Mix 35",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-jordan93-g4-55",
+      "id": "nba-sixers73-wins",
       "sport": "NBA",
-      "prompt": "How many points did Michael Jordan score in Game 4 of the 1993 Finals against Phoenix?",
-      "context": "1993 NBA Finals · Game 4 · Chicago Stadium",
-      "answer": 55,
+      "prompt": "How many games did the 1972–73 Philadelphia 76ers win?",
+      "context": "Philadelphia 76ers · 1972–73 · 82 games",
+      "answer": 9,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 35,
-      "max": 85,
+      "min": 0,
+      "max": 40,
       "step": 1,
-      "note": "55 at Chicago Stadium.",
+      "note": "Nine, finishing 9–73.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
-        "quote": "In Game 4, Michael Jordan was unstoppable, scoring 55 points at Chicago Stadium"
+        "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+        "quote": "the 76ers lost their remaining 13 games to finish 9–73."
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Jordan faced reigning league MVP Charles Barkley, who had lifted the Suns to the league's best record.",
+          "text": "Philadelphia lost its first 15 games before the season unraveled further.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
-            "quote": "winners of 62 games and led by regular season MVP Charles Barkley"
+            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+            "quote": "the 76ers lost their first 15 games of the season"
           }
         },
         {
-          "text": "Scott Williams joked that he and fellow North Carolina alumnus Jordan had combined for an absurd scoring total.",
+          "text": "Veteran Hal Greer was the last holdover from the 1967 championship team and retired after the season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
-            "quote": "Scott Williams, who like MJ played his college basketball at UNC"
+            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+            "quote": "Only Hal Greer remained on the roster from the 1966–1967 NBA Championship Team"
           }
         },
         {
-          "text": "Earlier in the series, Phoenix had won a marathon triple-overtime game at Chicago Stadium.",
+          "text": "The Sixers had offered the coaching job to both Al McGuire and Adolph Rupp, but each declined.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
-            "quote": "The Phoenix Suns won Game 3 in triple overtime"
+            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+            "quote": "The Sixers ownership offered the head coaching job to Marquette University head coach Al McGuire"
           }
         }
       ]
     },
     {
-      "id": "nba-bulls97-wins",
+      "id": "nba-pacers98-road-wins",
       "sport": "NBA",
-      "prompt": "How many games did the 1996–97 Bulls win, a year after going 72–10?",
-      "context": "Chicago Bulls · 1996–97 · 82 games",
-      "answer": 69,
+      "prompt": "How many away games did Indiana win during the 1997–98 regular season?",
+      "context": "Pacers · Larry Bird's first year",
+      "answer": 26,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "road win",
+        "plural": "road wins"
       },
-      "min": 50,
-      "max": 82,
+      "min": 6,
+      "max": 40,
       "step": 1,
-      "note": "69–13, the league's best record that season.",
+      "note": "26 road victories, a franchise milestone.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
-        "quote": "the Bulls settled for a league-best 69–13 record"
+        "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+        "quote": "26–15 road record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Chicago began the season with an undefeated opening stretch, looking ready to repeat its previous dominance.",
+          "text": "Indiana lost five of its first seven games before finding form.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
-            "quote": "They began the season 12–0"
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "losing five of their first seven games of the regular season"
           }
         },
         {
-          "text": "Late-season injuries and a last-game missed shot by Scottie Pippen stopped the Bulls' record chase.",
+          "text": "The Pacers rebounded by winning fifteen of the next eighteen games.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
-            "quote": "Scottie Pippen's failed attempt at a game-winning three-pointer"
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "winning 15 of their next 18 games"
           }
         },
         {
-          "text": "Utah's first Finals appearance came with a bold mountain-themed rebrand of its uniforms and logo.",
+          "text": "Bird won Coach of the Year after a huge team turnaround.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
-            "quote": "a bold, gradient \"Purple Mountain\" motif"
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Bird was named the NBA Coach of the Year"
           }
         }
       ]
     },
     {
-      "id": "nba-jazz98-g3-54",
+      "id": "nba-mutombo01-posttrade-rpg",
       "sport": "NBA",
-      "prompt": "Utah lost Game 3 of the 1998 Finals by 42 points. How many points did the Jazz score?",
-      "context": "1998 NBA Finals · Game 3 · at Chicago",
-      "answer": 54,
+      "prompt": "What was Dikembe Mutombo's rebounding average after joining the 2000–01 Sixers?",
+      "context": "Philadelphia 76ers · post-trade regular-season stint",
+      "answer": 12.4,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
       },
-      "min": 30,
-      "max": 105,
-      "step": 1,
-      "note": "54, in a 96–54 loss.",
+      "min": 5,
+      "max": 22,
+      "step": 0.1,
+      "note": "12.4 rebounds per game for Philadelphia.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-        "quote": "In a 96–54 loss, the Jazz set the record for the 42-point loss in Finals history"
+        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+        "quote": "Mutombo averaged 11.7 points, 12.4 rebounds and 2.5 blocks per game in 26 games after the trade"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,100 +134,100 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Chicago's entire roster eventually scored in the rout, including backup center Bill Wennington late.",
+          "text": "Mutombo won Defensive Player of the Year for the fourth time in his career that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-            "quote": "Every player on the Bulls roster scored at least once"
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "and was named the NBA Defensive Player of the Year for the fourth time"
           }
         },
         {
-          "text": "Utah had beaten Chicago in both regular-season meetings and entered the championship series confident.",
+          "text": "The trade was partly driven by a season-ending wrist injury to Theo Ratliff, who had previously been the Sixers' starting center.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-            "quote": "The Jazz had won both regular season meetings with the Bulls"
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "prior to the trade, Ratliff was sidelined due to a season-ending wrist injury"
           }
         },
         {
-          "text": "The Jazz entered the Finals after sweeping Shaquille O'Neal's Los Angeles Lakers in the West finals.",
+          "text": "During his short Philadelphia regular-season stint, Mutombo also averaged 2.5 blocks a game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-            "quote": "the Jazz uneventfully swept the Los Angeles Lakers"
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "Mutombo averaged 11.7 points, 12.4 rebounds and 2.5 blocks per game in 26 games after the trade"
           }
         }
       ]
     },
     {
-      "id": "nba-pippen97-g3-threes",
+      "id": "nba-detroit04-rasheed-finish",
       "sport": "NBA",
-      "prompt": "Scottie Pippen tied the Finals record for threes in Game 3 of 1997. How many did he make?",
-      "context": "1997 NBA Finals · Game 3 · at Utah",
-      "answer": 7,
-      "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
-      },
-      "min": 0,
-      "max": 20,
-      "step": 1,
-      "note": "Seven, then a Finals record.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
-        "quote": "Scottie Pippen tying a then-Finals record with seven 3-pointers"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Pippen's long-range clinic still came in a loss because Karl Malone dominated the interior for Utah.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
-            "quote": "Utah was led by Karl Malone, who scored 37 points and had 10 rebounds"
-          }
-        },
-        {
-          "text": "The Salt Lake City crowd was so loud that Bulls players covered their ears during the introductions.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
-            "quote": "the Bulls players plugged their ears, due to the loud cheers and fireworks"
-          }
-        },
-        {
-          "text": "Chicago nearly erased a big late deficit, but Utah earned its first win of the series.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
-            "quote": "Chicago attempted a 4th-quarter comeback, cutting a 24-point deficit down to 7"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-bulls99-wins",
-      "sport": "NBA",
-      "prompt": "In the lockout season after their sixth title, how many games did the Bulls win?",
-      "context": "Chicago Bulls · 1998–99 · lockout-shortened season",
-      "answer": 13,
+      "prompt": "After trading for Rasheed Wallace, how many of its final 19 games did Detroit win?",
+      "context": "Detroit Pistons · 2003–04 · post-trade finish",
+      "answer": 16,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 6,
-      "max": 42,
+      "min": 4,
+      "max": 22,
       "step": 1,
-      "note": "13, in the lockout-shortened season after their sixth title.",
+      "note": "Sixteen wins in the final 19 games helped lock in Detroit's playoff form.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-        "quote": "winning just 13 of 50 games"
+        "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+        "quote": "With the addition of Wallace, the Pistons won 16 of their final 19 games"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Rasheed had played just one game for Atlanta before being moved to Detroit in the middle of the season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+            "quote": "the team acquired All-Star forward Rasheed Wallace from the Atlanta Hawks after playing just one game for them."
+          }
+        },
+        {
+          "text": "The Pistons had to recover from a dangerous deficit against New Jersey in Game 6 to stay alive in the Eastern playoffs.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+            "quote": "the Pistons were able to erase a 13–2 deficit and never trailed for the remainder of the game"
+          }
+        },
+        {
+          "text": "Detroit reached the Finals by eliminating the top-seeded Pacers in a defensive Eastern Conference finals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+            "quote": "they defeated the top-seeded Indiana Pacers in a defensive six game series"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-herro20-celtics-g4-points",
+      "sport": "NBA",
+      "prompt": "How many points did rookie Tyler Herro score in Game 4 versus Boston?",
+      "context": "2020 Bubble · Eastern Conference finals",
+      "answer": 37,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 18,
+      "max": 69,
+      "step": 1,
+      "note": "37 points in Miami's narrow win.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+        "quote": "September 23 Boston W 112–109 Tyler Herro (37)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Jordan's retirement and departures of Pippen and Rodman broke up the Bulls dynasty after the second three-peat.",
+          "text": "The Heat escaped that game by a three-point margin.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_Chicago_Bulls_season",
-            "quote": "Dennis Rodman (who signed with the Los Angeles Lakers as a free agent), and Jordan's second retirement"
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "September 23 Boston W 112–109 Tyler Herro (37)"
           }
         },
         {
-          "text": "Tim Floyd replaced Phil Jackson on the Chicago bench and inherited a team that lost most of its opening games.",
+          "text": "Bam Adebayo collected twelve rebounds in the same contest.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_Chicago_Bulls_season",
-            "quote": "Under Floyd, and with the addition of Barry and Bryant, the Bulls were a shell of their former selves"
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "September 23 Boston W 112–109 Tyler Herro (37) Bam Adebayo (12)"
           }
         },
         {
-          "text": "Toni Kukoč became Chicago's leading scorer in the first post-dynasty season.",
+          "text": "Miami took a three-games-to-one series lead with that victory.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_Chicago_Bulls_season",
-            "quote": "Toni Kukoč became the team's scoring leader"
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "No In-Person Attendance 3–1"
           }
         }
       ]

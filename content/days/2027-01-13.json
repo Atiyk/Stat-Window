@@ -1,29 +1,29 @@
 {
   "date": "2027-01-13",
   "theme": {
-    "title": "We the North",
-    "subtitle": "Toronto Raptors, 2018–19",
-    "recap": "Kawhi Leonard arrived, the Raptors survived a Game 7 buzzer-beater and then won Canada's first NBA championship."
+    "title": "NBA Mix 52",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-raptors19-regular-wins",
+      "id": "nba-lakers00-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 2018–19 champion Raptors win?",
-      "context": "Toronto · Kawhi Leonard's lone Raptors season",
-      "answer": 58,
+      "prompt": "How many regular-season games did the 1999–2000 Lakers win?",
+      "context": "Los Angeles Lakers · 1999–2000 · 82 games",
+      "answer": 67,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
       "min": 28,
-      "max": 80,
+      "max": 82,
       "step": 1,
-      "note": "58 wins, earning second place in the East.",
+      "note": "67–15.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-        "quote": "58–24 (.707)"
+        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+        "quote": "They posted winning streaks of 11, 16, and 19 en route to a 67–15 record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Toronto exchanged DeMar DeRozan, Jakob Poeltl and a protected pick for Kawhi Leonard and Danny Green.",
+          "text": "The Lakers hired Phil Jackson shortly after the Spurs swept them out of the previous postseason.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-            "quote": "DeMar DeRozan (who spent his first nine seasons in the NBA with the Raptors)"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "Twenty-four days after being swept by the eventual league champion, the Lakers signed Phil Jackson as head coach"
           }
         },
         {
-          "text": "The Raptors added Marc Gasol from Memphis at the trade deadline for a package led by Jonas Valančiūnas.",
+          "text": "Jackson installed the triangle offense around Shaquille O'Neal and Kobe Bryant, borrowing the system from his Bulls years.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-            "quote": "Memphis Grizzlies traded Marc Gasol to the Raptors"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "Jackson, famous for coaching Michael Jordan and the six-time champion Chicago Bulls, would build his triangle offense"
           }
         },
         {
-          "text": "Nick Nurse was promoted from assistant coach after Toronto dismissed Dwane Casey.",
+          "text": "This was the Lakers' inaugural season playing home games at Staples Center, their newly opened arena.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-            "quote": "the Raptors promoted assistant coach Nick Nurse as their head coach"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "Another huge change for the Lakers was that it was their inaugural season at the Staples Center"
           }
         }
       ]
     },
     {
-      "id": "nba-kawhi19-playoffs-ppg",
+      "id": "nba-kerr-player-titles",
       "sport": "NBA",
-      "prompt": "How many points per game did Kawhi Leonard score during the Raptors' 2019 playoffs?",
-      "context": "Toronto · entire 2019 postseason, not just Finals",
-      "answer": 30.5,
+      "prompt": "Steve Kerr's 2022 title was his ninth overall. How many did he win as a player?",
+      "context": "Bulls and Spurs · 1990s and 2000s",
+      "answer": 5,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "title",
+        "plural": "titles"
       },
-      "min": 15,
-      "max": 43,
-      "step": 0.1,
-      "note": "30.5 per game across Toronto's championship postseason.",
+      "min": 0,
+      "max": 9,
+      "step": 1,
+      "note": "Five.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-        "quote": "Kawhi Leonard | SF | 24 | 24 | 939 | 218 | 94 | 40 | 17 | 732 | 39.1 | 9.1 | 3.9 | 1.7 | .7 | 30.5"
+        "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+        "quote": "Steve Kerr won his ninth championship overall, after winning five as a player."
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Leonard started every Toronto playoff game and logged 939 minutes during the run.",
+          "text": "Kerr's Warriors had the NBA's worst record only a few seasons before reclaiming the championship.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-            "quote": "24 | 24 | 939 | 218 | 94 | 40 | 17 | 732"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+            "quote": "The Warriors also became the first team to go from the NBA's worst record"
           }
         },
         {
-          "text": "Toronto rallied from a two-game series deficit by winning four straight against Milwaukee.",
+          "text": "The championship earned Kerr a place among the select coaches to win four NBA titles.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-            "quote": "winning the last four games of the series after being down 0–2"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+            "quote": "He became the sixth coach to capture four titles"
           }
         },
         {
-          "text": "The Raptors became the first team based outside the United States to win the NBA championship.",
+          "text": "Kerr's lineup adjustment in Boston temporarily replaced Draymond Green with rebounding specialist Kevon Looney.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-            "quote": "first non-US team to win the NBA title"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+            "quote": "Steve Kerr benched him for parts of the fourth quarter, while Looney remained on the floor"
           }
         }
       ]
     },
     {
-      "id": "nba-lowry19-regular-apg",
+      "id": "nba-lucas84-season-rpg",
       "sport": "NBA",
-      "prompt": "What was Kyle Lowry's regular-season assists average for the champion Raptors?",
-      "context": "Toronto · 2018–19 regular season",
-      "answer": 8.7,
+      "prompt": "How many rebounds did Maurice Lucas average in 1983–84?",
+      "context": "Phoenix Suns · veteran forward · regular season",
+      "answer": 9.7,
       "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
       },
       "min": 3,
-      "max": 13,
+      "max": 22,
       "step": 0.1,
-      "note": "8.7 assists per game from Toronto's lead guard.",
+      "note": "9.7 rebounds per game from the tough big man.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-        "quote": "Kyle Lowry | PG | 65 | 65 | 2,213 | 312 | 564 | 91 | 31 | 926 | 34.0 | 4.8 | 8.7"
+        "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+        "quote": "Maurice Lucas | 75 | 69 | 30.8 | .497 | .000 | .765 | 9.7"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Lowry racked up 564 total assists during the regular season.",
+          "text": "Lucas also scored 15.9 points per game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-            "quote": "312 | 564 | 91 | 31 | 926"
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Maurice Lucas | 75 | 69 | 30.8 | .497 | .000 | .765 | 9.7 | 2.7 | .7 | .5 | 15.9"
           }
         },
         {
-          "text": "He started all 65 games in which he appeared that season.",
+          "text": "He played seventy-five games and started sixty-nine.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-            "quote": "Kyle Lowry | PG | 65 | 65"
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Maurice Lucas | 75 | 69 | 30.8"
           }
         },
         {
-          "text": "Lowry handed out ten assists in the road victory that clinched Toronto's first title.",
+          "text": "Lucas led the Suns with seventeen rebounds in their playoff overtime win against Los Angeles.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-            "quote": "Kyle Lowry (10) Oracle Arena"
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "May 18, 1984 Los Angeles W 135–127 (OT) Davis (34) Lucas (17)"
           }
         }
       ]
     },
     {
-      "id": "nba-raptors19-sixers-g7-points",
+      "id": "nba-warriors75-bench",
       "sport": "NBA",
-      "prompt": "How many points did Toronto score in Game 7 against Philadelphia in 2019?",
-      "context": "Eastern semifinals · Kawhi's buzzer-beater",
-      "answer": 92,
+      "prompt": "Through the first three games of the 1975 Finals, how many points did Golden State's bench score?",
+      "context": "1975 NBA Finals · Games 1–3 vs Washington",
+      "answer": 115,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 65,
-      "max": 135,
+      "min": 0,
+      "max": 140,
       "step": 1,
-      "note": "92 points, including the shot that advanced Toronto.",
+      "note": "115, to Washington's 53, on the way to a sweep.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-        "quote": "a 92–90 victory in the series-clinching game 7"
+        "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+        "quote": "the Warriors' bench players had outscored the Bullets' reserves 115–53"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Leonard's series-winning buzzer-beater came over Joel Embiid.",
+          "text": "Golden State had to host part of the Finals at the Cow Palace because the Ice Follies occupied its arena.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-            "quote": "Kawhi Leonard's buzzer-beater over Joel Embiid"
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "the Oakland facility being unavailable due to the Ice Follies"
           }
         },
         {
-          "text": "The Raptors needed the full seven games to survive Philadelphia.",
+          "text": "Jamaal Wilkes's defense against Elvin Hayes helped neutralize Washington's frontcourt advantage.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-            "quote": "edged the Philadelphia 76ers in seven games in the semifinals"
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "the defensive play of the seemingly undersized Jamaal Wilkes on Bullets' power forward Elvin Hayes"
           }
         },
         {
-          "text": "That win sent Toronto into an Eastern final against Milwaukee.",
+          "text": "Backup center George Johnson provided timely scoring and rebounding during the Warriors' surprise sweep.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-            "quote": "The Raptors defeated the Milwaukee Bucks in the Eastern Conference Finals"
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "backup center George Johnson had 10 points and nine rebounds off the bench"
           }
         }
       ]
     },
     {
-      "id": "nba-raptors19-road-wins",
+      "id": "nba-spurs99-alamodome-attendance",
       "sport": "NBA",
-      "prompt": "How many regular-season road games did Toronto win on its 2019 title run?",
-      "context": "Raptors · 41 away games · before the playoffs",
-      "answer": 26,
+      "prompt": "What was San Antonio's total home attendance in the shortened 1998–99 season?",
+      "context": "Spurs home games · Alamodome",
+      "answer": 527357,
       "unit": {
-        "singular": "road win",
-        "plural": "road wins"
+        "singular": "attendee",
+        "plural": "attendees"
       },
-      "min": 4,
-      "max": 41,
-      "step": 1,
-      "note": "26 wins away from home during the regular season.",
+      "min": 200000,
+      "max": 900000,
+      "step": 5000,
+      "note": "527,357 attended Spurs home games despite the shorter schedule.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-        "quote": "32‍–‍9  | 26‍–‍15"
+        "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
+        "quote": "an attendance of 527,357 at the Alamodome during the regular season"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Toronto's regular-season home record was stronger than its road record.",
+          "text": "The Spurs ranked second in home attendance during the season, trailing only Chicago.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-            "quote": "32‍–‍9  | 26‍–‍15"
+            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
+            "quote": "The Spurs finished second in the NBA in home-game attendance behind the Chicago Bulls"
           }
         },
         {
-          "text": "Milwaukee finished just ahead of Toronto atop the Eastern Conference standings.",
+          "text": "The season ended with the first NBA championship in San Antonio franchise history.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-            "quote": "Milwaukee Bucks"
+            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+            "quote": "The Spurs defeated the Knicks in five games to win their first NBA championship."
           }
         },
         {
-          "text": "The Raptors won all three Finals games played on Golden State's home floor.",
+          "text": "The entire league had to play a compressed calendar after the lockout delayed opening night.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
-            "quote": "NBA Finals: 4–2 (home: 1–2; road: 3–0)"
+            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
+            "quote": "Due to a lockout, the regular season began on February 5, 1999"
           }
         }
       ]

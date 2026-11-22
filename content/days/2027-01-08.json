@@ -1,29 +1,29 @@
 {
   "date": "2027-01-08",
   "theme": {
-    "title": "The Answer's run",
-    "subtitle": "Philadelphia, 2000–01",
-    "recap": "An MVP guard, a midseason defensive anchor and two Game 7 battles took Philadelphia all the way to a hard-fought Finals."
+    "title": "NBA Mix 47",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-sixers01-regular-wins",
+      "id": "nba-robinson94-71",
       "sport": "NBA",
-      "prompt": "How many regular-season games did Allen Iverson's 2000–01 76ers win?",
-      "context": "Philadelphia 76ers · 2000–01 · 82 games",
-      "answer": 56,
+      "prompt": "How many points did David Robinson score against the Clippers on April 24, 1994?",
+      "context": "San Antonio Spurs · 1993–94",
+      "answer": 71,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 37,
-      "max": 80,
+      "min": 45,
+      "max": 110,
       "step": 1,
-      "note": "56–26, giving the Sixers the top seed in the East.",
+      "note": "71, breaking George Gervin's Spurs record of 63.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-        "quote": "The 76ers finished in first place in the Atlantic Division with a 56–26 record"
+        "url": "https://en.wikipedia.org/wiki/David_Robinson",
+        "quote": "scoring 71 points (breaking George Gervin's single-game franchise record of 63) against the Los Angeles Clippers"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Philadelphia traded Theo Ratliff, Toni Kukoč and Nazr Mohammed to Atlanta for center Dikembe Mutombo during the season.",
+          "text": "Robinson's scoring-title chase came down to a direct duel with Shaquille O'Neal.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "the team traded Theo Ratliff, Toni Kukoč, and Nazr Mohammed to the Atlanta Hawks in exchange for All-Star center Dikembe Mutombo"
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "he became locked in a duel for the NBA scoring title with Shaquille O'Neal"
           }
         },
         {
-          "text": "Larry Brown was named NBA Coach of the Year as Philadelphia improved by seven wins over the previous season.",
+          "text": "His outburst surpassed George Gervin's longstanding Spurs single-game points record.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "Head coach Larry Brown was named the NBA Coach of the Year, after leading the 76ers to a seven-game improvement"
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "breaking George Gervin's single-game franchise record of 63"
           }
         },
         {
-          "text": "The Sixers changed the look of their white home and black road uniforms that season, including the lettering and collar design.",
+          "text": "That season, Robinson also averaged double-digit rebounds and more than three blocks per game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "the 76ers slightly updated their white home uniforms and black road uniforms"
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "10.7 rebounds per game, career-high 4.8 assists per game and 3.3 blocks per game"
           }
         }
       ]
     },
     {
-      "id": "nba-iverson01-season-ppg",
+      "id": "nba-miller95-8-points",
       "sport": "NBA",
-      "prompt": "What was Allen Iverson's scoring average during his 2000–01 MVP season?",
-      "context": "Philadelphia 76ers · 2000–01 · regular season",
-      "answer": 31.1,
+      "prompt": "Against the Knicks in 1995, Reggie Miller scored how many points in 8.9 seconds?",
+      "context": "1995 East semifinals · Game 1 · at New York",
+      "answer": 8,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 16,
-      "max": 44,
-      "step": 0.1,
-      "note": "31.1 a night, enough to lead the league and win MVP.",
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "note": "Eight unanswered points.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-        "quote": "All-Star guard Allen Iverson averaged 31.1 points, 4.6 assists and 2.5 steals per game"
+        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+        "quote": "scored eight unanswered points in 8.9 seconds in Game 1"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,151 +83,151 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Iverson led the NBA not only in scoring but also in steals that season.",
+          "text": "The comeback featured a stolen inbounds pass from Anthony Mason between Miller's dramatic jumpers.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "leading the league in both scoring and steals"
+            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+            "quote": "stole the inbound pass from Anthony Mason"
           }
         },
         {
-          "text": "Iverson also won All-Star Game MVP in Washington, D.C., where the East beat the West by a single point.",
+          "text": "John Starks missed both free throws on New York's next possession, leaving the door open for Indiana.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "Iverson scored 25 points along with 5 assists and 4 steals, and was named the All-Star Game Most Valuable Player"
+            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+            "quote": "Starks missed both free throws"
           }
         },
         {
-          "text": "Philadelphia had an unusual awards sweep: teammate Aaron McKie was Sixth Man of the Year and Mutombo was Defensive Player of the Year.",
+          "text": "Patrick Ewing grabbed the offensive rebound but his putback bounced off the back rim.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "Aaron McKie provided the team with 11.6 points, 5.0 assists and 1.4 steals per game, and was named the NBA Sixth Man of the Year"
+            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+            "quote": "his shot was just a bit long and hit the back rim"
           }
         }
       ]
     },
     {
-      "id": "nba-sixers01-opening-streak",
+      "id": "nba-murray23-finals-apg",
       "sport": "NBA",
-      "prompt": "How many games did the 2000–01 Sixers win in a row to start the season?",
-      "context": "Philadelphia 76ers · opening streak · 2000–01",
+      "prompt": "How many assists per game did Jamal Murray average in the 2023 NBA Finals?",
+      "context": "Denver Nuggets · five-game 2023 championship series",
       "answer": 10,
+      "unit": {
+        "singular": "assist per game",
+        "plural": "assists per game"
+      },
+      "min": 3,
+      "max": 19,
+      "step": 0.1,
+      "note": "10.0 assists a night, complementing Jokić's scoring and passing.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "Jamal Murray | 5 | 5 | 42.2 | .451 | .387 | .929 | 6.2 | 10.0 | 1.0 | 0.0 | 21.4"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Murray had torn his ACL before the 2021 playoffs and missed the entire following season while recovering.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Jamal Murray, who was crucial to the Nuggets' playoff runs in 2019 and 2020, tore his ACL a month before the start of the 2021 playoffs"
+          }
+        },
+        {
+          "text": "In Game 4 of the Finals, Murray recorded 12 assists without committing a single turnover.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Murray, who committed seven turnovers in game 3, finished the game with 12 assists and zero turnovers"
+          }
+        },
+        {
+          "text": "In Game 1, Murray and Jokić became the first Finals teammates since Magic Johnson and James Worthy to each have 25-plus points and 10 assists.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Jokić and Murray also became the second pair of teammates to each put up at least 25 points and 10 assists"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-bulls11-home-wins",
+      "sport": "NBA",
+      "prompt": "How many home games did the 2010–11 Bulls win at the United Center?",
+      "context": "Chicago Bulls · 2010–11 · 41 home games",
+      "answer": 36,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 15,
+      "max": 41,
+      "step": 1,
+      "note": "36 wins at home against only five defeats.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+        "quote": "Total: 62–20 (home: 36–5; road: 26–15)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Chicago finished its regular season with only five home defeats.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "Total: 62–20 (home: 36–5; road: 26–15)"
+          }
+        },
+        {
+          "text": "The Bulls ended the season by winning every game they played during April.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "April: 8–0 (home: 4–0; road: 4–0)"
+          }
+        },
+        {
+          "text": "The team set a franchise mark for converted three-pointers in a March game against Utah.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "On March 12 the Bulls set a franchise record 18 converted 3-point shots"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-spurs99-playoff-streak",
+      "sport": "NBA",
+      "prompt": "In 1999 the Spurs set a record for consecutive playoff wins. How many did they win before the streak ended in the Finals?",
+      "context": "San Antonio Spurs · 1999 playoffs",
+      "answer": 12,
       "unit": {
         "singular": "game",
         "plural": "games"
       },
-      "min": 3,
-      "max": 25,
+      "min": 6,
+      "max": 24,
       "step": 1,
-      "note": "Ten straight wins before their first loss.",
+      "note": "12 straight, the longest in NBA history at the time.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-        "quote": "The 76ers won their first ten games of the regular season"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Philadelphia had built a 36–14 record by the All-Star break before its midseason roster overhaul.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "later on held a 36–14 record at the All-Star break"
-          }
-        },
-        {
-          "text": "Starting guard Eric Snow missed a large chunk of the season with a stress fracture in his right ankle.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "only played just 50 games due to a stress fracture in his right ankle"
-          }
-        },
-        {
-          "text": "The Sixers reached a 42–14 record at one point but went 14–12 over the rest of the regular season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "At one point, the team's record was 42–14, but finished 14–12 the rest of the way"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-mutombo01-posttrade-rpg",
-      "sport": "NBA",
-      "prompt": "What was Dikembe Mutombo's rebounding average after joining the 2000–01 Sixers?",
-      "context": "Philadelphia 76ers · post-trade regular-season stint",
-      "answer": 12.4,
-      "unit": {
-        "singular": "rebound per game",
-        "plural": "rebounds per game"
-      },
-      "min": 5,
-      "max": 22,
-      "step": 0.1,
-      "note": "12.4 rebounds per game for Philadelphia.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-        "quote": "Mutombo averaged 11.7 points, 12.4 rebounds and 2.5 blocks per game in 26 games after the trade"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Mutombo won Defensive Player of the Year for the fourth time in his career that season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "and was named the NBA Defensive Player of the Year for the fourth time"
-          }
-        },
-        {
-          "text": "The trade was partly driven by a season-ending wrist injury to Theo Ratliff, who had previously been the Sixers' starting center.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "prior to the trade, Ratliff was sidelined due to a season-ending wrist injury"
-          }
-        },
-        {
-          "text": "During his short Philadelphia regular-season stint, Mutombo also averaged 2.5 blocks a game.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "Mutombo averaged 11.7 points, 12.4 rebounds and 2.5 blocks per game in 26 games after the trade"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-sixers01-finals-g1-points",
-      "sport": "NBA",
-      "prompt": "How many points did the 76ers score in their overtime Game 1 win over the Lakers in 2001?",
-      "context": "2001 NBA Finals · June 6 · Philadelphia at Los Angeles",
-      "answer": 107,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 76,
-      "max": 119,
-      "step": 1,
-      "note": "107, the Lakers' only defeat during that postseason.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-        "quote": "June 6 @ L.A. Lakers W 107–101 (OT)"
+        "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+        "quote": "This was the end of the Spurs' 12-game playoff winning streak, the longest in NBA history at the time."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "That opening-game overtime win was the Lakers' only loss across their entire 2001 playoff run.",
+          "text": "That championship came after a lockout shortened the regular season to 50 games.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "By the end of the series, the 2000–01 Lakers held the record for the best postseason record with 15–1."
+            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+            "quote": "was shortened from the usual 82-game schedule to 50 games per team"
           }
         },
         {
-          "text": "Philadelphia outscored Los Angeles 13–7 in overtime after a close regulation contest.",
+          "text": "The Knicks became the first eighth-seeded team to advance all the way to the NBA Finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "Scoring by quarter: 22–23, 34–27, 23–27, 15–17, Overtime: 13–7"
+            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+            "quote": "the first team in North American sports history to reach a championship series as an eighth seed"
           }
         },
         {
-          "text": "The Sixers had just survived two straight seven-game playoff series against Toronto and Milwaukee before reaching the Finals.",
+          "text": "San Antonio swept both the Lakers and Trail Blazers en route to its first Finals trip.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "had just come out of two straight seven-game series against the Toronto Raptors and Milwaukee Bucks"
+            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+            "quote": "recorded back-to-back sweeps in the second round and the conference finals"
           }
         }
       ]

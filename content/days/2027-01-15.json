@@ -1,29 +1,29 @@
 {
   "date": "2027-01-15",
   "theme": {
-    "title": "Magic in the air",
-    "subtitle": "Orlando Magic, 2008–09",
-    "recap": "Dwight Howard anchored Orlando's defense while its shooters carried the Magic past Boston and Cleveland to the Finals."
+    "title": "NBA Mix 54",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-magic09-regular-wins",
+      "id": "nba-pistons89-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did Dwight Howard's 2008–09 Magic win?",
-      "context": "Orlando · Eastern Conference champions",
-      "answer": 59,
+      "prompt": "How many games did the 1988–89 \"Bad Boys\" Pistons win?",
+      "context": "Detroit Pistons · 1988–89 · 82 games",
+      "answer": 63,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 31,
-      "max": 83,
+      "min": 50,
+      "max": 82,
       "step": 1,
-      "note": "59 wins under coach Stan Van Gundy.",
+      "note": "63–19, the league's best.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-        "quote": "the team finished the regular season with a 59–23 record"
+        "url": "https://en.wikipedia.org/wiki/1988%E2%80%9389_Detroit_Pistons_season",
+        "quote": "finishing in first place in the Central Division with a league-best 63–19 record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Dwight Howard became the youngest Defensive Player of the Year winner that spring.",
+          "text": "That season marked the Bad Boys' first in the brand-new Palace of Auburn Hills.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "becoming the youngest player to win the award"
+            "url": "https://en.wikipedia.org/wiki/1988%E2%80%9389_Detroit_Pistons_season",
+            "quote": "moved from the Pontiac Silverdome to their brand-new arena known as The Palace of Auburn Hills"
           }
         },
         {
-          "text": "A shoulder injury to All-Star Jameer Nelson forced Orlando to reshape its backcourt.",
+          "text": "Detroit traded Adrian Dantley to Dallas midseason for Mark Aguirre, a longtime friend of Isiah Thomas.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "Jameer Nelson left a game after dislocating his right shoulder"
+            "url": "https://en.wikipedia.org/wiki/1988%E2%80%9389_Detroit_Pistons_season",
+            "quote": "traded Dantley to the Dallas Mavericks in exchange for All-Star forward Mark Aguirre"
           }
         },
         {
-          "text": "Hedo Türkoğlu hit a game-winner against Philadelphia in the opening playoff round.",
+          "text": "Detroit opened its regular season with eight consecutive wins — an early sign of the championship run to come.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "Hedo Türkoğlu's game winner in game four of that series"
+            "url": "https://en.wikipedia.org/wiki/1988%E2%80%9389_Detroit_Pistons_season",
+            "quote": "The Pistons got off to a fast start by winning their first eight games of the regular season."
           }
         }
       ]
     },
     {
-      "id": "nba-magic09-kings-threes",
+      "id": "nba-davis84-regular-apg",
       "sport": "NBA",
-      "prompt": "How many three-pointers did Orlando make against Sacramento in January 2009?",
-      "context": "Magic at Kings · long-range barrage",
-      "answer": 23,
+      "prompt": "How many assists per game did Walter Davis average for Phoenix in 1983–84?",
+      "context": "Suns · veteran scorer and creator",
+      "answer": 5.5,
       "unit": {
-        "singular": "made three-pointer",
-        "plural": "made three-pointers"
+        "singular": "assist per game",
+        "plural": "assists per game"
       },
-      "min": 10,
-      "max": 55,
-      "step": 1,
-      "note": "23 made threes in a high-scoring win.",
+      "min": 1,
+      "max": 13,
+      "step": 0.1,
+      "note": "5.5 assists per game from the veteran guard.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-        "quote": "The Magic scored an NBA record 23 three-pointers against the Sacramento Kings"
+        "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+        "quote": "Walter Davis | 78 | 70 | 32.6 | .512 | .230 | .863 | 2.6 | 5.5"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,151 +83,151 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Nine different Orlando players made at least one three-pointer that night.",
+          "text": "Davis scored twenty points a game that year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "Nine of the twelve Magic players who played that night scored at least one three pointer"
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Walter Davis | 78 | 70 | 32.6 | .512 | .230 | .863 | 2.6 | 5.5 | 1.4 | .2 | 20.0"
           }
         },
         {
-          "text": "Jameer Nelson hit five threes and JJ Redick added four.",
+          "text": "He started seventy of his seventy-eight appearances.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "Jameer Nelson (5), JJ Redick (4), Keith Bogans (4)"
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Walter Davis | 78 | 70 | 32.6"
           }
         },
         {
-          "text": "The Magic won the game 139–107 in Sacramento.",
+          "text": "Davis hit 86.3 percent of his free throws.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "January 13 @ Sacramento W 139–107"
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Walter Davis | 78 | 70 | 32.6 | .512 | .230 | .863"
           }
         }
       ]
     },
     {
-      "id": "nba-howard09-regular-rpg",
+      "id": "nba-miller94-4q",
       "sport": "NBA",
-      "prompt": "How many rebounds per game did Dwight Howard average in 2008–09?",
-      "context": "Orlando Magic · regular season",
-      "answer": 13.8,
-      "unit": {
-        "singular": "rebound per game",
-        "plural": "rebounds per game"
-      },
-      "min": 4,
-      "max": 30,
-      "step": 0.1,
-      "note": "13.8 rebounds a night from Orlando's dominant center.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-        "quote": "Dwight Howard | C | 79 | 79 | 2,821 | 1,093 | 112 | 77 | 231 | 1,624 | 35.7 | 13.8"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "He swatted 231 shots that regular season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "Dwight Howard | C | 79 | 79 | 2,821 | 1,093 | 112 | 77 | 231"
-          }
-        },
-        {
-          "text": "Howard won Defensive Player of the Year and made the All-NBA First Team.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "Dwight Howard – Defensive Player of the Year, All-NBA 1st Team"
-          }
-        },
-        {
-          "text": "A sore knee ended Howard's streak of consecutive games played since entering the NBA.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "missed the first game of his professional career, ending a streak of 351 consecutive games played"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-turkoglu09-regular-apg",
-      "sport": "NBA",
-      "prompt": "What was Hedo Türkoğlu's assists-per-game average in 2008–09?",
-      "context": "Magic · point-forward in a Finals season",
-      "answer": 4.9,
-      "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
-      },
-      "min": 1,
-      "max": 14,
-      "step": 0.1,
-      "note": "4.9 assists per game while running much of Orlando's offense.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-        "quote": "Hedo Türkoğlu | SF | 77 | 77 | 2,815 | 410 | 375 | 64 | 19 | 1,294 | 36.6 | 5.3 | 4.9"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Türkoğlu collected 375 assists across the regular season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "Hedo Türkoğlu | SF | 77 | 77 | 2,815 | 410 | 375"
-          }
-        },
-        {
-          "text": "His late-game heroics helped Orlando survive Philadelphia early in the playoffs.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "highlighted by forward Hedo Türkoğlu's game winner in game four of that series"
-          }
-        },
-        {
-          "text": "After the season, Orlando sent Türkoğlu to Toronto in a multi-team deal.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "Following the season, Türkoğlu was traded to the Toronto Raptors"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-howard09-cavs-g6-points",
-      "sport": "NBA",
-      "prompt": "How many points did Howard score to eliminate Cleveland in the 2009 East finals?",
-      "context": "Magic vs Cavaliers · conference finals Game 6",
-      "answer": 40,
+      "prompt": "In Game 5 of the 1994 East finals at Madison Square Garden, how many fourth-quarter points did Reggie Miller score?",
+      "context": "1994 East finals · Game 5 · at New York",
+      "answer": 25,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 22,
-      "max": 80,
+      "min": 2,
+      "max": 32,
       "step": 1,
-      "note": "40 points to send Orlando back to the NBA Finals.",
+      "note": "25 of his 39.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-        "quote": "thanks to Howard's 40 points and 10 rebounds in Game 6"
+        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+        "quote": "scored 39 points (25 in the fourth quarter alone) in the Pacers' 93–86 victory"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Director Spike Lee was seated courtside at Madison Square Garden, and Miller talked animatedly at him.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+            "quote": "engaged in an animated discussion of his ongoing performance with noted Knicks fan Spike Lee"
+          }
+        },
+        {
+          "text": "That explosive road performance put the Pacers ahead in the series, but the Knicks ultimately eliminated Indiana.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+            "quote": "but they lost the next two games and the series"
+          }
+        },
+        {
+          "text": "The player later earned the nickname 'Knick Killer' for his repeated postseason torment of New York.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+            "quote": "most notably against the New York Knicks, for which he earned the nickname \"Knick Killer\""
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-raptors01-team-blocks",
+      "sport": "NBA",
+      "prompt": "In March 2001, Toronto set what was then the NBA record for team blocks in a game. How many?",
+      "context": "Toronto Raptors · 2000–01 regular season",
+      "answer": 23,
+      "unit": {
+        "singular": "block",
+        "plural": "blocks"
+      },
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "note": "23, an NBA record at the time.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
+        "quote": "The Raptors combined for 23 blocks, an NBA record at the time"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Toronto reserve Keon Clark supplied the biggest share of the swats despite not starting against Atlanta.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
+            "quote": "Keon Clark  | Toronto Raptors  | March 23, 2001"
+          }
+        },
+        {
+          "text": "Clark astonishingly committed no personal fouls while sending shot after shot away.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
+            "quote": "Did not commit a personal foul; holds the NBA record for most blocks"
+          }
+        },
+        {
+          "text": "The Raptors' defensive masterpiece came against the Atlanta Hawks in a comfortable win.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
+            "quote": "Atlanta Hawks  | 112–86"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-kareem89-retire-age",
+      "sport": "NBA",
+      "prompt": "How old was Kareem Abdul-Jabbar when he retired after the 1989 Finals?",
+      "context": "Los Angeles Lakers · 1988–89",
+      "answer": 42,
+      "unit": {
+        "singular": "year old",
+        "plural": "years old"
+      },
+      "min": 27,
+      "max": 48,
+      "step": 1,
+      "note": "42, after 20 seasons.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+        "quote": "announced his retirement from the NBA at age 42 at the end of his 20th season"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Howard also grabbed ten rebounds in the decisive game.",
+          "text": "Abdul-Jabbar's 1989 retirement capped an NBA career spanning twenty seasons.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "Howard's 40 points and 10 rebounds in Game 6"
+            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+            "quote": "at the end of his 20th season"
           }
         },
         {
-          "text": "Orlando eliminated the top-seeded Cavaliers to reach its first Finals since the Shaq era.",
+          "text": "Detroit swept the Lakers in Kareem's final championship series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "defeated the top-seeded Cleveland Cavaliers in six games"
+            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+            "quote": "The Pistons won the series in a four-game sweep of the injury-riddled Lakers"
           }
         },
         {
-          "text": "The Lakers defeated Orlando in the NBA Finals that followed.",
+          "text": "Joe Dumars was named Finals MVP after Detroit won its first NBA championship.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "would lose to the Kobe Bryant-led Los Angeles Lakers in five games"
+            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+            "quote": "Pistons guard Joe Dumars was named NBA Finals Most Valuable Player"
           }
         }
       ]

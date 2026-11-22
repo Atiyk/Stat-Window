@@ -1,29 +1,29 @@
 {
   "date": "2027-01-04",
   "theme": {
-    "title": "Warriors, Cavs and Raptors",
-    "subtitle": "The 2018 and 2019 Finals",
-    "recap": "LeBron James scored 51 in a 2018 loss; a year later Toronto ended Golden State's run."
+    "title": "NBA Mix 43",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-lebron18-g1",
+      "id": "nba-miller92-57",
       "sport": "NBA",
-      "prompt": "LeBron James scored the most points ever in a Finals loss in Game 1 of 2018. How many?",
-      "context": "2018 NBA Finals · Game 1 · at Golden State",
-      "answer": 51,
+      "prompt": "What was Reggie Miller's career high in points?",
+      "context": "Pacers vs Charlotte Hornets · November 28, 1992",
+      "answer": 57,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 10,
-      "max": 60,
+      "min": 40,
+      "max": 90,
       "step": 1,
-      "note": "51.",
+      "note": "57.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
-        "quote": "LeBron James scored 51 points in Game 1, the fifth-highest point total for an NBA Finals game and the most in a loss"
+        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+        "quote": "he scored a career-high 57 points against the Charlotte Hornets in a 134–122 win"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "J. R. Smith grabbed an offensive rebound with the game tied but ran toward midcourt instead of shooting.",
+          "text": "Pacers fans booed the draft selection that brought Miller to Indiana; they had wanted hometown favorite Steve Alford.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
-            "quote": "dribbled the ball towards half court rather than taking a final shot"
+            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+            "quote": "fans watching the 1987 NBA draft booed Pacers President Donnie Walsh for the selection"
           }
         },
         {
-          "text": "LeBron played the remainder of the Finals with a bruised hand after punching a whiteboard in frustration.",
+          "text": "Miller became the Pacers' primary scoring option after Indiana traded Chuck Person in the offseason.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
-            "quote": "suffering a bone contusion in his hand that he kept private for the rest of the series"
+            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+            "quote": "After Chuck Person was traded from the Pacers during the 1992 offseason"
           }
         },
         {
-          "text": "Klay Thompson returned to the opener after hurting his leg in the first quarter.",
+          "text": "Years later, Jermaine O'Neal stopped scoring late in a big night rather than surpass his veteran teammate's franchise mark.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
-            "quote": "suffered a leg injury in the first quarter, but returned in the second quarter"
+            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+            "quote": "left the game with 1:43 remaining to preserve Miller's 57-point record"
           }
         }
       ]
     },
     {
-      "id": "nba-curry18-g2-threes",
+      "id": "nba-nash05-regular-apg",
       "sport": "NBA",
-      "prompt": "How many threes did Stephen Curry make in Game 2 of the 2018 Finals?",
-      "context": "2018 NBA Finals · Game 2 · vs Cleveland",
-      "answer": 9,
+      "prompt": "What was Steve Nash's assists-per-game average for the 2004–05 Suns?",
+      "context": "Phoenix Suns · 2004–05 regular season",
+      "answer": 11.5,
       "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
+        "singular": "assist per game",
+        "plural": "assists per game"
       },
-      "min": 0,
-      "max": 13,
-      "step": 1,
-      "note": "Nine, a Finals record.",
+      "min": 6,
+      "max": 22,
+      "step": 0.1,
+      "note": "11.5 assists each night in his first MVP season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
-        "quote": "set an NBA Finals record in Game 2 with nine three-point field goals"
+        "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+        "quote": "Nash finished the season averaging 11.5 assists per game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Golden State increased its defensive double-teaming of LeBron after his enormous opening performance.",
+          "text": "Nash shot 50.2% from the field and 43.1% from three during the regular season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
-            "quote": "The Warriors employed more double teams against James in Game 2"
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "while making 50.2% of his field goals and 43.1% of his three-pointers"
           }
         },
         {
-          "text": "J. R. Smith struggled from the floor, with both of his field goals coming early in the night.",
+          "text": "Nash won MVP while Mike D'Antoni took Coach of the Year and Bryan Colangelo Executive of the Year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
-            "quote": "Smith struggled for Cleveland, shooting 2-for-9 (22.2%) with both baskets coming in the first quarter"
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "He ended up winning the MVP award. D'Antoni was awarded Coach of the Year"
           }
         },
         {
-          "text": "Kevin Durant contributed rebounds and playmaking alongside Curry, making Golden State's offense tougher to stop.",
+          "text": "Quentin Richardson won the Three-Point Shootout during the same season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
-            "quote": "the Warriors got 26 points, nine rebounds, and seven assists from Kevin Durant"
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "Quentin Richardson won the Three-Point Shootout"
           }
         }
       ]
     },
     {
-      "id": "nba-gsw19-g2-run",
+      "id": "nba-gsw16-home-streak",
       "sport": "NBA",
-      "prompt": "Golden State opened the second half of Game 2 of the 2019 Finals with how many unanswered points?",
-      "context": "2019 NBA Finals · Game 2 · at Toronto",
-      "answer": 18,
+      "prompt": "Golden State set an NBA record for consecutive regular-season home wins. How long was the streak?",
+      "context": "Golden State Warriors · spanning 2015 and 2016",
+      "answer": 54,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 0,
-      "max": 24,
+      "min": 35,
+      "max": 100,
       "step": 1,
-      "note": "18, the most to start a half in Finals history.",
+      "note": "54 straight home wins.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-        "quote": "The Warriors' 18 unanswered points to begin the second half were the most in NBA Finals history to start a half."
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "The Warriors also set an NBA record 54-straight regular-season home-game winning streak,"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Klay Thompson's night ended after he landed awkwardly while attempting a three and injured his hamstring.",
+          "text": "The home winning streak stretched across two seasons, beginning in January 2015.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-            "quote": "Thompson left the game in the fourth quarter with a left hamstring injury"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "which spanned from January 31, 2015, to March 29, 2016"
           }
         },
         {
-          "text": "Andre Iguodala hit a late outside shot to prevent Toronto's comeback from forcing another ending.",
+          "text": "Boston ended Golden State's long run at Oracle Arena with a narrow April road win.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-            "quote": "Iguodala cemented the win with a three-pointer with 5.9 seconds remaining"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "Golden State lost at home for the first time since January 27, 2015. They fell to the Boston Celtics"
           }
         },
         {
-          "text": "DeMarcus Cousins made a rare Finals start and added rebounds and assists after returning from injury.",
+          "text": "Before Golden State broke it, Chicago's 1990s dynasty had held the home-win-streak record.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-            "quote": "Cousins, who was moved into the starting lineup, had 11 points, 10 rebounds and six assists"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "The previous record of 44 was held by the 1995–96 Chicago Bulls"
           }
         }
       ]
     },
     {
-      "id": "nba-siakam19-g1",
+      "id": "nba-offensive-rebound-reset",
       "sport": "NBA",
-      "prompt": "Pascal Siakam shot 14 of 17 in Game 1 of the 2019 Finals. How many points did he score?",
-      "context": "2019 NBA Finals · Game 1 · vs Golden State",
-      "answer": 32,
+      "prompt": "After an offensive rebound, what is the NBA shot clock reset to?",
+      "context": "NBA rules · since 2018–19",
+      "answer": 14,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "second",
+        "plural": "seconds"
       },
-      "min": 24,
-      "max": 44,
+      "min": 1,
+      "max": 21,
       "step": 1,
-      "note": "32, a playoff career high.",
+      "note": "14 seconds.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-        "quote": "Pascal Siakam scored a playoff career-high 32 points on 14-of-17 shooting"
+        "url": "https://en.wikipedia.org/wiki/Shot_clock",
+        "quote": "The shot clock is instead set to 14 following an offensive rebound."
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "The Raptors hosted the first NBA Finals contest ever played outside the United States.",
+          "text": "FIBA introduced the shorter offensive-rebound clock years before the NBA adopted it.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-            "quote": "the first-ever NBA Finals game played outside the United States"
+            "url": "https://en.wikipedia.org/wiki/Shot_clock",
+            "quote": "FIBA adopted this in 2014 and the NBA adopted in 2018"
           }
         },
         {
-          "text": "Draymond Green logged a triple-double in the opener, but his Warriors still fell behind in the series.",
+          "text": "A defender merely tipping the ball does not restart the clock if the offense keeps possession.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-            "quote": "Draymond Green had a triple-double with 10 points, 10 rebounds, and 10 assists"
+            "url": "https://en.wikipedia.org/wiki/Shot_clock",
+            "quote": "The shot clock does not reset if a defender makes short contact with the ball"
           }
         },
         {
-          "text": "Kevin Durant traveled to Toronto but remained on the sideline while recovering from a calf injury.",
+          "text": "Missing the rim entirely on an airball also leaves the previous countdown running.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-            "quote": "Durant, the MVP of the last two NBA Finals, traveled with the team to Toronto, but remained sidelined"
+            "url": "https://en.wikipedia.org/wiki/Shot_clock",
+            "quote": "or if a shot attempt misses the rim entirely and airballs"
           }
         }
       ]
     },
     {
-      "id": "nba-gsw19-20-threes",
+      "id": "nba-gsw16-mavs-39-threes",
       "sport": "NBA",
-      "prompt": "Golden State made what was then the second-most threes in a Finals game, in Game 5 of 2019. How many?",
-      "context": "2019 NBA Finals · Game 5 · at Toronto",
-      "answer": 20,
+      "prompt": "On March 25, 2016, the Warriors and Mavericks set a record for combined threes in a game. How many?",
+      "context": "Warriors vs Mavericks · 2015–16",
+      "answer": 39,
       "unit": {
         "singular": "three-pointer",
         "plural": "three-pointers"
       },
       "min": 0,
-      "max": 26,
+      "max": 55,
       "step": 1,
-      "note": "20, then second only to Cleveland’s 24.",
+      "note": "39: 21 by Golden State, 18 by Dallas. A record at the time.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-        "quote": "Golden State made 20 three-pointers, the second most in NBA Finals history behind Cleveland's 24"
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "both teams combined for 39 made three-pointers (21 by the Warriors, 18 by the Mavericks), an all-time NBA record,"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Durant returned in the road elimination game but suffered a serious Achilles injury shortly afterward.",
+          "text": "Golden State became the first NBA team to sink a thousand three-pointers in a single regular season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-            "quote": "he was lost for the game two minutes into the second quarter"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "the first team in league history to hit 1,000 three-pointers in a single season"
           }
         },
         {
-          "text": "Curry and Thompson combined for consecutive late threes to keep Golden State alive for another game.",
+          "text": "Assistant coach Luke Walton ran the Warriors early in the year while Steve Kerr recovered from back trouble.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-            "quote": "They combined for three straight 3-pointers after the Raptors led by six points"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "assistant coach Luke Walton coaching for the team after it was confirmed that coach Steve Kerr's back would not heal"
           }
         },
         {
-          "text": "Kyle Lowry nearly won the series with a buzzer-beating three, but Draymond Green deflected the shot.",
+          "text": "Draymond Green recorded a rare five-by-five stat line during an overtime trip to Boston.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-            "quote": "Lowry's potential championship-winning, 3-point shot at the buzzer fell short"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "Draymond Green recorded a five-by-five game"
           }
         }
       ]

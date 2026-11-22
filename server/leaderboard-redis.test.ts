@@ -66,7 +66,7 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     const stored=await sample(SUBMIT_LUA,clientKeys,submitArgs);
     expect(stored.status).toBe('stored');
     expect(stored.billed).toBeLessThanOrEqual(55);
-    const duplicate=await sample(SUBMIT_LUA,[...clientKeys.slice(0,8),`${p}:submit:rate:retry`,...clientKeys.slice(9)],submitArgs);
+    const duplicate=await sample(SUBMIT_LUA,[...clientKeys.slice(0,7),`${p}:submit:rate:retry`,...clientKeys.slice(8)],submitArgs);
     expect(duplicate.status).toBe('duplicate');
     expect(duplicate.billed).toBeLessThanOrEqual(55);
     const anonymous=await sample(READ_LUA,readKeys,[caps[0]!,caps[1]!,'']);
@@ -75,8 +75,8 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     const own=await sample(READ_LUA,[...readKeys.slice(0,4),`${p}:read:minute:own`,`${p}:read:day:own`,...readKeys.slice(6)],[caps[0]!,caps[1]!,member]);
     expect(own.status).toBe('ok');
     expect(own.billed).toBeLessThanOrEqual(24);
-    for(let i=0;i<4;i++)await sample(SUBMIT_LUA,[...clientKeys.slice(0,8),`${p}:submit:rate:denied`,...clientKeys.slice(9)],submitArgs);
-    const limitedPost=await sample(SUBMIT_LUA,[...clientKeys.slice(0,8),`${p}:submit:rate:denied`,...clientKeys.slice(9)],submitArgs);
+    for(let i=0;i<4;i++)await sample(SUBMIT_LUA,[...clientKeys.slice(0,7),`${p}:submit:rate:denied`,...clientKeys.slice(8)],submitArgs);
+    const limitedPost=await sample(SUBMIT_LUA,[...clientKeys.slice(0,7),`${p}:submit:rate:denied`,...clientKeys.slice(8)],submitArgs);
     expect(limitedPost.status).toBe('limited');
     expect(limitedPost.billed).toBe(2); // EVAL + rate GET; still billed on 429
     for(let i=0;i<12;i++)await sample(READ_LUA,[...readKeys.slice(0,4),`${p}:read:minute:denied`,`${p}:read:day:denied`,...readKeys.slice(6)],[caps[0]!,caps[1]!,'']);

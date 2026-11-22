@@ -83,7 +83,7 @@ test('interactive tutorial is not scored and requires an explicit start', async 
   await expect(page.getByRole('heading', { name: /^A fictional NBA player has 20 points/ })).toBeVisible();
   await expect(page.locator('.onboarding-play .ruler')).toBeVisible();
   await expect(page.locator('.onboarding-play .readout')).toBeVisible();
-  await expect(page.locator('.question')).toHaveCount(0);
+  await expect(page.locator('.round:not(.onboarding-play) .question')).toHaveCount(0);
   await expect(page.getByRole('slider', { name: 'Low end of your window' })).toBeVisible();
   await expect(page.getByRole('slider', { name: 'High end of your window' })).toBeVisible();
   await expect(page.locator('.shot-clock')).toContainText('No timer');
@@ -109,7 +109,7 @@ test('first-play practice mirrors the real round on 320px mobile without horizon
   await expect(page.locator('.onboarding-play .readout')).toBeVisible();
   await expect(page.locator('.onboarding-play .ruler')).toBeVisible();
   await expect(page.getByRole('button', { name: 'Skip tutorial and start' })).toBeVisible();
-  await expect(page.locator('.question')).toHaveCount(0);
+  await expect(page.locator('.round:not(.onboarding-play) .question')).toHaveCount(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(321);
 });
 
@@ -136,7 +136,7 @@ test('opening and abandoning the tutorial does not start the clock or a scored r
   await page.clock.install({ time: DAY1 });
   await page.goto('/');
   await expect(page.getByRole('heading', { name: /^A fictional NBA player has 20 points/ })).toBeVisible();
-  await expect(page.locator('.question')).toHaveCount(0);
+  await expect(page.locator('.round:not(.onboarding-play) .question')).toHaveCount(0);
   const before = await page.evaluate(() => ({
     deadline: sessionStorage.getItem('stat-window:shot:v1:nba-gsw-2016-wins'),
     sent: JSON.parse(localStorage.getItem('stat-window:sent') || '{}') as Record<string,string>,

@@ -1,29 +1,29 @@
 {
   "date": "2026-12-29",
   "theme": {
-    "title": "Playoff drama",
-    "subtitle": "2002 to 2005",
-    "recap": "Boston shot its way past Philadelphia and erased a big deficit against New Jersey, and Robert Horry stole a Finals game in Detroit."
+    "title": "NBA Mix 37",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-pierce02-46",
+      "id": "nba-lebron18-g1",
       "sport": "NBA",
-      "prompt": "In the deciding Game 5 of the 2002 first round against Philadelphia, Paul Pierce scored how many points?",
-      "context": "2002 East first round · Game 5 · vs 76ers",
-      "answer": 46,
+      "prompt": "LeBron James scored the most points ever in a Finals loss in Game 1 of 2018. How many?",
+      "context": "2018 NBA Finals · Game 1 · at Golden State",
+      "answer": 51,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 25,
-      "max": 75,
+      "min": 10,
+      "max": 60,
       "step": 1,
-      "note": "46, with 8 of 10 threes.",
+      "note": "51.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-        "quote": "Paul Pierce led the way with 46, on 8-10 shooting from downtown"
+        "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
+        "quote": "LeBron James scored 51 points in Game 1, the fifth-highest point total for an NBA Finals game and the most in a loss"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Boston had reached the playoffs for the first time in seven years before meeting Philadelphia.",
+          "text": "J. R. Smith grabbed an offensive rebound with the game tied but ran toward midcourt instead of shooting.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-            "quote": "This series marked the return of the Celtics to the playoffs for the first time in seven years"
+            "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
+            "quote": "dribbled the ball towards half court rather than taking a final shot"
           }
         },
         {
-          "text": "The 76ers came into the matchup as defending Eastern Conference champions behind Allen Iverson.",
+          "text": "LeBron played the remainder of the Finals with a bruised hand after punching a whiteboard in frustration.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-            "quote": "they faced the reigning Eastern Conference champion in the first round"
+            "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
+            "quote": "suffering a bone contusion in his hand that he kept private for the rest of the series"
           }
         },
         {
-          "text": "Antoine Walker shared the scoring burden during the series and helped Boston turn back Philadelphia's rally.",
+          "text": "Klay Thompson returned to the opener after hurting his leg in the first quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-            "quote": "Antoine Walker stepped up for the Celtics"
+            "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
+            "quote": "suffered a leg injury in the first quarter, but returned in the second quarter"
           }
         }
       ]
     },
     {
-      "id": "nba-celtics02-4q",
+      "id": "nba-spurs14-international",
       "sport": "NBA",
-      "prompt": "Boston erased a big deficit in Game 3 of the 2002 East finals. How many points did it score in the fourth quarter?",
-      "context": "2002 East finals · Game 3 · vs New Jersey",
-      "answer": 41,
+      "prompt": "The 2013–14 Spurs opened the season with an NBA-record number of international players. How many?",
+      "context": "San Antonio Spurs · 2013–14",
+      "answer": 10,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "player",
+        "plural": "players"
       },
-      "min": 24,
-      "max": 62,
+      "min": 5,
+      "max": 19,
       "step": 1,
-      "note": "41, to New Jersey's 16.",
+      "note": "Ten.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-        "quote": "the Celtics outscored the Nets 41–16 in the fourth quarter"
+        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+        "quote": "They also entered the season with an NBA-record ten international players."
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Boston's historic Nets comeback began after the Celtics fell far behind in Game 3 of the East finals.",
+          "text": "French forward Boris Diaw became a key ball-mover on the championship roster.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-            "quote": "In Game 3, the Celtics were down by as much as 26 points"
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "Diaw led all players in the series in assists"
           }
         },
         {
-          "text": "Kerry Kittles paced New Jersey's offense in the game Boston dramatically stole.",
+          "text": "The team's system spread minutes so widely that no Spur averaged half an hour during the regular season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-            "quote": "Pts: Kerry Kittles 19"
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "no player averaging 30 minutes during the regular season"
           }
         },
         {
-          "text": "Paul Pierce was Boston's leading scorer in its playoff comeback against New Jersey.",
+          "text": "The Finals marked the return of a less punishing travel format, partly enabled by charter flights.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-            "quote": "Pts: Paul Pierce 28"
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "as well as the increased use of chartered flights as opposed to commercial flights"
           }
         }
       ]
     },
     {
-      "id": "nba-celtics02-19-threes",
+      "id": "nba-majerle93-three-pointers",
       "sport": "NBA",
-      "prompt": "Boston made a playoff-record nine threes in one fourth quarter against Philadelphia in 2002. How many did it make in the whole game?",
-      "context": "2002 East first round · Celtics vs 76ers",
-      "answer": 19,
+      "prompt": "How many three-pointers did Dan Majerle make during the Suns' 1992–93 season?",
+      "context": "Dan Majerle · regular-season three-point shooting",
+      "answer": 167,
       "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
+        "singular": "made three-pointer",
+        "plural": "made three-pointers"
       },
-      "min": 10,
-      "max": 36,
+      "min": 60,
+      "max": 260,
       "step": 1,
-      "note": "19, nine of them in the fourth quarter.",
+      "note": "167 made threes, tying for the league lead.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-        "quote": "hitting an NBA playoff record nine of them in the 4th quarter and 19 in the game"
+        "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+        "quote": "finished tied in first place in the league with 167 three-point field goals"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Boston's barrage came in a winner-take-all first-round game against Allen Iverson's Philadelphia 76ers.",
+          "text": "Majerle averaged 16.9 points and 1.7 steals a game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-            "quote": "This set the stage for a Game 5 in Boston to decide the series"
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "Dan Majerle averaged 16.9 points and 1.7 steals per game"
           }
         },
         {
-          "text": "The Celtics' perimeter onslaught ended the Sixers' season and set up a series against Detroit.",
+          "text": "He was named to the NBA's All-Defensive Second Team.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-            "quote": "Boston won in a huge blowout, sending them to the conference semifinals to face second-seed Detroit"
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "was named to the NBA All-Defensive Second Team"
           }
         },
         {
-          "text": "The hot shooting was concentrated in the fourth quarter, when Boston's perimeter attack caught fire.",
+          "text": "Reserve guard Danny Ainge also made 150 threes during the same season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-            "quote": "hitting an NBA playoff record nine of them in the 4th quarter"
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "Ainge contributed 11.8 points per game and 150 three-point field goals, also off the bench"
           }
         }
       ]
     },
     {
-      "id": "nba-horry05-g5",
+      "id": "nba-bullets75-g1-halftime-lead",
       "sport": "NBA",
-      "prompt": "Robert Horry hit the game-winner in Game 5 of the 2005 Finals. How many points did he score off the bench?",
-      "context": "2005 NBA Finals · Game 5 · at Detroit",
-      "answer": 21,
+      "prompt": "How many points ahead were the Bullets at halftime of Game 1 of the 1975 Finals?",
+      "context": "Washington Bullets vs Golden State · Game 1",
+      "answer": 14,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 0,
-      "max": 34,
+      "min": 4,
+      "max": 35,
       "step": 1,
-      "note": "21, with five of six threes.",
+      "note": "14 points, before Golden State's second-half comeback.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
-        "quote": "Horry went 5 for 6 from beyond the arc, including the game-winner, and scored 21 points coming off the bench."
+        "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+        "quote": "the Bullets built a 14-point lead at the half over the Warriors"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Rasheed Wallace left Horry open when he doubled Manu Ginóbili, setting up the decisive shot.",
+          "text": "Warriors reserve Phil Smith provided an unexpected scoring boost off the bench during the comeback.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
-            "quote": "Rasheed Wallace had left Horry to double-team Ginobili"
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "Phil Smith coming off the bench to score 20 points in 31 minutes"
           }
         },
         {
-          "text": "Horry did not score until the very end of the third quarter before taking over late.",
+          "text": "The opening game took place at the Capital Centre in Landover, Maryland, outside Washington.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
-            "quote": "He hadn't scored a point until the final play of the 3rd quarter"
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "Capital Centre, Landover, Maryland"
           }
         },
         {
-          "text": "The shot added to Horry's reputation for late-game heroics, already established with the Lakers.",
+          "text": "Golden State reached the Finals after defeating the Chicago Bulls in a seven-game Western final.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
-            "quote": "Horry was already famous for nailing last-second shots in the playoffs"
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "then eliminated Thurmond and the Bulls in seven games to advance to the Finals"
           }
         }
       ]
     },
     {
-      "id": "nba-pistons05-g4-to",
+      "id": "nba-benwallace04-finals-clincher-reb",
       "sport": "NBA",
-      "prompt": "Detroit set a Finals record for the fewest turnovers in a game in 2005. How many did it commit?",
-      "context": "2005 NBA Finals · Pistons vs Spurs",
-      "answer": 4,
+      "prompt": "How many rebounds did Ben Wallace grab in Game 5 of the 2004 Finals?",
+      "context": "Detroit Pistons vs Lakers · June 15, 2004 · championship clincher",
+      "answer": 22,
       "unit": {
-        "singular": "turnover",
-        "plural": "turnovers"
+        "singular": "rebound",
+        "plural": "rebounds"
       },
-      "min": 0,
-      "max": 15,
+      "min": 10,
+      "max": 42,
       "step": 1,
-      "note": "Four.",
+      "note": "Twenty-two rebounds in the win that sealed the title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
-        "quote": "Collectively, the Spurs shot 37% and committed 17 turnovers to the Pistons' NBA Finals-record four."
+        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+        "quote": "Rebs: Ben Wallace 22"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Detroit used its bench to devastating effect, with Lindsey Hunter and Antonio McDyess producing efficient minutes.",
+          "text": "Detroit's title-clinching win was the only game of that Finals in which either team reached triple digits.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
-            "quote": "especially efficient bench performances by Lindsey Hunter and Antonio McDyess"
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "The Pistons' 100 points was the first (and only) time either team scored triple digits in the series."
           }
         },
         {
-          "text": "The Pistons' defense limited almost every Spurs shooter to poor efficiency in the pivotal home game.",
+          "text": "Karl Malone was unable to dress for the decisive Game 5 because of a knee injury, ending his last NBA Finals run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
-            "quote": "only Tony Parker (6–13, 46.2% shooting) managed to surpass the 45% mark"
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "Karl Malone would play his last game, as a knee injury would not allow him to dress in Game 5."
           }
         },
         {
-          "text": "San Antonio and Detroit had been the NBA's premier defensive teams throughout the preceding seasons.",
+          "text": "Detroit owner William Davidson had celebrated another title just days earlier: his Tampa Bay Lightning won the Stanley Cup.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
-            "quote": "the two premier defensive teams of that era"
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "Pistons' owner William Davidson became the first owner in American sports history to win two championships in one calendar year;"
           }
         }
       ]

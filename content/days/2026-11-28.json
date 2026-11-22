@@ -1,29 +1,29 @@
 {
   "date": "2026-11-28",
   "theme": {
-    "title": "Rock bottom",
-    "subtitle": "The NBA's worst seasons",
-    "recap": "The 1972–73 Sixers and 2011–12 Bobcats own the worst records ever, and both lost games in long runs."
+    "title": "NBA Mix 06",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-sixers73-wins",
+      "id": "nba-curry16-13-threes",
       "sport": "NBA",
-      "prompt": "How many games did the 1972–73 Philadelphia 76ers win?",
-      "context": "Philadelphia 76ers · 1972–73 · 82 games",
-      "answer": 9,
+      "prompt": "On November 7, 2016, Stephen Curry set what was then the single-game record for threes. How many did he make?",
+      "context": "Golden State Warriors · 2016–17 regular season",
+      "answer": 13,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 0,
-      "max": 40,
+      "min": 6,
+      "max": 24,
       "step": 1,
-      "note": "Nine, finishing 9–73.",
+      "note": "13, then the single-game record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-        "quote": "the 76ers lost their remaining 13 games to finish 9–73."
+        "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+        "quote": "Stephen Curry set a new record of 13 three-pointers made in a single game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Philadelphia lost its first 15 games before the season unraveled further.",
+          "text": "Curry's famous rebound night came immediately after his long made-three streak ended against the Lakers.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-            "quote": "the 76ers lost their first 15 games of the season"
+            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+            "quote": "After having his streak of consecutive games with a three-pointer come to an end the previous game"
           }
         },
         {
-          "text": "Veteran Hal Greer was the last holdover from the 1967 championship team and retired after the season.",
+          "text": "The superteam season began with a surprisingly heavy home defeat against Kawhi Leonard's Spurs.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-            "quote": "Only Hal Greer remained on the roster from the 1966–1967 NBA Championship Team"
+            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+            "quote": "with a 29-point home loss to the San Antonio Spurs"
           }
         },
         {
-          "text": "The Sixers had offered the coaching job to both Al McGuire and Adolph Rupp, but each declined.",
+          "text": "Kevin Durant's arrival brought Golden State another superstar alongside Curry, Thompson and Green.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-            "quote": "The Sixers ownership offered the head coaching job to Marquette University head coach Al McGuire"
+            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+            "quote": "forming a new All-Star \"Fantastic Four\" of Kevin Durant, Stephen Curry, Klay Thompson and Draymond Green"
           }
         }
       ]
     },
     {
-      "id": "nba-bobcats12-wins",
+      "id": "nba-shaq00-finals-ppg",
       "sport": "NBA",
-      "prompt": "In the lockout-shortened 2011–12 season, how many games did the Charlotte Bobcats win?",
-      "context": "Charlotte Bobcats · 2011–12 · 66 games",
-      "answer": 7,
+      "prompt": "Shaquille O'Neal averaged how many points in the 2000 Finals?",
+      "context": "2000 NBA Finals · six games vs Indiana",
+      "answer": 38,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 0,
-      "max": 19,
-      "step": 1,
-      "note": "Seven, the lowest winning percentage in NBA history.",
+      "min": 26,
+      "max": 54,
+      "step": 0.1,
+      "note": "38.0, plus 16.7 rebounds a game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
-        "quote": "Total: 7–59 (Home: 4–29; Road: 3–30)"
+        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+        "quote": "putting up 38.0 points, 16.7 rebounds, and 2.7 blocks per game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Michael Jordan owned Charlotte during its historically difficult season.",
+          "text": "Indiana was making its first NBA Finals appearance, with Larry Bird coaching the Pacers against Los Angeles.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
-            "quote": "Owner  | Michael Jordan"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "This marked Indiana's first NBA Finals appearance"
           }
         },
         {
-          "text": "Gerald Henderson led the Bobcats in scoring with 15.1 points per game.",
+          "text": "Shaq swept regular-season MVP, All-Star Game MVP and Finals MVP honors in the same calendar year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
-            "quote": "Gerald Henderson led the team in scoring, with an average of 15.1 points per game"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "one of only three players to win NBA MVP, NBA All-Star Game MVP and NBA Finals MVP awards in the same year"
           }
         },
         {
-          "text": "Kemba Walker joined the team as a rookie after Charlotte selected him in the first round of the draft.",
+          "text": "The Lakers' victory ended a championship drought stretching back to the Showtime era.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
-            "quote": "1 | 9 | Kemba Walker"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "to win their first NBA championship since 1988 and their twelfth overall"
           }
         }
       ]
     },
     {
-      "id": "nba-sixers73-games-back",
+      "id": "nba-barkley93-suns-rpg",
       "sport": "NBA",
-      "prompt": "How many games behind first-place Boston did the 1972–73 Sixers finish in their division?",
-      "context": "Philadelphia 76ers · 1972–73 · Atlantic Division",
-      "answer": 59,
+      "prompt": "What was Charles Barkley's rebounding average during his Suns MVP season?",
+      "context": "Charles Barkley · Phoenix Suns · 1992–93",
+      "answer": 12.1,
       "unit": {
-        "singular": "game back",
-        "plural": "games back"
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
       },
-      "min": 45,
-      "max": 95,
-      "step": 1,
-      "note": "59, an NBA record.",
+      "min": 5,
+      "max": 21,
+      "step": 0.1,
+      "note": "12.1 rebounds a night in an all-around MVP campaign.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-        "quote": "The 76ers finished an NBA-record 59 games behind the Atlantic Division champion Boston Celtics."
+        "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+        "quote": "Barkley averaged 25.6 points, 12.1 rebounds, 5.1 assists and 1.6 steals per game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,100 +134,100 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Only six seasons earlier, Philadelphia had set an NBA record for regular-season wins.",
+          "text": "Barkley also averaged 25.6 points and 5.1 assists per game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-            "quote": "Only six seasons earlier, the 76ers had set the NBA record for most wins in a season"
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "Barkley averaged 25.6 points, 12.1 rebounds, 5.1 assists"
           }
         },
         {
-          "text": "Philadelphia's average scoring margin was an abysmal minus 12.1 points per game.",
+          "text": "He earned All-NBA First Team honors and won the league's MVP award.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-            "quote": "their −12.1 points per game point differential"
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "and was named to the All-NBA First Team, and was named the NBA Most Valuable Player of the Year"
           }
         },
         {
-          "text": "The struggling roster was playing its tenth season in Philadelphia.",
+          "text": "Phoenix came back from a 2–0 deficit against the Lakers in the first playoff round.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-            "quote": "their 24th season in the NBA and tenth in Philadelphia"
+            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+            "quote": "the Suns fell down 2–0 to the Los Angeles Lakers before rallying to defeat them in five games"
           }
         }
       ]
     },
     {
-      "id": "nba-bobcats12-losing-streak",
+      "id": "nba-finals09-g2-q1",
       "sport": "NBA",
-      "prompt": "The 2011–12 Bobcats closed the season on a losing streak that wasn’t snapped until the next season began. How long was it?",
-      "context": "Charlotte Bobcats · 2011–12",
-      "answer": 23,
+      "prompt": "The Lakers and Magic set a Finals record low for combined first-quarter points in Game 2 of 2009. What was it?",
+      "context": "2009 NBA Finals · Game 2 · at Los Angeles",
+      "answer": 30,
       "unit": {
-        "singular": "game",
-        "plural": "games"
-      },
-      "min": 10,
-      "max": 46,
-      "step": 1,
-      "note": "23 straight losses.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
-        "quote": "embarking on a 23-game losing streak that lasted until the start of the following season."
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Charlotte's last victory before the drought came against Toronto in mid-March.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
-            "quote": "On March 17, 2012, the Bobcats had their final win of the season against the Toronto Raptors"
-          }
-        },
-        {
-          "text": "The season ended with a 104–84 defeat against the New York Knicks.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
-            "quote": "losing 104–84 to the New York Knicks in their final regular season game"
-          }
-        },
-        {
-          "text": "Bismack Biyombo led Charlotte in rebounds, while D. J. Augustin led in assists.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
-            "quote": "Bismack Biyombo led in rebounds per game (5.8), and point guard D. J. Augustin"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-sixers14-losing-streak",
-      "sport": "NBA",
-      "prompt": "The 2013–14 Sixers tied what was then the NBA record for consecutive losses. How many?",
-      "context": "Philadelphia 76ers · 2013–14",
-      "answer": 26,
-      "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 36,
+      "max": 55,
       "step": 1,
-      "note": "26 in a row, matching Cleveland's mark.",
+      "note": "30.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
-        "quote": "tying Cleveland's former NBA record for most consecutive losses with 26"
+        "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+        "quote": "setting a record-low for combined score (30) in the first quarter of an NBA Finals game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Rashard Lewis carried almost all of Orlando's second-quarter scoring after the slow opening.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+            "quote": "Rashard Lewis kept the Magic in the game, scoring 18 of the team's 20 points"
+          }
+        },
+        {
+          "text": "Hedo Türkoğlu briefly thought he had hit a three, until replay showed his foot on the line.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+            "quote": "replay showed that his foot was on the line"
+          }
+        },
+        {
+          "text": "Courtney Lee missed a late layup attempt that could have transformed the entire series.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+            "quote": "forced Courtney Lee to miss an awkward layup shot"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-spurs12-streak",
+      "sport": "NBA",
+      "prompt": "Before Oklahoma City beat them in the 2012 West finals, the Spurs had won how many games in a row?",
+      "context": "San Antonio Spurs · 2011–12",
+      "answer": 20,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 12,
+      "max": 44,
+      "step": 1,
+      "note": "20 in a row.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
+        "quote": "snapping San Antonio's 20 game winning streak in the process"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "The Sixers finally ended the run with a 123–98 win against Detroit at home.",
+          "text": "The Thunder's 2012 Finals berth was their first since moving to Oklahoma City from Seattle.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
-            "quote": "ended with a 123–98 win over the Detroit Pistons on March 29"
+            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
+            "quote": "Oklahoma City's first NBA Finals appearance since their relocation from Seattle"
           }
         },
         {
-          "text": "Rookie guard Michael Carter-Williams won Rookie of the Year that season.",
+          "text": "Oklahoma City got through the Lakers in the conference semifinals before its clash with San Antonio.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
-            "quote": "Michael Carter-Williams enjoyed a successful rookie season, earning Rookie of the Year honors"
+            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
+            "quote": "The Thunder then eliminated the Los Angeles Lakers in the Western Conference semifinals"
           }
         },
         {
-          "text": "Sam Hinkie was Philadelphia's general manager during the difficult season.",
+          "text": "Miami had to beat both Indiana and Boston after trailing in each postseason series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
-            "quote": "General manager  | Sam Hinkie"
+            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
+            "quote": "the Heat overcame major series deficits that nearly eliminated them from the postseason"
           }
         }
       ]

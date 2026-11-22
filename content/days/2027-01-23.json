@@ -1,29 +1,29 @@
 {
   "date": "2027-01-23",
   "theme": {
-    "title": "The .500 underdogs",
-    "subtitle": "Phoenix Suns, 1983–84",
-    "recap": "An even regular season became a surprise Western finals run behind Davis, Lucas and Nance."
+    "title": "NBA Mix 62",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-suns84-season-wins",
+      "id": "nba-booker17-70",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 1983–84 Suns win?",
-      "context": "Phoenix · sixth seed · surprise West finalists",
-      "answer": 41,
+      "prompt": "Devin Booker became the youngest player to score 60 or more, at 20, in a regular-season game. How many points did he score?",
+      "context": "Phoenix Suns · 2016–17",
+      "answer": 70,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 19,
-      "max": 75,
+      "min": 25,
+      "max": 90,
       "step": 1,
-      "note": "41 wins before their deep playoff run.",
+      "note": "70.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-        "quote": "Record | 41–41 (.500)"
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_scoring_leaders",
+        "quote": "Devin Booker (70 points; 20 years and 145 days)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Larry Nance won the first NBA Slam Dunk Contest that season.",
+          "text": "Booker's historic scoring performance came in a loss to Boston rather than a Phoenix victory.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "Larry Nance competed in the inaugural NBA Slam Dunk Contest"
+            "url": "https://en.wikipedia.org/wiki/Devin_Booker",
+            "quote": "against the Boston Celtics, Booker became the sixth player in NBA history to score 70 points in a game"
           }
         },
         {
-          "text": "Phoenix played at Arizona Veterans Memorial Coliseum.",
+          "text": "His night was not just shooting: he also supplied eight rebounds and six assists for the Suns.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "Arena | Arizona Veterans Memorial Coliseum"
+            "url": "https://en.wikipedia.org/wiki/Devin_Booker",
+            "quote": "Booker also added eight rebounds and six assists in 45 minutes"
           }
         },
         {
-          "text": "Walter Davis earned another Western Conference All-Star selection.",
+          "text": "Booker's scoring average jumped sharply in his second pro season as his role in Phoenix expanded.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "Walter Davis was selected as a reserve for the Western Conference"
+            "url": "https://en.wikipedia.org/wiki/Devin_Booker",
+            "quote": "Booker ended the season averaging 22.1 points per game, a near 9-point increment"
           }
         }
       ]
     },
     {
-      "id": "nba-davis84-regular-apg",
+      "id": "nba-wade06-finals-ppg",
       "sport": "NBA",
-      "prompt": "How many assists per game did Walter Davis average for Phoenix in 1983–84?",
-      "context": "Suns · veteran scorer and creator",
-      "answer": 5.5,
+      "prompt": "Dwyane Wade was 2006 Finals MVP. What did he average?",
+      "context": "2006 NBA Finals · six games",
+      "answer": 34.7,
       "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 1,
-      "max": 13,
+      "min": 24,
+      "max": 54,
       "step": 0.1,
-      "note": "5.5 assists per game from the veteran guard.",
+      "note": "34.7 points per game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-        "quote": "Walter Davis | 78 | 70 | 32.6 | .512 | .230 | .863 | 2.6 | 5.5"
+        "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+        "quote": "Averaging 34.7 points per game in the series"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,151 +83,151 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Davis scored twenty points a game that year.",
+          "text": "Miami fought back from a two-game deficit to claim the series, rather than winning from the front.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "Walter Davis | 78 | 70 | 32.6 | .512 | .230 | .863 | 2.6 | 5.5 | 1.4 | .2 | 20.0"
+            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+            "quote": "The Heat overcame a two-games-to-none series deficit to defeat the Mavericks in six games"
           }
         },
         {
-          "text": "He started seventy of his seventy-eight appearances.",
+          "text": "Wade scored 36 points in the clinching road victory at Dallas.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "Walter Davis | 78 | 70 | 32.6"
+            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+            "quote": "Behind Dwyane Wade's 36 points, Miami rallied from a 14-point first-half deficit"
           }
         },
         {
-          "text": "Davis hit 86.3 percent of his free throws.",
+          "text": "That Finals victory delivered the first NBA championship in Heat franchise history.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "Walter Davis | 78 | 70 | 32.6 | .512 | .230 | .863"
+            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+            "quote": "winning their first NBA championship in franchise history"
           }
         }
       ]
     },
     {
-      "id": "nba-lucas84-season-rpg",
+      "id": "nba-floyd87-51",
       "sport": "NBA",
-      "prompt": "How many rebounds did Maurice Lucas average in 1983–84?",
-      "context": "Phoenix Suns · veteran forward · regular season",
-      "answer": 9.7,
-      "unit": {
-        "singular": "rebound per game",
-        "plural": "rebounds per game"
-      },
-      "min": 3,
-      "max": 22,
-      "step": 0.1,
-      "note": "9.7 rebounds per game from the tough big man.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-        "quote": "Maurice Lucas | 75 | 69 | 30.8 | .497 | .000 | .765 | 9.7"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Lucas also scored 15.9 points per game.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "Maurice Lucas | 75 | 69 | 30.8 | .497 | .000 | .765 | 9.7 | 2.7 | .7 | .5 | 15.9"
-          }
-        },
-        {
-          "text": "He played seventy-five games and started sixty-nine.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "Maurice Lucas | 75 | 69 | 30.8"
-          }
-        },
-        {
-          "text": "Lucas led the Suns with seventeen rebounds in their playoff overtime win against Los Angeles.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "May 18, 1984 Los Angeles W 135–127 (OT) Davis (34) Lucas (17)"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-nance84-season-ppg",
-      "sport": "NBA",
-      "prompt": "How many points per game did Larry Nance average in 1983–84?",
-      "context": "Phoenix · first Slam Dunk champion · season scoring",
-      "answer": 17.7,
-      "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
-      },
-      "min": 9,
-      "max": 33,
-      "step": 0.1,
-      "note": "17.7 points per game from the athletic forward.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-        "quote": "Larry Nance | 82 | 82 | 35.4 | .576 | .000 | .707 | 8.3 | 2.6 | 1.0 | 2.1 | 17.7"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Nance started all eighty-two Suns games.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "Larry Nance | 82 | 82 | 35.4"
-          }
-        },
-        {
-          "text": "He averaged 8.3 boards and 2.1 blocks.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "Larry Nance | 82 | 82 | 35.4 | .576 | .000 | .707 | 8.3 | 2.6 | 1.0 | 2.1"
-          }
-        },
-        {
-          "text": "His 57.6 percent field-goal accuracy was exceptional.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "Larry Nance | 82 | 82 | 35.4 | .576"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-suns84-lakers-g3-points",
-      "sport": "NBA",
-      "prompt": "How many points did Phoenix score against the Lakers in 1984 West finals Game 3?",
-      "context": "Phoenix Suns · home game that needed overtime",
-      "answer": 135,
+      "prompt": "The 1987 Lakers lost one game in the West playoffs, when Sleepy Floyd scored how many in Oakland?",
+      "context": "1987 West semifinals · Game 4 · Warriors vs Lakers",
+      "answer": 51,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 85,
-      "max": 225,
+      "min": 30,
+      "max": 80,
       "step": 1,
-      "note": "135 points in a wild overtime win.",
+      "note": "51.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-        "quote": "May 18, 1984 Los Angeles W 135–127 (OT) Davis (34) Lucas (17)"
+        "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+        "quote": "Their only loss was a Sleepy Floyd 51-point outburst in Game 4 in Oakland"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "The Lakers swept Denver in the opening round, starting their Western playoff run without a loss.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+            "quote": "they swept the Denver Nuggets in the first round"
+          }
+        },
+        {
+          "text": "Floyd's outburst allowed Golden State to avoid a second-round sweep.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+            "quote": "which allowed the Warriors to avoid a sweep"
+          }
+        },
+        {
+          "text": "Michael Cooper set a playoff mark with six made three-pointers against Boston in the Finals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+            "quote": "He hit six 3 pointers, a playoff record"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-blazers77-g4-q3",
+      "sport": "NBA",
+      "prompt": "Portland scored how many points in the third quarter of Game 4 of the 1977 Finals?",
+      "context": "1977 NBA Finals · Game 4 · vs Philadelphia, at Portland",
+      "answer": 41,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 26,
+      "max": 68,
+      "step": 1,
+      "note": "41.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+        "quote": "Portland quickly led the game by 17 points and never looked back, scoring 41 points in the third quarter"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Lionel Hollins was Portland's top scorer in Game 4, producing 25 points.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+            "quote": "Pts: Hollins 25"
+          }
+        },
+        {
+          "text": "Walton picked up his fifth foul during the third quarter and spent much of the second half on the bench.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+            "quote": "Walton committing his fifth foul midway through the third and being on the bench"
+          }
+        },
+        {
+          "text": "The lopsided home victory tied the series after Philadelphia had led by two games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+            "quote": "Series tied, 2–2"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-finals10-g7-viewers",
+      "sport": "NBA",
+      "prompt": "On average, how many million viewers watched Game 7 of the 2010 Finals?",
+      "context": "2010 NBA Finals · Game 7 · US television",
+      "answer": 28.2,
+      "unit": {
+        "singular": "million viewers",
+        "plural": "million viewers"
+      },
+      "min": 0,
+      "max": 38,
+      "step": 0.1,
+      "note": "28.2 million.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+        "quote": "Game 7 had the highest average number of viewers with 28.2 million"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Walter Davis paced the Suns with thirty-four points.",
+          "text": "ABC's Finals broadcast booth paired Mike Breen with Mark Jackson and Jeff Van Gundy.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "May 18, 1984 Los Angeles W 135–127 (OT) Davis (34)"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "Mike Breen, Mark Jackson and Jeff Van Gundy provided commentary for the games"
           }
         },
         {
-          "text": "The victory required overtime to decide.",
+          "text": "Boston starting center Kendrick Perkins sat out the decider after tearing two knee ligaments.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "May 18, 1984 Los Angeles W 135–127 (OT)"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "Perkins tore both his PCL and MCL, and he was ruled out for Game 7"
           }
         },
         {
-          "text": "Los Angeles eventually took the Western finals in six games.",
+          "text": "The deciding contest was the first Finals Game 7 since the Spurs and Pistons reached one in 2005.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "Western Conference Finals: 2–4 (home: 1–2; road: 1–2)"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "This game was the first Game 7 in an NBA Finals since 2005"
           }
         }
       ]

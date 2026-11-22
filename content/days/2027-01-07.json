@@ -1,29 +1,29 @@
 {
   "date": "2027-01-07",
   "theme": {
-    "title": "Mile High first",
-    "subtitle": "Denver Nuggets, 2022–23",
-    "recap": "Behind Jokić, Murray and a deep supporting cast, Denver earned the top Western seed and won the NBA championship for the first time."
+    "title": "NBA Mix 46",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-nuggets23-regular-wins",
+      "id": "nba-jordan93-g4-55",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 2022–23 Nuggets win?",
-      "context": "Denver Nuggets · 2022–23 · 82 games",
-      "answer": 53,
+      "prompt": "How many points did Michael Jordan score in Game 4 of the 1993 Finals against Phoenix?",
+      "context": "1993 NBA Finals · Game 4 · Chicago Stadium",
+      "answer": 55,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 37,
-      "max": 78,
+      "min": 35,
+      "max": 85,
       "step": 1,
-      "note": "53–29, and Denver reached the Finals for the first time.",
+      "note": "55 at Chicago Stadium.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
-        "quote": "Record | 53–29 (.646)"
+        "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+        "quote": "In Game 4, Michael Jordan was unstoppable, scoring 55 points at Chicago Stadium"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Denver clinched the Western Conference's top seed for the first time in franchise history in early April.",
+          "text": "Jordan faced reigning league MVP Charles Barkley, who had lifted the Suns to the league's best record.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
-            "quote": "On April 5, 2023, the Nuggets clinched the top seed in the Western Conference for the first time in franchise history."
+            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+            "quote": "winners of 62 games and led by regular season MVP Charles Barkley"
           }
         },
         {
-          "text": "The Nuggets swept the Lakers in the Western Conference Finals to make their first NBA Finals.",
+          "text": "Scott Williams joked that he and fellow North Carolina alumnus Jordan had combined for an absurd scoring total.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
-            "quote": "The Nuggets made the Finals for the first time in history by sweeping the 7th seeded Los Angeles Lakers"
+            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+            "quote": "Scott Williams, who like MJ played his college basketball at UNC"
           }
         },
         {
-          "text": "The title ended a 47-season wait in the NBA; Denver had also never won a championship in its ABA years.",
+          "text": "Earlier in the series, Phoenix had won a marathon triple-overtime game at Chicago Stadium.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
-            "quote": "The 2022–23 Denver Nuggets season was the 47th season for the franchise"
+            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+            "quote": "The Phoenix Suns won Game 3 in triple overtime"
           }
         }
       ]
     },
     {
-      "id": "nba-jokic23-finals-average",
+      "id": "nba-oscar-career-td",
       "sport": "NBA",
-      "prompt": "Nikola Jokić won 2023 Finals MVP. What did he average in points per game?",
-      "context": "2023 NBA Finals · Denver Nuggets vs Miami Heat",
-      "answer": 30.2,
+      "prompt": "How many career triple-doubles did Oscar Robertson record?",
+      "context": "Royals and Bucks · 1960–1974",
+      "answer": 181,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "triple-double",
+        "plural": "triple-doubles"
       },
-      "min": 12,
-      "max": 42,
-      "step": 0.1,
-      "note": "30.2 points per game while leading Denver to its first title.",
+      "min": 100,
+      "max": 310,
+      "step": 1,
+      "note": "181, a record for decades.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-        "quote": "after averaging 30.2 points, 14.0 rebounds, 7.2 assists, and 1.4 blocks"
+        "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+        "quote": "For his career, Robertson had 181 triple-doubles, a record that had never been approached for decades"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Jokić became Denver's first Finals MVP, with every voter agreeing on the award.",
+          "text": "Robertson played on the U.S. Olympic team in 1960 and later entered the Hall of Fame twice, including with that team.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Denver's Nikola Jokić was unanimously voted the NBA Finals Most Valuable Player"
+            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+            "quote": "having been inducted in 1980 for his individual career, and in 2010 as a member"
           }
         },
         {
-          "text": "Jokić's Finals stat line included 14.0 rebounds, 7.2 assists, and 1.4 blocks per game.",
+          "text": "The Big O became the first guard to average double-digit rebounds per game, accomplishing it three times.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "after averaging 30.2 points, 14.0 rebounds, 7.2 assists, and 1.4 blocks"
+            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+            "quote": "the first guard in NBA history to ever average more than 10 rebounds per game"
           }
         },
         {
-          "text": "Denver became only the second franchise from the old ABA to win an NBA title, following the Spurs.",
+          "text": "Robertson finished his NBA career with Milwaukee, winning a championship alongside Kareem Abdul-Jabbar.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "They became the second former American Basketball Association (ABA) team to win an NBA title"
+            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+            "quote": "For the first time in his career, Robertson had won an NBA championship"
           }
         }
       ]
     },
     {
-      "id": "nba-murray23-finals-apg",
+      "id": "nba-klay16-wcf-threes",
       "sport": "NBA",
-      "prompt": "How many assists per game did Jamal Murray average in the 2023 NBA Finals?",
-      "context": "Denver Nuggets · five-game 2023 championship series",
-      "answer": 10,
+      "prompt": "Facing elimination at Oklahoma City in 2016, Klay Thompson set what was then the playoff record for threes. How many?",
+      "context": "2016 Western Conference finals · Game 6",
+      "answer": 11,
       "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 3,
-      "max": 19,
-      "step": 0.1,
-      "note": "10.0 assists a night, complementing Jokić's scoring and passing.",
+      "min": 4,
+      "max": 23,
+      "step": 1,
+      "note": "11, breaking the record of nine.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-        "quote": "Jamal Murray | 5 | 5 | 42.2 | .451 | .387 | .929 | 6.2 | 10.0 | 1.0 | 0.0 | 21.4"
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "Klay Thompson made eleven three-pointers, breaking the NBA playoff record of nine."
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Murray had torn his ACL before the 2021 playoffs and missed the entire following season while recovering.",
+          "text": "Golden State was facing elimination after the Thunder had built a commanding series lead.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Jamal Murray, who was crucial to the Nuggets' playoff runs in 2019 and 2020, tore his ACL a month before the start of the 2021 playoffs"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "putting them down 1–3 in the Western Conference finals"
           }
         },
         {
-          "text": "In Game 4 of the Finals, Murray recorded 12 assists without committing a single turnover.",
+          "text": "All three of Curry, Thompson and Green were named All-NBA during the tense Oklahoma City series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Murray, who committed seven turnovers in game 3, finished the game with 12 assists and zero turnovers"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "Stephen Curry, Draymond Green and Klay Thompson were named to the 2015–16 All-NBA Team"
           }
         },
         {
-          "text": "In Game 1, Murray and Jokić became the first Finals teammates since Magic Johnson and James Worthy to each have 25-plus points and 10 assists.",
+          "text": "The Warriors rallied to take the deciding game, but would later lose a Finals series after leading Cleveland.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Jokić and Murray also became the second pair of teammates to each put up at least 25 points and 10 assists"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "they defeated the Thunder 96–88"
           }
         }
       ]
     },
     {
-      "id": "nba-gordon23-finals-g4-points",
+      "id": "nba-spurs14-blowouts",
       "sport": "NBA",
-      "prompt": "How many points did Aaron Gordon score in Game 4 of the 2023 Finals?",
-      "context": "Denver Nuggets at Miami Heat · June 9, 2023",
-      "answer": 27,
+      "prompt": "How many of the 2014 Spurs' playoff wins came by 15 points or more?",
+      "context": "San Antonio Spurs · 2014 playoffs",
+      "answer": 12,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 8,
-      "max": 41,
+      "min": 7,
+      "max": 26,
       "step": 1,
-      "note": "27 points, his highest-scoring game of that Finals.",
+      "note": "12, a postseason record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-        "quote": "Aaron Gordon's 27 points helped the Nuggets prevent a comeback attempt"
+        "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+        "quote": "The Spurs finished the playoffs with 12 wins by 15 points or more, the most ever in the postseason."
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Gordon made 11 of his 15 field-goal attempts in the Game 4 victory.",
+          "text": "Kawhi Leonard won Finals MVP, becoming the youngest recipient since Magic Johnson.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Gordon dropped a game-high 27 points on 11 of 15 from the field"
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "and the youngest since Magic Johnson in 1982"
           }
         },
         {
-          "text": "The Game 4 win was Denver's fifth straight road victory of that postseason.",
+          "text": "Tim Duncan surpassed Kareem Abdul-Jabbar's all-time postseason minutes mark during the series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "The Nuggets won their fifth straight road game"
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "Duncan also eclipsed Kareem Abdul-Jabbar's previous mark"
           }
         },
         {
-          "text": "Bruce Brown supplied 11 fourth-quarter points off Denver's bench to help end a Miami comeback.",
+          "text": "Miami's other starters struggled as LeBron James tried to carry the offense on his own.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Bruce Brown came off the bench and scored 11 of his 21 points in the fourth quarter"
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "their other starters combined for only 28 points on 32 percent shooting"
           }
         }
       ]
     },
     {
-      "id": "nba-braun22-draft-pick",
+      "id": "nba-thunder24-cup-3pa",
       "sport": "NBA",
-      "prompt": "At what overall pick did Denver draft Christian Braun in 2022?",
-      "context": "Denver Nuggets · 2022 NBA draft · first round",
-      "answer": 21,
+      "prompt": "Oklahoma City made just five threes in the 2024 NBA Cup final. How many did it attempt?",
+      "context": "2024 NBA Cup final · vs Milwaukee",
+      "answer": 32,
       "unit": {
-        "singular": "overall pick",
-        "plural": "overall picks"
+        "singular": "attempt",
+        "plural": "attempts"
       },
-      "min": 8,
-      "max": 52,
+      "min": 0,
+      "max": 42,
       "step": 1,
-      "note": "21st overall; Braun was a rookie on the Nuggets' 2023 championship squad.",
+      "note": "32, a season low in accuracy.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
-        "quote": "1 | 21 | Christian Braun | SG | United States | Kansas"
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
+        "quote": "going 5-of-32 from long-range, setting season lows in both field goal and three-point percentage"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Braun joined Denver from the University of Kansas, where he had played college basketball.",
+          "text": "Milwaukee's 97–81 win gave the franchise its first NBA Cup title.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
-            "quote": "1 | 21 | Christian Braun | SG | United States | Kansas"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
+            "quote": "The Bucks won their first NBA Cup title"
           }
         },
         {
-          "text": "As a rookie in the Finals, Braun appeared in all five games off the bench and averaged 16.4 minutes.",
+          "text": "Taurean Prince became the first player to win two NBA Cups, having won with the Lakers previously.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Christian Braun | 5 | 0 | 16.4 | .706 | .000 | .556 | 2.0 | 1.2 | 1.0 | 0.4 | 5.8"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
+            "quote": "Taurean Prince, who won the 2023 title with the Los Angeles Lakers, became the first player to win multiple NBA Cups"
           }
         },
         {
-          "text": "Denver also obtained the draft rights to Peyton Watson in a deal with Oklahoma City on the same draft night.",
+          "text": "The 2024 tournament was the first with Emirates as the NBA Cup's naming sponsor.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
-            "quote": "Draft rights to Peyton Watson (No. 30)"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
+            "quote": "the first year of a multiyear deal with the airline company Emirates"
           }
         }
       ]

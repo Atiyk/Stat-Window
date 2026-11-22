@@ -1,29 +1,29 @@
 {
   "date": "2026-12-02",
   "theme": {
-    "title": "The Big Three's first year",
-    "subtitle": "Boston, 2007–08",
-    "recap": "Boston went from a franchise-worst losing streak to 66 wins and a title won with a 39-point clincher."
+    "title": "NBA Mix 10",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-celtics08-wins",
+      "id": "nba-raptors19-regular-wins",
       "sport": "NBA",
-      "prompt": "After adding Kevin Garnett and Ray Allen, how many games did the 2007–08 Celtics win?",
-      "context": "Boston Celtics · 2007–08 · 82 games",
-      "answer": 66,
+      "prompt": "How many regular-season games did the 2018–19 champion Raptors win?",
+      "context": "Toronto · Kawhi Leonard's lone Raptors season",
+      "answer": 58,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 24,
-      "max": 82,
+      "min": 28,
+      "max": 80,
       "step": 1,
-      "note": "66–16.",
+      "note": "58 wins, earning second place in the East.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_Boston_Celtics_season",
-        "quote": "the trade enabled the Celtics to finish the season with a record of 66–16"
+        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+        "quote": "58–24 (.707)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Boston sold out every regular-season home game during its dramatic turnaround.",
+          "text": "Toronto exchanged DeMar DeRozan, Jakob Poeltl and a protected pick for Kawhi Leonard and Danny Green.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_Boston_Celtics_season",
-            "quote": "The Celtics also sold out all 41 regular-season home games."
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "DeMar DeRozan (who spent his first nine seasons in the NBA with the Raptors)"
           }
         },
         {
-          "text": "Kevin Garnett brought a defensive identity that earned him Defensive Player of the Year.",
+          "text": "The Raptors added Marc Gasol from Memphis at the trade deadline for a package led by Jonas Valančiūnas.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_Boston_Celtics_season",
-            "quote": "Kevin Garnett was named NBA Defensive Player of the Year"
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "Memphis Grizzlies traded Marc Gasol to the Raptors"
           }
         },
         {
-          "text": "The architect of the new Big Three, Danny Ainge, earned Executive of the Year honors.",
+          "text": "Nick Nurse was promoted from assistant coach after Toronto dismissed Dwane Casey.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_Boston_Celtics_season",
-            "quote": "Danny Ainge, who executed \"the most dramatic NBA turnaround ever\", was named NBA Executive of the Year"
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "the Raptors promoted assistant coach Nick Nurse as their head coach"
           }
         }
       ]
     },
     {
-      "id": "nba-celtics07-losing-streak",
+      "id": "nba-butler23-56",
       "sport": "NBA",
-      "prompt": "A year before their title, the 2006–07 Celtics set a franchise record with a losing streak of how many games?",
-      "context": "Boston Celtics · 2006–07",
-      "answer": 18,
+      "prompt": "As an eighth seed, Miami beat Milwaukee in 2023. How many points did Jimmy Butler score in his career-high game in that series?",
+      "context": "2023 first round · Game 4 · vs Milwaukee",
+      "answer": 56,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 0,
-      "max": 26,
+      "min": 35,
+      "max": 85,
       "step": 1,
-      "note": "18 straight, in a 24-win season.",
+      "note": "56, in a 119–114 win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-        "quote": "culminated in a 24-win 2006–07 season, highlighted by a franchise-worst 18 straight losses"
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "scoring a career-high 56 points in a 119–114 victory"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,151 +83,151 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Rajon Rondo was the young playmaker supporting Boston's reunited star trio.",
+          "text": "Miami upset Milwaukee, whose regular-season record had made the Bucks the clear betting favorite.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "The newly formed 'Big Three,' joined by second year point guard and future all star Rajon Rondo"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "they faced the Milwaukee Bucks, the team with the best record in the league"
           }
         },
         {
-          "text": "Boston had not reached the Finals since the Bird-era rivalry with the Lakers.",
+          "text": "Tyler Herro broke his hand and Victor Oladipo tore a knee tendon in the opening playoff series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "The Celtics made their first NBA Finals appearance since a six-game loss to the Lakers in 1987."
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "they lost starter Tyler Herro in game 1 with a broken hand"
           }
         },
         {
-          "text": "Danny Ainge changed Boston's trajectory in a single offseason by trading for both Allen and Garnett.",
+          "text": "Butler later won the East finals MVP as Miami held off Boston's attempted reverse sweep.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "the 2007 off-season saw Celtics general manager Danny Ainge acquire Ray Allen and Kevin Garnett"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Butler was named the Eastern Conference finals MVP"
           }
         }
       ]
     },
     {
-      "id": "nba-celtics08-playoff-games",
+      "id": "nba-stockton-missed",
       "sport": "NBA",
-      "prompt": "Boston needed a record number of playoff games to win the 2008 title. How many?",
-      "context": "Boston Celtics · 2008 playoffs",
-      "answer": 26,
+      "prompt": "Over 19 seasons, how many games did John Stockton miss?",
+      "context": "Utah Jazz · 1984–2003",
+      "answer": 22,
       "unit": {
         "singular": "game",
         "plural": "games"
       },
-      "min": 16,
-      "max": 28,
-      "step": 1,
-      "note": "26, then a record for a champion.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-        "quote": "the Celtics set an NBA record for most playoff games ever needed to win a championship, with 26"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Boston survived Game 7 showdowns with both Atlanta and Cleveland before finally reaching Detroit.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "managed to prevail in a pair of Game 7s on their home court"
-          }
-        },
-        {
-          "text": "The Celtics finally broke their postseason road-win drought against the Pistons in the Eastern finals.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "The Celtics would finally break their road woes in a six-game win against the perennial Eastern Conference powerhouse Detroit Pistons"
-          }
-        },
-        {
-          "text": "Coach Doc Rivers had played for a Knicks team that held the old postseason games-played record.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "Coach Doc Rivers played for the 1993–94 New York Knicks, which held the previous record"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-celtics08-g6-margin",
-      "sport": "NBA",
-      "prompt": "Boston won the 2008 title-clinching Game 6 against the Lakers by how many points?",
-      "context": "2008 NBA Finals · Game 6 · at Boston",
-      "answer": 39,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 22,
-      "max": 62,
-      "step": 1,
-      "note": "39, 131–92, then the biggest margin in a title clincher.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-        "quote": "The 39-point margin of victory was the largest ever in an NBA championship-clinching game"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Ray Allen tied the then-Finals record for three-pointers made in Boston's title clincher.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "Ray Allen hit seven three-pointers to tie what was then the Finals record"
-          }
-        },
-        {
-          "text": "Boston's defense set a Finals single-game steals record during the rout.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "set a Finals record with 18 steals"
-          }
-        },
-        {
-          "text": "Every Celtics player who got on the court in the clincher scored at least once.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "every Boston player who saw action scored"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-powe08-g2",
-      "sport": "NBA",
-      "prompt": "Reserve Leon Powe played only 15 minutes in Game 2 of the 2008 Finals. How many points did he score?",
-      "context": "2008 NBA Finals · Game 2 · vs Lakers",
-      "answer": 21,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
       "min": 0,
-      "max": 32,
+      "max": 120,
       "step": 1,
-      "note": "21, on 6-of-7 shooting.",
+      "note": "Just 22. He played every game in 17 seasons.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-        "quote": "Leon Powe scored 21 points on 6–7 shooting from the field and 9–13 from the line in 15 minutes of play"
+        "url": "https://en.wikipedia.org/wiki/John_Stockton",
+        "quote": "missing only 22 games in his 19-season career and playing every game of 17 seasons"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Stockton had completed 17 full seasons without missing a single game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/John_Stockton",
+            "quote": "playing every game of 17 seasons"
+          }
+        },
+        {
+          "text": "His most significant injury was a left-knee MCL problem that kept him out at the start of 1997–98.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/John_Stockton",
+            "quote": "due to an injured MCL in his left knee sustained in the preseason"
+          }
+        },
+        {
+          "text": "He was still Utah's starting point guard when he retired at age 41.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/John_Stockton",
+            "quote": "He remained a starting NBA player until his retirement at age 41"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-webber02-season-ppg",
+      "sport": "NBA",
+      "prompt": "How many points per game did Chris Webber score for the 2002 Kings?",
+      "context": "Sacramento · 2001–02 regular season",
+      "answer": 24.5,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 13,
+      "max": 47,
+      "step": 0.1,
+      "note": "24.5 points per game despite missed time.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+        "quote": "Webber averaged 24.5 points, 10.1 rebounds, 4.8 assists"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Webber also pulled down 10.1 rebounds a game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Webber averaged 24.5 points, 10.1 rebounds, 4.8 assists"
+          }
+        },
+        {
+          "text": "His passing added another 4.8 assists per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Webber averaged 24.5 points, 10.1 rebounds, 4.8 assists"
+          }
+        },
+        {
+          "text": "He made the All-NBA Second Team that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "and was named to the All-NBA Second Team"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-baylor62-finals-61",
+      "sport": "NBA",
+      "prompt": "What is the NBA record for points in a Finals game, set by Elgin Baylor in 1962?",
+      "context": "Los Angeles Lakers vs Boston Celtics · 1962 NBA Finals",
+      "answer": 61,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 45,
+      "max": 95,
+      "step": 1,
+      "note": "61 points, still the Finals record.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+        "quote": "Baylor set the still-standing NBA record for points in an NBA Finals game with 61."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Powe's physical first stint drew ten free-throw attempts almost immediately.",
+          "text": "Baylor helped turn basketball into a vertical spectacle; later high-flying stars modeled their moves on his.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "drew ten free-throw attempts within his first three minutes on the court"
+            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+            "quote": "Baylor introduced a creative and acrobatic playing style that would later be emulated"
           }
         },
         {
-          "text": "His consecutive thunderous dunks had the home crowd chanting his name.",
+          "text": "Seattle University eventually named its basketball court for Baylor, honoring the former college star.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "back-to-back dunks in the last minute of the 3rd quarter, causing the Boston crowd to chant his name"
+            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+            "quote": "they named its basketball court in honor of him"
           }
         },
         {
-          "text": "Powe alone attempted more free throws than the entire Lakers roster in Game 2.",
+          "text": "Although Baylor retired before the Lakers' breakthrough, the team presented him with a championship ring.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "Over the course of the game, Powe shot 13 free throws while the Lakers shot 10"
+            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+            "quote": "the Lakers did give Baylor a championship ring for his contributions at the start of the 1971–72 season"
           }
         }
       ]

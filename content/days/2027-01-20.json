@@ -1,29 +1,29 @@
 {
   "date": "2027-01-20",
   "theme": {
-    "title": "Bubble fire",
-    "subtitle": "Miami Heat, 2019–20",
-    "recap": "Butler, Adebayo and a rookie guard carried Miami from the fifth seed to the NBA Finals."
+    "title": "NBA Mix 59",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-heat20-regular-wins",
+      "id": "nba-sixers67-wins",
       "sport": "NBA",
-      "prompt": "How many games did Miami win before the 2020 Bubble playoffs?",
-      "context": "Heat · Jimmy Butler's first season · shortened schedule",
-      "answer": 44,
+      "prompt": "How many games did the 1966–67 Sixers win in an 81-game season?",
+      "context": "Philadelphia 76ers · 1966–67",
+      "answer": 68,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 22,
-      "max": 80,
+      "min": 50,
+      "max": 81,
       "step": 1,
-      "note": "44 regular-season wins, then a surprise Finals appearance.",
+      "note": "68–13, the best record in league history at the time.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-        "quote": "Record | 44–29 (.603)"
+        "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+        "quote": "They finished the season at 68–13, the best record in league history at the time."
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "This was Miami's first complete season without retired Dwyane Wade.",
+          "text": "The championship season was Philadelphia's last in the Civic Center before the team moved to the Spectrum.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "It was the first time since 2016-17 that Dwyane Wade was not on the Miami Heat roster"
+            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+            "quote": "their final season at the Philadelphia Civic Center, before moving to the Spectrum"
           }
         },
         {
-          "text": "Jimmy Butler was in his first season with Miami.",
+          "text": "Alex Hannum replaced Dolph Schayes as head coach and even ran with the players during practices.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "It was the first season for Jimmy Butler on the Heat"
+            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+            "quote": "the 76ers dismissed head coach & former 76ers (Syracuse Nationals) player Dolph Schayes"
           }
         },
         {
-          "text": "Miami was among twenty-two teams invited to the NBA bubble.",
+          "text": "In a later league anniversary celebration, the NBA recognized these Sixers as its greatest single-season team.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "the Heat were one of 22 teams invited to the NBA Bubble"
+            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+            "quote": "This team was later chosen as the greatest individual team in 1980 for the NBA 35th Anniversary Team"
           }
         }
       ]
     },
     {
-      "id": "nba-adebayo20-regular-rpg",
+      "id": "nba-westbrook12-g4",
       "sport": "NBA",
-      "prompt": "How many rebounds per game did Bam Adebayo average for the 2020 Heat?",
-      "context": "Miami · 2019–20 regular season",
-      "answer": 10.2,
+      "prompt": "In Game 4 of the 2012 Finals, how many points did Russell Westbrook score in a loss?",
+      "context": "2012 NBA Finals · Game 4 · at Miami",
+      "answer": 43,
       "unit": {
-        "singular": "rebound per game",
-        "plural": "rebounds per game"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 5,
-      "max": 23,
-      "step": 0.1,
-      "note": "10.2 rebounds a game while anchoring the paint.",
+      "min": 25,
+      "max": 75,
+      "step": 1,
+      "note": "43, leading the Thunder.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-        "quote": "Bam Adebayo | PF | 72 | 72 | 2,417 | 735 | 368 | 82 | 93 | 1,146 | 33.6 | 10.2"
+        "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
+        "quote": "Russell Westbrook (who led the Thunder with 43 points)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,151 +83,151 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Bam joined Butler on Miami's 2020 All-Star contingent.",
+          "text": "Miami's rookie Norris Cole delivered crucial outside baskets as the Heat erased an early Thunder lead.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "Jimmy Butler and Bam Adebayo were both selected into 2020 NBA All-Star Game"
+            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
+            "quote": "thanks to two huge three-pointers by Heat rookie Norris Cole"
           }
         },
         {
-          "text": "Adebayo recorded 368 assists that season.",
+          "text": "LeBron cramped late but had already made the go-ahead shot in the close fourth game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "Bam Adebayo | PF | 72 | 72 | 2,417 | 735 | 368"
+            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
+            "quote": "had to sit out during the final two minutes of the game due to leg cramps"
           }
         },
         {
-          "text": "His rim protection included 93 blocks in the regular season.",
+          "text": "Mario Chalmers sealed the Heat victory with a tough layup and late free throws.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "Bam Adebayo | PF | 72 | 72 | 2,417 | 735 | 368 | 82 | 93"
+            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
+            "quote": "Mario Chalmers scored 25 points and made two key plays to seal Miami's win"
           }
         }
       ]
     },
     {
-      "id": "nba-butler20-regular-apg",
+      "id": "nba-celtics-lakers-finals-record",
       "sport": "NBA",
-      "prompt": "How many assists per game did Jimmy Butler average in his first Heat season?",
-      "context": "Miami · 2019–20 regular season",
-      "answer": 6,
+      "prompt": "Before 2010, Boston had won how many of its 11 Finals series against the Lakers?",
+      "context": "Celtics vs Lakers · Finals history to 2008",
+      "answer": 9,
       "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
+        "singular": "series",
+        "plural": "series"
       },
-      "min": 2,
-      "max": 16,
-      "step": 0.1,
-      "note": "6.0 assists per night as a creative forward.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-        "quote": "Jimmy Butler | SF | 58 | 58 | 1,959 | 386 | 350 | 103 | 32 | 1,157 | 33.8 | 6.7 | 6.0"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Butler collected 103 steals in just fifty-eight appearances.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "Jimmy Butler | SF | 58 | 58 | 1,959 | 386 | 350 | 103"
-          }
-        },
-        {
-          "text": "He averaged 19.9 points while also organizing Miami's offense.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "Jimmy Butler | SF | 58 | 58 | 1,959 | 386 | 350 | 103 | 32 | 1,157 | 33.8 | 6.7 | 6.0 | 1.8 | .6 | 19.9"
-          }
-        },
-        {
-          "text": "Butler started all fifty-eight regular-season games he played.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "Jimmy Butler | SF | 58 | 58"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-robinson20-season-ppg",
-      "sport": "NBA",
-      "prompt": "How many points per game did Duncan Robinson average for the 2020 Heat?",
-      "context": "Miami · breakout season · regular games",
-      "answer": 13.5,
-      "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
-      },
-      "min": 5,
-      "max": 29,
-      "step": 0.1,
-      "note": "13.5 points per game from the sharpshooter.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-        "quote": "Duncan Robinson | SG | 73 | 68 | 2,166 | 232 | 102 | 35 | 19 | 983 | 29.7 | 3.2 | 1.4 | .5 | .3 | 13.5"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Robinson appeared in all seventy-three of Miami's scheduled games.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "Duncan Robinson | SG | 73 | 68"
-          }
-        },
-        {
-          "text": "He started sixty-eight games in his breakout season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "Duncan Robinson | SG | 73 | 68"
-          }
-        },
-        {
-          "text": "Robinson collected 232 rebounds and 102 assists.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "Duncan Robinson | SG | 73 | 68 | 2,166 | 232 | 102"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-herro20-celtics-g4-points",
-      "sport": "NBA",
-      "prompt": "How many points did rookie Tyler Herro score in Game 4 versus Boston?",
-      "context": "2020 Bubble · Eastern Conference finals",
-      "answer": 37,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 18,
-      "max": 69,
+      "min": 4,
+      "max": 11,
       "step": 1,
-      "note": "37 points in Miami's narrow win.",
+      "note": "Nine.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-        "quote": "September 23 Boston W 112–109 Tyler Herro (37)"
+        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+        "quote": "The Celtics won nine of their previous 11 Finals meetings against the Lakers, winning in"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "The two rivals split their regular-season games, each winning by a single point on the other's floor.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "The regular season series was split, with each team winning on the opponent's court by a point"
+          }
+        },
+        {
+          "text": "Boston knocked out top-seeded Cleveland before overcoming Orlando to reach the championship.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "the Celtics defeated the Cleveland Cavaliers in six games"
+          }
+        },
+        {
+          "text": "The Celtics had defeated these Lakers in their previous Finals meeting, two years earlier.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "The Celtics won their previous NBA Finals appearance against the Lakers in 2008"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-spurs97-wins",
+      "sport": "NBA",
+      "prompt": "How many games did the Spurs win in 1996–97, the season before they drafted Tim Duncan?",
+      "context": "San Antonio Spurs · 1996–97 · 82 games",
+      "answer": 20,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 12,
+      "max": 54,
+      "step": 1,
+      "note": "20, finishing 20–62.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/David_Robinson",
+        "quote": "finished the season with a 20–62 record"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Robinson injured his back before the season, returned briefly, then broke his foot against Miami.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "He finally returned in December, but six games later broke his foot in a home game against the Miami Heat"
+          }
+        },
+        {
+          "text": "That rough season gave San Antonio the draft lottery pick it used on Tim Duncan.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "They used that pick to select Tim Duncan out of Wake Forest University"
+          }
+        },
+        {
+          "text": "The Spurs lost Sean Elliott for more than half the season amid their injury crisis.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "Sean Elliott, who missed more than half the season"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-wilt72-total-reb",
+      "sport": "NBA",
+      "prompt": "Rodman's 1991–92 rebound total was the most since Wilt Chamberlain's total in 1971–72. How many did Wilt grab that season?",
+      "context": "Los Angeles Lakers · 1971–72",
+      "answer": 1572,
+      "unit": {
+        "singular": "rebound",
+        "plural": "rebounds"
+      },
+      "min": 300,
+      "max": 1800,
+      "step": 5,
+      "note": "1,572.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+        "quote": "1,530 season rebounds (the most since Wilt Chamberlain's 1,572 in the 1971–1972 season)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "The Heat escaped that game by a three-point margin.",
+          "text": "Chamberlain's later-career Lakers reinvented his role around rebounding, defending and outlet passing.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "September 23 Boston W 112–109 Tyler Herro (37)"
+            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+            "quote": "He re-tooled Wilt Chamberlain's game to focus on defense, rebounding"
           }
         },
         {
-          "text": "Bam Adebayo collected twelve rebounds in the same contest.",
+          "text": "Rodman's sensational Pistons season was the closest a modern rebounding specialist came to Wilt's older benchmark.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "September 23 Boston W 112–109 Tyler Herro (37) Bam Adebayo (12)"
+            "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+            "quote": "His 1,530 season rebounds (the most since Wilt Chamberlain's 1,572 in the 1971–1972 season)"
           }
         },
         {
-          "text": "Miami took a three-games-to-one series lead with that victory.",
+          "text": "That Lakers squad reached the title series by eliminating Kareem's defending-champion Milwaukee Bucks.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "No In-Person Attendance 3–1"
+            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+            "quote": "Western Conference Finals: 4–2"
           }
         }
       ]

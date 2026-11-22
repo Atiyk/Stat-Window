@@ -1,29 +1,29 @@
 {
   "date": "2026-11-24",
   "theme": {
-    "title": "Heat vs Mavericks, twice",
-    "subtitle": "2006 and 2011 Finals",
-    "recap": "Dwyane Wade carried Miami past Dallas in 2006; five years later Dirk Nowitzki's Mavericks took the rematch."
+    "title": "NBA Mix 02",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-wade06-g3",
+      "id": "nba-bucks19-season-wins",
       "sport": "NBA",
-      "prompt": "Down 2–0 in the 2006 Finals, how many points did Dwyane Wade score to win Game 3?",
-      "context": "2006 NBA Finals · Game 3 · vs Dallas",
-      "answer": 42,
+      "prompt": "How many regular-season games did Giannis's 2018–19 Milwaukee Bucks win?",
+      "context": "Milwaukee Bucks · Giannis MVP season",
+      "answer": 60,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 20,
-      "max": 75,
+      "min": 32,
+      "max": 82,
       "step": 1,
-      "note": "42 with 13 rebounds, rallying Miami from 13 down.",
+      "note": "60 wins, the best record in the NBA.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
-        "quote": "Led by Dwyane Wade's 42 points and 13 rebounds, the Heat rallied from a 13-point deficit"
+        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+        "quote": "the Bucks finished the regular season with a 60–22 record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Gary Payton capped Miami's late comeback with a jumper in the closing seconds.",
+          "text": "Milwaukee moved from the Bradley Center to the new Fiserv Forum before the campaign.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
-            "quote": "The momentum-changing comeback was capped by a Gary Payton field goal from just inside the three-point line with 9.3 seconds left."
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "The Bucks moved from the Bradley Center to the new Fiserv Forum"
           }
         },
         {
-          "text": "Wade also grabbed 13 rebounds in the crucial home victory.",
+          "text": "Mike Budenholzer arrived as the team's head coach in May of the preceding offseason.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
-            "quote": "Led by Dwyane Wade's 42 points and 13 rebounds"
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "On May 17, 2018, the Bucks hired Mike Budenholzer as head coach"
           }
         },
         {
-          "text": "Dirk Nowitzki missed a late free throw that could have tied the game.",
+          "text": "The Bucks finished with the best team defensive rating in the league.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
-            "quote": "Dirk Nowitzki had a chance to tie the game at the free throw line with 3.4 seconds to go, but missed 1 of 2"
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "The Bucks had the best team defensive rating in the NBA"
           }
         }
       ]
     },
     {
-      "id": "nba-wade06-finals-ppg",
+      "id": "nba-kobe03-threes",
       "sport": "NBA",
-      "prompt": "Dwyane Wade was 2006 Finals MVP. What did he average?",
-      "context": "2006 NBA Finals · six games",
-      "answer": 34.7,
+      "prompt": "On January 7, 2003, Kobe Bryant set the NBA record for threes in a game. How many did he make?",
+      "context": "Los Angeles Lakers · 2002–03 regular season",
+      "answer": 12,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 24,
-      "max": 54,
-      "step": 0.1,
-      "note": "34.7 points per game.",
+      "min": 7,
+      "max": 26,
+      "step": 1,
+      "note": "12, a record at the time.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
-        "quote": "Averaging 34.7 points per game in the series"
+        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
+        "quote": "He broke an NBA record for three-pointers on January 7, 2003, when he made 12 against the Seattle SuperSonics."
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Miami fought back from a two-game deficit to claim the series, rather than winning from the front.",
+          "text": "The Lakers finished that season with a 50–32 record before losing to San Antonio in the playoffs.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
-            "quote": "The Heat overcame a two-games-to-none series deficit to defeat the Mavericks in six games"
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
+            "quote": "After finishing 50–32 in the regular season, the Lakers floundered in the playoffs"
           }
         },
         {
-          "text": "Wade scored 36 points in the clinching road victory at Dallas.",
+          "text": "Kobe was voted to both the All-NBA and All-Defensive First Teams that year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
-            "quote": "Behind Dwyane Wade's 36 points, Miami rallied from a 14-point first-half deficit"
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
+            "quote": "He was once again voted to both the All-NBA and All-Defensive First Teams"
           }
         },
         {
-          "text": "That Finals victory delivered the first NBA championship in Heat franchise history.",
+          "text": "Despite his scoring records, Bryant finished third in the league MVP voting that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
-            "quote": "winning their first NBA championship in franchise history"
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
+            "quote": "and came in third for the MVP award"
           }
         }
       ]
     },
     {
-      "id": "nba-mavs06-g4-q4",
+      "id": "nba-celtics87-g6-q3",
       "sport": "NBA",
-      "prompt": "In Game 4 of the 2006 Finals, Miami held Dallas to how many fourth-quarter points?",
-      "context": "2006 NBA Finals · Game 4 · at Miami",
-      "answer": 7,
+      "prompt": "In the 1987 title clincher, the Lakers won the third quarter 30 to what?",
+      "context": "1987 NBA Finals · Game 6 · at Los Angeles",
+      "answer": 12,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 0,
-      "max": 26,
+      "min": 4,
+      "max": 36,
       "step": 1,
-      "note": "Seven.",
+      "note": "12, an 18-point swing.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
-        "quote": "Miami held Dallas to just seven points in the fourth quarter"
+        "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+        "quote": "The Lakers outscored the Celtics 30–12 in the third quarter for an 18-point turnaround"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Miami's defense held Dallas to an unusually low final-quarter total in a blowout that tied the series.",
+          "text": "Boston reached the Finals with its bench depleted by injuries to Bill Walton and Scott Wedman.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
-            "quote": "The Mavericks' fourth quarter was the lowest ever by any team during the NBA Finals."
+            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+            "quote": "Their bench, an asset of the previous year's team, was decimated by injuries"
           }
         },
         {
-          "text": "Jerry Stackhouse was suspended for the next game after a flagrant foul in this contest.",
+          "text": "Magic Johnson had only four points at halftime before the Lakers seized control.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
-            "quote": "Jerry Stackhouse committed a flagrant foul that resulted in his suspension for Game 5."
+            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+            "quote": "Magic Johnson had only four points at the half"
           }
         },
         {
-          "text": "Shaquille O'Neal grabbed 13 rebounds in that Miami victory.",
+          "text": "James Worthy dove for a loose ball, kept it inbounds and fed Magic for a momentum-changing dunk.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
-            "quote": "Rebs: Shaquille O'Neal 13"
+            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+            "quote": "Worthy went to the floor, batted the ball inbounds to a breaking Magic Johnson"
           }
         }
       ]
     },
     {
-      "id": "nba-dirk11-24-ft",
+      "id": "nba-sixers67-ppg",
       "sport": "NBA",
-      "prompt": "In the 2011 West finals, Dirk Nowitzki set a playoff record by making how many free throws without a miss?",
-      "context": "2011 West finals · Game 1 · vs Oklahoma City",
-      "answer": 24,
+      "prompt": "About how many points per game did the 1966–67 Sixers average?",
+      "context": "Philadelphia 76ers · 1966–67 regular season",
+      "answer": 125,
       "unit": {
-        "singular": "free throw",
-        "plural": "free throws"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 14,
-      "max": 44,
+      "min": 105,
+      "max": 155,
       "step": 1,
-      "note": "24 of 24.",
+      "note": "About 125, with the league’s best shooting.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Dallas_Mavericks_season",
-        "quote": "set a playoff record for most free throws made without a miss with 24, previously held by"
+        "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+        "quote": "The team averaged a record 125 points per game, leading all teams in shooting accuracy"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,50 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Paul Pierce had held the previous playoff mark, set during a Boston game in 2003.",
+          "text": "Hal Greer led a balanced offense with Chet Walker and Billy Cunningham also scoring heavily.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Dallas_Mavericks_season",
-            "quote": "previously held by Paul Pierce (21) in 2003"
+            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+            "quote": "Hal Greer with 22 points & Chet Walker & Billy Cunningham with 19 points each"
           }
         },
         {
-          "text": "Dirk was later voted NBA Finals MVP as Dallas won its first title.",
+          "text": "The Sixers' prolific scoring was paired with league-leading shooting accuracy, not just more attempts.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Dallas_Mavericks_season",
-            "quote": "Dirk Nowitzki was voted the NBA Finals Most Valuable Player."
+            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+            "quote": "leading all teams in shooting accuracy"
           }
         },
         {
-          "text": "Jason Kidd recorded his 11,000th career assist during Dallas's title season.",
+          "text": "Chamberlain operated as an offensive distributor, establishing a new assists benchmark for centers.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Dallas_Mavericks_season",
-            "quote": "Jason Kidd recorded his 11,000th Assist during a game against the Philadelphia 76ers."
+            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+            "quote": "Wilt Chamberlain's 8 assists per game set a record for centers"
           }
         }
       ]
     },
     {
-      "id": "nba-mavs11-g2-comeback",
+      "id": "nba-lakers08-g4-lead",
       "sport": "NBA",
-      "prompt": "Dallas won Game 2 of the 2011 Finals after trailing by how many points?",
-      "context": "2011 NBA Finals · Game 2 · at Miami",
-      "answer": 15,
+      "prompt": "In Game 4 of the 2008 Finals, the Lakers set a Finals record for a first-quarter lead. How big was it?",
+      "context": "2008 NBA Finals · Game 4 · vs Boston",
+      "answer": 21,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 0,
-      "max": 26,
+      "min": 8,
+      "max": 40,
       "step": 1,
-      "note": "15, the biggest Finals comeback since Boston rallied from 24 down in 2008.",
+      "note": "21 points, 35–14. Boston came back to win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
-        "quote": "The Mavs' 15-point comeback was the biggest in an NBA Finals game since the 24-point comeback"
+        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+        "quote": "a 35–14 lead after the first quarter, which was the largest first-quarter lead in NBA Finals history",
+        "derivation": "35 − 14 = 21"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +237,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Dirk finished the comeback with a driving layup using his injured left hand.",
+          "text": "Boston's reserve Eddie House finally put the Celtics ahead with a fourth-quarter jumper.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
-            "quote": "Nowitzki then made a driving layup with his injured left hand with 3.6 seconds left."
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "the Celtics took their first lead in the game when Celtics' reserve Eddie House"
           }
         },
         {
-          "text": "Mario Chalmers briefly tied the game on a three-pointer before Dallas took the decisive possession.",
+          "text": "Boston's bench outscored Los Angeles's reserves as Eddie House and James Posey changed the game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
-            "quote": "However, Mario Chalmers tied it with a 3 of his own with 24.5 seconds left"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "29 of those points coming from House and James Posey"
           }
         },
         {
-          "text": "The Mavericks' victory ended a nine-game home playoff winning streak for Miami.",
+          "text": "Paul Pierce's unexpected 'Wheelchair Game' return was another defining moment of this series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
-            "quote": "The Mavs' win broke the Heat's 9-game home winning streak in the playoffs"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "It was later dubbed by some as the \"Wheelchair Game\""
           }
         }
       ]

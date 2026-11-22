@@ -1,29 +1,29 @@
 {
   "date": "2026-11-25",
   "theme": {
-    "title": "Splash season",
-    "subtitle": "Golden State, 2015–16",
-    "recap": "The Warriors won their first 24, reached the All-Star break at 48–4, never lost at home for more than a year and made threes at a rate nobody had seen."
+    "title": "NBA Mix 03",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-gsw16-start",
+      "id": "nba-suns93-regular-wins",
       "sport": "NBA",
-      "prompt": "The 2015–16 Warriors opened the season with how many straight wins?",
-      "context": "Golden State Warriors · 2015–16",
-      "answer": 24,
+      "prompt": "How many regular-season games did Charles Barkley's 1992–93 Suns win?",
+      "context": "Phoenix Suns · 1992–93 · regular season",
+      "answer": 62,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 0,
-      "max": 30,
+      "min": 32,
+      "max": 82,
       "step": 1,
-      "note": "24 in a row before their first loss.",
+      "note": "62 wins and the top seed in the West.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-        "quote": "The Warriors began the 2015–16 season by winning their first 24 games,"
+        "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+        "quote": "league-best 62–20 record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Assistant Luke Walton coached Golden State's opening stretch while Steve Kerr recovered from back surgery.",
+          "text": "Barkley came from Philadelphia in a blockbuster offseason trade.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "The Warriors opened the regular season on October 27 with assistant coach Luke Walton coaching"
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "the Suns acquiring controversial All-Star power forward Charles Barkley from the Philadelphia 76ers"
           }
         },
         {
-          "text": "Milwaukee finally ended the opening streak, with the Bucks handing Golden State its first loss.",
+          "text": "Phoenix moved into America West Arena, which had seating for 19,023.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "The winning streak to start the season ended at 24 games when they were beaten by the Milwaukee Bucks"
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "their new arena, the America West Arena, which had a seating capacity of 19,023"
           }
         },
         {
-          "text": "Draymond Green produced a rare five-by-five stat line in the double-overtime win at Boston.",
+          "text": "The Suns introduced the Streaking Sun logo and new uniforms that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "During this game Draymond Green recorded a five-by-five game"
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "the logo would be known as the \"Streaking Sun\" logo"
           }
         }
       ]
     },
     {
-      "id": "nba-gsw16-allstar-wins",
+      "id": "nba-jokic23-finals-average",
       "sport": "NBA",
-      "prompt": "What was the Warriors' win total at the 2016 All-Star break?",
-      "context": "Golden State Warriors · 2015–16 · first half of the season",
-      "answer": 48,
+      "prompt": "Nikola Jokić won 2023 Finals MVP. What did he average in points per game?",
+      "context": "2023 NBA Finals · Denver Nuggets vs Miami Heat",
+      "answer": 30.2,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 28,
-      "max": 60,
-      "step": 1,
-      "note": "48–4, the best record ever at the break.",
+      "min": 12,
+      "max": 42,
+      "step": 0.1,
+      "note": "30.2 points per game while leading Denver to its first title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-        "quote": "Golden State reached the NBA All-Star break at 48–4, the best start to an NBA season at this juncture."
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "after averaging 30.2 points, 14.0 rebounds, 7.2 assists, and 1.4 blocks"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Klay Thompson beat teammate Stephen Curry in the All-Star weekend Three-Point Contest.",
+          "text": "Jokić became Denver's first Finals MVP, with every voter agreeing on the award.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "Klay Thompson won the Three-Point Contest at the All-Star weekend, beating Stephen Curry"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Denver's Nikola Jokić was unanimously voted the NBA Finals Most Valuable Player"
           }
         },
         {
-          "text": "Draymond Green had already tied Tom Gola's Warriors record for triple-doubles in one season.",
+          "text": "Jokić's Finals stat line included 14.0 rebounds, 7.2 assists, and 1.4 blocks per game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "Green tied Hall of Famer Tom Gola's franchise record of nine triple-doubles"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "after averaging 30.2 points, 14.0 rebounds, 7.2 assists, and 1.4 blocks"
           }
         },
         {
-          "text": "Golden State reached fifty wins faster than any NBA team before it had done.",
+          "text": "Denver became only the second franchise from the old ABA to win an NBA title, following the Spurs.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "fastest team to reach 50 wins in a season, accomplishing this in just 55 games"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "They became the second former American Basketball Association (ABA) team to win an NBA title"
           }
         }
       ]
     },
     {
-      "id": "nba-gsw16-home-streak",
+      "id": "nba-reed70-g7-minutes",
       "sport": "NBA",
-      "prompt": "Golden State set an NBA record for consecutive regular-season home wins. How long was the streak?",
-      "context": "Golden State Warriors · spanning 2015 and 2016",
-      "answer": 54,
+      "prompt": "Willis Reed limped out for Game 7 of the 1970 Finals. How many minutes did he play?",
+      "context": "1970 NBA Finals · Game 7 · vs Lakers",
+      "answer": 27,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "minute",
+        "plural": "minutes"
       },
-      "min": 35,
-      "max": 100,
+      "min": 0,
+      "max": 48,
       "step": 1,
-      "note": "54 straight home wins.",
+      "note": "27. He did not leave after his first two baskets, despite the legend.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-        "quote": "The Warriors also set an NBA record 54-straight regular-season home-game winning streak,"
+        "url": "https://en.wikipedia.org/wiki/1969%E2%80%9370_New_York_Knicks_season",
+        "quote": "Contrary to popular lore, he did not sit out after his first two baskets, but remained on the floor for 27 minutes"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "The home winning streak stretched across two seasons, beginning in January 2015.",
+          "text": "Reed's entrance was so improbable because a torn thigh muscle had kept him out of the previous game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "which spanned from January 31, 2015, to March 29, 2016"
+            "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
+            "quote": "Due to a severe thigh injury suffered in Game 5, a torn muscle that kept him out of Game 6"
           }
         },
         {
-          "text": "Boston ended Golden State's long run at Oracle Arena with a narrow April road win.",
+          "text": "He made New York's opening two baskets on his first two attempts, electrifying Madison Square Garden.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "Golden State lost at home for the first time since January 27, 2015. They fell to the Boston Celtics"
+            "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
+            "quote": "he scored the Knicks' first two field goals on his first two shot attempts"
           }
         },
         {
-          "text": "Before Golden State broke it, Chicago's 1990s dynasty had held the home-win-streak record.",
+          "text": "On defense, the injured Reed held Wilt Chamberlain to two makes on nine attempts while he was guarding him.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "The previous record of 44 was held by the 1995–96 Chicago Bulls"
+            "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
+            "quote": "limiting him to two shots made in nine attempts"
           }
         }
       ]
     },
     {
-      "id": "nba-gsw16-threes",
+      "id": "nba-dirk11-24-ft",
       "sport": "NBA",
-      "prompt": "How many three-pointers did the 2015–16 Warriors make in the regular season?",
-      "context": "Golden State Warriors · 2015–16 · 82 games",
-      "answer": 1077,
+      "prompt": "In the 2011 West finals, Dirk Nowitzki set a playoff record by making how many free throws without a miss?",
+      "context": "2011 West finals · Game 1 · vs Oklahoma City",
+      "answer": 24,
       "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
+        "singular": "free throw",
+        "plural": "free throws"
       },
-      "min": 550,
-      "max": 1400,
-      "step": 10,
-      "note": "1,077, the first team past 1,000.",
+      "min": 14,
+      "max": 44,
+      "step": 1,
+      "note": "24 of 24.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
-        "quote": "They also became the first team to make over 1,000 three-pointers in the regular-season with 1,077,"
+        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Dallas_Mavericks_season",
+        "quote": "set a playoff record for most free throws made without a miss with 24, previously held by"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Stephen Curry personally contributed 402 made threes during the same regular season.",
+          "text": "Paul Pierce had held the previous playoff mark, set during a Boston game in 2003.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "Curry broke his own NBA record for made three-pointers in a season of 286, finishing with 402"
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Dallas_Mavericks_season",
+            "quote": "previously held by Paul Pierce (21) in 2003"
           }
         },
         {
-          "text": "Golden State also led the league in assists per game and offensive rating that season.",
+          "text": "Dirk was later voted NBA Finals MVP as Dallas won its first title.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "led the league in scoring (114.9 points), field goal percentage (.487), three-point percentage (.416), assists (28.9)"
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Dallas_Mavericks_season",
+            "quote": "Dirk Nowitzki was voted the NBA Finals Most Valuable Player."
           }
         },
         {
-          "text": "The Warriors crossed the team thousand-three mark in a game against Portland.",
+          "text": "Jason Kidd recorded his 11,000th career assist during Dallas's title season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "first team in NBA history to score 1,000 three-pointers in a single season during their 136–111 win against"
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Dallas_Mavericks_season",
+            "quote": "Jason Kidd recorded his 11,000th Assist during a game against the Philadelphia 76ers."
           }
         }
       ]
     },
     {
-      "id": "nba-curry16-ot-points",
+      "id": "nba-howard09-cavs-g6-points",
       "sport": "NBA",
-      "prompt": "On May 9, 2016, Stephen Curry set an NBA record for points in an overtime period. How many did he score?",
-      "context": "2016 Western Conference semifinals · vs Portland",
-      "answer": 17,
+      "prompt": "How many points did Howard score to eliminate Cleveland in the 2009 East finals?",
+      "context": "Magic vs Cavaliers · conference finals Game 6",
+      "answer": 40,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 0,
-      "max": 40,
+      "min": 22,
+      "max": 80,
       "step": 1,
-      "note": "17, breaking the record of 16.",
+      "note": "40 points to send Orlando back to the NBA Finals.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-        "quote": "He scored 17 of his points in overtime, which broke the NBA record of 16"
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+        "quote": "thanks to Howard's 40 points and 10 rebounds in Game 6"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Curry returned from an MCL injury absence to score forty points against Portland.",
+          "text": "Howard also grabbed ten rebounds in the decisive game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "Curry scored 40 points in his first game back after being out injured for 15 days with an MCL sprain"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "Howard's 40 points and 10 rebounds in Game 6"
           }
         },
         {
-          "text": "The previous overtime-period scoring mark belonged to Gilbert Arenas.",
+          "text": "Orlando eliminated the top-seeded Cavaliers to reach its first Finals since the Shaq era.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "broke the NBA record of 16 held by Gilbert Arenas for most points scored in an overtime period"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "defeated the top-seeded Cleveland Cavaliers in six games"
           }
         },
         {
-          "text": "The following day, Curry became the NBA's first unanimous regular-season MVP.",
+          "text": "The Lakers defeated Orlando in the NBA Finals that followed.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "Curry is the 11th player to win back-to-back MVP honors and is the first unanimous winner"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "would lose to the Kobe Bryant-led Los Angeles Lakers in five games"
           }
         }
       ]

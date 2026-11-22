@@ -1,29 +1,29 @@
 {
   "date": "2026-12-22",
   "theme": {
-    "title": "Seventies Finals",
-    "subtitle": "The NBA, 1975–79",
-    "recap": "The late 1970s spread titles around: Golden State swept, Boston won a triple-overtime classic and Seattle won its first title."
+    "title": "NBA Mix 30",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-bullets75-wins",
+      "id": "nba-jackson10-titles",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 1974–75 Bullets win before the Finals?",
-      "context": "Washington Bullets · 1974–75 · 82 games",
-      "answer": 60,
+      "prompt": "Phil Jackson won the 2010 title as Lakers coach. How many titles had he won as a head coach in total?",
+      "context": "Bulls and Lakers · through 2010",
+      "answer": 11,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "title",
+        "plural": "titles"
       },
-      "min": 20,
-      "max": 75,
+      "min": 6,
+      "max": 19,
       "step": 1,
-      "note": "60, before Golden State swept them.",
+      "note": "11.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-        "quote": "Washington Bullets (60–22) for the championship"
+        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+        "quote": "Lakers head coach Phil Jackson earned his 11th NBA championship title"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The Washington Bullets had only recently relocated from Baltimore, where the franchise previously played.",
+          "text": "That championship was Phil Jackson's first Finals Game 7 as a head coach despite his long title-winning career.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "having moved from Baltimore prior to the 1973–74 season"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "as well as head coach Phil Jackson’s first-ever Finals Game 7"
           }
         },
         {
-          "text": "Wes Unseld and Elvin Hayes anchored a team coached by future Celtics icon K. C. Jones.",
+          "text": "Boston was one victory from reclaiming the trophy when it traveled to Los Angeles for Game 6.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "led by Wes Unseld and Elvin Hayes, and coached by K. C. Jones"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "The Lakers returned to Los Angeles with a 3–2 deficit in the series"
           }
         },
         {
-          "text": "Washington knocked out the defending champion Celtics on the way to the championship series.",
+          "text": "Kobe Bryant was Finals MVP for a second consecutive year as the Lakers repeated as champions.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "then overcame the Buffalo Braves and the defending champion Boston Celtics"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "Kobe Bryant was named the Most Valuable Player of the Finals for the second consecutive year"
           }
         }
       ]
     },
     {
-      "id": "nba-jojo76-finals-points",
+      "id": "nba-bulls97-wins",
       "sport": "NBA",
-      "prompt": "Jo Jo White was 1976 Finals MVP. How many total points did he score in the six games?",
-      "context": "1976 NBA Finals · six games vs Phoenix",
-      "answer": 130,
+      "prompt": "How many games did the 1996–97 Bulls win, a year after going 72–10?",
+      "context": "Chicago Bulls · 1996–97 · 82 games",
+      "answer": 69,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 30,
-      "max": 180,
+      "min": 50,
+      "max": 82,
       "step": 1,
-      "note": "130.",
+      "note": "69–13, the league's best record that season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
-        "quote": "Jo Jo White scored 15 points, giving him 130 points in six games, and was named the series MVP."
+        "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
+        "quote": "the Bulls settled for a league-best 69–13 record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,100 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Boston had dealt Paul Westphal to Phoenix for Charlie Scott before the series, a trade that shaped both teams.",
+          "text": "Chicago began the season with an undefeated opening stretch, looking ready to repeat its previous dominance.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
-            "quote": "including trading Westphal to Phoenix for Charlie Scott"
+            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
+            "quote": "They began the season 12–0"
           }
         },
         {
-          "text": "The Celtics faced Cleveland's 'Miracle of Richfield' team before reaching the Finals.",
+          "text": "Late-season injuries and a last-game missed shot by Scottie Pippen stopped the Bulls' record chase.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
-            "quote": "the \"Miracle of Richfield\" Cleveland Cavaliers"
+            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
+            "quote": "Scottie Pippen's failed attempt at a game-winning three-pointer"
           }
         },
         {
-          "text": "The opposing Suns made the championship series despite entering the playoffs from the West's third seed.",
+          "text": "Utah's first Finals appearance came with a bold mountain-themed rebrand of its uniforms and logo.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
-            "quote": "3 x-Phoenix Suns 42 40 .512"
+            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
+            "quote": "a bold, gradient \"Purple Mountain\" motif"
           }
         }
       ]
     },
     {
-      "id": "nba-mcdonald76-ot",
+      "id": "nba-duncan14-season-rpg",
       "sport": "NBA",
-      "prompt": "In the triple-overtime Game 5 of 1976, reserve Glenn McDonald scored how many points?",
-      "context": "1976 NBA Finals · Game 5 · vs Phoenix",
-      "answer": 8,
+      "prompt": "What was Tim Duncan's rebound average in the 2014 title season?",
+      "context": "San Antonio · regular season · veteran center",
+      "answer": 9.7,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
+      },
+      "min": 3,
+      "max": 22,
+      "step": 0.1,
+      "note": "9.7 rebounds per game in his later career.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+        "quote": "Tim Duncan | C | 74 | 74 | 2,158 | 721 | 220 | 43 | 139 | 1,119 | 29.2 | 9.7"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Duncan blocked 139 shots during the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Tim Duncan | C | 74 | 74 | 2,158 | 721 | 220 | 43 | 139"
+          }
+        },
+        {
+          "text": "He started all seventy-four games he played.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Tim Duncan | C | 74 | 74"
+          }
+        },
+        {
+          "text": "Duncan scored 1,119 points during the season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Tim Duncan | C | 74 | 74 | 2,158 | 721 | 220 | 43 | 139 | 1,119"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-allen13-g6-seconds",
+      "sport": "NBA",
+      "prompt": "How many seconds were left when Ray Allen hit his game-tying corner three in Game 6 of the 2013 Finals?",
+      "context": "2013 NBA Finals · Game 6 · vs San Antonio",
+      "answer": 5.2,
+      "unit": {
+        "singular": "second",
+        "plural": "seconds"
       },
       "min": 0,
       "max": 15,
-      "step": 1,
-      "note": "Eight, all in overtime.",
+      "step": 0.1,
+      "note": "5.2 seconds.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
-        "quote": "Glenn McDonald scored eight points in the game, all in overtime."
+        "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
+        "quote": "made a three-point basket from the right corner with 5.2 left to tie the game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,100 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Phoenix's Paul Westphal deliberately called a timeout the Suns didn't have to gain a tactical advantage.",
+          "text": "A shoeless Mike Miller hit an important three after his footwear came loose in the fourth quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
-            "quote": "The Suns' Paul Westphal also intentionally called a timeout even though his team had no more remaining"
+            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
+            "quote": "Miller's shoe came loose but he did not have time to put it back on"
           }
         },
         {
-          "text": "John Havlicek appeared to win the epic with a late basket, only for more time to remain on the clock.",
+          "text": "LeBron lost his trademark headband during a dunk and played out the frantic finish without it.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
-            "quote": "Havlicek hit what appeared to be the game-winning shot at the end of the second overtime"
+            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
+            "quote": "the signature accessory James lost on a dunk with just under nine minutes left"
           }
         },
         {
-          "text": "The dramatic winner came from a lightly used Boston reserve, not one of the celebrated starters.",
+          "text": "Game 6 eventually won the ESPY Award for Best Game, cementing its place in Finals folklore.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
-            "quote": "Glenn McDonald, a little-used Celtic reserve player"
+            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
+            "quote": "Game 6 of the 2013 NBA Finals received the 2013 ESPY award for Best Game"
           }
         }
       ]
     },
     {
-      "id": "nba-warriors75-bench",
+      "id": "nba-robinson94-quadruple",
       "sport": "NBA",
-      "prompt": "Through the first three games of the 1975 Finals, how many points did Golden State's bench score?",
-      "context": "1975 NBA Finals · Games 1–3 vs Washington",
-      "answer": 115,
+      "prompt": "David Robinson's 1994 quadruple-double included 10 blocks. How many points did he score?",
+      "context": "Spurs vs Detroit Pistons · February 17, 1994",
+      "answer": 34,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 0,
-      "max": 140,
+      "min": 16,
+      "max": 58,
       "step": 1,
-      "note": "115, to Washington's 53, on the way to a sweep.",
+      "note": "34, plus 10 rebounds and 10 assists.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-        "quote": "the Warriors' bench players had outscored the Bullets' reserves 115–53"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Golden State had to host part of the Finals at the Cow Palace because the Ice Follies occupied its arena.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "the Oakland facility being unavailable due to the Ice Follies"
-          }
-        },
-        {
-          "text": "Jamaal Wilkes's defense against Elvin Hayes helped neutralize Washington's frontcourt advantage.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "the defensive play of the seemingly undersized Jamaal Wilkes on Bullets' power forward Elvin Hayes"
-          }
-        },
-        {
-          "text": "Backup center George Johnson provided timely scoring and rebounding during the Warriors' surprise sweep.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "backup center George Johnson had 10 points and nine rebounds off the bench"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-gus79-finals-ppg",
-      "sport": "NBA",
-      "prompt": "Seattle won the 1979 title. What did its top scorer, Gus Williams, average in the Finals?",
-      "context": "1979 NBA Finals · Seattle vs Washington",
-      "answer": 28.6,
-      "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
-      },
-      "min": 20,
-      "max": 46,
-      "step": 0.1,
-      "note": "28.6 points per game.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1979_NBA_Finals",
-        "quote": "Gus Williams of the SuperSonics was the top scorer, averaging 28.6 points per game"
+        "url": "https://en.wikipedia.org/wiki/David_Robinson",
+        "quote": "with 34 points, 10 rebounds, 10 assists, and 10 blocks against the Detroit Pistons on February 17, 1994"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Dennis Johnson, not Williams, won Finals MVP for the SuperSonics' title run.",
+          "text": "Robinson joined an exceptionally small group of players who recorded double figures in four statistical categories.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1979_NBA_Finals",
-            "quote": "Dennis Johnson of the SuperSonics was named as the NBA Finals MVP"
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "one of only four players to have officially recorded a quadruple-double"
           }
         },
         {
-          "text": "Seattle's triumph avenged a Finals defeat to the same Washington Bullets team the previous year.",
+          "text": "The Admiral had attended the Naval Academy and was so tall that he could not serve aboard Navy ships.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1979_NBA_Finals",
-            "quote": "The series was a rematch of the previous year's NBA Finals, which the Bullets won"
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "which later prevented him from serving on any U.S. Navy ships"
           }
         },
         {
-          "text": "Before the SuperSonics won, Seattle's last men's major professional sports title came in ice hockey.",
+          "text": "Robinson won championships both before and after the turn of the millennium, playing his entire career in San Antonio.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1979_NBA_Finals",
-            "quote": "Seattle Metropolitans' victory in the 1917 Stanley Cup Final"
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "2× NBA champion (1999, 2003)"
           }
         }
       ]

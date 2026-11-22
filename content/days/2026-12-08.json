@@ -1,29 +1,29 @@
 {
   "date": "2026-12-08",
   "theme": {
-    "title": "Detroit defense",
-    "subtitle": "Pistons, 1989 and 2004",
-    "recap": "Detroit won with defense twice: the Bad Boys of 1989 and the 2004 team that held five straight opponents under 70."
+    "title": "NBA Mix 16",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-pistons89-wins",
+      "id": "nba-detroit04-regular-wins",
       "sport": "NBA",
-      "prompt": "How many games did the 1988–89 \"Bad Boys\" Pistons win?",
-      "context": "Detroit Pistons · 1988–89 · 82 games",
-      "answer": 63,
+      "prompt": "How many regular-season games did the 2003–04 Pistons win?",
+      "context": "Detroit Pistons · 2003–04 · 82 games",
+      "answer": 54,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 50,
-      "max": 82,
+      "min": 40,
+      "max": 72,
       "step": 1,
-      "note": "63–19, the league's best.",
+      "note": "54–28, before the defense-first Pistons won the title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1988%E2%80%9389_Detroit_Pistons_season",
-        "quote": "finishing in first place in the Central Division with a league-best 63–19 record"
+        "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+        "quote": "finishing second in the Central Division with a 54–28 record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "That season marked the Bad Boys' first in the brand-new Palace of Auburn Hills.",
+          "text": "Detroit used its 2003 second-overall draft pick on Darko Miličić, who played a limited reserve role during the title season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1988%E2%80%9389_Detroit_Pistons_season",
-            "quote": "moved from the Pontiac Silverdome to their brand-new arena known as The Palace of Auburn Hills"
+            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+            "quote": "They selected Darko Miličić as their top pick but only used him as a reserve"
           }
         },
         {
-          "text": "Detroit traded Adrian Dantley to Dallas midseason for Mark Aguirre, a longtime friend of Isiah Thomas.",
+          "text": "Larry Brown arrived as head coach after Detroit reached the Eastern Conference finals the year before.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1988%E2%80%9389_Detroit_Pistons_season",
-            "quote": "traded Dantley to the Dallas Mavericks in exchange for All-Star forward Mark Aguirre"
+            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
+            "quote": "After their first trip to the Conference Finals since 1991, the Pistons hired Larry Brown as head coach."
           }
         },
         {
-          "text": "Detroit opened its regular season with eight consecutive wins — an early sign of the championship run to come.",
+          "text": "The Pistons clinched the title at their home arena, the Palace of Auburn Hills, outside downtown Detroit.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1988%E2%80%9389_Detroit_Pistons_season",
-            "quote": "The Pistons got off to a fast start by winning their first eight games of the regular season."
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "The Palace of Auburn Hills, Auburn Hills, Michigan"
           }
         }
       ]
     },
     {
-      "id": "nba-dumars89-17-straight",
+      "id": "nba-lakers20-lead-record",
       "sport": "NBA",
-      "prompt": "In Game 3 of the 1989 Finals, Joe Dumars scored how many points in a row in the third quarter?",
-      "context": "1989 NBA Finals · Game 3 · at Los Angeles",
-      "answer": 17,
+      "prompt": "The 2019–20 Lakers never lost when leading after three quarters. How many such games did they win, playoffs included?",
+      "context": "Los Angeles Lakers · 2019–20 · regular season plus playoffs",
+      "answer": 57,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 0,
-      "max": 26,
+      "min": 35,
+      "max": 85,
       "step": 1,
-      "note": "17 in a row, on his way to 31.",
+      "note": "57, going 57–0.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-        "quote": "Joe Dumars scored 31 points, scoring 17 consecutive points in the third quarter"
+        "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
+        "quote": "to be undefeated in a season when leading entering the fourth quarter, going a combined 57–0 record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,151 +83,151 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Magic Johnson left the third Finals game after only a few minutes because of injury.",
+          "text": "The Lakers–Heat series took place inside the Orlando-area NBA bubble with no paying fans in the building.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-            "quote": "Magic Johnson missed most of Game 3 due to injury, exiting after five minutes"
+            "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
+            "quote": "games were played in the Bubble behind closed doors"
           }
         },
         {
-          "text": "Dennis Rodman hauled in 19 rebounds in the game despite battling back spasms.",
+          "text": "Both Finals participants had missed the playoffs the previous year, an unprecedented turnaround for the matchup.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-            "quote": "Dennis Rodman, despite having back spasms, had 19 rebounds"
+            "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
+            "quote": "the first time that Finals participants had both missed the playoffs in the previous season"
           }
         },
         {
-          "text": "The Pistons had swept both Boston and Milwaukee before battling Michael Jordan's Bulls.",
+          "text": "Jeanie Buss became the first female controlling owner to guide her team to an NBA title.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-            "quote": "sweeping both the Boston Celtics and the Milwaukee Bucks"
+            "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
+            "quote": "Jeanie Buss became the first female controlling owner to guide her team to an NBA title"
           }
         }
       ]
     },
     {
-      "id": "nba-dumars89-finals-ppg",
+      "id": "nba-horry05-g5",
       "sport": "NBA",
-      "prompt": "Joe Dumars was 1989 Finals MVP. What was his scoring average in the series?",
-      "context": "1989 NBA Finals · four games vs Lakers",
-      "answer": 27.3,
-      "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
-      },
-      "min": 6,
-      "max": 34,
-      "step": 0.1,
-      "note": "27.3 points per game.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-        "quote": "Dumars was named Finals MVP after averaging 27.3 points per game during the series"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Detroit's Finals victory was the first NBA title in the history of the franchise.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-            "quote": "capturing their first NBA championship"
-          }
-        },
-        {
-          "text": "Kareem Abdul-Jabbar retired after the series, ending a remarkable 20-season NBA career.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-            "quote": "Kareem Abdul-Jabbar announced his retirement from the NBA at age 42 at the end of his 20th season"
-          }
-        },
-        {
-          "text": "The team embraced the 'Bad Boys' label as both an identity and an advertising theme.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-            "quote": "the team, led by Isiah Thomas and Bill Laimbeer, had embraced the title as a marketing brand"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-pistons04-under-70",
-      "sport": "NBA",
-      "prompt": "The 2003–04 Pistons were the first team to hold how many straight opponents under 70 points?",
-      "context": "Detroit Pistons · 2003–04 regular season",
-      "answer": 5,
-      "unit": {
-        "singular": "game",
-        "plural": "games"
-      },
-      "min": 0,
-      "max": 10,
-      "step": 1,
-      "note": "Five in a row.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-        "quote": "They became the first team in NBA history to hold five consecutive opponents under 70 points"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Detroit's front office added Rasheed Wallace in a complicated trade at the deadline.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "for guard Mike James and forward Rasheed Wallace"
-          }
-        },
-        {
-          "text": "The Pistons had replaced Rick Carlisle with Larry Brown as head coach before the season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "In his place, Dumars hired legendary coach Larry Brown"
-          }
-        },
-        {
-          "text": "Ben Wallace and Richard Hamilton were acquired through trades rather than drafted by Detroit.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "He landed defensive stalwart Ben Wallace and guard Richard Hamilton by trading established stars"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-lakers04-g3-68",
-      "sport": "NBA",
-      "prompt": "How many points did Detroit hold the Lakers to in Game 3 of the 2004 Finals?",
-      "context": "2004 NBA Finals · Game 3 · at Detroit",
-      "answer": 68,
+      "prompt": "Robert Horry hit the game-winner in Game 5 of the 2005 Finals. How many points did he score off the bench?",
+      "context": "2005 NBA Finals · Game 5 · at Detroit",
+      "answer": 21,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 30,
-      "max": 95,
+      "min": 0,
+      "max": 34,
       "step": 1,
-      "note": "68, in an 88–68 loss.",
+      "note": "21, with five of six threes.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-        "quote": "The 68 points scored by the Lakers set a franchise record for the lowest number of points scored in a playoff game"
+        "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
+        "quote": "Horry went 5 for 6 from beyond the arc, including the game-winner, and scored 21 points coming off the bench."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Rasheed Wallace left Horry open when he doubled Manu Ginóbili, setting up the decisive shot.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
+            "quote": "Rasheed Wallace had left Horry to double-team Ginobili"
+          }
+        },
+        {
+          "text": "Horry did not score until the very end of the third quarter before taking over late.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
+            "quote": "He hadn't scored a point until the final play of the 3rd quarter"
+          }
+        },
+        {
+          "text": "The shot added to Horry's reputation for late-game heroics, already established with the Lakers.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
+            "quote": "Horry was already famous for nailing last-second shots in the playoffs"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-jordan93-finals-ppg",
+      "sport": "NBA",
+      "prompt": "What did Michael Jordan average per game in the 1993 Finals against Phoenix, a Finals record?",
+      "context": "1993 NBA Finals · six games vs Phoenix",
+      "answer": 41,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 28,
+      "max": 60,
+      "step": 0.1,
+      "note": "41.0 points per game.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+        "quote": "averaged a Finals-record 41.0 PPG during the six-game series"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "The Suns traded Jeff Hornacek, Tim Perry and Andrew Lang to Philadelphia for Charles Barkley.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+            "quote": "acquiring Charles Barkley from the Philadelphia 76ers in exchange for Jeff Hornacek, Tim Perry, and Andrew Lang"
+          }
+        },
+        {
+          "text": "Phoenix forced a rare triple-overtime Game 3, then won it at Chicago Stadium.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+            "quote": "The Phoenix Suns won Game 3 in triple overtime, 129–121"
+          }
+        },
+        {
+          "text": "Scottie Pippen also filled the box score with over nine rebounds and seven assists per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+            "quote": "Scottie Pippen  | 6  | 6  | 44.3  | .439  | .000  | .543  | 9.2  | 7.7"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-sixers83-playoff-wins",
+      "sport": "NBA",
+      "prompt": "How many playoff games did the 1983 champion Sixers lose?",
+      "context": "Philadelphia 76ers · 1983 playoffs",
+      "answer": 1,
+      "unit": {
+        "singular": "loss",
+        "plural": "losses"
+      },
+      "min": 0,
+      "max": 8,
+      "step": 1,
+      "note": "One: they went 12–1.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
+        "quote": "The 76ers completed one of the most dominating playoff runs in league history with a 12–1 mark"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Tayshaun Prince and Detroit's defense held Kobe Bryant scoreless in the first half.",
+          "text": "Moses Malone had boldly predicted an unbeaten playoff run, repeatedly calling for four-game sweeps.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "with Bryant going scoreless in the first half"
+            "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
+            "quote": "Malone predicted the team would win in four games in each of the three rounds"
           }
         },
         {
-          "text": "Richard Hamilton led all scorers with 31 points in the pivotal Game 3 victory.",
+          "text": "Philadelphia had acquired Moses from Houston specifically to counter the Lakers' Kareem Abdul-Jabbar.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "Pts: Richard Hamilton 31"
+            "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
+            "quote": "the 76ers acquired Moses Malone from the Houston Rockets in an effort to counter Abdul-Jabbar"
           }
         },
         {
-          "text": "Detroit ultimately won the championship series in five games against the favored Lakers.",
+          "text": "The Sixers swept Los Angeles in the Finals, reversing the previous championship-series losses to the Lakers.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "Detroit wins NBA Finals, 4–1"
+            "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
+            "quote": "The 76ers lost their first two Finals meetings with the Lakers in 1980 and 1982"
           }
         }
       ]

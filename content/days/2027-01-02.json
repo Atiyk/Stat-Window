@@ -1,29 +1,29 @@
 {
   "date": "2027-01-02",
   "theme": {
-    "title": "Lakers–Celtics, 2010",
-    "subtitle": "The 2010 Finals",
-    "recap": "The rivalry's latest Finals went seven games, with Ray Allen setting a record one night and missing everything two nights later."
+    "title": "NBA Mix 41",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-jackson10-titles",
+      "id": "nba-heat13-streak",
       "sport": "NBA",
-      "prompt": "Phil Jackson won the 2010 title as Lakers coach. How many titles had he won as a head coach in total?",
-      "context": "Bulls and Lakers · through 2010",
-      "answer": 11,
+      "prompt": "How long was the Miami Heat's 2012–13 winning streak?",
+      "context": "Miami Heat · 2012–13 regular season",
+      "answer": 27,
       "unit": {
-        "singular": "title",
-        "plural": "titles"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 6,
-      "max": 19,
+      "min": 2,
+      "max": 38,
       "step": 1,
-      "note": "11.",
+      "note": "27 games in a row.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-        "quote": "Lakers head coach Phil Jackson earned his 11th NBA championship title"
+        "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+        "quote": "the Heat embarked on a 27-game winning streak"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "That championship was Phil Jackson's first Finals Game 7 as a head coach despite his long title-winning career.",
+          "text": "The winning run began with a Super Bowl Sunday victory over Toronto and eventually became a franchise record.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "as well as head coach Phil Jackson’s first-ever Finals Game 7"
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+            "quote": "The Heat defeated the Toronto Raptors on Super Bowl Sunday to start what would become the longest winning streak"
           }
         },
         {
-          "text": "Boston was one victory from reclaiming the trophy when it traveled to Los Angeles for Game 6.",
+          "text": "Miami rallied from a huge third-quarter deficit in Cleveland during the run, then won the game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "The Lakers returned to Los Angeles with a 3–2 deficit in the series"
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+            "quote": "The Heat overcame a league high 27-point third-quarter deficit to defeat the Cleveland Cavaliers"
           }
         },
         {
-          "text": "Kobe Bryant was Finals MVP for a second consecutive year as the Lakers repeated as champions.",
+          "text": "Chicago finally stopped Miami's historic run in late March, although the Heat would still secure the top East seed.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "Kobe Bryant was named the Most Valuable Player of the Finals for the second consecutive year"
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+            "quote": "The Heat fall 101–97 to the Chicago Bulls, ending their winning streak"
           }
         }
       ]
     },
     {
-      "id": "nba-allen10-g2-threes",
+      "id": "nba-curry18-g2-threes",
       "sport": "NBA",
-      "prompt": "How many threes did Ray Allen make in Game 2 of the 2010 Finals?",
-      "context": "2010 NBA Finals · Game 2 · at Los Angeles",
-      "answer": 8,
+      "prompt": "How many threes did Stephen Curry make in Game 2 of the 2018 Finals?",
+      "context": "2018 NBA Finals · Game 2 · vs Cleveland",
+      "answer": 9,
       "unit": {
         "singular": "three-pointer",
         "plural": "three-pointers"
       },
       "min": 0,
-      "max": 12,
+      "max": 13,
       "step": 1,
-      "note": "Eight, on 11 attempts, a Finals record at the time.",
+      "note": "Nine, a Finals record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-        "quote": "Allen hit eight of 11 three-pointers, breaking a Finals record"
+        "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
+        "quote": "set an NBA Finals record in Game 2 with nine three-point field goals"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Ray Allen's barrage featured a second-quarter shooting display in which he barely missed from deep.",
+          "text": "Golden State increased its defensive double-teaming of LeBron after his enormous opening performance.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "In the 2nd quarter, Ray Allen hit an impressive five three-pointers (only missing once)"
+            "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
+            "quote": "The Warriors employed more double teams against James in Game 2"
           }
         },
         {
-          "text": "Rajon Rondo also delivered a triple-double in Boston's road win at Staples Center.",
+          "text": "J. R. Smith struggled from the floor, with both of his field goals coming early in the night.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "Rondo finished with an impressive triple-double of 19 points, 12 rebounds and 10 assists"
+            "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
+            "quote": "Smith struggled for Cleveland, shooting 2-for-9 (22.2%) with both baskets coming in the first quarter"
           }
         },
         {
-          "text": "The series was tied after Boston's win, the first Finals to reach that position since Lakers–Pistons in 2004.",
+          "text": "Kevin Durant contributed rebounds and playmaking alongside Curry, making Golden State's offense tougher to stop.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "The last Finals series to be tied at 1–1 after two games was the 2004 NBA Finals"
+            "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
+            "quote": "the Warriors got 26 points, nine rebounds, and seven assists from Kevin Durant"
           }
         }
       ]
     },
     {
-      "id": "nba-allen10-g3-fga",
+      "id": "nba-kemp94-rpg",
       "sport": "NBA",
-      "prompt": "Two days after his record night, Ray Allen went 0-for-how-many from the field in Game 3?",
-      "context": "2010 NBA Finals · Game 3 · vs Lakers",
-      "answer": 13,
+      "prompt": "How many rebounds per game did Shawn Kemp average for the Sonics?",
+      "context": "Shawn Kemp · Seattle · 1993–94",
+      "answer": 10.8,
       "unit": {
-        "singular": "shot",
-        "plural": "shots"
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
       },
-      "min": 4,
-      "max": 28,
-      "step": 1,
-      "note": "0 for 13.",
+      "min": 5,
+      "max": 19,
+      "step": 0.1,
+      "note": "10.8 rebounds per game as one of the West's top forwards.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-        "quote": "Ray Allen went a near-record 0–13 in field goals for this game."
+        "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+        "quote": "Shawn Kemp averaged 18.1 points, 10.8 rebounds, 1.8 steals and 2.1 blocks per game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,100 +134,100 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Derek Fisher rescued Los Angeles late in Game 3, carrying most of his scoring in the fourth quarter.",
+          "text": "Kemp also averaged 2.1 blocks per game that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "Derek Fisher scored 11 of his 16 points in the fourth quarter"
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "10.8 rebounds, 1.8 steals and 2.1 blocks per game"
           }
         },
         {
-          "text": "Singer Monica performed the national anthem before the first Finals game at Boston's arena that year.",
+          "text": "He earned All-NBA Second Team honors alongside Seattle's regular-season rise.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "Prior to the starting lineups being announced, singer Monica performed the national anthem"
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "and was named to the All-NBA Second Team"
           }
         },
         {
-          "text": "Kevin Garnett hit Boston's opening baskets, but Los Angeles put together a strong first-half response.",
+          "text": "Kemp competed in the Slam Dunk Contest for the fourth time in his career.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "Kevin Garnett scored the first six points of the game"
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "Kemp also participated in the NBA Slam Dunk Contest for the fourth time"
           }
         }
       ]
     },
     {
-      "id": "nba-celtics-lakers-finals-record",
+      "id": "nba-pacers00-home-streak",
       "sport": "NBA",
-      "prompt": "Before 2010, Boston had won how many of its 11 Finals series against the Lakers?",
-      "context": "Celtics vs Lakers · Finals history to 2008",
-      "answer": 9,
+      "prompt": "The 1999–2000 Pacers set a franchise record for consecutive home wins. How many?",
+      "context": "Indiana Pacers · 1999–2000",
+      "answer": 25,
       "unit": {
-        "singular": "series",
-        "plural": "series"
-      },
-      "min": 4,
-      "max": 11,
-      "step": 1,
-      "note": "Nine.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-        "quote": "The Celtics won nine of their previous 11 Finals meetings against the Lakers, winning in"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "The two rivals split their regular-season games, each winning by a single point on the other's floor.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "The regular season series was split, with each team winning on the opponent's court by a point"
-          }
-        },
-        {
-          "text": "Boston knocked out top-seeded Cleveland before overcoming Orlando to reach the championship.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "the Celtics defeated the Cleveland Cavaliers in six games"
-          }
-        },
-        {
-          "text": "The Celtics had defeated these Lakers in their previous Finals meeting, two years earlier.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "The Celtics won their previous NBA Finals appearance against the Lakers in 2008"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-finals10-g7-viewers",
-      "sport": "NBA",
-      "prompt": "On average, how many million viewers watched Game 7 of the 2010 Finals?",
-      "context": "2010 NBA Finals · Game 7 · US television",
-      "answer": 28.2,
-      "unit": {
-        "singular": "million viewers",
-        "plural": "million viewers"
+        "singular": "game",
+        "plural": "games"
       },
       "min": 0,
-      "max": 38,
-      "step": 0.1,
-      "note": "28.2 million.",
+      "max": 36,
+      "step": 1,
+      "note": "25.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-        "quote": "Game 7 had the highest average number of viewers with 28.2 million"
+        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+        "quote": "including a franchise-best 25 game win streak at home"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "The Pacers finally defeated the rival Knicks in the Eastern finals to reach their first NBA championship series.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+            "quote": "The Pacers advanced to the NBA Finals for the first time in franchise history"
+          }
+        },
+        {
+          "text": "Indiana's coach during that Finals run was former Boston Celtics star Larry Bird.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "Indiana Pacers  Larry Bird"
+          }
+        },
+        {
+          "text": "Both finalists were playing in newly opened home arenas, Indiana's Fieldhouse and Los Angeles's Staples Center.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "both teams in the Finals featured newly built arenas"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-powe08-g2",
+      "sport": "NBA",
+      "prompt": "Reserve Leon Powe played only 15 minutes in Game 2 of the 2008 Finals. How many points did he score?",
+      "context": "2008 NBA Finals · Game 2 · vs Lakers",
+      "answer": 21,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "note": "21, on 6-of-7 shooting.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+        "quote": "Leon Powe scored 21 points on 6–7 shooting from the field and 9–13 from the line in 15 minutes of play"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "ABC's Finals broadcast booth paired Mike Breen with Mark Jackson and Jeff Van Gundy.",
+          "text": "Powe's physical first stint drew ten free-throw attempts almost immediately.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "Mike Breen, Mark Jackson and Jeff Van Gundy provided commentary for the games"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "drew ten free-throw attempts within his first three minutes on the court"
           }
         },
         {
-          "text": "Boston starting center Kendrick Perkins sat out the decider after tearing two knee ligaments.",
+          "text": "His consecutive thunderous dunks had the home crowd chanting his name.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "Perkins tore both his PCL and MCL, and he was ruled out for Game 7"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "back-to-back dunks in the last minute of the 3rd quarter, causing the Boston crowd to chant his name"
           }
         },
         {
-          "text": "The deciding contest was the first Finals Game 7 since the Spurs and Pistons reached one in 2005.",
+          "text": "Powe alone attempted more free throws than the entire Lakers roster in Game 2.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "This game was the first Game 7 in an NBA Finals since 2005"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "Over the course of the game, Powe shot 13 free throws while the Lakers shot 10"
           }
         }
       ]

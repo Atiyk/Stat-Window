@@ -1,29 +1,29 @@
 {
   "date": "2027-01-11",
   "theme": {
-    "title": "The youngest MVP",
-    "subtitle": "Chicago Bulls, 2010–11",
-    "recap": "Derrick Rose led Chicago to the NBA's best regular-season record before the Bulls' deep playoff run ended against Miami."
+    "title": "NBA Mix 50",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-bulls11-regular-wins",
+      "id": "nba-ad23-cup-final",
       "sport": "NBA",
-      "prompt": "How many regular-season games did Derrick Rose's 2010–11 Bulls win?",
-      "context": "Chicago Bulls · 2010–11 · full regular season",
-      "answer": 62,
+      "prompt": "How many points did Anthony Davis score in the first In-Season Tournament final?",
+      "context": "2023 In-Season Tournament final · Lakers vs Pacers",
+      "answer": 41,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 30,
-      "max": 82,
+      "min": 8,
+      "max": 50,
       "step": 1,
-      "note": "62 wins, earning the top seed in the Eastern Conference.",
+      "note": "41, with 20 rebounds.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-        "quote": "the Bulls finished the season with a 62–20 record, the best in the league"
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+        "quote": "Anthony Davis finished with 41 points on 16-for-24 shooting, 20 rebounds and 4 blocks;"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Derrick Rose became the youngest player to win NBA MVP, earning the award before his 23rd birthday.",
+          "text": "Davis also grabbed 20 rebounds and blocked four shots in the inaugural Cup title game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "Derrick Rose won the NBA Most Valuable Player Award, becoming the youngest NBA player ever to win the award, at the age of 22."
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+            "quote": "Anthony Davis recorded 41 points, 20 rebounds, 5 assists and 4 blocks"
           }
         },
         {
-          "text": "Chicago head coach Tom Thibodeau won Coach of the Year in the same season.",
+          "text": "LeBron James won the overall tournament MVP award even though Davis starred in the final.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "Tom Thibodeau wins NBA Coach of the Year"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+            "quote": "LeBron James was named the Most Valuable Player for the tournament"
           }
         },
         {
-          "text": "Rose led the league's best-record team without a single All-Star teammate.",
+          "text": "Pacers guard Tyrese Haliburton handed out 11 assists in the championship loss.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "Derrick Rose won 2010-11 NBA MVP and led his team to the Best NBA Regular Season Record without any All-Star teammates."
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+            "quote": "Tyrese Haliburton finished with 20 points and 11 assists"
           }
         }
       ]
     },
     {
-      "id": "nba-rose11-season-ppg",
+      "id": "nba-klay16-60-minutes",
       "sport": "NBA",
-      "prompt": "What was Derrick Rose's scoring average in his 2010–11 MVP season?",
-      "context": "Chicago Bulls · 2010–11 · regular season",
-      "answer": 25,
+      "prompt": "Klay Thompson scored 60 points against Indiana on December 5, 2016. How many minutes did he play?",
+      "context": "Golden State Warriors · 2016–17",
+      "answer": 29,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "minute",
+        "plural": "minutes"
       },
-      "min": 14,
-      "max": 43,
-      "step": 0.1,
-      "note": "25.0 points per game alongside his playmaking.",
+      "min": 20,
+      "max": 48,
+      "step": 1,
+      "note": "29.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-        "quote": "Derrick Rose | 81 | 81 | 37.4 | .445 | .332 | .858 | 4.1 | 7.7 | 1.05 | .63 | 25.0"
+        "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+        "quote": "scored 60 points in 29 minutes against the Indiana Pacers on December 5, 2016"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,151 +83,151 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Rose also averaged 7.7 assists per game during his regular-season MVP campaign.",
+          "text": "Thompson had earlier beaten his own Splash Brother, Stephen Curry, in the All-Star three-point contest.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "Derrick Rose | 81 | 81 | 37.4 | .445 | .332 | .858 | 4.1 | 7.7 | 1.05 | .63 | 25.0"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "Klay Thompson won the Three-Point Contest at the All-Star weekend, beating Stephen Curry"
           }
         },
         {
-          "text": "Rose recorded his first career triple-double against Memphis in January of that season.",
+          "text": "Thompson, Durant and Green all brought Olympic gold medals back to the Warriors that same summer.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "Derrick Rose also had his first career triple-double at the Memphis Grizzlies on Jan 17, 2011."
+            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+            "quote": "Kevin Durant, Klay Thompson and Draymond Green joined Chris Mullin"
           }
         },
         {
-          "text": "His team's offseason additions included Carlos Boozer, Kyle Korver and Ronnie Brewer.",
+          "text": "The huge performance placed Klay alongside historic Golden State scorers Wilt Chamberlain and Rick Barry.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "Carlos Boozer | Signed 5-year contract for $80 Million | Utah Jazz"
+            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+            "quote": "He joins Wilt Chamberlain, Steph Curry, Rick Barry, and Joe Fulks"
           }
         }
       ]
     },
     {
-      "id": "nba-bulls11-home-wins",
+      "id": "nba-jordan97-flu-game",
       "sport": "NBA",
-      "prompt": "How many home games did the 2010–11 Bulls win at the United Center?",
-      "context": "Chicago Bulls · 2010–11 · 41 home games",
-      "answer": 36,
-      "unit": {
-        "singular": "win",
-        "plural": "wins"
-      },
-      "min": 15,
-      "max": 41,
-      "step": 1,
-      "note": "36 wins at home against only five defeats.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-        "quote": "Total: 62–20 (home: 36–5; road: 26–15)"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Chicago finished its regular season with only five home defeats.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "Total: 62–20 (home: 36–5; road: 26–15)"
-          }
-        },
-        {
-          "text": "The Bulls ended the season by winning every game they played during April.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "April: 8–0 (home: 4–0; road: 4–0)"
-          }
-        },
-        {
-          "text": "The team set a franchise mark for converted three-pointers in a March game against Utah.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "On March 12 the Bulls set a franchise record 18 converted 3-point shots"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-noah11-rebounds-average",
-      "sport": "NBA",
-      "prompt": "What did Joakim Noah average in rebounds in the 2010–11 regular season?",
-      "context": "Chicago Bulls · injury-hit season",
-      "answer": 10.4,
-      "unit": {
-        "singular": "rebound per game",
-        "plural": "rebounds per game"
-      },
-      "min": 5,
-      "max": 22,
-      "step": 0.1,
-      "note": "10.4 rebounds per game despite substantial time missed.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-        "quote": "Joakim Noah | 48 | 48 | 32.8 | .525 | .0 | .740 | 10.4 | 2.2 | 1.00 | 1.50 | 11.7"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Noah underwent surgery for a hand ligament injury and returned late in the season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "Joakim Noah underwent surgery on December 16 to repair a torn ligament in his right hand."
-          }
-        },
-        {
-          "text": "Noah appeared in fewer than 50 regular-season games that year because of injury.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "Joakim Noah | 48 | 48 | 32.8 | .525 | .0 | .740 | 10.4"
-          }
-        },
-        {
-          "text": "He also earned a place on the NBA All-Defensive Second Team.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "Joakim Noah made the NBA All-Defensive Second Team"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-rose11-hawks-g3-points",
-      "sport": "NBA",
-      "prompt": "How many points did Derrick Rose score in Game 3 against Atlanta in the 2011 playoffs?",
-      "context": "Chicago Bulls · 2011 Eastern semifinals · Game 3",
-      "answer": 44,
+      "prompt": "Sick before Game 5 of the 1997 Finals, how many points did Michael Jordan score in the \"Flu Game\"?",
+      "context": "1997 NBA Finals · Game 5 · at Utah",
+      "answer": 38,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 15,
-      "max": 65,
+      "min": 5,
+      "max": 60,
       "step": 1,
-      "note": "44 points, a career high at the time in Chicago's road win.",
+      "note": "38 in 44 minutes.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-        "quote": "Derrick Rose scored a career high 44 pts vs the Atlanta Hawks on May 6, 2011."
+        "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
+        "quote": "Jordan played 44 minutes, finishing the game with 38 points, 7 rebounds, 5 assists, 3 steals and 1 block."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Jordan awoke in the early morning with severe stomach symptoms before Game 5.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
+            "quote": "Jordan woke up and began to experience vomiting and diarrhea"
+          }
+        },
+        {
+          "text": "He later said he believed food poisoning from a pizza caused the illness.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
+            "quote": "Jordan eventually claimed it was food poisoning in the 2020 docuseries The Last Dance"
+          }
+        },
+        {
+          "text": "At the final buzzer, an exhausted Jordan collapsed into teammate Scottie Pippen's arms.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
+            "quote": "Jordan collapsed into Scottie Pippen's arms"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-six-overtime-game",
+      "sport": "NBA",
+      "prompt": "Before the shot clock, two teams played a game with only one shot in each overtime. How many overtimes?",
+      "context": "NBA · 1950–51",
+      "answer": 6,
+      "unit": {
+        "singular": "overtime",
+        "plural": "overtimes"
+      },
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "note": "Six.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Shot_clock",
+        "quote": "played a six-overtime game with only one shot in each overtime"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "The stalled-out marathon was played by the Rochester Royals and Indianapolis Olympians.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Shot_clock",
+            "quote": "the Rochester Royals and Indianapolis Olympians played a six-overtime game"
+          }
+        },
+        {
+          "text": "Each overtime began with one side holding possession until a desperate last-second shot.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Shot_clock",
+            "quote": "the team that had the ball first held it for the entirety of the period before attempting a last-second shot"
+          }
+        },
+        {
+          "text": "The league experimented with other anti-stalling changes before adopting a formal shot clock.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Shot_clock",
+            "quote": "The NBA tried several rule changes in the early 1950s to speed up the game"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-cavs16-parade",
+      "sport": "NBA",
+      "prompt": "About how many million people attended Cleveland's 2016 title parade?",
+      "context": "Cleveland Cavaliers · June 2016",
+      "answer": 1.3,
+      "unit": {
+        "singular": "million people",
+        "plural": "million people"
+      },
+      "min": 0.2,
+      "max": 3.2,
+      "step": 0.1,
+      "note": "An estimated 1.3 million, then the largest NBA parade.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "An estimated 1.3 million people attended the, then-largest, NBA championship parade in history."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Chicago won the game in Atlanta and took control of a competitive second-round series.",
+          "text": "Cleveland Browns legend and civil-rights advocate Jim Brown attended the Cavaliers' championship celebration.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "May 6 @ Atlanta W 99–82"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "Cleveland Browns Hall of Fame running back and Civil Rights activist Jim Brown attended the parade"
           }
         },
         {
-          "text": "The Bulls ultimately eliminated Atlanta in six games to reach the Eastern Conference finals.",
+          "text": "Cavaliers announcer Fred McLeod likened the moment to Jim Brown passing Cleveland's sporting torch to LeBron.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "defeated the Atlanta Hawks in six games in the semifinals"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "Fred McLeod narrated the scene to the crowd"
           }
         },
         {
-          "text": "Miami's LeBron James, Dwyane Wade and Chris Bosh later ended Chicago's playoff run.",
+          "text": "After Golden State's loss, Draymond Green called the front office to press for Kevin Durant's signing.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
-            "quote": "eliminated by the Miami Heat team led by LeBron James, Dwyane Wade, and Chris Bosh"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "made a phone call to general manager Bob Myers to urge him to try and sign"
           }
         }
       ]

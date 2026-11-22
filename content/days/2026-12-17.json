@@ -1,29 +1,29 @@
 {
   "date": "2026-12-17",
   "theme": {
-    "title": "Philadelphia's juggernauts",
-    "subtitle": "76ers, 1966–67 and 1982–83",
-    "recap": "Philadelphia built two of the most dominant teams ever: Wilt's 68-win champions and the 1983 team that nearly swept the playoffs."
+    "title": "NBA Mix 25",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-sixers67-wins",
+      "id": "nba-jokic-draft-pick",
       "sport": "NBA",
-      "prompt": "How many games did the 1966–67 Sixers win in an 81-game season?",
-      "context": "Philadelphia 76ers · 1966–67",
-      "answer": 68,
+      "prompt": "In 2023 Nikola Jokić became the lowest draft pick ever to win Finals MVP. Where was he picked in 2014?",
+      "context": "2014 NBA draft · Denver Nuggets",
+      "answer": 41,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "overall pick",
+        "plural": "overall pick"
       },
-      "min": 50,
-      "max": 81,
+      "min": 15,
+      "max": 80,
       "step": 1,
-      "note": "68–13, the best record in league history at the time.",
+      "note": "41st overall.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-        "quote": "They finished the season at 68–13, the best record in league history at the time."
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "He became the lowest-selected player to ever win Finals MVP, being the 41st pick of the 2014 NBA draft"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The championship season was Philadelphia's last in the Civic Center before the team moved to the Spectrum.",
+          "text": "Denver's championship was its first in nearly half a century as an NBA franchise.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "their final season at the Philadelphia Civic Center, before moving to the Spectrum"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "winning their first championship in franchise history after 47 seasons in the NBA"
           }
         },
         {
-          "text": "Alex Hannum replaced Dolph Schayes as head coach and even ran with the players during practices.",
+          "text": "The Nuggets became just the second club from the old ABA to win an NBA championship.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "the 76ers dismissed head coach & former 76ers (Syracuse Nationals) player Dolph Schayes"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "They became the second former American Basketball Association (ABA) team to win an NBA title"
           }
         },
         {
-          "text": "In a later league anniversary celebration, the NBA recognized these Sixers as its greatest single-season team.",
+          "text": "Denver reached its first NBA Finals by sweeping the Lakers in the West finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "This team was later chosen as the greatest individual team in 1980 for the NBA 35th Anniversary Team"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "The Nuggets defeated the Lakers in four games, marking their first sweep of an opponent"
           }
         }
       ]
     },
     {
-      "id": "nba-sixers67-start-losses",
+      "id": "nba-cup23-prize",
       "sport": "NBA",
-      "prompt": "The 1966–67 Sixers’ 50-game start is still tied for the best ever. How many of those 50 did they lose?",
-      "context": "Philadelphia 76ers · 1966–67 · first 50 games",
-      "answer": 4,
+      "prompt": "How much prize money did each player on the 2023 In-Season Tournament champions earn?",
+      "context": "2023 In-Season Tournament · prize pool",
+      "answer": 500000,
       "unit": {
-        "singular": "loss",
-        "plural": "losses"
+        "singular": "dollar",
+        "plural": "dollars"
       },
       "min": 0,
-      "max": 15,
-      "step": 1,
-      "note": "Just four: 46–4. The 2015–16 Warriors later matched it.",
+      "max": 750000,
+      "step": 10000,
+      "note": "$500,000 each.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-        "quote": "The 76ers started the season at 46–4, which remains the best 50-game start in the NBA history"
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+        "quote": "Players on the tournament championship team: $500,000 each"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "The 1966–67 start would eventually be matched by Golden State's celebrated 2015–16 regular season.",
+          "text": "Players on runner-up Indiana still collected $200,000 each for their tournament run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "remains the best 50-game start in the NBA history (though tied in the Warriors 2015-16 season)"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+            "quote": "Players on the tournament runner-up team: $200,000 each"
           }
         },
         {
-          "text": "Philadelphia ended Boston's streak of eight consecutive championships in the Eastern finals.",
+          "text": "Losing semifinalists received $100,000 each, even without reaching the title game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "defeated the Boston Celtics (a team that had won eight consecutive titles"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+            "quote": "Players on teams that lose in the semifinals: $100,000 each"
           }
         },
         {
-          "text": "The Sixers first swept the Cincinnati Royals before dispatching their historic rivals in the next round.",
+          "text": "Unlike earlier knockout games, the Cup championship did not count toward the NBA regular-season standings.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "In the 1st round of the playoffs, they swept the Cincinnati Royals"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+            "quote": "Quarterfinal and semifinal games counted as regular season games, affecting teams' positions in league standings, but the championship game did not."
           }
         }
       ]
     },
     {
-      "id": "nba-sixers67-ppg",
+      "id": "nba-celtics02-19-threes",
       "sport": "NBA",
-      "prompt": "About how many points per game did the 1966–67 Sixers average?",
-      "context": "Philadelphia 76ers · 1966–67 regular season",
-      "answer": 125,
+      "prompt": "Boston made a playoff-record nine threes in one fourth quarter against Philadelphia in 2002. How many did it make in the whole game?",
+      "context": "2002 East first round · Celtics vs 76ers",
+      "answer": 19,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 105,
-      "max": 155,
+      "min": 10,
+      "max": 36,
       "step": 1,
-      "note": "About 125, with the league’s best shooting.",
+      "note": "19, nine of them in the fourth quarter.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-        "quote": "The team averaged a record 125 points per game, leading all teams in shooting accuracy"
+        "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
+        "quote": "hitting an NBA playoff record nine of them in the 4th quarter and 19 in the game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Hal Greer led a balanced offense with Chet Walker and Billy Cunningham also scoring heavily.",
+          "text": "Boston's barrage came in a winner-take-all first-round game against Allen Iverson's Philadelphia 76ers.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "Hal Greer with 22 points & Chet Walker & Billy Cunningham with 19 points each"
+            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
+            "quote": "This set the stage for a Game 5 in Boston to decide the series"
           }
         },
         {
-          "text": "The Sixers' prolific scoring was paired with league-leading shooting accuracy, not just more attempts.",
+          "text": "The Celtics' perimeter onslaught ended the Sixers' season and set up a series against Detroit.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "leading all teams in shooting accuracy"
+            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
+            "quote": "Boston won in a huge blowout, sending them to the conference semifinals to face second-seed Detroit"
           }
         },
         {
-          "text": "Chamberlain operated as an offensive distributor, establishing a new assists benchmark for centers.",
+          "text": "The hot shooting was concentrated in the fourth quarter, when Boston's perimeter attack caught fire.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "Wilt Chamberlain's 8 assists per game set a record for centers"
+            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
+            "quote": "hitting an NBA playoff record nine of them in the 4th quarter"
           }
         }
       ]
     },
     {
-      "id": "nba-wilt67-fta",
+      "id": "nba-rockets18-27-misses",
       "sport": "NBA",
-      "prompt": "How many free throws did Wilt Chamberlain attempt in 1966–67?",
-      "context": "Philadelphia 76ers · 1966–67 regular season",
-      "answer": 875,
+      "prompt": "In Game 7 of the 2018 West finals, Houston set a playoff record by missing how many threes in a row?",
+      "context": "2018 Western Conference finals · Game 7 · vs Golden State",
+      "answer": 27,
       "unit": {
-        "singular": "free-throw attempt",
-        "plural": "free-throw attempts"
+        "singular": "missed three",
+        "plural": "missed threes"
       },
-      "min": 550,
-      "max": 1500,
-      "step": 5,
-      "note": "875.",
+      "min": 14,
+      "max": 52,
+      "step": 1,
+      "note": "27 straight misses, in a 101–92 loss.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-        "quote": "his 875 free throw attempts"
+        "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
+        "quote": "set an NBA Playoff record by missing 27 straight 3-point shots"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Wilt hit a league-record share of his field-goal attempts as his offense shifted toward efficiency.",
+          "text": "Houston lost Chris Paul to a right hamstring injury late in Game 5; he missed the rest of the Warriors series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "Shooting less, he made a league-record 68% of his shots"
+            "url": "https://en.wikipedia.org/wiki/2018_NBA_playoffs",
+            "quote": "Chris Paul suffered a \"right hamstring injury\" in the final minute. He did not play for the rest of the series"
           }
         },
         {
-          "text": "Even as he shot less frequently, Wilt still led the league in rebounds that season.",
+          "text": "The eventual champion Warriors were pushed to a deciding conference-finals Game 7 by Houston.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "while scoring 24 points per game and once again leading the NBA in rebounds"
+            "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
+            "quote": "They lost the conference finals to the eventual NBA champion Golden State Warriors in seven games"
           }
         },
         {
-          "text": "The league named Wilt its regular-season MVP in the same year Philadelphia captured the title.",
+          "text": "Golden State's win set up a fourth straight NBA Finals meeting with LeBron James's Cavaliers.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "Wilt Chamberlain, NBA Most Valuable Player Award"
+            "url": "https://en.wikipedia.org/wiki/2018_NBA_playoffs",
+            "quote": "the first time the same two NBA teams met in the NBA Finals four seasons in a row"
           }
         }
       ]
     },
     {
-      "id": "nba-sixers83-playoff-wins",
+      "id": "nba-nash05-dallas-g6-points",
       "sport": "NBA",
-      "prompt": "How many playoff games did the 1983 champion Sixers lose?",
-      "context": "Philadelphia 76ers · 1983 playoffs",
-      "answer": 1,
+      "prompt": "How many points did Steve Nash score in the 2005 playoff clincher against Dallas?",
+      "context": "Phoenix at Dallas · conference semifinals · Game 6",
+      "answer": 39,
       "unit": {
-        "singular": "loss",
-        "plural": "losses"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 0,
-      "max": 8,
+      "min": 20,
+      "max": 70,
       "step": 1,
-      "note": "One: they went 12–1.",
+      "note": "39 points in Phoenix's overtime series-clinching win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
-        "quote": "The 76ers completed one of the most dominating playoff runs in league history with a 12–1 mark"
+        "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+        "quote": "6 May 20 @ Dallas W 130–126 (OT) Steve Nash (39)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Moses Malone had boldly predicted an unbeaten playoff run, repeatedly calling for four-game sweeps.",
+          "text": "Phoenix eliminated Nash's former Dallas team in six games.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
-            "quote": "Malone predicted the team would win in four games in each of the three rounds"
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "defeated Nash's former team, the Dallas Mavericks, in six games"
           }
         },
         {
-          "text": "Philadelphia had acquired Moses from Houston specifically to counter the Lakers' Kareem Abdul-Jabbar.",
+          "text": "The clincher ended in a 130–126 overtime win for Phoenix.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
-            "quote": "the 76ers acquired Moses Malone from the Houston Rockets in an effort to counter Abdul-Jabbar"
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "W 130–126 (OT)"
           }
         },
         {
-          "text": "The Sixers swept Los Angeles in the Finals, reversing the previous championship-series losses to the Lakers.",
+          "text": "Shawn Marion grabbed 16 rebounds during that same decisive game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
-            "quote": "The 76ers lost their first two Finals meetings with the Lakers in 1980 and 1982"
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "Steve Nash (39) Shawn Marion (16) Steve Nash (12)"
           }
         }
       ]

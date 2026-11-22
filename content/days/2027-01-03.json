@@ -1,29 +1,29 @@
 {
   "date": "2027-01-03",
   "theme": {
-    "title": "The 2020s",
-    "subtitle": "Recent records",
-    "recap": "A 41st pick won Finals MVP, an eighth seed reached the Finals and a rebuilding Spurs team lost 18 in a row."
+    "title": "NBA Mix 42",
+    "subtitle": "Five moments from across NBA history",
+    "recap": "Five NBA stories, five different numbers: a quick tour of stars, teams, records and surprises."
   },
   "questions": [
     {
-      "id": "nba-jokic-draft-pick",
+      "id": "nba-lakers72-streak",
       "sport": "NBA",
-      "prompt": "In 2023 Nikola Jokić became the lowest draft pick ever to win Finals MVP. Where was he picked in 2014?",
-      "context": "2014 NBA draft · Denver Nuggets",
-      "answer": 41,
+      "prompt": "The 1971–72 Lakers set the NBA record for consecutive wins. How long was the streak?",
+      "context": "Los Angeles Lakers · 1971–72",
+      "answer": 33,
       "unit": {
-        "singular": "overall pick",
-        "plural": "overall pick"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 15,
-      "max": 80,
+      "min": 6,
+      "max": 48,
       "step": 1,
-      "note": "41st overall.",
+      "note": "33 in a row, an NBA record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-        "quote": "He became the lowest-selected player to ever win Finals MVP, being the 41st pick of the 2014 NBA draft"
+        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+        "quote": "they would also go on an NBA record 33-game winning streak"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Denver's championship was its first in nearly half a century as an NBA franchise.",
+          "text": "Coach Bill Sharman replaced the Lakers' old habits with strict conditioning and an up-tempo fast break.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "winning their first championship in franchise history after 47 seasons in the NBA"
+            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+            "quote": "He introduced strict conditioning drills and implemented a running fast break-based offense"
           }
         },
         {
-          "text": "The Nuggets became just the second club from the old ABA to win an NBA championship.",
+          "text": "Wilt's job changed: rather than hunt shots, he rebounded and started fast breaks with quick outlet passes.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "They became the second former American Basketball Association (ABA) team to win an NBA title"
+            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+            "quote": "focus on defense, rebounding, and jump-starting the fast break with quick outlet passes"
           }
         },
         {
-          "text": "Denver reached its first NBA Finals by sweeping the Lakers in the West finals.",
+          "text": "The transition style proved too demanding for the injured Elgin Baylor, whose retirement opened a starting job for Jim McMillian.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "The Nuggets defeated the Lakers in four games, marking their first sweep of an opponent"
+            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+            "quote": "He was replaced at small forward by Jim McMillian"
           }
         }
       ]
     },
     {
-      "id": "nba-butler23-56",
+      "id": "nba-paul08-regular-apg",
       "sport": "NBA",
-      "prompt": "As an eighth seed, Miami beat Milwaukee in 2023. How many points did Jimmy Butler score in his career-high game in that series?",
-      "context": "2023 first round · Game 4 · vs Milwaukee",
-      "answer": 56,
+      "prompt": "How many assists per game did Chris Paul average for New Orleans in 2008?",
+      "context": "Hornets · 2007–08 regular season",
+      "answer": 11.6,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "assist per game",
+        "plural": "assists per game"
       },
-      "min": 35,
-      "max": 85,
-      "step": 1,
-      "note": "56, in a 119–114 win.",
+      "min": 5,
+      "max": 22,
+      "step": 0.1,
+      "note": "11.6 assists per game from the young star.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-        "quote": "scoring a career-high 56 points in a 119–114 victory"
+        "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+        "quote": "Chris Paul | 80 | 80 | 37.6 | .488 | .369 | .851 | 4.0 | 11.6"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Miami upset Milwaukee, whose regular-season record had made the Bucks the clear betting favorite.",
+          "text": "Paul also averaged 2.71 steals per game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "they faced the Milwaukee Bucks, the team with the best record in the league"
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Chris Paul | 80 | 80 | 37.6 | .488 | .369 | .851 | 4.0 | 11.6 | 2.71"
           }
         },
         {
-          "text": "Tyler Herro broke his hand and Victor Oladipo tore a knee tendon in the opening playoff series.",
+          "text": "He started all eighty regular-season games he played.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "they lost starter Tyler Herro in game 1 with a broken hand"
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Chris Paul | 80 | 80 | 37.6"
           }
         },
         {
-          "text": "Butler later won the East finals MVP as Miami held off Boston's attempted reverse sweep.",
+          "text": "His free-throw percentage was 85.1 percent.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Butler was named the Eastern Conference finals MVP"
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Chris Paul | 80 | 80 | 37.6 | .488 | .369 | .851"
           }
         }
       ]
     },
     {
-      "id": "nba-heat23-wins",
+      "id": "nba-rodman92-34",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 2022–23 Heat win before reaching the Finals?",
-      "context": "Miami Heat · 2022–23 · 82 games",
-      "answer": 44,
+      "prompt": "What was Dennis Rodman's career high in rebounds, set in March 1992?",
+      "context": "Detroit Pistons · 1991–92",
+      "answer": 34,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "rebound",
+        "plural": "rebounds"
       },
-      "min": 32,
-      "max": 64,
+      "min": 20,
+      "max": 52,
       "step": 1,
-      "note": "44–38, then a run to the Finals as an eighth seed.",
+      "note": "34.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-        "quote": "They regressed from their 53–29 record the previous season and finished with a record of 44–38"
+        "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+        "quote": "In a March 1992 game, Rodman grabbed a career-high 34 rebounds."
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Miami had to survive the play-in tournament to reach the postseason despite finishing seventh in the East.",
+          "text": "The rising Knicks eliminated the aging Detroit Pistons in the first round of that spring's playoffs.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Miami had to go through two play-in games to extend their season"
+            "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+            "quote": "the aging Pistons were eliminated by the up-and-coming New York Knicks in the first round"
           }
         },
         {
-          "text": "The Heat entered the playoffs with the league's worst scoring average and a negative point differential.",
+          "text": "Longtime coach Chuck Daly resigned not long after, a blow to Rodman, who saw him as a father figure.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "the only team in the league to qualify for the playoffs with a negative point differential"
+            "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+            "quote": "coach Chuck Daly, whom he had admired as a surrogate father, resigned"
           }
         },
         {
-          "text": "Undrafted players including Caleb Martin and Gabe Vincent supplied vital production around the established stars.",
+          "text": "Before rebounding defined his legend, Rodman won consecutive Defensive Player of the Year awards.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "undrafted players such as Martin, Gabe Vincent, Duncan Robinson, and Max Strus"
+            "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+            "quote": "won his second Defensive Player of the Year Award"
           }
         }
       ]
     },
     {
-      "id": "nba-jokic23-playoff-points",
+      "id": "nba-stockton91-28",
       "sport": "NBA",
-      "prompt": "Nikola Jokić led the 2023 playoffs in points, rebounds and assists. How many points did he score?",
-      "context": "Denver Nuggets · 2023 playoffs",
-      "answer": 600,
+      "prompt": "John Stockton's career high in assists came on January 15, 1991. How many?",
+      "context": "Utah Jazz vs San Antonio Spurs · 1990–91",
+      "answer": 28,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "assist",
+        "plural": "assists"
       },
-      "min": 350,
-      "max": 750,
+      "min": 16,
+      "max": 48,
       "step": 1,
-      "note": "600, with 269 rebounds and 190 assists.",
+      "note": "28, with 20 points.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-        "quote": "became the first player in NBA history to lead the league in points (600), rebounds (269), and assists (190)"
+        "url": "https://en.wikipedia.org/wiki/John_Stockton",
+        "quote": "On January 15, 1991, Stockton scored 20 points and dished out a career-high and franchise-record 28 assists"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Jokić became the first center to win Finals MVP since Shaquille O'Neal two decades earlier.",
+          "text": "Stockton also scored 20 points in the same home win against San Antonio.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "becoming the first center to win the award since Shaquille O'Neal in 2002"
+            "url": "https://en.wikipedia.org/wiki/John_Stockton",
+            "quote": "Stockton scored 20 points and dished out a career-high"
           }
         },
         {
-          "text": "Denver relied on Jokić's scoring efficiency after its outside shooters went ice-cold in the clincher.",
+          "text": "Utah won that game 124–102 at home against the Spurs.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "the Nuggets struggled with their shooting throughout the game"
+            "url": "https://en.wikipedia.org/wiki/John_Stockton",
+            "quote": "in a 124–102 home win against the San Antonio Spurs"
           }
         },
         {
-          "text": "Jamal Murray came back from a serious ACL injury to play a key role in the championship run.",
+          "text": "In 1995, Stockton passed Magic Johnson to become the league's all-time assists leader.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Jamal Murray returned to the playoffs after a two-year absence caused by injury"
+            "url": "https://en.wikipedia.org/wiki/John_Stockton",
+            "quote": "he passed Magic Johnson (who had 9,921 assists) as the NBA's all-time leader in assists"
           }
         }
       ]
     },
     {
-      "id": "nba-spurs24-losing-streak",
+      "id": "nba-lebron15-g1-fga",
       "sport": "NBA",
-      "prompt": "In Victor Wembanyama's rookie year, San Antonio lost how many games in a row?",
-      "context": "San Antonio Spurs · 2023–24",
-      "answer": 18,
+      "prompt": "LeBron James scored 44 points in Game 1 of the 2015 Finals. How many shots did he take?",
+      "context": "2015 NBA Finals · Game 1 · at Golden State",
+      "answer": 38,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "shot",
+        "plural": "shots"
       },
-      "min": 10,
-      "max": 38,
+      "min": 24,
+      "max": 62,
       "step": 1,
-      "note": "18, a franchise record.",
+      "note": "38, then a career playoff high.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023%E2%80%9324_San_Antonio_Spurs_season",
-        "quote": "lost 18 consecutive games between November 5 and December 15, the longest losing streak in franchise history."
+        "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+        "quote": "James had a career NBA Finals high of 44 points, while attempting a postseason career-high 38 shots"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "The Spurs won the draft lottery and made Victor Wembanyama their first overall selection.",
+          "text": "Kyrie Irving blocked a potential go-ahead Stephen Curry layup late in Game 1's regulation.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023%E2%80%9324_San_Antonio_Spurs_season",
-            "quote": "selecting French center Victor Wembanyama as their third #1 pick in franchise history"
+            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+            "quote": "Curry beat Kyrie Irving to the basket and went for a go-ahead layup, but Irving blocked the shot"
           }
         },
         {
-          "text": "San Antonio had previously used first overall picks on two future legends, David Robinson and Tim Duncan.",
+          "text": "The Cavaliers' offense scored just one basket in overtime, and Golden State took the series opener.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023%E2%80%9324_San_Antonio_Spurs_season",
-            "quote": "after previously selecting Tim Duncan in 1997 and David Robinson in 1987"
+            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+            "quote": "Cleveland's only score in the extra period was James' layup"
           }
         },
         {
-          "text": "Even with the much-hyped rookie, the Spurs missed the postseason for another year.",
+          "text": "Irving fractured his left kneecap during overtime, joining injured Kevin Love on Cleveland's sideline.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023%E2%80%9324_San_Antonio_Spurs_season",
-            "quote": "were eliminated from playoff contention for the fifth consecutive season"
+            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+            "quote": "he was diagnosed with a fractured left kneecap that would require surgery and was ruled out for the rest of the Finals"
           }
         }
       ]

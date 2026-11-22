@@ -18,3 +18,6 @@ The implementation is **fail-closed by default**. It must not be advertised as l
 
 ## Configuration
 `LEADERBOARDS_ENABLED=1`, `SCORES_ENABLED=1`, `LEADERBOARDS_DAILY_BUDGET` (<=1000), `LEADERBOARDS_MONTHLY_BUDGET` (<=20000), `LEADERBOARDS_ERASE_BUDGET` (<=2000), and the existing `SCORE_HASH_SECRET` and Upstash REST envs. Do not set these until the gates above pass. The endpoint `/api/leaderboard` uses GET ?period=day|week|month|season, POST and DELETE. Existing percentile endpoints remain unchanged.
+
+## Operational warning
+The initial code intentionally has not passed GitHub CI or browser tests. The source entry is bundled by `npm run api:build`; the generated `api/leaderboard.js` is not committed in this worker branch. The manager must run the build, inspect its emitted route and ensure the committed API bundle policy and build checks agree. Until then, the leaderboard is **not deployable**. The existing Redis budget caps are conservative and shared; this can make the board unavailable even when some free-tier capacity remains. This is safer than unexpected charges.

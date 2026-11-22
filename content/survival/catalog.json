@@ -455,17 +455,14 @@
         "nba-hornets08-spurs-g7-points"
       ]
     },
-    "nba-cavs09-home-wins": {
+    "nba-shot-clock-24": {
       "tier": "medium",
-      "family": "wins-situational",
-      "franchise": "CLE",
-      "era": "2000s",
-      "steps": 22,
+      "family": "rules",
+      "franchise": null,
+      "era": "1950s",
+      "steps": 45,
       "day": "2026-11-26",
-      "notBefore": "2027-01-01",
-      "leaks": [
-        "nba-cavs09-record-wins"
-      ]
+      "notBefore": "2026-11-27"
     },
     "nba-iverson01-g1": {
       "tier": "hard",
@@ -503,12 +500,12 @@
       "day": "2026-11-27",
       "notBefore": "2026-11-28"
     },
-    "nba-hawks15-january-wins": {
+    "nba-warriors75-season-wins": {
       "tier": "medium",
-      "family": "wins-situational",
-      "franchise": "ATL",
-      "era": "2010s",
-      "steps": 17,
+      "family": "wins-season",
+      "franchise": "GSW",
+      "era": "1970s",
+      "steps": 40,
       "day": "2026-11-27",
       "notBefore": "2026-11-28"
     },
@@ -693,12 +690,12 @@
         "nba-magic09-kings-threes"
       ]
     },
-    "nba-kawhi19-playoffs-ppg": {
+    "nba-miller92-57": {
       "tier": "medium",
-      "family": "scoring-average",
-      "franchise": "TOR",
-      "era": "2010s",
-      "steps": 280,
+      "family": "points-game",
+      "franchise": "IND",
+      "era": "1990s",
+      "steps": 50,
       "day": "2026-12-01",
       "notBefore": "2026-12-02"
     },
@@ -1118,12 +1115,12 @@
       "day": "2026-12-10",
       "notBefore": "2026-12-11"
     },
-    "nba-rose11-season-ppg": {
+    "nba-jordan93-g4-55": {
       "tier": "medium",
-      "family": "scoring-average",
+      "family": "points-game",
       "franchise": "CHI",
-      "era": "2010s",
-      "steps": 290,
+      "era": "1990s",
+      "steps": 50,
       "day": "2026-12-10",
       "notBefore": "2026-12-11"
     },
@@ -1166,12 +1163,12 @@
       "day": "2026-12-11",
       "notBefore": "2026-12-12"
     },
-    "nba-giannis21-playoffs-ppg": {
+    "nba-bucks71-wins": {
       "tier": "medium",
-      "family": "scoring-average",
+      "family": "wins-season",
       "franchise": "MIL",
-      "era": "2020s",
-      "steps": 370,
+      "era": "1970s",
+      "steps": 58,
       "day": "2026-12-11",
       "notBefore": "2026-12-12"
     },
@@ -1400,14 +1397,18 @@
       "day": "2026-12-16",
       "notBefore": "2026-12-17"
     },
-    "nba-lebron16-finals-ppg": {
+    "nba-spurs14-streak": {
       "tier": "medium",
-      "family": "scoring-average",
-      "franchise": "CLE",
+      "family": "win-streak",
+      "franchise": "SAS",
       "era": "2010s",
-      "steps": 280,
+      "steps": 30,
       "day": "2026-12-16",
-      "notBefore": "2026-12-17"
+      "notBefore": "2027-01-07",
+      "leaks": [
+        "nba-spurs14-finals-margin",
+        "nba-spurs14-march-wins"
+      ]
     },
     "nba-kobe16-final-game": {
       "tier": "hard",
@@ -1493,12 +1494,12 @@
         "nba-mavs20-halftime-lead"
       ]
     },
-    "nba-iverson01-season-ppg": {
+    "nba-pistons89-wins": {
       "tier": "medium",
-      "family": "scoring-average",
-      "franchise": "PHI",
-      "era": "2000s",
-      "steps": 280,
+      "family": "wins-season",
+      "franchise": "DET",
+      "era": "1980s",
+      "steps": 32,
       "day": "2026-12-18",
       "notBefore": "2026-12-19"
     },
@@ -2265,12 +2266,12 @@
       "day": "2027-01-03",
       "notBefore": "2027-01-04"
     },
-    "nba-paul08-regular-apg": {
+    "nba-booker17-70": {
       "tier": "medium",
-      "family": "assists-average",
-      "franchise": "NOP",
-      "era": "2000s",
-      "steps": 170,
+      "family": "points-game",
+      "franchise": "PHX",
+      "era": "2010s",
+      "steps": 65,
       "day": "2027-01-03",
       "notBefore": "2027-01-04"
     },
@@ -2301,21 +2302,21 @@
       "day": "2027-01-03",
       "notBefore": "2027-01-04"
     },
-    "nba-miller92-57": {
+    "nba-kawhi19-playoffs-ppg": {
       "tier": "easy",
-      "family": "points-game",
-      "franchise": "IND",
-      "era": "1990s",
-      "steps": 50,
+      "family": "scoring-average",
+      "franchise": "TOR",
+      "era": "2010s",
+      "steps": 280,
       "day": "2027-01-04",
       "notBefore": "2027-01-05"
     },
-    "nba-nash05-regular-apg": {
+    "nba-rockets18-wins": {
       "tier": "medium",
-      "family": "assists-average",
-      "franchise": "PHX",
-      "era": "2000s",
-      "steps": 160,
+      "family": "wins-season",
+      "franchise": "HOU",
+      "era": "2010s",
+      "steps": 62,
       "day": "2027-01-04",
       "notBefore": "2027-01-05"
     },
@@ -2346,21 +2347,21 @@
       "day": "2027-01-04",
       "notBefore": "2027-01-05"
     },
-    "nba-allstar10-attendance": {
+    "nba-jordan86-63": {
       "tier": "easy",
-      "family": "attendance",
-      "franchise": null,
-      "era": "2000s",
-      "steps": 140,
+      "family": "points-game",
+      "franchise": "CHI",
+      "era": "1980s",
+      "steps": 55,
       "day": "2027-01-05",
       "notBefore": "2027-01-06"
     },
-    "nba-jokic23-finals-average": {
+    "nba-lakers00-wins": {
       "tier": "medium",
-      "family": "scoring-average",
-      "franchise": "DEN",
-      "era": "2020s",
-      "steps": 300,
+      "family": "wins-season",
+      "franchise": "LAL",
+      "era": "1990s",
+      "steps": 54,
       "day": "2027-01-05",
       "notBefore": "2027-01-06"
     },
@@ -2391,12 +2392,12 @@
       "day": "2027-01-05",
       "notBefore": "2027-01-06"
     },
-    "nba-howard09-g4-blocks": {
+    "nba-spurs14-march-wins": {
       "tier": "easy",
-      "family": "blocks-game",
-      "franchise": "ORL",
-      "era": "2000s",
-      "steps": 15,
+      "family": "wins-month",
+      "franchise": "SAS",
+      "era": "2010s",
+      "steps": 19,
       "day": "2027-01-06",
       "notBefore": "2027-01-07"
     },
@@ -2445,12 +2446,12 @@
         "nba-wilt-100"
       ]
     },
-    "nba-jordan93-g4-55": {
+    "nba-rose11-season-ppg": {
       "tier": "easy",
-      "family": "points-game",
+      "family": "scoring-average",
       "franchise": "CHI",
-      "era": "1990s",
-      "steps": 50,
+      "era": "2010s",
+      "steps": 290,
       "day": "2027-01-07",
       "notBefore": "2027-01-08"
     },
@@ -2503,12 +2504,12 @@
         "nba-sonics94-nuggets-g5-points"
       ]
     },
-    "nba-miller95-8-points": {
+    "nba-celtics84-wins": {
       "tier": "medium",
-      "family": "points-run",
-      "franchise": "IND",
-      "era": "1990s",
-      "steps": 12,
+      "family": "wins-season",
+      "franchise": "BOS",
+      "era": "1980s",
+      "steps": 57,
       "day": "2027-01-08",
       "notBefore": "2027-01-09"
     },
@@ -2543,12 +2544,12 @@
       "day": "2027-01-08",
       "notBefore": "2027-01-09"
     },
-    "nba-rockets18-wins": {
+    "nba-nash05-regular-apg": {
       "tier": "easy",
-      "family": "wins-season",
-      "franchise": "HOU",
-      "era": "2010s",
-      "steps": 62,
+      "family": "assists-average",
+      "franchise": "PHX",
+      "era": "2000s",
+      "steps": 160,
       "day": "2027-01-09",
       "notBefore": "2027-01-10"
     },
@@ -2594,21 +2595,21 @@
         "nba-hornets08-spurs-g7-points"
       ]
     },
-    "nba-bucks71-wins": {
+    "nba-giannis21-playoffs-ppg": {
       "tier": "easy",
-      "family": "wins-season",
+      "family": "scoring-average",
       "franchise": "MIL",
-      "era": "1970s",
-      "steps": 58,
+      "era": "2020s",
+      "steps": 370,
       "day": "2027-01-10",
       "notBefore": "2027-01-11"
     },
-    "nba-jordan86-63": {
+    "nba-allstar10-attendance": {
       "tier": "medium",
-      "family": "points-game",
-      "franchise": "CHI",
-      "era": "1980s",
-      "steps": 55,
+      "family": "attendance",
+      "franchise": null,
+      "era": "2000s",
+      "steps": 140,
       "day": "2027-01-10",
       "notBefore": "2027-01-11"
     },
@@ -2687,21 +2688,24 @@
       "day": "2027-01-11",
       "notBefore": "2027-01-12"
     },
-    "nba-shot-clock-24": {
+    "nba-cavs09-home-wins": {
       "tier": "easy",
-      "family": "rules",
-      "franchise": null,
-      "era": "1950s",
-      "steps": 45,
+      "family": "wins-situational",
+      "franchise": "CLE",
+      "era": "2000s",
+      "steps": 22,
       "day": "2027-01-12",
-      "notBefore": "2027-01-13"
+      "notBefore": "2027-01-13",
+      "leaks": [
+        "nba-cavs09-record-wins"
+      ]
     },
-    "nba-spurs14-march-wins": {
+    "nba-howard09-g4-blocks": {
       "tier": "medium",
-      "family": "wins-month",
-      "franchise": "SAS",
-      "era": "2010s",
-      "steps": 19,
+      "family": "blocks-game",
+      "franchise": "ORL",
+      "era": "2000s",
+      "steps": 15,
       "day": "2027-01-12",
       "notBefore": "2027-01-13"
     },
@@ -2732,12 +2736,12 @@
       "day": "2027-01-12",
       "notBefore": "2027-01-13"
     },
-    "nba-lakers00-wins": {
+    "nba-jokic23-finals-average": {
       "tier": "easy",
-      "family": "wins-season",
-      "franchise": "LAL",
-      "era": "1990s",
-      "steps": 54,
+      "family": "scoring-average",
+      "franchise": "DEN",
+      "era": "2020s",
+      "steps": 300,
       "day": "2027-01-13",
       "notBefore": "2027-01-14"
     },
@@ -2777,12 +2781,12 @@
       "day": "2027-01-13",
       "notBefore": "2027-01-14"
     },
-    "nba-warriors75-season-wins": {
+    "nba-hawks15-january-wins": {
       "tier": "easy",
-      "family": "wins-season",
-      "franchise": "GSW",
-      "era": "1970s",
-      "steps": 40,
+      "family": "wins-situational",
+      "franchise": "ATL",
+      "era": "2010s",
+      "steps": 17,
       "day": "2027-01-14",
       "notBefore": "2027-01-15"
     },
@@ -2828,12 +2832,12 @@
         "nba-heat08-wins"
       ]
     },
-    "nba-pistons89-wins": {
+    "nba-iverson01-season-ppg": {
       "tier": "easy",
-      "family": "wins-season",
-      "franchise": "DET",
-      "era": "1980s",
-      "steps": 32,
+      "family": "scoring-average",
+      "franchise": "PHI",
+      "era": "2000s",
+      "steps": 280,
       "day": "2027-01-15",
       "notBefore": "2027-01-16"
     },
@@ -2873,12 +2877,12 @@
       "day": "2027-01-15",
       "notBefore": "2027-01-16"
     },
-    "nba-celtics84-wins": {
+    "nba-miller95-8-points": {
       "tier": "easy",
-      "family": "wins-season",
-      "franchise": "BOS",
-      "era": "1980s",
-      "steps": 57,
+      "family": "points-run",
+      "franchise": "IND",
+      "era": "1990s",
+      "steps": 12,
       "day": "2027-01-16",
       "notBefore": "2027-01-17"
     },
@@ -2969,18 +2973,14 @@
         "nba-curry18-g2-threes"
       ]
     },
-    "nba-spurs14-streak": {
+    "nba-lebron16-finals-ppg": {
       "tier": "easy",
-      "family": "win-streak",
-      "franchise": "SAS",
+      "family": "scoring-average",
+      "franchise": "CLE",
       "era": "2010s",
-      "steps": 30,
+      "steps": 280,
       "day": "2027-01-18",
-      "notBefore": "2027-01-19",
-      "leaks": [
-        "nba-spurs14-finals-margin",
-        "nba-spurs14-march-wins"
-      ]
+      "notBefore": "2027-01-19"
     },
     "nba-blazers78-start": {
       "tier": "medium",
@@ -3221,12 +3221,12 @@
       "day": "2027-01-22",
       "notBefore": "2027-01-23"
     },
-    "nba-booker17-70": {
+    "nba-paul08-regular-apg": {
       "tier": "easy",
-      "family": "points-game",
-      "franchise": "PHX",
-      "era": "2010s",
-      "steps": 65,
+      "family": "assists-average",
+      "franchise": "NOP",
+      "era": "2000s",
+      "steps": 170,
       "day": "2027-01-23",
       "notBefore": "2027-01-24"
     },

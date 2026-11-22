@@ -40,7 +40,7 @@ All gates pass: 0 errors.
 | daily_slate_questions | 360 |
 
 Integrity: integrity_check ok, no foreign-key violations, every fact verified and sourced.
-Canonical dump sha256 (status as of 2026-11-16): `5d0fd9b8fc71d8774bd4f4d26c69152ad7ad97d18c101eceb389aa2d99627c52`.
+Canonical dump sha256 (status as of 2026-11-16): `61295840de0ad64fcd234ff399dd80b693a2a6e07e493b2e5f002f4554d689b2`.
 
 ## Difficulty
 
@@ -53,8 +53,8 @@ Canonical dump sha256 (status as of 2026-11-16): `5d0fd9b8fc71d8774bd4f4d26c6915
 
 Mean editorial ratings by slot (interest / recognizability / estimability / surprise):
 
-- Slot 1 (easy): 4.03 / 4.08 / 3.25 / 4.24
-- Slot 2 (medium): 3.78 / 3.43 / 2.82 / 4.74
+- Slot 1 (easy): 4.32 / 4.24 / 3.26 / 4.31
+- Slot 2 (medium): 3.49 / 3.28 / 2.81 / 4.67
 - Slot 3 (hard): 3.46 / 3.13 / 2.28 / 4.92
 - Slot 4 (hard): 3.47 / 3.08 / 2.22 / 4.92
 - Slot 5 (expert): 3.28 / 2.74 / 2.19 / 4.97
@@ -84,21 +84,21 @@ Every answer sits strictly inside its scale and at least 8% away from either end
 | Week | Stat families | Eras | Most-used franchise |
 |---|---|---|---|
 | 2026-11-17 to 2026-11-23 | 25 | 7 | BOS (7) |
-| 2026-11-24 to 2026-11-30 | 19 | 7 | LAL (4) |
+| 2026-11-24 to 2026-11-30 | 20 | 8 | LAL (4) |
 | 2026-12-01 to 2026-12-07 | 17 | 7 | BOS (4) |
 | 2026-12-08 to 2026-12-14 | 22 | 7 | GSW (8) |
 | 2026-12-15 to 2026-12-21 | 24 | 6 | MIL (5) |
 | 2026-12-22 to 2026-12-28 | 20 | 8 | SAS (6) |
 | 2026-12-29 to 2027-01-04 | 21 | 8 | CLE (4) |
-| 2027-01-05 to 2027-01-11 | 23 | 8 | CHI (4) |
-| 2027-01-12 to 2027-01-18 | 19 | 6 | GSW (5) |
+| 2027-01-05 to 2027-01-11 | 23 | 8 | LAL (5) |
+| 2027-01-12 to 2027-01-18 | 20 | 7 | CLE (4) |
 | 2027-01-19 to 2027-01-25 | 25 | 8 | BOS (4) |
 
 Every rolling 7-day window is also checked: at least 6 families, at least 3 eras, at most 10 questions about one franchise, and no two days in a row led by the same franchise. Each day has at most 2 questions from one family and at most 1 simple scoring average.
 
 ## Novelty
 
-110 players and 28 franchises appear. 11 of 72 days introduce no new player or franchise.
+110 players and 28 franchises appear. 9 of 72 days introduce no new player or franchise.
 
 ## Eras
 

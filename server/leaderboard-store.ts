@@ -103,7 +103,7 @@ for k=1,2 do
     end
   end
 end
-if count==0 then redis.call('SET',KEYS[7],'1','EX',97200) return 'nothing' end
+if count==0 then redis.call('SET',KEYS[7],'1','EX',100800) return 'nothing' end
 -- One ZSCORE and at most one ZREM/ZINCRBY per distinct board, not per day.
 -- Upstash bills EVAL + every redis.call; 20 + 3*boards bounds those calls.
 local cost=20+3*uniqueBoards
@@ -112,7 +112,7 @@ if tonumber(redis.call('GET',KEYS[3]) or '0')+cost>20000 or
 redis.call('INCRBY',KEYS[3],cost) redis.call('EXPIRE',KEYS[3],2764800)
 redis.call('INCRBY',KEYS[6],cost) redis.call('EXPIRE',KEYS[6],2764800)
 -- A revoked identity cannot be resurrected by a POST that arrives after EVAL.
-redis.call('SET',KEYS[7],'1','EX',97200)
+redis.call('SET',KEYS[7],'1','EX',100800)
 for name,score in pairs(totalByBoard) do
   local board=KEYS[declared[name]]
   -- Never recreate a board that already expired; mutate a member once.

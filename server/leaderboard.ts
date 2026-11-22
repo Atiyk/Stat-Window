@@ -4,6 +4,36 @@ import { puzzleDay, addDays } from '../src/engine/daily.ts';
 import { parseLaunchDay } from '../src/engine/season.ts';
 import { eligibleDay, verifyRounds, type ServerSlate } from './api.ts';
 
+/**
+ * Cheap, per-warm-function protection against repeatedly billing Redis for
+ * responses its *own* atomic limiter already denied. This is NOT an edge
+ * firewall, shared counter, or proof of an Upstash monthly spend ceiling.
+ *
+ * Redis keys use fixed-minute buckets, so a 429 is only remembered through
+ * the end of that same minute. A cold instance rechecks Redis normally.
+ * A WeakMap keeps unrelated stores/isolated test contexts independent.
+ */
+const warmLimited = new WeakMap<LBStore, Map<string, number>>();
+const WARM_LIMIT_CACHE_MAX = 512;
+function cachedLimited(store:LBStore,key:string,nowMs:number):boolean {
+  const cache=warmLimited.get(store), expiry=cache?.get(key);
+  if(expiry===undefined)return false;
+  if(nowMs>=expiry){cache!.delete(key);return false;}
+  return true;
+}
+function rememberLimited(store:LBStore,key:string,nowMs:number):void {
+  let cache=warmLimited.get(store);
+  if(!cache){cache=new Map();warmLimited.set(store,cache);}
+  if(!cache.has(key)&&cache.size>=WARM_LIMIT_CACHE_MAX){
+    for(const [old,expiry] of cache){if(expiry<=nowMs)cache.delete(old);}
+    if(cache.size>=WARM_LIMIT_CACHE_MAX){
+      const oldest=cache.keys().next().value;
+      if(oldest!==undefined)cache.delete(oldest);
+    }
+  }
+  cache.set(key,(Math.floor(nowMs/60_000)+1)*60_000);
+}
+
 export type Period = 'day' | 'week' | 'month' | 'season';
 export const PERIODS: Period[] = ['day','week','month','season'];
 const PLAYER = /^[A-Za-z0-9_-]{22}$/;
@@ -99,6 +129,9 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
   // Use the edge-provided address, or one conservative shared fallback bucket.
   const ip=(req.headers.get('x-real-ip')??'unknown').trim().slice(0,128);
   const network=hash(ctx.secret,'lb-ip:'+ip);
+  // The source identifier here is HMAC-only, never a raw IP or browser code.
+  // Including method and minute mirrors the Redis rate-key dimensions.
+  const localLimit=prefix+':'+req.method+':'+network+':'+Math.floor(now.getTime()/60_000);
   try {
     if(req.method==='GET') {
       const u=new URL(req.url),period=u.searchParams.get('period');
@@ -111,8 +144,9 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
       if(code!==null && !PLAYER.test(code))return json(422,{status:'invalid'});
       const member=code===null?null:hash(ctx.secret,'lb-player:'+code);
       const board=prefix+':board:'+period+':'+key;
+      if(cachedLimited(ctx.store,localLimit,now.getTime()))return json(429,{status:'limited'});
       const r=await ctx.store.read(board,budget,ctx.caps,[prefix+':read:minute:'+network+':'+Math.floor(now.getTime()/60000),prefix+':read:day:'+network+':'+utc],[blockLedger(prefix,member??'anonymous',blockNumber(today)),blockLedger(prefix,member??'anonymous',blockNumber(today)-1)],member);
-      if(r==='limited')return json(429,{status:'limited'});
+      if(r==='limited'){rememberLimited(ctx.store,localLimit,now.getTime());return json(429,{status:'limited'});}
       if(r==='paused')return json(503,{status:'paused'});
       let topRank=0;
       const entries=r.rows.map(([id,score],index)=>{
@@ -129,7 +163,9 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
     const member=hash(ctx.secret,'lb-player:'+body.player);
     const rate=prefix+':rate:'+network+':'+Math.floor(now.getTime()/60000);
     if(req.method==='DELETE') {
+      if(cachedLimited(ctx.store,localLimit,now.getTime()))return json(429,{status:'limited'});
       const result=await ctx.store.remove([blockLedger(prefix,member,blockNumber(today)),blockLedger(prefix,member,blockNumber(today)-1),budget[2]!,rate,prefix+':delete:day:'+network+':'+utc,prefix+':budget:erase:'+utc.slice(0,7),...erasureBoardKeys(prefix,today)],member,ctx.caps);
+      if(result==='limited')rememberLimited(ctx.store,localLimit,now.getTime());
       return result==='limited'?json(429,{status:'limited'}):result==='paused'?json(503,{status:'paused'}):json(200,{status:'ok',removed:result==='removed'?1:0});
     }
     const submittedDay = body.day;
@@ -138,7 +174,9 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
     if(!slate||slate.date!==submittedDay)return json(200,{status:'ineligible'});
     const score=verifyRounds(slate,body.rounds);
     if(score===null||(body.total!==undefined&&body.total!==score))return json(422,{status:'invalid'});
+    if(cachedLimited(ctx.store,localLimit,now.getTime()))return json(429,{status:'limited'});
     const result=await ctx.store.submit([blockLedger(prefix,member,blockNumber(submittedDay)),...boards(prefix,submittedDay,ctx.launchDay),budget[0]!,budget[1]!,rate,budget[3]!,prefix+':submit:day:'+network+':'+utc],member,submittedDay,score,ctx.caps,[...PERIODS.map(p=>expiryFor(p,submittedDay)),blockExpiry(blockNumber(submittedDay))]);
+    if(result==='limited')rememberLimited(ctx.store,localLimit,now.getTime());
     return result==='limited'?json(429,{status:'limited'}):result==='paused'?json(503,{status:'paused'}):json(200,{status:result,day:body.day,score});
   }catch{return json(503,{status:'unavailable'});}
 }

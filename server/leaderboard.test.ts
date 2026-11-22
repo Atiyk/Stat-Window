@@ -102,3 +102,59 @@ describe('leaderboard opt-out and network identity hardening',()=>{
    expect(rateKeys[0]).toEqual(rateKeys[1]);
  });
 });
+
+describe('warm-instance Redis 429 denial caching (defense in depth, not a quota guarantee)',()=>{
+ it('returns the cached 429 without a second Redis call for the same GET source and minute',async()=>{
+   let calls=0;
+   const store={read:async()=>{calls++;return 'limited';}} as never;
+   const ctx=leaderboardContext({
+     VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',LEADERBOARDS_ENABLED:'1',
+     LEADERBOARDS_DAILY_BUDGET:'1000',LEADERBOARDS_MONTHLY_BUDGET:'20000',
+     LEADERBOARDS_ERASE_BUDGET:'10000',SCORE_HASH_SECRET:'z'.repeat(32),
+   },store,async()=>null);
+   let timestamp=Date.parse('2026-11-22T16:00:05Z');
+   ctx.now=()=>new Date(timestamp);
+   const request=(ip:string)=>new Request('https://stat-window.vercel.app/api/leaderboard?period=day',
+     {headers:{'X-Real-IP':ip}});
+   expect((await handleLeaderboard(request('203.0.113.5'),ctx)).status).toBe(429);
+   expect((await handleLeaderboard(request('203.0.113.5'),ctx)).status).toBe(429);
+   expect(calls).toBe(1);
+   // Different network still reaches Redis, never shares someone else's denial.
+   expect((await handleLeaderboard(request('203.0.113.6'),ctx)).status).toBe(429);
+   expect(calls).toBe(2);
+   timestamp=Date.parse('2026-11-22T16:01:00Z');
+   expect((await handleLeaderboard(request('203.0.113.5'),ctx)).status).toBe(429);
+   expect(calls).toBe(3);
+ });
+ it('does not memoize paused or disabled responses and partitions DELETE from GET',async()=>{
+   let reads=0,removals=0;
+   const store={
+     read:async()=>{reads++;return 'paused';},
+     remove:async()=>{removals++;return 'limited';},
+   } as never;
+   const ctx=leaderboardContext({
+     VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',LEADERBOARDS_ENABLED:'1',
+     LEADERBOARDS_DAILY_BUDGET:'1000',LEADERBOARDS_MONTHLY_BUDGET:'20000',
+     LEADERBOARDS_ERASE_BUDGET:'10000',SCORE_HASH_SECRET:'y'.repeat(32),
+   },store,async()=>null);
+   ctx.now=()=>new Date('2026-11-22T16:04:05Z');
+   const url='https://stat-window.vercel.app/api/leaderboard';
+   for(let i=0;i<2;i++){
+     const r=await handleLeaderboard(new Request(url+'?period=day'),ctx);
+     expect(r.status).toBe(503);
+   }
+   expect(reads).toBe(2);
+   for(let i=0;i<2;i++){
+     const r=await handleLeaderboard(new Request(url,{
+       method:'DELETE',headers:{'Content-Type':'application/json'},
+       body:JSON.stringify({player:'a'.repeat(22),consent:'denied'}),
+     }),ctx);
+     expect(r.status).toBe(429);
+   }
+   expect(removals).toBe(1);
+   // GETs are never blocked merely because the same source had a DELETE denial.
+   const r=await handleLeaderboard(new Request(url+'?period=day'),ctx);
+   expect(r.status).toBe(503);
+   expect(reads).toBe(3);
+ });
+});

@@ -28,12 +28,14 @@ jobs:
       - run: npm ci
       - name: Regenerate reports from canonical NBA data
         run: npm run nba:report
+      - name: Regenerate Survival catalog with its spoiler and spent-reserve protections
+        run: npm run survival:catalog
       - name: Validate reports, publication lock and Survival
         run: npm run nba:report:check && npm run content:publish:check && npm run survival:catalog:check
       - name: Commit only canonical generated reports
         run: |
           git diff --check
-          git add -- docs/nba/questions.csv docs/nba/calendar.md docs/nba/validation.md
+          git add -- docs/nba/questions.csv docs/nba/calendar.md docs/nba/validation.md content/survival/catalog.json
           if git diff --cached --quiet; then
             echo "Reports were already synchronized."
             exit 0

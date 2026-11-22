@@ -84,8 +84,12 @@ describe('leaderboard opt-out and network identity hardening',()=>{
  it('rejects consent-granted POST under GPC or DNT without touching the store',async()=>{
    let calls=0;
    const ctx=leaderboardContext({VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',LEADERBOARDS_ENABLED:'1',LEADERBOARDS_DAILY_BUDGET:'1000',LEADERBOARDS_MONTHLY_BUDGET:'20000',LEADERBOARDS_ERASE_BUDGET:'10000',SCORE_HASH_SECRET:'a'.repeat(32)}, {submit:async()=>{calls++;return 'stored';}} as never,async()=>null);
-   for(const signal of [{'Sec-GPC':'1'},{DNT:'1'}]){
-     const r=await handleLeaderboard(new Request('https://stat-window.vercel.app/api/leaderboard',{method:'POST',headers:{'Content-Type':'application/json',...signal},body:JSON.stringify({player:'a'.repeat(22),consent:'granted'})}),ctx);
+   for(const signal of ['Sec-GPC','DNT'] as const){
+     // Headers avoids a union with an optional undefined field under
+     // TypeScript's exactOptionalPropertyTypes and matches the actual Fetch API.
+     const headers=new Headers({'Content-Type':'application/json'});
+     headers.set(signal,'1');
+     const r=await handleLeaderboard(new Request('https://stat-window.vercel.app/api/leaderboard',{method:'POST',headers,body:JSON.stringify({player:'a'.repeat(22),consent:'granted'})}),ctx);
      expect(r.status).toBe(409);
    }
    expect(calls).toBe(0);

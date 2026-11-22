@@ -1,4 +1,5 @@
 name: V3 one-time leaderboard real-Redis independent QA
+# Retest with TypeScript-safe GPC/DNT header fixtures.
 on:
   push:
     branches:

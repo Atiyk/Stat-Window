@@ -1,0 +1,31 @@
+name: V3 one-time first-play responsive/a11y WebKit QA
+on:
+  push:
+    branches: [statwindow/v3-onboarding-a11y-qa-20261122]
+    paths: [.github/workflows/v3-onboarding-a11y-proof.yml]
+permissions:
+  contents: write
+jobs:
+  check:
+    if: github.repository == 'Atiyk/Stat-Window'
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Run exact first-play responsive/a11y test on desktop, mobile and iPhone WebKit
+        run: npx playwright test e2e/shot-clock.spec.ts --grep "reduced-motion first-play practice" --project=desktop --project=mobile --project=webkit-mobile
+      - name: Remove successful one-shot proof
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/v3-onboarding-a11y-proof.yml
+          git commit -m "Remove completed one-time onboarding accessibility proof"
+          git push origin HEAD:refs/heads/statwindow/v3-onboarding-a11y-qa-20261122

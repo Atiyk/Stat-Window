@@ -174,3 +174,39 @@ test('first-play rehearsal allows a miss and a retry without starting any daily 
   await expect(page.getByRole('button', { name: 'Pull the brackets in first' })).toBeDisabled();
   expect(await page.evaluate(k => sessionStorage.getItem(k), clockKey)).toBeNull();
 });
+
+
+test('reduced-motion first-play practice preserves focus and layout across five device widths', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.clock.install({ time: DAY1 });
+  await page.goto('/');
+  const headline=page.locator('h1.onboarding-practice-title');
+  await expect(headline).toBeVisible();
+  await expect(headline).toBeFocused();
+  await expect(page.locator('.round:not(.onboarding-play) .question')).toHaveCount(0);
+  await expect(page.locator('.shot-clock')).toContainText('No timer');
+
+  for (const [width,height] of [[320,568],[375,667],[390,844],[720,450],[1440,900]]) {
+    await page.setViewportSize({ width, height });
+    await expect(headline).toBeVisible();
+    await expect(page.locator('.onboarding-play .ruler')).toBeVisible();
+    const actual=await page.evaluate(() => document.documentElement.scrollWidth);
+    expect(actual,'onboarding overflows at '+width+'x'+height).toBeLessThanOrEqual(width+1);
+  }
+
+  // The practice uses the same keyboard-accessible lower bracket as live play.
+  await page.getByRole('slider', { name: 'Low end of your window' }).focus();
+  await page.keyboard.press('ArrowRight');
+  await page.getByRole('button', { name: 'Lock the window' }).click();
+  await expect(page.locator('.onboarding-play .story-answer')).toContainText('42');
+  await expect(page.locator('.onboarding-play .story')).toBeFocused();
+  const before=await page.evaluate(() => ({
+    score: JSON.parse(localStorage.getItem('stat-window:v1') || '{}'),
+    deadline: sessionStorage.getItem('stat-window:shot:v1:nba-gsw-2016-wins'),
+  }));
+  expect(before.score.runs?.['2026-11-15']?.results??[]).toHaveLength(0);
+  expect(before.deadline).toBeNull();
+  await page.getByRole('button', { name: "Start today's five" }).click();
+  await expect(page.locator('.round:not(.onboarding-play) .question')).toBeVisible();
+  await expect(page.locator('.shot-clock')).toContainText('24s');
+});

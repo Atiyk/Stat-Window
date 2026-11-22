@@ -67,6 +67,11 @@ if rate>2 then return 'limited' end
 local daily=redis.call('INCR',KEYS[5])
 if daily==1 then redis.call('EXPIRE',KEYS[5],93600) end
 if daily>6 then return 'limited' end
+-- KEYS[7+] are the complete, deterministic board universe for both
+-- retained 120-day ledger blocks. Under Upstash Lua strict locking every
+-- mutated board must have been declared in the EVAL key list.
+local declared={}
+for k=7,#KEYS do declared[KEYS[k]]=k end
 local records={}
 local count=0
 for k=1,2 do
@@ -74,7 +79,14 @@ for k=1,2 do
   for i=2,#all,2 do
     count=count+1
     if count>240 then return 'paused' end
-    records[#records+1]=cjson.decode(all[i])
+    local item=cjson.decode(all[i])
+    if type(item)~='table' or #item~=5 or type(item[1])~='number' or item[1]<0 then return 'paused' end
+    -- Verify the complete ledger before debiting budgets or mutating any
+    -- ranking; corrupt/unexpected names must never produce partial erasure.
+    for j=2,5 do
+      if not declared[item[j]] then return 'paused' end
+    end
+    records[#records+1]=item
   end
 end
 if count==0 then return 'nothing' end
@@ -88,7 +100,7 @@ redis.call('INCRBY',KEYS[6],cost) redis.call('EXPIRE',KEYS[6],2764800)
 for _,item in ipairs(records) do
   local score=item[1]
   for j=2,5 do
-    local board=item[j]
+    local board=KEYS[declared[item[j]]]
     -- Expired boards must never be recreated by erasure. Only subtract a
     -- contribution while the member still exists on this retained board.
     local current=redis.call('ZSCORE',board,ARGV[2])

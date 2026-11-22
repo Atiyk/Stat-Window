@@ -57,11 +57,11 @@ test.describe('New York', () => {
     await playFive(page);
     const before = await storageDump(page);
     await icsLink(page).click();
-    await expect(page.locator('.toast')).toHaveText('Opening your calendar. Check it’s saved there.');
+    await expect(page.locator('.toast')).toHaveText('Reminder file ready. If it downloaded, open it to add the event.');
     const popup = context.waitForEvent('page');
     await googleLink(page).click();
     await (await popup).close();
-    await expect(page.locator('.toast')).toHaveText('Opening your calendar. Check it’s saved there.');
+    await expect(page.locator('.toast')).toHaveText('Reminder file ready. If it downloaded, open it to add the event.');
     // The row stays: the app can't know whether the event was saved and doesn't store that it was tried.
     await expect(icsLink(page)).toBeVisible();
     expect(await storageDump(page)).toEqual(before);

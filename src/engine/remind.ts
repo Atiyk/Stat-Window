@@ -24,7 +24,7 @@ export const REMIND_COPY = {
   google: 'Google Calendar',
   googleName: 'Google Calendar (opens in a new tab)',
   note: 'A plain repeating event in your own calendar. The time moves with daylight saving, like the puzzle. We only count taps here and opens from the event. Delete the event to stop.',
-  toast: 'Opening your calendar. Check it’s saved there.',
+  toast: 'Reminder file ready. If it downloaded, open it to add the event.',
 } as const;
 
 const DAY = 86_400_000;

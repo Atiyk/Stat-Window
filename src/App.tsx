@@ -19,6 +19,7 @@ import { PrivacyDialog } from './ui/Privacy';
 import { Mark } from './ui/Mark';
 import { Results } from './ui/Results';
 import { Round } from './ui/Round';
+import { Onboarding } from './ui/Onboarding';
 
 // Survival is its own chunk, and is absent from the build while the flag is off.
 // (The env comparison is spelled out here so the bundler can drop the chunk.)
@@ -298,7 +299,8 @@ export function App() {
             store={store}
             today={today}
             showHint={!settings.introSeen}
-            onFirstTouch={() => !settings.introSeen && updateSettings({ introSeen: true })}
+            onFirstTouch={() => undefined}
+            onTutorialDone={() => !settings.introSeen && updateSettings({ introSeen: true })}
             onWindowActive={() => { activeWindowRef.current = true; }}
             onRunComplete={() => { activeWindowRef.current = false; }}
             archive={archive}
@@ -334,6 +336,7 @@ function Game(props: {
   today: string;
   showHint: boolean;
   onFirstTouch: () => void;
+  onTutorialDone: () => void;
   onWindowActive: () => void;
   onRunComplete: () => void;
   archive: readonly string[];
@@ -352,6 +355,13 @@ function Game(props: {
     const saved = store.load()[session.kind]?.[session.day];
     return initGame(session.slate, session.mode, saved?.results ?? [], saved?.advanced ?? 0);
   });
+
+  const firstShotKey = `stat-window:shot:v1:${session.slate.questions[0]?.id ?? ''}`;
+  const [started, setStarted] = useState(() => {
+    if ((store.load()[session.kind]?.[session.day]?.results.length ?? 0) > 0) return true;
+    try { return window.sessionStorage.getItem(firstShotKey) !== null; } catch { return false; }
+  });
+  const start = () => { props.onWindowActive(); setStarted(true); };
 
   const dispatch = useCallback(
     (a: GameAction) => {
@@ -480,6 +490,17 @@ function Game(props: {
     );
   }
 
+  if (!started && state.results.length === 0) {
+    return props.showHint ? <Onboarding onDone={() => { props.onTutorialDone(); start(); }} /> : (
+      <article className="onboarding ready-card">
+        <p className="context">{session.mode === 'practice' ? 'PRACTICE' : 'DAILY FIVE'}</p>
+        <h1>Ready for five?</h1>
+        <p>Find the number in each question. Five windows, 24 seconds each. The clock starts when each question appears.</p>
+        <button type="button" className="btn btn-primary" onClick={start}>Start today's five</button>
+      </article>
+    );
+  }
+
   // Difficulty and the day's theme stay in the content for editors and validators; players
   // see a plain count. The header already names the puzzle; this only says what kind of run it is.
   const where = daily || session.viaLink ? '' : 'Practice · ';
@@ -490,7 +511,7 @@ function Game(props: {
       state={state}
       dispatch={dispatch}
       label={label}
-      showHint={props.showHint && state.round === 0}
+      showHint={false}
       theme={session.slate.theme}
       challenge={session.viaLink && state.round === 0 && state.results.length === 0 ? { vs: session.vs, vsTime: session.vsTime } : null}
       onFirstTouch={() => { props.onWindowActive(); props.onFirstTouch(); }}

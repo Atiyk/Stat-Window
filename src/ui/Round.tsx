@@ -118,8 +118,8 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
         const value = raw === null ? NaN : Number(raw);
         if (Number.isFinite(value) && value > 0) startedAt = value;
       } catch { /* storage may be blocked */ }
-      // New players can read the first-play guide before the first move.
-      if (startedAt === null && !showHint) {
+      // Question is only mounted after Start, so the deadline begins at appearance.
+      if (startedAt === null) {
         startedAt = Date.now();
         rememberStart(startedAt);
       }
@@ -266,7 +266,7 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
       <header className="question-block">
         {showHint && timed && interactive && (
           <p className="first-play-guide"><strong>First window:</strong> Drag both brackets around your best guess.
-            Narrower = more points. Lock before the buzzer. Your 24 seconds start when you move.</p>
+            Narrower = more points. Lock before the buzzer. Your 24 seconds start when the question appears.</p>
         )}
         {challenge && interactive && (
           <p className="challenge-note">
@@ -351,7 +351,7 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
             ) : worth === 0 ? (
               <p className="worth">
                 {showHint
-                  ? 'Drag brackets in. Your 24s start on first move. Tighter scores more.'
+                  ? 'Drag brackets in. Your 24s started when this question appeared. Tighter scores more.'
                   : 'Pull the brackets in to start scoring.'}
               </p>
             ) : (

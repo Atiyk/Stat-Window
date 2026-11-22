@@ -19,6 +19,10 @@ export const justAfterMidnight = (day: string) => new Date(puzzleStartUtcMs(day)
 export async function openAt(page: Page, when: Date, path = '/') {
   await page.clock.setFixedTime(when);
   await page.goto(path);
+  const skip = page.getByRole('button', { name: 'Skip tutorial and start' });
+  const start = page.getByRole('button', { name: "Start today's five" });
+  if (await skip.isVisible()) await skip.click();
+  else if (await start.isVisible()) await start.click();
   await expect(page.locator('.question')).toBeVisible();
 }
 

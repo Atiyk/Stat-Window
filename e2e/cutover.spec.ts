@@ -113,8 +113,11 @@ test('a day file that stays missing does not reload forever', async ({ page }) =
   await page.route(/\/assets\/\d{4}-\d{2}-\d{2}-[^/]+\.js$/, (route) => route.fulfill({ status: 404, body: 'gone' }));
   await page.clock.setFixedTime(new Date(`${NBA_CUTOVER}T12:00:00Z`));
   await page.goto('/');
-  await startDailyIfNeeded(page);
-  await expect(page.locator('.results-title')).toBeVisible();
+  // When this fixture intentionally 404s every day chunk, there is no slate
+  // and therefore no Start gate. Assert the app's failure state directly;
+  // the regular onboarding helper would wait for a button that must not exist.
+  await expect(page.locator('.results-title')).toHaveText('Today’s puzzle is still being checked.');
+  await expect(page.getByRole('button', { name: "Start today's five" })).toHaveCount(0);
   await page.waitForTimeout(1500);
   expect(loads).toBeLessThanOrEqual(2);
 });

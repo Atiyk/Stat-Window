@@ -31,6 +31,7 @@ test('practice reveal and explicit Start persist introSeen only when complete', 
   await expect(page.locator('.question')).toHaveCount(0);
   await page.getByRole('button', { name: "Start today's five" }).click();
   await expect(page.locator('.question')).toBeVisible();
+  await expect(page.locator('.question')).toBeFocused();
   const save = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
   expect(save.settings.introSeen).toBe(true);
   await page.clock.setFixedTime(DAY2);
@@ -39,6 +40,7 @@ test('practice reveal and explicit Start persist introSeen only when complete', 
   await expect(page.locator('.question')).toHaveCount(0);
   await page.getByRole('button', { name: "Start today's five" }).click();
   await expect(page.locator('.question')).toBeVisible();
+  await expect(page.locator('.question')).toBeFocused();
 });
 
 test('skip is deliberate, saves completion and leaves question hidden until activation', async ({ page }) => {
@@ -62,6 +64,7 @@ test('an older browser save starts with the ready card rather than a replayed tu
   await expect(page.locator('.question')).toHaveCount(0);
   await page.getByRole('button', { name: "Start today's five" }).click();
   await expect(page.locator('.question')).toBeVisible();
+  await expect(page.locator('.question')).toBeFocused();
 });
 
 test('challenge links retain comparison data after the first-visit tutorial', async ({ page }) => {

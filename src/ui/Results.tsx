@@ -12,6 +12,7 @@ import { useNow } from './hooks';
 import { ComparisonLine, ConsentChoice } from './Comparison';
 import { cardBlob } from './share-card';
 import { useComparison } from './use-comparison';
+import { Leaderboard } from './Leaderboard';
 
 type Props = {
   slate: Slate;
@@ -278,6 +279,8 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
           );
         })}
       </ol>
+
+      <Leaderboard day={slate.date} results={results} eligible={eligible && isToday} />
 
       {!practice && (
         <dl className="stats">

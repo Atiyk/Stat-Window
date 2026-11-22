@@ -11,6 +11,8 @@ const out = mkdtempSync(path.join(tmpdir(), 'sw-api-'));
 try {
   execFileSync('npx', ['vite', 'build', '--config', 'vite.api.config.ts', '--logLevel', 'error', '--outDir', out], { stdio: 'inherit' });
   const fresh = readFileSync(path.join(out, 'scores.js'), 'utf8');
+  execFileSync('npx', ['vite', 'build', '--config', 'vite.leaderboard.config.ts', '--logLevel', 'error', '--outDir', out], { stdio: 'inherit' });
+  const freshLeaderboard = readFileSync(path.join(out, 'leaderboard.js'), 'utf8');
   let committed = '';
   try {
     committed = readFileSync('api/scores.js', 'utf8');
@@ -21,8 +23,12 @@ try {
     console.error('api/scores.js is out of date with server/ or src/engine. Run: npm run api:build');
     process.exit(1);
   }
-  // Every file in api/ becomes a route on Vercel; only the bundle belongs there.
-  const extra = readdirSync('api').filter((f) => f !== 'scores.js');
+  if (freshLeaderboard !== readFileSync('api/leaderboard.js', 'utf8')) {
+    console.error('api/leaderboard.js is out of date. Run: npm run api:build');
+    process.exit(1);
+  }
+  // Every file in api/ becomes a route on Vercel; only the bundles belong there.
+  const extra = readdirSync('api').filter((f) => f !== 'scores.js' && f !== 'leaderboard.js');
   if (extra.length) {
     console.error(`Unexpected files in api/: ${extra.join(', ')}`);
     process.exit(1);

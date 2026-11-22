@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { createHmac } from 'node:crypto';
-import { periodKey, boards, expiryFor, pseudonym, handleLeaderboard, leaderboardContext, blockNumber } from './leaderboard.ts';
+import { periodKey, boards, expiryFor, pseudonym, handleLeaderboard, leaderboardContext, blockNumber, erasureBoardKeys } from './leaderboard.ts';
 describe('Eastern calendar leaderboard periods',()=>{
  it('weeks start Monday including Sunday before and after DST',()=>{expect(periodKey('week','2026-03-08',null)).toBe('2026-03-02');expect(periodKey('week','2026-03-09',null)).toBe('2026-03-09');expect(periodKey('week','2026-11-01',null)).toBe('2026-10-26');});
  it('months and seasons use calendar keys',()=>{expect(periodKey('month','2026-12-31',null)).toBe('2026-12');expect(periodKey('month','2027-01-01',null)).toBe('2027-01');expect(boards('test','2026-11-22',null)).toHaveLength(4);});
@@ -11,6 +11,18 @@ describe('Eastern calendar leaderboard periods',()=>{
    expect(expiryFor('season','2026-01-01')).toBe(expiryFor('season','2026-04-30'));
    expect(expiryFor('day','2026-03-08')).toBe(Date.parse('2026-04-08T00:00:00Z')/1000);
    expect(expiryFor('week','2026-11-01')).toBe(Date.parse('2026-12-02T00:00:00Z')/1000);
+ });
+ it('erasure declares all day/week/month/season boards across exactly two 120-day blocks',()=>{
+   const prefix='sw:v3:test',lastOld='2027-08-23',firstNew='2027-08-24';
+   expect(blockNumber(firstNew)).toBe(blockNumber(lastOld)+1);
+   const all=erasureBoardKeys(prefix,firstNew);
+   expect(new Set(all).size).toBe(all.length);
+   expect(all.length).toBeLessThan(300);
+   for(const date of [lastOld,firstNew,'2027-04-26']){
+     for(const key of boards(prefix,date,null))expect(all).toContain(key);
+   }
+   expect(all).not.toContain(boards(prefix,'2027-04-25',null)[0]);
+   expect(all).not.toContain(boards(prefix,'2027-12-22',null)[0]);
  });
  it('pseudonyms are stable and do not expose raw member',()=>{const id='a'.repeat(40);expect(pseudonym(id)).toBe(pseudonym(id));expect(pseudonym(id)).not.toContain(id);});
  it('defaults to disabled without explicit budgets',()=>{const c=leaderboardContext({VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',SCORE_HASH_SECRET:'a'.repeat(32)},null,async()=>null);expect(c.enabled).toBe(false);});

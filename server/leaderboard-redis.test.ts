@@ -113,7 +113,7 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
 
   it('cross-block week participation and atomic deletion remove both seasons',async()=>{
     const store=leaderboardRedis(client.evaluate),scope='boundary',p=`${prefix}:${scope}`,b=budget(scope);
-    const old='2026-04-30',next='2026-05-01';
+    const old='2027-08-23',next='2027-08-24';
     expect(blockNumber(next)).toBe(blockNumber(old)+1);
     expect(await store.submit(writeKeys(scope,old,'old'),member,old,100,caps,expiration(old))).toBe('stored');
     expect(await store.submit(writeKeys(scope,next,'next'),member,next,140,caps,expiration(next))).toBe('stored');

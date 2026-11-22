@@ -2,9 +2,11 @@
 import type { LBStore } from './leaderboard.ts';
 import type { Eval } from './store.ts';
 export const READ_LUA=`
+if tonumber(redis.call('GET',KEYS[5]) or '0')>=12 then return {'limited'} end
 local minute=redis.call('INCR',KEYS[5])
 if minute==1 then redis.call('EXPIRE',KEYS[5],120) end
 if minute>12 then return {'limited'} end
+if tonumber(redis.call('GET',KEYS[6]) or '0')>=60 then return {'limited'} end
 local daily=redis.call('INCR',KEYS[6])
 if daily==1 then redis.call('EXPIRE',KEYS[6],93600) end
 if daily>60 then return {'limited'} end
@@ -42,9 +44,11 @@ end
 return {'ok',n,top,mine}
 `;
 export const SUBMIT_LUA=`
+if tonumber(redis.call('GET',KEYS[8]) or '0')>=4 then return 'limited' end
 local rate=redis.call('INCR',KEYS[8])
 if rate==1 then redis.call('EXPIRE',KEYS[8],120) end
 if rate>4 then return 'limited' end
+if tonumber(redis.call('GET',KEYS[10]) or '0')>=20 then return 'limited' end
 local daily=redis.call('INCR',KEYS[10])
 if daily==1 then redis.call('EXPIRE',KEYS[10],93600) end
 if daily>20 then return 'limited' end
@@ -61,9 +65,11 @@ for i=2,5 do redis.call('ZINCRBY',KEYS[i],tonumber(ARGV[1]),ARGV[5]) redis.call(
 return 'stored'
 `;
 export const REMOVE_LUA=`
+if tonumber(redis.call('GET',KEYS[4]) or '0')>=2 then return 'limited' end
 local rate=redis.call('INCR',KEYS[4])
 if rate==1 then redis.call('EXPIRE',KEYS[4],120) end
 if rate>2 then return 'limited' end
+if tonumber(redis.call('GET',KEYS[5]) or '0')>=6 then return 'limited' end
 local daily=redis.call('INCR',KEYS[5])
 if daily==1 then redis.call('EXPIRE',KEYS[5],93600) end
 if daily>6 then return 'limited' end

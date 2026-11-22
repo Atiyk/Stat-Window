@@ -6,9 +6,9 @@ import { DAY1, lowBracket } from './helpers';
 async function openTimed(page: Page) {
   await page.clock.install({ time: DAY1 });
   await page.goto('/');
-  const skip = page.getByRole('button', { name: 'Skip tutorial and start' });
-  if (await skip.isVisible()) await skip.click();
-  else await page.getByRole('button', { name: "Start today's five" }).click();
+  const ready = page.getByRole('button', { name: /^(Skip tutorial and start|Start today's five)$/ });
+  await expect(ready).toBeVisible();
+  await ready.click();
   await expect(page.locator('.question')).toBeVisible();
 }
 
@@ -74,9 +74,9 @@ test('a completed question clears its shot deadline, so fresh challenges can rep
   expect(await page.evaluate((k) => sessionStorage.getItem(k), key)).toBeNull();
   await page.evaluate(() => localStorage.clear());
   await page.goto('/?day=2026-11-15&vs=200');
-  const skip = page.getByRole('button', { name: 'Skip tutorial and start' });
-  if (await skip.isVisible()) await skip.click();
-  else await page.getByRole('button', { name: "Start today's five" }).click();
+  const ready = page.getByRole('button', { name: /^(Skip tutorial and start|Start today's five)$/ });
+  await expect(ready).toBeVisible();
+  await ready.click();
   await expect(page.locator('.challenge-note')).toContainText('200');
   await expect(page.locator('.shot-clock')).toContainText('24s');
 });
@@ -111,4 +111,56 @@ test('Q2 countdown begins on Next without touching the window', async ({ page })
   await page.clock.fastForward('00:25');
   await page.clock.runFor(2500);
   await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');
+});
+
+test('reload during Q2 preserves its deadline without another ready CTA', async ({ page }) => {
+  await openTimed(page);
+  await lowBracket(page).focus();
+  await page.keyboard.press('ArrowRight');
+  await page.getByRole('button', { name: 'Lock the window' }).click();
+  await expect(page.getByRole('button', { name: 'Next question' })).toBeVisible();
+  await page.getByRole('button', { name: 'Next question' }).click();
+  await expect(page.locator('.question')).toBeFocused();
+  await page.clock.fastForward('00:09');
+  await page.reload();
+  await expect(page.locator('.round-label')).toContainText('Question');
+  await expect(page.getByRole('button', { name: "Start today's five" })).toHaveCount(0);
+  await expect.poll(async () => Number((await page.locator('.shot-clock').textContent())?.match(/(\d+)s/)?.[1])).toBeLessThanOrEqual(16);
+  await page.clock.fastForward('00:17');
+  await page.clock.runFor(2500);
+  await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');
+});
+
+test('restoring a resolved round does not leave an expired deadline for replay', async ({ page }) => {
+  await openTimed(page);
+  await lowBracket(page).focus();
+  await page.keyboard.press('ArrowRight');
+  await page.getByRole('button', { name: 'Lock the window' }).click();
+  await expect(page.getByRole('button', { name: 'Next question' })).toBeVisible();
+  const key = 'stat-window:shot:v1:nba-gsw-2016-wins';
+  await page.reload();
+  await expect(page.getByRole('button', { name: 'Next question' })).toBeVisible();
+  expect(await page.evaluate(k => sessionStorage.getItem(k), key)).toBeNull();
+  await page.evaluate(() => localStorage.clear());
+  await page.goto('/?day=2026-11-15&vs=200');
+  const ready = page.getByRole('button', { name: /^(Skip tutorial and start|Start today's five)$/ });
+  await expect(ready).toBeVisible();
+  await ready.click();
+  await expect(page.locator('.shot-clock')).toContainText('24s');
+});
+
+test('returning from a hidden tab enforces wall-clock expiration', async ({ page }) => {
+  await openTimed(page);
+  await page.evaluate(() => {
+    Object.defineProperty(document, 'hidden', { configurable: true, get: () => true });
+  });
+  await page.clock.setSystemTime(new Date(DAY1.getTime() + 25_000));
+  await page.evaluate(() => {
+    Object.defineProperty(document, 'hidden', { configurable: true, get: () => false });
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  await page.clock.runFor(2500);
+  await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
+  expect(saved.runs['2026-11-15'].results[0]).toMatchObject({ points: 0, timedOut: true, elapsedMs: 24000 });
 });

@@ -242,3 +242,34 @@ describe('disabled leaderboard must not expose an anonymous Redis-consuming DELE
    expect(called).toBe(1);
  });
 });
+
+describe('leaderboard request origin integrity',()=>{
+ it('ignores forged forwarded-host and rejects cross-origin scoreboard access',async()=>{
+   let reads=0;
+   const ctx=leaderboardContext({
+     VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',LEADERBOARDS_ENABLED:'1',
+     LEADERBOARDS_DAILY_BUDGET:'1000',LEADERBOARDS_MONTHLY_BUDGET:'20000',
+     LEADERBOARDS_ERASE_BUDGET:'10000',SCORE_HASH_SECRET:'a'.repeat(32),
+   },{read:async()=>{
+     reads++;
+     return {rows:[] as [string,number][],count:0};
+   }} as never,async()=>null);
+   ctx.now=()=>new Date('2026-11-22T16:00:00Z');
+   const url='https://stat-window.vercel.app/api/leaderboard?period=day';
+   for(const headers of [
+     {'Origin':'https://attacker.example','X-Forwarded-Host':'attacker.example','Sec-Fetch-Site':'same-origin'},
+     {'Origin':'http://stat-window.vercel.app','X-Forwarded-Host':'stat-window.vercel.app','Sec-Fetch-Site':'same-origin'},
+   ]){
+     const response=await handleLeaderboard(new Request(url,{headers}),ctx);
+     expect(response.status).toBe(403);
+   }
+   expect(reads).toBe(0);
+   // Even when a proxy header is corrupted, the real same-origin request works.
+   const same=await handleLeaderboard(new Request(url,{headers:{
+     Origin:'https://stat-window.vercel.app',
+     'X-Forwarded-Host':'attacker.example',
+   }}),ctx);
+   expect(same.status).toBe(200);
+   expect(reads).toBe(1);
+ });
+});

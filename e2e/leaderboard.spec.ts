@@ -258,4 +258,51 @@ test.describe('real leaderboard UI fail-closed and consent states', () => {
     expect(local).toMatchObject({consent:false,key:null});
   });
 
+
+  for(const code of [429,503] as const) {
+    test(`a failed ${code} enrollment can explicitly retry with the same browser code, including after reload`,async({page})=>{
+      let submits=0;
+      const players:string[]=[];
+      await page.route('**/api/leaderboard*',route=>{
+        const req=route.request();
+        if(req.method()==='POST'){
+          submits++;
+          const body=JSON.parse(req.postData()??'{}') as {player:string;rounds:unknown[];consent:string};
+          players.push(body.player);
+          expect(body.player).toMatch(/^[A-Za-z0-9_-]{22}$/);
+          expect(body.rounds).toHaveLength(5);
+          expect(body.consent).toBe('granted');
+          if(submits===1)return route.fulfill({status:code,contentType:'application/json',
+            body:JSON.stringify({status:code===429?'limited':'unavailable'})});
+          return route.fulfill({status:200,contentType:'application/json',body:'{"status":"stored","score":200}'});
+        }
+        if(req.method()==='DELETE')throw new Error('A retry must not delete the player identity.');
+        const saved=submits>=2;
+        return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({
+          status:'ok',period:'day',
+          entries:saved?[{rank:1,name:'SteadyPlayer-1234',score:200}]:[],
+          totalPlayers:saved?1:0,asOf:'2026-11-17T15:00:00Z',unverified:true,
+          ...(saved?{mine:{name:'SteadyPlayer-1234',rank:1,score:200,days:1}}:{}),
+        })});
+      });
+      await finishToday(page);
+      await page.getByRole('button',{name:'Join global rankings'}).click();
+      await expect(page.getByText('Could not submit your score. Retry your submission below.')).toBeVisible();
+      await expect(page.getByRole('button',{name:'Retry submitting today’s score'})).toBeVisible();
+      expect(submits).toBe(1);
+      const first=await page.evaluate(()=>JSON.parse(localStorage.getItem('stat-window:leaderboard:v1')??'{}'));
+      expect(first).toMatchObject({consent:true});
+      expect(first.key).toBe(players[0]);
+      // The retry path must survive reload rather than strand a consented identity.
+      await page.reload();
+      await expect(page.getByRole('button',{name:'Retry submitting today’s score'})).toBeVisible();
+      await page.getByRole('button',{name:'Retry submitting today’s score'}).click();
+      await expect(page.getByText('Your score is on the board.')).toBeVisible();
+      expect(submits).toBe(2);
+      expect(players).toEqual([first.key,first.key]);
+      await expect(page.getByRole('button',{name:'Retry submitting today’s score'})).toHaveCount(0);
+    });
+  }
+
+
 });

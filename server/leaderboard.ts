@@ -123,7 +123,14 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
   if(!['GET','POST','DELETE'].includes(req.method))return json(405,{status:'method'});
   if(req.headers.get('sec-fetch-site')==='cross-site')return json(403,{status:'origin'});
   const origin=req.headers.get('origin');
-  if(origin) { try { const o=new URL(origin); if(o.host!==(req.headers.get('x-forwarded-host')??req.headers.get('host')??new URL(req.url).host)&&!ctx.allowedOrigins.includes(o.origin))return json(403,{status:'origin'}); }catch{return json(403,{status:'origin'});} }
+  // Compare to the canonical request URL and explicit allowlist, never
+  // client-forgeable Host or X-Forwarded-Host. Verify the scheme as well.
+  if(origin) {
+    try {
+      const supplied=new URL(origin).origin;
+      if(supplied!==new URL(req.url).origin&&!ctx.allowedOrigins.includes(supplied))return json(403,{status:'origin'});
+    } catch { return json(403,{status:'origin'}); }
+  }
   // DELETE is not a public escape hatch when the leaderboard was never live.
   // A separately approved erasure-only mode preserves deletion after shutdown
   // without exposing a billable, anonymous Lua endpoint during an OFF launch.

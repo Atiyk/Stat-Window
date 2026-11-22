@@ -1,6 +1,6 @@
 import { expect, test, type BrowserContext, type Page } from '@playwright/test';
 import { addDays, puzzleStartUtcMs } from '../src/engine/daily';
-import { collectErrors, lockAndSettle, NBA_DAYS, NBA_FIRST, NBA_MIDDLE, next, openAt } from './helpers';
+import { collectErrors, lockAndSettle, NBA_DAYS, NBA_FIRST, NBA_MIDDLE, next, openAt, startDailyIfNeeded } from './helpers';
 
 /** The daily calendar reminder on the results screen (src/engine/remind.ts). */
 
@@ -96,6 +96,10 @@ test.describe('New York', () => {
     await openAt(page, NBA_MIDDLE);
     await playFive(page);
     await page.locator('.archive-list button').first().click();
+    // V3 deliberately gates every fresh five-question run, including practice.
+    await expect(page.locator('.question')).toHaveCount(0);
+    await expect(page.getByRole('button', { name: "Start today's five" })).toBeVisible();
+    await startDailyIfNeeded(page);
     await expect(page.locator('.round-meta')).toContainText('Practice');
     await playFive(page);
     await expect(page.locator('.results-context')).toContainText('Practice');

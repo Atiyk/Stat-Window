@@ -6,7 +6,7 @@
 
 | Concept | Value | Changes at launch? |
 |---|---|---|
-| Canonical puzzle day | the UTC date of `content/days/<day>.json` | never |
+| Canonical puzzle day | the Eastern calendar date of `content/days/<day>.json` | never |
 | Content id / fingerprint | `content/published.lock.json` | never |
 | Season | `beta`, then `s1` from the launch day | yes, by config |
 | Public number | beta: days since 2026-11-15 + 1; launch: days since `LAUNCH_DAY` + 1 | yes |
@@ -15,12 +15,12 @@
 - From *L*, *L* is "No. 1", *L+1* "No. 2"; every earlier day shows as "Beta No. N" in the header, results, share text and archive. Old `?day=` links still open the same five questions with the same answers.
 - Stats, streaks and averages on the results screen count only the current season's runs, so beta games never inflate an official streak. Beta history stays saved and playable.
 - Score percentiles are partitioned by season on the server (`sw:v1:production:s1:<day>`), and analytics paths get an `/e/s1/…` prefix, so beta and launch numbers never mix.
-- Rollover stays at 00:00 UTC; the results screen already shows the local time.
+- Rollover is at 12:00 AM Eastern (DST-aware); the results screen already shows the local time.
 
 ## Choosing L
 
 - *L* must be a day that already has a published slate (or will, after the Question Factory), and must be after today. If *L* is past the last scheduled day (`2027-01-27` today), schedule more content first: `docs/QUESTION-FACTORY.md`.
-- Pick *L* at least 2 days ahead so a deploy can go out before midnight UTC.
+- Pick *L* at least 2 days ahead so a deploy can go out before midnight Eastern.
 
 ## Preflight (the day before)
 
@@ -35,7 +35,16 @@ In Vercel → stat-window → Settings → Environment Variables, **Production**
 - `VITE_LAUNCH_DAY` = `<L>` (the client label), and
 - `LAUNCH_DAY` = `<L>` (the score API's season),
 
-then redeploy production (or merge anything) **before** 00:00 UTC on *L*. Both must match.
+then redeploy production (or merge anything) **before** 12:00 AM Eastern on *L*. Both must match.
+
+## Moving to a custom domain
+
+Analytics only runs on its production hostnames (`docs/MEASUREMENT.md`). Before or with the domain change, in Vercel → stat-window → Settings → Environment Variables, **Production**:
+
+- `VITE_ANALYTICS_HOSTS` = `<your-domain>,stat-window.vercel.app` (comma-separated exact hostnames; add `www.<your-domain>` too if it serves the game rather than redirecting),
+
+then redeploy production. No code change is needed. Unset, the list is `stat-window.vercel.app` only, so a build served from the new domain would send nothing. The score API needs no change: it accepts requests whose `Origin` matches the host they were sent to (`server/api.ts`, `sameOrigin`). Check receipt as in `docs/MEASUREMENT.md`, "Turning it on", step 4, on the new domain.
+
 
 ## Rollback
 

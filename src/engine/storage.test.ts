@@ -89,3 +89,15 @@ describe('mergeRun', () => {
     expect(store.load().visits).toEqual({ first: '2026-11-10', last: '2026-11-16' });
   });
 });
+
+
+describe('timed round persistence', () => {
+  it('preserves new elapsed fields without invalidating an older save', () => {
+    const storage = memoryStorage();
+    const store = createSaveStore(storage);
+    const old = r('a');
+    const timed = { ...r('b', 0), timedOut: true, elapsedMs: 24000 };
+    store.saveRun('2026-11-15', { results: [old, timed], advanced: 2 });
+    expect(createSaveStore(storage).load().runs['2026-11-15']?.results).toEqual([old, timed]);
+  });
+});

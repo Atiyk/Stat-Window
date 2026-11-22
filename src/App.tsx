@@ -71,7 +71,7 @@ function safeLocalStorage(): StorageLike | null {
  * `viaLink` marks a run opened from a friend's same-puzzle link; `vs` is the score
  * that link claimed, shown for comparison only.
  */
-type Session = { mode: Mode; kind: RunKind; day: string; slate: Slate; viaLink: boolean; vs: number | null };
+type Session = { mode: Mode; kind: RunKind; day: string; slate: Slate; viaLink: boolean; vs: number | null; vsTime: number | null };
 
 /**
  * A tab opened before a deploy still holds the old list of day files. If one of
@@ -90,6 +90,20 @@ function reloadForNewVersion(): boolean {
   }
   window.location.reload();
   return true;
+}
+
+/** The current address without the challenge parameters (`day`, `vs`); anything else (`qa`, a hash) stays. */
+function withoutChallenge(loc: Pick<Location, 'pathname' | 'search' | 'hash'>): string {
+  let params: URLSearchParams;
+  try {
+    params = new URLSearchParams(loc.search);
+  } catch {
+    return loc.pathname;
+  }
+  params.delete('day');
+  params.delete('vs');
+  const rest = params.toString();
+  return `${loc.pathname}${rest ? `?${rest}` : ''}${loc.hash}`;
 }
 
 const daysBetween = (a: string, b: string) => puzzleNumber(b) - puzzleNumber(a);
@@ -128,11 +142,13 @@ export function App() {
   const [missing, setMissing] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
   const [privacyOpen, setPrivacyOpen] = useState(() => new URLSearchParams(window.location.search).has('privacy'));
+  // A ?day= link that can't be honoured (future, malformed or unpublished): say so once, then today opens.
+  const [badLink, setBadLink] = useState(false);
 
   useEffect(() => setSoundEnabled(settings.sound), [settings.sound]);
 
   const open = useCallback(
-    async (day: string, link?: { vs: number | null }) => {
+    async (day: string, link?: { vs: number | null; vsTime: number | null }) => {
       let slate: Slate | null;
       try {
         slate = await loadSlate(day);
@@ -156,6 +172,7 @@ export function App() {
         slate,
         viaLink: link !== undefined,
         vs: link?.vs ?? null,
+        vsTime: link?.vsTime ?? null,
       });
     },
     [store],
@@ -176,7 +193,11 @@ export function App() {
         withScore: link.kind === 'day' && link.vs !== null,
       });
     }
-    if (link.kind === 'day') void open(link.day, { vs: link.vs });
+    if (link.kind === 'invalid' || link.kind === 'future') {
+      setBadLink(true);
+      window.history.replaceState(null, '', withoutChallenge(window.location));
+    }
+    if (link.kind === 'day') void open(link.day, { vs: link.vs, vsTime: link.vsTime });
     else void open(today);
     // Mount only: later day changes are handled below.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -251,6 +272,14 @@ export function App() {
       </header>
 
       <main className="main" id="main">
+        {badLink && view === 'daily' && (
+          <p className="link-note" role="status">
+            <span>That link’s puzzle isn’t available, so here’s today’s.</span>
+            <button type="button" className="btn-link" onClick={() => setBadLink(false)}>
+              Dismiss
+            </button>
+          </p>
+        )}
         {view === 'survival' && Survival ? (
           <Suspense fallback={<p className="loading" aria-live="polite">Loading Survival…</p>}>
             <Survival
@@ -360,10 +389,16 @@ function Game(props: {
       track({ name: 'round_lock', mode: playMode, round: state.results.length, hit: r.hit });
       if (state.results.length === ROUNDS) {
         track({ name: 'run_complete', mode: playMode, total: state.results.reduce((s, x) => s + x.points, 0) });
+        // Once per completed daily (the daily record, even when opened from a same-day link): the streak
+        // that ends on the day just finished. The run was saved by the effect above, so it is included.
+        if (session.kind === 'runs') {
+          const streak = playerStats(inSeason(store.load().runs, currentSeason(today, SEASON), SEASON), session.day).streak;
+          trackOnce(`streak:${session.day}`, today, { name: 'streak', days: Math.max(1, streak) });
+        }
       }
     }
     lastLocked.current = state.results.length;
-  }, [state.results, playMode]);
+  }, [state.results, playMode, session.kind, session.day, store, today]);
 
   // Leaving with a run part-way done (best effort; see docs/MEASUREMENT.md).
   const exitRef = useRef({ started: false, round: 0 });
@@ -431,6 +466,7 @@ function Game(props: {
         playMode={playMode}
         isToday={session.day === today}
         vs={session.vs}
+        vsTime={session.vsTime}
         results={state.results}
         stats={stats}
         archive={props.archive.filter((d) => d !== session.day)}
@@ -455,7 +491,8 @@ function Game(props: {
       dispatch={dispatch}
       label={label}
       showHint={props.showHint && state.round === 0}
-      challenge={session.viaLink && state.round === 0 && state.results.length === 0 ? { vs: session.vs } : null}
+      theme={session.slate.theme}
+      challenge={session.viaLink && state.round === 0 && state.results.length === 0 ? { vs: session.vs, vsTime: session.vsTime } : null}
       onFirstTouch={() => { props.onWindowActive(); props.onFirstTouch(); }}
     />
   );

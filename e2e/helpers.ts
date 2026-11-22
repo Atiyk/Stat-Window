@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { expect, type Page } from '@playwright/test';
+import { puzzleStartUtcMs } from '../src/engine/daily';
 
 /** Day 1 at 15:00 UTC. Every test pins the clock so the slate is deterministic. */
 export const DAY1 = new Date('2026-11-15T15:00:00Z');
@@ -12,8 +13,8 @@ const at3pm = (day: string) => new Date(`${day}T15:00:00Z`);
 export const NBA_FIRST = at3pm(NBA_DAYS[0]!);
 export const NBA_MIDDLE = at3pm(NBA_DAYS[24]!);
 export const NBA_LAST = at3pm(NBA_DAYS.at(-1)!);
-/** Ten minutes after UTC midnight on a given day. */
-export const justAfterMidnight = (day: string) => new Date(`${day}T00:10:00Z`);
+/** Ten minutes after midnight Eastern on a given day. */
+export const justAfterMidnight = (day: string) => new Date(puzzleStartUtcMs(day) + 10 * 60_000);
 
 export async function openAt(page: Page, when: Date, path = '/') {
   await page.clock.setFixedTime(when);

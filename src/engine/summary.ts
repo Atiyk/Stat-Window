@@ -4,6 +4,17 @@ import type { SavedRun } from './storage';
 
 export const MAX_TOTAL = 500;
 
+/** Legacy scores have no elapsed time; never pretend they do. */
+export function answerTimeMs(results: readonly RoundRecord[]): number | null {
+  if (results.length !== 5 || results.some((r) => r.elapsedMs === undefined)) return null;
+  return results.reduce((sum, r) => sum + (r.elapsedMs ?? 0), 0);
+}
+
+export function formatAnswerTime(ms: number): string {
+  const seconds = Math.ceil(ms / 1000);
+  return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`;
+}
+
 /** One mark per round. Shape tells the story; no answers leak.
  * Emoji squares are the share-text convention of daily games (pasted into chats), never UI. */
 export function roundMark(r: RoundRecord): string {
@@ -22,10 +33,11 @@ export function shareText(opts: {
   url: string;
   /** Only a verified, sample-gated line ("82nd percentile today, 214 games"). */
   percentile?: string | null;
+  answerMs?: number | null;
 }): string {
   const total = opts.results.reduce((s, r) => s + r.points, 0);
   return [
-    `Stat Window ${opts.label ?? `No. ${opts.number ?? 0}`}  ${total}/${MAX_TOTAL}`,
+    `Stat Window ${opts.label ?? `No. ${opts.number ?? 0}`}  ${total}/${MAX_TOTAL}${opts.answerMs !== undefined && opts.answerMs !== null ? ` · ${formatAnswerTime(opts.answerMs)}` : ''}`,
     opts.results.map(roundMark).join(''),
     ...(opts.percentile ? [opts.percentile] : []),
     total > 0 ? `Same five questions. Can you beat ${total}?` : 'Same five questions. Your turn.',

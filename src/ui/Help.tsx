@@ -26,11 +26,12 @@ export function Help({ open, onClose, onPrivacy }: { open: boolean; onClose: () 
         </div>
         <p>
           Each day brings five real NBA numbers. For each one, drag the two brackets in to frame a window you’re
-          sure the answer sits inside. Then lock it and watch where the real number lands.
+          sure the answer sits inside. You get 24 seconds per question; the clock keeps running if you switch tabs or reload. A buzzer means zero points. Then lock it and watch where the real number lands.
         </p>
         <p>
-          <strong>Tighter pays more.</strong> A window one notch wide is worth 100. The whole ruler is worth 0. If the
-          answer lands outside your window, that round scores 0.
+          <strong>Tighter pays more.</strong> A window one notch wide is worth 100. The whole ruler is worth 0, and
+          so is nearly the whole ruler: even if the answer lands inside, it scores 0. If the answer lands outside your
+          window, that round scores 0.
         </p>
         <ul className="help-examples">
           <li data-kind="hit">
@@ -60,7 +61,7 @@ export function Help({ open, onClose, onPrivacy }: { open: boolean; onClose: () 
           (Shift moves further, Enter locks). Tap the ruler outside your window to pull that side straight to it.
         </p>
         <p className="help-small">
-          A new puzzle opens every day at midnight UTC, the same five for everyone. From {formatDay(NBA_CUTOVER)} every puzzle is NBA; the earlier mixed-sport days stay playable. Your progress stays in this browser;
+          A new puzzle opens every day at 12:00 AM Eastern, the same five for everyone. From {formatDay(NBA_CUTOVER)} every puzzle is NBA; the earlier mixed-sport days stay playable. Your progress stays in this browser;
           there’s no account.{' '}
           {analyticsEnabled
             ? 'We count plays without cookies or IDs (rounds locked, games finished, shares) to improve the game. Today’s total can feed a daily percentile, kept with a random code from this browser for 7 days; your windows are checked, then discarded. Names and answers are never kept.'

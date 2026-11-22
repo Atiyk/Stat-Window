@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { ordinal } from '../engine/percentile';
+import { ordinal, PERCENTILE_PROGRESS_FROM } from '../engine/percentile';
 import type { ComparisonApi } from './use-comparison';
 
 const time = (iso: string) => {
@@ -22,8 +22,9 @@ export const ComparisonLine = forwardRef<HTMLDivElement, { comparison: Compariso
   const s = c.state;
   // Switched off or not eligible: nothing at all, not an empty gap.
   if (s.kind === 'none' || s.kind === 'disabled' || s.kind === 'ineligible') return null;
+  const quiet = s.kind === 'gathering' && s.n < PERCENTILE_PROGRESS_FROM;
   return (
-    <div className="percentile-slot" ref={ref} tabIndex={-1} aria-live="polite">
+    <div className="percentile-slot" ref={ref} tabIndex={-1} aria-live="polite" data-empty={quiet || undefined}>
       {line(c, onPrivacy)}
     </div>
   );
@@ -51,9 +52,11 @@ function line(c: ComparisonApi, onPrivacy: (() => void) | undefined) {
         </p>
       );
     case 'gathering':
+      // Too few games to say anything useful: no visible line (screen readers still hear the score was counted).
+      if (s.n < PERCENTILE_PROGRESS_FROM) return <p className="sr-only">Your score is in today’s tally.</p>;
       return (
         <p className="percentile percentile-quiet">
-          Not enough completed games for today’s percentile yet ({s.n.toLocaleString('en-US')} of {s.threshold} needed).{' '}
+          Percentiles unlock at {s.threshold.toLocaleString('en-US')} games today: {s.n.toLocaleString('en-US')} so far.{' '}
           <button type="button" className="btn-link" onClick={c.refresh}>
             Refresh
           </button>

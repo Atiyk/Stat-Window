@@ -7,8 +7,8 @@
  * per path then show up in the Vercel dashboard's Pages list. At the Hobby limit
  * Vercel pauses collection; it never bills a Hobby team.
  *
- * Off unless on the production host or the build sets VITE_ANALYTICS=vercel (so local runs, CI and preview
- * builds send nothing). Also off when the browser sends Global Privacy Control or
+ * Off unless on a production host (VITE_ANALYTICS_HOSTS, default stat-window.vercel.app) or the build
+ * sets VITE_ANALYTICS=vercel (so local runs, CI and preview builds send nothing). Also off when the browser sends Global Privacy Control or
  * Do Not Track. No cookies, no identifiers, no answers, no free text: every path
  * segment comes from the fixed vocabulary below.
  */
@@ -34,6 +34,8 @@ export type TrackEvent =
   /** Page hidden or closed with a run in progress (best effort: browsers may drop it). */
   | { name: 'run_exit'; mode: PlayMode; round: number }
   | { name: 'run_complete'; mode: PlayMode; total: number }
+  /** A daily run finished; days = the daily streak it leaves (counted from the daily record). */
+  | { name: 'streak'; days: number }
   | { name: 'share'; mode: PlayMode; method: ShareMethod }
   | { name: 'challenge_open'; kind: ChallengeOpen; withScore: boolean }
   /** What the daily comparison showed on the results screen (exposure, not a verified ranking). */
@@ -103,6 +105,8 @@ function basePath(e: TrackEvent): string {
       return `/e/exit/${e.mode}/r${e.round}`;
     case 'run_complete':
       return `/e/complete/${e.mode}/${totalBand(e.total)}`;
+    case 'streak':
+      return `/e/streak/daily/${gapBucket(e.days)}`;
     case 'share':
       return `/e/share/${e.mode}/${e.method}`;
     case 'challenge_open':
@@ -184,27 +188,43 @@ export function privacySignal(nav: Navigator): boolean {
   return n.globalPrivacyControl === true || n.doNotTrack === '1';
 }
 
-/** The production hostname. Analytics runs there unless the build sets VITE_ANALYTICS=off. */
+/** The default production hostname. Override the list with VITE_ANALYTICS_HOSTS (docs/MEASUREMENT.md). */
 export const PRODUCTION_HOST = 'stat-window.vercel.app';
+const HOSTNAME = /^(?=.{1,253}$)[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)*$/;
 
 /**
- * On when the build sets VITE_ANALYTICS=vercel (any host, used by the analytics e2e build), or on the
- * production hostname unless the build sets VITE_ANALYTICS=off (the emergency switch). Previews,
+ * The hostnames analytics runs on: VITE_ANALYTICS_HOSTS, comma-separated, exact names only (no scheme,
+ * port, path or wildcard; anything else is ignored). Unset or empty means stat-window.vercel.app, so
+ * moving to a real domain is a build variable, not a code change.
+ */
+export function analyticsHosts(raw: string | undefined): string[] {
+  const hosts = (raw ?? '').split(',').map((h) => h.trim().toLowerCase()).filter((h) => HOSTNAME.test(h));
+  return hosts.length ? [...new Set(hosts)] : [PRODUCTION_HOST];
+}
+
+/**
+ * On when the build sets VITE_ANALYTICS=vercel (any host, used by the analytics e2e build), or on one of
+ * the production hostnames unless the build sets VITE_ANALYTICS=off (the emergency switch). Previews,
  * local runs and CI are on other hosts, so they send nothing.
  */
-export function analyticsOn(flag: string | undefined, host: string | undefined): boolean {
+export function analyticsOn(flag: string | undefined, host: string | undefined, hosts: readonly string[] = [PRODUCTION_HOST]): boolean {
   const f = (flag ?? '').trim().toLowerCase();
   if (f === 'off') return false;
   if (f === 'vercel') return true;
-  return host === PRODUCTION_HOST;
+  return host !== undefined && hosts.includes(host.toLowerCase());
 }
 
 export const analyticsEnabled = analyticsOn(
   import.meta.env.VITE_ANALYTICS as string | undefined,
   typeof location === 'undefined' ? undefined : location.hostname,
+  analyticsHosts(import.meta.env.VITE_ANALYTICS_HOSTS as string | undefined),
 );
 
 type Vercel = { inject: typeof inject; pageview: typeof pageview };
+
+/** What `startAnalytics` was given when the build and host allow analytics, so the Privacy dialog can start it later. */
+let pending: { nav: Navigator; vercel: Vercel } | null = null;
+let active = false;
 
 /**
  * Starts Vercel Web Analytics and routes events to it. Safe to call once at startup.
@@ -217,10 +237,29 @@ export function startAnalytics(
   opts: { enabled?: boolean; nav?: Navigator; vercel?: Vercel; privacy?: Privacy } = {},
 ): boolean {
   const enabled = opts.enabled ?? analyticsEnabled;
+  pending = null;
+  active = false;
   if (!enabled || typeof window === 'undefined') return false;
+  pending = { nav: opts.nav ?? navigator, vercel: opts.vercel ?? { inject, pageview } };
   // GPC/DNT and the in-app switch both stop analytics; an explicit "on" in the app overrides GPC/DNT.
-  if (!analyticsAllowed(opts.privacy ?? loadPrivacy(), privacySignal(opts.nav ?? navigator))) return false;
-  const v = opts.vercel ?? { inject, pageview };
+  if (!analyticsAllowed(opts.privacy ?? loadPrivacy(), privacySignal(pending.nav))) return false;
+  activate(pending);
+  return true;
+}
+
+/**
+ * Starts analytics now if the build and host allow it and the player's choice allows it, for when
+ * it was off at startup and the player switches it on in the Privacy dialog. Never starts twice.
+ */
+export function resumeAnalytics(): boolean {
+  if (active) return true;
+  if (!pending || !analyticsAllowed(loadPrivacy(), privacySignal(pending.nav))) return false;
+  activate(pending);
+  return true;
+}
+
+function activate({ nav, vercel: v }: { nav: Navigator; vercel: Vercel }): void {
+  active = true;
   v.inject({
     mode: 'production',
     disableAutoTrack: true,
@@ -236,9 +275,8 @@ export function startAnalytics(
   });
   v.pageview({ route: '/', path: '/' });
   setTrackSink((e) => {
-    if (!analyticsAllowed(loadPrivacy(), privacySignal(opts.nav ?? navigator))) return; // switched off this session
+    if (!analyticsAllowed(loadPrivacy(), privacySignal(nav))) return; // switched off this session
     const path = eventPath(e);
     v.pageview({ route: path, path });
   });
-  return true;
 }

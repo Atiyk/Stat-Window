@@ -4,7 +4,7 @@ Plain-language notice for players. The served page is `public/privacy.html`; kee
 
 ## What Stat Window collects
 
-Stat Window has no accounts, no ads, no tracking cookies and no third-party marketing pixels. Your game history (rounds, scores, streaks, settings) is saved **in your own browser** (localStorage) and never uploaded.
+Stat Window has no accounts, no ads, no tracking cookies and no third-party marketing pixels. Your game history (rounds, scores, active answer times, streaks, settings) is saved **in your own browser** (localStorage) and never uploaded.
 
 Two optional things leave your browser:
 
@@ -36,3 +36,5 @@ Material changes are noted on this page with a new date. Questions: open an issu
 - Legal basis (EU/UK): consent for score submission in consent countries (asked in-app); legitimate interest for cookieless aggregate analytics, with GPC/DNT and an in-app opt-out honoured. The browser-local code is stored only to provide the comparison the player asked for. This is an engineering reading, **not legal advice**; have it reviewed before any formal launch in the EU/UK.
 - Nothing personal appears in logs: the API never logs bodies, keys or IPs.
 - If a new field is ever added to the submission, update this page, `docs/PERCENTILES.md` and the Privacy dialog in the same PR.
+
+The daily shot clock records its starting timestamp in this tab's browser session storage so that a reload does not restart a question. It is never transmitted. The timestamp disappears when the browser clears the site's session storage; without accounts this is not tamper-proof.

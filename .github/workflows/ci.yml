@@ -48,8 +48,24 @@ jobs:
       - name: Install Playwright browser
         run: npx playwright install --with-deps chromium
       - name: End-to-end tests
-        run: npx playwright test
+        run: npx playwright test --project=desktop --project=mobile
       - name: Analytics wiring (VITE_ANALYTICS=vercel build, Vercel script stubbed, nothing sent)
         run: npm run test:e2e:analytics
       - name: Survival behind its flag (VITE_SURVIVAL=preview and =on builds; production stays off)
         run: npm run test:e2e:survival
+
+  # Safari coverage (iPhone 13 on WebKit) in its own job, so it runs in parallel and the main job keeps its 15-minute budget.
+  webkit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Install Playwright WebKit
+        run: npx playwright install --with-deps webkit
+      - name: End-to-end tests on WebKit (iPhone 13)
+        run: npx playwright test --project=webkit-mobile

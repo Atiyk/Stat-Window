@@ -18,6 +18,13 @@ export const MAX_TOTAL = 500;
  */
 export const PERCENTILE_MIN_SAMPLE = 100;
 
+/**
+ * Below this many eligible games the results screen says nothing about the tally at all;
+ * from here up to PERCENTILE_MIN_SAMPLE it shows "Percentiles unlock at 100 games today: N so far".
+ * An owner decision (2026-11-21 UI sweep, BUG-04): "N of 100 needed" read like the player's own progress.
+ */
+export const PERCENTILE_PROGRESS_FROM = 50;
+
 export type Distribution = readonly number[];
 
 export function emptyDistribution(): number[] {

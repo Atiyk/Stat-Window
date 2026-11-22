@@ -83,3 +83,52 @@ test('Do Not Track and Global Privacy Control send nothing and load no script', 
   expect(await views(page)).toEqual([]);
   expect(loaded).toBe(false);
 });
+
+test('switching Play counts on in the Privacy dialog starts analytics without a reload (CR-5)', async ({ page }) => {
+  await page.addInitScript(() => Object.defineProperty(Navigator.prototype, 'globalPrivacyControl', { get: () => true }));
+  await openAt(page, NBA_FIRST, '/?privacy');
+  const dialog = page.getByRole('dialog', { name: 'Privacy and your data' });
+  const box = dialog.getByRole('checkbox', { name: /Play counts/ });
+  await expect(box).not.toBeChecked();
+  expect(await views(page)).toEqual([]);
+  await box.check();
+  await expect(box).toBeChecked();
+  await expect.poll(() => views(page)).toEqual(['/']);
+  await dialog.getByRole('button', { name: 'Done' }).click();
+  await lockAndSettle(page);
+  await expect.poll(() => views(page)).toContainEqual(expect.stringMatching(/^\/e\/lock\/daily\/r1\/(hit|miss)$/));
+  // And off again stops it at once (the reload itself is counted: the stored choice is now "on").
+  await page.goto('/?privacy');
+  await expect(dialog).toBeVisible();
+  await dialog.getByRole('checkbox', { name: /Play counts/ }).uncheck();
+  await dialog.getByRole('button', { name: 'Done' }).click();
+  await next(page);
+  await lockAndSettle(page);
+  expect(await views(page)).toEqual(['/']);
+});
+
+test('a completed daily sends one streak event, bucketed 1, 2-6 or 7plus; practice sends none', async ({ page }) => {
+  const playFive = async () => {
+    for (let r = 1; r <= 5; r++) {
+      await lockAndSettle(page);
+      await next(page);
+    }
+    await expect(page.locator('.results-score')).toBeVisible();
+  };
+  await openAt(page, new Date('2026-11-20T15:00:00Z'));
+  await playFive();
+  await expect.poll(async () => (await views(page)).filter((p) => p.startsWith('/e/streak/'))).toEqual(['/e/streak/daily/1']);
+  // Reloading the finished day sends no second streak event.
+  await page.reload();
+  await expect(page.locator('.results-score')).toBeVisible();
+  await expect.poll(() => views(page)).toEqual(['/']);
+  // The next day: a two-day streak.
+  await openAt(page, new Date('2026-11-21T15:00:00Z'));
+  await playFive();
+  await expect.poll(async () => (await views(page)).filter((p) => p.startsWith('/e/streak/'))).toEqual(['/e/streak/daily/2-6']);
+  // A practice run of an earlier day is not a daily.
+  await page.getByRole('button', { name: 'Nov 18' }).click();
+  await expect(page.locator('.round-meta')).toContainText('Practice');
+  await playFive();
+  expect((await views(page)).filter((p) => p.startsWith('/e/streak/'))).toEqual(['/e/streak/daily/2-6']);
+});

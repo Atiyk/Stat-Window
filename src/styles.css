@@ -1209,9 +1209,6 @@ a {
   outline: 2px solid var(--surface);
 }
 
-.recap-row[data-hit='true'] .recap-pin {
-  background: var(--ink);
-}
 
 .results-actions {
   display: grid;
@@ -1400,6 +1397,8 @@ a {
   padding: 0;
   list-style: none;
 }
+/* Large text: a day button wraps instead of pushing past the screen edge. */
+.archive-list li { max-width: 100%; }
 
 .toast {
   position: fixed;
@@ -2048,7 +2047,7 @@ a {
 .field .bracket-grip { background: var(--chalk); }
 .field .bracket-grip::before { border-color: var(--brand); }
 .field .bracket:focus-visible .bracket-grip,
-.field .ruler[data-dragging] .bracket-grip { background: #ffffff; outline-color: var(--accent); }
+.field .ruler[data-dragging] .bracket-grip { background: #ffffff; outline-color: var(--chalk); } /* orange is only the answer (DESIGN.md) */
 .field .band { background: color-mix(in srgb, var(--chalk) 28%, var(--brand)); }
 .field .ruler[data-state='hit'] .band { background: color-mix(in srgb, var(--chalk) 44%, var(--brand)); outline-color: var(--chalk); }
 .field .ruler[data-state='miss'] .band { outline-color: var(--chalk-soft); }
@@ -2091,3 +2090,174 @@ a {
   .round-top .ledger { gap: 4px; }
 }
 .round-top { flex-wrap: wrap; }
+
+/* ───────────── Short and narrow phones (BUG-01, BUG-13) ─────────────
+ * At 320x568 the question, the field (readout, hint, ruler) and the docked button must all fit
+ * on the first screen, and the verdict must clear the docked button after the reveal.
+ * These come last so they win over the Court sizes above.
+ */
+@media (max-width: 719px) and (max-height: 700px), (max-width: 359px) {
+  .topbar { padding-top: max(4px, env(safe-area-inset-top)); padding-bottom: 4px; }
+  .round-top { flex-wrap: wrap; align-items: center; gap: 4px 10px; padding-top: 2px; }
+  .round-meta { margin-left: auto; }
+  .round-top .ledger { gap: 4px; }
+  .round-top .ledger-cell { width: max(30px, 1.6em); height: max(30px, 1.6em); font-size: 0.9375rem; }
+  .round-top .ledger-num { font-size: 0.9375rem; }
+  .round-meta { font-size: 0.875rem; line-height: 1.2; }
+  .round-total { font-size: 1rem; }
+  .question { font-size: 1.375rem; line-height: 1.08; max-width: none; }
+  .question-block { padding-top: 10px; padding-bottom: 10px; }
+  .context { margin: 6px 0 0; font-size: 0.875rem; }
+  .field-inner { padding-top: 10px; padding-bottom: 6px; }
+  .bound { font-size: 3rem; }
+  .verdict-line { min-height: 2.75rem; }
+  /* Before the lock the flag lane only has to hold the touch value tag. */
+  .round[data-phase='ready'] .ruler,
+  .round[data-phase='adjusting'] .ruler { padding-top: 30px; }
+  .round .action-bar { padding-top: 8px; padding-bottom: max(8px, env(safe-area-inset-bottom)); }
+  .round .action-bar .btn { min-height: 52px; }
+}
+
+/* ───────────── Large text on the results page (BUG-08) ─────────────
+ * With 200% text the heading, the big score and the stats used to push the page sideways.
+ * The viewport caps only bite at large text sizes; at normal sizes the clamps above still decide.
+ */
+.results-title { font-size: min(clamp(2.25rem, 1.4rem + 4vw, 4.5rem), 16vw); overflow-wrap: break-word; }
+.results-total { flex-wrap: wrap; row-gap: 4px; }
+.results-score { font-size: min(clamp(6rem, 3rem + 16vw, 12rem), 34vw); }
+.stats { grid-template-columns: repeat(auto-fit, minmax(min(100%, 4rem), 1fr)); }
+.stats dt { overflow-wrap: break-word; }
+.results-head, .results-actions, .recap-text { min-width: 0; overflow-wrap: break-word; }
+
+/* A hit worth 0 (BUG-03): inside, but too wide to score. Quieter than a scoring hit. */
+.field .outcome-hit[data-zero] .outcome-word { font-size: 1.25rem; color: var(--chalk-soft); }
+.field .outcome-hit[data-zero] .outcome-points { color: var(--chalk-soft); }
+
+/* Under PERCENTILE_PROGRESS_FROM games the slot has nothing to show, so it leaves no gap (BUG-04). */
+.percentile-slot[data-empty] { min-height: 0; }
+
+/* A ?day= link that couldn't be honoured (BUG-05): one quiet, dismissible line above the round. */
+.link-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  max-width: calc(var(--maxw) - 2 * var(--gutter));
+  margin: 0 var(--gutter) 6px;
+  padding: 6px 0 6px 12px;
+  background: var(--paper-2);
+  font-size: 0.9375rem;
+  line-height: 1.3;
+}
+.link-note span { flex: 1 1 auto; min-width: 0; }
+.link-note .btn-link { flex: none; margin: -6px 0; padding: 0 12px; }
+@media (min-width: 1228px) { .link-note { margin-left: auto; margin-right: auto; } }
+
+/* On the results screen the share buttons sit low, so the toast floats at the top instead (BUG-11). */
+.results .toast { top: max(12px, env(safe-area-inset-top)); bottom: auto; width: max-content; max-width: calc(100vw - 24px); transform: translate(-50%, -16px); }
+.results .toast[data-visible='true'] { transform: translate(-50%, 0); }
+
+/* ───────────── Short wide screens: 200% browser zoom on a laptop (BUG-10) ─────────────
+ * 1440x900 at 200% is 720x450 CSS px. The question sits beside the ledger, as on desktop,
+ * and everything is set smaller so the field starts on the first screen, clear of the docked button.
+ */
+@media (min-width: 720px) and (max-height: 520px) {
+  .topbar { padding-top: max(4px, env(safe-area-inset-top)); padding-bottom: 4px; }
+  .round-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: 'question top';
+    align-items: end;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    column-gap: 32px;
+  }
+  .round-head .round-top,
+  .round-head .question-block { padding-left: 0; padding-right: 0; margin: 0; }
+  .round-top { grid-area: top; flex-direction: column-reverse; align-items: flex-end; gap: 6px; padding-bottom: 10px; }
+  .round-top .ledger { gap: 4px; }
+  .round-top .ledger-cell { width: 30px; height: 30px; }
+  .round-top .ledger-num { font-size: 0.9375rem; }
+  .question-block { grid-area: question; padding-top: 6px; padding-bottom: 10px; }
+  .question { font-size: 1.5rem; line-height: 1.08; max-width: none; }
+  .context { margin: 6px 0 0; font-size: 0.875rem; }
+  .field-inner { padding-top: 10px; padding-bottom: 6px; }
+  .bound { font-size: 3rem; }
+  .verdict-line { min-height: 2.75rem; }
+  .round[data-phase='ready'] .ruler,
+  .round[data-phase='adjusting'] .ruler { padding-top: 30px; }
+  .round .action-bar { padding-top: 8px; padding-bottom: max(8px, env(safe-area-inset-bottom)); }
+  .round .action-bar .btn { min-height: 48px; }
+}
+
+/* ───────────── Nits (BUG-09, BUG-13) ───────────── */
+/* The leading space before "· mixed sports" collapsed inside the flex button. */
+.archive-tag { white-space: pre-wrap; }
+/* "Days in a row" wraps at 390: keep every number on the same baseline row. */
+.stats div { display: flex; flex-direction: column; }
+.stats dd { margin-top: auto; padding-top: 4px; }
+/* When the top bar is too narrow for its text (large text sizes on small phones), drop the wordmark
+   rather than print it over the puzzle number. em here is the top bar's own font size, so this
+   follows the text size, not just the screen width. The link keeps its accessible name. */
+.topbar { container: topbar / inline-size; }
+@container topbar (max-width: 17em) {
+  .wordmark { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+
+/* BUG-08: with large text an archive day wraps instead of pushing past the screen edge. */
+.archive-list .btn.btn-quiet { display: inline-block; max-width: 100%; white-space: normal; text-align: center; padding-block: 12px; line-height: 1.3; height: auto; }
+
+/* Daily shot-clock and new-player guidance. */
+.shot-clock { display: block; font-variant-numeric: tabular-nums; font-size: 0.9375rem; font-weight: 850; color: var(--brand); }
+.shot-clock[data-urgent='true'] { color: #b64122; }
+.puzzle-theme { margin: 0 0 8px; color: var(--brand); font-weight: 600; font-size: 0.9375rem; }
+.puzzle-theme span { color: var(--ink-soft); font-weight: 400; }
+.first-play-guide { margin: 0 0 10px; font-size: 0.875rem; line-height: 1.35; max-width: 62ch; color: var(--ink-soft); }
+.first-play-guide strong { color: var(--ink); }
+.results-time { margin: 8px 0 0; font-size: 0.9375rem; color: var(--ink-soft); }
+.results-time strong { color: var(--ink); font-size: 1.125rem; }
+@media (max-width: 359px), (max-height: 700px) { .first-play-guide { margin: 0 0 4px; font-size: 0.8125rem; } .shot-clock { font-size: 0.8125rem; } .puzzle-theme { margin-bottom: 4px; } }
+
+/* Under very short or narrow screens, preserve space for the actual ruler and lock target.
+   Existing readout hints still onboard first-time players without a full-size help paragraph. */
+@media (max-width: 359px), (max-height: 520px) {
+  .first-play-guide { display: none; }
+  .puzzle-theme { display: none; }
+}
+
+/* Shot clock stays visually distinct without increasing the first-screen header height. */
+.round-meta { flex-wrap: wrap; }
+@media (max-width: 359px), (max-height: 520px) { .shot-clock { line-height: 1; } }
+
+/* Critic fix: place points and shot clock on one row instead of stacking a third
+   header line that pushes the ruler behind the 320px mobile action dock. */
+.round-meta { display: grid; grid-template-columns: auto auto; align-items: baseline; justify-content: end; column-gap: 8px; }
+.round-label { grid-column: 1 / -1; }
+.round-total { grid-column: 1; }
+.shot-clock { grid-column: 2; }
+@media (max-width: 359px), (max-height: 700px) {
+  .round-meta { column-gap: 6px; }
+  .question-block { padding-top: 10px; padding-bottom: 10px; }
+  .round .field-inner { padding-top: 6px; }
+}
+
+/* 320px phone: five noninteractive score chips must fit beside question/points/timer.
+   Otherwise the header wraps and hides the actual answer ruler behind the dock. */
+@media (max-width: 359px) {
+  .round-top { flex-wrap: nowrap; align-items: center; gap: 4px; }
+  .round-top .ledger { flex: 0 0 auto; gap: 2px; }
+  .round-top .ledger-cell { width: 25px; height: 25px; }
+  .round-top .ledger-num { font-size: 0.8125rem; }
+  .round-top .round-meta { min-width: 0; flex: 0 1 auto; font-size: 0.8125rem; white-space: nowrap; column-gap: 5px; }
+  .round-top .round-total { font-size: 0.875rem; }
+  .round-top .shot-clock { font-size: 0.8125rem; }
+}
+
+/* The theme lives in the existing context line on mobile; the existing worth
+   hint provides first-play instructions without pushing the ruler off screen. */
+.puzzle-theme { margin: 0; display: inline; }
+@media (max-width: 719px) {
+  .first-play-guide { display: none; }
+  .theme-subtitle { display: none; }
+}

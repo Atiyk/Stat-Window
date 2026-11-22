@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { playerStats, shareText, verdict } from './summary';
+import { answerTimeMs, formatAnswerTime, playerStats, shareText, verdict } from './summary';
 
 const run = (points: number[]) => ({
   results: points.map((p, i) => ({ questionId: `q${i}`, lo: 0, hi: 1, hit: p > 0, points: p, missBy: p > 0 ? 0 : 3 })),
@@ -63,5 +63,15 @@ describe('playerStats', () => {
       '2026-11-20': run([10]),
     };
     expect(playerStats(runs, '2026-11-20').distribution).toEqual([2, 1, 0, 0, 2]);
+  });
+});
+
+
+describe('answer time display', () => {
+  it('keeps legacy scores untimed and sums only all five timed answers', () => {
+    const results = run([5, 10, 20, 30, 40]).results;
+    expect(answerTimeMs(results)).toBeNull();
+    expect(answerTimeMs(results.map((r, i) => ({ ...r, elapsedMs: i * 1000 + 1000 })))).toBe(15000);
+    expect(formatAnswerTime(61720)).toBe('1:02');
   });
 });

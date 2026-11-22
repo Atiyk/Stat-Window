@@ -3,7 +3,7 @@ import type { Slate } from '../content/schema';
 import { challengeUrl } from '../engine/challenge';
 import { msUntilNextPuzzle } from '../engine/daily';
 import { totalPoints, type Mode, type RoundRecord } from '../engine/game';
-import { MAX_TOTAL, shareText, verdict, type PlayerStats } from '../engine/summary';
+import { MAX_TOTAL, answerTimeMs, formatAnswerTime, shareText, verdict, type PlayerStats } from '../engine/summary';
 import { ordinal } from '../engine/percentile';
 import { formatCountdown, formatDay, formatValue } from '../lib/format';
 import { isMixedSportDay } from '../content/cutover';
@@ -26,6 +26,7 @@ type Props = {
   isToday: boolean;
   /** The score a friend's link claimed. Unverified: shown for comparison only. */
   vs: number | null;
+  vsTime: number | null;
   results: readonly RoundRecord[];
   stats: PlayerStats;
   archive: readonly string[];
@@ -43,18 +44,24 @@ function localTimeOf(at: Date): string | null {
   return at.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
 }
 
-function friendLine(total: number, vs: number): string {
-  if (total > vs) return `Your friend’s link says ${vs}. You beat it by ${total - vs}.`;
-  if (total === vs) return `Your friend’s link says ${vs}. Dead level.`;
-  return `Your friend’s link says ${vs}. They take this one by ${vs - total}.`;
+function friendLine(total: number, vs: number, time: number | null, vsTime: number | null): string {
+  if (total > vs) return `You beat your friend by ${total - vs} points.`;
+  if (total < vs) return `Your friend leads by ${vs - total} points. Send a rematch.`;
+  if (time !== null && vsTime !== null) {
+    if (time < vsTime) return `Tied at ${total}. You win the time tiebreaker!`;
+    if (time > vsTime) return `Tied at ${total}. Your friend wins on time.`;
+  }
+  return `Tied at ${total} points. Rematch?`;
 }
 
-export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isToday, vs, results, stats, archive, onPractice, onBackToToday, onShared, survivalCta = null }: Props) {
+export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isToday, vs, vsTime, results, stats, archive, onPractice, onBackToToday, onShared, survivalCta = null }: Props) {
   const total = totalPoints(results);
+  const answerMs = answerTimeMs(results);
   const raw = useComparison(eligible, slate.date, results);
   const slotRef = useRef<HTMLDivElement>(null);
   // After a yes or no the buttons go away; keep focus on the line that now answers.
-  const refocus = () => window.requestAnimationFrame(() => slotRef.current?.focus({ preventScroll: true }));
+  // The slot sits well above the consent box on phones, so bring it into view rather than move focus off-screen.
+  const refocus = () => window.requestAnimationFrame(() => slotRef.current?.focus());
   const comparison = { ...raw, join: () => (raw.join(), refocus()), decline: () => (raw.decline(), refocus()) };
   const verified = comparison.state.kind === 'ready' ? comparison.state : null;
   const percentileLine = verified ? `${ordinal(verified.percentile)} percentile today (${verified.n.toLocaleString('en-US')} games)` : null;
@@ -62,6 +69,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
     label,
     date: formatDay(slate.date),
     results,
+    answerMs,
     percentile: verified ? { label: `${ordinal(verified.percentile)} percentile today`, detail: `based on ${verified.n.toLocaleString('en-US')} eligible completed games` } : null,
     host: window.location.host || 'stat-window.vercel.app',
   });
@@ -69,10 +77,24 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
   const [toast, setToast] = useState<string | null>(null);
   const [fallback, setFallback] = useState<string | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const fallbackRef = useRef<HTMLTextAreaElement>(null);
 
+  // The last round may have left the page scrolled down to its fact: open the day at the top,
+  // with focus on the heading the player can see (as each new round does).
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
     headingRef.current?.focus({ preventScroll: true });
   }, []);
+
+  // The copy-me box appears right under the share button: bring it into view, focused and selected,
+  // so "select the text below" is already done for the player.
+  useEffect(() => {
+    const box = fallbackRef.current;
+    if (!fallback || !box) return;
+    box.focus({ preventScroll: true });
+    box.select();
+    box.scrollIntoView({ block: 'center', behavior: 'instant' });
+  }, [fallback]);
 
   useEffect(() => {
     if (!toast) return;
@@ -88,7 +110,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
   const nativeShare = typeof navigator !== 'undefined' && !!navigator.share && matchMedia('(pointer: coarse)').matches;
   // The card is drawn ahead of the tap: Safari only allows share() straight from the gesture,
   // so awaiting fonts and a canvas inside the click could cost the share sheet.
-  const cardKey = `${label}|${total}|${percentileLine ?? ''}`;
+  const cardKey = `${label}|${total}|${answerMs ?? ''}|${percentileLine ?? ''}`;
   const card = useRef<{ key: string; blob: Blob | null } | null>(null);
   useEffect(() => {
     if (!nativeShare) return;
@@ -104,8 +126,8 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
   }, [nativeShare, cardKey]);
 
   const share = async () => {
-    const url = challengeUrl(window.location.origin, slate.date, total);
-    const text = shareText({ label, results, url, percentile: percentileLine });
+    const url = challengeUrl(window.location.origin, slate.date, total, answerMs);
+    const text = shareText({ label, results, url, percentile: percentileLine, answerMs });
     try {
       // Native share sheet on touch devices; with the image card when the browser accepts files.
       if (nativeShare) {
@@ -133,7 +155,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
         return;
       }
       setFallback(text);
-      setToast('Couldn’t copy automatically. Select the text below.');
+      setToast('Couldn’t copy automatically. The text below is selected.');
       report('failed');
     }
   };
@@ -171,6 +193,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
           <span className="results-score tabular">{total}</span>
           <span className="results-max">of {MAX_TOTAL}</span>
         </p>
+        <p className="results-time">Answer time: <strong className="tabular">{answerMs === null ? 'Not timed' : formatAnswerTime(answerMs)}</strong> <span>· five 24-second shot clocks</span></p>
         <ol className="ledger scorecard" aria-label="Question by question">
           {results.map((r, i) => (
             <li key={i} className="ledger-cell" data-status={!r.hit ? 'miss' : r.points > 0 ? 'hit' : 'zero'} style={{ animationDelay: `${i * 70}ms` }}>
@@ -187,34 +210,37 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
             : `${label} · ${formatDay(slate.date)}`}
         </p>
         <ComparisonLine comparison={comparison} onPrivacy={onPrivacy} ref={slotRef} />
-        {vs !== null && <p className="versus">{friendLine(total, vs)}</p>}
+        {vs !== null && <p className="versus">{friendLine(total, vs, answerMs, vsTime)}</p>}
       </header>
 
       <div className="results-actions">
-        {practice || !isToday ? (
-          <>
-            <button type="button" className="btn btn-primary" onClick={onBackToToday}>
-              Play today’s puzzle
-            </button>
-            <button type="button" className="btn btn-quiet" onClick={share}>
-              Send these five to a friend
-            </button>
-          </>
-        ) : (
-          <button type="button" className="btn btn-primary" onClick={share}>
-            Challenge a friend
-          </button>
+        {/* The share of the day just played always comes first, on practice and challenge runs too. */}
+        <button type="button" className="btn btn-primary" onClick={share}>
+          Challenge a friend
+        </button>
+        {fallback && (
+          <textarea
+            ref={fallbackRef}
+            className="share-fallback"
+            readOnly
+            value={fallback}
+            rows={5}
+            aria-label="Your result to copy"
+            onFocus={(e) => e.currentTarget.select()}
+          />
         )}
         <p className="share-note">
           {total > 0
-            ? `They get the same five questions and see your ${total}, never your answers.`
+            ? `They get the same five questions and see your ${total}${answerMs === null ? '' : ` and ${formatAnswerTime(answerMs)}`}. Higher score wins; time breaks ties. No answers shared.`
             : 'They get the same five questions. No answers are in the link.'}
         </p>
         <button type="button" className="btn btn-link" onClick={saveCard}>
           Save score card (no answers on it)
         </button>
-        {fallback && (
-          <textarea className="share-fallback" readOnly value={fallback} rows={4} aria-label="Your result to copy" onFocus={(e) => e.currentTarget.select()} />
+        {(practice || !isToday) && (
+          <button type="button" className="btn btn-quiet" onClick={onBackToToday}>
+            Play today’s puzzle
+          </button>
         )}
         {survivalCta && (
           <button type="button" className="btn btn-quiet" onClick={survivalCta}>
@@ -223,7 +249,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
         )}
         <ConsentChoice comparison={comparison} onPrivacy={onPrivacy} />
         <p className="next-window">
-          Next puzzle in <span className="tabular">{formatCountdown(msUntilNextPuzzle(now))}</span>, at midnight UTC
+          Next puzzle in <span className="tabular">{formatCountdown(msUntilNextPuzzle(now))}</span>, at 12:00 AM Eastern
           {local ? ` (${local} your time)` : ''}.
         </p>
       </div>

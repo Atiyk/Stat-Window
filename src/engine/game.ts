@@ -10,6 +10,10 @@ export type RoundRecord = {
   readonly hit: boolean;
   readonly points: number;
   readonly missBy: number;
+  /** Active seconds spent answering; absent for legacy pre-shot-clock scores. */
+  readonly elapsedMs?: number | undefined;
+  /** The buzzer expired; a timed-out window always earns zero. */
+  readonly timedOut?: boolean | undefined;
 };
 
 /**
@@ -33,7 +37,8 @@ export type GameState = {
 
 export type GameAction =
   | { type: 'setWindow'; window: Window; moving?: 'lo' | 'hi' }
-  | { type: 'lock' }
+  | { type: 'lock'; elapsedMs?: number }
+  | { type: 'timeout'; elapsedMs: number }
   | { type: 'reveal' }
   | { type: 'settle' }
   | { type: 'next' }
@@ -124,11 +129,21 @@ export function gameReducer(s: GameState, a: GameAction): GameState {
       if (window.lo === s.window.lo && window.hi === s.window.hi && s.phase === 'adjusting') return s;
       return { ...s, phase: 'adjusting', window };
     }
-    case 'lock': {
-      if (!canLock(s)) return s;
+    case 'lock':
+    case 'timeout': {
+      const expired = a.type === 'timeout';
+      if (!expired && !canLock(s)) return s;
+      if (expired && s.phase !== 'ready' && s.phase !== 'adjusting') return s;
       const q = currentQuestion(s);
-      const score = scoreWindow(q, s.window);
-      const record: RoundRecord = { questionId: q.id, lo: s.window.lo, hi: s.window.hi, ...score };
+      // A shot-clock violation is a zero-point turnover, even if the user was
+      // halfway through setting a window. Full range also independently scores 0.
+      const window = expired ? fullWindow(q) : s.window;
+      const score = expired ? { hit: false, points: 0, missBy: 0 } : scoreWindow(q, window);
+      const record: RoundRecord = {
+        questionId: q.id, lo: window.lo, hi: window.hi, ...score,
+        ...(typeof a.elapsedMs === 'number' ? { elapsedMs: Math.max(0, Math.min(24_000, Math.round(a.elapsedMs))) } : {}),
+        ...(expired ? { timedOut: true } : {}),
+      };
       return { ...s, phase: 'locked', results: [...s.results, record] };
     }
     case 'reveal':

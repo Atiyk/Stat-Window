@@ -85,7 +85,7 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
         expect(await client.command(['ZSCORE',board,member])).toBeNull();
     }
     expect(await client.command(['EXISTS',blockLedger(p,member,blockNumber(day1))])).toBe(0);
-    expect(Number(await client.command(['GET', b[2]!]))).toBe(48);
+    expect(Number(await client.command(['GET', b[2]!]))).toBe(35); // 2 days + shared week/month/season = 5 distinct boards
   });
 
 
@@ -104,6 +104,16 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     expect(Number(await client.command(['EXPIRETIME',older]))).toBe(blockExpiry(blockNumber('2027-04-26')));
     expect(Number(await client.command(['EXPIRETIME',newer]))).toBe(blockExpiry(blockNumber('2027-08-24')));
     expect(blockExpiry(blockNumber('2027-04-26'))).toBeLessThan(blockExpiry(blockNumber('2027-08-24')));
+    const b=budget(scope);
+    const result=await store.remove([older,newer,b[2]!,`${p}:delete:minute:long`,`${p}:delete:day:long`,`${p}:delete:subcap:long`,...erasureBoardKeys(p,'2027-08-24')],member,caps);
+    expect(result).toBe('removed');
+    expect(await client.command(['EXISTS',older])).toBe(0);
+    expect(await client.command(['EXISTS',newer])).toBe(0);
+    for(const date of ['2027-04-26','2027-07-01','2027-08-23','2027-08-24']){
+      for(const board of boards(p,date,null))expect(await client.command(['ZSCORE',board,member])).toBeNull();
+    }
+    expect(Number(await client.command(['GET',b[2]!]))).toBeGreaterThan(0);
+    expect(Number(await client.command(['GET',b[2]!]))).toBeLessThan(500);
   });
 
   it('deleting after a daily board expires never recreates an expired negative-score board',async()=>{
@@ -133,9 +143,9 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     ],who,caps);
     expect(await erase(member,'1')).toBe('removed');
     expect(await erase(other,'2')).toBe('removed');
-    expect(Number(await client.command(['GET',b[2]!]))).toBe(68);
+    expect(Number(await client.command(['GET',b[2]!]))).toBe(64); // 2 erasures * (20 + 3*4 unique boards)
     expect(await erase(member,'3')).toBe('nothing');
-    expect(Number(await client.command(['GET',b[2]!]))).toBe(68);
+    expect(Number(await client.command(['GET',b[2]!]))).toBe(64);
     for(const board of boards(p,day,null)){
       expect(await client.command(['ZCARD',board])).toBe(0);
     }

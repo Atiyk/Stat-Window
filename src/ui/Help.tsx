@@ -26,7 +26,7 @@ export function Help({ open, onClose, onPrivacy }: { open: boolean; onClose: () 
         </div>
         <p>
           Each day brings five real NBA numbers. For each one, drag the two brackets in to frame a window you’re
-          sure the answer sits inside. You get 24 seconds per question; a buzzer means zero points. Then lock it and watch where the real number lands.
+          sure the answer sits inside. You get 24 seconds per question; the clock keeps running if you switch tabs or reload. A buzzer means zero points. Then lock it and watch where the real number lands.
         </p>
         <p>
           <strong>Tighter pays more.</strong> A window one notch wide is worth 100. The whole ruler is worth 0, and

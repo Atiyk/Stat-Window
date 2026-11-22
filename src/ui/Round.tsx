@@ -66,38 +66,54 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
   const skipRef = useRef(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const [secondsLeft, setSecondsLeft] = useState(24);
-  const shot = useRef({ elapsed: 0, startedAt: performance.now(), started: !showHint, active: !showHint, stopped: false });
+  const shot = useRef<{ startedAt: number | null; stopped: boolean }>({ startedAt: null, stopped: false });
   const dispatchRef = useRef(dispatch);
   dispatchRef.current = dispatch;
   const timed = survival === undefined;
-  const elapsed = () => {
-    const s = shot.current;
-    return Math.min(SHOT_CLOCK_MS, s.elapsed + (s.active ? Math.max(0, performance.now() - s.startedAt) : 0));
+  const shotKey = `stat-window:shot:v1:${q.id}`;
+  // The browser-local timestamp prevents free time from refreshing or switching tabs.
+  // It is never sent to the server or analytics; it cannot provide cheat-proof ranking.
+  const rememberStart = (at: number) => {
+    try { window.sessionStorage.setItem(shotKey, String(at)); } catch { /* storage blocked: memory timer still works */ }
   };
+  const elapsed = () =>
+    shot.current.startedAt === null ? 0 : Math.max(0, Math.min(SHOT_CLOCK_MS, Date.now() - shot.current.startedAt));
   const startShot = () => {
-    if (!timed || shot.current.started || shot.current.stopped) return;
-    shot.current.started = true;
-    shot.current.active = true;
-    shot.current.startedAt = performance.now();
+    if (!timed || shot.current.startedAt !== null || shot.current.stopped) return;
+    shot.current.startedAt = Date.now();
+    rememberStart(shot.current.startedAt);
   };
   const stopShot = () => {
-    const time = Math.round(elapsed());
-    shot.current.elapsed = time;
-    shot.current.active = false;
     shot.current.stopped = true;
-    return time;
+    return Math.round(elapsed());
   };
   const lockShot = () => {
     if (!canLock(state) || (survival && worth < survival.need)) return;
-    if (survival) dispatch({ type: 'lock' });
-    else dispatch({ type: 'lock', elapsedMs: stopShot() });
+    if (survival) { dispatch({ type: 'lock' }); return; }
+    startShot();
+    const spent = stopShot();
+    if (spent >= SHOT_CLOCK_MS) dispatch({ type: 'timeout', elapsedMs: SHOT_CLOCK_MS });
+    else dispatch({ type: 'lock', elapsedMs: spent });
   };
   useEffect(() => {
-    shot.current = { elapsed: 0, startedAt: performance.now(), started: !showHint, active: !showHint, stopped: false };
-    setSecondsLeft(24);
-    // The first-play hint disappears on touch; that must never restart the clock.
+    let startedAt: number | null = null;
+    if (timed) {
+      try {
+        const raw = window.sessionStorage.getItem(shotKey);
+        const value = raw === null ? NaN : Number(raw);
+        if (Number.isFinite(value) && value > 0) startedAt = value;
+      } catch { /* storage may be blocked */ }
+      // New players can read the first-play guide before the first move.
+      if (startedAt === null && !showHint) {
+        startedAt = Date.now();
+        rememberStart(startedAt);
+      }
+    }
+    shot.current = { startedAt, stopped: false };
+    setSecondsLeft(startedAt === null ? 24 : Math.ceil(Math.max(0, SHOT_CLOCK_MS - (Date.now() - startedAt)) / 1000));
+    // A changed first-touch hint must never restart the clock.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.round]);
+  }, [state.round, q.id]);
 
   const interactive = state.phase === 'ready' || state.phase === 'adjusting';
   const worth = potentialPoints(q, state.window);
@@ -106,29 +122,20 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
     if (!timed || !interactive) return;
     const tick = () => {
       const s = shot.current;
-      if (!s.started || !s.active || s.stopped) return;
+      if (s.startedAt === null || s.stopped) return;
       const left = Math.max(0, SHOT_CLOCK_MS - elapsed());
       setSecondsLeft(Math.ceil(left / 1000));
       if (left === 0) {
         s.stopped = true;
-        s.active = false;
-        s.elapsed = SHOT_CLOCK_MS;
         dispatchRef.current({ type: 'timeout', elapsedMs: SHOT_CLOCK_MS });
       }
     };
-    const visibility = () => {
-      const s = shot.current;
-      if (document.hidden && s.active) {
-        s.elapsed = elapsed();
-        s.active = false;
-      } else if (!document.hidden && s.started && !s.stopped && !s.active) {
-        s.startedAt = performance.now();
-        s.active = true;
-      }
-    };
+    // Browser intervals may be throttled in background tabs. The authoritative
+    // deadline uses Date.now, and is rechecked immediately when the tab returns.
     const id = window.setInterval(tick, 100);
-    document.addEventListener('visibilitychange', visibility);
-    return () => { window.clearInterval(id); document.removeEventListener('visibilitychange', visibility); };
+    document.addEventListener('visibilitychange', tick);
+    tick();
+    return () => { window.clearInterval(id); document.removeEventListener('visibilitychange', tick); };
   }, [timed, interactive, state.round]);
 
   // New round: reset the reveal and move focus to the question for screen readers.
@@ -233,7 +240,7 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
           </span>
           {timed && <span className="shot-clock" data-urgent={interactive && secondsLeft <= 5 || undefined} role="timer"
             aria-label={interactive ? `Shot clock: ${secondsLeft} seconds left` : 'Shot clock stopped'}>
-            {!shot.current.started && interactive ? '24s · ready' : `${secondsLeft}s`}
+            {shot.current.startedAt === null && interactive ? '24s · ready' : `${secondsLeft}s`}
           </span>}
         </p>
       </div>
@@ -272,6 +279,7 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
             question={q}
             window={state.window}
             editable={interactive}
+            onFirstTouch={() => { startShot(); onFirstTouch(); }}
             onChange={(w, m) => {
               // Typing an exact number also starts the clock and retires the tutorial.
               startShot();

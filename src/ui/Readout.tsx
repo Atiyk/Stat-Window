@@ -7,18 +7,19 @@ type Props = {
   question: Question;
   window: Window;
   editable: boolean;
+  onFirstTouch?: (() => void) | undefined;
   onChange: (w: Window, moving: 'lo' | 'hi') => void;
 };
 
 /** The two ends of the window, set huge. Tap either number to type an exact value. */
-export function Readout({ question: q, window: w, editable, onChange }: Props) {
+export function Readout({ question: q, window: w, editable, onChange, onFirstTouch }: Props) {
   const [editing, setEditing] = useState<'lo' | 'hi' | null>(null);
   return (
     <div className="readout">
-      <Bound which="lo" q={q} value={w.lo} editable={editable} editing={editing === 'lo'} setEditing={setEditing}
+      <Bound which="lo" q={q} value={w.lo} editable={editable} editing={editing === 'lo'} setEditing={setEditing} onFirstTouch={onFirstTouch}
         onCommit={(v) => onChange({ lo: v, hi: w.hi }, 'lo')} />
       <span className="readout-to" aria-hidden="true">to</span>
-      <Bound which="hi" q={q} value={w.hi} editable={editable} editing={editing === 'hi'} setEditing={setEditing}
+      <Bound which="hi" q={q} value={w.hi} editable={editable} editing={editing === 'hi'} setEditing={setEditing} onFirstTouch={onFirstTouch}
         onCommit={(v) => onChange({ lo: w.lo, hi: v }, 'hi')} />
       <span className="readout-unit">{unitFor(w.hi, q.unit)}</span>
     </div>
@@ -32,9 +33,10 @@ function Bound(props: {
   editable: boolean;
   editing: boolean;
   setEditing: (w: 'lo' | 'hi' | null) => void;
+  onFirstTouch?: (() => void) | undefined;
   onCommit: (v: number) => void;
 }) {
-  const { which, q, value, editable, editing, setEditing, onCommit } = props;
+  const { which, q, value, editable, editing, setEditing, onCommit, onFirstTouch } = props;
   const inputRef = useRef<HTMLInputElement>(null);
   const [draft, setDraft] = useState('');
   const label = which === 'lo' ? 'Low end' : 'High end';
@@ -75,6 +77,7 @@ function Bound(props: {
       disabled={!editable}
       aria-label={`${label}: ${formatValue(value, q.step)}. Type an exact number`}
       onClick={() => {
+        onFirstTouch?.();
         setDraft(String(value));
         setEditing(which);
       }}

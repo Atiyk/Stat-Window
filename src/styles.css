@@ -2225,3 +2225,7 @@ a {
   .first-play-guide { display: none; }
   .puzzle-theme { display: none; }
 }
+
+/* Shot clock stays visually distinct without increasing the first-screen header height. */
+.round-meta { flex-wrap: wrap; }
+@media (max-width: 359px), (max-height: 520px) { .shot-clock { line-height: 1; } }

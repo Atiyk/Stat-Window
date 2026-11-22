@@ -123,7 +123,8 @@ describe('supply and the beta gate', () => {
         break;
       }
     }
-    expect(first).toBe('2026-12-05');
+    // The future source-checked mixed slate reshuffle makes the beta supply threshold cross on Dec 6.
+    expect(first).toBe('2026-12-06');
   });
 });
 

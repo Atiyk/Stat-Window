@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { collectErrors, DAY1, DAY2, NBA_FIRST, highBracket, lockAndSettle, lowBracket, next, openAt, typeWindow } from './helpers';
+import { collectErrors, DAY1, DAY2, NBA_FIRST, highBracket, lockAndSettle, lowBracket, next, openAt, typeWindow, startDailyIfNeeded } from './helpers';
 
 // Day 1 answers (content/days/2026-11-15.json): 73, 23, 92, 138, 2632
 const DAY1_PLAN = [
@@ -104,6 +104,7 @@ test('everyone gets the slate for the Eastern date, and a new one at midnight Ea
 test('a tab left open across midnight moves to the new puzzle', async ({ page }) => {
   await page.clock.install({ time: new Date('2026-11-16T04:59:50Z') });
   await page.goto('/');
+  await startDailyIfNeeded(page);
   await expect(page.locator('.day-label')).toHaveText('No. 1');
   await page.clock.fastForward('00:45');
   await expect(page.locator('.day-label')).toHaveText('No. 2');
@@ -112,6 +113,7 @@ test('a tab left open across midnight moves to the new puzzle', async ({ page })
 test('an adjusted but not locked first window survives Eastern midnight', async ({ page }) => {
   await page.clock.install({ time: new Date('2026-11-16T04:59:50Z') });
   await page.goto('/');
+  await startDailyIfNeeded(page);
   await expect(page.locator('.day-label')).toHaveText('No. 1');
   const low = lowBracket(page);
   await low.focus();

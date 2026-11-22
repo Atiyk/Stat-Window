@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
-import { collectErrors, lockAndSettle, NBA_FIRST, next, openAt, typeWindow } from './helpers';
+import { collectErrors, lockAndSettle, NBA_FIRST, next, openAt, typeWindow, startDailyIfNeeded } from './helpers';
 
 /**
  * Survival, behind its flag.
@@ -197,6 +197,7 @@ test.describe('preview build', () => {
     await play(page, true);
     await page.getByRole('button', { name: 'Next round' }).click();
     await page.goto('/');
+  await startDailyIfNeeded(page);
     await expect(page.getByText('Question 1 of 5')).toBeVisible();
     await page.goto('/?survival&asof=2026-12-20');
     await expect(page.getByText('Survival · Round 2 of 20')).toBeVisible();

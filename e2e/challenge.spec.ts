@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { collectErrors, DAY2, lockAndSettle, next, openAt, typeWindow } from './helpers';
+import { collectErrors, DAY2, lockAndSettle, next, openAt, typeWindow, startDailyIfNeeded } from './helpers';
 
 // Day 2 (content/days/2026-11-16.json) opens with Barry Bonds; day 3 with the 1995–96 Bulls.
 const BONDS = 'Barry Bonds';
@@ -87,6 +87,7 @@ test('future, malformed and tampered links fall back to today without leaking an
 test('a run in progress at Eastern midnight is finished on its own day, then today opens', async ({ page }) => {
   await page.clock.install({ time: new Date('2026-11-16T04:59:50Z') });
   await page.goto('/');
+  await startDailyIfNeeded(page);
   await expect(page.locator('.question')).toBeVisible();
   await expect(page.locator('.day-label')).toHaveText('No. 1');
   await lockAndSettle(page);

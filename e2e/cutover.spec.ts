@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
-import { collectErrors, lockAndSettle, NBA_CUTOVER, NBA_DAYS, next, openAt } from './helpers';
+import { collectErrors, lockAndSettle, NBA_CUTOVER, NBA_DAYS, next, openAt, startDailyIfNeeded } from './helpers';
 import { puzzleStartUtcMs } from '../src/engine/daily';
 
 /**
@@ -40,6 +40,7 @@ test('an unfinished mixed-sport run at midnight is finished on its own day, then
   const errors = collectErrors(page);
   await page.clock.install({ time: new Date(puzzleStartUtcMs(NBA_CUTOVER) - 10_000) });
   await page.goto('/');
+  await startDailyIfNeeded(page);
   await expect(page.locator('.question')).toContainText(lastMixed.questions[0]!.prompt);
   await lockAndSettle(page);
   await next(page);
@@ -58,6 +59,7 @@ test('an unfinished mixed-sport run at midnight is finished on its own day, then
 test('a tab idle on the finished mixed day moves to the NBA day at midnight', async ({ page }) => {
   await page.clock.install({ time: new Date(puzzleStartUtcMs(NBA_CUTOVER) - 10 * 60_000) });
   await page.goto('/');
+  await startDailyIfNeeded(page);
   await expect(page.locator('.question')).toBeVisible();
   await playOut(page);
   await page.clock.fastForward('11:00');
@@ -92,6 +94,7 @@ test('a tab from before a deploy reloads once when its day file has gone, then p
   });
   await page.clock.setFixedTime(new Date(`${NBA_CUTOVER}T12:00:00Z`));
   await page.goto('/');
+  await startDailyIfNeeded(page);
   await expect(page.locator('.question')).toContainText(firstNba.questions[0]!.prompt);
   expect(refused).toBe(1);
 });
@@ -102,6 +105,7 @@ test('a day file that stays missing does not reload forever', async ({ page }) =
   await page.route(/\/assets\/\d{4}-\d{2}-\d{2}-[^/]+\.js$/, (route) => route.fulfill({ status: 404, body: 'gone' }));
   await page.clock.setFixedTime(new Date(`${NBA_CUTOVER}T12:00:00Z`));
   await page.goto('/');
+  await startDailyIfNeeded(page);
   await expect(page.locator('.results-title')).toBeVisible();
   await page.waitForTimeout(1500);
   expect(loads).toBeLessThanOrEqual(2);

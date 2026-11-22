@@ -96,6 +96,20 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     const limitedDelete=await sample(REMOVE_LUA,limitedDeleteKeys,[caps[2]!,member]);
     expect(limitedDelete.status).toBe('limited');
     expect(limitedDelete.billed).toBe(2);
+    // A paused request is also billable. Verify the charged script path is
+    // bounded and never mutates the corresponding budget or leaderboard.
+    const pausedRead=await sample(READ_LUA,[...readKeys.slice(0,4),`${p}:read:minute:paused`,`${p}:read:day:paused`,...readKeys.slice(6)],[0,caps[1]!,'']);
+    expect(pausedRead.status).toBe('paused');
+    expect(pausedRead.billed).toBeLessThanOrEqual(24);
+    const pausedPostKeys=writeKeys(scope,day2,'paused');
+    const pausedPost=await sample(SUBMIT_LUA,pausedPostKeys,[100,day2,0,caps[1]!,member,...expiration(day2)]);
+    expect(pausedPost.status).toBe('paused');
+    expect(pausedPost.billed).toBeLessThanOrEqual(55);
+    expect(await client.command(['ZSCORE',boards(p,day2,null)[0]!,member])).toBeNull();
+    const pausedDeleteKeys=[...deleteKeys.slice(0,3),`${p}:delete:minute:paused`,`${p}:delete:day:paused`,...deleteKeys.slice(5)];
+    const pausedDelete=await sample(REMOVE_LUA,pausedDeleteKeys,[0,member]);
+    expect(pausedDelete.status).toBe('paused');
+    expect(pausedDelete.billed).toBeLessThanOrEqual(18);
   });
 
 

@@ -45,13 +45,13 @@ Upstash database setting and test the production-shaped EVAL via REST before
 activation; this source-level finding is not an executed vendor test.
 Reference: https://upstash.com/docs/redis/features/key-locking
 
-## Remaining blockers
+## Remaining release gates
 
-- Validate fixed EXPIREAT lifecycle in real Redis, including post-inactivity erasure and all-period deletion. Existing pre-migration keys require a migration/cleanup plan before activation.
-- Need real Redis Lua integration tests for 20-way same-member races, rollovers, deletion, TTL and budgets. No tests or CI are claimed green by this worker.
-- Need days-played counts and securely authenticated own-rank; currently public top-20 only.
-- Need stronger GET/POST/DELETE network rate caps, GPC/DNT handling and privacy copy aligned with actual retention.
-- Need independent security/privacy/cost PASS on the exact integration SHA, plus verified Upstash billing and aggregate quota headroom.
+- **Execute, do not merely inspect,** the authored Redis 7 suite covering concurrent submissions, block rollovers, deletion/revocation, rate caps, retention, TTL and shared budgets. No real Redis test or complete CI pass is claimed by this worker.
+- Validate the real Upstash REST EVAL behavior, the database's Lua Strict Key Locking setting, and actual vendor commands for GET/POST/DELETE and rate-limit/failed/no-record requests. The 500K Free monthly aggregate includes operations outside these scripts.
+- The code now implements read-only personal rank/days, explicit client opt-in, bounded network caps and updated public privacy disclosures. **Browser and independent security/privacy/cost verification are still required**, including GPC/DNT, header privacy, failure paths and erasure races.
+- Verify all existing unpartitioned `player:<member>` data was absent or was migrated/cleaned before enabling: the legacy guard fails closed when an old ledger still exists, but cannot reconstruct an already-expired ledger.
+- Obtain independent critic PASS at the exact integrated candidate SHA, full green CI, free-tier headroom and explicit release authorization. Until then, keep `LEADERBOARDS_ENABLED` unset.
 
 Do not enable LEADERBOARDS_ENABLED or merge as release-ready on this evidence alone.
 

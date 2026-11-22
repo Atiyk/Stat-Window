@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-wilt62-week-average",
+      "id": "nba-bird85-hawks-sixty",
       "sport": "NBA",
-      "prompt": "In the week of his 100-point game, what did Wilt average over four games?",
-      "context": "Philadelphia Warriors · March 1962",
-      "answer": 73,
+      "prompt": "When Larry Bird caught fire against Atlanta in March 1985, how many points did he score?",
+      "context": "Larry Bird · Celtics at Hawks · March 1985",
+      "answer": 60,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 20,
-      "max": 100,
+      "min": 10,
+      "max": 130,
       "step": 1,
-      "note": "73 points a game, topping 60 every time.",
+      "note": "60 points—just nine days after teammate Kevin McHale had scored 56.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-        "quote": "He averaged 73 points in four games that week"
+        "url": "https://en.wikipedia.org/wiki/Larry_Bird",
+        "quote": "Bird scored a career-high and franchise record 60 points in a game against the Atlanta Hawks."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "In the three earlier games that week, Wilt had already scored enormous totals on successive nights.",
+          "text": "Kevin McHale had scored 56 only nine days earlier.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-            "quote": "In three earlier games that week, Chamberlain had scored 67, 65, and 61 points respectively"
+            "url": "https://en.wikipedia.org/wiki/Larry_Bird",
+            "quote": "The performance came just nine days after Kevin McHale set the previous Celtics record for points in a game with 56"
           }
         },
         {
-          "text": "Coach Frank McGuire built the Warriors offense around feeding his towering center at every opportunity.",
+          "text": "Bird won his second straight MVP that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-            "quote": "started the season vowing to get the ball to Chamberlain \"two-thirds of the time.\""
+            "url": "https://en.wikipedia.org/wiki/Larry_Bird",
+            "quote": "Bird was named MVP for the second consecutive season"
           }
         },
         {
-          "text": "Wilt was close to an unprecedented season scoring total; no other player had reached even three thousand at that point.",
+          "text": "He hit a playoff career-high 43 later that spring.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-            "quote": "no other player had ever scored 3,000 points at that point"
+            "url": "https://en.wikipedia.org/wiki/Larry_Bird",
+            "quote": "Bird scored his playoff career-high 43 points against the Detroit Pistons"
           }
         }
       ]

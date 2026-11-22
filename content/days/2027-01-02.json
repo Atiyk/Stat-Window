@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-powe08-g2",
+      "id": "nba-isiah88-finals-injured-quarter-25",
       "sport": "NBA",
-      "prompt": "Reserve Leon Powe played only 15 minutes in Game 2 of the 2008 Finals. How many points did he score?",
-      "context": "2008 NBA Finals · Game 2 · vs Lakers",
-      "answer": 21,
+      "prompt": "After badly spraining his ankle in 1988 Finals Game 6, how many third-quarter points did Isiah Thomas score?",
+      "context": "Isiah Thomas · Pistons at Lakers · 1988 Finals Game 6",
+      "answer": 25,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
       "min": 0,
-      "max": 32,
+      "max": 70,
       "step": 1,
-      "note": "21, on 6-of-7 shooting.",
+      "note": "25 points in one quarter on a badly hurt ankle. Detroit lost that game by a single point.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-        "quote": "Leon Powe scored 21 points on 6–7 shooting from the field and 9–13 from the line in 15 minutes of play"
+        "url": "https://en.wikipedia.org/wiki/1988_NBA_Finals",
+        "quote": "Thomas, with his bad ankle, scored 11 of the Pistons' last 15 points of the quarter to finish with 25"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Powe's physical first stint drew ten free-throw attempts almost immediately.",
+          "text": "He scored Detroit's next 14 points during his early burst.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "drew ten free-throw attempts within his first three minutes on the court"
+            "url": "https://en.wikipedia.org/wiki/1988_NBA_Finals",
+            "quote": "He scored his team's next 14 points"
           }
         },
         {
-          "text": "His consecutive thunderous dunks had the home crowd chanting his name.",
+          "text": "He returned from the ankle injury with 3:44 left in the quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "back-to-back dunks in the last minute of the 3rd quarter, causing the Boston crowd to chant his name"
+            "url": "https://en.wikipedia.org/wiki/1988_NBA_Finals",
+            "quote": "Thomas returned to the game with 3:44 left"
           }
         },
         {
-          "text": "Powe alone attempted more free throws than the entire Lakers roster in Game 2.",
+          "text": "Isiah still put up 43 total points and eight assists.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "Over the course of the game, Powe shot 13 free throws while the Lakers shot 10"
+            "url": "https://en.wikipedia.org/wiki/1988_NBA_Finals",
+            "quote": "Thomas had 43 points and eight assists despite his ankle injury"
           }
         }
       ]

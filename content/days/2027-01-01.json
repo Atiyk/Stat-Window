@@ -109,23 +109,23 @@
       ]
     },
     {
-      "id": "nba-hawks86-third-quarter",
+      "id": "nba-sprewell99-g5",
       "sport": "NBA",
-      "prompt": "Boston routed Atlanta 132–99 in the 1986 East semifinals. How many points did the Hawks score in the third quarter?",
-      "context": "1986 East semifinals · Celtics vs Hawks",
-      "answer": 6,
+      "prompt": "The Knicks scored 39 second-half points in the 1999 clincher. How many were Latrell Sprewell's?",
+      "context": "1999 NBA Finals · Game 5 · vs San Antonio",
+      "answer": 25,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
       "min": 0,
-      "max": 26,
+      "max": 39,
       "step": 1,
-      "note": "Six, as Boston won the quarter 36–6.",
+      "note": "25 of the 39.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-        "quote": "Boston outscored Atlanta 36–6 in the third quarter in route to a 132–99 victory."
+        "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+        "quote": "The Knicks scored 39 points in the second half, and Latrell Sprewell scored 25 of them"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,27 +134,27 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Before that Hawks blowout, Boston had already swept Michael Jordan's Bulls in the first round.",
+          "text": "An Avery Johnson jumper became the championship-clinching basket as the Knicks fell just short.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-            "quote": "Boston needed just three games to defeat the Chicago Bulls in the first round"
+            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+            "quote": "Avery Johnson hit the game-winner with 66 seconds remaining"
           }
         },
         {
-          "text": "The Celtics subsequently swept Milwaukee to reach the championship round without a conference-finals loss.",
+          "text": "New York's Cinderella run came without injured franchise center Patrick Ewing.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-            "quote": "in the conference finals, Boston swept the Milwaukee Bucks in four games"
+            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+            "quote": "Patrick Ewing (2008; did not play)"
           }
         },
         {
-          "text": "That season's championship series marked the first official use of the 'NBA Finals' branding.",
+          "text": "The Knicks came from the last East playoff seed and still won a Finals game at Madison Square Garden.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-            "quote": "this series marked the first time the \"NBA Finals\" branding was officially used"
+            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+            "quote": "the first time an eighth-seeded team won an NBA Finals game"
           }
         }
       ]
@@ -185,7 +185,7 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Billups shot better than 50% from the field and over 47% from three during the championship series.",
+          "text": "Billups was exceptionally efficient during the title run, shooting over 47% from three.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-rockets08-streak",
+      "id": "nba-rose18-emotional-fifty",
       "sport": "NBA",
-      "prompt": "The 2007–08 Rockets won how many games in a row, then the second-longest streak ever?",
-      "context": "Houston Rockets · 2007–08",
-      "answer": 22,
+      "prompt": "After years of injuries, Derrick Rose's emotional Halloween 2018 comeback against Utah ended with how many points?",
+      "context": "Derrick Rose · Timberwolves vs Jazz · October 2018",
+      "answer": 50,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 10,
-      "max": 42,
+      "max": 110,
       "step": 1,
-      "note": "22.",
+      "note": "50 points. Rose blocked Utah's last attempt, then left the court in tears.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
-        "quote": "the Rockets went on a 22-game winning streak, which was the then-second longest in NBA history"
+        "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+        "quote": "Rose scored a career-high 50 points in a 128–125 win over the Utah Jazz"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Yao Ming missed part of Houston's long streak, leaving a patchwork roster to keep winning without its star center.",
+          "text": "Rose sealed the win with a block on Utah's final shot.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
-            "quote": "despite missing Yao Ming during that stretch"
+            "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+            "quote": "securing the victory with a block on Utah's final shot as time expired"
           }
         },
         {
-          "text": "Houston finished fifth in the West and drew a first-round rematch with the Utah Jazz.",
+          "text": "He shot 19-for-31 in 41 minutes.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
-            "quote": "Houston finished the season as the West's fifth seed, earning them a rematch with the Jazz in the first round"
+            "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+            "quote": "Rose shot 19-of-31 in 41 minutes on the court"
           }
         },
         {
-          "text": "McGrady scored forty in the decisive playoff Game 6, but Utah still eliminated Houston.",
+          "text": "His teammates mobbed him as he cried after the buzzer.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
-            "quote": "a strong 40-point and 10-rebound performance from McGrady in the decisive Game 6"
+            "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+            "quote": "an emotional Rose burst into tears as his teammates swarmed him"
           }
         }
       ]

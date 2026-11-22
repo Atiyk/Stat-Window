@@ -112,7 +112,11 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
   };
   useEffect(() => {
     let startedAt: number | null = null;
-    if (timed) {
+    // Restoring a saved reveal must not create a new clock for a question
+    // that is already locked. Doing so leaves a stale timestamp behind
+    // and can instantly expire a later fresh replay of this puzzle.
+    const needsClock = timed && (state.phase === 'ready' || state.phase === 'adjusting');
+    if (needsClock) {
       try {
         const raw = window.sessionStorage.getItem(shotKey);
         const value = raw === null ? NaN : Number(raw);
@@ -124,7 +128,7 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
         rememberStart(startedAt);
       }
     }
-    shot.current = { startedAt, stopped: false };
+    shot.current = { startedAt, stopped: !needsClock };
     setSecondsLeft(startedAt === null ? 24 : Math.ceil(Math.max(0, SHOT_CLOCK_MS - (Date.now() - startedAt)) / 1000));
     // A changed first-touch hint must never restart the clock.
     // eslint-disable-next-line react-hooks/exhaustive-deps

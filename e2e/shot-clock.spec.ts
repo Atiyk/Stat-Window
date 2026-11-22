@@ -112,3 +112,26 @@ test('Q2 countdown begins on Next without touching the window', async ({ page })
   await page.clock.runFor(2500);
   await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');
 });
+
+test('opening and abandoning the tutorial does not start the clock or a scored run', async ({ page }) => {
+  await page.clock.install({ time: DAY1 });
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: 'Catch the number.' })).toBeVisible();
+  await expect(page.locator('.question')).toHaveCount(0);
+  const before = await page.evaluate(() => ({
+    deadline: sessionStorage.getItem('stat-window:shot:v1:nba-gsw-2016-wins'),
+    sent: JSON.parse(localStorage.getItem('stat-window:sent') || '{}') as Record<string,string>,
+  }));
+  expect(before.deadline).toBeNull();
+  expect(Object.keys(before.sent).some(key => key.startsWith('start:'))).toBe(false);
+  await page.reload();
+  await expect(page.getByRole('heading', { name: 'Catch the number.' })).toBeVisible();
+  await page.getByRole('button', { name: 'Skip tutorial and start' }).click();
+  await expect(page.locator('.question')).toBeVisible();
+  const after = await page.evaluate(() => ({
+    deadline: sessionStorage.getItem('stat-window:shot:v1:nba-gsw-2016-wins'),
+    sent: JSON.parse(localStorage.getItem('stat-window:sent') || '{}') as Record<string,string>,
+  }));
+  expect(after.deadline).not.toBeNull();
+  expect(Object.keys(after.sent).filter(key => key.startsWith('start:'))).toHaveLength(1);
+});

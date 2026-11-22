@@ -364,6 +364,7 @@ function Game(props: {
   const start = () => {
     // Persist before mounting Q1 so an immediate refresh cannot grant fresh time.
     try { if (!window.sessionStorage.getItem(firstShotKey)) window.sessionStorage.setItem(firstShotKey, String(Date.now())); } catch { /* private mode fallback */ }
+    trackOnce(`start:${playMode}:${session.kind}:${session.day}`, today, { name: 'run_start', mode: playMode });
     props.onWindowActive(); setStarted(true);
   };
 
@@ -386,13 +387,6 @@ function Game(props: {
   }, [store, session.day, session.kind, state.results, advanced]);
 
   const pub = publicNumber(session.day, SEASON);
-  useEffect(() => {
-    if (state.results.length === 0) {
-      trackOnce(`start:${playMode}:${session.kind}:${session.day}`, today, { name: 'run_start', mode: playMode });
-    }
-    // Only on mount of a fresh run.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   useEffect(() => {
     if (state.phase === 'complete') props.onRunComplete();
   }, [state.phase, props.onRunComplete]);

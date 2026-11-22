@@ -68,6 +68,7 @@ test.describe('real leaderboard UI fail-closed and consent states', () => {
     expect(submits).toBe(1);
     for(const period of ['week','month','season'] as const){
       await page.getByRole('button',{name:period[0].toUpperCase()+period.slice(1),exact:true}).click();
+      await expect.poll(()=>queried.includes(period)).toBe(true);
       await expect(page.getByText(/Your rank: #2/)).toBeVisible();
     }
     expect(queried).toEqual(expect.arrayContaining(['day','week','month','season']));

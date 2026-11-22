@@ -2,7 +2,7 @@
 
 ## When asked to audit, coordinate, test, fix or release the app
 
-Follow [docs/RELEASE-ORCHESTRATION.md](docs/RELEASE-ORCHESTRATION.md). One manager owns the integration candidate; checks are bounded and evidence-backed. Independent critic sign-off is a release gate. Do not claim CI or browser testing passed if it did not, and do not represent manager self-review as an independent agent. Prefer one comprehensive PR and one coordinated production deploy.
+Follow [docs/RELEASE-ORCHESTRATION.md](docs/RELEASE-ORCHESTRATION.md). For the new V3 sprint also read [docs/V3-MULTI-AGENT-EXECUTION.md](docs/V3-MULTI-AGENT-EXECUTION.md) and its separate worker ownership boundaries. One manager owns the integration candidate; checks are bounded and evidence-backed. Independent critic sign-off is a release gate. Do not claim CI or browser testing passed if it did not, and do not represent manager self-review as an independent agent. Prefer one comprehensive PR and one coordinated production deploy.
 
 ## When asked to add questions, daily games, sports, or Survival content
 

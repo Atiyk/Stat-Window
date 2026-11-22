@@ -161,12 +161,16 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
   useEffect(() => {
     setProgress(0);
     setShownPoints(0);
+    // After the Start CTA, Q1 must receive focus too. Keep Survival's own
+    // first-round focus behavior unchanged.
+    if (timed || state.round > 0 || state.results.length > 0) headingRef.current?.focus({ preventScroll: true });
     if (state.round > 0 || state.results.length > 0) {
-      headingRef.current?.focus({ preventScroll: true });
       // The previous round may have left the page scrolled down to its fact; start the new one at the top.
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
-  }, [state.round]);
+    // State changes during a reveal must not unexpectedly steal focus.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.round, timed]);
 
   // locked → (brief clamp) → revealing
   useEffect(() => {

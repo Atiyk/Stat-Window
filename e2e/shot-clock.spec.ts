@@ -214,12 +214,22 @@ test('reduced-motion first-play practice preserves focus and layout across five 
 test('second tab inherits the unfinished daily shot-clock deadline instead of a free 24 seconds', async ({ page, context }) => {
   await openTimed(page);
   await page.clock.fastForward('00:10');
+  const snapshot = (tab: Page) => tab.evaluate(() => ({
+    now: Date.now(),
+    shared: localStorage.getItem('stat-window:shot:daily:v1:2026-11-15:nba-gsw-2016-wins'),
+    session: sessionStorage.getItem('stat-window:shot:v1:nba-gsw-2016-wins'),
+    allShared: Object.keys(localStorage).filter(k => k.startsWith('stat-window:shot:')),
+  }));
+  const first = await snapshot(page);
   const second = await context.newPage();
   try {
     await second.clock.install({ time: new Date(DAY1.getTime() + 10_000) });
     await second.goto('/');
+    const before = await snapshot(second);
     await startDailyIfNeeded(second);
     await expect(second.locator('.question')).toBeVisible();
+    const after = await snapshot(second);
+    console.log('CROSS_TAB_DIAGNOSTIC', JSON.stringify({first, before, after}));
     const remain = Number((await second.locator('.shot-clock').textContent())?.match(/(\d+)s/)?.[1]);
     expect(remain).toBeGreaterThanOrEqual(13);
     expect(remain).toBeLessThanOrEqual(15);

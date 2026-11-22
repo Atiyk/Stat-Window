@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-finals10-g7-viewers",
+      "id": "nba-clippers19-warriors-g2-31-comeback",
       "sport": "NBA",
-      "prompt": "On average, how many million viewers watched Game 7 of the 2010 Finals?",
-      "context": "2010 NBA Finals · Game 7 · US television",
-      "answer": 28.2,
+      "prompt": "When the underdog Clippers stunned the dynasty Warriors in 2019 playoff Game 2, how far behind had L.A. fallen?",
+      "context": "Los Angeles Clippers at Warriors · 2019 first round",
+      "answer": 31,
       "unit": {
-        "singular": "million viewers",
-        "plural": "million viewers"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 38,
-      "step": 0.1,
-      "note": "28.2 million.",
+      "max": 75,
+      "step": 1,
+      "note": "31 points down! The Clippers stole a comeback win in Golden State's own arena.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-        "quote": "Game 7 had the highest average number of viewers with 28.2 million"
+        "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+        "quote": "overcoming a 31-point deficit, the largest comeback in NBA playoff history."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "ABC's Finals broadcast booth paired Mike Breen with Mark Jackson and Jeff Van Gundy.",
+          "text": "The comeback began after the Clippers fell far behind late in the third quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "Mike Breen, Mark Jackson and Jeff Van Gundy provided commentary for the games"
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "The Clippers trailed 94–63 with 7:31 remaining in the third quarter of Game 2."
           }
         },
         {
-          "text": "Boston starting center Kendrick Perkins sat out the decider after tearing two knee ligaments.",
+          "text": "Los Angeles overwhelmed Golden State on the scoreboard afterward.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "Perkins tore both his PCL and MCL, and he was ruled out for Game 7"
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "They would go on to outscore Golden State 72–37 en route to overcoming a 31-point deficit"
           }
         },
         {
-          "text": "The deciding contest was the first Finals Game 7 since the Spurs and Pistons reached one in 2005.",
+          "text": "The Clippers pulled off their upset against the defending champions.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "This game was the first Game 7 in an NBA Finals since 2005"
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "In Game 2 of their series against the reigning champion Golden State Warriors"
           }
         }
       ]

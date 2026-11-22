@@ -310,7 +310,10 @@
       "era": "2010s",
       "steps": 100,
       "day": "2026-11-23",
-      "notBefore": "2026-11-24"
+      "notBefore": "2027-01-24",
+      "leaks": [
+        "nba-clippers19-warriors-g2-31-comeback"
+      ]
     },
     "nba-spurs99-wins": {
       "tier": "hard",
@@ -1576,12 +1579,11 @@
       "era": "2020s",
       "steps": 12,
       "day": "2026-12-19",
-      "notBefore": "2027-01-25",
+      "notBefore": "2026-12-22",
       "leaks": [
         "nba-mavs20-halftime-lead",
         "nba-giannis21-g6",
-        "nba-suns21-g1-ft",
-        "nba-paul21-seasons"
+        "nba-suns21-g1-ft"
       ]
     },
     "nba-sixers01-opening-streak": {
@@ -3260,12 +3262,12 @@
       "day": "2027-01-23",
       "notBefore": "2027-01-24"
     },
-    "nba-finals10-g7-viewers": {
+    "nba-clippers19-warriors-g2-31-comeback": {
       "tier": "expert",
-      "family": "viewership",
-      "franchise": null,
-      "era": "2000s",
-      "steps": 380,
+      "family": "comeback",
+      "franchise": "LAC",
+      "era": "2010s",
+      "steps": 75,
       "day": "2027-01-23",
       "notBefore": "2027-01-24"
     },
@@ -3308,12 +3310,12 @@
       "day": "2027-01-24",
       "notBefore": "2027-01-25"
     },
-    "nba-paul21-seasons": {
+    "nba-kings23-light-beam-sixteen-drought": {
       "tier": "expert",
       "family": "seasons-count",
-      "franchise": "PHX",
+      "franchise": "SAC",
       "era": "2020s",
-      "steps": 18,
+      "steps": 35,
       "day": "2027-01-24",
       "notBefore": "2027-01-25"
     },
@@ -3356,12 +3358,12 @@
       "day": "2027-01-25",
       "notBefore": "2027-01-26"
     },
-    "nba-lakers04-g3-68": {
+    "nba-mavs24-finals-g4-blowout-margin": {
       "tier": "expert",
-      "family": "points-team-game",
-      "franchise": "LAL",
-      "era": "2000s",
-      "steps": 65,
+      "family": "margin",
+      "franchise": "DAL",
+      "era": "2020s",
+      "steps": 90,
       "day": "2027-01-25",
       "notBefore": "2027-01-26"
     },
@@ -3407,12 +3409,12 @@
       "day": "2027-01-26",
       "notBefore": "2027-01-27"
     },
-    "nba-finals22-g1-threes": {
+    "nba-blazers19-nuggets-game3-four-overtimes": {
       "tier": "expert",
-      "family": "threes-combined",
-      "franchise": null,
-      "era": "2020s",
-      "steps": 42,
+      "family": "overtimes",
+      "franchise": "POR",
+      "era": "2010s",
+      "steps": 9,
       "day": "2027-01-26",
       "notBefore": "2027-01-27"
     },
@@ -3452,12 +3454,12 @@
       "day": "2027-01-27",
       "notBefore": "2027-01-28"
     },
-    "nba-james09-magic-g1-points": {
+    "nba-shaq00-birthday-clippers-sixtyone": {
       "tier": "expert",
       "family": "points-game",
-      "franchise": "CLE",
-      "era": "2000s",
-      "steps": 48,
+      "franchise": "LAL",
+      "era": "1990s",
+      "steps": 130,
       "day": "2027-01-27",
       "notBefore": "2027-01-28"
     },
@@ -3529,7 +3531,10 @@
       "era": "2010s",
       "steps": 50,
       "day": null,
-      "notBefore": null
+      "notBefore": "2027-01-24",
+      "leaks": [
+        "nba-clippers19-warriors-g2-31-comeback"
+      ]
     },
     "nba-kobe-three-titles-age": {
       "tier": "medium",
@@ -3957,6 +3962,51 @@
       "steps": 22,
       "day": null,
       "notBefore": "2027-01-23"
+    },
+    "nba-finals10-g7-viewers": {
+      "tier": "expert",
+      "family": "viewership",
+      "franchise": null,
+      "era": "2000s",
+      "steps": 380,
+      "day": null,
+      "notBefore": "2027-01-24"
+    },
+    "nba-paul21-seasons": {
+      "tier": "expert",
+      "family": "seasons-count",
+      "franchise": "PHX",
+      "era": "2020s",
+      "steps": 18,
+      "day": null,
+      "notBefore": "2027-01-25"
+    },
+    "nba-lakers04-g3-68": {
+      "tier": "expert",
+      "family": "points-team-game",
+      "franchise": "LAL",
+      "era": "2000s",
+      "steps": 65,
+      "day": null,
+      "notBefore": "2027-01-26"
+    },
+    "nba-finals22-g1-threes": {
+      "tier": "expert",
+      "family": "threes-combined",
+      "franchise": null,
+      "era": "2020s",
+      "steps": 42,
+      "day": null,
+      "notBefore": "2027-01-27"
+    },
+    "nba-james09-magic-g1-points": {
+      "tier": "expert",
+      "family": "points-game",
+      "franchise": "CLE",
+      "era": "2000s",
+      "steps": 48,
+      "day": null,
+      "notBefore": "2027-01-28"
     }
   },
   "reserves": [
@@ -5882,6 +5932,261 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
             "quote": "the Lakers, who were led by the All-Star trio of Shaquille O'Neal, Kobe Bryant and Glen Rice"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-finals10-g7-viewers",
+      "sport": "NBA",
+      "prompt": "On average, how many million viewers watched Game 7 of the 2010 Finals?",
+      "context": "2010 NBA Finals · Game 7 · US television",
+      "answer": 28.2,
+      "unit": {
+        "singular": "million viewers",
+        "plural": "million viewers"
+      },
+      "min": 0,
+      "max": 38,
+      "step": 0.1,
+      "note": "28.2 million.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+        "quote": "Game 7 had the highest average number of viewers with 28.2 million"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "ABC's Finals broadcast booth paired Mike Breen with Mark Jackson and Jeff Van Gundy.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "Mike Breen, Mark Jackson and Jeff Van Gundy provided commentary for the games"
+          }
+        },
+        {
+          "text": "Boston starting center Kendrick Perkins sat out the decider after tearing two knee ligaments.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "Perkins tore both his PCL and MCL, and he was ruled out for Game 7"
+          }
+        },
+        {
+          "text": "The deciding contest was the first Finals Game 7 since the Spurs and Pistons reached one in 2005.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "This game was the first Game 7 in an NBA Finals since 2005"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-paul21-seasons",
+      "sport": "NBA",
+      "prompt": "Chris Paul reached his first Finals in 2021. How many NBA seasons had he played by then?",
+      "context": "Phoenix Suns · 2021 NBA Finals",
+      "answer": 16,
+      "unit": {
+        "singular": "season",
+        "plural": "seasons"
+      },
+      "min": 2,
+      "max": 20,
+      "step": 1,
+      "note": "16, with 10 All-NBA selections.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+        "quote": "At 36 years old, Paul made his first Finals appearance after 16 seasons in the league and 10 All-NBA selections."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Paul arrived in Phoenix via an offseason trade from Oklahoma City, part of the Suns' rapid turnaround.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "the Suns' Chris Paul, acquired from the Oklahoma City Thunder in the offseason"
+          }
+        },
+        {
+          "text": "The Bucks and Suns were both expansion franchises that began playing in the same year.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "Phoenix and Milwaukee each began play as expansion teams in 1968"
+          }
+        },
+        {
+          "text": "Paul became the first player ever to lose four NBA playoff series after holding a two-games-to-none lead.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "Paul became the first player in NBA playoff history to lose four series in which his team led 2–0"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-lakers04-g3-68",
+      "sport": "NBA",
+      "prompt": "How many points did Detroit hold the Lakers to in Game 3 of the 2004 Finals?",
+      "context": "2004 NBA Finals · Game 3 · at Detroit",
+      "answer": 68,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 30,
+      "max": 95,
+      "step": 1,
+      "note": "68, in an 88–68 loss.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+        "quote": "The 68 points scored by the Lakers set a franchise record for the lowest number of points scored in a playoff game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Tayshaun Prince and Detroit's defense held Kobe Bryant scoreless in the first half.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "with Bryant going scoreless in the first half"
+          }
+        },
+        {
+          "text": "Richard Hamilton led all scorers with 31 points in the pivotal Game 3 victory.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "Pts: Richard Hamilton 31"
+          }
+        },
+        {
+          "text": "Detroit ultimately won the championship series in five games against the favored Lakers.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "Detroit wins NBA Finals, 4–1"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-finals22-g1-threes",
+      "sport": "NBA",
+      "prompt": "Boston and Golden State set a Finals record for combined threes in Game 1 of 2022. How many?",
+      "context": "2022 NBA Finals · Game 1 · at Golden State",
+      "answer": 40,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
+      },
+      "min": 8,
+      "max": 50,
+      "step": 1,
+      "note": "40.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+        "quote": "Both teams made a combined 40 three-pointers, the most ever in an NBA Finals game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Al Horford finally reached his first Finals after years of playoff appearances, then led Boston's scoring in the opener.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+            "quote": "After playing 141 playoff games without an NBA Finals appearance"
+          }
+        },
+        {
+          "text": "The Celtics rallied in the fourth quarter after facing a double-digit deficit against the Warriors.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+            "quote": "the Celtics outscored the Warriors 40–16"
+          }
+        },
+        {
+          "text": "Jayson Tatum struggled to shoot in the opener but set a Finals-debut record for assists.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+            "quote": "the most ever for a player in his Finals debut"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-james09-magic-g1-points",
+      "sport": "NBA",
+      "prompt": "How many points did LeBron score in Game 1 of the 2009 Eastern finals?",
+      "context": "Cleveland vs Orlando · Eastern Conference finals · Game 1",
+      "answer": 49,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 21,
+      "max": 69,
+      "step": 1,
+      "note": "49 points, but Orlando won the opener by one.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+        "quote": "May 20 Orlando L 106–107 LeBron James (49)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Cleveland swept both Detroit and Atlanta before the Eastern Conference finals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "the Cavaliers swept the Detroit Pistons in the First Round in four games, swept the Atlanta Hawks in the Semifinals in four games"
+          }
+        },
+        {
+          "text": "LeBron averaged a remarkable 35.3 points during Cleveland's entire playoff run.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "LeBron James | 14 | 14 | 41.4 | .510 | .333 | .749 | 9.1 | 7.3 | 1.6 | .9 | 35.3"
+          }
+        },
+        {
+          "text": "The Magic eventually reached the NBA Finals but lost to Kobe Bryant's Lakers.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "The Magic would go on to lose to the Los Angeles Lakers in the NBA Finals in five games."
           }
         }
       ]

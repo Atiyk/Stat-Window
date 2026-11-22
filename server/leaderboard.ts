@@ -77,7 +77,7 @@ export type LBStore = {
   submit(keys: string[], member: string, day: string, score: number, caps: number[], expiries: number[]): Promise<'stored'|'duplicate'|'limited'|'paused'|'revoked'>;
   remove(keys: string[], member: string, caps: number[]): Promise<'removed'|'nothing'|'limited'|'paused'>;
 };
-export type LBContext = { enabled: boolean; store: LBStore | null; secret: string; env: string; launchDay: string | null; now:()=>Date; loadSlate:(day:string)=>Promise<ServerSlate|null>; allowedOrigins: string[]; caps: number[] };
+export type LBContext = { enabled: boolean; eraseEnabled: boolean; store: LBStore | null; secret: string; env: string; launchDay: string | null; now:()=>Date; loadSlate:(day:string)=>Promise<ServerSlate|null>; allowedOrigins: string[]; caps: number[] };
 export function periodKey(period: Period, day: string, launchDay: string|null): string {
   if (!DAY.test(day) || Number.isNaN(Date.parse(day+'T00:00:00Z'))) throw new RangeError('invalid day');
   if (period === 'day') return day;
@@ -124,7 +124,10 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
   if(req.headers.get('sec-fetch-site')==='cross-site')return json(403,{status:'origin'});
   const origin=req.headers.get('origin');
   if(origin) { try { const o=new URL(origin); if(o.host!==(req.headers.get('x-forwarded-host')??req.headers.get('host')??new URL(req.url).host)&&!ctx.allowedOrigins.includes(o.origin))return json(403,{status:'origin'}); }catch{return json(403,{status:'origin'});} }
-  if(!ctx.store||!ctx.secret||!ctx.env||(!ctx.enabled&&req.method!=='DELETE'))return json(503,{status:'disabled'});
+  // DELETE is not a public escape hatch when the leaderboard was never live.
+  // A separately approved erasure-only mode preserves deletion after shutdown
+  // without exposing a billable, anonymous Lua endpoint during an OFF launch.
+  if(!ctx.store||!ctx.secret||!ctx.env||(req.method==='DELETE'?!ctx.eraseEnabled:!ctx.enabled))return json(503,{status:'disabled'});
   const now=ctx.now(), today=puzzleDay(now), prefix='sw:v3:'+ctx.env,utc=now.toISOString().slice(0,10);
   const budget=[ 'sw:v1:budget:d:'+utc,'sw:v1:budget:m:'+utc.slice(0,7),'sw:v1:budget:e:'+utc.slice(0,7),prefix+':budget:m:'+utc.slice(0,7) ];
   // Never trust the user-controlled leftmost X-Forwarded-For address for throttling.
@@ -192,7 +195,12 @@ export function leaderboardContext(env:Record<string,string|undefined>,store:LBS
   const ns=env.VERCEL_ENV==='production'?'production':env.VERCEL_ENV==='preview'?'preview':env.VERCEL==='1'?'':'development';
   const secret=env.SCORE_HASH_SECRET&& (env.VERCEL!=='1'||env.SCORE_HASH_SECRET.length>=32)?env.SCORE_HASH_SECRET:env.VERCEL==='1'?'':'local-dev-only';
   const day=Math.min(1000,Number(env.LEADERBOARDS_DAILY_BUDGET)||0),month=Math.min(20000,Number(env.LEADERBOARDS_MONTHLY_BUDGET)||0),erase=Math.min(10000,Number(env.LEADERBOARDS_ERASE_BUDGET)||0);
-  return {enabled:env.LEADERBOARDS_ENABLED==='1'&&env.SCORES_ENABLED==='1'&&!!ns&&!!secret&&day>=LB_COST.submit&&month>=LB_COST.submit&&erase>=MIN_ERASE_SUBCAP,
+  const enabled=env.LEADERBOARDS_ENABLED==='1'&&env.SCORES_ENABLED==='1'&&!!ns&&!!secret&&day>=LB_COST.submit&&month>=LB_COST.submit&&erase>=MIN_ERASE_SUBCAP;
+  // For a real service shutdown only, retain lawful erasure without turning on
+  // public reads or submissions. Deliberate opt-in with a reserved budget:
+  // neither flag is configured on the first V3 production release.
+  const eraseEnabled=enabled||(env.LEADERBOARDS_ERASURE_ENABLED==='1'&&!!ns&&!!secret&&erase>=MIN_ERASE_SUBCAP);
+  return {enabled,eraseEnabled,
     store,secret:ns?secret:'',env:ns,launchDay:parseLaunchDay(env.LAUNCH_DAY??env.VITE_LAUNCH_DAY),now:()=>new Date(),loadSlate,
     allowedOrigins:(env.SCORES_ALLOWED_ORIGINS??'https://stat-window.vercel.app').split(',').map(s=>s.trim()).filter(Boolean),caps:[day,month,erase] };
 }

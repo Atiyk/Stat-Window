@@ -28,7 +28,12 @@ export function Leaderboard({day,results,eligible}:{day:string;results:readonly 
     setStatus('Your linked rankings were removed.');
     setData(await standings(period));
   };
-  if(!eligible)return null;
+  // Do not advertise a non-functional leaderboard to new players while its
+  // server is intentionally disabled. Existing members must still see Delete,
+  // and a successful deletion keeps its confirmation until this component
+  // next mounts. Waiting for GET also prevents a misleading loading flash.
+  const noAccountAction = !joined && !pendingDeletion && !status;
+  if(!eligible || (noAccountAction && (!data || data.status==='disabled')))return null;
   return <section className="leaderboard" aria-labelledby="lb-title">
     <h2 id="lb-title">Global leaderboard <span className="lb-beta">Unverified beta</span></h2>
     <p className="lb-sub">Real opt-in players. Higher scores rank first; ties share a place. For longer periods, scores add up across days played. No prizes or verified identities.</p>

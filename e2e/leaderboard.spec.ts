@@ -13,7 +13,6 @@ async function finishToday(page: Page) {
     await next(page);
   }
   await expect(page.locator('.results-score')).toBeVisible();
-  await expect(page.getByRole('heading', { name: /Global leaderboard/i })).toBeVisible();
 }
 
 test.describe('real leaderboard UI fail-closed and consent states', () => {
@@ -72,16 +71,47 @@ test.describe('real leaderboard UI fail-closed and consent states', () => {
     expect(getHeaders).toBeGreaterThan(0);
   });
 
-  test('disabled service shows honest state and does not offer fake Join', async ({ page }) => {
+  test('disabled service hides unavailable rankings from visitors, leaving the real results and sharing', async ({ page }) => {
     await page.route('**/api/leaderboard*', route => route.fulfill({
       status: 503, contentType: 'application/json',
       body: JSON.stringify({ status: 'disabled' }),
     }));
+    // Await an actual 503 fetch, not just the initial zero-component render,
+    // so this regression would catch an unavailable section appearing later.
+    const denied=page.waitForResponse(r=>r.url().includes('/api/leaderboard?period=day')&&r.status()===503);
     await finishToday(page);
-    await expect(page.getByText('Global rankings are not enabled yet.')).toBeVisible();
+    await denied;
+    await expect(page.locator('.leaderboard')).toHaveCount(0);
     await expect(page.getByRole('button', { name: 'Join global rankings' })).toHaveCount(0);
     await expect(page.locator('.results-score')).toBeVisible();
     await expect(page.getByRole('button', { name: 'Challenge a friend' })).toBeVisible();
+  });
+
+  test('disabled backend preserves erasure for an existing opted-in ranking', async ({ page }) => {
+    const code='a'.repeat(22);
+    await page.goto('/');
+    await page.evaluate(value=>localStorage.setItem('stat-window:leaderboard:v1',
+      JSON.stringify({consent:true,key:value,sent:[]})),code);
+    let deletions=0;
+    await page.route('**/api/leaderboard*',route=>{
+      if(route.request().method()==='DELETE'){
+        deletions++;
+        expect(JSON.parse(route.request().postData()??'{}').player).toBe(code);
+        return route.fulfill({status:200,contentType:'application/json',body:'{"status":"ok","removed":1}'});
+      }
+      return route.fulfill({status:503,contentType:'application/json',body:'{"status":"disabled"}'});
+    });
+    await finishToday(page);
+    await expect(page.getByRole('heading',{name:/Global leaderboard/i})).toBeVisible();
+    await expect(page.getByRole('button',{name:'Leave and delete my rankings'})).toBeVisible();
+    await page.getByRole('button',{name:'Leave and delete my rankings'}).click();
+    await expect(page.getByText('Your linked rankings were removed.')).toBeVisible();
+    expect(deletions).toBe(1);
+    const local=await page.evaluate(()=>JSON.parse(localStorage.getItem('stat-window:leaderboard:v1')??'{}'));
+    expect(local).toMatchObject({consent:false,key:null});
+    // After a reload, there is no useless leaderboard section for a newcomer.
+    await page.reload();
+    await expect(page.locator('.leaderboard')).toHaveCount(0);
   });
 
   test('opt-in sends only consented official windows, shows personal rank and all four periods', async ({ page }) => {

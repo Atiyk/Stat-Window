@@ -376,3 +376,42 @@ describe('the 100-game floor does not depend on the namespace name (CR-4)', () =
     expect(contextFromEnv({ ...low, VERCEL: '1', VERCEL_ENV: 'preview', SCORES_NAMESPACE: 'production', SCORES_TEST_LOW_SAMPLE: '1' }, d).minSample).toBe(100);
   });
 });
+
+
+describe('percentile API spoofed proxy authority and network identity', () => {
+  it('rejects forwarded-host origin spoofing and scheme downgrade before any Redis store access', async () => {
+    const { ctx, store } = testContext();
+    const a = await roundsFor(DAY, 2);
+    const request = { day: DAY, player: player(855), rounds: a.rounds };
+    for (const origin of ['https://attacker.example','http://stat-window.vercel.app']) {
+      const blocked = await submit(ctx, request, {
+        origin,
+        'x-forwarded-host': origin === 'https://attacker.example' ? 'attacker.example' : 'stat-window.vercel.app',
+        'sec-fetch-site': 'same-origin',
+      });
+      expect(blocked.code).toBe(403);
+    }
+    expect(store.dump().size).toBe(0);
+    // Proxy headers cannot invalidate legitimate same-origin requests either.
+    const allowed = await submit(ctx, request, {
+      origin: 'https://stat-window.vercel.app',
+      'x-forwarded-host': 'attacker.example',
+    });
+    expect(allowed.code).toBe(200);
+    expect(allowed.body.status).toBe('stored');
+  });
+
+  it('ignores forged X-Forwarded-For for a per-network rate-limit bucket', async () => {
+    const { ctx } = testContext({
+      limits: { ...DEFAULT_LIMITS, dailyBudget: 1500, ratePerMinute: 2, ipDailyStored: 25 },
+    });
+    const a = await roundsFor(DAY, 2);
+    const codes = [];
+    for (const [index, forged] of ['192.0.2.1','198.51.100.9','203.0.113.11'].entries()) {
+      codes.push((await submit(ctx, {
+        day: DAY, player: player(860+index), rounds: a.rounds,
+      }, {'x-forwarded-for': forged})).code);
+    }
+    expect(codes).toEqual([200,200,429]);
+  });
+});

@@ -132,7 +132,10 @@ export function ipPrefix(ip: string): string {
 }
 
 function clientIp(req: Request): string {
-  return ipPrefix((req.headers.get('x-real-ip') ?? req.headers.get('x-forwarded-for') ?? '').split(',')[0]!.trim() || 'unknown');
+  // X-Forwarded-For's leftmost address may be supplied by a client and must
+  // never grant a new rate-limit bucket. Vercel overwrites X-Real-IP at edge;
+  // when it is absent, fall back to one conservative shared bucket.
+  return ipPrefix((req.headers.get('x-real-ip') ?? 'unknown').trim() || 'unknown');
 }
 
 function sameOrigin(req: Request, ctx: ApiContext): boolean {
@@ -140,9 +143,10 @@ function sameOrigin(req: Request, ctx: ApiContext): boolean {
   const origin = req.headers.get('origin');
   if (!origin) return true;
   try {
-    const o = new URL(origin);
-    const host = req.headers.get('x-forwarded-host') ?? req.headers.get('host') ?? new URL(req.url).host;
-    return o.host === host || ctx.allowedOrigins.includes(o.origin);
+    // The Request URL is canonical. Forwarded-Host and Host are client
+    // supplied; comparing against either allows a forged origin bypass.
+    const supplied = new URL(origin).origin;
+    return supplied === new URL(req.url).origin || ctx.allowedOrigins.includes(supplied);
   } catch {
     return false;
   }

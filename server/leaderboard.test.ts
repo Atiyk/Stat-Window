@@ -25,7 +25,7 @@ describe('Eastern calendar leaderboard periods',()=>{
    expect(all).not.toContain(boards(prefix,'2027-12-22',null)[0]);
  });
  it('pseudonyms are stable and do not expose raw member',()=>{const id='a'.repeat(40);expect(pseudonym(id)).toBe(pseudonym(id));expect(pseudonym(id)).not.toContain(id);});
- it('defaults to disabled without explicit budgets',()=>{const c=leaderboardContext({VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',SCORE_HASH_SECRET:'a'.repeat(32)},null,async()=>null);expect(c.enabled).toBe(false);});
+ it('defaults to disabled without explicit budgets',()=>{const c=leaderboardContext({VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',SCORE_HASH_SECRET:'a'.repeat(32)},null,async()=>null);expect(c.enabled).toBe(false);expect(c.eraseEnabled).toBe(false);});
  it('rejects unconsented POST even if a store is present',async()=>{const c=leaderboardContext({VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',LEADERBOARDS_ENABLED:'1',LEADERBOARDS_DAILY_BUDGET:'1000',LEADERBOARDS_MONTHLY_BUDGET:'20000',LEADERBOARDS_ERASE_BUDGET:'10000',SCORE_HASH_SECRET:'a'.repeat(32)},{} as never,async()=>null);const r=await handleLeaderboard(new Request('https://stat-window.vercel.app/api/leaderboard',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({player:'a'.repeat(22)})}),c);expect(r.status).toBe(409);});
  it('does not leak leaderboard data when disabled',async()=>{const c=leaderboardContext({},null,async()=>null);const r=await handleLeaderboard(new Request('https://example.com/api/leaderboard?period=day'),c);expect(r.status).toBe(503);});
  it('returns only the authenticated participant’s own tied rank and played days',async()=>{
@@ -63,7 +63,7 @@ describe('Eastern calendar leaderboard periods',()=>{
 describe('privacy erasure after consent withdrawal',()=>{
  it('permits DELETE with GPC/DNT and denied consent while POST stays blocked',async()=>{
    let removed=0;
-   const ctx=leaderboardContext({VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',SCORE_HASH_SECRET:'x'.repeat(32)},
+   const ctx=leaderboardContext({VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',SCORE_HASH_SECRET:'x'.repeat(32),LEADERBOARDS_ERASURE_ENABLED:'1',LEADERBOARDS_ERASE_BUDGET:'10000'},
      {remove:async()=>{removed++;return 'removed';}} as never,async()=>null);
    ctx.now=()=>new Date('2026-11-22T16:00:00Z');
    const request=(method:'POST'|'DELETE')=>new Request('https://stat-window.vercel.app/api/leaderboard',{
@@ -192,5 +192,53 @@ describe('warm-instance Redis 429 denial caching (defense in depth, not a quota 
    const r=await handleLeaderboard(new Request(url+'?period=day'),ctx);
    expect(r.status).toBe(503);
    expect(reads).toBe(3);
+ });
+});
+
+describe('disabled leaderboard must not expose an anonymous Redis-consuming DELETE endpoint',()=>{
+ const player='a'.repeat(22);
+ const request=(method:'GET'|'POST'|'DELETE')=>method==='GET'
+   ? new Request('https://stat-window.vercel.app/api/leaderboard?period=day')
+   : new Request('https://stat-window.vercel.app/api/leaderboard',{
+       method,headers:new Headers({'Content-Type':'application/json'}),
+       body:JSON.stringify({player,consent:'denied'}),
+     });
+ it('returns disabled without any Redis operation even when production has a valid score store and secret',async()=>{
+   let called=0;
+   const store={read:async()=>{called++;return {rows:[],count:0};},
+     submit:async()=>{called++;return 'stored';},
+     remove:async()=>{called++;return 'removed';}} as never;
+   const ctx=leaderboardContext({
+     VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',SCORE_HASH_SECRET:'x'.repeat(32),
+     // This simulates initial V3: existing percentile store, but NO leaderboard
+     // or emergency erasure flags. Redis must not be called even for DELETE.
+   },store,async()=>null);
+   expect(ctx.enabled).toBe(false);
+   expect(ctx.eraseEnabled).toBe(false);
+   for(const method of ['GET','POST','DELETE'] as const){
+     const r=await handleLeaderboard(request(method),ctx);
+     expect(r.status).toBe(503);
+     expect((await r.json()).status).toBe('disabled');
+   }
+   expect(called).toBe(0);
+ });
+ it('requires both explicit emergency erasure flag and a finite erasure budget',async()=>{
+   let called=0;
+   const store={remove:async()=>{called++;return 'removed';}} as never;
+   const env={VERCEL:'1',VERCEL_ENV:'production',SCORE_HASH_SECRET:'s'.repeat(32),SCORES_ENABLED:'1'};
+   const noBudget=leaderboardContext({...env,LEADERBOARDS_ERASURE_ENABLED:'1'},store,async()=>null);
+   const noFlag=leaderboardContext({...env,LEADERBOARDS_ERASE_BUDGET:'10000'},store,async()=>null);
+   for(const ctx of [noBudget,noFlag]){
+     expect(ctx.eraseEnabled).toBe(false);
+     expect((await handleLeaderboard(request('DELETE'),ctx)).status).toBe(503);
+   }
+   expect(called).toBe(0);
+   const onlyDelete=leaderboardContext({...env,LEADERBOARDS_ERASURE_ENABLED:'1',LEADERBOARDS_ERASE_BUDGET:'10000'},store,async()=>null);
+   expect(onlyDelete.enabled).toBe(false);
+   expect(onlyDelete.eraseEnabled).toBe(true);
+   expect((await handleLeaderboard(request('DELETE'),onlyDelete)).status).toBe(200);
+   expect((await handleLeaderboard(request('GET'),onlyDelete)).status).toBe(503);
+   expect((await handleLeaderboard(request('POST'),onlyDelete)).status).toBe(503);
+   expect(called).toBe(1);
  });
 });

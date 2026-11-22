@@ -261,3 +261,118 @@ describe('DELETE /api/scores', () => {
     expect(pairs).toBe(9 * 2);
   });
 });
+
+describe('DELETE cannot drain the shared budget (CR-1)', () => {
+  const days9 = Array.from({ length: 9 }, (_, i) => new Date(NOON.getTime() - i * 86_400_000).toISOString().slice(0, 10));
+  const del = (ctx: Parameters<typeof handle>[1], p: string, headers: Record<string, string> = {}) =>
+    handle(post({ player: p, days: days9 }, headers, 'DELETE'), ctx).then((r) => r.status);
+
+  it('a flood from one network spends nothing shared, is cut off for the day, and real players can still delete', async () => {
+    const { ctx, store, nowRef } = testContext();
+    // A real player on another network stores a score first.
+    const a = await roundsFor(DAY, 2);
+    expect((await submit(ctx, { day: DAY, player: player(1), rounds: a.rounds }, { 'x-real-ip': '198.51.100.1' })).code).toBe(200);
+    const sharedBefore = store.dump().get(`sw:v1:budget:m:${DAY.slice(0, 7)}`);
+    // One network deletes as fast as the rate limit allows, for an hour (the old code took ~14.5 h to empty the month).
+    const codes: number[] = [];
+    for (let m = 0; m < 60; m++) {
+      for (let i = 0; i < 6; i++) codes.push(await del(ctx, player(9)));
+      nowRef.t += 60_000;
+    }
+    // The shared counter that pauses POST and GET is untouched by deletion.
+    expect(store.dump().get(`sw:v1:budget:m:${DAY.slice(0, 7)}`)).toBe(sharedBefore);
+    // Only a handful of deletions a day get through from one network, so the erase reserve can't be emptied either.
+    const ok = codes.filter((c) => c === 200).length;
+    expect(ok).toBeGreaterThan(0);
+    expect(ok).toBeLessThanOrEqual(DEFAULT_LIMITS.ipDailyDeletes);
+    expect(codes.at(-1)).toBe(429);
+    const erase = store.dump().get(`sw:v1:budget:e:${DAY.slice(0, 7)}`) as number;
+    expect(erase).toBeLessThanOrEqual(DEFAULT_LIMITS.ipDailyDeletes * COST.remove(18));
+    // Everyone else is unaffected: a new score is stored, and the real player can delete, even with scores switched off.
+    expect((await submit(ctx, { day: DAY, player: player(2), rounds: a.rounds }, { 'x-real-ip': '198.51.100.2' })).code).toBe(200);
+    ctx.enabled = false;
+    const res = await handle(post({ player: player(1), days: [DAY] }, { 'x-real-ip': '198.51.100.1' }, 'DELETE'), ctx);
+    expect(await res.json()).toMatchObject({ status: 'ok', removed: 1 });
+  });
+
+  it('charges deletion for the records it actually touched, not the upper bound', async () => {
+    const { ctx, store } = testContext();
+    expect(await del(ctx, player(9))).toBe(200);
+    const erase = store.dump().get(`sw:v1:budget:e:${DAY.slice(0, 7)}`) as number;
+    expect(erase).toBe(COST.removeSpent(18, 0));
+    expect(erase).toBeLessThan(COST.remove(18));
+  });
+});
+
+describe('resubmits cannot drain the daily budget (CR-2)', () => {
+  const dayCounter = (store: ReturnType<typeof testContext>['store']) => (store.dump().get(`sw:v1:budget:d:${DAY}`) as number | undefined) ?? 0;
+
+  it('one network resending the same run all day spends a small, bounded share and never pauses anyone', async () => {
+    const { ctx, store, nowRef } = testContext({}, { t: Date.parse(`${DAY}T00:00:00Z`) });
+    const a = await roundsFor(DAY, 2);
+    let paused = false;
+    // The old code paused everyone after ~130 minutes of this.
+    for (let m = 0; m < 24 * 60 - 1; m++) {
+      for (let i = 0; i < 6; i++) {
+        const res = await handle(post({ day: DAY, player: player(1000), rounds: a.rounds, total: a.total }), ctx);
+        if (res.status === 503) paused = true;
+      }
+      nowRef.t += 60_000;
+    }
+    expect(paused).toBe(false);
+    expect(dayCounter(store)).toBeLessThanOrEqual(COST.submit + (DEFAULT_LIMITS.ipDailyCalls - 1) * COST.duplicate);
+    const other = await submit(ctx, { day: DAY, player: player(1), rounds: a.rounds }, { 'x-real-ip': '198.51.100.9' });
+    expect(other.code).toBe(200);
+  });
+
+  it('fresh keys from one network are cut off for the day once its calls are used up', async () => {
+    const { ctx, store, nowRef } = testContext({}, { t: Date.parse(`${DAY}T00:00:00Z`) });
+    const a = await roundsFor(DAY, 2);
+    for (let m = 0; m < 24 * 60 - 1; m++) {
+      for (let i = 0; i < 6; i++) await handle(post({ day: DAY, player: player(5000 + m * 6 + i), rounds: a.rounds }), ctx);
+      nowRef.t += 60_000;
+    }
+    expect(dayCounter(store)).toBeLessThanOrEqual(DEFAULT_LIMITS.ipDailyCalls * COST.submit);
+  });
+
+  it('a duplicate is checked before the full charge and costs less', async () => {
+    const { ctx, store } = testContext();
+    const a = await roundsFor(DAY, 2);
+    await submit(ctx, { day: DAY, player: player(1), rounds: a.rounds });
+    expect(dayCounter(store)).toBe(COST.submit);
+    expect((await submit(ctx, { day: DAY, player: player(1), rounds: a.rounds })).body.status).toBe('duplicate');
+    expect(dayCounter(store)).toBe(COST.submit + COST.duplicate);
+    expect(COST.duplicate).toBeLessThan(COST.submit);
+  });
+});
+
+describe('the 100-game floor does not depend on the namespace name (CR-4)', () => {
+  const deps = () => ({ store: memoryStore(() => NOON.getTime()) as ScoreStore, loadSlate: fileSlates() });
+  const long = 'k'.repeat(40);
+
+  it('production with a custom SCORES_NAMESPACE keeps the floor, and GET shows no buckets for a tiny day', async () => {
+    const d = deps();
+    const env = { VERCEL: '1', VERCEL_ENV: 'production', SCORES_ENABLED: '1', SCORE_HASH_SECRET: long, SCORES_NAMESPACE: 'prod', PERCENTILE_MIN_SAMPLE: '1' };
+    const base = contextFromEnv(env, d);
+    expect(base.env).toBe('prod');
+    expect(base.minSample).toBe(100);
+    const ctx = { ...base, now: () => NOON };
+    const a = await roundsFor(DAY, 2);
+    expect((await submit(ctx, { day: DAY, player: player(1), rounds: a.rounds })).code).toBe(200);
+    const text = await (await handle(new Request(`https://stat-window.vercel.app/api/scores?day=${DAY}`), ctx)).text();
+    expect(JSON.parse(text)).toMatchObject({ n: 1, ready: false });
+    expect(text).not.toContain('counts');
+  });
+
+  it('only an explicit test-only switch lowers it, and never in production', () => {
+    const d = deps();
+    const low = { SCORES_ENABLED: '1', SCORE_HASH_SECRET: long, PERCENTILE_MIN_SAMPLE: '3' };
+    expect(contextFromEnv({ ...low, VERCEL: '1', VERCEL_ENV: 'preview' }, d).minSample).toBe(100);
+    expect(contextFromEnv({ ...low, VERCEL: '1', SCORES_NAMESPACE: 'staging' }, d).minSample).toBe(100);
+    expect(contextFromEnv(low, d).minSample).toBe(100);
+    expect(contextFromEnv({ ...low, SCORES_TEST_LOW_SAMPLE: '1' }, d).minSample).toBe(3);
+    expect(contextFromEnv({ ...low, VERCEL: '1', VERCEL_ENV: 'preview', SCORES_TEST_LOW_SAMPLE: '1' }, d).minSample).toBe(3);
+    expect(contextFromEnv({ ...low, VERCEL: '1', VERCEL_ENV: 'production', SCORES_NAMESPACE: 'prod', SCORES_TEST_LOW_SAMPLE: '1' }, d).minSample).toBe(100);
+    expect(contextFromEnv({ ...low, VERCEL: '1', VERCEL_ENV: 'preview', SCORES_NAMESPACE: 'production', SCORES_TEST_LOW_SAMPLE: '1' }, d).minSample).toBe(100);
+  });
+});

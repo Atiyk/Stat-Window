@@ -135,7 +135,9 @@ var DEFAULT_LIMITS = {
 	monthlyBudget: 38e4,
 	eraseReserve: 2e4,
 	ratePerMinute: 6,
-	ipDailyStored: 30
+	ipDailyStored: 30,
+	ipDailyCalls: 40,
+	ipDailyDeletes: 5
 };
 var PLAYER = /^[A-Za-z0-9_-]{22}$/;
 var ID = /^[a-z0-9-]{1,80}$/;
@@ -173,9 +175,11 @@ function keyPrefix(ctx, season, day) {
 	return `sw:v1:${ctx.env}:${season}:${day}`;
 }
 function budgetKeys(ctx, now) {
+	const month = utcDay(now).slice(0, 7);
 	return {
 		day: `${ctx.budgetPrefix}:d:${utcDay(now)}`,
-		month: `${ctx.budgetPrefix}:m:${utcDay(now).slice(0, 7)}`
+		month: `${ctx.budgetPrefix}:m:${month}`,
+		erase: `${ctx.budgetPrefix}:e:${month}`
 	};
 }
 var nextUtcMidnight = (now) => Date.parse(`${addDays(utcDay(now), 1)}T00:00:00Z`);
@@ -183,10 +187,11 @@ var nextUtcMonth = (now) => Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1
 function rememberPause(ctx, now, scope) {
 	ctx.memo.pausedUntil = scope === "month" ? nextUtcMonth(now) : nextUtcMidnight(now);
 }
-function rememberLimited(ctx, client, now) {
+function rememberLimited(ctx, client, now, until = "minute") {
 	if (ctx.memo.limitedUntil.size > 5e3) ctx.memo.limitedUntil.clear();
-	ctx.memo.limitedUntil.set(client, (Math.floor(now.getTime() / 6e4) + 1) * 6e4);
+	ctx.memo.limitedUntil.set(client, until === "day" ? nextUtcMidnight(now) : (Math.floor(now.getTime() / 6e4) + 1) * 6e4);
 }
+var isLimited = (ctx, client, now) => (ctx.memo.limitedUntil.get(client) ?? 0) > now.getTime();
 /** IPv4 as is; IPv6 cut to its /64, so one home or phone network is one client. */
 function ipPrefix(ip) {
 	const mapped = /^::ffff:(\d{1,3}(?:\.\d{1,3}){3})$/i.exec(ip);
@@ -320,11 +325,14 @@ async function handle(req, ctx) {
 		const body = await readBody(req);
 		if (!body || typeof body !== "object" || Array.isArray(body)) return json(422, { status: "invalid" });
 		const ipHash = await hmac(ctx.secret, `ip:${today}:${clientIp(req)}`, 16);
-		if ((ctx.memo.limitedUntil.get(ipHash) ?? 0) > now.getTime()) return json(429, { status: "limited" }, { "Retry-After": "60" });
+		if (isLimited(ctx, ipHash, now)) return json(429, { status: "limited" }, { "Retry-After": "60" });
+		const untilMidnight = { "Retry-After": String(Math.ceil((nextUtcMidnight(now) - now.getTime()) / 1e3)) };
 		const rate = `sw:v1:${ctx.env}:rl:${ipHash}:${Math.floor(now.getTime() / 6e4)}`;
 		if (req.method === "DELETE") {
 			const player = body.player;
 			if (typeof player !== "string" || !PLAYER.test(player)) return json(422, { status: "invalid" });
+			const delClient = `del:${ipHash}`;
+			if (isLimited(ctx, delClient, now)) return json(429, { status: "limited" }, untilMidnight);
 			const oldest = addDays(today, -8);
 			const days = [...new Set(Array.isArray(body.days) ? body.days.filter(isIsoDay) : [])].filter((d) => d >= oldest && d <= today).slice(0, 9);
 			const pairs = [];
@@ -339,8 +347,15 @@ async function handle(req, ctx) {
 				status: "ok",
 				removed: 0
 			});
-			const r = await ctx.store.removeMany(pairs, rate, budget, ctx.limits);
-			if (r === "limited") {
+			const r = await ctx.store.removeMany(pairs, {
+				rate,
+				ipDay: `sw:v1:${ctx.env}:ipdel:${ipHash}`
+			}, budget, ctx.limits);
+			if (typeof r === "object") {
+				if (r.limited === "day") {
+					rememberLimited(ctx, delClient, now, "day");
+					return json(429, { status: "limited" }, untilMidnight);
+				}
 				rememberLimited(ctx, ipHash, now);
 				return json(429, { status: "limited" }, { "Retry-After": "60" });
 			}
@@ -350,6 +365,8 @@ async function handle(req, ctx) {
 				removed: r
 			});
 		}
+		const postClient = `post:${ipHash}`;
+		if (isLimited(ctx, postClient, now)) return json(429, { status: "limited" }, untilMidnight);
 		const day = body.day;
 		if (!isIsoDay(day)) return json(422, { status: "invalid" });
 		if (!eligibleDay(day, now, ctx.graceSeconds)) return json(200, {
@@ -378,9 +395,14 @@ async function handle(req, ctx) {
 			dist: `${p}:dist`,
 			rate,
 			ipDay: `sw:v1:${ctx.env}:ipd:${ipHash}`,
+			ipCalls: `sw:v1:${ctx.env}:ipc:${ipHash}`,
 			budget
 		}, total, ctx.limits);
 		if (out.status === "limited") {
+			if (out.until === "day") {
+				rememberLimited(ctx, postClient, now, "day");
+				return json(429, { status: "limited" }, untilMidnight);
+			}
 			rememberLimited(ctx, ipHash, now);
 			return json(429, { status: "limited" }, { "Retry-After": "60" });
 		}
@@ -406,7 +428,9 @@ function contextFromEnv(env, deps) {
 	const onVercel = env.VERCEL === "1";
 	const ns = (env.SCORES_NAMESPACE && /^[a-z0-9-]{1,24}$/.test(env.SCORES_NAMESPACE) ? env.SCORES_NAMESPACE : null) ?? (env.VERCEL_ENV === "production" ? "production" : env.VERCEL_ENV === "preview" ? "preview" : onVercel ? "" : "development");
 	const secret = env.SCORE_HASH_SECRET && (!onVercel || env.SCORE_HASH_SECRET.length >= 32) ? env.SCORE_HASH_SECRET : onVercel ? "" : "local-development-only";
-	const minSample = num(env.PERCENTILE_MIN_SAMPLE, 100);
+	const lowSampleForTests = env.SCORES_TEST_LOW_SAMPLE === "1" && env.VERCEL_ENV !== "production" && ns !== "production";
+	const requested = num(env.PERCENTILE_MIN_SAMPLE, 100);
+	const minSample = lowSampleForTests ? requested : Math.max(100, requested);
 	return {
 		enabled: env.SCORES_ENABLED === "1" && ns !== "",
 		store: deps.store,
@@ -421,7 +445,7 @@ function contextFromEnv(env, deps) {
 			monthlyBudget: Math.min(num(env.SCORES_MONTHLY_BUDGET, DEFAULT_LIMITS.monthlyBudget), DEFAULT_LIMITS.monthlyBudget)
 		},
 		graceSeconds: 7200,
-		minSample: ns === "production" ? Math.max(100, minSample) : minSample,
+		minSample,
 		allowedOrigins: (env.SCORES_ALLOWED_ORIGINS ?? "https://stat-window.vercel.app").split(",").map((s) => s.trim()).filter(Boolean),
 		budgetPrefix: "sw:v1:budget",
 		memo: newMemo()
@@ -466,32 +490,43 @@ function fileSlates(root = process.cwd()) {
 * per script, charged up front, so the counters never under-count.
 */
 var COST = {
-	submit: 18,
+	submit: 20,
+	/** A resend of a run already stored: checked before the full charge, and it stops after the GET and HGETALL. */
+	duplicate: 13,
 	read: 8,
-	remove: (pairs) => 6 + 4 * pairs
+	/** Deletion's upper bound, checked against the erase reserve before any record is read. */
+	remove: (pairs) => 8 + 4 * pairs,
+	/** What deletion actually spends: a GET per pair, plus DEL, HINCRBY and HDEL for each record that existed. */
+	removeSpent: (pairs, removed) => 8 + pairs + 3 * removed
 };
 var DAY_TTL = 172800;
 var MONTH_TTL = 2764800;
 var IP_DAY_TTL = 93600;
 /**
-* KEYS: sub, dist, rate, ipDay, budgetDay, budgetMonth.
-* ARGV: total, subTtl, distTtl, dailyBudget, monthlyBudget, ratePerMinute, ipDailyStored, cost, dayTtl, monthTtl, ipDayTtl.
-* The rate check runs first, so a flooding client is turned away before it can spend the shared budget.
+* KEYS: sub, dist, rate, ipDay, budgetDay, budgetMonth, ipCalls.
+* ARGV: total, subTtl, distTtl, dailyBudget, monthlyBudget, ratePerMinute, ipDailyStored, cost, dayTtl, monthTtl, ipDayTtl,
+*       ipDailyCalls, duplicateCost.
+* The per-minute rate and the per-network daily call cap run first, and the duplicate check before the charge,
+* so neither a flood nor endless resends of one run can spend more than a small, fixed share of the shared budget.
 */
 var SUBMIT_LUA = `
 local r = redis.call('INCR', KEYS[3])
 if r == 1 then redis.call('EXPIRE', KEYS[3], 120) end
-if r > tonumber(ARGV[6]) then return {'limited'} end
+if r > tonumber(ARGV[6]) then return {'limited', 'minute'} end
+local c = redis.call('INCR', KEYS[7])
+if c == 1 then redis.call('EXPIRE', KEYS[7], ARGV[11]) end
+if c > tonumber(ARGV[12]) then return {'limited', 'day'} end
+local prev = redis.call('GET', KEYS[1])
 local cost = tonumber(ARGV[8])
+if prev then cost = tonumber(ARGV[13]) end
 -- Read first: a paused call charges nothing, so it can't eat the deletion reserve.
 if tonumber(redis.call('GET', KEYS[6]) or '0') + cost > tonumber(ARGV[5]) then return {'paused', 'month'} end
 if tonumber(redis.call('GET', KEYS[5]) or '0') + cost > tonumber(ARGV[4]) then return {'paused', 'day'} end
 if redis.call('INCRBY', KEYS[5], cost) == cost then redis.call('EXPIRE', KEYS[5], ARGV[9]) end
 if redis.call('INCRBY', KEYS[6], cost) == cost then redis.call('EXPIRE', KEYS[6], ARGV[10]) end
-local prev = redis.call('GET', KEYS[1])
 if prev then return {'duplicate', tonumber(prev), redis.call('HGETALL', KEYS[2])} end
 local s = tonumber(redis.call('GET', KEYS[4]) or '0')
-if s >= tonumber(ARGV[7]) then return {'limited'} end
+if s >= tonumber(ARGV[7]) then return {'limited', 'day'} end
 redis.call('SET', KEYS[1], ARGV[1], 'EX', ARGV[2])
 redis.call('HINCRBY', KEYS[2], ARGV[1], 1)
 redis.call('EXPIRE', KEYS[2], ARGV[3])
@@ -508,18 +543,22 @@ if redis.call('INCRBY', KEYS[3], cost) == cost then redis.call('EXPIRE', KEYS[3]
 return {'ok', redis.call('HGETALL', KEYS[1])}
 `;
 /**
-* KEYS: rate, budgetMonth, then (sub, dist) pairs. ARGV: monthlyBudget + eraseReserve, ratePerMinute, cost, monthTtl.
-* Deletion ignores the daily budget and has its own monthly reserve, so it keeps working when submissions are paused.
+* KEYS: rate, ipDay (deletions from this network today), budgetErase, then (sub, dist) pairs.
+* ARGV: eraseReserve, ratePerMinute, maxCost, monthTtl, ipDailyDeletes, ipDayTtl, pairs.
+* Deletion never touches the shared day/month counters: it spends its own monthly counter (capped at the
+* erase reserve), so a deletion flood can only use up deletion, and only a few calls a day per network.
+* Both per-client caps run before anything is charged; the charge is what the call really cost.
 */
 var REMOVE_LUA = `
 local r = redis.call('INCR', KEYS[1])
 if r == 1 then redis.call('EXPIRE', KEYS[1], 120) end
-if r > tonumber(ARGV[2]) then return {'limited'} end
-local cost = tonumber(ARGV[3])
-if tonumber(redis.call('GET', KEYS[2]) or '0') + cost > tonumber(ARGV[1]) then return {'paused'} end
-if redis.call('INCRBY', KEYS[2], cost) == cost then redis.call('EXPIRE', KEYS[2], ARGV[4]) end
+if r > tonumber(ARGV[2]) then return {'limited', 'minute'} end
+local d = redis.call('INCR', KEYS[2])
+if d == 1 then redis.call('EXPIRE', KEYS[2], ARGV[6]) end
+if d > tonumber(ARGV[5]) then return {'limited', 'day'} end
+if tonumber(redis.call('GET', KEYS[3]) or '0') + tonumber(ARGV[3]) > tonumber(ARGV[1]) then return {'paused'} end
 local removed = 0
-for i = 3, #KEYS, 2 do
+for i = 4, #KEYS, 2 do
   local prev = redis.call('GET', KEYS[i])
   if prev then
     redis.call('DEL', KEYS[i])
@@ -528,6 +567,8 @@ for i = 3, #KEYS, 2 do
     removed = removed + 1
   end
 end
+local cost = 8 + tonumber(ARGV[7]) + 3 * removed
+if redis.call('INCRBY', KEYS[3], cost) == cost then redis.call('EXPIRE', KEYS[3], ARGV[4]) end
 return {'ok', removed}
 `;
 function countsFromHash(flat) {
@@ -553,7 +594,8 @@ function redisStore(evaluate) {
 				keys.rate,
 				keys.ipDay,
 				keys.budget.day,
-				keys.budget.month
+				keys.budget.month,
+				keys.ipCalls
 			], [
 				total,
 				limits.subTtl,
@@ -565,14 +607,19 @@ function redisStore(evaluate) {
 				COST.submit,
 				DAY_TTL,
 				MONTH_TTL,
-				IP_DAY_TTL
+				IP_DAY_TTL,
+				limits.ipDailyCalls,
+				COST.duplicate
 			]);
 			if (status === "stored" || status === "duplicate") return {
 				status,
 				total: Number(second),
 				...countsFromHash(flat ?? [])
 			};
-			if (status === "limited") return { status };
+			if (status === "limited") return {
+				status,
+				until: second === "day" ? "day" : "minute"
+			};
 			return {
 				status: "paused",
 				scope: second === "month" ? "month" : "day"
@@ -593,18 +640,22 @@ function redisStore(evaluate) {
 			if (out[0] !== "ok") return { paused: out[1] === "month" ? "month" : "day" };
 			return countsFromHash(out[1] ?? []);
 		},
-		async removeMany(pairs, rate, budget, limits) {
+		async removeMany(pairs, client, budget, limits) {
 			const out = await evaluate(REMOVE_LUA, [
-				rate,
-				budget.month,
+				client.rate,
+				client.ipDay,
+				budget.erase,
 				...pairs.flatMap((p) => [p.sub, p.dist])
 			], [
-				limits.monthlyBudget + limits.eraseReserve,
+				limits.eraseReserve,
 				limits.ratePerMinute,
 				COST.remove(pairs.length),
-				MONTH_TTL
+				MONTH_TTL,
+				limits.ipDailyDeletes,
+				IP_DAY_TTL,
+				pairs.length
 			]);
-			if (out[0] === "limited") return "limited";
+			if (out[0] === "limited") return { limited: out[1] === "day" ? "day" : "minute" };
 			if (out[0] !== "ok") return "paused";
 			return Number(out[1]);
 		}

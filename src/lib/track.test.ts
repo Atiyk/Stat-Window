@@ -1,5 +1,6 @@
-import { describe, expect, it } from 'vitest';
-import { analyticsOn, eventPath, privacySignal, setCohort, setTrackSink, startAnalytics, totalBand, track, trackOnce, type TrackEvent } from './track';
+import { describe, expect, it, vi } from 'vitest';
+import { savePrivacy } from './privacy';
+import { analyticsHosts, analyticsOn, eventPath, privacySignal, resumeAnalytics, setCohort, setTrackSink, startAnalytics, totalBand, track, trackOnce, type TrackEvent } from './track';
 
 describe('eventPath', () => {
   it('maps every event to a fixed, low-cardinality path with no answers or ids', () => {
@@ -178,5 +179,98 @@ describe('analyticsOn', () => {
     expect(analyticsOn(undefined, 'localhost')).toBe(false);
     expect(analyticsOn(undefined, undefined)).toBe(false);
     expect(analyticsOn('vercel', 'localhost')).toBe(true);
+  });
+});
+
+describe('opting out when localStorage writes fail (CR-3)', () => {
+  it('stops events at once, though the choice could not be stored', () => {
+    vi.stubGlobal('window', { localStorage: { getItem: () => null, setItem: () => { throw new DOMException('full', 'QuotaExceededError'); } } });
+    try {
+      const views: string[] = [];
+      const vercel = { inject: (() => {}) as never, pageview: ((o: { path: string }) => void views.push(o.path)) as never };
+      expect(startAnalytics({ enabled: true, nav: {} as Navigator, vercel })).toBe(true);
+      expect(savePrivacy({ analytics: 'off' }).analytics).toBe('off'); // the Privacy dialog's onChange
+      track({ name: 'run_start', mode: 'daily' });
+      expect(views).toEqual(['/']);
+    } finally {
+      setTrackSink(() => {});
+      vi.unstubAllGlobals();
+    }
+  });
+});
+
+describe('turning analytics on in the Privacy dialog (CR-5)', () => {
+  const setup = () => {
+    const m = new Map<string, string>();
+    vi.stubGlobal('window', { localStorage: { getItem: (k: string) => m.get(k) ?? null, setItem: (k: string, v: string) => void m.set(k, v) } });
+    const views: string[] = [];
+    let injects = 0;
+    const vercel = { inject: (() => void injects++) as never, pageview: ((o: { path: string }) => void views.push(o.path)) as never };
+    return { views, vercel, injects: () => injects };
+  };
+
+  it('starts analytics at once when it began off under GPC/DNT', () => {
+    const t = setup();
+    try {
+      expect(startAnalytics({ enabled: true, nav: { globalPrivacyControl: true } as unknown as Navigator, vercel: t.vercel })).toBe(false);
+      expect(t.injects()).toBe(0);
+      savePrivacy({ analytics: 'on' }); // the dialog's onChange
+      expect(resumeAnalytics()).toBe(true);
+      track({ name: 'run_start', mode: 'daily' });
+      expect(t.views).toEqual(['/', '/e/start/daily']);
+      // Idempotent: a second tick (or a remount) never injects twice.
+      expect(resumeAnalytics()).toBe(true);
+      expect(t.injects()).toBe(1);
+      // And off again still stops it.
+      savePrivacy({ analytics: 'off' });
+      track({ name: 'run_complete', mode: 'daily', total: 100 });
+      expect(t.views).toEqual(['/', '/e/start/daily']);
+    } finally {
+      setTrackSink(() => {});
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('starts after an earlier "off", but never when the build or host has analytics off', () => {
+    const t = setup();
+    try {
+      savePrivacy({ analytics: 'off' });
+      expect(startAnalytics({ enabled: false, nav: {} as Navigator, vercel: t.vercel })).toBe(false);
+      savePrivacy({ analytics: 'on' });
+      expect(resumeAnalytics()).toBe(false);
+      expect(t.injects()).toBe(0);
+      savePrivacy({ analytics: 'off' });
+      expect(startAnalytics({ enabled: true, nav: {} as Navigator, vercel: t.vercel })).toBe(false);
+      expect(resumeAnalytics()).toBe(false); // still off: nothing to start
+      savePrivacy({ analytics: 'on' });
+      expect(resumeAnalytics()).toBe(true);
+      expect(t.injects()).toBe(1);
+    } finally {
+      setTrackSink(() => {});
+      vi.unstubAllGlobals();
+    }
+  });
+});
+
+describe('analytics host allow-list (A-1, VITE_ANALYTICS_HOSTS)', () => {
+  it('defaults to stat-window.vercel.app', () => {
+    expect(analyticsHosts(undefined)).toEqual(['stat-window.vercel.app']);
+    expect(analyticsHosts(' , ')).toEqual(['stat-window.vercel.app']);
+  });
+  it('takes a comma-separated list of exact hostnames, so a new domain needs no code change', () => {
+    const hosts = analyticsHosts(' StatWindow.example , stat-window.vercel.app,');
+    expect(hosts).toEqual(['statwindow.example', 'stat-window.vercel.app']);
+    expect(analyticsOn(undefined, 'statwindow.example', hosts)).toBe(true);
+    expect(analyticsOn(undefined, 'STATWINDOW.example', hosts)).toBe(true);
+    expect(analyticsOn(undefined, 'stat-window.vercel.app', hosts)).toBe(true);
+    expect(analyticsOn('off', 'statwindow.example', hosts)).toBe(false);
+    // Exact match only: previews, subdomains and look-alikes stay off.
+    expect(analyticsOn(undefined, 'www.statwindow.example', hosts)).toBe(false);
+    expect(analyticsOn(undefined, 'stat-window-git-main-atiyk-a.vercel.app', hosts)).toBe(false);
+    expect(analyticsOn(undefined, 'localhost', hosts)).toBe(false);
+  });
+  it('ignores entries that are not plain hostnames', () => {
+    expect(analyticsHosts('https://statwindow.example/,*.vercel.app,statwindow.example')).toEqual(['statwindow.example']);
+    expect(analyticsHosts('*')).toEqual(['stat-window.vercel.app']);
   });
 });

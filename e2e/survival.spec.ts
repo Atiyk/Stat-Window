@@ -197,6 +197,7 @@ test.describe('preview build', () => {
     await play(page, true);
     await page.getByRole('button', { name: 'Next round' }).click();
     await page.goto('/');
+    await page.getByRole('button', { name: 'Skip tutorial and start' }).click();
     await expect(page.getByText('Question 1 of 5')).toBeVisible();
     await page.goto('/?survival&asof=2026-12-20');
     await expect(page.getByText('Survival · Round 2 of 20')).toBeVisible();

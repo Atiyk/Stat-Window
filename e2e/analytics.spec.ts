@@ -132,3 +132,34 @@ test('a completed daily sends one streak event, bucketed 1, 2-6 or 7plus; practi
   await playFive();
   expect((await views(page)).filter((p) => p.startsWith('/e/streak/'))).toEqual(['/e/streak/daily/2-6']);
 });
+
+test('first-time tutorial impressions and practice do not count as daily starts', async ({ page }) => {
+  await page.clock.setFixedTime(NBA_FIRST);
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: 'Catch the number.' })).toBeVisible();
+  await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new']);
+  await page.getByRole('button', { name: 'Reveal practice answer' }).click();
+  await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new']);
+  await page.getByRole('button', { name: "Start today's five" }).click();
+  await expect(page.locator('.question')).toBeVisible();
+  await expect.poll(() => views(page)).toContain('/e/start/daily');
+  // Refresh preserves an in-progress clock, not a second run-start event.
+  await page.reload();
+  await expect(page.locator('.question')).toBeVisible();
+  await expect.poll(() => views(page)).toEqual(['/']);
+});
+
+test('a returning player can leave the ready screen without registering a start', async ({ page }) => {
+  await page.clock.setFixedTime(NBA_FIRST);
+  await page.addInitScript(() => {
+    localStorage.setItem('stat-window:v1', JSON.stringify({
+      version: 1, runs: {}, settings: { sound: false, introSeen: true },
+    }));
+  });
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: 'Ready for five?' })).toBeVisible();
+  await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new']);
+  await page.getByRole('button', { name: "Start today's five" }).click();
+  await expect(page.locator('.question')).toBeVisible();
+  await expect.poll(() => views(page)).toContain('/e/start/daily');
+});

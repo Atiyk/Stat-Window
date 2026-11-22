@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-braun22-draft-pick",
+      "id": "nba-westbrook17-50-nuggets-winner",
       "sport": "NBA",
-      "prompt": "At what overall pick did Denver draft Christian Braun in 2022?",
-      "context": "Denver Nuggets · 2022 NBA draft · first round",
-      "answer": 21,
+      "prompt": "When Russell Westbrook broke Oscar Robertson's season triple-double mark with a Denver buzzer-beater in 2017, how many points did he score?",
+      "context": "Russell Westbrook · Thunder at Nuggets · 2017",
+      "answer": 50,
       "unit": {
-        "singular": "overall pick",
-        "plural": "overall picks"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 8,
-      "max": 52,
+      "min": 10,
+      "max": 115,
       "step": 1,
-      "note": "21st overall; Braun was a rookie on the Nuggets' 2023 championship squad.",
+      "note": "50 points, plus a long-range buzzer-beater on the day he made triple-double history.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
-        "quote": "1 | 21 | Christian Braun | SG | United States | Kansas"
+        "url": "https://en.wikipedia.org/wiki/Russell_Westbrook",
+        "quote": "Westbrook scored 18 of his 50 points"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Braun joined Denver from the University of Kansas, where he had played college basketball.",
+          "text": "He broke Oscar Robertson's single-season triple-double mark.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
-            "quote": "1 | 21 | Christian Braun | SG | United States | Kansas"
+            "url": "https://en.wikipedia.org/wiki/Russell_Westbrook",
+            "quote": "breaking Robertson's record"
           }
         },
         {
-          "text": "As a rookie in the Finals, Braun appeared in all five games off the bench and averaged 16.4 minutes.",
+          "text": "Westbrook hit an unusually deep winning shot.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Christian Braun | 5 | 0 | 16.4 | .706 | .000 | .556 | 2.0 | 1.2 | 1.0 | 0.4 | 5.8"
+            "url": "https://en.wikipedia.org/wiki/Russell_Westbrook",
+            "quote": "36-foot game-winning buzzer-beater"
           }
         },
         {
-          "text": "Denver also obtained the draft rights to Peyton Watson in a deal with Oklahoma City on the same draft night.",
+          "text": "The Thunder won by a single point in Denver.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
-            "quote": "Draft rights to Peyton Watson (No. 30)"
+            "url": "https://en.wikipedia.org/wiki/Russell_Westbrook",
+            "quote": "106–105 road victory"
           }
         }
       ]

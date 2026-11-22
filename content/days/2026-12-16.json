@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-pistons05-g4-to",
+      "id": "nba-durant21-nets-bucks-g5-49",
       "sport": "NBA",
-      "prompt": "Detroit set a Finals record for the fewest turnovers in a game in 2005. How many did it commit?",
-      "context": "2005 NBA Finals · Pistons vs Spurs",
-      "answer": 4,
+      "prompt": "Against Giannis's Bucks in Brooklyn's dramatic 2021 playoff Game 5, how many points did Kevin Durant score?",
+      "context": "Kevin Durant · Nets vs Bucks · June 2021",
+      "answer": 49,
       "unit": {
-        "singular": "turnover",
-        "plural": "turnovers"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 0,
-      "max": 15,
+      "min": 10,
+      "max": 120,
       "step": 1,
-      "note": "Four.",
+      "note": "49 points, with 17 rebounds and 10 assists, to put the Nets ahead in the series.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
-        "quote": "Collectively, the Spurs shot 37% and committed 17 turnovers to the Pistons' NBA Finals-record four."
+        "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+        "quote": "Pts: Kevin Durant 49"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Detroit used its bench to devastating effect, with Lindsey Hunter and Antonio McDyess producing efficient minutes.",
+          "text": "Durant also hauled in 17 rebounds.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
-            "quote": "especially efficient bench performances by Lindsey Hunter and Antonio McDyess"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+            "quote": "Rebs: Kevin Durant 17"
           }
         },
         {
-          "text": "The Pistons' defense limited almost every Spurs shooter to poor efficiency in the pivotal home game.",
+          "text": "He delivered 10 assists for a triple-double.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
-            "quote": "only Tony Parker (6–13, 46.2% shooting) managed to surpass the 45% mark"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+            "quote": "Asts: Kevin Durant 10"
           }
         },
         {
-          "text": "San Antonio and Detroit had been the NBA's premier defensive teams throughout the preceding seasons.",
+          "text": "Brooklyn moved ahead in the series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
-            "quote": "the two premier defensive teams of that era"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+            "quote": "Brooklyn leads series, 3–2"
           }
         }
       ]

@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-gsw16-dec1-3pa",
+      "id": "nba-jordan92-finals-shrug-first-half-35",
       "sport": "NBA",
-      "prompt": "In a double-overtime game on December 1, 2016, how many threes did the Warriors and Rockets attempt combined?",
-      "context": "Warriors vs Houston Rockets · 2016–17 · double overtime",
-      "answer": 88,
+      "prompt": "In Michael Jordan's famous 1992 Finals 'shrug' game against Portland, how many points did he score before halftime?",
+      "context": "Michael Jordan · Bulls vs Trail Blazers · 1992 Finals",
+      "answer": 35,
       "unit": {
-        "singular": "attempt",
-        "plural": "attempts"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 20,
-      "max": 105,
+      "min": 0,
+      "max": 100,
       "step": 1,
-      "note": "88, 44 for each team.",
+      "note": "35 first-half points, with a barrage of threes that led to Jordan's iconic shrug.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
-        "quote": "Most combined three-point attempts in a single game: 88"
+        "url": "https://en.wikipedia.org/wiki/1992_NBA_Finals",
+        "quote": "Jordan had 35, Baylor had 33"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Golden State and Houston each took exactly 44 attempts from beyond the arc in their double-overtime shootout.",
+          "text": "Jordan sank six threes before halftime.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
-            "quote": "Both the Warriors and the Houston Rockets took 44 attempts each on December 1, 2016"
+            "url": "https://en.wikipedia.org/wiki/1992_NBA_Finals",
+            "quote": "six first-half threes (also a record)"
           }
         },
         {
-          "text": "Golden State also became the first team to have four different players make four threes in a single game that season.",
+          "text": "He famously shrugged toward the broadcast table.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
-            "quote": "First team to have four players hit four three-pointers in a single game"
+            "url": "https://en.wikipedia.org/wiki/1992_NBA_Finals",
+            "quote": "famously shrugged"
           }
         },
         {
-          "text": "That Warriors roster sent Curry, Durant, Thompson and Draymond Green to the same All-Star Game.",
+          "text": "Chicago won Game 1 by a wide margin.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
-            "quote": "Kevin Durant, Stephen Curry, Klay Thompson and Draymond Green were all named to the All-Star Game"
+            "url": "https://en.wikipedia.org/wiki/1992_NBA_Finals",
+            "quote": "122–89 win over the Portland Trail Blazers"
           }
         }
       ]

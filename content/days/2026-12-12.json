@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-suns84-lakers-g3-points",
+      "id": "nba-ant24-nuggets-g1-43",
       "sport": "NBA",
-      "prompt": "How many points did Phoenix score against the Lakers in 1984 West finals Game 3?",
-      "context": "Phoenix Suns · home game that needed overtime",
-      "answer": 135,
+      "prompt": "In Anthony Edwards's statement-making 2024 playoff opener against champion Denver, how many points did he score?",
+      "context": "Anthony Edwards · Wolves at Nuggets · May 2024",
+      "answer": 43,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 85,
-      "max": 225,
+      "min": 15,
+      "max": 100,
       "step": 1,
-      "note": "135 points in a wild overtime win.",
+      "note": "43 points in Denver. Ant launched the upset bid with a Minnesota postseason scoring record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-        "quote": "May 18, 1984 Los Angeles W 135–127 (OT) Davis (34) Lucas (17)"
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+        "quote": "franchise playoff-record 43 points"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Walter Davis paced the Suns with thirty-four points.",
+          "text": "Edwards made 17 of his 29 field goals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "May 18, 1984 Los Angeles W 135–127 (OT) Davis (34)"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "Edwards shot 17-of-29 (59%)"
           }
         },
         {
-          "text": "The victory required overtime to decide.",
+          "text": "The Wolves seized the opening game on Denver's floor.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "May 18, 1984 Los Angeles W 135–127 (OT)"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "Minnesota to a 1–0 series lead"
           }
         },
         {
-          "text": "Los Angeles eventually took the Western finals in six games.",
+          "text": "Naz Reid helped Minnesota take over late.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "Western Conference Finals: 2–4 (home: 1–2; road: 1–2)"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "igniting an 18–7 run"
           }
         }
       ]

@@ -390,8 +390,10 @@ export function validateNba(data: NbaData): Report {
   }
   const unplaced = facts.filter((f) => !used.has(f.id) && !calendar.reserve.includes(f.id));
   for (const f of unplaced) errors.push(`${f.id}: neither scheduled nor in reserve`);
-  const themed = days.filter((d) => d.theme?.kind !== 'mixed').length;
-  if (themed < MIN_THEMED_DAYS) errors.push(`${themed} themed days; need at least ${MIN_THEMED_DAYS}`);
+  const mixed = days.filter((d) => d.theme?.kind === 'mixed').length;
+  // V3 intentionally replaced same-team slates with five-subject mixes. Keep the
+  // original 30-day editorial coverage floor, now applying it to mixed days.
+  if (mixed < MIN_THEMED_DAYS) errors.push(`${mixed} mixed days; need at least ${MIN_THEMED_DAYS}`);
 
   // rolling 7-day editorial balance
   const primary = (d: CalendarDay): string | null => {

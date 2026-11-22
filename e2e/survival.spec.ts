@@ -280,6 +280,9 @@ test.describe('public flag (on): the offer, the gate, the events', () => {
     // Next UTC day, same browser.
     await page.clock.setFixedTime(at('2026-12-21'));
     await page.reload();
+    // The next daily slate intentionally opens behind a new Start gate.
+    // The experiment must count an actual deliberate start, not page load.
+    await startDailyIfNeeded(page);
     await expect(page.locator('.question')).toBeVisible();
     await expect.poll(() => views(page)).toEqual(expect.arrayContaining(['/e/start/daily', '/e/x/survival-cta/control/daily-start', '/e/x/survival-cta/control/next-day-start']));
     // A refresh doesn't count the start again.

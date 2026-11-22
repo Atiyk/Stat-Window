@@ -24522,5 +24522,320 @@
         }
       ]
     }
+  },
+  {
+    "id": "nba-lakers11-mavs-game4-only-86",
+    "family": "points-team-game",
+    "scope": "playoffs",
+    "season": "2010-11",
+    "eventDate": "2011-05-08",
+    "franchise": "LAL",
+    "player": null,
+    "answer": 86,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "The two-time defending Los Angeles Lakers scored only 86 points in their 2011 playoff Game 4 sweep loss to Dallas.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2011_NBA_playoffs",
+      "quote": "In Game 4, the Mavericks blew out the Lakers, 122–86, sweeping the two-time defending NBA champions.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "When the Mavs swept Kobe's two-time defending champion Lakers in 2011, how few points did L.A. score in the Game 4 blowout?",
+      "context": "Lakers at Mavericks · 2011 West semifinals · Game 4",
+      "reveal": "Just 86 points. Dallas scored 122 and ended Phil Jackson's coaching career with a sweep.",
+      "min": 40,
+      "max": 140,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A stunning blowout of Kobe's defending champs is more fun to estimate than a forgotten Finals assist total.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Dallas sank 20 threes in that elimination game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_playoffs",
+            "quote": "The Dallas Mavericks set an NBA record with 20 three pointers"
+          }
+        },
+        {
+          "text": "Jason Terry supplied nine of the Mavericks' threes.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_playoffs",
+            "quote": "with Jason Terry shooting nine of them"
+          }
+        },
+        {
+          "text": "It became Phil Jackson's last game as an NBA head coach.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_playoffs",
+            "quote": "This would also prove to be Phil Jackson's final game as an NBA head coach."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-spurs14-finals-avg-margin-fourteen",
+    "family": "margin-average",
+    "scope": "finals",
+    "season": "2013-14",
+    "eventDate": null,
+    "franchise": "SAS",
+    "player": null,
+    "answer": 14,
+    "unit": {
+      "singular": "point per game",
+      "plural": "points per game"
+    },
+    "claim": "The Spurs outscored LeBron James's Miami Heat by an average of 14.0 points per game in the 2014 NBA Finals.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+      "quote": "outscored them by an average of 14.0 points per game in the series",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In the 2014 Spurs–Heat Finals revenge series, by how many points per game did San Antonio outscore Miami on average?",
+      "context": "San Antonio Spurs vs Miami Heat · 2014 NBA Finals",
+      "reveal": "14 points per game. The Spurs won four games by at least 15 in a five-game Finals.",
+      "min": 0,
+      "max": 35,
+      "step": 0.1,
+      "difficulty": "expert",
+      "difficultyReason": "The famous beautiful-game Spurs revenge series supplies a surprising, estimable domination statistic.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "San Antonio won the title in five games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "win the series, 4–1"
+          }
+        },
+        {
+          "text": "All four Spurs wins came by at least 15 points.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "They defeated Miami by margins of at least 15 points in each of their four wins"
+          }
+        },
+        {
+          "text": "Kawhi Leonard took the Finals MVP award.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "The Spurs' Kawhi Leonard was named the Finals MVP"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-pacers24-msg-game7-671-shooting",
+    "family": "shooting-pct",
+    "scope": "playoffs",
+    "season": "2023-24",
+    "eventDate": "2024-05-19",
+    "franchise": "IND",
+    "player": null,
+    "answer": 67.1,
+    "unit": {
+      "singular": "percent",
+      "plural": "percent"
+    },
+    "claim": "Indiana shot 67.1 percent from the field in its 2024 Eastern semifinal Game 7 road win over the New York Knicks.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+      "quote": "The Pacers set an NBA playoff record for shooting percentage, making 67.1% of their shots in game 7 against the Knicks.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In the Pacers' unbelievable 2024 Game 7 shootout at Madison Square Garden, what percent did Indiana shoot from the field?",
+      "context": "Indiana Pacers at Knicks · May 2024 · East semifinals Game 7",
+      "reveal": "67.1% from the field in a road Game 7. One of the most scorching playoff shooting nights ever.",
+      "min": 45,
+      "max": 80,
+      "step": 0.1,
+      "difficulty": "expert",
+      "difficultyReason": "A recent Knicks-Pacers Game 7 with impossibly hot shooting creates a thrilling and bounded estimation finale.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Indiana shot a staggering 76.3% in the first half.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "The Pacers also set the highest shooting percentage rate in a half with 76.3%"
+          }
+        },
+        {
+          "text": "They made 29 of 38 first-half shots.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "making 29 out of 38 shots in the first half"
+          }
+        },
+        {
+          "text": "Indiana recovered from an 0–2 series deficit to advance.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "the Pacers ultimately prevailed and overcame an 0–2 series deficit for the first time ever."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-murray20-utah-g6-nine-threes",
+    "family": "threes-game",
+    "scope": "playoffs",
+    "season": "2019-20",
+    "eventDate": "2020-08-30",
+    "franchise": "DEN",
+    "player": "Jamal Murray",
+    "answer": 9,
+    "unit": {
+      "singular": "three-pointer",
+      "plural": "three-pointers"
+    },
+    "claim": "Jamal Murray made nine three-pointers against Utah in 2020 bubble playoff Game 6 to force Game 7.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+      "quote": "Murray again scored 50 points, shooting 9–12 from three and helping the Nuggets extend the series to a Game 7",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "With Denver facing elimination in the bubble's 2020 Jazz–Nuggets Game 6, how many threes did Jamal Murray hit?",
+      "context": "Jamal Murray · Nuggets at Jazz · 2020 first-round Game 6",
+      "reveal": "Nine made threes on only 12 attempts! Murray scored 50 to force Game 7.",
+      "min": 0,
+      "max": 25,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Bubble Murray's impossible shot-making is widely recognized and makes a fun, bounded deep-three guess.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Murray scored 50 points to force the deciding game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+            "quote": "Murray again scored 50 points, shooting 9–12 from three and helping the Nuggets extend the series to a Game 7"
+          }
+        },
+        {
+          "text": "Denver entered the comeback facing a 3–1 series deficit.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+            "quote": "In a potential elimination game in Game 5 with Denver down 3–1 in the series"
+          }
+        },
+        {
+          "text": "His emotional postgame interview drew attention beyond basketball.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+            "quote": "Following Game 6, Murray became emotional during the postgame interview with TNT’s Jared Greenberg"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-jordan98-last-shot-five-point-two",
+    "family": "time",
+    "scope": "finals",
+    "season": "1997-98",
+    "eventDate": "1998-06-14",
+    "franchise": "CHI",
+    "player": "Michael Jordan",
+    "answer": 5.2,
+    "unit": {
+      "singular": "second",
+      "plural": "seconds"
+    },
+    "claim": "Michael Jordan hit his iconic 1998 Finals Game 6 game-winning jumper with 5.2 seconds remaining.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Game_6_of_the_1998_NBA_Finals",
+      "quote": "Jordan then hit a 20-footer to give the Bulls an 87–86 lead with 5.2 seconds left.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "On Michael Jordan's famous 'Last Shot' against Utah in the 1998 Finals, how many seconds remained after the ball went in?",
+      "context": "Michael Jordan · Bulls at Jazz · 1998 Finals Game 6",
+      "reveal": "5.2 seconds. Jordan's jumper helped clinch Chicago's sixth title in eight seasons.",
+      "min": 0,
+      "max": 20,
+      "step": 0.1,
+      "difficulty": "expert",
+      "difficultyReason": "The Last Shot is basketball iconography; its remaining-clock estimate is engaging without requiring specialist box-score trivia.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Jordan stole the ball from Karl Malone just before the shot.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Game_6_of_the_1998_NBA_Finals",
+            "quote": "Jordan stole the ball from Karl Malone in the low post and dribbled down the court."
+          }
+        },
+        {
+          "text": "John Stockton missed Utah's final chance to win it.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Game_6_of_the_1998_NBA_Finals",
+            "quote": "John Stockton took the inbound pass, and missed a game-winning 3-pointer"
+          }
+        },
+        {
+          "text": "Jordan finished the deciding game with 45 points.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Game_6_of_the_1998_NBA_Finals",
+            "quote": "Michael Jordan took 35 of the Bulls' 67 shots, leading the team in scoring and minutes played with 45 points"
+          }
+        }
+      ]
+    }
   }
 ]

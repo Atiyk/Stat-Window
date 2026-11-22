@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-lebron15-g1-fga",
+      "id": "nba-lebron07-final-twentyfive",
       "sport": "NBA",
-      "prompt": "LeBron James scored 44 points in Game 1 of the 2015 Finals. How many shots did he take?",
-      "context": "2015 NBA Finals · Game 1 · at Golden State",
-      "answer": 38,
+      "prompt": "Against Detroit in the 2007 East finals, how many straight Cavaliers points did young LeBron score to win Game 5?",
+      "context": "LeBron James · Cavaliers at Pistons · 2007 East finals",
+      "answer": 25,
       "unit": {
-        "singular": "shot",
-        "plural": "shots"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 24,
-      "max": 62,
+      "min": 0,
+      "max": 80,
       "step": 1,
-      "note": "38, then a career playoff high.",
+      "note": "25 straight to close double overtime. At age 22, LeBron almost single-handedly won Game 5.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
-        "quote": "James had a career NBA Finals high of 44 points, while attempting a postseason career-high 38 shots"
+        "url": "https://en.wikipedia.org/wiki/2007_NBA_playoffs",
+        "quote": "James scored the Cavaliers' final 25 points, including all 18 points in overtime"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Kyrie Irving blocked a potential go-ahead Stephen Curry layup late in Game 1's regulation.",
+          "text": "The game went into double overtime.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
-            "quote": "Curry beat Kyrie Irving to the basket and went for a go-ahead layup, but Irving blocked the shot"
+            "url": "https://en.wikipedia.org/wiki/2007_NBA_playoffs",
+            "quote": "In a match that went into double overtime"
           }
         },
         {
-          "text": "The Cavaliers' offense scored just one basket in overtime, and Golden State took the series opener.",
+          "text": "James finished with a playoff career-high 48 points.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
-            "quote": "Cleveland's only score in the extra period was James' layup"
+            "url": "https://en.wikipedia.org/wiki/2007_NBA_playoffs",
+            "quote": "LeBron James' playoff career-high 48-point performance"
           }
         },
         {
-          "text": "Irving fractured his left kneecap during overtime, joining injured Kevin Love on Cleveland's sideline.",
+          "text": "His late layup came with 2.2 seconds left in the second overtime.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
-            "quote": "he was diagnosed with a fractured left kneecap that would require surgery and was ruled out for the rest of the Finals"
+            "url": "https://en.wikipedia.org/wiki/2007_NBA_playoffs",
+            "quote": "made a driving layup with 2.2 seconds left in the second OT"
           }
         }
       ]

@@ -109,23 +109,23 @@
       ]
     },
     {
-      "id": "nba-sprewell99-g5",
+      "id": "nba-hawks86-third-quarter",
       "sport": "NBA",
-      "prompt": "The Knicks scored 39 second-half points in the 1999 clincher. How many were Latrell Sprewell's?",
-      "context": "1999 NBA Finals · Game 5 · vs San Antonio",
-      "answer": 25,
+      "prompt": "Boston routed Atlanta 132–99 in the 1986 East semifinals. How many points did the Hawks score in the third quarter?",
+      "context": "1986 East semifinals · Celtics vs Hawks",
+      "answer": 6,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
       "min": 0,
-      "max": 39,
+      "max": 26,
       "step": 1,
-      "note": "25 of the 39.",
+      "note": "Six, as Boston won the quarter 36–6.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-        "quote": "The Knicks scored 39 points in the second half, and Latrell Sprewell scored 25 of them"
+        "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
+        "quote": "Boston outscored Atlanta 36–6 in the third quarter in route to a 132–99 victory."
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,27 +134,27 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "An Avery Johnson jumper became the championship-clinching basket as the Knicks fell just short.",
+          "text": "Before that Hawks blowout, Boston had already swept Michael Jordan's Bulls in the first round.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "Avery Johnson hit the game-winner with 66 seconds remaining"
+            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
+            "quote": "Boston needed just three games to defeat the Chicago Bulls in the first round"
           }
         },
         {
-          "text": "New York's Cinderella run came without injured franchise center Patrick Ewing.",
+          "text": "The Celtics subsequently swept Milwaukee to reach the championship round without a conference-finals loss.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "Patrick Ewing (2008; did not play)"
+            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
+            "quote": "in the conference finals, Boston swept the Milwaukee Bucks in four games"
           }
         },
         {
-          "text": "The Knicks came from the last East playoff seed and still won a Finals game at Madison Square Garden.",
+          "text": "That season's championship series marked the first official use of the 'NBA Finals' branding.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "the first time an eighth-seeded team won an NBA Finals game"
+            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
+            "quote": "this series marked the first time the \"NBA Finals\" branding was officially used"
           }
         }
       ]
@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-walton77-g5-dreb",
+      "id": "nba-mitchell20-bubble-fiftyseven",
       "sport": "NBA",
-      "prompt": "Bill Walton grabbed 24 rebounds in Game 5 of the 1977 Finals. How many were defensive?",
-      "context": "1977 NBA Finals · Game 5 · at Philadelphia",
-      "answer": 20,
+      "prompt": "In the bubble's wild 2020 Jazz–Nuggets opening playoff game, how many points did Donovan Mitchell score?",
+      "context": "Donovan Mitchell · Jazz vs Nuggets · 2020 bubble",
+      "answer": 57,
       "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 9,
-      "max": 24,
+      "min": 10,
+      "max": 130,
       "step": 1,
-      "note": "20, a Blazers record.",
+      "note": "57 points in an overtime loss. It began a blistering playoff scoring duel with Jamal Murray.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-        "quote": "24 (20 defensive, another team record) of which belonged to Walton alone; his team record still stands."
+        "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+        "quote": "On August 17, 2020, Mitchell scored 57 points in a 125–135 overtime loss to the Nuggets"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Julius Erving scored 37 for Philadelphia in Game 5 but could not prevent a Portland road win.",
+          "text": "Utah lost that opener in overtime.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Erving rallied his team late in the fourth, scoring 37 points himself"
+            "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+            "quote": "Mitchell scored 57 points in a 125–135 overtime loss to the Nuggets"
           }
         },
         {
-          "text": "Portland's rebounders combined for 59 boards, including 48 on the defensive glass.",
+          "text": "He scored 51 more points in another game six days later.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Portland set numerous rebounding records for its team, 59 (48 defensive"
+            "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+            "quote": "Six days later, he scored 51 points"
           }
         },
         {
-          "text": "Bob Gross paced the Trail Blazers in points during their Game 5 win.",
+          "text": "His opener ranked third-highest in playoff scoring history at the time.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Pts: Gross 25"
+            "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+            "quote": "the third most in playoff history"
           }
         }
       ]

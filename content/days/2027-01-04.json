@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-gsw16-mavs-39-threes",
+      "id": "nba-celtics08-finals-g4-comeback-24",
       "sport": "NBA",
-      "prompt": "On March 25, 2016, the Warriors and Mavericks set a record for combined threes in a game. How many?",
-      "context": "Warriors vs Mavericks · 2015–16",
-      "answer": 39,
+      "prompt": "In the 2008 Finals, how big a deficit did the Celtics erase against Kobe's Lakers to steal Game 4?",
+      "context": "Boston Celtics · 2008 Finals Game 4 · Los Angeles",
+      "answer": 24,
       "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 55,
+      "max": 80,
       "step": 1,
-      "note": "39: 21 by Golden State, 18 by Dallas. A record at the time.",
+      "note": "24 points. Boston stormed back in L.A. for a 97–91 win and a 3–1 series lead.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-        "quote": "both teams combined for 39 made three-pointers (21 by the Warriors, 18 by the Mavericks), an all-time NBA record,"
+        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+        "quote": "The Lakers held their ground for most of the third quarter, leading by as many as 24 points."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Golden State became the first NBA team to sink a thousand three-pointers in a single regular season.",
+          "text": "Los Angeles led 35–14 at the end of the first quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "the first team in league history to hit 1,000 three-pointers in a single season"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "The Lakers jumped out to a 35–14 lead after the first quarter"
           }
         },
         {
-          "text": "Assistant coach Luke Walton ran the Warriors early in the year while Steve Kerr recovered from back trouble.",
+          "text": "Boston ended the third quarter with a crushing run that turned the game around.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "assistant coach Luke Walton coaching for the team after it was confirmed that coach Steve Kerr's back would not heal"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "the Celtics went on a 21–3 run to end the third quarter"
           }
         },
         {
-          "text": "Draymond Green recorded a rare five-by-five stat line during an overtime trip to Boston.",
+          "text": "The Celtics took their first lead with 4:07 remaining.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
-            "quote": "Draymond Green recorded a five-by-five game"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "With 4:07 remaining in the fourth quarter, the Celtics took their first lead in the game"
           }
         }
       ]

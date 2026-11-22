@@ -231,3 +231,20 @@ test('second tab inherits the unfinished daily shot-clock deadline instead of a 
     await second.close();
   }
 });
+
+test('a blocked localStorage getter does not crash the daily clock', async ({ page }) => {
+  await page.clock.install({ time: DAY1 });
+  await page.addInitScript(() => {
+    Object.defineProperty(window, 'localStorage', {
+      configurable: true,
+      get() { throw new DOMException('Storage blocked', 'SecurityError'); },
+    });
+  });
+  await page.goto('/');
+  await startDailyIfNeeded(page);
+  await expect(page.locator('.question')).toBeVisible();
+  await expect(page.locator('.shot-clock')).toContainText('24s');
+  await page.clock.fastForward('00:25');
+  await page.clock.runFor(2500);
+  await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');
+});

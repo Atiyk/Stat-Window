@@ -53,12 +53,13 @@ const sharedShotKey = (day: string, id: string) => `stat-window:shot:daily:v1:${
 function savedShotStart(id: string, day: string, shared: boolean): number | null {
   if (typeof window === 'undefined') return null;
   const values: number[] = [];
-  for (const [storage, key] of [
-    [window.sessionStorage, sessionShotKey(id)],
-    ...(shared ? [[window.localStorage, sharedShotKey(day, id)]] : []),
-  ] as [Storage, string][]) {
+  // Accessing the storage property itself can throw (some private or
+  // restricted browsers), not only getItem. Guard the getter as well.
+  const keys: ['sessionStorage' | 'localStorage', string][] = [['sessionStorage', sessionShotKey(id)]];
+  if (shared) keys.push(['localStorage', sharedShotKey(day, id)]);
+  for (const [kind, key] of keys) {
     try {
-      const raw = storage.getItem(key);
+      const raw = window[kind].getItem(key);
       const n = raw === null ? NaN : Number(raw);
       // Do not honour future or invalid timestamps. An earlier valid start
       // wins when tabs disagree about a started round.

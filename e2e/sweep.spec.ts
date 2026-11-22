@@ -1,5 +1,5 @@
 import { expect, test, type Locator, type Page } from '@playwright/test';
-import { lockAndSettle, next, openAt, typeWindow } from './helpers';
+import { lockAndSettle, next, openAt, startDailyIfNeeded, typeWindow } from './helpers';
 
 /** 2026-11-21 (No. 7 of the beta): Q1 is 25–100, answer 73. */
 const NOV21 = new Date('2026-11-21T15:00:00Z');
@@ -190,6 +190,7 @@ test.describe('BUG-06: practice and challenge results lead with "Challenge a fri
     await openAt(page, NOV21);
     await playFive(page);
     await page.getByRole('button', { name: 'Nov 18' }).click();
+    await startDailyIfNeeded(page);
     await expect(page.locator('.round-meta')).toContainText('Practice');
     await playFive(page);
     await expect(firstAction(page)).toHaveText('Challenge a friend');

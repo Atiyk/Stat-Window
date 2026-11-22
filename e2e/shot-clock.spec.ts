@@ -210,3 +210,53 @@ test('reduced-motion first-play practice preserves focus and layout across five 
   await expect(page.locator('.round:not(.onboarding-play) .question')).toBeVisible();
   await expect(page.locator('.shot-clock')).toContainText('24s');
 });
+
+test('second tab inherits the unfinished daily shot-clock deadline instead of a free 24 seconds', async ({ page, context }) => {
+  await openTimed(page);
+  await page.clock.fastForward('00:10');
+  const snapshot = (tab: Page) => tab.evaluate(() => ({
+    now: Date.now(),
+    shared: localStorage.getItem('stat-window:shot:daily:v1:2026-11-15:nba-gsw-2016-wins'),
+    session: sessionStorage.getItem('stat-window:shot:v1:nba-gsw-2016-wins'),
+    allShared: Object.keys(localStorage).filter(k => k.startsWith('stat-window:shot:')),
+  }));
+  const first = await snapshot(page);
+  const second = await context.newPage();
+  try {
+    await second.clock.install({ time: new Date(DAY1.getTime() + 10_000) });
+    await second.goto('/');
+    const before = await snapshot(second);
+    await startDailyIfNeeded(second);
+    await expect(second.locator('.question')).toBeVisible();
+    const after = await snapshot(second);
+    expect(first.shared).not.toBeNull();
+    expect(before.shared).toBe(first.shared);
+    expect(after.shared).toBe(first.shared);
+    await expect.poll(async () => Number((await second.locator('.shot-clock').textContent())?.match(/(\d+)s/)?.[1])).toBeLessThanOrEqual(15);
+    const remain = Number((await second.locator('.shot-clock').textContent())?.match(/(\d+)s/)?.[1]);
+    expect(remain).toBeGreaterThanOrEqual(13);
+    // Refresh the second tab; neither session nor shared local storage gives time back.
+    await second.clock.fastForward('00:05');
+    await second.reload();
+    await expect.poll(async () => Number((await second.locator('.shot-clock').textContent())?.match(/(\d+)s/)?.[1])).toBeLessThanOrEqual(10);
+  } finally {
+    await second.close();
+  }
+});
+
+test('a blocked localStorage getter does not crash the daily clock', async ({ page }) => {
+  await page.clock.install({ time: DAY1 });
+  await page.addInitScript(() => {
+    Object.defineProperty(window, 'localStorage', {
+      configurable: true,
+      get() { throw new DOMException('Storage blocked', 'SecurityError'); },
+    });
+  });
+  await page.goto('/');
+  await startDailyIfNeeded(page);
+  await expect(page.locator('.question')).toBeVisible();
+  await expect(page.locator('.shot-clock')).toContainText('24s');
+  await page.clock.fastForward('00:25');
+  await page.clock.runFor(2500);
+  await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');
+});

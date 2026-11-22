@@ -43,7 +43,7 @@ test.describe('BUG-02: results open at the top', () => {
   test('at 320x568 the results start at scrollY 0 with the visible heading focused', async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 568 });
     await openAt(page, NOV21);
-    await playFive(page, () => page.mouse.wheel(0, 400));
+    await playFive(page, () => page.evaluate(() => window.scrollBy(0, 400)));  // scroll mid-game; mouse.wheel is unsupported in mobile WebKit
     await expect(page.locator('.results-title')).toBeVisible();
     await page.waitForTimeout(200);
     await page.screenshot({ path: `${shots}/bug02-320-results.png` });

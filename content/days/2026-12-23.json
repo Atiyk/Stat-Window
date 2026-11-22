@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-sikma79-finals-g5-rebounds",
+      "id": "nba-trae21-bucks-g1-48",
       "sport": "NBA",
-      "prompt": "How many rebounds did Jack Sikma grab in the 1979 title-clinching Game 5?",
-      "context": "Seattle at Washington · 1979 NBA Finals",
-      "answer": 17,
+      "prompt": "When Trae Young stunned Milwaukee in the 2021 East finals opener, how many points did he score?",
+      "context": "Trae Young · Hawks at Bucks · June 2021",
+      "answer": 48,
       "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 5,
-      "max": 39,
+      "min": 10,
+      "max": 120,
       "step": 1,
-      "note": "17 rebounds in Seattle's road championship clincher.",
+      "note": "48 points and 11 assists. Atlanta stole the opening game on Milwaukee's home court.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-        "quote": "June 1 @ Washington W 97–93 Gus Williams (23) Jack Sikma (17)"
+        "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+        "quote": "48 points in his conference finals debut"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Gus Williams led Seattle in the clincher with 23 points.",
+          "text": "Atlanta rallied after halftime to pull off the road win.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "June 1 @ Washington W 97–93 Gus Williams (23)"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+            "quote": "Hawks rallied in the 2nd half"
           }
         },
         {
-          "text": "Seattle won the final game 97–93 in Washington.",
+          "text": "The Hawks escaped with a close victory.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "June 1 @ Washington W 97–93"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+            "quote": "Atlanta Hawks 116, Milwaukee Bucks 113"
           }
         },
         {
-          "text": "The victory secured Seattle's first NBA championship.",
+          "text": "Young dished 11 assists as well.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "winning their first and only NBA championship"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+            "quote": "Asts: Trae Young 11"
           }
         }
       ]

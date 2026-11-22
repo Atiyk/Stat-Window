@@ -211,24 +211,23 @@
       ]
     },
     {
-      "id": "nba-peja02-regular-three-pct",
+      "id": "nba-kyrie16-finals-g7-shot-53-sec",
       "sport": "NBA",
-      "prompt": "What percent of his threes did Peja Stojaković make in 2001–02?",
-      "context": "Sacramento · regular season · one decimal",
-      "answer": 41.6,
+      "prompt": "When Kyrie Irving hit 'The Shot' over Steph Curry in the 2016 Finals Game 7, how many seconds remained?",
+      "context": "Kyrie Irving · Cavaliers at Warriors · 2016 Finals",
+      "answer": 53,
       "unit": {
-        "singular": "percent",
-        "plural": "percent"
+        "singular": "second",
+        "plural": "seconds"
       },
-      "min": 24,
-      "max": 62,
-      "step": 0.1,
-      "note": "41.6 percent from deep.",
+      "min": 5,
+      "max": 135,
+      "step": 1,
+      "note": "53 seconds remained. The shot gave Cleveland the late lead in its 3–1 comeback.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-        "quote": "Peja Stojaković | 71 | 71 | 37.3 | .484 | .416 | .876",
-        "derivation": "Convert .416 source three-point percentage into 41.6% by multiplying by 100."
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "with 53 seconds remaining in the game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -237,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Peja made 129 three-pointers that regular season.",
+          "text": "Kyrie's shot put Cleveland ahead by three.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "led the Kings with 129 three-point field goals"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "give Cleveland a 92–89 lead"
           }
         },
         {
-          "text": "He converted 87.6 percent of his free throws.",
+          "text": "He made the jumper over Stephen Curry.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "Peja Stojaković | 71 | 71 | 37.3 | .484 | .416 | .876"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "over Stephen Curry"
           }
         },
         {
-          "text": "Stojaković started every one of his seventy-one appearances.",
+          "text": "Cleveland won the deciding game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "Peja Stojaković | 71 | 71"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "Cavaliers defeated the Warriors 93–89"
           }
         }
       ]

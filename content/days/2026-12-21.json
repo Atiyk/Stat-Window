@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-shaq01-g2-blocks",
+      "id": "nba-wemby24-10-blocks-blazers",
       "sport": "NBA",
-      "prompt": "In Game 2 of the 2001 Finals, Shaq had 28 points, 20 rebounds, nine assists and how many blocks?",
-      "context": "2001 NBA Finals · Game 2 · vs Philadelphia",
-      "answer": 8,
+      "prompt": "In Wembanyama's spectacular December 2024 two-way night against Portland, how many shots did he block?",
+      "context": "Victor Wembanyama · Spurs vs Blazers · December 2024",
+      "answer": 10,
       "unit": {
         "singular": "block",
         "plural": "blocks"
       },
       "min": 0,
-      "max": 13,
+      "max": 27,
       "step": 1,
-      "note": "Eight blocks.",
+      "note": "10 blocks, plus 30 points. Even for Wembanyama, that's an extraordinary defensive night.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-        "quote": "O'Neal finished with 28 points, 20 rebounds, nine assists, and eight blocks"
+        "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+        "quote": "tied his career-high 10 blocks"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Phil Jackson challenged Shaq to attack shots before tipoff after the center failed to record a block in the opener.",
+          "text": "He also scored 30 points in the game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "Don't be afraid to block a shot!"
+            "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+            "quote": "posted 30 points"
           }
         },
         {
-          "text": "Philadelphia's poor fourth-quarter foul shooting blunted its comeback despite getting close to the Lakers.",
+          "text": "San Antonio won by 20 points.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "the 6 of 16 foul shooting in the fourth quarter put them behind permanently"
+            "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+            "quote": "114–94 win over the Portland Trail Blazers"
           }
         },
         {
-          "text": "Bryant opened the rematch aggressively, while other Lakers outside the star duo struggled from the field.",
+          "text": "Wembanyama was only 20 at the time.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "all the Lakers besides Bryant and O'Neal were shooting only at 27%"
+            "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+            "quote": "At 20 years and 352 days old"
           }
         }
       ]

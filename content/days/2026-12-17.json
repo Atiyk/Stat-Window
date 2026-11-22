@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-nash05-dallas-g6-points",
+      "id": "nba-shaq00-finals-g2-24-boards",
       "sport": "NBA",
-      "prompt": "How many points did Steve Nash score in the 2005 playoff clincher against Dallas?",
-      "context": "Phoenix at Dallas · conference semifinals · Game 6",
-      "answer": 39,
+      "prompt": "When a hobbled Kobe barely played 2000 Finals Game 2 against Indiana, how many rebounds did Shaq grab?",
+      "context": "Shaquille O'Neal · Lakers vs Pacers · 2000 Finals",
+      "answer": 24,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "rebound",
+        "plural": "rebounds"
       },
-      "min": 20,
-      "max": 70,
+      "min": 5,
+      "max": 65,
       "step": 1,
-      "note": "39 points in Phoenix's overtime series-clinching win.",
+      "note": "24 rebounds alongside 40 points. Shaq dominated while Kobe battled an ankle injury.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-        "quote": "6 May 20 @ Dallas W 130–126 (OT) Steve Nash (39)"
+        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+        "quote": "Shaq led both teams with 40 points and 24 rebounds"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Phoenix eliminated Nash's former Dallas team in six games.",
+          "text": "Kobe scored just two points in that game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "defeated Nash's former team, the Dallas Mavericks, in six games"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "only 2 points in game 2"
           }
         },
         {
-          "text": "The clincher ended in a 130–126 overtime win for Phoenix.",
+          "text": "Shaq faced the hack-a-Shaq tactic repeatedly.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "W 130–126 (OT)"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "Shaq shot 39 free throws"
           }
         },
         {
-          "text": "Shawn Marion grabbed 16 rebounds during that same decisive game.",
+          "text": "Los Angeles prevailed to take the series advantage.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "Steve Nash (39) Shawn Marion (16) Steve Nash (12)"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "111–104 Lakers victory"
           }
         }
       ]

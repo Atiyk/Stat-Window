@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-robinson94-quadruple",
+      "id": "nba-shai25-finals-g7-12-assists",
       "sport": "NBA",
-      "prompt": "David Robinson's 1994 quadruple-double included 10 blocks. How many points did he score?",
-      "context": "Spurs vs Detroit Pistons · February 17, 1994",
-      "answer": 34,
+      "prompt": "In Oklahoma City's 2025 Finals Game 7 title-clincher against Indiana, how many assists did Shai record?",
+      "context": "Shai Gilgeous-Alexander · Thunder vs Pacers · Game 7",
+      "answer": 12,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "assist",
+        "plural": "assists"
       },
-      "min": 16,
-      "max": 58,
+      "min": 0,
+      "max": 35,
       "step": 1,
-      "note": "34, plus 10 rebounds and 10 assists.",
+      "note": "12 assists plus 29 points in the championship clincher, sealing Shai's MVP season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/David_Robinson",
-        "quote": "with 34 points, 10 rebounds, 10 assists, and 10 blocks against the Detroit Pistons on February 17, 1994"
+        "url": "https://en.wikipedia.org/wiki/2025_NBA_Finals",
+        "quote": "Asts: Shai Gilgeous-Alexander 12"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Robinson joined an exceptionally small group of players who recorded double figures in four statistical categories.",
+          "text": "Shai scored 29 points in the Game 7 victory.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "one of only four players to have officially recorded a quadruple-double"
+            "url": "https://en.wikipedia.org/wiki/2025_NBA_Finals",
+            "quote": "Pts: Shai Gilgeous-Alexander 29"
           }
         },
         {
-          "text": "The Admiral had attended the Naval Academy and was so tall that he could not serve aboard Navy ships.",
+          "text": "The Thunder prevailed in seven games.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "which later prevented him from serving on any U.S. Navy ships"
+            "url": "https://en.wikipedia.org/wiki/2025_NBA_Finals",
+            "quote": "Oklahoma City wins NBA Finals, 4–3"
           }
         },
         {
-          "text": "Robinson won championships both before and after the turn of the millennium, playing his entire career in San Antonio.",
+          "text": "Chet Holmgren recorded five blocks in the decider.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "2× NBA champion (1999, 2003)"
+            "url": "https://en.wikipedia.org/wiki/2025_NBA_Finals",
+            "quote": "most blocks (5) in a Game 7"
           }
         }
       ]

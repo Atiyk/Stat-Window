@@ -487,10 +487,9 @@
       "era": "2020s",
       "steps": 65,
       "day": "2026-11-26",
-      "notBefore": "2026-12-14",
+      "notBefore": "2026-12-03",
       "leaks": [
-        "nba-butler23-56",
-        "nba-braun22-draft-pick"
+        "nba-butler23-56"
       ]
     },
     "nba-stockton90-apg": {
@@ -1262,12 +1261,12 @@
       "day": "2026-12-12",
       "notBefore": "2026-12-13"
     },
-    "nba-suns84-lakers-g3-points": {
+    "nba-ant24-nuggets-g1-43": {
       "tier": "expert",
-      "family": "points-team-game",
-      "franchise": "PHX",
-      "era": "1980s",
-      "steps": 140,
+      "family": "points-game",
+      "franchise": "MIN",
+      "era": "2020s",
+      "steps": 85,
       "day": "2026-12-12",
       "notBefore": "2026-12-13"
     },
@@ -1307,12 +1306,12 @@
       "day": "2026-12-13",
       "notBefore": "2026-12-14"
     },
-    "nba-braun22-draft-pick": {
+    "nba-westbrook17-50-nuggets-winner": {
       "tier": "expert",
-      "family": "draft-pick",
-      "franchise": "DEN",
-      "era": "2020s",
-      "steps": 44,
+      "family": "points-game",
+      "franchise": "OKC",
+      "era": "2010s",
+      "steps": 105,
       "day": "2026-12-13",
       "notBefore": "2026-12-14"
     },
@@ -1352,12 +1351,12 @@
       "day": "2026-12-14",
       "notBefore": "2026-12-15"
     },
-    "nba-gsw16-dec1-3pa": {
+    "nba-jordan92-finals-shrug-first-half-35": {
       "tier": "expert",
-      "family": "threes-attempts",
-      "franchise": "GSW",
-      "era": "2010s",
-      "steps": 85,
+      "family": "points-period",
+      "franchise": "CHI",
+      "era": "1990s",
+      "steps": 100,
       "day": "2026-12-14",
       "notBefore": "2026-12-15"
     },
@@ -1400,12 +1399,12 @@
       "day": "2026-12-15",
       "notBefore": "2026-12-16"
     },
-    "nba-sixers14-losing-streak": {
+    "nba-lebron11-finals-g4-eight": {
       "tier": "expert",
-      "family": "losing-streak",
-      "franchise": "PHI",
+      "family": "points-game",
+      "franchise": "MIA",
       "era": "2010s",
-      "steps": 36,
+      "steps": 40,
       "day": "2026-12-15",
       "notBefore": "2026-12-16"
     },
@@ -1448,14 +1447,17 @@
       "day": "2026-12-16",
       "notBefore": "2026-12-17"
     },
-    "nba-pistons05-g4-to": {
+    "nba-durant21-nets-bucks-g5-49": {
       "tier": "expert",
-      "family": "turnovers",
-      "franchise": "DET",
-      "era": "2000s",
-      "steps": 15,
+      "family": "points-game",
+      "franchise": "BKN",
+      "era": "2020s",
+      "steps": 110,
       "day": "2026-12-16",
-      "notBefore": "2026-12-17"
+      "notBefore": "2026-12-20",
+      "leaks": [
+        "nba-giannis21-g6-ft"
+      ]
     },
     "nba-jokic-draft-pick": {
       "tier": "easy",
@@ -1493,12 +1495,12 @@
       "day": "2026-12-17",
       "notBefore": "2026-12-18"
     },
-    "nba-nash05-dallas-g6-points": {
+    "nba-shaq00-finals-g2-24-boards": {
       "tier": "expert",
-      "family": "points-game",
-      "franchise": "PHX",
-      "era": "2000s",
-      "steps": 50,
+      "family": "rebounds-game",
+      "franchise": "LAL",
+      "era": "1990s",
+      "steps": 60,
       "day": "2026-12-17",
       "notBefore": "2026-12-18"
     },
@@ -1541,16 +1543,17 @@
       "day": "2026-12-18",
       "notBefore": "2026-12-19"
     },
-    "nba-mavs11-g2-comeback": {
+    "nba-jokic25-61-point-triple-double": {
       "tier": "expert",
-      "family": "comeback",
-      "franchise": "DAL",
-      "era": "2010s",
-      "steps": 26,
+      "family": "points-game",
+      "franchise": "DEN",
+      "era": "2020s",
+      "steps": 120,
       "day": "2026-12-18",
-      "notBefore": "2026-12-19",
+      "notBefore": "2027-01-21",
       "leaks": [
-        "nba-dirk11-24-ft"
+        "nba-jokic23-playoff-triple-doubles",
+        "nba-wemby24-10-blocks-blazers"
       ]
     },
     "nba-nuggets23-regular-wins": {
@@ -1598,14 +1601,17 @@
       "day": "2026-12-19",
       "notBefore": "2026-12-20"
     },
-    "nba-finals98-rating": {
+    "nba-vince01-sixers-first-half-eight-threes": {
       "tier": "expert",
-      "family": "viewership",
-      "franchise": null,
-      "era": "1990s",
-      "steps": 280,
+      "family": "threes-game",
+      "franchise": "TOR",
+      "era": "2000s",
+      "steps": 24,
       "day": "2026-12-19",
-      "notBefore": "2026-12-20"
+      "notBefore": "2026-12-20",
+      "leaks": [
+        "nba-allen10-g2-threes"
+      ]
     },
     "nba-spurs14-season-wins": {
       "tier": "easy",
@@ -1643,12 +1649,12 @@
       "day": "2026-12-20",
       "notBefore": "2026-12-21"
     },
-    "nba-peja02-regular-three-pct": {
+    "nba-kyrie16-finals-g7-shot-53-sec": {
       "tier": "expert",
-      "family": "shooting-pct",
-      "franchise": "SAC",
-      "era": "2000s",
-      "steps": 380,
+      "family": "time",
+      "franchise": "CLE",
+      "era": "2010s",
+      "steps": 130,
       "day": "2026-12-20",
       "notBefore": "2026-12-21"
     },
@@ -1691,12 +1697,12 @@
         "nba-bol85-quarter"
       ]
     },
-    "nba-shaq01-g2-blocks": {
+    "nba-wemby24-10-blocks-blazers": {
       "tier": "expert",
       "family": "blocks-game",
-      "franchise": "LAL",
-      "era": "2000s",
-      "steps": 13,
+      "franchise": "SAS",
+      "era": "2020s",
+      "steps": 27,
       "day": "2026-12-21",
       "notBefore": "2026-12-22"
     },
@@ -1739,17 +1745,14 @@
         "nba-battier13-g7-threes"
       ]
     },
-    "nba-robinson94-quadruple": {
+    "nba-shai25-finals-g7-12-assists": {
       "tier": "expert",
-      "family": "points-game",
-      "franchise": "SAS",
-      "era": "1990s",
-      "steps": 42,
+      "family": "assists-game",
+      "franchise": "OKC",
+      "era": "2020s",
+      "steps": 35,
       "day": "2026-12-22",
-      "notBefore": "2026-12-23",
-      "leaks": [
-        "nba-sonics94-opening-streak"
-      ]
+      "notBefore": "2026-12-23"
     },
     "nba-suns84-season-wins": {
       "tier": "easy",
@@ -1787,12 +1790,12 @@
       "day": "2026-12-23",
       "notBefore": "2026-12-24"
     },
-    "nba-sikma79-finals-g5-rebounds": {
+    "nba-trae21-bucks-g1-48": {
       "tier": "expert",
-      "family": "rebounds-game",
-      "franchise": "OKC",
-      "era": "1970s",
-      "steps": 34,
+      "family": "points-game",
+      "franchise": "ATL",
+      "era": "2020s",
+      "steps": 110,
       "day": "2026-12-23",
       "notBefore": "2026-12-24"
     },
@@ -2160,10 +2163,7 @@
       "era": "1970s",
       "steps": 55,
       "day": "2026-12-31",
-      "notBefore": "2027-01-01",
-      "leaks": [
-        "nba-sikma79-finals-g5-rebounds"
-      ]
+      "notBefore": "2027-01-01"
     },
     "nba-baylor-finals-losses": {
       "tier": "expert",
@@ -2451,10 +2451,7 @@
       "era": "2000s",
       "steps": 24,
       "day": "2027-01-06",
-      "notBefore": "2027-01-07",
-      "leaks": [
-        "nba-pistons05-g4-to"
-      ]
+      "notBefore": "2027-01-07"
     },
     "nba-wilt62-week-average": {
       "tier": "expert",
@@ -2552,7 +2549,6 @@
       "day": "2027-01-08",
       "notBefore": "2027-01-09",
       "leaks": [
-        "nba-mavs11-g2-comeback",
         "nba-bulls11-regular-wins"
       ]
     },
@@ -3396,7 +3392,10 @@
       "era": "2020s",
       "steps": 40,
       "day": "2027-01-26",
-      "notBefore": "2027-01-27"
+      "notBefore": "2027-01-27",
+      "leaks": [
+        "nba-wemby24-10-blocks-blazers"
+      ]
     },
     "nba-bobcats12-wins": {
       "tier": "medium",

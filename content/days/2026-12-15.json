@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-sixers14-losing-streak",
+      "id": "nba-lebron11-finals-g4-eight",
       "sport": "NBA",
-      "prompt": "The 2013–14 Sixers tied what was then the NBA record for consecutive losses. How many?",
-      "context": "Philadelphia 76ers · 2013–14",
-      "answer": 26,
+      "prompt": "During LeBron's infamous low-scoring Game 4 of the 2011 Finals against Dirk's Mavericks, how many points did he score?",
+      "context": "LeBron James · Heat at Mavericks · 2011 Finals",
+      "answer": 8,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 36,
+      "max": 40,
       "step": 1,
-      "note": "26 in a row, matching Cleveland's mark.",
+      "note": "Only 8 points. It became one of the most discussed nights of LeBron's career.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
-        "quote": "tying Cleveland's former NBA record for most consecutive losses with 26"
+        "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+        "quote": "LeBron James scored just 8 total points in Game 4"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "The Sixers finally ended the run with a 123–98 win against Detroit at home.",
+          "text": "LeBron shot three of 11 from the field.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
-            "quote": "ended with a 123–98 win over the Detroit Pistons on March 29"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "on 3-11 (27.2%) shooting"
           }
         },
         {
-          "text": "Rookie guard Michael Carter-Williams won Rookie of the Year that season.",
+          "text": "He contributed nine rebounds and seven assists.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
-            "quote": "Michael Carter-Williams enjoyed a successful rookie season, earning Rookie of the Year honors"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "9 rebounds and 7 assists"
           }
         },
         {
-          "text": "Sam Hinkie was Philadelphia's general manager during the difficult season.",
+          "text": "Dallas won the game to tie the series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
-            "quote": "General manager  | Sam Hinkie"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "preserving Dallas' 86–83 win"
           }
         }
       ]

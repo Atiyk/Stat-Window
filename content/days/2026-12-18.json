@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-mavs11-g2-comeback",
+      "id": "nba-jokic25-61-point-triple-double",
       "sport": "NBA",
-      "prompt": "Dallas won Game 2 of the 2011 Finals after trailing by how many points?",
-      "context": "2011 NBA Finals · Game 2 · at Miami",
-      "answer": 15,
+      "prompt": "In his historic 2025 triple-double against Minnesota, how many points did Nikola Jokić score despite Denver losing?",
+      "context": "Nikola Jokić · Nuggets vs Timberwolves · April 2025",
+      "answer": 61,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 0,
-      "max": 26,
+      "min": 15,
+      "max": 135,
       "step": 1,
-      "note": "15, the biggest Finals comeback since Boston rallied from 24 down in 2008.",
+      "note": "61 points, plus 10 rebounds and 10 assists, in a heartbreaking double-overtime loss.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
-        "quote": "The Mavs' 15-point comeback was the biggest in an NBA Finals game since the 24-point comeback"
+        "url": "https://en.wikipedia.org/wiki/Nikola_Joki%C4%87",
+        "quote": "61 points, 10 rebounds and 10 assists"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Dirk finished the comeback with a driving layup using his injured left hand.",
+          "text": "Denver lost the double-overtime thriller.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
-            "quote": "Nowitzki then made a driving layup with his injured left hand with 3.6 seconds left."
+            "url": "https://en.wikipedia.org/wiki/Nikola_Joki%C4%87",
+            "quote": "140–139 double overtime loss"
           }
         },
         {
-          "text": "Mario Chalmers briefly tied the game on a three-pointer before Dallas took the decisive possession.",
+          "text": "It was an extraordinarily high-scoring triple-double.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
-            "quote": "However, Mario Chalmers tied it with a 3 of his own with 24.5 seconds left"
+            "url": "https://en.wikipedia.org/wiki/Nikola_Joki%C4%87",
+            "quote": "highest-scoring triple-double in NBA history"
           }
         },
         {
-          "text": "The Mavericks' victory ended a nine-game home playoff winning streak for Miami.",
+          "text": "Harden and Luka had previously recorded 60-point triple-doubles.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
-            "quote": "The Mavs' win broke the Heat's 9-game home winning streak in the playoffs"
+            "url": "https://en.wikipedia.org/wiki/Nikola_Joki%C4%87",
+            "quote": "after James Harden (2018) and Luka Dončić (2022)"
           }
         }
       ]

@@ -29,7 +29,7 @@ export function boards(prefix:string,day:string,launchDay:string|null):string[] 
 export function pseudonym(member:string):string {
   const adjectives=['Quiet','Swift','Clever','Steady','Sharp','Lucky','Calm','Bold'];
   const nouns=['Hooper','Shooter','Playmaker','Rookie','Veteran','Closer','Defender','Coach'];
-  return adjectives[parseInt(member.slice(0,4),16)%8]+nouns[parseInt(member.slice(4,8),16)%8]+'-'+member.slice(-4).toUpperCase();
+  return adjectives[parseInt(member.slice(0,4),16)%8]!+nouns[parseInt(member.slice(4,8),16)%8]!+'-'+member.slice(-4).toUpperCase();
 }
 function hash(secret:string,value:string) { return createHmac('sha256',secret).update(value).digest('hex').slice(0,40); }
 function json(status:number,body:unknown) { return new Response(JSON.stringify(body),{status,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}}); }

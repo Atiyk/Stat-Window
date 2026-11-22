@@ -29,7 +29,7 @@ describe('Eastern calendar leaderboard periods',()=>{
    const ctx=leaderboardContext({
      VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',LEADERBOARDS_ENABLED:'1',
      LEADERBOARDS_DAILY_BUDGET:'1000',LEADERBOARDS_MONTHLY_BUDGET:'20000',
-     LEADERBOARDS_ERASE_BUDGET:'2000',SCORE_HASH_SECRET:secret,
+     LEADERBOARDS_ERASE_BUDGET:'10000',SCORE_HASH_SECRET:secret,
    },store,async()=>null);
    ctx.now=()=>new Date('2026-11-22T16:00:00Z');
    const url='https://stat-window.vercel.app/api/leaderboard?period=week';

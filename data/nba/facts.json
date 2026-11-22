@@ -1197,69 +1197,6 @@
     }
   },
   {
-    "id": "nba-finals98-rating",
-    "family": "viewership",
-    "scope": "finals",
-    "season": "1997-98",
-    "eventDate": null,
-    "franchise": null,
-    "player": null,
-    "answer": 18.7,
-    "unit": {
-      "singular": "rating point",
-      "plural": "rating points"
-    },
-    "claim": "An 18.7 rating.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-      "quote": "garnered the highest Nielsen TV ratings in NBA history at 18.7",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "The 1998 Finals drew the highest Nielsen TV rating in NBA history. What was it?",
-      "context": "1998 NBA Finals · Bulls vs Jazz · US television",
-      "reveal": "An 18.7 rating.",
-      "min": 2,
-      "max": 30,
-      "step": 0.1,
-      "difficulty": "expert",
-      "difficultyReason": "TV ratings are an unfamiliar scale for most players.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 1,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "That year's NBA title series drew a bigger U.S. television rating than the World Series.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-            "quote": "even surpassed the Nielsen ratings for the 1998 World Series"
-          }
-        },
-        {
-          "text": "Phil Jackson had called the Bulls' farewell campaign 'The Last Dance' before the season began.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-            "quote": "Phil Jackson wrote on the chalk board and named the season \"The Last Dance\""
-          }
-        },
-        {
-          "text": "The Jazz and Bulls had also faced each other in the Finals the preceding season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-            "quote": "the same two teams met in the Finals in consecutive years"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-cavs16-g5-41",
     "family": "points-game",
     "scope": "finals",
@@ -2898,69 +2835,6 @@
     }
   },
   {
-    "id": "nba-sixers14-losing-streak",
-    "family": "losing-streak",
-    "scope": "regular-season",
-    "season": "2013-14",
-    "eventDate": null,
-    "franchise": "PHI",
-    "player": null,
-    "answer": 26,
-    "unit": {
-      "singular": "game",
-      "plural": "games"
-    },
-    "claim": "26 in a row, matching Cleveland's mark.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
-      "quote": "tying Cleveland's former NBA record for most consecutive losses with 26",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "The 2013–14 Sixers tied what was then the NBA record for consecutive losses. How many?",
-      "context": "Philadelphia 76ers · 2013–14",
-      "reveal": "26 in a row, matching Cleveland's mark.",
-      "min": 0,
-      "max": 36,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "An obscure record with no anchor.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 2,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "The Sixers finally ended the run with a 123–98 win against Detroit at home.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
-            "quote": "ended with a 123–98 win over the Detroit Pistons on March 29"
-          }
-        },
-        {
-          "text": "Rookie guard Michael Carter-Williams won Rookie of the Year that season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
-            "quote": "Michael Carter-Williams enjoyed a successful rookie season, earning Rookie of the Year honors"
-          }
-        },
-        {
-          "text": "Sam Hinkie was Philadelphia's general manager during the difficult season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
-            "quote": "General manager  | Sam Hinkie"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-barry80-threes",
     "family": "threes-game",
     "scope": "regular-season",
@@ -3144,69 +3018,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
             "quote": "Stephen Curry, who is credited with revolutionizing the game by inspiring teams to more heavily employ the three-point shot"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-gsw16-dec1-3pa",
-    "family": "threes-attempts",
-    "scope": "regular-season",
-    "season": "2016-17",
-    "eventDate": "2016-12-01",
-    "franchise": "GSW",
-    "player": null,
-    "answer": 88,
-    "unit": {
-      "singular": "attempt",
-      "plural": "attempts"
-    },
-    "claim": "88, 44 for each team.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
-      "quote": "Most combined three-point attempts in a single game: 88",
-      "derivation": null,
-      "asOf": "2016-17 season"
-    },
-    "question": {
-      "prompt": "In a double-overtime game on December 1, 2016, how many threes did the Warriors and Rockets attempt combined?",
-      "context": "Warriors vs Houston Rockets · 2016–17 · double overtime",
-      "reveal": "88, 44 for each team.",
-      "min": 20,
-      "max": 105,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Combined attempts are an unfamiliar scale.",
-      "ratings": {
-        "interest": 2,
-        "recognizability": 2,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Golden State and Houston each took exactly 44 attempts from beyond the arc in their double-overtime shootout.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
-            "quote": "Both the Warriors and the Houston Rockets took 44 attempts each on December 1, 2016"
-          }
-        },
-        {
-          "text": "Golden State also became the first team to have four different players make four threes in a single game that season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
-            "quote": "First team to have four players hit four three-pointers in a single game"
-          }
-        },
-        {
-          "text": "That Warriors roster sent Curry, Durant, Thompson and Draymond Green to the same All-Star Game.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
-            "quote": "Kevin Durant, Stephen Curry, Klay Thompson and Draymond Green were all named to the All-Star Game"
           }
         }
       ]
@@ -5544,69 +5355,6 @@
     }
   },
   {
-    "id": "nba-mavs11-g2-comeback",
-    "family": "comeback",
-    "scope": "finals",
-    "season": "2010-11",
-    "eventDate": "2011-06-02",
-    "franchise": "DAL",
-    "player": null,
-    "answer": 15,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "15, the biggest Finals comeback since Boston rallied from 24 down in 2008.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
-      "quote": "The Mavs' 15-point comeback was the biggest in an NBA Finals game since the 24-point comeback",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "Dallas won Game 2 of the 2011 Finals after trailing by how many points?",
-      "context": "2011 NBA Finals · Game 2 · at Miami",
-      "reveal": "15, the biggest Finals comeback since Boston rallied from 24 down in 2008.",
-      "min": 0,
-      "max": 26,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Comeback margins are rarely remembered.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 2,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Dirk finished the comeback with a driving layup using his injured left hand.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
-            "quote": "Nowitzki then made a driving layup with his injured left hand with 3.6 seconds left."
-          }
-        },
-        {
-          "text": "Mario Chalmers briefly tied the game on a three-pointer before Dallas took the decisive possession.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
-            "quote": "However, Mario Chalmers tied it with a 3 of his own with 24.5 seconds left"
-          }
-        },
-        {
-          "text": "The Mavericks' victory ended a nine-game home playoff winning streak for Miami.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
-            "quote": "The Mavs' win broke the Heat's 9-game home winning streak in the playoffs"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-lakers00-wins",
     "family": "wins-season",
     "scope": "regular-season",
@@ -5853,69 +5601,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
             "quote": "he passed to Robert Horry who converted not only the layup, but the foul shot"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-shaq01-g2-blocks",
-    "family": "blocks-game",
-    "scope": "finals",
-    "season": "2000-01",
-    "eventDate": "2001-06-08",
-    "franchise": "LAL",
-    "player": "Shaquille O'Neal",
-    "answer": 8,
-    "unit": {
-      "singular": "block",
-      "plural": "blocks"
-    },
-    "claim": "Eight blocks.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-      "quote": "O'Neal finished with 28 points, 20 rebounds, nine assists, and eight blocks",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "In Game 2 of the 2001 Finals, Shaq had 28 points, 20 rebounds, nine assists and how many blocks?",
-      "context": "2001 NBA Finals · Game 2 · vs Philadelphia",
-      "reveal": "Eight blocks.",
-      "min": 0,
-      "max": 13,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "A stat line this full is hard to complete from memory.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Phil Jackson challenged Shaq to attack shots before tipoff after the center failed to record a block in the opener.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "Don't be afraid to block a shot!"
-          }
-        },
-        {
-          "text": "Philadelphia's poor fourth-quarter foul shooting blunted its comeback despite getting close to the Lakers.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "the 6 of 16 foul shooting in the fourth quarter put them behind permanently"
-          }
-        },
-        {
-          "text": "Bryant opened the rematch aggressively, while other Lakers outside the star duo struggled from the field.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "all the Lakers besides Bryant and O'Neal were shooting only at 27%"
           }
         }
       ]
@@ -12096,69 +11781,6 @@
     }
   },
   {
-    "id": "nba-robinson94-quadruple",
-    "family": "points-game",
-    "scope": "regular-season",
-    "season": "1993-94",
-    "eventDate": "1994-02-17",
-    "franchise": "SAS",
-    "player": "David Robinson",
-    "answer": 34,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "34, plus 10 rebounds and 10 assists.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/David_Robinson",
-      "quote": "with 34 points, 10 rebounds, 10 assists, and 10 blocks against the Detroit Pistons on February 17, 1994",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "David Robinson's 1994 quadruple-double included 10 blocks. How many points did he score?",
-      "context": "Spurs vs Detroit Pistons · February 17, 1994",
-      "reveal": "34, plus 10 rebounds and 10 assists.",
-      "min": 16,
-      "max": 58,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "The points are the part nobody remembers.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Robinson joined an exceptionally small group of players who recorded double figures in four statistical categories.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "one of only four players to have officially recorded a quadruple-double"
-          }
-        },
-        {
-          "text": "The Admiral had attended the Naval Academy and was so tall that he could not serve aboard Navy ships.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "which later prevented him from serving on any U.S. Navy ships"
-          }
-        },
-        {
-          "text": "Robinson won championships both before and after the turn of the millennium, playing his entire career in San Antonio.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "2× NBA champion (1999, 2003)"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-rockets18-wins",
     "family": "wins-season",
     "scope": "regular-season",
@@ -12657,69 +12279,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
             "quote": "Horry was already famous for nailing last-second shots in the playoffs"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-pistons05-g4-to",
-    "family": "turnovers",
-    "scope": "finals",
-    "season": "2004-05",
-    "eventDate": "2005-06-16",
-    "franchise": "DET",
-    "player": null,
-    "answer": 4,
-    "unit": {
-      "singular": "turnover",
-      "plural": "turnovers"
-    },
-    "claim": "Four.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
-      "quote": "Collectively, the Spurs shot 37% and committed 17 turnovers to the Pistons' NBA Finals-record four.",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "Detroit set a Finals record for the fewest turnovers in a game in 2005. How many did it commit?",
-      "context": "2005 NBA Finals · Pistons vs Spurs",
-      "reveal": "Four.",
-      "min": 0,
-      "max": 15,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Few know how low the record is.",
-      "ratings": {
-        "interest": 2,
-        "recognizability": 3,
-        "estimability": 3,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Detroit used its bench to devastating effect, with Lindsey Hunter and Antonio McDyess producing efficient minutes.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
-            "quote": "especially efficient bench performances by Lindsey Hunter and Antonio McDyess"
-          }
-        },
-        {
-          "text": "The Pistons' defense limited almost every Spurs shooter to poor efficiency in the pivotal home game.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
-            "quote": "only Tony Parker (6–13, 46.2% shooting) managed to surpass the 45% mark"
-          }
-        },
-        {
-          "text": "San Antonio and Detroit had been the NBA's premier defensive teams throughout the preceding seasons.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
-            "quote": "the two premier defensive teams of that era"
           }
         }
       ]
@@ -15704,69 +15263,6 @@
     }
   },
   {
-    "id": "nba-braun22-draft-pick",
-    "family": "draft-pick",
-    "scope": "draft",
-    "season": "2022-23",
-    "eventDate": null,
-    "franchise": "DEN",
-    "player": "Christian Braun",
-    "answer": 21,
-    "unit": {
-      "singular": "overall pick",
-      "plural": "overall picks"
-    },
-    "claim": "Denver selected Kansas guard Christian Braun 21st overall in the 2022 NBA draft.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
-      "quote": "1 | 21 | Christian Braun | SG | United States | Kansas",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "At what overall pick did Denver draft Christian Braun in 2022?",
-      "context": "Denver Nuggets · 2022 NBA draft · first round",
-      "reveal": "21st overall; Braun was a rookie on the Nuggets' 2023 championship squad.",
-      "min": 8,
-      "max": 52,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "An eventual title contributor's draft slot is obscure but guessable in a first-round range.",
-      "ratings": {
-        "interest": 4,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 4
-      },
-      "funFacts": [
-        {
-          "text": "Braun joined Denver from the University of Kansas, where he had played college basketball.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
-            "quote": "1 | 21 | Christian Braun | SG | United States | Kansas"
-          }
-        },
-        {
-          "text": "As a rookie in the Finals, Braun appeared in all five games off the bench and averaged 16.4 minutes.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Christian Braun | 5 | 0 | 16.4 | .706 | .000 | .556 | 2.0 | 1.2 | 1.0 | 0.4 | 5.8"
-          }
-        },
-        {
-          "text": "Denver also obtained the draft rights to Peyton Watson in a deal with Oklahoma City on the same draft night.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
-            "quote": "Draft rights to Peyton Watson (No. 30)"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-sixers01-regular-wins",
     "family": "wins-season",
     "scope": "regular-season",
@@ -17147,69 +16643,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
             "quote": "the Suns lost 4–1 to the 2-seed, and eventual NBA champion, San Antonio Spurs"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-nash05-dallas-g6-points",
-    "family": "points-game",
-    "scope": "playoffs",
-    "season": "2004-05",
-    "eventDate": "2005-05-20",
-    "franchise": "PHX",
-    "player": "Steve Nash",
-    "answer": 39,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "Steve Nash scored 39 points as Phoenix eliminated his former team Dallas in overtime.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-      "quote": "6 May 20 @ Dallas W 130–126 (OT) Steve Nash (39)",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many points did Steve Nash score in the 2005 playoff clincher against Dallas?",
-      "context": "Phoenix at Dallas · conference semifinals · Game 6",
-      "reveal": "39 points in Phoenix's overtime series-clinching win.",
-      "min": 20,
-      "max": 70,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "An iconic playoff series, but the MVP's exact points in this game are specialized recall.",
-      "ratings": {
-        "interest": 5,
-        "recognizability": 4,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Phoenix eliminated Nash's former Dallas team in six games.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "defeated Nash's former team, the Dallas Mavericks, in six games"
-          }
-        },
-        {
-          "text": "The clincher ended in a 130–126 overtime win for Phoenix.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "W 130–126 (OT)"
-          }
-        },
-        {
-          "text": "Shawn Marion grabbed 16 rebounds during that same decisive game.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "Steve Nash (39) Shawn Marion (16) Steve Nash (12)"
           }
         }
       ]
@@ -18665,69 +18098,6 @@
     }
   },
   {
-    "id": "nba-sikma79-finals-g5-rebounds",
-    "family": "rebounds-game",
-    "scope": "finals",
-    "season": "1978-79",
-    "eventDate": "1979-06-01",
-    "franchise": "OKC",
-    "player": "Jack Sikma",
-    "answer": 17,
-    "unit": {
-      "singular": "rebound",
-      "plural": "rebounds"
-    },
-    "claim": "17 rebounds in Seattle's road championship clincher.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-      "quote": "June 1 @ Washington W 97–93 Gus Williams (23) Jack Sikma (17)",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many rebounds did Jack Sikma grab in the 1979 title-clinching Game 5?",
-      "context": "Seattle at Washington · 1979 NBA Finals",
-      "reveal": "17 rebounds in Seattle's road championship clincher.",
-      "min": 5,
-      "max": 39,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "A specific Finals rebounding total is hard to reconstruct without box scores.",
-      "ratings": {
-        "interest": 5,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Gus Williams led Seattle in the clincher with 23 points.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "June 1 @ Washington W 97–93 Gus Williams (23)"
-          }
-        },
-        {
-          "text": "Seattle won the final game 97–93 in Washington.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "June 1 @ Washington W 97–93"
-          }
-        },
-        {
-          "text": "The victory secured Seattle's first NBA championship.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "winning their first and only NBA championship"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-pacers98-season-wins",
     "family": "wins-season",
     "scope": "regular-season",
@@ -19289,69 +18659,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
             "quote": "Mike Bibby | 16 | 16 | 41.3 | .444 | .424 | .826"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-peja02-regular-three-pct",
-    "family": "shooting-pct",
-    "scope": "regular-season",
-    "season": "2001-02",
-    "eventDate": null,
-    "franchise": "SAC",
-    "player": "Peja Stojaković",
-    "answer": 41.6,
-    "unit": {
-      "singular": "percent",
-      "plural": "percent"
-    },
-    "claim": "41.6 percent from deep.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-      "quote": "Peja Stojaković | 71 | 71 | 37.3 | .484 | .416 | .876",
-      "derivation": "Convert .416 source three-point percentage into 41.6% by multiplying by 100.",
-      "asOf": null
-    },
-    "question": {
-      "prompt": "What percent of his threes did Peja Stojaković make in 2001–02?",
-      "context": "Sacramento · regular season · one decimal",
-      "reveal": "41.6 percent from deep.",
-      "min": 24,
-      "max": 62,
-      "step": 0.1,
-      "difficulty": "expert",
-      "difficultyReason": "A historical season shooting percentage is difficult to estimate.",
-      "ratings": {
-        "interest": 5,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Peja made 129 three-pointers that regular season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "led the Kings with 129 three-point field goals"
-          }
-        },
-        {
-          "text": "He converted 87.6 percent of his free throws.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "Peja Stojaković | 71 | 71 | 37.3 | .484 | .416 | .876"
-          }
-        },
-        {
-          "text": "Stojaković started every one of his seventy-one appearances.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "Peja Stojaković | 71 | 71"
           }
         }
       ]
@@ -20549,69 +19856,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
             "quote": "Larry Nance | 82 | 82 | 35.4 | .576"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-suns84-lakers-g3-points",
-    "family": "points-team-game",
-    "scope": "playoffs",
-    "season": "1983-84",
-    "eventDate": "1984-05-18",
-    "franchise": "PHX",
-    "player": null,
-    "answer": 135,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "135 points in a wild overtime win.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-      "quote": "May 18, 1984 Los Angeles W 135–127 (OT) Davis (34) Lucas (17)",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many points did Phoenix score against the Lakers in 1984 West finals Game 3?",
-      "context": "Phoenix Suns · home game that needed overtime",
-      "reveal": "135 points in a wild overtime win.",
-      "min": 85,
-      "max": 225,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Specific score of an old, high-scoring playoff night.",
-      "ratings": {
-        "interest": 5,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Walter Davis paced the Suns with thirty-four points.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "May 18, 1984 Los Angeles W 135–127 (OT) Davis (34)"
-          }
-        },
-        {
-          "text": "The victory required overtime to decide.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "May 18, 1984 Los Angeles W 135–127 (OT)"
-          }
-        },
-        {
-          "text": "Los Angeles eventually took the Western finals in six games.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "Western Conference Finals: 2–4 (home: 1–2; road: 1–2)"
           }
         }
       ]
@@ -23825,6 +23069,762 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
             "quote": "grabbing a combined 31 rebounds to the Heat's total of 33"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-ant24-nuggets-g1-43",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2023-24",
+    "eventDate": "2024-05-04",
+    "franchise": "MIN",
+    "player": "Anthony Edwards",
+    "answer": 43,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "43 points in Denver. Ant launched the upset bid with a Minnesota postseason scoring record.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+      "quote": "franchise playoff-record 43 points",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Anthony Edwards's statement-making 2024 playoff opener against champion Denver, how many points did he score?",
+      "context": "Anthony Edwards · Wolves at Nuggets · May 2024",
+      "reveal": "43 points in Denver. Ant launched the upset bid with a Minnesota postseason scoring record.",
+      "min": 15,
+      "max": 100,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A recognizable recent Ant-vs-Jokić series and record-setting scoring debut; fans can estimate a superstar playoff explosion.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Edwards made 17 of his 29 field goals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "Edwards shot 17-of-29 (59%)"
+          }
+        },
+        {
+          "text": "The Wolves seized the opening game on Denver's floor.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "Minnesota to a 1–0 series lead"
+          }
+        },
+        {
+          "text": "Naz Reid helped Minnesota take over late.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "igniting an 18–7 run"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-westbrook17-50-nuggets-winner",
+    "family": "points-game",
+    "scope": "regular-season",
+    "season": "2016-17",
+    "eventDate": "2017-04-09",
+    "franchise": "OKC",
+    "player": "Russell Westbrook",
+    "answer": 50,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "50 points, plus a long-range buzzer-beater on the day he made triple-double history.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Russell_Westbrook",
+      "quote": "Westbrook scored 18 of his 50 points",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "When Russell Westbrook broke Oscar Robertson's season triple-double mark with a Denver buzzer-beater in 2017, how many points did he score?",
+      "context": "Russell Westbrook · Thunder at Nuggets · 2017",
+      "reveal": "50 points, plus a long-range buzzer-beater on the day he made triple-double history.",
+      "min": 10,
+      "max": 115,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "An iconic MVP-season Westbrook performance and buzzer-beater; fans can estimate an extraordinary star scoring night.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "He broke Oscar Robertson's single-season triple-double mark.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Russell_Westbrook",
+            "quote": "breaking Robertson's record"
+          }
+        },
+        {
+          "text": "Westbrook hit an unusually deep winning shot.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Russell_Westbrook",
+            "quote": "36-foot game-winning buzzer-beater"
+          }
+        },
+        {
+          "text": "The Thunder won by a single point in Denver.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Russell_Westbrook",
+            "quote": "106–105 road victory"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-jordan92-finals-shrug-first-half-35",
+    "family": "points-period",
+    "scope": "finals",
+    "season": "1991-92",
+    "eventDate": "1992-06-03",
+    "franchise": "CHI",
+    "player": "Michael Jordan",
+    "answer": 35,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "35 first-half points, with a barrage of threes that led to Jordan's iconic shrug.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/1992_NBA_Finals",
+      "quote": "Jordan had 35, Baylor had 33",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Michael Jordan's famous 1992 Finals 'shrug' game against Portland, how many points did he score before halftime?",
+      "context": "Michael Jordan · Bulls vs Trail Blazers · 1992 Finals",
+      "reveal": "35 first-half points, with a barrage of threes that led to Jordan's iconic shrug.",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Jordan's six-three first-half shrug is NBA lore; estimating a massive half-game scoring total is meaningful and surprising.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Jordan sank six threes before halftime.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1992_NBA_Finals",
+            "quote": "six first-half threes (also a record)"
+          }
+        },
+        {
+          "text": "He famously shrugged toward the broadcast table.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1992_NBA_Finals",
+            "quote": "famously shrugged"
+          }
+        },
+        {
+          "text": "Chicago won Game 1 by a wide margin.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1992_NBA_Finals",
+            "quote": "122–89 win over the Portland Trail Blazers"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-lebron11-finals-g4-eight",
+    "family": "points-game",
+    "scope": "finals",
+    "season": "2010-11",
+    "eventDate": "2011-06-07",
+    "franchise": "MIA",
+    "player": "LeBron James",
+    "answer": 8,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Only 8 points. It became one of the most discussed nights of LeBron's career.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+      "quote": "LeBron James scored just 8 total points in Game 4",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "During LeBron's infamous low-scoring Game 4 of the 2011 Finals against Dirk's Mavericks, how many points did he score?",
+      "context": "LeBron James · Heat at Mavericks · 2011 Finals",
+      "reveal": "Only 8 points. It became one of the most discussed nights of LeBron's career.",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A famous LeBron-Dirk Finals turning point; fans can intuitively estimate how far below superstar scoring a nightmare game fell.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "LeBron shot three of 11 from the field.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "on 3-11 (27.2%) shooting"
+          }
+        },
+        {
+          "text": "He contributed nine rebounds and seven assists.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "9 rebounds and 7 assists"
+          }
+        },
+        {
+          "text": "Dallas won the game to tie the series.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "preserving Dallas' 86–83 win"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-durant21-nets-bucks-g5-49",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2020-21",
+    "eventDate": "2021-06-15",
+    "franchise": "BKN",
+    "player": "Kevin Durant",
+    "answer": 49,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "49 points, with 17 rebounds and 10 assists, to put the Nets ahead in the series.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+      "quote": "Pts: Kevin Durant 49",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Against Giannis's Bucks in Brooklyn's dramatic 2021 playoff Game 5, how many points did Kevin Durant score?",
+      "context": "Kevin Durant · Nets vs Bucks · June 2021",
+      "reveal": "49 points, with 17 rebounds and 10 assists, to put the Nets ahead in the series.",
+      "min": 10,
+      "max": 120,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "KD's famous near-50-point triple-double against Milwaukee is a recognizable, estimable postseason masterpiece.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Durant also hauled in 17 rebounds.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+            "quote": "Rebs: Kevin Durant 17"
+          }
+        },
+        {
+          "text": "He delivered 10 assists for a triple-double.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+            "quote": "Asts: Kevin Durant 10"
+          }
+        },
+        {
+          "text": "Brooklyn moved ahead in the series.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+            "quote": "Brooklyn leads series, 3–2"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-shaq00-finals-g2-24-boards",
+    "family": "rebounds-game",
+    "scope": "finals",
+    "season": "1999-00",
+    "eventDate": "2000-06-09",
+    "franchise": "LAL",
+    "player": "Shaquille O'Neal",
+    "answer": 24,
+    "unit": {
+      "singular": "rebound",
+      "plural": "rebounds"
+    },
+    "claim": "24 rebounds alongside 40 points. Shaq dominated while Kobe battled an ankle injury.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+      "quote": "Shaq led both teams with 40 points and 24 rebounds",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "When a hobbled Kobe barely played 2000 Finals Game 2 against Indiana, how many rebounds did Shaq grab?",
+      "context": "Shaquille O'Neal · Lakers vs Pacers · 2000 Finals",
+      "reveal": "24 rebounds alongside 40 points. Shaq dominated while Kobe battled an ankle injury.",
+      "min": 5,
+      "max": 65,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "The iconic Shaq-and-Kobe title run and a huge 40-point double-double make 24 rebounds an estimable exceptional total.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Kobe scored just two points in that game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "only 2 points in game 2"
+          }
+        },
+        {
+          "text": "Shaq faced the hack-a-Shaq tactic repeatedly.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "Shaq shot 39 free throws"
+          }
+        },
+        {
+          "text": "Los Angeles prevailed to take the series advantage.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "111–104 Lakers victory"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-jokic25-61-point-triple-double",
+    "family": "points-game",
+    "scope": "regular-season",
+    "season": "2024-25",
+    "eventDate": "2025-04-01",
+    "franchise": "DEN",
+    "player": "Nikola Jokić",
+    "answer": 61,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "61 points, plus 10 rebounds and 10 assists, in a heartbreaking double-overtime loss.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Nikola_Joki%C4%87",
+      "quote": "61 points, 10 rebounds and 10 assists",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In his historic 2025 triple-double against Minnesota, how many points did Nikola Jokić score despite Denver losing?",
+      "context": "Nikola Jokić · Nuggets vs Timberwolves · April 2025",
+      "reveal": "61 points, plus 10 rebounds and 10 assists, in a heartbreaking double-overtime loss.",
+      "min": 15,
+      "max": 135,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A recent Jokić scoring-and-passing masterpiece with a stunning 60-point triple-double; estimating a huge superstar output is fair.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Denver lost the double-overtime thriller.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Nikola_Joki%C4%87",
+            "quote": "140–139 double overtime loss"
+          }
+        },
+        {
+          "text": "It was an extraordinarily high-scoring triple-double.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Nikola_Joki%C4%87",
+            "quote": "highest-scoring triple-double in NBA history"
+          }
+        },
+        {
+          "text": "Harden and Luka had previously recorded 60-point triple-doubles.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Nikola_Joki%C4%87",
+            "quote": "after James Harden (2018) and Luka Dončić (2022)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-vince01-sixers-first-half-eight-threes",
+    "family": "threes-game",
+    "scope": "playoffs",
+    "season": "2000-01",
+    "eventDate": "2001-05-11",
+    "franchise": "TOR",
+    "player": "Vince Carter",
+    "answer": 8,
+    "unit": {
+      "singular": "three-pointer",
+      "plural": "three-pointers"
+    },
+    "claim": "Eight first-half threes, as Vince poured in 50 points against Philadelphia.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Vince_Carter",
+      "quote": "Most three-point field goals made in one half: 8",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Vince Carter's legendary 2001 playoff duel with Allen Iverson's Sixers, how many threes did he hit in the first half?",
+      "context": "Vince Carter · Raptors vs 76ers · May 2001",
+      "reveal": "Eight first-half threes, as Vince poured in 50 points against Philadelphia.",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "The Vince-versus-Iverson playoff shootout is familiar basketball history; an extreme but estimable first-half three-point burst.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "He made eight consecutive threes during the game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Vince_Carter",
+            "quote": "one game: 8"
+          }
+        },
+        {
+          "text": "Carter scored 50 points that night.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Vince_Carter",
+            "quote": "playoff game: 50"
+          }
+        },
+        {
+          "text": "The burst came against the Philadelphia 76ers.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Vince_Carter",
+            "quote": "May 11, 2001, vs. Philadelphia 76ers"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-kyrie16-finals-g7-shot-53-sec",
+    "family": "time",
+    "scope": "finals",
+    "season": "2015-16",
+    "eventDate": "2016-06-19",
+    "franchise": "CLE",
+    "player": "Kyrie Irving",
+    "answer": 53,
+    "unit": {
+      "singular": "second",
+      "plural": "seconds"
+    },
+    "claim": "53 seconds remained. The shot gave Cleveland the late lead in its 3–1 comeback.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+      "quote": "with 53 seconds remaining in the game",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "When Kyrie Irving hit 'The Shot' over Steph Curry in the 2016 Finals Game 7, how many seconds remained?",
+      "context": "Kyrie Irving · Cavaliers at Warriors · 2016 Finals",
+      "reveal": "53 seconds remained. The shot gave Cleveland the late lead in its 3–1 comeback.",
+      "min": 5,
+      "max": 135,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Kyrie's iconic title-winning three is a widely replayed clutch moment; a late-game time remaining is intuitive to estimate.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Kyrie's shot put Cleveland ahead by three.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "give Cleveland a 92–89 lead"
+          }
+        },
+        {
+          "text": "He made the jumper over Stephen Curry.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "over Stephen Curry"
+          }
+        },
+        {
+          "text": "Cleveland won the deciding game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "Cavaliers defeated the Warriors 93–89"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-wemby24-10-blocks-blazers",
+    "family": "blocks-game",
+    "scope": "regular-season",
+    "season": "2024-25",
+    "eventDate": "2024-12-21",
+    "franchise": "SAS",
+    "player": "Victor Wembanyama",
+    "answer": 10,
+    "unit": {
+      "singular": "block",
+      "plural": "blocks"
+    },
+    "claim": "10 blocks, plus 30 points. Even for Wembanyama, that's an extraordinary defensive night.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+      "quote": "tied his career-high 10 blocks",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Wembanyama's spectacular December 2024 two-way night against Portland, how many shots did he block?",
+      "context": "Victor Wembanyama · Spurs vs Blazers · December 2024",
+      "reveal": "10 blocks, plus 30 points. Even for Wembanyama, that's an extraordinary defensive night.",
+      "min": 0,
+      "max": 27,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Wemby's breathtaking two-way game against Portland is modern highlight material; a double-digit block total makes an exciting estimate.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "He also scored 30 points in the game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+            "quote": "posted 30 points"
+          }
+        },
+        {
+          "text": "San Antonio won by 20 points.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+            "quote": "114–94 win over the Portland Trail Blazers"
+          }
+        },
+        {
+          "text": "Wembanyama was only 20 at the time.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+            "quote": "At 20 years and 352 days old"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-shai25-finals-g7-12-assists",
+    "family": "assists-game",
+    "scope": "finals",
+    "season": "2024-25",
+    "eventDate": "2025-06-22",
+    "franchise": "OKC",
+    "player": "Shai Gilgeous-Alexander",
+    "answer": 12,
+    "unit": {
+      "singular": "assist",
+      "plural": "assists"
+    },
+    "claim": "12 assists plus 29 points in the championship clincher, sealing Shai's MVP season.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2025_NBA_Finals",
+      "quote": "Asts: Shai Gilgeous-Alexander 12",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Oklahoma City's 2025 Finals Game 7 title-clincher against Indiana, how many assists did Shai record?",
+      "context": "Shai Gilgeous-Alexander · Thunder vs Pacers · Game 7",
+      "reveal": "12 assists plus 29 points in the championship clincher, sealing Shai's MVP season.",
+      "min": 0,
+      "max": 35,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "The 2025 championship decider and MVP are recognizable; a guard's double-digit playmaking output is a fair expert estimate.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 3,
+        "surprise": 4
+      },
+      "funFacts": [
+        {
+          "text": "Shai scored 29 points in the Game 7 victory.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2025_NBA_Finals",
+            "quote": "Pts: Shai Gilgeous-Alexander 29"
+          }
+        },
+        {
+          "text": "The Thunder prevailed in seven games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2025_NBA_Finals",
+            "quote": "Oklahoma City wins NBA Finals, 4–3"
+          }
+        },
+        {
+          "text": "Chet Holmgren recorded five blocks in the decider.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2025_NBA_Finals",
+            "quote": "most blocks (5) in a Game 7"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-trae21-bucks-g1-48",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2020-21",
+    "eventDate": "2021-06-23",
+    "franchise": "ATL",
+    "player": "Trae Young",
+    "answer": 48,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "48 points and 11 assists. Atlanta stole the opening game on Milwaukee's home court.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+      "quote": "48 points in his conference finals debut",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "When Trae Young stunned Milwaukee in the 2021 East finals opener, how many points did he score?",
+      "context": "Trae Young · Hawks at Bucks · June 2021",
+      "reveal": "48 points and 11 assists. Atlanta stole the opening game on Milwaukee's home court.",
+      "min": 10,
+      "max": 120,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Trae's first Eastern finals game against Giannis was a memorable Atlanta upset; estimating his breakout scoring is approachable.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Atlanta rallied after halftime to pull off the road win.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+            "quote": "Hawks rallied in the 2nd half"
+          }
+        },
+        {
+          "text": "The Hawks escaped with a close victory.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+            "quote": "Atlanta Hawks 116, Milwaukee Bucks 113"
+          }
+        },
+        {
+          "text": "Young dished 11 assists as well.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+            "quote": "Asts: Trae Young 11"
           }
         }
       ]

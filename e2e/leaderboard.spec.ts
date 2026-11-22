@@ -191,4 +191,41 @@ test.describe('real leaderboard UI fail-closed and consent states', () => {
     expect(local.key).toMatch(/^[A-Za-z0-9_-]{22}$/);
   });
 
+  test('withdrawing while POST is in flight waits before deleting and never re-enrolls',async({page})=>{
+    const observed:string[]=[];
+    let releasePost:()=>void=()=>undefined;
+    let acknowledgeStart:()=>void=()=>undefined;
+    const started=new Promise<void>(resolve=>{acknowledgeStart=resolve;});
+    const held=new Promise<void>(resolve=>{releasePost=resolve;});
+    await page.route('**/api/leaderboard*',async route=>{
+      const method=route.request().method();
+      if(method==='POST'){
+        observed.push('POST sent');
+        acknowledgeStart();
+        await held;
+        observed.push('POST responded');
+        return route.fulfill({status:200,contentType:'application/json',body:'{"status":"stored","score":100}'});
+      }
+      if(method==='DELETE'){
+        observed.push('DELETE');
+        return route.fulfill({status:200,contentType:'application/json',body:'{"status":"ok","removed":1}'});
+      }
+      return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({
+        status:'ok',period:'day',entries:[],totalPlayers:0,asOf:'2026-11-17T15:00:00Z',unverified:true
+      })});
+    });
+    await finishToday(page);
+    await page.getByRole('button',{name:'Join global rankings'}).click();
+    await started;
+    await page.getByRole('button',{name:'Leave and delete my rankings'}).click();
+    await expect.poll(()=>page.evaluate(()=>JSON.parse(localStorage.getItem('stat-window:leaderboard:v1')??'{}').consent)).toBe(false);
+    expect(observed).toEqual(['POST sent']);
+    releasePost();
+    await expect(page.getByText('Your linked rankings were removed.')).toBeVisible();
+    expect(observed).toEqual(['POST sent','POST responded','DELETE']);
+    await expect(page.getByText('Your score is on the board.')).toHaveCount(0);
+    const local=await page.evaluate(()=>JSON.parse(localStorage.getItem('stat-window:leaderboard:v1')??'{}'));
+    expect(local).toMatchObject({consent:false,key:null});
+  });
+
 });

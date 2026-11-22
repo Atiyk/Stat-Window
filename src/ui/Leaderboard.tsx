@@ -7,7 +7,12 @@ export function Leaderboard({day,results,eligible}:{day:string;results:readonly 
   const [period,setPeriod]=useState<Period>('day'),[data,setData]=useState<Standings|null>(null),[joined,setJoined]=useState(()=>choice().consent),[pendingDeletion,setPendingDeletion]=useState(()=>!choice().consent&&!!choice().key),[status,setStatus]=useState('');
   const privateBrowser=privacySignal();
   useEffect(()=>{let active=true;setData(null);void standings(period).then(x=>{if(active)setData(x);});return()=>{active=false;};},[period]);
-  const join=async()=>{if(privateBrowser){setStatus('Your browser privacy preference blocks joining global rankings. No score was sent.');return;}if(!optIn()){setStatus('This browser cannot save your choice.');return;}setJoined(true);setStatus('Submitting your score…');const r=await enroll(day,results);setStatus(r==='stored'||r==='duplicate'?'Your score is on the board.':r==='disabled'?'Rankings are not enabled yet.':'Could not submit your score. Try again later.');setData(await standings(period));};
+  const join=async()=>{if(privateBrowser){setStatus('Your browser privacy preference blocks joining global rankings. No score was sent.');return;}if(!optIn()){setStatus('This browser cannot save your choice.');return;}setJoined(true);setStatus('Submitting your score…');const pending=enroll(day,results),joinedKey=choice().key;
+    const r=await pending;
+    // An in-flight POST must never overwrite withdrawal/deletion messaging.
+    if(!choice().consent||choice().key!==joinedKey)return;
+    setStatus(r==='stored'||r==='duplicate'?'Your score is on the board.':r==='disabled'?'Rankings are not enabled yet.':'Could not submit your score. Try again later.');
+    setData(await standings(period));};
   const exit=async()=>{
     setStatus('Stopping submissions and requesting erasure…');
     const r=await leave();

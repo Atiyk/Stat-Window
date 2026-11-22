@@ -54,11 +54,13 @@ export function expiryFor(period: Period, day: string): number {
   }
   return end + RETAIN_DAYS*86400;
 }
-export const LB_COST = { read: 24, submit: 55, remove: 20 };
+export const LB_COST = { read: 24, submit: 55, remove: 21 };
 export const ERASE_RESERVE = 20000;
 export const MIN_ERASE_SUBCAP = 5000;
 export function blockNumber(day:string):number { return Number(periodKey('season',day,null).slice(6)); }
 export function blockLedger(prefix:string,member:string,block:number):string { return prefix+':player:'+member+':block-'+block; }
+/** 48-hour, HMAC-only revocation marker blocks late POSTs after erasure. */
+export function revocationKey(prefix:string,member:string):string { return prefix+':revoked:'+member; }
 /** Finite lifetime for a 120-day ledger, including month/week overlap. */
 export function blockExpiry(block:number):number {
   const anchor=Date.parse('2026-01-01T00:00:00Z');
@@ -72,7 +74,7 @@ export function blockExpiry(block:number):number {
 export type LBStore = {
   /** Optional member is the HMAC of a participant's random browser code, never their raw code. */
   read(board: string, budget: string[], caps: number[], rateKeys: string[], profileKeys: string[], member: string | null): Promise<'paused'|'limited' | { rows: [string,number][]; count: number; mine?: {rank:number;score:number;days:number} }>;
-  submit(keys: string[], member: string, day: string, score: number, caps: number[], expiries: number[]): Promise<'stored'|'duplicate'|'limited'|'paused'>;
+  submit(keys: string[], member: string, day: string, score: number, caps: number[], expiries: number[]): Promise<'stored'|'duplicate'|'limited'|'paused'|'revoked'>;
   remove(keys: string[], member: string, caps: number[]): Promise<'removed'|'nothing'|'limited'|'paused'>;
 };
 export type LBContext = { enabled: boolean; store: LBStore | null; secret: string; env: string; launchDay: string | null; now:()=>Date; loadSlate:(day:string)=>Promise<ServerSlate|null>; allowedOrigins: string[]; caps: number[] };
@@ -164,7 +166,7 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
     const rate=prefix+':rate:'+network+':'+Math.floor(now.getTime()/60000);
     if(req.method==='DELETE') {
       if(cachedLimited(ctx.store,localLimit,now.getTime()))return json(429,{status:'limited'});
-      const result=await ctx.store.remove([blockLedger(prefix,member,blockNumber(today)),blockLedger(prefix,member,blockNumber(today)-1),budget[2]!,rate,prefix+':delete:day:'+network+':'+utc,prefix+':budget:erase:'+utc.slice(0,7),...erasureBoardKeys(prefix,today)],member,ctx.caps);
+      const result=await ctx.store.remove([blockLedger(prefix,member,blockNumber(today)),blockLedger(prefix,member,blockNumber(today)-1),budget[2]!,rate,prefix+':delete:day:'+network+':'+utc,prefix+':budget:erase:'+utc.slice(0,7),revocationKey(prefix,member),...erasureBoardKeys(prefix,today)],member,ctx.caps);
       if(result==='limited')rememberLimited(ctx.store,localLimit,now.getTime());
       return result==='limited'?json(429,{status:'limited'}):result==='paused'?json(503,{status:'paused'}):json(200,{status:'ok',removed:result==='removed'?1:0});
     }
@@ -175,8 +177,9 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
     const score=verifyRounds(slate,body.rounds);
     if(score===null||(body.total!==undefined&&body.total!==score))return json(422,{status:'invalid'});
     if(cachedLimited(ctx.store,localLimit,now.getTime()))return json(429,{status:'limited'});
-    const result=await ctx.store.submit([blockLedger(prefix,member,blockNumber(submittedDay)),...boards(prefix,submittedDay,ctx.launchDay),budget[0]!,budget[1]!,rate,budget[3]!,prefix+':submit:day:'+network+':'+utc],member,submittedDay,score,ctx.caps,[...PERIODS.map(p=>expiryFor(p,submittedDay)),blockExpiry(blockNumber(submittedDay))]);
+    const result=await ctx.store.submit([blockLedger(prefix,member,blockNumber(submittedDay)),...boards(prefix,submittedDay,ctx.launchDay),budget[0]!,budget[1]!,rate,budget[3]!,prefix+':submit:day:'+network+':'+utc,revocationKey(prefix,member)],member,submittedDay,score,ctx.caps,[...PERIODS.map(p=>expiryFor(p,submittedDay)),blockExpiry(blockNumber(submittedDay))]);
     if(result==='limited')rememberLimited(ctx.store,localLimit,now.getTime());
+    if(result==='revoked')return json(409,{status:'revoked'});
     return result==='limited'?json(429,{status:'limited'}):result==='paused'?json(503,{status:'paused'}):json(200,{status:result,day:body.day,score});
   }catch{return json(503,{status:'unavailable'});}
 }

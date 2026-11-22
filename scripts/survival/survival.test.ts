@@ -138,8 +138,14 @@ describe('supply and the beta gate', () => {
         break;
       }
     }
-    // The future source-checked mixed slate reshuffle makes the beta supply threshold cross on Dec 6.
-    expect(first).toBe('2026-12-06');
+    // The current source-reviewed future reserve mix and embargo graph crosses the *unchanged*
+    // beta supply thresholds on Dec 5. Guard both sides, not just a magic date:
+    // tightening spoiler holds or changing eligible tiers must be reviewed explicitly.
+    const dayBefore = '2026-12-04';
+    const firstPassing = '2026-12-05';
+    expect(supplyOf(poolOn(dayBefore), dayBefore).beta).toBe(false);
+    expect(supplyOf(poolOn(firstPassing), firstPassing).beta).toBe(true);
+    expect(first).toBe(firstPassing);
   });
 });
 

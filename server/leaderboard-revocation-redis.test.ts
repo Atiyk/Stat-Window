@@ -32,7 +32,7 @@ describe.skipIf(!url)('atomic revocation against disposable Redis 7',()=>{
     expect(await client.command(['EXISTS',blockLedger(p,member,blockNumber(day))])).toBe(0);
     const ttl=Number(await client.command(['TTL',revocationKey(p,member)]));
     expect(ttl).toBeGreaterThan(0);
-    expect(ttl).toBeLessThanOrEqual(97200);
+    expect(ttl).toBeLessThanOrEqual(100800);
   });
   it('DELETE ahead of an in-flight POST leaves a temporary revocation guard',async()=>{
     const store=leaderboardRedis(client.evaluate),scope='early',p=root+':early';

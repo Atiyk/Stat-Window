@@ -229,10 +229,12 @@ test('second tab inherits the unfinished daily shot-clock deadline instead of a 
     await startDailyIfNeeded(second);
     await expect(second.locator('.question')).toBeVisible();
     const after = await snapshot(second);
-    console.log('CROSS_TAB_DIAGNOSTIC', JSON.stringify({first, before, after}));
+    expect(first.shared).not.toBeNull();
+    expect(before.shared).toBe(first.shared);
+    expect(after.shared).toBe(first.shared);
+    await expect.poll(async () => Number((await second.locator('.shot-clock').textContent())?.match(/(\d+)s/)?.[1])).toBeLessThanOrEqual(15);
     const remain = Number((await second.locator('.shot-clock').textContent())?.match(/(\d+)s/)?.[1]);
     expect(remain).toBeGreaterThanOrEqual(13);
-    expect(remain).toBeLessThanOrEqual(15);
     // Refresh the second tab; neither session nor shared local storage gives time back.
     await second.clock.fastForward('00:05');
     await second.reload();

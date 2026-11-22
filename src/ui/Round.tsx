@@ -98,7 +98,12 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
     const startedAt = savedShotStart(q.id, state.slate.date, state.mode === 'daily');
     return startedAt === null ? 24 : Math.ceil(Math.max(0, SHOT_CLOCK_MS - (Date.now() - startedAt)) / 1000);
   });
-  const shot = useRef<{ startedAt: number | null; stopped: boolean }>({ startedAt: null, stopped: false });
+  // Initialise the ref from stored state too. Otherwise the first rendered
+  // frame can falsely say "24s · ready" while secondsLeft is already lower.
+  const shot = useRef<{ startedAt: number | null; stopped: boolean }>({
+    startedAt: survival ? null : savedShotStart(q.id, state.slate.date, state.mode === 'daily'),
+    stopped: false,
+  });
   const dispatchRef = useRef(dispatch);
   dispatchRef.current = dispatch;
   const timed = survival === undefined;

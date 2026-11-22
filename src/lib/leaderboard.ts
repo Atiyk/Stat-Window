@@ -20,7 +20,10 @@ async function request(method:'GET'|'POST'|'DELETE',body?:unknown,period?:Period
 export async function standings(period:Period):Promise<Standings>{
   try{
     const c=choice();
-    const r=await request('GET',undefined,period,c.consent&&c.key?c.key:undefined);
+    // Turning on GPC/DNT after opting in must stop identifying GET requests;
+    // deletion still needs the original key, which leave() sends separately.
+    const person=!browserSignal()&&c.consent&&c.key?c.key:undefined;
+    const r=await request('GET',undefined,period,person);
     const x=await r.json();
     if(r.status===503)return {status:x.status==='disabled'?'disabled':'paused'};
     if(!r.ok||x.status!=='ok'||!Array.isArray(x.entries))return {status:'unavailable'};
@@ -29,15 +32,45 @@ export async function standings(period:Period):Promise<Standings>{
   }catch{return {status:'unavailable'};}
 }
 export async function enroll(day:string,results:readonly RoundRecord[]):Promise<'stored'|'duplicate'|'failed'|'disabled'>{
-  if(results.length!==5||isQa())return 'failed';
+  // Honor the browser's privacy signal before persisting any opt-in choice.
+  // The server independently rejects submissions under Sec-GPC/DNT.
+  if(results.length!==5||isQa()||browserSignal())return 'failed';
   const c=choice();if(!c.consent)return 'failed';
   const key=c.key??newKey(),sent=[...new Set([...c.sent,day])].slice(-90);
   save({consent:true,key,sent});if(choice().key!==key)return 'failed';
   try {const r=await request('POST',{player:key,day,consent:'granted',rounds:results.map(x=>({id:x.questionId,lo:x.lo,hi:x.hi})),total:results.reduce((s,x)=>s+x.points,0)});const x=await r.json();if(x.status==='stored'||x.status==='duplicate')return x.status;if(x.status==='disabled')return 'disabled';return 'failed';}catch{return 'failed';}
 }
-export function optIn(){const c=choice();save({...c,consent:true});return choice().consent;}
+export function optIn(){
+  if(browserSignal())return false;
+  const c=choice();
+  // A failed erasure keeps the browser code solely so the person can retry.
+  // Never re-enroll that identity before deletion actually succeeds.
+  if(c.key&&!c.consent)return false;
+  save({...c,consent:true});
+  return choice().consent;
+}
 export async function leave():Promise<'deleted'|'failed'|'nothing'>{
-  const c=choice();if(!c.key){save(empty());return 'nothing';}
-  try{const r=await request('DELETE',{player:c.key,consent:'granted'});if(!r.ok)return 'failed';save(empty());return 'deleted';}catch{return 'failed';}
+  const c=choice();
+  if(!c.key){
+    save(empty());
+    return choice().consent?'failed':'nothing';
+  }
+  // Withdraw local consent BEFORE attempting network erasure. An offline or
+  // rate-limited DELETE must not leave a granted consent choice behind.
+  // Retain the random code ONLY to retry deleting scores still public.
+  save({consent:false,key:c.key,sent:[]});
+  try{
+    const r=await request('DELETE',{player:c.key,consent:'denied'});
+    if(!r.ok)return 'failed';
+    const response:unknown=await r.json();
+    if(!response||typeof response!=='object'
+      ||(response as {status?:unknown}).status!=='ok'
+      ||![0,1].includes((response as {removed?:unknown}).removed as number))return 'failed';
+    // Never claim success if persistent browser state could not be cleared.
+    if(choice().key!==c.key)return 'failed';
+    save(empty());
+    const cleared=choice();
+    return !cleared.consent&&cleared.key===null?'deleted':'failed';
+  }catch{return 'failed';}
 }
 export function privacySignal(){return browserSignal();}

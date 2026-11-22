@@ -32,3 +32,7 @@ jobs:
         run: npx vitest run server/leaderboard.test.ts server/leaderboard-redis.test.ts
       - name: API bundle parity and app build
         run: npm run build
+      - name: Install browsers for privacy UI regression
+        run: npx playwright install --with-deps chromium webkit
+      - name: Privacy withdrawal and leaderboard UI on desktop, mobile and WebKit
+        run: npx playwright test e2e/leaderboard.spec.ts --project=desktop --project=mobile --project=webkit-mobile

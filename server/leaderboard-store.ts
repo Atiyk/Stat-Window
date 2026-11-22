@@ -20,6 +20,9 @@ redis.call('INCRBY',KEYS[2],24) redis.call('EXPIRE',KEYS[2],172800)
 redis.call('INCRBY',KEYS[3],24) redis.call('EXPIRE',KEYS[3],2764800)
 local n=redis.call('ZCARD',KEYS[1])
 local top=redis.call('ZREVRANGE',KEYS[1],0,19,'WITHSCORES')
+-- Public participation is intentionally not inferred from cumulative scores.
+-- Without an atomic per-board unique-day index, a public days count would
+-- silently misrepresent migrated records and post-erasure totals.
 local mine={}
 if ARGV[3] and ARGV[3]~='' then
   local myScore=redis.call('ZSCORE',KEYS[1],ARGV[3])

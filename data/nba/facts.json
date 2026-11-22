@@ -8316,69 +8316,6 @@
     }
   },
   {
-    "id": "nba-gus79-finals-ppg",
-    "family": "scoring-average",
-    "scope": "finals",
-    "season": "1978-79",
-    "eventDate": null,
-    "franchise": "OKC",
-    "player": "Gus Williams",
-    "answer": 28.6,
-    "unit": {
-      "singular": "point per game",
-      "plural": "points per game"
-    },
-    "claim": "28.6 points per game.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1979_NBA_Finals",
-      "quote": "Gus Williams of the SuperSonics was the top scorer, averaging 28.6 points per game",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "Seattle won the 1979 title. What did its top scorer, Gus Williams, average in the Finals?",
-      "context": "1979 NBA Finals · Seattle vs Washington",
-      "reveal": "28.6 points per game.",
-      "min": 20,
-      "max": 46,
-      "step": 0.1,
-      "difficulty": "expert",
-      "difficultyReason": "A little-known player; the decimal is tight.",
-      "ratings": {
-        "interest": 2,
-        "recognizability": 2,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Dennis Johnson, not Williams, won Finals MVP for the SuperSonics' title run.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1979_NBA_Finals",
-            "quote": "Dennis Johnson of the SuperSonics was named as the NBA Finals MVP"
-          }
-        },
-        {
-          "text": "Seattle's triumph avenged a Finals defeat to the same Washington Bullets team the previous year.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1979_NBA_Finals",
-            "quote": "The series was a rematch of the previous year's NBA Finals, which the Bullets won"
-          }
-        },
-        {
-          "text": "Before the SuperSonics won, Seattle's last men's major professional sports title came in ice hockey.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1979_NBA_Finals",
-            "quote": "Seattle Metropolitans' victory in the 1917 Stanley Cup Final"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-bucks71-wins",
     "family": "wins-season",
     "scope": "regular-season",
@@ -16775,69 +16712,6 @@
     }
   },
   {
-    "id": "nba-sixers01-finals-g1-points",
-    "family": "points-team-game",
-    "scope": "finals",
-    "season": "2000-01",
-    "eventDate": "2001-06-06",
-    "franchise": "PHI",
-    "player": null,
-    "answer": 107,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "Philadelphia beat the Lakers 107–101 in overtime in Game 1 of the 2001 Finals.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-      "quote": "June 6 @ L.A. Lakers W 107–101 (OT)",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many points did the 76ers score in their overtime Game 1 win over the Lakers in 2001?",
-      "context": "2001 NBA Finals · June 6 · Philadelphia at Los Angeles",
-      "reveal": "107, the Lakers' only defeat during that postseason.",
-      "min": 76,
-      "max": 119,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Exactly scoring in one vintage Finals game is niche; the overtime context lets attentive fans estimate it.",
-      "ratings": {
-        "interest": 4,
-        "recognizability": 4,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "That opening-game overtime win was the Lakers' only loss across their entire 2001 playoff run.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "By the end of the series, the 2000–01 Lakers held the record for the best postseason record with 15–1."
-          }
-        },
-        {
-          "text": "Philadelphia outscored Los Angeles 13–7 in overtime after a close regulation contest.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "Scoring by quarter: 22–23, 34–27, 23–27, 15–17, Overtime: 13–7"
-          }
-        },
-        {
-          "text": "The Sixers had just survived two straight seven-game playoff series against Toronto and Milwaukee before reaching the Finals.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "had just come out of two straight seven-game series against the Toronto Raptors and Milwaukee Bucks"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-warriors75-season-wins",
     "family": "wins-season",
     "scope": "regular-season",
@@ -22760,69 +22634,6 @@
     }
   },
   {
-    "id": "nba-brooklopez19-ecf-g1-points",
-    "family": "points-game",
-    "scope": "playoffs",
-    "season": "2018-19",
-    "eventDate": null,
-    "franchise": "MIL",
-    "player": "Brook Lopez",
-    "answer": 29,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "29 points to help Milwaukee take the series opener.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-      "quote": "May 15 Toronto W 108–100 Brook Lopez (29)",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many points did Brook Lopez score in Milwaukee's Eastern finals Game 1 against Toronto?",
-      "context": "Milwaukee Bucks vs Toronto Raptors · Eastern finals opener",
-      "reveal": "29 points to help Milwaukee take the series opener.",
-      "min": 13,
-      "max": 51,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "A supporting center's exact game total from a specific conference final is obscure.",
-      "ratings": {
-        "interest": 4,
-        "recognizability": 4,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Lopez signed with Milwaukee in free agency after spending the preceding season with the Lakers.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "Brook Lopez | July 17, 2018 | Los Angeles Lakers"
-          }
-        },
-        {
-          "text": "He averaged 2.2 blocks per game in the regular season while stretching the floor.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "Brook Lopez | 81 | 81 | 28.7 | .435 | .365 | .842 | 4.9 | 1.2 | .6 | 2.2 | 12.5"
-          }
-        },
-        {
-          "text": "Milwaukee won both of its opening games against Toronto, but the Raptors came back to take the series.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "where they faced the Toronto Raptors and lost to the eventual NBA Champion in six games, despite taking the first two"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-kobe06-second-half-55",
     "family": "points-period",
     "scope": "regular-season",
@@ -23762,6 +23573,195 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
             "quote": "The Warriors were the first team since the 1990–91 Bulls to win a title with a roster that did not have any players with Finals experience"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-kawhi19-playoff-points-732",
+    "family": "points-season-total",
+    "scope": "playoffs",
+    "season": "2018-19",
+    "eventDate": null,
+    "franchise": "TOR",
+    "player": "Kawhi Leonard",
+    "answer": 732,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Kawhi Leonard amassed 732 points across Toronto's 2019 championship postseason.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+      "quote": "Leonard scored 732 points during the 2019 playoffs; this was the third-best scoring total for a single NBA postseason in league history",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Across the Raptors' full 2019 title run, how many points did Kawhi Leonard score in the playoffs?",
+      "context": "Kawhi Leonard · Toronto Raptors · 2019 postseason",
+      "reveal": "732 playoff points. Kawhi averaged roughly 30 a game across the title run.",
+      "min": 350,
+      "max": 950,
+      "step": 2,
+      "difficulty": "expert",
+      "difficultyReason": "Kawhi's historic 2019 Raptors title is iconic; a postseason of around two dozen games at roughly 30 points yields a plausible expert estimate.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Kawhi won Finals MVP for the second time.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+            "quote": "He was subsequently named NBA Finals MVP for the second time"
+          }
+        },
+        {
+          "text": "Only Michael Jordan and LeBron James had higher single-postseason totals at that point.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+            "quote": "behind only LeBron James (748, 2018) and Michael Jordan (759, 1992)"
+          }
+        },
+        {
+          "text": "Kawhi scored 22 in the title-clinching Game 6 against Golden State.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+            "quote": "In game 6, he scored 22 points in a 114–110 win"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-butler23-56-bucks-upset",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2022-23",
+    "eventDate": "2023-04-24",
+    "franchise": "MIA",
+    "player": "Jimmy Butler",
+    "answer": 56,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Jimmy Butler scored 56 points in Miami's Game 4 comeback against Milwaukee in 2023.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2023_NBA_playoffs",
+      "quote": "Jimmy Butler scored a career-high 56 points, which included 21 in the fourth quarter",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "As eighth-seeded Miami stunned Milwaukee in the 2023 playoffs, how many points did Jimmy Butler score in Game 4?",
+      "context": "Jimmy Butler · Heat vs. Bucks · April 2023",
+      "reveal": "56. Butler scored 21 in the fourth quarter as Miami pushed the top seed toward elimination.",
+      "min": 15,
+      "max": 80,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Butler's signature 2023 eighth-seed playoff upset supplies a famous, compelling game and a bounded superstar scoring challenge.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Butler scored 21 points in the fourth quarter.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_playoffs",
+            "quote": "which included 21 in the fourth quarter"
+          }
+        },
+        {
+          "text": "Miami erased a late deficit with a 27–8 run.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_playoffs",
+            "quote": "Down by 12 with under six minutes remaining, the Heat went on a pivotal 27–8 run"
+          }
+        },
+        {
+          "text": "His 56 set a Miami Heat playoff scoring record.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_playoffs",
+            "quote": "His 56 points also set a franchise playoff record for the Heat"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-kobe10-celtics-g7-combined",
+    "family": "points-combined",
+    "scope": "finals",
+    "season": "2009-10",
+    "eventDate": "2010-06-17",
+    "franchise": "LAL",
+    "player": null,
+    "answer": 162,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "The Lakers and Celtics combined for 162 points in their gritty 2010 Finals Game 7.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+      "quote": "Boston Celtics 79, Los Angeles Lakers 83",
+      "derivation": "2010 Finals Game 7: Boston 79 + Los Angeles 83 = 162 combined points.",
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Kobe's bruising 2010 Finals Game 7 against Boston, how many points did both teams score combined?",
+      "context": "Lakers vs. Celtics · 2010 Finals · deciding Game 7",
+      "reveal": "162 combined. Los Angeles prevailed 83–79 in a defensive battle.",
+      "min": 80,
+      "max": 200,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Kobe's memorable Lakers-Celtics title decider provides a real two-team score-estimation challenge rather than an obscure quarter statistic.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Kobe scored 10 of his 23 points in the fourth quarter.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "scored 10 of his game-high 23 points in the fourth quarter"
+          }
+        },
+        {
+          "text": "The Lakers won the rebounding battle 53–40.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "out-rebounded the Celtics, 53–40"
+          }
+        },
+        {
+          "text": "Bryant received Finals MVP for the second consecutive season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "He was named the Finals MVP for the second straight season"
           }
         }
       ]

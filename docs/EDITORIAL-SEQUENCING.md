@@ -99,3 +99,13 @@ Replacement evidence and why it is estimable:
 
 
 The 2026-11-22 canonical source/score gates exposed a regression test requiring the two displaced Q1 records in the spoiler-embargoed reserve. Those exact original sourced records were restored without changing their ratings or original source excerpts. The reserve release dates match the day after each prior January slot.
+
+## Three further memorable Finals and playoff finales (November 22, 2026)
+
+Nov 25–27 Q5 replaced by a playoff-arc scoring estimate from Kawhi Leonard's 2019 title, Jimmy Butler's record 2023 eighth-seed upset, and the full 2010 Lakers-Celtics Game 7 point total. Each answer was checked against the specific linked Wikipedia passage; all bonus variants include short citations. No historical days or original fact ratings changed; the displaced future-only expert records were retired instead of being silently reclassified. This brings future numerical Q5 failures to **61/66**, and Q1 remains at 0/66. Independent fan appeal review is outstanding.
+- Nov 25 Q5 — `nba-kawhi19-playoff-points-732`: Kawhi's historic 2019 Raptors title is iconic; a postseason of around two dozen games at roughly 30 points yields a plausible expert estimate. Evidence https://en.wikipedia.org/wiki/Kawhi_Leonard, excerpt “Leonard scored 732 points during the 2019 playoffs; this was the third-best scoring total for a single NBA postseason in league history”.
+- Nov 26 Q5 — `nba-butler23-56-bucks-upset`: Butler's signature 2023 eighth-seed playoff upset supplies a famous, compelling game and a bounded superstar scoring challenge. Evidence https://en.wikipedia.org/wiki/2023_NBA_playoffs, excerpt “Jimmy Butler scored a career-high 56 points, which included 21 in the fourth quarter”.
+- Nov 27 Q5 — `nba-kobe10-celtics-g7-combined`: Kobe's memorable Lakers-Celtics title decider provides a real two-team score-estimation challenge rather than an obscure quarter statistic. Evidence https://en.wikipedia.org/wiki/2010_NBA_Finals, excerpt “Boston Celtics 79, Los Angeles Lakers 83” (2010 Finals Game 7: Boston 79 + Los Angeles 83 = 162 combined points.).
+
+Official generated future locks/day files, NBA reports and Survival tags must be refreshed by the one-time GitHub worker workflow, with full content, factory, trivia, typecheck, unit and build gates. Reviewer must still evaluate the 61 other Q5 slots; no player testing or external release approval has been claimed.
+

@@ -25,7 +25,7 @@ Use a **manager/orchestrator** that owns the exact release candidate, dependenci
 
 ## This batch
 - Prior `#17` server/privacy fixes and `#18` UI fixes are integrated in candidate `#20` for a single review. Do not merge either separately unless integration is reverified.
-- `#19` calendar reminders are **deferred** until their UTC reset assumptions are reworked for 12:00 AM Eastern, including ICS/Google Calendar DST semantics and device tests. Do not merge accidentally.
+- `#19` calendar reminders were merged independently into `main` by the owner on November 22. V3 integration reconciles its Eastern-midnight calendar reminders with V3 gameplay and privacy changes. The device-specific calendar checks listed in PR #19, exact-SHA CI, preview and final independent critic gates still apply before PR #23 release.
 - The new shot clock uses browser-local time; refreshing and changing tabs should not give more time. It is not an anti-cheat system; challenge scores and times are unverified. Speed breaks **only** score ties.
 - Editorial sequencing is documented in `docs/EDITORIAL-SEQUENCING.md`; no unverified changes to already published slates.
 - Keep incremental spend at $0, standard GitHub `ubuntu-latest` CI and existing free Vercel setup. No paid agents, runners or new API subscriptions.

@@ -76,6 +76,35 @@ function midrankPercentile(counts, score) {
 		equal
 	};
 }
+var easternParts = new Intl.DateTimeFormat("en-US", {
+	timeZone: "America/New_York",
+	year: "numeric",
+	month: "2-digit",
+	day: "2-digit"
+});
+var DAY_MS = 864e5;
+function puzzleDay(now) {
+	const parts = easternParts.formatToParts(now);
+	const value = (type) => parts.find((part) => part.type === type)?.value;
+	return `${value("year")}-${value("month")}-${value("day")}`;
+}
+function dayToUtcMs(day) {
+	const ms = Date.parse(`${day}T00:00:00Z`);
+	if (Number.isNaN(ms)) throw new RangeError(`Not a day: ${day}`);
+	return ms;
+}
+function addDays$1(day, n) {
+	return new Date(dayToUtcMs(day) + n * DAY_MS).toISOString().slice(0, 10);
+}
+/** Exact midnight in New York for an ISO day, including the spring/fall DST boundaries. */
+function puzzleStartUtcMs(day) {
+	const utc = dayToUtcMs(day);
+	for (let hour = 1; hour <= 12; hour++) {
+		const candidate = utc + hour * 36e5;
+		if (puzzleDay(new Date(candidate)) === day) return candidate;
+	}
+	throw new RangeError(`Cannot find Eastern midnight for ${day}`);
+}
 // src/engine/season.ts
 /**
 * Public numbering and seasons. Runbook: docs/LAUNCH.md.
@@ -166,10 +195,10 @@ async function hmac(secret, message, hexChars) {
 }
 /** Today's official day, or yesterday's during the grace period after midnight. */
 function eligibleDay(day, now, graceSeconds) {
-	const today = utcDay(now);
+	const today = puzzleDay(now);
 	if (day === today) return true;
-	const sinceMidnight = (now.getTime() - Date.parse(`${today}T00:00:00Z`)) / 1e3;
-	return day === addDays(today, -1) && sinceMidnight < graceSeconds;
+	const sinceMidnight = (now.getTime() - puzzleStartUtcMs(today)) / 1e3;
+	return day === addDays$1(today, -1) && sinceMidnight < graceSeconds;
 }
 function keyPrefix(ctx, season, day) {
 	return `sw:v1:${ctx.env}:${season}:${day}`;
@@ -294,7 +323,7 @@ async function handle(req, ctx) {
 	if (!sameOrigin(req, ctx)) return json(403, { status: "origin" });
 	const now = ctx.now();
 	const asOf = now.toISOString();
-	const today = utcDay(now);
+	const today = puzzleDay(now);
 	const budget = budgetKeys(ctx, now);
 	const paused = req.method !== "DELETE" && ctx.memo.pausedUntil > now.getTime();
 	try {

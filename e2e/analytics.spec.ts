@@ -176,3 +176,56 @@ test('a returning player can leave the ready screen without registering a start'
   await expect(page.locator('.question')).toBeVisible();
   await expect.poll(() => views(page)).toContain('/e/start/daily');
 });
+
+test('opening from the calendar event counts once per day, before the start, and leaves no query string', async ({ page }) => {
+  await openAt(page, NBA_FIRST, '/?from=calendar');
+  await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new', '/e/remind/open', '/e/start/daily']);
+  expect(await page.evaluate(() => location.search)).toBe('');
+  const stripped = await page.evaluate(() => {
+    const q = (window as unknown as { vaq?: unknown[][] }).vaq ?? [];
+    const before = q.find((c) => c[0] === 'beforeSend')?.[1] as (e: { url: string }) => { url: string };
+    return before({ url: location.href }).url;
+  });
+  expect(stripped).toBe(new URL('/', page.url()).href);
+  // Opening the event again the same day sends only the real page view.
+  await openAt(page, NBA_FIRST, '/?from=calendar');
+  await expect.poll(() => views(page)).toEqual(['/']);
+});
+
+test('tapping a reminder link queues /e/remind/ics or /e/remind/google', async ({ page, context }) => {
+  await context.route('**/remind/*.ics', (r) => r.fulfill({ status: 204, body: '' }));
+  await context.route('https://calendar.google.com/**', (r) => r.fulfill({ status: 200, contentType: 'text/html', body: '' }));
+  await openAt(page, NBA_FIRST);
+  for (let r = 1; r <= 5; r++) {
+    await lockAndSettle(page);
+    await next(page);
+  }
+  await page.getByRole('link', { name: 'Apple or Outlook calendar' }).click();
+  await expect.poll(async () => (await views(page)).filter((p) => p.startsWith('/e/remind/'))).toEqual(['/e/remind/ics']);
+  const popup = context.waitForEvent('page');
+  await page.getByRole('link', { name: 'Google Calendar (opens in a new tab)' }).click();
+  await (await popup).close();
+  await expect.poll(async () => (await views(page)).filter((p) => p.startsWith('/e/remind/'))).toEqual(['/e/remind/ics', '/e/remind/google']);
+});
+
+test('under Global Privacy Control the reminder sends nothing and loads no script', async ({ page, context }) => {
+  await page.addInitScript(() => Object.defineProperty(Navigator.prototype, 'globalPrivacyControl', { get: () => true }));
+  let loaded = false;
+  await page.route('**/_vercel/insights/script.js', (r) => {
+    loaded = true;
+    return r.fulfill({ status: 200, body: '' });
+  });
+  await context.route('**/remind/*.ics', (r) => r.fulfill({ status: 204, body: '' }));
+  await context.route('https://calendar.google.com/**', (r) => r.fulfill({ status: 200, contentType: 'text/html', body: '' }));
+  await openAt(page, NBA_FIRST, '/?from=calendar');
+  for (let r = 1; r <= 5; r++) {
+    await lockAndSettle(page);
+    await next(page);
+  }
+  await page.getByRole('link', { name: 'Apple or Outlook calendar' }).click();
+  const popup = context.waitForEvent('page');
+  await page.getByRole('link', { name: 'Google Calendar (opens in a new tab)' }).click();
+  await (await popup).close();
+  expect(await views(page)).toEqual([]);
+  expect(loaded).toBe(false);
+});

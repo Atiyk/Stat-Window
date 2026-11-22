@@ -93,19 +93,21 @@ function reloadForNewVersion(): boolean {
   return true;
 }
 
-/** The current address without the challenge parameters (`day`, `vs`); anything else (`qa`, a hash) stays. */
-function withoutChallenge(loc: Pick<Location, 'pathname' | 'search' | 'hash'>): string {
+/** The current address without the named parameters; anything else (`qa`, a hash) stays. */
+function withoutParams(loc: Pick<Location, 'pathname' | 'search' | 'hash'>, names: readonly string[]): string {
   let params: URLSearchParams;
   try {
     params = new URLSearchParams(loc.search);
   } catch {
     return loc.pathname;
   }
-  params.delete('day');
-  params.delete('vs');
+  for (const n of names) params.delete(n);
   const rest = params.toString();
   return `${loc.pathname}${rest ? `?${rest}` : ''}${loc.hash}`;
 }
+
+/** The current address without the challenge parameters (`day`, `vs`). */
+const withoutChallenge = (loc: Pick<Location, 'pathname' | 'search' | 'hash'>) => withoutParams(loc, ['day', 'vs']);
 
 const daysBetween = (a: string, b: string) => puzzleNumber(b) - puzzleNumber(a);
 
@@ -185,6 +187,11 @@ export function App() {
     if (prev === undefined) track({ name: 'visit_new' });
     else if (prev && prev.last < today) {
       track({ name: 'visit_return', gap: daysBetween(prev.last, today), age: daysBetween(prev.first, today) });
+    }
+    // Opened from the calendar reminder's link: count it once a day, then drop only that parameter.
+    if (new URLSearchParams(window.location.search).get('from') === 'calendar') {
+      trackOnce(`remind-open:${today}`, today, { name: 'remind_open' });
+      window.history.replaceState(null, '', withoutParams(window.location, ['from']));
     }
     const link = parseChallenge(window.location.search, today, inventoryDays);
     if (link.kind !== 'none') {

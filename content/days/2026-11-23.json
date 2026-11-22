@@ -211,23 +211,24 @@
       ]
     },
     {
-      "id": "nba-malone-playoff-games",
+      "id": "nba-lebron-kyrie16-g5-combined-82",
       "sport": "NBA",
-      "prompt": "Karl Malone never won an NBA title. How many playoff games did he play?",
-      "context": "Jazz and Lakers · 1985–2004",
-      "answer": 193,
+      "prompt": "Down 3–1 in the 2016 Finals, how many points did LeBron and Kyrie combine for in Game 5?",
+      "context": "LeBron James + Kyrie Irving · Cleveland · Finals 2016",
+      "answer": 82,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 0,
-      "max": 240,
+      "min": 30,
+      "max": 110,
       "step": 1,
-      "note": "193.",
+      "note": "82 combined. They became the first Finals teammates to each reach 40.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-        "quote": "He holds an NBA record for having played the most playoff games without winning a championship (193)"
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "James and Irving each scored 41 points to become the first teammates in Finals history to score 40 or more in the same game.",
+        "derivation": "LeBron 41 + Kyrie 41 = 82 points combined, both figures in the cited sentence."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +237,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Malone joined the Lakers in search of his first ring, alongside fellow veteran Gary Payton.",
+          "text": "They were the first Finals teammates with 40 points each.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "the Lakers signed veteran stars Gary Payton and Karl Malone"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "the first teammates in Finals history to score 40 or more in the same game"
           }
         },
         {
-          "text": "Detroit upset the heavily favored Lakers and won the championship in five games.",
+          "text": "LeBron also had 16 rebounds, seven assists and three blocks.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "the underdog Pistons handily won the series in five games"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "The former also added 16 rebounds, seven assists, three steals, and three blocks"
           }
         },
         {
-          "text": "A knee injury meant Malone could not dress for the decisive Finals game.",
+          "text": "Draymond Green was suspended for Game 5.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "Karl Malone would play his last game, as a knee injury would not allow him to dress in Game 5"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "Green was suspended for Game 5"
           }
         }
       ]

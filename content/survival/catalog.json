@@ -333,14 +333,17 @@
         "nba-bulls99-wins"
       ]
     },
-    "nba-malone-playoff-games": {
+    "nba-lebron-kyrie16-g5-combined-82": {
       "tier": "expert",
-      "family": "playoff-games",
-      "franchise": "UTA",
-      "era": "2000s",
-      "steps": 240,
+      "family": "points-combined",
+      "franchise": "CLE",
+      "era": "2010s",
+      "steps": 80,
       "day": "2026-11-23",
-      "notBefore": "2026-11-24"
+      "notBefore": "2026-12-29",
+      "leaks": [
+        "nba-cavs16-g5-41"
+      ]
     },
     "nba-bucks19-season-wins": {
       "tier": "easy",
@@ -381,16 +384,16 @@
       "day": "2026-11-24",
       "notBefore": "2026-11-25"
     },
-    "nba-lakers08-g4-lead": {
+    "nba-splash16-duo-threes-678": {
       "tier": "expert",
-      "family": "margin-period",
-      "franchise": "LAL",
-      "era": "2000s",
-      "steps": 32,
+      "family": "threes-combined",
+      "franchise": "GSW",
+      "era": "2010s",
+      "steps": 250,
       "day": "2026-11-24",
-      "notBefore": "2027-01-03",
+      "notBefore": "2027-01-25",
       "leaks": [
-        "nba-powe08-g2"
+        "nba-curry16-season-threes-402"
       ]
     },
     "nba-suns93-regular-wins": {
@@ -619,7 +622,10 @@
       "era": "2010s",
       "steps": 85,
       "day": "2026-11-29",
-      "notBefore": "2026-11-30"
+      "notBefore": "2026-11-30",
+      "leaks": [
+        "nba-lebron-kyrie16-g5-combined-82"
+      ]
     },
     "nba-kobe10-g7-fga": {
       "tier": "expert",
@@ -1011,10 +1017,7 @@
       "era": "1990s",
       "steps": 36,
       "day": "2026-12-07",
-      "notBefore": "2027-01-23",
-      "leaks": [
-        "nba-lockout99-games"
-      ]
+      "notBefore": "2026-12-08"
     },
     "nba-detroit04-regular-wins": {
       "tier": "easy",
@@ -2253,8 +2256,7 @@
       "day": "2027-01-02",
       "notBefore": "2027-01-10",
       "leaks": [
-        "nba-heat08-wins",
-        "nba-lakers08-g4-lead"
+        "nba-heat08-wins"
       ]
     },
     "nba-lakers72-streak": {
@@ -2639,14 +2641,17 @@
       "day": "2027-01-10",
       "notBefore": "2027-01-11"
     },
-    "nba-ad23-cup-final": {
+    "nba-mitchell23-seventy-one": {
       "tier": "easy",
       "family": "points-game",
-      "franchise": "LAL",
+      "franchise": "CLE",
       "era": "2020s",
-      "steps": 42,
+      "steps": 80,
       "day": "2027-01-11",
-      "notBefore": "2027-01-12"
+      "notBefore": "2027-01-26",
+      "leaks": [
+        "nba-lillard23-seventy-one"
+      ]
     },
     "nba-klay16-60-minutes": {
       "tier": "medium",
@@ -2924,12 +2929,12 @@
       "day": "2027-01-16",
       "notBefore": "2027-01-17"
     },
-    "nba-lakers09-title-number": {
+    "nba-luka24-73-hawks": {
       "tier": "easy",
-      "family": "titles",
-      "franchise": "LAL",
-      "era": "2000s",
-      "steps": 19,
+      "family": "points-game",
+      "franchise": "DAL",
+      "era": "2020s",
+      "steps": 70,
       "day": "2027-01-17",
       "notBefore": "2027-01-18"
     },
@@ -3021,16 +3026,16 @@
         "nba-harden19-30-streak"
       ]
     },
-    "nba-walton77-g6-reb": {
+    "nba-embiid24-70-spurs": {
       "tier": "easy",
-      "family": "rebounds-game",
-      "franchise": "POR",
-      "era": "1970s",
-      "steps": 32,
+      "family": "points-game",
+      "franchise": "PHI",
+      "era": "2020s",
+      "steps": 80,
       "day": "2027-01-19",
       "notBefore": "2027-01-20",
       "leaks": [
-        "nba-walton77-g5-dreb"
+        "nba-spurs24-losing-streak"
       ]
     },
     "nba-harden19-30-streak": {
@@ -3076,14 +3081,17 @@
         "nba-spurs14-finals-margin"
       ]
     },
-    "nba-sixers67-wins": {
+    "nba-jokic23-playoff-triple-doubles": {
       "tier": "easy",
-      "family": "wins-season",
-      "franchise": "PHI",
-      "era": "1960s",
-      "steps": 31,
+      "family": "triple-doubles-season",
+      "franchise": "DEN",
+      "era": "2020s",
+      "steps": 20,
       "day": "2027-01-20",
-      "notBefore": "2027-01-21"
+      "notBefore": "2027-01-21",
+      "leaks": [
+        "nba-murray23-finals-apg"
+      ]
     },
     "nba-westbrook12-g4": {
       "tier": "medium",
@@ -3124,12 +3132,12 @@
       "day": "2027-01-20",
       "notBefore": "2027-01-21"
     },
-    "nba-three-point-distance": {
+    "nba-klay15-quarter-37": {
       "tier": "easy",
-      "family": "distance",
-      "franchise": null,
-      "era": "timeless",
-      "steps": 52,
+      "family": "points-period",
+      "franchise": "GSW",
+      "era": "2010s",
+      "steps": 50,
       "day": "2027-01-21",
       "notBefore": "2027-01-22"
     },
@@ -3172,12 +3180,12 @@
       "day": "2027-01-21",
       "notBefore": "2027-01-22"
     },
-    "nba-lockout99-games": {
+    "nba-curry23-game7-fifty": {
       "tier": "easy",
-      "family": "season-length",
-      "franchise": null,
-      "era": "1990s",
-      "steps": 55,
+      "family": "points-game",
+      "franchise": "GSW",
+      "era": "2020s",
+      "steps": 70,
       "day": "2027-01-22",
       "notBefore": "2027-01-23"
     },
@@ -3310,16 +3318,16 @@
       "day": "2027-01-24",
       "notBefore": "2027-01-25"
     },
-    "nba-pierce02-46": {
+    "nba-lillard23-seventy-one": {
       "tier": "easy",
       "family": "points-game",
-      "franchise": "BOS",
-      "era": "2000s",
-      "steps": 50,
+      "franchise": "POR",
+      "era": "2020s",
+      "steps": 80,
       "day": "2027-01-25",
       "notBefore": "2027-01-26",
       "leaks": [
-        "nba-bibby02-regular-apg"
+        "nba-mitchell23-seventy-one"
       ]
     },
     "nba-season21-games": {
@@ -3361,17 +3369,14 @@
       "day": "2027-01-25",
       "notBefore": "2027-01-26"
     },
-    "nba-knicks70-streak": {
+    "nba-wemby24-five-five-points": {
       "tier": "easy",
-      "family": "win-streak",
-      "franchise": "NYK",
-      "era": "1960s",
-      "steps": 32,
+      "family": "points-game",
+      "franchise": "SAS",
+      "era": "2020s",
+      "steps": 40,
       "day": "2027-01-26",
-      "notBefore": "2027-01-27",
-      "leaks": [
-        "nba-west70-60-foot"
-      ]
+      "notBefore": "2027-01-27"
     },
     "nba-bobcats12-wins": {
       "tier": "medium",
@@ -3412,12 +3417,12 @@
       "day": "2027-01-26",
       "notBefore": "2027-01-27"
     },
-    "nba-bullets75-wins": {
+    "nba-tatum23-game7-51": {
       "tier": "easy",
-      "family": "wins-season",
-      "franchise": "WAS",
-      "era": "1970s",
-      "steps": 55,
+      "family": "points-game",
+      "franchise": "BOS",
+      "era": "2020s",
+      "steps": 70,
       "day": "2027-01-27",
       "notBefore": "2027-01-28"
     },

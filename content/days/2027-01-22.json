@@ -7,23 +7,23 @@
   },
   "questions": [
     {
-      "id": "nba-lockout99-games",
+      "id": "nba-curry23-game7-fifty",
       "sport": "NBA",
-      "prompt": "The 1998–99 lockout cut the regular season to how many games per team?",
-      "context": "NBA · 1998–99 season",
+      "prompt": "In his Game 7 showdown with Sacramento in 2023, how many points did Stephen Curry score?",
+      "context": "Stephen Curry · Warriors at Kings · April 2023",
       "answer": 50,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 15,
-      "max": 70,
+      "min": 10,
+      "max": 80,
       "step": 1,
-      "note": "50, starting February 5, 1999.",
+      "note": "50 points, the first ever in a playoff Game 7.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-        "quote": "Due to a lockout, the regular season began on February 5, 1999, and was cut from 82 games to 50."
+        "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
+        "quote": "In Game 7 of the Warriors' first round playoff series against the Sacramento Kings, Curry scored a playoff career-high 50 points"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,27 +32,27 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The season began unusually late after the league and players' association settled their labor dispute.",
+          "text": "Curry was the first player to score 50 in a Game 7.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "the season, which began on February 5, 1999"
+            "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
+            "quote": "the first player to score 50 points in a Game 7"
           }
         },
         {
-          "text": "Chicago's championship dynasty disintegrated during the stoppage, with Jordan and Phil Jackson leaving.",
+          "text": "He joined Michael Jordan with 200-plus playoff series points after age 35.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "Phil Jackson and Michael Jordan temporarily retire"
+            "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
+            "quote": "Curry joined Jordan as the only players in playoff history to record at least 200 points in a series at age 35 or older"
           }
         },
         {
-          "text": "The New York Knicks reached the Finals from the bottom playoff seed, an extraordinary outcome.",
+          "text": "Golden State won 120–100.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "this was the only NBA Finals to feature an eighth-seeded team"
+            "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
+            "quote": "a 120–100 win"
           }
         }
       ]

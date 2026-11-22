@@ -7,23 +7,23 @@
   },
   "questions": [
     {
-      "id": "nba-sixers67-wins",
+      "id": "nba-jokic23-playoff-triple-doubles",
       "sport": "NBA",
-      "prompt": "How many games did the 1966–67 Sixers win in an 81-game season?",
-      "context": "Philadelphia 76ers · 1966–67",
-      "answer": 68,
+      "prompt": "In Denver's 2023 championship playoff run, how many triple-doubles did Nikola Jokić record?",
+      "context": "Nikola Jokić · Nuggets · 2023 playoffs",
+      "answer": 10,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "triple-double",
+        "plural": "triple-doubles"
       },
-      "min": 50,
-      "max": 81,
+      "min": 1,
+      "max": 21,
       "step": 1,
-      "note": "68–13, the best record in league history at the time.",
+      "note": "10 triple-doubles, an extraordinary number in one postseason.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-        "quote": "They finished the season at 68–13, the best record in league history at the time."
+        "url": "https://en.wikipedia.org/wiki/Nikola_Joki%C4%87",
+        "quote": "Most triple-doubles in the same postseason (10): Denver Nuggets, 2022–23"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,27 +32,27 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The championship season was Philadelphia's last in the Civic Center before the team moved to the Spectrum.",
+          "text": "He put up 34 points, 21 rebounds and 14 assists in the West finals opener.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "their final season at the Philadelphia Civic Center, before moving to the Spectrum"
+            "url": "https://en.wikipedia.org/wiki/Nikola_Joki%C4%87",
+            "quote": "Jokić posted a triple-double with 34 points, 21 rebounds, and 14 assists"
           }
         },
         {
-          "text": "Alex Hannum replaced Dolph Schayes as head coach and even ran with the players during practices.",
+          "text": "His eighth playoff triple-double passed Wilt Chamberlain's mark.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "the 76ers dismissed head coach & former 76ers (Syracuse Nationals) player Dolph Schayes"
+            "url": "https://en.wikipedia.org/wiki/Nikola_Joki%C4%87",
+            "quote": "eighth of the playoffs breaking Chamberlain's 1967 NBA record"
           }
         },
         {
-          "text": "In a later league anniversary celebration, the NBA recognized these Sixers as its greatest single-season team.",
+          "text": "He won the Western Conference Finals MVP award.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "This team was later chosen as the greatest individual team in 1980 for the NBA 35th Anniversary Team"
+            "url": "https://en.wikipedia.org/wiki/Nikola_Joki%C4%87",
+            "quote": "Jokić was awarded his first NBA Conference Finals Most Valuable Player Award"
           }
         }
       ]

@@ -262,10 +262,7 @@
       "era": "1960s",
       "steps": 65,
       "day": "2026-11-22",
-      "notBefore": "2026-12-03",
-      "leaks": [
-        "nba-baylor62-finals-61"
-      ]
+      "notBefore": "2026-11-23"
     },
     "nba-west69-g1": {
       "tier": "hard",
@@ -342,7 +339,8 @@
       "day": "2026-11-23",
       "notBefore": "2026-12-29",
       "leaks": [
-        "nba-cavs16-g5-41"
+        "nba-cavs16-g5-41",
+        "nba-klay16-okc-game6-41"
       ]
     },
     "nba-bucks19-season-wins": {
@@ -583,12 +581,12 @@
       "day": "2026-11-28",
       "notBefore": "2026-11-29"
     },
-    "nba-spurs12-streak": {
+    "nba-wade06-g5-ft-scoring-share": {
       "tier": "expert",
-      "family": "win-streak",
-      "franchise": "SAS",
-      "era": "2010s",
-      "steps": 32,
+      "family": "shooting-pct",
+      "franchise": "MIA",
+      "era": "2000s",
+      "steps": 55,
       "day": "2026-11-28",
       "notBefore": "2026-11-29"
     },
@@ -631,12 +629,12 @@
         "nba-lebron-kyrie16-g5-combined-82"
       ]
     },
-    "nba-kobe10-g7-fga": {
+    "nba-murray-mitchell20-game4-combined": {
       "tier": "expert",
-      "family": "field-goals",
-      "franchise": "LAL",
-      "era": "2000s",
-      "steps": 34,
+      "family": "points-combined",
+      "franchise": "DEN",
+      "era": "2010s",
+      "steps": 110,
       "day": "2026-11-29",
       "notBefore": "2026-11-30"
     },
@@ -679,14 +677,17 @@
       "day": "2026-11-30",
       "notBefore": "2026-12-01"
     },
-    "nba-spurs14-finals-margin": {
+    "nba-lakers00-portland-g7-comeback": {
       "tier": "expert",
-      "family": "margin-average",
-      "franchise": "SAS",
-      "era": "2010s",
-      "steps": 340,
+      "family": "comeback",
+      "franchise": "LAL",
+      "era": "1990s",
+      "steps": 50,
       "day": "2026-11-30",
-      "notBefore": "2026-12-01"
+      "notBefore": "2027-01-09",
+      "leaks": [
+        "nba-kobe06-second-half-55"
+      ]
     },
     "nba-magic09-regular-wins": {
       "tier": "easy",
@@ -727,12 +728,12 @@
       "day": "2026-12-01",
       "notBefore": "2026-12-02"
     },
-    "nba-bird86-finals-minutes": {
+    "nba-lillard19-okc-winner-distance": {
       "tier": "expert",
-      "family": "minutes",
-      "franchise": "BOS",
-      "era": "1980s",
-      "steps": 108,
+      "family": "distance",
+      "franchise": "POR",
+      "era": "2010s",
+      "steps": 70,
       "day": "2026-12-01",
       "notBefore": "2026-12-02"
     },
@@ -775,12 +776,12 @@
       "day": "2026-12-02",
       "notBefore": "2026-12-03"
     },
-    "nba-baylor62-finals-61": {
+    "nba-wolves24-denver-game7-comeback": {
       "tier": "expert",
-      "family": "points-game",
-      "franchise": "LAL",
-      "era": "1960s",
-      "steps": 50,
+      "family": "comeback",
+      "franchise": "MIN",
+      "era": "2020s",
+      "steps": 56,
       "day": "2026-12-02",
       "notBefore": "2026-12-03"
     },
@@ -823,14 +824,17 @@
       "day": "2026-12-03",
       "notBefore": "2026-12-04"
     },
-    "nba-gsw19-20-threes": {
+    "nba-celtics08-allen-kg-g6-combined": {
       "tier": "expert",
-      "family": "threes-game",
-      "franchise": "GSW",
-      "era": "2010s",
-      "steps": 26,
+      "family": "points-combined",
+      "franchise": "BOS",
+      "era": "2000s",
+      "steps": 90,
       "day": "2026-12-03",
-      "notBefore": "2026-12-04"
+      "notBefore": "2027-01-15",
+      "leaks": [
+        "nba-celtics08-playoff-games"
+      ]
     },
     "nba-duncan99-finals-ppg": {
       "tier": "easy",
@@ -871,14 +875,18 @@
       "day": "2026-12-04",
       "notBefore": "2026-12-05"
     },
-    "nba-suns93-finals-g6-points": {
+    "nba-klay16-okc-game6-41": {
       "tier": "expert",
-      "family": "points-team-game",
-      "franchise": "PHX",
-      "era": "1990s",
-      "steps": 78,
+      "family": "points-game",
+      "franchise": "GSW",
+      "era": "2010s",
+      "steps": 85,
       "day": "2026-12-04",
-      "notBefore": "2026-12-05"
+      "notBefore": "2027-01-08",
+      "leaks": [
+        "nba-cavs16-g5-41",
+        "nba-klay16-wcf-threes"
+      ]
     },
     "nba-hornets08-season-wins": {
       "tier": "easy",
@@ -919,12 +927,12 @@
       "day": "2026-12-05",
       "notBefore": "2026-12-06"
     },
-    "nba-howard09-cavs-g6-points": {
+    "nba-cp3-2022-perfect-playoff-shots": {
       "tier": "expert",
-      "family": "points-game",
-      "franchise": "ORL",
-      "era": "2000s",
-      "steps": 58,
+      "family": "field-goals",
+      "franchise": "PHX",
+      "era": "2020s",
+      "steps": 35,
       "day": "2026-12-05",
       "notBefore": "2026-12-06"
     },
@@ -1393,10 +1401,7 @@
       "era": "2010s",
       "steps": 36,
       "day": "2026-12-15",
-      "notBefore": "2026-12-16",
-      "leaks": [
-        "nba-spurs14-finals-margin"
-      ]
+      "notBefore": "2026-12-16"
     },
     "nba-heat20-regular-wins": {
       "tier": "easy",
@@ -1416,7 +1421,6 @@
       "day": "2026-12-16",
       "notBefore": "2027-01-07",
       "leaks": [
-        "nba-spurs14-finals-margin",
         "nba-spurs14-march-wins"
       ]
     },
@@ -1604,10 +1608,7 @@
       "era": "2010s",
       "steps": 66,
       "day": "2026-12-20",
-      "notBefore": "2026-12-21",
-      "leaks": [
-        "nba-spurs14-finals-margin"
-      ]
+      "notBefore": "2026-12-21"
     },
     "nba-barry80-threes": {
       "tier": "medium",
@@ -1985,7 +1986,10 @@
       "era": "2010s",
       "steps": 50,
       "day": "2026-12-28",
-      "notBefore": "2026-12-29"
+      "notBefore": "2026-12-29",
+      "leaks": [
+        "nba-klay16-okc-game6-41"
+      ]
     },
     "nba-alcindor71-ppg": {
       "tier": "medium",
@@ -2039,10 +2043,7 @@
       "era": "2010s",
       "steps": 14,
       "day": "2026-12-29",
-      "notBefore": "2026-12-30",
-      "leaks": [
-        "nba-spurs14-finals-margin"
-      ]
+      "notBefore": "2026-12-30"
     },
     "nba-majerle93-three-pointers": {
       "tier": "hard",
@@ -2375,7 +2376,10 @@
       "era": "1990s",
       "steps": 54,
       "day": "2027-01-05",
-      "notBefore": "2027-01-06"
+      "notBefore": "2027-01-06",
+      "leaks": [
+        "nba-lakers00-portland-g7-comeback"
+      ]
     },
     "nba-sprewell99-g5": {
       "tier": "hard",
@@ -2843,7 +2847,8 @@
       "day": "2027-01-14",
       "notBefore": "2027-01-15",
       "leaks": [
-        "nba-heat08-wins"
+        "nba-heat08-wins",
+        "nba-cp3-2022-perfect-playoff-shots"
       ]
     },
     "nba-iverson01-season-ppg": {
@@ -3087,8 +3092,7 @@
       "day": "2027-01-19",
       "notBefore": "2027-01-20",
       "leaks": [
-        "nba-spurs14-blowouts",
-        "nba-spurs14-finals-margin"
+        "nba-spurs14-blowouts"
       ]
     },
     "nba-jokic23-playoff-triple-doubles": {
@@ -3746,6 +3750,15 @@
       "steps": 42,
       "day": null,
       "notBefore": "2027-01-25"
+    },
+    "nba-baylor62-finals-61": {
+      "tier": "expert",
+      "family": "points-game",
+      "franchise": "LAL",
+      "era": "1960s",
+      "steps": 50,
+      "day": null,
+      "notBefore": "2026-12-03"
     }
   },
   "reserves": [
@@ -4498,6 +4511,57 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
             "quote": "The Warriors were the first team since the 1990–91 Bulls to win a title with a roster that did not have any players with Finals experience"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-baylor62-finals-61",
+      "sport": "NBA",
+      "prompt": "What is the NBA record for points in a Finals game, set by Elgin Baylor in 1962?",
+      "context": "Los Angeles Lakers vs Boston Celtics · 1962 NBA Finals",
+      "answer": 61,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 45,
+      "max": 95,
+      "step": 1,
+      "note": "61 points, still the Finals record.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+        "quote": "Baylor set the still-standing NBA record for points in an NBA Finals game with 61."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "funFacts": [
+        {
+          "text": "Baylor helped turn basketball into a vertical spectacle; later high-flying stars modeled their moves on his.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+            "quote": "Baylor introduced a creative and acrobatic playing style that would later be emulated"
+          }
+        },
+        {
+          "text": "Seattle University eventually named its basketball court for Baylor, honoring the former college star.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+            "quote": "they named its basketball court in honor of him"
+          }
+        },
+        {
+          "text": "Although Baylor retired before the Lakers' breakthrough, the team presented him with a championship ring.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+            "quote": "the Lakers did give Baylor a championship ring for his contributions at the start of the 1971–72 season"
           }
         }
       ]

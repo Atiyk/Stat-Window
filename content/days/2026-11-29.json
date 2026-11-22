@@ -211,23 +211,24 @@
       ]
     },
     {
-      "id": "nba-kobe10-g7-fga",
+      "id": "nba-murray-mitchell20-game4-combined",
       "sport": "NBA",
-      "prompt": "Kobe Bryant made just six field goals in Game 7 of the 2010 Finals. How many did he attempt?",
-      "context": "2010 NBA Finals · Game 7 · vs Boston",
-      "answer": 24,
+      "prompt": "How many points did Jamal Murray and Donovan Mitchell score together in their extraordinary 2020 bubble playoff duel?",
+      "context": "Nuggets vs Jazz · August 2020 playoffs",
+      "answer": 101,
       "unit": {
-        "singular": "shot",
-        "plural": "shots"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 0,
-      "max": 34,
+      "min": 30,
+      "max": 140,
       "step": 1,
-      "note": "6 for 24, though his 23 points led all scorers.",
+      "note": "101 combined: Murray had 50, Mitchell 51, an unprecedented playoff duel.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-        "quote": "Bryant, despite shooting 6 for 24 (25%) from the field, scored 10 of his game-high 23 points in the fourth quarter."
+        "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+        "quote": "50 points, along with 11 rebounds and 7 assists, in a 129–127 loss to the Jazz. With Donovan Mitchell scoring 51",
+        "derivation": "Jamal Murray 50 + Donovan Mitchell 51 = 101 combined points."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +237,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "The Lakers controlled the offensive glass and won the overall rebounding battle.",
+          "text": "It was the first playoff game with an opposing 50-point scorer on each side.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "The Lakers had 23 offensive rebounds and out-rebounded the Celtics, 53–40."
+            "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+            "quote": "the first time in NBA playoff history that two opponents scored at least 50 points in the same game"
           }
         },
         {
-          "text": "Pau Gasol pulled down 18 rebounds in the championship clincher.",
+          "text": "Murray followed it with another enormous performance to keep Denver alive.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "Gasol had 18 rebounds and Bryant added 15."
+            "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+            "quote": "Murray recorded 42 points, 8 rebounds, and 8 assists"
           }
         },
         {
-          "text": "Ron Artest chipped in 20 points, including a crucial late three-pointer.",
+          "text": "His outside shooting caught fire again later in the series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "Artest, who scored 20 points in Game 7 including his last-second three-pointer"
+            "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+            "quote": "shooting 9–12 from three"
           }
         }
       ]

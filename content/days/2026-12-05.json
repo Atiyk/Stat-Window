@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-howard09-cavs-g6-points",
+      "id": "nba-cp3-2022-perfect-playoff-shots",
       "sport": "NBA",
-      "prompt": "How many points did Howard score to eliminate Cleveland in the 2009 East finals?",
-      "context": "Magic vs Cavaliers · conference finals Game 6",
-      "answer": 40,
+      "prompt": "In Chris Paul's astonishing 2022 perfect-shooting playoff clincher, how many field goals did he make without a miss?",
+      "context": "Chris Paul · Suns at Pelicans · 2022 playoffs",
+      "answer": 14,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "field goal",
+        "plural": "field goals"
       },
-      "min": 22,
-      "max": 80,
+      "min": 1,
+      "max": 36,
       "step": 1,
-      "note": "40 points to send Orlando back to the NBA Finals.",
+      "note": "14-for-14. Paul did not miss a single field goal in the playoff closeout.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-        "quote": "thanks to Howard's 40 points and 10 rebounds in Game 6"
+        "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+        "quote": "Chris Paul scored 33 points on a perfect 14-for-14 from the field (including one three-pointer)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Howard also grabbed ten rebounds in the decisive game.",
+          "text": "His perfect shooting included one three-pointer.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "Howard's 40 points and 10 rebounds in Game 6"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "including one three-pointer"
           }
         },
         {
-          "text": "Orlando eliminated the top-seeded Cavaliers to reach its first Finals since the Shaq era.",
+          "text": "He also did not miss at the free-throw line.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "defeated the top-seeded Cleveland Cavaliers in six games"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "4-for-4 from the free throw line"
           }
         },
         {
-          "text": "The Lakers defeated Orlando in the NBA Finals that followed.",
+          "text": "Booker returned from injury for the clincher.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "would lose to the Kobe Bryant-led Los Angeles Lakers in five games"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "In Devin Booker's return from the hamstring injury that had kept him out the previous three games"
           }
         }
       ]

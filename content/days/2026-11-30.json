@@ -212,23 +212,23 @@
       ]
     },
     {
-      "id": "nba-spurs14-finals-margin",
+      "id": "nba-lakers00-portland-g7-comeback",
       "sport": "NBA",
-      "prompt": "By how many points per game did the Spurs outscore Miami in the 2014 Finals?",
-      "context": "2014 NBA Finals · five games",
-      "answer": 14,
+      "prompt": "In Kobe and Shaq's iconic 2000 West finals Game 7 comeback against Portland, how many points down were the Lakers?",
+      "context": "Lakers vs Trail Blazers · 2000 West finals",
+      "answer": 16,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 0,
-      "max": 34,
-      "step": 0.1,
-      "note": "14.0 points a game.",
+      "min": 2,
+      "max": 52,
+      "step": 1,
+      "note": "16 points down. Kobe's alley-oop to Shaq sealed the comeback that launched the dynasty.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-        "quote": "The Spurs outscored the Heat in the series by the largest per game average point differential (14.0) in Finals history."
+        "url": "https://en.wikipedia.org/wiki/2000_NBA_playoffs",
+        "quote": "In Game 7, the Lakers overcame a 16-point deficit (71–55) and sealed the victory with Kobe Bryant delivering an alley-oop to Shaquille O'Neal."
       },
       "verified": {
         "on": "2026-11-16",
@@ -237,27 +237,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Game One's air-conditioning failure turned the arena into a sweltering environment and left LeBron cramping.",
+          "text": "Kobe's alley-oop to Shaq helped seal the comeback.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "the AT&T Center's malfunctioning air-conditioning system"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_playoffs",
+            "quote": "Kobe Bryant delivering an alley-oop to Shaquille O'Neal"
           }
         },
         {
-          "text": "Miami's Game Two victory briefly leveled the rematch before San Antonio seized control on the road.",
+          "text": "Los Angeles survived a low-scoring deciding game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "Bosh made the go-ahead three-point field goal on a pass from James"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_playoffs",
+            "quote": "Portland Trail Blazers 84, Los Angeles Lakers 89"
           }
         },
         {
-          "text": "The Spurs clinched after overcoming a furious early Heat start in the deciding game.",
+          "text": "Rasheed Wallace led Portland in points that night.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "San Antonio bounced back to outscore Miami 37–13 from the beginning of the second quarter"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_playoffs",
+            "quote": "Pts: Rasheed Wallace 30"
           }
         }
       ]

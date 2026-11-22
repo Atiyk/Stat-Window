@@ -211,23 +211,24 @@
       ]
     },
     {
-      "id": "nba-spurs12-streak",
+      "id": "nba-wade06-g5-ft-scoring-share",
       "sport": "NBA",
-      "prompt": "Before Oklahoma City beat them in the 2012 West finals, the Spurs had won how many games in a row?",
-      "context": "San Antonio Spurs · 2011–12",
-      "answer": 20,
+      "prompt": "In Wade's controversial 2006 Finals Game 5, about what percent of his scoring came at the free-throw line?",
+      "context": "Dwyane Wade · Heat vs Mavericks · 2006 Finals",
+      "answer": 49,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "percent",
+        "plural": "percent"
       },
-      "min": 12,
-      "max": 44,
+      "min": 10,
+      "max": 65,
       "step": 1,
-      "note": "20 in a row.",
+      "note": "49%: Wade made 21 free throws while scoring 43, almost half his points.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-        "quote": "snapping San Antonio's 20 game winning streak in the process"
+        "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+        "quote": "Wade finished the game with 43 points while setting an NBA Finals record for most made free throws in a game with 21.",
+        "derivation": "21 / 43 × 100 = 48.837%, rounded to 49%."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +237,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "The Thunder's 2012 Finals berth was their first since moving to Oklahoma City from Seattle.",
+          "text": "Wade attempted as many free throws as all of Dallas combined.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-            "quote": "Oklahoma City's first NBA Finals appearance since their relocation from Seattle"
+            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+            "quote": "Dwyane Wade shot 25 free throws—as many as all the Mavericks combined"
           }
         },
         {
-          "text": "Oklahoma City got through the Lakers in the conference semifinals before its clash with San Antonio.",
+          "text": "Jason Terry led the Mavericks in scoring.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-            "quote": "The Thunder then eliminated the Los Angeles Lakers in the Western Conference semifinals"
+            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+            "quote": "Jason Terry led Dallas with 35 points"
           }
         },
         {
-          "text": "Miami had to beat both Indiana and Boston after trailing in each postseason series.",
+          "text": "Miami needed overtime to escape with the win.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-            "quote": "the Heat overcame major series deficits that nearly eliminated them from the postseason"
+            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+            "quote": "Dallas Mavericks 100, Miami Heat 101 (OT)"
           }
         }
       ]

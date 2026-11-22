@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-suns93-finals-g6-points",
+      "id": "nba-klay16-okc-game6-41",
       "sport": "NBA",
-      "prompt": "How many points did Phoenix score in the deciding Game 6 of the 1993 NBA Finals?",
-      "context": "Phoenix Suns vs Chicago Bulls · Finals Game 6",
-      "answer": 98,
+      "prompt": "Down 3–2 to Durant's Thunder in 2016, how many points did Klay Thompson score in his legendary Game 6?",
+      "context": "Klay Thompson · Warriors at Thunder · 2016 playoffs",
+      "answer": 41,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 65,
-      "max": 143,
+      "min": 10,
+      "max": 95,
       "step": 1,
-      "note": "98 points, before a late Chicago three clinched the title.",
+      "note": "41 points, with a playoff-record barrage of threes to force a decider.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
-        "quote": "John Paxson's game-winning 3-pointer that gave them a 99–98 victory in Game 6"
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_playoffs",
+        "quote": "Klay Thompson, who scored a series-high 41 points and made an NBA playoff record 11 3s."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "John Paxson's late three-pointer clinched the championship for Chicago.",
+          "text": "Klay set a postseason record for made threes.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
-            "quote": "John Paxson's game-winning 3-pointer"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_playoffs",
+            "quote": "made an NBA playoff record 11 3s"
           }
         },
         {
-          "text": "It was Phoenix's second NBA Finals appearance, after its first in 1976.",
+          "text": "The Warriors won on the road to force a deciding game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
-            "quote": "It was the Suns' second NBA finals appearance since 1976"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_playoffs",
+            "quote": "the Warriors won the game 108–101 and tied the series 3-3"
           }
         },
         {
-          "text": "Phoenix reached the Finals by defeating Seattle in a seven-game Western final.",
+          "text": "The Thunder had held a commanding series lead.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
-            "quote": "the conference finals they beat the Seattle SuperSonics in seven"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_playoffs",
+            "quote": "the Thunder once again handed the Warriors a commanding 118–94 defeat to take a 3–1 series lead"
           }
         }
       ]

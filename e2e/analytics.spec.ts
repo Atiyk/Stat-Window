@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { lockAndSettle, NBA_FIRST, next, openAt } from './helpers';
+import { lockAndSettle, NBA_FIRST, next, openAt, startDailyIfNeeded } from './helpers';
 
 /**
  * Runs only against a build made with VITE_ANALYTICS=vercel (npm run test:e2e:analytics).
@@ -86,8 +86,12 @@ test('Do Not Track and Global Privacy Control send nothing and load no script', 
 
 test('switching Play counts on in the Privacy dialog starts analytics without a reload (CR-5)', async ({ page }) => {
   await page.addInitScript(() => Object.defineProperty(Navigator.prototype, 'globalPrivacyControl', { get: () => true }));
-  await openAt(page, NBA_FIRST, '/?privacy');
+  // Privacy is intentionally modal on first load. Complete consent before
+  // clicking the gameplay Start gate, otherwise the dialog blocks the button.
+  await page.clock.setFixedTime(NBA_FIRST);
+  await page.goto('/?privacy');
   const dialog = page.getByRole('dialog', { name: 'Privacy and your data' });
+  await expect(dialog).toBeVisible();
   const box = dialog.getByRole('checkbox', { name: /Play counts/ });
   await expect(box).not.toBeChecked();
   expect(await views(page)).toEqual([]);
@@ -95,6 +99,7 @@ test('switching Play counts on in the Privacy dialog starts analytics without a 
   await expect(box).toBeChecked();
   await expect.poll(() => views(page)).toEqual(['/']);
   await dialog.getByRole('button', { name: 'Done' }).click();
+  await startDailyIfNeeded(page);
   await lockAndSettle(page);
   await expect.poll(() => views(page)).toContainEqual(expect.stringMatching(/^\/e\/lock\/daily\/r1\/(hit|miss)$/));
   // And off again stops it at once (the reload itself is counted: the stored choice is now "on").
@@ -128,6 +133,10 @@ test('a completed daily sends one streak event, bucketed 1, 2-6 or 7plus; practi
   await expect.poll(async () => (await views(page)).filter((p) => p.startsWith('/e/streak/'))).toEqual(['/e/streak/daily/2-6']);
   // A practice run of an earlier day is not a daily.
   await page.getByRole('button', { name: 'Nov 18' }).click();
+  // Opening an archive practice slate mounts its own deliberate Start gate.
+  // Wait for the destination rather than treating the previous results as play.
+  await expect(page.getByRole('heading', { name: 'Ready for five?' })).toBeVisible();
+  await startDailyIfNeeded(page);
   await expect(page.locator('.round-meta')).toContainText('Practice');
   await playFive();
   expect((await views(page)).filter((p) => p.startsWith('/e/streak/'))).toEqual(['/e/streak/daily/2-6']);

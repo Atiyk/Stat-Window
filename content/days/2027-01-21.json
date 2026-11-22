@@ -7,24 +7,23 @@
   },
   "questions": [
     {
-      "id": "nba-three-point-distance",
+      "id": "nba-klay15-quarter-37",
       "sport": "NBA",
-      "prompt": "Away from the corners, how far is the NBA three-point arc from the center of the basket, in feet?",
-      "context": "NBA rules · arc distance",
-      "answer": 23.75,
+      "prompt": "In his famous one-quarter scoring explosion against Sacramento, how many points did Klay Thompson score?",
+      "context": "Klay Thompson · Warriors vs. Kings · January 2015",
+      "answer": 37,
       "unit": {
-        "singular": "foot",
-        "plural": "feet"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 21,
-      "max": 34,
-      "step": 0.25,
-      "note": "23 feet 9 inches, or 23.75 feet.",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "note": "37 points in a single quarter, without missing a shot.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-        "quote": "in the National Basketball Association (NBA) the arc is 23 feet 9 inches (7.24 m) from the center of the basket",
-        "derivation": "23 feet 9 inches = 23.75 feet"
+        "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+        "quote": "In the third quarter of that game, he scored an NBA-record 37 points for a single quarter"
       },
       "verified": {
         "on": "2026-11-16",
@@ -33,27 +32,27 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The three-point rule debuted in the short-lived American Basketball League before the NBA ever adopted it.",
+          "text": "Klay went 13-for-13 from the field in the third quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-            "quote": "the newly formed American Basketball League (ABL) became the first basketball league to institute the rule in 1961"
+            "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+            "quote": "going 13-for-13 from the field"
           }
         },
         {
-          "text": "The ABA paired three-pointers with dunks in its marketing to offer fans a different kind of basketball.",
+          "text": "He sank nine three-pointers in that quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-            "quote": "During the 1970s, the ABA used the three-point shot, along with the slam dunk, as a marketing tool to compete with the NBA"
+            "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+            "quote": "including nine three-pointers"
           }
         },
         {
-          "text": "The NBA introduced the arc on a trial basis in 1979; Boston's Chris Ford made the league's first official three.",
+          "text": "He finished with 52 points and 11 threes.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-            "quote": "Chris Ford of the Boston Celtics is credited with making the first three-point shot in NBA history on October 12, 1979"
+            "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+            "quote": "Thompson scored a career-high 52 points, with 11 three-pointers"
           }
         }
       ]

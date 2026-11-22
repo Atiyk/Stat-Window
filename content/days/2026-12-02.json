@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-baylor62-finals-61",
+      "id": "nba-wolves24-denver-game7-comeback",
       "sport": "NBA",
-      "prompt": "What is the NBA record for points in a Finals game, set by Elgin Baylor in 1962?",
-      "context": "Los Angeles Lakers vs Boston Celtics · 1962 NBA Finals",
-      "answer": 61,
+      "prompt": "How far behind did Anthony Edwards's Timberwolves fall before their dramatic 2024 Game 7 win over Denver?",
+      "context": "Timberwolves at Nuggets · 2024 playoffs",
+      "answer": 20,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 45,
-      "max": 95,
+      "min": 2,
+      "max": 58,
       "step": 1,
-      "note": "61 points, still the Finals record.",
+      "note": "20 points down. Minnesota eliminated the defending champions on the road.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-        "quote": "Baylor set the still-standing NBA record for points in an NBA Finals game with 61."
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+        "quote": "The Timberwolves overcame a 20–point deficit to win game 7 against the Nuggets, the largest game 7 comeback in NBA playoffs history."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Baylor helped turn basketball into a vertical spectacle; later high-flying stars modeled their moves on his.",
+          "text": "Minnesota returned to the West finals after a long wait.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-            "quote": "Baylor introduced a creative and acrobatic playing style that would later be emulated"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "Minnesota also reached the Western Conference finals for the second time in franchise history, after 2004."
           }
         },
         {
-          "text": "Seattle University eventually named its basketball court for Baylor, honoring the former college star.",
+          "text": "Jamal Murray carried Denver early in the contest.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-            "quote": "they named its basketball court in honor of him"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "Jamal Murray's 24 first-half points gave the Nuggets a 15-point halftime lead"
           }
         },
         {
-          "text": "Although Baylor retired before the Lakers' breakthrough, the team presented him with a championship ring.",
+          "text": "The Wolves swung momentum with a dominant third-quarter run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-            "quote": "the Lakers did give Baylor a championship ring for his contributions at the start of the 1971–72 season"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "they closed the third quarter with a 28–9 run and took the lead in the fourth"
           }
         }
       ]

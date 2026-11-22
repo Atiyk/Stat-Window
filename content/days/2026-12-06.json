@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-warriors75-finals-g4-points",
+      "id": "nba-luka20-clippers-buzzer-43",
       "sport": "NBA",
-      "prompt": "How many points did Golden State score in Game 4 to clinch the 1975 Finals?",
-      "context": "Golden State at Washington · May 25, 1975",
-      "answer": 96,
+      "prompt": "In Luka Dončić's unforgettable 2020 bubble overtime winner against the Clippers, how many points did he score?",
+      "context": "Luka Dončić · Mavericks vs Clippers · 2020 playoffs",
+      "answer": 43,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 60,
-      "max": 122,
+      "min": 15,
+      "max": 95,
       "step": 1,
-      "note": "96 points, one more than Washington in the title clincher.",
+      "note": "43 points, plus 17 boards and 13 assists, capped by his step-back game winner.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-        "quote": "Golden State Warriors 96, Washington Bullets 95"
+        "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs",
+        "quote": "His winning shot capped an incredible triple-double performance with 43 points, 17 rebounds, and 13 assists."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Coach Al Attles was ejected after a confrontation with Mike Riordan, leaving assistant Joe Roberts to finish the game.",
+          "text": "Luka nailed the three-pointer at the end of overtime.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "Attles bolted onto the court and initiated a fight of his own with Riordan"
+            "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs",
+            "quote": "Down by 1, Luka Dončić hit the game-winning 3 point buzzer-beater at the end of overtime."
           }
         },
         {
-          "text": "The 1975 Finals are the oldest NBA championship series with full television coverage still surviving.",
+          "text": "He was the youngest playoff game-winner on a buzzer-beater.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "The 1975 Finals is also the oldest NBA championship series whose TV coverage still exists in its entirety"
+            "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs",
+            "quote": "He becomes the youngest player to hit a buzzer-beater in the playoffs."
           }
         },
         {
-          "text": "Rick Barry went on to work as a broadcaster for the next six NBA Finals, including while still an active player.",
+          "text": "Dallas won the overtime thriller by two.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "Barry went on to cover the next six NBA Finals, five of which while still an active player"
+            "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs",
+            "quote": "Dallas Mavericks 135, Los Angeles Clippers 133 (OT)"
           }
         }
       ]

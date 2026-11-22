@@ -7,23 +7,23 @@
   },
   "questions": [
     {
-      "id": "nba-ad23-cup-final",
+      "id": "nba-mitchell23-seventy-one",
       "sport": "NBA",
-      "prompt": "How many points did Anthony Davis score in the first In-Season Tournament final?",
-      "context": "2023 In-Season Tournament final · Lakers vs Pacers",
-      "answer": 41,
+      "prompt": "In Cleveland's 2023 overtime comeback against Chicago, how many points did Donovan Mitchell score?",
+      "context": "Donovan Mitchell · Cavaliers vs. Bulls · January 2023",
+      "answer": 71,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 8,
-      "max": 50,
+      "min": 25,
+      "max": 105,
       "step": 1,
-      "note": "41, with 20 rebounds.",
+      "note": "71 points, plus 11 assists.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-        "quote": "Anthony Davis finished with 41 points on 16-for-24 shooting, 20 rebounds and 4 blocks;"
+        "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+        "quote": "career-high, and Cavaliers-record 71 points, along with eight rebounds and 11 assists"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,27 +32,27 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Davis also grabbed 20 rebounds and blocked four shots in the inaugural Cup title game.",
+          "text": "Mitchell also grabbed eight boards and dished 11 assists.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "Anthony Davis recorded 41 points, 20 rebounds, 5 assists and 4 blocks"
+            "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+            "quote": "along with eight rebounds and 11 assists"
           }
         },
         {
-          "text": "LeBron James won the overall tournament MVP award even though Davis starred in the final.",
+          "text": "He became the first 70-point scorer with at least 10 assists.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "LeBron James was named the Most Valuable Player for the tournament"
+            "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+            "quote": "the first to do so with at least 10 assists"
           }
         },
         {
-          "text": "Pacers guard Tyrese Haliburton handed out 11 assists in the championship loss.",
+          "text": "The Cavaliers won 145–134 in overtime.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "Tyrese Haliburton finished with 20 points and 11 assists"
+            "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+            "quote": "in a 145–134 overtime win over the Chicago Bulls"
           }
         }
       ]

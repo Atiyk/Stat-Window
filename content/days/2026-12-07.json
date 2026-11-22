@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-bulls99-wins",
+      "id": "nba-brunson24-philly-47",
       "sport": "NBA",
-      "prompt": "In the lockout season after their sixth title, how many games did the Bulls win?",
-      "context": "Chicago Bulls · 1998–99 · lockout-shortened season",
-      "answer": 13,
+      "prompt": "Against Embiid's Sixers in the 2024 playoffs, how many points did Jalen Brunson score to set a Knicks playoff record?",
+      "context": "Jalen Brunson · Knicks at 76ers · April 2024",
+      "answer": 47,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 6,
-      "max": 42,
+      "min": 15,
+      "max": 105,
       "step": 1,
-      "note": "13, in the lockout-shortened season after their sixth title.",
+      "note": "47 points, a Knicks playoff record, alongside 10 assists in Philadelphia.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-        "quote": "winning just 13 of 50 games"
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+        "quote": "Jalen Brunson scored 47 points, setting a Knicks franchise playoff record en route to securing a commanding 3–1 series lead back to New York."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Jordan's retirement and departures of Pippen and Rodman broke up the Bulls dynasty after the second three-peat.",
+          "text": "Brunson made 18 of 34 shots.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_Chicago_Bulls_season",
-            "quote": "Dennis Rodman (who signed with the Los Angeles Lakers as a free agent), and Jordan's second retirement"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "Brunson shot 18-of-34 from the field"
           }
         },
         {
-          "text": "Tim Floyd replaced Phil Jackson on the Chicago bench and inherited a team that lost most of its opening games.",
+          "text": "He recorded 10 assists to only one turnover.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_Chicago_Bulls_season",
-            "quote": "Under Floyd, and with the addition of Barry and Bryant, the Bulls were a shell of their former selves"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "finished with an assist-turnover ratio of 10 to 1"
           }
         },
         {
-          "text": "Toni Kukoč became Chicago's leading scorer in the first post-dynasty season.",
+          "text": "Brunson surpassed Bernard King's Knicks postseason mark.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_Chicago_Bulls_season",
-            "quote": "Toni Kukoč became the team's scoring leader"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "he surpassed the 46 points scored by Bernard King in 1984"
           }
         }
       ]

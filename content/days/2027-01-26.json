@@ -7,23 +7,23 @@
   },
   "questions": [
     {
-      "id": "nba-knicks70-streak",
+      "id": "nba-wemby24-five-five-points",
       "sport": "NBA",
-      "prompt": "The 1969–70 Knicks set what was then a single-season record winning streak. How long was it?",
-      "context": "New York Knicks · 1969–70",
-      "answer": 18,
+      "prompt": "Rookie Wembanyama recorded a five-by-five (5+ in five stats) vs. the Lakers. How many points did he score?",
+      "context": "Victor Wembanyama · Spurs at Lakers · February 2024",
+      "answer": 27,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 10,
-      "max": 42,
+      "max": 50,
       "step": 1,
-      "note": "18 straight, on the way to 60–22.",
+      "note": "27 points, plus at least five in four other counting stats.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1969%E2%80%9370_New_York_Knicks_season",
-        "quote": "The Knicks had a then single-season NBA record 18 straight victories en route to 60–22 record"
+        "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+        "quote": "Wembanyama put up a five-by-five with 27 points, 10 rebounds, eight assists, five steals, and five blocks"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,27 +32,27 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "That Knicks team also started the season at a record pace before Golden State broke its early-season mark decades later.",
+          "text": "He grabbed 10 rebounds, eight assists, five steals and five blocks.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1969%E2%80%9370_New_York_Knicks_season",
-            "quote": "They set the record for the best start in the first 24 games of a season at 23–1"
+            "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+            "quote": "10 rebounds, eight assists, five steals, and five blocks"
           }
         },
         {
-          "text": "The Knicks went through Baltimore and Milwaukee before meeting the Lakers in the championship series.",
+          "text": "He was the youngest player to record an NBA five-by-five.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1969%E2%80%9370_New_York_Knicks_season",
-            "quote": "After defeating the Bullets in the Eastern Division semifinals and the Milwaukee Bucks in the Eastern Division finals"
+            "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+            "quote": "the youngest player in NBA history to record a five-by-five"
           }
         },
         {
-          "text": "Their title run later became the subject of the documentary When the Garden Was Eden.",
+          "text": "He completed it in only 30 minutes.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1969%E2%80%9370_New_York_Knicks_season",
-            "quote": "Their journey was chronicled in various books and films, most recently in When the Garden was Eden"
+            "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+            "quote": "did so in 30 minutes, the fewest minutes played in NBA history to achieve such a feat"
           }
         }
       ]

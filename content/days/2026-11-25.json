@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-sixers01-finals-g1-points",
+      "id": "nba-kawhi19-playoff-points-732",
       "sport": "NBA",
-      "prompt": "How many points did the 76ers score in their overtime Game 1 win over the Lakers in 2001?",
-      "context": "2001 NBA Finals · June 6 · Philadelphia at Los Angeles",
-      "answer": 107,
+      "prompt": "Across the Raptors' full 2019 title run, how many points did Kawhi Leonard score in the playoffs?",
+      "context": "Kawhi Leonard · Toronto Raptors · 2019 postseason",
+      "answer": 732,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 76,
-      "max": 119,
-      "step": 1,
-      "note": "107, the Lakers' only defeat during that postseason.",
+      "min": 350,
+      "max": 950,
+      "step": 2,
+      "note": "732 playoff points. Kawhi averaged roughly 30 a game across the title run.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-        "quote": "June 6 @ L.A. Lakers W 107–101 (OT)"
+        "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+        "quote": "Leonard scored 732 points during the 2019 playoffs; this was the third-best scoring total for a single NBA postseason in league history"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "That opening-game overtime win was the Lakers' only loss across their entire 2001 playoff run.",
+          "text": "Kawhi won Finals MVP for the second time.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "By the end of the series, the 2000–01 Lakers held the record for the best postseason record with 15–1."
+            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+            "quote": "He was subsequently named NBA Finals MVP for the second time"
           }
         },
         {
-          "text": "Philadelphia outscored Los Angeles 13–7 in overtime after a close regulation contest.",
+          "text": "Only Michael Jordan and LeBron James had higher single-postseason totals at that point.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "Scoring by quarter: 22–23, 34–27, 23–27, 15–17, Overtime: 13–7"
+            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+            "quote": "behind only LeBron James (748, 2018) and Michael Jordan (759, 1992)"
           }
         },
         {
-          "text": "The Sixers had just survived two straight seven-game playoff series against Toronto and Milwaukee before reaching the Finals.",
+          "text": "Toronto closed the 2019 Finals with a four-games-to-two series victory.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "had just come out of two straight seven-game series against the Toronto Raptors and Milwaukee Bucks"
+            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+            "quote": "to a 4–2 series victory in claiming his second NBA championship"
           }
         }
       ]

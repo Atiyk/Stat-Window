@@ -211,24 +211,23 @@
       ]
     },
     {
-      "id": "nba-lakers08-g4-lead",
+      "id": "nba-splash16-duo-threes-678",
       "sport": "NBA",
-      "prompt": "In Game 4 of the 2008 Finals, the Lakers set a Finals record for a first-quarter lead. How big was it?",
-      "context": "2008 NBA Finals · Game 4 · vs Boston",
-      "answer": 21,
+      "prompt": "In the 73-win Warriors season, how many threes did Splash Brothers Curry and Thompson make together?",
+      "context": "Steph Curry + Klay Thompson · Warriors · 2015–16",
+      "answer": 678,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 8,
-      "max": 40,
-      "step": 1,
-      "note": "21 points, 35–14. Boston came back to win.",
+      "min": 400,
+      "max": 900,
+      "step": 2,
+      "note": "678 threes combined. Curry supplied 402.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-        "quote": "a 35–14 lead after the first quarter, which was the largest first-quarter lead in NBA Finals history",
-        "derivation": "35 − 14 = 21"
+        "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+        "quote": "a record they broke the following season with 525 and again in the 2015–16 season with 678"
       },
       "verified": {
         "on": "2026-11-16",
@@ -237,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Boston's reserve Eddie House finally put the Celtics ahead with a fourth-quarter jumper.",
+          "text": "The pair made 525 threes together in 2014–15.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "the Celtics took their first lead in the game when Celtics' reserve Eddie House"
+            "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+            "quote": "the two combined to make 525 threes"
           }
         },
         {
-          "text": "Boston's bench outscored Los Angeles's reserves as Eddie House and James Posey changed the game.",
+          "text": "Thompson ranked second in made threes in 2014–15 with 239.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "29 of those points coming from House and James Posey"
+            "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+            "quote": "Thompson again finished second in the league (239)"
           }
         },
         {
-          "text": "Paul Pierce's unexpected 'Wheelchair Game' return was another defining moment of this series.",
+          "text": "They topped their own record again in 2015–16.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "It was later dubbed by some as the \"Wheelchair Game\""
+            "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+            "quote": "a record they broke the following season with 525 and again in the 2015–16 season with 678"
           }
         }
       ]

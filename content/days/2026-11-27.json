@@ -212,23 +212,24 @@
       ]
     },
     {
-      "id": "nba-brooklopez19-ecf-g1-points",
+      "id": "nba-kobe10-celtics-g7-combined",
       "sport": "NBA",
-      "prompt": "How many points did Brook Lopez score in Milwaukee's Eastern finals Game 1 against Toronto?",
-      "context": "Milwaukee Bucks vs Toronto Raptors · Eastern finals opener",
-      "answer": 29,
+      "prompt": "In Kobe's bruising 2010 Finals Game 7 against Boston, how many points did both teams score combined?",
+      "context": "Lakers vs. Celtics · 2010 Finals · deciding Game 7",
+      "answer": 162,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 13,
-      "max": 51,
+      "min": 80,
+      "max": 200,
       "step": 1,
-      "note": "29 points to help Milwaukee take the series opener.",
+      "note": "162 combined. Los Angeles prevailed 83–79 in a defensive battle.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-        "quote": "May 15 Toronto W 108–100 Brook Lopez (29)"
+        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+        "quote": "Boston Celtics 79, Los Angeles Lakers 83",
+        "derivation": "2010 Finals Game 7: Boston 79 + Los Angeles 83 = 162 combined points."
       },
       "verified": {
         "on": "2026-11-16",
@@ -237,27 +238,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Lopez signed with Milwaukee in free agency after spending the preceding season with the Lakers.",
+          "text": "Kobe scored 10 of his 23 points in the fourth quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "Brook Lopez | July 17, 2018 | Los Angeles Lakers"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "scored 10 of his game-high 23 points in the fourth quarter"
           }
         },
         {
-          "text": "He averaged 2.2 blocks per game in the regular season while stretching the floor.",
+          "text": "The Lakers won the rebounding battle 53–40.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "Brook Lopez | 81 | 81 | 28.7 | .435 | .365 | .842 | 4.9 | 1.2 | .6 | 2.2 | 12.5"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "out-rebounded the Celtics, 53–40"
           }
         },
         {
-          "text": "Milwaukee won both of its opening games against Toronto, but the Raptors came back to take the series.",
+          "text": "Bryant received Finals MVP for the second consecutive season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "where they faced the Toronto Raptors and lost to the eventual NBA Champion in six games, despite taking the first two"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "He was named the Finals MVP for the second straight season"
           }
         }
       ]

@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-bird86-finals-minutes",
+      "id": "nba-lillard19-okc-winner-distance",
       "sport": "NBA",
-      "prompt": "Of the 288 possible minutes in the six-game 1986 Finals, how many did Larry Bird play?",
-      "context": "1986 NBA Finals · six games vs Houston",
-      "answer": 269,
+      "prompt": "How far, in feet, was Damian Lillard's famous 2019 playoff series-winning buzzer-beater over Paul George?",
+      "context": "Lillard · Blazers vs Thunder · 2019 playoffs",
+      "answer": 37,
       "unit": {
-        "singular": "minute",
-        "plural": "minutes"
+        "singular": "foot",
+        "plural": "feet"
       },
-      "min": 180,
-      "max": 288,
+      "min": 15,
+      "max": 85,
       "step": 1,
-      "note": "269, resting for only 19 minutes all series.",
+      "note": "37 feet. Dame waved goodbye to OKC after burying a deep series winner.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-        "quote": "Bird got very little rest during the six-game series, logging 269 out of a possible 288 minutes of floor time."
+        "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+        "quote": "Damian Lillard scored 50 points in Game 5 and finished off the series by hitting a 37-foot three at the buzzer to break a 115–115 tie"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Scott Wedman's wrist injury reduced Boston's wing depth and helped explain Bird's huge Finals workload.",
+          "text": "Dame had a huge scoring game even before that shot.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-            "quote": "With backup forward Scott Wedman sidelined due to a wrist injury"
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "Damian Lillard scored 50 points in Game 5"
           }
         },
         {
-          "text": "Reserve Bill Walton made a crucial basket late in Game 4 while Robert Parish rested.",
+          "text": "It was not his first series-winning shot from deep.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-            "quote": "with Bill Walton coming off the bench for a tired Robert Parish to score a crucial basket"
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "his first came against Houston in 2014"
           }
         },
         {
-          "text": "The fifth Finals game erupted when Ralph Sampson clashed with the much shorter Jerry Sichting and was ejected.",
+          "text": "The game ended the Westbrook–George partnership in OKC.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-            "quote": "Ralph Sampson ignited a brawl with Jerry Sichting, a player 15 inches (380 mm) shorter than Sampson"
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "This was also the last Thunder game to feature both Russell Westbrook and Paul George"
           }
         }
       ]

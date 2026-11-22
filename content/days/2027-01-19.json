@@ -7,23 +7,23 @@
   },
   "questions": [
     {
-      "id": "nba-walton77-g6-reb",
+      "id": "nba-embiid24-70-spurs",
       "sport": "NBA",
-      "prompt": "In the 1977 title clincher, how many rebounds did Bill Walton grab?",
-      "context": "1977 NBA Finals · Game 6 · vs Philadelphia",
-      "answer": 23,
+      "prompt": "Against San Antonio in January 2024, how many points did Joel Embiid score in his career-best game?",
+      "context": "Joel Embiid · 76ers vs. Spurs · January 2024",
+      "answer": 70,
       "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 10,
-      "max": 42,
+      "min": 20,
+      "max": 100,
       "step": 1,
-      "note": "23, with 20 points, 7 assists and 8 blocks.",
+      "note": "70 points, plus 18 rebounds.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-        "quote": "Bill Walton's 20 points, 23 rebounds, 7 assists and 8 blocks kept the game in Portland's favor."
+        "url": "https://en.wikipedia.org/wiki/Joel_Embiid",
+        "quote": "On 22 January, Embiid scored 70 points along with 18 rebounds and five assists"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,27 +32,27 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Bill Walton was named Finals MVP after leading Portland to its first championship.",
+          "text": "Embiid also had 18 rebounds and five assists.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Walton was named finals MVP"
+            "url": "https://en.wikipedia.org/wiki/Joel_Embiid",
+            "quote": "18 rebounds and five assists"
           }
         },
         {
-          "text": "CBS cut away so quickly after the clincher that viewers missed the locker-room trophy presentation.",
+          "text": "Philadelphia won 133–123.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "CBS cut away from their NBA coverage very quickly after the game ended, skipping the trophy presentation"
+            "url": "https://en.wikipedia.org/wiki/Joel_Embiid",
+            "quote": "in a 133–123 win over the San Antonio Spurs"
           }
         },
         {
-          "text": "Walton ended the game by batting a missed Philadelphia shot out toward midcourt as time expired.",
+          "text": "He surpassed Wilt's Philadelphia franchise mark.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Bill Walton reached over all of them and slapped the ball up the court"
+            "url": "https://en.wikipedia.org/wiki/Joel_Embiid",
+            "quote": "breaking the Sixers franchise record for most points in a game previously set by Wilt Chamberlain in 1967"
           }
         }
       ]

@@ -7,23 +7,23 @@
   },
   "questions": [
     {
-      "id": "nba-pierce02-46",
+      "id": "nba-lillard23-seventy-one",
       "sport": "NBA",
-      "prompt": "In the deciding Game 5 of the 2002 first round against Philadelphia, Paul Pierce scored how many points?",
-      "context": "2002 East first round · Game 5 · vs 76ers",
-      "answer": 46,
+      "prompt": "On Damian Lillard's spectacular 2023 night against Houston, how many points did he score?",
+      "context": "Damian Lillard · Blazers vs. Rockets · February 2023",
+      "answer": 71,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
       "min": 25,
-      "max": 75,
+      "max": 105,
       "step": 1,
-      "note": "46, with 8 of 10 threes.",
+      "note": "71 points, including 13 three-pointers.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-        "quote": "Paul Pierce led the way with 46, on 8-10 shooting from downtown"
+        "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+        "quote": "a career-high and Blazers franchise-high 71 points with a career-high and Blazers franchise-high 13 three-pointers made"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,27 +32,27 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Boston had reached the playoffs for the first time in seven years before meeting Philadelphia.",
+          "text": "Lillard made 13 threes.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-            "quote": "This series marked the return of the Celtics to the playoffs for the first time in seven years"
+            "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+            "quote": "13 three-pointers made"
           }
         },
         {
-          "text": "The 76ers came into the matchup as defending Eastern Conference champions behind Allen Iverson.",
+          "text": "He scored more than 70 in under 40 minutes.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-            "quote": "they faced the reigning Eastern Conference champion in the first round"
+            "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+            "quote": "the first player in NBA history to score more than 70 points in under 40 minutes"
           }
         },
         {
-          "text": "Antoine Walker shared the scoring burden during the series and helped Boston turn back Philadelphia's rally.",
+          "text": "He was the eighth player to reach 70 in one game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-            "quote": "Antoine Walker stepped up for the Celtics"
+            "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+            "quote": "the eighth player in NBA history to score 70 or more in a single game"
           }
         }
       ]

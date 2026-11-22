@@ -7,23 +7,23 @@
   },
   "questions": [
     {
-      "id": "nba-bullets75-wins",
+      "id": "nba-tatum23-game7-51",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 1974–75 Bullets win before the Finals?",
-      "context": "Washington Bullets · 1974–75 · 82 games",
-      "answer": 60,
+      "prompt": "In his 2023 Game 7 against Philadelphia, how many points did Jayson Tatum score to carry Boston through?",
+      "context": "Jayson Tatum · Celtics vs. 76ers · May 2023",
+      "answer": 51,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 20,
-      "max": 75,
+      "min": 10,
+      "max": 80,
       "step": 1,
-      "note": "60, before Golden State swept them.",
+      "note": "51 points, a new playoff Game 7 scoring mark.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-        "quote": "Washington Bullets (60–22) for the championship"
+        "url": "https://en.wikipedia.org/wiki/Jayson_Tatum",
+        "quote": "he scored a playoff career-high 51 points in a 112–88 victory over the Philadelphia 76ers"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,27 +32,27 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The Washington Bullets had only recently relocated from Baltimore, where the franchise previously played.",
+          "text": "He overtook Stephen Curry's previous elimination-game scoring mark.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "having moved from Baltimore prior to the 1973–74 season"
+            "url": "https://en.wikipedia.org/wiki/Jayson_Tatum",
+            "quote": "surpassed Stephen Curry (50 points)"
           }
         },
         {
-          "text": "Wes Unseld and Elvin Hayes anchored a team coached by future Celtics icon K. C. Jones.",
+          "text": "Boston won the game 112–88.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "led by Wes Unseld and Elvin Hayes, and coached by K. C. Jones"
+            "url": "https://en.wikipedia.org/wiki/Jayson_Tatum",
+            "quote": "in a 112–88 victory over the Philadelphia 76ers"
           }
         },
         {
-          "text": "Washington knocked out the defending champion Celtics on the way to the championship series.",
+          "text": "Tatum became the first Celtic to score 50 in multiple playoff games.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "then overcame the Buffalo Braves and the defending champion Boston Celtics"
+            "url": "https://en.wikipedia.org/wiki/Jayson_Tatum",
+            "quote": "the first player in Celtics history to put up multiple 50-point playoff games"
           }
         }
       ]

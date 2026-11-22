@@ -2142,69 +2142,6 @@
     }
   },
   {
-    "id": "nba-bird86-finals-minutes",
-    "family": "minutes",
-    "scope": "finals",
-    "season": "1985-86",
-    "eventDate": null,
-    "franchise": "BOS",
-    "player": "Larry Bird",
-    "answer": 269,
-    "unit": {
-      "singular": "minute",
-      "plural": "minutes"
-    },
-    "claim": "269, resting for only 19 minutes all series.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-      "quote": "Bird got very little rest during the six-game series, logging 269 out of a possible 288 minutes of floor time.",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "Of the 288 possible minutes in the six-game 1986 Finals, how many did Larry Bird play?",
-      "context": "1986 NBA Finals · six games vs Houston",
-      "reveal": "269, resting for only 19 minutes all series.",
-      "min": 180,
-      "max": 288,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Needs a precise sense of how little a star sat; the window is tight.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 3,
-        "estimability": 3,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Scott Wedman's wrist injury reduced Boston's wing depth and helped explain Bird's huge Finals workload.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-            "quote": "With backup forward Scott Wedman sidelined due to a wrist injury"
-          }
-        },
-        {
-          "text": "Reserve Bill Walton made a crucial basket late in Game 4 while Robert Parish rested.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-            "quote": "with Bill Walton coming off the bench for a tired Robert Parish to score a crucial basket"
-          }
-        },
-        {
-          "text": "The fifth Finals game erupted when Ralph Sampson clashed with the much shorter Jerry Sichting and was ejected.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-            "quote": "Ralph Sampson ignited a brawl with Jerry Sichting, a player 15 inches (380 mm) shorter than Sampson"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-kobe-81",
     "family": "points-game",
     "scope": "regular-season",
@@ -2457,69 +2394,6 @@
     }
   },
   {
-    "id": "nba-kobe10-g7-fga",
-    "family": "field-goals",
-    "scope": "finals",
-    "season": "2009-10",
-    "eventDate": "2010-06-17",
-    "franchise": "LAL",
-    "player": "Kobe Bryant",
-    "answer": 24,
-    "unit": {
-      "singular": "shot",
-      "plural": "shots"
-    },
-    "claim": "6 for 24, though he still led all scorers with 23.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-      "quote": "Bryant, despite shooting 6 for 24 (25%) from the field, scored 10 of his game-high 23 points in the fourth quarter.",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "Kobe Bryant made just six field goals in Game 7 of the 2010 Finals. How many did he attempt?",
-      "context": "2010 NBA Finals · Game 7 · vs Boston",
-      "reveal": "6 for 24, though his 23 points led all scorers.",
-      "min": 0,
-      "max": 34,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Shot attempts are an unusual stat to estimate.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 2,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "The Lakers controlled the offensive glass and won the overall rebounding battle.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "The Lakers had 23 offensive rebounds and out-rebounded the Celtics, 53–40."
-          }
-        },
-        {
-          "text": "Pau Gasol pulled down 18 rebounds in the championship clincher.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "Gasol had 18 rebounds and Bryant added 15."
-          }
-        },
-        {
-          "text": "Ron Artest chipped in 20 points, including a crucial late three-pointer.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "Artest, who scored 20 points in Game 7 including his last-second three-pointer"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-lakers72-streak",
     "family": "win-streak",
     "scope": "regular-season",
@@ -2766,69 +2640,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1972_NBA_Finals",
             "quote": "win their sixth NBA title and their first since 1954, when the team was still based in Minneapolis"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-baylor62-finals-61",
-    "family": "points-game",
-    "scope": "finals",
-    "season": "1961-62",
-    "eventDate": null,
-    "franchise": "LAL",
-    "player": "Elgin Baylor",
-    "answer": 61,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "61 points, still the Finals record.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-      "quote": "Baylor set the still-standing NBA record for points in an NBA Finals game with 61.",
-      "derivation": null,
-      "asOf": "2026-11-16"
-    },
-    "question": {
-      "prompt": "What is the NBA record for points in a Finals game, set by Elgin Baylor in 1962?",
-      "context": "Los Angeles Lakers vs Boston Celtics · 1962 NBA Finals",
-      "reveal": "61 points, still the Finals record.",
-      "min": 45,
-      "max": 95,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Many assume a more recent star owns this record.",
-      "ratings": {
-        "interest": 4,
-        "recognizability": 2,
-        "estimability": 3,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Baylor helped turn basketball into a vertical spectacle; later high-flying stars modeled their moves on his.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-            "quote": "Baylor introduced a creative and acrobatic playing style that would later be emulated"
-          }
-        },
-        {
-          "text": "Seattle University eventually named its basketball court for Baylor, honoring the former college star.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-            "quote": "they named its basketball court in honor of him"
-          }
-        },
-        {
-          "text": "Although Baylor retired before the Lakers' breakthrough, the team presented him with a championship ring.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-            "quote": "the Lakers did give Baylor a championship ring for his contributions at the start of the 1971–72 season"
           }
         }
       ]
@@ -3144,69 +2955,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
             "quote": "General manager  | Sam Hinkie"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-three-point-distance",
-    "family": "distance",
-    "scope": "game-rules",
-    "season": null,
-    "eventDate": null,
-    "franchise": null,
-    "player": null,
-    "answer": 23.75,
-    "unit": {
-      "singular": "foot",
-      "plural": "feet"
-    },
-    "claim": "23 feet 9 inches, or 23.75 feet.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-      "quote": "in the National Basketball Association (NBA) the arc is 23 feet 9 inches (7.24 m) from the center of the basket",
-      "derivation": "23 feet 9 inches = 23.75 feet",
-      "asOf": null
-    },
-    "question": {
-      "prompt": "Away from the corners, how far is the NBA three-point arc from the center of the basket, in feet?",
-      "context": "NBA rules · arc distance",
-      "reveal": "23 feet 9 inches, or 23.75 feet.",
-      "min": 21,
-      "max": 34,
-      "step": 0.25,
-      "difficulty": "easy",
-      "difficultyReason": "Many fans know it is \"about 24 feet\".",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 5,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "The three-point rule debuted in the short-lived American Basketball League before the NBA ever adopted it.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-            "quote": "the newly formed American Basketball League (ABL) became the first basketball league to institute the rule in 1961"
-          }
-        },
-        {
-          "text": "The ABA paired three-pointers with dunks in its marketing to offer fans a different kind of basketball.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-            "quote": "During the 1970s, the ABA used the three-point shot, along with the slam dunk, as a marketing tool to compete with the NBA"
-          }
-        },
-        {
-          "text": "The NBA introduced the arc on a trial basis in 1979; Boston's Chris Ford made the league's first official three.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-            "quote": "Chris Ford of the Boston Celtics is credited with making the first three-point shot in NBA history on October 12, 1979"
           }
         }
       ]
@@ -3717,69 +3465,6 @@
     }
   },
   {
-    "id": "nba-bulls99-wins",
-    "family": "wins-season",
-    "scope": "regular-season",
-    "season": "1998-99",
-    "eventDate": null,
-    "franchise": "CHI",
-    "player": null,
-    "answer": 13,
-    "unit": {
-      "singular": "win",
-      "plural": "wins"
-    },
-    "claim": "13, in the lockout-shortened season after their sixth title.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
-      "quote": "winning just 13 of 50 games",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "In the lockout season after their sixth title, how many games did the Bulls win?",
-      "context": "Chicago Bulls · 1998–99 · lockout-shortened season",
-      "reveal": "13, in the lockout-shortened season after their sixth title.",
-      "min": 6,
-      "max": 42,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "The collapse is sharper than most guess.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 3,
-        "estimability": 3,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Jordan's retirement and departures of Pippen and Rodman broke up the Bulls dynasty after the second three-peat.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_Chicago_Bulls_season",
-            "quote": "Dennis Rodman (who signed with the Los Angeles Lakers as a free agent), and Jordan's second retirement"
-          }
-        },
-        {
-          "text": "Tim Floyd replaced Phil Jackson on the Chicago bench and inherited a team that lost most of its opening games.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_Chicago_Bulls_season",
-            "quote": "Under Floyd, and with the addition of Barry and Bryant, the Bulls were a shell of their former selves"
-          }
-        },
-        {
-          "text": "Toni Kukoč became Chicago's leading scorer in the first post-dynasty season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_Chicago_Bulls_season",
-            "quote": "Toni Kukoč became the team's scoring leader"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-celtics-eight-straight",
     "family": "titles",
     "scope": "franchise",
@@ -4095,69 +3780,6 @@
     }
   },
   {
-    "id": "nba-sixers67-wins",
-    "family": "wins-season",
-    "scope": "regular-season",
-    "season": "1966-67",
-    "eventDate": null,
-    "franchise": "PHI",
-    "player": null,
-    "answer": 68,
-    "unit": {
-      "singular": "win",
-      "plural": "wins"
-    },
-    "claim": "68–13, the best record in league history at the time.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-      "quote": "They finished the season at 68–13, the best record in league history at the time.",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many games did the 1966–67 Sixers win in an 81-game season?",
-      "context": "Philadelphia 76ers · 1966–67",
-      "reveal": "68–13, the best record in league history at the time.",
-      "min": 50,
-      "max": 81,
-      "step": 1,
-      "difficulty": "easy",
-      "difficultyReason": "Elite records sit in a familiar band.",
-      "ratings": {
-        "interest": 4,
-        "recognizability": 3,
-        "estimability": 3,
-        "surprise": 4
-      },
-      "funFacts": [
-        {
-          "text": "The championship season was Philadelphia's last in the Civic Center before the team moved to the Spectrum.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "their final season at the Philadelphia Civic Center, before moving to the Spectrum"
-          }
-        },
-        {
-          "text": "Alex Hannum replaced Dolph Schayes as head coach and even ran with the players during practices.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "the 76ers dismissed head coach & former 76ers (Syracuse Nationals) player Dolph Schayes"
-          }
-        },
-        {
-          "text": "In a later league anniversary celebration, the NBA recognized these Sixers as its greatest single-season team.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "This team was later chosen as the greatest individual team in 1980 for the NBA 35th Anniversary Team"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-sixers67-start-losses",
     "family": "losses-season",
     "scope": "regular-season",
@@ -4341,69 +3963,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
             "quote": "Wilt Chamberlain, NBA Most Valuable Player Award"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-sixers83-playoff-wins",
-    "family": "wins-playoffs",
-    "scope": "playoffs",
-    "season": "1982-83",
-    "eventDate": null,
-    "franchise": "PHI",
-    "player": null,
-    "answer": 1,
-    "unit": {
-      "singular": "loss",
-      "plural": "losses"
-    },
-    "claim": "One: they went 12–1.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
-      "quote": "The 76ers completed one of the most dominating playoff runs in league history with a 12–1 mark",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many playoff games did the 1983 champion Sixers lose?",
-      "context": "Philadelphia 76ers · 1983 playoffs",
-      "reveal": "One: they went 12–1.",
-      "min": 0,
-      "max": 8,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Requires knowing the series lengths and byes of 1983.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Moses Malone had boldly predicted an unbeaten playoff run, repeatedly calling for four-game sweeps.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
-            "quote": "Malone predicted the team would win in four games in each of the three rounds"
-          }
-        },
-        {
-          "text": "Philadelphia had acquired Moses from Houston specifically to counter the Lakers' Kareem Abdul-Jabbar.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
-            "quote": "the 76ers acquired Moses Malone from the Houston Rockets in an effort to counter Abdul-Jabbar"
-          }
-        },
-        {
-          "text": "The Sixers swept Los Angeles in the Finals, reversing the previous championship-series losses to the Lakers.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
-            "quote": "The 76ers lost their first two Finals meetings with the Lakers in 1980 and 1982"
           }
         }
       ]
@@ -4719,69 +4278,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
             "quote": "Detroit wins NBA Finals, 4–1"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-robinson94-71",
-    "family": "points-game",
-    "scope": "regular-season",
-    "season": "1993-94",
-    "eventDate": "1994-04-24",
-    "franchise": "SAS",
-    "player": "David Robinson",
-    "answer": 71,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "71, breaking George Gervin's Spurs record of 63.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/David_Robinson",
-      "quote": "scoring 71 points (breaking George Gervin's single-game franchise record of 63) against the Los Angeles Clippers",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many points did David Robinson score against the Clippers on April 24, 1994?",
-      "context": "San Antonio Spurs · 1993–94",
-      "reveal": "71, breaking George Gervin's Spurs record of 63.",
-      "min": 45,
-      "max": 110,
-      "step": 1,
-      "difficulty": "easy",
-      "difficultyReason": "A huge night that many fans have heard of.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 3,
-        "estimability": 3,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Robinson's scoring-title chase came down to a direct duel with Shaquille O'Neal.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "he became locked in a duel for the NBA scoring title with Shaquille O'Neal"
-          }
-        },
-        {
-          "text": "His outburst surpassed George Gervin's longstanding Spurs single-game points record.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "breaking George Gervin's single-game franchise record of 63"
-          }
-        },
-        {
-          "text": "That season, Robinson also averaged double-digit rebounds and more than three blocks per game.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "10.7 rebounds per game, career-high 4.8 assists per game and 3.3 blocks per game"
           }
         }
       ]
@@ -5286,69 +4782,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
             "quote": "their other starters combined for only 28 points on 32 percent shooting"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-spurs14-finals-margin",
-    "family": "margin-average",
-    "scope": "finals",
-    "season": "2013-14",
-    "eventDate": null,
-    "franchise": "SAS",
-    "player": null,
-    "answer": 14,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "14.0 points a game.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-      "quote": "The Spurs outscored the Heat in the series by the largest per game average point differential (14.0) in Finals history.",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "By how many points per game did the Spurs outscore Miami in the 2014 Finals?",
-      "context": "2014 NBA Finals · five games",
-      "reveal": "14.0 points a game.",
-      "min": 0,
-      "max": 34,
-      "step": 0.1,
-      "difficulty": "expert",
-      "difficultyReason": "Average margin is an unfamiliar quantity.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 2,
-        "estimability": 3,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Game One's air-conditioning failure turned the arena into a sweltering environment and left LeBron cramping.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "the AT&T Center's malfunctioning air-conditioning system"
-          }
-        },
-        {
-          "text": "Miami's Game Two victory briefly leveled the rematch before San Antonio seized control on the road.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "Bosh made the go-ahead three-point field goal on a pass from James"
-          }
-        },
-        {
-          "text": "The Spurs clinched after overcoming a furious early Heat start in the deciding game.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "San Antonio bounced back to outscore Miami 37–13 from the beginning of the second quarter"
           }
         }
       ]
@@ -5916,69 +5349,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
             "quote": "Game 6 of the 2013 NBA Finals received the 2013 ESPY award for Best Game"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-spurs12-streak",
-    "family": "win-streak",
-    "scope": "combined",
-    "season": "2011-12",
-    "eventDate": null,
-    "franchise": "SAS",
-    "player": null,
-    "answer": 20,
-    "unit": {
-      "singular": "game",
-      "plural": "games"
-    },
-    "claim": "20 in a row.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-      "quote": "snapping San Antonio's 20 game winning streak in the process",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "Before Oklahoma City beat them in the 2012 West finals, the Spurs had won how many games in a row?",
-      "context": "San Antonio Spurs · 2011–12",
-      "reveal": "20 in a row.",
-      "min": 12,
-      "max": 44,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "A forgotten streak.",
-      "ratings": {
-        "interest": 2,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "The Thunder's 2012 Finals berth was their first since moving to Oklahoma City from Seattle.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-            "quote": "Oklahoma City's first NBA Finals appearance since their relocation from Seattle"
-          }
-        },
-        {
-          "text": "Oklahoma City got through the Lakers in the conference semifinals before its clash with San Antonio.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-            "quote": "The Thunder then eliminated the Los Angeles Lakers in the Western Conference semifinals"
-          }
-        },
-        {
-          "text": "Miami had to beat both Indiana and Boston after trailing in each postseason series.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-            "quote": "the Heat overcame major series deficits that nearly eliminated them from the postseason"
           }
         }
       ]
@@ -8064,69 +7434,6 @@
     }
   },
   {
-    "id": "nba-walton77-g6-reb",
-    "family": "rebounds-game",
-    "scope": "finals",
-    "season": "1976-77",
-    "eventDate": "1977-06-05",
-    "franchise": "POR",
-    "player": "Bill Walton",
-    "answer": 23,
-    "unit": {
-      "singular": "rebound",
-      "plural": "rebounds"
-    },
-    "claim": "23, with 20 points, 7 assists and 8 blocks.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-      "quote": "Bill Walton's 20 points, 23 rebounds, 7 assists and 8 blocks kept the game in Portland's favor.",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "In the 1977 title clincher, how many rebounds did Bill Walton grab?",
-      "context": "1977 NBA Finals · Game 6 · vs Philadelphia",
-      "reveal": "23, with 20 points, 7 assists and 8 blocks.",
-      "min": 10,
-      "max": 42,
-      "step": 1,
-      "difficulty": "easy",
-      "difficultyReason": "A big man's big night lands in an estimable band.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 4,
-        "estimability": 2,
-        "surprise": 4
-      },
-      "funFacts": [
-        {
-          "text": "Bill Walton was named Finals MVP after leading Portland to its first championship.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Walton was named finals MVP"
-          }
-        },
-        {
-          "text": "CBS cut away so quickly after the clincher that viewers missed the locker-room trophy presentation.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "CBS cut away from their NBA coverage very quickly after the game ended, skipping the trophy presentation"
-          }
-        },
-        {
-          "text": "Walton ended the game by batting a missed Philadelphia shot out toward midcourt as time expired.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Bill Walton reached over all of them and slapped the ball up the court"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-blazers78-start",
     "family": "wins-season",
     "scope": "regular-season",
@@ -8379,69 +7686,6 @@
     }
   },
   {
-    "id": "nba-bullets75-wins",
-    "family": "wins-season",
-    "scope": "regular-season",
-    "season": "1974-75",
-    "eventDate": null,
-    "franchise": "WAS",
-    "player": null,
-    "answer": 60,
-    "unit": {
-      "singular": "win",
-      "plural": "wins"
-    },
-    "claim": "60, before Golden State swept them.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-      "quote": "Washington Bullets (60–22) for the championship",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many regular-season games did the 1974–75 Bullets win before the Finals?",
-      "context": "Washington Bullets · 1974–75 · 82 games",
-      "reveal": "60, before Golden State swept them.",
-      "min": 20,
-      "max": 75,
-      "step": 1,
-      "difficulty": "easy",
-      "difficultyReason": "A strong team's record in a familiar band.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 3,
-        "estimability": 3,
-        "surprise": 4
-      },
-      "funFacts": [
-        {
-          "text": "The Washington Bullets had only recently relocated from Baltimore, where the franchise previously played.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "having moved from Baltimore prior to the 1973–74 season"
-          }
-        },
-        {
-          "text": "Wes Unseld and Elvin Hayes anchored a team coached by future Celtics icon K. C. Jones.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "led by Wes Unseld and Elvin Hayes, and coached by K. C. Jones"
-          }
-        },
-        {
-          "text": "Washington knocked out the defending champion Celtics on the way to the championship series.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "then overcame the Buffalo Braves and the defending champion Boston Celtics"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-jojo76-finals-points",
     "family": "points-series",
     "scope": "finals",
@@ -8625,69 +7869,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
             "quote": "backup center George Johnson had 10 points and nine rebounds off the bench"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-gus79-finals-ppg",
-    "family": "scoring-average",
-    "scope": "finals",
-    "season": "1978-79",
-    "eventDate": null,
-    "franchise": "OKC",
-    "player": "Gus Williams",
-    "answer": 28.6,
-    "unit": {
-      "singular": "point per game",
-      "plural": "points per game"
-    },
-    "claim": "28.6 points per game.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1979_NBA_Finals",
-      "quote": "Gus Williams of the SuperSonics was the top scorer, averaging 28.6 points per game",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "Seattle won the 1979 title. What did its top scorer, Gus Williams, average in the Finals?",
-      "context": "1979 NBA Finals · Seattle vs Washington",
-      "reveal": "28.6 points per game.",
-      "min": 20,
-      "max": 46,
-      "step": 0.1,
-      "difficulty": "expert",
-      "difficultyReason": "A little-known player; the decimal is tight.",
-      "ratings": {
-        "interest": 2,
-        "recognizability": 2,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Dennis Johnson, not Williams, won Finals MVP for the SuperSonics' title run.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1979_NBA_Finals",
-            "quote": "Dennis Johnson of the SuperSonics was named as the NBA Finals MVP"
-          }
-        },
-        {
-          "text": "Seattle's triumph avenged a Finals defeat to the same Washington Bullets team the previous year.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1979_NBA_Finals",
-            "quote": "The series was a rematch of the previous year's NBA Finals, which the Bullets won"
-          }
-        },
-        {
-          "text": "Before the SuperSonics won, Seattle's last men's major professional sports title came in ice hockey.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1979_NBA_Finals",
-            "quote": "Seattle Metropolitans' victory in the 1917 Stanley Cup Final"
           }
         }
       ]
@@ -9576,69 +8757,6 @@
     }
   },
   {
-    "id": "nba-malone-playoff-games",
-    "family": "playoff-games",
-    "scope": "career",
-    "season": "2003-04",
-    "eventDate": null,
-    "franchise": "UTA",
-    "player": "Karl Malone",
-    "answer": 193,
-    "unit": {
-      "singular": "game",
-      "plural": "games"
-    },
-    "claim": "193.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-      "quote": "He holds an NBA record for having played the most playoff games without winning a championship (193)",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "Karl Malone never won an NBA title. How many playoff games did he play?",
-      "context": "Jazz and Lakers · 1985–2004",
-      "reveal": "193.",
-      "min": 0,
-      "max": 240,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Needs a sense of 19 playoff runs.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Malone joined the Lakers in search of his first ring, alongside fellow veteran Gary Payton.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "the Lakers signed veteran stars Gary Payton and Karl Malone"
-          }
-        },
-        {
-          "text": "Detroit upset the heavily favored Lakers and won the championship in five games.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "the underdog Pistons handily won the series in five games"
-          }
-        },
-        {
-          "text": "A knee injury meant Malone could not dress for the decisive Finals game.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "Karl Malone would play his last game, as a knee injury would not allow him to dress in Game 5"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-miller92-57",
     "family": "points-game",
     "scope": "regular-season",
@@ -9885,69 +9003,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
             "quote": "both teams in the Finals featured newly built arenas"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-miller97-three-streak",
-    "family": "threes-streak",
-    "scope": "regular-season",
-    "season": "1996-97",
-    "eventDate": null,
-    "franchise": "IND",
-    "player": "Reggie Miller",
-    "answer": 68,
-    "unit": {
-      "singular": "game",
-      "plural": "games"
-    },
-    "claim": "68.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-      "quote": "Miller made a three-pointer in 68 consecutive games from November 15, 1996, to April 6, 1997.",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "From November 1996 to April 1997, Reggie Miller made a three in how many straight games?",
-      "context": "Indiana Pacers · 1996–97",
-      "reveal": "68.",
-      "min": 25,
-      "max": 130,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "The dates bound it, but it needs counting games in five months.",
-      "ratings": {
-        "interest": 2,
-        "recognizability": 2,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Miller remained with Indiana for his entire playing career, an increasingly rare feat for a long-tenured star.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "played his entire 18-year career in the National Basketball Association (NBA) with the Indiana Pacers"
-          }
-        },
-        {
-          "text": "He eventually joined the exclusive fifty-forty-ninety shooting club, combining accuracy at the line and from the field.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "He is one of only nine players to join the 50–40–90 club"
-          }
-        },
-        {
-          "text": "Miller's career three-pointer record eventually passed first to Ray Allen, then to Stephen Curry.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "His record was later broken by Ray Allen, who was later surpassed by Stephen Curry"
           }
         }
       ]
@@ -10521,69 +9576,6 @@
     }
   },
   {
-    "id": "nba-hawks-wizards-45-ft",
-    "family": "free-throws",
-    "scope": "regular-season",
-    "season": "2021-22",
-    "eventDate": "2021-11-01",
-    "franchise": "ATL",
-    "player": null,
-    "answer": 45,
-    "unit": {
-      "singular": "free throw",
-      "plural": "free throws"
-    },
-    "claim": "45: Atlanta 29-for-29, Washington 16-for-16.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
-      "quote": "45 between Atlanta Hawks (29-for-29) and Washington Wizards (16-for-16) on November 1, 2021",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "On November 1, 2021, Atlanta and Washington combined to make how many free throws without a single miss?",
-      "context": "Hawks vs Wizards · 2021–22",
-      "reveal": "45: Atlanta 29-for-29, Washington 16-for-16.",
-      "min": 20,
-      "max": 80,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Perfect nights at the line are hard to size.",
-      "ratings": {
-        "interest": 2,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Atlanta's share of the perfect night was an extraordinary 29 makes in 29 free-throw attempts.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
-            "quote": "Atlanta Hawks (29-for-29) and Washington Wizards (16-for-16)"
-          }
-        },
-        {
-          "text": "The separate single-team flawless free-throw record belongs to Miami's 2023 Heat.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
-            "quote": "40 by the Miami Heat on January 10, 2023"
-          }
-        },
-        {
-          "text": "At the opposite extreme, Detroit once converted only three of 17 foul shots in a game.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
-            "quote": "18% (3/17) by the Detroit Pistons vs. the New Orleans Pelicans"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-jackson10-titles",
     "family": "titles",
     "scope": "finals",
@@ -10893,69 +9885,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
             "quote": "This game was the first Game 7 in an NBA Finals since 2005"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-gsw15-combined-wins",
-    "family": "wins-combined",
-    "scope": "combined",
-    "season": "2014-15",
-    "eventDate": null,
-    "franchise": "GSW",
-    "player": null,
-    "answer": 83,
-    "unit": {
-      "singular": "win",
-      "plural": "wins"
-    },
-    "claim": "83, against 20 losses.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
-      "quote": "Combining regular season and playoff games, Golden State finished 83–20",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "Counting the playoffs, how many games did the 2014–15 Warriors win?",
-      "context": "Golden State Warriors · 2014–15 · regular season plus playoffs",
-      "reveal": "83, against 20 losses.",
-      "min": 54,
-      "max": 96,
-      "step": 1,
-      "difficulty": "easy",
-      "difficultyReason": "A 67-win team plus a title run is estimable.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 3,
-        "estimability": 3,
-        "surprise": 4
-      },
-      "funFacts": [
-        {
-          "text": "Golden State's championship ended a drought dating to 1975, long before the Splash Brothers were born.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
-            "quote": "winning their first championship since 1975, and fourth overall"
-          }
-        },
-        {
-          "text": "Steve Kerr became the first rookie head coach to win an NBA title since Pat Riley.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
-            "quote": "Kerr became the first rookie coach to win a title since Pat Riley"
-          }
-        },
-        {
-          "text": "That Warriors roster won the championship despite having no players with prior NBA Finals experience.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
-            "quote": "The Warriors were the first team since the 1990–91 Bulls to win a title with a roster that did not have any players with Finals experience"
           }
         }
       ]
@@ -11460,69 +10389,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
             "quote": "Durant, the MVP of the last two NBA Finals, traveled with the team to Toronto, but remained sidelined"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-gsw19-20-threes",
-    "family": "threes-game",
-    "scope": "finals",
-    "season": "2018-19",
-    "eventDate": "2019-06-10",
-    "franchise": "GSW",
-    "player": null,
-    "answer": 20,
-    "unit": {
-      "singular": "three-pointer",
-      "plural": "three-pointers"
-    },
-    "claim": "20, then second only to Cleveland’s 24.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-      "quote": "Golden State made 20 three-pointers, the second most in NBA Finals history behind Cleveland's 24",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "Golden State made what was then the second-most threes in a Finals game, in Game 5 of 2019. How many?",
-      "context": "2019 NBA Finals · Game 5 · at Toronto",
-      "reveal": "20, then second only to Cleveland’s 24.",
-      "min": 0,
-      "max": 26,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Team three totals have climbed fast; the anchor is unclear.",
-      "ratings": {
-        "interest": 2,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Durant returned in the road elimination game but suffered a serious Achilles injury shortly afterward.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-            "quote": "he was lost for the game two minutes into the second quarter"
-          }
-        },
-        {
-          "text": "Curry and Thompson combined for consecutive late threes to keep Golden State alive for another game.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-            "quote": "They combined for three straight 3-pointers after the Raptors led by six points"
-          }
-        },
-        {
-          "text": "Kyle Lowry nearly won the series with a buzzer-beating three, but Draymond Green deflected the shot.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-            "quote": "Lowry's potential championship-winning, 3-point shot at the buzzer fell short"
           }
         }
       ]
@@ -12405,69 +11271,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
             "quote": "Jamal Murray returned to the playoffs after a two-year absence caused by injury"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-ad23-cup-final",
-    "family": "points-game",
-    "scope": "in-season-tournament",
-    "season": "2023-24",
-    "eventDate": "2023-12-09",
-    "franchise": "LAL",
-    "player": "Anthony Davis",
-    "answer": 41,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "41, with 20 rebounds.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-      "quote": "Anthony Davis finished with 41 points on 16-for-24 shooting, 20 rebounds and 4 blocks;",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many points did Anthony Davis score in the first In-Season Tournament final?",
-      "context": "2023 In-Season Tournament final · Lakers vs Pacers",
-      "reveal": "41, with 20 rebounds.",
-      "min": 8,
-      "max": 50,
-      "step": 1,
-      "difficulty": "easy",
-      "difficultyReason": "A star big's big night lands in a familiar band.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 4,
-        "estimability": 3,
-        "surprise": 4
-      },
-      "funFacts": [
-        {
-          "text": "Davis also grabbed 20 rebounds and blocked four shots in the inaugural Cup title game.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "Anthony Davis recorded 41 points, 20 rebounds, 5 assists and 4 blocks"
-          }
-        },
-        {
-          "text": "LeBron James won the overall tournament MVP award even though Davis starred in the final.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "LeBron James was named the Most Valuable Player for the tournament"
-          }
-        },
-        {
-          "text": "Pacers guard Tyrese Haliburton handed out 11 assists in the championship loss.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "Tyrese Haliburton finished with 20 points and 11 assists"
           }
         }
       ]
@@ -13671,69 +12474,6 @@
     }
   },
   {
-    "id": "nba-pierce02-46",
-    "family": "points-game",
-    "scope": "playoffs",
-    "season": "2001-02",
-    "eventDate": null,
-    "franchise": "BOS",
-    "player": "Paul Pierce",
-    "answer": 46,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "46, with 8 of 10 threes.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-      "quote": "Paul Pierce led the way with 46, on 8-10 shooting from downtown",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "In the deciding Game 5 of the 2002 first round against Philadelphia, Paul Pierce scored how many points?",
-      "context": "2002 East first round · Game 5 · vs 76ers",
-      "reveal": "46, with 8 of 10 threes.",
-      "min": 25,
-      "max": 75,
-      "step": 1,
-      "difficulty": "easy",
-      "difficultyReason": "A star's big night lands in an estimable band.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Boston had reached the playoffs for the first time in seven years before meeting Philadelphia.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-            "quote": "This series marked the return of the Celtics to the playoffs for the first time in seven years"
-          }
-        },
-        {
-          "text": "The 76ers came into the matchup as defending Eastern Conference champions behind Allen Iverson.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-            "quote": "they faced the reigning Eastern Conference champion in the first round"
-          }
-        },
-        {
-          "text": "Antoine Walker shared the scoring burden during the series and helped Boston turn back Philadelphia's rally.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-            "quote": "Antoine Walker stepped up for the Celtics"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-celtics02-4q",
     "family": "points-period",
     "scope": "playoffs",
@@ -13980,69 +12720,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
             "quote": "the two premier defensive teams of that era"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-knicks70-streak",
-    "family": "win-streak",
-    "scope": "regular-season",
-    "season": "1969-70",
-    "eventDate": null,
-    "franchise": "NYK",
-    "player": null,
-    "answer": 18,
-    "unit": {
-      "singular": "game",
-      "plural": "games"
-    },
-    "claim": "18 straight, on the way to 60–22.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1969%E2%80%9370_New_York_Knicks_season",
-      "quote": "The Knicks had a then single-season NBA record 18 straight victories en route to 60–22 record",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "The 1969–70 Knicks set what was then a single-season record winning streak. How long was it?",
-      "context": "New York Knicks · 1969–70",
-      "reveal": "18 straight, on the way to 60–22.",
-      "min": 10,
-      "max": 42,
-      "step": 1,
-      "difficulty": "easy",
-      "difficultyReason": "Long streaks cluster in a familiar range.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "That Knicks team also started the season at a record pace before Golden State broke its early-season mark decades later.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1969%E2%80%9370_New_York_Knicks_season",
-            "quote": "They set the record for the best start in the first 24 games of a season at 23–1"
-          }
-        },
-        {
-          "text": "The Knicks went through Baltimore and Milwaukee before meeting the Lakers in the championship series.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1969%E2%80%9370_New_York_Knicks_season",
-            "quote": "After defeating the Bullets in the Eastern Division semifinals and the Milwaukee Bucks in the Eastern Division finals"
-          }
-        },
-        {
-          "text": "Their title run later became the subject of the documentary When the Garden Was Eden.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1969%E2%80%9370_New_York_Knicks_season",
-            "quote": "Their journey was chronicled in various books and films, most recently in When the Garden was Eden"
           }
         }
       ]
@@ -14553,132 +13230,6 @@
     }
   },
   {
-    "id": "nba-wilkes80-g6",
-    "family": "points-game",
-    "scope": "finals",
-    "season": "1979-80",
-    "eventDate": "1980-05-16",
-    "franchise": "LAL",
-    "player": "Jamaal Wilkes",
-    "answer": 37,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "37, with 10 rebounds.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-      "quote": "Wilkes had a career-high 37 points and added 10 rebounds.",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "Jamaal Wilkes scored a career high in the 1980 title clincher. How many points?",
-      "context": "1980 NBA Finals · Game 6 · at Philadelphia",
-      "reveal": "37, with 10 rebounds.",
-      "min": 10,
-      "max": 50,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "The night is remembered for someone else.",
-      "ratings": {
-        "interest": 2,
-        "recognizability": 3,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "The Lakers had to play the title clincher without Kareem, whose ankle had been badly sprained.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-            "quote": "Kareem Abdul-Jabbar was the league's MVP, but midway through Game 5, the Lakers center suffered a severely sprained ankle"
-          }
-        },
-        {
-          "text": "Rookie Magic Johnson started at center and played all five positions during the closeout.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-            "quote": "started the game at center and eventually played all five positions"
-          }
-        },
-        {
-          "text": "Much of the United States saw the decisive game on tape delay while CBS aired regular prime-time shows.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-            "quote": "So Game 6 was shown at 11:30pm Eastern (10:30pm Central) in all but eight US cities"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-lockout99-games",
-    "family": "season-length",
-    "scope": "regular-season",
-    "season": "1998-99",
-    "eventDate": null,
-    "franchise": null,
-    "player": null,
-    "answer": 50,
-    "unit": {
-      "singular": "game",
-      "plural": "games"
-    },
-    "claim": "50, starting February 5, 1999.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-      "quote": "Due to a lockout, the regular season began on February 5, 1999, and was cut from 82 games to 50.",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "The 1998–99 lockout cut the regular season to how many games per team?",
-      "context": "NBA · 1998–99 season",
-      "reveal": "50, starting February 5, 1999.",
-      "min": 15,
-      "max": 70,
-      "step": 1,
-      "difficulty": "easy",
-      "difficultyReason": "A known number for fans of that era.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 5,
-        "estimability": 3,
-        "surprise": 4
-      },
-      "funFacts": [
-        {
-          "text": "The season began unusually late after the league and players' association settled their labor dispute.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "the season, which began on February 5, 1999"
-          }
-        },
-        {
-          "text": "Chicago's championship dynasty disintegrated during the stoppage, with Jordan and Phil Jackson leaving.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "Phil Jackson and Michael Jordan temporarily retire"
-          }
-        },
-        {
-          "text": "The New York Knicks reached the Finals from the bottom playoff seed, an extraordinary outcome.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "this was the only NBA Finals to feature an eighth-seeded team"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-season21-games",
     "family": "season-length",
     "scope": "regular-season",
@@ -14931,69 +13482,6 @@
     }
   },
   {
-    "id": "nba-lakers09-title-number",
-    "family": "titles",
-    "scope": "franchise",
-    "season": "2008-09",
-    "eventDate": null,
-    "franchise": "LAL",
-    "player": null,
-    "answer": 15,
-    "unit": {
-      "singular": "title",
-      "plural": "titles"
-    },
-    "claim": "Their 15th.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-      "quote": "The Lakers defeated the Magic in five games to win the franchise's 15th NBA championship",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "The 2009 title was which championship in Lakers history?",
-      "context": "Los Angeles Lakers · 2009 NBA Finals",
-      "reveal": "Their 15th.",
-      "min": 0,
-      "max": 19,
-      "step": 1,
-      "difficulty": "easy",
-      "difficultyReason": "A storied franchise; counting decades of titles gets close.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 4,
-        "estimability": 3,
-        "surprise": 4
-      },
-      "funFacts": [
-        {
-          "text": "The Lakers' return to the summit came one year after their Finals defeat to rival Boston.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-            "quote": "This was the seventh time in NBA Finals history that a team that lost the championship the previous season has won"
-          }
-        },
-        {
-          "text": "Orlando's only win in the series was its first Finals game victory in franchise history.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-            "quote": "Orlando Magic's Game 3 victory was the first win in an NBA Finals game in franchise history"
-          }
-        },
-        {
-          "text": "Los Angeles beat Orlando in a series nicknamed the 'Disney Series' because of the nearby theme parks.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-            "quote": "This series was nicknamed the \"Disney Series\""
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-kobe09-finals-ppg",
     "family": "scoring-average",
     "scope": "finals",
@@ -15177,69 +13665,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
             "quote": "Kevin Garnett suffered a devastating right knee injury"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-lakers08-g4-lead",
-    "family": "margin-period",
-    "scope": "finals",
-    "season": "2007-08",
-    "eventDate": "2008-06-12",
-    "franchise": "LAL",
-    "player": null,
-    "answer": 21,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "21 points, 35–14. Boston came back to win.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-      "quote": "a 35–14 lead after the first quarter, which was the largest first-quarter lead in NBA Finals history",
-      "derivation": "35 − 14 = 21",
-      "asOf": null
-    },
-    "question": {
-      "prompt": "In Game 4 of the 2008 Finals, the Lakers set a Finals record for a first-quarter lead. How big was it?",
-      "context": "2008 NBA Finals · Game 4 · vs Boston",
-      "reveal": "21 points, 35–14. Boston came back to win.",
-      "min": 8,
-      "max": 40,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "A first-quarter lead this large is hard to picture.",
-      "ratings": {
-        "interest": 3,
-        "recognizability": 3,
-        "estimability": 3,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Boston's reserve Eddie House finally put the Celtics ahead with a fourth-quarter jumper.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "the Celtics took their first lead in the game when Celtics' reserve Eddie House"
-          }
-        },
-        {
-          "text": "Boston's bench outscored Los Angeles's reserves as Eddie House and James Posey changed the game.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "29 of those points coming from House and James Posey"
-          }
-        },
-        {
-          "text": "Paul Pierce's unexpected 'Wheelchair Game' return was another defining moment of this series.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
-            "quote": "It was later dubbed by some as the \"Wheelchair Game\""
           }
         }
       ]
@@ -17594,69 +16019,6 @@
     }
   },
   {
-    "id": "nba-sixers01-finals-g1-points",
-    "family": "points-team-game",
-    "scope": "finals",
-    "season": "2000-01",
-    "eventDate": "2001-06-06",
-    "franchise": "PHI",
-    "player": null,
-    "answer": 107,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "Philadelphia beat the Lakers 107–101 in overtime in Game 1 of the 2001 Finals.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-      "quote": "June 6 @ L.A. Lakers W 107–101 (OT)",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many points did the 76ers score in their overtime Game 1 win over the Lakers in 2001?",
-      "context": "2001 NBA Finals · June 6 · Philadelphia at Los Angeles",
-      "reveal": "107, the Lakers' only defeat during that postseason.",
-      "min": 76,
-      "max": 119,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Exactly scoring in one vintage Finals game is niche; the overtime context lets attentive fans estimate it.",
-      "ratings": {
-        "interest": 4,
-        "recognizability": 4,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "That opening-game overtime win was the Lakers' only loss across their entire 2001 playoff run.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "By the end of the series, the 2000–01 Lakers held the record for the best postseason record with 15–1."
-          }
-        },
-        {
-          "text": "Philadelphia outscored Los Angeles 13–7 in overtime after a close regulation contest.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "Scoring by quarter: 22–23, 34–27, 23–27, 15–17, Overtime: 13–7"
-          }
-        },
-        {
-          "text": "The Sixers had just survived two straight seven-game playoff series against Toronto and Milwaukee before reaching the Finals.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "had just come out of two straight seven-game series against the Toronto Raptors and Milwaukee Bucks"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-warriors75-season-wins",
     "family": "wins-season",
     "scope": "regular-season",
@@ -17903,69 +16265,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
             "quote": "Rick Barry poured in 38 points"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-warriors75-finals-g4-points",
-    "family": "points-team-game",
-    "scope": "finals",
-    "season": "1974-75",
-    "eventDate": "1975-05-25",
-    "franchise": "GSW",
-    "player": null,
-    "answer": 96,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "Golden State scored 96 points in its 1975 Finals Game 4 clincher.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-      "quote": "Golden State Warriors 96, Washington Bullets 95",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many points did Golden State score in Game 4 to clinch the 1975 Finals?",
-      "context": "Golden State at Washington · May 25, 1975",
-      "reveal": "96 points, one more than Washington in the title clincher.",
-      "min": 60,
-      "max": 122,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "Exact vintage Finals team totals are rare recall even for serious fans.",
-      "ratings": {
-        "interest": 4,
-        "recognizability": 2,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Coach Al Attles was ejected after a confrontation with Mike Riordan, leaving assistant Joe Roberts to finish the game.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "Attles bolted onto the court and initiated a fight of his own with Riordan"
-          }
-        },
-        {
-          "text": "The 1975 Finals are the oldest NBA championship series with full television coverage still surviving.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "The 1975 Finals is also the oldest NBA championship series whose TV coverage still exists in its entirety"
-          }
-        },
-        {
-          "text": "Rick Barry went on to work as a broadcaster for the next six NBA Finals, including while still an active player.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "Barry went on to cover the next six NBA Finals, five of which while still an active player"
           }
         }
       ]
@@ -19793,69 +18092,6 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
             "quote": "Following the season, Türkoğlu was traded to the Toronto Raptors"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "id": "nba-howard09-cavs-g6-points",
-    "family": "points-game",
-    "scope": "playoffs",
-    "season": "2008-09",
-    "eventDate": "2009-05-30",
-    "franchise": "ORL",
-    "player": "Dwight Howard",
-    "answer": 40,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "40 points to send Orlando back to the NBA Finals.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-      "quote": "thanks to Howard's 40 points and 10 rebounds in Game 6",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many points did Howard score to eliminate Cleveland in the 2009 East finals?",
-      "context": "Magic vs Cavaliers · conference finals Game 6",
-      "reveal": "40 points to send Orlando back to the NBA Finals.",
-      "min": 22,
-      "max": 80,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "A single-game clincher's scoring total is a deep playoff detail.",
-      "ratings": {
-        "interest": 5,
-        "recognizability": 5,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Howard also grabbed ten rebounds in the decisive game.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "Howard's 40 points and 10 rebounds in Game 6"
-          }
-        },
-        {
-          "text": "Orlando eliminated the top-seeded Cavaliers to reach its first Finals since the Shaq era.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "defeated the top-seeded Cleveland Cavaliers in six games"
-          }
-        },
-        {
-          "text": "The Lakers defeated Orlando in the NBA Finals that followed.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "would lose to the Kobe Bryant-led Los Angeles Lakers in five games"
           }
         }
       ]
@@ -23264,69 +21500,6 @@
     }
   },
   {
-    "id": "nba-suns93-finals-g6-points",
-    "family": "points-team-game",
-    "scope": "finals",
-    "season": "1992-93",
-    "eventDate": null,
-    "franchise": "PHX",
-    "player": null,
-    "answer": 98,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "98 points, before a late Chicago three clinched the title.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
-      "quote": "John Paxson's game-winning 3-pointer that gave them a 99–98 victory in Game 6",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many points did Phoenix score in the deciding Game 6 of the 1993 NBA Finals?",
-      "context": "Phoenix Suns vs Chicago Bulls · Finals Game 6",
-      "reveal": "98 points, before a late Chicago three clinched the title.",
-      "min": 65,
-      "max": 143,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "A championship series' exact closing score is specialist knowledge.",
-      "ratings": {
-        "interest": 5,
-        "recognizability": 4,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "John Paxson's late three-pointer clinched the championship for Chicago.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
-            "quote": "John Paxson's game-winning 3-pointer"
-          }
-        },
-        {
-          "text": "It was Phoenix's second NBA Finals appearance, after its first in 1976.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
-            "quote": "It was the Suns' second NBA finals appearance since 1976"
-          }
-        },
-        {
-          "text": "Phoenix reached the Finals by defeating Seattle in a seven-game Western final.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
-            "quote": "the conference finals they beat the Seattle SuperSonics in seven"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-bucks19-season-wins",
     "family": "wins-season",
     "scope": "regular-season",
@@ -23579,69 +21752,6 @@
     }
   },
   {
-    "id": "nba-brooklopez19-ecf-g1-points",
-    "family": "points-game",
-    "scope": "playoffs",
-    "season": "2018-19",
-    "eventDate": null,
-    "franchise": "MIL",
-    "player": "Brook Lopez",
-    "answer": 29,
-    "unit": {
-      "singular": "point",
-      "plural": "points"
-    },
-    "claim": "29 points to help Milwaukee take the series opener.",
-    "source": {
-      "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-      "quote": "May 15 Toronto W 108–100 Brook Lopez (29)",
-      "derivation": null,
-      "asOf": null
-    },
-    "question": {
-      "prompt": "How many points did Brook Lopez score in Milwaukee's Eastern finals Game 1 against Toronto?",
-      "context": "Milwaukee Bucks vs Toronto Raptors · Eastern finals opener",
-      "reveal": "29 points to help Milwaukee take the series opener.",
-      "min": 13,
-      "max": 51,
-      "step": 1,
-      "difficulty": "expert",
-      "difficultyReason": "A supporting center's exact game total from a specific conference final is obscure.",
-      "ratings": {
-        "interest": 4,
-        "recognizability": 4,
-        "estimability": 2,
-        "surprise": 5
-      },
-      "funFacts": [
-        {
-          "text": "Lopez signed with Milwaukee in free agency after spending the preceding season with the Lakers.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "Brook Lopez | July 17, 2018 | Los Angeles Lakers"
-          }
-        },
-        {
-          "text": "He averaged 2.2 blocks per game in the regular season while stretching the floor.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "Brook Lopez | 81 | 81 | 28.7 | .435 | .365 | .842 | 4.9 | 1.2 | .6 | 2.2 | 12.5"
-          }
-        },
-        {
-          "text": "Milwaukee won both of its opening games against Toronto, but the Raptors came back to take the series.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "where they faced the Toronto Raptors and lost to the eventual NBA Champion in six games, despite taking the first two"
-          }
-        }
-      ]
-    }
-  },
-  {
     "id": "nba-kobe06-second-half-55",
     "family": "points-period",
     "scope": "regular-season",
@@ -23762,6 +21872,1959 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
             "quote": "Curry finished the season averaging 30.1 points per game"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-luka24-73-hawks",
+    "family": "points-game",
+    "scope": "regular-season",
+    "season": "2023-24",
+    "eventDate": "2024-01-26",
+    "franchise": "DAL",
+    "player": "Luka Dončić",
+    "answer": 73,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Luka Dončić scored 73 against Atlanta in January 2024.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87",
+      "quote": "finishing with a career-high 73 points (shooting 25-of-33 overall, with eight three-pointers made)",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Against Atlanta in January 2024, how many points did Luka Dončić score in his career-best game?",
+      "context": "Luka Dončić · Mavericks at Hawks · January 2024",
+      "reveal": "73 points. Luka hit 25 of 33 from the field.",
+      "min": 35,
+      "max": 105,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "Luka's widely shared scoring explosion is a recent star moment; an informed fan can bracket a high career-best total.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Luka made 25 of 33 field goals that night.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87",
+            "quote": "shooting 25-of-33 overall, with eight three-pointers made"
+          }
+        },
+        {
+          "text": "He had 41 points before halftime.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87",
+            "quote": "His 41 points in the first half also set a Mavericks franchise record"
+          }
+        },
+        {
+          "text": "He became the fourth player to score 72 or more.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87",
+            "quote": "the fourth player in league history to put up 72 or more points in a game"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-embiid24-70-spurs",
+    "family": "points-game",
+    "scope": "regular-season",
+    "season": "2023-24",
+    "eventDate": "2024-01-22",
+    "franchise": "PHI",
+    "player": "Joel Embiid",
+    "answer": 70,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Joel Embiid scored 70 against San Antonio in January 2024.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Joel_Embiid",
+      "quote": "On 22 January, Embiid scored 70 points along with 18 rebounds and five assists",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Against San Antonio in January 2024, how many points did Joel Embiid score in his career-best game?",
+      "context": "Joel Embiid · 76ers vs. Spurs · January 2024",
+      "reveal": "70 points, plus 18 rebounds.",
+      "min": 20,
+      "max": 100,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "A recent MVP and career-high 70-point night provide a modern, relatable range-estimation anchor.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Embiid also had 18 rebounds and five assists.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Joel_Embiid",
+            "quote": "18 rebounds and five assists"
+          }
+        },
+        {
+          "text": "Philadelphia won 133–123.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Joel_Embiid",
+            "quote": "in a 133–123 win over the San Antonio Spurs"
+          }
+        },
+        {
+          "text": "He surpassed Wilt's Philadelphia franchise mark.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Joel_Embiid",
+            "quote": "breaking the Sixers franchise record for most points in a game previously set by Wilt Chamberlain in 1967"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-curry23-game7-fifty",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2022-23",
+    "eventDate": "2023-04-30",
+    "franchise": "GSW",
+    "player": "Stephen Curry",
+    "answer": 50,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Curry scored 50 against Sacramento in Game 7 in 2023.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
+      "quote": "In Game 7 of the Warriors' first round playoff series against the Sacramento Kings, Curry scored a playoff career-high 50 points",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In his Game 7 showdown with Sacramento in 2023, how many points did Stephen Curry score?",
+      "context": "Stephen Curry · Warriors at Kings · April 2023",
+      "reveal": "50 points, the first ever in a playoff Game 7.",
+      "min": 10,
+      "max": 80,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "Recent star elimination game, familiar rivalry and a meaningful single-game scoring estimation band.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Curry was the first player to score 50 in a Game 7.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
+            "quote": "the first player to score 50 points in a Game 7"
+          }
+        },
+        {
+          "text": "He joined Michael Jordan with 200-plus playoff series points after age 35.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
+            "quote": "Curry joined Jordan as the only players in playoff history to record at least 200 points in a series at age 35 or older"
+          }
+        },
+        {
+          "text": "Golden State won 120–100.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
+            "quote": "a 120–100 win"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-klay15-quarter-37",
+    "family": "points-period",
+    "scope": "regular-season",
+    "season": "2014-15",
+    "eventDate": "2015-01-23",
+    "franchise": "GSW",
+    "player": "Klay Thompson",
+    "answer": 37,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Klay Thompson scored 37 in a single quarter in 2015.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+      "quote": "In the third quarter of that game, he scored an NBA-record 37 points for a single quarter",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In his famous one-quarter scoring explosion against Sacramento, how many points did Klay Thompson score?",
+      "context": "Klay Thompson · Warriors vs. Kings · January 2015",
+      "reveal": "37 points in a single quarter, without missing a shot.",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "A widely circulated iconic quarter, not an arbitrary micro-split; bounds come from ordinary quarter scoring.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Klay went 13-for-13 from the field in the third quarter.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+            "quote": "going 13-for-13 from the field"
+          }
+        },
+        {
+          "text": "He sank nine three-pointers in that quarter.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+            "quote": "including nine three-pointers"
+          }
+        },
+        {
+          "text": "He finished with 52 points and 11 threes.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+            "quote": "Thompson scored a career-high 52 points, with 11 three-pointers"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-jokic23-playoff-triple-doubles",
+    "family": "triple-doubles-season",
+    "scope": "playoffs",
+    "season": "2022-23",
+    "eventDate": null,
+    "franchise": "DEN",
+    "player": "Nikola Jokić",
+    "answer": 10,
+    "unit": {
+      "singular": "triple-double",
+      "plural": "triple-doubles"
+    },
+    "claim": "Jokić logged 10 playoff triple-doubles in Denver's 2023 championship run.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Nikola_Joki%C4%87",
+      "quote": "Most triple-doubles in the same postseason (10): Denver Nuggets, 2022–23",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Denver's 2023 championship playoff run, how many triple-doubles did Nikola Jokić record?",
+      "context": "Nikola Jokić · Nuggets · 2023 playoffs",
+      "reveal": "10 triple-doubles, an extraordinary number in one postseason.",
+      "min": 1,
+      "max": 21,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "Jokić's championship and triple-double reputation are broadly known; postseason length bounds the estimate.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 5,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "He put up 34 points, 21 rebounds and 14 assists in the West finals opener.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Nikola_Joki%C4%87",
+            "quote": "Jokić posted a triple-double with 34 points, 21 rebounds, and 14 assists"
+          }
+        },
+        {
+          "text": "His eighth playoff triple-double passed Wilt Chamberlain's mark.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Nikola_Joki%C4%87",
+            "quote": "eighth of the playoffs breaking Chamberlain's 1967 NBA record"
+          }
+        },
+        {
+          "text": "He won the Western Conference Finals MVP award.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Nikola_Joki%C4%87",
+            "quote": "Jokić was awarded his first NBA Conference Finals Most Valuable Player Award"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-lillard23-seventy-one",
+    "family": "points-game",
+    "scope": "regular-season",
+    "season": "2022-23",
+    "eventDate": "2023-02-26",
+    "franchise": "POR",
+    "player": "Damian Lillard",
+    "answer": 71,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Lillard scored 71 against Houston in February 2023.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+      "quote": "a career-high and Blazers franchise-high 71 points with a career-high and Blazers franchise-high 13 three-pointers made",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "On Damian Lillard's spectacular 2023 night against Houston, how many points did he score?",
+      "context": "Damian Lillard · Blazers vs. Rockets · February 2023",
+      "reveal": "71 points, including 13 three-pointers.",
+      "min": 25,
+      "max": 105,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "Famous deep-range shooter in a recognizable modern scoring moment; estimable relative to other 70-point games.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 4,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Lillard made 13 threes.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+            "quote": "13 three-pointers made"
+          }
+        },
+        {
+          "text": "He scored more than 70 in under 40 minutes.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+            "quote": "the first player in NBA history to score more than 70 points in under 40 minutes"
+          }
+        },
+        {
+          "text": "He was the eighth player to reach 70 in one game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+            "quote": "the eighth player in NBA history to score 70 or more in a single game"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-mitchell23-seventy-one",
+    "family": "points-game",
+    "scope": "regular-season",
+    "season": "2022-23",
+    "eventDate": "2023-01-02",
+    "franchise": "CLE",
+    "player": "Donovan Mitchell",
+    "answer": 71,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Donovan Mitchell scored 71 against the Chicago Bulls in January 2023.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+      "quote": "career-high, and Cavaliers-record 71 points, along with eight rebounds and 11 assists",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Cleveland's 2023 overtime comeback against Chicago, how many points did Donovan Mitchell score?",
+      "context": "Donovan Mitchell · Cavaliers vs. Bulls · January 2023",
+      "reveal": "71 points, plus 11 assists.",
+      "min": 25,
+      "max": 105,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "A recent Cleveland comeback with a star scorer and a memorable 70-point outing; bounded high-end estimate.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 4,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Mitchell also grabbed eight boards and dished 11 assists.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+            "quote": "along with eight rebounds and 11 assists"
+          }
+        },
+        {
+          "text": "He became the first 70-point scorer with at least 10 assists.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+            "quote": "the first to do so with at least 10 assists"
+          }
+        },
+        {
+          "text": "The Cavaliers won 145–134 in overtime.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+            "quote": "in a 145–134 overtime win over the Chicago Bulls"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-tatum23-game7-51",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2022-23",
+    "eventDate": "2023-05-14",
+    "franchise": "BOS",
+    "player": "Jayson Tatum",
+    "answer": 51,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Tatum scored 51 in Game 7 against Philadelphia in 2023.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Jayson_Tatum",
+      "quote": "he scored a playoff career-high 51 points in a 112–88 victory over the Philadelphia 76ers",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In his 2023 Game 7 against Philadelphia, how many points did Jayson Tatum score to carry Boston through?",
+      "context": "Jayson Tatum · Celtics vs. 76ers · May 2023",
+      "reveal": "51 points, a new playoff Game 7 scoring mark.",
+      "min": 10,
+      "max": 80,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "A recent Celtics-Sixers playoff rivalry and a widely known star performance provide a fair, high-stakes estimate.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "He overtook Stephen Curry's previous elimination-game scoring mark.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Jayson_Tatum",
+            "quote": "surpassed Stephen Curry (50 points)"
+          }
+        },
+        {
+          "text": "Boston won the game 112–88.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Jayson_Tatum",
+            "quote": "in a 112–88 victory over the Philadelphia 76ers"
+          }
+        },
+        {
+          "text": "Tatum became the first Celtic to score 50 in multiple playoff games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Jayson_Tatum",
+            "quote": "the first player in Celtics history to put up multiple 50-point playoff games"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-wemby24-five-five-points",
+    "family": "points-game",
+    "scope": "regular-season",
+    "season": "2023-24",
+    "eventDate": "2024-02-23",
+    "franchise": "SAS",
+    "player": "Victor Wembanyama",
+    "answer": 27,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Wembanyama scored 27 in a five-by-five against the Lakers in February 2024.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+      "quote": "Wembanyama put up a five-by-five with 27 points, 10 rebounds, eight assists, five steals, and five blocks",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Rookie Wembanyama recorded a five-by-five (5+ in five stats) vs. the Lakers. How many points did he score?",
+      "context": "Victor Wembanyama · Spurs at Lakers · February 2024",
+      "reveal": "27 points, plus at least five in four other counting stats.",
+      "min": 10,
+      "max": 50,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "Wemby's famous all-around rookie game is recognizable; defining five-by-five makes the bound understandable.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 5,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "He grabbed 10 rebounds, eight assists, five steals and five blocks.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+            "quote": "10 rebounds, eight assists, five steals, and five blocks"
+          }
+        },
+        {
+          "text": "He was the youngest player to record an NBA five-by-five.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+            "quote": "the youngest player in NBA history to record a five-by-five"
+          }
+        },
+        {
+          "text": "He completed it in only 30 minutes.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+            "quote": "did so in 30 minutes, the fewest minutes played in NBA history to achieve such a feat"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-lebron-kyrie16-g5-combined-82",
+    "family": "points-combined",
+    "scope": "finals",
+    "season": "2015-16",
+    "eventDate": "2016-06-13",
+    "franchise": "CLE",
+    "player": null,
+    "answer": 82,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "LeBron James and Kyrie Irving combined for 82 points in Game 5 of the 2016 Finals.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+      "quote": "James and Irving each scored 41 points to become the first teammates in Finals history to score 40 or more in the same game.",
+      "derivation": "LeBron 41 + Kyrie 41 = 82 points combined, both figures in the cited sentence.",
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Down 3–1 in the 2016 Finals, how many points did LeBron and Kyrie combine for in Game 5?",
+      "context": "LeBron James + Kyrie Irving · Cleveland · Finals 2016",
+      "reveal": "82 combined. They became the first Finals teammates to each reach 40.",
+      "min": 30,
+      "max": 110,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "The iconic 3–1 comeback and two famous scorers create a difficult but approachable two-player total.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "They were the first Finals teammates with 40 points each.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "the first teammates in Finals history to score 40 or more in the same game"
+          }
+        },
+        {
+          "text": "LeBron also had 16 rebounds, seven assists and three blocks.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "The former also added 16 rebounds, seven assists, three steals, and three blocks"
+          }
+        },
+        {
+          "text": "Draymond Green was suspended for Game 5.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "Green was suspended for Game 5"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-splash16-duo-threes-678",
+    "family": "threes-combined",
+    "scope": "regular-season",
+    "season": "2015-16",
+    "eventDate": null,
+    "franchise": "GSW",
+    "player": null,
+    "answer": 678,
+    "unit": {
+      "singular": "three-pointer",
+      "plural": "three-pointers"
+    },
+    "claim": "Curry and Thompson combined for 678 made threes in Golden State's 2015–16 regular season.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+      "quote": "a record they broke the following season with 525 and again in the 2015–16 season with 678",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In the 73-win Warriors season, how many threes did Splash Brothers Curry and Thompson make together?",
+      "context": "Steph Curry + Klay Thompson · Warriors · 2015–16",
+      "reveal": "678 threes combined. Curry supplied 402.",
+      "min": 400,
+      "max": 900,
+      "step": 2,
+      "difficulty": "expert",
+      "difficultyReason": "Two iconic shooters from the 73-win Warriors year supply a meaningful expert combined-total estimate.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "The pair made 525 threes together in 2014–15.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+            "quote": "the two combined to make 525 threes"
+          }
+        },
+        {
+          "text": "Thompson ranked second in made threes in 2014–15 with 239.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+            "quote": "Thompson again finished second in the league (239)"
+          }
+        },
+        {
+          "text": "They topped their own record again in 2015–16.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+            "quote": "a record they broke the following season with 525 and again in the 2015–16 season with 678"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-robinson94-71",
+    "family": "points-game",
+    "scope": "regular-season",
+    "season": "1993-94",
+    "eventDate": "1994-04-24",
+    "franchise": "SAS",
+    "player": "David Robinson",
+    "answer": 71,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "71, breaking George Gervin's Spurs record of 63.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/David_Robinson",
+      "quote": "scoring 71 points (breaking George Gervin's single-game franchise record of 63) against the Los Angeles Clippers",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many points did David Robinson score against the Clippers on April 24, 1994?",
+      "context": "San Antonio Spurs · 1993–94",
+      "reveal": "71, breaking George Gervin's Spurs record of 63.",
+      "min": 45,
+      "max": 110,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "A huge night that many fans have heard of.",
+      "ratings": {
+        "interest": 3,
+        "recognizability": 3,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Robinson's scoring-title chase came down to a direct duel with Shaquille O'Neal.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "he became locked in a duel for the NBA scoring title with Shaquille O'Neal"
+          }
+        },
+        {
+          "text": "His outburst surpassed George Gervin's longstanding Spurs single-game points record.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "breaking George Gervin's single-game franchise record of 63"
+          }
+        },
+        {
+          "text": "That season, Robinson also averaged double-digit rebounds and more than three blocks per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "10.7 rebounds per game, career-high 4.8 assists per game and 3.3 blocks per game"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-gsw15-combined-wins",
+    "family": "wins-combined",
+    "scope": "combined",
+    "season": "2014-15",
+    "eventDate": null,
+    "franchise": "GSW",
+    "player": null,
+    "answer": 83,
+    "unit": {
+      "singular": "win",
+      "plural": "wins"
+    },
+    "claim": "83, against 20 losses.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+      "quote": "Combining regular season and playoff games, Golden State finished 83–20",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Counting the playoffs, how many games did the 2014–15 Warriors win?",
+      "context": "Golden State Warriors · 2014–15 · regular season plus playoffs",
+      "reveal": "83, against 20 losses.",
+      "min": 54,
+      "max": 96,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "A 67-win team plus a title run is estimable.",
+      "ratings": {
+        "interest": 3,
+        "recognizability": 3,
+        "estimability": 3,
+        "surprise": 4
+      },
+      "funFacts": [
+        {
+          "text": "Golden State's championship ended a drought dating to 1975, long before the Splash Brothers were born.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+            "quote": "winning their first championship since 1975, and fourth overall"
+          }
+        },
+        {
+          "text": "Steve Kerr became the first rookie head coach to win an NBA title since Pat Riley.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+            "quote": "Kerr became the first rookie coach to win a title since Pat Riley"
+          }
+        },
+        {
+          "text": "That Warriors roster won the championship despite having no players with prior NBA Finals experience.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+            "quote": "The Warriors were the first team since the 1990–91 Bulls to win a title with a roster that did not have any players with Finals experience"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-kawhi19-playoff-points-732",
+    "family": "points-season-total",
+    "scope": "playoffs",
+    "season": "2018-19",
+    "eventDate": null,
+    "franchise": "TOR",
+    "player": "Kawhi Leonard",
+    "answer": 732,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Kawhi Leonard amassed 732 points across Toronto's 2019 championship postseason.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+      "quote": "Leonard scored 732 points during the 2019 playoffs; this was the third-best scoring total for a single NBA postseason in league history",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Across the Raptors' full 2019 title run, how many points did Kawhi Leonard score in the playoffs?",
+      "context": "Kawhi Leonard · Toronto Raptors · 2019 postseason",
+      "reveal": "732 playoff points. Kawhi averaged roughly 30 a game across the title run.",
+      "min": 350,
+      "max": 950,
+      "step": 2,
+      "difficulty": "expert",
+      "difficultyReason": "Kawhi's historic 2019 Raptors title is iconic; a postseason of around two dozen games at roughly 30 points yields a plausible expert estimate.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Kawhi won Finals MVP for the second time.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+            "quote": "He was subsequently named NBA Finals MVP for the second time"
+          }
+        },
+        {
+          "text": "Only Michael Jordan and LeBron James had higher single-postseason totals at that point.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+            "quote": "behind only LeBron James (748, 2018) and Michael Jordan (759, 1992)"
+          }
+        },
+        {
+          "text": "Toronto closed the 2019 Finals with a four-games-to-two series victory.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+            "quote": "to a 4–2 series victory in claiming his second NBA championship"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-butler23-56-bucks-upset",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2022-23",
+    "eventDate": "2023-04-24",
+    "franchise": "MIA",
+    "player": "Jimmy Butler",
+    "answer": 56,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Jimmy Butler scored 56 points in Miami's Game 4 comeback against Milwaukee in 2023.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2023_NBA_playoffs",
+      "quote": "Jimmy Butler scored a career-high 56 points, which included 21 in the fourth quarter",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "As eighth-seeded Miami stunned Milwaukee in the 2023 playoffs, how many points did Jimmy Butler score in Game 4?",
+      "context": "Jimmy Butler · Heat vs. Bucks · April 2023",
+      "reveal": "56. Butler scored 21 in the fourth quarter as Miami pushed the top seed toward elimination.",
+      "min": 15,
+      "max": 80,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Butler's signature 2023 eighth-seed playoff upset supplies a famous, compelling game and a bounded superstar scoring challenge.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Butler scored 21 points in the fourth quarter.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_playoffs",
+            "quote": "which included 21 in the fourth quarter"
+          }
+        },
+        {
+          "text": "Miami erased a late deficit with a 27–8 run.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_playoffs",
+            "quote": "Down by 12 with under six minutes remaining, the Heat went on a pivotal 27–8 run"
+          }
+        },
+        {
+          "text": "His 56 set a Miami Heat playoff scoring record.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_playoffs",
+            "quote": "His 56 points also set a franchise playoff record for the Heat"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-kobe10-celtics-g7-combined",
+    "family": "points-combined",
+    "scope": "finals",
+    "season": "2009-10",
+    "eventDate": "2010-06-17",
+    "franchise": "LAL",
+    "player": null,
+    "answer": 162,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "The Lakers and Celtics combined for 162 points in their gritty 2010 Finals Game 7.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+      "quote": "Boston Celtics 79, Los Angeles Lakers 83",
+      "derivation": "2010 Finals Game 7: Boston 79 + Los Angeles 83 = 162 combined points.",
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Kobe's bruising 2010 Finals Game 7 against Boston, how many points did both teams score combined?",
+      "context": "Lakers vs. Celtics · 2010 Finals · deciding Game 7",
+      "reveal": "162 combined. Los Angeles prevailed 83–79 in a defensive battle.",
+      "min": 80,
+      "max": 200,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Kobe's memorable Lakers-Celtics title decider provides a real two-team score-estimation challenge rather than an obscure quarter statistic.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Kobe scored 10 of his 23 points in the fourth quarter.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "scored 10 of his game-high 23 points in the fourth quarter"
+          }
+        },
+        {
+          "text": "The Lakers won the rebounding battle 53–40.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "out-rebounded the Celtics, 53–40"
+          }
+        },
+        {
+          "text": "Bryant received Finals MVP for the second consecutive season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "He was named the Finals MVP for the second straight season"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-wade06-g5-ft-scoring-share",
+    "family": "shooting-pct",
+    "scope": "finals",
+    "season": "2005-06",
+    "eventDate": "2006-06-18",
+    "franchise": "MIA",
+    "player": "Dwyane Wade",
+    "answer": 49,
+    "unit": {
+      "singular": "percent",
+      "plural": "percent"
+    },
+    "claim": "About 49% of Wade's 43 points in the controversial 2006 Finals Game 5 came on free throws.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+      "quote": "Wade finished the game with 43 points while setting an NBA Finals record for most made free throws in a game with 21.",
+      "derivation": "21 / 43 × 100 = 48.837%, rounded to 49%.",
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Wade's controversial 2006 Finals Game 5, about what percent of his scoring came at the free-throw line?",
+      "context": "Dwyane Wade · Heat vs Mavericks · 2006 Finals",
+      "reveal": "49%: Wade made 21 free throws while scoring 43, almost half his points.",
+      "min": 10,
+      "max": 65,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A recognizable controversial Finals night with a percentage fans can estimate; the near-half foul-line scoring share is startling.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Wade attempted as many free throws as all of Dallas combined.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+            "quote": "Dwyane Wade shot 25 free throws—as many as all the Mavericks combined"
+          }
+        },
+        {
+          "text": "Jason Terry led the Mavericks in scoring.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+            "quote": "Jason Terry led Dallas with 35 points"
+          }
+        },
+        {
+          "text": "Miami needed overtime to escape with the win.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+            "quote": "Dallas Mavericks 100, Miami Heat 101 (OT)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-murray-mitchell20-game4-combined",
+    "family": "points-combined",
+    "scope": "playoffs",
+    "season": "2019-20",
+    "eventDate": "2020-08-23",
+    "franchise": "DEN",
+    "player": null,
+    "answer": 101,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Murray and Mitchell scored 101 combined in a 2020 bubble playoff scoring duel.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+      "quote": "50 points, along with 11 rebounds and 7 assists, in a 129–127 loss to the Jazz. With Donovan Mitchell scoring 51",
+      "derivation": "Jamal Murray 50 + Donovan Mitchell 51 = 101 combined points.",
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many points did Jamal Murray and Donovan Mitchell score together in their extraordinary 2020 bubble playoff duel?",
+      "context": "Nuggets vs Jazz · August 2020 playoffs",
+      "reveal": "101 combined: Murray had 50, Mitchell 51, an unprecedented playoff duel.",
+      "min": 30,
+      "max": 140,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Two memorable young stars in an unprecedented bubble duel; their combined offensive outburst offers an informed scoring estimate.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "It was the first playoff game with an opposing 50-point scorer on each side.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+            "quote": "the first time in NBA playoff history that two opponents scored at least 50 points in the same game"
+          }
+        },
+        {
+          "text": "Murray followed it with another enormous performance to keep Denver alive.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+            "quote": "Murray recorded 42 points, 8 rebounds, and 8 assists"
+          }
+        },
+        {
+          "text": "His outside shooting caught fire again later in the series.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+            "quote": "shooting 9–12 from three"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-lakers00-portland-g7-comeback",
+    "family": "comeback",
+    "scope": "playoffs",
+    "season": "1999-00",
+    "eventDate": "2000-06-04",
+    "franchise": "LAL",
+    "player": null,
+    "answer": 16,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Kobe and Shaq's Lakers came back from 16 down against Portland in the 2000 West finals.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2000_NBA_playoffs",
+      "quote": "In Game 7, the Lakers overcame a 16-point deficit (71–55) and sealed the victory with Kobe Bryant delivering an alley-oop to Shaquille O'Neal.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Kobe and Shaq's iconic 2000 West finals Game 7 comeback against Portland, how many points down were the Lakers?",
+      "context": "Lakers vs Trail Blazers · 2000 West finals",
+      "reveal": "16 points down. Kobe's alley-oop to Shaq sealed the comeback that launched the dynasty.",
+      "min": 2,
+      "max": 52,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "The iconic Kobe-to-Shaq alley-oop makes a high-stakes double-digit deficit recognizable and estimable.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Kobe's alley-oop to Shaq helped seal the comeback.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_playoffs",
+            "quote": "Kobe Bryant delivering an alley-oop to Shaquille O'Neal"
+          }
+        },
+        {
+          "text": "Los Angeles survived a low-scoring deciding game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_playoffs",
+            "quote": "Portland Trail Blazers 84, Los Angeles Lakers 89"
+          }
+        },
+        {
+          "text": "Rasheed Wallace led Portland in points that night.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_playoffs",
+            "quote": "Pts: Rasheed Wallace 30"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-lillard19-okc-winner-distance",
+    "family": "distance",
+    "scope": "playoffs",
+    "season": "2018-19",
+    "eventDate": "2019-04-23",
+    "franchise": "POR",
+    "player": "Damian Lillard",
+    "answer": 37,
+    "unit": {
+      "singular": "foot",
+      "plural": "feet"
+    },
+    "claim": "Lillard hit a series-winning three-pointer from 37 feet against OKC in 2019.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+      "quote": "Damian Lillard scored 50 points in Game 5 and finished off the series by hitting a 37-foot three at the buzzer to break a 115–115 tie",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How far, in feet, was Damian Lillard's famous 2019 playoff series-winning buzzer-beater over Paul George?",
+      "context": "Lillard · Blazers vs Thunder · 2019 playoffs",
+      "reveal": "37 feet. Dame waved goodbye to OKC after burying a deep series winner.",
+      "min": 15,
+      "max": 85,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A famously replayed buzzer-beater: compare its distance with the three-point arc and midcourt for a plausible estimate.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Dame had a huge scoring game even before that shot.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "Damian Lillard scored 50 points in Game 5"
+          }
+        },
+        {
+          "text": "It was not his first series-winning shot from deep.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "his first came against Houston in 2014"
+          }
+        },
+        {
+          "text": "The game ended the Westbrook–George partnership in OKC.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "This was also the last Thunder game to feature both Russell Westbrook and Paul George"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-wolves24-denver-game7-comeback",
+    "family": "comeback",
+    "scope": "playoffs",
+    "season": "2023-24",
+    "eventDate": "2024-05-19",
+    "franchise": "MIN",
+    "player": null,
+    "answer": 20,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Minnesota erased a 20-point deficit to eliminate Denver in 2024 Game 7.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+      "quote": "The Timberwolves overcame a 20–point deficit to win game 7 against the Nuggets, the largest game 7 comeback in NBA playoffs history.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How far behind did Anthony Edwards's Timberwolves fall before their dramatic 2024 Game 7 win over Denver?",
+      "context": "Timberwolves at Nuggets · 2024 playoffs",
+      "reveal": "20 points down. Minnesota eliminated the defending champions on the road.",
+      "min": 2,
+      "max": 58,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A high-profile Ant-versus-Jokić Game 7 upset, with a comeback deficit fans can bracket from basketball scoring swings.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Minnesota returned to the West finals after a long wait.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "Minnesota also reached the Western Conference finals for the second time in franchise history, after 2004."
+          }
+        },
+        {
+          "text": "Jamal Murray carried Denver early in the contest.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "Jamal Murray's 24 first-half points gave the Nuggets a 15-point halftime lead"
+          }
+        },
+        {
+          "text": "The Wolves swung momentum with a dominant third-quarter run.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "they closed the third quarter with a 28–9 run and took the lead in the fourth"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-celtics08-allen-kg-g6-combined",
+    "family": "points-combined",
+    "scope": "finals",
+    "season": "2007-08",
+    "eventDate": "2008-06-17",
+    "franchise": "BOS",
+    "player": null,
+    "answer": 52,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Allen and Garnett each scored 26 in Boston's 2008 title-clinching game: 52 together.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+      "quote": "Pts: Allen, Garnett 26 each",
+      "derivation": "Ray Allen 26 + Kevin Garnett 26 = 52 combined points.",
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Boston's 2008 title-clinching rout of Kobe's Lakers, how many points did Ray Allen and Kevin Garnett score together?",
+      "context": "Allen + Garnett · Celtics vs Lakers · 2008 Finals",
+      "reveal": "52 points: Ray Allen and Kevin Garnett scored exactly 26 each.",
+      "min": 20,
+      "max": 110,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Boston's legendary Big Three title and two famous stars make an estimable combined total, with a pleasing equal-scoring reveal.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 4
+      },
+      "funFacts": [
+        {
+          "text": "Ray Allen tied a Finals record for threes.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "Ray Allen hit seven three-pointers to tie what was then the Finals record"
+          }
+        },
+        {
+          "text": "Boston's defense set a steals record in the championship clincher.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "set a Finals record with 18 steals"
+          }
+        },
+        {
+          "text": "Garnett celebrated with his famous postgame speech.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "Kevin Garnett delivered his famous \"anything is possible\" speech"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-klay16-okc-game6-41",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2015-16",
+    "eventDate": "2016-05-28",
+    "franchise": "GSW",
+    "player": "Klay Thompson",
+    "answer": 41,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Klay scored 41 points in 2016 WCF Game 6 to rescue Golden State at OKC.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2016_NBA_playoffs",
+      "quote": "Klay Thompson, who scored a series-high 41 points and made an NBA playoff record 11 3s.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Down 3–2 to Durant's Thunder in 2016, how many points did Klay Thompson score in his legendary Game 6?",
+      "context": "Klay Thompson · Warriors at Thunder · 2016 playoffs",
+      "reveal": "41 points, with a playoff-record barrage of threes to force a decider.",
+      "min": 10,
+      "max": 95,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "The well-known 'Game 6 Klay' rescue is an iconic elimination-game performance whose scoring total can be estimated.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Klay set a postseason record for made threes.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_playoffs",
+            "quote": "made an NBA playoff record 11 3s"
+          }
+        },
+        {
+          "text": "The Warriors won on the road to force a deciding game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_playoffs",
+            "quote": "the Warriors won the game 108–101 and tied the series 3-3"
+          }
+        },
+        {
+          "text": "The Thunder had held a commanding series lead.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_playoffs",
+            "quote": "the Thunder once again handed the Warriors a commanding 118–94 defeat to take a 3–1 series lead"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-cp3-2022-perfect-playoff-shots",
+    "family": "field-goals",
+    "scope": "playoffs",
+    "season": "2021-22",
+    "eventDate": "2022-04-28",
+    "franchise": "PHX",
+    "player": "Chris Paul",
+    "answer": 14,
+    "unit": {
+      "singular": "field goal",
+      "plural": "field goals"
+    },
+    "claim": "Chris Paul went 14-for-14 from the field in Phoenix's playoff clincher against New Orleans.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+      "quote": "Chris Paul scored 33 points on a perfect 14-for-14 from the field (including one three-pointer)",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Chris Paul's astonishing 2022 perfect-shooting playoff clincher, how many field goals did he make without a miss?",
+      "context": "Chris Paul · Suns at Pelicans · 2022 playoffs",
+      "reveal": "14-for-14. Paul did not miss a single field goal in the playoff closeout.",
+      "min": 1,
+      "max": 36,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A spectacular perfect postseason shooting night with a boundable number of attempts and a satisfying record reveal.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "His perfect shooting included one three-pointer.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "including one three-pointer"
+          }
+        },
+        {
+          "text": "He also did not miss at the free-throw line.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "4-for-4 from the free throw line"
+          }
+        },
+        {
+          "text": "Booker returned from injury for the clincher.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "In Devin Booker's return from the hamstring injury that had kept him out the previous three games"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-baylor62-finals-61",
+    "family": "points-game",
+    "scope": "finals",
+    "season": "1961-62",
+    "eventDate": null,
+    "franchise": "LAL",
+    "player": "Elgin Baylor",
+    "answer": 61,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "61 points, still the Finals record.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+      "quote": "Baylor set the still-standing NBA record for points in an NBA Finals game with 61.",
+      "derivation": null,
+      "asOf": "2026-11-16"
+    },
+    "question": {
+      "prompt": "What is the NBA record for points in a Finals game, set by Elgin Baylor in 1962?",
+      "context": "Los Angeles Lakers vs Boston Celtics · 1962 NBA Finals",
+      "reveal": "61 points, still the Finals record.",
+      "min": 45,
+      "max": 95,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Many assume a more recent star owns this record.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 2,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Baylor helped turn basketball into a vertical spectacle; later high-flying stars modeled their moves on his.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+            "quote": "Baylor introduced a creative and acrobatic playing style that would later be emulated"
+          }
+        },
+        {
+          "text": "Seattle University eventually named its basketball court for Baylor, honoring the former college star.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+            "quote": "they named its basketball court in honor of him"
+          }
+        },
+        {
+          "text": "Although Baylor retired before the Lakers' breakthrough, the team presented him with a championship ring.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
+            "quote": "the Lakers did give Baylor a championship ring for his contributions at the start of the 1971–72 season"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-luka20-clippers-buzzer-43",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2019-20",
+    "eventDate": "2020-08-23",
+    "franchise": "DAL",
+    "player": "Luka Dončić",
+    "answer": 43,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "43 points, plus 17 boards and 13 assists, capped by his step-back game winner.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs",
+      "quote": "His winning shot capped an incredible triple-double performance with 43 points, 17 rebounds, and 13 assists.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Luka Dončić's unforgettable 2020 bubble overtime winner against the Clippers, how many points did he score?",
+      "context": "Luka Dončić · Mavericks vs Clippers · 2020 playoffs",
+      "reveal": "43 points, plus 17 boards and 13 assists, capped by his step-back game winner.",
+      "min": 15,
+      "max": 95,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Luka's celebrated bubble buzzer-beater against the Clippers is a recognizable, estimable superstar scoring night.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Luka nailed the three-pointer at the end of overtime.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs",
+            "quote": "Down by 1, Luka Dončić hit the game-winning 3 point buzzer-beater at the end of overtime."
+          }
+        },
+        {
+          "text": "He was the youngest playoff game-winner on a buzzer-beater.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs",
+            "quote": "He becomes the youngest player to hit a buzzer-beater in the playoffs."
+          }
+        },
+        {
+          "text": "Dallas won the overtime thriller by two.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs",
+            "quote": "Dallas Mavericks 135, Los Angeles Clippers 133 (OT)"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-brunson24-philly-47",
+    "family": "points-game",
+    "scope": "playoffs",
+    "season": "2023-24",
+    "eventDate": "2024-04-28",
+    "franchise": "NYK",
+    "player": "Jalen Brunson",
+    "answer": 47,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "47 points, a Knicks playoff record, alongside 10 assists in Philadelphia.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+      "quote": "Jalen Brunson scored 47 points, setting a Knicks franchise playoff record en route to securing a commanding 3–1 series lead back to New York.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Against Embiid's Sixers in the 2024 playoffs, how many points did Jalen Brunson score to set a Knicks playoff record?",
+      "context": "Jalen Brunson · Knicks at 76ers · April 2024",
+      "reveal": "47 points, a Knicks playoff record, alongside 10 assists in Philadelphia.",
+      "min": 15,
+      "max": 105,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "A modern Knicks leader in a marquee Sixers series; estimate a record-breaking offensive night, not an obscure statistic.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Brunson made 18 of 34 shots.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "Brunson shot 18-of-34 from the field"
+          }
+        },
+        {
+          "text": "He recorded 10 assists to only one turnover.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "finished with an assist-turnover ratio of 10 to 1"
+          }
+        },
+        {
+          "text": "Brunson surpassed Bernard King's Knicks postseason mark.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "he surpassed the 46 points scored by Bernard King in 1984"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-harden19-msg-61",
+    "family": "points-game",
+    "scope": "regular-season",
+    "season": "2018-19",
+    "eventDate": "2019-01-23",
+    "franchise": "HOU",
+    "player": "James Harden",
+    "answer": 61,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "61 points and 15 rebounds, extending his astonishing 2018–19 scoring run.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/James_Harden",
+      "quote": "On January 23, Harden scored a career-high 61 points to go with 15 rebounds in a 114–110 win over the New York Knicks",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "At Madison Square Garden in January 2019, how many points did James Harden score against the Knicks?",
+      "context": "James Harden · Houston Rockets at Knicks · January 2019",
+      "reveal": "61 points and 15 rebounds, extending his astonishing 2018–19 scoring run.",
+      "min": 0,
+      "max": 95,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Harden's career-high MSG showcase is a recognizable scorer-at-a-famous-arena challenge with a fair point-total range.",
+      "ratings": {
+        "interest": 4,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Harden grabbed 15 rebounds that night.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/James_Harden",
+            "quote": "61 points to go with 15 rebounds"
+          }
+        },
+        {
+          "text": "Houston narrowly won at the Garden.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/James_Harden",
+            "quote": "in a 114–110 win over the New York Knicks"
+          }
+        },
+        {
+          "text": "He matched this career high again later that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/James_Harden",
+            "quote": "he matched his career high with 61 points, including 27 in the first quarter"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-dame21-playoffs-12-threes",
+    "family": "threes-game",
+    "scope": "playoffs",
+    "season": "2020-21",
+    "eventDate": "2021-06-01",
+    "franchise": "POR",
+    "player": "Damian Lillard",
+    "answer": 12,
+    "unit": {
+      "singular": "three-pointer",
+      "plural": "three-pointers"
+    },
+    "claim": "12 threes, a playoff record, as Dame scored 55 in a heartbreaking defeat.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+      "quote": "behind an NBA playoff record 12 made three-pointers, as well as 10 assists.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Damian Lillard's incredible double-overtime 2021 playoff battle with Denver, how many threes did he make?",
+      "context": "Damian Lillard · Blazers at Nuggets · 2021 playoffs",
+      "reveal": "12 threes, a playoff record, as Dame scored 55 in a heartbreaking defeat.",
+      "min": 2,
+      "max": 30,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Dame's famous double-overtime shooting eruption invites a plausible estimate of an extraordinary three-point total.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Dame set a playoff career high in points that night.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+            "quote": "Lillard scored a playoff career-high 55 points"
+          }
+        },
+        {
+          "text": "He tied it late in regulation and again in overtime.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+            "quote": "Lillard hit game-tying threes near the end of regulation and near the end of the first overtime"
+          }
+        },
+        {
+          "text": "Denver prevailed after two overtimes.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+            "quote": "the Nuggets rallied to a 147–140 double-overtime victory to take a 3–2 series lead"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-curry13-knicks-54",
+    "family": "points-game",
+    "scope": "regular-season",
+    "season": "2012-13",
+    "eventDate": "2013-02-27",
+    "franchise": "GSW",
+    "player": "Stephen Curry",
+    "answer": 54,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "54 points and 11 threes, but New York still won the game.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+      "quote": "On February 27, 2013, Stephen Curry scored 54 points but his Warriors lost to the Knicks, 109–105.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Years before his championships, how many points did Steph Curry score against the Knicks at MSG in 2013?",
+      "context": "Stephen Curry · Warriors at Knicks · February 2013",
+      "reveal": "54 points and 11 threes, although the Knicks nevertheless won the game.",
+      "min": 5,
+      "max": 75,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Curry's famous MSG arrival as a scoring superstar is a known moment with an estimable high game total.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Steph hit 11 three-pointers against New York.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+            "quote": "making a Warriors franchise-record 11 three-pointers on 11 of 13 shooting from 3-point range"
+          }
+        },
+        {
+          "text": "Curry shot 18-for-28 overall.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+            "quote": "He shot 18 for 28 from the field"
+          }
+        },
+        {
+          "text": "New York won despite Curry's scoring display.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+            "quote": "his Warriors lost to the Knicks, 109–105"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-jokic-murray23-finals-g3-20-assists",
+    "family": "assists-game",
+    "scope": "finals",
+    "season": "2022-23",
+    "eventDate": "2023-06-07",
+    "franchise": "DEN",
+    "player": null,
+    "answer": 20,
+    "unit": {
+      "singular": "assist",
+      "plural": "assists"
+    },
+    "claim": "20 combined assists, matching Miami's entire team, as both stars logged 30-point triple-doubles.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+      "quote": "while their 20 assists matched Miami's total of 20.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "When Jokić and Murray made history with twin 30-point triple-doubles in the 2023 Finals, how many assists did they combine for?",
+      "context": "Jokić + Murray · Denver vs Miami · 2023 Finals Game 3",
+      "reveal": "20 combined assists, matching Miami's entire team, as both stars logged 30-point triple-doubles.",
+      "min": 5,
+      "max": 55,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "First-ever duo of 30-point triple-doubles in a Finals game supplies an iconic and estimable two-playmaker assist total.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 4,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "They were the first NBA teammates with 30-point triple-doubles in one game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Jokić and Murray became the first pair of teammates in NBA history to each record a 30-point triple-double in the same game"
+          }
+        },
+        {
+          "text": "Denver retook the Finals lead in a comfortable win.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "as the Nuggets won 109–94, reclaiming the series lead"
+          }
+        },
+        {
+          "text": "The pair nearly matched all of Miami's rebounds.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "grabbing a combined 31 rebounds to the Heat's total of 33"
           }
         }
       ]

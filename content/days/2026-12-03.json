@@ -211,23 +211,24 @@
       ]
     },
     {
-      "id": "nba-gsw19-20-threes",
+      "id": "nba-celtics08-allen-kg-g6-combined",
       "sport": "NBA",
-      "prompt": "Golden State made what was then the second-most threes in a Finals game, in Game 5 of 2019. How many?",
-      "context": "2019 NBA Finals · Game 5 · at Toronto",
-      "answer": 20,
+      "prompt": "In Boston's 2008 title-clinching rout of Kobe's Lakers, how many points did Ray Allen and Kevin Garnett score together?",
+      "context": "Allen + Garnett · Celtics vs Lakers · 2008 Finals",
+      "answer": 52,
       "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 0,
-      "max": 26,
+      "min": 20,
+      "max": 110,
       "step": 1,
-      "note": "20, then second only to Cleveland’s 24.",
+      "note": "52 points: Ray Allen and Kevin Garnett scored exactly 26 each.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-        "quote": "Golden State made 20 three-pointers, the second most in NBA Finals history behind Cleveland's 24"
+        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+        "quote": "Pts: Allen, Garnett 26 each",
+        "derivation": "Ray Allen 26 + Kevin Garnett 26 = 52 combined points."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +237,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Durant returned in the road elimination game but suffered a serious Achilles injury shortly afterward.",
+          "text": "Ray Allen tied a Finals record for threes.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-            "quote": "he was lost for the game two minutes into the second quarter"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "Ray Allen hit seven three-pointers to tie what was then the Finals record"
           }
         },
         {
-          "text": "Curry and Thompson combined for consecutive late threes to keep Golden State alive for another game.",
+          "text": "Boston's defense set a steals record in the championship clincher.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-            "quote": "They combined for three straight 3-pointers after the Raptors led by six points"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "set a Finals record with 18 steals"
           }
         },
         {
-          "text": "Kyle Lowry nearly won the series with a buzzer-beating three, but Draymond Green deflected the shot.",
+          "text": "Garnett celebrated with his famous postgame speech.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-            "quote": "Lowry's potential championship-winning, 3-point shot at the buzzer fell short"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "Kevin Garnett delivered his famous \"anything is possible\" speech"
           }
         }
       ]

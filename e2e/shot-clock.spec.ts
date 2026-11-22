@@ -71,7 +71,7 @@ test('a completed question clears its shot deadline, so fresh challenges can rep
   await page.keyboard.press('ArrowRight');
   await page.getByRole('button', { name: 'Lock the window' }).click();
   const key = 'stat-window:shot:v1:nba-gsw-2016-wins';
-  expect(await page.evaluate((k) => sessionStorage.getItem(k), key)).toBeNull();
+  await expect.poll(() => page.evaluate((k) => sessionStorage.getItem(k), key)).toBeNull();
   await page.evaluate(() => localStorage.clear());
   await page.goto('/?day=2026-11-15&vs=200');
   const ready = page.getByRole('button', { name: /^(Skip tutorial and start|Start today's five)$/ });
@@ -163,4 +163,21 @@ test('returning from a hidden tab enforces wall-clock expiration', async ({ page
   await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
   expect(saved.runs['2026-11-15'].results[0]).toMatchObject({ points: 0, timedOut: true, elapsedMs: 24000 });
+});
+
+test('untouched Q1 keeps its original day and deadline after midnight reload', async ({ page }) => {
+  await page.clock.install({ time: new Date('2026-11-16T04:59:50Z') });
+  await page.goto('/');
+  const ready = page.getByRole('button', { name: /^(Skip tutorial and start|Start today's five)$/ });
+  await expect(ready).toBeVisible();
+  await ready.click();
+  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await page.clock.fastForward('00:05');
+  await page.reload();
+  await expect(page.locator('.question')).toBeVisible();
+  await page.clock.fastForward('00:10');
+  await page.evaluate(() => document.dispatchEvent(new Event('visibilitychange')));
+  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.round-label')).toContainText('Question');
+  await expect.poll(async () => Number((await page.locator('.shot-clock').textContent())?.match(/(\d+)s/)?.[1])).toBeLessThanOrEqual(10);
 });

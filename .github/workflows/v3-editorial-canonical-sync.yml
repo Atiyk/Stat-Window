@@ -1,4 +1,4 @@
-name: V3 editorial one-time canonical publish
+name: V3 editorial canonical publish with Survival reserve embargo
 on:
   push:
     branches:
@@ -52,6 +52,7 @@ jobs:
           git diff --check
       - name: Canonical editorial publication checks
         run: |
+          npm run nba:db -- --out build/nba.sqlite
           npm run content:publish:check
           npm run nba:report:check
           npm run survival:catalog:check

@@ -51,6 +51,7 @@ test('an unfinished mixed-sport run at midnight is finished on its own day, then
   await expect(page.locator('.theme-line')).toHaveCount(0);
   await playOut(page, 1);
   await page.getByRole('button', { name: 'Play today’s puzzle' }).click();
+  await startDailyIfNeeded(page);
   await expect(page.locator('.question')).toContainText(firstNba.questions[0]!.prompt);
   await expect(page.locator('.question')).toContainText(firstNba.questions[0]!.prompt);
   expect(errors).toEqual([]);
@@ -63,6 +64,10 @@ test('a tab idle on the finished mixed day moves to the NBA day at midnight', as
   await expect(page.locator('.question')).toBeVisible();
   await playOut(page);
   await page.clock.fastForward('11:00');
+  await expect(page.locator('.day-label')).toHaveText('No. 3');
+  // Finished run: the new slate opens to a ready gate rather than burning Q1 time.
+  await expect(page.locator('.question')).toHaveCount(0);
+  await startDailyIfNeeded(page);
   await expect(page.locator('.question')).toContainText(firstNba.questions[0]!.prompt);
 });
 

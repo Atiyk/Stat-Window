@@ -101,13 +101,16 @@ test('everyone gets the slate for the Eastern date, and a new one at midnight Ea
   await expect(page.locator('.question')).toContainText('Barry Bonds');
 });
 
-test('a tab left open across midnight moves to the new puzzle', async ({ page }) => {
+test('an idle tab before Start sees the next Eastern day without burning question time', async ({ page }) => {
   await page.clock.install({ time: new Date('2026-11-16T04:59:50Z') });
   await page.goto('/');
-  await startDailyIfNeeded(page);
   await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.question')).toHaveCount(0);
   await page.clock.fastForward('00:45');
   await expect(page.locator('.day-label')).toHaveText('No. 2');
+  await expect(page.locator('.question')).toHaveCount(0);
+  await startDailyIfNeeded(page);
+  await expect(page.locator('.question')).toContainText('Barry Bonds');
 });
 
 test('an adjusted but not locked first window survives Eastern midnight', async ({ page }) => {
@@ -132,6 +135,7 @@ test('practice on an earlier day does not touch the daily record', async ({ page
   }
   await expect(page.locator('.stats')).toContainText('Played1');
   await page.getByRole('button', { name: 'Nov 15' }).click();
+  await startDailyIfNeeded(page);
   await expect(page.locator('.round-meta')).toContainText('Practice');
   for (let i = 0; i < 5; i++) {
     await lockAndSettle(page);

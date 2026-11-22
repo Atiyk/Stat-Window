@@ -1,14 +1,12 @@
 import { expect, test, type Page } from '@playwright/test';
-import { DAY1, lowBracket } from './helpers';
+import { DAY1, lowBracket, startDailyIfNeeded } from './helpers';
 
 // Date.now must advance with the timers. setFixedTime freezes Date.now and would
 // incorrectly make a real wall-clock countdown appear stuck at 24 seconds.
 async function openTimed(page: Page) {
   await page.clock.install({ time: DAY1 });
   await page.goto('/');
-  const skip = page.getByRole('button', { name: 'Skip tutorial and start' });
-  if (await skip.isVisible()) await skip.click();
-  else await page.getByRole('button', { name: "Start today's five" }).click();
+  await startDailyIfNeeded(page);
   await expect(page.locator('.question')).toBeVisible();
 }
 
@@ -74,9 +72,7 @@ test('a completed question clears its shot deadline, so fresh challenges can rep
   expect(await page.evaluate((k) => sessionStorage.getItem(k), key)).toBeNull();
   await page.evaluate(() => localStorage.clear());
   await page.goto('/?day=2026-11-15&vs=200');
-  const skip = page.getByRole('button', { name: 'Skip tutorial and start' });
-  if (await skip.isVisible()) await skip.click();
-  else await page.getByRole('button', { name: "Start today's five" }).click();
+  await startDailyIfNeeded(page);
   await expect(page.locator('.challenge-note')).toContainText('200');
   await expect(page.locator('.shot-clock')).toContainText('24s');
 });

@@ -17,3 +17,9 @@ GET requests have atomic per-network limits of 12 per two-minute bucket and 60 p
 Do not enable LEADERBOARDS_ENABLED or merge as release-ready on this evidence alone.
 
 Redis 7 `EXPIREAT ... GT` prevents late submissions from shortening the owner hash's existing expiry. A disposable Redis integration suite now covers concurrency, deletion, budgets, read caps, monotonic expiration and POST daily caps; it must run with `REDIS_URL` against an isolated local/CI Redis 7 service before any release approval. Daily rate-limit counters themselves are not included in the vendor command cost proof. Keep feature disabled.
+
+## Read-only personal rank and participation days (unverified implementation)
+
+The leaderboard GET endpoint accepts an optional random 22-character browser code in the `X-Stat-Window-Player` request header; it never places the code into a URL, analytics or ranking payload. The backend hashes the code and uses a bounded per-player hash to compute the caller's own rank and number of accepted daily scores for the selected day/week/month/120-day season. Tied total scores share the same rank, and the public list uses the same tie convention. Client UI surfaces this only when someone has explicitly opted in. No personal rank is returned for a public anonymous GET. The response remains non-cacheable. Because this is a client-generated code without accounts, rankings are **unverified** and may be manipulated; do not award prizes.
+
+The component suppresses the opt-in Join button while the backend is disabled or unavailable, avoiding the appearance that an offline ranking is live. Existing participant deletion remains available even if new submissions are disabled, subject to the separate deletion safeguards. This code change needs executable real Redis and browser CI plus security/cost critic approval before activation. 

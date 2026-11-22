@@ -24,10 +24,24 @@ export function expiryFor(period: Period, day: string): number {
   }
   return end + RETAIN_DAYS*86400;
 }
-export const LB_COST = { read: 24, submit: 55, remove: 2000 };
+export const LB_COST = { read: 24, submit: 55, remove: 20 };
+export const ERASE_RESERVE = 20000;
+export const MIN_ERASE_SUBCAP = 5000;
+export function blockNumber(day:string):number { return Number(periodKey('season',day,null).slice(6)); }
+export function blockLedger(prefix:string,member:string,block:number):string { return prefix+':player:'+member+':block-'+block; }
+/** Finite lifetime for a 120-day ledger, including month/week overlap. */
+export function blockExpiry(block:number):number {
+  const anchor=Date.parse('2026-01-01T00:00:00Z');
+  let expiry=0;
+  for(let i=0;i<SEASON_DAYS;i++){
+    const day=new Date(anchor+(block*SEASON_DAYS+i)*86400000).toISOString().slice(0,10);
+    for(const period of PERIODS) expiry=Math.max(expiry,expiryFor(period,day));
+  }
+  return expiry;
+}
 export type LBStore = {
   /** Optional member is the HMAC of a participant's random browser code, never their raw code. */
-  read(board: string, budget: string[], caps: number[], rateKeys: string[], profileKey: string, member: string | null): Promise<'paused'|'limited' | { rows: [string,number][]; count: number; mine?: {rank:number;score:number;days:number} }>;
+  read(board: string, budget: string[], caps: number[], rateKeys: string[], profileKeys: string[], member: string | null): Promise<'paused'|'limited' | { rows: [string,number][]; count: number; mine?: {rank:number;score:number;days:number} }>;
   submit(keys: string[], member: string, day: string, score: number, caps: number[], expiries: number[]): Promise<'stored'|'duplicate'|'limited'|'paused'>;
   remove(keys: string[], member: string, caps: number[]): Promise<'removed'|'nothing'|'limited'|'paused'>;
 };
@@ -79,7 +93,7 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
       if(code!==null && !PLAYER.test(code))return json(422,{status:'invalid'});
       const member=code===null?null:hash(ctx.secret,'lb-player:'+code);
       const board=prefix+':board:'+period+':'+key;
-      const r=await ctx.store.read(board,budget,ctx.caps,[prefix+':read:minute:'+network+':'+Math.floor(now.getTime()/60000),prefix+':read:day:'+network+':'+utc],prefix+':player:'+(member??'anonymous'),member);
+      const r=await ctx.store.read(board,budget,ctx.caps,[prefix+':read:minute:'+network+':'+Math.floor(now.getTime()/60000),prefix+':read:day:'+network+':'+utc],[blockLedger(prefix,member??'anonymous',blockNumber(today)),blockLedger(prefix,member??'anonymous',blockNumber(today)-1)],member);
       if(r==='limited')return json(429,{status:'limited'});
       if(r==='paused')return json(503,{status:'paused'});
       let topRank=0;
@@ -96,7 +110,7 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
     const member=hash(ctx.secret,'lb-player:'+body.player);
     const rate=prefix+':rate:'+network+':'+Math.floor(now.getTime()/60000);
     if(req.method==='DELETE') {
-      const result=await ctx.store.remove([prefix+':player:'+member,prefix,budget[2]!,rate,prefix+':delete:day:'+network+':'+utc],member,ctx.caps);
+      const result=await ctx.store.remove([blockLedger(prefix,member,blockNumber(today)),blockLedger(prefix,member,blockNumber(today)-1),budget[2]!,rate,prefix+':delete:day:'+network+':'+utc,prefix+':budget:erase:'+utc.slice(0,7)],member,ctx.caps);
       return result==='limited'?json(429,{status:'limited'}):result==='paused'?json(503,{status:'paused'}):json(200,{status:'ok',removed:result==='removed'?1:0});
     }
     if(body.test===true||typeof body.day!=='string'||!DAY.test(body.day)||!eligibleDay(body.day,now,7200))return json(200,{status:'ineligible'});
@@ -104,15 +118,15 @@ export async function handleLeaderboard(req:Request,ctx:LBContext):Promise<Respo
     if(!slate||slate.date!==body.day)return json(200,{status:'ineligible'});
     const score=verifyRounds(slate,body.rounds);
     if(score===null||(body.total!==undefined&&body.total!==score))return json(422,{status:'invalid'});
-    const result=await ctx.store.submit([prefix+':player:'+member,...boards(prefix,body.day,ctx.launchDay),budget[0]!,budget[1]!,rate,budget[3]!,prefix+':submit:day:'+network+':'+utc],member,body.day,score,ctx.caps,PERIODS.map(p=>expiryFor(p,body.day)));
+    const result=await ctx.store.submit([blockLedger(prefix,member,blockNumber(body.day)),...boards(prefix,body.day,ctx.launchDay),budget[0]!,budget[1]!,rate,budget[3]!,prefix+':submit:day:'+network+':'+utc],member,body.day,score,ctx.caps,[...PERIODS.map(p=>expiryFor(p,body.day)),blockExpiry(blockNumber(body.day))]);
     return result==='limited'?json(429,{status:'limited'}):result==='paused'?json(503,{status:'paused'}):json(200,{status:result,day:body.day,score});
   }catch{return json(503,{status:'unavailable'});}
 }
 export function leaderboardContext(env:Record<string,string|undefined>,store:LBStore|null,loadSlate:LBContext['loadSlate']):LBContext {
   const ns=env.VERCEL_ENV==='production'?'production':env.VERCEL_ENV==='preview'?'preview':env.VERCEL==='1'?'':'development';
   const secret=env.SCORE_HASH_SECRET&& (env.VERCEL!=='1'||env.SCORE_HASH_SECRET.length>=32)?env.SCORE_HASH_SECRET:env.VERCEL==='1'?'':'local-dev-only';
-  const day=Math.min(1000,Number(env.LEADERBOARDS_DAILY_BUDGET)||0),month=Math.min(20000,Number(env.LEADERBOARDS_MONTHLY_BUDGET)||0),erase=Math.min(2000,Number(env.LEADERBOARDS_ERASE_BUDGET)||0);
-  return {enabled:env.LEADERBOARDS_ENABLED==='1'&&env.SCORES_ENABLED==='1'&&!!ns&&!!secret&&day>=LB_COST.submit&&month>=LB_COST.submit&&erase>=LB_COST.remove,
+  const day=Math.min(1000,Number(env.LEADERBOARDS_DAILY_BUDGET)||0),month=Math.min(20000,Number(env.LEADERBOARDS_MONTHLY_BUDGET)||0),erase=Math.min(10000,Number(env.LEADERBOARDS_ERASE_BUDGET)||0);
+  return {enabled:env.LEADERBOARDS_ENABLED==='1'&&env.SCORES_ENABLED==='1'&&!!ns&&!!secret&&day>=LB_COST.submit&&month>=LB_COST.submit&&erase>=MIN_ERASE_SUBCAP,
     store,secret:ns?secret:'',env:ns,launchDay:parseLaunchDay(env.LAUNCH_DAY??env.VITE_LAUNCH_DAY),now:()=>new Date(),loadSlate,
     allowedOrigins:(env.SCORES_ALLOWED_ORIGINS??'https://stat-window.vercel.app').split(',').map(s=>s.trim()).filter(Boolean),caps:[day,month,erase] };
 }

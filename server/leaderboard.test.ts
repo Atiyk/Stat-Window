@@ -66,3 +66,27 @@ describe('privacy erasure after consent withdrawal',()=>{
    expect(removed).toBe(1);
  });
 });
+
+
+describe('leaderboard opt-out and network identity hardening',()=>{
+ it('rejects consent-granted POST under GPC or DNT without touching the store',async()=>{
+   let calls=0;
+   const ctx=leaderboardContext({VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',LEADERBOARDS_ENABLED:'1',LEADERBOARDS_DAILY_BUDGET:'1000',LEADERBOARDS_MONTHLY_BUDGET:'20000',LEADERBOARDS_ERASE_BUDGET:'10000',SCORE_HASH_SECRET:'a'.repeat(32)}, {submit:async()=>{calls++;return 'stored';}} as never,async()=>null);
+   for(const signal of [{'Sec-GPC':'1'},{DNT:'1'}]){
+     const r=await handleLeaderboard(new Request('https://stat-window.vercel.app/api/leaderboard',{method:'POST',headers:{'Content-Type':'application/json',...signal},body:JSON.stringify({player:'a'.repeat(22),consent:'granted'})}),ctx);
+     expect(r.status).toBe(409);
+   }
+   expect(calls).toBe(0);
+ });
+ it('does not allow spoofed forwarded-for to change rate-limit bucket',async()=>{
+   const rateKeys:string[][]=[];
+   const ctx=leaderboardContext({VERCEL:'1',VERCEL_ENV:'production',SCORES_ENABLED:'1',LEADERBOARDS_ENABLED:'1',LEADERBOARDS_DAILY_BUDGET:'1000',LEADERBOARDS_MONTHLY_BUDGET:'20000',LEADERBOARDS_ERASE_BUDGET:'10000',SCORE_HASH_SECRET:'a'.repeat(32)}, {read:async(_board:string,_budget:string[],_caps:number[],keys:string[])=>{rateKeys.push(keys);return {rows:[],count:0};}} as never,async()=>null);
+   ctx.now=()=>new Date('2026-11-22T16:00:00Z');
+   for(const forged of ['1.2.3.4','5.6.7.8']){
+     const r=await handleLeaderboard(new Request('https://stat-window.vercel.app/api/leaderboard?period=day',{headers:{'X-Forwarded-For':forged}}),ctx);
+     expect(r.status).toBe(200);
+   }
+   expect(rateKeys).toHaveLength(2);
+   expect(rateKeys[0]).toEqual(rateKeys[1]);
+ });
+});

@@ -44,6 +44,9 @@ end
 return {'ok',n,top,mine}
 `;
 export const SUBMIT_LUA=`
+-- Preflight the atomic revocation marker before admitting a stale score.
+-- KEYS[11] is explicitly declared for strict Lua key locking.
+if redis.call('EXISTS',KEYS[11])==1 then return 'revoked' end
 if tonumber(redis.call('GET',KEYS[8]) or '0')>=4 then return 'limited' end
 local rate=redis.call('INCR',KEYS[8])
 if rate==1 then redis.call('EXPIRE',KEYS[8],120) end
@@ -73,11 +76,11 @@ if tonumber(redis.call('GET',KEYS[5]) or '0')>=6 then return 'limited' end
 local daily=redis.call('INCR',KEYS[5])
 if daily==1 then redis.call('EXPIRE',KEYS[5],93600) end
 if daily>6 then return 'limited' end
--- KEYS[7+] are the complete, deterministic board universe for both
+-- KEYS[7] is the revocation marker, KEYS[8+] the board universe for both
 -- retained 120-day ledger blocks. Under Upstash Lua strict locking every
 -- mutated board must have been declared in the EVAL key list.
 local declared={}
-for k=7,#KEYS do declared[KEYS[k]]=k end
+for k=8,#KEYS do declared[KEYS[k]]=k end
 local totalByBoard={}
 local uniqueBoards=0
 local count=0
@@ -100,7 +103,7 @@ for k=1,2 do
     end
   end
 end
-if count==0 then return 'nothing' end
+if count==0 then redis.call('SET',KEYS[7],'1','EX',97200) return 'nothing' end
 -- One ZSCORE and at most one ZREM/ZINCRBY per distinct board, not per day.
 -- Upstash bills EVAL + every redis.call; 20 + 3*boards bounds those calls.
 local cost=20+3*uniqueBoards
@@ -108,6 +111,8 @@ if tonumber(redis.call('GET',KEYS[3]) or '0')+cost>20000 or
    tonumber(redis.call('GET',KEYS[6]) or '0')+cost>tonumber(ARGV[1]) then return 'paused' end
 redis.call('INCRBY',KEYS[3],cost) redis.call('EXPIRE',KEYS[3],2764800)
 redis.call('INCRBY',KEYS[6],cost) redis.call('EXPIRE',KEYS[6],2764800)
+-- A revoked identity cannot be resurrected by a POST that arrives after EVAL.
+redis.call('SET',KEYS[7],'1','EX',97200)
 for name,score in pairs(totalByBoard) do
   local board=KEYS[declared[name]]
   -- Never recreate a board that already expired; mutate a member once.
@@ -138,7 +143,7 @@ export function leaderboardRedis(evaluate:Eval):LBStore {
       return {rows,count:Number(out[1]),...(mine?{mine}:{})};
     },
     async submit(keys,member,day,score,caps,expiries) {
-      return String(await evaluate(SUBMIT_LUA,keys,[score,day,caps[0]!,caps[1]!,member,...expiries])) as 'stored'|'duplicate'|'limited'|'paused';
+      return String(await evaluate(SUBMIT_LUA,keys,[score,day,caps[0]!,caps[1]!,member,...expiries])) as 'stored'|'duplicate'|'limited'|'paused'|'revoked';
     },
     async remove(keys,member,caps) {
       return String(await evaluate(REMOVE_LUA,keys,[caps[2]!,member])) as 'removed'|'nothing'|'limited'|'paused';

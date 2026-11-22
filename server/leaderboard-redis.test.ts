@@ -7,7 +7,7 @@
  */
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { boards, expiryFor, PERIODS, blockLedger, blockNumber, blockExpiry, erasureBoardKeys, revocationKey } from './leaderboard.ts';
-import { leaderboardRedis } from './leaderboard-store.ts';
+import { leaderboardRedis, READ_LUA, SUBMIT_LUA, REMOVE_LUA } from './leaderboard-store.ts';
 import { respClient } from './resp.ts';
 
 const url = process.env.REDIS_URL;

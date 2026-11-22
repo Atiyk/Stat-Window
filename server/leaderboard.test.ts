@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { createHmac } from 'node:crypto';
-import { periodKey, boards, expiryFor, pseudonym, handleLeaderboard, leaderboardContext } from './leaderboard.ts';
+import { periodKey, boards, expiryFor, pseudonym, handleLeaderboard, leaderboardContext, blockNumber } from './leaderboard.ts';
 describe('Eastern calendar leaderboard periods',()=>{
  it('weeks start Monday including Sunday before and after DST',()=>{expect(periodKey('week','2026-03-08',null)).toBe('2026-03-02');expect(periodKey('week','2026-03-09',null)).toBe('2026-03-09');expect(periodKey('week','2026-11-01',null)).toBe('2026-10-26');});
  it('months and seasons use calendar keys',()=>{expect(periodKey('month','2026-12-31',null)).toBe('2026-12');expect(periodKey('month','2027-01-01',null)).toBe('2027-01');expect(boards('test','2026-11-22',null)).toHaveLength(4);});

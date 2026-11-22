@@ -55,8 +55,8 @@ Mean editorial ratings by slot (interest / recognizability / estimability / surp
 
 - Slot 1 (easy): 4.03 / 4.08 / 3.25 / 4.24
 - Slot 2 (medium): 3.78 / 3.43 / 2.82 / 4.74
-- Slot 3 (hard): 3.51 / 3.19 / 2.29 / 4.89
-- Slot 4 (hard): 3.42 / 3.01 / 2.21 / 4.94
+- Slot 3 (hard): 3.46 / 3.13 / 2.28 / 4.92
+- Slot 4 (hard): 3.47 / 3.08 / 2.22 / 4.92
 - Slot 5 (expert): 3.28 / 2.74 / 2.19 / 4.97
 
 ## Range fairness

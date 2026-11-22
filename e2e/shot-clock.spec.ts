@@ -6,15 +6,15 @@ import { DAY1, lowBracket } from './helpers';
 async function openTimed(page: Page) {
   await page.clock.install({ time: DAY1 });
   await page.goto('/');
+  const skip = page.getByRole('button', { name: 'Skip tutorial and start' });
+  if (await skip.isVisible()) await skip.click();
+  else await page.getByRole('button', { name: "Start today's five" }).click();
   await expect(page.locator('.question')).toBeVisible();
 }
 
-test('first-play guide grants reading time; numeric editor starts the 24-second shot clock', async ({ page }) => {
+test('the clock starts on appearance without a bracket touch', async ({ page }) => {
   await openTimed(page);
-  await expect(page.locator('.shot-clock')).toContainText('24s · ready');
-  await page.clock.fastForward('00:15');
-  await expect(page.locator('.shot-clock')).toContainText('24s · ready');
-  await page.getByRole('button', { name: /^Low end:/ }).click();
+  await expect(page.locator('.shot-clock')).toContainText('24s');
   await page.clock.fastForward('00:06');
   const left = Number((await page.locator('.shot-clock').textContent())?.match(/(\d+)s/)?.[1]);
   expect(left).toBeGreaterThanOrEqual(17);
@@ -74,6 +74,41 @@ test('a completed question clears its shot deadline, so fresh challenges can rep
   expect(await page.evaluate((k) => sessionStorage.getItem(k), key)).toBeNull();
   await page.evaluate(() => localStorage.clear());
   await page.goto('/?day=2026-11-15&vs=200');
+  const skip = page.getByRole('button', { name: 'Skip tutorial and start' });
+  if (await skip.isVisible()) await skip.click();
+  else await page.getByRole('button', { name: "Start today's five" }).click();
   await expect(page.locator('.challenge-note')).toContainText('200');
-  await expect(page.locator('.shot-clock')).toContainText('24s · ready');
+  await expect(page.locator('.shot-clock')).toContainText('24s');
+});
+
+test('interactive tutorial is not scored and requires an explicit start', async ({ page }) => {
+  await page.clock.install({ time: DAY1 });
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: 'Catch the number.' })).toBeVisible();
+  await expect(page.locator('.question')).toHaveCount(0);
+  await page.getByRole('slider', { name: 'Practice low end' }).fill('40');
+  await page.getByRole('button', { name: 'Reveal practice answer' }).click();
+  await expect(page.getByRole('status')).toContainText('42');
+  await page.getByRole('button', { name: "Start today's five" }).click();
+  await expect(page.locator('.question')).toBeVisible();
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
+  expect(saved.settings.introSeen).toBe(true);
+});
+test('refreshing untouched Q1 preserves the running deadline', async ({ page }) => {
+  await openTimed(page);
+  await page.clock.fastForward('00:09');
+  await page.reload();
+  await expect(page.locator('.question')).toBeVisible();
+  await expect.poll(async () => Number((await page.locator('.shot-clock').textContent())?.match(/(\d+)s/)?.[1])).toBeLessThanOrEqual(16);
+});
+test('Q2 countdown begins on Next without touching the window', async ({ page }) => {
+  await openTimed(page);
+  await lowBracket(page).focus();
+  await page.keyboard.press('ArrowRight');
+  await page.getByRole('button', { name: 'Lock the window' }).click();
+  await expect(page.getByRole('button', { name: 'Next question' })).toBeVisible();
+  await page.getByRole('button', { name: 'Next question' }).click();
+  await page.clock.fastForward('00:25');
+  await page.clock.runFor(2500);
+  await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');
 });

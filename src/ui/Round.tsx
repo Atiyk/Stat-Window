@@ -97,9 +97,8 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
   const stopShot = () => {
     const spent = Math.round(elapsed());
     shot.current.stopped = true;
-    // After a locked answer, no deadline remains to restore. Keeping one
-    // could instantly expire a fresh replay if a player resets their save.
-    try { window.sessionStorage.removeItem(shotKey); } catch { /* blocked storage */ }
+    // Keep the deadline until App has persisted the locked result. A reload
+    // between the lock click and React's save effect must never grant new time.
     return spent;
   };
   const lockShot = () => {
@@ -146,7 +145,7 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
       setSecondsLeft(Math.ceil(left / 1000));
       if (left === 0) {
         s.stopped = true;
-        try { window.sessionStorage.removeItem(shotKey); } catch { /* blocked storage */ }
+        // App clears the deadline only after the timeout record is saved.
         dispatchRef.current({ type: 'timeout', elapsedMs: SHOT_CLOCK_MS });
       }
     };

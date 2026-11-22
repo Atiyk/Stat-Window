@@ -4,7 +4,7 @@ The opt-in leaderboard remains disabled by default. The worker fixes the shared 
 
 Ranking seasons are fixed 120-day UTC blocks anchored to 2026-01-01, rather than the unbounded beta/s1 game season. Day/week/month/120-day-season boards expire 30 days after the end of their respective periods. The browser-linked hash expires at the latest of those four fixed deadlines; this prevents the hash expiring before a still-retained season board when another player refreshes the board. Scores are not verified against cheating; no prizes. Scores are not verified against cheating; no prizes.
 
-GET requests now have atomic per-network limits of 12 per two-minute bucket and 60 per UTC day, returning 429 with Retry-After. These counters are Redis operations and need vendor command-cost validation; they are not yet accounted in the existing estimate.
+GET requests have atomic per-network limits of 12 per two-minute bucket and 60 per UTC day; POST has 4 per two-minute bucket and 20 per UTC day; DELETE has 2 per two-minute bucket and 6 per UTC day, returning 429 with Retry-After. These counters are Redis operations and need vendor command-cost validation; they are not yet accounted in the existing estimate.
 
 ## Remaining blockers
 
@@ -15,3 +15,5 @@ GET requests now have atomic per-network limits of 12 per two-minute bucket and 
 - Need independent security/privacy/cost PASS on the exact integration SHA, plus verified Upstash billing and aggregate quota headroom.
 
 Do not enable LEADERBOARDS_ENABLED or merge as release-ready on this evidence alone.
+
+Redis 7 `EXPIREAT ... GT` prevents late submissions from shortening the owner hash's existing expiry. A disposable Redis integration suite now covers concurrency, deletion, budgets, read caps, monotonic expiration and POST daily caps; it must run with `REDIS_URL` against an isolated local/CI Redis 7 service before any release approval. Daily rate-limit counters themselves are not included in the vendor command cost proof. Keep feature disabled.

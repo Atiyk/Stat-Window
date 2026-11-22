@@ -21,21 +21,29 @@ local top=redis.call('ZREVRANGE',KEYS[1],0,19,'WITHSCORES')
 return {'ok',n,top}
 `;
 export const SUBMIT_LUA=`
-local rate=redis.call('INCR',KEYS[8]) redis.call('EXPIRE',KEYS[8],120)
+local rate=redis.call('INCR',KEYS[8])
+if rate==1 then redis.call('EXPIRE',KEYS[8],120) end
 if rate>4 then return 'limited' end
+local daily=redis.call('INCR',KEYS[10])
+if daily==1 then redis.call('EXPIRE',KEYS[10],93600) end
+if daily>20 then return 'limited' end
 if redis.call('HEXISTS',KEYS[1],ARGV[2])==1 then return 'duplicate' end
 if tonumber(redis.call('GET',KEYS[9]) or '0')+55>tonumber(ARGV[4]) or tonumber(redis.call('GET',KEYS[6]) or '0')+55>tonumber(ARGV[3]) or tonumber(redis.call('GET',KEYS[7]) or '0')+55>380000 then return 'paused' end
 redis.call('INCRBY',KEYS[9],55) redis.call('EXPIRE',KEYS[9],2764800)
 redis.call('INCRBY',KEYS[6],55) redis.call('EXPIRE',KEYS[6],172800)
 redis.call('INCRBY',KEYS[7],55) redis.call('EXPIRE',KEYS[7],2764800)
 redis.call('HSET',KEYS[1],ARGV[2],cjson.encode({tonumber(ARGV[1]),KEYS[2],KEYS[3],KEYS[4],KEYS[5]}))
-redis.call('EXPIREAT',KEYS[1],math.max(tonumber(ARGV[6]),tonumber(ARGV[7]),tonumber(ARGV[8]),tonumber(ARGV[9])))
+redis.call('EXPIREAT',KEYS[1],math.max(tonumber(ARGV[6]),tonumber(ARGV[7]),tonumber(ARGV[8]),tonumber(ARGV[9])),'GT')
 for i=2,5 do redis.call('ZINCRBY',KEYS[i],tonumber(ARGV[1]),ARGV[5]) redis.call('EXPIREAT',KEYS[i],tonumber(ARGV[i+4])) end
 return 'stored'
 `;
 export const REMOVE_LUA=`
-local rate=redis.call('INCR',KEYS[4]) redis.call('EXPIRE',KEYS[4],120)
+local rate=redis.call('INCR',KEYS[4])
+if rate==1 then redis.call('EXPIRE',KEYS[4],120) end
 if rate>2 then return 'limited' end
+local daily=redis.call('INCR',KEYS[5])
+if daily==1 then redis.call('EXPIRE',KEYS[5],93600) end
+if daily>6 then return 'limited' end
 if tonumber(redis.call('GET',KEYS[3]) or '0')+2000>tonumber(ARGV[1]) then return 'paused' end
 redis.call('INCRBY',KEYS[3],2000) redis.call('EXPIRE',KEYS[3],2764800)
 local all=redis.call('HGETALL',KEYS[1])

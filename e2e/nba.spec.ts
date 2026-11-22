@@ -8,7 +8,7 @@ const LABELS = /\b(Easy|Medium|Hard|Expert)\b/;
 
 for (const when of [NBA_FIRST, NBA_MIDDLE, NBA_LAST]) {
   const day = when.toISOString().slice(0, 10);
-  test(`NBA day ${day}: plain question count, no theme or difficulty shown, sources one tap away, no recap`, async ({ page }) => {
+  test(`NBA day ${day}: plain question count, first-round theme, no difficulty shown, sources one tap away`, async ({ page }) => {
     const errors = collectErrors(page);
     const slate = load(day);
     // The ladder and theme are still in the content for editors and validators.
@@ -18,7 +18,8 @@ for (const when of [NBA_FIRST, NBA_MIDDLE, NBA_LAST]) {
     for (let i = 0; i < 5; i++) {
       await expect(page.locator('.round-meta')).toContainText(`Question ${i + 1} of 5`);
       await expect(page.locator('.round')).not.toContainText(LABELS);
-      await expect(page.locator('.round')).not.toContainText(slate.theme.title);
+      if (i === 0) await expect(page.locator('.puzzle-theme')).toContainText(slate.theme.title);
+      else await expect(page.locator('.puzzle-theme')).toHaveCount(0);
       await expect(page.locator('.context')).toContainText('NBA ·');
       await lockAndSettle(page);
       // Credit is visible without opening anything; the licence and links are in the disclosure.

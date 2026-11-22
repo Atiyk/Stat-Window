@@ -39,8 +39,14 @@ Five rounds, 100 each, **500 maximum**. The share text shows the total and one m
 🟩 75+ · 🟨 40–74 · 🟧 1–39 (hit) · ⬛ miss. It never includes answers.
 
 ## Day boundary
-The official day is the **UTC calendar date**. Puzzle No. 1 is 2026-11-15. A new puzzle opens at 00:00 UTC for everyone.
+The official day is the **America/New_York calendar date**. Puzzle No. 1 is 2026-11-15. A new puzzle opens at 12:00 AM Eastern for everyone (05:00 UTC in winter, 04:00 UTC in summer).
 (`src/engine/daily.ts`.) A tab left open across midnight moves to the new puzzle; a run in progress keeps its own date key, so its saved rounds are never lost.
 
 ## Versioning
 Saved data lives under the `stat-window:v1` key and is validated on read. If the scoring rule ever changes, bump the key (v2) and keep v1 results displayable as they were scored; never re-score history.
+
+
+## 24-second answer clock (daily and practice; not Survival)
+A new 24-second clock starts for each answer. On a new player's first question, the clock is armed only after the first bracket/typed-number move so the inline tutorial can be read without penalty. On subsequent rounds the clock begins when the question is displayed. The clock uses a browser-local wall-clock deadline and continues while the tab is hidden. Refreshing the same tab does not restart it (the start is kept in sessionStorage). If the 24 seconds expire while the tab is hidden, it is recorded as a timeout as soon as that page resumes. At 0 seconds the round locks as a **shot-clock violation: 0 points**, stores the result, and proceeds through the normal reveal. Timeout is represented by a full-range window in server verification (which also scores 0) and `timedOut` on the browser record. The scorer itself remains unchanged.
+
+The displayed 'answer time' is the sum of five active decision intervals in milliseconds. Reveals and time spent reading facts are not included. Score first, lower answer time only breaks **ties** in a friendly challenge. Time is local-only, not sent to the percentile API. Older saved runs have no timing fields and are honestly shown as 'Not timed'. Competitive scores and URL times are unverified, as before.

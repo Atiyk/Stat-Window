@@ -14,6 +14,7 @@
 import { scoreWindow, toSteps, rangeSteps, type Window } from '../src/engine/scoring.ts';
 import { midrankPercentile, PERCENTILE_MIN_SAMPLE } from '../src/engine/percentile.ts';
 import { isIsoDay, parseLaunchDay, seasonOf } from '../src/engine/season.ts';
+import { puzzleDay, puzzleStartUtcMs, addDays as addPuzzleDays } from '../src/engine/daily.ts';
 import type { BudgetKeys, Limits, ScoreStore } from './store.ts';
 
 export type ServerSlate = { date: string; questions: { id: string; answer: number; min: number; max: number; step: number }[] };
@@ -29,7 +30,7 @@ export type ApiContext = {
   loadSlate: (day: string) => Promise<ServerSlate | null>;
   now: () => Date;
   limits: Limits;
-  /** Seconds after 00:00 UTC that yesterday's run still counts (started before midnight). */
+  /** Seconds after 00:00 Eastern that yesterday's run still counts (started before midnight). */
   graceSeconds: number;
   minSample: number;
   allowedOrigins: readonly string[];
@@ -54,6 +55,8 @@ export const DEFAULT_LIMITS: Limits = {
   eraseReserve: 20_000,
   ratePerMinute: 6,
   ipDailyStored: 30,
+  ipDailyCalls: 40,
+  ipDailyDeletes: 5,
 };
 /** Days back that DELETE looks (submission records live 7 days; one more for the grace period). */
 const DELETE_DAYS = 8;
@@ -86,10 +89,10 @@ async function hmac(secret: string, message: string, hexChars: number): Promise<
 
 /** Today's official day, or yesterday's during the grace period after midnight. */
 export function eligibleDay(day: string, now: Date, graceSeconds: number): boolean {
-  const today = utcDay(now);
+  const today = puzzleDay(now);
   if (day === today) return true;
-  const sinceMidnight = (now.getTime() - Date.parse(`${today}T00:00:00Z`)) / 1000;
-  return day === addDays(today, -1) && sinceMidnight < graceSeconds;
+  const sinceMidnight = (now.getTime() - puzzleStartUtcMs(today)) / 1000;
+  return day === addPuzzleDays(today, -1) && sinceMidnight < graceSeconds;
 }
 
 function keyPrefix(ctx: ApiContext, season: string, day: string) {
@@ -97,7 +100,8 @@ function keyPrefix(ctx: ApiContext, season: string, day: string) {
 }
 
 function budgetKeys(ctx: ApiContext, now: Date): BudgetKeys {
-  return { day: `${ctx.budgetPrefix}:d:${utcDay(now)}`, month: `${ctx.budgetPrefix}:m:${utcDay(now).slice(0, 7)}` };
+  const month = utcDay(now).slice(0, 7);
+  return { day: `${ctx.budgetPrefix}:d:${utcDay(now)}`, month: `${ctx.budgetPrefix}:m:${month}`, erase: `${ctx.budgetPrefix}:e:${month}` };
 }
 
 const nextUtcMidnight = (now: Date) => Date.parse(`${addDays(utcDay(now), 1)}T00:00:00Z`);
@@ -107,10 +111,12 @@ function rememberPause(ctx: ApiContext, now: Date, scope: 'day' | 'month') {
   ctx.memo.pausedUntil = scope === 'month' ? nextUtcMonth(now) : nextUtcMidnight(now);
 }
 
-function rememberLimited(ctx: ApiContext, client: string, now: Date) {
+function rememberLimited(ctx: ApiContext, client: string, now: Date, until: 'minute' | 'day' = 'minute') {
   if (ctx.memo.limitedUntil.size > 5_000) ctx.memo.limitedUntil.clear();
-  ctx.memo.limitedUntil.set(client, (Math.floor(now.getTime() / 60_000) + 1) * 60_000);
+  ctx.memo.limitedUntil.set(client, until === 'day' ? nextUtcMidnight(now) : (Math.floor(now.getTime() / 60_000) + 1) * 60_000);
 }
+
+const isLimited = (ctx: ApiContext, client: string, now: Date) => (ctx.memo.limitedUntil.get(client) ?? 0) > now.getTime();
 
 /** IPv4 as is; IPv6 cut to its /64, so one home or phone network is one client. */
 export function ipPrefix(ip: string): string {
@@ -207,7 +213,7 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
   if (!sameOrigin(req, ctx)) return json(403, { status: 'origin' });
   const now = ctx.now();
   const asOf = now.toISOString();
-  const today = utcDay(now);
+  const today = puzzleDay(now);
   const budget = budgetKeys(ctx, now);
   const paused = req.method !== 'DELETE' && ctx.memo.pausedUntil > now.getTime();
   try {
@@ -235,12 +241,17 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
     const body = (await readBody(req)) as Record<string, unknown> | undefined;
     if (!body || typeof body !== 'object' || Array.isArray(body)) return json(422, { status: 'invalid' });
     const ipHash = await hmac(ctx.secret, `ip:${today}:${clientIp(req)}`, 16);
-    if ((ctx.memo.limitedUntil.get(ipHash) ?? 0) > now.getTime()) return json(429, { status: 'limited' }, { 'Retry-After': '60' });
+    if (isLimited(ctx, ipHash, now)) return json(429, { status: 'limited' }, { 'Retry-After': '60' });
+    const untilMidnight = { 'Retry-After': String(Math.ceil((nextUtcMidnight(now) - now.getTime()) / 1000)) };
     const rate = `sw:v1:${ctx.env}:rl:${ipHash}:${Math.floor(now.getTime() / 60_000)}`;
 
     if (req.method === 'DELETE') {
       const player = body.player;
       if (typeof player !== 'string' || !PLAYER.test(player)) return json(422, { status: 'invalid' });
+      // A network that used up today's deletions is turned away here, before any hashing or store call.
+      // Its own memo key, so it never blocks that network's submissions.
+      const delClient = `del:${ipHash}`;
+      if (isLimited(ctx, delClient, now)) return json(429, { status: 'limited' }, untilMidnight);
       const oldest = addDays(today, -DELETE_DAYS);
       // Only days whose records can still exist; older ones were already unlinked by their TTL.
       const days = [...new Set(Array.isArray(body.days) ? body.days.filter(isIsoDay) : [])].filter((d) => d >= oldest && d <= today).slice(0, DELETE_DAYS + 1);
@@ -252,8 +263,12 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
         }
       }
       if (pairs.length === 0) return json(200, { status: 'ok', removed: 0 });
-      const r = await ctx.store.removeMany(pairs, rate, budget, ctx.limits);
-      if (r === 'limited') {
+      const r = await ctx.store.removeMany(pairs, { rate, ipDay: `sw:v1:${ctx.env}:ipdel:${ipHash}` }, budget, ctx.limits);
+      if (typeof r === 'object') {
+        if (r.limited === 'day') {
+          rememberLimited(ctx, delClient, now, 'day');
+          return json(429, { status: 'limited' }, untilMidnight);
+        }
         rememberLimited(ctx, ipHash, now);
         return json(429, { status: 'limited' }, { 'Retry-After': '60' });
       }
@@ -262,6 +277,9 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
     }
 
     // POST: one eligible first completion of today's official puzzle.
+    // A network that used up today's submissions is turned away before any store call (its own memo key, so deletion still works).
+    const postClient = `post:${ipHash}`;
+    if (isLimited(ctx, postClient, now)) return json(429, { status: 'limited' }, untilMidnight);
     const day = body.day;
     if (!isIsoDay(day)) return json(422, { status: 'invalid' });
     if (!eligibleDay(day, now, ctx.graceSeconds)) return json(200, { status: 'ineligible', reason: 'not-today', asOf });
@@ -288,12 +306,17 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
         dist: `${p}:dist`,
         rate,
         ipDay: `sw:v1:${ctx.env}:ipd:${ipHash}`,
+        ipCalls: `sw:v1:${ctx.env}:ipc:${ipHash}`,
         budget,
       },
       total,
       ctx.limits,
     );
     if (out.status === 'limited') {
+      if (out.until === 'day') {
+        rememberLimited(ctx, postClient, now, 'day');
+        return json(429, { status: 'limited' }, untilMidnight);
+      }
       rememberLimited(ctx, ipHash, now);
       return json(429, { status: 'limited' }, { 'Retry-After': '60' });
     }
@@ -318,7 +341,11 @@ export function contextFromEnv(env: Record<string, string | undefined>, deps: { 
   const ns = named ?? (env.VERCEL_ENV === 'production' ? 'production' : env.VERCEL_ENV === 'preview' ? 'preview' : onVercel ? '' : 'development');
   // On Vercel the hash secret must be its own long random value (never a database token, which rotates).
   const secret = env.SCORE_HASH_SECRET && (!onVercel || env.SCORE_HASH_SECRET.length >= 32) ? env.SCORE_HASH_SECRET : onVercel ? '' : 'local-development-only';
-  const minSample = num(env.PERCENTILE_MIN_SAMPLE, PERCENTILE_MIN_SAMPLE);
+  // The 100-game floor holds everywhere, whatever the namespace is called. Only the explicit test-only
+  // switch lowers it, and that switch is ignored on a production deployment or in the production namespace.
+  const lowSampleForTests = env.SCORES_TEST_LOW_SAMPLE === '1' && env.VERCEL_ENV !== 'production' && ns !== 'production';
+  const requested = num(env.PERCENTILE_MIN_SAMPLE, PERCENTILE_MIN_SAMPLE);
+  const minSample = lowSampleForTests ? requested : Math.max(PERCENTILE_MIN_SAMPLE, requested);
   return {
     enabled: env.SCORES_ENABLED === '1' && ns !== '',
     store: deps.store,
@@ -334,8 +361,8 @@ export function contextFromEnv(env: Record<string, string | undefined>, deps: { 
       monthlyBudget: Math.min(num(env.SCORES_MONTHLY_BUDGET, DEFAULT_LIMITS.monthlyBudget), DEFAULT_LIMITS.monthlyBudget),
     },
     graceSeconds: 2 * 3600,
-    // Production can never show a percentile from fewer than 100 games.
-    minSample: ns === 'production' ? Math.max(PERCENTILE_MIN_SAMPLE, minSample) : minSample,
+    // Production can never show a percentile (or return buckets) from fewer than 100 games.
+    minSample,
     allowedOrigins: (env.SCORES_ALLOWED_ORIGINS ?? 'https://stat-window.vercel.app').split(',').map((s) => s.trim()).filter(Boolean),
     budgetPrefix: 'sw:v1:budget',
     memo: newMemo(),

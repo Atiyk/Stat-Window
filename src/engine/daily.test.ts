@@ -1,12 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import { puzzleDay, puzzleNumber, msUntilNextPuzzle, addDays, EPOCH_DAY } from './daily';
 
-describe('puzzleDay (official day is the UTC calendar date)', () => {
-  it('uses the UTC date, not the local one', () => {
-    // 23:30 in New York on Nov 15 is already Nov 16 in UTC.
-    expect(puzzleDay(new Date('2026-11-16T04:30:00Z'))).toBe('2026-11-16');
-    expect(puzzleDay(new Date('2026-11-15T23:59:59.999Z'))).toBe('2026-11-15');
-    expect(puzzleDay(new Date('2026-11-16T00:00:00.000Z'))).toBe('2026-11-16');
+describe('puzzleDay (midnight Eastern for everyone)', () => {
+  it('uses the New York day, not the UTC date', () => {
+    expect(puzzleDay(new Date('2026-11-16T04:59:59.999Z'))).toBe('2026-11-15');
+    expect(puzzleDay(new Date('2026-11-16T05:00:00.000Z'))).toBe('2026-11-16');
+  });
+  it('follows Eastern daylight saving changes', () => {
+    expect(puzzleDay(new Date('2027-03-15T03:59:59Z'))).toBe('2027-03-14');
+    expect(puzzleDay(new Date('2027-03-15T04:00:00Z'))).toBe('2027-03-15');
   });
 });
 
@@ -31,8 +33,10 @@ describe('addDays', () => {
 });
 
 describe('msUntilNextPuzzle', () => {
-  it('counts down to the next UTC midnight', () => {
-    expect(msUntilNextPuzzle(new Date('2026-11-15T23:00:00Z'))).toBe(60 * 60 * 1000);
-    expect(msUntilNextPuzzle(new Date('2026-11-16T00:00:00Z'))).toBe(24 * 60 * 60 * 1000);
+  it('counts down to midnight Eastern, including 23- and 25-hour days', () => {
+    expect(msUntilNextPuzzle(new Date('2026-11-16T04:00:00Z'))).toBe(60 * 60 * 1000);
+    expect(msUntilNextPuzzle(new Date('2026-11-16T05:00:00Z'))).toBe(24 * 60 * 60 * 1000);
+    expect(msUntilNextPuzzle(new Date('2027-03-14T05:00:00Z'))).toBe(23 * 60 * 60 * 1000);
+    expect(msUntilNextPuzzle(new Date('2027-11-07T04:00:00Z'))).toBe(25 * 60 * 60 * 1000);
   });
 });

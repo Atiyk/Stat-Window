@@ -181,7 +181,7 @@ test('native share sends the spoiler-free card image when files are supported; c
   const [shared] = (await page.evaluate(() => (window as unknown as { shared: unknown[] }).shared)) as { text: string; files: { name: string; type: string; size: number }[] }[];
   expect(shared!.files[0]).toMatchObject({ name: `stat-window-${DAY}.png`, type: 'image/png' });
   expect(shared!.files[0]!.size).toBeGreaterThan(5000);
-  expect(shared!.text).toMatch(new RegExp(`/\\?day=${DAY}&vs=\\d+$`));
+  expect(shared!.text).toMatch(new RegExp(`/\\?day=${DAY}&vs=\\d+&time=\\d+$`));
   await page.evaluate(() => ((window as unknown as { cancelNext: boolean }).cancelNext = true));
   await page.getByRole('button', { name: 'Challenge a friend' }).click();
   await expect(page.getByRole('textbox', { name: 'Your result to copy' })).toHaveCount(0);

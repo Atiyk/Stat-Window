@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import type { Question, Slate } from '../../src/content/schema.ts';
-import { addDays, puzzleDay } from '../../src/engine/daily.ts';
+import { addDays, puzzleDay, puzzleStartUtcMs } from '../../src/engine/daily.ts';
 import type { RoundRecord } from '../../src/engine/game.ts';
 import { gameReducer } from '../../src/engine/game.ts';
 import type { SurvivalCatalog } from '../../src/survival/catalog.ts';
@@ -37,10 +37,11 @@ describe('eligible pool: never today, never the future', () => {
     for (const d of [addDays(CUTOVER, -1), CUTOVER]) expect(poolOn(d).every((e) => e.tag.day === null)).toBe(true);
   });
 
-  it('exact UTC midnight: 23:59:59.999 is still the old day, 00:00:00 unlocks yesterday’s five', () => {
+  it('exact midnight Eastern: the previous puzzle stays until New York midnight, then unlocks', () => {
     const d2 = addDays(CUTOVER, 1);
-    const before = puzzleDay(new Date(`${CUTOVER}T23:59:59.999Z`));
-    const after = puzzleDay(new Date(`${d2}T00:00:00.000Z`));
+    const reset = puzzleStartUtcMs(d2);
+    const before = puzzleDay(new Date(reset - 1));
+    const after = puzzleDay(new Date(reset));
     expect(before).toBe(CUTOVER);
     expect(after).toBe(d2);
     const unlocked = poolOn(after).filter((e) => e.tag.day === CUTOVER).map((e) => e.id);

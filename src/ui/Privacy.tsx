@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { analyticsAllowed, browserSignal, loadPrivacy, savePrivacy, scoresShownOn, type Privacy as Prefs } from '../lib/privacy';
 import { deleteMyScores } from '../lib/scores';
-import { analyticsEnabled, track } from '../lib/track';
+import { analyticsEnabled, resumeAnalytics, track } from '../lib/track';
 
 /**
  * In-app privacy controls. The full notice is /privacy.html (docs/PRIVACY.md is the source).
- * Turning analytics off takes effect at once; it also keeps the choice for later visits.
+ * Turning analytics off or on takes effect at once; it also keeps the choice for later visits.
  */
 export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
   const ref = useRef<HTMLDialogElement>(null);
@@ -42,7 +42,12 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
             type="checkbox"
             checked={analyticsEnabled && counting}
             disabled={!analyticsEnabled}
-            onChange={(e) => setPrefs(savePrivacy({ analytics: e.target.checked ? 'on' : 'off' }))}
+            onChange={(e) => {
+              const on = e.target.checked;
+              setPrefs(savePrivacy({ analytics: on ? 'on' : 'off' }));
+              // Off takes effect at once (every event re-checks the choice); on starts analytics now, not at the next visit.
+              if (on) resumeAnalytics();
+            }}
           />
           <span>
             <strong>Play counts.</strong> Events like “round 3 locked” or “game finished”, with a 100-point score band, go to

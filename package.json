@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "npm run content:check && npm run api:check && tsc -b && vite build",
+    "build": "npm run content:check && npm run api:build && npm run api:check && tsc -b && vite build",
     "preview": "vite preview --port 4173",
     "typecheck": "tsc -b",
     "test": "vitest run",

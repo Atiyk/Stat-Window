@@ -2,6 +2,8 @@
 
 This is the **canonical workflow** for every future request to add questions, regardless of sport. Designed for GPT/Codex and other coding agents. See root `AGENTS.md`.
 
+**Mandatory engagement review:** use [NBA daily selection and sequencing](EDITORIAL-SEQUENCING.md) to review the five-question arc before an editor approves or publishes a new slate. A sourced answer is not automatically a fun one.
+
 **Current live state:** existing NBA-only days remain controlled by `data/nba`, `scripts/nba`, and `content/published.lock.json`. This factory is the *upstream research/editorial layer*. It intentionally does **not** overwrite `content/days`, add calendar days, mutate existing NBA facts, change Survival eligibility or deploy. An approved proposal must be integrated through the relevant publisher in a separately reviewed content PR. Do not confuse a proposal with live content.
 
 ## First-time and every-batch commands

@@ -15,6 +15,8 @@ const RoundRecordSchema = z.object({
   hit: z.boolean(),
   points: z.int().check(z.minimum(0), z.maximum(100)),
   missBy: z.number().check(z.minimum(0)),
+  elapsedMs: z.optional(z.number().check(z.minimum(0), z.maximum(24_000))),
+  timedOut: z.optional(z.boolean()),
 });
 
 const RunSchema = z.object({

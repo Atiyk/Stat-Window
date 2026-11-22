@@ -7,7 +7,7 @@
  */
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { boards, expiryFor, PERIODS, blockLedger, blockNumber, blockExpiry, erasureBoardKeys, revocationKey } from './leaderboard.ts';
-import { leaderboardRedis } from './leaderboard-store.ts';
+import { leaderboardRedis, READ_LUA, SUBMIT_LUA, REMOVE_LUA } from './leaderboard-store.ts';
 import { respClient } from './resp.ts';
 
 const url = process.env.REDIS_URL;
@@ -35,7 +35,70 @@ function expiration(day: string) {
   return [...PERIODS.map((p) => expiryFor(p, day)),blockExpiry(blockNumber(day))];
 }
 
+/** Count executed nested Redis calls on real Redis, including rejected branches.
+ * The wrapper changes only the redis.call dispatch, never the business script.
+ * One additional command is billed for the outer EVAL on Upstash.
+ */
+function metered(script:string):string {
+  const body=script.replaceAll('redis.call(', 'meter(');
+  return `local calls=0
+local function meter(...)
+  calls=calls+1
+  return redis.call(...)
+end
+local function run()
+${body}
+end
+local result=run()
+return {result,calls}`;
+}
+
 describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', () => {
+  it('meters real Redis nested calls for successful, duplicate, personal and anonymous reads, and denied operations',async()=>{
+    const scope='metered',p=`${prefix}:${scope}`,b=budget(scope);
+    const clientKeys=writeKeys(scope,day1,'metered');
+    const readKeys=[boards(p,day1,null)[0]!,b[0]!,b[1]!,b[3]!,`${p}:read:minute:meter`,`${p}:read:day:meter`,blockLedger(p,member,blockNumber(day1)),blockLedger(p,member,blockNumber(day1)-1)];
+    const submitArgs=[90,day1,caps[0]!,caps[1]!,member,...expiration(day1)];
+    const sample=async(script:string,keys:string[],args:(string|number)[])=>{
+      const out=await client.evaluate(metered(script),keys,args) as unknown[];
+      return {status:Array.isArray(out[0])?String((out[0] as unknown[])[0]):String(out[0]),billed:1+Number(out[1])};
+    };
+    const stored=await sample(SUBMIT_LUA,clientKeys,submitArgs);
+    expect(stored.status).toBe('stored');
+    expect(stored.billed).toBeLessThanOrEqual(55);
+    const duplicate=await sample(SUBMIT_LUA,[...clientKeys.slice(0,8),`${p}:submit:rate:retry`,...clientKeys.slice(9)],submitArgs);
+    expect(duplicate.status).toBe('duplicate');
+    expect(duplicate.billed).toBeLessThanOrEqual(55);
+    const anonymous=await sample(READ_LUA,readKeys,[caps[0]!,caps[1]!,'']);
+    expect(anonymous.status).toBe('ok');
+    expect(anonymous.billed).toBeLessThanOrEqual(24);
+    const own=await sample(READ_LUA,[...readKeys.slice(0,4),`${p}:read:minute:own`,`${p}:read:day:own`,...readKeys.slice(6)],[caps[0]!,caps[1]!,member]);
+    expect(own.status).toBe('ok');
+    expect(own.billed).toBeLessThanOrEqual(24);
+    for(let i=0;i<4;i++)await sample(SUBMIT_LUA,[...clientKeys.slice(0,8),`${p}:submit:rate:denied`,...clientKeys.slice(9)],submitArgs);
+    const limitedPost=await sample(SUBMIT_LUA,[...clientKeys.slice(0,8),`${p}:submit:rate:denied`,...clientKeys.slice(9)],submitArgs);
+    expect(limitedPost.status).toBe('limited');
+    expect(limitedPost.billed).toBe(2); // EVAL + rate GET; still billed on 429
+    for(let i=0;i<12;i++)await sample(READ_LUA,[...readKeys.slice(0,4),`${p}:read:minute:denied`,`${p}:read:day:denied`,...readKeys.slice(6)],[caps[0]!,caps[1]!,'']);
+    const limitedGet=await sample(READ_LUA,[...readKeys.slice(0,4),`${p}:read:minute:denied`,`${p}:read:day:denied`,...readKeys.slice(6)],[caps[0]!,caps[1]!,'']);
+    expect(limitedGet.status).toBe('limited');
+    expect(limitedGet.billed).toBe(2);
+    const deleteKeys=[blockLedger(p,member,blockNumber(day1)),blockLedger(p,member,blockNumber(day1)-1),b[2]!,`${p}:delete:minute:meter`,`${p}:delete:day:meter`,`${p}:delete:subcap`,revocationKey(p,member),...erasureBoardKeys(p,day1)];
+    const removed=await sample(REMOVE_LUA,deleteKeys,[caps[2]!,member]);
+    expect(removed.status).toBe('removed');
+    expect(removed.billed).toBeLessThanOrEqual(21+3*4);
+    const empty=await sample(REMOVE_LUA,[...deleteKeys.slice(0,3),`${p}:delete:minute:empty`,`${p}:delete:day:empty`,...deleteKeys.slice(5)],[caps[2]!,member]);
+    expect(empty.status).toBe('nothing');
+    expect(empty.billed).toBeLessThanOrEqual(18);
+    const limitedDeleteKeys=[...deleteKeys.slice(0,3),`${p}:delete:minute:denied`,`${p}:delete:day:denied`,...deleteKeys.slice(5)];
+    await sample(REMOVE_LUA,limitedDeleteKeys,[caps[2]!,member]);
+    await sample(REMOVE_LUA,limitedDeleteKeys,[caps[2]!,member]);
+    const limitedDelete=await sample(REMOVE_LUA,limitedDeleteKeys,[caps[2]!,member]);
+    expect(limitedDelete.status).toBe('limited');
+    expect(limitedDelete.billed).toBe(2);
+  });
+
+
   let client: ReturnType<typeof respClient>;
   beforeAll(() => { client = respClient(url!); });
   afterAll(() => client?.close());

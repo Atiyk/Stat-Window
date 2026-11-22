@@ -172,7 +172,7 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
     if(typeof result==='string')throw new Error(result);
     expect(result.mine).toMatchObject({score:240,days:2,rank:1});
     expect(await store.remove([blockLedger(p,member,blockNumber(next)),blockLedger(p,member,blockNumber(old)),
-      b[2]!,`${p}:delete:minute`,`${p}:delete:day`,`${p}:delete:subcap`],member,caps)).toBe('removed');
+      b[2]!,`${p}:delete:minute`,`${p}:delete:day`,`${p}:delete:subcap`,p+':player:'+member],member,caps)).toBe('removed');
     for(const day of [old,next])for(const board of boards(p,day,null))
       expect(await client.command(['ZSCORE',board,member])).toBeNull();
   });
@@ -231,7 +231,8 @@ describe.skipIf(!url)('leaderboard retention and daily caps on real Redis', () =
   it('older late-arriving score never shortens player hash expiration', async () => {
     const store=leaderboardRedis(client.evaluate);
     const scope='monotonic', p=`${prefix}:${scope}`;
-    const later='2028-03-12', earlier='2027-11-18';
+    const later='2028-03-12', earlier='2028-01-12';
+    expect(blockNumber(later)).toBe(blockNumber(earlier));
     expect(await store.submit(writeKeys(scope,later,'new'),member,later,90,caps,expiration(later))).toBe('stored');
     const before=Number(await client.command(['EXPIRETIME',blockLedger(p,member,blockNumber(later))]));
     expect(await store.submit(writeKeys(scope,earlier,'old'),member,earlier,80,caps,expiration(earlier))).toBe('stored');

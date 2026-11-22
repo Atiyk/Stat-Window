@@ -24207,5 +24207,320 @@
         }
       ]
     }
+  },
+  {
+    "id": "nba-ad20-lakers-ten-straight-wcf-winner",
+    "family": "points-run",
+    "scope": "playoffs",
+    "season": "2019-20",
+    "eventDate": "2020-09-20",
+    "franchise": "LAL",
+    "player": "Anthony Davis",
+    "answer": 10,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "Anthony Davis scored the Lakers' final ten points, including a buzzer-beating three, to beat Denver in the 2020 West finals.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/Anthony_Davis",
+      "quote": "scoring the last 10 points for the Lakers in a 105–103 win for 2–0 lead in the series.",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In his famous 2020 bubble playoff buzzer-beater over Denver, how many straight Lakers points did Anthony Davis score to finish?",
+      "context": "Anthony Davis · Lakers vs Nuggets · 2020 Western finals",
+      "reveal": "AD scored the Lakers' final 10, including the game-winning three at the buzzer.",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "The Davis buzzer-beater is a recognizable 2020 bubble memory with a surprising but bounded run of straight points.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "He drilled a game-winning three against Denver.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Anthony_Davis",
+            "quote": "Davis hit a game winning 3-pointer against the Denver Nuggets"
+          }
+        },
+        {
+          "text": "That shot put Los Angeles two games to none ahead.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Anthony_Davis",
+            "quote": "for 2–0 lead in the series"
+          }
+        },
+        {
+          "text": "It was Davis's first playoff buzzer-beating winner.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Anthony_Davis",
+            "quote": "It was Davis second career (first in the playoff) game-winning buzzer beater."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-lillard14-rockets-series-winner-nine-tenths",
+    "family": "time",
+    "scope": "playoffs",
+    "season": "2013-14",
+    "eventDate": "2014-05-02",
+    "franchise": "POR",
+    "player": "Damian Lillard",
+    "answer": 0.9,
+    "unit": {
+      "singular": "second",
+      "plural": "seconds"
+    },
+    "claim": "The Blazers inbounded with 0.9 seconds left after Chandler Parsons scored, before Damian Lillard hit the series winner against Houston.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2014_NBA_playoffs",
+      "quote": "Chandler Parsons hit a reverse layup with 0.9 seconds remaining but the Rockets' hearts were broken when Damian Lillard",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Before Damian Lillard's iconic 2014 series-winning three against Houston, how many seconds did Portland have left to inbound?",
+      "context": "Damian Lillard · Blazers vs Rockets · 2014 first round",
+      "reveal": "Just 0.9 seconds. Lillard caught the inbound and hit the buzzer-beater to eliminate Houston.",
+      "min": 0,
+      "max": 5,
+      "step": 0.1,
+      "difficulty": "expert",
+      "difficultyReason": "The playoff-series buzzer-beater is memorable, and fans can reason about how little time an inbound-and-shot requires.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Portland advanced to the second round for the first time since 2000.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_playoffs",
+            "quote": "Portland advanced to the second-round appearance for the first time since 2000"
+          }
+        },
+        {
+          "text": "John Stockton had hit the previous playoff-series-ending buzzer-beater.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_playoffs",
+            "quote": "The most recent person to hit a series-winning buzzer beater prior to Lillard was John Stockton"
+          }
+        },
+        {
+          "text": "Houston had beaten Portland three games to one during the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_playoffs",
+            "quote": "Houston won 3–1 in the regular-season series"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-cavs-warriors16-game7-tied-six-games-610",
+    "family": "points-series",
+    "scope": "finals",
+    "season": "2015-16",
+    "eventDate": "2016-06-19",
+    "franchise": null,
+    "player": null,
+    "answer": 610,
+    "unit": {
+      "singular": "point per team",
+      "plural": "points per team"
+    },
+    "claim": "The Cavaliers and Warriors each had 610 total points through six games of the 2016 NBA Finals entering Game 7.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+      "quote": "both teams entered Game 7 with the same total points scored through six games (610 points each)",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Before the famous 2016 Finals Game 7, the Cavs and Warriors had the same total points through six games. How many each?",
+      "context": "Cleveland vs Golden State · 2016 Finals · through Game 6",
+      "reveal": "610 each. The 2016 Finals were perfectly even in total points before Cleveland's historic Game 7 win.",
+      "min": 350,
+      "max": 950,
+      "step": 2,
+      "difficulty": "expert",
+      "difficultyReason": "A curious hidden statistic in one of basketball's best-known Finals invites a genuine six-games-by-100-points estimate.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Cleveland edged Golden State in the decider, 93–89.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "The Cavaliers defeated the Warriors 93–89 in Game 7"
+          }
+        },
+        {
+          "text": "The decider featured 20 lead changes and 11 ties.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "The game was close, with 20 lead changes and 11 ties."
+          }
+        },
+        {
+          "text": "LeBron's legendary chase-down block preserved an 89-all tie.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "LeBron James delivered what became known as \"The Block\" on a layup attempt by Andre Iguodala with the score tied at 89"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-curry22-allstar-sixteen-threes",
+    "family": "threes-game",
+    "scope": "all-star",
+    "season": "2021-22",
+    "eventDate": "2022-02-20",
+    "franchise": "GSW",
+    "player": "Stephen Curry",
+    "answer": 16,
+    "unit": {
+      "singular": "three-pointer",
+      "plural": "three-pointers"
+    },
+    "claim": "Stephen Curry sank 16 threes in the 2022 All-Star Game on his way to 50 points and MVP.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2022_NBA_All-Star_Game",
+      "quote": "set the record for most three-pointers made in an All-Star quarter (6), half (8), and game (16)",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In his jaw-dropping 50-point 2022 All-Star Game, how many three-pointers did Stephen Curry make?",
+      "context": "Stephen Curry · 2022 NBA All-Star Game · Cleveland",
+      "reveal": "16 threes in one All-Star Game. Curry earned MVP after putting on an unprecedented long-range show.",
+      "min": 0,
+      "max": 45,
+      "step": 1,
+      "difficulty": "expert",
+      "difficultyReason": "Curry's nationally watched All-Star eruption is instantly guessable at a rough scale and a thrilling reveal.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "He scored 50 points in the Cleveland exhibition.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_All-Star_Game",
+            "quote": "Team LeBron's Stephen Curry, who scored 50 points"
+          }
+        },
+        {
+          "text": "Curry took home the Kobe Bryant All-Star MVP trophy.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_All-Star_Game",
+            "quote": "was also named the All-Star Game Kobe Bryant Most Valuable Player"
+          }
+        },
+        {
+          "text": "Team LeBron edged Team Durant, 163–160.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_All-Star_Game",
+            "quote": "Team LeBron won the game 163–160."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-durant17-finals-g3-shot-45seconds",
+    "family": "time",
+    "scope": "finals",
+    "season": "2016-17",
+    "eventDate": "2017-06-07",
+    "franchise": "GSW",
+    "player": "Kevin Durant",
+    "answer": 45.3,
+    "unit": {
+      "singular": "second",
+      "plural": "seconds"
+    },
+    "claim": "Kevin Durant made the go-ahead three in 2017 Finals Game 3 over Cleveland with 45.3 seconds remaining.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2017_NBA_Finals",
+      "quote": "Kevin Durant drilled the go-ahead three-pointer for Golden State with 45.3 seconds remaining",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "In Durant's famous pull-up Finals Game 3 three over LeBron in 2017, how many seconds were left?",
+      "context": "Kevin Durant · Warriors at Cavaliers · 2017 Finals Game 3",
+      "reveal": "45.3 seconds. KD's three capped Golden State's furious comeback on the way to his first title.",
+      "min": 20,
+      "max": 60,
+      "step": 0.1,
+      "difficulty": "expert",
+      "difficultyReason": "One of Durant's most iconic clutch shots, in a title-defining game, makes an intuitive endgame-clock estimate.",
+      "ratings": {
+        "interest": 5,
+        "recognizability": 5,
+        "estimability": 4,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Golden State went on an unanswered 11-point run to steal the game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2017_NBA_Finals",
+            "quote": "the Warriors scored 11 unanswered points to steal the road win"
+          }
+        },
+        {
+          "text": "Durant finished Game 3 with 31 points.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2017_NBA_Finals",
+            "quote": "Durant led the Warriors with 31 points"
+          }
+        },
+        {
+          "text": "Iguodala blocked a potential tying LeBron three.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2017_NBA_Finals",
+            "quote": "Iguodala blocked LeBron James' potential game-tying 3"
+          }
+        }
+      ]
+    }
   }
 ]

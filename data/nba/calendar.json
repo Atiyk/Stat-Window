@@ -1252,7 +1252,12 @@
     "nba-pistons06-wins",
     "nba-sixers83-wins",
     "nba-heat13-wins",
-    "nba-nets02-improvement"
+    "nba-nets02-improvement",
+    "nba-robinson94-71",
+    "nba-gsw15-combined-wins"
   ],
-  "reserveNotBefore": {}
+  "reserveNotBefore": {
+    "nba-robinson94-71": "2027-01-09",
+    "nba-gsw15-combined-wins": "2027-01-25"
+  }
 }

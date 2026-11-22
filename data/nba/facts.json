@@ -23640,5 +23640,131 @@
         }
       ]
     }
+  },
+  {
+    "id": "nba-robinson94-71",
+    "family": "points-game",
+    "scope": "regular-season",
+    "season": "1993-94",
+    "eventDate": "1994-04-24",
+    "franchise": "SAS",
+    "player": "David Robinson",
+    "answer": 71,
+    "unit": {
+      "singular": "point",
+      "plural": "points"
+    },
+    "claim": "71, breaking George Gervin's Spurs record of 63.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/David_Robinson",
+      "quote": "scoring 71 points (breaking George Gervin's single-game franchise record of 63) against the Los Angeles Clippers",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "How many points did David Robinson score against the Clippers on April 24, 1994?",
+      "context": "San Antonio Spurs · 1993–94",
+      "reveal": "71, breaking George Gervin's Spurs record of 63.",
+      "min": 45,
+      "max": 110,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "A huge night that many fans have heard of.",
+      "ratings": {
+        "interest": 3,
+        "recognizability": 3,
+        "estimability": 3,
+        "surprise": 5
+      },
+      "funFacts": [
+        {
+          "text": "Robinson's scoring-title chase came down to a direct duel with Shaquille O'Neal.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "he became locked in a duel for the NBA scoring title with Shaquille O'Neal"
+          }
+        },
+        {
+          "text": "His outburst surpassed George Gervin's longstanding Spurs single-game points record.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "breaking George Gervin's single-game franchise record of 63"
+          }
+        },
+        {
+          "text": "That season, Robinson also averaged double-digit rebounds and more than three blocks per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "10.7 rebounds per game, career-high 4.8 assists per game and 3.3 blocks per game"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "id": "nba-gsw15-combined-wins",
+    "family": "wins-combined",
+    "scope": "combined",
+    "season": "2014-15",
+    "eventDate": null,
+    "franchise": "GSW",
+    "player": null,
+    "answer": 83,
+    "unit": {
+      "singular": "win",
+      "plural": "wins"
+    },
+    "claim": "83, against 20 losses.",
+    "source": {
+      "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+      "quote": "Combining regular season and playoff games, Golden State finished 83–20",
+      "derivation": null,
+      "asOf": null
+    },
+    "question": {
+      "prompt": "Counting the playoffs, how many games did the 2014–15 Warriors win?",
+      "context": "Golden State Warriors · 2014–15 · regular season plus playoffs",
+      "reveal": "83, against 20 losses.",
+      "min": 54,
+      "max": 96,
+      "step": 1,
+      "difficulty": "easy",
+      "difficultyReason": "A 67-win team plus a title run is estimable.",
+      "ratings": {
+        "interest": 3,
+        "recognizability": 3,
+        "estimability": 3,
+        "surprise": 4
+      },
+      "funFacts": [
+        {
+          "text": "Golden State's championship ended a drought dating to 1975, long before the Splash Brothers were born.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+            "quote": "winning their first championship since 1975, and fourth overall"
+          }
+        },
+        {
+          "text": "Steve Kerr became the first rookie head coach to win an NBA title since Pat Riley.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+            "quote": "Kerr became the first rookie coach to win a title since Pat Riley"
+          }
+        },
+        {
+          "text": "That Warriors roster won the championship despite having no players with prior NBA Finals experience.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+            "quote": "The Warriors were the first team since the 1990–91 Bulls to win a title with a roster that did not have any players with Finals experience"
+          }
+        }
+      ]
+    }
   }
 ]

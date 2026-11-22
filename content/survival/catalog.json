@@ -437,12 +437,12 @@
       "day": "2026-11-25",
       "notBefore": "2026-11-26"
     },
-    "nba-sixers01-finals-g1-points": {
+    "nba-kawhi19-playoff-points-732": {
       "tier": "expert",
-      "family": "points-team-game",
-      "franchise": "PHI",
-      "era": "2000s",
-      "steps": 43,
+      "family": "points-season-total",
+      "franchise": "TOR",
+      "era": "2010s",
+      "steps": 300,
       "day": "2026-11-25",
       "notBefore": "2026-11-26"
     },
@@ -485,14 +485,18 @@
       "day": "2026-11-26",
       "notBefore": "2026-11-27"
     },
-    "nba-gus79-finals-ppg": {
+    "nba-butler23-56-bucks-upset": {
       "tier": "expert",
-      "family": "scoring-average",
-      "franchise": "OKC",
-      "era": "1970s",
-      "steps": 260,
+      "family": "points-game",
+      "franchise": "MIA",
+      "era": "2020s",
+      "steps": 65,
       "day": "2026-11-26",
-      "notBefore": "2026-11-27"
+      "notBefore": "2026-12-14",
+      "leaks": [
+        "nba-butler23-56",
+        "nba-braun22-draft-pick"
+      ]
     },
     "nba-stockton90-apg": {
       "tier": "easy",
@@ -530,12 +534,12 @@
       "day": "2026-11-27",
       "notBefore": "2026-11-28"
     },
-    "nba-brooklopez19-ecf-g1-points": {
+    "nba-kobe10-celtics-g7-combined": {
       "tier": "expert",
-      "family": "points-game",
-      "franchise": "MIL",
-      "era": "2010s",
-      "steps": 38,
+      "family": "points-combined",
+      "franchise": "LAL",
+      "era": "2000s",
+      "steps": 120,
       "day": "2026-11-27",
       "notBefore": "2026-11-28"
     },
@@ -748,7 +752,10 @@
       "era": "2020s",
       "steps": 50,
       "day": "2026-12-02",
-      "notBefore": "2026-12-03"
+      "notBefore": "2026-12-03",
+      "leaks": [
+        "nba-butler23-56-bucks-upset"
+      ]
     },
     "nba-stockton-missed": {
       "tier": "hard",
@@ -2311,7 +2318,10 @@
       "era": "2010s",
       "steps": 280,
       "day": "2027-01-04",
-      "notBefore": "2027-01-05"
+      "notBefore": "2027-01-05",
+      "leaks": [
+        "nba-kawhi19-playoff-points-732"
+      ]
     },
     "nba-rockets18-wins": {
       "tier": "medium",

@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-gus79-finals-ppg",
+      "id": "nba-butler23-56-bucks-upset",
       "sport": "NBA",
-      "prompt": "Seattle won the 1979 title. What did its top scorer, Gus Williams, average in the Finals?",
-      "context": "1979 NBA Finals · Seattle vs Washington",
-      "answer": 28.6,
+      "prompt": "As eighth-seeded Miami stunned Milwaukee in the 2023 playoffs, how many points did Jimmy Butler score in Game 4?",
+      "context": "Jimmy Butler · Heat vs. Bucks · April 2023",
+      "answer": 56,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 20,
-      "max": 46,
-      "step": 0.1,
-      "note": "28.6 points per game.",
+      "min": 15,
+      "max": 80,
+      "step": 1,
+      "note": "56. Butler scored 21 in the fourth quarter as Miami pushed the top seed toward elimination.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1979_NBA_Finals",
-        "quote": "Gus Williams of the SuperSonics was the top scorer, averaging 28.6 points per game"
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_playoffs",
+        "quote": "Jimmy Butler scored a career-high 56 points, which included 21 in the fourth quarter"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Dennis Johnson, not Williams, won Finals MVP for the SuperSonics' title run.",
+          "text": "Butler scored 21 points in the fourth quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1979_NBA_Finals",
-            "quote": "Dennis Johnson of the SuperSonics was named as the NBA Finals MVP"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_playoffs",
+            "quote": "which included 21 in the fourth quarter"
           }
         },
         {
-          "text": "Seattle's triumph avenged a Finals defeat to the same Washington Bullets team the previous year.",
+          "text": "Miami erased a late deficit with a 27–8 run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1979_NBA_Finals",
-            "quote": "The series was a rematch of the previous year's NBA Finals, which the Bullets won"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_playoffs",
+            "quote": "Down by 12 with under six minutes remaining, the Heat went on a pivotal 27–8 run"
           }
         },
         {
-          "text": "Before the SuperSonics won, Seattle's last men's major professional sports title came in ice hockey.",
+          "text": "His 56 set a Miami Heat playoff scoring record.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1979_NBA_Finals",
-            "quote": "Seattle Metropolitans' victory in the 1917 Stanley Cup Final"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_playoffs",
+            "quote": "His 56 points also set a franchise playoff record for the Heat"
           }
         }
       ]

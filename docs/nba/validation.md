@@ -17,7 +17,7 @@ All gates pass: 0 errors.
 | Themed days (not "mixed") | 6 |
 | Stat families | 81 |
 | Franchises | 28 |
-| Players | 115 |
+| Players | 114 |
 | Seasons | 60 |
 | Rejected examples logged | 22 |
 
@@ -29,7 +29,7 @@ All gates pass: 0 errors.
 | sources | 5 |
 | franchises | 28 |
 | team_names | 45 |
-| players | 115 |
+| players | 114 |
 | seasons | 60 |
 | stat_families | 83 |
 | stat_facts | 388 |
@@ -40,7 +40,7 @@ All gates pass: 0 errors.
 | daily_slate_questions | 360 |
 
 Integrity: integrity_check ok, no foreign-key violations, every fact verified and sourced.
-Canonical dump sha256 (status as of 2026-11-16): `99d3a5aa8b9890e6d0404e3dfe0da40019cdf21b68ca0e220881c993300fdb39`.
+Canonical dump sha256 (status as of 2026-11-16): `48c3ff331439888014fcb0be421f8e1f5b0f2d200585c22c00f207ae3c2fd4eb`.
 
 ## Difficulty
 
@@ -57,7 +57,7 @@ Mean editorial ratings by slot (interest / recognizability / estimability / surp
 - Slot 2 (medium): 3.49 / 3.28 / 2.81 / 4.67
 - Slot 3 (hard): 3.46 / 3.13 / 2.28 / 4.92
 - Slot 4 (hard): 3.47 / 3.08 / 2.22 / 4.92
-- Slot 5 (expert): 3.33 / 2.79 / 2.22 / 4.97
+- Slot 5 (expert): 3.40 / 2.86 / 2.26 / 4.97
 
 ## Range fairness
 
@@ -67,16 +67,16 @@ Where each answer sits on its scale (0 = min, 9 = top tenth). A flat spread mean
 |---|---|
 | 1 | 8 |
 | 2 | 36 |
-| 3 | 99 |
-| 4 | 62 |
+| 3 | 98 |
+| 4 | 61 |
 | 5 | 50 |
-| 6 | 67 |
-| 7 | 45 |
+| 6 | 70 |
+| 7 | 44 |
 | 8 | 20 |
 | 9 | 1 |
 
-Share of answers in the middle fifth: 30.4% (gate: at most 35%).
-Simulated "always centre the window" player: mean 52.05 points per question, best 90 (gate: no question above 90).
+Share of answers in the middle fifth: 30.2% (gate: at most 35%).
+Simulated "always centre the window" player: mean 52.04 points per question, best 90 (gate: no question above 90).
 Every answer sits strictly inside its scale and at least 8% away from either end; every scale has 5–400 whole steps.
 
 ## Editorial balance, by week
@@ -84,7 +84,7 @@ Every answer sits strictly inside its scale and at least 8% away from either end
 | Week | Stat families | Eras | Most-used franchise |
 |---|---|---|---|
 | 2026-11-17 to 2026-11-23 | 25 | 7 | BOS (7) |
-| 2026-11-24 to 2026-11-30 | 20 | 8 | GSW (4) |
+| 2026-11-24 to 2026-11-30 | 21 | 8 | GSW (4) |
 | 2026-12-01 to 2026-12-07 | 17 | 7 | BOS (4) |
 | 2026-12-08 to 2026-12-14 | 22 | 7 | GSW (8) |
 | 2026-12-15 to 2026-12-21 | 24 | 6 | MIL (5) |
@@ -98,18 +98,18 @@ Every rolling 7-day window is also checked: at least 6 families, at least 3 eras
 
 ## Novelty
 
-112 players and 28 franchises appear. 9 of 72 days introduce no new player or franchise.
+111 players and 28 franchises appear. 10 of 72 days introduce no new player or franchise.
 
 ## Eras
 
 - 1950s: 4
 - 1960s: 23
-- 1970s: 37
+- 1970s: 36
 - 1980s: 32
 - 1990s: 66
 - 2000s: 85
 - 2010s: 94
-- 2020s: 46
+- 2020s: 47
 - timeless: 1
 
 ## Rejected candidates (examples)

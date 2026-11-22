@@ -89,6 +89,23 @@ describe.skipIf(!url)('leaderboard Lua on real Redis, isolated test namespace', 
   });
 
 
+
+  it('121 uninterrupted daily scores remain partitioned and never extend the older ledger TTL',async()=>{
+    const store=leaderboardRedis(client.evaluate),scope='long-run',p=`${prefix}:${scope}`;
+    const start=Date.parse('2027-04-26T00:00:00Z');
+    for(let i=0;i<121;i++){
+      const day=new Date(start+i*86400000).toISOString().slice(0,10);
+      expect(await store.submit(writeKeys(scope,day,String(i)),member,day,1,caps,expiration(day))).toBe('stored');
+    }
+    const older=blockLedger(p,member,blockNumber('2027-04-26'));
+    const newer=blockLedger(p,member,blockNumber('2027-08-24'));
+    expect(Number(await client.command(['HLEN',older]))).toBe(120);
+    expect(Number(await client.command(['HLEN',newer]))).toBe(1);
+    expect(Number(await client.command(['EXPIRETIME',older]))).toBe(blockExpiry(blockNumber('2027-04-26')));
+    expect(Number(await client.command(['EXPIRETIME',newer]))).toBe(blockExpiry(blockNumber('2027-08-24')));
+    expect(blockExpiry(blockNumber('2027-04-26'))).toBeLessThan(blockExpiry(blockNumber('2027-08-24')));
+  });
+
   it('two participants can erase in one month, and empty erasure does not debit reserves',async()=>{
     const store=leaderboardRedis(client.evaluate),scope='multi-erase',p=`${prefix}:${scope}`,b=budget(scope);
     const other='c'.repeat(40),day='2027-11-18';

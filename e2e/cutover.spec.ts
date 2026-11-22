@@ -51,8 +51,11 @@ test('an unfinished mixed-sport run at midnight is finished on its own day, then
   await expect(page.locator('.theme-line')).toHaveCount(0);
   await playOut(page, 1);
   await page.getByRole('button', { name: 'Play today’s puzzle' }).click();
+  // The previous results screen remains visible while the new day loads.
+  // Wait for the actual destination before asking the Start helper to act;
+  // otherwise it may treat the stale results as a final/no-puzzle screen.
+  await expect(page.locator('.day-label')).toHaveText('No. 3');
   await startDailyIfNeeded(page);
-  await expect(page.locator('.question')).toContainText(firstNba.questions[0]!.prompt);
   await expect(page.locator('.question')).toContainText(firstNba.questions[0]!.prompt);
   expect(errors).toEqual([]);
 });

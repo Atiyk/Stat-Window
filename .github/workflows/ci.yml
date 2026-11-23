@@ -69,3 +69,21 @@ jobs:
         run: npx playwright install --with-deps webkit
       - name: End-to-end tests on WebKit (iPhone 13)
         run: npx playwright test --project=webkit-mobile
+
+  # The future opt-in leaderboard is intentionally disabled in the shipping build.
+  # Keep its simulation tests green in a separate build that never deploys.
+  leaderboard-scaffold:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Install desktop Chromium and iPhone WebKit engines
+        run: npx playwright install --with-deps chromium webkit
+      - name: Test dormant opt-in enrollment, rate/error retries, erasure and UI on isolated QA build
+        run: LEADERBOARD_E2E=1 npx playwright test e2e/leaderboard.spec.ts --project=desktop --project=webkit-mobile

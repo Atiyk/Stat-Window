@@ -1,5 +1,14 @@
 # Stat Window V3 — Autonomous multi-agent release contract
 
+## V3 owner scope override — November 22, 2026 (supersedes older requirements below)
+
+**Ship V3 WITHOUT live global leaderboards.** The owner explicitly deferred shared Day/Week/Month/Season rankings and their hosted Upstash activation to a future separately authorized decision. Preserve the backend/client source, Redis tests and review records, but keep production/preview `LEADERBOARDS_ENABLED`, `LEADERBOARDS_ERASURE_ENABLED` and **`VITE_LEADERBOARDS_UI` off/unset**. New visitors see NO leaderboard section, Join CTA, live claims, rankings placeholder, or outbound leaderboard GET/POST. Existing browser codes still expose a deletion-only path, without re-enrollment; an unsuccessful DELETE must never claim success.
+
+**This release's required gates:** initial interactive tutorial, deliberate Start before Q1, 24-second Q1–Q5 clock, engaging source-reviewed mixed NBA slates, calendar reminders, daily percentile, privacy/erasure, score API, Survival and share links. Main `2576bd67` includes owner-merged PR #19 reminders and was reconciled into the integration branch with a two-parent merge. Exact final integrated SHA must pass original source/published-lock, typecheck, unit/Redis, responsive Chromium/WebKit, analytics/privacy, accessibility and Survival checks; preview must be READY for that SHA; independent product/editorial/security critics must explicitly **PASS the disabled-feature release** before merge. Preserve zero incremental spend and one comprehensive draft PR #23.
+
+**Activation blockers are distinct:** hosted Upstash command billing, global rate/cost ceiling, strict-key locking, period-specific public days played, real erasure under pressure and anti-cheat still block **future leaderboard activation**, not this release while its UI and billable endpoints are dormant. Do not weaken disabled-mode security/erasure tests. No paid plans, production environment edits or premature main merge. The older Agent C launch deliverables below are implementation context for a FUTURE activation, not V3 ship criteria.
+
+
 Owner request: implement **distinct first-play mini tutorial**, **five genuinely mixed and fun NBA questions per day**, **24-second timer starting when each question appears after an explicit Q1 Start**, and **real opt-in global day/week/month/season leaderboards**. Baseline main `6da8e8e5a0b09adec8bc2a6dd88998d451ef3b0f`, site https://stat-window.vercel.app, repository Atiyk/Stat-Window. Do not weaken existing game, privacy, provenance or published-question locks.
 
 ## Orchestration rules (hard gates)

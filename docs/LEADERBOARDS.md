@@ -1,5 +1,9 @@
 # Leaderboard hardening status (not approved for activation)
 
+## V3 scope decision: dormant source, no public leaderboards (November 22, 2026)
+The owner de-scoped live leaderboards. In the shipping V3 build, leave `VITE_LEADERBOARDS_UI`, `LEADERBOARDS_ENABLED`, and `LEADERBOARDS_ERASURE_ENABLED` **unset**. Unenrolled browsers render no leaderboard and send no leaderboard HTTP requests. A previously enrolled browser may see a standalone **deletion-only** interface even when disabled; it cannot join/re-enroll, and it must retain a failed-deletion retry key. The separate QA build uses `VITE_LEADERBOARDS_UI=on` solely to exercise preserved opt-in UI against mocked APIs; it does not change preview/production. Activation blockers below are FUTURE activation gates, not a veto of the otherwise verified disabled V3 release. Server GET/POST/DELETE must remain non-billable and fail closed when flags are off.
+
+
 ## Independent disposable-Redis QA evidence (November 22, 2026)
 
 The follow-up security QA branch at `50bcfa54c5207066816759c98190e3c93212a7c9` passed [GitHub Actions run 45073521287](https://github.com/Atiyk/Stat-Window/actions/runs/45073521287): TypeScript, 29 Vitest files / 379 unit tests including actual disposable Redis 7 integration, API bundle parity, factory/content checks and application build. A strict TypeScript `HeadersInit` fixture error in the first run was fixed on the isolated QA branch. The code remains UNVERIFIED against hosted Upstash REST strict-key locking and actual command billing; do not enable leaderboard until $0 spend, full erasure, and independent final privacy/security critic approval on exact integration SHA.

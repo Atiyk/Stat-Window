@@ -3,7 +3,46 @@ import type { RoundRecord } from '../engine/game';
 import { choice, enroll, leave, optIn, standings, privacySignal, type Period, type Standings } from '../lib/leaderboard';
 import '../leaderboard.css';
 const PERIODS:Period[]=['day','week','month','season'];
-export function Leaderboard({day,results,eligible}:{day:string;results:readonly RoundRecord[];eligible:boolean}){
+type Props={day:string;results:readonly RoundRecord[];eligible:boolean};
+
+/**
+ * For V3, live global rankings are deliberately NOT offered. They need a separately
+ * reviewed, explicitly enabled build and server, not merely a successful API response.
+ * Preserve an erasure-only surface if a browser already has a legacy participant code.
+ */
+export function Leaderboard(props:Props){
+  if(import.meta.env.VITE_LEADERBOARDS_UI==='on')return <LeaderboardActive {...props}/>;
+  return choice().key?<LeaderboardErasureOnly/>:null;
+}
+
+function LeaderboardErasureOnly(){
+  const [existing,setExisting]=useState(()=>choice());
+  const [busy,setBusy]=useState(false);
+  const [notice,setNotice]=useState('');
+  const erase=async()=>{
+    if(busy)return;
+    setBusy(true);
+    setNotice('Requesting deletion; no new submissions will be made.');
+    try{
+      const result=await leave();
+      setExisting(choice());
+      setNotice(result==='deleted'||result==='nothing'
+        ? 'Your linked leaderboard data was removed or no longer exists.'
+        : 'New submissions are off. Deletion could not be confirmed; keep this browser data and retry.');
+    }finally{setBusy(false);}
+  };
+  if(!existing.key && !notice)return null;
+  return <section className="leaderboard" aria-labelledby="lb-erasure-title">
+    <h2 id="lb-erasure-title">Previous leaderboard data</h2>
+    <p className="lb-sub">Global rankings are not live. If this browser joined an earlier test, you can request deletion of any linked rankings. Do not clear this browser's data before deletion succeeds.</p>
+    {existing.key&&<button type="button" className="btn btn-quiet btn-small" disabled={busy} onClick={()=>void erase()}>{busy?'Deleting…':'Delete any previous rankings'}</button>}
+    {notice&&<p role="status">{notice}</p>}
+    <p className="lb-sub"><a href="/privacy.html">Privacy, retention and deletion</a></p>
+  </section>;
+}
+
+/** Dormant scaffold tested only in an explicitly opted-in, separate QA build. */
+function LeaderboardActive({day,results,eligible}:Props){
   const [period,setPeriod]=useState<Period>('day'),[data,setData]=useState<Standings|null>(null),[joined,setJoined]=useState(()=>choice().consent),[pendingDeletion,setPendingDeletion]=useState(()=>!choice().consent&&!!choice().key),[status,setStatus]=useState('');
   const privateBrowser=privacySignal();
   // Keep retries idempotent: failed POSTs never clear consent or the browser key.
@@ -21,9 +60,13 @@ export function Leaderboard({day,results,eligible}:{day:string;results:readonly 
     setSubmissionFailed(false);
     setJoined(true);
     setStatus('Submitting your score…');
+    // enroll() synchronously creates and persists a random browser code before
+    // its first await. Capture the code AFTER it runs, not before (new players
+    // have key=null immediately after optIn()).
+    const pending=enroll(day,results);
     const joinedKey=choice().key;
     try {
-      const r=await enroll(day,results);
+      const r=await pending;
       // A late POST must never override withdrawal or deletion messaging.
       if(!choice().consent||choice().key!==joinedKey)return;
       setSubmissionFailed(r==='failed');

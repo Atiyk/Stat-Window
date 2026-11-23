@@ -1,6 +1,10 @@
 import { expect, test, type Page } from '@playwright/test';
 import { lockAndSettle, NBA_FIRST, next, openAt } from './helpers';
 
+// The live leaderboard is deferred. Run these scaffold tests ONLY against the
+// separate VITE_LEADERBOARDS_UI=on QA build; the release build must stay OFF.
+test.skip(!process.env.LEADERBOARD_E2E, 'opt-in leaderboard scaffold needs separate flagged QA build');
+
 /** Browser UI tests stub only the API. The real EVAL scripts use Redis in server/leaderboard-redis.test.ts. */
 async function finishToday(page: Page) {
   await page.route('**/api/scores**', route => route.fulfill({

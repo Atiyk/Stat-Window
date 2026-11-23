@@ -1,5 +1,9 @@
 # Stat Window: release orchestration and independent QA gates
 
+## Active V3 release scope (owner decision, November 22)
+V3 global leaderboards are **deferred, not a launch gate**. Their implementation and tests stay in GitHub but the ordinary results UI and billable backend actions stay OFF for this beta. No leaderboard Join, standings or placeholder is shown to new players; when a browser already has a participant code, offer **deletion only**, verify failure is not falsely reported as success and keep retries. The standalone UI opt-in build (`VITE_LEADERBOARDS_UI=on`) is reserved for CI and is not a shipping setting. Do not configure Upstash leaderboard activation/erasure flags, spend money or enable provider integrations. Independent critic approval must evaluate the **disabled** release at its exact SHA, rather than applying earlier requirements for live global boards. Hosted Redis billing proof remains mandatory for any FUTURE activation.
+
+
 ## Outcome, not agent theatre
 Use a **manager/orchestrator** that owns the exact release candidate, dependencies, integration and final decision. Delegate only bounded, independent workstreams; return factual evidence (commit, failing reproduction, test output, PR review) rather than generic "LGTM". The reviewer must inspect the final integrated candidate, not trust earlier branch CI. These roles describe a repeatable workflow; do not claim an actual independent agent ran unless it did.
 

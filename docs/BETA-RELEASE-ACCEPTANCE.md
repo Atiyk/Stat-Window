@@ -1,4 +1,6 @@
-# Stat Window v2 — limited beta release acceptance
+# Stat Window v2 — limited beta release acceptance (historical)
+
+> For V3, owner-deferred live leaderboards are NOT required. The V3 exact-SHA beta scope and release gates are authoritative in `docs/V3-MULTI-AGENT-EXECUTION.md`; this older PR #20-era page is preserved only as historical evidence and does not assert a V3 review PASS.
 
 This file separates **automated release evidence** from **physical-device evidence we do not possess**. The product owner instructed the orchestrator to complete and merge the vetted release. Treat this as a limited public beta, not a production-hardened, anti-cheat ranking system.
 

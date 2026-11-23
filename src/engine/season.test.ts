@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { addDays, puzzleNumber } from './daily';
-import { BETA, inSeason, parseLaunchDay, publicNumber, seasonConfigFrom, seasonOf } from './season';
+import { BETA, inSeason, isRetiredDay, parseLaunchDay, playableDays, publicNumber, seasonConfigFrom, seasonOf } from './season';
 
 const LAUNCH = { launchDay: '2027-01-10' };
 
@@ -31,6 +31,19 @@ describe('formal launch dry run (synthetic launch day 2027-01-10)', () => {
     const after = new Date('2027-01-10T00:00:00.000Z').toISOString().slice(0, 10);
     expect(seasonOf(before, LAUNCH)).toBe('beta');
     expect(seasonOf(after, LAUNCH)).toBe('s1');
+  });
+
+  it('does not hide beta puzzles before launch, but retires them at Day 1', () => {
+    const days = ['2026-11-15', '2027-01-09', '2027-01-10', '2027-01-11'];
+    expect(playableDays(days, '2027-01-09', LAUNCH)).toEqual(days);
+    expect(playableDays(days, '2027-01-10', LAUNCH)).toEqual(['2027-01-10', '2027-01-11']);
+    expect(playableDays(days, '2027-01-11', LAUNCH).filter((d) => d < '2027-01-11')).toEqual(['2027-01-10']);
+    expect(playableDays(days, '2027-01-11', BETA)).toEqual(days);
+    expect(isRetiredDay('2027-01-09', '2027-01-09', LAUNCH)).toBe(false);
+    expect(isRetiredDay('2027-01-09', '2027-01-10', LAUNCH)).toBe(true);
+    expect(isRetiredDay('2027-01-10', '2027-01-10', LAUNCH)).toBe(false);
+    expect(isRetiredDay('2026-11-15', '2027-01-11', BETA)).toBe(false);
+    expect(isRetiredDay('not-a-day', '2027-01-11', LAUNCH)).toBe(false);
   });
 
   it('keeps beta runs out of launch-season stats', () => {

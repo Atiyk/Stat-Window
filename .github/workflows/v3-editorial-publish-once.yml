@@ -52,6 +52,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          # The build step refreshes tracked API transpilation artifacts. They are
+          # not part of this editorial content change and must never be published
+          # as an incidental side effect.
+          git restore -- api/leaderboard.js api/scores.js
           git diff --check
           unexpected=$(git diff --name-only | grep -Ev '^(content/days/2026-(11-28|12-01|12-03|12-04)\.json|content/published\.lock\.json|content/survival/catalog\.json|docs/nba/(questions\.csv|calendar\.md|validation\.md))$' || true)
           if [ -n "$unexpected" ]; then

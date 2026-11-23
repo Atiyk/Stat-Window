@@ -37,7 +37,7 @@ for (const [label, payload] of [
   });
 }
 
-test('percentile DELETE success (including zero linked records) rotates code only after explicit confirmation', async ({ page }) => {
+test('percentile DELETE success clears code only after explicit confirmation', async ({ page }) => {
   await initialize(page);
   let deletes = 0;
   await page.route('**/api/scores', route => {
@@ -50,11 +50,10 @@ test('percentile DELETE success (including zero linked records) rotates code onl
   await expect(page.getByText(/Done\. Scores this browser sent/)).toBeVisible();
   expect(deletes).toBe(1);
   const state = await page.evaluate(key => JSON.parse(localStorage.getItem(key) ?? '{}'), KEY);
-  expect(state.key).toMatch(/^[A-Za-z0-9_-]{22}$/);
-  expect(state.key).not.toBe(oldKey);
+  expect(state.key).toBeNull();
   expect(state).toMatchObject({ scores: 'off', deleting: false, sent: [], done: [] });
-  // The newly generated code has not sent a score. Another Delete action is
-  // therefore local-only, avoiding an unnecessary Redis command or tombstone.
+  // No new code is generated until the next consented score submission.
+  // A repeated Delete is therefore local-only without an extra Redis command.
   await page.getByRole('button', { name: 'Delete my scores' }).click();
   await expect(page.getByText(/Nothing to delete/)).toBeVisible();
   expect(deletes).toBe(1);
@@ -83,4 +82,35 @@ test('a pending daily score deletion cannot enqueue a duplicate DELETE from doub
   unblock();
   await expect(page.getByText(/Done\. Scores this browser sent/)).toBeVisible();
   expect(calls).toBe(1);
+});
+
+test('lost sent-day history never suppresses server erasure of a valid historical code', async ({ page }) => {
+  await page.addInitScript(({ key, player }) => {
+    localStorage.setItem(key, JSON.stringify({
+      analytics: 'off', scores: 'on', key: player, asked: true,
+      sent: [], done: [], deleting: false,
+    }));
+  }, { key: KEY, player: oldKey });
+  let calls = 0;
+  await page.route('**/api/scores', route => {
+    if (route.request().method() !== 'DELETE') throw new Error('Unexpected score request');
+    calls++;
+    return route.fulfill({
+      status: calls === 1 ? 503 : 200,
+      contentType: 'application/json',
+      body: calls === 1 ? '{"status":"disabled"}' : '{"status":"ok","removed":0}',
+    });
+  });
+  await page.goto('/?privacy=1');
+  await page.getByRole('button', { name: 'Delete my scores' }).click();
+  await expect(page.getByText(/Deletion is not confirmed/)).toBeVisible();
+  expect(calls).toBe(1);
+  const pending = await page.evaluate(key => JSON.parse(localStorage.getItem(key) ?? '{}'), KEY);
+  expect(pending).toMatchObject({ key: oldKey, sent: [], scores: 'off', deleting: true });
+
+  await page.getByRole('button', { name: 'Delete my scores' }).click();
+  await expect(page.getByText(/Done\. Scores this browser sent/)).toBeVisible();
+  expect(calls).toBe(2);
+  const confirmed = await page.evaluate(key => JSON.parse(localStorage.getItem(key) ?? '{}'), KEY);
+  expect(confirmed).toMatchObject({ key: null, sent: [], done: [], scores: 'off', deleting: false });
 });

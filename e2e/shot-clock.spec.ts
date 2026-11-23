@@ -263,3 +263,42 @@ test('a blocked localStorage getter does not crash the daily clock', async ({ pa
   await page.clock.runFor(2500);
   await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');
 });
+
+test('backgrounded daily play expires by wall time without granting another attempt on return', async ({ page }) => {
+  await openTimed(page);
+  const original = await page.evaluate(() => sessionStorage.getItem('stat-window:shot:v1:nba-gsw-2016-wins'));
+  expect(original).not.toBeNull();
+  // Simulate a hidden tab while the browser throttles interval callbacks. The
+  // visibility handler must check Date.now, not count ticks or user touches.
+  await page.evaluate(() => {
+    Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => 'hidden' });
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  await page.clock.setSystemTime(new Date(DAY1.getTime() + 25_000));
+  await page.evaluate(() => {
+    Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => 'visible' });
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  await page.clock.runFor(2500);
+  await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');
+  await expect(page.getByRole('button', { name: 'Lock the window' })).toHaveCount(0);
+  const run = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
+  expect(run.runs['2026-11-15'].results[0]).toMatchObject({ points: 0, timedOut: true, elapsedMs: 24000 });
+  expect(await page.evaluate(() => sessionStorage.getItem('stat-window:shot:v1:nba-gsw-2016-wins'))).toBeNull();
+});
+
+test('a running daily round retains its deadline across Eastern midnight', async ({ page }) => {
+  const beforeMidnight = new Date('2026-11-16T04:59:50.000Z'); // 11:59:50 PM EST on Nov 15
+  await page.clock.install({ time: beforeMidnight });
+  await page.goto('/');
+  await startDailyIfNeeded(page);
+  await expect(page.locator('.question')).toBeVisible();
+  const started = await page.evaluate(() => sessionStorage.getItem('stat-window:shot:v1:nba-gsw-2016-wins'));
+  expect(started).not.toBeNull();
+  await page.clock.fastForward('00:15');
+  // Midnight is not a new 24-second allowance for an already mounted round.
+  await expect.poll(async () => Number((await page.locator('.shot-clock').textContent())?.match(/(\d+)s/)?.[1])).toBeLessThanOrEqual(9);
+  await page.clock.fastForward('00:10');
+  await page.clock.runFor(2500);
+  await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');
+});

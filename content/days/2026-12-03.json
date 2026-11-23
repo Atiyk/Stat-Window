@@ -109,52 +109,52 @@
       ]
     },
     {
-      "id": "nba-robinson20-season-ppg",
+      "id": "nba-jokic23-finals-g3-rebounds",
       "sport": "NBA",
-      "prompt": "How many points per game did Duncan Robinson average for the 2020 Heat?",
-      "context": "Miami · breakout season · regular games",
-      "answer": 13.5,
+      "prompt": "When Jokić and Murray made triple-double history in the 2023 Finals, how many rebounds did Jokić grab?",
+      "context": "Denver Nuggets · Finals Game 3 vs Miami",
+      "answer": 21,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "rebound",
+        "plural": "rebounds"
       },
-      "min": 5,
-      "max": 29,
-      "step": 0.1,
-      "note": "13.5 points per game from the sharpshooter.",
+      "min": 8,
+      "max": 38,
+      "step": 1,
+      "note": "21 rebounds in a 32-point triple-double as Denver took back the series lead.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-        "quote": "Duncan Robinson | SG | 73 | 68 | 2,166 | 232 | 102 | 35 | 19 | 983 | 29.7 | 3.2 | 1.4 | .5 | .3 | 13.5"
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "32 points, 21 rebounds, and 10 assists"
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-22",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Robinson appeared in all seventy-three of Miami's scheduled games.",
+          "text": "Jamal Murray made it a historic pair of high-scoring triple-doubles with 34 points of his own.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "Duncan Robinson | SG | 73 | 68"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "game-high 34 points"
           }
         },
         {
-          "text": "He started sixty-eight games in his breakout season.",
+          "text": "Denver dominated the rebounding battle, beating Miami 58 to 33 on the glass.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "Duncan Robinson | SG | 73 | 68"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "boards (58 to 33)"
           }
         },
         {
-          "text": "Robinson collected 232 rebounds and 102 assists.",
+          "text": "Christian Braun's breakout cameo delivered 15 points on exceptionally efficient shooting.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
-            "quote": "Duncan Robinson | SG | 73 | 68 | 2,166 | 232 | 102"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Christian Braun scored 15 points"
           }
         }
       ]

@@ -58,52 +58,52 @@
       ]
     },
     {
-      "id": "nba-jojo76-finals-points",
+      "id": "nba-hakeem90-quadruple-blocks",
       "sport": "NBA",
-      "prompt": "Jo Jo White was 1976 Finals MVP. How many total points did he score in the six games?",
-      "context": "1976 NBA Finals · six games vs Phoenix",
-      "answer": 130,
+      "prompt": "In Hakeem Olajuwon's 1990 quadruple-double, how many shots did he block?",
+      "context": "Houston Rockets · March 1990 vs Milwaukee",
+      "answer": 11,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "block",
+        "plural": "blocks"
       },
-      "min": 30,
-      "max": 180,
+      "min": 0,
+      "max": 16,
       "step": 1,
-      "note": "130.",
+      "note": "Eleven rejections completed a remarkable four-category performance.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
-        "quote": "Jo Jo White scored 15 points, giving him 130 points in six games, and was named the series MVP."
+        "url": "https://en.wikipedia.org/wiki/Hakeem_Olajuwon",
+        "quote": "18 points, 16 rebounds, 11 blocks and 10 assists"
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-22",
         "by": "Stat Window editorial"
       },
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Boston had dealt Paul Westphal to Phoenix for Charlie Scott before the series, a trade that shaped both teams.",
+          "text": "Hakeem's quadruple-double came in a comfortable Houston victory over Milwaukee.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
-            "quote": "including trading Westphal to Phoenix for Charlie Scott"
+            "url": "https://en.wikipedia.org/wiki/Hakeem_Olajuwon",
+            "quote": "120–94 win over the Milwaukee Bucks"
           }
         },
         {
-          "text": "The Celtics faced Cleveland's 'Miracle of Richfield' team before reaching the Finals.",
+          "text": "He led the entire NBA in blocked shots that season, averaging 4.6 a night.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
-            "quote": "the \"Miracle of Richfield\" Cleveland Cavaliers"
+            "url": "https://en.wikipedia.org/wiki/Hakeem_Olajuwon",
+            "quote": "led the league in blocks by averaging 4.6 per game"
           }
         },
         {
-          "text": "The opposing Suns made the championship series despite entering the playoffs from the West's third seed.",
+          "text": "He also led the league in rebounds during that same remarkable defensive season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
-            "quote": "3 x-Phoenix Suns 42 40 .512"
+            "url": "https://en.wikipedia.org/wiki/Hakeem_Olajuwon",
+            "quote": "He won the NBA rebounding crown"
           }
         }
       ]

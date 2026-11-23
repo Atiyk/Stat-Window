@@ -482,9 +482,11 @@
       "era": "2020s",
       "steps": 65,
       "day": "2026-11-26",
-      "notBefore": "2026-12-03",
+      "notBefore": "2026-12-04",
       "leaks": [
-        "nba-butler23-56"
+        "nba-butler23-56",
+        "nba-luka22-knicks-triple-rebounds",
+        "nba-jokic23-finals-g3-rebounds"
       ]
     },
     "nba-stockton90-apg": {
@@ -562,12 +564,12 @@
       "day": "2026-11-28",
       "notBefore": "2026-11-29"
     },
-    "nba-finals09-g2-q1": {
+    "nba-giannis21-finals-g6-blocks": {
       "tier": "hard",
-      "family": "points-period",
-      "franchise": null,
-      "era": "2000s",
-      "steps": 55,
+      "family": "blocks-game",
+      "franchise": "MIL",
+      "era": "2020s",
+      "steps": 12,
       "day": "2026-11-28",
       "notBefore": "2026-11-29"
     },
@@ -691,23 +693,28 @@
         "nba-magic09-kings-threes"
       ]
     },
-    "nba-miller92-57": {
+    "nba-rose11-mvp-youngest-age": {
       "tier": "medium",
-      "family": "points-game",
-      "franchise": "IND",
-      "era": "1990s",
-      "steps": 50,
+      "family": "age",
+      "franchise": "CHI",
+      "era": "2010s",
+      "steps": 20,
       "day": "2026-12-01",
       "notBefore": "2026-12-02"
     },
-    "nba-oscar62-assists": {
+    "nba-luka22-knicks-triple-rebounds": {
       "tier": "hard",
-      "family": "assists-season",
-      "franchise": "SAC",
-      "era": "1960s",
-      "steps": 170,
+      "family": "rebounds-game",
+      "franchise": "DAL",
+      "era": "2020s",
+      "steps": 32,
       "day": "2026-12-01",
-      "notBefore": "2026-12-02"
+      "notBefore": "2027-01-21",
+      "leaks": [
+        "nba-murray23-finals-apg",
+        "nba-jokic23-playoff-triple-doubles",
+        "nba-jokic23-finals-g3-rebounds"
+      ]
     },
     "nba-mcgrady04-35-seconds": {
       "tier": "hard",
@@ -796,14 +803,19 @@
       "day": "2026-12-03",
       "notBefore": "2026-12-04"
     },
-    "nba-robinson20-season-ppg": {
+    "nba-jokic23-finals-g3-rebounds": {
       "tier": "hard",
-      "family": "scoring-average",
-      "franchise": "MIA",
-      "era": "2010s",
-      "steps": 240,
+      "family": "rebounds-game",
+      "franchise": "DEN",
+      "era": "2020s",
+      "steps": 30,
       "day": "2026-12-03",
-      "notBefore": "2026-12-04"
+      "notBefore": "2027-01-21",
+      "leaks": [
+        "nba-murray23-finals-apg",
+        "nba-jokic23-playoff-triple-doubles",
+        "nba-luka22-knicks-triple-rebounds"
+      ]
     },
     "nba-bibby02-regular-apg": {
       "tier": "hard",
@@ -835,12 +847,12 @@
       "day": "2026-12-04",
       "notBefore": "2026-12-05"
     },
-    "nba-jojo76-finals-points": {
+    "nba-hakeem90-quadruple-blocks": {
       "tier": "medium",
-      "family": "points-series",
-      "franchise": "BOS",
-      "era": "1970s",
-      "steps": 150,
+      "family": "blocks-game",
+      "franchise": "HOU",
+      "era": "1980s",
+      "steps": 16,
       "day": "2026-12-04",
       "notBefore": "2026-12-05"
     },
@@ -1451,7 +1463,8 @@
       "day": "2026-12-16",
       "notBefore": "2026-12-20",
       "leaks": [
-        "nba-giannis21-g6-ft"
+        "nba-giannis21-g6-ft",
+        "nba-giannis21-finals-g6-blocks"
       ]
     },
     "nba-jokic-draft-pick": {
@@ -4007,6 +4020,51 @@
       "steps": 48,
       "day": null,
       "notBefore": "2027-01-28"
+    },
+    "nba-finals09-g2-q1": {
+      "tier": "hard",
+      "family": "points-period",
+      "franchise": null,
+      "era": "2000s",
+      "steps": 55,
+      "day": null,
+      "notBefore": "2026-11-29"
+    },
+    "nba-miller92-57": {
+      "tier": "medium",
+      "family": "points-game",
+      "franchise": "IND",
+      "era": "1990s",
+      "steps": 50,
+      "day": null,
+      "notBefore": "2026-12-02"
+    },
+    "nba-oscar62-assists": {
+      "tier": "hard",
+      "family": "assists-season",
+      "franchise": "SAC",
+      "era": "1960s",
+      "steps": 170,
+      "day": null,
+      "notBefore": "2026-12-02"
+    },
+    "nba-robinson20-season-ppg": {
+      "tier": "hard",
+      "family": "scoring-average",
+      "franchise": "MIA",
+      "era": "2010s",
+      "steps": 240,
+      "day": null,
+      "notBefore": "2026-12-04"
+    },
+    "nba-jojo76-finals-points": {
+      "tier": "medium",
+      "family": "points-series",
+      "franchise": "BOS",
+      "era": "1970s",
+      "steps": 150,
+      "day": null,
+      "notBefore": "2026-12-05"
     }
   },
   "reserves": [
@@ -6187,6 +6245,261 @@
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
             "quote": "The Magic would go on to lose to the Los Angeles Lakers in the NBA Finals in five games."
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-finals09-g2-q1",
+      "sport": "NBA",
+      "prompt": "The Lakers and Magic set a Finals record low for combined first-quarter points in Game 2 of 2009. What was it?",
+      "context": "2009 NBA Finals · Game 2 · at Los Angeles",
+      "answer": 30,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 55,
+      "step": 1,
+      "note": "30.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+        "quote": "setting a record-low for combined score (30) in the first quarter of an NBA Finals game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Rashard Lewis carried almost all of Orlando's second-quarter scoring after the slow opening.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+            "quote": "Rashard Lewis kept the Magic in the game, scoring 18 of the team's 20 points"
+          }
+        },
+        {
+          "text": "Hedo Türkoğlu briefly thought he had hit a three, until replay showed his foot on the line.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+            "quote": "replay showed that his foot was on the line"
+          }
+        },
+        {
+          "text": "Courtney Lee missed a late layup attempt that could have transformed the entire series.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+            "quote": "forced Courtney Lee to miss an awkward layup shot"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-miller92-57",
+      "sport": "NBA",
+      "prompt": "What was Reggie Miller's career high in points?",
+      "context": "Pacers vs Charlotte Hornets · November 28, 1992",
+      "answer": 57,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 40,
+      "max": 90,
+      "step": 1,
+      "note": "57.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+        "quote": "he scored a career-high 57 points against the Charlotte Hornets in a 134–122 win"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Pacers fans booed the draft selection that brought Miller to Indiana; they had wanted hometown favorite Steve Alford.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+            "quote": "fans watching the 1987 NBA draft booed Pacers President Donnie Walsh for the selection"
+          }
+        },
+        {
+          "text": "Miller became the Pacers' primary scoring option after Indiana traded Chuck Person in the offseason.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+            "quote": "After Chuck Person was traded from the Pacers during the 1992 offseason"
+          }
+        },
+        {
+          "text": "Years later, Jermaine O'Neal stopped scoring late in a big night rather than surpass his veteran teammate's franchise mark.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+            "quote": "left the game with 1:43 remaining to preserve Miller's 57-point record"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-oscar62-assists",
+      "sport": "NBA",
+      "prompt": "Oscar Robertson broke Bob Cousy's single-season assist record of 715. How many did he log?",
+      "context": "Cincinnati Royals · 1961–62",
+      "answer": 899,
+      "unit": {
+        "singular": "assist",
+        "plural": "assists"
+      },
+      "min": 200,
+      "max": 1050,
+      "step": 5,
+      "note": "899.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+        "quote": "He broke the assists record by Bob Cousy, who had recorded 715 assists two seasons earlier, by logging 899"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Robertson's Royals reached the 1962 playoffs but were eliminated by Detroit in the first round.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+            "quote": "The Royals earned a berth to the 1962 NBA playoffs; however, they were eliminated in the first round"
+          }
+        },
+        {
+          "text": "His 1961–62 season also featured a triple-double average in points, rebounds and assists.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+            "quote": "Robertson became the first player in NBA history to average a triple-double for an entire season"
+          }
+        },
+        {
+          "text": "Two seasons later, Robertson won the regular-season MVP award while playing for Cincinnati.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+            "quote": "He won the NBA MVP award and became the only player other than"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-robinson20-season-ppg",
+      "sport": "NBA",
+      "prompt": "How many points per game did Duncan Robinson average for the 2020 Heat?",
+      "context": "Miami · breakout season · regular games",
+      "answer": 13.5,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 5,
+      "max": 29,
+      "step": 0.1,
+      "note": "13.5 points per game from the sharpshooter.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+        "quote": "Duncan Robinson | SG | 73 | 68 | 2,166 | 232 | 102 | 35 | 19 | 983 | 29.7 | 3.2 | 1.4 | .5 | .3 | 13.5"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Robinson appeared in all seventy-three of Miami's scheduled games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Duncan Robinson | SG | 73 | 68"
+          }
+        },
+        {
+          "text": "He started sixty-eight games in his breakout season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Duncan Robinson | SG | 73 | 68"
+          }
+        },
+        {
+          "text": "Robinson collected 232 rebounds and 102 assists.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
+            "quote": "Duncan Robinson | SG | 73 | 68 | 2,166 | 232 | 102"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-jojo76-finals-points",
+      "sport": "NBA",
+      "prompt": "Jo Jo White was 1976 Finals MVP. How many total points did he score in the six games?",
+      "context": "1976 NBA Finals · six games vs Phoenix",
+      "answer": 130,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 30,
+      "max": 180,
+      "step": 1,
+      "note": "130.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
+        "quote": "Jo Jo White scored 15 points, giving him 130 points in six games, and was named the series MVP."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Boston had dealt Paul Westphal to Phoenix for Charlie Scott before the series, a trade that shaped both teams.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
+            "quote": "including trading Westphal to Phoenix for Charlie Scott"
+          }
+        },
+        {
+          "text": "The Celtics faced Cleveland's 'Miracle of Richfield' team before reaching the Finals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
+            "quote": "the \"Miracle of Richfield\" Cleveland Cavaliers"
+          }
+        },
+        {
+          "text": "The opposing Suns made the championship series despite entering the playoffs from the West's third seed.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
+            "quote": "3 x-Phoenix Suns 42 40 .512"
           }
         }
       ]

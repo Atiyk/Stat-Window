@@ -58,103 +58,103 @@
       ]
     },
     {
-      "id": "nba-miller92-57",
+      "id": "nba-rose11-mvp-youngest-age",
       "sport": "NBA",
-      "prompt": "What was Reggie Miller's career high in points?",
-      "context": "Pacers vs Charlotte Hornets · November 28, 1992",
-      "answer": 57,
+      "prompt": "How old was Derrick Rose when he won the NBA's MVP award in 2011?",
+      "context": "Chicago Bulls · 2010–11 MVP season",
+      "answer": 22,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "year old",
+        "plural": "years old"
       },
-      "min": 40,
-      "max": 90,
+      "min": 18,
+      "max": 38,
       "step": 1,
-      "note": "57.",
+      "note": "Just 22. Chicago's hometown star became the youngest MVP in league history.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-        "quote": "he scored a career-high 57 points against the Charlotte Hornets in a 134–122 win"
+        "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+        "quote": "At 22 years and 6 months old, Rose also became the youngest player"
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-22",
         "by": "Stat Window editorial"
       },
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Pacers fans booed the draft selection that brought Miller to Indiana; they had wanted hometown favorite Steve Alford.",
+          "text": "Chicago finished with the NBA's best record in Rose's MVP season: 62–20.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "fans watching the 1987 NBA draft booed Pacers President Donnie Walsh for the selection"
+            "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+            "quote": "league leading record of 62–20"
           }
         },
         {
-          "text": "Miller became the Pacers' primary scoring option after Indiana traded Chuck Person in the offseason.",
+          "text": "At that time, Michael Jordan was the only other Bulls player to have won league MVP.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "After Chuck Person was traded from the Pacers during the 1992 offseason"
+            "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+            "quote": "joining Jordan as the only players"
           }
         },
         {
-          "text": "Years later, Jermaine O'Neal stopped scoring late in a big night rather than surpass his veteran teammate's franchise mark.",
+          "text": "Rose broke an age record previously held by Wes Unseld.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "left the game with 1:43 remaining to preserve Miller's 57-point record"
+            "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+            "quote": "formerly the youngest MVP"
           }
         }
       ]
     },
     {
-      "id": "nba-oscar62-assists",
+      "id": "nba-luka22-knicks-triple-rebounds",
       "sport": "NBA",
-      "prompt": "Oscar Robertson broke Bob Cousy's single-season assist record of 715. How many did he log?",
-      "context": "Cincinnati Royals · 1961–62",
-      "answer": 899,
+      "prompt": "In Luka's historic 60-point triple-double against the Knicks, how many rebounds did he pull down?",
+      "context": "Dallas Mavericks · December 2022",
+      "answer": 21,
       "unit": {
-        "singular": "assist",
-        "plural": "assists"
+        "singular": "rebound",
+        "plural": "rebounds"
       },
-      "min": 200,
-      "max": 1050,
-      "step": 5,
-      "note": "899.",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "note": "21 boards, to go with 60 points and 10 assists in an impossible comeback.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
-        "quote": "He broke the assists record by Bob Cousy, who had recorded 715 assists two seasons earlier, by logging 899"
+        "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87",
+        "quote": "points (60) and rebounds (21)"
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-22",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Robertson's Royals reached the 1962 playoffs but were eliminated by Detroit in the first round.",
+          "text": "Dallas escaped with an overtime victory over the Knicks after a remarkable rally.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
-            "quote": "The Royals earned a berth to the 1962 NBA playoffs; however, they were eliminated in the first round"
+            "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87",
+            "quote": "126–121 victory over the New York Knicks"
           }
         },
         {
-          "text": "His 1961–62 season also featured a triple-double average in points, rebounds and assists.",
+          "text": "This was the first 60-point, 20-rebound triple-double in league history.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
-            "quote": "Robertson became the first player in NBA history to average a triple-double for an entire season"
+            "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87",
+            "quote": "first player in NBA history to record a 60-point, 20-rebound triple-double"
           }
         },
         {
-          "text": "Two seasons later, Robertson won the regular-season MVP award while playing for Cincinnati.",
+          "text": "Luka also eclipsed Dirk Nowitzki's old Mavericks single-game scoring record.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
-            "quote": "He won the NBA MVP award and became the only player other than"
+            "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87",
+            "quote": "previously held by Nowitzki (53)"
           }
         }
       ]

@@ -160,52 +160,52 @@
       ]
     },
     {
-      "id": "nba-finals09-g2-q1",
+      "id": "nba-giannis21-finals-g6-blocks",
       "sport": "NBA",
-      "prompt": "The Lakers and Magic set a Finals record low for combined first-quarter points in Game 2 of 2009. What was it?",
-      "context": "2009 NBA Finals · Game 2 · at Los Angeles",
-      "answer": 30,
+      "prompt": "In Milwaukee's 2021 title clincher, how many shots did Giannis block?",
+      "context": "Milwaukee Bucks · 2021 Finals Game 6",
+      "answer": 5,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "block",
+        "plural": "blocks"
       },
       "min": 0,
-      "max": 55,
+      "max": 12,
       "step": 1,
-      "note": "30.",
+      "note": "Five blocks helped deliver Milwaukee's first title in half a century.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-        "quote": "setting a record-low for combined score (30) in the first quarter of an NBA Finals game"
+        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+        "quote": "14 rebounds and five blocks"
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-22",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Rashard Lewis carried almost all of Orlando's second-quarter scoring after the slow opening.",
+          "text": "Milwaukee captured this championship after coming back from a 2–0 Finals deficit.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-            "quote": "Rashard Lewis kept the Magic in the game, scoring 18 of the team's 20 points"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "come back from a 2–0 deficit in the Finals"
           }
         },
         {
-          "text": "Hedo Türkoğlu briefly thought he had hit a three, until replay showed his foot on the line.",
+          "text": "The deciding game was tied after the third quarter before Milwaukee pulled away.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-            "quote": "replay showed that his foot was on the line"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "tied at 77 after three quarters"
           }
         },
         {
-          "text": "Courtney Lee missed a late layup attempt that could have transformed the entire series.",
+          "text": "The Bucks had not won an NBA title since the Kareem Abdul-Jabbar and Oscar Robertson era.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-            "quote": "forced Courtney Lee to miss an awkward layup shot"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "first championship since 1971"
           }
         }
       ]

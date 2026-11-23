@@ -1,29 +1,29 @@
 {
   "date": "2026-12-10",
   "theme": {
-    "title": "Shaq and Kobe's three-peat",
-    "subtitle": "Los Angeles Lakers, 2000–2002",
-    "recap": "Shaquille O'Neal dominated three straight Finals, and the 2001 Lakers lost just once in the playoffs."
+    "title": "The Numbers Game",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-lakers00-wins",
+      "id": "nba-sonics79-season-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 1999–2000 Lakers win?",
-      "context": "Los Angeles Lakers · 1999–2000 · 82 games",
-      "answer": 67,
+      "prompt": "How many regular-season games did Seattle win on its 1979 title run?",
+      "context": "Seattle SuperSonics · 1978–79 season",
+      "answer": 52,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 28,
-      "max": 82,
+      "min": 22,
+      "max": 90,
       "step": 1,
-      "note": "67–15.",
+      "note": "52 wins under coach Lenny Wilkens.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-        "quote": "They posted winning streaks of 11, 16, and 19 en route to a 67–15 record"
+        "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+        "quote": "Record | 52–30 (.634)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The Lakers hired Phil Jackson shortly after the Spurs swept them out of the previous postseason.",
+          "text": "Coach Lenny Wilkens guided the Seattle team from the Kingdome sidelines.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-            "quote": "Twenty-four days after being swept by the eventual league champion, the Lakers signed Phil Jackson as head coach"
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "Head coach | Lenny Wilkens"
           }
         },
         {
-          "text": "Jackson installed the triangle offense around Shaquille O'Neal and Kobe Bryant, borrowing the system from his Bulls years.",
+          "text": "Finals MVP Dennis Johnson also made the All-Defensive First Team.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-            "quote": "Jackson, famous for coaching Michael Jordan and the six-time champion Chicago Bulls, would build his triangle offense"
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "Dennis Johnson, NBA All-Defensive First Team"
           }
         },
         {
-          "text": "This was the Lakers' inaugural season playing home games at Staples Center, their newly opened arena.",
+          "text": "Seattle beat Washington in the Finals after losing to the Bullets the previous year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-            "quote": "Another huge change for the Lakers was that it was their inaugural season at the Staples Center"
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "The Sonics would go on to avenge their NBA Finals loss and defeat the Bullets"
           }
         }
       ]
     },
     {
-      "id": "nba-shaq00-finals-ppg",
+      "id": "nba-jordan93-g4-55",
       "sport": "NBA",
-      "prompt": "Shaquille O'Neal averaged how many points in the 2000 Finals?",
-      "context": "2000 NBA Finals · six games vs Indiana",
-      "answer": 38,
+      "prompt": "How many points did Michael Jordan score in Game 4 of the 1993 Finals against Phoenix?",
+      "context": "1993 NBA Finals · Game 4 · Chicago Stadium",
+      "answer": 55,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 26,
-      "max": 54,
-      "step": 0.1,
-      "note": "38.0, plus 16.7 rebounds a game.",
+      "min": 35,
+      "max": 85,
+      "step": 1,
+      "note": "55 at Chicago Stadium.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-        "quote": "putting up 38.0 points, 16.7 rebounds, and 2.7 blocks per game"
+        "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+        "quote": "In Game 4, Michael Jordan was unstoppable, scoring 55 points at Chicago Stadium"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Indiana was making its first NBA Finals appearance, with Larry Bird coaching the Pacers against Los Angeles.",
+          "text": "Jordan faced reigning league MVP Charles Barkley, who had lifted the Suns to the league's best record.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-            "quote": "This marked Indiana's first NBA Finals appearance"
+            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+            "quote": "winners of 62 games and led by regular season MVP Charles Barkley"
           }
         },
         {
-          "text": "Shaq swept regular-season MVP, All-Star Game MVP and Finals MVP honors in the same calendar year.",
+          "text": "Scott Williams joked that he and fellow North Carolina alumnus Jordan had combined for an absurd scoring total.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-            "quote": "one of only three players to win NBA MVP, NBA All-Star Game MVP and NBA Finals MVP awards in the same year"
+            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+            "quote": "Scott Williams, who like MJ played his college basketball at UNC"
           }
         },
         {
-          "text": "The Lakers' victory ended a championship drought stretching back to the Showtime era.",
+          "text": "Earlier in the series, Phoenix had won a marathon triple-overtime game at Chicago Stadium.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-            "quote": "to win their first NBA championship since 1988 and their twelfth overall"
+            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+            "quote": "The Phoenix Suns won Game 3 in triple overtime"
           }
         }
       ]
     },
     {
-      "id": "nba-iverson01-g1",
+      "id": "nba-jazz98-g3-54",
       "sport": "NBA",
-      "prompt": "Allen Iverson handed the 2001 Lakers their only playoff loss in Finals Game 1. How many points did he score?",
-      "context": "2001 NBA Finals · Game 1 · at Los Angeles",
-      "answer": 48,
+      "prompt": "Utah lost Game 3 of the 1998 Finals by 42 points. How many points did the Jazz score?",
+      "context": "1998 NBA Finals · Game 3 · at Chicago",
+      "answer": 54,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 32,
-      "max": 72,
+      "min": 30,
+      "max": 105,
       "step": 1,
-      "note": "48, with five steals.",
+      "note": "54, in a 96–54 loss.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Los_Angeles_Lakers_season",
-        "quote": "Iverson scored 48 points along with 5 steals"
+        "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
+        "quote": "In a 96–54 loss, the Jazz set the record for the 42-point loss in Finals history"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Iverson's overtime step-back over Tyronn Lue produced the famous image of him stepping over his fallen defender.",
+          "text": "Chicago's entire roster eventually scored in the rout, including backup center Bill Wennington late.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "he stepped over Lue after hitting the shot"
+            "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
+            "quote": "Every player on the Bulls roster scored at least once"
           }
         },
         {
-          "text": "Philadelphia survived despite trailing early, after Los Angeles opened with a long unanswered scoring run.",
+          "text": "Utah had beaten Chicago in both regular-season meetings and entered the championship series confident.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "Scoring 16 straight points, the Lakers took a 21–9 lead"
+            "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
+            "quote": "The Jazz had won both regular season meetings with the Bulls"
           }
         },
         {
-          "text": "Dikembe Mutombo's interior work helped Philadelphia hang on as a late missed shot sent the game to overtime.",
+          "text": "The Jazz entered the Finals after sweeping Shaquille O'Neal's Los Angeles Lakers in the West finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "when Dikembe Mutombo missed two free throws and Eric Snow's desperation three-pointer"
+            "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
+            "quote": "the Jazz uneventfully swept the Los Angeles Lakers"
           }
         }
       ]
     },
     {
-      "id": "nba-shaq00-g2-fta",
+      "id": "nba-wilt-100-fga",
       "sport": "NBA",
-      "prompt": "How many free throws did Shaquille O'Neal attempt in Game 2 of the 2000 Finals?",
-      "context": "2000 NBA Finals · Game 2 · vs Indiana",
-      "answer": 39,
+      "prompt": "In his 100-point game, Wilt Chamberlain set a record for field-goal attempts. How many shots did he take?",
+      "context": "Philadelphia vs New York · March 2, 1962",
+      "answer": 63,
       "unit": {
-        "singular": "free-throw attempt",
-        "plural": "free-throw attempts"
+        "singular": "shot",
+        "plural": "shots"
       },
-      "min": 12,
-      "max": 54,
+      "min": 20,
+      "max": 85,
       "step": 1,
-      "note": "39, an NBA record at the time. He made 18.",
+      "note": "63, making 36.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-        "quote": "Shaq shot 39 free throws, making only 18, an NBA record for most free throws attempted"
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "Playing all 48 minutes of the game, Chamberlain set NBA records for field goals attempted (63) and made (36)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Kobe Bryant sprained his ankle and left the game in the opening quarter, forcing the Lakers to adjust immediately.",
+          "text": "That night was never televised; the surviving recording is a radio call from the final quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-            "quote": "Kobe Bryant left the game in the 1st quarter due to a sprained ankle and did not return"
+            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+            "quote": "The game was not televised, and no video footage of the game has been recovered"
           }
         },
         {
-          "text": "Ron Harper replaced the injured Bryant and supplied important scoring in the Lakers' victory.",
+          "text": "New York began intentionally fouling other Warriors to prevent Wilt from getting the ball in the fourth quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-            "quote": "Ron Harper went in for Bryant and scored 21 points for the game"
+            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+            "quote": "the Knicks began fouling other players to keep the ball away from Chamberlain"
           }
         },
         {
-          "text": "A late Shaq pass became a Robert Horry layup and foul shot that protected Los Angeles's narrow lead.",
+          "text": "Wilt set a free-throw record despite his reputation as an unreliable shooter from the line.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-            "quote": "he passed to Robert Horry who converted not only the layup, but the foul shot"
+            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+            "quote": "Chamberlain set five other league records that game, including most free throws made"
           }
         }
       ]
     },
     {
-      "id": "nba-shaq01-g2-blocks",
+      "id": "nba-curry13-knicks-54",
       "sport": "NBA",
-      "prompt": "In Game 2 of the 2001 Finals, Shaq had 28 points, 20 rebounds, nine assists and how many blocks?",
-      "context": "2001 NBA Finals · Game 2 · vs Philadelphia",
-      "answer": 8,
+      "prompt": "Years before his championships, how many points did Steph Curry score against the Knicks at MSG in 2013?",
+      "context": "Stephen Curry · Warriors at Knicks · February 2013",
+      "answer": 54,
       "unit": {
-        "singular": "block",
-        "plural": "blocks"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 0,
-      "max": 13,
+      "min": 5,
+      "max": 75,
       "step": 1,
-      "note": "Eight blocks.",
+      "note": "Curry scored 54 points and made 11 threes, but New York won 109–105.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-        "quote": "O'Neal finished with 28 points, 20 rebounds, nine assists, and eight blocks"
+        "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+        "quote": "On February 27, 2013, Stephen Curry scored 54 points but his Warriors lost to the Knicks, 109–105."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Phil Jackson challenged Shaq to attack shots before tipoff after the center failed to record a block in the opener.",
+          "text": "Steph hit 11 three-pointers against New York.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "Don't be afraid to block a shot!"
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+            "quote": "making a Warriors franchise-record 11 three-pointers on 11 of 13 shooting from 3-point range"
           }
         },
         {
-          "text": "Philadelphia's poor fourth-quarter foul shooting blunted its comeback despite getting close to the Lakers.",
+          "text": "Curry shot 18-for-28 overall.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "the 6 of 16 foul shooting in the fourth quarter put them behind permanently"
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+            "quote": "He shot 18 for 28 from the field"
           }
         },
         {
-          "text": "Bryant opened the rematch aggressively, while other Lakers outside the star duo struggled from the field.",
+          "text": "New York won despite Curry's scoring display.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "all the Lakers besides Bryant and O'Neal were shooting only at 27%"
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+            "quote": "his Warriors lost to the Knicks, 109–105"
           }
         }
       ]

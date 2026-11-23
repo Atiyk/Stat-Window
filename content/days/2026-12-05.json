@@ -1,29 +1,29 @@
 {
   "date": "2026-12-05",
   "theme": {
-    "title": "The 1980s Finals",
-    "subtitle": "Celtics, Lakers and 76ers",
-    "recap": "Boston and Los Angeles traded titles through the decade, including a Game 5 in a Boston Garden with no air conditioning."
+    "title": "Five on the Floor",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-celtics84-wins",
+      "id": "nba-hornets08-season-wins",
       "sport": "NBA",
-      "prompt": "How many wins did Larry Bird's 1983–84 Celtics post in the regular season?",
-      "context": "Boston Celtics · 1983–84 · 82 games",
-      "answer": 62,
+      "prompt": "How many regular-season games did Chris Paul's 2007–08 Hornets win?",
+      "context": "New Orleans · first full season back in the city",
+      "answer": 56,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 25,
+      "min": 23,
       "max": 82,
       "step": 1,
-      "note": "62, the league's best.",
+      "note": "56 wins and a Southwest Division title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
-        "quote": "the Celtics won 62 games to lead the league."
+        "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+        "quote": "Record | 56–26 (.683)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Boston traded for Dennis Johnson because its perimeter defense needed help.",
+          "text": "The Hornets returned full-time to New Orleans after two seasons partly in Oklahoma City.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
-            "quote": "Boston's most crucial addition was Dennis Johnson, whom they acquired from the Phoenix Suns"
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "They returned to New Orleans full-time for the first time since 2004–05"
           }
         },
         {
-          "text": "Kevin McHale was named the league's Sixth Man Award winner that season.",
+          "text": "Byron Scott coached the franchise through its resurgence.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
-            "quote": "first-time all-star and Sixth Man Award winner Kevin McHale"
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Head coach | Byron Scott"
           }
         },
         {
-          "text": "The Celtics survived a seven-game second-round battle with the Knicks.",
+          "text": "The team finished second in the Western Conference standings.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
-            "quote": "the New York Knicks in seven"
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Conference: 2nd (Western)"
           }
         }
       ]
     },
     {
-      "id": "nba-finals84-g5-heat",
+      "id": "nba-magic09-kings-threes",
       "sport": "NBA",
-      "prompt": "Game 5 of the 1984 Finals at Boston Garden had no air conditioning. How hot was it inside, in °F?",
-      "context": "1984 NBA Finals · Game 5 · Boston Garden",
-      "answer": 97,
+      "prompt": "How many three-pointers did Orlando make against Sacramento in January 2009?",
+      "context": "Magic at Kings · long-range barrage",
+      "answer": 23,
       "unit": {
-        "singular": "degree Fahrenheit",
-        "plural": "degrees Fahrenheit"
+        "singular": "made three-pointer",
+        "plural": "made three-pointers"
       },
-      "min": 82,
-      "max": 122,
+      "min": 10,
+      "max": 55,
       "step": 1,
-      "note": "97 °F.",
+      "note": "23 made threes in a high-scoring win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
-        "quote": "as it was played under 97 °F (36 °C) heat, and without any air conditioning"
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+        "quote": "The Magic scored an NBA record 23 three-pointers against the Sacramento Kings"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "An oxygen tank was brought out for Kareem Abdul-Jabbar in sweltering Boston Garden.",
+          "text": "Nine different Orlando players made at least one three-pointer that night.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
-            "quote": "an oxygen tank was provided to give air to an aging Kareem Abdul-Jabbar"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "Nine of the twelve Magic players who played that night scored at least one three pointer"
           }
         },
         {
-          "text": "Referee Hugh Evans became dehydrated and was replaced after fainting in the first half.",
+          "text": "Jameer Nelson hit five threes and JJ Redick added four.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
-            "quote": "Referee Hugh Evans became dehydrated and fainted at one point in the first half."
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "Jameer Nelson (5), JJ Redick (4), Keith Bogans (4)"
           }
         },
         {
-          "text": "Boston's players even skipped their usual sweatpants during pregame warmups.",
+          "text": "The Magic won the game 139–107 in Sacramento.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
-            "quote": "The Celtics did not warm up with their sweat pants on because of extreme heat"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "January 13 @ Sacramento W 139–107"
           }
         }
       ]
     },
     {
-      "id": "nba-floyd87-51",
+      "id": "nba-kobe03-40-streak",
       "sport": "NBA",
-      "prompt": "The 1987 Lakers lost one game in the West playoffs, when Sleepy Floyd scored how many in Oakland?",
-      "context": "1987 West semifinals · Game 4 · Warriors vs Lakers",
-      "answer": 51,
+      "prompt": "In February 2003, Kobe Bryant scored 40 or more in how many consecutive games?",
+      "context": "Los Angeles Lakers · 2002–03",
+      "answer": 9,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 30,
-      "max": 80,
+      "min": 6,
+      "max": 25,
       "step": 1,
-      "note": "51.",
+      "note": "Nine straight, averaging 40.6 for the month.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
-        "quote": "Their only loss was a Sleepy Floyd 51-point outburst in Game 4 in Oakland"
+        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
+        "quote": "posting 40 or more points in nine consecutive games while averaging 40.6 in February"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,100 +134,100 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "The Lakers swept Denver in the opening round, starting their Western playoff run without a loss.",
+          "text": "Kobe averaged an astonishing 40.6 points per game during that February.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
-            "quote": "they swept the Denver Nuggets in the first round"
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
+            "quote": "while averaging 40.6 in February"
           }
         },
         {
-          "text": "Floyd's outburst allowed Golden State to avoid a second-round sweep.",
+          "text": "He also posted career-best averages of 6.9 rebounds and 5.9 assists during the season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
-            "quote": "which allowed the Warriors to avoid a sweep"
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
+            "quote": "He also averaged career-high 6.9 rebounds, 5.9 assists, and 2.2 steals"
           }
         },
         {
-          "text": "Michael Cooper set a playoff mark with six made three-pointers against Boston in the Finals.",
+          "text": "The Lakers' attempt at another title ended against the eventual champion San Antonio Spurs.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
-            "quote": "He hit six 3 pointers, a playoff record"
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
+            "quote": "lost in the semifinals in six games to the eventual champions San Antonio Spurs"
           }
         }
       ]
     },
     {
-      "id": "nba-celtics87-g6-q3",
+      "id": "nba-dumars89-finals-ppg",
       "sport": "NBA",
-      "prompt": "In the 1987 title clincher, the Lakers won the third quarter 30 to what?",
-      "context": "1987 NBA Finals · Game 6 · at Los Angeles",
-      "answer": 12,
+      "prompt": "Joe Dumars was 1989 Finals MVP. What was his scoring average in the series?",
+      "context": "1989 NBA Finals · four games vs Lakers",
+      "answer": 27.3,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 4,
+      "min": 6,
+      "max": 34,
+      "step": 0.1,
+      "note": "27.3 points per game.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+        "quote": "Dumars was named Finals MVP after averaging 27.3 points per game during the series"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Detroit's Finals victory was the first NBA title in the history of the franchise.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+            "quote": "capturing their first NBA championship"
+          }
+        },
+        {
+          "text": "Kareem Abdul-Jabbar retired after the series, ending a remarkable 20-season NBA career.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+            "quote": "Kareem Abdul-Jabbar announced his retirement from the NBA at age 42 at the end of his 20th season"
+          }
+        },
+        {
+          "text": "The team embraced the 'Bad Boys' label as both an identity and an advertising theme.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
+            "quote": "the team, led by Isiah Thomas and Bill Laimbeer, had embraced the title as a marketing brand"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-cp3-2022-perfect-playoff-shots",
+      "sport": "NBA",
+      "prompt": "In Chris Paul's astonishing 2022 perfect-shooting playoff clincher, how many field goals did he make without a miss?",
+      "context": "Chris Paul · Suns at Pelicans · 2022 playoffs",
+      "answer": 14,
+      "unit": {
+        "singular": "field goal",
+        "plural": "field goals"
+      },
+      "min": 1,
       "max": 36,
       "step": 1,
-      "note": "12, an 18-point swing.",
+      "note": "14-for-14. Paul did not miss a single field goal in the playoff closeout.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
-        "quote": "The Lakers outscored the Celtics 30–12 in the third quarter for an 18-point turnaround"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Boston reached the Finals with its bench depleted by injuries to Bill Walton and Scott Wedman.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
-            "quote": "Their bench, an asset of the previous year's team, was decimated by injuries"
-          }
-        },
-        {
-          "text": "Magic Johnson had only four points at halftime before the Lakers seized control.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
-            "quote": "Magic Johnson had only four points at the half"
-          }
-        },
-        {
-          "text": "James Worthy dove for a loose ball, kept it inbounds and fed Magic for a momentum-changing dunk.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
-            "quote": "Worthy went to the floor, batted the ball inbounds to a breaking Magic Johnson"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-wilkes80-g6",
-      "sport": "NBA",
-      "prompt": "Jamaal Wilkes scored a career high in the 1980 title clincher. How many points?",
-      "context": "1980 NBA Finals · Game 6 · at Philadelphia",
-      "answer": 37,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 10,
-      "max": 50,
-      "step": 1,
-      "note": "37, with 10 rebounds.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-        "quote": "Wilkes had a career-high 37 points and added 10 rebounds."
+        "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+        "quote": "Chris Paul scored 33 points on a perfect 14-for-14 from the field (including one three-pointer)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "The Lakers had to play the title clincher without Kareem, whose ankle had been badly sprained.",
+          "text": "His perfect shooting included one three-pointer.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-            "quote": "Kareem Abdul-Jabbar was the league's MVP, but midway through Game 5, the Lakers center suffered a severely sprained ankle"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "including one three-pointer"
           }
         },
         {
-          "text": "Rookie Magic Johnson started at center and played all five positions during the closeout.",
+          "text": "He also did not miss at the free-throw line.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-            "quote": "started the game at center and eventually played all five positions"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "4-for-4 from the free throw line"
           }
         },
         {
-          "text": "Much of the United States saw the decisive game on tape delay while CBS aired regular prime-time shows.",
+          "text": "Booker returned from injury for the clincher.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1980_NBA_Finals",
-            "quote": "So Game 6 was shown at 11:30pm Eastern (10:30pm Central) in all but eight US cities"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "In Devin Booker's return from the hamstring injury that had kept him out the previous three games"
           }
         }
       ]

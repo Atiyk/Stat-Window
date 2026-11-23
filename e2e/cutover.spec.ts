@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
-import { collectErrors, lockAndSettle, NBA_CUTOVER, NBA_DAYS, next, openAt } from './helpers';
+import { collectErrors, lockAndSettle, NBA_CUTOVER, NBA_DAYS, next, openAt, startDailyIfNeeded } from './helpers';
 import { puzzleStartUtcMs } from '../src/engine/daily';
 
 /**
@@ -40,6 +40,7 @@ test('an unfinished mixed-sport run at midnight is finished on its own day, then
   const errors = collectErrors(page);
   await page.clock.install({ time: new Date(puzzleStartUtcMs(NBA_CUTOVER) - 10_000) });
   await page.goto('/');
+  await startDailyIfNeeded(page);
   await expect(page.locator('.question')).toContainText(lastMixed.questions[0]!.prompt);
   await lockAndSettle(page);
   await next(page);
@@ -50,7 +51,11 @@ test('an unfinished mixed-sport run at midnight is finished on its own day, then
   await expect(page.locator('.theme-line')).toHaveCount(0);
   await playOut(page, 1);
   await page.getByRole('button', { name: 'Play today’s puzzle' }).click();
-  await expect(page.locator('.question')).toContainText(firstNba.questions[0]!.prompt);
+  // The previous results screen remains visible while the new day loads.
+  // Wait for the actual destination before asking the Start helper to act;
+  // otherwise it may treat the stale results as a final/no-puzzle screen.
+  await expect(page.locator('.day-label')).toHaveText('No. 3');
+  await startDailyIfNeeded(page);
   await expect(page.locator('.question')).toContainText(firstNba.questions[0]!.prompt);
   expect(errors).toEqual([]);
 });
@@ -58,9 +63,14 @@ test('an unfinished mixed-sport run at midnight is finished on its own day, then
 test('a tab idle on the finished mixed day moves to the NBA day at midnight', async ({ page }) => {
   await page.clock.install({ time: new Date(puzzleStartUtcMs(NBA_CUTOVER) - 10 * 60_000) });
   await page.goto('/');
+  await startDailyIfNeeded(page);
   await expect(page.locator('.question')).toBeVisible();
   await playOut(page);
   await page.clock.fastForward('11:00');
+  await expect(page.locator('.day-label')).toHaveText('No. 3');
+  // Finished run: the new slate opens to a ready gate rather than burning Q1 time.
+  await expect(page.locator('.question')).toHaveCount(0);
+  await startDailyIfNeeded(page);
   await expect(page.locator('.question')).toContainText(firstNba.questions[0]!.prompt);
 });
 
@@ -92,6 +102,7 @@ test('a tab from before a deploy reloads once when its day file has gone, then p
   });
   await page.clock.setFixedTime(new Date(`${NBA_CUTOVER}T12:00:00Z`));
   await page.goto('/');
+  await startDailyIfNeeded(page);
   await expect(page.locator('.question')).toContainText(firstNba.questions[0]!.prompt);
   expect(refused).toBe(1);
 });
@@ -102,7 +113,11 @@ test('a day file that stays missing does not reload forever', async ({ page }) =
   await page.route(/\/assets\/\d{4}-\d{2}-\d{2}-[^/]+\.js$/, (route) => route.fulfill({ status: 404, body: 'gone' }));
   await page.clock.setFixedTime(new Date(`${NBA_CUTOVER}T12:00:00Z`));
   await page.goto('/');
-  await expect(page.locator('.results-title')).toBeVisible();
+  // When this fixture intentionally 404s every day chunk, there is no slate
+  // and therefore no Start gate. Assert the app's failure state directly;
+  // the regular onboarding helper would wait for a button that must not exist.
+  await expect(page.locator('.results-title')).toHaveText('Today’s puzzle is still being checked.');
+  await expect(page.getByRole('button', { name: "Start today's five" })).toHaveCount(0);
   await page.waitForTimeout(1500);
   expect(loads).toBeLessThanOrEqual(2);
 });

@@ -1,29 +1,29 @@
 {
   "date": "2027-01-19",
   "theme": {
-    "title": "Kings without crowns",
-    "subtitle": "Sacramento Kings, 2001–02",
-    "recap": "Webber, Bibby and Stojaković won the league's top seed but fell to the Lakers in a classic West final."
+    "title": "The Numbers Game",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-kings02-regular-wins",
+      "id": "nba-embiid24-70-spurs",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 2001–02 Kings win?",
-      "context": "Sacramento · Webber, Peja and Bibby",
-      "answer": 61,
+      "prompt": "Against San Antonio in January 2024, how many points did Joel Embiid score in his career-best game?",
+      "context": "Joel Embiid · 76ers vs. Spurs · January 2024",
+      "answer": 70,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 30,
-      "max": 82,
+      "min": 20,
+      "max": 100,
       "step": 1,
-      "note": "61 wins, the league's best record.",
+      "note": "70 points, plus 18 rebounds.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-        "quote": "61–21 record (.744 in winning percentage)"
+        "url": "https://en.wikipedia.org/wiki/Joel_Embiid",
+        "quote": "On 22 January, Embiid scored 70 points along with 18 rebounds and five assists"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Sacramento acquired Mike Bibby from the Grizzlies before the season.",
+          "text": "Embiid also had 18 rebounds and five assists.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "the Kings acquired Mike Bibby from the Vancouver Grizzlies on draft day"
+            "url": "https://en.wikipedia.org/wiki/Joel_Embiid",
+            "quote": "18 rebounds and five assists"
           }
         },
         {
-          "text": "Chris Webber missed the first twenty games with an ankle injury.",
+          "text": "Philadelphia won 133–123.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "Chris Webber missing the first 20 games of the regular season"
+            "url": "https://en.wikipedia.org/wiki/Joel_Embiid",
+            "quote": "in a 133–123 win over the San Antonio Spurs"
           }
         },
         {
-          "text": "The division title was the club's first since its Kansas City years.",
+          "text": "He surpassed Wilt's Philadelphia franchise mark.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "first division title since the 1978–79 season"
+            "url": "https://en.wikipedia.org/wiki/Joel_Embiid",
+            "quote": "breaking the Sixers franchise record for most points in a game previously set by Wilt Chamberlain in 1967"
           }
         }
       ]
     },
     {
-      "id": "nba-kings02-home-wins",
+      "id": "nba-harden19-30-streak",
       "sport": "NBA",
-      "prompt": "How many games did the 2002 Kings win at ARCO Arena?",
-      "context": "Sacramento · 41 regular-season home games",
-      "answer": 36,
+      "prompt": "In 2018–19, James Harden scored 30 or more in how many straight games?",
+      "context": "Houston Rockets · December 2018 to February 2019",
+      "answer": 32,
       "unit": {
-        "singular": "home win",
-        "plural": "home wins"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 14,
-      "max": 42,
+      "min": 4,
+      "max": 46,
       "step": 1,
-      "note": "36 home victories in a deafening arena.",
+      "note": "32.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-        "quote": "Sacramento Kings | 61 | 21 | .744 | – | 36–5 | 25–16"
+        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Houston_Rockets_season",
+        "quote": "his 30-point streak which started on December 13, all the way to a surprising 32 games until ending on February 25."
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "The Kings suffered only five home losses during the season.",
+          "text": "An early-season altercation between Chris Paul and Rajon Rondo became part of a turbulent Rockets campaign.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "Sacramento Kings | 61 | 21 | .744 | – | 36–5"
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Houston_Rockets_season",
+            "quote": "including an on-court altercation between rival guards Chris Paul and Rajon Rondo"
           }
         },
         {
-          "text": "Their away record was 25–16, substantially less dominant.",
+          "text": "Trevor Ariza's departure and injuries contributed to Houston's rough start before Harden carried the recovery.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "Sacramento Kings | 61 | 21 | .744 | – | 36–5 | 25–16"
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Houston_Rockets_season",
+            "quote": "injuries among its players, and losing core players including Trevor Ariza"
           }
         },
         {
-          "text": "Sacramento enjoyed a twelve-game winning streak around the new year.",
+          "text": "The Rockets recovered enough to claim another postseason berth, extending their playoff-appearance run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "posted a 12-game winning streak between December and January"
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Houston_Rockets_season",
+            "quote": "they clinched another playoff spot for the 7th straight year"
           }
         }
       ]
     },
     {
-      "id": "nba-webber02-season-ppg",
+      "id": "nba-pippen97-g3-threes",
       "sport": "NBA",
-      "prompt": "How many points per game did Chris Webber score for the 2002 Kings?",
-      "context": "Sacramento · 2001–02 regular season",
-      "answer": 24.5,
+      "prompt": "Scottie Pippen tied the Finals record for threes in Game 3 of 1997. How many did he make?",
+      "context": "1997 NBA Finals · Game 3 · at Utah",
+      "answer": 7,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 13,
-      "max": 47,
-      "step": 0.1,
-      "note": "24.5 points per game despite missed time.",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "note": "Seven, then a Finals record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-        "quote": "Webber averaged 24.5 points, 10.1 rebounds, 4.8 assists"
+        "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
+        "quote": "Scottie Pippen tying a then-Finals record with seven 3-pointers"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,101 +134,100 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Webber also pulled down 10.1 rebounds a game.",
+          "text": "Pippen's long-range clinic still came in a loss because Karl Malone dominated the interior for Utah.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "Webber averaged 24.5 points, 10.1 rebounds, 4.8 assists"
+            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
+            "quote": "Utah was led by Karl Malone, who scored 37 points and had 10 rebounds"
           }
         },
         {
-          "text": "His passing added another 4.8 assists per game.",
+          "text": "The Salt Lake City crowd was so loud that Bulls players covered their ears during the introductions.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "Webber averaged 24.5 points, 10.1 rebounds, 4.8 assists"
+            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
+            "quote": "the Bulls players plugged their ears, due to the loud cheers and fireworks"
           }
         },
         {
-          "text": "He made the All-NBA Second Team that season.",
+          "text": "Chicago nearly erased a big late deficit, but Utah earned its first win of the series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "and was named to the All-NBA Second Team"
+            "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
+            "quote": "Chicago attempted a 4th-quarter comeback, cutting a 24-point deficit down to 7"
           }
         }
       ]
     },
     {
-      "id": "nba-bibby02-regular-apg",
+      "id": "nba-andersen13-fg",
       "sport": "NBA",
-      "prompt": "How many assists per game did Mike Bibby average for the 2002 Kings?",
-      "context": "Sacramento · first season after the Grizzlies trade",
-      "answer": 5,
-      "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
-      },
-      "min": 1,
-      "max": 12,
-      "step": 0.1,
-      "note": "5.0 assists per game as Sacramento's new point guard.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-        "quote": "Mike Bibby | 80 | 80 | 33.2 | .453 | .370 | .803 | 2.8 | 5.0"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Bibby started all eighty regular-season games he played.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "Mike Bibby | 80 | 80 | 33.2"
-          }
-        },
-        {
-          "text": "He averaged 20.3 points in the ensuing playoffs.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "Mike Bibby | 16 | 16 | 41.3 | .444 | .424 | .826 | 3.8 | 5.0 | 1.4 | .2 | 20.3"
-          }
-        },
-        {
-          "text": "His postseason three-point accuracy was 42.4 percent.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "Mike Bibby | 16 | 16 | 41.3 | .444 | .424 | .826"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-peja02-regular-three-pct",
-      "sport": "NBA",
-      "prompt": "What percent of his threes did Peja Stojaković make in 2001–02?",
-      "context": "Sacramento · regular season · one decimal",
-      "answer": 41.6,
+      "prompt": "Chris \"Birdman\" Andersen shot what percentage from the field in the 2013 playoffs?",
+      "context": "Miami Heat · 2013 playoffs",
+      "answer": 80.7,
       "unit": {
         "singular": "percent",
         "plural": "percent"
       },
-      "min": 24,
-      "max": 62,
-      "step": 0.1,
-      "note": "41.6 percent from deep.",
+      "min": 55,
+      "max": 100,
+      "step": 0.5,
+      "note": "80.7%, 46 of 57.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-        "quote": "Peja Stojaković | 71 | 71 | 37.3 | .484 | .416 | .876",
-        "derivation": "Convert .416 source three-point percentage into 41.6% by multiplying by 100."
+        "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+        "quote": "Chris \"Birdman\" Andersen shot 80.7 percent (46-of-57) from the field in the 2013 postseason"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Birdman arrived on a short ten-day contract in January rather than starting the year on Miami's roster.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+            "quote": "January 20: Chris Andersen signed to a ten-day contract"
+          }
+        },
+        {
+          "text": "Birdman's nickname came from his wingspan and shot-blocking style, not from his colorful tattoos.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Chris_Andersen",
+            "quote": "Nicknamed \"Birdman\" for his wingspan and blocking prowess"
+          }
+        },
+        {
+          "text": "In the Finals against San Antonio, Andersen contributed off the bench rather than starting a game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
+            "quote": "Chris Andersen  | 5  | 0  | 14.2"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-herro20-bubble-ecf-g4-thirtyseven",
+      "sport": "NBA",
+      "prompt": "As a rookie in the 2020 bubble East finals against Boston, how many points did Tyler Herro explode for in Game 4?",
+      "context": "Tyler Herro · Heat vs Celtics · 2020 East finals Game 4",
+      "answer": 37,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 90,
+      "step": 1,
+      "note": "37 points from a 20-year-old rookie. Herro helped power Miami's surprise Finals run.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Tyler_Herro",
+        "quote": "In game 4 of the 2020 Eastern Conference Finals, he scored a career-high 37 points"
       },
       "verified": {
         "on": "2026-11-16",
@@ -237,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Peja made 129 three-pointers that regular season.",
+          "text": "Herro was just 20 years and 247 days old.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "led the Kings with 129 three-point field goals"
+            "url": "https://en.wikipedia.org/wiki/Tyler_Herro",
+            "quote": "the youngest player (at 20 years, 247 days old) to score 30-plus points"
           }
         },
         {
-          "text": "He converted 87.6 percent of his free throws.",
+          "text": "He was the first player born in the 2000s to play in an NBA Finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "Peja Stojaković | 71 | 71 | 37.3 | .484 | .416 | .876"
+            "url": "https://en.wikipedia.org/wiki/Tyler_Herro",
+            "quote": "Herro became the first player born in the 2000s to play in an NBA Finals."
           }
         },
         {
-          "text": "Stojaković started every one of his seventy-one appearances.",
+          "text": "He made the NBA All-Rookie Second Team in 2020.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-            "quote": "Peja Stojaković | 71 | 71"
+            "url": "https://en.wikipedia.org/wiki/Tyler_Herro",
+            "quote": "he was named to the 2019–20 NBA All-Rookie Second Team"
           }
         }
       ]

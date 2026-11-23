@@ -1,29 +1,29 @@
 {
   "date": "2026-12-14",
   "theme": {
-    "title": "Houston's high-volume years",
-    "subtitle": "Rockets, 2007–2019",
-    "recap": "Houston won 65 games, set a playoff record for missed threes and watched James Harden score 30 night after night."
+    "title": "Around the League",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-rockets18-wins",
+      "id": "nba-lebron13-g7",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 2017–18 Rockets win?",
-      "context": "Houston Rockets · 2017–18 · 82 games",
-      "answer": 65,
+      "prompt": "How many points did LeBron James score in Game 7 of the 2013 Finals?",
+      "context": "2013 NBA Finals · Game 7 · vs San Antonio",
+      "answer": 37,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 20,
-      "max": 82,
+      "min": 15,
+      "max": 65,
       "step": 1,
-      "note": "65.",
+      "note": "37, with five threes and 12 rebounds.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
-        "quote": "with their 59th win against the New Orleans Pelicans, eventually totalling 65 wins on the season"
+        "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
+        "quote": "LeBron James led the Miami Heat with 37 points, including five 3-pointers, and grabbed 12 rebounds"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The Rockets added Chris Paul from the Clippers that summer, pairing him with James Harden for a title push.",
+          "text": "A short Tim Duncan miss and a missed tip helped Miami survive San Antonio's late rally in the decider.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
-            "quote": "The Rockets acquired star point guard Chris Paul from the Los Angeles Clippers"
+            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
+            "quote": "Duncan, guarded by Shane Battier, missed a shot under the basket and a follow-up tip-in attempt"
           }
         },
         {
-          "text": "Houston clinched the West's top seed for the first time in franchise history, finishing ahead of Golden State.",
+          "text": "LeBron's late jumper finally secured Miami's repeat championship as the Spurs tried to steal the decider.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
-            "quote": "the Rockets clinched the No. 1 seed for the first time in franchise history"
+            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
+            "quote": "James went on to hit a 17-foot jumper that secured the victory"
           }
         },
         {
-          "text": "Before facing the Warriors, Houston eliminated Minnesota and Utah in five games apiece.",
+          "text": "Shane Battier's outside shooting helped cover scoreless games from both Chris Bosh and Ray Allen.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
-            "quote": "they defeated the Utah Jazz in five games"
+            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
+            "quote": "Battier scored 18 points on six 3-pointers to offset scoreless nights by Bosh and Allen"
           }
         }
       ]
     },
     {
-      "id": "nba-harden19-30-streak",
+      "id": "nba-spurs90-improvement",
       "sport": "NBA",
-      "prompt": "In 2018–19, James Harden scored 30 or more in how many straight games?",
-      "context": "Houston Rockets · December 2018 to February 2019",
-      "answer": 32,
+      "prompt": "With rookie David Robinson in 1989–90, the Spurs improved by how many wins over the year before?",
+      "context": "San Antonio Spurs · 1989–90",
+      "answer": 35,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 4,
-      "max": 46,
+      "min": 15,
+      "max": 65,
       "step": 1,
-      "note": "32.",
+      "note": "35, going 56–26.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Houston_Rockets_season",
-        "quote": "his 30-point streak which started on December 13, all the way to a surprising 32 games until ending on February 25."
+        "url": "https://en.wikipedia.org/wiki/David_Robinson",
+        "quote": "The Spurs leaped to a record of 56–26 for a remarkable 35 game improvement"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,151 +83,151 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "An early-season altercation between Chris Paul and Rajon Rondo became part of a turbulent Rockets campaign.",
+          "text": "Robinson won Rookie of the Year unanimously after transforming San Antonio's fortunes.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Houston_Rockets_season",
-            "quote": "including an on-court altercation between rival guards Chris Paul and Rajon Rondo"
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "he was unanimously named the NBA Rookie of the Year"
           }
         },
         {
-          "text": "Trevor Ariza's departure and injuries contributed to Houston's rough start before Harden carried the recovery.",
+          "text": "Even as an NBA star, Robinson arrived only after completing his initial Navy service.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Houston_Rockets_season",
-            "quote": "injuries among its players, and losing core players including Trevor Ariza"
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "Robinson was commissioned in the Naval Reserve and was required to serve only an initial active-duty obligation of two years"
           }
         },
         {
-          "text": "The Rockets recovered enough to claim another postseason berth, extending their playoff-appearance run.",
+          "text": "His breakout was immortalized in a Sega game titled David Robinson's Supreme Court.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Houston_Rockets_season",
-            "quote": "they clinched another playoff spot for the 7th straight year"
+            "url": "https://en.wikipedia.org/wiki/David_Robinson",
+            "quote": "Sega produced a game featuring him entitled David Robinson's Supreme Court"
           }
         }
       ]
     },
     {
-      "id": "nba-rockets18-27-misses",
+      "id": "nba-kerr16-games-missed",
       "sport": "NBA",
-      "prompt": "In Game 7 of the 2018 West finals, Houston set a playoff record by missing how many threes in a row?",
-      "context": "2018 Western Conference finals · Game 7 · vs Golden State",
-      "answer": 27,
-      "unit": {
-        "singular": "missed three",
-        "plural": "missed threes"
-      },
-      "min": 14,
-      "max": 52,
-      "step": 1,
-      "note": "27 straight misses, in a 101–92 loss.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
-        "quote": "set an NBA Playoff record by missing 27 straight 3-point shots"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Houston lost Chris Paul to a right hamstring injury late in Game 5; he missed the rest of the Warriors series.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018_NBA_playoffs",
-            "quote": "Chris Paul suffered a \"right hamstring injury\" in the final minute. He did not play for the rest of the series"
-          }
-        },
-        {
-          "text": "The eventual champion Warriors were pushed to a deciding conference-finals Game 7 by Houston.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
-            "quote": "They lost the conference finals to the eventual NBA champion Golden State Warriors in seven games"
-          }
-        },
-        {
-          "text": "Golden State's win set up a fourth straight NBA Finals meeting with LeBron James's Cavaliers.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018_NBA_playoffs",
-            "quote": "the first time the same two NBA teams met in the NBA Finals four seasons in a row"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-mcgrady04-35-seconds",
-      "sport": "NBA",
-      "prompt": "Tracy McGrady stunned San Antonio in December 2004 by scoring how many points in the final 35 seconds?",
-      "context": "Rockets vs Spurs · December 9, 2004",
-      "answer": 13,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 6,
-      "max": 30,
-      "step": 1,
-      "note": "13.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
-        "quote": "scoring 13 points in the final 35 seconds against the San Antonio Spurs"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Houston acquired McGrady from Orlando in a seven-player deal that also sent Steve Francis and Cuttino Mobley away.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
-            "quote": "McGrady, Juwan Howard, Tyronn Lue, and Reece Gaines were traded to the Houston Rockets as part of a seven-player deal"
-          }
-        },
-        {
-          "text": "His late explosion included consecutive triples, one converted into a four-point play and another to win at the buzzer.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
-            "quote": "one of which was part of a four-point play and the last of which was a game-winner in the final two seconds"
-          }
-        },
-        {
-          "text": "That Rockets team rebounded from a losing start and finished the season fifth in the West.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
-            "quote": "After the All-Star break, Houston rebounded from their slow start, finishing the season with 51 wins"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-rockets08-streak",
-      "sport": "NBA",
-      "prompt": "The 2007–08 Rockets won how many games in a row, then the second-longest streak ever?",
-      "context": "Houston Rockets · 2007–08",
-      "answer": 22,
+      "prompt": "Coach Steve Kerr missed how many games at the start of 2015–16 with a back injury?",
+      "context": "Golden State Warriors · 2015–16 regular season",
+      "answer": 43,
       "unit": {
         "singular": "game",
         "plural": "games"
       },
-      "min": 10,
-      "max": 42,
+      "min": 20,
+      "max": 90,
       "step": 1,
-      "note": "22.",
+      "note": "The first 43 games.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
-        "quote": "the Rockets went on a 22-game winning streak, which was the then-second longest in NBA history"
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "Steve Kerr missed the first 43 regular season games because of a back injury."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Assistant Luke Walton steered Golden State to a remarkable start while Steve Kerr recovered.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "Assistant coach Luke Walton served as interim head coach during Kerr's absence and he led the Warriors to a 39–4 start"
+          }
+        },
+        {
+          "text": "Golden State opened the season with 24 consecutive wins.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "best start to a season (24–0)"
+          }
+        },
+        {
+          "text": "Stephen Curry and Klay Thompson combined to average 52.2 points per game that regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "combining to average 52.2 points per game"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-west08-season-ppg",
+      "sport": "NBA",
+      "prompt": "What was David West's scoring average on the 2007–08 Hornets?",
+      "context": "New Orleans · regular-season offense",
+      "answer": 20.6,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 9,
+      "max": 43,
+      "step": 0.1,
+      "note": "20.6 points per game next to Chris Paul.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+        "quote": "David West | 76 | 76 | 37.8 | .482 | .240 | .850 | 8.9 | 2.3 | .82 | 1.30 | 20.6"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "West grabbed 8.9 rebounds per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "David West | 76 | 76 | 37.8 | .482 | .240 | .850 | 8.9"
+          }
+        },
+        {
+          "text": "He made eighty-five percent of his foul shots.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "David West | 76 | 76 | 37.8 | .482 | .240 | .850"
+          }
+        },
+        {
+          "text": "West scored thirty in the first second-round victory over San Antonio.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "May 3 San Antonio 101–82 West (30)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-jordan92-finals-shrug-first-half-35",
+      "sport": "NBA",
+      "prompt": "In Michael Jordan's famous 1992 Finals 'shrug' game against Portland, how many points did he score before halftime?",
+      "context": "Michael Jordan · Bulls vs Trail Blazers · 1992 Finals",
+      "answer": 35,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "note": "35 first-half points, with a barrage of threes that led to Jordan's iconic shrug.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1992_NBA_Finals",
+        "quote": "Jordan had 35, Baylor had 33"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Yao Ming missed part of Houston's long streak, leaving a patchwork roster to keep winning without its star center.",
+          "text": "Jordan sank six threes before halftime.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
-            "quote": "despite missing Yao Ming during that stretch"
+            "url": "https://en.wikipedia.org/wiki/1992_NBA_Finals",
+            "quote": "six first-half threes (also a record)"
           }
         },
         {
-          "text": "Houston finished fifth in the West and drew a first-round rematch with the Utah Jazz.",
+          "text": "He famously shrugged toward the broadcast table.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
-            "quote": "Houston finished the season as the West's fifth seed, earning them a rematch with the Jazz in the first round"
+            "url": "https://en.wikipedia.org/wiki/1992_NBA_Finals",
+            "quote": "famously shrugged"
           }
         },
         {
-          "text": "McGrady scored forty in the decisive playoff Game 6, but Utah still eliminated Houston.",
+          "text": "Chicago won Game 1 by a wide margin.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
-            "quote": "a strong 40-point and 10-rebound performance from McGrady in the decisive Game 6"
+            "url": "https://en.wikipedia.org/wiki/1992_NBA_Finals",
+            "quote": "122–89 win over the Portland Trail Blazers"
           }
         }
       ]

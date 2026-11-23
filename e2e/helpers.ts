@@ -16,9 +16,26 @@ export const NBA_LAST = at3pm(NBA_DAYS.at(-1)!);
 /** Ten minutes after midnight Eastern on a given day. */
 export const justAfterMidnight = (day: string) => new Date(puzzleStartUtcMs(day) + 10 * 60_000);
 
+/** Shared with legacy browser tests: an intentional Start is now mandatory before Q1. */
+export async function startDailyIfNeeded(page: Page) {
+  const skip = page.getByRole('button', { name: 'Skip tutorial and start' });
+  const start = page.getByRole('button', { name: "Start today's five" });
+  await expect.poll(async () => {
+    if (await skip.isVisible()) return 'skip';
+    if (await start.isVisible()) return 'start';
+    if (await page.locator('.question').isVisible()) return 'playing';
+    // Do not mistake stale previous-day results during async archive navigation
+    // for a finished new navigation; wait for the destination Start gate.
+    return 'waiting';
+  }, { timeout: 5000 }).not.toBe('waiting');
+  if (await skip.isVisible()) await skip.click();
+  else if (await start.isVisible()) await start.click();
+}
+
 export async function openAt(page: Page, when: Date, path = '/') {
   await page.clock.setFixedTime(when);
   await page.goto(path);
+  await startDailyIfNeeded(page);
   await expect(page.locator('.question')).toBeVisible();
 }
 

@@ -1,29 +1,29 @@
 {
   "date": "2027-01-21",
   "theme": {
-    "title": "The beautiful game",
-    "subtitle": "San Antonio Spurs, 2013–14",
-    "recap": "The Spurs answered their painful 2013 Finals defeat with depth, passing and a title-winning rematch."
+    "title": "Courtside Curiosities",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-spurs14-season-wins",
+      "id": "nba-klay15-quarter-37",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 2013–14 champion Spurs win?",
-      "context": "San Antonio · the Beautiful Game title",
-      "answer": 62,
+      "prompt": "In his famous one-quarter scoring explosion against Sacramento, how many points did Klay Thompson score?",
+      "context": "Klay Thompson · Warriors vs. Kings · January 2015",
+      "answer": 37,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 20,
-      "max": 86,
+      "min": 10,
+      "max": 60,
       "step": 1,
-      "note": "62 wins before the rematch with Miami.",
+      "note": "37 points in a single quarter, without missing a shot.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-        "quote": "the best record in the league at 62–20"
+        "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+        "quote": "In the third quarter of that game, he scored an NBA-record 37 points for a single quarter"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "San Antonio entered the season with a then-record ten international players.",
+          "text": "Klay went 13-for-13 from the field in the third quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "an NBA-record ten international players"
+            "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+            "quote": "going 13-for-13 from the field"
           }
         },
         {
-          "text": "The Spurs had lost their first NBA Finals series the prior year.",
+          "text": "He sank nine three-pointers in that quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "marking the first time the Spurs lost in the NBA Finals"
+            "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+            "quote": "including nine three-pointers"
           }
         },
         {
-          "text": "Gregg Popovich led the team as both coach and president.",
+          "text": "He finished with 52 points and 11 threes.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "Head coach | Gregg Popovich"
+            "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+            "quote": "Thompson scored a career-high 52 points, with 11 three-pointers"
           }
         }
       ]
     },
     {
-      "id": "nba-spurs14-march-wins",
+      "id": "nba-suns93-december-win-streak",
       "sport": "NBA",
-      "prompt": "How many games did San Antonio win in its unbeaten March of 2014?",
-      "context": "Spurs · March 2014 · undefeated month",
-      "answer": 16,
+      "prompt": "How many consecutive games did Phoenix win during December in its Barkley MVP season?",
+      "context": "Phoenix Suns · December winning streak",
+      "answer": 14,
       "unit": {
-        "singular": "March win",
-        "plural": "March wins"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 5,
-      "max": 24,
+      "min": 4,
+      "max": 34,
       "step": 1,
-      "note": "16 wins in an unblemished March.",
+      "note": "14 straight wins during an undefeated month.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-        "quote": "an unbeaten month in March (16–0)"
+        "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+        "quote": "posted a 14-game winning streak in December; the team posted a 14–0 record that month"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,151 +83,151 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "The late-season surge continued into the start of April.",
+          "text": "Phoenix started 7–4 before the team caught fire in December.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "a 19-game winning streak from late February to early April"
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "the Suns got off to a 7–4 start to the regular season"
           }
         },
         {
-          "text": "Dallas later stretched the Spurs to seven games in the playoff opener.",
+          "text": "The Suns reached the All-Star break at 38–10.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "defeated the Dallas Mavericks in seven games in the first round"
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "held a 38–10 record at the All-Star break"
           }
         },
         {
-          "text": "San Antonio returned to the Finals to face Miami in a rematch.",
+          "text": "Another 11-game winning streak came between March and April.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "back-to-back Finals appearances, also against the Miami Heat"
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "posted an 11-game winning streak between March and April"
           }
         }
       ]
     },
     {
-      "id": "nba-duncan14-season-rpg",
+      "id": "nba-heat23-wins",
       "sport": "NBA",
-      "prompt": "What was Tim Duncan's rebound average in the 2014 title season?",
-      "context": "San Antonio · regular season · veteran center",
-      "answer": 9.7,
+      "prompt": "How many regular-season games did the 2022–23 Heat win before reaching the Finals?",
+      "context": "Miami Heat · 2022–23 · 82 games",
+      "answer": 44,
       "unit": {
-        "singular": "rebound per game",
-        "plural": "rebounds per game"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 3,
-      "max": 22,
-      "step": 0.1,
-      "note": "9.7 rebounds per game in his later career.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-        "quote": "Tim Duncan | C | 74 | 74 | 2,158 | 721 | 220 | 43 | 139 | 1,119 | 29.2 | 9.7"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Duncan blocked 139 shots during the regular season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "Tim Duncan | C | 74 | 74 | 2,158 | 721 | 220 | 43 | 139"
-          }
-        },
-        {
-          "text": "He started all seventy-four games he played.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "Tim Duncan | C | 74 | 74"
-          }
-        },
-        {
-          "text": "Duncan scored 1,119 points during the season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "Tim Duncan | C | 74 | 74 | 2,158 | 721 | 220 | 43 | 139 | 1,119"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-parker14-season-ppg",
-      "sport": "NBA",
-      "prompt": "How many points per game did Tony Parker score for the 2014 Spurs?",
-      "context": "San Antonio · balanced championship attack",
-      "answer": 16.7,
-      "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
-      },
-      "min": 8,
-      "max": 37,
-      "step": 0.1,
-      "note": "16.7 points per game as part of a deep team.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-        "quote": "Tony Parker | PG | 68 | 68 | 1,997 | 155 | 388 | 36 | 9 | 1,134 | 29.4 | 2.3 | 5.7 | .5 | .1 | 16.7"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Parker played nearly two thousand minutes across sixty-eight appearances.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "Tony Parker | PG | 68 | 68 | 1,997"
-          }
-        },
-        {
-          "text": "He dished out 388 assists in the regular season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "Tony Parker | PG | 68 | 68 | 1,997 | 155 | 388"
-          }
-        },
-        {
-          "text": "Parker's passing average stood at 5.7 assists per game.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "Tony Parker | PG | 68 | 68 | 1,997 | 155 | 388 | 36 | 9 | 1,134 | 29.4 | 2.3 | 5.7"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-diaw14-heat-g4-assists",
-      "sport": "NBA",
-      "prompt": "How many assists did Boris Diaw record in Game 4 of the 2014 Finals?",
-      "context": "Spurs at Miami · a pivotal Finals road win",
-      "answer": 9,
-      "unit": {
-        "singular": "assist",
-        "plural": "assists"
-      },
-      "min": 1,
-      "max": 26,
+      "min": 32,
+      "max": 64,
       "step": 1,
-      "note": "9 assists from the versatile forward.",
+      "note": "44–38, then a run to the Finals as an eighth seed.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-        "quote": "June 12 @ Miami W 107–86 Kawhi Leonard (20) Kawhi Leonard (14) Boris Diaw (9)"
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "They regressed from their 53–29 record the previous season and finished with a record of 44–38"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Miami had to survive the play-in tournament to reach the postseason despite finishing seventh in the East.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Miami had to go through two play-in games to extend their season"
+          }
+        },
+        {
+          "text": "The Heat entered the playoffs with the league's worst scoring average and a negative point differential.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "the only team in the league to qualify for the playoffs with a negative point differential"
+          }
+        },
+        {
+          "text": "Undrafted players including Caleb Martin and Gabe Vincent supplied vital production around the established stars.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "undrafted players such as Martin, Gabe Vincent, Duncan Robinson, and Max Strus"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-wilt67-fta",
+      "sport": "NBA",
+      "prompt": "How many free throws did Wilt Chamberlain attempt in 1966–67?",
+      "context": "Philadelphia 76ers · 1966–67 regular season",
+      "answer": 875,
+      "unit": {
+        "singular": "free-throw attempt",
+        "plural": "free-throw attempts"
+      },
+      "min": 550,
+      "max": 1500,
+      "step": 5,
+      "note": "875.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+        "quote": "his 875 free throw attempts"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Wilt hit a league-record share of his field-goal attempts as his offense shifted toward efficiency.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+            "quote": "Shooting less, he made a league-record 68% of his shots"
+          }
+        },
+        {
+          "text": "Even as he shot less frequently, Wilt still led the league in rebounds that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+            "quote": "while scoring 24 points per game and once again leading the NBA in rebounds"
+          }
+        },
+        {
+          "text": "The league named Wilt its regular-season MVP in the same year Philadelphia captured the title.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+            "quote": "Wilt Chamberlain, NBA Most Valuable Player Award"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-mavs11-heat-finals-g2-comeback-fifteen",
+      "sport": "NBA",
+      "prompt": "Down late in Game 2 of the 2011 Finals against LeBron's Heat, how large a deficit did Dirk's Mavericks erase to win?",
+      "context": "Dallas Mavericks at Miami Heat · 2011 Finals Game 2",
+      "answer": 15,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "note": "15 points. Dirk hit a go-ahead three and then the winning layup to stun Miami, 95–93.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+        "quote": "The Mavs' 15-point comeback was the biggest in an NBA Finals game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "San Antonio won the game by twenty-one points.",
+          "text": "Dirk hit a go-ahead three with under 30 seconds left.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "June 12 @ Miami W 107–86"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "Dirk Nowitzki hit a 3 with 26.7 seconds left to give the Mavericks a 93–90 lead."
           }
         },
         {
-          "text": "Kawhi Leonard led the team with twenty points.",
+          "text": "Nowitzki delivered the winner with his injured left hand.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "June 12 @ Miami W 107–86 Kawhi Leonard (20)"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "Nowitzki then made a driving layup with his injured left hand with 3.6 seconds left"
           }
         },
         {
-          "text": "Leonard also collected fourteen rebounds that night.",
+          "text": "Dwyane Wade's final attempt bounced off the rim.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "June 12 @ Miami W 107–86 Kawhi Leonard (20) Kawhi Leonard (14)"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "Dwyane Wade's potential game-winning 3 hit the back rim at the buzzer"
           }
         }
       ]

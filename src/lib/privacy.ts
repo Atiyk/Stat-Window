@@ -8,7 +8,8 @@
  *   (and never under GPC/DNT); otherwise the results screen asks first.
  * - key: 22 random URL-safe characters, made the first time a score is sent. It is
  *   never put in a URL or sent to analytics; the server only stores a salted hash of
- *   it per day. "Delete my scores" sends it once more, then a new one is made.
+ *   it per day. "Delete my scores" sends it for erasure, then clears it; a new code
+ *   is made only after a future opt-in submission.
  */
 export type ScoreChoice = 'unset' | 'on' | 'off';
 export type Privacy = {
@@ -21,6 +22,8 @@ export type Privacy = {
   done: string[];
   /** The server said this location needs an explicit yes (so "unset" means "not counted"). */
   asked: boolean;
+  /** A DELETE was requested but is not confirmed: block all new submissions until retry succeeds. */
+  deleting?: boolean;
 };
 
 export const PRIVACY_KEY = 'stat-window:privacy:v1';
@@ -29,7 +32,7 @@ const DAY_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 type Store = { getItem(k: string): string | null; setItem(k: string, v: string): void };
 
-const empty = (): Privacy => ({ analytics: 'unset', scores: 'unset', key: null, sent: [], done: [], asked: false });
+const empty = (): Privacy => ({ analytics: 'unset', scores: 'unset', key: null, sent: [], done: [], asked: false, deleting: false });
 /** Submission records live 7 days on the server (plus a grace day), so older days need no tracking. */
 const KEEP_DAYS = 9;
 let memory: Privacy = empty();
@@ -63,6 +66,7 @@ export function loadPrivacy(s: Store | null = storage()): Privacy {
       sent: days(raw.sent),
       done: days(raw.done),
       asked: raw.asked === true,
+      deleting: raw.deleting === true,
     };
   } catch {
     return empty();
@@ -81,6 +85,11 @@ export function savePrivacy(patch: Partial<Privacy>, s: Store | null = storage()
     // Memory only, for the rest of this session.
     unwritable = s;
   }
+  // A storage event does not fire in the tab which made the change.
+  // Let an already-open results screen stop displaying an obsolete percentile
+  // immediately when this tab withdraws consent or begins erasure.
+  if (typeof window !== 'undefined' && typeof window.dispatchEvent === 'function')
+    window.dispatchEvent(new Event('stat-window:privacy-choice'));
   return next;
 }
 
@@ -99,6 +108,24 @@ export function scoreKey(s: Store | null = storage()): string {
   return savePrivacy({ key: newKey() }, s).key!;
 }
 
+/** Never submit a linked score when its erasure code and submission-day ledger
+ * cannot be recovered from persistent browser storage on the next visit.
+ * loadPrivacy() intentionally falls back to memory for UI consent; checking
+ * the underlying stored JSON directly prevents that fallback from making an
+ * ephemeral, non-erasable identifier appear durable.
+ */
+export function hasDurableScoreIdentity(key: string, day: string, s: Store | null = storage()): boolean {
+  if (!s || !KEY_RE.test(key) || !DAY_RE.test(day)) return false;
+  try {
+    const raw = JSON.parse(s.getItem(PRIVACY_KEY) ?? 'null') as Partial<Privacy> | null;
+    return !!raw && typeof raw === 'object' && raw.key === key
+      && raw.scores !== 'off' && raw.deleting !== true
+      && Array.isArray(raw.sent) && raw.sent.includes(day);
+  } catch {
+    return false;
+  }
+}
+
 export function browserSignal(nav: Navigator | undefined = typeof navigator === 'undefined' ? undefined : navigator): boolean {
   if (!nav) return false;
   const n = nav as Navigator & { globalPrivacyControl?: boolean; doNotTrack?: string | null };
@@ -112,11 +139,13 @@ export function analyticsAllowed(p: Privacy, signal: boolean): boolean {
 
 /** Whether the player is (or would be) counted, as the Privacy dialog shows it. */
 export function scoresShownOn(p: Privacy, signal: boolean): boolean {
+  if (p.deleting) return false;
   return p.scores === 'on' || (p.scores === 'unset' && !signal && !p.asked);
 }
 
 /** What to do with a finished official daily: send it, ask first, or leave it. */
 export function scoreIntent(p: Privacy, signal: boolean): 'send' | 'ask' | 'skip' {
+  if (p.deleting) return 'skip';
   if (p.scores === 'off') return 'skip';
   if (p.scores === 'on') return 'send';
   // Asked before in this location, or a browser privacy signal: ask without a network round trip.

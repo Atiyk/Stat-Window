@@ -56,6 +56,16 @@
     "api/scores.js": {
       "includeFiles": "content/days/**",
       "maxDuration": 10
+    },
+    "api/leaderboard.js": {
+      "includeFiles": "content/days/**",
+      "maxDuration": 10
+    }
+  },
+  "git": {
+    "deploymentEnabled": {
+      "statwindow/v3-*": false,
+      "statwindow/v3-coordinated-20261122": true
     }
   }
 }

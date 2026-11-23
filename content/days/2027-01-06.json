@@ -1,29 +1,29 @@
 {
   "date": "2027-01-06",
   "theme": {
-    "title": "Going to work",
-    "subtitle": "Detroit Pistons, 2003–04",
-    "recap": "Detroit's defense-first underdogs rallied after a midseason trade and toppled a star-studded Lakers team for the title."
+    "title": "Beyond the Box Score",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-detroit04-regular-wins",
+      "id": "nba-spurs14-march-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 2003–04 Pistons win?",
-      "context": "Detroit Pistons · 2003–04 · 82 games",
-      "answer": 54,
+      "prompt": "How many games did San Antonio win in its unbeaten March of 2014?",
+      "context": "Spurs · March 2014 · undefeated month",
+      "answer": 16,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "March win",
+        "plural": "March wins"
       },
-      "min": 40,
-      "max": 72,
+      "min": 5,
+      "max": 24,
       "step": 1,
-      "note": "54–28, before the defense-first Pistons won the title.",
+      "note": "16 wins in an unblemished March.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
-        "quote": "finishing second in the Central Division with a 54–28 record"
+        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+        "quote": "an unbeaten month in March (16–0)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Detroit used its 2003 second-overall draft pick on Darko Miličić, who played a limited reserve role during the title season.",
+          "text": "The late-season surge continued into the start of April.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
-            "quote": "They selected Darko Miličić as their top pick but only used him as a reserve"
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "a 19-game winning streak from late February to early April"
           }
         },
         {
-          "text": "Larry Brown arrived as head coach after Detroit reached the Eastern Conference finals the year before.",
+          "text": "Dallas later stretched the Spurs to seven games in the playoff opener.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
-            "quote": "After their first trip to the Conference Finals since 1991, the Pistons hired Larry Brown as head coach."
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "defeated the Dallas Mavericks in seven games in the first round"
           }
         },
         {
-          "text": "The Pistons clinched the title at their home arena, the Palace of Auburn Hills, outside downtown Detroit.",
+          "text": "San Antonio returned to the Finals to face Miami in a rematch.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "The Palace of Auburn Hills, Auburn Hills, Michigan"
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "back-to-back Finals appearances, also against the Miami Heat"
           }
         }
       ]
     },
     {
-      "id": "nba-detroit04-winter-streak",
+      "id": "nba-wilt-60-point-games",
       "sport": "NBA",
-      "prompt": "How many straight games did Larry Brown's Pistons win across December and January?",
-      "context": "Detroit Pistons · 2003–04 · regular season",
-      "answer": 13,
+      "prompt": "How many regular-season 60-point games did Wilt Chamberlain have?",
+      "context": "Wilt Chamberlain · 1959–1973",
+      "answer": 32,
       "unit": {
         "singular": "game",
         "plural": "games"
       },
-      "min": 6,
-      "max": 24,
+      "min": 0,
+      "max": 45,
       "step": 1,
-      "note": "Thirteen straight during Brown's first season in Detroit.",
+      "note": "32. Kobe Bryant had six.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
-        "quote": "they went on a 13-game winning streak between December and January"
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_scoring_leaders",
+        "quote": "Wilt Chamberlain (32 times); Kobe Bryant (6 times)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "That midwinter streak was part of Larry Brown's first year running Detroit, after he replaced the previous coaching staff.",
+          "text": "Chamberlain occupies a tier of his own, with many more explosive games than the next man, Kobe Bryant.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
-            "quote": "After their first trip to the Conference Finals since 1991, the Pistons hired Larry Brown as head coach."
+            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_scoring_leaders",
+            "quote": "Only 10 players have scored 60 or more points on more than one occasion"
           }
         },
         {
-          "text": "The championship season wasn't all smooth: Detroit also suffered a six-game losing streak in February.",
+          "text": "Several modern scorers have reached that rare milestone multiple times, including Damian Lillard and James Harden.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
-            "quote": "they struggled in February, losing six straight games."
+            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_scoring_leaders",
+            "quote": "Damian Lillard (5 times); Michael Jordan and James Harden (4 times)"
           }
         },
         {
-          "text": "Detroit finished second in its own Central Division yet still went on to win the league championship.",
+          "text": "Wilt also set the single-game scoring record at Hershey, Pennsylvania, rather than an NBA team's usual arena.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
-            "quote": "finishing second in the Central Division with a 54–28 record."
+            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+            "quote": "at Hershey Sports Arena in Hershey, Pennsylvania"
           }
         }
       ]
     },
     {
-      "id": "nba-detroit04-rasheed-finish",
+      "id": "nba-shaq00-g2-fta",
       "sport": "NBA",
-      "prompt": "After trading for Rasheed Wallace, how many of its final 19 games did Detroit win?",
-      "context": "Detroit Pistons · 2003–04 · post-trade finish",
-      "answer": 16,
+      "prompt": "How many free throws did Shaquille O'Neal attempt in Game 2 of the 2000 Finals?",
+      "context": "2000 NBA Finals · Game 2 · vs Indiana",
+      "answer": 39,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "free-throw attempt",
+        "plural": "free-throw attempts"
       },
-      "min": 4,
-      "max": 22,
+      "min": 12,
+      "max": 54,
       "step": 1,
-      "note": "Sixteen wins in the final 19 games helped lock in Detroit's playoff form.",
+      "note": "39, an NBA record at the time. He made 18.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
-        "quote": "With the addition of Wallace, the Pistons won 16 of their final 19 games"
+        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+        "quote": "Shaq shot 39 free throws, making only 18, an NBA record for most free throws attempted"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Rasheed had played just one game for Atlanta before being moved to Detroit in the middle of the season.",
+          "text": "Kobe Bryant sprained his ankle and left the game in the opening quarter, forcing the Lakers to adjust immediately.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
-            "quote": "the team acquired All-Star forward Rasheed Wallace from the Atlanta Hawks after playing just one game for them."
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "Kobe Bryant left the game in the 1st quarter due to a sprained ankle and did not return"
           }
         },
         {
-          "text": "The Pistons had to recover from a dangerous deficit against New Jersey in Game 6 to stay alive in the Eastern playoffs.",
+          "text": "Ron Harper replaced the injured Bryant and supplied important scoring in the Lakers' victory.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
-            "quote": "the Pistons were able to erase a 13–2 deficit and never trailed for the remainder of the game"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "Ron Harper went in for Bryant and scored 21 points for the game"
           }
         },
         {
-          "text": "Detroit reached the Finals by eliminating the top-seeded Pacers in a defensive Eastern Conference finals.",
+          "text": "A late Shaq pass became a Robert Horry layup and foul shot that protected Los Angeles's narrow lead.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
-            "quote": "they defeated the top-seeded Indiana Pacers in a defensive six game series"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "he passed to Robert Horry who converted not only the layup, but the foul shot"
           }
         }
       ]
     },
     {
-      "id": "nba-billups04-finals-ppg",
+      "id": "nba-suns05-road-victories",
       "sport": "NBA",
-      "prompt": "What did 2004 Finals MVP Chauncey Billups average in points per game?",
-      "context": "Detroit Pistons vs Lakers · 2004 Finals · five games",
-      "answer": 21,
+      "prompt": "How many road games did Phoenix win during the 2004–05 regular season?",
+      "context": "Phoenix Suns · 41 regular-season away games",
+      "answer": 31,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "road win",
+        "plural": "road wins"
       },
-      "min": 10,
-      "max": 36,
-      "step": 0.1,
-      "note": "21.0 per game for the Finals MVP, on 50.9% shooting.",
+      "min": 17,
+      "max": 41,
+      "step": 1,
+      "note": "31 road victories—matching the team's home wins.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-        "quote": "Chauncey Billups | 5 | 5 | 38.4 | .509 | .471 | .929 | 3.2 | 5.2 | 1.2 | 0.0 | 21.0"
+        "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+        "quote": "Phoenix Suns | 62 | 20 | .756 | – | 31–10 | 31–10 | 12–4"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Billups shot better than 50% from the field and over 47% from three during the championship series.",
+          "text": "Phoenix posted the same 31–10 record at home and on the road.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "Chauncey Billups | 5 | 5 | 38.4 | .509 | .471 | .929 | 3.2 | 5.2 | 1.2 | 0.0 | 21.0"
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "Phoenix Suns | 62 | 20 | .756 | – | 31–10 | 31–10 | 12–4"
           }
         },
         {
-          "text": "The Lakers entered the matchup favored, with a lineup led by Kobe Bryant and Shaquille O'Neal.",
+          "text": "The Suns were the NBA's youngest top-seeded team since playoff seeding began in 1984, a mark later displaced by Oklahoma City.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "the Lakers, headed by Kobe Bryant and Shaquille O'Neal, were considered the heavy favorites"
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "youngest team to earn the 1-seed since seeding began in 1984"
           }
         },
         {
-          "text": "Richard Hamilton actually averaged slightly more points than Billups in that series, despite Billups taking Finals MVP.",
+          "text": "Phoenix swept the Memphis Grizzlies in the opening playoff round.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "Richard Hamilton | 5 | 5 | 44.4 | .402 | .400 | .853 | 5.2 | 4.0 | 0.8 | 0.0 | 21.4"
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "In the first round of the playoffs, the Suns swept the Memphis Grizzlies in four games"
           }
         }
       ]
     },
     {
-      "id": "nba-benwallace04-finals-clincher-reb",
+      "id": "nba-bird85-hawks-sixty",
       "sport": "NBA",
-      "prompt": "How many rebounds did Ben Wallace grab in Game 5 of the 2004 Finals?",
-      "context": "Detroit Pistons vs Lakers · June 15, 2004 · championship clincher",
-      "answer": 22,
+      "prompt": "When Larry Bird caught fire against Atlanta in March 1985, how many points did he score?",
+      "context": "Larry Bird · Celtics at Hawks · March 1985",
+      "answer": 60,
       "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 10,
-      "max": 42,
+      "max": 130,
       "step": 1,
-      "note": "Twenty-two rebounds in the win that sealed the title.",
+      "note": "60 points—just nine days after teammate Kevin McHale had scored 56.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-        "quote": "Rebs: Ben Wallace 22"
+        "url": "https://en.wikipedia.org/wiki/Larry_Bird",
+        "quote": "Bird scored a career-high and franchise record 60 points in a game against the Atlanta Hawks."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Detroit's title-clinching win was the only game of that Finals in which either team reached triple digits.",
+          "text": "Kevin McHale had scored 56 only nine days earlier.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "The Pistons' 100 points was the first (and only) time either team scored triple digits in the series."
+            "url": "https://en.wikipedia.org/wiki/Larry_Bird",
+            "quote": "The performance came just nine days after Kevin McHale set the previous Celtics record for points in a game with 56"
           }
         },
         {
-          "text": "Karl Malone was unable to dress for the decisive Game 5 because of a knee injury, ending his last NBA Finals run.",
+          "text": "Bird won his second straight MVP that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "Karl Malone would play his last game, as a knee injury would not allow him to dress in Game 5."
+            "url": "https://en.wikipedia.org/wiki/Larry_Bird",
+            "quote": "Bird was named MVP for the second consecutive season"
           }
         },
         {
-          "text": "Detroit owner William Davidson had celebrated another title just days earlier: his Tampa Bay Lightning won the Stanley Cup.",
+          "text": "He hit a playoff career-high 43 later that spring.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "Pistons' owner William Davidson became the first owner in American sports history to win two championships in one calendar year;"
+            "url": "https://en.wikipedia.org/wiki/Larry_Bird",
+            "quote": "Bird scored his playoff career-high 43 points against the Detroit Pistons"
           }
         }
       ]

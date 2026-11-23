@@ -1,29 +1,29 @@
 {
   "date": "2027-01-17",
   "theme": {
-    "title": "Seattle's crown",
-    "subtitle": "Seattle SuperSonics, 1978–79",
-    "recap": "Lenny Wilkens's Sonics survived Phoenix in seven games and avenged their Finals loss to Washington to claim Seattle's NBA title."
+    "title": "Stars and Surprises",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-sonics79-season-wins",
+      "id": "nba-luka24-73-hawks",
       "sport": "NBA",
-      "prompt": "How many regular-season games did Seattle win on its 1979 title run?",
-      "context": "Seattle SuperSonics · 1978–79 season",
-      "answer": 52,
+      "prompt": "Against Atlanta in January 2024, how many points did Luka Dončić score in his career-best game?",
+      "context": "Luka Dončić · Mavericks at Hawks · January 2024",
+      "answer": 73,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 22,
-      "max": 90,
+      "min": 35,
+      "max": 105,
       "step": 1,
-      "note": "52 wins under coach Lenny Wilkens.",
+      "note": "73 points. Luka hit 25 of 33 from the field.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-        "quote": "Record | 52–30 (.634)"
+        "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87",
+        "quote": "finishing with a career-high 73 points (shooting 25-of-33 overall, with eight three-pointers made)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Coach Lenny Wilkens guided the Seattle team from the Kingdome sidelines.",
+          "text": "Luka converted more than three-quarters of his field-goal attempts that night.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "Head coach | Lenny Wilkens"
+            "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87",
+            "quote": "shooting 25-of-33 overall, with eight three-pointers made"
           }
         },
         {
-          "text": "Finals MVP Dennis Johnson also made the All-Defensive First Team.",
+          "text": "He had 41 points before halftime.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "Dennis Johnson, NBA All-Defensive First Team"
+            "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87",
+            "quote": "His 41 points in the first half also set a Mavericks franchise record"
           }
         },
         {
-          "text": "Seattle beat Washington in the Finals after losing to the Bullets the previous year.",
+          "text": "He became the fourth player to score 72 or more.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "The Sonics would go on to avenge their NBA Finals loss and defeat the Bullets"
+            "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87",
+            "quote": "the fourth player in league history to put up 72 or more points in a game"
           }
         }
       ]
     },
     {
-      "id": "nba-sonics79-january-wins",
+      "id": "nba-gsw16-allstar-wins",
       "sport": "NBA",
-      "prompt": "How many games did Seattle win in January of its 1979 championship season?",
-      "context": "SuperSonics · January 1979 · monthly record",
-      "answer": 10,
+      "prompt": "What was the Warriors' win total at the 2016 All-Star break?",
+      "context": "Golden State Warriors · 2015–16 · first half of the season",
+      "answer": 48,
       "unit": {
-        "singular": "January win",
-        "plural": "January wins"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 1,
-      "max": 24,
+      "min": 28,
+      "max": 60,
       "step": 1,
-      "note": "Ten wins in January, powered by strong road form.",
+      "note": "48–4, the best record ever at the break.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-        "quote": "January: 10–4 (home: 3–3; road: 7–1)"
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "Golden State reached the NBA All-Star break at 48–4, the best start to an NBA season at this juncture."
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Seattle won seven January road games and lost only once away from home.",
+          "text": "Klay Thompson beat teammate Stephen Curry in the All-Star weekend Three-Point Contest.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "January: 10–4 (home: 3–3; road: 7–1)"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "Klay Thompson won the Three-Point Contest at the All-Star weekend, beating Stephen Curry"
           }
         },
         {
-          "text": "The Sonics won a tight January game at Washington, a preview of the Finals matchup.",
+          "text": "Draymond Green had already tied Tom Gola's Warriors record for triple-doubles in one season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "January 23 @ Washington W 103–100"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "Green tied Hall of Famer Tom Gola's franchise record of nine triple-doubles"
           }
         },
         {
-          "text": "The Sonics also won a tight January game on the road in Phoenix.",
+          "text": "Golden State reached fifty wins faster than any NBA team before it had done.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "January 11 @ Phoenix W 109–106"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "fastest team to reach 50 wins in a season, accomplishing this in just 55 games"
           }
         }
       ]
     },
     {
-      "id": "nba-sikma79-suns-g7-points",
+      "id": "nba-cavs17-g4-q1",
       "sport": "NBA",
-      "prompt": "How many points did Jack Sikma score in Game 7 against Phoenix in 1979?",
-      "context": "Seattle · Western Conference finals · deciding game",
-      "answer": 33,
+      "prompt": "Facing a sweep in 2017, Cleveland set a Finals record for points in a quarter. How many?",
+      "context": "2017 NBA Finals · Game 4 · first quarter",
+      "answer": 49,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 14,
-      "max": 69,
+      "min": 34,
+      "max": 72,
       "step": 1,
-      "note": "33 points from Sikma to put Seattle into the Finals.",
+      "note": "49 in the first quarter of Game 4.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-        "quote": "May 17 Phoenix W 114–110 Jack Sikma (33)"
+        "url": "https://en.wikipedia.org/wiki/2017_NBA_Finals",
+        "quote": "Cleveland scored 49 points in the first quarter, the most points of any period in an NBA Finals game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Fred Brown led the Sonics with five assists in the winner-take-all contest.",
+          "text": "Cleveland's Game 4 victory ended Golden State's bid for a completely unbeaten postseason.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "May 17 Phoenix W 114–110 Jack Sikma (33) Jack Sikma (11) Fred Brown (5)"
+            "url": "https://en.wikipedia.org/wiki/2017_NBA_Finals",
+            "quote": "The Warriors won the first three games, giving them a 15–0 record"
           }
         },
         {
-          "text": "Over thirty-seven thousand fans watched Seattle survive the deciding game.",
+          "text": "The Warriors–Cavaliers trilogy was the first time the same clubs played three consecutive NBA Finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "37,552 4–3"
+            "url": "https://en.wikipedia.org/wiki/2017_NBA_Finals",
+            "quote": "the first time in NBA history that the same two teams played in three consecutive Finals"
           }
         },
         {
-          "text": "The Sonics advanced to face the defending champion Washington Bullets again.",
+          "text": "Kevin Durant earned the Finals MVP award unanimously after his first championship series with the Warriors.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "facing the defending NBA champion Washington Bullets"
+            "url": "https://en.wikipedia.org/wiki/2017_NBA_Finals",
+            "quote": "Kevin Durant was unanimously voted the NBA Finals Most Valuable Player"
           }
         }
       ]
     },
     {
-      "id": "nba-gus79-finals-g4-points",
+      "id": "nba-nance84-season-ppg",
       "sport": "NBA",
-      "prompt": "How many points did Gus Williams score in overtime Game 4 of the 1979 Finals?",
-      "context": "SuperSonics vs Bullets · 1979 Finals",
-      "answer": 36,
+      "prompt": "How many points per game did Larry Nance average in 1983–84?",
+      "context": "Phoenix · first Slam Dunk champion · season scoring",
+      "answer": 17.7,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 10,
-      "max": 82,
-      "step": 1,
-      "note": "36 points in a pivotal overtime win.",
+      "min": 9,
+      "max": 33,
+      "step": 0.1,
+      "note": "17.7 points per game from the athletic forward.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-        "quote": "May 29 Washington W 114–112 (OT) Gus Williams (36)"
+        "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+        "quote": "Larry Nance | 82 | 82 | 35.4 | .576 | .000 | .707 | 8.3 | 2.6 | 1.0 | 2.1 | 17.7"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "The game needed overtime before Seattle escaped with a win.",
+          "text": "Nance started all eighty-two Suns games.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "May 29 Washington W 114–112 (OT)"
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Larry Nance | 82 | 82 | 35.4"
           }
         },
         {
-          "text": "John Johnson dished out 13 assists in the same Game 4.",
+          "text": "He averaged 8.3 boards and 2.1 blocks.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "May 29 Washington W 114–112 (OT) Gus Williams (36) Jack Sikma (17) John Johnson (13)"
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Larry Nance | 82 | 82 | 35.4 | .576 | .000 | .707 | 8.3 | 2.6 | 1.0 | 2.1"
           }
         },
         {
-          "text": "The victory put Seattle one win away from the championship.",
+          "text": "His 57.6 percent field-goal accuracy was exceptional.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "May 29 Washington W 114–112 (OT)"
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Larry Nance | 82 | 82 | 35.4 | .576"
           }
         }
       ]
     },
     {
-      "id": "nba-sikma79-finals-g5-rebounds",
+      "id": "nba-kobe10-finals-game7-twentyfive-percent",
       "sport": "NBA",
-      "prompt": "How many rebounds did Jack Sikma grab in the 1979 title-clinching Game 5?",
-      "context": "Seattle at Washington · 1979 NBA Finals",
-      "answer": 17,
+      "prompt": "Kobe won the gritty 2010 Finals Game 7 over Boston despite a brutal shooting night. What percent did he shoot from the field?",
+      "context": "Kobe Bryant · Lakers vs Celtics · 2010 Finals Game 7",
+      "answer": 25,
       "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
+        "singular": "percent",
+        "plural": "percent"
       },
-      "min": 5,
-      "max": 39,
+      "min": 0,
+      "max": 75,
       "step": 1,
-      "note": "17 rebounds in Seattle's road championship clincher.",
+      "note": "Just 25%—6 of 24. Kobe put up 23 points and claimed his fifth championship.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-        "quote": "June 1 @ Washington W 97–93 Gus Williams (23) Jack Sikma (17)"
+        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+        "quote": "Bryant, despite shooting 6 for 24 (25%) from the field"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Gus Williams led Seattle in the clincher with 23 points.",
+          "text": "Kobe led everyone in scoring and found his shot in the final quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "June 1 @ Washington W 97–93 Gus Williams (23)"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "scored 10 of his game-high 23 points in the fourth quarter"
           }
         },
         {
-          "text": "Seattle won the final game 97–93 in Washington.",
+          "text": "The Lakers dominated the offensive glass in the championship decider.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "June 1 @ Washington W 97–93"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "The Lakers had 23 offensive rebounds and out-rebounded the Celtics, 53–40."
           }
         },
         {
-          "text": "The victory secured Seattle's first NBA championship.",
+          "text": "It was Phil Jackson's first Finals Game 7 as a head coach.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "winning their first and only NBA championship"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "as well as head coach Phil Jackson’s first-ever Finals Game 7"
           }
         }
       ]

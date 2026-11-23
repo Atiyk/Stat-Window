@@ -1,30 +1,29 @@
 {
   "date": "2026-12-13",
   "theme": {
-    "title": "Beyond the arc",
-    "subtitle": "The three-pointer, 1979 to today",
-    "recap": "It took the NBA years to use the three: the first record was eight in a game and the first 100-three season came in 1988."
+    "title": "Across the NBA",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-three-point-distance",
+      "id": "nba-curry22-g4",
       "sport": "NBA",
-      "prompt": "Away from the corners, how far is the NBA three-point arc from the center of the basket, in feet?",
-      "context": "NBA rules · arc distance",
-      "answer": 23.75,
+      "prompt": "With Golden State down 2–1 in the 2022 Finals, how many points did Stephen Curry score in Game 4?",
+      "context": "2022 NBA Finals · Game 4 · at Boston",
+      "answer": 43,
       "unit": {
-        "singular": "foot",
-        "plural": "feet"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 21,
-      "max": 34,
-      "step": 0.25,
-      "note": "23 feet 9 inches, or 23.75 feet.",
+      "min": 25,
+      "max": 75,
+      "step": 1,
+      "note": "43, with 10 rebounds.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-        "quote": "in the National Basketball Association (NBA) the arc is 23 feet 9 inches (7.24 m) from the center of the basket",
-        "derivation": "23 feet 9 inches = 23.75 feet"
+        "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+        "quote": "Curry scored 43 points and had 10 rebounds in a 107–97 win to even the series 2–2."
       },
       "verified": {
         "on": "2026-11-16",
@@ -33,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The three-point rule debuted in the short-lived American Basketball League before the NBA ever adopted it.",
+          "text": "Curry played through pain after Al Horford fell on his leg during a loose-ball scramble late in Game 3.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-            "quote": "the newly formed American Basketball League (ABL) became the first basketball league to institute the rule in 1961"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+            "quote": "Curry was injured late in the fourth when Horford fell on his leg while chasing a loose ball."
           }
         },
         {
-          "text": "The ABA paired three-pointers with dunks in its marketing to offer fans a different kind of basketball.",
+          "text": "Andrew Wiggins helped win the rebounding battle with a career-best Finals night on the glass.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-            "quote": "During the 1970s, the ABA used the three-point shot, along with the slam dunk, as a marketing tool to compete with the NBA"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+            "quote": "Andrew Wiggins added 17 points and a career-high 16 rebounds"
           }
         },
         {
-          "text": "The NBA introduced the arc on a trial basis in 1979; Boston's Chris Ford made the league's first official three.",
+          "text": "Steve Kerr benched Draymond Green at key moments of the fourth quarter in favor of Kevon Looney.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-            "quote": "Chris Ford of the Boston Celtics is credited with making the first three-point shot in NBA history on October 12, 1979"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
+            "quote": "Steve Kerr benched him for parts of the fourth quarter, while Looney remained on the floor"
           }
         }
       ]
     },
     {
-      "id": "nba-barry80-threes",
+      "id": "nba-rodman96-rpg",
       "sport": "NBA",
-      "prompt": "Rick Barry set the first NBA record for threes in a game in February 1980. How many did he make?",
-      "context": "Houston Rockets vs Utah Jazz · 1979–80",
-      "answer": 8,
+      "prompt": "How many rebounds per game did Dennis Rodman average for the 1995–96 Bulls?",
+      "context": "Chicago Bulls · 1995–96 regular season",
+      "answer": 14.9,
       "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
       },
-      "min": 0,
-      "max": 15,
-      "step": 1,
-      "note": "Eight, against Utah.",
+      "min": 10,
+      "max": 23,
+      "step": 0.1,
+      "note": "14.9 a night, while scoring just 5.5 points.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-        "quote": "Barry would later set the original 3-point record at 8 in a single game on February 9, 1980 against the Utah Jazz."
+        "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
+        "quote": "Rodman averaged 5.5 points and 14.9 rebounds per game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -84,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Barry's final season overlapped with Larry Bird's Boston debut; both were present for an early NBA three.",
+          "text": "Rodman's scoring average was just 5.5 a night, illustrating how little his value depended on scoring points.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-            "quote": "Rick Barry of the Houston Rockets, in his final season, also made one in the same game"
+            "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
+            "quote": "Rodman averaged 5.5 points and 14.9 rebounds per game"
           }
         },
         {
-          "text": "Julius Erving made the only three of the entire 1980 NBA Finals, showing how rare the shot still was.",
+          "text": "Chicago acquired Rodman from the San Antonio Spurs in the offseason before its historic run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-            "quote": "In the 1980 NBA Finals, Julius Erving made the only three of the series"
+            "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
+            "quote": "the Bulls acquired controversial All-Star forward and rebound specialist Dennis Rodman from the San Antonio Spurs"
           }
         },
         {
-          "text": "In one 1980 Finals game, neither team even attempted a three-pointer.",
+          "text": "Rodman had already won four rebounding titles when he joined Chicago.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-            "quote": "in Game 4, neither team attempted a single shot beyond the arc"
+            "url": "https://en.wikipedia.org/wiki/1996_NBA_Finals",
+            "quote": "a nine-year veteran and four year rebounding champion"
           }
         }
       ]
     },
     {
-      "id": "nba-ainge88-threes",
+      "id": "nba-allen10-g3-fga",
       "sport": "NBA",
-      "prompt": "In 1987–88 Danny Ainge became the first player with 100 threes in a season. How many did he make?",
-      "context": "Boston Celtics · 1987–88",
-      "answer": 148,
+      "prompt": "Two days after his record night, Ray Allen went 0-for-how-many from the field in Game 3?",
+      "context": "2010 NBA Finals · Game 3 · vs Lakers",
+      "answer": 13,
       "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
+        "singular": "shot",
+        "plural": "shots"
       },
-      "min": 50,
-      "max": 210,
+      "min": 4,
+      "max": 28,
       "step": 1,
-      "note": "148 threes.",
+      "note": "0 for 13.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-        "quote": "Danny Ainge was the first player to make over 100 three-pointers in a season in 1988, scoring 148 that season."
+        "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+        "quote": "Ray Allen went a near-record 0–13 in field goals for this game."
       },
       "verified": {
         "on": "2026-11-16",
@@ -135,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Dale Ellis later became the first NBA player to hit a thousand career threes.",
+          "text": "Derek Fisher rescued Los Angeles late in Game 3, carrying most of his scoring in the fourth quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-            "quote": "In 1994, Ellis became the first NBA player to reach 1,000 career three-pointers"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "Derek Fisher scored 11 of his 16 points in the fourth quarter"
           }
         },
         {
-          "text": "John Starks was the first NBA player to make more than two hundred threes in one season.",
+          "text": "Singer Monica performed the national anthem before the first Finals game at Boston's arena that year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-            "quote": "In 1995, John Starks became the first player to make over 200 three-pointers in a season"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "Prior to the starting lineups being announced, singer Monica performed the national anthem"
           }
         },
         {
-          "text": "The three-pointer first appeared at the Olympics in Seoul, four years after FIBA introduced it.",
+          "text": "Kevin Garnett hit Boston's opening baskets, but Los Angeles put together a strong first-half response.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-            "quote": "FIBA, introduced the three-point line in 1984, at 6.25 m (20 ft 6 in), and it made its Olympic debut in 1988"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
+            "quote": "Kevin Garnett scored the first six points of the game"
           }
         }
       ]
     },
     {
-      "id": "nba-miller-career-threes",
+      "id": "nba-west70-60-foot",
       "sport": "NBA",
-      "prompt": "Reggie Miller retired in 2005 as the career leader in threes. How many had he made?",
-      "context": "Indiana Pacers · 1987–2005",
-      "answer": 2560,
+      "prompt": "Jerry West forced overtime in Game 3 of the 1970 Finals with a buzzer-beater from how many feet?",
+      "context": "1970 NBA Finals · Game 3 · at New York",
+      "answer": 60,
       "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
+        "singular": "foot",
+        "plural": "feet"
       },
       "min": 0,
-      "max": 3200,
-      "step": 10,
-      "note": "2,560, a record at his retirement.",
+      "max": 94,
+      "step": 1,
+      "note": "60 feet, tying it at 102.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-        "quote": "eventually retiring with a record 2,560 three-pointers made."
+        "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
+        "quote": "hit a desperation buzzer-beating 60-foot shot to tie it at 102 and force OT"
       },
       "verified": {
         "on": "2026-11-16",
@@ -186,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Miller overtook Dale Ellis for the career lead in 1997, well before the modern three-point explosion.",
+          "text": "West's miracle shot counted for only two because the NBA had not yet adopted the three-point line.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-            "quote": "In 1997, Miller surpassed Ellis as the NBA's all-time leader in three-pointers"
+            "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
+            "quote": "It counted only for two points, as only the ABA had a three-point shot at the time"
           }
         },
         {
-          "text": "During Miller's career, the NBA briefly shortened the three-point line for three seasons before restoring it.",
+          "text": "Moments earlier, Dave DeBusschere had given New York a late lead, setting up West's desperation heave.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-            "quote": "For three seasons beginning in 1994–95, the NBA attempted to address decreased scoring by shortening the distance"
+            "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
+            "quote": "Dave DeBusschere made a shot with three seconds left to give New York a 102–100 edge"
           }
         },
         {
-          "text": "The NBA's later three-point revolution is often credited to Stephen Curry and his unusually deep attempts.",
+          "text": "The Knicks still won that overtime game despite West's heroics, holding the advantage in the series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
-            "quote": "Stephen Curry, who is credited with revolutionizing the game by inspiring teams to more heavily employ the three-point shot"
+            "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
+            "quote": "the Knicks were able to win, 111–108"
           }
         }
       ]
     },
     {
-      "id": "nba-gsw16-dec1-3pa",
+      "id": "nba-westbrook17-50-nuggets-winner",
       "sport": "NBA",
-      "prompt": "In a double-overtime game on December 1, 2016, how many threes did the Warriors and Rockets attempt combined?",
-      "context": "Warriors vs Houston Rockets · 2016–17 · double overtime",
-      "answer": 88,
+      "prompt": "When Russell Westbrook broke Oscar Robertson's season triple-double mark with a Denver buzzer-beater in 2017, how many points did he score?",
+      "context": "Russell Westbrook · Thunder at Nuggets · 2017",
+      "answer": 50,
       "unit": {
-        "singular": "attempt",
-        "plural": "attempts"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 20,
-      "max": 105,
+      "min": 10,
+      "max": 115,
       "step": 1,
-      "note": "88, 44 for each team.",
+      "note": "50 points, plus a long-range buzzer-beater on the day he made triple-double history.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
-        "quote": "Most combined three-point attempts in a single game: 88"
+        "url": "https://en.wikipedia.org/wiki/Russell_Westbrook",
+        "quote": "Westbrook scored 18 of his 50 points"
       },
       "verified": {
         "on": "2026-11-16",
@@ -237,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Golden State and Houston each took exactly 44 attempts from beyond the arc in their double-overtime shootout.",
+          "text": "He broke Oscar Robertson's single-season triple-double mark.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
-            "quote": "Both the Warriors and the Houston Rockets took 44 attempts each on December 1, 2016"
+            "url": "https://en.wikipedia.org/wiki/Russell_Westbrook",
+            "quote": "breaking Robertson's record"
           }
         },
         {
-          "text": "Golden State also became the first team to have four different players make four threes in a single game that season.",
+          "text": "Westbrook hit an unusually deep winning shot.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
-            "quote": "First team to have four players hit four three-pointers in a single game"
+            "url": "https://en.wikipedia.org/wiki/Russell_Westbrook",
+            "quote": "36-foot game-winning buzzer-beater"
           }
         },
         {
-          "text": "That Warriors roster sent Curry, Durant, Thompson and Draymond Green to the same All-Star Game.",
+          "text": "The Thunder won by a single point in Denver.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
-            "quote": "Kevin Durant, Stephen Curry, Klay Thompson and Draymond Green were all named to the All-Star Game"
+            "url": "https://en.wikipedia.org/wiki/Russell_Westbrook",
+            "quote": "106–105 road victory"
           }
         }
       ]

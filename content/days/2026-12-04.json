@@ -1,29 +1,29 @@
 {
   "date": "2026-12-04",
   "theme": {
-    "title": "Silver and black",
-    "subtitle": "San Antonio, 1989–2003",
-    "recap": "David Robinson turned the Spurs around overnight, and Tim Duncan's arrival after a 20-win season started a dynasty."
+    "title": "Around the League",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-robinson94-71",
+      "id": "nba-duncan99-finals-ppg",
       "sport": "NBA",
-      "prompt": "How many points did David Robinson score against the Clippers on April 24, 1994?",
-      "context": "San Antonio Spurs · 1993–94",
-      "answer": 71,
+      "prompt": "How many points per game did Tim Duncan average in the 1999 Finals?",
+      "context": "Spurs vs Knicks · 1999 NBA Finals",
+      "answer": 27.4,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 45,
-      "max": 110,
-      "step": 1,
-      "note": "71, breaking George Gervin's Spurs record of 63.",
+      "min": 18,
+      "max": 42,
+      "step": 0.1,
+      "note": "27.4 points per game while winning Finals MVP.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/David_Robinson",
-        "quote": "scoring 71 points (breaking George Gervin's single-game franchise record of 63) against the Los Angeles Clippers"
+        "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+        "quote": "while averaging 27.4 points and fourteen rebounds with 2.4 assists and 2.2 blocks in the Finals"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,151 +32,100 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Robinson's scoring-title chase came down to a direct duel with Shaquille O'Neal.",
+          "text": "Duncan was in his second NBA season alongside David Robinson in the Twin Towers pairing.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "he became locked in a duel for the NBA scoring title with Shaquille O'Neal"
+            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+            "quote": "The 1998–99 season was the second season of the \"Twin Towers\" pairing"
           }
         },
         {
-          "text": "His outburst surpassed George Gervin's longstanding Spurs single-game points record.",
+          "text": "San Antonio drafted Duncan after an injury-hit season and a fortunate draft lottery.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "breaking George Gervin's single-game franchise record of 63"
+            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+            "quote": "The Spurs earned this draft pick through the draft lottery due to a 62-loss 1996–97 season"
           }
         },
         {
-          "text": "That season, Robinson also averaged double-digit rebounds and more than three blocks per game.",
+          "text": "The Knicks were an eighth seed when they reached the Finals, an extraordinary playoff run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "10.7 rebounds per game, career-high 4.8 assists per game and 3.3 blocks per game"
+            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+            "quote": "The Knicks barely qualified for the playoffs and received the eighth and final seed"
           }
         }
       ]
     },
     {
-      "id": "nba-spurs90-improvement",
+      "id": "nba-hakeem90-quadruple-blocks",
       "sport": "NBA",
-      "prompt": "With rookie David Robinson in 1989–90, the Spurs improved by how many wins over the year before?",
-      "context": "San Antonio Spurs · 1989–90",
-      "answer": 35,
+      "prompt": "In Hakeem Olajuwon's 1990 quadruple-double, how many shots did he block?",
+      "context": "Houston Rockets · March 1990 vs Milwaukee",
+      "answer": 11,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "block",
+        "plural": "blocks"
       },
-      "min": 15,
-      "max": 65,
+      "min": 0,
+      "max": 16,
       "step": 1,
-      "note": "35, going 56–26.",
+      "note": "Eleven rejections completed a remarkable four-category performance.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/David_Robinson",
-        "quote": "The Spurs leaped to a record of 56–26 for a remarkable 35 game improvement"
+        "url": "https://en.wikipedia.org/wiki/Hakeem_Olajuwon",
+        "quote": "18 points, 16 rebounds, 11 blocks and 10 assists"
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-22",
         "by": "Stat Window editorial"
       },
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Robinson won Rookie of the Year unanimously after transforming San Antonio's fortunes.",
+          "text": "Hakeem's quadruple-double came in a comfortable Houston victory over Milwaukee.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "he was unanimously named the NBA Rookie of the Year"
+            "url": "https://en.wikipedia.org/wiki/Hakeem_Olajuwon",
+            "quote": "120–94 win over the Milwaukee Bucks"
           }
         },
         {
-          "text": "Even as an NBA star, Robinson arrived only after completing his initial Navy service.",
+          "text": "He led the entire NBA in blocked shots that season, averaging 4.6 a night.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "Robinson was commissioned in the Naval Reserve and was required to serve only an initial active-duty obligation of two years"
+            "url": "https://en.wikipedia.org/wiki/Hakeem_Olajuwon",
+            "quote": "led the league in blocks by averaging 4.6 per game"
           }
         },
         {
-          "text": "His breakout was immortalized in a Sega game titled David Robinson's Supreme Court.",
+          "text": "He also led the league in rebounds during that same remarkable defensive season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "Sega produced a game featuring him entitled David Robinson's Supreme Court"
+            "url": "https://en.wikipedia.org/wiki/Hakeem_Olajuwon",
+            "quote": "He won the NBA rebounding crown"
           }
         }
       ]
     },
     {
-      "id": "nba-spurs97-wins",
+      "id": "nba-bol85-quarter",
       "sport": "NBA",
-      "prompt": "How many games did the Spurs win in 1996–97, the season before they drafted Tim Duncan?",
-      "context": "San Antonio Spurs · 1996–97 · 82 games",
-      "answer": 20,
-      "unit": {
-        "singular": "win",
-        "plural": "wins"
-      },
-      "min": 12,
-      "max": 54,
-      "step": 1,
-      "note": "20, finishing 20–62.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/David_Robinson",
-        "quote": "finished the season with a 20–62 record"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Robinson injured his back before the season, returned briefly, then broke his foot against Miami.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "He finally returned in December, but six games later broke his foot in a home game against the Miami Heat"
-          }
-        },
-        {
-          "text": "That rough season gave San Antonio the draft lottery pick it used on Tim Duncan.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "They used that pick to select Tim Duncan out of Wake Forest University"
-          }
-        },
-        {
-          "text": "The Spurs lost Sean Elliott for more than half the season amid their injury crisis.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/David_Robinson",
-            "quote": "Sean Elliott, who missed more than half the season"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-duncan03-g6-blocks",
-      "sport": "NBA",
-      "prompt": "Tim Duncan nearly had a quadruple-double in the 2003 title clincher. How many blocks did he have?",
-      "context": "2003 NBA Finals · Game 6 · vs New Jersey",
+      "prompt": "Manute Bol set the record for blocks in a quarter in December 1985. How many?",
+      "context": "Washington Bullets · 1985–86",
       "answer": 8,
       "unit": {
         "singular": "block",
         "plural": "blocks"
       },
       "min": 0,
-      "max": 13,
+      "max": 12,
       "step": 1,
-      "note": "Eight, with 21 points, 20 rebounds and 10 assists.",
+      "note": "Eight in the first quarter.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2003_NBA_Finals",
-        "quote": "finishing with 21 points, 20 rebounds, 10 assists and 8 blocks"
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
+        "quote": "8 blocks in the first quarter, setting the NBA record, and 11 blocks in the first half, tying the NBA record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +134,100 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "The clincher was David Robinson's final NBA game, and he retired as a champion.",
+          "text": "Bol set his mark while playing for Washington in an overtime victory against the Milwaukee Bucks.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2003_NBA_Finals",
-            "quote": "Perhaps the lasting memory of the series is David Robinson retiring as a champion."
+            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
+            "quote": "Washington Bullets  | December 12, 1985  | Milwaukee Bucks"
           }
         },
         {
-          "text": "San Antonio rallied from a nine-point deficit with a stunning 19–0 run.",
+          "text": "The rookie also reached a huge first-half swat total in the same game against Milwaukee.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2003_NBA_Finals",
-            "quote": "the Spurs trailed at one point 72–63 before going on a 19–0 run"
+            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
+            "quote": "11 blocks in the first half, tying the NBA record"
           }
         },
         {
-          "text": "Duncan and Robinson together grabbed more rebounds than the entire Nets roster.",
+          "text": "Bol later repeated the feat in a fourth quarter against Indiana during his Washington years.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2003_NBA_Finals",
-            "quote": "Duncan and Robinson grabbed 37 rebounds between them, more than the total rebounds of the entire Nets team combined"
+            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
+            "quote": "8 blocks in the fourth quarter, tying the NBA record"
           }
         }
       ]
     },
     {
-      "id": "nba-spurs99-playoff-streak",
+      "id": "nba-pistons04-under-70",
       "sport": "NBA",
-      "prompt": "In 1999 the Spurs set a record for consecutive playoff wins. How many did they win before the streak ended in the Finals?",
-      "context": "San Antonio Spurs · 1999 playoffs",
-      "answer": 12,
+      "prompt": "The 2003–04 Pistons were the first team to hold how many straight opponents under 70 points?",
+      "context": "Detroit Pistons · 2003–04 regular season",
+      "answer": 5,
       "unit": {
         "singular": "game",
         "plural": "games"
       },
-      "min": 6,
-      "max": 24,
+      "min": 0,
+      "max": 10,
       "step": 1,
-      "note": "12 straight, the longest in NBA history at the time.",
+      "note": "Five in a row.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-        "quote": "This was the end of the Spurs' 12-game playoff winning streak, the longest in NBA history at the time."
+        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+        "quote": "They became the first team in NBA history to hold five consecutive opponents under 70 points"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Detroit's front office added Rasheed Wallace in a complicated trade at the deadline.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "for guard Mike James and forward Rasheed Wallace"
+          }
+        },
+        {
+          "text": "The Pistons had replaced Rick Carlisle with Larry Brown as head coach before the season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "In his place, Dumars hired legendary coach Larry Brown"
+          }
+        },
+        {
+          "text": "Ben Wallace and Richard Hamilton were acquired through trades rather than drafted by Detroit.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "He landed defensive stalwart Ben Wallace and guard Richard Hamilton by trading established stars"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-klay16-okc-game6-41",
+      "sport": "NBA",
+      "prompt": "Down 3–2 to Durant's Thunder in 2016, how many points did Klay Thompson score in his legendary Game 6?",
+      "context": "Klay Thompson · Warriors at Thunder · 2016 playoffs",
+      "answer": 41,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 10,
+      "max": 95,
+      "step": 1,
+      "note": "41 points, with a playoff-record barrage of threes to force a decider.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_playoffs",
+        "quote": "Klay Thompson, who scored a series-high 41 points and made an NBA playoff record 11 3s."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "That championship came after a lockout shortened the regular season to 50 games.",
+          "text": "Klay set a postseason record for made threes.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "was shortened from the usual 82-game schedule to 50 games per team"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_playoffs",
+            "quote": "made an NBA playoff record 11 3s"
           }
         },
         {
-          "text": "The Knicks became the first eighth-seeded team to advance all the way to the NBA Finals.",
+          "text": "The Warriors won on the road to force a deciding game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "the first team in North American sports history to reach a championship series as an eighth seed"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_playoffs",
+            "quote": "the Warriors won the game 108–101 and tied the series 3-3"
           }
         },
         {
-          "text": "San Antonio swept both the Lakers and Trail Blazers en route to its first Finals trip.",
+          "text": "The Thunder had held a commanding series lead.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "recorded back-to-back sweeps in the second round and the conference finals"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_playoffs",
+            "quote": "the Thunder once again handed the Warriors a commanding 118–94 defeat to take a 3–1 series lead"
           }
         }
       ]

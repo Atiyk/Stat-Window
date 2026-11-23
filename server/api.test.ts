@@ -376,3 +376,81 @@ describe('the 100-game floor does not depend on the namespace name (CR-4)', () =
     expect(contextFromEnv({ ...low, VERCEL: '1', VERCEL_ENV: 'preview', SCORES_NAMESPACE: 'production', SCORES_TEST_LOW_SAMPLE: '1' }, d).minSample).toBe(100);
   });
 });
+
+
+describe('percentile API spoofed proxy authority and network identity', () => {
+  it('rejects forwarded-host origin spoofing and scheme downgrade before any Redis store access', async () => {
+    const { ctx, store } = testContext();
+    const a = await roundsFor(DAY, 2);
+    const request = { day: DAY, player: player(855), rounds: a.rounds };
+    for (const origin of ['https://attacker.example','http://stat-window.vercel.app']) {
+      const blocked = await submit(ctx, request, {
+        origin,
+        'x-forwarded-host': origin === 'https://attacker.example' ? 'attacker.example' : 'stat-window.vercel.app',
+        'sec-fetch-site': 'same-origin',
+      });
+      expect(blocked.code).toBe(403);
+    }
+    expect(store.dump().size).toBe(0);
+    // Proxy headers cannot invalidate legitimate same-origin requests either.
+    const allowed = await submit(ctx, request, {
+      origin: 'https://stat-window.vercel.app',
+      'x-forwarded-host': 'attacker.example',
+    });
+    expect(allowed.code).toBe(200);
+    expect(allowed.body.status).toBe('stored');
+  });
+
+  it('ignores forged X-Forwarded-For for a per-network rate-limit bucket', async () => {
+    const { ctx } = testContext({
+      limits: { ...DEFAULT_LIMITS, dailyBudget: 1500, ratePerMinute: 2, ipDailyStored: 25 },
+    });
+    const a = await roundsFor(DAY, 2);
+    const codes = [];
+    for (const [index, forged] of ['192.0.2.1','198.51.100.9','203.0.113.11'].entries()) {
+      codes.push((await submit(ctx, {
+        day: DAY, player: player(860+index), rounds: a.rounds,
+      }, {'x-forwarded-for': forged})).code);
+    }
+    expect(codes).toEqual([200,200,429]);
+  });
+});
+
+
+describe('percentile deletion revocation (shipping privacy contract)', () => {
+  it('blocks a late score POST and does not affect another browser', async () => {
+    const { ctx } = testContext();
+    const a = await roundsFor(DAY, 2);
+    const old = player(501);
+    const deletion = await handle(post({ player: old, days: [DAY] }, {}, 'DELETE'), ctx);
+    expect(deletion.status).toBe(200);
+    expect(await deletion.json()).toMatchObject({ status: 'ok', removed: 0 });
+    const revoked = await submit(ctx, { day: DAY, player: old, rounds: a.rounds });
+    expect(revoked).toMatchObject({ code: 409, body: { status: 'revoked' } });
+    const fresh = await submit(ctx, { day: DAY, player: player(502), rounds: a.rounds });
+    expect(fresh.body.status).toBe('stored');
+  });
+  it('a recorded score is removed and cannot be restored using its old browser code', async () => {
+    const { ctx } = testContext();
+    const a = await roundsFor(DAY, 2);
+    const old = player(503);
+    expect((await submit(ctx, { day: DAY, player: old, rounds: a.rounds })).body.status).toBe('stored');
+    const deletion = await handle(post({ player: old, days: [DAY] }, {}, 'DELETE'), ctx);
+    expect(await deletion.json()).toMatchObject({ status: 'ok', removed: 1 });
+    expect((await submit(ctx, { day: DAY, player: old, rounds: a.rounds })).body.status).toBe('revoked');
+  });
+  it('erases a stored score when the browser lost its sent-day list', async () => {
+    const { ctx } = testContext();
+    const a = await roundsFor(DAY, 2);
+    const old = player(504);
+    expect((await submit(ctx, { day: DAY, player: old, rounds: a.rounds })).body.status).toBe('stored');
+    // This happens with partial/corrupt browser storage or a previous client.
+    const deletion = await handle(post({ player: old, days: [] }, {}, 'DELETE'), ctx);
+    expect(deletion.status).toBe(200);
+    expect(await deletion.json()).toMatchObject({ status: 'ok', removed: 1 });
+    const readBack = await handle(new Request(`https://stat-window.vercel.app/api/scores?day=${DAY}`), ctx);
+    expect(await readBack.json()).toMatchObject({ n: 0 });
+    expect((await submit(ctx, { day: DAY, player: old, rounds: a.rounds })).body.status).toBe('revoked');
+  });
+
+});

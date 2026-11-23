@@ -99,6 +99,21 @@ describe('catalog', () => {
     expect(catalog.reserves.map((q) => q.id)).toEqual(calendar.reserve);
     for (const id of calendar.reserve) expect(catalog.tags[id]!.day).toBeNull();
   });
+  it('holds displaced future daily questions until after their original publication dates', () => {
+    const embargoes = [
+      ['nba-robinson94-71', '2027-01-09'],
+      ['nba-gsw15-combined-wins', '2027-01-25'],
+    ] as const;
+    for (const [id, earliest] of embargoes) {
+      expect(calendar.reserve).toContain(id);
+      const tag = catalog.tags[id];
+      expect(tag, id).toBeDefined();
+      expect(tag!.day).toBeNull();
+      expect(tag!.notBefore).not.toBeNull();
+      expect(tag!.notBefore! >= earliest).toBe(true);
+      expect(poolOn(addDays(earliest, -1)).some((e) => e.id === id)).toBe(false);
+    }
+  });
   it('covers every scheduled question', () => {
     const scheduled = slates.filter((s) => s.date >= CUTOVER).flatMap((s) => s.questions.map((q) => q.id));
     for (const id of scheduled) expect(catalog.tags[id], id).toBeDefined();
@@ -123,7 +138,16 @@ describe('supply and the beta gate', () => {
         break;
       }
     }
-    expect(first).toBe('2026-12-05');
+    // The five extra verified launch-week facts advance the FIRST day that the
+    // unchanged 100-question/individual-tier beta supply gates are met, from
+    // Dec 6 to Dec 5. This is a content change, not a relaxed Survival threshold.
+    // Keep both the day-before and the first-passing-day checks, as well as
+    // the independent scan above, to flag any further unintended movement.
+    const dayBefore = '2026-12-04';
+    const firstPassing = '2026-12-05';
+    expect(supplyOf(poolOn(dayBefore), dayBefore).beta).toBe(false);
+    expect(supplyOf(poolOn(firstPassing), firstPassing).beta).toBe(true);
+    expect(first).toBe(firstPassing);
   });
 });
 

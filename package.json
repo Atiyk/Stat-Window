@@ -34,7 +34,7 @@
     "test:e2e:analytics": "ANALYTICS_E2E=1 playwright test e2e/analytics.spec.ts",
     "factory": "node --experimental-strip-types scripts/question-factory/cli.ts",
     "factory:check": "node --experimental-strip-types scripts/question-factory/cli.ts check",
-    "api:build": "vite build --config vite.api.config.ts --logLevel warn",
+    "api:build": "vite build --config vite.api.config.ts --logLevel warn && vite build --config vite.leaderboard.config.ts --logLevel warn",
     "api:check": "node --experimental-strip-types scripts/api-check.ts"
   },
   "dependencies": {

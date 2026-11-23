@@ -1,29 +1,29 @@
 {
   "date": "2027-01-12",
   "theme": {
-    "title": "Seven Seconds or Less",
-    "subtitle": "Phoenix Suns, 2004–05",
-    "recap": "Steve Nash returned to Phoenix, Mike D'Antoni unleashed a rapid-fire attack, and the Suns transformed into the league's most electric regular-season team."
+    "title": "Across the NBA",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-suns05-season-win-gain",
+      "id": "nba-cavs09-home-wins",
       "sport": "NBA",
-      "prompt": "How many more regular-season games did the 2004–05 Suns win than the season before?",
-      "context": "Phoenix Suns · Steve Nash's return · 2004–05",
-      "answer": 33,
+      "prompt": "How many home games did the Cavaliers win in their dominant 2008–09 season?",
+      "context": "Cleveland at Quicken Loans Arena · 41 home games",
+      "answer": 39,
       "unit": {
-        "singular": "additional win",
-        "plural": "additional wins"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 15,
-      "max": 55,
+      "min": 19,
+      "max": 41,
       "step": 1,
-      "note": "33 more wins after Nash's arrival transformed the team.",
+      "note": "39 home wins against just two losses.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-        "quote": "The 33-win improvement over the 2003–04 campaign constituted the third-best year-to-year jump in NBA history."
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+        "quote": "Total: 66–16 (home: 39–2; road: 27–14)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Phoenix brought Steve Nash back from Dallas on a major free-agent contract.",
+          "text": "Cleveland was also strong away from home, helping secure the NBA's best regular-season record.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "the Suns re-acquired All-Star guard Steve Nash from the Dallas Mavericks"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "Total: 66–16 (home: 39–2; road: 27–14)"
           }
         },
         {
-          "text": "Mike D'Antoni's attack prioritized quick ball movement, pick-and-rolls and frequent three-pointers.",
+          "text": "The Lakers handed Cleveland a rare home loss during their February visit.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "emphasized rapid ball movement, pick-and-rolls, and high-volume three-point shooting"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "February 8 L.A. Lakers L 91–101"
           }
         },
         {
-          "text": "A white memorial patch on the Suns' jerseys honored former coach and broadcaster Cotton Fitzsimmons.",
+          "text": "The Cavaliers lost their final regular-season home game in overtime against Philadelphia.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "wearing a white patch on their jerseys for the entire season"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "April 15 Philadelphia L 110–111 (OT)"
           }
         }
       ]
     },
     {
-      "id": "nba-nash05-regular-apg",
+      "id": "nba-howard09-g4-blocks",
       "sport": "NBA",
-      "prompt": "What was Steve Nash's assists-per-game average for the 2004–05 Suns?",
-      "context": "Phoenix Suns · 2004–05 regular season",
-      "answer": 11.5,
+      "prompt": "Dwight Howard set the Finals record for blocks in a game in 2009. How many?",
+      "context": "2009 NBA Finals · Game 4 · vs Lakers",
+      "answer": 9,
       "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
+        "singular": "block",
+        "plural": "blocks"
       },
-      "min": 6,
-      "max": 22,
-      "step": 0.1,
-      "note": "11.5 assists each night in his first MVP season.",
+      "min": 5,
+      "max": 20,
+      "step": 1,
+      "note": "Nine.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-        "quote": "Nash finished the season averaging 11.5 assists per game"
+        "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+        "quote": "giving him a single-game NBA Finals record with 9 blocked shots"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Nash shot 50.2% from the field and 43.1% from three during the regular season.",
+          "text": "Orlando's center threatened Los Angeles near the end, but Derek Fisher hit a crucial late three.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "while making 50.2% of his field goals and 43.1% of his three-pointers"
+            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+            "quote": "Trevor Ariza was able to hit a 3-pointer as the shot clock expired"
           }
         },
         {
-          "text": "Nash won MVP while Mike D'Antoni took Coach of the Year and Bryan Colangelo Executive of the Year.",
+          "text": "The Magic squandered foul-shot opportunities in a tight Game 4 despite leading at halftime.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "He ended up winning the MVP award. D'Antoni was awarded Coach of the Year"
+            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+            "quote": "but were unable to increase the lead due to poor free-throw shooting"
           }
         },
         {
-          "text": "Quentin Richardson won the Three-Point Shootout during the same season.",
+          "text": "Orlando had earned its very first NBA Finals game victory only in the preceding game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "Quentin Richardson won the Three-Point Shootout"
+            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+            "quote": "This win marked the first Finals win in Magic franchise history"
           }
         }
       ]
     },
     {
-      "id": "nba-suns05-road-victories",
+      "id": "nba-rodman86-draft",
       "sport": "NBA",
-      "prompt": "How many road games did Phoenix win during the 2004–05 regular season?",
-      "context": "Phoenix Suns · 41 regular-season away games",
-      "answer": 31,
+      "prompt": "Dennis Rodman was drafted in the second round in 1986. What overall pick was he?",
+      "context": "1986 NBA draft · Detroit Pistons",
+      "answer": 27,
       "unit": {
-        "singular": "road win",
-        "plural": "road wins"
+        "singular": "overall pick",
+        "plural": "overall pick"
       },
-      "min": 17,
-      "max": 41,
+      "min": 10,
+      "max": 75,
       "step": 1,
-      "note": "31 road victories—matching the team's home wins.",
+      "note": "27th overall.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-        "quote": "Phoenix Suns | 62 | 20 | .756 | – | 31–10 | 31–10 | 12–4"
+        "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+        "quote": "as the third pick in the second round (27th overall)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,27 +134,27 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Phoenix posted the same 31–10 record at home and on the road.",
+          "text": "Rodman played at Southeastern Oklahoma State, far from the NCAA's traditional blueblood programs.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "Phoenix Suns | 62 | 20 | .756 | – | 31–10 | 31–10 | 12–4"
+            "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+            "quote": "Southeastern Oklahoma State"
           }
         },
         {
-          "text": "The Suns were the NBA's youngest top-seeded team since playoff seeding began in 1984, a mark later displaced by Oklahoma City.",
+          "text": "His performance at the Portsmouth Invitational Tournament was what helped catch Detroit's eye.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "youngest team to earn the 1-seed since seeding began in 1984"
+            "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+            "quote": "where he won Most Valuable Player honors and caught the attention of the Detroit Pistons"
           }
         },
         {
-          "text": "Phoenix swept the Memphis Grizzlies in the opening playoff round.",
+          "text": "He joined Chuck Daly's 'Bad Boys,' with Isiah Thomas and Joe Dumars leading the backcourt.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "In the first round of the playoffs, the Suns swept the Memphis Grizzlies in four games"
+            "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
+            "quote": "joining the rugged team of coach Chuck Daly that was called \"Bad Boys\""
           }
         }
       ]
@@ -211,23 +211,23 @@
       ]
     },
     {
-      "id": "nba-nash05-dallas-g6-points",
+      "id": "nba-lakers11-mavs-game4-only-86",
       "sport": "NBA",
-      "prompt": "How many points did Steve Nash score in the 2005 playoff clincher against Dallas?",
-      "context": "Phoenix at Dallas · conference semifinals · Game 6",
-      "answer": 39,
+      "prompt": "When the Mavs swept Kobe's two-time defending champion Lakers in 2011, how few points did L.A. score in the Game 4 blowout?",
+      "context": "Lakers at Mavericks · 2011 West semifinals · Game 4",
+      "answer": 86,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 20,
-      "max": 70,
+      "min": 40,
+      "max": 140,
       "step": 1,
-      "note": "39 points in Phoenix's overtime series-clinching win.",
+      "note": "Just 86 points. Dallas scored 122 and ended Phil Jackson's coaching career with a sweep.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-        "quote": "6 May 20 @ Dallas W 130–126 (OT) Steve Nash (39)"
+        "url": "https://en.wikipedia.org/wiki/2011_NBA_playoffs",
+        "quote": "In Game 4, the Mavericks blew out the Lakers, 122–86, sweeping the two-time defending NBA champions."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Phoenix eliminated Nash's former Dallas team in six games.",
+          "text": "Dallas sank 20 threes in that elimination game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "defeated Nash's former team, the Dallas Mavericks, in six games"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_playoffs",
+            "quote": "The Dallas Mavericks set an NBA record with 20 three pointers"
           }
         },
         {
-          "text": "The clincher ended in a 130–126 overtime win for Phoenix.",
+          "text": "Jason Terry supplied nine of the Mavericks' threes.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "W 130–126 (OT)"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_playoffs",
+            "quote": "with Jason Terry shooting nine of them"
           }
         },
         {
-          "text": "Shawn Marion grabbed 16 rebounds during that same decisive game.",
+          "text": "It became Phil Jackson's last game as an NBA head coach.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
-            "quote": "Steve Nash (39) Shawn Marion (16) Steve Nash (12)"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_playoffs",
+            "quote": "This would also prove to be Phil Jackson's final game as an NBA head coach."
           }
         }
       ]

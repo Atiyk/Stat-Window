@@ -1,29 +1,29 @@
 {
   "date": "2026-11-27",
   "theme": {
-    "title": "Mamba numbers",
-    "subtitle": "Kobe Bryant, 1996–2016",
-    "recap": "Kobe Bryant scored 81 in a night, 62 in three quarters and 40 or more nine games running."
+    "title": "Beyond the Box Score",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-kobe-81",
+      "id": "nba-stockton90-apg",
       "sport": "NBA",
-      "prompt": "How many points did Kobe Bryant score against Toronto on January 22, 2006?",
-      "context": "Lakers vs Toronto Raptors · 2005–06",
-      "answer": 81,
+      "prompt": "In 1989–90 John Stockton set the NBA record for assists per game in a season. What was it?",
+      "context": "Utah Jazz · 1989–90",
+      "answer": 14.5,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "assist per game",
+        "plural": "assists per game"
       },
-      "min": 40,
-      "max": 105,
-      "step": 1,
-      "note": "81, his career high.",
+      "min": 9,
+      "max": 22,
+      "step": 0.1,
+      "note": "14.5 a game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
-        "quote": "On January 22, 2006, Bryant scored a career-high 81 points"
+        "url": "https://en.wikipedia.org/wiki/John_Stockton",
+        "quote": "As of 2019, Stockton also held the record for assists-per-game average over one season (14.5 in 1990)."
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The Lakers trailed Toronto by 14 points at halftime before Kobe took over.",
+          "text": "Stockton led the league in assists for nine consecutive seasons, an extraordinary run of consistency.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
-            "quote": "the Lakers trailed 63–49 at halftime"
+            "url": "https://en.wikipedia.org/wiki/John_Stockton",
+            "quote": "leading the NBA in assists per game, which he would do for nine consecutive seasons"
           }
         },
         {
-          "text": "Bryant poured in 55 points after halftime alone.",
+          "text": "He produced at least 1,000 assists in a single season on seven separate occasions.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
-            "quote": "with 55 points in the second half"
+            "url": "https://en.wikipedia.org/wiki/John_Stockton",
+            "quote": "Stockton accomplished this feat seven times"
           }
         },
         {
-          "text": "He played 42 minutes and knocked down seven threes during the explosion.",
+          "text": "Stockton ended his playing career with 15,806 assists, far ahead of other point guards.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
-            "quote": "Bryant play 42 minutes, shooting 28-of-46 from the field, including 7-of-13 on three-pointers"
+            "url": "https://en.wikipedia.org/wiki/John_Stockton",
+            "quote": "career assists with 15,806"
           }
         }
       ]
     },
     {
-      "id": "nba-kobe03-threes",
+      "id": "nba-warriors75-season-wins",
       "sport": "NBA",
-      "prompt": "On January 7, 2003, Kobe Bryant set the NBA record for threes in a game. How many did he make?",
-      "context": "Los Angeles Lakers · 2002–03 regular season",
-      "answer": 12,
+      "prompt": "How many regular-season games did the 1974–75 Warriors win?",
+      "context": "Golden State Warriors · 1974–75 · 82 games",
+      "answer": 48,
       "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 7,
-      "max": 26,
+      "min": 32,
+      "max": 72,
       "step": 1,
-      "note": "12, a record at the time.",
+      "note": "48 wins, before the Warriors took the title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
-        "quote": "He broke an NBA record for three-pointers on January 7, 2003, when he made 12 against the Seattle SuperSonics."
+        "url": "https://en.wikipedia.org/wiki/1974%E2%80%9375_Golden_State_Warriors_season",
+        "quote": "Record | 48–34 (.585)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,50 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "The Lakers finished that season with a 50–32 record before losing to San Antonio in the playoffs.",
+          "text": "The Bullets entered the Finals with far more regular-season wins than Golden State.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
-            "quote": "After finishing 50–32 in the regular season, the Lakers floundered in the playoffs"
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "Golden State Warriors (48–34) played against the Eastern Conference champion Washington Bullets (60–22)"
           }
         },
         {
-          "text": "Kobe was voted to both the All-NBA and All-Defensive First Teams that year.",
+          "text": "The championship was Golden State's first since 1956, when the franchise played in Philadelphia.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
-            "quote": "He was once again voted to both the All-NBA and All-Defensive First Teams"
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "win their first championship since 1956, when the team was still based in Philadelphia"
           }
         },
         {
-          "text": "Despite his scoring records, Bryant finished third in the league MVP voting that season.",
+          "text": "Golden State traded future Hall of Famer Nate Thurmond to Chicago for young center Clifford Ray before the season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
-            "quote": "and came in third for the MVP award"
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "they traded future Hall of Famer Nate Thurmond to the Chicago Bulls for young center Clifford Ray"
           }
         }
       ]
     },
     {
-      "id": "nba-kobe03-40-streak",
+      "id": "nba-middleton19-playoff-three-pct",
       "sport": "NBA",
-      "prompt": "In February 2003, Kobe Bryant scored 40 or more in how many consecutive games?",
-      "context": "Los Angeles Lakers · 2002–03",
-      "answer": 9,
+      "prompt": "What percentage of his three-pointers did Khris Middleton make in the 2019 playoffs?",
+      "context": "Milwaukee Bucks · 2019 postseason · three-point shooting",
+      "answer": 43.5,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "percent",
+        "plural": "percent"
       },
-      "min": 6,
-      "max": 25,
-      "step": 1,
-      "note": "Nine straight, averaging 40.6 for the month.",
+      "min": 20,
+      "max": 60,
+      "step": 0.5,
+      "note": "43.5%, a sharp shooting run despite Milwaukee's conference finals loss.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
-        "quote": "posting 40 or more points in nine consecutive games while averaging 40.6 in February"
+        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+        "quote": "Khris Middleton | 15 | 15 | 34.3 | .418 | .435 | .885 | 6.3 | 4.4 | .4 | .0 | 16.9",
+        "derivation": "Converted 0.435 three-point field-goal proportion in the playoff row to 43.5%."
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +135,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Kobe averaged an astonishing 40.6 points per game during that February.",
+          "text": "Middleton averaged 16.9 points and 6.3 rebounds during Milwaukee's playoff run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
-            "quote": "while averaging 40.6 in February"
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "6.3 | 4.4 | .4 | .0 | 16.9"
           }
         },
         {
-          "text": "He also posted career-best averages of 6.9 rebounds and 5.9 assists during the season.",
+          "text": "The Bucks swept Detroit before eliminating Boston in five games.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
-            "quote": "He also averaged career-high 6.9 rebounds, 5.9 assists, and 2.2 steals"
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "the Bucks defeated the Detroit Pistons in the First Round by a four-game sweep"
           }
         },
         {
-          "text": "The Lakers' attempt at another title ended against the eventual champion San Antonio Spurs.",
+          "text": "Middleton also shot 88.5% on free throws during that postseason.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant",
-            "quote": "lost in the semifinals in six games to the eventual champions San Antonio Spurs"
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
+            "quote": "Khris Middleton | 15 | 15 | 34.3 | .418 | .435 | .885"
           }
         }
       ]
     },
     {
-      "id": "nba-kobe05-62-three-quarters",
+      "id": "nba-jokic23-playoff-points",
       "sport": "NBA",
-      "prompt": "Kobe Bryant sat out the fourth quarter against Dallas on December 20, 2005. How many points did he have through three?",
-      "context": "Lakers vs Dallas Mavericks · 2005–06",
-      "answer": 62,
+      "prompt": "Nikola Jokić led the 2023 playoffs in points, rebounds and assists. How many points did he score?",
+      "context": "Denver Nuggets · 2023 playoffs",
+      "answer": 600,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 30,
-      "max": 85,
+      "min": 350,
+      "max": 750,
       "step": 1,
-      "note": "62, one more than the whole Mavericks team had at that point.",
+      "note": "600, with 269 rebounds and 190 assists.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
-        "quote": "On December 20, 2005, Bryant scored 62 points in three quarters against the Dallas Mavericks"
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "became the first player in NBA history to lead the league in points (600), rebounds (269), and assists (190)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +186,50 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Kobe had actually outscored the entire Dallas roster to that point, before the final quarter began.",
+          "text": "Jokić became the first center to win Finals MVP since Shaquille O'Neal two decades earlier.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
-            "quote": "outscoring the Mavericks through three quarters by himself (62–61)"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "becoming the first center to win the award since Shaquille O'Neal in 2002"
           }
         },
         {
-          "text": "Phil Jackson let Bryant sit out the last quarter because the game had become a rout.",
+          "text": "Denver relied on Jokić's scoring efficiency after its outside shooters went ice-cold in the clincher.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
-            "quote": "Phil Jackson allowed Kobe to rest in the fourth quarter because the game was a blowout."
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "the Nuggets struggled with their shooting throughout the game"
           }
         },
         {
-          "text": "Jeanie Buss later said she was frustrated Kobe hadn't played the fourth quarter.",
+          "text": "Jamal Murray came back from a serious ACL injury to play a key role in the championship run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
-            "quote": "Jeanie Buss, Jackson's girlfriend, owner's Jerry Buss daughter, and Lakers vice president of player personnel, was self-admittedly mad at Jackson"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Jamal Murray returned to the playoffs after a two-year absence caused by injury"
           }
         }
       ]
     },
     {
-      "id": "nba-kobe10-g7-fga",
+      "id": "nba-kobe10-celtics-g7-combined",
       "sport": "NBA",
-      "prompt": "Kobe Bryant made just six field goals in Game 7 of the 2010 Finals. How many did he attempt?",
-      "context": "2010 NBA Finals · Game 7 · vs Boston",
-      "answer": 24,
+      "prompt": "In Kobe's bruising 2010 Finals Game 7 against Boston, how many points did both teams score combined?",
+      "context": "Lakers vs. Celtics · 2010 Finals · deciding Game 7",
+      "answer": 162,
       "unit": {
-        "singular": "shot",
-        "plural": "shots"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 0,
-      "max": 34,
+      "min": 80,
+      "max": 200,
       "step": 1,
-      "note": "6 for 24, though his 23 points led all scorers.",
+      "note": "162 combined. Los Angeles prevailed 83–79 in a defensive battle.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-        "quote": "Bryant, despite shooting 6 for 24 (25%) from the field, scored 10 of his game-high 23 points in the fourth quarter."
+        "quote": "Boston Celtics 79, Los Angeles Lakers 83",
+        "derivation": "2010 Finals Game 7: Boston 79 + Los Angeles 83 = 162 combined points."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +238,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "The Lakers controlled the offensive glass and won the overall rebounding battle.",
+          "text": "Kobe scored 10 of his 23 points in the fourth quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "The Lakers had 23 offensive rebounds and out-rebounded the Celtics, 53–40."
+            "quote": "scored 10 of his game-high 23 points in the fourth quarter"
           }
         },
         {
-          "text": "Pau Gasol pulled down 18 rebounds in the championship clincher.",
+          "text": "The Lakers won the rebounding battle 53–40.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "Gasol had 18 rebounds and Bryant added 15."
+            "quote": "out-rebounded the Celtics, 53–40"
           }
         },
         {
-          "text": "Ron Artest chipped in 20 points, including a crucial late three-pointer.",
+          "text": "Bryant received Finals MVP for the second consecutive season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "Artest, who scored 20 points in Game 7 including his last-second three-pointer"
+            "quote": "He was named the Finals MVP for the second straight season"
           }
         }
       ]

@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { analyticsAllowed, browserSignal, loadPrivacy, newKey, PRIVACY_KEY, savePrivacy, scoreIntent, scoreKey, scoresShownOn } from './privacy';
+import { analyticsAllowed, browserSignal, hasDurableScoreIdentity, loadPrivacy, newKey, PRIVACY_KEY, savePrivacy, scoreIntent, scoreKey, scoresShownOn } from './privacy';
 
 const mem = () => {
   const m = new Map<string, string>();
@@ -39,12 +39,30 @@ describe('privacy choices', () => {
     expect(newKey()).not.toBe(newKey());
   });
 
+  it('refuses an unpersisted browser score code even when consent memory fallback retains it', () => {
+    const day = '2026-11-18';
+    const normal = mem();
+    const code = scoreKey(normal);
+    expect(hasDurableScoreIdentity(code, day, normal)).toBe(false); // day not yet recorded
+    savePrivacy({ sent: [day] }, normal);
+    expect(hasDurableScoreIdentity(code, day, normal)).toBe(true);
+    savePrivacy({ scores: 'off' }, normal);
+    expect(hasDurableScoreIdentity(code, day, normal)).toBe(false);
+
+    const quota = { getItem: () => null, setItem: () => { throw new DOMException('full', 'QuotaExceededError'); } };
+    const temporary = scoreKey(quota);
+    savePrivacy({ sent: [day], scores: 'on' }, quota);
+    expect(loadPrivacy(quota).key).toBe(temporary); // still safe for in-session opt-out
+    expect(hasDurableScoreIdentity(temporary, day, quota)).toBe(false); // no recoverable erasure key
+    expect(hasDurableScoreIdentity(temporary, day, null)).toBe(false);
+  });
+
   it('survives corrupt storage and drops bad fields', () => {
     const s = mem();
     s.setItem(PRIVACY_KEY, '{not json');
-    expect(loadPrivacy(s)).toEqual({ analytics: 'unset', scores: 'unset', key: null, sent: [], done: [], asked: false });
+    expect(loadPrivacy(s)).toEqual({ analytics: 'unset', scores: 'unset', key: null, sent: [], done: [], asked: false, deleting: false });
     s.setItem(PRIVACY_KEY, JSON.stringify({ analytics: 'maybe', scores: 'on', key: 'short', sent: ['2026-11-18', 'x', 5] }));
-    expect(loadPrivacy(s)).toEqual({ analytics: 'unset', scores: 'on', key: null, sent: ['2026-11-18'], done: [], asked: false });
+    expect(loadPrivacy(s)).toEqual({ analytics: 'unset', scores: 'on', key: null, sent: ['2026-11-18'], done: [], asked: false, deleting: false });
   });
 
   it('keeps sent days unique, sorted and bounded', () => {
@@ -87,5 +105,20 @@ describe('consent where the server asks first', () => {
     const broken = { getItem: vi.fn(() => { throw new Error('blocked'); }), setItem: () => { throw new Error('blocked'); } };
     savePrivacy({ analytics: 'off', scores: 'off' }, broken);
     expect(loadPrivacy(broken)).toMatchObject({ analytics: 'off', scores: 'off' });
+  });
+});
+
+describe('post-erasure privacy barriers',()=>{
+  it('a pending deletion never sends new daily comparisons, even if the old preference is turned back on',()=>{
+    const s=mem();
+    savePrivacy({scores:'on',deleting:true,key:'a'.repeat(22),sent:['2026-11-18']},s);
+    const p=loadPrivacy(s);
+    expect(p.deleting).toBe(true);
+    expect(scoreIntent(p,false)).toBe('skip');
+    expect(scoresShownOn(p,false)).toBe(false);
+    savePrivacy({scores:'on'},s);
+    expect(scoreIntent(loadPrivacy(s),false)).toBe('skip');
+    savePrivacy({scores:'off',deleting:false,key:null,sent:[],done:[]},s);
+    expect(loadPrivacy(s).deleting).toBe(false);
   });
 });

@@ -1,29 +1,29 @@
 {
   "date": "2026-11-29",
   "theme": {
-    "title": "Stockton to Malone",
-    "subtitle": "Utah Jazz, 1984–2003",
-    "recap": "John Stockton and Karl Malone played together longer than any teammates, and Stockton barely missed a game."
+    "title": "From Tip to Buzzer",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-stockton90-apg",
+      "id": "nba-bulls11-regular-wins",
       "sport": "NBA",
-      "prompt": "In 1989–90 John Stockton set the NBA record for assists per game in a season. What was it?",
-      "context": "Utah Jazz · 1989–90",
-      "answer": 14.5,
+      "prompt": "How many regular-season games did Derrick Rose's 2010–11 Bulls win?",
+      "context": "Chicago Bulls · 2010–11 · full regular season",
+      "answer": 62,
       "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 9,
-      "max": 22,
-      "step": 0.1,
-      "note": "14.5 a game.",
+      "min": 30,
+      "max": 82,
+      "step": 1,
+      "note": "62 wins, earning the top seed in the Eastern Conference.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/John_Stockton",
-        "quote": "As of 2019, Stockton also held the record for assists-per-game average over one season (14.5 in 1990)."
+        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+        "quote": "the Bulls finished the season with a 62–20 record, the best in the league"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Stockton led the league in assists for nine consecutive seasons, an extraordinary run of consistency.",
+          "text": "Derrick Rose became the youngest player to win NBA MVP, earning the award before his 23rd birthday.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/John_Stockton",
-            "quote": "leading the NBA in assists per game, which he would do for nine consecutive seasons"
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "Derrick Rose won the NBA Most Valuable Player Award, becoming the youngest NBA player ever to win the award, at the age of 22."
           }
         },
         {
-          "text": "He produced at least 1,000 assists in a single season on seven separate occasions.",
+          "text": "Chicago head coach Tom Thibodeau won Coach of the Year in the same season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/John_Stockton",
-            "quote": "Stockton accomplished this feat seven times"
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "Tom Thibodeau wins NBA Coach of the Year"
           }
         },
         {
-          "text": "Stockton ended his playing career with 15,806 assists, far ahead of other point guards.",
+          "text": "Rose led the league's best-record team without a single All-Star teammate.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/John_Stockton",
-            "quote": "career assists with 15,806"
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "Derrick Rose won 2010-11 NBA MVP and led his team to the Best NBA Regular Season Record without any All-Star teammates."
           }
         }
       ]
     },
     {
-      "id": "nba-stockton-malone-games",
+      "id": "nba-battier13-g7-threes",
       "sport": "NBA",
-      "prompt": "How many regular-season games did John Stockton and Karl Malone play together?",
-      "context": "Utah Jazz · 1985–2003",
-      "answer": 1412,
+      "prompt": "How many three-pointers did Shane Battier make in Game 7 of the 2013 Finals?",
+      "context": "2013 NBA Finals · Game 7 · vs San Antonio",
+      "answer": 6,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 400,
-      "max": 2000,
-      "step": 5,
-      "note": "1,412, a record for teammates.",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "note": "Six, for 18 points.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/John_Stockton",
-        "quote": "The two played a record 1,412 regular season games together as teammates"
+        "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
+        "quote": "Battier scored 18 points on six 3-pointers"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "The partnership led Utah to consecutive NBA Finals appearances against Michael Jordan's Bulls.",
+          "text": "With the series in the balance, Battier defended Tim Duncan's missed close-range shot and follow-up attempt.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/John_Stockton",
-            "quote": "Stockton and his longtime teammate Karl Malone led the Jazz to the NBA Finals"
+            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
+            "quote": "Duncan, guarded by Shane Battier, missed a shot under the basket and a follow-up tip-in attempt"
           }
         },
         {
-          "text": "Their relentless pick-and-roll became a signature feature of the Jazz attack.",
+          "text": "The championship decider followed Ray Allen's unforgettable game-tying three-pointer in the preceding matchup.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/John_Stockton",
-            "quote": "Stockton and Malone have been described as the greatest pick-and-roll combination of all time"
+            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
+            "quote": "Ray Allen made a game-tying three-pointer to send Game 6 to overtime"
           }
         },
         {
-          "text": "Utah retired Stockton's No. 12 jersey in 2004.",
+          "text": "Battier's bench scoring offset scoreless performances from Chris Bosh and Ray Allen in the deciding game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/John_Stockton",
-            "quote": "Stockton's number 12 jersey was retired by the Jazz during a game on November 22, 2004"
+            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
+            "quote": "Battier scored 18 points on six 3-pointers to offset scoreless nights by Bosh and Allen"
           }
         }
       ]
     },
     {
-      "id": "nba-stockton-missed",
+      "id": "nba-bucks24-cup-quarter",
       "sport": "NBA",
-      "prompt": "Over 19 seasons, how many games did John Stockton miss?",
-      "context": "Utah Jazz · 1984–2003",
-      "answer": 22,
+      "prompt": "In the 2024 NBA Cup final, Milwaukee held Oklahoma City to how many points in one quarter?",
+      "context": "2024 NBA Cup final · Bucks vs Thunder",
+      "answer": 14,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 0,
-      "max": 120,
+      "min": 4,
+      "max": 36,
       "step": 1,
-      "note": "Just 22. He played every game in 17 seasons.",
+      "note": "14.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/John_Stockton",
-        "quote": "missing only 22 games in his 19-season career and playing every game of 17 seasons"
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
+        "quote": "holding the Thunder to just 14 points in the period."
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Stockton had completed 17 full seasons without missing a single game.",
+          "text": "Khris Middleton missed Milwaukee's championship game because he was ill.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/John_Stockton",
-            "quote": "playing every game of 17 seasons"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
+            "quote": "The Bucks missed Khris Middleton due to illness"
           }
         },
         {
-          "text": "His most significant injury was a left-knee MCL problem that kept him out at the start of 1997–98.",
+          "text": "Giannis recorded a triple-double with 26 points, 19 rebounds and 10 assists in the Cup final.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/John_Stockton",
-            "quote": "due to an injured MCL in his left knee sustained in the preseason"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
+            "quote": "Giannis Antetokounmpo recorded a triple-double while leading the Bucks in points (26), rebounds (19), and assists (10)."
           }
         },
         {
-          "text": "He was still Utah's starting point guard when he retired at age 41.",
+          "text": "The Bucks led by just one point at halftime, before pulling away after the break.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/John_Stockton",
-            "quote": "He remained a starting NBA player until his retirement at age 41"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
+            "quote": "The game was close at halftime, with the Bucks leading 51–50"
           }
         }
       ]
     },
     {
-      "id": "nba-stockton91-28",
+      "id": "nba-gsw16-threes",
       "sport": "NBA",
-      "prompt": "John Stockton's career high in assists came on January 15, 1991. How many?",
-      "context": "Utah Jazz vs San Antonio Spurs · 1990–91",
-      "answer": 28,
+      "prompt": "How many three-pointers did the 2015–16 Warriors make in the regular season?",
+      "context": "Golden State Warriors · 2015–16 · 82 games",
+      "answer": 1077,
       "unit": {
-        "singular": "assist",
-        "plural": "assists"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 16,
-      "max": 48,
-      "step": 1,
-      "note": "28, with 20 points.",
+      "min": 550,
+      "max": 1400,
+      "step": 10,
+      "note": "1,077, the first team past 1,000.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/John_Stockton",
-        "quote": "On January 15, 1991, Stockton scored 20 points and dished out a career-high and franchise-record 28 assists"
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "They also became the first team to make over 1,000 three-pointers in the regular-season with 1,077,"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,50 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Stockton also scored 20 points in the same home win against San Antonio.",
+          "text": "Stephen Curry personally contributed 402 made threes during the same regular season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/John_Stockton",
-            "quote": "Stockton scored 20 points and dished out a career-high"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "Curry broke his own NBA record for made three-pointers in a season of 286, finishing with 402"
           }
         },
         {
-          "text": "Utah won that game 124–102 at home against the Spurs.",
+          "text": "Golden State also led the league in assists per game and offensive rating that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/John_Stockton",
-            "quote": "in a 124–102 home win against the San Antonio Spurs"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "led the league in scoring (114.9 points), field goal percentage (.487), three-point percentage (.416), assists (28.9)"
           }
         },
         {
-          "text": "In 1995, Stockton passed Magic Johnson to become the league's all-time assists leader.",
+          "text": "The Warriors crossed the team thousand-three mark in a game against Portland.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/John_Stockton",
-            "quote": "he passed Magic Johnson (who had 9,921 assists) as the NBA's all-time leader in assists"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "first team in NBA history to score 1,000 three-pointers in a single season during their 136–111 win against"
           }
         }
       ]
     },
     {
-      "id": "nba-malone-playoff-games",
+      "id": "nba-murray-mitchell20-game4-combined",
       "sport": "NBA",
-      "prompt": "Karl Malone never won an NBA title. How many playoff games did he play?",
-      "context": "Jazz and Lakers · 1985–2004",
-      "answer": 193,
+      "prompt": "How many points did Jamal Murray and Donovan Mitchell score together in their extraordinary 2020 bubble playoff duel?",
+      "context": "Nuggets vs Jazz · August 2020 playoffs",
+      "answer": 101,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 0,
-      "max": 240,
+      "min": 30,
+      "max": 140,
       "step": 1,
-      "note": "193.",
+      "note": "101 combined: Murray had 50, Mitchell 51, an unprecedented playoff duel.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-        "quote": "He holds an NBA record for having played the most playoff games without winning a championship (193)"
+        "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+        "quote": "50 points, along with 11 rebounds and 7 assists, in a 129–127 loss to the Jazz. With Donovan Mitchell scoring 51",
+        "derivation": "Jamal Murray 50 + Donovan Mitchell 51 = 101 combined points."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +237,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Malone joined the Lakers in search of his first ring, alongside fellow veteran Gary Payton.",
+          "text": "It was the first playoff game with an opposing 50-point scorer on each side.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "the Lakers signed veteran stars Gary Payton and Karl Malone"
+            "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+            "quote": "the first time in NBA playoff history that two opponents scored at least 50 points in the same game"
           }
         },
         {
-          "text": "Detroit upset the heavily favored Lakers and won the championship in five games.",
+          "text": "Murray followed it with another enormous performance to keep Denver alive.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "the underdog Pistons handily won the series in five games"
+            "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+            "quote": "Murray recorded 42 points, 8 rebounds, and 8 assists"
           }
         },
         {
-          "text": "A knee injury meant Malone could not dress for the decisive Finals game.",
+          "text": "His outside shooting caught fire again later in the series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "Karl Malone would play his last game, as a knee injury would not allow him to dress in Game 5"
+            "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
+            "quote": "shooting 9–12 from three"
           }
         }
       ]

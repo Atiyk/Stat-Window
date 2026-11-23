@@ -1,29 +1,29 @@
 {
   "date": "2026-11-28",
   "theme": {
-    "title": "Rock bottom",
-    "subtitle": "The NBA's worst seasons",
-    "recap": "The 1972–73 Sixers and 2011–12 Bobcats own the worst records ever, and both lost games in long runs."
+    "title": "Stars and Surprises",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-sixers73-wins",
+      "id": "nba-curry16-13-threes",
       "sport": "NBA",
-      "prompt": "How many games did the 1972–73 Philadelphia 76ers win?",
-      "context": "Philadelphia 76ers · 1972–73 · 82 games",
-      "answer": 9,
+      "prompt": "On November 7, 2016, Stephen Curry set what was then the single-game record for threes. How many did he make?",
+      "context": "Golden State Warriors · 2016–17 regular season",
+      "answer": 13,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 0,
-      "max": 40,
+      "min": 6,
+      "max": 24,
       "step": 1,
-      "note": "Nine, finishing 9–73.",
+      "note": "13, then the single-game record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-        "quote": "the 76ers lost their remaining 13 games to finish 9–73."
+        "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+        "quote": "Stephen Curry set a new record of 13 three-pointers made in a single game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Philadelphia lost its first 15 games before the season unraveled further.",
+          "text": "Curry's famous rebound night came immediately after his long made-three streak ended against the Lakers.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-            "quote": "the 76ers lost their first 15 games of the season"
+            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+            "quote": "After having his streak of consecutive games with a three-pointer come to an end the previous game"
           }
         },
         {
-          "text": "Veteran Hal Greer was the last holdover from the 1967 championship team and retired after the season.",
+          "text": "The superteam season began with a surprisingly heavy home defeat against Kawhi Leonard's Spurs.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-            "quote": "Only Hal Greer remained on the roster from the 1966–1967 NBA Championship Team"
+            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+            "quote": "with a 29-point home loss to the San Antonio Spurs"
           }
         },
         {
-          "text": "The Sixers had offered the coaching job to both Al McGuire and Adolph Rupp, but each declined.",
+          "text": "Kevin Durant's arrival brought Golden State another superstar alongside Curry, Thompson and Green.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-            "quote": "The Sixers ownership offered the head coaching job to Marquette University head coach Al McGuire"
+            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+            "quote": "forming a new All-Star \"Fantastic Four\" of Kevin Durant, Stephen Curry, Klay Thompson and Draymond Green"
           }
         }
       ]
     },
     {
-      "id": "nba-bobcats12-wins",
+      "id": "nba-shaq00-finals-ppg",
       "sport": "NBA",
-      "prompt": "In the lockout-shortened 2011–12 season, how many games did the Charlotte Bobcats win?",
-      "context": "Charlotte Bobcats · 2011–12 · 66 games",
-      "answer": 7,
+      "prompt": "Shaquille O'Neal averaged how many points in the 2000 Finals?",
+      "context": "2000 NBA Finals · six games vs Indiana",
+      "answer": 38,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 0,
-      "max": 19,
-      "step": 1,
-      "note": "Seven, the lowest winning percentage in NBA history.",
+      "min": 26,
+      "max": 54,
+      "step": 0.1,
+      "note": "38.0, plus 16.7 rebounds a game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
-        "quote": "Total: 7–59 (Home: 4–29; Road: 3–30)"
+        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+        "quote": "putting up 38.0 points, 16.7 rebounds, and 2.7 blocks per game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Michael Jordan owned Charlotte during its historically difficult season.",
+          "text": "Indiana was making its first NBA Finals appearance, with Larry Bird coaching the Pacers against Los Angeles.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
-            "quote": "Owner  | Michael Jordan"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "This marked Indiana's first NBA Finals appearance"
           }
         },
         {
-          "text": "Gerald Henderson led the Bobcats in scoring with 15.1 points per game.",
+          "text": "Shaq swept regular-season MVP, All-Star Game MVP and Finals MVP honors in the same calendar year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
-            "quote": "Gerald Henderson led the team in scoring, with an average of 15.1 points per game"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "one of only three players to win NBA MVP, NBA All-Star Game MVP and NBA Finals MVP awards in the same year"
           }
         },
         {
-          "text": "Kemba Walker joined the team as a rookie after Charlotte selected him in the first round of the draft.",
+          "text": "The Lakers' victory ended a championship drought stretching back to the Showtime era.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
-            "quote": "1 | 9 | Kemba Walker"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "to win their first NBA championship since 1988 and their twelfth overall"
           }
         }
       ]
     },
     {
-      "id": "nba-sixers73-games-back",
+      "id": "nba-murray23-finals-apg",
       "sport": "NBA",
-      "prompt": "How many games behind first-place Boston did the 1972–73 Sixers finish in their division?",
-      "context": "Philadelphia 76ers · 1972–73 · Atlantic Division",
-      "answer": 59,
+      "prompt": "How many assists per game did Jamal Murray average in the 2023 NBA Finals?",
+      "context": "Denver Nuggets · five-game 2023 championship series",
+      "answer": 10,
       "unit": {
-        "singular": "game back",
-        "plural": "games back"
+        "singular": "assist per game",
+        "plural": "assists per game"
       },
-      "min": 45,
-      "max": 95,
-      "step": 1,
-      "note": "59, an NBA record.",
+      "min": 3,
+      "max": 19,
+      "step": 0.1,
+      "note": "10.0 assists a night, complementing Jokić's scoring and passing.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-        "quote": "The 76ers finished an NBA-record 59 games behind the Atlantic Division champion Boston Celtics."
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "Jamal Murray | 5 | 5 | 42.2 | .451 | .387 | .929 | 6.2 | 10.0 | 1.0 | 0.0 | 21.4"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,100 +134,101 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Only six seasons earlier, Philadelphia had set an NBA record for regular-season wins.",
+          "text": "Murray had torn his ACL before the 2021 playoffs and missed the entire following season while recovering.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-            "quote": "Only six seasons earlier, the 76ers had set the NBA record for most wins in a season"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Jamal Murray, who was crucial to the Nuggets' playoff runs in 2019 and 2020, tore his ACL a month before the start of the 2021 playoffs"
           }
         },
         {
-          "text": "Philadelphia's average scoring margin was an abysmal minus 12.1 points per game.",
+          "text": "In Game 4 of the Finals, Murray recorded 12 assists without committing a single turnover.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-            "quote": "their −12.1 points per game point differential"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Murray, who committed seven turnovers in game 3, finished the game with 12 assists and zero turnovers"
           }
         },
         {
-          "text": "The struggling roster was playing its tenth season in Philadelphia.",
+          "text": "In Game 1, Murray and Jokić became the first Finals teammates since Magic Johnson and James Worthy to each have 25-plus points and 10 assists.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-            "quote": "their 24th season in the NBA and tenth in Philadelphia"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Jokić and Murray also became the second pair of teammates to each put up at least 25 points and 10 assists"
           }
         }
       ]
     },
     {
-      "id": "nba-bobcats12-losing-streak",
+      "id": "nba-giannis21-finals-g6-blocks",
       "sport": "NBA",
-      "prompt": "The 2011–12 Bobcats closed the season on a losing streak that wasn’t snapped until the next season began. How long was it?",
-      "context": "Charlotte Bobcats · 2011–12",
-      "answer": 23,
+      "prompt": "In Milwaukee's 2021 title clincher, how many shots did Giannis block?",
+      "context": "Milwaukee Bucks · 2021 Finals Game 6",
+      "answer": 5,
       "unit": {
-        "singular": "game",
-        "plural": "games"
-      },
-      "min": 10,
-      "max": 46,
-      "step": 1,
-      "note": "23 straight losses.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
-        "quote": "embarking on a 23-game losing streak that lasted until the start of the following season."
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Charlotte's last victory before the drought came against Toronto in mid-March.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
-            "quote": "On March 17, 2012, the Bobcats had their final win of the season against the Toronto Raptors"
-          }
-        },
-        {
-          "text": "The season ended with a 104–84 defeat against the New York Knicks.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
-            "quote": "losing 104–84 to the New York Knicks in their final regular season game"
-          }
-        },
-        {
-          "text": "Bismack Biyombo led Charlotte in rebounds, while D. J. Augustin led in assists.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
-            "quote": "Bismack Biyombo led in rebounds per game (5.8), and point guard D. J. Augustin"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-sixers14-losing-streak",
-      "sport": "NBA",
-      "prompt": "The 2013–14 Sixers tied what was then the NBA record for consecutive losses. How many?",
-      "context": "Philadelphia 76ers · 2013–14",
-      "answer": 26,
-      "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "block",
+        "plural": "blocks"
       },
       "min": 0,
-      "max": 36,
+      "max": 12,
       "step": 1,
-      "note": "26 in a row, matching Cleveland's mark.",
+      "note": "Five blocks helped deliver Milwaukee's first title in half a century.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
-        "quote": "tying Cleveland's former NBA record for most consecutive losses with 26"
+        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+        "quote": "14 rebounds and five blocks"
+      },
+      "verified": {
+        "on": "2026-11-22",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Milwaukee captured this championship after coming back from a 2–0 Finals deficit.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "come back from a 2–0 deficit in the Finals"
+          }
+        },
+        {
+          "text": "The deciding game was tied after the third quarter before Milwaukee pulled away.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "tied at 77 after three quarters"
+          }
+        },
+        {
+          "text": "The Bucks had not won an NBA title since the Kareem Abdul-Jabbar and Oscar Robertson era.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "first championship since 1971"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-wade06-g5-ft-scoring-share",
+      "sport": "NBA",
+      "prompt": "In Wade's controversial 2006 Finals Game 5, about what percent of his scoring came at the free-throw line?",
+      "context": "Dwyane Wade · Heat vs Mavericks · 2006 Finals",
+      "answer": 49,
+      "unit": {
+        "singular": "percent",
+        "plural": "percent"
+      },
+      "min": 10,
+      "max": 65,
+      "step": 1,
+      "note": "49%: Wade made 21 free throws while scoring 43, almost half his points.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+        "quote": "Wade finished the game with 43 points while setting an NBA Finals record for most made free throws in a game with 21.",
+        "derivation": "21 / 43 × 100 = 48.837%, rounded to 49%."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +237,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "The Sixers finally ended the run with a 123–98 win against Detroit at home.",
+          "text": "Wade attempted as many free throws as all of Dallas combined.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
-            "quote": "ended with a 123–98 win over the Detroit Pistons on March 29"
+            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+            "quote": "Dwyane Wade shot 25 free throws—as many as all the Mavericks combined"
           }
         },
         {
-          "text": "Rookie guard Michael Carter-Williams won Rookie of the Year that season.",
+          "text": "Jason Terry led the Mavericks in scoring.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
-            "quote": "Michael Carter-Williams enjoyed a successful rookie season, earning Rookie of the Year honors"
+            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+            "quote": "Jason Terry led Dallas with 35 points"
           }
         },
         {
-          "text": "Sam Hinkie was Philadelphia's general manager during the difficult season.",
+          "text": "Miami needed overtime to escape with the win.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_Philadelphia_76ers_season",
-            "quote": "General manager  | Sam Hinkie"
+            "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
+            "quote": "Dallas Mavericks 100, Miami Heat 101 (OT)"
           }
         }
       ]

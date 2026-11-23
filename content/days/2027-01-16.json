@@ -1,29 +1,29 @@
 {
   "date": "2027-01-16",
   "theme": {
-    "title": "Fear the deer",
-    "subtitle": "Milwaukee Bucks, 2020–21",
-    "recap": "With Giannis at the center, Holiday in the backcourt and a deep cast, Milwaukee survived Brooklyn and brought a championship home."
+    "title": "Beyond the Box Score",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-bucks21-regular-wins",
+      "id": "nba-miller95-8-points",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 2020–21 champion Bucks win?",
-      "context": "Milwaukee · pandemic-shortened NBA season",
-      "answer": 46,
+      "prompt": "Against the Knicks in 1995, Reggie Miller scored how many points in 8.9 seconds?",
+      "context": "1995 East semifinals · Game 1 · at New York",
+      "answer": 8,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 20,
-      "max": 80,
+      "min": 0,
+      "max": 12,
       "step": 1,
-      "note": "46 wins, enough for the East's third seed.",
+      "note": "Eight unanswered points.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-        "quote": "The Bucks finished the season with a 46–26 record"
+        "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+        "quote": "scored eight unanswered points in 8.9 seconds in Game 1"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Milwaukee swept Miami to open the playoffs after losing to the Heat the previous postseason.",
+          "text": "The comeback featured a stolen inbounds pass from Anthony Mason between Miller's dramatic jumpers.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "The Bucks began their playoff run by sweeping the sixth-seeded Miami Heat"
+            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+            "quote": "stole the inbound pass from Anthony Mason"
           }
         },
         {
-          "text": "Jrue Holiday arrived from New Orleans in a complicated offseason trade.",
+          "text": "John Starks missed both free throws on New York's next possession, leaving the door open for Indiana.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "Jrue Holiday (from New Orleans)"
+            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+            "quote": "Starks missed both free throws"
           }
         },
         {
-          "text": "Milwaukee claimed its Central Division title after beating Chicago in late April.",
+          "text": "Patrick Ewing grabbed the offensive rebound but his putback bounced off the back rim.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "the Bucks clinched the Central Division for a record 10th time with a win over the Chicago Bulls"
+            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+            "quote": "his shot was just a bit long and hit the back rim"
           }
         }
       ]
     },
     {
-      "id": "nba-giannis21-playoffs-ppg",
+      "id": "nba-pistons50-19-18",
       "sport": "NBA",
-      "prompt": "What was Giannis Antetokounmpo's points average in the 2021 playoffs?",
-      "context": "Milwaukee · entire postseason, not only the Finals",
-      "answer": 30.2,
+      "prompt": "Before the shot clock, the Fort Wayne Pistons beat the Lakers in 1950 with how many points?",
+      "context": "Fort Wayne Pistons vs Minneapolis Lakers · November 22, 1950",
+      "answer": 19,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 15,
-      "max": 52,
-      "step": 0.1,
-      "note": "30.2 points per game over the Bucks' championship run.",
+      "min": 0,
+      "max": 45,
+      "step": 1,
+      "note": "19, winning 19–18. The fourth quarter went 3–1.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-        "quote": "Giannis Antetokounmpo | 21 | 21 | 38.1 | .569 | .186 | .587 | 12.8 | 5.1 | 1.0 | 1.2 | 30.2"
+        "url": "https://en.wikipedia.org/wiki/Shot_clock",
+        "quote": "defeated the Minneapolis Lakers by a record-low score of 19–18, including 3–1 in the fourth quarter."
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "He also averaged 12.8 rebounds a game during that postseason.",
+          "text": "Fort Wayne attempted just 13 field goals during the entire low-scoring game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "Giannis Antetokounmpo | 21 | 21 | 38.1 | .569 | .186 | .587 | 12.8"
+            "url": "https://en.wikipedia.org/wiki/Shot_clock",
+            "quote": "they attempted 13 shots for the game"
           }
         },
         {
-          "text": "Giannis started every playoff game he appeared in.",
+          "text": "The slow-down strategy was designed to keep the ball away from Lakers giant George Mikan.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "Giannis Antetokounmpo | 21 | 21 | 38.1"
+            "url": "https://en.wikipedia.org/wiki/Shot_clock",
+            "quote": "to limit the impact of the Lakers' dominant George Mikan"
           }
         },
         {
-          "text": "He was named Finals Most Valuable Player after Milwaukee defeated Phoenix.",
+          "text": "A St. Paul newspaper condemned the Pistons' tactic as a black eye for pro basketball.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-            "quote": "Giannis Antetokounmpo was named NBA Finals Most Valuable Player"
+            "url": "https://en.wikipedia.org/wiki/Shot_clock",
+            "quote": "gave pro basketball a great black eye"
           }
         }
       ]
     },
     {
-      "id": "nba-holiday21-playoffs-apg",
+      "id": "nba-payton94-apg",
       "sport": "NBA",
-      "prompt": "How many assists per game did Jrue Holiday average in the 2021 playoffs?",
-      "context": "Bucks · full postseason · title run",
-      "answer": 8.7,
+      "prompt": "How many assists per game did Gary Payton average in Seattle's dominant season?",
+      "context": "Gary Payton · Seattle · regular season",
+      "answer": 6,
       "unit": {
         "singular": "assist per game",
         "plural": "assists per game"
       },
-      "min": 3,
-      "max": 17,
+      "min": 2,
+      "max": 13,
       "step": 0.1,
-      "note": "8.7 assists a game from Milwaukee's two-way guard.",
+      "note": "6.0 assists per game, alongside elite on-ball defense.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-        "quote": "Jrue Holiday | 23 | 23 | 39.7 | .406 | .303 | .714 | 5.7 | 8.7 | 1.7"
+        "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+        "quote": "Gary Payton averaged 16.5 points, 6.0 assists and 2.3 steals per game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Holiday started all 23 of Milwaukee's playoff games.",
+          "text": "Payton made his first NBA All-Star team that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "Jrue Holiday | 23 | 23 | 39.7"
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "it was Payton's first ever All-Star appearance"
           }
         },
         {
-          "text": "His late steal against Devin Booker set up an alley-oop that swung Finals Game 5.",
+          "text": "He was also named to the NBA All-Defensive First Team.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-            "quote": "Jrue Holiday stole the ball from Devin Booker and passed it to Giannis Antetokounmpo for an alley-oop"
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "and to the NBA All-Defensive First Team"
           }
         },
         {
-          "text": "Holiday had been acquired from New Orleans in Milwaukee's offseason reshuffle.",
+          "text": "Seattle reserve Nate McMillan averaged 3.0 steals per game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "Jrue Holiday (from New Orleans)"
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "Nate McMillan provided with 6.0 points, 5.3 assists and 3.0 steals per game"
           }
         }
       ]
     },
     {
-      "id": "nba-bucks21-nets-g3-points",
+      "id": "nba-mowilliams09-season-ppg",
       "sport": "NBA",
-      "prompt": "How many points did the Bucks score in their crucial Game 3 win over Brooklyn?",
-      "context": "2021 East semifinals · Milwaukee at home",
-      "answer": 86,
+      "prompt": "How many points per game did Mo Williams average in his first Cavaliers season?",
+      "context": "Cleveland Cavaliers · 2008–09 · regular season",
+      "answer": 17.8,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 48,
-      "max": 148,
-      "step": 1,
-      "note": "86 points were just enough to stay alive in the series.",
+      "min": 8,
+      "max": 31,
+      "step": 0.1,
+      "note": "17.8 points per game as LeBron's new backcourt partner.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-        "quote": "June 10 Brooklyn W 86–83 Khris Middleton (35)"
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+        "quote": "Mo Williams | 81 | 81 | 35.0 | .467 | .436 | .912 | 3.4 | 4.1 | .9 | .1 | 17.8"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,50 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Khris Middleton scored 35 to lead Milwaukee in that defensive battle.",
+          "text": "Williams made 43.6% of his three-pointers that season, while shooting 91.2% at the line.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "June 10 Brooklyn W 86–83 Khris Middleton (35)"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "Mo Williams | 81 | 81 | 35.0 | .467 | .436 | .912 | 3.4 | 4.1 | .9 | .1 | 17.8"
           }
         },
         {
-          "text": "Brooklyn managed just 83 points, despite winning both previous games.",
+          "text": "Cleveland acquired Williams from Milwaukee in a three-team trade during the offseason.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "June 10 Brooklyn W 86–83"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "To Milwaukee Bucks----Damon Jones----To Oklahoma City Thunder----Joe Smith | To Cleveland Cavaliers----Mo Williams"
           }
         },
         {
-          "text": "The Bucks later won the series in an overtime Game 7 on the road.",
+          "text": "Williams posted a season-high 44 points against Phoenix in February.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "June 19 @ Brooklyn W 115–111 (OT)"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "February 11 Phoenix W 109–92 Maurice Williams (44)"
           }
         }
       ]
     },
     {
-      "id": "nba-forbes21-three-pct",
+      "id": "nba-jordan98-last-shot-five-point-two",
       "sport": "NBA",
-      "prompt": "What percentage of threes did Bryn Forbes make for the champion Bucks?",
-      "context": "Milwaukee · 2020–21 regular season",
-      "answer": 45.2,
+      "prompt": "On Michael Jordan's famous 'Last Shot' against Utah in the 1998 Finals, how many seconds remained after the ball went in?",
+      "context": "Michael Jordan · Bulls at Jazz · 1998 Finals Game 6",
+      "answer": 5.2,
       "unit": {
-        "singular": "percent",
-        "plural": "percent"
+        "singular": "second",
+        "plural": "seconds"
       },
-      "min": 22,
-      "max": 62,
+      "min": 0,
+      "max": 20,
       "step": 0.1,
-      "note": "45.2%, a key source of floor spacing for Milwaukee.",
+      "note": "5.2 seconds. Jordan's jumper helped clinch Chicago's sixth title in eight seasons.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-        "quote": "Bryn Forbes | 70 | 10 | 19.3 | .473 | .452 | .770 | 1.6 | .6",
-        "derivation": "Source records .452 three-point accuracy; multiply by 100 for 45.2 percent."
+        "url": "https://en.wikipedia.org/wiki/Game_6_of_the_1998_NBA_Finals",
+        "quote": "Jordan then hit a 20-footer to give the Bulls an 87–86 lead with 5.2 seconds left."
       },
       "verified": {
         "on": "2026-11-16",
@@ -237,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Forbes played 70 regular-season games but started only ten.",
+          "text": "Jordan stole the ball from Karl Malone just before the shot.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "Bryn Forbes | 70 | 10 | 19.3"
+            "url": "https://en.wikipedia.org/wiki/Game_6_of_the_1998_NBA_Finals",
+            "quote": "Jordan stole the ball from Karl Malone in the low post and dribbled down the court."
           }
         },
         {
-          "text": "Milwaukee signed Forbes from the San Antonio Spurs in free agency.",
+          "text": "John Stockton missed Utah's final chance to win it.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "Bryn Forbes | November 26 | San Antonio Spurs"
+            "url": "https://en.wikipedia.org/wiki/Game_6_of_the_1998_NBA_Finals",
+            "quote": "John Stockton took the inbound pass, and missed a game-winning 3-pointer"
           }
         },
         {
-          "text": "His three-point accuracy dropped during the title-winning playoffs.",
+          "text": "Jordan finished the deciding game with 45 points.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
-            "quote": "Bryn Forbes | 20 | 0 | 13.7 | .411 | .371"
+            "url": "https://en.wikipedia.org/wiki/Game_6_of_the_1998_NBA_Finals",
+            "quote": "Michael Jordan took 35 of the Bulls' 67 shots, leading the team in scoring and minutes played with 45 points"
           }
         }
       ]

@@ -1,29 +1,29 @@
 {
   "date": "2026-12-01",
   "theme": {
-    "title": "Kareem and the Big O",
-    "subtitle": "Milwaukee, 1970–71",
-    "recap": "In only its third season Milwaukee won 66 games and a title behind Lew Alcindor and Oscar Robertson."
+    "title": "Full-Court Mix",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-bucks71-wins",
+      "id": "nba-magic09-regular-wins",
       "sport": "NBA",
-      "prompt": "In only their third season, how many games did the 1970–71 Bucks win?",
-      "context": "Milwaukee Bucks · 1970–71 · 82 games",
-      "answer": 66,
+      "prompt": "How many regular-season games did Dwight Howard's 2008–09 Magic win?",
+      "context": "Orlando · Eastern Conference champions",
+      "answer": 59,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 24,
-      "max": 82,
+      "min": 31,
+      "max": 83,
       "step": 1,
-      "note": "66–16, then a title.",
+      "note": "59 wins under coach Stan Van Gundy.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-        "quote": "Milwaukee posted a 66–16 record in only its third year of existence"
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+        "quote": "the team finished the regular season with a 59–23 record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,100 +32,151 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The arrival of Oscar Robertson gave young star Lew Alcindor a legendary partner.",
+          "text": "Dwight Howard became the youngest Defensive Player of the Year winner that spring.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "A key part of this championship season was the acquisition of Oscar Robertson"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "becoming the youngest player to win the award"
           }
         },
         {
-          "text": "Milwaukee beat the Baltimore Bullets in a four-game Finals sweep to win its first title.",
+          "text": "A shoulder injury to All-Star Jameer Nelson forced Orlando to reshape its backcourt.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "They faced off against the Baltimore Bullets and swept them in four games"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "Jameer Nelson left a game after dislocating his right shoulder"
           }
         },
         {
-          "text": "Role players included Lucius Allen, Bob Boozer and Dick Cunningham behind the star pairing.",
+          "text": "Hedo Türkoğlu hit a game-winner against Philadelphia in the opening playoff round.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "key reserves such as Lucius Allen, Bob Boozer and Dick Cunningham"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
+            "quote": "Hedo Türkoğlu's game winner in game four of that series"
           }
         }
       ]
     },
     {
-      "id": "nba-alcindor71-ppg",
+      "id": "nba-rose11-mvp-youngest-age",
       "sport": "NBA",
-      "prompt": "Lew Alcindor led the NBA in scoring in 1970–71. What was his average?",
-      "context": "Milwaukee Bucks · 1970–71",
-      "answer": 31.7,
+      "prompt": "How old was Derrick Rose when he won the NBA's MVP award in 2011?",
+      "context": "Chicago Bulls · 2010–11 MVP season",
+      "answer": 22,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "year old",
+        "plural": "years old"
       },
-      "min": 24,
-      "max": 46,
-      "step": 0.1,
-      "note": "31.7 points per game.",
+      "min": 18,
+      "max": 38,
+      "step": 1,
+      "note": "Just 22. Chicago's hometown star became the youngest MVP in league history.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-        "quote": "In only his second professional season, Lew Alcindor led the league in scoring at 31.7 ppg"
+        "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+        "quote": "At 22 years and 6 months old, Rose also became the youngest player"
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-22",
         "by": "Stat Window editorial"
       },
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Alcindor won both the league MVP and Finals MVP awards during Milwaukee's title season.",
+          "text": "Chicago finished with the NBA's best record in Rose's MVP season: 62–20.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "Lew Alcindor won MVP and Finals MVP honors"
+            "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+            "quote": "league leading record of 62–20"
           }
         },
         {
-          "text": "Milwaukee made its first Finals appearance in only its third year as a franchise.",
+          "text": "At that time, Michael Jordan was the only other Bulls player to have won league MVP.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "The Bucks made their way into the Finals for the first time in NBA history in just their third year"
+            "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+            "quote": "joining Jordan as the only players"
           }
         },
         {
-          "text": "Bob Dandridge provided another major scoring option with 18.4 points a game.",
+          "text": "Rose broke an age record previously held by Wes Unseld.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "Bob Dandridge (18.4 ppg)"
+            "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+            "quote": "formerly the youngest MVP"
           }
         }
       ]
     },
     {
-      "id": "nba-bucks71-streak",
+      "id": "nba-luka22-knicks-triple-rebounds",
       "sport": "NBA",
-      "prompt": "The 1970–71 Bucks set what was then the NBA's longest winning streak. How many games?",
-      "context": "Milwaukee Bucks · 1970–71",
-      "answer": 20,
+      "prompt": "In Luka's historic 60-point triple-double against the Knicks, how many rebounds did he pull down?",
+      "context": "Dallas Mavericks · December 2022",
+      "answer": 21,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "rebound",
+        "plural": "rebounds"
       },
-      "min": 2,
-      "max": 34,
+      "min": 0,
+      "max": 32,
       "step": 1,
-      "note": "20 straight.",
+      "note": "21 boards, to go with 60 points and 10 assists in an impossible comeback.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-        "quote": "This season included a 20-game winning streak, the NBA's longest at the time, and still ranked fifth all-time"
+        "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87",
+        "quote": "points (60) and rebounds (21)"
+      },
+      "verified": {
+        "on": "2026-11-22",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Dallas escaped with an overtime victory over the Knicks after a remarkable rally.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87",
+            "quote": "126–121 victory over the New York Knicks"
+          }
+        },
+        {
+          "text": "This was the first 60-point, 20-rebound triple-double in league history.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87",
+            "quote": "first player in NBA history to record a 60-point, 20-rebound triple-double"
+          }
+        },
+        {
+          "text": "Luka also eclipsed Dirk Nowitzki's old Mavericks single-game scoring record.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87",
+            "quote": "previously held by Nowitzki (53)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-mcgrady04-35-seconds",
+      "sport": "NBA",
+      "prompt": "Tracy McGrady stunned San Antonio in December 2004 by scoring how many points in the final 35 seconds?",
+      "context": "Rockets vs Spurs · December 9, 2004",
+      "answer": 13,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 6,
+      "max": 30,
+      "step": 1,
+      "note": "13.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
+        "quote": "scoring 13 points in the final 35 seconds against the San Antonio Spurs"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,101 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Larry Costello was Milwaukee's head coach during the championship run.",
+          "text": "Houston acquired McGrady from Orlando in a seven-player deal that also sent Steve Francis and Cuttino Mobley away.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "Head coach  | Larry Costello"
+            "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
+            "quote": "McGrady, Juwan Howard, Tyronn Lue, and Reece Gaines were traded to the Houston Rockets as part of a seven-player deal"
           }
         },
         {
-          "text": "The Bucks dispatched the Lakers in five games to win the Western Conference finals.",
+          "text": "His late explosion included consecutive triples, one converted into a four-point play and another to win at the buzzer.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "the team dispatched the Lakers in 5 games"
+            "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
+            "quote": "one of which was part of a four-point play and the last of which was a game-winner in the final two seconds"
           }
         },
         {
-          "text": "Milwaukee became the first franchise from the Midwest Division to claim an NBA championship.",
+          "text": "That Rockets team rebounded from a losing start and finished the season fifth in the West.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "The Bucks became the first team from the Midwest Division to win the NBA title"
+            "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
+            "quote": "After the All-Star break, Houston rebounded from their slow start, finishing the season with 51 wins"
           }
         }
       ]
     },
     {
-      "id": "nba-oscar71-apg",
+      "id": "nba-lillard19-okc-winner-distance",
       "sport": "NBA",
-      "prompt": "In his first Bucks season, about how many assists per game did Oscar Robertson average, to the nearest whole number?",
-      "context": "Milwaukee Bucks · 1970–71",
-      "answer": 8,
+      "prompt": "How far, in feet, was Damian Lillard's famous 2019 playoff series-winning buzzer-beater over Paul George?",
+      "context": "Lillard · Blazers vs Thunder · 2019 playoffs",
+      "answer": 37,
       "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
+        "singular": "foot",
+        "plural": "feet"
       },
-      "min": 2,
-      "max": 14,
+      "min": 15,
+      "max": 85,
       "step": 1,
-      "note": "About 8: the text says 8.3, the season table 8.25.",
+      "note": "37 feet. Dame waved goodbye to OKC after burying a deep series winner.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-        "quote": "Robertson ranked third in the league in assists at 8.3 apg and was the Bucks' No. 2 scorer at 19.4 ppg.",
-        "derivation": "The article’s text says 8.3; its season table gives 668 assists in 81 games, 8.25. Either way, 8 to the nearest whole number."
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Robertson also scored 19.4 points per game while partnering Alcindor.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "the Bucks' No. 2 scorer at 19.4 ppg"
-          }
-        },
-        {
-          "text": "Oscar finished third in the league in assists during his debut Bucks season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "Robertson ranked third in the league in assists"
-          }
-        },
-        {
-          "text": "Milwaukee's title came just a year after the franchise brought Oscar in from Cincinnati.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "A key part of this championship season was the acquisition of Oscar Robertson"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-kareem89-retire-age",
-      "sport": "NBA",
-      "prompt": "How old was Kareem Abdul-Jabbar when he retired after the 1989 Finals?",
-      "context": "Los Angeles Lakers · 1988–89",
-      "answer": 42,
-      "unit": {
-        "singular": "year old",
-        "plural": "years old"
-      },
-      "min": 27,
-      "max": 48,
-      "step": 1,
-      "note": "42, after 20 seasons.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-        "quote": "announced his retirement from the NBA at age 42 at the end of his 20th season"
+        "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+        "quote": "Damian Lillard scored 50 points in Game 5 and finished off the series by hitting a 37-foot three at the buzzer to break a 115–115 tie"
       },
       "verified": {
         "on": "2026-11-16",
@@ -237,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Abdul-Jabbar's 1989 retirement capped an NBA career spanning twenty seasons.",
+          "text": "Dame had a huge scoring game even before that shot.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-            "quote": "at the end of his 20th season"
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "Damian Lillard scored 50 points in Game 5"
           }
         },
         {
-          "text": "Detroit swept the Lakers in Kareem's final championship series.",
+          "text": "It was not his first series-winning shot from deep.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-            "quote": "The Pistons won the series in a four-game sweep of the injury-riddled Lakers"
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "his first came against Houston in 2014"
           }
         },
         {
-          "text": "Joe Dumars was named Finals MVP after Detroit won its first NBA championship.",
+          "text": "The game ended the Westbrook–George partnership in OKC.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
-            "quote": "Pistons guard Joe Dumars was named NBA Finals Most Valuable Player"
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
+            "quote": "This was also the last Thunder game to feature both Russell Westbrook and Paul George"
           }
         }
       ]

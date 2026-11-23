@@ -77,7 +77,12 @@ export function buildCatalog(data: NbaData): SurvivalCatalog {
   for (const id of ids) {
     const f = byId.get(id);
     if (!f) throw new Error(`unknown question ${id}`);
-    const { notBefore, leaks } = leakHorizon(f, scheduled, data.facts);
+    const { notBefore: leakNotBefore, leaks } = leakHorizon(f, scheduled, data.facts);
+    // A question removed from a *future daily slate* keeps its original
+    // no-earlier-than eligibility. Otherwise a harmless editorial replacement
+    // can accidentally expose an unreleased answer in today's Survival pool.
+    const embargo = data.calendar.reserveNotBefore?.[id];
+    const notBefore = embargo && (!leakNotBefore || embargo > leakNotBefore) ? embargo : leakNotBefore;
     tags[id] = {
       tier: f.question.difficulty,
       family: f.family,

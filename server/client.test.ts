@@ -83,6 +83,23 @@ describe('submitDaily → server → comparison', () => {
     expect(await submitDaily({ day: DAY, results: await records(2), consent: false }, fetchFor(off))).toEqual({ kind: 'disabled' });
   });
 
+  it('never submits a score when the browser cannot persist a recoverable erasure key', async () => {
+    const original = window.localStorage;
+    const readOnly = { getItem: () => null, setItem: () => { throw new DOMException('quota', 'QuotaExceededError'); } };
+    const requests: RequestInit[] = [];
+    const request = (async (_input: RequestInfo | URL, init?: RequestInit) => {
+      requests.push(init ?? {});
+      throw new Error('must not reach the API');
+    }) as typeof fetch;
+    Object.defineProperty(window, 'localStorage', { configurable: true, value: readOnly });
+    try {
+      expect(await submitDaily({ day: DAY, results: await records(2), consent: true }, request)).toEqual({ kind: 'unavailable' });
+      expect(requests).toHaveLength(0);
+    } finally {
+      Object.defineProperty(window, 'localStorage', { configurable: true, value: original });
+    }
+  });
+
   it('offline or failing network never throws', async () => {
     const down = (() => Promise.reject(new TypeError('offline'))) as unknown as typeof fetch;
     expect(await submitDaily({ day: DAY, results: await records(2), consent: false }, down)).toEqual({ kind: 'unavailable' });
@@ -96,7 +113,7 @@ describe('submitDaily → server → comparison', () => {
     const key = loadPrivacy().key;
     expect(await deleteMyScores(fetchFor(ctx))).toBe('deleted');
     expect(loadPrivacy().sent).toEqual([]);
-    expect(loadPrivacy().key).not.toBe(key);
+    expect(loadPrivacy().key).toBeNull(); // no unused code to revoke until the next opt-in
     // Deleting also stops: the next results screen must not send the same day again.
     expect(loadPrivacy().scores).toBe('off');
     expect(await deleteMyScores(fetchFor(ctx))).toBe('nothing');

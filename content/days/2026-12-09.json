@@ -1,29 +1,29 @@
 {
   "date": "2026-12-09",
   "theme": {
-    "title": "Triple-double kings",
-    "subtitle": "Oscar Robertson to Russell Westbrook",
-    "recap": "Oscar Robertson set the triple-double standard in the 1960s; Russell Westbrook passed his single-season mark in 2017 and his career total in 2021."
+    "title": "From Tip to Buzzer",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-westbrook17-td",
+      "id": "nba-gsw16-start",
       "sport": "NBA",
-      "prompt": "On April 9, 2017, Russell Westbrook broke the record for triple-doubles in a season. What number did he reach?",
-      "context": "Oklahoma City Thunder · 2016–17",
-      "answer": 42,
+      "prompt": "The 2015–16 Warriors opened the season with how many straight wins?",
+      "context": "Golden State Warriors · 2015–16",
+      "answer": 24,
       "unit": {
-        "singular": "triple-double",
-        "plural": "triple-doubles"
+        "singular": "game",
+        "plural": "games"
       },
       "min": 0,
-      "max": 55,
+      "max": 30,
       "step": 1,
-      "note": "42, passing Oscar Robertson's 41.",
+      "note": "24 in a row before their first loss.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Oklahoma_City_Thunder_season",
-        "quote": "On April 9th, Russell Westbrook broke Oscar Robertson's record for most triple-doubles in a season with 42."
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "The Warriors began the 2015–16 season by winning their first 24 games,"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Oklahoma City finished sixth in the West, then fell to Houston in the first round.",
+          "text": "Assistant Luke Walton coached Golden State's opening stretch while Steve Kerr recovered from back surgery.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Oklahoma_City_Thunder_season",
-            "quote": "securing the 6th seed. In the playoffs, they faced off against the Houston Rockets"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "The Warriors opened the regular season on October 27 with assistant coach Luke Walton coaching"
           }
         },
         {
-          "text": "This was Oklahoma City's first season after Kevin Durant left for Golden State.",
+          "text": "Milwaukee finally ended the opening streak, with the Bucks handing Golden State its first loss.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Oklahoma_City_Thunder_season",
-            "quote": "without Kevin Durant, as he left the Thunder and signed with the Golden State Warriors"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "The winning streak to start the season ended at 24 games when they were beaten by the Milwaukee Bucks"
           }
         },
         {
-          "text": "Westbrook won the league MVP award that June, after his record-setting regular season.",
+          "text": "Draymond Green produced a rare five-by-five stat line in the double-overtime win at Boston.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Oklahoma_City_Thunder_season",
-            "quote": "Westbrook would go on to be named the League's MVP in June"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "During this game Draymond Green recorded a five-by-five game"
           }
         }
       ]
     },
     {
-      "id": "nba-oscar-career-td",
+      "id": "nba-sonics79-january-wins",
       "sport": "NBA",
-      "prompt": "How many career triple-doubles did Oscar Robertson record?",
-      "context": "Royals and Bucks · 1960–1974",
-      "answer": 181,
+      "prompt": "How many games did Seattle win in January of its 1979 championship season?",
+      "context": "SuperSonics · January 1979 · monthly record",
+      "answer": 10,
       "unit": {
-        "singular": "triple-double",
-        "plural": "triple-doubles"
+        "singular": "January win",
+        "plural": "January wins"
       },
-      "min": 100,
-      "max": 310,
+      "min": 1,
+      "max": 24,
       "step": 1,
-      "note": "181, a record for decades.",
+      "note": "Ten wins in January, powered by strong road form.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
-        "quote": "For his career, Robertson had 181 triple-doubles, a record that had never been approached for decades"
+        "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+        "quote": "January: 10–4 (home: 3–3; road: 7–1)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,151 +83,151 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Robertson played on the U.S. Olympic team in 1960 and later entered the Hall of Fame twice, including with that team.",
+          "text": "Seattle won seven January road games and lost only once away from home.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
-            "quote": "having been inducted in 1980 for his individual career, and in 2010 as a member"
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "January: 10–4 (home: 3–3; road: 7–1)"
           }
         },
         {
-          "text": "The Big O became the first guard to average double-digit rebounds per game, accomplishing it three times.",
+          "text": "The Sonics won a tight January game at Washington, a preview of the Finals matchup.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
-            "quote": "the first guard in NBA history to ever average more than 10 rebounds per game"
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "January 23 @ Washington W 103–100"
           }
         },
         {
-          "text": "Robertson finished his NBA career with Milwaukee, winning a championship alongside Kareem Abdul-Jabbar.",
+          "text": "The Sonics also won a tight January game on the road in Phoenix.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
-            "quote": "For the first time in his career, Robertson had won an NBA championship"
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "January 11 @ Phoenix W 109–106"
           }
         }
       ]
     },
     {
-      "id": "nba-oscar62-assists",
+      "id": "nba-blazers77-g4-margin",
       "sport": "NBA",
-      "prompt": "Oscar Robertson broke Bob Cousy's single-season assist record of 715. How many did he log?",
-      "context": "Cincinnati Royals · 1961–62",
-      "answer": 899,
+      "prompt": "By how many points did Portland win Game 4 of the 1977 Finals?",
+      "context": "1977 NBA Finals · Game 4 · vs Philadelphia",
+      "answer": 32,
       "unit": {
-        "singular": "assist",
-        "plural": "assists"
-      },
-      "min": 200,
-      "max": 1050,
-      "step": 5,
-      "note": "899.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
-        "quote": "He broke the assists record by Bob Cousy, who had recorded 715 assists two seasons earlier, by logging 899"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Robertson's Royals reached the 1962 playoffs but were eliminated by Detroit in the first round.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
-            "quote": "The Royals earned a berth to the 1962 NBA playoffs; however, they were eliminated in the first round"
-          }
-        },
-        {
-          "text": "His 1961–62 season also featured a triple-double average in points, rebounds and assists.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
-            "quote": "Robertson became the first player in NBA history to average a triple-double for an entire season"
-          }
-        },
-        {
-          "text": "Two seasons later, Robertson won the regular-season MVP award while playing for Cincinnati.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
-            "quote": "He won the NBA MVP award and became the only player other than"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-kidd02-finals-td",
-      "sport": "NBA",
-      "prompt": "Jason Kidd posted a triple-double in the 2002 Finals. It was which number in Finals history?",
-      "context": "2002 NBA Finals · Game 1 · at Los Angeles",
-      "answer": 26,
-      "unit": {
-        "singular": "triple-double",
-        "plural": "triple-doubles"
-      },
-      "min": 15,
-      "max": 75,
-      "step": 1,
-      "note": "The 26th.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2002_NBA_Finals",
-        "quote": "Kidd finished with a triple-double, the 26th in Finals history"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "The Nets had improved by twenty-six wins in the regular season before reaching their first NBA Finals.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_Finals",
-            "quote": "a twenty-six-win improvement from the last season"
-          }
-        },
-        {
-          "text": "New Jersey coach Byron Scott, a former Showtime Laker, received a standing ovation in Los Angeles.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_Finals",
-            "quote": "New Jersey head coach Byron Scott, a member of the Showtime Lakers, received a standing ovation"
-          }
-        },
-        {
-          "text": "Shaquille O'Neal won Finals MVP for a third consecutive season as the Lakers completed a three-peat.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_Finals",
-            "quote": "Shaquille O'Neal of the Lakers was named the NBA Finals Most Valuable Player (MVP) for the third consecutive year"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-butler20-g3-ast",
-      "sport": "NBA",
-      "prompt": "Jimmy Butler had 40 points and 11 rebounds in Game 3 of the 2020 Finals. How many assists did he add?",
-      "context": "2020 NBA Finals · Game 3 · vs Lakers",
-      "answer": 13,
-      "unit": {
-        "singular": "assist",
-        "plural": "assists"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 16,
+      "max": 45,
       "step": 1,
-      "note": "13, a 40-point triple-double.",
+      "note": "32, the largest Game 4 margin until 2024.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
-        "quote": "Butler finished with 40 points, 11 rebounds and 13 assists for a triple-double to lead Miami to a 115–104 win"
+        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+        "quote": "the 32 point win being the largest margin of victory in a Finals game 4 until 2024"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Julius Erving led Philadelphia with 24 points in its Game 4 defeat.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+            "quote": "Pts: Erving 24"
+          }
+        },
+        {
+          "text": "Maurice Lucas's Blazers had lost the opening pair in Philadelphia before evening the series at home.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+            "quote": "The series started 2–0 in favor of Philadelphia, but Portland rebounded in the next four games"
+          }
+        },
+        {
+          "text": "Walton contributed 13 rebounds despite foul trouble in that victory.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+            "quote": "Rebs: Walton 13"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-green16-g7",
+      "sport": "NBA",
+      "prompt": "Draymond Green led all scorers in Game 7 of the 2016 Finals. How many points did he score?",
+      "context": "2016 NBA Finals · Game 7 · Warriors lost",
+      "answer": 32,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 15,
+      "max": 65,
+      "step": 1,
+      "note": "32, more than anyone else that night.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "Draymond Green put up his best performance of the Finals, leading all scorers with 32 points,"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Green shot an outstanding six of eight from beyond the arc in the final game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "including 6-of-8 from three-point range"
+          }
+        },
+        {
+          "text": "His stat line also included 15 rebounds and nine assists.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "along with 15 rebounds and nine assists"
+          }
+        },
+        {
+          "text": "Kyrie Irving added 26 points for Cleveland during the decisive game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "Kyrie Irving added 26 points for Cleveland"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-dame21-playoffs-12-threes",
+      "sport": "NBA",
+      "prompt": "In Damian Lillard's incredible double-overtime 2021 playoff battle with Denver, how many threes did he make?",
+      "context": "Damian Lillard · Blazers at Nuggets · 2021 playoffs",
+      "answer": 12,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
+      },
+      "min": 2,
+      "max": 30,
+      "step": 1,
+      "note": "12 threes, a playoff record, as Dame scored 55 in a heartbreaking defeat.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+        "quote": "behind an NBA playoff record 12 made three-pointers, as well as 10 assists."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Miami won that game without starters Bam Adebayo and Goran Dragić, who were sidelined.",
+          "text": "Dame set a playoff career high in points that night.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
-            "quote": "as Heat starters Adebayo and Dragić remained sidelined"
+            "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+            "quote": "Lillard scored a playoff career-high 55 points"
           }
         },
         {
-          "text": "Butler became the first player to outscore, outrebound and out-assist LeBron James in the same Finals game.",
+          "text": "He tied it late in regulation and again in overtime.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
-            "quote": "Butler also became the first player to have more points, rebounds and assists in a Finals game than James"
+            "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+            "quote": "Lillard hit game-tying threes near the end of regulation and near the end of the first overtime"
           }
         },
         {
-          "text": "Miami's starters outscored the Lakers' starters despite the Heat entering the game behind in the series.",
+          "text": "Denver prevailed after two overtimes.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
-            "quote": "Miami's starters outscored the Lakers' starters 89–51"
+            "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
+            "quote": "the Nuggets rallied to a 147–140 double-overtime victory to take a 3–2 series lead"
           }
         }
       ]

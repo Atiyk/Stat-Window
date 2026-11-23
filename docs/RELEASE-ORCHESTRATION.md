@@ -1,5 +1,9 @@
 # Stat Window: release orchestration and independent QA gates
 
+## Active V3 release scope (owner decision, November 22)
+V3 global leaderboards are **deferred, not a launch gate**. Their implementation and tests stay in GitHub but the ordinary results UI and billable backend actions stay OFF for this beta. No leaderboard Join, standings or placeholder is shown to new players; when a browser already has a participant code, offer **deletion only**, verify failure is not falsely reported as success and keep retries. The standalone UI opt-in build (`VITE_LEADERBOARDS_UI=on`) is reserved for CI and is not a shipping setting. Do not configure Upstash leaderboard activation/erasure flags, spend money or enable provider integrations. Independent critic approval must evaluate the **disabled** release at its exact SHA, rather than applying earlier requirements for live global boards. Hosted Redis billing proof remains mandatory for any FUTURE activation.
+
+
 ## Outcome, not agent theatre
 Use a **manager/orchestrator** that owns the exact release candidate, dependencies, integration and final decision. Delegate only bounded, independent workstreams; return factual evidence (commit, failing reproduction, test output, PR review) rather than generic "LGTM". The reviewer must inspect the final integrated candidate, not trust earlier branch CI. These roles describe a repeatable workflow; do not claim an actual independent agent ran unless it did.
 
@@ -25,7 +29,7 @@ Use a **manager/orchestrator** that owns the exact release candidate, dependenci
 
 ## This batch
 - Prior `#17` server/privacy fixes and `#18` UI fixes are integrated in candidate `#20` for a single review. Do not merge either separately unless integration is reverified.
-- `#19` calendar reminders are **deferred**. The branch is now re-anchored to 12:00 AM Eastern (`DTSTART;TZID=America/New_York` + VTIMEZONE, Google `ctz=America/New_York`, unit-tested across March and November changes), but it still needs independent critic review and the manual calendar device checks in its PR notes. Do not merge accidentally.
+- `#19` calendar reminders were merged independently into `main` by the owner on November 22. V3 integration reconciles its Eastern-midnight calendar reminders with V3 gameplay and privacy changes. The device-specific calendar checks listed in PR #19, exact-SHA CI, preview and final independent critic gates still apply before PR #23 release.
 - The new shot clock uses browser-local time; refreshing and changing tabs should not give more time. It is not an anti-cheat system; challenge scores and times are unverified. Speed breaks **only** score ties.
 - Editorial sequencing is documented in `docs/EDITORIAL-SEQUENCING.md`; no unverified changes to already published slates.
 - Keep incremental spend at $0, standard GitHub `ubuntu-latest` CI and existing free Vercel setup. No paid agents, runners or new API subscriptions.

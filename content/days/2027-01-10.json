@@ -1,29 +1,29 @@
 {
   "date": "2027-01-10",
   "theme": {
-    "title": "Twin Towers rise",
-    "subtitle": "San Antonio Spurs, 1998–99",
-    "recap": "The Spurs overcame a difficult lockout-season start and rode Duncan and Robinson to the franchise's first championship."
+    "title": "Full-Court Mix",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-duncan99-finals-ppg",
+      "id": "nba-giannis21-playoffs-ppg",
       "sport": "NBA",
-      "prompt": "How many points per game did Tim Duncan average in the 1999 Finals?",
-      "context": "Spurs vs Knicks · 1999 NBA Finals",
-      "answer": 27.4,
+      "prompt": "What was Giannis Antetokounmpo's points average in the 2021 playoffs?",
+      "context": "Milwaukee · entire postseason, not only the Finals",
+      "answer": 30.2,
       "unit": {
         "singular": "point per game",
         "plural": "points per game"
       },
-      "min": 18,
-      "max": 42,
+      "min": 15,
+      "max": 52,
       "step": 0.1,
-      "note": "27.4 points per game while winning Finals MVP.",
+      "note": "30.2 points per game over the Bucks' championship run.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-        "quote": "while averaging 27.4 points and fourteen rebounds with 2.4 assists and 2.2 blocks in the Finals"
+        "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+        "quote": "Giannis Antetokounmpo | 21 | 21 | 38.1 | .569 | .186 | .587 | 12.8 | 5.1 | 1.0 | 1.2 | 30.2"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Duncan was in his second NBA season alongside David Robinson in the Twin Towers pairing.",
+          "text": "He also averaged 12.8 rebounds a game during that postseason.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "The 1998–99 season was the second season of the \"Twin Towers\" pairing"
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "Giannis Antetokounmpo | 21 | 21 | 38.1 | .569 | .186 | .587 | 12.8"
           }
         },
         {
-          "text": "San Antonio drafted Duncan after an injury-hit season and a fortunate draft lottery.",
+          "text": "Giannis started every playoff game he appeared in.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "The Spurs earned this draft pick through the draft lottery due to a 62-loss 1996–97 season"
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "Giannis Antetokounmpo | 21 | 21 | 38.1"
           }
         },
         {
-          "text": "The Knicks were an eighth seed when they reached the Finals, an extraordinary playoff run.",
+          "text": "He was named Finals Most Valuable Player after Milwaukee defeated Phoenix.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "The Knicks barely qualified for the playoffs and received the eighth and final seed"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "Giannis Antetokounmpo was named NBA Finals Most Valuable Player"
           }
         }
       ]
     },
     {
-      "id": "nba-spurs99-final36-wins",
+      "id": "nba-allstar10-attendance",
       "sport": "NBA",
-      "prompt": "After a slow start, how many of their final 36 games did the 1999 Spurs win?",
-      "context": "San Antonio · lockout season · closing stretch",
-      "answer": 31,
+      "prompt": "The 2010 NBA All-Star Game set the attendance record for a basketball game. How many people were there?",
+      "context": "2010 NBA All-Star Game · held in a football stadium",
+      "answer": 108713,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "fan",
+        "plural": "fans"
       },
-      "min": 12,
-      "max": 40,
-      "step": 1,
-      "note": "31 victories in their final 36 games.",
+      "min": 10000,
+      "max": 150000,
+      "step": 1000,
+      "note": "108,713.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-        "quote": "the Spurs recovered from a 6–8 start to the season to win 31 of their last 36 games"
+        "url": "https://en.wikipedia.org/wiki/NBA_All-Star_Game",
+        "quote": "In 2010, the NBA All-Star Game set the attendance record for a basketball game with 108,713 people"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Steve Kerr joined the Spurs from the championship Bulls before this season.",
+          "text": "The All-Star spectacle took place in Cowboys Stadium rather than the Dallas Mavericks' basketball arena.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-            "quote": "acquired three-point specialist Steve Kerr from the Chicago Bulls"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_All-Star_Game",
+            "quote": "The venue for the game on February 14 was Cowboys Stadium"
           }
         },
         {
-          "text": "San Antonio added two veteran free agents, Mario Elie and Jerome Kersey, to its rotation.",
+          "text": "The pregame festivities and Saturday contests were staged at a separate venue, American Airlines Center.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-            "quote": "signed free agents Mario Elie, and Jerome Kersey"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_All-Star_Game",
+            "quote": "NBA All-Star Saturday Night events were held on February 12 and February 13, 2010"
           }
         },
         {
-          "text": "The Spurs put together several separate winning streaks during a packed spring schedule.",
+          "text": "For the first time, neither All-Star team wore white: the East donned blue, while the West wore red.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-            "quote": "posted a nine-game winning streak in March afterwards, posted a six-game winning streak"
+            "url": "https://en.wikipedia.org/wiki/2010_NBA_All-Star_Game",
+            "quote": "This marked the first All-Star game where neither team wore a white uniform"
           }
         }
       ]
     },
     {
-      "id": "nba-robinson99-finals-rpg",
+      "id": "nba-miller-career-threes",
       "sport": "NBA",
-      "prompt": "What did David Robinson average in rebounds in the 1999 Finals?",
-      "context": "San Antonio Spurs · championship series",
-      "answer": 11.8,
+      "prompt": "Reggie Miller retired in 2005 as the career leader in threes. How many had he made?",
+      "context": "Indiana Pacers · 1987–2005",
+      "answer": 2560,
       "unit": {
-        "singular": "rebound per game",
-        "plural": "rebounds per game"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 5,
-      "max": 21,
-      "step": 0.1,
-      "note": "11.8 rebounds a night during San Antonio's first championship.",
+      "min": 0,
+      "max": 3200,
+      "step": 10,
+      "note": "2,560, a record at his retirement.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-        "quote": "David Robinson | 5 | 5 | 37.0 | .424 | .000 | .688 | 11.8 | 2.4 | 1.0 | 3.0 | 16.6"
+        "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
+        "quote": "eventually retiring with a record 2,560 three-pointers made."
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Robinson partnered with Tim Duncan in their second season as the Twin Towers.",
+          "text": "Miller overtook Dale Ellis for the career lead in 1997, well before the modern three-point explosion.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "The 1998–99 season was the second season of the \"Twin Towers\" pairing"
+            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
+            "quote": "In 1997, Miller surpassed Ellis as the NBA's all-time leader in three-pointers"
           }
         },
         {
-          "text": "Robinson also finished in the top group of regular-season MVP voting that year.",
+          "text": "During Miller's career, the NBA briefly shortened the three-point line for three seasons before restoring it.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-            "quote": "while Robinson finished in twelfth place"
+            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
+            "quote": "For three seasons beginning in 1994–95, the NBA attempted to address decreased scoring by shortening the distance"
           }
         },
         {
-          "text": "The Spurs swept both the Lakers and Portland on their way to the Finals.",
+          "text": "The NBA's later three-point revolution is often credited to Stephen Curry and his unusually deep attempts.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "defeating the Los Angeles Lakers and Portland Trail Blazers"
+            "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
+            "quote": "Stephen Curry, who is credited with revolutionizing the game by inspiring teams to more heavily employ the three-point shot"
           }
         }
       ]
     },
     {
-      "id": "nba-avery99-finals-apg",
+      "id": "nba-wilt72-finals-reb",
       "sport": "NBA",
-      "prompt": "How many assists per game did Avery Johnson average in the 1999 Finals?",
-      "context": "Spurs vs Knicks · championship series",
-      "answer": 7.2,
+      "prompt": "In the game that clinched the 1972 title, Wilt Chamberlain had 24 points and how many rebounds?",
+      "context": "1972 NBA Finals · Game 5 · vs New York",
+      "answer": 29,
       "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
+        "singular": "rebound",
+        "plural": "rebounds"
       },
-      "min": 2,
-      "max": 17,
-      "step": 0.1,
-      "note": "7.2 assists per game, plus a defining Finals shot.",
+      "min": 0,
+      "max": 34,
+      "step": 1,
+      "note": "29 rebounds, and the Finals MVP award.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-        "quote": "Avery Johnson | 5 | 5 | 39.2 | .500 | .000 | .600 | 2.6 | 7.2 | 0.6 | 0.0 | 9.2"
+        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+        "quote": "Wilt Chamberlain scored 24 points and 29 rebounds and earned the NBA Finals MVP Award"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Johnson delivered the series-winning shot in Game 5 as the Spurs won their first title.",
+          "text": "Chamberlain was listed as doubtful for the clincher with a sprained right wrist, yet played anyway.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "Avery Johnson hit the game-winner"
+            "url": "https://en.wikipedia.org/wiki/1972_NBA_Finals",
+            "quote": "Chamberlain was listed as doubtful for Game Five with a sprained right wrist"
           }
         },
         {
-          "text": "Johnson led San Antonio with nine assists in the deciding game.",
+          "text": "ABC announcer Keith Jackson informally tallied Wilt's blocks before the NBA officially tracked them.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "Asts: Avery Johnson 9"
+            "url": "https://en.wikipedia.org/wiki/1972_NBA_Finals",
+            "quote": "ABC announcer Keith Jackson counted them up during the broadcast"
           }
         },
         {
-          "text": "Johnson scored 9.2 points per game while handling the Spurs' offense during the Finals.",
+          "text": "The victory delivered the Lakers' first championship since the franchise relocated from Minneapolis.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "Avery Johnson | 5 | 5 | 39.2 | .500 | .000 | .600 | 2.6 | 7.2 | 0.6 | 0.0 | 9.2"
+            "url": "https://en.wikipedia.org/wiki/1972_NBA_Finals",
+            "quote": "win their sixth NBA title and their first since 1954, when the team was still based in Minneapolis"
           }
         }
       ]
     },
     {
-      "id": "nba-spurs99-alamodome-attendance",
+      "id": "nba-curry22-allstar-sixteen-threes",
       "sport": "NBA",
-      "prompt": "What was San Antonio's total home attendance in the shortened 1998–99 season?",
-      "context": "Spurs home games · Alamodome",
-      "answer": 527357,
+      "prompt": "In his jaw-dropping 50-point 2022 All-Star Game, how many three-pointers did Stephen Curry make?",
+      "context": "Stephen Curry · 2022 NBA All-Star Game · Cleveland",
+      "answer": 16,
       "unit": {
-        "singular": "attendee",
-        "plural": "attendees"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 200000,
-      "max": 900000,
-      "step": 5000,
-      "note": "527,357 attended Spurs home games despite the shorter schedule.",
+      "min": 0,
+      "max": 45,
+      "step": 1,
+      "note": "16 threes in one All-Star Game. Curry earned MVP after putting on an unprecedented long-range show.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-        "quote": "an attendance of 527,357 at the Alamodome during the regular season"
+        "url": "https://en.wikipedia.org/wiki/2022_NBA_All-Star_Game",
+        "quote": "set the record for most three-pointers made in an All-Star quarter (6), half (8), and game (16)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "The Spurs ranked second in home attendance during the season, trailing only Chicago.",
+          "text": "He scored 50 points in the Cleveland exhibition.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-            "quote": "The Spurs finished second in the NBA in home-game attendance behind the Chicago Bulls"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_All-Star_Game",
+            "quote": "Team LeBron's Stephen Curry, who scored 50 points"
           }
         },
         {
-          "text": "The season ended with the first NBA championship in San Antonio franchise history.",
+          "text": "Curry took home the Kobe Bryant All-Star MVP trophy.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "The Spurs defeated the Knicks in five games to win their first NBA championship."
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_All-Star_Game",
+            "quote": "was also named the All-Star Game Kobe Bryant Most Valuable Player"
           }
         },
         {
-          "text": "The entire league had to play a compressed calendar after the lockout delayed opening night.",
+          "text": "Team LeBron edged Team Durant, 163–160.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
-            "quote": "Due to a lockout, the regular season began on February 5, 1999"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_All-Star_Game",
+            "quote": "Team LeBron won the game 163–160."
           }
         }
       ]

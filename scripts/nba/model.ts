@@ -47,6 +47,8 @@ export type Fact = {
   answer: number;
   unit: { singular: string; plural: string };
   claim: string;
+  /** Individual verification date for later source-checked additions. */
+  verifiedOn?: string;
   source: { url: string; quote: string; derivation: string | null; asOf: string | null };
   question: {
     prompt: string;
@@ -64,7 +66,7 @@ export type Fact = {
 
 export type Theme = { id: string; kind: (typeof THEME_KINDS)[number]; title: string; subtitle: string; recap: string };
 export type CalendarDay = { date: string; theme: Theme; questions: string[] };
-export type Calendar = { cutover: string; days: CalendarDay[]; reserve: string[] };
+export type Calendar = { cutover: string; days: CalendarDay[]; reserve: string[]; reserveNotBefore?: Record<string, string> };
 export type Family = { id: string; label: string; firstSeason: string | null; simpleScoringAverage: boolean };
 export type Franchise = { id: string; currentName: string; formerNames: string[] };
 export type Source = {
@@ -222,6 +224,7 @@ export function validateNba(data: NbaData): Report {
     if (!Number.isFinite(f.answer)) at('answer is not a number');
     if (!f.unit.singular.trim() || !f.unit.plural.trim()) at('missing unit');
     if (!f.claim.trim()) at('missing claim');
+    if (f.verifiedOn && !isValidDate(f.verifiedOn)) at('invalid source verification date');
     let url: URL | undefined;
     try {
       url = new URL(f.source.url);
@@ -344,6 +347,32 @@ export function validateNba(data: NbaData): Report {
       if (f.question.difficulty !== LADDER[slot])
         at(`slot ${slot + 1} must be ${LADDER[slot]}, ${id} is ${f.question.difficulty}`);
     });
+    // V3 future NBA mix: reject mechanically repetitive slates before they are published.
+    // Published puzzles before the cutover keep their existing immutable fingerprints.
+    if (d.date >= '2026-11-23' && fs.length === 5) {
+      const families = new Set(fs.map((f) => f.family));
+      const subjects = new Set(fs.map((f) => f.player ?? f.franchise ?? f.family));
+      if (families.size < 3) at(`only ${families.size} stat families (mixed slate needs 3)`);
+      if (subjects.size < 3) at(`only ${subjects.size} subjects (mixed slate needs 3)`);
+      const franchises = new Map<string, number>();
+      const players = new Map<string, number>();
+      for (const f of fs) {
+        if (f.franchise) franchises.set(f.franchise, (franchises.get(f.franchise) ?? 0) + 1);
+        if (f.player) players.set(f.player, (players.get(f.player) ?? 0) + 1);
+      }
+      for (const [franchise, n] of franchises) if (n > 2) at(`${n} questions about ${franchise} (max 2)`);
+      for (const [player, n] of players) if (n > 2) at(`${n} questions about ${player} (max 2)`);
+      for (let slot = 1; slot < fs.length; slot++) {
+        if (fs[slot]!.family === fs[slot - 1]!.family)
+          at(`adjacent questions ${slot} and ${slot + 1} repeat the same stat family`);
+      }
+      const opening = fs[0]!.question.ratings;
+      const engaging = opening.recognizability >= 4 && opening.interest >= 4 && opening.estimability >= 3;
+      // Every future mixed-slate opener must pass the same hard editorial gate,
+      // including late-January dates. Do not inflate ratings or demote failures
+      // to warnings; replace weak hooks with genuinely stronger sourced facts.
+      if (!engaging) at('Q1 is not a recognizable, interesting, estimable NBA hook');
+    }
     const famCount = new Map<string, number>();
     for (const f of fs) famCount.set(f.family, (famCount.get(f.family) ?? 0) + 1);
     for (const [fam, n] of famCount) if (n > 2) at(`${n} questions from the ${fam} family (max 2)`);
@@ -360,10 +389,21 @@ export function validateNba(data: NbaData): Report {
     if (!byId.has(id)) errors.push(`reserve: unknown question ${id}`);
     if (used.has(id)) errors.push(`reserve: ${id} is also scheduled on ${used.get(id)}`);
   }
+  // A future scheduled puzzle moved into reserve must not become playable in
+  // Survival immediately. Reserve embargoes preserve the original daily
+  // publication date plus one day, even after re-sequencing.
+  for (const [id, notBefore] of Object.entries(calendar.reserveNotBefore ?? {})) {
+    if (!calendar.reserve.includes(id)) errors.push(`reserve: embargo for non-reserve question ${id}`);
+    if (!isValidDate(notBefore) || notBefore <= calendar.cutover)
+      errors.push(`reserve: invalid release embargo ${id} -> ${notBefore}`);
+  }
   const unplaced = facts.filter((f) => !used.has(f.id) && !calendar.reserve.includes(f.id));
   for (const f of unplaced) errors.push(`${f.id}: neither scheduled nor in reserve`);
   const themed = days.filter((d) => d.theme?.kind !== 'mixed').length;
-  if (themed < MIN_THEMED_DAYS) errors.push(`${themed} themed days; need at least ${MIN_THEMED_DAYS}`);
+  const mixed = days.filter((d) => d.theme?.kind === 'mixed').length;
+  // V3 intentionally replaced same-team slates with five-subject mixes. Keep the
+  // original 30-day editorial coverage floor, now applying it to mixed days.
+  if (mixed < MIN_THEMED_DAYS) errors.push(`${mixed} mixed days; need at least ${MIN_THEMED_DAYS}`);
 
   // rolling 7-day editorial balance
   const primary = (d: CalendarDay): string | null => {
@@ -440,7 +480,7 @@ export function questionFromFact(f: Fact): Question & { difficulty: Difficulty }
       quote: f.source.quote,
       ...(f.source.derivation ? { derivation: f.source.derivation } : {}),
     },
-    verified: { on: INSPECTED_ON, by: VERIFIED_BY },
+    verified: { on: f.verifiedOn ?? INSPECTED_ON, by: VERIFIED_BY },
     difficulty: q.difficulty,
     ...(q.funFacts ? { funFacts: q.funFacts } : {}),
   };

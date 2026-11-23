@@ -1,29 +1,29 @@
 {
   "date": "2027-01-24",
   "theme": {
-    "title": "LeBron's MVP leap",
-    "subtitle": "Cleveland Cavaliers, 2008–09",
-    "recap": "LeBron won his first MVP as Cleveland posted the NBA's best record, only for Dwight Howard's Magic to derail the championship dream."
+    "title": "Five on the Floor",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-cavs09-record-wins",
+      "id": "nba-curry16-season-threes-402",
       "sport": "NBA",
-      "prompt": "How many regular-season games did LeBron's 2008–09 Cavaliers win?",
-      "context": "Cleveland Cavaliers · 2008–09 · 82 games",
-      "answer": 66,
+      "prompt": "In the Warriors' record 73-win 2015–16 season, how many three-pointers did Stephen Curry make?",
+      "context": "Stephen Curry · Golden State · 2015–16 regular season",
+      "answer": 402,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 42,
-      "max": 82,
+      "min": 200,
+      "max": 520,
       "step": 1,
-      "note": "66 victories, the best record in the NBA that season.",
+      "note": "402 threes. Curry became the first NBA player to make 400 in one season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-        "quote": "They finished the regular season with 66 wins and 16 losses"
+        "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+        "quote": "he finished with 402"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "LeBron won his first MVP award and finished runner-up in Defensive Player of the Year voting.",
+          "text": "Golden State finished the regular season 73–9.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-            "quote": "LeBron James won his first MVP Award and finished second in Defensive Player of the Year voting."
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "finishing with a record of 73–9"
           }
         },
         {
-          "text": "Mike Brown earned Coach of the Year honors as Cleveland raced to the East's top seed.",
+          "text": "Curry became the first player to make 400 threes in a season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-            "quote": "Mike Brown was named NBA Coach of the Year for the 2008–2009 season."
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "the first player in NBA history to hit 400 threes in a single season"
           }
         },
         {
-          "text": "Cleveland ended its playoff run after sweeping both Detroit and Atlanta, before Orlando stopped them in the conference finals.",
+          "text": "Curry averaged 30.1 points per game that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-            "quote": "the Cavaliers swept the Detroit Pistons in the First Round in four games, swept the Atlanta Hawks in the Semifinals in four games"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "Curry finished the season averaging 30.1 points per game"
           }
         }
       ]
     },
     {
-      "id": "nba-cavs09-home-wins",
+      "id": "nba-celtics02-4q",
       "sport": "NBA",
-      "prompt": "How many home games did the Cavaliers win in their dominant 2008–09 season?",
-      "context": "Cleveland at Quicken Loans Arena · 41 home games",
-      "answer": 39,
+      "prompt": "Boston erased a big deficit in Game 3 of the 2002 East finals. How many points did it score in the fourth quarter?",
+      "context": "2002 East finals · Game 3 · vs New Jersey",
+      "answer": 41,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 19,
-      "max": 41,
+      "min": 24,
+      "max": 62,
       "step": 1,
-      "note": "39 home wins against just two losses.",
+      "note": "41, to New Jersey's 16.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-        "quote": "Total: 66–16 (home: 39–2; road: 27–14)"
+        "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
+        "quote": "the Celtics outscored the Nets 41–16 in the fourth quarter"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,151 +83,151 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Cleveland also won 27 road games that season, giving the team balance away from its home arena.",
+          "text": "Boston's historic Nets comeback began after the Celtics fell far behind in Game 3 of the East finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-            "quote": "Total: 66–16 (home: 39–2; road: 27–14)"
+            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
+            "quote": "In Game 3, the Celtics were down by as much as 26 points"
           }
         },
         {
-          "text": "The Lakers handed Cleveland a rare home loss during their February visit.",
+          "text": "Kerry Kittles paced New Jersey's offense in the game Boston dramatically stole.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-            "quote": "February 8 L.A. Lakers L 91–101"
+            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
+            "quote": "Pts: Kerry Kittles 19"
           }
         },
         {
-          "text": "The Cavaliers lost their final regular-season home game in overtime against Philadelphia.",
+          "text": "Paul Pierce was Boston's leading scorer in its playoff comeback against New Jersey.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-            "quote": "April 15 Philadelphia L 110–111 (OT)"
+            "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
+            "quote": "Pts: Paul Pierce 28"
           }
         }
       ]
     },
     {
-      "id": "nba-james09-season-apg",
+      "id": "nba-kobe05-62-three-quarters",
       "sport": "NBA",
-      "prompt": "How many assists per game did LeBron average in his first MVP season?",
-      "context": "Cleveland Cavaliers · 2008–09 · regular season",
-      "answer": 7.2,
-      "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
-      },
-      "min": 3,
-      "max": 15,
-      "step": 0.1,
-      "note": "7.2 assists per game while running Cleveland's attack.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-        "quote": "LeBron James | 81 | 81 | 37.7 | .489 | .344 | .780 | 7.6 | 7.2 | 1.7 | 1.1 | 28.4"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "LeBron also averaged 28.4 points and 7.6 rebounds in the regular season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-            "quote": "LeBron James | 81 | 81 | 37.7 | .489 | .344 | .780 | 7.6 | 7.2 | 1.7 | 1.1 | 28.4"
-          }
-        },
-        {
-          "text": "In November, LeBron became the youngest player in league history to reach 11,000 career points.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-            "quote": "On November 18, LeBron James became the youngest player to reach 11,000 career points"
-          }
-        },
-        {
-          "text": "LeBron overtook Mark Price as Cleveland's all-time steals leader that December.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-            "quote": "LeBron James passed Mark Price to become the Cavaliers' all-time steals leader"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-mowilliams09-season-ppg",
-      "sport": "NBA",
-      "prompt": "How many points per game did Mo Williams average in his first Cavaliers season?",
-      "context": "Cleveland Cavaliers · 2008–09 · regular season",
-      "answer": 17.8,
-      "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
-      },
-      "min": 8,
-      "max": 31,
-      "step": 0.1,
-      "note": "17.8 points per game as LeBron's new backcourt partner.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-        "quote": "Mo Williams | 81 | 81 | 35.0 | .467 | .436 | .912 | 3.4 | 4.1 | .9 | .1 | 17.8"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Williams made 43.6% of his three-pointers that season, while shooting 91.2% at the line.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-            "quote": "Mo Williams | 81 | 81 | 35.0 | .467 | .436 | .912 | 3.4 | 4.1 | .9 | .1 | 17.8"
-          }
-        },
-        {
-          "text": "Cleveland acquired Williams from Milwaukee in a three-team trade during the offseason.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-            "quote": "To Milwaukee Bucks----Damon Jones----To Oklahoma City Thunder----Joe Smith | To Cleveland Cavaliers----Mo Williams"
-          }
-        },
-        {
-          "text": "Williams posted a season-high 44 points against Phoenix in February.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-            "quote": "February 11 Phoenix W 109–92 Maurice Williams (44)"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-james09-magic-g1-points",
-      "sport": "NBA",
-      "prompt": "How many points did LeBron score in Game 1 of the 2009 Eastern finals?",
-      "context": "Cleveland vs Orlando · Eastern Conference finals · Game 1",
-      "answer": 49,
+      "prompt": "Kobe Bryant sat out the fourth quarter against Dallas on December 20, 2005. How many points did he have through three?",
+      "context": "Lakers vs Dallas Mavericks · 2005–06",
+      "answer": 62,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 21,
-      "max": 69,
+      "min": 30,
+      "max": 85,
       "step": 1,
-      "note": "49 points, but Orlando won the opener by one.",
+      "note": "62, one more than the whole Mavericks team had at that point.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-        "quote": "May 20 Orlando L 106–107 LeBron James (49)"
+        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+        "quote": "On December 20, 2005, Bryant scored 62 points in three quarters against the Dallas Mavericks"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Kobe had actually outscored the entire Dallas roster to that point, before the final quarter began.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+            "quote": "outscoring the Mavericks through three quarters by himself (62–61)"
+          }
+        },
+        {
+          "text": "Phil Jackson let Bryant sit out the last quarter because the game had become a rout.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+            "quote": "Phil Jackson allowed Kobe to rest in the fourth quarter because the game was a blowout."
+          }
+        },
+        {
+          "text": "Jeanie Buss later said she was frustrated Kobe hadn't played the fourth quarter.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+            "quote": "Jeanie Buss, Jackson's girlfriend, owner's Jerry Buss daughter, and Lakers vice president of player personnel, was self-admittedly mad at Jackson"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-celtics08-g6-margin",
+      "sport": "NBA",
+      "prompt": "Boston won the 2008 title-clinching Game 6 against the Lakers by how many points?",
+      "context": "2008 NBA Finals · Game 6 · at Boston",
+      "answer": 39,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 22,
+      "max": 62,
+      "step": 1,
+      "note": "39, 131–92, then the biggest margin in a title clincher.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+        "quote": "The 39-point margin of victory was the largest ever in an NBA championship-clinching game"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Ray Allen tied the then-Finals record for three-pointers made in Boston's title clincher.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "Ray Allen hit seven three-pointers to tie what was then the Finals record"
+          }
+        },
+        {
+          "text": "Boston's defense set a Finals single-game steals record during the rout.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "set a Finals record with 18 steals"
+          }
+        },
+        {
+          "text": "Every Celtics player who got on the court in the clincher scored at least once.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "every Boston player who saw action scored"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-kings23-light-beam-sixteen-drought",
+      "sport": "NBA",
+      "prompt": "When Sacramento's 'Light the Beam' Kings finally made the 2023 playoffs, how many straight seasons had they missed?",
+      "context": "Sacramento Kings · 2023 return to the playoffs",
+      "answer": 16,
+      "unit": {
+        "singular": "season",
+        "plural": "seasons"
+      },
+      "min": 0,
+      "max": 35,
+      "step": 1,
+      "note": "16 straight missed postseasons. The long-suffering Kings finally got a playoff celebration.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Sacramento_Kings",
+        "quote": "breaking a 16-year playoff drought, which at the time was the longest active playoff drought"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Cleveland swept both Detroit and Atlanta before the Eastern Conference finals.",
+          "text": "The beam became a homegrown celebration after Kings wins.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-            "quote": "the Cavaliers swept the Detroit Pistons in the First Round in four games, swept the Atlanta Hawks in the Semifinals in four games"
+            "url": "https://en.wikipedia.org/wiki/Sacramento_Kings",
+            "quote": "the Kings began lighting a large, purple beam into the night sky after every game won"
           }
         },
         {
-          "text": "LeBron averaged a remarkable 35.3 points during Cleveland's entire playoff run.",
+          "text": "Sacramento officially clinched its return with a win in Portland.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-            "quote": "LeBron James | 14 | 14 | 41.4 | .510 | .333 | .749 | 9.1 | 7.3 | 1.6 | .9 | 35.3"
+            "url": "https://en.wikipedia.org/wiki/Sacramento_Kings",
+            "quote": "On March 29, the Kings beat the Portland Trail Blazers 120–80 to clinch a playoff spot"
           }
         },
         {
-          "text": "The Magic eventually reached the NBA Finals but lost to Kobe Bryant's Lakers.",
+          "text": "Coach Mike Brown earned league Coach of the Year honors.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
-            "quote": "The Magic would go on to lose to the Los Angeles Lakers in the NBA Finals in five games."
+            "url": "https://en.wikipedia.org/wiki/Sacramento_Kings",
+            "quote": "Mike Brown was named NBA Coach Of The Year for his role in ending the playoff drought."
           }
         }
       ]

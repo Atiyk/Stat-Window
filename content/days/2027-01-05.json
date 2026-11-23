@@ -1,29 +1,29 @@
 {
   "date": "2027-01-05",
   "theme": {
-    "title": "Miami's Finals years",
-    "subtitle": "Heat, 2012 and 2013",
-    "recap": "Miami beat Oklahoma City and then survived San Antonio, thanks in part to a corner three with seconds left."
+    "title": "Past Meets Present",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-lebron13-g7",
+      "id": "nba-jordan86-63",
       "sport": "NBA",
-      "prompt": "How many points did LeBron James score in Game 7 of the 2013 Finals?",
-      "context": "2013 NBA Finals · Game 7 · vs San Antonio",
-      "answer": 37,
+      "prompt": "Michael Jordan set a playoff scoring record against the 1986 Celtics in a loss. How many points did he score?",
+      "context": "1986 first round · Game 2 · at Boston",
+      "answer": 63,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 15,
-      "max": 65,
+      "min": 25,
+      "max": 80,
       "step": 1,
-      "note": "37, with five threes and 12 rebounds.",
+      "note": "63 points, a playoff record, in a Bulls loss.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
-        "quote": "LeBron James led the Miami Heat with 37 points, including five 3-pointers, and grabbed 12 rebounds"
+        "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Chicago_Bulls_season",
+        "quote": "Michael Jordan (63)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "A short Tim Duncan miss and a missed tip helped Miami survive San Antonio's late rally in the decider.",
+          "text": "Chicago needed two overtimes to settle the record-setting game in Boston, but the Celtics held on.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
-            "quote": "Duncan, guarded by Shane Battier, missed a shot under the basket and a follow-up tip-in attempt"
+            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Chicago_Bulls_season",
+            "quote": "L 131-135 (2OT)"
           }
         },
         {
-          "text": "LeBron's late jumper finally secured Miami's repeat championship as the Spurs tried to steal the decider.",
+          "text": "Charles Oakley led the Bulls on the glass that night, pulling down fourteen rebounds.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
-            "quote": "James went on to hit a 17-foot jumper that secured the victory"
+            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Chicago_Bulls_season",
+            "quote": "Charles Oakley (14)"
           }
         },
         {
-          "text": "Shane Battier's outside shooting helped cover scoreless games from both Chris Bosh and Ray Allen.",
+          "text": "Boston Garden drew a crowd of 14,890 for that historic first-round playoff game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
-            "quote": "Battier scored 18 points on six 3-pointers to offset scoreless nights by Bosh and Allen"
+            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Chicago_Bulls_season",
+            "quote": "Boston Garden 14,890"
           }
         }
       ]
     },
     {
-      "id": "nba-westbrook12-g4",
+      "id": "nba-lakers00-wins",
       "sport": "NBA",
-      "prompt": "In Game 4 of the 2012 Finals, how many points did Russell Westbrook score in a loss?",
-      "context": "2012 NBA Finals · Game 4 · at Miami",
-      "answer": 43,
+      "prompt": "How many regular-season games did the 1999–2000 Lakers win?",
+      "context": "Los Angeles Lakers · 1999–2000 · 82 games",
+      "answer": 67,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 25,
-      "max": 75,
+      "min": 28,
+      "max": 82,
       "step": 1,
-      "note": "43, leading the Thunder.",
+      "note": "67–15.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-        "quote": "Russell Westbrook (who led the Thunder with 43 points)"
+        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+        "quote": "They posted winning streaks of 11, 16, and 19 en route to a 67–15 record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Miami's rookie Norris Cole delivered crucial outside baskets as the Heat erased an early Thunder lead.",
+          "text": "The Lakers hired Phil Jackson shortly after the Spurs swept them out of the previous postseason.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-            "quote": "thanks to two huge three-pointers by Heat rookie Norris Cole"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "Twenty-four days after being swept by the eventual league champion, the Lakers signed Phil Jackson as head coach"
           }
         },
         {
-          "text": "LeBron cramped late but had already made the go-ahead shot in the close fourth game.",
+          "text": "Jackson installed the triangle offense around Shaquille O'Neal and Kobe Bryant, borrowing the system from his Bulls years.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-            "quote": "had to sit out during the final two minutes of the game due to leg cramps"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "Jackson, famous for coaching Michael Jordan and the six-time champion Chicago Bulls, would build his triangle offense"
           }
         },
         {
-          "text": "Mario Chalmers sealed the Heat victory with a tough layup and late free throws.",
+          "text": "This was the Lakers' inaugural season playing home games at Staples Center, their newly opened arena.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-            "quote": "Mario Chalmers scored 25 points and made two key plays to seal Miami's win"
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "Another huge change for the Lakers was that it was their inaugural season at the Staples Center"
           }
         }
       ]
     },
     {
-      "id": "nba-miller12-g5-threes",
+      "id": "nba-hawks86-third-quarter",
       "sport": "NBA",
-      "prompt": "Mike Miller shot eight threes in the 2012 title clincher. How many did he make?",
-      "context": "2012 NBA Finals · Game 5 · vs Oklahoma City",
-      "answer": 7,
+      "prompt": "Boston routed Atlanta 132–99 in the 1986 East semifinals. How many points did the Hawks score in the third quarter?",
+      "context": "1986 East semifinals · Celtics vs Hawks",
+      "answer": 6,
       "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 0,
-      "max": 8,
+      "max": 26,
       "step": 1,
-      "note": "Seven of eight, for 23 points.",
+      "note": "Six, as Boston won the quarter 36–6.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-        "quote": "who was 7 for 8 for three-pointers, ending the night with 23 points"
+        "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
+        "quote": "Boston outscored Atlanta 36–6 in the third quarter in route to a 132–99 victory."
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Oklahoma City was playing its first NBA Finals since the franchise moved from Seattle.",
+          "text": "Before that Hawks blowout, Boston had already swept Michael Jordan's Bulls in the first round.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-            "quote": "Oklahoma City's first NBA Finals appearance since their relocation from Seattle"
+            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
+            "quote": "Boston needed just three games to defeat the Chicago Bulls in the first round"
           }
         },
         {
-          "text": "The Heat's triumph gave LeBron James his first NBA championship after years of playoff near-misses.",
+          "text": "The Celtics subsequently swept Milwaukee to reach the championship round without a conference-finals loss.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-            "quote": "The win by the Heat earned James his first championship"
+            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
+            "quote": "in the conference finals, Boston swept the Milwaukee Bucks in four games"
           }
         },
         {
-          "text": "Before facing the Thunder, Miami survived a grueling East finals against Boston despite falling behind.",
+          "text": "That season's championship series marked the first official use of the 'NBA Finals' branding.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-            "quote": "the Heat survived a grueling Eastern Conference finals against the Boston Celtics"
+            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
+            "quote": "this series marked the first time the \"NBA Finals\" branding was officially used"
           }
         }
       ]
     },
     {
-      "id": "nba-allen13-g6-seconds",
+      "id": "nba-lakers23-cup-paint",
       "sport": "NBA",
-      "prompt": "How many seconds were left when Ray Allen hit his game-tying corner three in Game 6 of the 2013 Finals?",
-      "context": "2013 NBA Finals · Game 6 · vs San Antonio",
-      "answer": 5.2,
+      "prompt": "In the 2023 In-Season Tournament final, how many points in the paint did the Lakers score?",
+      "context": "2023 In-Season Tournament final · vs Indiana",
+      "answer": 86,
       "unit": {
-        "singular": "second",
-        "plural": "seconds"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 0,
-      "max": 15,
-      "step": 0.1,
-      "note": "5.2 seconds.",
+      "min": 55,
+      "max": 130,
+      "step": 1,
+      "note": "86, to Indiana's 44.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
-        "quote": "made a three-point basket from the right corner with 5.2 left to tie the game"
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+        "quote": "The Lakers dominated the Pacers inside, edging them with an 86–44 edge in points in the paint."
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "A shoeless Mike Miller hit an important three after his footwear came loose in the fourth quarter.",
+          "text": "Indiana managed 44 paint points, far fewer than the eventual champion.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
-            "quote": "Miller's shoe came loose but he did not have time to put it back on"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+            "quote": "an 86–44 edge in points in the paint"
           }
         },
         {
-          "text": "LeBron lost his trademark headband during a dunk and played out the frantic finish without it.",
+          "text": "Davis scored ten unanswered points during a decisive fourth-quarter Lakers surge.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
-            "quote": "the signature accessory James lost on a dunk with just under nine minutes left"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+            "quote": "Davis scored 10 straight points as part of the 13–0 run"
           }
         },
         {
-          "text": "Game 6 eventually won the ESPY Award for Best Game, cementing its place in Finals folklore.",
+          "text": "The Lakers held off Indiana to win the first Cup championship 123–109 in Las Vegas.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
-            "quote": "Game 6 of the 2013 NBA Finals received the 2013 ESPY award for Best Game"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+            "quote": "Indiana Pacers 109, Los Angeles Lakers 123"
           }
         }
       ]
     },
     {
-      "id": "nba-spurs12-streak",
+      "id": "nba-mitchell20-bubble-fiftyseven",
       "sport": "NBA",
-      "prompt": "Before Oklahoma City beat them in the 2012 West finals, the Spurs had won how many games in a row?",
-      "context": "San Antonio Spurs · 2011–12",
-      "answer": 20,
+      "prompt": "In the bubble's wild 2020 Jazz–Nuggets opening playoff game, how many points did Donovan Mitchell score?",
+      "context": "Donovan Mitchell · Jazz vs Nuggets · 2020 bubble",
+      "answer": 57,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 12,
-      "max": 44,
+      "min": 10,
+      "max": 130,
       "step": 1,
-      "note": "20 in a row.",
+      "note": "57 points in an overtime loss. It began a blistering playoff scoring duel with Jamal Murray.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-        "quote": "snapping San Antonio's 20 game winning streak in the process"
+        "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+        "quote": "On August 17, 2020, Mitchell scored 57 points in a 125–135 overtime loss to the Nuggets"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "The Thunder's 2012 Finals berth was their first since moving to Oklahoma City from Seattle.",
+          "text": "Utah lost that opener in overtime.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-            "quote": "Oklahoma City's first NBA Finals appearance since their relocation from Seattle"
+            "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+            "quote": "Mitchell scored 57 points in a 125–135 overtime loss to the Nuggets"
           }
         },
         {
-          "text": "Oklahoma City got through the Lakers in the conference semifinals before its clash with San Antonio.",
+          "text": "He scored 51 more points in another game six days later.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-            "quote": "The Thunder then eliminated the Los Angeles Lakers in the Western Conference semifinals"
+            "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+            "quote": "Six days later, he scored 51 points"
           }
         },
         {
-          "text": "Miami had to beat both Indiana and Boston after trailing in each postseason series.",
+          "text": "His opener ranked third-highest in playoff scoring history at the time.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
-            "quote": "the Heat overcame major series deficits that nearly eliminated them from the postseason"
+            "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
+            "quote": "the third most in playoff history"
           }
         }
       ]

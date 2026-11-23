@@ -1,29 +1,29 @@
 {
   "date": "2026-11-26",
   "theme": {
-    "title": "Rip City",
-    "subtitle": "Portland, 1976–77",
-    "recap": "Bill Walton's Blazers came from 0–2 down to win the 1977 title, then started the next season 50–10."
+    "title": "Past Meets Present",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-walton77-g6-reb",
+      "id": "nba-celtics08-wins",
       "sport": "NBA",
-      "prompt": "In the 1977 title clincher, how many rebounds did Bill Walton grab?",
-      "context": "1977 NBA Finals · Game 6 · vs Philadelphia",
-      "answer": 23,
+      "prompt": "After adding Kevin Garnett and Ray Allen, how many games did the 2007–08 Celtics win?",
+      "context": "Boston Celtics · 2007–08 · 82 games",
+      "answer": 66,
       "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 10,
-      "max": 42,
+      "min": 24,
+      "max": 82,
       "step": 1,
-      "note": "23, with 20 points, 7 assists and 8 blocks.",
+      "note": "66–16.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-        "quote": "Bill Walton's 20 points, 23 rebounds, 7 assists and 8 blocks kept the game in Portland's favor."
+        "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_Boston_Celtics_season",
+        "quote": "the trade enabled the Celtics to finish the season with a record of 66–16"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Bill Walton was named Finals MVP after leading Portland to its first championship.",
+          "text": "Boston sold out every regular-season home game during its dramatic turnaround.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Walton was named finals MVP"
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_Boston_Celtics_season",
+            "quote": "The Celtics also sold out all 41 regular-season home games."
           }
         },
         {
-          "text": "CBS cut away so quickly after the clincher that viewers missed the locker-room trophy presentation.",
+          "text": "Kevin Garnett brought a defensive identity that earned him Defensive Player of the Year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "CBS cut away from their NBA coverage very quickly after the game ended, skipping the trophy presentation"
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_Boston_Celtics_season",
+            "quote": "Kevin Garnett was named NBA Defensive Player of the Year"
           }
         },
         {
-          "text": "Walton ended the game by batting a missed Philadelphia shot out toward midcourt as time expired.",
+          "text": "The architect of the new Big Three, Danny Ainge, earned Executive of the Year honors.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Bill Walton reached over all of them and slapped the ball up the court"
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_Boston_Celtics_season",
+            "quote": "Danny Ainge, who executed \"the most dramatic NBA turnaround ever\", was named NBA Executive of the Year"
           }
         }
       ]
     },
     {
-      "id": "nba-blazers78-start",
+      "id": "nba-shot-clock-24",
       "sport": "NBA",
-      "prompt": "The year after their title, how many of their first 60 games did the 1977–78 Blazers win?",
-      "context": "Portland Trail Blazers · 1977–78",
-      "answer": 50,
+      "prompt": "How many seconds does an NBA team have to shoot under the shot clock?",
+      "context": "NBA rules · since 1954",
+      "answer": 24,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "second",
+        "plural": "seconds"
       },
-      "min": 30,
-      "max": 60,
+      "min": 10,
+      "max": 55,
       "step": 1,
-      "note": "50.",
+      "note": "24.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-        "quote": "The 1977-78 Blazers started with 50 wins in their first 60 games"
+        "url": "https://en.wikipedia.org/wiki/Shot_clock",
+        "quote": "The NBA has had a 24-second limit since 1954."
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "A Bill Walton foot injury derailed Portland's momentum and the team went 8–14 after its scorching opening.",
+          "text": "Danny Biasone and Leo Ferris first tested the shot-clock idea at a Syracuse Nationals scrimmage.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "due to Bill Walton's foot injury they only managed to go 8–14 the rest of the way"
+            "url": "https://en.wikipedia.org/wiki/Shot_clock",
+            "quote": "Danny Biasone and general manager Leo Ferris experimented with a 24-second shot clock during a scrimmage"
           }
         },
         {
-          "text": "That brilliant follow-up season proved to be Walton's last playing for Portland.",
+          "text": "Biasone arrived at the timing by counting shot attempts in basketball's most entertaining games.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "This would be Walton's last season with the club"
+            "url": "https://en.wikipedia.org/wiki/Shot_clock",
+            "quote": "I noticed each team took about 60 shots. That meant 120 shots per game."
           }
         },
         {
-          "text": "The championship roster had been transformed partly by adding ABA star Maurice Lucas.",
+          "text": "Before the rule, teams protecting a lead could stall endlessly by passing without shooting.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Portland had benefited from the resulting ABA dispersal draft as they acquired"
+            "url": "https://en.wikipedia.org/wiki/Shot_clock",
+            "quote": "Teams in the lead were running out the clock, passing the ball incessantly"
           }
         }
       ]
     },
     {
-      "id": "nba-blazers77-g4-q3",
+      "id": "nba-iverson01-g1",
       "sport": "NBA",
-      "prompt": "Portland scored how many points in the third quarter of Game 4 of the 1977 Finals?",
-      "context": "1977 NBA Finals · Game 4 · vs Philadelphia, at Portland",
-      "answer": 41,
+      "prompt": "Allen Iverson handed the 2001 Lakers their only playoff loss in Finals Game 1. How many points did he score?",
+      "context": "2001 NBA Finals · Game 1 · at Los Angeles",
+      "answer": 48,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 26,
-      "max": 68,
+      "min": 32,
+      "max": 72,
       "step": 1,
-      "note": "41.",
+      "note": "48, with five steals.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-        "quote": "Portland quickly led the game by 17 points and never looked back, scoring 41 points in the third quarter"
+        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Los_Angeles_Lakers_season",
+        "quote": "Iverson scored 48 points along with 5 steals"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Lionel Hollins was Portland's top scorer in Game 4, producing 25 points.",
+          "text": "Iverson's overtime step-back over Tyronn Lue produced the famous image of him stepping over his fallen defender.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Pts: Hollins 25"
+            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
+            "quote": "he stepped over Lue after hitting the shot"
           }
         },
         {
-          "text": "Walton picked up his fifth foul during the third quarter and spent much of the second half on the bench.",
+          "text": "Philadelphia survived despite trailing early, after Los Angeles opened with a long unanswered scoring run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Walton committing his fifth foul midway through the third and being on the bench"
+            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
+            "quote": "Scoring 16 straight points, the Lakers took a 21–9 lead"
           }
         },
         {
-          "text": "The lopsided home victory tied the series after Philadelphia had led by two games.",
+          "text": "Dikembe Mutombo's interior work helped Philadelphia hang on as a late missed shot sent the game to overtime.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Series tied, 2–2"
+            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
+            "quote": "when Dikembe Mutombo missed two free throws and Eric Snow's desperation three-pointer"
           }
         }
       ]
     },
     {
-      "id": "nba-blazers77-g4-margin",
+      "id": "nba-finals07-rating",
       "sport": "NBA",
-      "prompt": "By how many points did Portland win Game 4 of the 1977 Finals?",
-      "context": "1977 NBA Finals · Game 4 · vs Philadelphia",
-      "answer": 32,
+      "prompt": "The 2007 Finals sweep set what was then a record-low TV rating. What was it?",
+      "context": "2007 NBA Finals · Spurs vs Cavaliers · ABC",
+      "answer": 6.2,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "rating point",
+        "plural": "rating points"
       },
       "min": 0,
-      "max": 45,
-      "step": 1,
-      "note": "32, the largest Game 4 margin until 2024.",
+      "max": 15,
+      "step": 0.1,
+      "note": "6.2, the lowest until 2020.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-        "quote": "the 32 point win being the largest margin of victory in a Finals game 4 until 2024"
+        "url": "https://en.wikipedia.org/wiki/2007_NBA_Finals",
+        "quote": "San Antonio's four-game sweep of Cleveland finished with a record-low 6.2 television rating and 11 share on ABC"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Julius Erving led Philadelphia with 24 points in its Game 4 defeat.",
+          "text": "Cleveland was appearing in its first NBA Finals, as was its young superstar LeBron James.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Pts: Erving 24"
+            "url": "https://en.wikipedia.org/wiki/2007_NBA_Finals",
+            "quote": "This was Cleveland's first trip to the NBA Finals in their franchise history"
           }
         },
         {
-          "text": "Maurice Lucas's Blazers had lost the opening pair in Philadelphia before evening the series at home.",
+          "text": "San Antonio guard Tony Parker earned Finals MVP after the Spurs swept Cleveland.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "The series started 2–0 in favor of Philadelphia, but Portland rebounded in the next four games"
+            "url": "https://en.wikipedia.org/wiki/2007_NBA_Finals",
+            "quote": "Tony Parker was named the series' MVP"
           }
         },
         {
-          "text": "Walton contributed 13 rebounds despite foul trouble in that victory.",
+          "text": "The 2007 championship series was the last four-game Finals sweep until 2018, also featuring Cleveland.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Rebs: Walton 13"
+            "url": "https://en.wikipedia.org/wiki/2007_NBA_Finals",
+            "quote": "This series was the last sweep in the NBA Finals until 2018"
           }
         }
       ]
     },
     {
-      "id": "nba-walton77-g5-dreb",
+      "id": "nba-butler23-56-bucks-upset",
       "sport": "NBA",
-      "prompt": "Bill Walton grabbed 24 rebounds in Game 5 of the 1977 Finals. How many were defensive?",
-      "context": "1977 NBA Finals · Game 5 · at Philadelphia",
-      "answer": 20,
+      "prompt": "As eighth-seeded Miami stunned Milwaukee in the 2023 playoffs, how many points did Jimmy Butler score in Game 4?",
+      "context": "Jimmy Butler · Heat vs. Bucks · April 2023",
+      "answer": 56,
       "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 9,
-      "max": 24,
+      "min": 15,
+      "max": 80,
       "step": 1,
-      "note": "20, a Blazers record.",
+      "note": "56. Butler scored 21 in the fourth quarter as Miami pushed the top seed toward elimination.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-        "quote": "24 (20 defensive, another team record) of which belonged to Walton alone; his team record still stands."
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_playoffs",
+        "quote": "Jimmy Butler scored a career-high 56 points, which included 21 in the fourth quarter"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Julius Erving scored 37 for Philadelphia in Game 5 but could not prevent a Portland road win.",
+          "text": "Butler scored 21 points in the fourth quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Erving rallied his team late in the fourth, scoring 37 points himself"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_playoffs",
+            "quote": "which included 21 in the fourth quarter"
           }
         },
         {
-          "text": "Portland's rebounders combined for 59 boards, including 48 on the defensive glass.",
+          "text": "Miami erased a late deficit with a 27–8 run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Portland set numerous rebounding records for its team, 59 (48 defensive"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_playoffs",
+            "quote": "Down by 12 with under six minutes remaining, the Heat went on a pivotal 27–8 run"
           }
         },
         {
-          "text": "Bob Gross paced the Trail Blazers in points during their Game 5 win.",
+          "text": "His 56 set a Miami Heat playoff scoring record.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Pts: Gross 25"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_playoffs",
+            "quote": "His 56 points also set a franchise playoff record for the Heat"
           }
         }
       ]

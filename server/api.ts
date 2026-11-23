@@ -132,7 +132,10 @@ export function ipPrefix(ip: string): string {
 }
 
 function clientIp(req: Request): string {
-  return ipPrefix((req.headers.get('x-real-ip') ?? req.headers.get('x-forwarded-for') ?? '').split(',')[0]!.trim() || 'unknown');
+  // X-Forwarded-For's leftmost address may be supplied by a client and must
+  // never grant a new rate-limit bucket. Vercel overwrites X-Real-IP at edge;
+  // when it is absent, fall back to one conservative shared bucket.
+  return ipPrefix((req.headers.get('x-real-ip') ?? 'unknown').trim() || 'unknown');
 }
 
 function sameOrigin(req: Request, ctx: ApiContext): boolean {
@@ -140,9 +143,10 @@ function sameOrigin(req: Request, ctx: ApiContext): boolean {
   const origin = req.headers.get('origin');
   if (!origin) return true;
   try {
-    const o = new URL(origin);
-    const host = req.headers.get('x-forwarded-host') ?? req.headers.get('host') ?? new URL(req.url).host;
-    return o.host === host || ctx.allowedOrigins.includes(o.origin);
+    // The Request URL is canonical. Forwarded-Host and Host are client
+    // supplied; comparing against either allows a forged origin bypass.
+    const supplied = new URL(origin).origin;
+    return supplied === new URL(req.url).origin || ctx.allowedOrigins.includes(supplied);
   } catch {
     return false;
   }
@@ -252,9 +256,11 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
       // Its own memo key, so it never blocks that network's submissions.
       const delClient = `del:${ipHash}`;
       if (isLimited(ctx, delClient, now)) return json(429, { status: 'limited' }, untilMidnight);
-      const oldest = addDays(today, -DELETE_DAYS);
-      // Only days whose records can still exist; older ones were already unlinked by their TTL.
-      const days = [...new Set(Array.isArray(body.days) ? body.days.filter(isIsoDay) : [])].filter((d) => d >= oldest && d <= today).slice(0, DELETE_DAYS + 1);
+      // Never trust a local day list as an exhaustive erasure ledger. Storage may
+      // have been cleared, corrupted, or written by an older browser while the
+      // score is still retained. Every DELETE checks this fixed nine-day window;
+      // Redis remains bounded at 18 score/aggregate pairs (normal + QA).
+      const days = Array.from({ length: DELETE_DAYS + 1 }, (_, i) => addDays(today, -i));
       const pairs: { sub: string; dist: string }[] = [];
       for (const day of days) {
         for (const season of new Set([seasonOf(day, { launchDay: ctx.launchDay }), 'qa'])) {
@@ -262,8 +268,12 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
           pairs.push({ sub: `${p}:sub:${await hmac(ctx.secret, `${season}:${day}:${player}`, 32)}`, dist: `${p}:dist` });
         }
       }
-      if (pairs.length === 0) return json(200, { status: 'ok', removed: 0 });
-      const r = await ctx.store.removeMany(pairs, { rate, ipDay: `sw:v1:${ctx.env}:ipdel:${ipHash}` }, budget, ctx.limits);
+      // Still write the HMAC revocation marker when no linked score is found:
+      // a delayed POST from another tab may already be in flight.
+      const r = await ctx.store.removeMany(pairs, {
+        rate, ipDay: `sw:v1:${ctx.env}:ipdel:${ipHash}`,
+        revocation: `sw:v1:${ctx.env}:revoked:${await hmac(ctx.secret, `score-browser:${player}`, 32)}`,
+      }, budget, ctx.limits);
       if (typeof r === 'object') {
         if (r.limited === 'day') {
           rememberLimited(ctx, delClient, now, 'day');
@@ -307,6 +317,7 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
         rate,
         ipDay: `sw:v1:${ctx.env}:ipd:${ipHash}`,
         ipCalls: `sw:v1:${ctx.env}:ipc:${ipHash}`,
+        revocation: `sw:v1:${ctx.env}:revoked:${await hmac(ctx.secret, `score-browser:${player}`, 32)}`,
         budget,
       },
       total,
@@ -320,6 +331,7 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
       rememberLimited(ctx, ipHash, now);
       return json(429, { status: 'limited' }, { 'Retry-After': '60' });
     }
+    if (out.status === 'revoked') return json(409, { status: 'revoked' });
     if (out.status === 'paused') {
       rememberPause(ctx, now, out.scope);
       return json(503, { status: 'paused' });

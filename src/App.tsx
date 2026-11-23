@@ -4,7 +4,7 @@ import { inventoryDays, loadSlate } from './content/inventory';
 import type { Slate } from './content/schema';
 import { parseChallenge } from './engine/challenge';
 import { addDays, puzzleDay, puzzleNumber } from './engine/daily';
-import { currentSeason, inSeason, publicNumber, seasonConfigFrom, type SeasonConfig } from './engine/season';
+import { currentSeason, inSeason, isRetiredDay, playableDays, publicNumber, seasonConfigFrom, type SeasonConfig } from './engine/season';
 import { isQa } from './lib/scores';
 import { gameReducer, initGame, ROUNDS, type GameAction, type GameState, type Mode } from './engine/game';
 import { createSaveStore, type RunKind, type SaveStore, type StorageLike } from './engine/storage';
@@ -19,6 +19,7 @@ import { PrivacyDialog } from './ui/Privacy';
 import { Mark } from './ui/Mark';
 import { Results } from './ui/Results';
 import { Round } from './ui/Round';
+import { Onboarding } from './ui/Onboarding';
 
 // Survival is its own chunk, and is absent from the build while the flag is off.
 // (The env comparison is spelled out here so the bundler can drop the chunk.)
@@ -106,7 +107,7 @@ function withoutParams(loc: Pick<Location, 'pathname' | 'search' | 'hash'>, name
 }
 
 /** The current address without the challenge parameters (`day`, `vs`). */
-const withoutChallenge = (loc: Pick<Location, 'pathname' | 'search' | 'hash'>) => withoutParams(loc, ['day', 'vs']);
+const withoutChallenge = (loc: Pick<Location, 'pathname' | 'search' | 'hash'>) => withoutParams(loc, ['day', 'vs', 'time']);
 
 const daysBetween = (a: string, b: string) => puzzleNumber(b) - puzzleNumber(a);
 
@@ -146,11 +147,19 @@ export function App() {
   const [privacyOpen, setPrivacyOpen] = useState(() => new URLSearchParams(window.location.search).has('privacy'));
   // A ?day= link that can't be honoured (future, malformed or unpublished): say so once, then today opens.
   const [badLink, setBadLink] = useState(false);
+  const [retiredLink, setRetiredLink] = useState(false);
 
   useEffect(() => setSoundEnabled(settings.sound), [settings.sound]);
 
   const open = useCallback(
     async (day: string, link?: { vs: number | null; vsTime: number | null }) => {
+      // Never load retired beta content, even through stale UI callbacks.
+      if (isRetiredDay(day, puzzleDay(new Date()), SEASON)) {
+        setRetiredLink(true);
+        window.history.replaceState(null, '', withoutChallenge(window.location));
+        day = puzzleDay(new Date());
+        link = undefined;
+      }
       let slate: Slate | null;
       try {
         slate = await loadSlate(day);
@@ -192,7 +201,9 @@ export function App() {
       trackOnce(`remind-open:${today}`, today, { name: 'remind_open' });
       window.history.replaceState(null, '', withoutParams(window.location, ['from']));
     }
-    const link = parseChallenge(window.location.search, today, inventoryDays);
+    const link = parseChallenge(window.location.search, today, playableDays(inventoryDays, today, SEASON));
+    const requestedDay = new URLSearchParams(window.location.search).get('day');
+    const wasRetired = requestedDay !== null && isRetiredDay(requestedDay, today, SEASON);
     if (link.kind !== 'none') {
       track({
         name: 'challenge_open',
@@ -201,7 +212,8 @@ export function App() {
       });
     }
     if (link.kind === 'invalid' || link.kind === 'future') {
-      setBadLink(true);
+      if (wasRetired) setRetiredLink(true);
+      else setBadLink(true);
       window.history.replaceState(null, '', withoutChallenge(window.location));
     }
     if (link.kind === 'day') void open(link.day, { vs: link.vs, vsTime: link.vsTime });
@@ -250,7 +262,7 @@ export function App() {
   };
 
   const number = publicNumber(session ? session.day : today, SEASON).label;
-  const archive = inventoryDays.filter((d) => d < today).reverse();
+  const archive = playableDays(inventoryDays, today, SEASON).filter((d) => d < today).reverse();
 
   return (
     <div className="app">
@@ -279,6 +291,12 @@ export function App() {
       </header>
 
       <main className="main" id="main">
+        {retiredLink && view === 'daily' && (
+          <p className="link-note" role="status">
+            <span>That beta puzzle was retired for the new season. Here’s today’s game instead.</span>
+            <button type="button" className="btn-link" onClick={() => setRetiredLink(false)}>Dismiss</button>
+          </p>
+        )}
         {badLink && view === 'daily' && (
           <p className="link-note" role="status">
             <span>That link’s puzzle isn’t available, so here’s today’s.</span>
@@ -305,7 +323,8 @@ export function App() {
             store={store}
             today={today}
             showHint={!settings.introSeen}
-            onFirstTouch={() => !settings.introSeen && updateSettings({ introSeen: true })}
+            onFirstTouch={() => undefined}
+            onTutorialDone={() => !settings.introSeen && updateSettings({ introSeen: true })}
             onWindowActive={() => { activeWindowRef.current = true; }}
             onRunComplete={() => { activeWindowRef.current = false; }}
             archive={archive}
@@ -341,6 +360,7 @@ function Game(props: {
   today: string;
   showHint: boolean;
   onFirstTouch: () => void;
+  onTutorialDone: () => void;
   onWindowActive: () => void;
   onRunComplete: () => void;
   archive: readonly string[];
@@ -359,6 +379,18 @@ function Game(props: {
     const saved = store.load()[session.kind]?.[session.day];
     return initGame(session.slate, session.mode, saved?.results ?? [], saved?.advanced ?? 0);
   });
+
+  const firstShotKey = `stat-window:shot:v1:${session.slate.questions[0]?.id ?? ''}`;
+  const [started, setStarted] = useState(() => {
+    if ((store.load()[session.kind]?.[session.day]?.results.length ?? 0) > 0) return true;
+    try { return window.sessionStorage.getItem(firstShotKey) !== null; } catch { return false; }
+  });
+  const start = () => {
+    // Persist before mounting Q1 so an immediate refresh cannot grant fresh time.
+    try { if (!window.sessionStorage.getItem(firstShotKey)) window.sessionStorage.setItem(firstShotKey, String(Date.now())); } catch { /* private mode fallback */ }
+    trackOnce(`start:${playMode}:${session.kind}:${session.day}`, today, { name: 'run_start', mode: playMode });
+    props.onWindowActive(); setStarted(true);
+  };
 
   const dispatch = useCallback(
     (a: GameAction) => {
@@ -379,13 +411,6 @@ function Game(props: {
   }, [store, session.day, session.kind, state.results, advanced]);
 
   const pub = publicNumber(session.day, SEASON);
-  useEffect(() => {
-    if (state.results.length === 0) {
-      trackOnce(`start:${playMode}:${session.kind}:${session.day}`, today, { name: 'run_start', mode: playMode });
-    }
-    // Only on mount of a fresh run.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   useEffect(() => {
     if (state.phase === 'complete') props.onRunComplete();
   }, [state.phase, props.onRunComplete]);
@@ -410,7 +435,9 @@ function Game(props: {
   // Leaving with a run part-way done (best effort; see docs/MEASUREMENT.md).
   const exitRef = useRef({ started: false, round: 0 });
   exitRef.current = {
-    started: state.phase !== 'complete' && (state.results.length > 0 || state.phase === 'adjusting'),
+    // Pressing Start counts as an active run even if a player closes without
+    // moving a bracket; otherwise onboarding drop-off is undercounted.
+    started: started && state.phase !== 'complete',
     round: state.round + 1,
   };
   useEffect(() => {
@@ -441,12 +468,14 @@ function Game(props: {
   // check resolves, so this waits for it and has its own once-keys (not the run_start one).
   const startedHere = useRef(state.results.length === 0);
   useEffect(() => {
-    if (!offer.arm || !officialToday || !startedHere.current) return;
+    // The daily-start experiment must be recorded only after the deliberate
+    // Start gate, never from a tutorial/ready-screen impression.
+    if (!started || !offer.arm || !officialToday || !startedHere.current) return;
     trackOnce(`x:sv-cta:start:${today}`, today, { name: 'experiment', arm: offer.arm, step: 'daily-start' });
     if (exposedYesterday(props.storage, today)) {
       trackOnce(`x:sv-cta:next:${today}`, today, { name: 'experiment', arm: offer.arm, step: 'next-day-start' });
     }
-  }, [offer.arm, officialToday, props.storage, today]);
+  }, [started, offer.arm, officialToday, props.storage, today]);
   // Experiment exposure: once per day, when today's official results are on screen (both arms).
   useEffect(() => {
     if (complete && officialToday && offer.arm && markExposed(props.storage, today)) {
@@ -487,6 +516,17 @@ function Game(props: {
     );
   }
 
+  if (!started && state.results.length === 0) {
+    return props.showHint ? <Onboarding onDone={() => { props.onTutorialDone(); start(); }} /> : (
+      <article className="onboarding ready-card">
+        <p className="context">{session.mode === 'practice' ? 'PRACTICE' : 'DAILY FIVE'}</p>
+        <h1>Ready for five?</h1>
+        <p>Find the number in each question. Five windows, 24 seconds each. The clock starts when each question appears.</p>
+        <button type="button" className="btn btn-primary" onClick={start}>Start today's five</button>
+      </article>
+    );
+  }
+
   // Difficulty and the day's theme stay in the content for editors and validators; players
   // see a plain count. The header already names the puzzle; this only says what kind of run it is.
   const where = daily || session.viaLink ? '' : 'Practice · ';
@@ -497,7 +537,7 @@ function Game(props: {
       state={state}
       dispatch={dispatch}
       label={label}
-      showHint={props.showHint && state.round === 0}
+      showHint={false}
       theme={session.slate.theme}
       challenge={session.viaLink && state.round === 0 && state.results.length === 0 ? { vs: session.vs, vsTime: session.vsTime } : null}
       onFirstTouch={() => { props.onWindowActive(); props.onFirstTouch(); }}

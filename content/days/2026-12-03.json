@@ -1,29 +1,29 @@
 {
   "date": "2026-12-03",
   "theme": {
-    "title": "Clocks, rules and oddities",
-    "subtitle": "Before and after the shot clock",
-    "recap": "The shot clock arrived in 1954 after games like a 19–18 final and a six-overtime game with one shot per overtime."
+    "title": "Across the NBA",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-shot-clock-24",
+      "id": "nba-kobe-81",
       "sport": "NBA",
-      "prompt": "How many seconds does an NBA team have to shoot under the shot clock?",
-      "context": "NBA rules · since 1954",
-      "answer": 24,
+      "prompt": "How many points did Kobe Bryant score against Toronto on January 22, 2006?",
+      "context": "Lakers vs Toronto Raptors · 2005–06",
+      "answer": 81,
       "unit": {
-        "singular": "second",
-        "plural": "seconds"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 10,
-      "max": 55,
+      "min": 40,
+      "max": 105,
       "step": 1,
-      "note": "24.",
+      "note": "81, his career high.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Shot_clock",
-        "quote": "The NBA has had a 24-second limit since 1954."
+        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+        "quote": "On January 22, 2006, Bryant scored a career-high 81 points"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Danny Biasone and Leo Ferris first tested the shot-clock idea at a Syracuse Nationals scrimmage.",
+          "text": "The Lakers trailed Toronto by 14 points at halftime before Kobe took over.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Shot_clock",
-            "quote": "Danny Biasone and general manager Leo Ferris experimented with a 24-second shot clock during a scrimmage"
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+            "quote": "the Lakers trailed 63–49 at halftime"
           }
         },
         {
-          "text": "Biasone arrived at the timing by counting shot attempts in basketball's most entertaining games.",
+          "text": "Bryant poured in 55 points after halftime alone.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Shot_clock",
-            "quote": "I noticed each team took about 60 shots. That meant 120 shots per game."
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+            "quote": "with 55 points in the second half"
           }
         },
         {
-          "text": "Before the rule, teams protecting a lead could stall endlessly by passing without shooting.",
+          "text": "He played 42 minutes and knocked down seven threes during the explosion.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Shot_clock",
-            "quote": "Teams in the lead were running out the clock, passing the ball incessantly"
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+            "quote": "Bryant play 42 minutes, shooting 28-of-46 from the field, including 7-of-13 on three-pointers"
           }
         }
       ]
     },
     {
-      "id": "nba-pistons50-19-18",
+      "id": "nba-sonics94-opening-streak",
       "sport": "NBA",
-      "prompt": "Before the shot clock, the Fort Wayne Pistons beat the Lakers in 1950 with how many points?",
-      "context": "Fort Wayne Pistons vs Minneapolis Lakers · November 22, 1950",
-      "answer": 19,
+      "prompt": "How many straight games did Seattle win to start its 1993–94 season?",
+      "context": "SuperSonics · opening winning streak",
+      "answer": 10,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 0,
-      "max": 45,
+      "min": 3,
+      "max": 28,
       "step": 1,
-      "note": "19, winning 19–18. The fourth quarter went 3–1.",
+      "note": "Ten straight wins to start the campaign.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Shot_clock",
-        "quote": "defeated the Minneapolis Lakers by a record-low score of 19–18, including 3–1 in the fourth quarter."
+        "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+        "quote": "winning their first ten games of the regular season"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,100 +83,100 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Fort Wayne attempted just 13 field goals during the entire low-scoring game.",
+          "text": "Seattle reached a 26–3 record early in that spectacular regular season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Shot_clock",
-            "quote": "they attempted 13 shots for the game"
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "The team got off to a 26–3 start to the season"
           }
         },
         {
-          "text": "The slow-down strategy was designed to keep the ball away from Lakers giant George Mikan.",
+          "text": "By the All-Star break, the Sonics were 35–10 and led the entire NBA.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Shot_clock",
-            "quote": "to limit the impact of the Lakers' dominant George Mikan"
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "held a league-best 35–10 record at the All-Star break"
           }
         },
         {
-          "text": "A St. Paul newspaper condemned the Pistons' tactic as a black eye for pro basketball.",
+          "text": "Seattle finished the season by winning 17 of its last 19 games.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Shot_clock",
-            "quote": "gave pro basketball a great black eye"
+            "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
+            "quote": "won 17 of their final 19 games of the season"
           }
         }
       ]
     },
     {
-      "id": "nba-offensive-rebound-reset",
+      "id": "nba-jokic23-finals-g3-rebounds",
       "sport": "NBA",
-      "prompt": "After an offensive rebound, what is the NBA shot clock reset to?",
-      "context": "NBA rules · since 2018–19",
-      "answer": 14,
+      "prompt": "When Jokić and Murray made triple-double history in the 2023 Finals, how many rebounds did Jokić grab?",
+      "context": "Denver Nuggets · Finals Game 3 vs Miami",
+      "answer": 21,
       "unit": {
-        "singular": "second",
-        "plural": "seconds"
+        "singular": "rebound",
+        "plural": "rebounds"
+      },
+      "min": 8,
+      "max": 38,
+      "step": 1,
+      "note": "21 rebounds in a 32-point triple-double as Denver took back the series lead.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+        "quote": "32 points, 21 rebounds, and 10 assists"
+      },
+      "verified": {
+        "on": "2026-11-22",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Jamal Murray made it a historic pair of high-scoring triple-doubles with 34 points of his own.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "game-high 34 points"
+          }
+        },
+        {
+          "text": "Denver dominated the rebounding battle, beating Miami 58 to 33 on the glass.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "boards (58 to 33)"
+          }
+        },
+        {
+          "text": "Christian Braun's breakout cameo delivered 15 points on exceptionally efficient shooting.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "Christian Braun scored 15 points"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-bibby02-regular-apg",
+      "sport": "NBA",
+      "prompt": "How many assists per game did Mike Bibby average for the 2002 Kings?",
+      "context": "Sacramento · first season after the Grizzlies trade",
+      "answer": 5,
+      "unit": {
+        "singular": "assist per game",
+        "plural": "assists per game"
       },
       "min": 1,
-      "max": 21,
-      "step": 1,
-      "note": "14 seconds.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Shot_clock",
-        "quote": "The shot clock is instead set to 14 following an offensive rebound."
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "FIBA introduced the shorter offensive-rebound clock years before the NBA adopted it.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Shot_clock",
-            "quote": "FIBA adopted this in 2014 and the NBA adopted in 2018"
-          }
-        },
-        {
-          "text": "A defender merely tipping the ball does not restart the clock if the offense keeps possession.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Shot_clock",
-            "quote": "The shot clock does not reset if a defender makes short contact with the ball"
-          }
-        },
-        {
-          "text": "Missing the rim entirely on an airball also leaves the previous countdown running.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Shot_clock",
-            "quote": "or if a shot attempt misses the rim entirely and airballs"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-six-overtime-game",
-      "sport": "NBA",
-      "prompt": "Before the shot clock, two teams played a game with only one shot in each overtime. How many overtimes?",
-      "context": "NBA · 1950–51",
-      "answer": 6,
-      "unit": {
-        "singular": "overtime",
-        "plural": "overtimes"
-      },
-      "min": 2,
       "max": 12,
-      "step": 1,
-      "note": "Six.",
+      "step": 0.1,
+      "note": "5.0 assists per game as Sacramento's new point guard.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Shot_clock",
-        "quote": "played a six-overtime game with only one shot in each overtime"
+        "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+        "quote": "Mike Bibby | 80 | 80 | 33.2 | .453 | .370 | .803 | 2.8 | 5.0"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,50 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "The stalled-out marathon was played by the Rochester Royals and Indianapolis Olympians.",
+          "text": "Bibby started all eighty regular-season games he played.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Shot_clock",
-            "quote": "the Rochester Royals and Indianapolis Olympians played a six-overtime game"
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Mike Bibby | 80 | 80 | 33.2"
           }
         },
         {
-          "text": "Each overtime began with one side holding possession until a desperate last-second shot.",
+          "text": "He averaged 20.3 points in the ensuing playoffs.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Shot_clock",
-            "quote": "the team that had the ball first held it for the entirety of the period before attempting a last-second shot"
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Mike Bibby | 16 | 16 | 41.3 | .444 | .424 | .826 | 3.8 | 5.0 | 1.4 | .2 | 20.3"
           }
         },
         {
-          "text": "The league experimented with other anti-stalling changes before adopting a formal shot clock.",
+          "text": "His postseason three-point accuracy was 42.4 percent.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Shot_clock",
-            "quote": "The NBA tried several rule changes in the early 1950s to speed up the game"
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Mike Bibby | 16 | 16 | 41.3 | .444 | .424 | .826"
           }
         }
       ]
     },
     {
-      "id": "nba-hawks-wizards-45-ft",
+      "id": "nba-celtics08-allen-kg-g6-combined",
       "sport": "NBA",
-      "prompt": "On November 1, 2021, Atlanta and Washington combined to make how many free throws without a single miss?",
-      "context": "Hawks vs Wizards · 2021–22",
-      "answer": 45,
+      "prompt": "In Boston's 2008 title-clinching rout of Kobe's Lakers, how many points did Ray Allen and Kevin Garnett score together?",
+      "context": "Allen + Garnett · Celtics vs Lakers · 2008 Finals",
+      "answer": 52,
       "unit": {
-        "singular": "free throw",
-        "plural": "free throws"
+        "singular": "point",
+        "plural": "points"
       },
       "min": 20,
-      "max": 80,
+      "max": 110,
       "step": 1,
-      "note": "45: Atlanta 29-for-29, Washington 16-for-16.",
+      "note": "52 points: Ray Allen and Kevin Garnett scored exactly 26 each.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
-        "quote": "45 between Atlanta Hawks (29-for-29) and Washington Wizards (16-for-16) on November 1, 2021"
+        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+        "quote": "Pts: Allen, Garnett 26 each",
+        "derivation": "Ray Allen 26 + Kevin Garnett 26 = 52 combined points."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +237,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Atlanta's share of the perfect night was an extraordinary 29 makes in 29 free-throw attempts.",
+          "text": "Ray Allen tied a Finals record for threes.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
-            "quote": "Atlanta Hawks (29-for-29) and Washington Wizards (16-for-16)"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "Ray Allen hit seven three-pointers to tie what was then the Finals record"
           }
         },
         {
-          "text": "The separate single-team flawless free-throw record belongs to Miami's 2023 Heat.",
+          "text": "Boston's defense set a steals record in the championship clincher.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
-            "quote": "40 by the Miami Heat on January 10, 2023"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "set a Finals record with 18 steals"
           }
         },
         {
-          "text": "At the opposite extreme, Detroit once converted only three of 17 foul shots in a game.",
+          "text": "Garnett celebrated with his famous postgame speech.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
-            "quote": "18% (3/17) by the Detroit Pistons vs. the New Orleans Pelicans"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "Kevin Garnett delivered his famous \"anything is possible\" speech"
           }
         }
       ]

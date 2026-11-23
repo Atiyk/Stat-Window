@@ -1,29 +1,29 @@
 {
   "date": "2026-12-15",
   "theme": {
-    "title": "Bird's best Celtics",
-    "subtitle": "Boston, 1985–86",
-    "recap": "Larry Bird won a third straight MVP, Boston lost once at home all season and the Celtics beat Houston for the title."
+    "title": "Five on the Floor",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-celtics86-wins",
+      "id": "nba-hawks15-regular-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 1985–86 Celtics win?",
-      "context": "Boston Celtics · 1985–86 · 82 games",
-      "answer": 67,
+      "prompt": "How many regular-season games did the 2014–15 Hawks win?",
+      "context": "Atlanta · surprise top seed · 2014–15",
+      "answer": 60,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 28,
+      "min": 26,
       "max": 82,
       "step": 1,
-      "note": "67–15, including 40–1 at home.",
+      "note": "60 wins, a franchise best and the East's top seed.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
-        "quote": "They finished with the best record in the league at 67–15, including a 40–1 record at home"
+        "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+        "quote": "60–22 record for a franchise high in wins"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Boston's Garden-era home dominance was extraordinary: the team lost only once at home all regular season.",
+          "text": "Atlanta's division crown was its first since it competed in the Central Division in 1994.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
-            "quote": "including a 40–1 record at home (37–1 at the Boston Garden, 3–0 at the Hartford Civic Center)"
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "first for the Hawks since winning the Central Division in 1994"
           }
         },
         {
-          "text": "Bill Walton won Sixth Man of the Year as a reserve behind Bird, Parish and McHale.",
+          "text": "It was the first Southeast Division title won by a team outside Florida.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
-            "quote": "Bill Walton won the Sixth Man of the Year Award"
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "division title was not won by a team from the state of Florida"
           }
         },
         {
-          "text": "Larry Bird collected a third straight league MVP award during the championship season.",
+          "text": "The Hawks reached the Eastern finals for the first time in the league's two-conference era.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
-            "quote": "Larry Bird won his third consecutive MVP award"
+            "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
+            "quote": "their first-ever Conference finals since the NBA was split into two conferences"
           }
         }
       ]
     },
     {
-      "id": "nba-jordan86-63",
+      "id": "nba-kobe09-finals-ppg",
       "sport": "NBA",
-      "prompt": "Michael Jordan set a playoff scoring record against the 1986 Celtics in a loss. How many points did he score?",
-      "context": "1986 first round · Game 2 · at Boston",
-      "answer": 63,
+      "prompt": "Kobe Bryant won 2009 Finals MVP. What did he average in the series?",
+      "context": "2009 NBA Finals · five games vs Orlando",
+      "answer": 32.4,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 25,
-      "max": 80,
-      "step": 1,
-      "note": "63 points, a playoff record, in a Bulls loss.",
+      "min": 12,
+      "max": 40,
+      "step": 0.1,
+      "note": "32.4 points per game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Chicago_Bulls_season",
-        "quote": "Michael Jordan (63)"
+        "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+        "quote": "Bryant averaged 32.4 points, 5.6 rebounds, and 7.4 assists per game during the series"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,151 +83,151 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Chicago needed two overtimes to settle the record-setting game in Boston, but the Celtics held on.",
+          "text": "Kobe and opponent Dwight Howard had won Olympic gold together for Team USA the previous summer.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Chicago_Bulls_season",
-            "quote": "L 131-135 (2OT)"
+            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+            "quote": "the previous summer, winning a gold medal at the 2008 Summer Olympics in Beijing"
           }
         },
         {
-          "text": "Charles Oakley led the Bulls on the glass that night, pulling down fourteen rebounds.",
+          "text": "Pau Gasol became the first Spanish player to celebrate an NBA championship as a player.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Chicago_Bulls_season",
-            "quote": "Charles Oakley (14)"
+            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+            "quote": "Pau Gasol became the first Spaniard"
           }
         },
         {
-          "text": "Boston Garden drew a crowd of 14,890 for that historic first-round playoff game.",
+          "text": "Kobe received the Bill Russell Finals MVP trophy from commissioner David Stern in Orlando.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Chicago_Bulls_season",
-            "quote": "Boston Garden 14,890"
+            "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
+            "quote": "presented Kobe Bryant with the Bill Russell NBA Finals MVP Trophy"
           }
         }
       ]
     },
     {
-      "id": "nba-hawks86-third-quarter",
+      "id": "nba-bucks21-nets-g3-points",
       "sport": "NBA",
-      "prompt": "Boston routed Atlanta 132–99 in the 1986 East semifinals. How many points did the Hawks score in the third quarter?",
-      "context": "1986 East semifinals · Celtics vs Hawks",
-      "answer": 6,
+      "prompt": "How many points did the Bucks score in their crucial Game 3 win over Brooklyn?",
+      "context": "2021 East semifinals · Milwaukee at home",
+      "answer": 86,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 48,
+      "max": 148,
+      "step": 1,
+      "note": "86 points were just enough to stay alive in the series.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+        "quote": "June 10 Brooklyn W 86–83 Khris Middleton (35)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Khris Middleton scored 35 to lead Milwaukee in that defensive battle.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "June 10 Brooklyn W 86–83 Khris Middleton (35)"
+          }
+        },
+        {
+          "text": "Brooklyn managed just 83 points, despite winning both previous games.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "June 10 Brooklyn W 86–83"
+          }
+        },
+        {
+          "text": "The Bucks later won the series in an overtime Game 7 on the road.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "June 19 @ Brooklyn W 115–111 (OT)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-kidd02-finals-td",
+      "sport": "NBA",
+      "prompt": "Jason Kidd posted a triple-double in the 2002 Finals. It was which number in Finals history?",
+      "context": "2002 NBA Finals · Game 1 · at Los Angeles",
+      "answer": 26,
+      "unit": {
+        "singular": "triple-double",
+        "plural": "triple-doubles"
+      },
+      "min": 15,
+      "max": 75,
+      "step": 1,
+      "note": "The 26th.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2002_NBA_Finals",
+        "quote": "Kidd finished with a triple-double, the 26th in Finals history"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "The Nets had improved by twenty-six wins in the regular season before reaching their first NBA Finals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2002_NBA_Finals",
+            "quote": "a twenty-six-win improvement from the last season"
+          }
+        },
+        {
+          "text": "New Jersey coach Byron Scott, a former Showtime Laker, received a standing ovation in Los Angeles.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2002_NBA_Finals",
+            "quote": "New Jersey head coach Byron Scott, a member of the Showtime Lakers, received a standing ovation"
+          }
+        },
+        {
+          "text": "Shaquille O'Neal won Finals MVP for a third consecutive season as the Lakers completed a three-peat.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2002_NBA_Finals",
+            "quote": "Shaquille O'Neal of the Lakers was named the NBA Finals Most Valuable Player (MVP) for the third consecutive year"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-lebron11-finals-g4-eight",
+      "sport": "NBA",
+      "prompt": "During LeBron's infamous low-scoring Game 4 of the 2011 Finals against Dirk's Mavericks, how many points did he score?",
+      "context": "LeBron James · Heat at Mavericks · 2011 Finals",
+      "answer": 8,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
       "min": 0,
-      "max": 26,
+      "max": 40,
       "step": 1,
-      "note": "Six, as Boston won the quarter 36–6.",
+      "note": "Only 8 points. It became one of the most discussed nights of LeBron's career.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-        "quote": "Boston outscored Atlanta 36–6 in the third quarter in route to a 132–99 victory."
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Before that Hawks blowout, Boston had already swept Michael Jordan's Bulls in the first round.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-            "quote": "Boston needed just three games to defeat the Chicago Bulls in the first round"
-          }
-        },
-        {
-          "text": "The Celtics subsequently swept Milwaukee to reach the championship round without a conference-finals loss.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-            "quote": "in the conference finals, Boston swept the Milwaukee Bucks in four games"
-          }
-        },
-        {
-          "text": "That season's championship series marked the first official use of the 'NBA Finals' branding.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-            "quote": "this series marked the first time the \"NBA Finals\" branding was officially used"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-bird85-opener-steals",
-      "sport": "NBA",
-      "prompt": "In the 1985–86 opener, Larry Bird posted a triple-double. How many steals did he add?",
-      "context": "Celtics at New Jersey Nets · October 25, 1985",
-      "answer": 8,
-      "unit": {
-        "singular": "steal",
-        "plural": "steals"
-      },
-      "min": 0,
-      "max": 12,
-      "step": 1,
-      "note": "Eight steals, with 21 points, 12 rebounds and 10 assists.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
-        "quote": "recorded 21 points, 12 rebounds, 10 assists and 8 steals for the Celtics"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Bird's near quadruple-double happened in an overtime defeat against New Jersey, not a Celtics victory.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
-            "quote": "They started their 1985–86 season campaign with a 109-113 OT loss to the New Jersey Nets"
-          }
-        },
-        {
-          "text": "Bird also logged a triple-double in points, rebounds and assists during that opening-night thriller.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
-            "quote": "Bird, who recorded 21 points, 12 rebounds, 10 assists and 8 steals"
-          }
-        },
-        {
-          "text": "Boston's four headliners—Bird, McHale, Parish and Johnson—all reached twenty points in a win over Milwaukee.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
-            "quote": "Bird, McHale, Parish and Johnson, all scoring at least 20 points"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-bird86-finals-minutes",
-      "sport": "NBA",
-      "prompt": "Of the 288 possible minutes in the six-game 1986 Finals, how many did Larry Bird play?",
-      "context": "1986 NBA Finals · six games vs Houston",
-      "answer": 269,
-      "unit": {
-        "singular": "minute",
-        "plural": "minutes"
-      },
-      "min": 180,
-      "max": 288,
-      "step": 1,
-      "note": "269, resting for only 19 minutes all series.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-        "quote": "Bird got very little rest during the six-game series, logging 269 out of a possible 288 minutes of floor time."
+        "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+        "quote": "LeBron James scored just 8 total points in Game 4"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Scott Wedman's wrist injury reduced Boston's wing depth and helped explain Bird's huge Finals workload.",
+          "text": "LeBron shot three of 11 from the field.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-            "quote": "With backup forward Scott Wedman sidelined due to a wrist injury"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "on 3-11 (27.2%) shooting"
           }
         },
         {
-          "text": "Reserve Bill Walton made a crucial basket late in Game 4 while Robert Parish rested.",
+          "text": "He contributed nine rebounds and seven assists.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-            "quote": "with Bill Walton coming off the bench for a tired Robert Parish to score a crucial basket"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "9 rebounds and 7 assists"
           }
         },
         {
-          "text": "The fifth Finals game erupted when Ralph Sampson clashed with the much shorter Jerry Sichting and was ejected.",
+          "text": "Dallas won the game to tie the series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
-            "quote": "Ralph Sampson ignited a brawl with Jerry Sichting, a player 15 inches (380 mm) shorter than Sampson"
+            "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",
+            "quote": "preserving Dallas' 86–83 win"
           }
         }
       ]

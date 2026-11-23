@@ -1,29 +1,29 @@
 {
   "date": "2026-12-21",
   "theme": {
-    "title": "The beautiful game",
-    "subtitle": "San Antonio, 2013–14",
-    "recap": "The Spurs passed Miami off the floor in the 2014 Finals, a year after losing to them, with a record ten international players."
+    "title": "Full-Court Mix",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-spurs14-streak",
+      "id": "nba-bucks21-regular-wins",
       "sport": "NBA",
-      "prompt": "The 2013–14 Spurs' longest winning streak lasted how many games?",
-      "context": "San Antonio Spurs · 2013–14 regular season",
-      "answer": 19,
+      "prompt": "How many regular-season games did the 2020–21 champion Bucks win?",
+      "context": "Milwaukee · pandemic-shortened NBA season",
+      "answer": 46,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 0,
-      "max": 30,
+      "min": 20,
+      "max": 80,
       "step": 1,
-      "note": "19, including a 16–0 March.",
+      "note": "46 wins, enough for the East's third seed.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-        "quote": "Emboldened by a 19-game winning streak from late February to early April, including an unbeaten month in March (16–0)"
+        "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+        "quote": "The Bucks finished the season with a 46–26 record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "San Antonio's title was revenge for a heartbreaking Finals loss to Miami the previous season.",
+          "text": "Milwaukee swept Miami to open the playoffs after losing to the Heat the previous postseason.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "The Spurs avenged their 2013 NBA Finals loss and became NBA champions"
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "The Bucks began their playoff run by sweeping the sixth-seeded Miami Heat"
           }
         },
         {
-          "text": "The team's run included an undefeated March, a remarkable display of consistency across a packed schedule.",
+          "text": "Jrue Holiday arrived from New Orleans in a complicated offseason trade.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "including an unbeaten month in March (16–0)"
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "Jrue Holiday (from New Orleans)"
           }
         },
         {
-          "text": "Dallas nearly ruined the championship march, taking the Spurs to the limit in the opening playoff round.",
+          "text": "Milwaukee claimed its Central Division title after beating Chicago in late April.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "the Mavericks in the regular season for 2 consecutive years. San Antonio won 4–3"
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "the Bucks clinched the Central Division for a record 10th time with a win over the Chicago Bulls"
           }
         }
       ]
     },
     {
-      "id": "nba-spurs14-international",
+      "id": "nba-spurs99-final36-wins",
       "sport": "NBA",
-      "prompt": "The 2013–14 Spurs opened the season with an NBA-record number of international players. How many?",
-      "context": "San Antonio Spurs · 2013–14",
-      "answer": 10,
+      "prompt": "After a slow start, how many of their final 36 games did the 1999 Spurs win?",
+      "context": "San Antonio · lockout season · closing stretch",
+      "answer": 31,
       "unit": {
-        "singular": "player",
-        "plural": "players"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 5,
-      "max": 19,
+      "min": 12,
+      "max": 40,
       "step": 1,
-      "note": "Ten.",
+      "note": "31 victories in their final 36 games.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-        "quote": "They also entered the season with an NBA-record ten international players."
+        "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+        "quote": "the Spurs recovered from a 6–8 start to the season to win 31 of their last 36 games"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,100 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "French forward Boris Diaw became a key ball-mover on the championship roster.",
+          "text": "Steve Kerr joined the Spurs from the championship Bulls before this season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "Diaw led all players in the series in assists"
+            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
+            "quote": "acquired three-point specialist Steve Kerr from the Chicago Bulls"
           }
         },
         {
-          "text": "The team's system spread minutes so widely that no Spur averaged half an hour during the regular season.",
+          "text": "San Antonio added two veteran free agents, Mario Elie and Jerome Kersey, to its rotation.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "no player averaging 30 minutes during the regular season"
+            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
+            "quote": "signed free agents Mario Elie, and Jerome Kersey"
           }
         },
         {
-          "text": "The Finals marked the return of a less punishing travel format, partly enabled by charter flights.",
+          "text": "The Spurs put together several separate winning streaks during a packed spring schedule.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "as well as the increased use of chartered flights as opposed to commercial flights"
+            "url": "https://en.wikipedia.org/wiki/1998%E2%80%9399_San_Antonio_Spurs_season",
+            "quote": "posted a nine-game winning streak in March afterwards, posted a six-game winning streak"
           }
         }
       ]
     },
     {
-      "id": "nba-spurs14-g3-fg",
+      "id": "nba-suns21-g1-ft",
       "sport": "NBA",
-      "prompt": "In the first half of Game 3 of the 2014 Finals, what percentage of their shots did the Spurs make?",
-      "context": "2014 NBA Finals · Game 3 · at Miami",
-      "answer": 75.8,
+      "prompt": "In Game 1 of the 2021 Finals, Phoenix made how many free throws in a row before its first miss?",
+      "context": "2021 NBA Finals · Game 1 · vs Milwaukee",
+      "answer": 25,
       "unit": {
-        "singular": "percent",
-        "plural": "percent"
+        "singular": "free throw",
+        "plural": "free throws"
       },
-      "min": 55,
-      "max": 100,
-      "step": 0.2,
-      "note": "75.8%, a Finals record for a half.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-        "quote": "a Finals-record 75.8% shooting effort from the team during the first half"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Popovich inserted Boris Diaw into the starting five, opening up extra passing lanes against Miami.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "San Antonio's insertion of Boris Diaw into the starting lineup created more ball movement"
-          }
-        },
-        {
-          "text": "Kawhi Leonard began the game with a perfect string of made shots and set a new personal scoring high.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "Leonard, limited to only 18 points in the first two games, made his first six shots"
-          }
-        },
-        {
-          "text": "Miami hadn't lost at home in that postseason before San Antonio's sudden offensive explosion.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "The Heat, who had been 8–0 at home in the playoffs"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-spurs14-blowouts",
-      "sport": "NBA",
-      "prompt": "How many of the 2014 Spurs' playoff wins came by 15 points or more?",
-      "context": "San Antonio Spurs · 2014 playoffs",
-      "answer": 12,
-      "unit": {
-        "singular": "win",
-        "plural": "wins"
-      },
-      "min": 7,
-      "max": 26,
+      "min": 14,
+      "max": 52,
       "step": 1,
-      "note": "12, a postseason record.",
+      "note": "25.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-        "quote": "The Spurs finished the playoffs with 12 wins by 15 points or more, the most ever in the postseason."
+        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+        "quote": "Phoenix made their first 25 free throws and nearly set a record for most free throws in a game without a miss"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +134,100 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Kawhi Leonard won Finals MVP, becoming the youngest recipient since Magic Johnson.",
+          "text": "Chris Paul scored heavily in his Finals debut and dominated the third quarter for Phoenix.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "and the youngest since Magic Johnson in 1982"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "In his finals debut, Chris Paul scored a game-high 32 points"
           }
         },
         {
-          "text": "Tim Duncan surpassed Kareem Abdul-Jabbar's all-time postseason minutes mark during the series.",
+          "text": "Giannis returned from his knee injury and made an emphatic chase-down block on Mikal Bridges.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "Duncan also eclipsed Kareem Abdul-Jabbar's previous mark"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "made a chase-down block of a layup attempt by Mikal Bridges"
           }
         },
         {
-          "text": "Miami's other starters struggled as LeBron James tried to carry the offense on his own.",
+          "text": "A late miss by Jae Crowder ended Phoenix's pursuit of a perfect night at the foul line.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "their other starters combined for only 28 points on 32 percent shooting"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "until Jae Crowder missed with 24.8 seconds left in the game"
           }
         }
       ]
     },
     {
-      "id": "nba-spurs14-finals-margin",
+      "id": "nba-bird85-opener-steals",
       "sport": "NBA",
-      "prompt": "By how many points per game did the Spurs outscore Miami in the 2014 Finals?",
-      "context": "2014 NBA Finals · five games",
-      "answer": 14,
+      "prompt": "In the 1985–86 opener, Larry Bird posted a triple-double. How many steals did he add?",
+      "context": "Celtics at New Jersey Nets · October 25, 1985",
+      "answer": 8,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "steal",
+        "plural": "steals"
       },
       "min": 0,
-      "max": 34,
-      "step": 0.1,
-      "note": "14.0 points a game.",
+      "max": 12,
+      "step": 1,
+      "note": "Eight steals, with 21 points, 12 rebounds and 10 assists.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-        "quote": "The Spurs outscored the Heat in the series by the largest per game average point differential (14.0) in Finals history."
+        "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
+        "quote": "recorded 21 points, 12 rebounds, 10 assists and 8 steals for the Celtics"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Bird's near quadruple-double happened in an overtime defeat against New Jersey, not a Celtics victory.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
+            "quote": "They started their 1985–86 season campaign with a 109-113 OT loss to the New Jersey Nets"
+          }
+        },
+        {
+          "text": "Bird also logged a triple-double in points, rebounds and assists during that opening-night thriller.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
+            "quote": "Bird, who recorded 21 points, 12 rebounds, 10 assists and 8 steals"
+          }
+        },
+        {
+          "text": "Boston's four headliners—Bird, McHale, Parish and Johnson—all reached twenty points in a win over Milwaukee.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
+            "quote": "Bird, McHale, Parish and Johnson, all scoring at least 20 points"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-wemby24-10-blocks-blazers",
+      "sport": "NBA",
+      "prompt": "In Wembanyama's spectacular December 2024 two-way night against Portland, how many shots did he block?",
+      "context": "Victor Wembanyama · Spurs vs Blazers · December 2024",
+      "answer": 10,
+      "unit": {
+        "singular": "block",
+        "plural": "blocks"
+      },
+      "min": 0,
+      "max": 27,
+      "step": 1,
+      "note": "10 blocks, plus 30 points. Even for Wembanyama, that's an extraordinary defensive night.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+        "quote": "tied his career-high 10 blocks"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Game One's air-conditioning failure turned the arena into a sweltering environment and left LeBron cramping.",
+          "text": "He also scored 30 points in the game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "the AT&T Center's malfunctioning air-conditioning system"
+            "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+            "quote": "posted 30 points"
           }
         },
         {
-          "text": "Miami's Game Two victory briefly leveled the rematch before San Antonio seized control on the road.",
+          "text": "San Antonio won by 20 points.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "Bosh made the go-ahead three-point field goal on a pass from James"
+            "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+            "quote": "114–94 win over the Portland Trail Blazers"
           }
         },
         {
-          "text": "The Spurs clinched after overcoming a furious early Heat start in the deciding game.",
+          "text": "Wembanyama was only 20 at the time.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "San Antonio bounced back to outscore Miami 37–13 from the beginning of the second quarter"
+            "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
+            "quote": "At 20 years and 352 days old"
           }
         }
       ]

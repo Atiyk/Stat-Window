@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { analyticsAllowed, browserSignal, loadPrivacy, savePrivacy, scoresShownOn, type Privacy as Prefs } from '../lib/privacy';
 import { deleteMyScores } from '../lib/scores';
+import { choice as rankingChoice, leave as deletePreviousRankings } from '../lib/leaderboard';
 import { analyticsEnabled, resumeAnalytics, track } from '../lib/track';
 
 /**
@@ -11,6 +12,13 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
   const ref = useRef<HTMLDialogElement>(null);
   const [prefs, setPrefs] = useState<Prefs>(() => loadPrivacy());
   const [status, setStatus] = useState<string | null>(null);
+  // Avoid duplicate DELETEs and wasted free-tier calls from double taps.
+  const eraseBusy = useRef(false);
+  const [erasing, setErasing] = useState(false);
+  const [hasHistoricalRankingKey, setHasHistoricalRankingKey] = useState(() => !!rankingChoice().key);
+  const [rankingDeleteStatus, setRankingDeleteStatus] = useState<string | null>(null);
+  const rankingDeleteBusy = useRef(false);
+  const [deletingPreviousRanking, setDeletingPreviousRanking] = useState(false);
   const signal = browserSignal();
 
   useEffect(() => {
@@ -19,6 +27,8 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
     if (open && !d.open) {
       setPrefs(loadPrivacy());
       setStatus(null);
+      setRankingDeleteStatus(null);
+      setHasHistoricalRankingKey(!!rankingChoice().key);
       d.showModal();
     }
     if (!open && d.open) d.close();
@@ -59,6 +69,7 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
           <input
             type="checkbox"
             checked={scoring}
+            disabled={erasing || prefs.deleting === true}
             onChange={(e) => {
               const on = e.target.checked;
               setPrefs(savePrivacy({ scores: on ? 'on' : 'off' }));
@@ -68,8 +79,9 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
           <span>
             <strong>Today’s score in the daily comparison.</strong> Your total for today’s official puzzle joins a tally of scores so you
             can see your percentile. It’s linked to a random code made in this browser for 7 days, then only an unlinked count remains.
-            Your five windows are checked by the server and not kept.
+            Your five windows are checked by the server and not kept. If your browser cannot save the code needed to delete a score later, the daily comparison will not send it.
             {prefs.scores === 'unset' && prefs.asked && ' Where you are, we ask first: it’s off until you tick it or tap “Count my score”.'}
+            {prefs.deleting && ' Deletion is still unconfirmed. New submissions are blocked until you retry and the server confirms removal.'}
           </span>
         </label>
         {signal && (
@@ -79,27 +91,69 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
           <button
             type="button"
             className="btn btn-quiet"
+            disabled={erasing}
             onClick={async () => {
-              setStatus('Deleting…');
-              const r = await deleteMyScores();
+              if (eraseBusy.current) return;
+              eraseBusy.current = true;
+              setErasing(true);
+              try {
+                setStatus('Deleting…');
+              // deleteMyScores() synchronously withdraws consent before it awaits
+              // the network. A successfully deleted code is cleared and only regenerated
+              // on future opt-in, so repeated Delete on an empty browser is local-only.
+              const pending = deleteMyScores();
+              setPrefs(loadPrivacy());
+              const r = await pending;
               if (r !== 'failed') track({ name: 'privacy', choice: 'deleted' });
               setPrefs(loadPrivacy());
               setStatus(
                 r === 'deleted'
-                  ? 'Done. Scores this browser sent in the last 7 days are deleted, its code is replaced, and the daily comparison is off until you tick it again.'
+                  ? 'Done. Scores this browser sent in the last 7 days are deleted, its old code is cleared, and the daily comparison is off until you tick it again.'
                   : r === 'nothing'
                     ? 'Nothing to delete: this browser hasn’t sent a score that’s still kept. The daily comparison is now off.'
-                    : 'Couldn’t reach the server. Try again later.',
-              );
+                    : 'Deletion is not confirmed. New scores are blocked and your original code is saved for a retry.',
+                );
+              } finally {
+                eraseBusy.current = false;
+                setErasing(false);
+              }
             }}
           >
-            Delete my scores
+            {erasing ? 'Deleting…' : 'Delete my scores'}
           </button>
         </p>
         {status && (
           <p className="help-small" role="status">
             {status}
           </p>
+        )}
+        {(hasHistoricalRankingKey || rankingDeleteStatus) && (
+          <section aria-label="Previously saved global ranking data">
+            {hasHistoricalRankingKey && (
+              <p className="help-small">
+                A previous test may have left a ranking code in this browser. Global rankings are deferred and no new entries are accepted. You can request removal here without playing a new game or opting in. If the server is unavailable, keep this browser data for retry.
+              </p>
+            )}
+            {hasHistoricalRankingKey && <button type="button" className="btn btn-quiet" disabled={deletingPreviousRanking} onClick={async () => {
+              if(rankingDeleteBusy.current)return;
+              rankingDeleteBusy.current=true;
+              setDeletingPreviousRanking(true);
+              setRankingDeleteStatus('Requesting removal…');
+              try {
+                const result = await deletePreviousRankings();
+                setHasHistoricalRankingKey(!!rankingChoice().key);
+                setRankingDeleteStatus(result === 'deleted'
+                  ? 'Your previous rankings were removed according to the server.'
+                  : result === 'nothing'
+                    ? 'There are no linked rankings to remove from this browser.'
+                    : 'Removal is not confirmed. Your browser code is saved so you can retry later.');
+              } finally {
+                rankingDeleteBusy.current=false;
+                setDeletingPreviousRanking(false);
+              }
+            }}>Delete any previously submitted rankings</button>}
+            {rankingDeleteStatus && <p role="status" className="help-small">{rankingDeleteStatus}</p>}
+          </section>
         )}
         <p className="help-small">
           Clearing this site’s data in your browser also deletes your saved games and the random code. Full notice:{' '}

@@ -1,6 +1,6 @@
 import { expect, test, type BrowserContext, type Page } from '@playwright/test';
 import { addDays, puzzleStartUtcMs } from '../src/engine/daily';
-import { collectErrors, lockAndSettle, NBA_DAYS, NBA_FIRST, NBA_MIDDLE, next, openAt } from './helpers';
+import { collectErrors, lockAndSettle, NBA_DAYS, NBA_FIRST, NBA_MIDDLE, next, openAt, startDailyIfNeeded } from './helpers';
 
 /** The daily calendar reminder on the results screen (src/engine/remind.ts). */
 
@@ -68,6 +68,16 @@ test.describe('New York', () => {
     await stubCalendars(context);
     await openAt(page, NBA_FIRST);
     await playFive(page);
+    // Percentile submission is independently asynchronous: on slower iPhone
+    // WebKit it may finish after the results are visible. Settle that outcome
+    // BEFORE taking the baseline so a legitimate percentile receipt does not
+    // masquerade as a calendar link mutating browser storage.
+    await expect.poll(async () => page.evaluate((day) => {
+      try {
+        const seen = JSON.parse(localStorage.getItem('stat-window:sent') ?? '{}') as Record<string, string>;
+        return Object.keys(seen).some((key) => key.startsWith(`pct:${day}:`));
+      } catch { return false; }
+    }, NBA_DAYS[0]!), { timeout: 10_000 }).toBe(true);
     const before = await storageDump(page);
     await icsLink(page).click();
     await expect(page.locator('.toast')).toHaveText('Reminder file ready. If it downloaded, open it to add the event.');
@@ -96,6 +106,10 @@ test.describe('New York', () => {
     await openAt(page, NBA_MIDDLE);
     await playFive(page);
     await page.locator('.archive-list button').first().click();
+    // V3 deliberately gates every fresh five-question run, including practice.
+    await expect(page.locator('.question')).toHaveCount(0);
+    await expect(page.getByRole('button', { name: "Start today's five" })).toBeVisible();
+    await startDailyIfNeeded(page);
     await expect(page.locator('.round-meta')).toContainText('Practice');
     await playFive(page);
     await expect(page.locator('.results-context')).toContainText('Practice');

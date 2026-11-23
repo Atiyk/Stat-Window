@@ -1,29 +1,29 @@
 {
   "date": "2027-01-08",
   "theme": {
-    "title": "The Answer's run",
-    "subtitle": "Philadelphia, 2000–01",
-    "recap": "An MVP guard, a midseason defensive anchor and two Game 7 battles took Philadelphia all the way to a hard-fought Finals."
+    "title": "From Tip to Buzzer",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-sixers01-regular-wins",
+      "id": "nba-kobe06-second-half-55",
       "sport": "NBA",
-      "prompt": "How many regular-season games did Allen Iverson's 2000–01 76ers win?",
-      "context": "Philadelphia 76ers · 2000–01 · 82 games",
-      "answer": 56,
+      "prompt": "Kobe Bryant scored 81 against Toronto in 2006. How many of those points came after halftime?",
+      "context": "Lakers vs. Raptors · January 22, 2006",
+      "answer": 55,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 37,
-      "max": 80,
+      "min": 20,
+      "max": 75,
       "step": 1,
-      "note": "56–26, giving the Sixers the top seed in the East.",
+      "note": "55 after halftime. The Lakers had trailed by 14 at the break before Kobe took over.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-        "quote": "The 76ers finished in first place in the Atlantic Division with a 56–26 record"
+        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+        "quote": "with 55 points in the second half"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Philadelphia traded Theo Ratliff, Toni Kukoč and Nazr Mohammed to Atlanta for center Dikembe Mutombo during the season.",
+          "text": "The Lakers trailed Toronto 63–49 at halftime.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "the team traded Theo Ratliff, Toni Kukoč, and Nazr Mohammed to the Atlanta Hawks in exchange for All-Star center Dikembe Mutombo"
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+            "quote": "the Lakers trailed 63–49 at halftime"
           }
         },
         {
-          "text": "Larry Brown was named NBA Coach of the Year as Philadelphia improved by seven wins over the previous season.",
+          "text": "Bryant played 42 minutes in the 81-point game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "Head coach Larry Brown was named the NBA Coach of the Year, after leading the 76ers to a seven-game improvement"
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+            "quote": "saw Bryant play 42 minutes"
           }
         },
         {
-          "text": "The Sixers changed the look of their white home and black road uniforms that season, including the lettering and collar design.",
+          "text": "Bryant made seven three-pointers in that game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "the 76ers slightly updated their white home uniforms and black road uniforms"
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+            "quote": "including 7-of-13 on three-pointers"
           }
         }
       ]
     },
     {
-      "id": "nba-iverson01-season-ppg",
+      "id": "nba-celtics84-wins",
       "sport": "NBA",
-      "prompt": "What was Allen Iverson's scoring average during his 2000–01 MVP season?",
-      "context": "Philadelphia 76ers · 2000–01 · regular season",
-      "answer": 31.1,
+      "prompt": "How many wins did Larry Bird's 1983–84 Celtics post in the regular season?",
+      "context": "Boston Celtics · 1983–84 · 82 games",
+      "answer": 62,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 16,
-      "max": 44,
-      "step": 0.1,
-      "note": "31.1 a night, enough to lead the league and win MVP.",
+      "min": 25,
+      "max": 82,
+      "step": 1,
+      "note": "62, the league's best.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-        "quote": "All-Star guard Allen Iverson averaged 31.1 points, 4.6 assists and 2.5 steals per game"
+        "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
+        "quote": "the Celtics won 62 games to lead the league."
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,100 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Iverson led the NBA not only in scoring but also in steals that season.",
+          "text": "Boston traded for Dennis Johnson because its perimeter defense needed help.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "leading the league in both scoring and steals"
+            "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
+            "quote": "Boston's most crucial addition was Dennis Johnson, whom they acquired from the Phoenix Suns"
           }
         },
         {
-          "text": "Iverson also won All-Star Game MVP in Washington, D.C., where the East beat the West by a single point.",
+          "text": "Kevin McHale was named the league's Sixth Man Award winner that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "Iverson scored 25 points along with 5 assists and 4 steals, and was named the All-Star Game Most Valuable Player"
+            "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
+            "quote": "first-time all-star and Sixth Man Award winner Kevin McHale"
           }
         },
         {
-          "text": "Philadelphia had an unusual awards sweep: teammate Aaron McKie was Sixth Man of the Year and Mutombo was Defensive Player of the Year.",
+          "text": "The Celtics survived a seven-game second-round battle with the Knicks.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "Aaron McKie provided the team with 11.6 points, 5.0 assists and 1.4 steals per game, and was named the NBA Sixth Man of the Year"
+            "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
+            "quote": "the New York Knicks in seven"
           }
         }
       ]
     },
     {
-      "id": "nba-sixers01-opening-streak",
+      "id": "nba-barkley93-suns-rpg",
       "sport": "NBA",
-      "prompt": "How many games did the 2000–01 Sixers win in a row to start the season?",
-      "context": "Philadelphia 76ers · opening streak · 2000–01",
-      "answer": 10,
-      "unit": {
-        "singular": "game",
-        "plural": "games"
-      },
-      "min": 3,
-      "max": 25,
-      "step": 1,
-      "note": "Ten straight wins before their first loss.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-        "quote": "The 76ers won their first ten games of the regular season"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Philadelphia had built a 36–14 record by the All-Star break before its midseason roster overhaul.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "later on held a 36–14 record at the All-Star break"
-          }
-        },
-        {
-          "text": "Starting guard Eric Snow missed a large chunk of the season with a stress fracture in his right ankle.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "only played just 50 games due to a stress fracture in his right ankle"
-          }
-        },
-        {
-          "text": "The Sixers reached a 42–14 record at one point but went 14–12 over the rest of the regular season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "At one point, the team's record was 42–14, but finished 14–12 the rest of the way"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-mutombo01-posttrade-rpg",
-      "sport": "NBA",
-      "prompt": "What was Dikembe Mutombo's rebounding average after joining the 2000–01 Sixers?",
-      "context": "Philadelphia 76ers · post-trade regular-season stint",
-      "answer": 12.4,
+      "prompt": "What was Charles Barkley's rebounding average during his Suns MVP season?",
+      "context": "Charles Barkley · Phoenix Suns · 1992–93",
+      "answer": 12.1,
       "unit": {
         "singular": "rebound per game",
         "plural": "rebounds per game"
       },
       "min": 5,
-      "max": 22,
+      "max": 21,
       "step": 0.1,
-      "note": "12.4 rebounds per game for Philadelphia.",
+      "note": "12.1 rebounds a night in an all-around MVP campaign.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-        "quote": "Mutombo averaged 11.7 points, 12.4 rebounds and 2.5 blocks per game in 26 games after the trade"
+        "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+        "quote": "Barkley averaged 25.6 points, 12.1 rebounds, 5.1 assists and 1.6 steals per game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +134,100 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Mutombo won Defensive Player of the Year for the fourth time in his career that season.",
+          "text": "Barkley also averaged 25.6 points and 5.1 assists per game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "and was named the NBA Defensive Player of the Year for the fourth time"
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "Barkley averaged 25.6 points, 12.1 rebounds, 5.1 assists"
           }
         },
         {
-          "text": "The trade was partly driven by a season-ending wrist injury to Theo Ratliff, who had previously been the Sixers' starting center.",
+          "text": "He earned All-NBA First Team honors and won the league's MVP award.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "prior to the trade, Ratliff was sidelined due to a season-ending wrist injury"
+            "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
+            "quote": "and was named to the All-NBA First Team, and was named the NBA Most Valuable Player of the Year"
           }
         },
         {
-          "text": "During his short Philadelphia regular-season stint, Mutombo also averaged 2.5 blocks a game.",
+          "text": "Phoenix came back from a 2–0 deficit against the Lakers in the first playoff round.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-            "quote": "Mutombo averaged 11.7 points, 12.4 rebounds and 2.5 blocks per game in 26 games after the trade"
+            "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
+            "quote": "the Suns fell down 2–0 to the Los Angeles Lakers before rallying to defeat them in five games"
           }
         }
       ]
     },
     {
-      "id": "nba-sixers01-finals-g1-points",
+      "id": "nba-bulls11-home-wins",
       "sport": "NBA",
-      "prompt": "How many points did the 76ers score in their overtime Game 1 win over the Lakers in 2001?",
-      "context": "2001 NBA Finals · June 6 · Philadelphia at Los Angeles",
-      "answer": 107,
+      "prompt": "How many home games did the 2010–11 Bulls win at the United Center?",
+      "context": "Chicago Bulls · 2010–11 · 41 home games",
+      "answer": 36,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 76,
-      "max": 119,
+      "min": 15,
+      "max": 41,
       "step": 1,
-      "note": "107, the Lakers' only defeat during that postseason.",
+      "note": "36 wins at home against only five defeats.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
-        "quote": "June 6 @ L.A. Lakers W 107–101 (OT)"
+        "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+        "quote": "Total: 62–20 (home: 36–5; road: 26–15)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Chicago finished its regular season with only five home defeats.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "Total: 62–20 (home: 36–5; road: 26–15)"
+          }
+        },
+        {
+          "text": "The Bulls ended the season by winning every game they played during April.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "April: 8–0 (home: 4–0; road: 4–0)"
+          }
+        },
+        {
+          "text": "The team set a franchise mark for converted three-pointers in a March game against Utah.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
+            "quote": "On March 12 the Bulls set a franchise record 18 converted 3-point shots"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-lillard14-rockets-series-winner-nine-tenths",
+      "sport": "NBA",
+      "prompt": "Before Damian Lillard's iconic 2014 series-winning three against Houston, how many seconds did Portland have left to inbound?",
+      "context": "Damian Lillard · Blazers vs Rockets · 2014 first round",
+      "answer": 0.9,
+      "unit": {
+        "singular": "second",
+        "plural": "seconds"
+      },
+      "min": 0,
+      "max": 5,
+      "step": 0.1,
+      "note": "Just 0.9 seconds. Lillard caught the inbound and hit the buzzer-beater to eliminate Houston.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2014_NBA_playoffs",
+        "quote": "Chandler Parsons hit a reverse layup with 0.9 seconds remaining but the Rockets' hearts were broken when Damian Lillard"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "That opening-game overtime win was the Lakers' only loss across their entire 2001 playoff run.",
+          "text": "Portland advanced to the second round for the first time since 2000.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "By the end of the series, the 2000–01 Lakers held the record for the best postseason record with 15–1."
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_playoffs",
+            "quote": "Portland advanced to the second-round appearance for the first time since 2000"
           }
         },
         {
-          "text": "Philadelphia outscored Los Angeles 13–7 in overtime after a close regulation contest.",
+          "text": "John Stockton had hit the previous playoff-series-ending buzzer-beater.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "Scoring by quarter: 22–23, 34–27, 23–27, 15–17, Overtime: 13–7"
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_playoffs",
+            "quote": "The most recent person to hit a series-winning buzzer beater prior to Lillard was John Stockton"
           }
         },
         {
-          "text": "The Sixers had just survived two straight seven-game playoff series against Toronto and Milwaukee before reaching the Finals.",
+          "text": "Houston had beaten Portland three games to one during the regular season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2001_NBA_Finals",
-            "quote": "had just come out of two straight seven-game series against the Toronto Raptors and Milwaukee Bucks"
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_playoffs",
+            "quote": "Houston won 3–1 in the regular-season series"
           }
         }
       ]

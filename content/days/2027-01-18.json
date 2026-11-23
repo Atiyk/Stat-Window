@@ -1,29 +1,29 @@
 {
   "date": "2027-01-18",
   "theme": {
-    "title": "Bird vs the Bulls",
-    "subtitle": "Indiana Pacers, 1997–98",
-    "recap": "Larry Bird transformed the Pacers and forced Michael Jordan's Bulls to a seventh game."
+    "title": "From Tip to Buzzer",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-pacers98-season-wins",
+      "id": "nba-lebron16-finals-ppg",
       "sport": "NBA",
-      "prompt": "How many regular-season games did Larry Bird's 1998 Pacers win?",
-      "context": "Indiana · Bird's rookie coaching year",
-      "answer": 58,
+      "prompt": "What was LeBron James's scoring average in the 2016 Finals, when he was named MVP?",
+      "context": "2016 NBA Finals · seven games",
+      "answer": 29.7,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 28,
-      "max": 82,
-      "step": 1,
-      "note": "58 wins in Bird's first coaching season.",
+      "min": 20,
+      "max": 48,
+      "step": 0.1,
+      "note": "29.7 points, plus 11.3 rebounds and 8.9 assists.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-        "quote": "58–24 record"
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "after averaging 29.7 points, 11.3 rebounds, 8.9 assists, 2.6 steals, and 2.3 blocks."
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Larry Bird became Indiana's coach before this season.",
+          "text": "LeBron also averaged 11.3 rebounds and 8.9 assists per game in that series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "hired former Indiana State University, and Boston Celtics All-Star legend Larry Bird as their new head coach"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "averaging 29.7 points, 11.3 rebounds, 8.9 assists, 2.6 steals, and 2.3 blocks"
           }
         },
         {
-          "text": "The Pacers acquired Chris Mullin from Golden State.",
+          "text": "He became the first player to lead an entire Finals series in points, rebounds, assists, steals and blocks.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "acquired All-Star forward Chris Mullin from the Golden State Warriors"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "lead all players in a playoff series in points, rebounds, assists, steals, and blocks"
           }
         },
         {
-          "text": "Indiana drafted Providence forward Austin Croshere twelfth overall.",
+          "text": "Every Finals MVP voter picked LeBron after Cleveland's comeback title.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "received the twelfth overall pick in the 1997 NBA draft"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "LeBron James was unanimously voted the NBA Finals Most Valuable Player"
           }
         }
       ]
     },
     {
-      "id": "nba-pacers98-road-wins",
+      "id": "nba-blazers78-start",
       "sport": "NBA",
-      "prompt": "How many away games did Indiana win during the 1997–98 regular season?",
-      "context": "Pacers · Larry Bird's first year",
-      "answer": 26,
+      "prompt": "The year after their title, how many of their first 60 games did the 1977–78 Blazers win?",
+      "context": "Portland Trail Blazers · 1977–78",
+      "answer": 50,
       "unit": {
-        "singular": "road win",
-        "plural": "road wins"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 6,
-      "max": 40,
+      "min": 30,
+      "max": 60,
       "step": 1,
-      "note": "26 road victories, a franchise milestone.",
+      "note": "50.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-        "quote": "26–15 road record"
+        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+        "quote": "The 1977-78 Blazers started with 50 wins in their first 60 games"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Indiana lost five of its first seven games before finding form.",
+          "text": "A Bill Walton foot injury derailed Portland's momentum and the team went 8–14 after its scorching opening.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "losing five of their first seven games of the regular season"
+            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+            "quote": "due to Bill Walton's foot injury they only managed to go 8–14 the rest of the way"
           }
         },
         {
-          "text": "The Pacers rebounded by winning fifteen of the next eighteen games.",
+          "text": "That brilliant follow-up season proved to be Walton's last playing for Portland.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "winning 15 of their next 18 games"
+            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+            "quote": "This would be Walton's last season with the club"
           }
         },
         {
-          "text": "Bird won Coach of the Year after a huge team turnaround.",
+          "text": "The championship roster had been transformed partly by adding ABA star Maurice Lucas.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "Bird was named the NBA Coach of the Year"
+            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+            "quote": "Portland had benefited from the resulting ABA dispersal draft as they acquired"
           }
         }
       ]
     },
     {
-      "id": "nba-jackson98-regular-apg",
+      "id": "nba-heat13-month-wins",
       "sport": "NBA",
-      "prompt": "What was Mark Jackson's assists-per-game average for the 1998 Pacers?",
-      "context": "Indiana · 1997–98 regular season",
-      "answer": 8.7,
+      "prompt": "In 2012–13 Miami became the first team to win how many games in a single calendar month?",
+      "context": "Miami Heat · 2012–13 regular season",
+      "answer": 17,
       "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 3,
-      "max": 19,
-      "step": 0.1,
-      "note": "8.7 assists per game from Indiana's veteran point guard.",
+      "min": 13,
+      "max": 31,
+      "step": 1,
+      "note": "17, going 17–1 in March 2013.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-        "quote": "Mark Jackson | PG | 82 | 82 | 2,413 | 322 | 713 | 84 | 2 | 678 | 29.4 | 3.9 | 8.7"
+        "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+        "quote": "becoming the first team in NBA history to win at least 17 games in a calendar month"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Jackson distributed 713 assists in the regular season.",
+          "text": "During that remarkable stretch, Miami completed a sweep of all opposing NBA franchises by beating Indiana.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "Mark Jackson | PG | 82 | 82 | 2,413 | 322 | 713"
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+            "quote": "the Heat beat every single team in the NBA with their victory against the Indiana Pacers"
           }
         },
         {
-          "text": "He started all eighty-two regular-season games.",
+          "text": "Miami even won in San Antonio while James, Wade and Chalmers were out of the lineup.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "Mark Jackson | PG | 82 | 82"
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+            "quote": "The Heat defeated the San Antonio Spurs 88-86 without all-stars LeBron James and Dwyane Wade"
           }
         },
         {
-          "text": "Jalen Rose played every game without making a single start.",
+          "text": "Comebacks became routine: Miami erased a double-digit deficit against Detroit late in the streak.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "Jalen Rose | SF | 82 | 0"
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+            "quote": "The Heat overcame an 11-point deficit to defeat the Detroit Pistons"
           }
         }
       ]
     },
     {
-      "id": "nba-miller98-season-ppg",
+      "id": "nba-celtics09-streak",
       "sport": "NBA",
-      "prompt": "How many points per game did Reggie Miller average in 1997–98?",
-      "context": "Pacers · season before Michael Jordan's final Bulls title",
-      "answer": 19.5,
+      "prompt": "The defending champion Celtics set a franchise-record winning streak in 2008–09. How long was it?",
+      "context": "Boston Celtics · 2008–09",
+      "answer": 19,
       "unit": {
-        "singular": "point per game",
-        "plural": "points per game"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 9,
-      "max": 42,
-      "step": 0.1,
-      "note": "19.5 points per game from Indiana's leading scorer.",
+      "min": 6,
+      "max": 38,
+      "step": 1,
+      "note": "19 games.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-        "quote": "Reggie Miller | SG | 81 | 81 | 2,795 | 232 | 171 | 78 | 11 | 1,578 | 34.5 | 2.9 | 2.1 | 1.0 | .1 | 19.5"
+        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+        "quote": "bringing an end to their franchise-high 19-game winning streak"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Miller scored 1,578 points during the regular season.",
+          "text": "The Lakers ended Boston's franchise-best regular-season run in a highly anticipated Christmas Day rematch.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "Reggie Miller | SG | 81 | 81 | 2,795 | 232 | 171 | 78 | 11 | 1,578"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "their momentum halted when they faced the Lakers on Christmas Day"
           }
         },
         {
-          "text": "He spent 34.5 minutes per game on the floor.",
+          "text": "Boston's dramatic early record came after an off-season with high expectations as defending champions.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "Reggie Miller | SG | 81 | 81 | 2,795 | 232 | 171 | 78 | 11 | 1,578 | 34.5"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "the Celtics got off to an impressive start with a 27–2 record"
           }
         },
         {
-          "text": "Miller led Indiana with twenty-eight points in the East finals' Game 3.",
+          "text": "Kevin Garnett's knee injury later sidelined him for Boston's elimination by Orlando in the East semifinals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "May 23, 1998 Chicago W 107–105 Miller (28)"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "Kevin Garnett suffered a devastating right knee injury"
           }
         }
       ]
     },
     {
-      "id": "nba-smits98-bulls-g4-points",
+      "id": "nba-mavs22-suns-game7-halftime-thirty",
       "sport": "NBA",
-      "prompt": "How many points did Rik Smits score in Game 4 against the 1998 Bulls?",
-      "context": "Indiana · Eastern finals · home victory",
-      "answer": 26,
+      "prompt": "In Luka's shocking 2022 Game 7 rout of top-seeded Phoenix, by how many points were the Mavericks ahead at halftime?",
+      "context": "Mavericks at Suns · May 2022 · Game 7",
+      "answer": 30,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 12,
-      "max": 76,
+      "min": 0,
+      "max": 65,
       "step": 1,
-      "note": "26 points in a dramatic two-point win.",
+      "note": "Dallas led by 30 at halftime, 57–27. Phoenix never recovered from the Game 7 embarrassment.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-        "quote": "May 25, 1998 Chicago W 96–94 Smits (26)"
+        "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+        "quote": "going into halftime leading 57–27; the halftime deficit of 30 being the largest in game 7 history."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "The Pacers won Game 4 by just two points at home.",
+          "text": "Dallas never trailed during the whole game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "May 25, 1998 Chicago W 96–94"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "The Mavericks dominated the entire game, never giving the Suns the lead"
           }
         },
         {
-          "text": "Chris Mullin led Indiana with nine rebounds that night.",
+          "text": "Luka finished with 35 points and ten rebounds.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "May 25, 1998 Chicago W 96–94 Smits (26) Mullin (9)"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "Luka Dončić shined in the victory with a double-double (35 points, 10 rebounds, and 4 assists)"
           }
         },
         {
-          "text": "The Pacers won all three home games in that East final but none in Chicago.",
+          "text": "The Dallas lead ballooned to as many as 46.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "Eastern Conference finals: 3–4 (home: 3–0; road: 0–4)"
+            "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
+            "quote": "The lead would later grow to as much as 46"
           }
         }
       ]

@@ -42,6 +42,32 @@ const FIRST_TRAVEL_MS = 1000;
 const TRAVEL_MS = 650;
 const CLAMP_MS = 150;
 const SHOT_CLOCK_MS = 24_000;
+/**
+ * Session storage protects reloads; local storage also protects a player who
+ * opens the same unfinished official puzzle in another tab of this browser.
+ * This is convenience, not anti-cheat: private windows and cleared storage
+ * are independent, and nobody's times are server-verified.
+ */
+const sessionShotKey = (id: string) => `stat-window:shot:v1:${id}`;
+const sharedShotKey = (day: string, id: string) => `stat-window:shot:daily:v1:${day}:${id}`;
+function savedShotStart(id: string, day: string, shared: boolean): number | null {
+  if (typeof window === 'undefined') return null;
+  const values: number[] = [];
+  // Accessing the storage property itself can throw (some private or
+  // restricted browsers), not only getItem. Guard the getter as well.
+  const keys: ['sessionStorage' | 'localStorage', string][] = [['sessionStorage', sessionShotKey(id)]];
+  if (shared) keys.push(['localStorage', sharedShotKey(day, id)]);
+  for (const [kind, key] of keys) {
+    try {
+      const raw = window[kind].getItem(key);
+      const n = raw === null ? NaN : Number(raw);
+      // Do not honour future or invalid timestamps. An earlier valid start
+      // wins when tabs disagree about a started round.
+      if (Number.isFinite(n) && n > 0 && n <= Date.now() + 1000) values.push(n);
+    } catch { /* local/session storage can both be blocked */ }
+  }
+  return values.length ? Math.min(...values) : null;
+}
 const easeOutQuint = (t: number) => 1 - (1 - t) ** 5;
 
 export function Round({ state, dispatch, label, showHint, theme, challenge = null, onFirstTouch, survival }: Props) {
@@ -69,30 +95,34 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
   // 24 seconds while React effects hydrate the saved deadline.
   const [secondsLeft, setSecondsLeft] = useState(() => {
     if (survival || typeof window === 'undefined') return 24;
-    try {
-      const startedAt = Number(window.sessionStorage.getItem(`stat-window:shot:v1:${q.id}`));
-      if (!Number.isFinite(startedAt) || startedAt <= 0) return 24;
-      return Math.ceil(Math.max(0, SHOT_CLOCK_MS - (Date.now() - startedAt)) / 1000);
-    } catch {
-      return 24;
-    }
+    const startedAt = savedShotStart(q.id, state.slate.date, state.mode === 'daily');
+    return startedAt === null ? 24 : Math.ceil(Math.max(0, SHOT_CLOCK_MS - (Date.now() - startedAt)) / 1000);
   });
-  const shot = useRef<{ startedAt: number | null; stopped: boolean }>({ startedAt: null, stopped: false });
+  // Initialise the ref from stored state too. Otherwise the first rendered
+  // frame can falsely say "24s · ready" while secondsLeft is already lower.
+  const shot = useRef<{ startedAt: number | null; stopped: boolean }>({
+    startedAt: survival ? null : savedShotStart(q.id, state.slate.date, state.mode === 'daily'),
+    stopped: false,
+  });
   const dispatchRef = useRef(dispatch);
   dispatchRef.current = dispatch;
   const timed = survival === undefined;
-  const shotKey = `stat-window:shot:v1:${q.id}`;
-  // The browser-local timestamp prevents free time from refreshing or switching tabs.
-  // It is never sent to the server or analytics; it cannot provide cheat-proof ranking.
-  const rememberStart = (at: number) => {
-    try { window.sessionStorage.setItem(shotKey, String(at)); } catch { /* storage blocked: memory timer still works */ }
+  const shotKey = sessionShotKey(q.id);
+  const crossTabKey = sharedShotKey(state.slate.date, q.id);
+  const shareWithTabs = state.mode === 'daily';
+  const rememberStart = (at: number): number => {
+    const actual = Math.min(at, savedShotStart(q.id, state.slate.date, shareWithTabs) ?? at);
+    try { window.sessionStorage.setItem(shotKey, String(actual)); } catch { /* storage blocked */ }
+    if (shareWithTabs) {
+      try { window.localStorage.setItem(crossTabKey, String(actual)); } catch { /* storage blocked */ }
+    }
+    return actual;
   };
   const elapsed = () =>
     shot.current.startedAt === null ? 0 : Math.max(0, Math.min(SHOT_CLOCK_MS, Date.now() - shot.current.startedAt));
   const startShot = () => {
     if (!timed || shot.current.startedAt !== null || shot.current.stopped) return;
-    shot.current.startedAt = Date.now();
-    rememberStart(shot.current.startedAt);
+    shot.current.startedAt = rememberStart(Date.now());
   };
   const stopShot = () => {
     const spent = Math.round(elapsed());
@@ -100,6 +130,9 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
     // After a locked answer, no deadline remains to restore. Keeping one
     // could instantly expire a fresh replay if a player resets their save.
     try { window.sessionStorage.removeItem(shotKey); } catch { /* blocked storage */ }
+    if (shareWithTabs) {
+      try { window.localStorage.removeItem(crossTabKey); } catch { /* blocked storage */ }
+    }
     return spent;
   };
   const lockShot = () => {
@@ -113,16 +146,9 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
   useEffect(() => {
     let startedAt: number | null = null;
     if (timed) {
-      try {
-        const raw = window.sessionStorage.getItem(shotKey);
-        const value = raw === null ? NaN : Number(raw);
-        if (Number.isFinite(value) && value > 0) startedAt = value;
-      } catch { /* storage may be blocked */ }
-      // New players can read the first-play guide before the first move.
-      if (startedAt === null && !showHint) {
-        startedAt = Date.now();
-        rememberStart(startedAt);
-      }
+      startedAt = savedShotStart(q.id, state.slate.date, shareWithTabs);
+      // Question is mounted only after Start. Never add time on another tab.
+      startedAt = rememberStart(startedAt ?? Date.now());
     }
     shot.current = { startedAt, stopped: false };
     setSecondsLeft(startedAt === null ? 24 : Math.ceil(Math.max(0, SHOT_CLOCK_MS - (Date.now() - startedAt)) / 1000));
@@ -143,6 +169,9 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
       if (left === 0) {
         s.stopped = true;
         try { window.sessionStorage.removeItem(shotKey); } catch { /* blocked storage */ }
+        if (shareWithTabs) {
+          try { window.localStorage.removeItem(crossTabKey); } catch { /* blocked storage */ }
+        }
         dispatchRef.current({ type: 'timeout', elapsedMs: SHOT_CLOCK_MS });
       }
     };
@@ -150,8 +179,25 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
     // deadline uses Date.now, and is rechecked immediately when the tab returns.
     const id = window.setInterval(tick, 100);
     document.addEventListener('visibilitychange', tick);
+    // A second official-daily tab can start first; always adopt the earliest
+    // shared deadline, never extend one that is already running.
+    const onStorage = (event: StorageEvent) => {
+      if (!shareWithTabs || event.key !== crossTabKey || event.newValue === null) return;
+      const other = Number(event.newValue);
+      if (Number.isFinite(other) && other > 0 && other <= Date.now() + 1000 &&
+          shot.current.startedAt !== null && other < shot.current.startedAt) {
+        shot.current.startedAt = other;
+        try { window.sessionStorage.setItem(shotKey, String(other)); } catch { /* blocked storage */ }
+        tick();
+      }
+    };
+    window.addEventListener('storage', onStorage);
     tick();
-    return () => { window.clearInterval(id); document.removeEventListener('visibilitychange', tick); };
+    return () => {
+      window.clearInterval(id);
+      document.removeEventListener('visibilitychange', tick);
+      window.removeEventListener('storage', onStorage);
+    };
   }, [timed, interactive, state.round]);
 
   // New round: reset the reveal and move focus to the question for screen readers.
@@ -266,7 +312,7 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
       <header className="question-block">
         {showHint && timed && interactive && (
           <p className="first-play-guide"><strong>First window:</strong> Drag both brackets around your best guess.
-            Narrower = more points. Lock before the buzzer. Your 24 seconds start when you move.</p>
+            Narrower = more points. Lock before the buzzer. Your 24 seconds start when the question appears.</p>
         )}
         {challenge && interactive && (
           <p className="challenge-note">
@@ -351,7 +397,7 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
             ) : worth === 0 ? (
               <p className="worth">
                 {showHint
-                  ? 'Drag brackets in. Your 24s start on first move. Tighter scores more.'
+                  ? 'Drag brackets in. Your 24s started when this question appeared. Tighter scores more.'
                   : 'Pull the brackets in to start scoring.'}
               </p>
             ) : (

@@ -1,29 +1,29 @@
 {
   "date": "2027-01-27",
   "theme": {
-    "title": "Fear the Deer",
-    "subtitle": "Milwaukee's first MVP Giannis run",
-    "recap": "The Bucks opened a new arena, raced through the East under Mike Budenholzer, and discovered the strength of the Raptors in May."
+    "title": "Stars and Surprises",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-bucks19-season-wins",
+      "id": "nba-tatum23-game7-51",
       "sport": "NBA",
-      "prompt": "How many regular-season games did Giannis's 2018–19 Milwaukee Bucks win?",
-      "context": "Milwaukee Bucks · Giannis MVP season",
-      "answer": 60,
+      "prompt": "In his 2023 Game 7 against Philadelphia, how many points did Jayson Tatum score to carry Boston through?",
+      "context": "Jayson Tatum · Celtics vs. 76ers · May 2023",
+      "answer": 51,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 32,
-      "max": 82,
+      "min": 10,
+      "max": 80,
       "step": 1,
-      "note": "60 wins, the best record in the NBA.",
+      "note": "51 points, a new playoff Game 7 scoring mark.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-        "quote": "the Bucks finished the regular season with a 60–22 record"
+        "url": "https://en.wikipedia.org/wiki/Jayson_Tatum",
+        "quote": "he scored a playoff career-high 51 points in a 112–88 victory over the Philadelphia 76ers"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,27 +32,27 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Milwaukee moved from the Bradley Center to the new Fiserv Forum before the campaign.",
+          "text": "He overtook Stephen Curry's previous elimination-game scoring mark.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "The Bucks moved from the Bradley Center to the new Fiserv Forum"
+            "url": "https://en.wikipedia.org/wiki/Jayson_Tatum",
+            "quote": "surpassed Stephen Curry (50 points)"
           }
         },
         {
-          "text": "Mike Budenholzer arrived as the team's head coach in May of the preceding offseason.",
+          "text": "Boston won the game 112–88.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "On May 17, 2018, the Bucks hired Mike Budenholzer as head coach"
+            "url": "https://en.wikipedia.org/wiki/Jayson_Tatum",
+            "quote": "in a 112–88 victory over the Philadelphia 76ers"
           }
         },
         {
-          "text": "The Bucks finished with the best team defensive rating in the league.",
+          "text": "Tatum became the first Celtic to score 50 in multiple playoff games.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "The Bucks had the best team defensive rating in the NBA"
+            "url": "https://en.wikipedia.org/wiki/Jayson_Tatum",
+            "quote": "the first player in Celtics history to put up multiple 50-point playoff games"
           }
         }
       ]
@@ -109,23 +109,74 @@
       ]
     },
     {
-      "id": "nba-giannis19-regular-rpg",
+      "id": "nba-curry-three-streak",
       "sport": "NBA",
-      "prompt": "What was Giannis Antetokounmpo's regular-season rebounding average in 2018–19?",
-      "context": "Giannis · Milwaukee Bucks · first MVP campaign",
-      "answer": 12.5,
+      "prompt": "Stephen Curry’s streak of regular-season games with a made three ended in November 2016. How many games did it last?",
+      "context": "Golden State Warriors · ended in 2016–17",
+      "answer": 157,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 60,
+      "max": 320,
+      "step": 1,
+      "note": "157 straight games.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+        "quote": "Most consecutive regular-season games with a made three-pointer: 157"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "The streak stopped in Los Angeles when Curry couldn't make an outside shot against the Lakers.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+            "quote": "against the Los Angeles Lakers, with Curry going 0 for 10 from three-point range"
+          }
+        },
+        {
+          "text": "Kyle Korver had held the previous regular-season made-three streak record.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+            "quote": "previous record of 127 held by Kyle Korver"
+          }
+        },
+        {
+          "text": "Across regular-season and playoff games combined, Curry had also set a separate longer made-three streak.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
+            "quote": "Most consecutive games (regular-season and postseason combined) with a made three-pointer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-chandler08-regular-rpg",
+      "sport": "NBA",
+      "prompt": "How many rebounds did Tyson Chandler average for the 2008 Hornets?",
+      "context": "New Orleans · 2007–08 regular season",
+      "answer": 11.7,
       "unit": {
         "singular": "rebound per game",
         "plural": "rebounds per game"
       },
-      "min": 6,
-      "max": 21,
+      "min": 5,
+      "max": 27,
       "step": 0.1,
-      "note": "12.5 rebounds per game, while dominating both ends.",
+      "note": "11.7 rebounds per game with elite interior defense.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-        "quote": "Giannis Antetokounmpo | 72 | 72 | 32.8 | .578 | .256 | .729 | 12.5 | 5.9 | 1.3 | 1.5 | 27.7"
+        "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+        "quote": "Tyson Chandler | 79 | 79 | 35.2 | .623 | .000 | .593 | 11.7"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,101 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Giannis scored 27.7 points and dished out 5.9 assists per game that season.",
+          "text": "Chandler converted 62.3 percent of his field goals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "12.5 | 5.9 | 1.3 | 1.5 | 27.7"
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Tyson Chandler | 79 | 79 | 35.2 | .623"
           }
         },
         {
-          "text": "He won his first NBA MVP award after Milwaukee led the Eastern Conference.",
+          "text": "He started each of his seventy-nine regular-season appearances.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "Giannis Antetokounmpo was named league MVP after this season"
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Tyson Chandler | 79 | 79"
           }
         },
         {
-          "text": "Giannis and Khris Middleton represented Milwaukee in the All-Star Game.",
+          "text": "Chandler averaged 11.8 points alongside the rebounding.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "he and Khris Middleton were voted to play in the 2019 NBA All-Star Game"
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
+            "quote": "Tyson Chandler | 79 | 79 | 35.2 | .623 | .000 | .593 | 11.7 | 1.0 | .57 | 1.06 | 11.8"
           }
         }
       ]
     },
     {
-      "id": "nba-middleton19-playoff-three-pct",
+      "id": "nba-shaq00-birthday-clippers-sixtyone",
       "sport": "NBA",
-      "prompt": "What percentage of his three-pointers did Khris Middleton make in the 2019 playoffs?",
-      "context": "Milwaukee Bucks · 2019 postseason · three-point shooting",
-      "answer": 43.5,
-      "unit": {
-        "singular": "percent",
-        "plural": "percent"
-      },
-      "min": 20,
-      "max": 60,
-      "step": 0.5,
-      "note": "43.5%, a sharp shooting run despite Milwaukee's conference finals loss.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-        "quote": "Khris Middleton | 15 | 15 | 34.3 | .418 | .435 | .885 | 6.3 | 4.4 | .4 | .0 | 16.9",
-        "derivation": "Converted 0.435 three-point field-goal proportion in the playoff row to 43.5%."
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Middleton averaged 16.9 points and 6.3 rebounds during Milwaukee's playoff run.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "6.3 | 4.4 | .4 | .0 | 16.9"
-          }
-        },
-        {
-          "text": "The Bucks swept Detroit before eliminating Boston in five games.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "the Bucks defeated the Detroit Pistons in the First Round by a four-game sweep"
-          }
-        },
-        {
-          "text": "Middleton also shot 88.5% on free throws during that postseason.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "Khris Middleton | 15 | 15 | 34.3 | .418 | .435 | .885"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-brooklopez19-ecf-g1-points",
-      "sport": "NBA",
-      "prompt": "How many points did Brook Lopez score in Milwaukee's Eastern finals Game 1 against Toronto?",
-      "context": "Milwaukee Bucks vs Toronto Raptors · Eastern finals opener",
-      "answer": 29,
+      "prompt": "On Shaq's birthday in 2000, he demolished the crosstown Clippers. How many points did he pour in?",
+      "context": "Shaquille O'Neal · Lakers at Clippers · March 2000",
+      "answer": 61,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 13,
-      "max": 51,
+      "min": 10,
+      "max": 140,
       "step": 1,
-      "note": "29 points to help Milwaukee take the series opener.",
+      "note": "61 points on his birthday, alongside a huge rebounding night. Shaq's career high!",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-        "quote": "May 15 Toronto W 108–100 Brook Lopez (29)"
+        "url": "https://en.wikipedia.org/wiki/Shaquille_O%27Neal",
+        "quote": "On O'Neal's 28th birthday on March 6, 2000, he scored a career-high 61 points"
       },
       "verified": {
         "on": "2026-11-16",
@@ -237,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Lopez signed with Milwaukee in free agency after spending the preceding season with the Lakers.",
+          "text": "His career-high eruption came on his birthday.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "Brook Lopez | July 17, 2018 | Los Angeles Lakers"
+            "url": "https://en.wikipedia.org/wiki/Shaquille_O%27Neal",
+            "quote": "On O'Neal's 28th birthday on March 6, 2000, he scored a career-high 61 points"
           }
         },
         {
-          "text": "He averaged 2.2 blocks per game in the regular season while stretching the floor.",
+          "text": "He also dominated the glass in a monster double-double.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "Brook Lopez | 81 | 81 | 28.7 | .435 | .365 | .842 | 4.9 | 1.2 | .6 | 2.2 | 12.5"
+            "url": "https://en.wikipedia.org/wiki/Shaquille_O%27Neal",
+            "quote": "to go along with 23 rebounds and 3 assists"
           }
         },
         {
-          "text": "Milwaukee won both of its opening games against Toronto, but the Raptors came back to take the series.",
+          "text": "Shaq narrowly missed becoming the league's first unanimous MVP that year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
-            "quote": "where they faced the Toronto Raptors and lost to the eventual NBA Champion in six games, despite taking the first two"
+            "url": "https://en.wikipedia.org/wiki/Shaquille_O%27Neal",
+            "quote": "one vote short of becoming the first unanimous MVP in NBA history"
           }
         }
       ]

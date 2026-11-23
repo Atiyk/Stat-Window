@@ -157,6 +157,22 @@ test('server down or switched off: the score still shows and the game stays play
   await other.close();
 });
 
+test('blocked browser storage never uploads a score that the player cannot erase later', async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(window, 'localStorage', { configurable: true,
+      get() { throw new DOMException('Storage blocked', 'SecurityError'); },
+    });
+  });
+  const calls = await stubScores(page, stored());
+  await openAt(page, NBA_FIRST);
+  await playOut(page);
+  await expect(page.locator('.percentile')).toContainText('isn’t available right now');
+  // The anonymous consent probe is allowed; no browser code, five windows or
+  // identifying score submission may be sent without durable erasure state.
+  expect(calls.map(c => c.body)).toEqual([{ day: DAY, consent: 'default' }]);
+  await expect(page.getByRole('button', { name: 'Challenge a friend' })).toBeEnabled();
+});
+
 test('native share sends the spoiler-free card image when files are supported; cancel leaves no fallback', async ({ page }) => {
   await stubScores(page, stored());
   await page.addInitScript(() => {

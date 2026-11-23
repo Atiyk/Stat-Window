@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
-import { collectErrors, lockAndSettle, NBA_FIRST, next, openAt, typeWindow } from './helpers';
+import { collectErrors, lockAndSettle, NBA_FIRST, next, openAt, typeWindow, startDailyIfNeeded } from './helpers';
 
 /**
  * Survival, behind its flag.
@@ -197,6 +197,7 @@ test.describe('preview build', () => {
     await play(page, true);
     await page.getByRole('button', { name: 'Next round' }).click();
     await page.goto('/');
+  await startDailyIfNeeded(page);
     await expect(page.getByText('Question 1 of 5')).toBeVisible();
     await page.goto('/?survival&asof=2026-12-20');
     await expect(page.getByText('Survival · Round 2 of 20')).toBeVisible();
@@ -279,6 +280,9 @@ test.describe('public flag (on): the offer, the gate, the events', () => {
     // Next UTC day, same browser.
     await page.clock.setFixedTime(at('2026-12-21'));
     await page.reload();
+    // The next daily slate intentionally opens behind a new Start gate.
+    // The experiment must count an actual deliberate start, not page load.
+    await startDailyIfNeeded(page);
     await expect(page.locator('.question')).toBeVisible();
     await expect.poll(() => views(page)).toEqual(expect.arrayContaining(['/e/start/daily', '/e/x/survival-cta/control/daily-start', '/e/x/survival-cta/control/next-day-start']));
     // A refresh doesn't count the start again.

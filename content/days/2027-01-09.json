@@ -1,29 +1,29 @@
 {
   "date": "2027-01-09",
   "theme": {
-    "title": "The Cow Palace sweep",
-    "subtitle": "Golden State, 1974–75",
-    "recap": "The Warriors defeated the favored Bullets by winning close games behind Rick Barry, a deep bench and a relentless second-half defense."
+    "title": "The Numbers Game",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-warriors75-season-wins",
+      "id": "nba-nash05-regular-apg",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 1974–75 Warriors win?",
-      "context": "Golden State Warriors · 1974–75 · 82 games",
-      "answer": 48,
+      "prompt": "What was Steve Nash's assists-per-game average for the 2004–05 Suns?",
+      "context": "Phoenix Suns · 2004–05 regular season",
+      "answer": 11.5,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "assist per game",
+        "plural": "assists per game"
       },
-      "min": 32,
-      "max": 72,
-      "step": 1,
-      "note": "48 wins, before the Warriors took the title.",
+      "min": 6,
+      "max": 22,
+      "step": 0.1,
+      "note": "11.5 assists each night in his first MVP season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1974%E2%80%9375_Golden_State_Warriors_season",
-        "quote": "Record | 48–34 (.585)"
+        "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+        "quote": "Nash finished the season averaging 11.5 assists per game"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The Bullets entered the Finals with far more regular-season wins than Golden State.",
+          "text": "Nash shot 50.2% from the field and 43.1% from three during the regular season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "Golden State Warriors (48–34) played against the Eastern Conference champion Washington Bullets (60–22)"
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "while making 50.2% of his field goals and 43.1% of his three-pointers"
           }
         },
         {
-          "text": "The championship was Golden State's first since 1956, when the franchise played in Philadelphia.",
+          "text": "Nash won MVP while Mike D'Antoni took Coach of the Year and Bryan Colangelo Executive of the Year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "win their first championship since 1956, when the team was still based in Philadelphia"
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "He ended up winning the MVP award. D'Antoni was awarded Coach of the Year"
           }
         },
         {
-          "text": "Golden State traded future Hall of Famer Nate Thurmond to Chicago for young center Clifford Ray before the season.",
+          "text": "Quentin Richardson won the Three-Point Shootout during the same season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "they traded future Hall of Famer Nate Thurmond to the Chicago Bulls for young center Clifford Ray"
+            "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
+            "quote": "Quentin Richardson won the Three-Point Shootout"
           }
         }
       ]
     },
     {
-      "id": "nba-barry75-finals-g2-points",
+      "id": "nba-celtics07-losing-streak",
       "sport": "NBA",
-      "prompt": "How many points did Rick Barry score in Game 2 of the 1975 Finals?",
-      "context": "Golden State vs Washington · 1975 Finals · Game 2",
-      "answer": 36,
+      "prompt": "A year before their title, the 2006–07 Celtics set a franchise record with a losing streak of how many games?",
+      "context": "Boston Celtics · 2006–07",
+      "answer": 18,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "game",
+        "plural": "games"
       },
-      "min": 16,
-      "max": 60,
+      "min": 0,
+      "max": 26,
       "step": 1,
-      "note": "36 points in a one-point Warriors win.",
+      "note": "18 straight, in a 24-win season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-        "quote": "led by 36 points from Rick Barry"
+        "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+        "quote": "culminated in a 24-win 2006–07 season, highlighted by a franchise-worst 18 straight losses"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "The Warriors had to play their home Finals games at the Cow Palace because Oakland Arena was booked for the Ice Follies.",
+          "text": "Rajon Rondo was the young playmaker supporting Boston's reunited star trio.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "the Oakland facility being unavailable due to the Ice Follies"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "The newly formed 'Big Three,' joined by second year point guard and future all star Rajon Rondo"
           }
         },
         {
-          "text": "Washington got a final chance in Game 2 with six seconds remaining but missed both shots.",
+          "text": "Boston had not reached the Finals since the Bird-era rivalry with the Lakers.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "Washington got the ball back with six seconds left but missed two shots"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "The Celtics made their first NBA Finals appearance since a six-game loss to the Lakers in 1987."
           }
         },
         {
-          "text": "Barry had previously played for the rival ABA before returning to the Warriors.",
+          "text": "Danny Ainge changed Boston's trajectory in a single offseason by trading for both Allen and Garnett.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "briefly lost Rick Barry to the American Basketball Association"
+            "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
+            "quote": "the 2007 off-season saw Celtics general manager Danny Ainge acquire Ray Allen and Kevin Garnett"
           }
         }
       ]
     },
     {
-      "id": "nba-bullets75-g1-halftime-lead",
+      "id": "nba-miller98-season-ppg",
       "sport": "NBA",
-      "prompt": "How many points ahead were the Bullets at halftime of Game 1 of the 1975 Finals?",
-      "context": "Washington Bullets vs Golden State · Game 1",
-      "answer": 14,
+      "prompt": "How many points per game did Reggie Miller average in 1997–98?",
+      "context": "Pacers · season before Michael Jordan's final Bulls title",
+      "answer": 19.5,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 4,
-      "max": 35,
-      "step": 1,
-      "note": "14 points, before Golden State's second-half comeback.",
+      "min": 9,
+      "max": 42,
+      "step": 0.1,
+      "note": "19.5 points per game from Indiana's leading scorer.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-        "quote": "the Bullets built a 14-point lead at the half over the Warriors"
+        "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+        "quote": "Reggie Miller | SG | 81 | 81 | 2,795 | 232 | 171 | 78 | 11 | 1,578 | 34.5 | 2.9 | 2.1 | 1.0 | .1 | 19.5"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,49 +134,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Warriors reserve Phil Smith provided an unexpected scoring boost off the bench during the comeback.",
+          "text": "Miller scored 1,578 points during the regular season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "Phil Smith coming off the bench to score 20 points in 31 minutes"
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Reggie Miller | SG | 81 | 81 | 2,795 | 232 | 171 | 78 | 11 | 1,578"
           }
         },
         {
-          "text": "The opening game took place at the Capital Centre in Landover, Maryland, outside Washington.",
+          "text": "He spent 34.5 minutes per game on the floor.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "Capital Centre, Landover, Maryland"
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "Reggie Miller | SG | 81 | 81 | 2,795 | 232 | 171 | 78 | 11 | 1,578 | 34.5"
           }
         },
         {
-          "text": "Golden State reached the Finals after defeating the Chicago Bulls in a seven-game Western final.",
+          "text": "Miller led Indiana with twenty-eight points in the East finals' Game 3.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "then eliminated Thurmond and the Bulls in seven games to advance to the Finals"
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "May 23, 1998 Chicago W 107–105 Miller (28)"
           }
         }
       ]
     },
     {
-      "id": "nba-unseld75-finals-g2-rebounds",
+      "id": "nba-siakam19-g1",
       "sport": "NBA",
-      "prompt": "How many rebounds did Wes Unseld grab in Game 2 of the 1975 Finals?",
-      "context": "Washington Bullets at Golden State · 1975 Finals",
-      "answer": 20,
+      "prompt": "Pascal Siakam shot 14 of 17 in Game 1 of the 2019 Finals. How many points did he score?",
+      "context": "2019 NBA Finals · Game 1 · vs Golden State",
+      "answer": 32,
       "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 5,
-      "max": 43,
+      "min": 24,
+      "max": 44,
       "step": 1,
-      "note": "20 rebounds, but Washington lost the game by a single point.",
+      "note": "32, a playoff career high.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-        "quote": "Rebs: Wes Unseld 20"
+        "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
+        "quote": "Pascal Siakam scored a playoff career-high 32 points on 14-of-17 shooting"
       },
       "verified": {
         "on": "2026-11-16",
@@ -185,49 +185,49 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Jamaal Wilkes's undersized but effective defense on Elvin Hayes proved decisive.",
+          "text": "The Raptors hosted the first NBA Finals contest ever played outside the United States.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "the defensive play of the seemingly undersized Jamaal Wilkes on Bullets' power forward Elvin Hayes"
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
+            "quote": "the first-ever NBA Finals game played outside the United States"
           }
         },
         {
-          "text": "Reserve center George Johnson added 10 points and nine rebounds in Game 3.",
+          "text": "Draymond Green logged a triple-double in the opener, but his Warriors still fell behind in the series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "backup center George Johnson had 10 points and nine rebounds off the bench"
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
+            "quote": "Draymond Green had a triple-double with 10 points, 10 rebounds, and 10 assists"
           }
         },
         {
-          "text": "Rick Barry had 38 points in Game 3 as the Warriors moved within a win of the title.",
+          "text": "Kevin Durant traveled to Toronto but remained on the sideline while recovering from a calf injury.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "Rick Barry poured in 38 points"
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
+            "quote": "Durant, the MVP of the last two NBA Finals, traveled with the team to Toronto, but remained sidelined"
           }
         }
       ]
     },
     {
-      "id": "nba-warriors75-finals-g4-points",
+      "id": "nba-cavs-warriors16-game7-tied-six-games-610",
       "sport": "NBA",
-      "prompt": "How many points did Golden State score in Game 4 to clinch the 1975 Finals?",
-      "context": "Golden State at Washington · May 25, 1975",
-      "answer": 96,
+      "prompt": "Before the famous 2016 Finals Game 7, the Cavs and Warriors had the same total points through six games. How many each?",
+      "context": "Cleveland vs Golden State · 2016 Finals · through Game 6",
+      "answer": 610,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "point per team",
+        "plural": "points per team"
       },
-      "min": 60,
-      "max": 122,
-      "step": 1,
-      "note": "96 points, one more than Washington in the title clincher.",
+      "min": 350,
+      "max": 950,
+      "step": 2,
+      "note": "610 each. The 2016 Finals were perfectly even in total points before Cleveland's historic Game 7 win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-        "quote": "Golden State Warriors 96, Washington Bullets 95"
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "both teams entered Game 7 with the same total points scored through six games (610 points each)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Coach Al Attles was ejected after a confrontation with Mike Riordan, leaving assistant Joe Roberts to finish the game.",
+          "text": "Cleveland edged Golden State in the decider, 93–89.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "Attles bolted onto the court and initiated a fight of his own with Riordan"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "The Cavaliers defeated the Warriors 93–89 in Game 7"
           }
         },
         {
-          "text": "The 1975 Finals are the oldest NBA championship series with full television coverage still surviving.",
+          "text": "The decider featured 20 lead changes and 11 ties.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "The 1975 Finals is also the oldest NBA championship series whose TV coverage still exists in its entirety"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "The game was close, with 20 lead changes and 11 ties."
           }
         },
         {
-          "text": "Rick Barry went on to work as a broadcaster for the next six NBA Finals, including while still an active player.",
+          "text": "LeBron's legendary chase-down block preserved an 89-all tie.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "Barry went on to cover the next six NBA Finals, five of which while still an active player"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "LeBron James delivered what became known as \"The Block\" on a layup attempt by Andre Iguodala with the score tied at 89"
           }
         }
       ]

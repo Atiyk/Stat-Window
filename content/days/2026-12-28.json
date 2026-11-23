@@ -1,17 +1,17 @@
 {
   "date": "2026-12-28",
   "theme": {
-    "title": "Golden State's fourth",
-    "subtitle": "The 2022 Finals",
-    "recap": "The Warriors won a fourth title in eight years behind Stephen Curry and a 21–0 run in the clincher."
+    "title": "Stars and Surprises",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-curry22-g4",
+      "id": "nba-cavs16-g5-41",
       "sport": "NBA",
-      "prompt": "With Golden State down 2–1 in the 2022 Finals, how many points did Stephen Curry score in Game 4?",
-      "context": "2022 NBA Finals · Game 4 · at Boston",
-      "answer": 43,
+      "prompt": "In Game 5 of the 2016 Finals, LeBron James and Kyrie Irving each scored how many points?",
+      "context": "2016 NBA Finals · Game 5 · at Golden State",
+      "answer": 41,
       "unit": {
         "singular": "point",
         "plural": "points"
@@ -19,11 +19,11 @@
       "min": 25,
       "max": 75,
       "step": 1,
-      "note": "43, with 10 rebounds.",
+      "note": "41 apiece, the first teammates to both reach 40 in a Finals game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-        "quote": "Curry scored 43 points and had 10 rebounds in a 107–97 win to even the series 2–2."
+        "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+        "quote": "James and Irving each scored 41 points to become the first teammates in Finals history to score 40 or more"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Curry played through pain after Al Horford fell on his leg during a loose-ball scramble late in Game 3.",
+          "text": "Draymond Green missed the game through suspension after a flagrant foul against LeBron.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-            "quote": "Curry was injured late in the fourth when Horford fell on his leg while chasing a loose ball."
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "Green was suspended for Game 5"
           }
         },
         {
-          "text": "Andrew Wiggins helped win the rebounding battle with a career-best Finals night on the glass.",
+          "text": "Green watched the contest from a luxury box in the Oakland Athletics' stadium.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-            "quote": "Andrew Wiggins added 17 points and a career-high 16 rebounds"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "Green watched the game from a luxury box in the nearby Oakland Alameda Coliseum"
           }
         },
         {
-          "text": "Steve Kerr benched Draymond Green at key moments of the fourth quarter in favor of Kevon Looney.",
+          "text": "Cleveland was facing elimination after Golden State had taken three of the first four games.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-            "quote": "Steve Kerr benched him for parts of the fourth quarter, while Looney remained on the floor"
+            "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
+            "quote": "The Warriors won three of the first four games and led 3–1"
           }
         }
       ]
     },
     {
-      "id": "nba-kerr-player-titles",
+      "id": "nba-alcindor71-ppg",
       "sport": "NBA",
-      "prompt": "Steve Kerr's 2022 title was his ninth overall. How many did he win as a player?",
-      "context": "Bulls and Spurs · 1990s and 2000s",
-      "answer": 5,
+      "prompt": "Lew Alcindor led the NBA in scoring in 1970–71. What was his average?",
+      "context": "Milwaukee Bucks · 1970–71",
+      "answer": 31.7,
       "unit": {
-        "singular": "title",
-        "plural": "titles"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 0,
-      "max": 9,
-      "step": 1,
-      "note": "Five.",
+      "min": 24,
+      "max": 46,
+      "step": 0.1,
+      "note": "31.7 points per game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-        "quote": "Steve Kerr won his ninth championship overall, after winning five as a player."
+        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+        "quote": "In only his second professional season, Lew Alcindor led the league in scoring at 31.7 ppg"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,151 +83,151 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Kerr's Warriors had the NBA's worst record only a few seasons before reclaiming the championship.",
+          "text": "Alcindor won both the league MVP and Finals MVP awards during Milwaukee's title season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-            "quote": "The Warriors also became the first team to go from the NBA's worst record"
+            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+            "quote": "Lew Alcindor won MVP and Finals MVP honors"
           }
         },
         {
-          "text": "The championship earned Kerr a place among the select coaches to win four NBA titles.",
+          "text": "Milwaukee made its first Finals appearance in only its third year as a franchise.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-            "quote": "He became the sixth coach to capture four titles"
+            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+            "quote": "The Bucks made their way into the Finals for the first time in NBA history in just their third year"
           }
         },
         {
-          "text": "Kerr's lineup adjustment in Boston temporarily replaced Draymond Green with rebounding specialist Kevon Looney.",
+          "text": "Bob Dandridge provided another major scoring option with 18.4 points a game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-            "quote": "Steve Kerr benched him for parts of the fourth quarter, while Looney remained on the floor"
+            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+            "quote": "Bob Dandridge (18.4 ppg)"
           }
         }
       ]
     },
     {
-      "id": "nba-gsw22-g6-run",
+      "id": "nba-spurs14-g3-fg",
       "sport": "NBA",
-      "prompt": "In the 2022 title clincher, Golden State went on an unanswered run of how many points?",
-      "context": "2022 NBA Finals · Game 6 · at Boston",
-      "answer": 21,
+      "prompt": "In the first half of Game 3 of the 2014 Finals, what percentage of their shots did the Spurs make?",
+      "context": "2014 NBA Finals · Game 3 · at Miami",
+      "answer": 75.8,
+      "unit": {
+        "singular": "percent",
+        "plural": "percent"
+      },
+      "min": 55,
+      "max": 100,
+      "step": 0.2,
+      "note": "75.8%, a Finals record for a half.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+        "quote": "a Finals-record 75.8% shooting effort from the team during the first half"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Popovich inserted Boris Diaw into the starting five, opening up extra passing lanes against Miami.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "San Antonio's insertion of Boris Diaw into the starting lineup created more ball movement"
+          }
+        },
+        {
+          "text": "Kawhi Leonard began the game with a perfect string of made shots and set a new personal scoring high.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "Leonard, limited to only 18 points in the first two games, made his first six shots"
+          }
+        },
+        {
+          "text": "Miami hadn't lost at home in that postseason before San Antonio's sudden offensive explosion.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "The Heat, who had been 8–0 at home in the playoffs"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-allstar51-attendance",
+      "sport": "NBA",
+      "prompt": "How many fans attended the first NBA All-Star Game in 1951?",
+      "context": "1951 NBA All-Star Game · Boston",
+      "answer": 10094,
+      "unit": {
+        "singular": "fan",
+        "plural": "fans"
+      },
+      "min": 4000,
+      "max": 30000,
+      "step": 100,
+      "note": "10,094, when the average crowd was about 3,500.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/NBA_All-Star_Game",
+        "quote": "drawing an attendance of 10,094, much higher than that season's average attendance of 3,500."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "The first All-Star Game came out of a public-relations push following a college basketball point-shaving scandal.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1951_NBA_All-Star_Game",
+            "quote": "the basketball world had just been rocked by the college basketball point-shaving scandal"
+          }
+        },
+        {
+          "text": "Celtics owner Walter Brown offered to host the event and cover any losses himself.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1951_NBA_All-Star_Game",
+            "quote": "Brown remained confident that it would be a success. He even offered to host the game"
+          }
+        },
+        {
+          "text": "The original All-Stars were chosen by sportswriters who were not allowed to vote for players from their own cities.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1951_NBA_All-Star_Game",
+            "quote": "They were not allowed to select players from their own cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-luka24-wolves-g2-32",
+      "sport": "NBA",
+      "prompt": "In the 2024 West finals, Luka buried a Game 2 winner over Rudy Gobert. How many points did he score?",
+      "context": "Luka Dončić · Mavericks at Timberwolves · 2024 playoffs",
+      "answer": 32,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 0,
-      "max": 28,
+      "min": 5,
+      "max": 85,
       "step": 1,
-      "note": "21–0, the longest in modern Finals history.",
+      "note": "32 points, a triple-double and a go-ahead three over the Defensive Player of the Year.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-        "quote": "The 21–0 run was the longest such run in modern Finals history."
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Boston opened the deciding game with a quick surge, but Golden State answered before the first quarter ended.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-            "quote": "Boston took a 14–2 lead to start the game"
-          }
-        },
-        {
-          "text": "The Warriors' swarming defense forced repeated Boston turnovers before halftime.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-            "quote": "The Warriors forced 12 turnovers in the first half"
-          }
-        },
-        {
-          "text": "The Warriors were only the second visiting team to clinch an NBA championship on Boston's floor.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-            "quote": "This was the second time that a road team won an NBA championship in Boston"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-tatum22-turnovers",
-      "sport": "NBA",
-      "prompt": "Jayson Tatum set the record for turnovers in one postseason in 2022. How many?",
-      "context": "Boston Celtics · 2022 playoffs",
-      "answer": 100,
-      "unit": {
-        "singular": "turnover",
-        "plural": "turnovers"
-      },
-      "min": 20,
-      "max": 140,
-      "step": 1,
-      "note": "100.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-        "quote": "Tatum set the NBA record for most turnovers in a single postseason with 100."
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Tatum's first Finals game was a passing showcase despite a poor shooting night against Golden State.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-            "quote": "he finished with a career-high 13 assists, the most ever for a player in his Finals debut"
-          }
-        },
-        {
-          "text": "Boston erased a shaky regular-season start to reach its first NBA Finals in over a decade.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-            "quote": "After starting the season 16–19 and in 10th place"
-          }
-        },
-        {
-          "text": "Golden State's defense held Tatum to a rough shooting night in the championship clincher.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-            "quote": "Tatum finished with 13, shooting just 6-of-18 from the field"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-finals22-g1-threes",
-      "sport": "NBA",
-      "prompt": "Boston and Golden State set a Finals record for combined threes in Game 1 of 2022. How many?",
-      "context": "2022 NBA Finals · Game 1 · at Golden State",
-      "answer": 40,
-      "unit": {
-        "singular": "three-pointer",
-        "plural": "three-pointers"
-      },
-      "min": 8,
-      "max": 50,
-      "step": 1,
-      "note": "40.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-        "quote": "Both teams made a combined 40 three-pointers, the most ever in an NBA Finals game"
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+        "quote": "Pts: Luka Dončić 32"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Al Horford finally reached his first Finals after years of playoff appearances, then led Boston's scoring in the opener.",
+          "text": "Luka made the game-winner over the Defensive Player of the Year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-            "quote": "After playing 141 playoff games without an NBA Finals appearance"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "game-winning three-pointer over the Defensive Player of the Year (Rudy Gobert)"
           }
         },
         {
-          "text": "The Celtics rallied in the fourth quarter after facing a double-digit deficit against the Warriors.",
+          "text": "He distributed 13 assists in the game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-            "quote": "the Celtics outscored the Warriors 40–16"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "Asts: Luka Dončić 13"
           }
         },
         {
-          "text": "Jayson Tatum struggled to shoot in the opener but set a Finals-debut record for assists.",
+          "text": "Dallas escaped with a one-point win.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
-            "quote": "the most ever for a player in his Finals debut"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "Dallas Mavericks 109, Minnesota Timberwolves 108"
           }
         }
       ]

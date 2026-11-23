@@ -1,29 +1,29 @@
 {
   "date": "2026-12-19",
   "theme": {
-    "title": "Lakers lore",
-    "subtitle": "Minneapolis and Los Angeles",
-    "recap": "Long before Showtime the Lakers had Elgin Baylor's Finals record and a 1971–72 team that did not lose for two months."
+    "title": "From Tip to Buzzer",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-lakers72-streak",
+      "id": "nba-nuggets23-regular-wins",
       "sport": "NBA",
-      "prompt": "The 1971–72 Lakers set the NBA record for consecutive wins. How long was the streak?",
-      "context": "Los Angeles Lakers · 1971–72",
-      "answer": 33,
+      "prompt": "How many regular-season games did the 2022–23 Nuggets win?",
+      "context": "Denver Nuggets · 2022–23 · 82 games",
+      "answer": 53,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 6,
-      "max": 48,
+      "min": 37,
+      "max": 78,
       "step": 1,
-      "note": "33 in a row, an NBA record.",
+      "note": "53–29, and Denver reached the Finals for the first time.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-        "quote": "they would also go on an NBA record 33-game winning streak"
+        "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
+        "quote": "Record | 53–29 (.646)"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Coach Bill Sharman replaced the Lakers' old habits with strict conditioning and an up-tempo fast break.",
+          "text": "Denver clinched the Western Conference's top seed for the first time in franchise history in early April.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-            "quote": "He introduced strict conditioning drills and implemented a running fast break-based offense"
+            "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
+            "quote": "On April 5, 2023, the Nuggets clinched the top seed in the Western Conference for the first time in franchise history."
           }
         },
         {
-          "text": "Wilt's job changed: rather than hunt shots, he rebounded and started fast breaks with quick outlet passes.",
+          "text": "The Nuggets swept the Lakers in the Western Conference Finals to make their first NBA Finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-            "quote": "focus on defense, rebounding, and jump-starting the fast break with quick outlet passes"
+            "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
+            "quote": "The Nuggets made the Finals for the first time in history by sweeping the 7th seeded Los Angeles Lakers"
           }
         },
         {
-          "text": "The transition style proved too demanding for the injured Elgin Baylor, whose retirement opened a starting job for Jim McMillian.",
+          "text": "The title ended a 47-season wait in the NBA; Denver had also never won a championship in its ABA years.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-            "quote": "He was replaced at small forward by Jim McMillian"
+            "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
+            "quote": "The 2022–23 Denver Nuggets season was the 47th season for the franchise"
           }
         }
       ]
     },
     {
-      "id": "nba-lakers72-wins",
+      "id": "nba-jordan91-straight-makes",
       "sport": "NBA",
-      "prompt": "The 1971–72 Lakers set a regular-season wins record. What was their win total?",
-      "context": "Los Angeles Lakers · 1971–72 · 82 games",
-      "answer": 69,
+      "prompt": "In Game 2 of the 1991 Finals, Michael Jordan made how many shots in a row?",
+      "context": "1991 NBA Finals · Game 2 · vs Lakers",
+      "answer": 13,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "shot",
+        "plural": "shots"
       },
-      "min": 50,
-      "max": 82,
+      "min": 0,
+      "max": 20,
       "step": 1,
-      "note": "69–13, a record that stood until the 1995–96 Bulls.",
+      "note": "13 straight.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-        "quote": "Record: 69–13 (.841)"
+        "url": "https://en.wikipedia.org/wiki/1991_NBA_Finals",
+        "quote": "Jordan would hit his next 13 shots in compensation"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,49 +83,49 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "The defending champion Bucks, led by Kareem Abdul-Jabbar, were expected to own the league for years.",
+          "text": "Phil Jackson put Scottie Pippen on Magic Johnson as the key defensive adjustment.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-            "quote": "The defending champion Milwaukee Bucks, led by superstar Kareem Abdul-Jabbar"
+            "url": "https://en.wikipedia.org/wiki/1991_NBA_Finals",
+            "quote": "The biggest decision of the game was putting Scottie Pippen on Magic Johnson"
           }
         },
         {
-          "text": "Los Angeles swept Chicago in the conference semifinals before battling Milwaukee in the West finals.",
+          "text": "The Lakers had won the opener in Chicago before the Bulls responded in Game 2.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-            "quote": "Western Conference Semifinals: 4–0"
+            "url": "https://en.wikipedia.org/wiki/1991_NBA_Finals",
+            "quote": "Game 1  | June 2  | Los Angeles Lakers  | 93–91 (1–0)  | Chicago Bulls"
           }
         },
         {
-          "text": "Boston had repeatedly denied the Lakers a championship after their move west, making this title particularly cathartic.",
+          "text": "Marv Albert's call of Jordan's midair, switch-handed layup became one of his signature broadcasts.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-            "quote": "The Lakers lost the championship to them six times in eight years"
+            "url": "https://en.wikipedia.org/wiki/1991_NBA_Finals",
+            "quote": "one of Albert's most iconic calls"
           }
         }
       ]
     },
     {
-      "id": "nba-lakers72-margin",
+      "id": "nba-giannis21-g6-ft",
       "sport": "NBA",
-      "prompt": "By how many points per game did the 1971–72 Lakers outscore their opponents?",
-      "context": "Los Angeles Lakers · 1971–72 regular season",
-      "answer": 12.3,
+      "prompt": "In his 50-point clincher, how many of his 19 free throws did Giannis make?",
+      "context": "2021 NBA Finals · Game 6 · vs Phoenix",
+      "answer": 17,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "free throw",
+        "plural": "free throws"
       },
-      "min": 0,
+      "min": 7,
       "max": 19,
-      "step": 0.1,
-      "note": "12.3 points a night.",
+      "step": 1,
+      "note": "17 of 19, a surprise from a weak free-throw shooter.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-        "quote": "outscoring opponents by 12.3 points per game in the regular season"
+        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+        "quote": "Antetokounmpo made 16 of his 25 shots, and was a surprising 17 for 19 on his free throws"
       },
       "verified": {
         "on": "2026-11-16",
@@ -134,100 +134,100 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "In March, Los Angeles put on a staggering scoring display in a home rout of Golden State.",
+          "text": "Giannis's clutch foul shooting contrasted sharply with his struggles at the line earlier in those playoffs.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-            "quote": "78 March 19 Golden State 99–162 Gail Goodrich"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "after hitting just 55.6% in the playoffs"
           }
         },
         {
-          "text": "Gail Goodrich lit up Houston during a December road victory, leading the Lakers' attack.",
+          "text": "His Finals MVP win made him the youngest recipient since Kawhi Leonard.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-            "quote": "27 December 8 @ Houston 125–120 Gail Goodrich (42)"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "the youngest winner at age 26 since Kawhi Leonard (22) in 2014"
           }
         },
         {
-          "text": "The club's home record was exceptional, but its road success was nearly as impressive.",
+          "text": "The Bucks secured the championship behind lockdown defense from Jrue Holiday on Devin Booker.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-            "quote": "1971–72 game log\nTotal: 69–13 (Home: 36–5; Road: 33–8)"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "His defense helped limit Booker to 19 points"
           }
         }
       ]
     },
     {
-      "id": "nba-wilt72-finals-reb",
+      "id": "nba-sixers01-opening-streak",
       "sport": "NBA",
-      "prompt": "In the game that clinched the 1972 title, Wilt Chamberlain had 24 points and how many rebounds?",
-      "context": "1972 NBA Finals · Game 5 · vs New York",
-      "answer": 29,
+      "prompt": "How many games did the 2000–01 Sixers win in a row to start the season?",
+      "context": "Philadelphia 76ers · opening streak · 2000–01",
+      "answer": 10,
       "unit": {
-        "singular": "rebound",
-        "plural": "rebounds"
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 3,
+      "max": 25,
+      "step": 1,
+      "note": "Ten straight wins before their first loss.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+        "quote": "The 76ers won their first ten games of the regular season"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Philadelphia had built a 36–14 record by the All-Star break before its midseason roster overhaul.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "later on held a 36–14 record at the All-Star break"
+          }
+        },
+        {
+          "text": "Starting guard Eric Snow missed a large chunk of the season with a stress fracture in his right ankle.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "only played just 50 games due to a stress fracture in his right ankle"
+          }
+        },
+        {
+          "text": "The Sixers reached a 42–14 record at one point but went 14–12 over the rest of the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
+            "quote": "At one point, the team's record was 42–14, but finished 14–12 the rest of the way"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-vince01-sixers-first-half-eight-threes",
+      "sport": "NBA",
+      "prompt": "In Vince Carter's legendary 2001 playoff duel with Allen Iverson's Sixers, how many threes did he hit in the first half?",
+      "context": "Vince Carter · Raptors vs 76ers · May 2001",
+      "answer": 8,
+      "unit": {
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
       "min": 0,
-      "max": 34,
+      "max": 24,
       "step": 1,
-      "note": "29 rebounds, and the Finals MVP award.",
+      "note": "Eight first-half threes, as Vince poured in 50 points against Philadelphia.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
-        "quote": "Wilt Chamberlain scored 24 points and 29 rebounds and earned the NBA Finals MVP Award"
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Chamberlain was listed as doubtful for the clincher with a sprained right wrist, yet played anyway.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1972_NBA_Finals",
-            "quote": "Chamberlain was listed as doubtful for Game Five with a sprained right wrist"
-          }
-        },
-        {
-          "text": "ABC announcer Keith Jackson informally tallied Wilt's blocks before the NBA officially tracked them.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1972_NBA_Finals",
-            "quote": "ABC announcer Keith Jackson counted them up during the broadcast"
-          }
-        },
-        {
-          "text": "The victory delivered the Lakers' first championship since the franchise relocated from Minneapolis.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1972_NBA_Finals",
-            "quote": "win their sixth NBA title and their first since 1954, when the team was still based in Minneapolis"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-baylor62-finals-61",
-      "sport": "NBA",
-      "prompt": "What is the NBA record for points in a Finals game, set by Elgin Baylor in 1962?",
-      "context": "Los Angeles Lakers vs Boston Celtics · 1962 NBA Finals",
-      "answer": 61,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 45,
-      "max": 95,
-      "step": 1,
-      "note": "61 points, still the Finals record.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-        "quote": "Baylor set the still-standing NBA record for points in an NBA Finals game with 61."
+        "url": "https://en.wikipedia.org/wiki/Vince_Carter",
+        "quote": "Most three-point field goals made in one half: 8"
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Baylor helped turn basketball into a vertical spectacle; later high-flying stars modeled their moves on his.",
+          "text": "He made eight consecutive threes during the game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-            "quote": "Baylor introduced a creative and acrobatic playing style that would later be emulated"
+            "url": "https://en.wikipedia.org/wiki/Vince_Carter",
+            "quote": "one game: 8"
           }
         },
         {
-          "text": "Seattle University eventually named its basketball court for Baylor, honoring the former college star.",
+          "text": "Carter scored 50 points that night.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-            "quote": "they named its basketball court in honor of him"
+            "url": "https://en.wikipedia.org/wiki/Vince_Carter",
+            "quote": "playoff game: 50"
           }
         },
         {
-          "text": "Although Baylor retired before the Lakers' breakthrough, the team presented him with a championship ring.",
+          "text": "The burst came against the Philadelphia 76ers.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-            "quote": "the Lakers did give Baylor a championship ring for his contributions at the start of the 1971–72 season"
+            "url": "https://en.wikipedia.org/wiki/Vince_Carter",
+            "quote": "May 11, 2001, vs. Philadelphia 76ers"
           }
         }
       ]

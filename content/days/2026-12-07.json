@@ -1,29 +1,29 @@
 {
   "date": "2026-12-07",
   "theme": {
-    "title": "Cup nights",
-    "subtitle": "The In-Season Tournament and NBA Cup",
-    "recap": "The new in-season event produced its own record nights, plus a prize of half a million dollars a player."
+    "title": "Beyond the Box Score",
+    "subtitle": "Teams, stars and stories from across basketball",
+    "recap": "The best numbers come from all over basketball history. Which answer surprised you most?"
   },
   "questions": [
     {
-      "id": "nba-ad23-cup-final",
+      "id": "nba-pacers98-season-wins",
       "sport": "NBA",
-      "prompt": "How many points did Anthony Davis score in the first In-Season Tournament final?",
-      "context": "2023 In-Season Tournament final · Lakers vs Pacers",
-      "answer": 41,
+      "prompt": "How many regular-season games did Larry Bird's 1998 Pacers win?",
+      "context": "Indiana · Bird's rookie coaching year",
+      "answer": 58,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 8,
-      "max": 50,
+      "min": 28,
+      "max": 82,
       "step": 1,
-      "note": "41, with 20 rebounds.",
+      "note": "58 wins in Bird's first coaching season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-        "quote": "Anthony Davis finished with 41 points on 16-for-24 shooting, 20 rebounds and 4 blocks;"
+        "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+        "quote": "58–24 record"
       },
       "verified": {
         "on": "2026-11-16",
@@ -32,49 +32,49 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Davis also grabbed 20 rebounds and blocked four shots in the inaugural Cup title game.",
+          "text": "Larry Bird became Indiana's coach before this season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "Anthony Davis recorded 41 points, 20 rebounds, 5 assists and 4 blocks"
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "hired former Indiana State University, and Boston Celtics All-Star legend Larry Bird as their new head coach"
           }
         },
         {
-          "text": "LeBron James won the overall tournament MVP award even though Davis starred in the final.",
+          "text": "The Pacers acquired Chris Mullin from Golden State.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "LeBron James was named the Most Valuable Player for the tournament"
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "acquired All-Star forward Chris Mullin from the Golden State Warriors"
           }
         },
         {
-          "text": "Pacers guard Tyrese Haliburton handed out 11 assists in the championship loss.",
+          "text": "Indiana drafted Providence forward Austin Croshere twelfth overall.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "Tyrese Haliburton finished with 20 points and 11 assists"
+            "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
+            "quote": "received the twelfth overall pick in the 1997 NBA draft"
           }
         }
       ]
     },
     {
-      "id": "nba-cup23-prize",
+      "id": "nba-finals84-g5-heat",
       "sport": "NBA",
-      "prompt": "How much prize money did each player on the 2023 In-Season Tournament champions earn?",
-      "context": "2023 In-Season Tournament · prize pool",
-      "answer": 500000,
+      "prompt": "Game 5 of the 1984 Finals at Boston Garden had no air conditioning. How hot was it inside, in °F?",
+      "context": "1984 NBA Finals · Game 5 · Boston Garden",
+      "answer": 97,
       "unit": {
-        "singular": "dollar",
-        "plural": "dollars"
+        "singular": "degree Fahrenheit",
+        "plural": "degrees Fahrenheit"
       },
-      "min": 0,
-      "max": 750000,
-      "step": 10000,
-      "note": "$500,000 each.",
+      "min": 82,
+      "max": 122,
+      "step": 1,
+      "note": "97 °F.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-        "quote": "Players on the tournament championship team: $500,000 each"
+        "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
+        "quote": "as it was played under 97 °F (36 °C) heat, and without any air conditioning"
       },
       "verified": {
         "on": "2026-11-16",
@@ -83,151 +83,151 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Players on runner-up Indiana still collected $200,000 each for their tournament run.",
+          "text": "An oxygen tank was brought out for Kareem Abdul-Jabbar in sweltering Boston Garden.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "Players on the tournament runner-up team: $200,000 each"
+            "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
+            "quote": "an oxygen tank was provided to give air to an aging Kareem Abdul-Jabbar"
           }
         },
         {
-          "text": "Losing semifinalists received $100,000 each, even without reaching the title game.",
+          "text": "Referee Hugh Evans became dehydrated and was replaced after fainting in the first half.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "Players on teams that lose in the semifinals: $100,000 each"
+            "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
+            "quote": "Referee Hugh Evans became dehydrated and fainted at one point in the first half."
           }
         },
         {
-          "text": "Unlike earlier knockout games, the Cup championship did not count toward the NBA regular-season standings.",
+          "text": "Boston's players even skipped their usual sweatpants during pregame warmups.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "Quarterfinal and semifinal games counted as regular season games, affecting teams' positions in league standings, but the championship game did not."
+            "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
+            "quote": "The Celtics did not warm up with their sweat pants on because of extreme heat"
           }
         }
       ]
     },
     {
-      "id": "nba-lakers23-cup-paint",
+      "id": "nba-miller12-g5-threes",
       "sport": "NBA",
-      "prompt": "In the 2023 In-Season Tournament final, how many points in the paint did the Lakers score?",
-      "context": "2023 In-Season Tournament final · vs Indiana",
-      "answer": 86,
+      "prompt": "Mike Miller shot eight threes in the 2012 title clincher. How many did he make?",
+      "context": "2012 NBA Finals · Game 5 · vs Oklahoma City",
+      "answer": 7,
       "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 55,
-      "max": 130,
-      "step": 1,
-      "note": "86, to Indiana's 44.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-        "quote": "The Lakers dominated the Pacers inside, edging them with an 86–44 edge in points in the paint."
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Indiana managed 44 paint points, far fewer than the eventual champion.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "an 86–44 edge in points in the paint"
-          }
-        },
-        {
-          "text": "Davis scored ten unanswered points during a decisive fourth-quarter Lakers surge.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "Davis scored 10 straight points as part of the 13–0 run"
-          }
-        },
-        {
-          "text": "The Lakers held off Indiana to win the first Cup championship 123–109 in Las Vegas.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "Indiana Pacers 109, Los Angeles Lakers 123"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-bucks24-cup-quarter",
-      "sport": "NBA",
-      "prompt": "In the 2024 NBA Cup final, Milwaukee held Oklahoma City to how many points in one quarter?",
-      "context": "2024 NBA Cup final · Bucks vs Thunder",
-      "answer": 14,
-      "unit": {
-        "singular": "point",
-        "plural": "points"
-      },
-      "min": 4,
-      "max": 36,
-      "step": 1,
-      "note": "14.",
-      "source": {
-        "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
-        "quote": "holding the Thunder to just 14 points in the period."
-      },
-      "verified": {
-        "on": "2026-11-16",
-        "by": "Stat Window editorial"
-      },
-      "difficulty": "hard",
-      "funFacts": [
-        {
-          "text": "Khris Middleton missed Milwaukee's championship game because he was ill.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
-            "quote": "The Bucks missed Khris Middleton due to illness"
-          }
-        },
-        {
-          "text": "Giannis recorded a triple-double with 26 points, 19 rebounds and 10 assists in the Cup final.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
-            "quote": "Giannis Antetokounmpo recorded a triple-double while leading the Bucks in points (26), rebounds (19), and assists (10)."
-          }
-        },
-        {
-          "text": "The Bucks led by just one point at halftime, before pulling away after the break.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
-            "quote": "The game was close at halftime, with the Bucks leading 51–50"
-          }
-        }
-      ]
-    },
-    {
-      "id": "nba-thunder24-cup-3pa",
-      "sport": "NBA",
-      "prompt": "Oklahoma City made just five threes in the 2024 NBA Cup final. How many did it attempt?",
-      "context": "2024 NBA Cup final · vs Milwaukee",
-      "answer": 32,
-      "unit": {
-        "singular": "attempt",
-        "plural": "attempts"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
       "min": 0,
-      "max": 42,
+      "max": 8,
       "step": 1,
-      "note": "32, a season low in accuracy.",
+      "note": "Seven of eight, for 23 points.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
-        "quote": "going 5-of-32 from long-range, setting season lows in both field goal and three-point percentage"
+        "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
+        "quote": "who was 7 for 8 for three-pointers, ending the night with 23 points"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Oklahoma City was playing its first NBA Finals since the franchise moved from Seattle.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
+            "quote": "Oklahoma City's first NBA Finals appearance since their relocation from Seattle"
+          }
+        },
+        {
+          "text": "The Heat's triumph gave LeBron James his first NBA championship after years of playoff near-misses.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
+            "quote": "The win by the Heat earned James his first championship"
+          }
+        },
+        {
+          "text": "Before facing the Thunder, Miami survived a grueling East finals against Boston despite falling behind.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
+            "quote": "the Heat survived a grueling Eastern Conference finals against the Boston Celtics"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-raptors19-sixers-g7-points",
+      "sport": "NBA",
+      "prompt": "How many points did Toronto score in Game 7 against Philadelphia in 2019?",
+      "context": "Eastern semifinals · Kawhi's buzzer-beater",
+      "answer": 92,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 65,
+      "max": 135,
+      "step": 1,
+      "note": "92 points, including the shot that advanced Toronto.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+        "quote": "a 92–90 victory in the series-clinching game 7"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Leonard's series-winning buzzer-beater came over Joel Embiid.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "Kawhi Leonard's buzzer-beater over Joel Embiid"
+          }
+        },
+        {
+          "text": "The Raptors needed the full seven games to survive Philadelphia.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "edged the Philadelphia 76ers in seven games in the semifinals"
+          }
+        },
+        {
+          "text": "That win sent Toronto into an Eastern final against Milwaukee.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
+            "quote": "The Raptors defeated the Milwaukee Bucks in the Eastern Conference Finals"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nba-brunson24-philly-47",
+      "sport": "NBA",
+      "prompt": "Against Embiid's Sixers in the 2024 playoffs, how many points did Jalen Brunson score to set a Knicks playoff record?",
+      "context": "Jalen Brunson · Knicks at 76ers · April 2024",
+      "answer": 47,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 15,
+      "max": 105,
+      "step": 1,
+      "note": "47 points, a Knicks playoff record, alongside 10 assists in Philadelphia.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+        "quote": "Jalen Brunson scored 47 points, setting a Knicks franchise playoff record en route to securing a commanding 3–1 series lead back to New York."
       },
       "verified": {
         "on": "2026-11-16",
@@ -236,27 +236,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Milwaukee's 97–81 win gave the franchise its first NBA Cup title.",
+          "text": "Brunson made 18 of 34 shots.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
-            "quote": "The Bucks won their first NBA Cup title"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "Brunson shot 18-of-34 from the field"
           }
         },
         {
-          "text": "Taurean Prince became the first player to win two NBA Cups, having won with the Lakers previously.",
+          "text": "He recorded 10 assists to only one turnover.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
-            "quote": "Taurean Prince, who won the 2023 title with the Los Angeles Lakers, became the first player to win multiple NBA Cups"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "finished with an assist-turnover ratio of 10 to 1"
           }
         },
         {
-          "text": "The 2024 tournament was the first with Emirates as the NBA Cup's naming sponsor.",
+          "text": "Brunson surpassed Bernard King's Knicks postseason mark.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
-            "quote": "the first year of a multiyear deal with the airline company Emirates"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "he surpassed the 46 points scored by Bernard King in 1984"
           }
         }
       ]

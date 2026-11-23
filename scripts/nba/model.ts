@@ -47,6 +47,8 @@ export type Fact = {
   answer: number;
   unit: { singular: string; plural: string };
   claim: string;
+  /** Individual verification date for later source-checked additions. */
+  verifiedOn?: string;
   source: { url: string; quote: string; derivation: string | null; asOf: string | null };
   question: {
     prompt: string;
@@ -222,6 +224,7 @@ export function validateNba(data: NbaData): Report {
     if (!Number.isFinite(f.answer)) at('answer is not a number');
     if (!f.unit.singular.trim() || !f.unit.plural.trim()) at('missing unit');
     if (!f.claim.trim()) at('missing claim');
+    if (f.verifiedOn && !isValidDate(f.verifiedOn)) at('invalid source verification date');
     let url: URL | undefined;
     try {
       url = new URL(f.source.url);
@@ -477,7 +480,7 @@ export function questionFromFact(f: Fact): Question & { difficulty: Difficulty }
       quote: f.source.quote,
       ...(f.source.derivation ? { derivation: f.source.derivation } : {}),
     },
-    verified: { on: INSPECTED_ON, by: VERIFIED_BY },
+    verified: { on: f.verifiedOn ?? INSPECTED_ON, by: VERIFIED_BY },
     difficulty: q.difficulty,
     ...(q.funFacts ? { funFacts: q.funFacts } : {}),
   };

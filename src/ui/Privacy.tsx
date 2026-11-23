@@ -69,7 +69,7 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
           <input
             type="checkbox"
             checked={scoring}
-            disabled={prefs.deleting === true}
+            disabled={erasing || prefs.deleting === true}
             onChange={(e) => {
               const on = e.target.checked;
               setPrefs(savePrivacy({ scores: on ? 'on' : 'off' }));
@@ -98,9 +98,12 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
               setErasing(true);
               try {
                 setStatus('Deleting…');
-              // Immediately stop any new submissions while the request is in flight.
-              setPrefs(savePrivacy({ scores: 'off', deleting: !!loadPrivacy().key }));
-              const r = await deleteMyScores();
+              // deleteMyScores() synchronously withdraws consent before it awaits
+              // the network. Do not pre-mark an unused rotated key as pending:
+              // that would trigger an unnecessary billable deletion on a fresh key.
+              const pending = deleteMyScores();
+              setPrefs(loadPrivacy());
+              const r = await pending;
               if (r !== 'failed') track({ name: 'privacy', choice: 'deleted' });
               setPrefs(loadPrivacy());
               setStatus(

@@ -42,9 +42,9 @@ describe('privacy choices', () => {
   it('survives corrupt storage and drops bad fields', () => {
     const s = mem();
     s.setItem(PRIVACY_KEY, '{not json');
-    expect(loadPrivacy(s)).toEqual({ analytics: 'unset', scores: 'unset', key: null, sent: [], done: [], asked: false });
+    expect(loadPrivacy(s)).toEqual({ analytics: 'unset', scores: 'unset', key: null, sent: [], done: [], asked: false, deleting: false });
     s.setItem(PRIVACY_KEY, JSON.stringify({ analytics: 'maybe', scores: 'on', key: 'short', sent: ['2026-11-18', 'x', 5] }));
-    expect(loadPrivacy(s)).toEqual({ analytics: 'unset', scores: 'on', key: null, sent: ['2026-11-18'], done: [], asked: false });
+    expect(loadPrivacy(s)).toEqual({ analytics: 'unset', scores: 'on', key: null, sent: ['2026-11-18'], done: [], asked: false, deleting: false });
   });
 
   it('keeps sent days unique, sorted and bounded', () => {

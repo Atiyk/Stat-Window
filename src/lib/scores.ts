@@ -152,6 +152,12 @@ export async function deleteMyScores(fetchImpl: typeof fetch = fetch): Promise<'
     savePrivacy({ key: null, sent: [], done: [], scores: 'off', deleting: false });
     return 'nothing';
   }
+  if (p.sent.length === 0 && !p.deleting) {
+    // A newly rotated key that has never been submitted has no server-side
+    // score to erase. Do not spend a Redis write or falsely report deletion.
+    savePrivacy({ key: null, sent: [], done: [], scores: 'off', deleting: false });
+    return 'nothing';
+  }
   try {
     const [status, body] = await call('DELETE', { player: p.key, days: p.sent }, fetchImpl);
     const removed = body?.removed;

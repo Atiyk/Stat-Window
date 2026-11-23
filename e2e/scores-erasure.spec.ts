@@ -53,6 +53,11 @@ test('percentile DELETE success (including zero linked records) rotates code onl
   expect(state.key).toMatch(/^[A-Za-z0-9_-]{22}$/);
   expect(state.key).not.toBe(oldKey);
   expect(state).toMatchObject({ scores: 'off', deleting: false, sent: [], done: [] });
+  // The newly generated code has not sent a score. Another Delete action is
+  // therefore local-only, avoiding an unnecessary Redis command or tombstone.
+  await page.getByRole('button', { name: 'Delete my scores' }).click();
+  await expect(page.getByText(/Nothing to delete/)).toBeVisible();
+  expect(deletes).toBe(1);
 });
 
 test('a pending daily score deletion cannot enqueue a duplicate DELETE from double taps', async ({ page }) => {

@@ -132,7 +132,7 @@ export function Onboarding({ onDone }: { onDone: () => void }) {
           <p className="story-note">{score.hit
             ? score.points === 0 ? 'You caught 73, but the window was too wide to earn points.' : 'You caught 73! A smaller window earns more when the answer is inside.'
             : '73 fell outside your window. Try again to find a safer range.'}</p>
-          <p className="context">The Warriors finished 73–9, setting the NBA record for regular-season wins. Practice only; no score was saved. <a href="https://www.nba.com/warriors/news/73-wins-20160413" target="_blank" rel="noopener noreferrer">Source: Golden State Warriors</a></p>
+          <p className="context">The Warriors finished 73–9, setting the NBA record for regular-season wins. Practice only; no score was saved. <a href="https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season" target="_blank" rel="noopener noreferrer">Source: Wikipedia contributors (CC BY-SA 4.0)</a></p>
         </section>
       )}
 

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { Question } from '../content/schema';
 import { normalizeWindow } from '../engine/game';
 import { potentialPoints, scoreWindow, type RoundScore, type Window } from '../engine/scoring';
+import { unitFor } from '../lib/format';
 import { usePrefersReducedMotion } from './hooks';
 import { Readout } from './Readout';
 import { Ruler, type RulerReveal } from './Ruler';
@@ -51,8 +52,10 @@ export function Onboarding({ onDone }: { onDone: () => void }) {
   const moved = window.lo > PRACTICE.min || window.hi < PRACTICE.max;
   const worth = potentialPoints(PRACTICE, window);
   const reveal: RulerReveal | null = score
-    ? { progress, hit: score.hit, from: PRACTICE.max }
+    ? { progress, hit: score.hit, from: PRACTICE.min, zero: score.hit && score.points === 0 }
     : null;
+  const outcome = score?.hit ? (score.points === 0 ? 'Inside, but too wide to score.' : 'Inside.') : 'Outside.';
+  const announcement = !score ? '' : landed ? `${outcome} ${score.points} points. Answer: ${PRACTICE.answer} wins.` : 'Window locked.';
   const change = (next: Window, moving?: 'lo' | 'hi') => {
     if (editable) setWindow(normalizeWindow(PRACTICE, next, moving));
   };
@@ -74,50 +77,38 @@ export function Onboarding({ onDone }: { onDone: () => void }) {
   return (
     <article className="round onboarding-play" aria-label="First-play tutorial" data-phase={landed ? 'resolved' : editable ? 'ready' : 'revealing'}>
       <div className="round-head">
-        <div className="round-top">
-          <ol className="ledger" aria-label="Five rounds in a real game">
-            {Array.from({ length: 5 }, (_, i) => (
-              <li className="ledger-cell" data-status={i === 0 ? landed ? score?.hit ? 'hit' : 'miss' : 'current' : 'todo'} key={i}>
-                <span className="ledger-num" aria-hidden="true">{i === 0 ? 'P' : i + 1}</span>
-              </li>
-            ))}
-          </ol>
-          <p className="round-meta">
-            <span className="round-label">Practice · not counted</span>
-            <span className="shot-clock" aria-label="The practice clock is off">No timer</span>
-          </p>
-        </div>
         <header className="question-block">
-          <p className="context">PRACTICE · CATCH THE NUMBER</p>
+          <p className="context onboarding-status">Practice · <span className="shot-clock">No timer</span></p>
           <h1 className="onboarding-practice-title" ref={titleRef} tabIndex={-1}>How many regular-season games did the 2015–16 Golden State Warriors win?</h1>
-          <p className="context onboarding-example-note">Real NBA history · No timer · Practice only</p>
         </header>
       </div>
 
       <section className="field" aria-label="Your practice window">
         <div className="field-inner">
-          <p className="onboarding-coach">
-            {editable
-              ? 'Drag the two brackets around your guess, or tap either big number to type. Tighter means more points if you catch the answer.'
-              : 'Your window is locked. Watch where the answer lands.'}
-          </p>
+          {editable && <p className="onboarding-coach">Drag a bracket or tap a number. Tighter windows score more if they catch the answer.</p>}
           <Readout question={PRACTICE} window={window} editable={editable} onChange={change} />
-          <div className="verdict-line" aria-live="polite">
+          <div className="sr-only" role="status">{announcement}</div>
+          <div className="verdict-line">
             {landed && score ? score.hit ? (
-              <p className="outcome outcome-hit">
-                <span className="outcome-word">Inside.</span>
+              <p className="outcome outcome-hit" data-zero={score.points === 0 || undefined}>
+                <span className="outcome-word">
+                  <span className="outcome-glyph" aria-hidden="true">✓</span>
+                  {outcome}
+                </span>
                 <span className="outcome-points tabular">+{score.points}</span>
               </p>
             ) : (
               <p className="outcome outcome-miss">
-                <span className="outcome-word">Outside.</span>
-                <span className="outcome-detail">A miss earns zero.</span>
+                <span className="outcome-word"><span className="outcome-glyph" aria-hidden="true">✕</span>{outcome}</span>
+                <span className="outcome-detail">Missed by {score.missBy} {unitFor(score.missBy, PRACTICE.unit)}.</span>
               </p>
             ) : score ? (
-              <p className="worth worth-locked">Locked at {worth} points. Here it comes…</p>
+              <p className="worth worth-locked">Window locked. Revealing the answer…</p>
             ) : (
-              <p className="worth">
-                {worth === 0 ? 'Pull the brackets in to start scoring.' : <>Worth <b className="tabular">{worth}</b> if it's inside, 0 if not.</>}
+              <p className="worth" data-zero={moved && worth === 0 || undefined}>
+                {worth > 0 ? <>Worth <b className="tabular">{worth}</b> if it’s inside.</> : moved
+                  ? <>Worth <b className="tabular">0</b> even if it’s inside. Pull in further.</>
+                  : 'Pull the brackets in to start scoring.'}
               </p>
             )}
           </div>
@@ -129,10 +120,8 @@ export function Onboarding({ onDone }: { onDone: () => void }) {
       {landed && score && (
         <section className="story" aria-label="Practice answer" ref={answerRef} tabIndex={-1}>
           <p className="story-answer"><span className="tabular">{PRACTICE.answer}</span> wins</p>
-          <p className="story-note">{score.hit
-            ? score.points === 0 ? 'You caught 73, but the window was too wide to earn points.' : 'You caught 73! A smaller window earns more when the answer is inside.'
-            : '73 fell outside your window. Try again to find a safer range.'}</p>
-          <p className="context">The Warriors finished 73–9, setting the NBA record for regular-season wins. Practice only; no score was saved. <a href="https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season" target="_blank" rel="noopener noreferrer">Source: Wikipedia contributors (CC BY-SA 4.0)</a></p>
+          <p className="story-note">The Warriors finished 73–9, setting the NBA record for regular-season wins.</p>
+          <p className="context"><a href="https://www.nba.com/warriors/news/73-wins-20160413" target="_blank" rel="noopener noreferrer">Source: Golden State Warriors</a></p>
         </section>
       )}
 
@@ -148,7 +137,7 @@ export function Onboarding({ onDone }: { onDone: () => void }) {
         )}
         {landed && <button type="button" className="btn btn-quiet" onClick={replay}>Try another window</button>}
         {editable && <button type="button" className="btn btn-quiet" onClick={onDone}>Skip tutorial and start</button>}
-        <p className="onboarding-footnote">Real game: five questions, 24 seconds each. Your first clock starts only when you press Start.</p>
+        {landed && <p className="onboarding-footnote">Five questions, 24 seconds each. Press Start to begin the first clock.</p>}
       </div>
     </article>
   );

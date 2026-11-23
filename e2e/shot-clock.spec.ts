@@ -52,8 +52,9 @@ test('a late lock cannot score after the deadline, even before the next timer ti
   await openTimed(page);
   await lowBracket(page).focus();
   await page.keyboard.press('ArrowRight');
-  const now = DAY1.getTime();
-  await page.clock.setSystemTime(new Date(now + 24_500));
+  const startedAt = await page.evaluate(() => Number(sessionStorage.getItem('stat-window:shot:v1:nba-gsw-2016-wins')));
+  expect(startedAt).toBeGreaterThan(0);
+  await page.clock.setSystemTime(new Date(startedAt + 24_500));
   const lock = page.getByRole('button', { name: 'Lock the window' });
   // The background tick may win the race to expire; either path must produce a timeout.
   if (await lock.isVisible()) await lock.click({ timeout: 500 }).catch(() => undefined);
@@ -96,7 +97,7 @@ test('interactive tutorial is not scored and requires an explicit start', async 
   await expect(page.locator('.onboarding-play .story-answer')).toContainText('73');
   await expect(page.locator('.onboarding-play .ruler[data-state="hit"]')).toBeVisible();
   await expect(page.locator('.onboarding-play .story')).toContainText('The Warriors finished 73–9');
-  await expect(page.locator('.onboarding-play .story a')).toHaveAttribute('href', 'https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season');
+  await expect(page.locator('.onboarding-play .story a')).toHaveAttribute('href', 'https://www.nba.com/warriors/news/73-wins-20160413');
   const unsaved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
   expect(unsaved.runs?.['2026-11-15']?.results ?? []).toHaveLength(0);
   await page.getByRole('button', { name: "Start today's five" }).click();
@@ -166,7 +167,7 @@ test('first-play rehearsal allows a miss and a retry without starting any daily 
   const clockKey = 'stat-window:shot:v1:nba-gsw-2016-wins';
   await expect(page.getByRole('button', { name: 'Pull the brackets in first' })).toBeDisabled();
   await page.getByRole('slider', { name: 'High end of your window' }).focus();
-  await page.keyboard.press('Home'); // moves the high bracket near the minimum, missing 42
+  await page.keyboard.press('Home'); // moves the high bracket near the minimum, missing 73
   await page.getByRole('button', { name: 'Lock the window' }).click();
   await expect(page.locator('.onboarding-play .outcome-word')).toContainText('Outside.');
   await expect(page.locator('.onboarding-play .story-answer')).toContainText('73');
@@ -327,6 +328,7 @@ test('other tabs reuse a scored first question rather than replaying it after re
     await second.reload();
     await expect(second.locator('.outcome-word')).toBeVisible();
     await expect(second.getByRole('button', { name: 'Lock the window' })).toHaveCount(0);
+    expect(await second.evaluate(() => sessionStorage.getItem('stat-window:shot:v1:nba-gsw-2016-wins'))).toBeNull();
 
     const beforeNext = await second.evaluate(() => {
       const save = JSON.parse(localStorage.getItem('stat-window:v1') || '{}');

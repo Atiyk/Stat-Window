@@ -1,20 +1,22 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
 <style>
-@font-face { font-family: 'Fraunces'; src: url('../../node_modules/@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2') format('woff2'); font-weight: 100 900; }
 @font-face { font-family: 'DM Sans'; src: url('../../node_modules/@fontsource-variable/dm-sans/files/dm-sans-latin-wght-normal.woff2') format('woff2'); font-weight: 100 1000; }
-html, body { margin: 0; width: 1200px; height: 630px; background: #f7f5ee; color: #20312b; }
-.wrap { padding: 18px 90px 0; }
-.brand { display: flex; align-items: center; gap: 22px; font: 650 44px 'Fraunces'; margin-top: 4px; }
-h1 { font: 650 72px/1.12 'Fraunces'; margin: 40px 0 0; max-width: 900px; letter-spacing: -0.5px; }
-.card { margin-top: 44px; height: 116px; border: 2px solid #dde2da; border-radius: 12px; background: #fffdf9; position: relative; }
-.axis { position: absolute; left: 38px; right: 38px; top: 86px; height: 2px; background: #86938a; }
-.band { position: absolute; left: 530px; width: 160px; top: 24px; height: 48px; background: #c8ddcd; border-left: 7px solid #2f614d; border-right: 7px solid #2f614d; }
-.answer { position: absolute; left: 620px; top: 12px; width: 5px; height: 76px; background: #cf775f; border-radius: 2px; }
-.foot { margin-top: 30px; font: 400 29px 'DM Sans'; color: #5b6c63; }
+html, body { margin: 0; width: 1200px; height: 630px; background: #F7F6F2; color: #202525; }
+.wrap { padding: 52px 90px 0; }
+.brand { display: flex; align-items: center; gap: 18px; font: 780 44px 'DM Sans', sans-serif; letter-spacing: -1.5px; }
+h1 { font: 780 76px/1.02 'DM Sans', sans-serif; margin: 44px 0 0; letter-spacing: -3.5px; }
+.card { margin-top: 44px; height: 126px; border-radius: 16px; background: #E0ECE7; position: relative; }
+.axis { position: absolute; left: 44px; right: 44px; top: 85px; height: 3px; background: #737F7A; }
+.band { position: absolute; left: 48%; width: 20%; top: 24px; height: 77px; background: #B8D5C9; }
+.band::before, .band::after { content: ''; position: absolute; width: 20px; height: 100%; box-sizing: border-box; border: solid #347967; border-width: 6px 0; }
+.band::before { left: 0; border-left-width: 6px; }
+.band::after { right: 0; border-right-width: 6px; }
+.answer { position: absolute; left: 58%; top: 17px; width: 6px; height: 89px; background: #A54E27; border-radius: 3px; }
+.foot { margin-top: 26px; font: 500 29px 'DM Sans', sans-serif; color: #505B58; }
 </style></head><body><div class="wrap">
-<div class="brand"><svg width="48" height="48" viewBox="0 0 32 32"><path d="M11 5H5v22h6M21 5h6v22h-6" stroke="#2f614d" stroke-width="3.5" fill="none" stroke-linejoin="round"/><rect x="14.25" y="9" width="3.5" height="14" rx="1.75" fill="#20312b"/></svg>Stat Window</div>
-<h1>Five real NBA numbers. How tight can you frame them?</h1>
+<div class="brand"><svg width="48" height="48" viewBox="0 0 32 32"><path d="M11 5H5v22h6M21 5h6v22h-6" stroke="#347967" stroke-width="3.5" fill="none" stroke-linejoin="round"/><rect x="14.25" y="9" width="3.5" height="14" rx="1.75" fill="#202525"/></svg>Stat Window</div>
+<h1>Five real NBA numbers.<br>Bracket your best guess.</h1>
 <div class="card"><div class="axis"></div><div class="band"></div><div class="answer"></div></div>
 <div class="foot">A free daily game · same five for everyone · no sign-up</div>
 </div></body></html>

@@ -80,7 +80,7 @@ test.describe('layout', () => {
     await openAt(page, when);
     const check = async () => {
       const r = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
-      return r.violations.filter((v) => v.impact === 'serious' || v.impact === 'critical').map((v) => `${v.id}: ${v.nodes.length}`);
+      return r.violations.filter((v) => v.impact === 'serious' || v.impact === 'critical').flatMap((v) => v.nodes.map((node) => `${v.id} ${node.target.join(' ')}: ${node.failureSummary}`));
     };
     expect(await check()).toEqual([]);
     await lockAndSettle(page);

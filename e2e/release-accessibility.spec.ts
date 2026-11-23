@@ -11,8 +11,10 @@ test.describe('release accessibility and viewport smoke', () => {
 
   for (const { name, width, height } of [
     { name: 'small iPhone', width: 320, height: 568 },
-    { name: 'narrow mobile', width: 375, height: 720 },
+    { name: 'narrow mobile', width: 375, height: 812 },
     { name: 'mobile', width: 390, height: 844 },
+    { name: 'wide mobile', width: 430, height: 932 },
+    { name: 'tablet', width: 768, height: 900 },
     { name: 'laptop 200 percent zoom equivalent', width: 720, height: 450 },
     { name: 'desktop', width: 1440, height: 900 },
   ]) {
@@ -37,6 +39,32 @@ test.describe('release accessibility and viewport smoke', () => {
       expect(await sideways()).toBe(false);
     });
   }
+
+  test('first-play grips can be reached at 320px, and Start focuses the timed question', async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 568 });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.clock.setFixedTime(DAY1);
+    await page.goto('/');
+    await expect(page.getByRole('heading', { name: /Golden State Warriors/ })).toBeVisible();
+    const low = lowBracket(page);
+    const grip = low.locator('.bracket-grip');
+    await expect(grip).toBeInViewport({ ratio: 1 });
+    const reachable = await grip.evaluate((element) => {
+      const { x, y, width, height } = element.getBoundingClientRect();
+      return element.contains(document.elementFromPoint(x + width / 2, y + height / 2));
+    });
+    expect(reachable).toBe(true);
+    const audit = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+    expect(audit.violations).toEqual([]);
+    await low.focus();
+    await page.keyboard.press('ArrowRight');
+    await page.keyboard.press('Enter');
+    await expect(page.getByRole('region', { name: 'Practice answer' })).toContainText('73 wins');
+    await page.getByRole('button', { name: "Start today's five" }).click();
+    await expect(page.locator('h1.question')).toBeFocused();
+    await expect(page.getByRole('timer')).toContainText('24s');
+    expect(await page.evaluate(() => window.scrollY)).toBe(0);
+  });
 
   test('keyboard moves a named slider, Enter locks, and next question receives focus', async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });

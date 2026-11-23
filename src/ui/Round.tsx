@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type Dispatch, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type Dispatch, type ReactNode } from 'react';
 import { canLock, currentQuestion, ROUNDS, totalPoints, type GameAction, type GameState } from '../engine/game';
 import type { Theme } from '../content/schema';
 import { potentialPoints } from '../engine/scoring';
@@ -16,7 +16,6 @@ type Props = {
   dispatch: Dispatch<GameAction>;
   /** Plain question index; difficulty remains an internal editorial label. */
   label: string;
-  showHint: boolean;
   theme?: Theme | undefined;
   /** Set when the run came from a friend's link: shown before the first round only. */
   challenge?: { vs: number | null; vsTime: number | null } | null;
@@ -38,9 +37,10 @@ export type SurvivalChrome = {
   nextLabel: string;
 };
 
-const FIRST_TRAVEL_MS = 1000;
+const FIRST_TRAVEL_MS = 900;
 const TRAVEL_MS = 650;
 const CLAMP_MS = 150;
+const COUNT_UP_MS = 280;
 const SHOT_CLOCK_MS = 24_000;
 /**
  * Session storage protects reloads; local storage also protects a player who
@@ -68,16 +68,19 @@ function savedShotStart(id: string, day: string, shared: boolean): number | null
   }
   return values.length ? Math.min(...values) : null;
 }
-const easeOutQuint = (t: number) => 1 - (1 - t) ** 5;
+const easeOutCubic = (t: number) => 1 - (1 - t) ** 3;
 
-export function Round({ state, dispatch, label, showHint, theme, challenge = null, onFirstTouch, survival }: Props) {
+export function Round({ state, dispatch, label, theme, challenge = null, onFirstTouch, survival }: Props) {
   const q = currentQuestion(state);
   const reduced = usePrefersReducedMotion();
-  const [factSeed] = useState(browserFunFactSeed);
-  const extra = pickFunFact(q, factSeed);
   const last = state.results[state.round];
+  const resolved = state.phase === 'resolved' && last;
+  const interactive = state.phase === 'ready' || state.phase === 'adjusting';
+  const timed = survival === undefined;
+  const [factSeed] = useState(browserFunFactSeed);
+  const extra = useMemo(() => pickFunFact(q, factSeed), [q, factSeed]);
   // One short reaction per reveal, stable across refreshes and not repeated within a run.
-  const reaction = last && !last.timedOut
+  const reaction = useMemo(() => resolved && !resolved.timedOut
     ? pickReactions(
         state.results.slice(0, state.round + 1).map((r, i) => {
           const rq = state.slate.questions[i] ?? q;
@@ -85,28 +88,27 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
         }),
         factSeed,
       ).at(-1)?.text
-    : undefined;
+    : undefined, [resolved, state.results, state.round, state.slate.questions, q, factSeed]);
   const [progress, setProgress] = useState(0);
   const [shownPoints, setShownPoints] = useState(0);
+  const roundRef = useRef<HTMLElement>(null);
   const actionRef = useRef<HTMLButtonElement>(null);
   const skipRef = useRef(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
   // Restore the elapsed clock on the first render rather than briefly flashing
   // 24 seconds while React effects hydrate the saved deadline.
-  const [secondsLeft, setSecondsLeft] = useState(() => {
-    if (survival || typeof window === 'undefined') return 24;
-    const startedAt = savedShotStart(q.id, state.slate.date, state.mode === 'daily');
-    return startedAt === null ? 24 : Math.ceil(Math.max(0, SHOT_CLOCK_MS - (Date.now() - startedAt)) / 1000);
-  });
-  // Initialise the ref from stored state too. Otherwise the first rendered
-  // frame can falsely say "24s · ready" while secondsLeft is already lower.
+  const [initialShotStart] = useState(() => timed && interactive
+    ? savedShotStart(q.id, state.slate.date, state.mode === 'daily')
+    : null);
+  const [secondsLeft, setSecondsLeft] = useState(() => initialShotStart === null
+    ? SHOT_CLOCK_MS / 1000
+    : Math.ceil(Math.max(0, SHOT_CLOCK_MS - (Date.now() - initialShotStart)) / 1000));
   const shot = useRef<{ startedAt: number | null; stopped: boolean }>({
-    startedAt: survival ? null : savedShotStart(q.id, state.slate.date, state.mode === 'daily'),
+    startedAt: initialShotStart,
     stopped: false,
   });
   const dispatchRef = useRef(dispatch);
   dispatchRef.current = dispatch;
-  const timed = survival === undefined;
   const shotKey = sessionShotKey(q.id);
   const crossTabKey = sharedShotKey(state.slate.date, q.id);
   const shareWithTabs = state.mode === 'daily';
@@ -138,25 +140,26 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
   const lockShot = () => {
     if (!canLock(state) || (survival && worth < survival.need)) return;
     if (survival) { dispatch({ type: 'lock' }); return; }
+    if (shot.current.stopped) return;
     startShot();
     const spent = stopShot();
     if (spent >= SHOT_CLOCK_MS) dispatch({ type: 'timeout', elapsedMs: SHOT_CLOCK_MS });
     else dispatch({ type: 'lock', elapsedMs: spent });
   };
   useEffect(() => {
-    let startedAt: number | null = null;
-    if (timed) {
-      startedAt = savedShotStart(q.id, state.slate.date, shareWithTabs);
-      // Question is mounted only after Start. Never add time on another tab.
-      startedAt = rememberStart(startedAt ?? Date.now());
+    if (!timed) return;
+    if (!interactive) {
+      // A restored result or a result from another tab has already used its time.
+      if (last && !shot.current.stopped) stopShot();
+      return;
     }
+    // Question is mounted only after Start. Never add time on another tab.
+    const startedAt = rememberStart(Date.now());
     shot.current = { startedAt, stopped: false };
-    setSecondsLeft(startedAt === null ? 24 : Math.ceil(Math.max(0, SHOT_CLOCK_MS - (Date.now() - startedAt)) / 1000));
-    // A changed first-touch hint must never restart the clock.
+    setSecondsLeft(Math.ceil(Math.max(0, SHOT_CLOCK_MS - (Date.now() - startedAt)) / 1000));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state.round, q.id]);
+  }, [interactive, timed, state.round, q.id]);
 
-  const interactive = state.phase === 'ready' || state.phase === 'adjusting';
   const worth = potentialPoints(q, state.window);
 
   useEffect(() => {
@@ -182,7 +185,7 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
     // A second official-daily tab can start first; always adopt the earliest
     // shared deadline, never extend one that is already running.
     const onStorage = (event: StorageEvent) => {
-      if (!shareWithTabs || event.key !== crossTabKey || event.newValue === null) return;
+      if (shot.current.stopped || !shareWithTabs || event.key !== crossTabKey || event.newValue === null) return;
       const other = Number(event.newValue);
       if (Number.isFinite(other) && other > 0 && other <= Date.now() + 1000 &&
           shot.current.startedAt !== null && other < shot.current.startedAt) {
@@ -204,24 +207,29 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
   useEffect(() => {
     setProgress(0);
     setShownPoints(0);
-    if (state.round > 0 || state.results.length > 0) {
+    const focused = document.activeElement;
+    if (focused === document.body || roundRef.current?.contains(focused)) {
       headingRef.current?.focus({ preventScroll: true });
-      // The previous round may have left the page scrolled down to its fact; start the new one at the top.
+      // Start may be below the fold in practice, just like Next in a long reveal.
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
-  }, [state.round]);
+  }, [state.round, q.id]);
 
   // locked → (brief clamp) → revealing
   useEffect(() => {
     if (state.phase !== 'locked') return;
-    feedback.lock();
-    const t = window.setTimeout(() => dispatch({ type: reduced ? 'settle' : 'reveal' }), reduced ? 0 : CLAMP_MS);
+    if (!last?.timedOut) feedback.lock();
+    const t = window.setTimeout(() => dispatchRef.current({ type: reduced ? 'settle' : 'reveal' }), reduced ? 0 : CLAMP_MS);
     return () => window.clearTimeout(t);
-  }, [state.phase, reduced, dispatch]);
+  }, [state.phase, reduced, last?.timedOut]);
 
-  // revealing: the answer travels along the ruler from the low end and lands.
+  // Move the marker from the far end of the ruler and settle on the landing frame.
   useEffect(() => {
     if (state.phase !== 'revealing' || !last) return;
+    if (reduced) {
+      dispatchRef.current({ type: 'settle' });
+      return;
+    }
     let raf = 0;
     let lastTickAt = 0;
     const start = performance.now();
@@ -229,27 +237,31 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
     skipRef.current = false;
     const step = (now: number) => {
       const t = skipRef.current ? 1 : Math.min(1, (now - start) / duration);
-      setProgress(easeOutQuint(t));
       if (now - lastTickAt > 70 + t * 160 && t < 0.92) {
         feedback.roll();
         lastTickAt = now;
       }
-      if (t < 1) raf = requestAnimationFrame(step);
-      else {
-        if (last.hit) feedback.hit(last.points);
-        else feedback.miss();
-        window.setTimeout(() => dispatch({ type: 'settle' }), 220);
+      if (t < 1) {
+        setProgress(easeOutCubic(t));
+        raf = requestAnimationFrame(step);
+      } else {
+        if (last.points > 0) feedback.hit(last.points);
+        else if (!last.hit) feedback.miss();
+        dispatchRef.current({ type: 'settle' });
       }
     };
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
-  }, [state.phase, state.round, last, dispatch]);
+  }, [state.phase, state.round, last, reduced]);
 
   // resolved: count the points up, then put focus on the next action.
   useEffect(() => {
     if (state.phase !== 'resolved' || !last) return;
     setProgress(1);
-    actionRef.current?.focus({ preventScroll: true });
+    const focused = document.activeElement;
+    if (focused === document.body || roundRef.current?.contains(focused)) {
+      actionRef.current?.focus({ preventScroll: true });
+    }
     if (reduced || last.points === 0) {
       setShownPoints(last.points);
       return;
@@ -257,8 +269,8 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
     let raf = 0;
     const start = performance.now();
     const step = (now: number) => {
-      const t = Math.min(1, (now - start) / 350);
-      setShownPoints(Math.round(last.points * easeOutQuint(t)));
+      const t = Math.min(1, (now - start) / COUNT_UP_MS);
+      setShownPoints(Math.round(last.points * easeOutCubic(t)));
       if (t < 1) raf = requestAnimationFrame(step);
     };
     raf = requestAnimationFrame(step);
@@ -268,8 +280,17 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
   const revealing = state.phase === 'revealing' || state.phase === 'resolved';
   // The flag sets off from whichever end of the ruler is farther from the answer, so it always has to cross ground.
   const from = q.answer - q.min > q.max - q.answer ? q.min : q.max;
-  const reveal: RulerReveal | null = revealing && last ? { progress: state.phase === 'resolved' ? 1 : progress, hit: last.hit, from } : null;
-  const resolved = state.phase === 'resolved' && last;
+  const reveal: RulerReveal | null = revealing && last ? {
+    progress: resolved ? 1 : progress,
+    hit: last.hit,
+    from,
+    zero: last.hit && last.points === 0,
+  } : null;
+  const resultLabel = resolved && (resolved.timedOut ? 'Shot clock violation.' : !resolved.hit ? 'Outside.'
+    : resolved.points === 0 ? 'Inside, but too wide to score.' : 'Inside.');
+  const announcement = resolved
+    ? `${resultLabel} ${resolved.points} points. The answer is ${formatValue(q.answer, q.step)} ${unitFor(q.answer, q.unit)}.`
+    : !interactive ? last?.timedOut ? 'Time’s up.' : 'Window locked.' : '';
   // Don't leak the outcome before the answer lands.
   const runningTotal = survival ? survival.total : totalPoints(state.phase === 'resolved' ? state.results : state.results.slice(0, state.round));
   const short = survival !== undefined && worth < survival.need;
@@ -277,7 +298,7 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
   const isLast = state.round >= ROUNDS - 1;
 
   return (
-    <article className="round" data-phase={state.phase} data-first-play={showHint || undefined}>
+    <article ref={roundRef} className="round" data-phase={state.phase}>
       <div className="round-head">
       <div className="round-top">
         {survival ? survival.ledger : <ol className="ledger" aria-label="Rounds">
@@ -290,7 +311,7 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
                 <span className="sr-only">
                   Question {i + 1}: {shown ? `${r.points} points` : i === state.round ? 'now playing' : 'to play'}
                 </span>
-                                <span className="ledger-num" aria-hidden="true">{shown ? r.points : i + 1}</span>
+                <span className="ledger-num" aria-hidden="true">{shown ? i === state.round ? shownPoints : r.points : i + 1}</span>
               </li>
             );
           })}
@@ -304,16 +325,12 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
             aria-label={interactive ? `Shot clock: ${secondsLeft} seconds left` : 'Shot clock stopped'}>
             {!interactive && last?.elapsedMs !== undefined
               ? `${Math.ceil(Math.max(0, SHOT_CLOCK_MS - last.elapsedMs) / 1000)}s`
-              : shot.current.startedAt === null && interactive ? '24s · ready' : `${secondsLeft}s`}
+              : `${secondsLeft}s`}
           </span>}
         </p>
       </div>
 
       <header className="question-block">
-        {showHint && timed && interactive && (
-          <p className="first-play-guide"><strong>First window:</strong> Drag both brackets around your best guess.
-            Narrower = more points. Lock before the buzzer. Your 24 seconds start when the question appears.</p>
-        )}
         {challenge && interactive && (
           <p className="challenge-note">
             {challenge.vs === null ? (
@@ -329,9 +346,9 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
           {q.prompt}
         </h1>
         <p className="context">
-          {q.sport} · {theme && state.round === 0 && !survival ? (
-            <><span className="puzzle-theme"><strong>{theme.title}</strong></span><span className="theme-subtitle"> · {theme.subtitle}</span></>
-          ) : q.context}
+          {q.sport}{theme && state.round === 0 && !survival ? (
+            <><span className="puzzle-theme"> · <strong>{theme.title}</strong></span><span className="theme-subtitle"> · {theme.subtitle}</span></>
+          ) : ` · ${q.context}`}
         </p>
       </header>
       </div>
@@ -351,7 +368,8 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
             }}
           />
 
-          <div className="verdict-line" aria-live="polite">
+          <div className="sr-only" role="status">{announcement}</div>
+          <div className="verdict-line">
             {resolved && last.timedOut ? (
               <p className="outcome outcome-miss"><span className="outcome-word">Shot clock violation.</span>
                 <span className="outcome-detail">Buzzer. +0. The answer is below.</span></p>
@@ -364,7 +382,8 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
                     <span className="outcome-glyph" aria-hidden="true">✓</span>
                     {last.points === 0 ? 'Inside, but too wide to score.' : 'Inside.'}
                   </span>
-                  <span className="outcome-points tabular">+{shownPoints}</span>
+                  <span className="outcome-points tabular" aria-hidden="true">+{shownPoints}</span>
+                  <span className="sr-only">{last.points} points.</span>
                 </p>
               ) : (
                 <p className="outcome outcome-miss">
@@ -378,7 +397,7 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
                 </p>
               )
             ) : state.phase === 'locked' || state.phase === 'revealing' ? (
-              <p className="worth worth-locked">Locked at {worth} points. Here it comes…</p>
+              <p className="worth worth-locked">{last?.timedOut ? 'Time’s up. Revealing the answer…' : 'Window locked. Revealing the answer…'}</p>
             ) : survival ? (
               <p className="worth" data-short={short || undefined}>
                 {worth === 0 ? (
@@ -396,9 +415,7 @@ export function Round({ state, dispatch, label, showHint, theme, challenge = nul
               </p>
             ) : worth === 0 ? (
               <p className="worth">
-                {showHint
-                  ? 'Drag brackets in. Your 24s started when this question appeared. Tighter scores more.'
-                  : 'Pull the brackets in to start scoring.'}
+                Pull the brackets in to start scoring.
               </p>
             ) : (
               <p className="worth">
@@ -471,7 +488,8 @@ function SurvivalOutcome({ hit, points, need, shown, missBy }: { hit: boolean; p
           <span className="outcome-glyph" aria-hidden="true">✓</span>
           Survived.
         </span>
-        <span className="outcome-points tabular">+{shown}</span>
+        <span className="outcome-points tabular" aria-hidden="true">+{shown}</span>
+        <span className="sr-only">{points} points.</span>
       </p>
     );
   }

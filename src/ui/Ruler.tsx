@@ -1,10 +1,13 @@
-import { useCallback, useMemo, useRef, useState, type KeyboardEvent, type PointerEvent } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent } from 'react';
 import type { Question } from '../content/schema';
+import { normalizeWindow } from '../engine/game';
 import type { Window } from '../engine/scoring';
 import { formatValue, niceTicks, unitFor } from '../lib/format';
 import { feedback } from './feedback';
 
-type Grab = { kind: 'lo' | 'hi' } | { kind: 'band'; offset: number; width: number };
+type Bound = 'lo' | 'hi';
+type Grab = { clientX: number; value: number; unitsPerPixel: number } & ({ kind: Bound } | { kind: 'band'; width: number });
+const compactTick = new Intl.NumberFormat('en-US', { notation: 'compact', maximumFractionDigits: 2 });
 
 export type RulerReveal = {
   /** 0..1 progress of the marker's travel; 1 = landed. */
@@ -12,6 +15,7 @@ export type RulerReveal = {
   readonly hit: boolean | null;
   /** The end of the scale the flag starts from. */
   readonly from: number;
+  readonly zero?: boolean;
 };
 
 type Props = {
@@ -28,39 +32,57 @@ export function Ruler({ question: q, window: w, interactive, reveal, onChange, o
   const trackRef = useRef<HTMLDivElement>(null);
   const grab = useRef<Grab | null>(null);
   const pointerId = useRef<number | null>(null);
+  const latestWindow = useRef(w);
   const [dragging, setDragging] = useState<Grab['kind'] | null>(null);
 
   const span = q.max - q.min;
   const pct = useCallback((v: number) => ((v - q.min) / span) * 100, [q.min, span]);
   const ticks = useMemo(() => niceTicks(q.min, q.max, 5), [q.min, q.max]);
 
-  const valueAt = (clientX: number): number => {
-    const el = trackRef.current;
-    if (!el) return q.min;
-    const r = el.getBoundingClientRect();
-    const t = Math.min(1, Math.max(0, (clientX - r.left) / r.width));
-    return q.min + t * span;
-  };
+  useLayoutEffect(() => {
+    latestWindow.current = w;
+  }, [w]);
 
-  const emit = (next: Window, moving?: 'lo' | 'hi') => {
-    if (next.lo !== w.lo || next.hi !== w.hi) feedback.tick();
-    onChange(next, moving);
+  useEffect(() => {
+    const active = pointerId.current;
+    if (interactive || active === null) return;
+    grab.current = null;
+    pointerId.current = null;
+    setDragging(null);
+    const track = trackRef.current;
+    if (track?.hasPointerCapture(active)) track.releasePointerCapture(active);
+  }, [interactive]);
+
+  const emit = (next: Window, moving?: Bound) => {
+    const snapped = normalizeWindow(q, next, moving);
+    const prior = latestWindow.current;
+    if (snapped.lo === prior.lo && snapped.hi === prior.hi) return;
+    latestWindow.current = snapped;
+    feedback.tick();
+    onChange(snapped, moving);
   };
 
   const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
     if (!interactive || pointerId.current !== null) return; // ignore a second finger
     if (e.button !== 0 && e.pointerType === 'mouse') return;
-    const v = valueAt(e.clientX);
+    const track = e.currentTarget.getBoundingClientRect();
+    if (track.width === 0) return;
+    const unitsPerPixel = span / track.width;
+    const pointer = { clientX: e.clientX, unitsPerPixel };
+    const v = q.min + (e.clientX - track.left) * unitsPerPixel;
+    const nearest = v <= (w.lo + w.hi) / 2 ? 'lo' : 'hi';
     const target = (e.target as HTMLElement).closest<HTMLElement>('[data-grab]')?.dataset.grab;
     let g: Grab;
     if (target === 'lo' || target === 'hi') {
-      g = { kind: target };
+      // The generous handle targets can overlap. Pick the closest endpoint
+      // even when the other handle is drawn on top of it.
+      g = { ...pointer, kind: nearest, value: w[nearest] };
     } else if (target === 'band') {
-      g = { kind: 'band', offset: v - w.lo, width: w.hi - w.lo };
+      g = { ...pointer, kind: 'band', value: w.lo, width: w.hi - w.lo };
     } else {
-      // Tap on open track: the bracket on that side jumps there and keeps following.
-      g = { kind: v < w.lo ? 'lo' : v > w.hi ? 'hi' : Math.abs(v - w.lo) <= Math.abs(v - w.hi) ? 'lo' : 'hi' };
-      emit(g.kind === 'lo' ? { lo: v, hi: w.hi } : { lo: w.lo, hi: v }, g.kind);
+      // A tap on the open track places the nearest bracket at that spot.
+      g = { ...pointer, kind: nearest, value: v };
+      emit({ ...w, [nearest]: v }, nearest);
     }
     grab.current = g;
     pointerId.current = e.pointerId;
@@ -76,13 +98,15 @@ export function Ruler({ question: q, window: w, interactive, reveal, onChange, o
 
   const onPointerMove = (e: PointerEvent<HTMLDivElement>) => {
     const g = grab.current;
-    if (!g || e.pointerId !== pointerId.current) return;
-    const v = valueAt(e.clientX);
+    if (!interactive || !g || e.pointerId !== pointerId.current) return;
+    // Grab wherever the finger lands without snapping a handle under it.
+    const v = g.value + (e.clientX - g.clientX) * g.unitsPerPixel;
     if (g.kind === 'band') {
-      const lo = Math.min(q.max - g.width, Math.max(q.min, v - g.offset));
+      const lo = Math.min(q.max - g.width, Math.max(q.min, v));
       emit({ lo, hi: lo + g.width });
-    } else if (g.kind === 'lo') emit({ lo: v, hi: w.hi }, 'lo');
-    else emit({ lo: w.lo, hi: v }, 'hi');
+    } else {
+      emit({ ...latestWindow.current, [g.kind]: v }, g.kind);
+    }
   };
 
   const endDrag = (e: PointerEvent<HTMLDivElement>) => {
@@ -136,14 +160,19 @@ export function Ruler({ question: q, window: w, interactive, reveal, onChange, o
   const state = !landed ? 'open' : reveal?.hit ? 'hit' : 'miss';
 
   return (
-    <div className="ruler" data-state={state} data-dragging={dragging ?? undefined}>
+    <div
+      className="ruler"
+      data-state={state}
+      data-dragging={interactive ? dragging ?? undefined : undefined}
+      data-zero={landed && reveal?.zero || undefined}
+    >
       <div
         ref={trackRef}
         className="ruler-track"
         data-interactive={interactive || undefined}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
-        onPointerUp={endDrag}
+        onPointerUp={(e) => { onPointerMove(e); endDrag(e); }}
         onPointerCancel={endDrag}
         onLostPointerCapture={endDrag}
       >
@@ -153,7 +182,7 @@ export function Ruler({ question: q, window: w, interactive, reveal, onChange, o
           ))}
           {ticks.major.map((t) => (
             <span key={`M${t}`} className="tick tick-major" style={{ left: `${pct(t)}%` }}>
-              <span className="tick-label">{formatValue(t, q.step < 1 ? 0.1 : q.step)}</span>
+              <span className="tick-label">{Math.abs(t) >= 10_000 ? compactTick.format(t) : formatValue(t, q.step < 1 ? 0.1 : q.step)}</span>
             </span>
           ))}
         </div>
@@ -167,12 +196,13 @@ export function Ruler({ question: q, window: w, interactive, reveal, onChange, o
 
         {(['lo', 'hi'] as const).map((which) => {
           const v = which === 'lo' ? w.lo : w.hi;
+          const position = pct(v);
           return (
             <div
               key={which}
               className={`bracket bracket-${which}`}
               data-grab={interactive ? which : undefined}
-              style={{ left: `${pct(v)}%` }}
+              style={{ left: `${position}%`, '--bracket-position': position } as CSSProperties}
               role="slider"
               tabIndex={interactive ? 0 : -1}
               aria-label={which === 'lo' ? 'Low end of your window' : 'High end of your window'}
@@ -196,7 +226,7 @@ export function Ruler({ question: q, window: w, interactive, reveal, onChange, o
           <div
             className="marker"
             data-landed={landed || undefined}
-            style={{ left: `${pct(markerValue)}%` }}
+            style={{ '--marker-position': pct(markerValue) } as CSSProperties}
             aria-hidden="true"
           >
             <span className="marker-flag">{formatValue(landed ? q.answer : markerValue, q.step)}</span>

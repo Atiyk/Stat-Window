@@ -173,12 +173,30 @@ test('blocked browser storage never uploads a score that the player cannot erase
   await expect(page.getByRole('button', { name: 'Challenge a friend' })).toBeEnabled();
 });
 
-test('native share sends the spoiler-free card image when files are supported; cancel leaves no fallback', async ({ page }) => {
+type NativeShareProbe = {
+  shared: Array<{ text: string; files: Array<{ name: string; type: string; size: number }> }>;
+  cancelNext: boolean;
+  cardQueued: boolean;
+  cardReady: boolean;
+  prepareCard: () => void;
+};
+
+test('native share works while the card renders, attaches the ready image, and handles cancel', async ({ page }) => {
   await stubScores(page, stored());
   await page.addInitScript(() => {
-    const w = window as unknown as { shared: unknown[]; cancelNext: boolean };
+    const w = window as unknown as NativeShareProbe;
     w.shared = [];
     w.cancelNext = false;
+    w.cardQueued = false;
+    w.cardReady = false;
+    const toBlob = HTMLCanvasElement.prototype.toBlob;
+    HTMLCanvasElement.prototype.toBlob = function (callback, type, quality) {
+      w.prepareCard = () => toBlob.call(this, (blob) => {
+        callback(blob);
+        w.cardReady = true;
+      }, type, quality);
+      w.cardQueued = true;
+    };
     Object.defineProperty(navigator, 'canShare', { value: (d: { files?: File[] }) => !!d.files, configurable: true });
     Object.defineProperty(navigator, 'share', {
       configurable: true,
@@ -192,14 +210,25 @@ test('native share sends the spoiler-free card image when files are supported; c
   });
   await openAt(page, NBA_FIRST);
   await playOut(page);
-  await page.getByRole('button', { name: 'Challenge a friend' }).click();
-  await expect.poll(() => page.evaluate(() => (window as unknown as { shared: unknown[] }).shared.length)).toBe(1);
-  const [shared] = (await page.evaluate(() => (window as unknown as { shared: unknown[] }).shared)) as { text: string; files: { name: string; type: string; size: number }[] }[];
+  const share = page.getByRole('button', { name: 'Challenge a friend' });
+  const attempts = () => page.evaluate(() => (window as unknown as NativeShareProbe).shared);
+  await expect.poll(() => page.evaluate(() => (window as unknown as NativeShareProbe).cardQueued)).toBe(true);
+  await share.click();
+  await expect.poll(attempts).toHaveLength(1);
+  const [early] = await attempts();
+  expect(early!.text).toMatch(new RegExp(`/\\?day=${DAY}&vs=\\d+&time=\\d+$`));
+  expect(early!.files).toEqual([]);
+
+  await page.evaluate(() => (window as unknown as NativeShareProbe).prepareCard());
+  await expect.poll(() => page.evaluate(() => (window as unknown as NativeShareProbe).cardReady)).toBe(true);
+  await share.click();
+  await expect.poll(attempts).toHaveLength(2);
+  const [, shared] = await attempts();
   expect(shared!.files[0]).toMatchObject({ name: `stat-window-${DAY}.png`, type: 'image/png' });
   expect(shared!.files[0]!.size).toBeGreaterThan(5000);
-  expect(shared!.text).toMatch(new RegExp(`/\\?day=${DAY}&vs=\\d+&time=\\d+$`));
-  await page.evaluate(() => ((window as unknown as { cancelNext: boolean }).cancelNext = true));
-  await page.getByRole('button', { name: 'Challenge a friend' }).click();
+  expect(shared!.text).toBe(early!.text);
+  await page.evaluate(() => ((window as unknown as NativeShareProbe).cancelNext = true));
+  await share.click();
   await expect(page.getByRole('textbox', { name: 'Your result to copy' })).toHaveCount(0);
 });
 

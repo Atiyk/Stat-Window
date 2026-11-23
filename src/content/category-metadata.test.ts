@@ -9,6 +9,11 @@ describe('NBA category metadata', () => {
       .toBe('2010s · NBA Finals');
   });
 
+  it('labels the 2000 Finals in the 2000s even though the season started in 1999', () => {
+    expect(labelFor({ id: 'nba-shaq00-finals-ppg', scope: 'finals', season: '1999-00', eventDate: null, franchise: 'LAL', player: 'Shaquille O’Neal' } as never, names))
+      .toBe('2000s · NBA Finals');
+  });
+
   it('recognizes the Seattle franchise rather than retroactively calling it Oklahoma City', () => {
     expect(labelFor({ id: 'old-sonics', scope: 'regular-season', season: '1993-94', eventDate: null, franchise: 'OKC', player: null } as never, names))
       .toBe('1990s · Seattle SuperSonics');

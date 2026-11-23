@@ -15,7 +15,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "npm run build && playwright test",
-    "content:check": "node --experimental-strip-types scripts/content-check.ts",
+    "content:check": "node --experimental-strip-types scripts/content-check.ts && npm run categories:check",
     "content:trivia:check": "node --experimental-strip-types scripts/trivia-audit.ts",
     "content:trivia:complete": "node --experimental-strip-types scripts/trivia-audit.ts --require-complete",
     "remind:ics": "node --experimental-strip-types scripts/remind-ics.ts",
@@ -35,7 +35,8 @@
     "factory": "node --experimental-strip-types scripts/question-factory/cli.ts",
     "factory:check": "node --experimental-strip-types scripts/question-factory/cli.ts check",
     "api:build": "vite build --config vite.api.config.ts --logLevel warn && vite build --config vite.leaderboard.config.ts --logLevel warn",
-    "api:check": "node --experimental-strip-types scripts/api-check.ts"
+    "api:check": "node --experimental-strip-types scripts/api-check.ts",
+    "categories:check": "node --experimental-strip-types scripts/nba/category-labels.ts --check"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "^5.3.0",

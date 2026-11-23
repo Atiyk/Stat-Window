@@ -876,69 +876,11 @@ a {
 }
 
 .story-extra {
-  margin: 14px 0 12px;
-  padding: 10px 14px;
-  border-left: 3px solid var(--brand);
-  background: var(--brand-soft);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  max-width: 62ch;
-}
-.story-extra-title {
-  margin: 0 0 4px;
-  color: var(--brand-press);
-  font-size: 0.8125rem;
-  font-weight: 800;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-}
-.story-extra-text { margin: 0; font-size: 1rem; line-height: 1.45; }
-
-/* Sources & method: one quiet line that names the source; the licence and links one tap away. */
-.sources {
-  margin: 4px 0 0;
+  margin: 12px 0 8px;
   max-width: 62ch;
   color: var(--ink-soft);
-  font-size: 0.875rem;
 }
-.sources summary {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 44px;
-  cursor: pointer;
-  list-style: none;
-}
-.sources-label {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-}
-.sources summary::-webkit-details-marker { display: none; }
-.sources summary::after {
-  content: '';
-  width: 7px;
-  height: 7px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-  rotate: 45deg;
-  translate: 0 -2px;
-  transition: rotate 160ms var(--ease-out);
-}
-.sources[open] summary::after { rotate: 225deg; translate: 0 2px; }
-.sources-via { text-decoration: none; }
-.sources-body {
-  padding: 2px 0 6px;
-}
-.sources-body p { margin: 0 0 6px; line-height: 1.45; }
-.sources-body a {
-  /* 44px tall to the finger, without spreading the lines apart. */
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  margin: -12px 0;
-  vertical-align: baseline;
-}
-.sources-method { font-size: 0.8125rem; }
+.story-extra-text { margin: 0; font-size: 1rem; line-height: 1.45; }
 
 @keyframes story-in {
   from {
@@ -2034,14 +1976,12 @@ a {
 /* Daily shot-clock and new-player guidance. */
 .shot-clock { display: block; font-variant-numeric: tabular-nums; font-size: 0.9375rem; font-weight: 850; color: var(--brand); }
 .shot-clock[data-urgent='true'] { color: var(--danger); }
-.puzzle-theme { color: var(--brand); font-weight: 600; font-size: 0.9375rem; }
 .results-time { margin: 8px 0 0; font-size: 0.9375rem; color: var(--ink-soft); }
 .results-time strong { color: var(--ink); font-size: 1.125rem; }
 @media (max-width: 359px), (max-height: 700px) { .shot-clock { font-size: 0.8125rem; } }
 
 /* Leave more room for the ruler and its lock target on the shortest screens. */
 @media (max-width: 359px), (max-height: 520px) {
-  .puzzle-theme { display: none; }
 }
 
 /* Shot clock stays visually distinct without increasing the first-screen header height. */
@@ -2066,11 +2006,6 @@ a {
   .round-top .round-meta { min-width: 0; flex: 0 1 auto; font-size: 0.8125rem; column-gap: 5px; }
   .round-top .round-total { font-size: 0.875rem; }
   .round-top .shot-clock { font-size: 0.8125rem; }
-}
-
-/* Keep the context line compact on phones. */
-@media (max-width: 719px) {
-  .theme-subtitle { display: none; }
 }
 
 .ready-card {

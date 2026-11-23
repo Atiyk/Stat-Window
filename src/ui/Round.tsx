@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type Dispatch, type ReactNode } from 'react';
 import { canLock, currentQuestion, ROUNDS, totalPoints, type GameAction, type GameState } from '../engine/game';
-import type { Theme } from '../content/schema';
 import { potentialPoints } from '../engine/scoring';
 import { formatValue, unitFor } from '../lib/format';
 import { feedback } from './feedback';
@@ -9,14 +8,13 @@ import { Ruler, type RulerReveal } from './Ruler';
 import { usePrefersReducedMotion } from './hooks';
 import { browserFunFactSeed, pickFunFact } from './fun-facts';
 import { pickReactions } from './reactions';
-import { SourcesDisclosure } from './Sources';
+import { contextLabel } from '../content/category';
 
 type Props = {
   state: GameState;
   dispatch: Dispatch<GameAction>;
   /** Plain question index; difficulty remains an internal editorial label. */
   label: string;
-  theme?: Theme | undefined;
   /** Set when the run came from a friend's link: shown before the first round only. */
   challenge?: { vs: number | null; vsTime: number | null } | null;
   onFirstTouch: () => void;
@@ -70,7 +68,7 @@ function savedShotStart(id: string, day: string, shared: boolean): number | null
 }
 const easeOutCubic = (t: number) => 1 - (1 - t) ** 3;
 
-export function Round({ state, dispatch, label, theme, challenge = null, onFirstTouch, survival }: Props) {
+export function Round({ state, dispatch, label, challenge = null, onFirstTouch, survival }: Props) {
   const q = currentQuestion(state);
   const reduced = usePrefersReducedMotion();
   const last = state.results[state.round];
@@ -345,11 +343,7 @@ export function Round({ state, dispatch, label, theme, challenge = null, onFirst
         <h1 className="question" ref={headingRef} tabIndex={-1}>
           {q.prompt}
         </h1>
-        <p className="context">
-          {q.sport}{theme && state.round === 0 && !survival ? (
-            <><span className="puzzle-theme"> · <strong>{theme.title}</strong></span><span className="theme-subtitle"> · {theme.subtitle}</span></>
-          ) : ` · ${q.context}`}
-        </p>
+        <p className="context">{contextLabel(q)}</p>
       </header>
       </div>
 
@@ -447,11 +441,9 @@ export function Round({ state, dispatch, label, theme, challenge = null, onFirst
           <p className="story-note">{q.note}</p>
           {extra && (
             <aside className="story-extra" aria-label="Bonus sports fact">
-              <p className="story-extra-title">One more thing</p>
               <p className="story-extra-text">{extra.text}</p>
             </aside>
           )}
-          <SourcesDisclosure question={q} extra={extra} />
         </section>
       )}
 

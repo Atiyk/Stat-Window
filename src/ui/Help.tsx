@@ -64,12 +64,6 @@ export function Help({ open, onClose, onPrivacy }: { open: boolean; onClose: () 
               .{' '}
             </>
           )}
-          Every answer links to its source. NBA facts are checked against Wikipedia articles by Wikipedia contributors,
-          used under{' '}
-          <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">
-            CC BY-SA 4.0
-          </a>
-          .
         </p>
         <button type="button" className="btn btn-primary" onClick={onClose}>
           Got it

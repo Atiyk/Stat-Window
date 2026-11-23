@@ -8,6 +8,7 @@ on:
       - .github/workflows/v3-editorial-publish-once.yml
       - data/nba/facts.json
       - data/nba/calendar.json
+      - scripts/survival/survival.test.ts
 
 concurrency:
   group: v3-editorial-launchweek-once

@@ -138,12 +138,13 @@ describe('supply and the beta gate', () => {
         break;
       }
     }
-    // The finalized source-reviewed reserves and embargoes first meet the UNCHANGED
-    // beta gate on Dec 6. Test both sides of that exact threshold with the real
-    // eligiblePool/supplyOf functions, plus the independently scanned first day.
-    // Dec 5 has 98 eligible questions (<100); Dec 6 has 103 (all tiers sufficient).
-    const dayBefore = '2026-12-05';
-    const firstPassing = '2026-12-06';
+    // The five extra verified launch-week facts advance the FIRST day that the
+    // unchanged 100-question/individual-tier beta supply gates are met, from
+    // Dec 6 to Dec 5. This is a content change, not a relaxed Survival threshold.
+    // Keep both the day-before and the first-passing-day checks, as well as
+    // the independent scan above, to flag any further unintended movement.
+    const dayBefore = '2026-12-04';
+    const firstPassing = '2026-12-05';
     expect(supplyOf(poolOn(dayBefore), dayBefore).beta).toBe(false);
     expect(supplyOf(poolOn(firstPassing), firstPassing).beta).toBe(true);
     expect(first).toBe(firstPassing);

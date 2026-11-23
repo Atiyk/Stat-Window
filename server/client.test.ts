@@ -6,7 +6,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { DEFAULT_LIMITS, handle } from './api.ts';
 import { DAY, NOON, roundsFor, testContext } from './fixtures.ts';
 import type { RoundRecord } from '../src/engine/game.ts';
-import { loadPrivacy, savePrivacy } from '../src/lib/privacy.ts';
+import { loadPrivacy, savePrivacy, scoreKey } from '../src/lib/privacy.ts';
 import { deleteMyScores, refreshComparison, submitDaily } from '../src/lib/scores.ts';
 
 const mem = new Map<string, string>();
@@ -90,18 +90,41 @@ describe('submitDaily → server → comparison', () => {
     expect(await submitDaily({ day: DAY, results: [], consent: false }, down)).toEqual({ kind: 'ineligible' });
   });
 
-  it('delete removes this browser’s record, rotates the key and clears the list', async () => {
+  it('delete confirms erasure, discards the code and clears the list', async () => {
     const { ctx } = testContext();
     await submitDaily({ day: DAY, results: await records(2), consent: false }, fetchFor(ctx));
     const key = loadPrivacy().key;
     expect(await deleteMyScores(fetchFor(ctx))).toBe('deleted');
     expect(loadPrivacy().sent).toEqual([]);
-    expect(loadPrivacy().key).not.toBe(key);
+    expect(loadPrivacy().key).toBeNull();
     // Deleting also stops: the next results screen must not send the same day again.
     expect(loadPrivacy().scores).toBe('off');
     expect(await deleteMyScores(fetchFor(ctx))).toBe('nothing');
+    // A new score code is generated only if the player later chooses to send.
+    expect(scoreKey()).not.toBe(key);
+    expect(loadPrivacy().sent).toEqual([]);
     savePrivacy({ sent: [DAY], key: 'a'.repeat(22) });
     const down = (() => Promise.reject(new TypeError('offline'))) as unknown as typeof fetch;
     expect(await deleteMyScores(down)).toBe('failed');
   });
+  it('keeps a historic code until server confirms deletion even when sent-day metadata is missing', async () => {
+    const { ctx } = testContext();
+    await submitDaily({ day: DAY, results: await records(2), consent: false }, fetchFor(ctx));
+    const code = loadPrivacy().key;
+    expect(code).toMatch(/^[A-Za-z0-9_-]{22}$/);
+    // A storage migration or partial corruption can lose sent[] without
+    // removing the key. That does NOT prove the server holds no linked score.
+    savePrivacy({ sent: [], done: [] });
+    expect(loadPrivacy()).toMatchObject({ key: code, sent: [] });
+    let deletedOverNetwork = false;
+    const original = fetchFor(ctx);
+    const wrapped = ((input: RequestInfo | URL, init?: RequestInit) => {
+      if (init?.method === 'DELETE') deletedOverNetwork = true;
+      return original(input, init);
+    }) as typeof fetch;
+    expect(await deleteMyScores(wrapped)).toBe('deleted');
+    expect(deletedOverNetwork).toBe(true);
+    expect(loadPrivacy()).toMatchObject({ key: null, sent: [], scores: 'off', deleting: false });
+  });
+
 });

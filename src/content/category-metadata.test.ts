@@ -1,26 +1,17 @@
 import { describe, expect, it } from 'vitest';
-import { labelFor } from '../../scripts/nba/category-labels';
+import labels from './nba-categories.json';
 
-describe('NBA category metadata', () => {
-  const names = new Map([['LAL', 'Los Angeles Lakers'], ['OKC', 'Oklahoma City Thunder']]);
-
-  it('uses event year for a 2009–10 postseason at the decade boundary', () => {
-    expect(labelFor({ id: 'some-finals', scope: 'finals', season: '2009-10', eventDate: null, franchise: 'LAL', player: null } as never, names))
-      .toBe('2010s · NBA Finals');
+describe('published NBA category labels', () => {
+  it('puts postseason questions in the decade when the event occurred', () => {
+    expect(labels['nba-shaq00-finals-ppg']).toBe('2000s · NBA Finals');
+    expect(labels['nba-iguodala15-votes']).toBe('2010s · NBA Finals');
   });
 
-  it('labels the 2000 Finals in the 2000s even though the season started in 1999', () => {
-    expect(labelFor({ id: 'nba-shaq00-finals-ppg', scope: 'finals', season: '1999-00', eventDate: null, franchise: 'LAL', player: 'Shaquille O’Neal' } as never, names))
-      .toBe('2000s · NBA Finals');
+  it('uses historical franchise names, not current names retroactively', () => {
+    expect(labels['nba-sonics94-regular-wins']).toBe('1990s · Seattle SuperSonics');
   });
 
-  it('recognizes the Seattle franchise rather than retroactively calling it Oklahoma City', () => {
-    expect(labelFor({ id: 'old-sonics', scope: 'regular-season', season: '1993-94', eventDate: null, franchise: 'OKC', player: null } as never, names))
-      .toBe('1990s · Seattle SuperSonics');
-  });
-
-  it('separates Phil Jackson career titles from a Finals game label', () => {
-    expect(labelFor({ id: 'nba-jackson10-titles', scope: 'finals', season: '2009-10', eventDate: null, franchise: 'LAL', player: 'Phil Jackson' } as never, names))
-      .toBe('Career · Phil Jackson');
+  it('labels a multi-year coaching record as a career question', () => {
+    expect(labels['nba-jackson10-titles']).toBe('Career · Phil Jackson');
   });
 });

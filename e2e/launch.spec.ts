@@ -108,3 +108,29 @@ test('Day 2 archive contains only Day 1, and new-season challenge links remain p
   await expect(page.locator('.challenge-note')).toContainText('250');
   await expect(page.locator('.link-note')).toHaveCount(0);
 });
+
+test('November 28 candidate becomes an official Day 1 without beta scores or stale challenge metadata', async ({ page }) => {
+  const launchDay = '2026-11-28';
+  // Make a real beta save first. The launch can hide this run but must not delete it.
+  await at(page, '2026-11-27T15:00:00Z', `/?launch-preview=${launchDay}`);
+  await complete(page);
+
+  await at(page, '2026-11-28T15:00:00Z', `/?day=2026-11-27&vs=210&time=4800&launch-preview=${launchDay}`);
+  await expect(page.locator('.link-note')).toContainText('beta puzzle was retired');
+  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  const params = new URL(page.url()).searchParams;
+  expect(params.has('day')).toBe(false);
+  expect(params.has('vs')).toBe(false);
+  expect(params.has('time')).toBe(false);
+
+  await startDailyIfNeeded(page);
+  await expect(page.locator('.question')).toBeVisible();
+  await expect(page.locator('.question')).not.toContainText('How many regular-season games did the 2015');
+  await expect(page.locator('.shot-clock')).toContainText('24s');
+  await complete(page);
+  await expect(page.locator('.archive-list')).toHaveCount(0);
+  await expect(page.locator('.stats dt', { hasText: 'Played' }).locator('..').locator('dd')).toHaveText('1');
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') ?? '{}'));
+  expect(Object.keys(saved.runs)).toContain('2026-11-27');
+  expect(Object.keys(saved.runs)).toContain('2026-11-28');
+});

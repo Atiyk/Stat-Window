@@ -7,13 +7,13 @@
 | Concept | Value | Changes at launch? |
 |---|---|---|
 | Canonical puzzle day | the Eastern calendar date of `content/days/<day>.json` | never |
-| Content id / fingerprint | `content/published.lock.json` | never |
+| Content id / fingerprint | `content/published.lock.json` | V3 may regenerate prelaunch beta slates before release; no live V2 changes |
 | Season | `beta`, then `s1` from the launch day | yes, by config |
 | Public number | beta: days since 2026-11-15 + 1; launch: days since `LAUNCH_DAY` + 1 | yes |
 
-- The slate for launch day *L* is simply the slate already scheduled at *L*. Nothing in the content is renumbered or republished, and no released date gets a different puzzle. Only the label changes, which keeps the risk low.
-- From *L*, *L* is "No. 1", *L+1* "No. 2"; every earlier day shows as "Beta No. N" in the header, results, share text and archive. Old `?day=` links still open the same five questions with the same answers.
-- Stats, streaks and averages on the results screen count only the current season's runs, so beta games never inflate an official streak. Beta history stays saved and playable.
+- Before V3 release, editorial may replace or reschedule **beta-only** slates and regenerate canonical locks and source-reviewed content. The official launch day *L* must have a verified slate; no live V2 content is modified before release.
+- From *L*, *L* is "No. 1", *L+1* "No. 2". The public archive starts empty and grows from *L* onward. Beta slates earlier than *L* are hidden from the archive and not playable through old `?day=`/`vs` challenge links. Retired links show an explicit message and open today's game without the old comparison score. Before *L*, the beta catalog behaves as before.
+- Stats, streaks and averages count only the current season's runs. Historical beta saves remain stored but are no longer publicly playable after launch. A catalog reset is **not** permission to delete local data, percentile data, or participant erasure records.
 - Score percentiles are partitioned by season on the server (`sw:v1:production:s1:<day>`), and analytics paths get an `/e/s1/…` prefix, so beta and launch numbers never mix.
 - Rollover is at 12:00 AM Eastern (DST-aware); the results screen already shows the local time.
 
@@ -25,7 +25,7 @@
 ## Preflight (the day before)
 
 1. `npm ci && npm run content:check && npm test && npm run build`.
-2. Dry run in a preview: build with `VITE_LAUNCH_PREVIEW=1` (Preview environment only) and open `/?launch-preview=<L>` with the clock on *L* and *L-1*. Check: header "No. 1" on *L*, "Beta No. N" on *L-1*; results stats show only *L*; share text says "Stat Window No. 1"; archive labels; Survival unaffected.
+2. Dry run in a preview: build with `VITE_LAUNCH_PREVIEW=1` (Preview environment only) and open `/?launch-preview=<L>` with the clock on *L* and *L-1*. Check: header "No. 1" on *L*; beta catalog still works before *L*; on *L*, archive is empty, retired beta `?day=` links show a notice and today's game, results stats show only *L*, share text says "Stat Window No. 1"; on *L+1*, archive contains only *L*. Check valid s1 challenges, old saves, Eastern DST, Survival, and privacy remain unaffected.
 3. Unit tests cover it with a synthetic launch day: `src/engine/season.test.ts`.
 
 ## The one activation step
@@ -52,6 +52,6 @@ Delete both variables and redeploy. Labels return to beta numbering, stats inclu
 
 ## Left out of Phase 1
 
-- No reset of anyone's saved games, ever.
+- No deletion of anyone's saved game or privacy data; only the visible playable beta catalog is retired.
 - No public "Day 1" announcement or numbering change in production.
 - No relabelling of existing beta share messages already posted (they keep saying "No. N").

@@ -342,7 +342,6 @@ function SurvivalRound(props: {
         state={state}
         dispatch={dispatch}
         label={`Survival · Round ${round + 1} of ${SURVIVAL_ROUNDS}`}
-        showHint={false}
         onFirstTouch={() => {}}
         survival={{
           need: min,

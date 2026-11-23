@@ -337,16 +337,22 @@ test.describe('BUG-09, BUG-10, BUG-13: layout, colour and copy nits', () => {
     expect(new Set(tops).size).toBe(1);
   });
 
-  test('BUG-13: the answer pin is ball orange on hits and misses; the grip focus ring is not', async ({ page }) => {
+  test('BUG-13: answer pins have a dedicated warm accent across the ruler and recap', async ({ page }) => {
     await openAt(page, NOV21);
     await page.getByRole('slider', { name: 'Low end of your window' }).focus();
     await page.keyboard.press('ArrowRight');
     const ring = await page.locator('.bracket-lo .bracket-grip').evaluate((e) => getComputedStyle(e).outlineColor);
-    expect(ring).not.toBe('rgb(255, 122, 31)');
-    await playFive(page);
+    expect(ring).not.toBe('rgb(255, 173, 122)');
+    await lockAndSettle(page);
+    await expect(page.locator('.marker-pin')).toHaveCSS('background-color', 'rgb(255, 173, 122)');
+    await next(page);
+    for (let i = 0; i < 4; i++) {
+      await lockAndSettle(page);
+      await next(page);
+    }
     const pins = await page.locator('.recap-pin').evaluateAll((els) => els.map((e) => getComputedStyle(e).backgroundColor));
     expect(pins).toHaveLength(5);
-    for (const c of pins) expect(c).toBe('rgb(255, 122, 31)');
+    for (const c of pins) expect(c).toBe('rgb(167, 70, 36)');
   });
 
   test('BUG-13: the two Sources links name their articles', async ({ page }) => {

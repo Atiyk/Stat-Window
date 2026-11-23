@@ -149,8 +149,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
     try {
       // Native share sheet on touch devices; with the image card when the browser accepts files.
       if (nativeShare) {
-        // Normally ready; drawn now only if the tap beat the first render.
-        const blob = card.current?.key === cardKey ? card.current.blob : await cardBlob(cardInput());
+        const blob = card.current?.key === cardKey ? card.current.blob : null;
         const file = blob ? new File([blob], `stat-window-${slate.date}.png`, { type: 'image/png' }) : null;
         const withFile = file && navigator.canShare?.({ files: [file] }) ? { files: [file] } : {};
         try {
@@ -207,16 +206,20 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
   const practice = mode === 'practice';
 
   return (
-    <article className="results">
+    <article className="results daily-results">
       <header className="results-head">
-        <h1 className="results-title" ref={headingRef} tabIndex={-1}>
-          {verdict(total)}
-        </h1>
-        <p className="results-total">
+        <p className="context results-context">
+          {practice
+            ? `${playMode === 'challenge' ? 'Challenge' : 'Practice'} · ${label} · ${formatDay(slate.date)} · not counted in your stats`
+            : `${label} · ${formatDay(slate.date)}`}
+        </p>
+        <h1 className="results-title results-total" ref={headingRef} tabIndex={-1}>
+          <span className="sr-only">Score </span>
           <span className="results-score tabular">{total}</span>
           <span className="results-max">of {MAX_TOTAL}</span>
-        </p>
-        <p className="results-time">Answer time: <strong className="tabular">{answerMs === null ? 'Not timed' : formatAnswerTime(answerMs)}</strong> <span>· five 24-second shot clocks</span></p>
+        </h1>
+        <p className="results-verdict">{verdict(total)}</p>
+        {answerMs !== null && <p className="results-time">Answer time <strong className="tabular">{formatAnswerTime(answerMs)}</strong></p>}
         <ol className="ledger scorecard" aria-label="Question by question">
           {results.map((r, i) => (
             <li key={i} className="ledger-cell" data-status={!r.hit ? 'miss' : r.points > 0 ? 'hit' : 'zero'} style={{ animationDelay: `${i * 70}ms` }}>
@@ -227,18 +230,13 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
             </li>
           ))}
         </ol>
-        <p className="context results-context">
-          {practice
-            ? `${playMode === 'challenge' ? 'Challenge' : 'Practice'} · ${label} · ${formatDay(slate.date)} · not counted in your stats`
-            : `${label} · ${formatDay(slate.date)}`}
-        </p>
         <ComparisonLine comparison={comparison} onPrivacy={onPrivacy} ref={slotRef} />
         {vs !== null && <p className="versus">{friendLine(total, vs, answerMs, vsTime)}</p>}
       </header>
 
       <div className="results-actions">
         {/* The share of the day just played always comes first, on practice and challenge runs too. */}
-        <button type="button" className="btn btn-primary" onClick={share}>
+        <button type="button" className="btn btn-primary" aria-describedby="challenge-share-note" onClick={share}>
           Challenge a friend
         </button>
         {fallback && (
@@ -252,10 +250,9 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
             onFocus={(e) => e.currentTarget.select()}
           />
         )}
-        <p className="share-note">
-          {total > 0
-            ? `They get the same five questions and see your ${total}${answerMs === null ? '' : ` and ${formatAnswerTime(answerMs)}`}. Higher score wins; time breaks ties. No answers shared.`
-            : 'They get the same five questions. No answers are in the link.'}
+        <p className="share-note" id="challenge-share-note">
+          {total > 0 ? 'Send your score and the same five questions.' : 'Send the same five questions.'} No spoilers.
+          {total > 0 && answerMs !== null && ' Time breaks ties.'}
         </p>
         <button type="button" className="btn btn-link" onClick={saveCard}>
           Save score card (no answers on it)

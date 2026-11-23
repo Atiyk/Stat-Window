@@ -25,37 +25,27 @@ export function Help({ open, onClose, onPrivacy }: { open: boolean; onClose: () 
           <span className="help-pin" />
         </div>
         <p>
-          Each day brings five real NBA numbers. For each one, drag the two brackets in to frame a window you’re
-          sure the answer sits inside. You get 24 seconds per question; the clock keeps running if you switch tabs or reload. A buzzer means zero points. Then lock it and watch where the real number lands.
+          Drag the brackets to frame your guess, then lock the window before the 24-second buzzer.
+          The clock keeps running if you switch tabs or reload.
         </p>
         <p>
-          <strong>Tighter pays more.</strong> A window one notch wide is worth 100. The whole ruler is worth 0, and
-          so is nearly the whole ruler: even if the answer lands inside, it scores 0. If the answer lands outside your
-          window, that round scores 0.
+          <strong>Tighter pays more.</strong> Catch the answer with a one-notch window for 100 points.
+          A window covering nearly the whole ruler scores 0 even if it catches the answer. A miss or timeout earns zero.
         </p>
         <ul className="help-examples">
           <li data-kind="hit">
             <span className="help-glyph" aria-hidden="true">✓</span>
             <span>
-              <strong>Inside.</strong> Warriors’ wins: you framed 66–78, the answer was 73. That’s 54 points.
+              <strong>Inside.</strong> In the Warriors practice round, 73 wins lands inside 66–78 and earns 75 points.
             </span>
           </li>
           <li data-kind="miss">
             <span className="help-glyph" aria-hidden="true">✕</span>
             <span>
-              <strong>Outside.</strong> Kobe’s biggest night: you framed 55–70, the answer was 81. That’s 0, and the window
-              is shown hatched.
+              <strong>Outside.</strong> Kobe’s 81 points are outside 55–70. That earns zero and the window turns dashed.
             </span>
           </li>
         </ul>
-        <table className="help-table">
-          <caption>What a window is worth, if it’s right</caption>
-          <tbody>
-            <tr><th scope="row">A tenth of the ruler</th><td>83</td></tr>
-            <tr><th scope="row">A fifth</th><td>65</td></tr>
-            <tr><th scope="row">Half</th><td>26</td></tr>
-          </tbody>
-        </table>
         <p>
           Prefer exact numbers? Tap either big number to type it. On a keyboard, Tab to a bracket and use the arrow keys
           (Shift moves further, Enter locks). Tap the ruler outside your window to pull that side straight to it.

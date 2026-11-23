@@ -518,10 +518,10 @@ function Game(props: {
 
   if (!started && state.results.length === 0) {
     return props.showHint ? <Onboarding onDone={() => { props.onTutorialDone(); start(); }} /> : (
-      <article className="onboarding ready-card">
-        <p className="context">{session.mode === 'practice' ? 'PRACTICE' : 'DAILY FIVE'}</p>
+      <article className="ready-card">
+        <p className="context">{session.mode === 'practice' ? 'Practice' : 'Daily puzzle'}</p>
         <h1>Ready for five?</h1>
-        <p>Find the number in each question. Five windows, 24 seconds each. The clock starts when each question appears.</p>
+        <p>Catch five numbers in your windows. You’ll have 24 seconds per question.</p>
         <button type="button" className="btn btn-primary" onClick={start}>Start today's five</button>
       </article>
     );
@@ -537,7 +537,6 @@ function Game(props: {
       state={state}
       dispatch={dispatch}
       label={label}
-      showHint={false}
       theme={session.slate.theme}
       challenge={session.viaLink && state.round === 0 && state.results.length === 0 ? { vs: session.vs, vsTime: session.vsTime } : null}
       onFirstTouch={() => { props.onWindowActive(); props.onFirstTouch(); }}

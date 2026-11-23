@@ -68,7 +68,7 @@ test('new Day 1 starts at No. 1 with no beta archive, preserving old saves but r
 
 test('a retired beta challenge gives an explicit notice and strips its score/time link', async ({ page }) => {
   await at(page, first, `/?day=2027-01-09&vs=300&time=1234&${preview}`);
-  await expect(page.getByRole('status')).toContainText('beta puzzle was retired');
+  await expect(page.getByRole('status').filter({ hasText: 'beta puzzle was retired' })).toBeVisible();
   await expect(page.locator('.day-label')).toHaveText('No. 1');
   const params = new URLSearchParams(new URL(page.url()).search);
   expect(params.has('day')).toBe(false);

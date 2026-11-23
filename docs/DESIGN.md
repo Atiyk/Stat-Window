@@ -1,5 +1,7 @@
 # Visual identity and design rationale
 
+The Chalk, Ink, and Juniper polish candidate is documented in [Design and gameplay polish](DESIGN-POLISH-PROGRESS.md). The earlier design directions are recorded below.
+
 ## Court (proposed 2026-11-18, replaces the Clubhouse colours if approved)
 The Clubhouse look (cream paper, pine, terracotta, a soft serif, a white rounded card with a hairline border) had become the default look of generated pages, so it read as AI-made. Court keeps the pine identity and the caliper interaction and changes the rest:
 - **The field is a solid block of pine,** edge to edge on phones. Inside it the roles flip: chalk `#F4F2EA` is the foreground, the window is a chalk tint and a hit brightens it.

@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { startDailyIfNeeded } from './helpers';
+import { lockAndSettle, next, startDailyIfNeeded } from './helpers';
 
 // Disposable, read-only external test. It MUST NOT be included in shipping CI.
 test.skip(!process.env.LIVE_PREVIEW_E2E, 'Only the isolated external V3 QA worker runs this suite');
@@ -45,6 +45,14 @@ test('old beta links work before Eastern midnight and retire exactly on launch',
 test('Day 2 shows No. 2 and old beta archives are not playable', async ({ page }) => {
   await visit(page, '2026-11-29T16:00:00Z', '/');
   await expect(page.locator('.day-label')).toHaveText('No. 2');
+  // Archive links are surfaced on the completed results page, not while
+  // an unplayed round is on screen. This is a test sequencing requirement.
+  await startDailyIfNeeded(page);
+  for (let i = 0; i < 5; i++) {
+    await lockAndSettle(page);
+    await next(page);
+  }
+  await expect(page.locator('.results-score')).toBeVisible();
   await expect(page.locator('.archive-list button')).toHaveCount(1);
   await expect(page.locator('.archive-list button').first()).toContainText('Nov 28');
 });

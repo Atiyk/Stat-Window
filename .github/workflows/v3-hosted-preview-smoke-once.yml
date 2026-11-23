@@ -3,7 +3,7 @@ name: V3 hosted preview one-time browser smoke
 on:
   push:
     branches: [statwindow/v3-live-preview-smoke-20261122]
-    paths: [.github/workflows/v3-hosted-preview-smoke-once.yml]
+    paths: [.github/workflows/v3-hosted-preview-smoke-once.yml, e2e/release-preview-hosted.spec.ts]
 
 permissions:
   contents: read

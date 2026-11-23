@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
 import { collectErrors, DAY1, lockAndSettle, NBA_FIRST, NBA_LAST, NBA_MIDDLE, next, openAt } from './helpers';
 
-type Day = { date: string; theme: { title: string; recap: string }; questions: { id: string; answer: number; difficulty: string; context: string }[] };
+type Day = { date: string; theme: { title: string; recap: string }; questions: { id: string; answer: number; difficulty: string; context: string; funFacts?: unknown[] }[] };
 const categories = JSON.parse(readFileSync(new URL('../src/content/nba-categories.json', import.meta.url), 'utf8')) as Record<string, string>;
 const load = (day: string) => JSON.parse(readFileSync(new URL(`../content/days/${day}.json`, import.meta.url), 'utf8')) as Day;
 const LABELS = /\b(Easy|Medium|Hard|Expert)\b/;
@@ -23,7 +23,7 @@ for (const when of [NBA_FIRST, NBA_MIDDLE, NBA_LAST]) {
       await expect(page.locator('.puzzle-theme, .theme-subtitle')).toHaveCount(0);
       await lockAndSettle(page);
       await expect(page.locator('.sources, .story-extra-title')).toHaveCount(0);
-      await expect(page.locator('.story-extra-text')).toHaveCount(1);
+      await expect(page.locator('.story-extra-text')).toHaveCount(slate.questions[i]!.funFacts?.length ? 1 : 0);
       await expect(page.locator('.story-reaction')).toHaveText(/\.$/);
       await next(page);
     }

@@ -64,7 +64,7 @@ test.describe('New York', () => {
     expect(u.searchParams.get('dates')).toBe(`${tomorrow}T000000/${tomorrow}T000500`);
   });
 
-  test('tapping either link shows the toast and writes nothing to storage or cookies', async ({ page, context }) => {
+  test('tapping either calendar link creates no reminder storage or cookie', async ({ page, context }) => {
     await stubCalendars(context);
     await openAt(page, NBA_FIRST);
     await playFive(page);
@@ -77,7 +77,16 @@ test.describe('New York', () => {
     await expect(page.locator('.toast')).toHaveText('Reminder file ready. If it downloaded, open it to add the event.');
     // The row stays: the app can't know whether the event was saved and doesn't store that it was tried.
     await expect(icsLink(page)).toBeVisible();
-    expect(await storageDump(page)).toEqual(before);
+    // A daily-percentile request initiated at the end of play may settle while
+    // the calendar links are being exercised. Its independent one-time event
+    // (pct:...) is not reminder metadata and can arrive after the baseline.
+    // Compare all other storage exactly, including the calendar tap namespace.
+    const withoutPercentileEvents = (dump: Awaited<ReturnType<typeof storageDump>>) => {
+      const sent = JSON.parse(dump.local['stat-window:sent'] ?? '{}') as Record<string, string>;
+      const stable = Object.fromEntries(Object.entries(sent).filter(([key]) => !key.startsWith('pct:')));
+      return { ...dump, local: { ...dump.local, 'stat-window:sent': JSON.stringify(stable) } };
+    };
+    expect(withoutPercentileEvents(await storageDump(page))).toEqual(withoutPercentileEvents(before));
   });
 
   test('a second tap restarts the toast instead of letting the first one expire it', async ({ page, context }) => {

@@ -6,5 +6,11 @@ import labels from './nba-categories.json';
 const nbaLabels: Readonly<Record<string, string>> = labels;
 
 export function contextLabel(q: Question): string {
-  return nbaLabels[q.id] ?? `${q.sport} · ${q.context}`;
+  const nba = nbaLabels[q.id];
+  if (nba) return nba;
+  // Legacy mixed-sport question contexts often begin with the sport already.
+  // Don't print "NBA · NBA · ..." or "NHL · NHL · ..." in older archives.
+  return q.context.startsWith(`${q.sport} · `) || q.context === q.sport
+    ? q.context
+    : `${q.sport} · ${q.context}`;
 }

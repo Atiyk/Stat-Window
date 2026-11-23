@@ -36,6 +36,14 @@ export const SOURCE_LABEL = 'Wikipedia contributors (CC BY-SA 4.0)';
 
 export type Ratings = { interest: number; recognizability: number; estimability: number; surprise: number };
 
+export function nbaEditorialIssue(slot: number, ratings: Ratings): string | undefined {
+  const engaging = ratings.recognizability >= 4 && ratings.interest >= 4 && ratings.estimability >= 3;
+  if (slot === 0 && !engaging) return 'Q1 is not a recognizable, interesting, estimable NBA hook';
+  if (slot === 2 && !(ratings.surprise >= 4)) return 'Q3 needs a surprising reveal';
+  if (slot === 4 && !(engaging && ratings.surprise >= 4)) return 'Q5 needs a recognizable, estimable and surprising finish';
+  return undefined;
+}
+
 export type Fact = {
   id: string;
   family: string;
@@ -366,12 +374,10 @@ export function validateNba(data: NbaData): Report {
         if (fs[slot]!.family === fs[slot - 1]!.family)
           at(`adjacent questions ${slot} and ${slot + 1} repeat the same stat family`);
       }
-      const opening = fs[0]!.question.ratings;
-      const engaging = opening.recognizability >= 4 && opening.interest >= 4 && opening.estimability >= 3;
-      // Every future mixed-slate opener must pass the same hard editorial gate,
-      // including late-January dates. Do not inflate ratings or demote failures
-      // to warnings; replace weak hooks with genuinely stronger sourced facts.
-      if (!engaging) at('Q1 is not a recognizable, interesting, estimable NBA hook');
+      for (const [slot, fact] of fs.entries()) {
+        const issue = nbaEditorialIssue(slot, fact.question.ratings);
+        if (issue) at(issue);
+      }
     }
     const famCount = new Map<string, number>();
     for (const f of fs) famCount.set(f.family, (famCount.get(f.family) ?? 0) + 1);

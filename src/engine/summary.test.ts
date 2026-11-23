@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { answerTimeMs, formatAnswerTime, playerStats, shareText, verdict } from './summary';
+import { answerTimeMs, formatAnswerTime, playerStats, shareText, postgameHighlight, streakMilestone } from './summary';
 
 const run = (points: number[]) => ({
   results: points.map((p, i) => ({ questionId: `q${i}`, lo: 0, hi: 1, hit: p > 0, points: p, missBy: p > 0 ? 0 : 3 })),
@@ -20,11 +20,22 @@ describe('shareText', () => {
   });
 });
 
-describe('verdict', () => {
-  it('names the run by its total', () => {
-    expect(verdict(450)).toMatch(/\w/);
-    expect(verdict(0)).not.toBe(verdict(450));
+describe('postgameHighlight', () => {
+  it('picks one real achievement and breaks equal-window ties by question order', () => {
+    const results = run([12, 100, 100, 0, 40]).results;
+    expect(postgameHighlight(results, 220)).toBe('New personal best: 252.');
+    expect(postgameHighlight(results, 252)).toBe('2 perfect windows.');
+    expect(postgameHighlight(run([0, 85, 0, 85, 73]).results)).toBe('Tightest hit: Q2 · 85 points.');
   });
+  it('handles zero-point hits separately from misses', () => {
+    const results = run([0, 0, 0, 0, 0]).results;
+    expect(postgameHighlight(results)).toBe('All five answers landed outside your windows.');
+    expect(postgameHighlight([{ ...results[0]!, hit: true, missBy: 0 }, ...results.slice(1)])).toBe('1 of 5 windows caught the answer.');
+  });
+});
+
+it('recognizes only exact streak milestones', () => {
+  expect([2, 3, 4, 7, 8, 29, 30, 31].map(streakMilestone)).toEqual([null, 3, null, 7, null, null, 30, null]);
 });
 
 describe('playerStats', () => {

@@ -22,6 +22,13 @@ export type Ratings = {
   recognition: number; estimability: number; surprise: number;
   story: number; clarity: number;
 };
+export type Coverage = {
+  family: string;
+  seasonYear: number | null;
+  team?: string;
+  player?: string;
+  event?: string;
+};
 export type ResearchFact = {
   id: string; theme: string; kind: Kind; subject: string; event: string; statistic: string;
   values: Value[]; operation: Operation;
@@ -33,6 +40,8 @@ export type ResearchFact = {
   difficulty: Difficulty; difficultyReason: string;
   /** Suggested by researcher/agent; editor must critically review. */
   ratings?: Ratings;
+  /** Canonical editorial labels, independent of the rendered prompt and research theme. */
+  coverage?: Coverage;
 };
 export type Theme = {
   id: string; title: string; subtitle: string; recap: string;
@@ -87,9 +96,25 @@ export function addDays(day: string, n: number): string {
   if (!isDay(day)) throw new Error(`Invalid date: ${day}`);
   return new Date(Date.parse(`${day}T00:00:00Z`) + n * 86_400_000).toISOString().slice(0, 10);
 }
-const goodText = (s: unknown, n = 2) => typeof s === 'string' && s.trim().length >= n;
+const goodText = (s: unknown, n = 2): s is string => typeof s === 'string' && s.trim().length >= n;
 export function normalized(s: string): string {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
+}
+export function factKey(c: Candidate): string {
+  return JSON.stringify([c.sport, c.subject, c.event, c.statistic].map(normalized).concat(String(c.answer)));
+}
+export type QuestionIdentity = Pick<Candidate, 'id' | 'sport' | 'answer' | 'prompt'>;
+export function similarQuestion(a: QuestionIdentity, b: QuestionIdentity): boolean {
+  if (a.sport.toUpperCase() !== b.sport.toUpperCase() || a.answer !== b.answer) return false;
+  const years = (prompt: string): string[] => prompt.match(/\b(?:18|19|20)\d{2}\b/g) ?? [];
+  const aYears = years(a.prompt);
+  const bYears = years(b.prompt);
+  if (aYears.length && bYears.length && !aYears.some((year) => bYears.includes(year))) return false;
+  const terms = (prompt: string) => new Set(normalized(prompt).split(' ').filter((word) => word.length > 2));
+  const aWords = terms(a.prompt);
+  const bWords = terms(b.prompt);
+  const common = [...aWords].filter((word) => bWords.has(word)).length;
+  return common >= 5 && common / (aWords.size + bWords.size - common) >= .8;
 }
 export function sourceHost(s: string): string | null {
   try { const u = new URL(s); return u.protocol === 'https:' && !u.username && !u.password ? u.hostname.toLowerCase() : null; }
@@ -203,7 +228,19 @@ export function validateCandidate(c: Candidate, policy: SourcePolicy | null): st
   }
   if (!goodText(c.review?.factChecker) || !goodText(c.review?.editor) ||
       !goodText(c.review?.rightsReviewer) || !isDay(c.review?.reviewedOn ?? '')) at('needs dated independent fact, editorial and rights sign-offs');
-  if (c.review?.factChecker && c.review?.factChecker === c.review?.editor) at('fact-checker and editor must differ');
+  if (goodText(c.review?.factChecker) && goodText(c.review?.editor) &&
+      c.review.factChecker.trim().toLowerCase() === c.review.editor.trim().toLowerCase()) at('fact-checker and editor must differ');
+  if (c.sport.toUpperCase() === 'NBA') {
+    const coverage = c.coverage;
+    const reviewYear = typeof c.review?.reviewedOn === 'string' ? Number(c.review.reviewedOn.slice(0, 4)) : 0;
+    if (!coverage || !goodText(coverage.family) || !ID.test(coverage.family) ||
+        ![coverage.team, coverage.player, coverage.event].some(Boolean) ||
+        [coverage.team, coverage.player, coverage.event].some((id) => id !== undefined && (typeof id !== 'string' || !ID.test(id))) ||
+        (coverage.seasonYear !== null && (!Number.isInteger(coverage.seasonYear) || coverage.seasonYear < 1946 ||
+          coverage.seasonYear > reviewYear)))
+      at('NBA review needs canonical stat family, subject IDs and season year (null for timeless facts)');
+    if (!goodText(c.review?.notes, 10)) at('NBA approval needs editorial notes on estimability and the reveal');
+  }
   if (!policy || policy.sport.toLowerCase() !== c.sport.toLowerCase() ||
       !goodText(policy.reviewedBy) || !isDay(policy.reviewedOn)) at('reviewed sport-specific source policy required');
   if (!c.values?.length || c.values.some((v) => !v.source)) at('each input number needs provenance');
@@ -219,7 +256,7 @@ export function validateCandidate(c: Candidate, policy: SourcePolicy | null): st
     if (!goodText(s.license) || !goodText(s.attribution) || !goodText(s.verifiedBy) || !isDay(s.verifiedOn ?? '')) at('source license, attribution and documented human verification required');
     if (host) hosts.add(s.url);
   }
-  if (hosts.size > 1) at('multi-source derived answers need a multi-citation display before publication');
+  if (hosts.size > 1) at('derived answers need one primary source URL in the staged schema');
   if (c.review?.status !== 'approved') at('candidate is not editorially approved');
   return e;
 }
@@ -240,11 +277,15 @@ export function validateBatch(b: CandidateBatch): string[] {
     ids.add(c.id);
     if (prompts.has(normalized(c.prompt))) errors.push(ERR(c.id, 'duplicate prompt'));
     prompts.add(normalized(c.prompt));
-    const meaning = [c.sport, c.subject, c.event, c.statistic, String(c.answer)].map(normalized).join('|');
+    const meaning = factKey(c);
     if (meanings.has(meaning)) errors.push(ERR(c.id, 'same underlying fact already used in batch'));
     meanings.add(meaning);
     if (!b.themes.some((t) => t.id === c.theme)) errors.push(ERR(c.id, 'missing theme'));
     if (c.batchId !== b.id || c.sport.toLowerCase() !== b.sport.toLowerCase()) errors.push(ERR(c.id, 'batch/sport mismatch'));
+  }
+  for (const [index, c] of b.candidates.entries()) {
+    const other = b.candidates.slice(0, index).find((prior) => similarQuestion(c, prior));
+    if (other) errors.push(ERR(c.id, `prompt is similar to ${other.id}; confirm it asks a distinct question`));
   }
   return errors;
 }
@@ -264,6 +305,52 @@ export function slateQuestion(c: Candidate): SlateQuestion {
 }
 const order = (a: Candidate, b: Candidate) =>
   qualityScore(b.ratings) - qualityScore(a.ratings) || a.id.localeCompare(b.id);
+
+function hasNbaVariety(candidates: Candidate[]): boolean {
+  const groups = candidates.map((c) => c.coverage!);
+  const subjects = new Set(groups.map(({ player, team, event }) => player ?? team ?? event));
+  const eras = new Set(groups.flatMap(({ seasonYear }) => seasonYear === null ? [] : [Math.floor(seasonYear / 10)]));
+  return subjects.size >= 3 && new Set(groups.map(({ family }) => family)).size >= 3 && eras.size >= 2;
+}
+
+function suitsNbaSlot(c: Candidate, slot: number): boolean {
+  const { recognition, estimability, story, surprise } = c.ratings!;
+  if (slot === 2) return surprise >= 4;
+  if (slot === 0 || slot === 4)
+    return recognition >= 4 && estimability >= 3 && story >= 4 && (slot === 0 || surprise >= 4);
+  return true;
+}
+
+function selectSlate(candidates: Candidate[], nba: boolean): Candidate[] | null {
+  const pools = LADDER.map((diff, slot) => candidates.filter((c) => c.difficulty === diff && (!nba || suitsNbaSlot(c, slot))));
+  const available = [...new Set(pools.flat())];
+  if (pools.some((pool) => !pool.length) || new Set(available.map((c) => c.kind)).size < 3) return null;
+  if (nba && !hasNbaVariety(available)) return null;
+
+  function choose(selected: Candidate[]): Candidate[] | null {
+    if (selected.length === LADDER.length) {
+      const variety = new Set(selected.map((c) => c.kind)).size >= 3;
+      return variety && (!nba || hasNbaVariety(selected)) ? selected : null;
+    }
+    const kindCount = (c: Candidate) => selected.filter((prior) => prior.kind === c.kind).length;
+    const pool = pools[selected.length]!.filter((c) => !selected.includes(c) && kindCount(c) < 2);
+    pool.sort((a, b) => kindCount(a) - kindCount(b) || order(a, b));
+    for (const c of pool) {
+      if (nba) {
+        const coverage = c.coverage!;
+        if (coverage.family === selected.at(-1)?.coverage!.family) continue;
+        const repeated = (['team', 'player', 'event', 'family'] as const).some((key) =>
+          coverage[key] && selected.filter((prior) => prior.coverage![key] === coverage[key]).length >= 2);
+        if (repeated) continue;
+      }
+      const result = choose([...selected, c]);
+      if (result) return result;
+    }
+    return null;
+  }
+  return choose([]);
+}
+
 export function plan(b: CandidateBatch, policy: SourcePolicy | null, start: string, days: number): Proposal {
   if (!isDay(start) || !Number.isInteger(days) || days < 1 || days > 120) throw new Error('Require valid start date and 1–120 days');
   const errors = validateBatch(b);
@@ -271,22 +358,15 @@ export function plan(b: CandidateBatch, policy: SourcePolicy | null, start: stri
   const chosen = new Set<string>();
   const lastTheme: string[] = [];
   const output: DayProposal[] = [];
+  const nba = b.sport.toUpperCase() === 'NBA';
+  const themes = nba ? [{ id: 'nba-mixed', title: 'NBA', subtitle: 'Mixed slate', recap: 'Mixed daily NBA slate.' }] : b.themes;
+  const approved = eligible(b, policy);
   for (let d = 0; d < days; d++) {
     const options: { t: Theme; selected: Candidate[]; score: number }[] = [];
-    for (const t of b.themes) {
-      const byTheme = eligible(b, policy).filter((c) => c.theme === t.id && !chosen.has(c.id));
-      const selected: Candidate[] = [];
-      for (const diff of LADDER) {
-        const ready = byTheme.filter((c) => c.difficulty === diff && !selected.some((x) => x.id === c.id));
-        ready.sort((a, c) => {
-          const aRepeated = selected.filter((x) => x.kind === a.kind).length;
-          const cRepeated = selected.filter((x) => x.kind === c.kind).length;
-          return aRepeated - cRepeated || order(a, c);
-        });
-        const pick = ready.find((c) => selected.filter((x) => x.kind === c.kind).length < 2);
-        if (pick) selected.push(pick);
-      }
-      if (selected.length !== 5 || new Set(selected.map((x) => x.kind)).size < 3) continue;
+    for (const t of themes) {
+      const available = approved.filter((c) => (nba || c.theme === t.id) && !chosen.has(c.id));
+      const selected = selectSlate(available, nba);
+      if (!selected) continue;
       options.push({ t, selected, score: selected.reduce((s, x) => s + qualityScore(x.ratings), 0) });
     }
     options.sort((a, c) => {
@@ -294,7 +374,10 @@ export function plan(b: CandidateBatch, policy: SourcePolicy | null, start: stri
       const cRepeated = c.t.id === lastTheme.at(-1) ? 1 : 0;
       return aRepeated - cRepeated || c.score - a.score || a.t.id.localeCompare(c.t.id);
     });
-    if (!options.length) throw new Error(`Only ${d} of ${days} complete themed slates possible. Need 1 easy, 1 medium, 2 hard, 1 expert, >=3 types and <=2 per type per day with reviewed facts.`);
+    if (!options.length) {
+      const coverage = nba ? ' NBA days also need strong Q1/Q3/Q5, three subjects, three stat families, two dated eras and no repeated adjacent family.' : '';
+      throw new Error(`Only ${d} of ${days} complete slates found. Need 1 easy, 1 medium, 2 hard, 1 expert, >=3 types and <=2 per type per day with reviewed facts.${coverage}`);
+    }
     const { t, selected } = options[0]!;
     for (const c of selected) chosen.add(c.id);
     lastTheme.push(t.id);

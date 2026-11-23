@@ -52,7 +52,7 @@ export function Onboarding({ onDone }: { onDone: () => void }) {
   const moved = window.lo > PRACTICE.min || window.hi < PRACTICE.max;
   const worth = potentialPoints(PRACTICE, window);
   const reveal: RulerReveal | null = score
-    ? { progress, hit: score.hit, from: PRACTICE.min, zero: score.hit && score.points === 0 }
+    ? { progress, hit: score.hit, from: PRACTICE.min, zero: score.hit && score.points === 0, missBy: score.missBy }
     : null;
   const outcome = score?.hit ? (score.points === 0 ? 'Inside, but too wide to score.' : 'Inside.') : 'Outside.';
   const announcement = !score ? '' : landed ? `${outcome} ${score.points} points. Answer: ${PRACTICE.answer} wins.` : 'Window locked.';

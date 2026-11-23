@@ -335,6 +335,19 @@ a {
   font-weight: 760;
 }
 
+.round-top .ledger-cell:not([data-new-result]) {
+  animation: none;
+}
+
+.round-total[data-earned] .tabular {
+  display: inline-block;
+  animation: points-earned var(--motion-short) var(--ease-out);
+}
+
+@keyframes points-earned {
+  40% { transform: scale(1.1); }
+}
+
 .question-block {
   grid-area: question;
   padding-block: clamp(16px, 3vw, 32px) clamp(16px, 2.5vw, 26px);
@@ -426,6 +439,12 @@ a {
   outline-color: var(--field-focus);
 }
 
+.field-inner:has(.ruler[data-dragging='band']) .bound,
+.field-inner:has(.ruler[data-dragging='lo'], .bracket-lo[data-grab]:focus-visible) .bound[data-bound='lo'],
+.field-inner:has(.ruler[data-dragging='hi'], .bracket-hi[data-grab]:focus-visible) .bound[data-bound='hi'] {
+  border-bottom-color: var(--field-control);
+}
+
 .bound-input {
   width: 5.2ch;
   max-width: 100%;
@@ -504,6 +523,28 @@ a {
   font-weight: 700;
   font-size: clamp(1.75rem, 1.3rem + 2vw, 2.5rem);
   line-height: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .outcome-points[data-perfect-window] {
+    position: relative;
+    animation: points-earned 420ms var(--ease-out);
+  }
+
+  .outcome-points[data-perfect-window]::after {
+    content: '';
+    position: absolute;
+    inset: -0.14em -0.24em;
+    border: 1px solid currentColor;
+    border-radius: var(--radius-small);
+    pointer-events: none;
+    animation: perfect-window 420ms var(--ease-out) both;
+  }
+}
+
+@keyframes perfect-window {
+  from { opacity: 0.75; transform: scale(0.88); }
+  to { opacity: 0; transform: scale(1.14); }
 }
 
 .outcome-miss .outcome-word {
@@ -594,6 +635,10 @@ a {
   white-space: nowrap;
 }
 
+.tick-major[data-in-window] .tick-label {
+  color: var(--field-control);
+}
+
 .band {
   position: absolute;
   top: 4px;
@@ -605,6 +650,10 @@ a {
 
 .ruler[data-dragging='band'] .band {
   cursor: grabbing;
+}
+
+.ruler[data-dragging] .band {
+  background: color-mix(in srgb, var(--field-band) 78%, var(--field-control));
 }
 
 /* A missed window is hatched and dashed, so the miss reads without colour. */
@@ -624,6 +673,29 @@ a {
 .ruler[data-state='hit'][data-zero] .band {
   background: var(--field-band);
 }
+
+/* Draw the exact distance below the scale, where the marker pin stays clear. */
+.ruler-gap {
+  position: absolute;
+  top: 71px;
+  height: 2px;
+  color: var(--answer-on-dark);
+  background: currentColor;
+  pointer-events: none;
+}
+
+.ruler-gap::before,
+.ruler-gap::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  height: 8px;
+  border-left: 2px solid currentColor;
+  transform: translateX(-50%);
+}
+
+.ruler-gap::before { left: 0; }
+.ruler-gap::after { left: 100%; }
 
 /* Brackets: 48px-wide hit area; a caliper jaw over the band and a grip tab below the ruler. */
 .bracket {
@@ -727,7 +799,7 @@ a {
 
 .bracket:focus-visible .bracket-grip {
   background: var(--paper);
-  outline: 3px solid var(--focus);
+  outline: 2px solid var(--field-focus);
   outline-offset: 2px;
 }
 
@@ -743,14 +815,21 @@ a {
 }
 
 .ruler[data-dragging='lo'] .bracket-lo .bracket-grip,
-.ruler[data-dragging='hi'] .bracket-hi .bracket-grip {
+.ruler[data-dragging='hi'] .bracket-hi .bracket-grip,
+.ruler[data-dragging='band'] .bracket-grip {
   background: var(--paper);
   transform: scale(1.08);
 }
 
+.ruler[data-dragging='lo'] .bracket-lo .bracket-shape::before,
+.ruler[data-dragging='hi'] .bracket-hi .bracket-shape::before,
+.ruler[data-dragging='band'] .bracket-shape::before {
+  border-color: var(--field-focus);
+}
+
 /* Lock: the brackets clamp shut on the window. */
 .round[data-phase='locked'] .bracket-shape {
-  animation: clamp 150ms var(--ease-out);
+  animation: clamp 110ms var(--ease-out);
 }
 
 @keyframes clamp {
@@ -761,7 +840,7 @@ a {
 
 .bracket-tag {
   position: absolute;
-  top: -38px;
+  top: -5px;
   left: 50%;
   padding: 3px 7px;
   border-radius: var(--radius-small);
@@ -769,25 +848,25 @@ a {
   color: var(--ink);
   font-weight: 760;
   font-size: 0.9375rem;
+  line-height: 1.2;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
-  transform: translate(calc(var(--bracket-position) * -1%), 4px);
-  transition: opacity 120ms ease, transform 160ms var(--ease-out);
+  transform: translate(calc(var(--bracket-position) * -1%), -100%);
+  transition: opacity var(--motion-fast) ease;
 }
 
 .ruler[data-dragging='lo'] .bracket-lo .bracket-tag,
 .ruler[data-dragging='hi'] .bracket-hi .bracket-tag,
-.ruler[data-dragging='band'] .bracket-tag {
+.ruler:not([data-dragging]) .bracket[data-grab]:focus-visible .bracket-tag,
+.range-tag {
   opacity: 1;
-  transform: translateX(calc(var(--bracket-position) * -1%));
 }
 
-@media (pointer: fine) {
-  .bracket-tag {
-    display: none;
-  }
+.range-tag {
+  z-index: 3;
+  font-size: min(0.9375rem, 5vw);
 }
 
 /* The answer marker */
@@ -843,7 +922,7 @@ a {
 
 @keyframes flag-land {
   from {
-    transform: translateX(calc(var(--marker-position) * -1%)) scale(1.09);
+    transform: translateX(calc(var(--marker-position) * -1%)) scale(1.05);
   }
 }
 
@@ -852,6 +931,14 @@ a {
   grid-area: story;
   padding-top: 22px;
   animation: story-in var(--motion-short) var(--ease-out) both;
+}
+
+.round[data-fresh-result] .story {
+  animation-delay: 55ms;
+}
+
+.round:not(.onboarding-play, [data-fresh-result]) :is(.story, .outcome) {
+  animation: none;
 }
 
 .story-reaction {
@@ -885,7 +972,7 @@ a {
 @keyframes story-in {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(6px);
   }
 }
 
@@ -1675,6 +1762,7 @@ a {
   .story {
     transition: opacity 160ms ease !important;
   }
+  .round[data-fresh-result] .story { animation-delay: 0ms; }
 }
 
 @media (prefers-contrast: more) {
@@ -1697,6 +1785,7 @@ a {
   .bracket:focus-visible .bracket-grip { outline-color: Highlight; }
   .marker-pin { background: Highlight; outline-color: Canvas; }
   .marker-flag { border: 1px solid CanvasText; }
+  .ruler-gap { color: CanvasText; background: currentColor; forced-color-adjust: none; }
   .ledger-cell[data-status='current'] { border: 2px solid Highlight; }
 }
 

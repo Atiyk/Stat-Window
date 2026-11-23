@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { createSaveStore, emptySave, mergeRun, type StorageLike } from './storage';
+import { createSaveStore, emptySave, mergeRun, UNTIMED_PRACTICE_KEY, type StorageLike } from './storage';
 
 function memoryStorage(initial: Record<string, string> = {}): StorageLike & { data: Record<string, string> } {
   const data = { ...initial };
@@ -66,6 +66,26 @@ describe('mergeRun', () => {
     const data = createSaveStore(storage).load();
     expect(data.runs).toEqual({});
     expect(data.practice?.['2026-11-15']?.results).toEqual([r('a', 80)]);
+  });
+  it('preserves untimed practice through other tabs writing daily and timed practice saves', () => {
+    const storage = memoryStorage();
+    const untimedA = createSaveStore(storage, UNTIMED_PRACTICE_KEY);
+    const untimedB = createSaveStore(storage, UNTIMED_PRACTICE_KEY);
+    const tabA = createSaveStore(storage);
+    const tabB = createSaveStore(storage);
+    const day = '2026-11-15';
+    const official = { ...r('a', 30), elapsedMs: 1_500 };
+    const timed = { ...r('a', 60), elapsedMs: 2_500 };
+    const untimed = r('a', 90);
+    untimedA.saveRun(day, { results: [untimed], advanced: 0 }, 'practice');
+    tabA.saveRun(day, { results: [official], advanced: 1 });
+    tabB.saveRun(day, { results: [timed], advanced: 1 }, 'practice');
+    untimedB.saveRun(day, { results: [r('a', 5)], advanced: 1 }, 'practice');
+    const data = createSaveStore(storage).load();
+    expect(data.runs[day]).toEqual({ results: [official], advanced: 1 });
+    expect(data.practice?.[day]).toEqual({ results: [timed], advanced: 1 });
+    expect(createSaveStore(storage, UNTIMED_PRACTICE_KEY).load().practice?.[day])
+      .toEqual({ results: [untimed], advanced: 1 });
   });
   it('loads saves written before practice runs and visits were stored', () => {
     const old = { version: 1, runs: { '2026-11-15': { results: [r('a')], advanced: 1 } }, settings: { sound: false, introSeen: true } };

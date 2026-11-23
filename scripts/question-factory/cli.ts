@@ -11,8 +11,8 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  generate, normalized, plan, validateBatch, validateCandidate,
-  type CandidateBatch, type ResearchBatch, type SourcePolicy, type Proposal,
+  factKey, generate, normalized, plan, similarQuestion, validateBatch, validateCandidate,
+  type CandidateBatch, type QuestionIdentity, type ResearchBatch, type SourcePolicy, type Proposal,
 } from './core.ts';
 
 // Optional isolated root enables real CLI end-to-end tests without touching the repository.
@@ -74,35 +74,41 @@ function makeCandidates(): void {
   console.log(`Created ${result.candidates.length} DRAFT questions in ${candidatesPath(id)}.`);
   console.log('No candidate is approved automatically. Verify sources, edit prompts, score quality, and sign off.');
 }
-function existingPublished(): { ids: Set<string>; prompts: Set<string>; last: string } {
+function existingPublished() {
   const ids = new Set<string>(), prompts = new Set<string>();
   const dir = join(ROOT, 'content', 'days');
   const names = readdirSync(dir).filter((n) => /^\d{4}-\d{2}-\d{2}\.json$/.test(n)).sort();
+  const questions: QuestionIdentity[] = [];
   for (const name of names) {
-    const slate = json<{ questions: { id: string; prompt: string }[] }>(join(dir, name));
+    const slate = json<{ questions: QuestionIdentity[] }>(join(dir, name));
+    questions.push(...slate.questions);
     for (const q of slate.questions) { ids.add(q.id); prompts.add(normalized(q.prompt)); }
   }
-  return { ids, prompts, last: names.at(-1)?.slice(0, 10) ?? '0000-00-00' };
+  return { ids, prompts, questions, last: names.at(-1)?.slice(0, 10) ?? '0000-00-00' };
 }
 function checkCandidateBatch(b: CandidateBatch, p: SourcePolicy | null): string[] {
   const errors = validateBatch(b);
   const known = existingPublished();
   const all = readdirSync(CANDIDATES).filter((n) => n.endsWith('.json'));
   const otherIds = new Set<string>(), otherPrompts = new Set<string>(), otherMeanings = new Set<string>();
+  const comparable = [...known.questions];
   for (const n of all) {
     if (n === b.id + '.json') continue;
     for (const c of json<CandidateBatch>(join(CANDIDATES, n)).candidates) {
       otherIds.add(c.id);
       otherPrompts.add(normalized(c.prompt));
-      otherMeanings.add([c.sport,c.subject,c.event,c.statistic,String(c.answer)].map(normalized).join('|'));
+      otherMeanings.add(factKey(c));
+      comparable.push(c);
     }
   }
   for (const c of b.candidates) {
     // Duplicates are errors even for drafts: editing the question is cheaper now than after publishing.
     if (known.ids.has(c.id) || otherIds.has(c.id)) errors.push(`${c.id}: ID already used in another question or published day`);
     if (known.prompts.has(normalized(c.prompt)) || otherPrompts.has(normalized(c.prompt))) errors.push(`${c.id}: prompt already used in another question or published day`);
-    if (otherMeanings.has([c.sport,c.subject,c.event,c.statistic,String(c.answer)].map(normalized).join('|')))
+    if (otherMeanings.has(factKey(c)))
       errors.push(`${c.id}: same underlying fact already exists in another research batch`);
+    const similar = comparable.find((q) => similarQuestion(c, q));
+    if (similar) errors.push(`${c.id}: prompt is similar to ${similar.id}; confirm it asks a distinct question`);
     if (c.review?.status === 'approved') errors.push(...validateCandidate(c, p));
   }
   return errors;

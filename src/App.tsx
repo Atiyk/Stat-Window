@@ -6,9 +6,9 @@ import { parseChallenge } from './engine/challenge';
 import { addDays, puzzleDay, puzzleNumber } from './engine/daily';
 import { currentSeason, inSeason, isRetiredDay, playableDays, publicNumber, seasonConfigFrom, type SeasonConfig } from './engine/season';
 import { isQa } from './lib/scores';
-import { gameReducer, initGame, ROUNDS, type GameAction, type GameState, type Mode } from './engine/game';
-import { createSaveStore, type RunKind, type SaveStore, type StorageLike } from './engine/storage';
-import { playerStats } from './engine/summary';
+import { gameReducer, initGame, ROUNDS, type GameAction, type GameState, type Mode, type PracticeTiming, type RoundRecord } from './engine/game';
+import { createSaveStore, UNTIMED_PRACTICE_KEY, type RunKind, type SavedRun, type SaveStore, type StorageLike } from './engine/storage';
+import { playerStats, streakMilestone } from './engine/summary';
 import { analyticsEnabled, setCohort, track, trackOnce, type PlayMode, type ShareMethod } from './lib/track';
 import { CTA_TEST, previewAsOf, SURVIVAL_FLAG, wantsSurvival } from './survival/flag';
 import { armFor, exposedYesterday, markExposed, type Arm } from './survival/experiment';
@@ -20,6 +20,7 @@ import { Mark } from './ui/Mark';
 import { Results } from './ui/Results';
 import { Round } from './ui/Round';
 import { Onboarding } from './ui/Onboarding';
+import { PracticeTimingChoice } from './ui/PracticeTimingChoice';
 
 // Survival is its own chunk, and is absent from the build while the flag is off.
 // (The env comparison is spelled out here so the bundler can drop the chunk.)
@@ -67,12 +68,12 @@ function safeLocalStorage(): StorageLike | null {
 
 /**
  * What is on screen. `kind` says where the run is saved: today's puzzle (and any
- * earlier day the player already started as their daily) goes to the daily record;
- * any other earlier day is a separate practice run that never touches stats.
+ * earlier day the player already started as their daily) goes to the daily record.
+ * Timed and untimed practice have separate records outside the daily stats.
  * `viaLink` marks a run opened from a friend's same-puzzle link; `vs` is the score
  * that link claimed, shown for comparison only.
  */
-type Session = { mode: Mode; kind: RunKind; day: string; slate: Slate; viaLink: boolean; vs: number | null; vsTime: number | null };
+type Session = { mode: Mode; kind: RunKind; timing: PracticeTiming; day: string; slate: Slate; viaLink: boolean; vs: number | null; vsTime: number | null };
 
 /**
  * A tab opened before a deploy still holds the old list of day files. If one of
@@ -106,8 +107,8 @@ function withoutParams(loc: Pick<Location, 'pathname' | 'search' | 'hash'>, name
   return `${loc.pathname}${rest ? `?${rest}` : ''}${loc.hash}`;
 }
 
-/** The current address without the challenge parameters (`day`, `vs`). */
-const withoutChallenge = (loc: Pick<Location, 'pathname' | 'search' | 'hash'>) => withoutParams(loc, ['day', 'vs', 'time']);
+const gameParams = ['day', 'vs', 'time', 'practice'] as const;
+const withoutGameLink = (loc: Pick<Location, 'pathname' | 'search' | 'hash'>) => withoutParams(loc, gameParams);
 
 const daysBetween = (a: string, b: string) => puzzleNumber(b) - puzzleNumber(a);
 
@@ -129,9 +130,17 @@ function inProgress(store: SaveStore, day: string): boolean {
   return (run.results.length > 0 && run.results.length < ROUNDS) || run.advanced < run.results.length;
 }
 
+function hasConflictingLock(saved: SavedRun, current: readonly RoundRecord[]): boolean {
+  return saved.results.some((record, index) => {
+    const local = current[index];
+    return local && (record.questionId !== local.questionId || record.lo !== local.lo || record.hi !== local.hi);
+  });
+}
+
 export function App() {
   const storage = useMemo(() => safeLocalStorage(), []);
   const store = useMemo(() => createSaveStore(storage), [storage]);
+  const untimedStore = useMemo(() => createSaveStore(storage, UNTIMED_PRACTICE_KEY), [storage]);
   const [view, setView] = useState<'daily' | 'survival'>(() => (wantsSurvival(window.location.search) ? 'survival' : 'daily'));
   const [survivalSource, setSurvivalSource] = useState<'cta' | 'link'>('link');
 
@@ -140,7 +149,8 @@ export function App() {
   const offer = useSurvivalOffer(today, storage);
   useEffect(() => setCohort(isQa() ? 'qa' : currentSeason(today, SEASON)), [today]);
   const [session, setSession] = useState<Session | null>(null);
-  // Unlock bracket changes are not stored yet; protect the active run across UTC midnight.
+  const openRequest = useRef(0);
+  // Protect an active window across Eastern midnight.
   const activeWindowRef = useRef(false);
   const [missing, setMissing] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
@@ -152,33 +162,39 @@ export function App() {
   useEffect(() => setSoundEnabled(settings.sound), [settings.sound]);
 
   const open = useCallback(
-    async (day: string, link?: { vs: number | null; vsTime: number | null }) => {
+    async (day: string, options: { link?: { vs: number | null; vsTime: number | null }; timing?: PracticeTiming } = {}) => {
+      const request = ++openRequest.current;
+      let { link, timing = 'timed' } = options;
       // Never load retired beta content, even through stale UI callbacks.
       if (isRetiredDay(day, puzzleDay(new Date()), SEASON)) {
         setRetiredLink(true);
-        window.history.replaceState(null, '', withoutChallenge(window.location));
+        window.history.replaceState(null, '', withoutGameLink(window.location));
         day = puzzleDay(new Date());
         link = undefined;
+        timing = 'timed';
       }
       let slate: Slate | null;
       try {
         slate = await loadSlate(day);
       } catch {
+        if (request !== openRequest.current) return;
         if (reloadForNewVersion()) return;
         slate = null;
       }
+      if (request !== openRequest.current) return;
       if (!slate) {
         setMissing(true);
         setSession(null);
         return;
       }
       const isToday = day === puzzleDay(new Date());
-      const kind: RunKind = isToday || store.load().runs[day] ? 'runs' : 'practice';
+      const kind: RunKind = timing === 'timed' && (isToday || store.load().runs[day]) ? 'runs' : 'practice';
       setMissing(false);
       activeWindowRef.current = false;
       setSession({
         mode: kind === 'runs' ? 'daily' : 'practice',
         kind,
+        timing,
         day,
         slate,
         viaLink: link !== undefined,
@@ -189,7 +205,41 @@ export function App() {
     [store],
   );
 
-  // First load: a same-puzzle link opens its day; anything else opens today.
+  const openAddress = useCallback((dayNow: string) => {
+    const search = window.location.search;
+    const params = new URLSearchParams(search);
+    const playable = playableDays(inventoryDays, dayNow, SEASON);
+    const link = parseChallenge(search, dayNow, playable);
+    const practice = params.get('practice');
+    setBadLink(false);
+    setRetiredLink(false);
+    if (link.kind !== 'none') {
+      track({
+        name: 'challenge_open',
+        kind: link.kind === 'day' ? (link.day === dayNow ? 'today' : 'past') : link.kind,
+        withScore: link.kind === 'day' && link.vs !== null,
+      });
+    }
+    if (link.kind === 'day') {
+      // A legacy challenge link always retains its timed rules.
+      if (practice !== null) window.history.replaceState(null, '', withoutParams(window.location, ['practice']));
+      void open(link.day, { link: { vs: link.vs, vsTime: link.vsTime } });
+      return;
+    }
+    if (link.kind === 'none' && practice !== null && practice < dayNow && playable.includes(practice)) {
+      void open(practice, { timing: 'untimed' });
+      return;
+    }
+    if (link.kind !== 'none' || practice !== null) {
+      const requestedDay = params.get('day') ?? practice;
+      if (requestedDay !== null && isRetiredDay(requestedDay, dayNow, SEASON)) setRetiredLink(true);
+      else setBadLink(true);
+      window.history.replaceState(null, '', withoutGameLink(window.location));
+    }
+    void open(dayNow);
+  }, [open]);
+
+  // First load: restore an untimed practice route or honour a same-puzzle link.
   useEffect(() => {
     const prev = store.persistent ? store.recordVisit(today) : null;
     if (prev === undefined) track({ name: 'visit_new' });
@@ -201,28 +251,23 @@ export function App() {
       trackOnce(`remind-open:${today}`, today, { name: 'remind_open' });
       window.history.replaceState(null, '', withoutParams(window.location, ['from']));
     }
-    const link = parseChallenge(window.location.search, today, playableDays(inventoryDays, today, SEASON));
-    const requestedDay = new URLSearchParams(window.location.search).get('day');
-    const wasRetired = requestedDay !== null && isRetiredDay(requestedDay, today, SEASON);
-    if (link.kind !== 'none') {
-      track({
-        name: 'challenge_open',
-        kind: link.kind === 'day' ? (link.day === today ? 'today' : 'past') : link.kind,
-        withScore: link.kind === 'day' && link.vs !== null,
-      });
-    }
-    if (link.kind === 'invalid' || link.kind === 'future') {
-      if (wasRetired) setRetiredLink(true);
-      else setBadLink(true);
-      window.history.replaceState(null, '', withoutChallenge(window.location));
-    }
-    if (link.kind === 'day') void open(link.day, { vs: link.vs, vsTime: link.vsTime });
-    else void open(today);
+    openAddress(today);
     // Mount only: later day changes are handled below.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // A new UTC day while the tab is open: move to the new puzzle, unless the player
+  useEffect(() => {
+    const navigate = () => {
+      const dayNow = puzzleDay(new Date());
+      setToday(dayNow);
+      setView(wantsSurvival(window.location.search) ? 'survival' : 'daily');
+      openAddress(dayNow);
+    };
+    window.addEventListener('popstate', navigate);
+    return () => window.removeEventListener('popstate', navigate);
+  }, [openAddress]);
+
+  // A new Eastern day while the tab is open: move to the new puzzle, unless the player
   // is part-way through a run (theirs to finish; it keeps its own day) or practising.
   const sessionRef = useRef(session);
   sessionRef.current = session;
@@ -246,6 +291,23 @@ export function App() {
     if (window.location.search) window.history.replaceState(null, '', '/');
     setView('daily');
     void open(puzzleDay(new Date()));
+  };
+
+  const openPractice = (day: string, timing: PracticeTiming = 'timed') => {
+    const loc = window.location;
+    if (timing === 'untimed') {
+      const dayNow = puzzleDay(new Date());
+      if (day >= dayNow || !playableDays(inventoryDays, dayNow, SEASON).includes(day)) return;
+      const url = new URL(withoutGameLink(loc), loc.origin);
+      url.searchParams.set('practice', day);
+      window.history.pushState(null, '', url);
+      void open(day, { timing });
+    } else {
+      if (new URLSearchParams(loc.search).has('practice')) {
+        window.history.replaceState(null, '', withoutParams(loc, ['practice']));
+      }
+      void open(day);
+    }
   };
 
   const openSurvival = () => {
@@ -318,9 +380,9 @@ export function App() {
           </Suspense>
         ) : session ? (
           <Game
-            key={`${session.kind}:${session.day}`}
+            key={`${session.kind}:${session.timing}:${session.day}`}
             session={session}
-            store={store}
+            store={session.timing === 'untimed' ? untimedStore : store}
             today={today}
             showHint={!settings.introSeen}
             onFirstTouch={() => undefined}
@@ -328,7 +390,7 @@ export function App() {
             onWindowActive={() => { activeWindowRef.current = true; }}
             onRunComplete={() => { activeWindowRef.current = false; }}
             archive={archive}
-            onPractice={(d) => void open(d)}
+            onPractice={openPractice}
             onBackToToday={backToToday}
             offer={offer}
             storage={storage}
@@ -336,7 +398,7 @@ export function App() {
             onPrivacy={() => setPrivacyOpen(true)}
           />
         ) : missing ? (
-          <NoPuzzle today={today} archive={archive} onPractice={(d) => void open(d)} />
+          <NoPuzzle today={today} archive={archive} onPractice={openPractice} />
         ) : (
           <p className="loading" aria-live="polite">Loading today’s puzzle…</p>
         )}
@@ -364,7 +426,7 @@ function Game(props: {
   onWindowActive: () => void;
   onRunComplete: () => void;
   archive: readonly string[];
-  onPractice: (day: string) => void;
+  onPractice: (day: string, timing?: PracticeTiming) => void;
   onBackToToday: () => void;
   offer: SurvivalOffer;
   storage: StorageLike | null;
@@ -373,48 +435,74 @@ function Game(props: {
 }) {
   const { session, store, today, offer } = props;
   const daily = session.mode === 'daily';
+  const untimedPractice = session.timing === 'untimed';
   const playMode: PlayMode = session.viaLink ? 'challenge' : session.mode;
+  const eventRun = untimedPractice ? 'untimedPractice' : session.kind;
 
   const [state, rawDispatch] = useReducer(gameReducer, undefined, (): GameState => {
     const saved = store.load()[session.kind]?.[session.day];
     return initGame(session.slate, session.mode, saved?.results ?? [], saved?.advanced ?? 0);
   });
 
-  const firstShotKey = `stat-window:shot:v1:${session.slate.questions[0]?.id ?? ''}`;
+  const startKey = untimedPractice ? `stat-window:practice-start:v1:${session.day}`
+    : `stat-window:shot:v1:${session.slate.questions[0]?.id ?? ''}`;
   const [started, setStarted] = useState(() => {
     if ((store.load()[session.kind]?.[session.day]?.results.length ?? 0) > 0) return true;
-    try { return window.sessionStorage.getItem(firstShotKey) !== null; } catch { return false; }
+    try { return window.sessionStorage.getItem(startKey) !== null; } catch { return false; }
   });
+  const practiceHeading = useRef<HTMLHeadingElement>(null);
+  useEffect(() => {
+    if (practiceHeading.current) {
+      practiceHeading.current.focus({ preventScroll: true });
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, [started]);
   const start = () => {
-    // Persist before mounting Q1 so an immediate refresh cannot grant fresh time.
-    try { if (!window.sessionStorage.getItem(firstShotKey)) window.sessionStorage.setItem(firstShotKey, String(Date.now())); } catch { /* private mode fallback */ }
-    trackOnce(`start:${playMode}:${session.kind}:${session.day}`, today, { name: 'run_start', mode: playMode });
+    // Persist before mounting Q1. Timed rounds use this value as their deadline origin.
+    try { if (!window.sessionStorage.getItem(startKey)) window.sessionStorage.setItem(startKey, String(Date.now())); } catch { /* private mode fallback */ }
+    trackOnce(`start:${playMode}:${eventRun}:${session.day}`, today, { name: 'run_start', mode: playMode });
     props.onWindowActive(); setStarted(true);
   };
 
+  const [freshOfficialResult, setFreshOfficialResult] = useState(false);
   const dispatch = useCallback(
     (a: GameAction) => {
       if (a.type === 'setWindow') props.onWindowActive();
-      if (a.type === 'next' && state.phase === 'resolved') track({ name: 'round_next', mode: playMode, round: state.round + 1 });
+      if (a.type === 'next' && state.phase === 'resolved') {
+        track({ name: 'round_next', mode: playMode, round: state.round + 1 });
+        if (state.results.length === ROUNDS && session.kind === 'runs' && playMode === 'daily') {
+          setFreshOfficialResult((store.load().runs[session.day]?.advanced ?? 0) < ROUNDS);
+        }
+      }
       if (a.type === 'setWindow' && state.round === 0 && state.phase === 'ready' && state.results.length === 0) {
-        trackOnce(`touch:${playMode}:${session.kind}:${session.day}`, today, { name: 'first_touch', mode: playMode });
+        trackOnce(`touch:${playMode}:${eventRun}:${session.day}`, today, { name: 'first_touch', mode: playMode });
       }
       rawDispatch(a);
     },
-    [state.phase, state.round, state.results.length, playMode, session.kind, session.day, today, props.onWindowActive],
+    [state.phase, state.round, state.results.length, playMode, eventRun, session.kind, session.day, store, today, props.onWindowActive],
   );
+
+  const lastLocked = useRef(state.results.length);
+  const adoptSave = useCallback((saved: SavedRun) => {
+    // The tab that locked these rounds already reported them.
+    lastLocked.current = saved.results.length;
+    rawDispatch({ type: 'hydrate', state: initGame(session.slate, session.mode, saved.results, saved.advanced) });
+  }, [session.slate, session.mode]);
 
   // Persist every locked round immediately (before the reveal), so a refresh can't re-roll it.
   const advanced = state.phase === 'complete' ? state.results.length : state.round;
   useEffect(() => {
-    store.saveRun(session.day, { results: state.results, advanced }, session.kind);
-  }, [store, session.day, session.kind, state.results, advanced]);
+    const saved = store.saveRun(session.day, { results: state.results, advanced }, session.kind);
+    if (untimedPractice && state.results.length > 0) {
+      try { window.sessionStorage.removeItem(startKey); } catch { /* storage blocked */ }
+      if (hasConflictingLock(saved, state.results)) adoptSave(saved);
+    }
+  }, [store, session.day, session.kind, state.results, advanced, untimedPractice, startKey, adoptSave]);
 
   const pub = publicNumber(session.day, SEASON);
   useEffect(() => {
     if (state.phase === 'complete') props.onRunComplete();
   }, [state.phase, props.onRunComplete]);
-  const lastLocked = useRef(state.results.length);
   useEffect(() => {
     if (state.results.length > lastLocked.current) {
       const r = state.results.at(-1)!;
@@ -448,14 +536,16 @@ function Game(props: {
     return () => window.removeEventListener('pagehide', onHide);
   }, [playMode]);
 
-  // Another tab finished rounds of the same day: adopt them unless we're mid-reveal.
+  // Adopt another tab's progress between rounds. Conflicting untimed locks
+  // always reconcile with the saved result, even during the local reveal.
   useEffect(() => {
     const onStorage = () => {
       const saved = store.load()[session.kind]?.[session.day];
-      if (saved && saved.results.length > state.results.length && (state.phase === 'ready' || state.phase === 'adjusting')) {
-        // Those rounds were counted by the tab that locked them.
-        lastLocked.current = saved.results.length;
-        rawDispatch({ type: 'hydrate', state: initGame(session.slate, session.mode, saved.results, saved.advanced) });
+      if (!saved) return;
+      const interactive = state.phase === 'ready' || state.phase === 'adjusting';
+      if ((interactive && saved.results.length > state.results.length) ||
+          (untimedPractice && hasConflictingLock(saved, state.results))) {
+        adoptSave(saved);
       }
     };
     window.addEventListener('storage', onStorage);
@@ -488,7 +578,15 @@ function Game(props: {
   if (state.phase === 'complete') {
     // Only the current season's runs count, so beta history never inflates an official launch.
     const season = currentSeason(today, SEASON);
-    const stats = playerStats(inSeason(store.load().runs, season, SEASON), today);
+    const history = inSeason(store.load().runs, season, SEASON);
+    const stats = playerStats(history, today);
+    const official = session.kind === 'runs' && playMode === 'daily';
+    const previous = official
+      ? playerStats(Object.fromEntries(Object.entries(history).filter(([day]) => day < session.day)), session.day)
+      : null;
+    const milestone = official && freshOfficialResult
+      ? streakMilestone(playerStats(history, session.day).streak)
+      : null;
     // The comparison takes only the first completed run of today's official puzzle
     // (or yesterday's, finished just after midnight). The server re-checks all of it.
     const eligible = session.kind === 'runs' && (session.day === today || session.day === addDays(today, -1));
@@ -500,11 +598,13 @@ function Game(props: {
         onPrivacy={props.onPrivacy}
         mode={session.mode}
         playMode={playMode}
+        untimedPractice={untimedPractice}
         isToday={session.day === today}
         vs={session.vs}
         vsTime={session.vsTime}
         results={state.results}
         stats={stats}
+        officialHighlight={official ? { lastBest: previous?.played ? previous.best : null, milestone } : undefined}
         archive={props.archive.filter((d) => d !== session.day)}
         onPractice={props.onPractice}
         onBackToToday={props.onBackToToday}
@@ -517,18 +617,18 @@ function Game(props: {
   }
 
   if (!started && state.results.length === 0) {
-    return props.showHint ? <Onboarding onDone={() => { props.onTutorialDone(); start(); }} /> : (
+    return props.showHint && !untimedPractice ? <Onboarding onDone={() => { props.onTutorialDone(); start(); }} /> : (
       <article className="ready-card">
-        <p className="context">{session.mode === 'practice' ? 'Practice' : 'Daily puzzle'}</p>
-        <h1>Ready for five?</h1>
-        <p>Catch five numbers in your windows. You’ll have 24 seconds per question.</p>
-        <button type="button" className="btn btn-primary" onClick={start}>Start today's five</button>
+        <p className="context">{untimedPractice ? 'Untimed practice' : daily ? 'Daily puzzle' : 'Practice'}</p>
+        <h1 ref={untimedPractice ? practiceHeading : undefined} tabIndex={untimedPractice ? -1 : undefined}>Ready for five?</h1>
+        <p>{untimedPractice ? 'Take your time on all five questions.' : 'Catch five numbers in your windows. You’ll have 24 seconds per question.'}</p>
+        <button type="button" className="btn btn-primary" onClick={start}>{untimedPractice ? 'Start practice' : "Start today's five"}</button>
       </article>
     );
   }
 
   // Difficulty and daily theme metadata stay internal; every round displays its own category.
-  const where = daily || session.viaLink ? '' : 'Practice · ';
+  const where = untimedPractice ? 'Untimed practice · ' : daily || session.viaLink ? '' : 'Practice · ';
   const label = `${where}Question\u00a0${state.round + 1} of\u00a0${ROUNDS}`;
 
   return (
@@ -536,14 +636,16 @@ function Game(props: {
       state={state}
       dispatch={dispatch}
       label={label}
+      timing={session.timing}
       challenge={session.viaLink && state.round === 0 && state.results.length === 0 ? { vs: session.vs, vsTime: session.vsTime } : null}
       onFirstTouch={() => { props.onWindowActive(); props.onFirstTouch(); }}
     />
   );
 }
 
-function NoPuzzle({ today, archive, onPractice }: { today: string; archive: readonly string[]; onPractice: (d: string) => void }) {
+function NoPuzzle({ today, archive, onPractice }: { today: string; archive: readonly string[]; onPractice: (day: string, timing?: PracticeTiming) => void }) {
   const before = today < (inventoryDays[0] ?? today);
+  const [timing, setTiming] = useState<PracticeTiming>('timed');
   return (
     <article className="results">
       <header className="results-head">
@@ -556,16 +658,19 @@ function NoPuzzle({ today, archive, onPractice }: { today: string; archive: read
         </p>
       </header>
       {archive.length > 0 && (
-        <ul className="archive-list">
-          {archive.map((day) => (
-            <li key={day}>
-              <button type="button" className="btn btn-quiet" onClick={() => onPractice(day)}>
-                {formatDay(day)}
-                {isMixedSportDay(day) && <span className="archive-tag"> · mixed sports</span>}
-              </button>
-            </li>
-          ))}
-        </ul>
+        <>
+          <PracticeTimingChoice timing={timing} onChange={setTiming} />
+          <ul className="archive-list">
+            {archive.map((day) => (
+              <li key={day}>
+                <button type="button" className="btn btn-quiet" onClick={() => onPractice(day, timing)}>
+                  {formatDay(day)}
+                  {isMixedSportDay(day) && <span className="archive-tag"> · mixed sports</span>}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </>
       )}
     </article>
   );

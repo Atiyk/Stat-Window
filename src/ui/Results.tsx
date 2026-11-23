@@ -3,17 +3,20 @@ import type { Slate } from '../content/schema';
 import { challengeUrl } from '../engine/challenge';
 import { msUntilNextPuzzle } from '../engine/daily';
 import { REMIND_COPY, followsPuzzleClock, googleCalendarUrl, icsPath, nextReminder, reminderHour, reminderTime } from '../engine/remind';
-import { totalPoints, type Mode, type RoundRecord } from '../engine/game';
-import { MAX_TOTAL, answerTimeMs, formatAnswerTime, shareText, verdict, type PlayerStats } from '../engine/summary';
+import { totalPoints, type Mode, type PracticeTiming, type RoundRecord } from '../engine/game';
+import { MAX_TOTAL, answerTimeMs, formatAnswerTime, shareText, postgameHighlight, type PlayerStats, type StreakMilestone } from '../engine/summary';
 import { ordinal } from '../engine/percentile';
 import { formatCountdown, formatDay, formatValue } from '../lib/format';
 import { isMixedSportDay } from '../content/cutover';
 import { track, type PlayMode, type ShareMethod } from '../lib/track';
 import { useNow } from './hooks';
 import { ComparisonLine, ConsentChoice } from './Comparison';
-import { cardBlob } from './share-card';
+import { cardBlob, type CardFormat } from './share-card';
 import { useComparison } from './use-comparison';
 import { Leaderboard } from './Leaderboard';
+import { InstallPrompt } from './InstallPrompt';
+import { PracticeTimingChoice } from './PracticeTimingChoice';
+import './results-polish.css';
 
 type Props = {
   slate: Slate;
@@ -24,6 +27,7 @@ type Props = {
   onPrivacy?: (() => void) | undefined;
   mode: Mode;
   playMode: PlayMode;
+  untimedPractice?: boolean;
   /** False when this is an earlier day (finished after midnight UTC, practice or a challenge). */
   isToday: boolean;
   /** The score a friend's link claimed. Unverified: shown for comparison only. */
@@ -31,8 +35,9 @@ type Props = {
   vsTime: number | null;
   results: readonly RoundRecord[];
   stats: PlayerStats;
+  officialHighlight?: { lastBest: number | null; milestone: StreakMilestone | null } | undefined;
   archive: readonly string[];
-  onPractice: (day: string) => void;
+  onPractice: (day: string, timing?: PracticeTiming) => void;
   onBackToToday: () => void;
   /** Called after a share attempt (for the experiment's guardrail). */
   onShared?: ((method: ShareMethod) => void) | undefined;
@@ -56,9 +61,14 @@ function friendLine(total: number, vs: number, time: number | null, vsTime: numb
   return `Tied at ${total} points. Rematch?`;
 }
 
-export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isToday, vs, vsTime, results, stats, archive, onPractice, onBackToToday, onShared, survivalCta = null }: Props) {
+export function Results({ slate, label, eligible, onPrivacy, mode, playMode, untimedPractice = false, isToday, vs, vsTime, results, stats, officialHighlight, archive, onPractice, onBackToToday, onShared, survivalCta = null }: Props) {
   const total = totalPoints(results);
-  const answerMs = answerTimeMs(results);
+  const [format, setFormat] = useState<CardFormat>('square');
+  const [archiveExpanded, setArchiveExpanded] = useState(false);
+  const [practiceTiming, setPracticeTiming] = useState<PracticeTiming>('timed');
+  const [pending, setPending] = useState<'share' | 'save' | null>(null);
+  const working = useRef(false);
+  const answerMs = untimedPractice ? null : answerTimeMs(results);
   const raw = useComparison(eligible, slate.date, results);
   const slotRef = useRef<HTMLDivElement>(null);
   // After a yes or no the buttons go away; keep focus on the line that now answers.
@@ -69,6 +79,8 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
   const percentileLine = verified ? `${ordinal(verified.percentile)} percentile today (${verified.n.toLocaleString('en-US')} games)` : null;
   const cardInput = () => ({
     label,
+    format,
+    untimed: untimedPractice,
     date: formatDay(slate.date),
     results,
     answerMs,
@@ -94,6 +106,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
     if (text) setToastShown((n) => n + 1);
   };
   const [fallback, setFallback] = useState<string | null>(null);
+  const reminderLinkRef = useRef<HTMLAnchorElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const fallbackRef = useRef<HTMLTextAreaElement>(null);
 
@@ -128,7 +141,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
   const nativeShare = typeof navigator !== 'undefined' && !!navigator.share && matchMedia('(pointer: coarse)').matches;
   // The card is drawn ahead of the tap: Safari only allows share() straight from the gesture,
   // so awaiting fonts and a canvas inside the click could cost the share sheet.
-  const cardKey = `${label}|${total}|${answerMs ?? ''}|${percentileLine ?? ''}`;
+  const cardKey = `${slate.date}|${format}|${label}|${total}|${answerMs ?? ''}|${percentileLine ?? ''}`;
   const card = useRef<{ key: string; blob: Blob | null } | null>(null);
   useEffect(() => {
     if (!nativeShare) return;
@@ -143,18 +156,26 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nativeShare, cardKey]);
 
+  const filename = `stat-window-${slate.date}${untimedPractice ? '-untimed' : ''}${format === 'portrait' ? '-portrait' : ''}.png`;
+
   const share = async () => {
-    const url = challengeUrl(window.location.origin, slate.date, total, answerMs);
-    const text = shareText({ label, results, url, percentile: percentileLine, answerMs });
+    if (working.current) return;
+    working.current = true;
+    setPending('share');
+    setToast(null);
+    setFallback(null);
+    const url = challengeUrl(window.location.origin, slate.date, untimedPractice ? undefined : total, answerMs);
+    const text = shareText({ label, results, url, percentile: percentileLine, answerMs, untimed: untimedPractice });
     try {
       // Native share sheet on touch devices; with the image card when the browser accepts files.
       if (nativeShare) {
         const blob = card.current?.key === cardKey ? card.current.blob : null;
-        const file = blob ? new File([blob], `stat-window-${slate.date}.png`, { type: 'image/png' }) : null;
+        const file = blob ? new File([blob], filename, { type: 'image/png' }) : null;
         const withFile = file && navigator.canShare?.({ files: [file] }) ? { files: [file] } : {};
         try {
           await navigator.share({ text, ...withFile });
           // The sheet closed with a target picked. Whether anything was sent isn't observable.
+          setFallback(null);
           report('files' in withFile ? 'native-image' : 'native');
           return;
         } catch (e) {
@@ -164,7 +185,8 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
       }
       if (!navigator.clipboard?.writeText) throw new Error('No clipboard');
       await navigator.clipboard.writeText(text);
-      setToast('Copied. Paste it anywhere.');
+      setFallback(null);
+      setToast('Copied');
       report('clipboard');
     } catch (e) {
       if (e instanceof DOMException && e.name === 'AbortError') {
@@ -172,27 +194,46 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
         return;
       }
       setFallback(text);
-      setToast('Couldn’t copy automatically. The text below is selected.');
+      setToast('Copy the selected text');
       report('failed');
+    } finally {
+      working.current = false;
+      setPending(null);
     }
   };
 
   const saveCard = async () => {
-    const blob = await cardBlob(cardInput());
-    if (!blob) {
-      setToast('Couldn’t make the image in this browser.');
-      return;
+    if (working.current) return;
+    working.current = true;
+    setPending('save');
+    setToast(null);
+    let href: string | null = null;
+    try {
+      const cached = card.current?.key === cardKey ? card.current.blob : null;
+      const blob = cached ?? await cardBlob(cardInput());
+      if (!blob) throw new Error('Card unavailable');
+      href = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = href;
+      link.download = filename;
+      document.body.append(link);
+      try {
+        link.click();
+      } finally {
+        link.remove();
+      }
+      setToast('Download started');
+      report('image-saved');
+    } catch {
+      setToast('Couldn’t make the image. Try again.');
+    } finally {
+      if (href) {
+        const objectUrl = href;
+        window.setTimeout(() => URL.revokeObjectURL(objectUrl), 10_000);
+      }
+      working.current = false;
+      setPending(null);
     }
-    const href = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = href;
-    a.download = `stat-window-${slate.date}.png`;
-    document.body.append(a);
-    a.click();
-    a.remove();
-    window.setTimeout(() => URL.revokeObjectURL(href), 10_000);
-    setToast('Score card ready. No answers on it.');
-    report('image-saved');
   };
 
   const remindTapped = (method: 'ics' | 'google') => {
@@ -204,13 +245,14 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
   const local = localTimeOf(nextAt);
 
   const practice = mode === 'practice';
+  const practiceLabel = playMode === 'challenge' ? 'Challenge' : untimedPractice ? 'Untimed practice' : 'Practice';
 
   return (
     <article className="results daily-results">
       <header className="results-head">
         <p className="context results-context">
           {practice
-            ? `${playMode === 'challenge' ? 'Challenge' : 'Practice'} · ${label} · ${formatDay(slate.date)} · not counted in your stats`
+            ? `${practiceLabel} · ${label} · ${formatDay(slate.date)} · not counted in your stats`
             : `${label} · ${formatDay(slate.date)}`}
         </p>
         <h1 className="results-title results-total" ref={headingRef} tabIndex={-1}>
@@ -218,11 +260,14 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
           <span className="results-score tabular">{total}</span>
           <span className="results-max">of {MAX_TOTAL}</span>
         </h1>
-        <p className="results-verdict">{verdict(total)}</p>
+        <p className="results-verdict">{postgameHighlight(results, officialHighlight?.lastBest)}</p>
+        {officialHighlight?.milestone && (
+          <p className="streak-milestone">{officialHighlight.milestone} days in a row</p>
+        )}
         {answerMs !== null && <p className="results-time">Answer time <strong className="tabular">{formatAnswerTime(answerMs)}</strong></p>}
         <ol className="ledger scorecard" aria-label="Question by question">
           {results.map((r, i) => (
-            <li key={i} className="ledger-cell" data-status={!r.hit ? 'miss' : r.points > 0 ? 'hit' : 'zero'} style={{ animationDelay: `${i * 70}ms` }}>
+            <li key={i} className="ledger-cell" data-status={!r.hit ? 'miss' : r.points > 0 ? 'hit' : 'zero'} style={{ animationDelay: `${i * 36}ms` }}>
               <span className="sr-only">
                 Question {i + 1}: {r.points} points
               </span>
@@ -236,8 +281,8 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
 
       <div className="results-actions">
         {/* The share of the day just played always comes first, on practice and challenge runs too. */}
-        <button type="button" className="btn btn-primary" aria-describedby="challenge-share-note" onClick={share}>
-          Challenge a friend
+        <button type="button" className="btn btn-primary" aria-describedby="challenge-share-note" aria-busy={pending === 'share'} aria-disabled={pending !== null} onClick={share}>
+          {untimedPractice ? 'Share practice score' : 'Challenge a friend'}
         </button>
         {fallback && (
           <textarea
@@ -251,11 +296,20 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
           />
         )}
         <p className="share-note" id="challenge-share-note">
-          {total > 0 ? 'Send your score and the same five questions.' : 'Send the same five questions.'} No spoilers.
+          {total > 0 || untimedPractice ? 'Send your score and the same five questions.' : 'Send the same five questions.'} No spoilers.
           {total > 0 && answerMs !== null && ' Time breaks ties.'}
         </p>
-        <button type="button" className="btn btn-link" onClick={saveCard}>
-          Save score card (no answers on it)
+        <fieldset className="card-formats" disabled={pending !== null}>
+          <legend>Score card format</legend>
+          {(['square', 'portrait'] as const).map((option) => (
+            <label key={option}>
+              <input type="radio" name="card-format" checked={format === option} onChange={() => setFormat(option)} />
+              {option === 'square' ? 'Square' : 'Portrait'}
+            </label>
+          ))}
+        </fieldset>
+        <button type="button" className="btn btn-link save-score-card" aria-busy={pending === 'save'} aria-disabled={pending !== null} onClick={saveCard}>
+          Save score card
         </button>
         {(practice || !isToday) && (
           <button type="button" className="btn btn-quiet" onClick={onBackToToday}>
@@ -284,6 +338,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
             <a
               className="btn-link"
               href={remind.google}
+              ref={reminderLinkRef}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={REMIND_COPY.googleName}
@@ -294,6 +349,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
           </p>
           <p className="remind-note">{remind.note}</p>
         </div>
+        {!practice && playMode === 'daily' && <InstallPrompt completedDays={stats.played} onDismiss={() => reminderLinkRef.current?.focus({ preventScroll: true })} />}
       </div>
 
       <ol className="recap" aria-label="Your five windows">
@@ -362,18 +418,24 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, isT
 
       {archive.length > 0 && (
         <section className="archive" aria-labelledby="archive-title">
-          <h2 id="archive-title" className="archive-title">Warm up on an earlier day</h2>
+          <h2 id="archive-title" className="archive-title">Past games</h2>
           <p className="archive-sub">Practice runs don’t count toward your stats.</p>
-          <ul className="archive-list">
-            {archive.map((day) => (
+          <PracticeTimingChoice timing={practiceTiming} onChange={setPracticeTiming} />
+          <ul className="archive-list" id="past-games">
+            {(archiveExpanded ? archive : archive.slice(0, 5)).map((day) => (
               <li key={day}>
-                <button type="button" className="btn btn-quiet" onClick={() => onPractice(day)}>
+                <button type="button" className="btn btn-quiet" onClick={() => onPractice(day, practiceTiming)}>
                   {formatDay(day)}
                   {isMixedSportDay(day) && <span className="archive-tag"> · mixed sports</span>}
                 </button>
               </li>
             ))}
           </ul>
+          {archive.length > 5 && (
+            <button type="button" className="btn-link archive-toggle" aria-expanded={archiveExpanded} aria-controls="past-games" onClick={() => setArchiveExpanded(!archiveExpanded)}>
+              {archiveExpanded ? 'Show recent games' : 'View all past games'}
+            </button>
+          )}
         </section>
       )}
 

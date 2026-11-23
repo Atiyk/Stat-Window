@@ -5,12 +5,20 @@ Not five increasingly obscure facts. Five satisfying basketball judgments that m
 
 A 24-second per-question shot clock means every prompt must be scannable and **estimable**. Memorizing a 1983 micro-record is not the desired skill.
 
+Krillion gives every player the same timed sequence. Size It Up gives players a known comparison point in each round. Layers builds toward a final challenge after varied rounds. For Stat Window, open with familiar basketball context, give players a basis for an estimate, and change the kind of judgment from one question to the next. End on a number people can remember or bring up with a friend. [Krillion](https://playlin.io/game/krillion/) · [Size It Up](https://playlin.io/game/size-it-up/) · [Layers](https://playlin.io/game/layers/)
+
 ## Before locking any future day
 1. **Q1: easy, recognizable, quick win.** A current or widely known player, famous team or iconic game. A newcomer should understand it in <5 seconds and have a plausible range in <15.
-2. **Q2: recognizable plus curiosity.** Extend Q1's narrative or introduce a vivid contrast. Use a different stat family.
+2. **Q2: recognizable plus curiosity.** Introduce a familiar subject from an unexpected angle. Use a different stat family.
 3. **Q3: surprise/reveal.** A striking number that fans will want to tell friends. This is the mid-game reward, not trivia homework.
 4. **Q4: tougher judgment.** Require real basketball knowledge, but the range must allow informed estimation rather than one exact memorized number.
-5. **Q5: satisfying finish.** Highest difficulty may be fine, but finish on a *memorable* star, rivalry, record or comeback, not an obscure unguessable split. Make the reveal worth waiting for.
+5. **Q5: satisfying finish.** Finish on a memorable star, rivalry, record or comeback. Give the player a foothold for the estimate and make the reveal worth waiting for.
+
+### Automated checks and review
+
+The NBA publisher checks the Q1 opening, Q3 surprise and Q5 finish against the editors' ratings for mixed slates. Its daily and rolling seven-day gates check subjects, franchise frequency, stat families and era coverage. The strict editorial audit inventories these slots, source evidence and decade counts for upcoming dates. Use `npm run content:publish:check` for the canonical publication and lock check.
+
+Before approving a slate, read all five prompts and their reveals together. Check who or what each question asks about, the exact season and statistical scope, and how a fan could narrow the answer in time. Verify each explanation and bonus variant against its own evidence and look for a specific basketball detail that rewards the reveal. Watch for one reveal giving away a later answer. Record requested changes or the independent approval with the slate, and keep the reviewed sources and rights decisions with the research batch.
 
 ## Editorial rejection tests
 - Can't name a recognizable person/team/event in Q1 or Q5? Rework the slate.

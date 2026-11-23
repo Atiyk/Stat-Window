@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type Dispatch, type ReactNode } from 'react';
-import { canLock, currentQuestion, ROUNDS, totalPoints, type GameAction, type GameState } from '../engine/game';
-import { potentialPoints } from '../engine/scoring';
+import { canLock, currentQuestion, ROUNDS, totalPoints, type GameAction, type GameState, type PracticeTiming } from '../engine/game';
+import { MAX_POINTS_PER_ROUND, potentialPoints } from '../engine/scoring';
 import { formatValue, unitFor } from '../lib/format';
 import { feedback } from './feedback';
 import { Readout } from './Readout';
@@ -18,6 +18,7 @@ type Props = {
   /** Set when the run came from a friend's link: shown before the first round only. */
   challenge?: { vs: number | null; vsTime: number | null } | null;
   onFirstTouch: () => void;
+  timing?: PracticeTiming;
   /**
    * Survival mode only. Everything else about the round (window, lock, reveal,
    * scoring) is the Daily Five's, unchanged; this only swaps the ledger, the
@@ -35,10 +36,9 @@ export type SurvivalChrome = {
   nextLabel: string;
 };
 
-const FIRST_TRAVEL_MS = 900;
-const TRAVEL_MS = 650;
-const CLAMP_MS = 150;
-const COUNT_UP_MS = 280;
+const FIRST_TRAVEL_MS = 510;
+const TRAVEL_MS = 440;
+const CLAMP_MS = 110;
 const SHOT_CLOCK_MS = 24_000;
 /**
  * Session storage protects reloads; local storage also protects a player who
@@ -68,13 +68,13 @@ function savedShotStart(id: string, day: string, shared: boolean): number | null
 }
 const easeOutCubic = (t: number) => 1 - (1 - t) ** 3;
 
-export function Round({ state, dispatch, label, challenge = null, onFirstTouch, survival }: Props) {
+export function Round({ state, dispatch, label, challenge = null, onFirstTouch, timing = 'timed', survival }: Props) {
   const q = currentQuestion(state);
   const reduced = usePrefersReducedMotion();
   const last = state.results[state.round];
   const resolved = state.phase === 'resolved' && last;
   const interactive = state.phase === 'ready' || state.phase === 'adjusting';
-  const timed = survival === undefined;
+  const timed = timing === 'timed' && survival === undefined;
   const [factSeed] = useState(browserFunFactSeed);
   const extra = useMemo(() => pickFunFact(q, factSeed), [q, factSeed]);
   // One short reaction per reveal, stable across refreshes and not repeated within a run.
@@ -88,7 +88,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
       ).at(-1)?.text
     : undefined, [resolved, state.results, state.round, state.slate.questions, q, factSeed]);
   const [progress, setProgress] = useState(0);
-  const [shownPoints, setShownPoints] = useState(0);
+  const liveResult = useRef<typeof last>(undefined);
   const roundRef = useRef<HTMLElement>(null);
   const actionRef = useRef<HTMLButtonElement>(null);
   const skipRef = useRef(false);
@@ -137,7 +137,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
   };
   const lockShot = () => {
     if (!canLock(state) || (survival && worth < survival.need)) return;
-    if (survival) { dispatch({ type: 'lock' }); return; }
+    if (!timed) { dispatch({ type: 'lock' }); return; }
     if (shot.current.stopped) return;
     startShot();
     const spent = stopShot();
@@ -204,7 +204,6 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
   // New round: reset the reveal and move focus to the question for screen readers.
   useEffect(() => {
     setProgress(0);
-    setShownPoints(0);
     const focused = document.activeElement;
     if (focused === document.body || roundRef.current?.contains(focused)) {
       headingRef.current?.focus({ preventScroll: true });
@@ -215,11 +214,14 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
 
   // locked → (brief clamp) → revealing
   useEffect(() => {
-    if (state.phase !== 'locked') return;
-    if (!last?.timedOut) feedback.lock();
+    if (state.phase !== 'locked' || !last) return;
+    if (liveResult.current !== last) {
+      liveResult.current = last;
+      if (!last.timedOut) feedback.lock();
+    }
     const t = window.setTimeout(() => dispatchRef.current({ type: reduced ? 'settle' : 'reveal' }), reduced ? 0 : CLAMP_MS);
     return () => window.clearTimeout(t);
-  }, [state.phase, reduced, last?.timedOut]);
+  }, [state.phase, reduced, last]);
 
   // Move the marker from the far end of the ruler and settle on the landing frame.
   useEffect(() => {
@@ -252,28 +254,14 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
     return () => cancelAnimationFrame(raf);
   }, [state.phase, state.round, last, reduced]);
 
-  // resolved: count the points up, then put focus on the next action.
+  // Focus Next as soon as the answer and real score land.
   useEffect(() => {
     if (state.phase !== 'resolved' || !last) return;
-    setProgress(1);
     const focused = document.activeElement;
     if (focused === document.body || roundRef.current?.contains(focused)) {
       actionRef.current?.focus({ preventScroll: true });
     }
-    if (reduced || last.points === 0) {
-      setShownPoints(last.points);
-      return;
-    }
-    let raf = 0;
-    const start = performance.now();
-    const step = (now: number) => {
-      const t = Math.min(1, (now - start) / COUNT_UP_MS);
-      setShownPoints(Math.round(last.points * easeOutCubic(t)));
-      if (t < 1) raf = requestAnimationFrame(step);
-    };
-    raf = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(raf);
-  }, [state.phase, last, reduced]);
+  }, [state.phase, last]);
 
   const revealing = state.phase === 'revealing' || state.phase === 'resolved';
   // The flag sets off from whichever end of the ruler is farther from the answer, so it always has to cross ground.
@@ -283,11 +271,15 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
     hit: last.hit,
     from,
     zero: last.hit && last.points === 0,
+    missBy: last.missBy,
   } : null;
+  const freshResult = resolved && liveResult.current === last;
+  const perfect = freshResult && last.points === MAX_POINTS_PER_ROUND;
+  const missDistance = resolved && resolved.missBy > 0 ? `${formatValue(resolved.missBy, q.step)} ${unitFor(resolved.missBy, q.unit)}` : '';
   const resultLabel = resolved && (resolved.timedOut ? 'Shot clock violation.' : !resolved.hit ? 'Outside.'
     : resolved.points === 0 ? 'Inside, but too wide to score.' : 'Inside.');
   const announcement = resolved
-    ? `${resultLabel} ${resolved.points} points. The answer is ${formatValue(q.answer, q.step)} ${unitFor(q.answer, q.unit)}.`
+    ? `${resultLabel}${missDistance ? ` Missed by ${missDistance}.` : ''} ${resolved.points} points. The answer is ${formatValue(q.answer, q.step)} ${unitFor(q.answer, q.unit)}.`
     : !interactive ? last?.timedOut ? 'Time’s up.' : 'Window locked.' : '';
   // Don't leak the outcome before the answer lands.
   const runningTotal = survival ? survival.total : totalPoints(state.phase === 'resolved' ? state.results : state.results.slice(0, state.round));
@@ -296,7 +288,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
   const isLast = state.round >= ROUNDS - 1;
 
   return (
-    <article ref={roundRef} className="round" data-phase={state.phase}>
+    <article ref={roundRef} className="round" data-phase={state.phase} data-fresh-result={freshResult || undefined}>
       <div className="round-head">
       <div className="round-top">
         {survival ? survival.ledger : <ol className="ledger" aria-label="Rounds">
@@ -305,18 +297,18 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
             const shown = r && (i < state.round || state.phase === 'resolved' || state.phase === 'complete');
             const status = shown ? (!r.hit ? 'miss' : r.points > 0 ? 'hit' : 'zero') : i === state.round ? 'current' : 'todo';
             return (
-              <li key={i} className="ledger-cell" data-status={status}>
+              <li key={i} className="ledger-cell" data-status={status} data-new-result={freshResult && i === state.round || undefined}>
                 <span className="sr-only">
                   Question {i + 1}: {shown ? `${r.points} points` : i === state.round ? 'now playing' : 'to play'}
                 </span>
-                <span className="ledger-num" aria-hidden="true">{shown ? i === state.round ? shownPoints : r.points : i + 1}</span>
+                <span className="ledger-num" aria-hidden="true">{shown ? r.points : i + 1}</span>
               </li>
             );
           })}
         </ol>}
         <p className="round-meta">
           <span className="round-label">{label}</span>
-          <span className="round-total">
+          <span className="round-total" data-earned={freshResult && last.points > 0 || undefined}>
             <span className="tabular">{runningTotal}</span> pts
           </span>
           {timed && <span className="shot-clock" data-urgent={interactive && secondsLeft <= 5 || undefined} role="timer"
@@ -368,7 +360,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
               <p className="outcome outcome-miss"><span className="outcome-word">Shot clock violation.</span>
                 <span className="outcome-detail">Buzzer. +0. The answer is below.</span></p>
             ) : resolved && survival ? (
-              <SurvivalOutcome points={last.points} hit={last.hit} need={survival.need} shown={shownPoints} missBy={`${formatValue(last.missBy, q.step)} ${unitFor(last.missBy, q.unit)}`} />
+              <SurvivalOutcome points={last.points} hit={last.hit} need={survival.need} perfect={!!perfect} missBy={missDistance} />
             ) : resolved ? (
               last.hit ? (
                 <p className="outcome outcome-hit" data-zero={last.points === 0 || undefined}>
@@ -376,7 +368,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
                     <span className="outcome-glyph" aria-hidden="true">✓</span>
                     {last.points === 0 ? 'Inside, but too wide to score.' : 'Inside.'}
                   </span>
-                  <span className="outcome-points tabular" aria-hidden="true">+{shownPoints}</span>
+                  <span className="outcome-points tabular" data-perfect-window={perfect || undefined} aria-hidden="true">+{last.points}</span>
                   <span className="sr-only">{last.points} points.</span>
                 </p>
               ) : (
@@ -386,7 +378,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
                     Outside.
                   </span>
                   <span className="outcome-detail">
-                    Missed by {formatValue(last.missBy, q.step)} {unitFor(last.missBy, q.unit)}
+                    Missed by {missDistance}
                   </span>
                 </p>
               )
@@ -472,7 +464,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
   );
 }
 
-function SurvivalOutcome({ hit, points, need, shown, missBy }: { hit: boolean; points: number; need: number; shown: number; missBy: string }) {
+function SurvivalOutcome({ hit, points, need, perfect, missBy }: { hit: boolean; points: number; need: number; perfect: boolean; missBy: string }) {
   if (hit && points >= need) {
     return (
       <p className="outcome outcome-hit">
@@ -480,7 +472,7 @@ function SurvivalOutcome({ hit, points, need, shown, missBy }: { hit: boolean; p
           <span className="outcome-glyph" aria-hidden="true">✓</span>
           Survived.
         </span>
-        <span className="outcome-points tabular" aria-hidden="true">+{shown}</span>
+        <span className="outcome-points tabular" data-perfect-window={perfect || undefined} aria-hidden="true">+{points}</span>
         <span className="sr-only">{points} points.</span>
       </p>
     );

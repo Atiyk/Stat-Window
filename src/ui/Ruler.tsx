@@ -16,6 +16,8 @@ export type RulerReveal = {
   /** The end of the scale the flag starts from. */
   readonly from: number;
   readonly zero?: boolean;
+  /** The scored distance beyond the closest bracket, excluding timeouts. */
+  readonly missBy: number;
 };
 
 type Props = {
@@ -158,6 +160,11 @@ export function Ruler({ question: q, window: w, interactive, reveal, onChange, o
   const landed = reveal !== null && reveal.progress >= 1;
   const markerValue = reveal ? reveal.from + (q.answer - reveal.from) * reveal.progress : q.answer;
   const state = !landed ? 'open' : reveal?.hit ? 'hit' : 'miss';
+  const showGap = landed && reveal.missBy > 0;
+  const nearestEdge = q.answer < w.lo ? w.lo : w.hi;
+  const lo = pct(w.lo);
+  const hi = pct(w.hi);
+  const mid = (lo + hi) / 2;
 
   return (
     <div
@@ -181,7 +188,7 @@ export function Ruler({ question: q, window: w, interactive, reveal, onChange, o
             <span key={`m${t}`} className="tick" style={{ left: `${pct(t)}%` }} />
           ))}
           {ticks.major.map((t) => (
-            <span key={`M${t}`} className="tick tick-major" style={{ left: `${pct(t)}%` }}>
+            <span key={`M${t}`} className="tick tick-major" data-in-window={interactive && t >= w.lo && t <= w.hi || undefined} style={{ left: `${pct(t)}%` }}>
               <span className="tick-label">{Math.abs(t) >= 10_000 ? compactTick.format(t) : formatValue(t, q.step < 1 ? 0.1 : q.step)}</span>
             </span>
           ))}
@@ -190,9 +197,23 @@ export function Ruler({ question: q, window: w, interactive, reveal, onChange, o
         <div
           className="band"
           data-grab={interactive ? 'band' : undefined}
-          style={{ left: `${pct(w.lo)}%`, width: `${pct(w.hi) - pct(w.lo)}%` }}
+          style={{ left: `${lo}%`, width: `${hi - lo}%` }}
           aria-hidden="true"
         />
+
+        {showGap && (
+          <span className="ruler-gap" aria-hidden="true" style={{
+            left: `${pct(Math.min(nearestEdge, q.answer))}%`,
+            width: `${(Math.abs(nearestEdge - q.answer) / span) * 100}%`,
+          }} />
+        )}
+
+        {interactive && dragging === 'band' && (
+          <span className="bracket-tag range-tag" aria-hidden="true"
+            style={{ left: `${mid}%`, '--bracket-position': mid } as CSSProperties}>
+            {formatValue(w.lo, q.step)}–{formatValue(w.hi, q.step)}
+          </span>
+        )}
 
         {(['lo', 'hi'] as const).map((which) => {
           const v = which === 'lo' ? w.lo : w.hi;

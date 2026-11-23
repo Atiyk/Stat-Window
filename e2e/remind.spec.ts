@@ -205,7 +205,7 @@ test('layout: wraps at 320px, 44px targets, and Tab reaches both links after the
     await page.keyboard.press('Tab');
     order.push(await page.evaluate(() => (document.activeElement?.getAttribute('aria-label') ?? document.activeElement?.textContent ?? '').trim()));
   }
-  const save = order.indexOf('Save score card (no answers on it)');
+  const save = order.indexOf('Save score card');
   const ics = order.indexOf('Apple or Outlook calendar');
   const google = order.indexOf('Google Calendar (opens in a new tab)');
   expect(save).toBeGreaterThanOrEqual(0);

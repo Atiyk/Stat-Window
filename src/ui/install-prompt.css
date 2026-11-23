@@ -1,0 +1,22 @@
+.install-prompt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 12px;
+}
+
+.install-prompt-actions .btn {
+  min-width: 44px;
+}
+
+.install-prompt-guide {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+@media (display-mode: standalone) {
+  :root {
+    --gutter: max(clamp(16px, 4vw, 36px), env(safe-area-inset-left), env(safe-area-inset-right));
+  }
+}

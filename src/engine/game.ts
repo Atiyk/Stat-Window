@@ -2,6 +2,7 @@ import type { Question, Slate } from '../content/schema';
 import { fromSteps, rangeSteps, scoreWindow, toSteps, type Scale, type Window } from './scoring';
 
 export type Mode = 'daily' | 'practice';
+export type PracticeTiming = 'timed' | 'untimed';
 
 export type RoundRecord = {
   readonly questionId: string;
@@ -10,7 +11,7 @@ export type RoundRecord = {
   readonly hit: boolean;
   readonly points: number;
   readonly missBy: number;
-  /** Active seconds spent answering; absent for legacy pre-shot-clock scores. */
+  /** Active milliseconds spent answering; absent for untimed and legacy scores. */
   readonly elapsedMs?: number | undefined;
   /** The buzzer expired; a timed-out window always earns zero. */
   readonly timedOut?: boolean | undefined;

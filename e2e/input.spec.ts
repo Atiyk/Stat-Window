@@ -6,6 +6,8 @@ test('keyboard: arrows step, Shift jumps, brackets cannot cross, Enter locks', a
   await lowBracket(page).focus();
   await page.keyboard.press('ArrowRight');
   await expect(lowBracket(page)).toHaveAttribute('aria-valuenow', '41');
+  await expect(lowBracket(page).locator('.bracket-tag')).toHaveText('41');
+  await expect(lowBracket(page).locator('.bracket-tag')).toHaveCSS('opacity', '1');
   await page.keyboard.press('Shift+ArrowRight');
   await expect(lowBracket(page)).toHaveAttribute('aria-valuenow', '45');
   await page.keyboard.press('End'); // low End = up to the high end
@@ -56,7 +58,9 @@ test('mouse: drag a bracket, drag the whole window, tap the track', async ({ pag
   await page.mouse.move(xFor(70), y);
   await page.mouse.down();
   await page.mouse.move(xFor(60), y, { steps: 6 });
+  await expect(page.locator('.range-tag')).toHaveText('50–72');
   await page.mouse.up();
+  await expect(page.locator('.range-tag')).toHaveCount(0);
   await expect(lowBracket(page)).toHaveAttribute('aria-valuenow', '50');
   await expect(highBracket(page)).toHaveAttribute('aria-valuenow', '72');
 
@@ -137,6 +141,9 @@ test('touch: dragging a bracket moves it and never scrolls the page', async ({ p
   const endX = track.x + track.width * 0.5;
   const before = await page.evaluate(() => window.scrollY);
   await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: startX, y }] });
+  await expect(lowBracket(page).locator('.bracket-tag')).toHaveCSS('opacity', '1');
+  const valueTag = (await lowBracket(page).locator('.bracket-tag').boundingBox())!;
+  expect(valueTag.y + valueTag.height).toBeLessThan(grip.y);
   for (let i = 1; i <= 8; i++) {
     // Diagonal finger motion: vertical drift must not scroll the page.
     await cdp.send('Input.dispatchTouchEvent', {

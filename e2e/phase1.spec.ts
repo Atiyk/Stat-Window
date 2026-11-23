@@ -1,4 +1,5 @@
 import { expect, test, type Page, type Route } from '@playwright/test';
+import { readFile } from 'node:fs/promises';
 import { collectErrors, DAY2, lockAndSettle, NBA_FIRST, next, openAt } from './helpers';
 
 /**
@@ -232,12 +233,24 @@ test('native share works while the card renders, attaches the ready image, and h
   await expect(page.getByRole('textbox', { name: 'Your result to copy' })).toHaveCount(0);
 });
 
-test('the score card can be saved as a PNG', async ({ page }) => {
+test('square and portrait score card PNGs export at their exact dimensions', async ({ page }) => {
   await stubScores(page, stored());
   await openAt(page, NBA_FIRST);
   await playOut(page);
-  const [download] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: /Save score card/ }).click()]);
-  expect(download.suggestedFilename()).toBe(`stat-window-${DAY}.png`);
+
+  for (const { format, suffix, height } of [
+    { format: 'Square', suffix: '', height: 1080 },
+    { format: 'Portrait', suffix: '-portrait', height: 1920 },
+  ]) {
+    await page.getByRole('radio', { name: format }).check();
+    const [download] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: /Save score card/ }).click()]);
+    expect(download.suggestedFilename()).toBe(`stat-window-${DAY}${suffix}.png`);
+    const png = await readFile(await download.path());
+    expect(png.toString('hex', 0, 8)).toBe('89504e470d0a1a0a');
+    expect(png.readUInt32BE(16)).toBe(1080);
+    expect(png.readUInt32BE(20)).toBe(height);
+    await expect(page.locator('.results .toast')).toHaveText('Download started');
+  }
 });
 
 test('privacy controls: switch off, delete, and the full notice is reachable', async ({ page }) => {

@@ -34,24 +34,45 @@ export function shareText(opts: {
   /** Only a verified, sample-gated line ("82nd percentile today, 214 games"). */
   percentile?: string | null;
   answerMs?: number | null;
+  untimed?: boolean;
 }): string {
   const total = opts.results.reduce((s, r) => s + r.points, 0);
+  const detail = opts.untimed ? ' · Untimed practice' : opts.answerMs != null ? ` · ${formatAnswerTime(opts.answerMs)}` : '';
   return [
-    `Stat Window ${opts.label ?? `No. ${opts.number ?? 0}`}  ${total}/${MAX_TOTAL}${opts.answerMs !== undefined && opts.answerMs !== null ? ` · ${formatAnswerTime(opts.answerMs)}` : ''}`,
+    `Stat Window ${opts.label ?? `No. ${opts.number ?? 0}`}  ${total}/${MAX_TOTAL}${detail}`,
     opts.results.map(roundMark).join(''),
     ...(opts.percentile ? [opts.percentile] : []),
-    total > 0 ? `Same five questions. Can you beat ${total}?` : 'Same five questions. Your turn.',
+    total > 0 && !opts.untimed ? `Same five questions. Can you beat ${total}?` : 'Same five questions. Your turn.',
     opts.url,
   ].join('\n');
 }
 
-export function verdict(total: number): string {
-  if (total >= 450) return 'Record-book stuff.';
-  if (total >= 350) return 'All-star read.';
-  if (total >= 250) return 'Starter material.';
-  if (total >= 150) return 'Solid minutes.';
-  if (total >= 50) return 'Rough day at the office.';
-  return 'Tough five.';
+export type StreakMilestone = 3 | 7 | 30;
+
+export function streakMilestone(days: number): StreakMilestone | null {
+  return days === 3 || days === 7 || days === 30 ? days : null;
+}
+
+/** One concrete takeaway. Earlier question order breaks ties between equally tight hits. */
+export function postgameHighlight(results: readonly RoundRecord[], lastBest: number | null = null): string {
+  const total = results.reduce((sum, round) => sum + round.points, 0);
+  if (lastBest !== null && total > lastBest) return `New personal best: ${total}.`;
+
+  const perfect = results.filter((round) => round.hit && round.points === 100).length;
+  if (perfect > 1) return `${perfect} perfect windows.`;
+
+  let tightest = -1;
+  let hits = 0;
+  results.forEach((round, index) => {
+    if (!round.hit) return;
+    hits++;
+    if (tightest < 0 || round.points > results[tightest]!.points) tightest = index;
+  });
+  if (tightest >= 0 && results[tightest]!.points > 0) {
+    return `Tightest hit: Q${tightest + 1} · ${results[tightest]!.points} points.`;
+  }
+  if (hits === 0) return 'All five answers landed outside your windows.';
+  return `${hits} of ${results.length} windows caught the answer.`;
 }
 
 export type PlayerStats = {

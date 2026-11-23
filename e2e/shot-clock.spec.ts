@@ -80,20 +80,23 @@ test('a completed question clears its shot deadline, so fresh challenges can rep
 test('interactive tutorial is not scored and requires an explicit start', async ({ page }) => {
   await page.clock.install({ time: DAY1 });
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: /^A fictional NBA player has 20 points/ })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /^How many regular-season games did the 2015/ })).toBeVisible();
   await expect(page.locator('.onboarding-play .ruler')).toBeVisible();
   await expect(page.locator('.onboarding-play .readout')).toBeVisible();
   await expect(page.locator('.round:not(.onboarding-play) .question')).toHaveCount(0);
   await expect(page.getByRole('slider', { name: 'Low end of your window' })).toBeVisible();
   await expect(page.getByRole('slider', { name: 'High end of your window' })).toBeVisible();
+  await expect(page.getByRole('slider', { name: 'High end of your window' })).toHaveAttribute('aria-valuemax', '82');
   await expect(page.locator('.shot-clock')).toContainText('No timer');
   // Real input interaction: tap the large number and type an exact bound.
   await page.getByRole('button', { name: /^Low end: / }).click();
   await page.getByRole('textbox', { name: /^Low end, between/ }).fill('30');
   await page.keyboard.press('Enter');
   await page.getByRole('button', { name: 'Lock the window' }).click();
-  await expect(page.locator('.onboarding-play .story-answer')).toContainText('42');
+  await expect(page.locator('.onboarding-play .story-answer')).toContainText('73');
   await expect(page.locator('.onboarding-play .ruler[data-state="hit"]')).toBeVisible();
+  await expect(page.locator('.onboarding-play .story')).toContainText('The Warriors finished 73–9');
+  await expect(page.locator('.onboarding-play .story a')).toHaveAttribute('href', 'https://www.nba.com/warriors/news/73-wins-20160413');
   const unsaved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
   expect(unsaved.runs?.['2026-11-15']?.results ?? []).toHaveLength(0);
   await page.getByRole('button', { name: "Start today's five" }).click();
@@ -135,7 +138,7 @@ test('Q2 countdown begins on Next without touching the window', async ({ page })
 test('opening and abandoning the tutorial does not start the clock or a scored run', async ({ page }) => {
   await page.clock.install({ time: DAY1 });
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: /^A fictional NBA player has 20 points/ })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /^How many regular-season games did the 2015/ })).toBeVisible();
   await expect(page.locator('.round:not(.onboarding-play) .question')).toHaveCount(0);
   const before = await page.evaluate(() => ({
     deadline: sessionStorage.getItem('stat-window:shot:v1:nba-gsw-2016-wins'),
@@ -144,7 +147,7 @@ test('opening and abandoning the tutorial does not start the clock or a scored r
   expect(before.deadline).toBeNull();
   expect(Object.keys(before.sent).some(key => key.startsWith('start:'))).toBe(false);
   await page.reload();
-  await expect(page.getByRole('heading', { name: /^A fictional NBA player has 20 points/ })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /^How many regular-season games did the 2015/ })).toBeVisible();
   await page.getByRole('button', { name: 'Skip tutorial and start' }).click();
   await expect(page.locator('.question')).toBeVisible();
   const after = await page.evaluate(() => ({
@@ -166,7 +169,7 @@ test('first-play rehearsal allows a miss and a retry without starting any daily 
   await page.keyboard.press('Home'); // moves the high bracket near the minimum, missing 42
   await page.getByRole('button', { name: 'Lock the window' }).click();
   await expect(page.locator('.onboarding-play .outcome-word')).toContainText('Outside.');
-  await expect(page.locator('.onboarding-play .story-answer')).toContainText('42');
+  await expect(page.locator('.onboarding-play .story-answer')).toContainText('73');
   expect(await page.evaluate(k => sessionStorage.getItem(k), clockKey)).toBeNull();
   await page.getByRole('button', { name: 'Try another window' }).click();
   await expect(page.locator('.onboarding-play .story-answer')).toHaveCount(0);
@@ -198,7 +201,7 @@ test('reduced-motion first-play practice preserves focus and layout across five 
   await page.getByRole('slider', { name: 'Low end of your window' }).focus();
   await page.keyboard.press('ArrowRight');
   await page.getByRole('button', { name: 'Lock the window' }).click();
-  await expect(page.locator('.onboarding-play .story-answer')).toContainText('42');
+  await expect(page.locator('.onboarding-play .story-answer')).toContainText('73');
   await expect(page.locator('.onboarding-play .story')).toBeFocused();
   const before=await page.evaluate(() => ({
     score: JSON.parse(localStorage.getItem('stat-window:v1') || '{}'),

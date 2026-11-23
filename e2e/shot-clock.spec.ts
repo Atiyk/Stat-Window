@@ -297,7 +297,7 @@ test('a running daily round retains its deadline across Eastern midnight', async
   expect(started).not.toBeNull();
   await page.clock.fastForward('00:15');
   // Midnight is not a new 24-second allowance for an already mounted round.
-  await expect.poll(async () => Number((await page.locator('.shot-clock').textContent())?.match(/(\\d+)s/)?.[1])).toBeLessThanOrEqual(9);
+  await expect.poll(async () => Number((await page.locator('.shot-clock').textContent())?.match(/(\d+)s/)?.[1])).toBeLessThanOrEqual(9);
   await page.clock.fastForward('00:10');
   await page.clock.runFor(2500);
   await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');

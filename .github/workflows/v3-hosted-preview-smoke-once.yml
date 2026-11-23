@@ -1,0 +1,32 @@
+name: V3 hosted preview one-time browser smoke
+
+on:
+  push:
+    branches: [statwindow/v3-live-preview-smoke-20261122]
+    paths: [.github/workflows/v3-hosted-preview-smoke-once.yml]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: statwindow-v3-hosted-preview-once
+  cancel-in-progress: false
+
+jobs:
+  smoke:
+    if: github.repository == 'Atiyk/Stat-Window'
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      LIVE_PREVIEW_E2E: '1'
+      BASE_URL: https://stat-window-7i8e1yy8g-atiyk-a.vercel.app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Exercise actual exact-commit READY preview (all score API calls mocked, zero hosted writes)
+        run: npx playwright test e2e/release-preview-hosted.spec.ts --project=desktop --project=webkit-mobile

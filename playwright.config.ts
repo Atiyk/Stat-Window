@@ -7,14 +7,18 @@ const ANALYTICS = !!process.env.ANALYTICS_E2E;
 const SURVIVAL = !!process.env.SURVIVAL_E2E;
 // Explicit isolated QA of dormant global leaderboard; never the V3 release build.
 const LEADERBOARD = !!process.env.LEADERBOARD_E2E;
-const PORT = ANALYTICS ? 4174 : SURVIVAL ? 4175 : LEADERBOARD ? 4177 : 4173;
+// A separate, never-deployed dry-run build verifies formal launch/retired-beta behavior.
+const LAUNCH = !!process.env.LAUNCH_E2E;
+const PORT = ANALYTICS ? 4174 : SURVIVAL ? 4175 : LEADERBOARD ? 4177 : LAUNCH ? 4178 : 4173;
 const BUILD = ANALYTICS
   ? `VITE_ANALYTICS=vercel npx vite build --outDir dist-analytics && npx vite preview --outDir dist-analytics --port ${PORT} --strictPort`
   : SURVIVAL
     ? `VITE_SURVIVAL=preview npx vite build --outDir dist-survival && npx vite preview --outDir dist-survival --port ${PORT} --strictPort`
     : LEADERBOARD
       ? `npx vite build --mode leaderboard-scaffold-qa --outDir dist-leaderboard-test && npx vite preview --outDir dist-leaderboard-test --port ${PORT} --strictPort`
-      : `npm run build && npx vite preview --port ${PORT} --strictPort`;
+      : LAUNCH
+        ? `VITE_LAUNCH_PREVIEW=1 npm run build -- --outDir dist-launch-test && npx vite preview --outDir dist-launch-test --port ${PORT} --strictPort`
+        : `npm run build && npx vite preview --port ${PORT} --strictPort`;
 const SURVIVAL_ON = 'VITE_SURVIVAL=on VITE_SURVIVAL_CTA_TEST=1 VITE_ANALYTICS=vercel npx vite build --outDir dist-survival-on && npx vite preview --outDir dist-survival-on --port 4176 --strictPort';
 
 export default defineConfig({

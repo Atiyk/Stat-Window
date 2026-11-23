@@ -6,6 +6,8 @@ on:
       - statwindow/v3-launchweek-candidate-20261122
     paths:
       - .github/workflows/v3-editorial-publish-once.yml
+      - data/nba/facts.json
+      - data/nba/calendar.json
 
 concurrency:
   group: v3-editorial-launchweek-once

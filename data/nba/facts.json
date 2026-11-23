@@ -25617,9 +25617,9 @@
    "asOf": null
   },
   "question": {
-   "prompt": "How old was Derrick Rose when he became the NBA's youngest-ever MVP?",
+   "prompt": "How old was Derrick Rose when he won the NBA's MVP award in 2011?",
    "context": "Chicago Bulls · 2010–11 MVP season",
-   "reveal": "Just 22. Chicago's hometown star remains the youngest player to win league MVP.",
+   "reveal": "Just 22. Chicago's hometown star became the youngest MVP in league history.",
    "min": 18,
    "max": 38,
    "step": 1,
@@ -25684,8 +25684,8 @@
    "prompt": "In Luka's historic 60-point triple-double against the Knicks, how many rebounds did he pull down?",
    "context": "Dallas Mavericks · December 2022",
    "reveal": "21 boards, to go with 60 points and 10 assists in an impossible comeback.",
-   "min": 7,
-   "max": 37,
+   "min": 0,
+   "max": 32,
    "step": 1,
    "difficulty": "hard",
    "difficultyReason": "The famous 60-point night is memorable; the enormous rebound count is a satisfying surprise.",
@@ -25788,64 +25788,64 @@
   }
  },
  {
-  "id": "nba-allen13-clutch-shot-seconds",
-  "family": "time",
-  "scope": "finals",
-  "season": "2012-13",
-  "eventDate": "2013-06-18",
-  "franchise": "MIA",
-  "player": "Ray Allen",
-  "answer": 5.2,
+  "id": "nba-hakeem90-quadruple-blocks",
+  "family": "blocks-game",
+  "scope": "regular-season",
+  "season": "1989-90",
+  "eventDate": "1990-03-29",
+  "franchise": "HOU",
+  "player": "Hakeem Olajuwon",
+  "answer": 11,
   "unit": {
-   "singular": "second remaining",
-   "plural": "seconds remaining"
+   "singular": "block",
+   "plural": "blocks"
   },
-  "claim": "Ray Allen tied 2013 NBA Finals Game 6 with a three-pointer with 5.2 seconds left.",
+  "claim": "Hakeem Olajuwon blocked 11 shots during a quadruple-double against Milwaukee on March 29, 1990.",
   "verifiedOn": "2026-11-22",
   "source": {
-   "url": "https://en.wikipedia.org/wiki/Ray_Allen",
-   "quote": "5.2 seconds left in the fourth quarter",
+   "url": "https://en.wikipedia.org/wiki/Hakeem_Olajuwon",
+   "quote": "18 points, 16 rebounds, 11 blocks and 10 assists",
    "derivation": null,
    "asOf": null
   },
   "question": {
-   "prompt": "How many seconds were left when Ray Allen buried the corner three that saved Miami's 2013 Finals?",
-   "context": "Miami Heat · Finals Game 6 vs San Antonio",
-   "reveal": "5.2 seconds: a corner three rescued the Heat's season and forced overtime.",
-   "min": 1,
-   "max": 13,
-   "step": 0.1,
+   "prompt": "In Hakeem Olajuwon's 1990 quadruple-double, how many shots did he block?",
+   "context": "Houston Rockets · March 1990 vs Milwaukee",
+   "reveal": "Eleven rejections completed a remarkable four-category performance.",
+   "min": 0,
+   "max": 16,
+   "step": 1,
    "difficulty": "medium",
-   "difficultyReason": "The shot is widely recognizable; the exact 5.2-second clock is a satisfying estimate.",
+   "difficultyReason": "His historic quadruple-double is recognizable; the double-digit block total is a fun challenge.",
    "ratings": {
     "interest": 5,
-    "recognizability": 5,
+    "recognizability": 4,
     "estimability": 4,
     "surprise": 5
    },
    "funFacts": [
     {
-     "text": "Allen made just one three-pointer in the entire game—and it was the one that mattered most.",
+     "text": "Hakeem's quadruple-double came in a comfortable Houston victory over Milwaukee.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
-      "url": "https://en.wikipedia.org/wiki/Ray_Allen",
-      "quote": "only three-pointer he made in three attempts"
+      "url": "https://en.wikipedia.org/wiki/Hakeem_Olajuwon",
+      "quote": "120–94 win over the Milwaukee Bucks"
      }
     },
     {
-     "text": "He played a heavy workload off the Miami bench in that unforgettable Game 6.",
+     "text": "He led the entire NBA in blocked shots that season, averaging 4.6 a night.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
-      "url": "https://en.wikipedia.org/wiki/Ray_Allen",
-      "quote": "played 41 minutes in Game 6 off the bench"
+      "url": "https://en.wikipedia.org/wiki/Hakeem_Olajuwon",
+      "quote": "led the league in blocks by averaging 4.6 per game"
      }
     },
     {
-     "text": "The Heat went on to win Game 6 in overtime and eventually claim another championship.",
+     "text": "He also led the league in rebounds during that same remarkable defensive season.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
-      "url": "https://en.wikipedia.org/wiki/Ray_Allen",
-      "quote": "forced a seventh game in the series"
+      "url": "https://en.wikipedia.org/wiki/Hakeem_Olajuwon",
+      "quote": "He won the NBA rebounding crown"
      }
     }
    ]

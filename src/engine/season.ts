@@ -69,8 +69,8 @@ export function publicNumber(day: string, config: SeasonConfig): PublicNumber {
 
 /** Publicly playable days. A formal launch retires the beta catalog from discovery and links,
  * without deleting saved runs or changing their historical season classification. */
-export function playableDays(days: readonly string[], config: SeasonConfig): string[] {
-  return config.launchDay === null ? [...days] : days.filter((day) => day >= config.launchDay!);
+export function playableDays(days: readonly string[], today: string, config: SeasonConfig): string[] {
+  return config.launchDay === null || today < config.launchDay ? [...days] : days.filter((day) => day >= config.launchDay!);
 }
 
 /** A beta link is retired only after the formal launch has begun. */

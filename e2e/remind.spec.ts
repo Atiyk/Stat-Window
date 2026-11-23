@@ -68,6 +68,16 @@ test.describe('New York', () => {
     await stubCalendars(context);
     await openAt(page, NBA_FIRST);
     await playFive(page);
+    // Percentile submission is independently asynchronous: on slower iPhone
+    // WebKit it may finish after the results are visible. Settle that outcome
+    // BEFORE taking the baseline so a legitimate percentile receipt does not
+    // masquerade as a calendar link mutating browser storage.
+    await expect.poll(async () => page.evaluate((day) => {
+      try {
+        const seen = JSON.parse(localStorage.getItem('stat-window:sent') ?? '{}') as Record<string, string>;
+        return Object.keys(seen).some((key) => key.startsWith(`pct:${day}:`));
+      } catch { return false; }
+    }, NBA_DAYS[0]!)).toBe(true);
     const before = await storageDump(page);
     await icsLink(page).click();
     await expect(page.locator('.toast')).toHaveText('Reminder file ready. If it downloaded, open it to add the event.');

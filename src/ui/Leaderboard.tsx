@@ -11,7 +11,7 @@ type Props={day:string;results:readonly RoundRecord[];eligible:boolean};
  * Preserve an erasure-only surface if a browser already has a legacy participant code.
  */
 export function Leaderboard(props:Props){
-  if(import.meta.env.VITE_LEADERBOARDS_UI==='on')return <LeaderboardActive {...props}/>;
+  if(import.meta.env.MODE==='leaderboard-scaffold-qa')return <LeaderboardActive {...props}/>;
   return choice().key?<LeaderboardErasureOnly/>:null;
 }
 

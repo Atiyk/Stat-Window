@@ -59,3 +59,67 @@ test('old participant code exposes only a deletion retry; no GET or enrollment',
   expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('stat-window:leaderboard:v1')??'{}').key)).toBeNull();
   expect(requests).toEqual(['DELETE','DELETE']);
 });
+
+test('privacy lets a historical player retry erasure without first completing a new game',async({page})=>{
+  const key='Z'.repeat(22),methods:string[]=[];
+  await page.addInitScript(code=>localStorage.setItem('stat-window:leaderboard:v1',
+    JSON.stringify({consent:true,key:code,sent:[]})),key);
+  await page.route('**/api/leaderboard*',route=>{
+    methods.push(route.request().method());
+    if(route.request().method()!=='DELETE')throw new Error('Dormant ranking attempted an API request outside erasure.');
+    return route.fulfill({status:503,contentType:'application/json',body:'{"status":"disabled"}'});
+  });
+  await page.goto('/?privacy=1');
+  const erase=page.getByRole('button',{name:'Delete any previously submitted rankings'});
+  await expect(erase).toBeVisible();
+  await erase.click();
+  await expect(page.getByText('Removal is not confirmed. Your browser code is saved so you can retry later.')).toBeVisible();
+  expect(methods).toEqual(['DELETE']);
+  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('stat-window:leaderboard:v1')??'{}').key)).toBe(key);
+});
+
+test('privacy can confirm deletion of old rankings without ever showing the public feature',async({page})=>{
+  const key='Y'.repeat(22),methods:string[]=[];
+  await page.addInitScript(code=>localStorage.setItem('stat-window:leaderboard:v1',
+    JSON.stringify({consent:true,key:code,sent:[]})),key);
+  await page.route('**/api/leaderboard*',route=>{
+    methods.push(route.request().method());
+    if(route.request().method()!=='DELETE')throw new Error('Dormant leaderboard attempted enrollment or public read');
+    expect(JSON.parse(route.request().postData()??'{}').player).toBe(key);
+    return route.fulfill({status:200,contentType:'application/json',body:'{"status":"ok","removed":1}'});
+  });
+  await page.goto('/?privacy=1');
+  await page.getByRole('button',{name:'Delete any previously submitted rankings'}).click();
+  await expect(page.getByText('Your previous rankings were removed according to the server.')).toBeVisible();
+  await expect(page.getByRole('button',{name:'Delete any previously submitted rankings'})).toHaveCount(0);
+  expect(methods).toEqual(['DELETE']);
+  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('stat-window:leaderboard:v1')??'{}'));
+  expect(saved).toMatchObject({consent:false,key:null});
+});
+
+test('privacy deletion button blocks concurrent DELETEs while an old-code request is pending',async({page})=>{
+  const code='W'.repeat(22);
+  let release:()=>void=()=>undefined,starting:()=>void=()=>undefined;
+  const started=new Promise<void>(resolve=>{starting=resolve;});
+  const pending=new Promise<void>(resolve=>{release=resolve;});
+  let deletes=0;
+  await page.addInitScript(value=>localStorage.setItem('stat-window:leaderboard:v1',
+    JSON.stringify({consent:true,key:value,sent:[]})),code);
+  await page.route('**/api/leaderboard*',async route=>{
+    if(route.request().method()!=='DELETE')throw Error('Public ranking request during deferred mode');
+    deletes++;
+    starting();
+    await pending;
+    return route.fulfill({status:503,contentType:'application/json',body:'{"status":"disabled"}'});
+  });
+  await page.goto('/?privacy=1');
+  const erase=page.getByRole('button',{name:'Delete any previously submitted rankings'});
+  await erase.click();
+  await started;
+  await expect(erase).toBeDisabled();
+  expect(deletes).toBe(1);
+  release();
+  await expect(page.getByText(/Removal is not confirmed/)).toBeVisible();
+  await expect(erase).toBeEnabled();
+  expect(deletes).toBe(1);
+});

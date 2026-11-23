@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { challengeUrl, parseChallenge, parseScore } from './challenge';
+import { playableDays } from './season';
 
 const published = ['2026-11-15', '2026-11-16', '2026-11-17'];
 const today = '2026-11-16';
@@ -16,6 +17,15 @@ describe('parseChallenge', () => {
   it('keeps the same puzzle after the sender’s UTC day has rolled over', () => {
     expect(parseChallenge('?day=2026-11-16&vs=90', '2026-11-17', published)).toEqual({ kind: 'day', day: '2026-11-16', vs: 90, vsTime: null });
   });
+  it('rejects retired beta links after Day 1 but keeps valid s1 shares', () => {
+    const all = ['2027-01-09', '2027-01-10', '2027-01-11'];
+    const launch = { launchDay: '2027-01-10' };
+    expect(parseChallenge('?day=2027-01-09&vs=300', '2027-01-09', playableDays(all, '2027-01-09', launch))).toMatchObject({ kind: 'day', day: '2027-01-09' });
+    expect(parseChallenge('?day=2027-01-09&vs=300', '2027-01-10', playableDays(all, '2027-01-10', launch))).toEqual({ kind: 'invalid' });
+    expect(parseChallenge('?day=2027-01-10&vs=300', '2027-01-11', playableDays(all, '2027-01-11', launch))).toEqual({ kind: 'day', day: '2027-01-10', vs: 300, vsTime: null });
+    expect(parseChallenge('?day=2027-01-11&vs=300', '2027-01-10', playableDays(all, '2027-01-10', launch))).toEqual({ kind: 'future' });
+  });
+
   it('never opens a future puzzle', () => {
     expect(parseChallenge('?day=2026-11-17', today, published)).toEqual({ kind: 'future' });
   });

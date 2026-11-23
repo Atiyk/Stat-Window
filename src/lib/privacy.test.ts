@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { analyticsAllowed, browserSignal, loadPrivacy, newKey, PRIVACY_KEY, savePrivacy, scoreIntent, scoreKey, scoresShownOn } from './privacy';
+import { analyticsAllowed, browserSignal, hasDurableScoreIdentity, loadPrivacy, newKey, PRIVACY_KEY, savePrivacy, scoreIntent, scoreKey, scoresShownOn } from './privacy';
 
 const mem = () => {
   const m = new Map<string, string>();
@@ -37,6 +37,24 @@ describe('privacy choices', () => {
     expect(k).toMatch(/^[A-Za-z0-9_-]{22}$/);
     expect(scoreKey(s)).toBe(k);
     expect(newKey()).not.toBe(newKey());
+  });
+
+  it('refuses an unpersisted browser score code even when consent memory fallback retains it', () => {
+    const day = '2026-11-18';
+    const normal = mem();
+    const code = scoreKey(normal);
+    expect(hasDurableScoreIdentity(code, day, normal)).toBe(false); // day not yet recorded
+    savePrivacy({ sent: [day] }, normal);
+    expect(hasDurableScoreIdentity(code, day, normal)).toBe(true);
+    savePrivacy({ scores: 'off' }, normal);
+    expect(hasDurableScoreIdentity(code, day, normal)).toBe(false);
+
+    const quota = { getItem: () => null, setItem: () => { throw new DOMException('full', 'QuotaExceededError'); } };
+    const temporary = scoreKey(quota);
+    savePrivacy({ sent: [day], scores: 'on' }, quota);
+    expect(loadPrivacy(quota).key).toBe(temporary); // still safe for in-session opt-out
+    expect(hasDurableScoreIdentity(temporary, day, quota)).toBe(false); // no recoverable erasure key
+    expect(hasDurableScoreIdentity(temporary, day, null)).toBe(false);
   });
 
   it('survives corrupt storage and drops bad fields', () => {

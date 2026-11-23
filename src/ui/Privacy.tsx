@@ -79,7 +79,7 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
           <span>
             <strong>Today’s score in the daily comparison.</strong> Your total for today’s official puzzle joins a tally of scores so you
             can see your percentile. It’s linked to a random code made in this browser for 7 days, then only an unlinked count remains.
-            Your five windows are checked by the server and not kept.
+            Your five windows are checked by the server and not kept. If your browser cannot save the code needed to delete a score later, the daily comparison will not send it.
             {prefs.scores === 'unset' && prefs.asked && ' Where you are, we ask first: it’s off until you tick it or tap “Count my score”.'}
             {prefs.deleting && ' Deletion is still unconfirmed. New submissions are blocked until you retry and the server confirms removal.'}
           </span>

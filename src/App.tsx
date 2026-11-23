@@ -4,7 +4,7 @@ import { inventoryDays, loadSlate } from './content/inventory';
 import type { Slate } from './content/schema';
 import { parseChallenge } from './engine/challenge';
 import { addDays, puzzleDay, puzzleNumber } from './engine/daily';
-import { currentSeason, inSeason, publicNumber, seasonConfigFrom, type SeasonConfig } from './engine/season';
+import { currentSeason, inSeason, isRetiredDay, playableDays, publicNumber, seasonConfigFrom, type SeasonConfig } from './engine/season';
 import { isQa } from './lib/scores';
 import { gameReducer, initGame, ROUNDS, type GameAction, type GameState, type Mode } from './engine/game';
 import { createSaveStore, type RunKind, type SaveStore, type StorageLike } from './engine/storage';
@@ -107,7 +107,7 @@ function withoutParams(loc: Pick<Location, 'pathname' | 'search' | 'hash'>, name
 }
 
 /** The current address without the challenge parameters (`day`, `vs`). */
-const withoutChallenge = (loc: Pick<Location, 'pathname' | 'search' | 'hash'>) => withoutParams(loc, ['day', 'vs']);
+const withoutChallenge = (loc: Pick<Location, 'pathname' | 'search' | 'hash'>) => withoutParams(loc, ['day', 'vs', 'time']);
 
 const daysBetween = (a: string, b: string) => puzzleNumber(b) - puzzleNumber(a);
 
@@ -147,11 +147,19 @@ export function App() {
   const [privacyOpen, setPrivacyOpen] = useState(() => new URLSearchParams(window.location.search).has('privacy'));
   // A ?day= link that can't be honoured (future, malformed or unpublished): say so once, then today opens.
   const [badLink, setBadLink] = useState(false);
+  const [retiredLink, setRetiredLink] = useState(false);
 
   useEffect(() => setSoundEnabled(settings.sound), [settings.sound]);
 
   const open = useCallback(
     async (day: string, link?: { vs: number | null; vsTime: number | null }) => {
+      // Never load retired beta content, even through stale UI callbacks.
+      if (isRetiredDay(day, puzzleDay(new Date()), SEASON)) {
+        setRetiredLink(true);
+        window.history.replaceState(null, '', withoutChallenge(window.location));
+        day = puzzleDay(new Date());
+        link = undefined;
+      }
       let slate: Slate | null;
       try {
         slate = await loadSlate(day);
@@ -193,7 +201,9 @@ export function App() {
       trackOnce(`remind-open:${today}`, today, { name: 'remind_open' });
       window.history.replaceState(null, '', withoutParams(window.location, ['from']));
     }
-    const link = parseChallenge(window.location.search, today, inventoryDays);
+    const link = parseChallenge(window.location.search, today, playableDays(inventoryDays, today, SEASON));
+    const requestedDay = new URLSearchParams(window.location.search).get('day');
+    const wasRetired = requestedDay !== null && isRetiredDay(requestedDay, today, SEASON);
     if (link.kind !== 'none') {
       track({
         name: 'challenge_open',
@@ -202,7 +212,8 @@ export function App() {
       });
     }
     if (link.kind === 'invalid' || link.kind === 'future') {
-      setBadLink(true);
+      if (wasRetired) setRetiredLink(true);
+      else setBadLink(true);
       window.history.replaceState(null, '', withoutChallenge(window.location));
     }
     if (link.kind === 'day') void open(link.day, { vs: link.vs, vsTime: link.vsTime });
@@ -251,7 +262,7 @@ export function App() {
   };
 
   const number = publicNumber(session ? session.day : today, SEASON).label;
-  const archive = inventoryDays.filter((d) => d < today).reverse();
+  const archive = playableDays(inventoryDays, today, SEASON).filter((d) => d < today).reverse();
 
   return (
     <div className="app">
@@ -280,6 +291,12 @@ export function App() {
       </header>
 
       <main className="main" id="main">
+        {retiredLink && view === 'daily' && (
+          <p className="link-note" role="status">
+            <span>That beta puzzle was retired for the new season. Here’s today’s game instead.</span>
+            <button type="button" className="btn-link" onClick={() => setRetiredLink(false)}>Dismiss</button>
+          </p>
+        )}
         {badLink && view === 'daily' && (
           <p className="link-note" role="status">
             <span>That link’s puzzle isn’t available, so here’s today’s.</span>

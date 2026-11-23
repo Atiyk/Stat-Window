@@ -108,6 +108,24 @@ export function scoreKey(s: Store | null = storage()): string {
   return savePrivacy({ key: newKey() }, s).key!;
 }
 
+/** Never submit a linked score when its erasure code and submission-day ledger
+ * cannot be recovered from persistent browser storage on the next visit.
+ * loadPrivacy() intentionally falls back to memory for UI consent; checking
+ * the underlying stored JSON directly prevents that fallback from making an
+ * ephemeral, non-erasable identifier appear durable.
+ */
+export function hasDurableScoreIdentity(key: string, day: string, s: Store | null = storage()): boolean {
+  if (!s || !KEY_RE.test(key) || !DAY_RE.test(day)) return false;
+  try {
+    const raw = JSON.parse(s.getItem(PRIVACY_KEY) ?? 'null') as Partial<Privacy> | null;
+    return !!raw && typeof raw === 'object' && raw.key === key
+      && raw.scores !== 'off' && raw.deleting !== true
+      && Array.isArray(raw.sent) && raw.sent.includes(day);
+  } catch {
+    return false;
+  }
+}
+
 export function browserSignal(nav: Navigator | undefined = typeof navigator === 'undefined' ? undefined : navigator): boolean {
   if (!nav) return false;
   const n = nav as Navigator & { globalPrivacyControl?: boolean; doNotTrack?: string | null };

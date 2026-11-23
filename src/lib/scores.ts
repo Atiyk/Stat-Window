@@ -4,7 +4,7 @@
  */
 import type { RoundRecord } from '../engine/game';
 import { midrankPercentile, emptyDistribution, PERCENTILE_MIN_SAMPLE } from '../engine/percentile';
-import { loadPrivacy, savePrivacy, scoreKey } from './privacy';
+import { hasDurableScoreIdentity, loadPrivacy, savePrivacy, scoreKey } from './privacy';
 
 export type Comparison =
   | { kind: 'ready'; percentile: number; n: number; score: number; asOf: string }
@@ -110,6 +110,10 @@ export async function submitDaily(
     const sent = loadPrivacy().sent;
     if (!sent.includes(opts.day)) savePrivacy({ sent: [...sent, opts.day] });
     if (loadPrivacy().deleting || loadPrivacy().scores === 'off') return { kind: 'disabled' };
+    // Storage can reject writes or lose access (e.g. private mode/quota). Without
+    // an actually persisted key+day we could count a score that the browser can
+    // never delete again. The game remains playable but submission fails closed.
+    if (!hasDurableScoreIdentity(player, opts.day)) return { kind: 'unavailable' };
     const [status, b] = await call('POST', body, fetchImpl);
     const latest = loadPrivacy();
     if (latest.deleting || latest.scores === 'off' || latest.key !== player) return { kind: 'disabled' };

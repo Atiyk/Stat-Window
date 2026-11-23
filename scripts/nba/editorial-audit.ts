@@ -12,6 +12,10 @@ const cutoff = requestedCutoff && requestedCutoff > localToday ? requestedCutoff
 const days = calendar.days.filter(d => d.date > cutoff);
 const weak: string[] = [];
 const weakFinale: string[] = [];
+const weakMiddle: string[] = [];
+const finaleMonotony: string[] = [];
+let previousFinaleFamily = '';
+let finaleFamilyRun = 0;
 // Inventory only: do NOT invent or inflate ratings, alter facts or automatically fail publication.
 const weakMiddle: { date: string; round: number; id: string; ratings: { interest: number; recognizability: number; estimability: number } }[] = [];
 const weakMiddleDays = new Set<string>();
@@ -45,6 +49,16 @@ for (const day of days) {
       weakMiddleByRound[index - 1] = (weakMiddleByRound[index - 1] ?? 0) + 1;
     }
   }
+  for (let i = 1; i <= 3; i++) {
+    const ratings = q[i]!.question.ratings;
+    if (ratings.interest < 3 || ratings.recognizability < 3 || ratings.estimability < 3) {
+      weakMiddle.push(day.date + ': Q' + (i + 1) + ' ' + q[i]!.id);
+    }
+  }
+  const finaleFamily = q[4]!.family;
+  finaleFamilyRun = finaleFamily === previousFinaleFamily ? finaleFamilyRun + 1 : 1;
+  previousFinaleFamily = finaleFamily;
+  if (finaleFamilyRun > 3) finaleMonotony.push(day.date + ': ' + finaleFamily + ' (' + finaleFamilyRun + ' consecutive Q5s)');
   const end = q[4]!.question.ratings;
   if (end.interest < 4 || end.recognizability < 4 || end.estimability < 3 || end.surprise < 4) weakFinale.push(day.date + ': ' + q[4]!.id);
   if (q.some((f,i) => f.question.difficulty !== LADDER[i])) structural.push(day.date + ': ladder');

@@ -302,3 +302,30 @@ test('a running daily round retains its deadline across Eastern midnight', async
   await page.clock.runFor(2500);
   await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');
 });
+
+test('another tab cannot restart a daily clock after the first tab finishes its answer', async ({ page, context }) => {
+  await openTimed(page);
+  await page.clock.fastForward('00:10');
+  const second = await context.newPage();
+  try {
+    await second.clock.install({ time: new Date(DAY1.getTime() + 10_000) });
+    await second.goto('/');
+    await startDailyIfNeeded(second);
+    await expect(second.locator('.shot-clock')).toContainText(/1[34]s/);
+
+    // The first tab finishing must not erase the deadline for another
+    // already-open tab that is still answering the same official question.
+    await lowBracket(page).focus();
+    await page.keyboard.press('ArrowRight');
+    await page.getByRole('button', { name: 'Lock the window' }).click();
+    await second.reload();
+    await expect(second.locator('.question')).toBeVisible();
+    const left = Number((await second.locator('.shot-clock').textContent())?.match(/(\\d+)s/)?.[1]);
+    expect(left).toBeLessThanOrEqual(15);
+    await second.clock.fastForward('00:15');
+    await second.clock.runFor(2500);
+    await expect(second.locator('.outcome-word')).toContainText('Shot clock violation.');
+  } finally {
+    await second.close();
+  }
+});

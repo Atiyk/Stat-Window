@@ -96,4 +96,57 @@ describe.skipIf(!url)('Lua scripts on a real redis-server', () => {
     expect(await (await handle(post({ player: player(30), days: [DAY] }, { 'x-real-ip': '198.51.100.30' }, 'DELETE'), ctx)).json()).toMatchObject({ removed: 1 });
     expect(Number(await client.command(['GET', `${prefix}:e:${DAY.slice(0, 7)}`]))).toBe(3 * COST.removeSpent(2, 0) + 3);
   });
+  it('rejects an old-code POST after DELETE using real Redis 7, even when the POST started before erasure', async () => {
+    const env = `${run}revoked`;
+    const store = redisStore(client.evaluate);
+    let release!: () => void;
+    let started!: () => void;
+    const held = new Promise<void>((resolve) => { release = resolve; });
+    const awaiting = new Promise<void>((resolve) => { started = resolve; });
+    const { ctx } = testContext({
+      store: {
+        ...store,
+        submit: async (...args) => {
+          started();
+          await held; // Simulate an API handler stalled before atomic score submission.
+          return store.submit(...args);
+        },
+      },
+      limits,
+      env,
+      budgetPrefix: `sw:v1:${env}:budget`,
+    });
+    const code = player(96);
+    const { rounds } = await roundsFor(DAY, 2);
+    const delayed = handle(post({ day: DAY, player: code, rounds }), ctx);
+    await awaiting;
+    const deleted = await handle(post({ player: code, days: [DAY] }, {}, 'DELETE'), ctx);
+    expect(deleted.status).toBe(200);
+    expect(await deleted.json()).toMatchObject({ status: 'ok', removed: 0 });
+    release();
+    const response = await delayed;
+    expect(response.status).toBe(409);
+    expect(await response.json()).toMatchObject({ status: 'revoked' });
+    const dist = await store.read(`sw:v1:${env}:beta:${DAY}:dist`,
+      { day: `sw:v1:${env}:budget:d:${DAY}`, month: `sw:v1:${env}:budget:m:${DAY.slice(0,7)}`, erase: `sw:v1:${env}:budget:e:${DAY.slice(0,7)}` }, limits);
+    expect('n' in dist && dist.n).toBe(0);
+    // A different browser remains eligible; the tombstone targets only this code.
+    const normal = await handle(post({ day: DAY, player: player(97), rounds }), ctx);
+    expect(normal.status).toBe(200);
+  });
+
+  it('writes a revocation marker for DELETE with zero saved days and blocks stale enrollment', async () => {
+    const env = `${run}emptyrev`;
+    const { ctx } = testContext({ store: redisStore(client.evaluate), limits, env,
+      budgetPrefix: `sw:v1:${env}:budget` });
+    const code = player(98);
+    const erase = await handle(post({ player: code, days: [] }, {}, 'DELETE'), ctx);
+    expect(erase.status).toBe(200);
+    expect(await erase.json()).toMatchObject({ status: 'ok', removed: 0 });
+    const { rounds } = await roundsFor(DAY, 2);
+    const attempt = await handle(post({ day: DAY, player: code, rounds }), ctx);
+    expect(attempt.status).toBe(409);
+    expect(await attempt.json()).toMatchObject({ status: 'revoked' });
+  });
+
 });

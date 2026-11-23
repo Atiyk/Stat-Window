@@ -13,7 +13,8 @@ export type SubmitOutcome =
   | { status: 'stored' | 'duplicate'; total: number; counts: number[]; n: number }
   /** `minute`: the per-minute rate; `day`: one of the per-network daily caps (retrying before 00:00 UTC can't help). */
   | { status: 'limited'; until: 'minute' | 'day' }
-  | { status: 'paused'; scope: 'day' | 'month' };
+  | { status: 'paused'; scope: 'day' | 'month' }
+  | { status: 'revoked' };
 
 /**
  * The cost ceiling: counters of *estimated Upstash commands*, shared by every environment on the database.
@@ -23,7 +24,7 @@ export type SubmitOutcome =
 export type BudgetKeys = { day: string; month: string; erase: string };
 
 /** Per-client keys for deletion: the one-minute rate counter and today's count of deletions from this network. */
-export type RemoveKeys = { rate: string; ipDay: string };
+export type RemoveKeys = { rate: string; ipDay: string; revocation: string };
 
 export type SubmitKeys = {
   /** One record per hashed browser key per puzzle day and season. */
@@ -36,6 +37,8 @@ export type SubmitKeys = {
   ipDay: string;
   /** Submissions from one hashed IP prefix today that got past the rate limit (stored, duplicate or capped). */
   ipCalls: string;
+  /** HMAC-only tombstone for the random browser code across all days/seasons. */
+  revocation: string;
   budget: BudgetKeys;
 };
 
@@ -79,21 +82,23 @@ export type ScoreStore = {
  * per script, charged up front, so the counters never under-count.
  */
 export const COST = {
-  submit: 20,
+  submit: 21,
   /** A resend of a run already stored: checked before the full charge, and it stops after the GET and HGETALL. */
-  duplicate: 13,
+  duplicate: 14,
   read: 8,
   /** Deletion's upper bound, checked against the erase reserve before any record is read. */
-  remove: (pairs: number) => 8 + 4 * pairs,
+  remove: (pairs: number) => 9 + 4 * pairs,
   /** What deletion actually spends: a GET per pair, plus DEL, HINCRBY and HDEL for each record that existed. */
-  removeSpent: (pairs: number, removed: number) => 8 + pairs + 3 * removed,
+  removeSpent: (pairs: number, removed: number) => 9 + pairs + 3 * removed,
 } as const;
 const DAY_TTL = 2 * 86_400;
 const MONTH_TTL = 32 * 86_400;
 const IP_DAY_TTL = 26 * 3_600;
+/** Beyond the 7-day linked-score TTL so a delayed POST cannot recreate deleted data. */
+const REVOKED_TTL = 9 * 86_400;
 
 /**
- * KEYS: sub, dist, rate, ipDay, budgetDay, budgetMonth, ipCalls.
+ * KEYS: sub, dist, rate, ipDay, budgetDay, budgetMonth, ipCalls, revocation.
  * ARGV: total, subTtl, distTtl, dailyBudget, monthlyBudget, ratePerMinute, ipDailyStored, cost, dayTtl, monthTtl, ipDayTtl,
  *       ipDailyCalls, duplicateCost.
  * The per-minute rate and the per-network daily call cap run first, and the duplicate check before the charge,
@@ -106,6 +111,9 @@ if r > tonumber(ARGV[6]) then return {'limited', 'minute'} end
 local c = redis.call('INCR', KEYS[7])
 if c == 1 then redis.call('EXPIRE', KEYS[7], ARGV[11]) end
 if c > tonumber(ARGV[12]) then return {'limited', 'day'} end
+-- A previously erased browser code cannot submit again, even if POST verification
+-- started before an atomic DELETE on another tab/server instance.
+if redis.call('GET', KEYS[8]) then return {'revoked'} end
 local prev = redis.call('GET', KEYS[1])
 local cost = tonumber(ARGV[8])
 if prev then cost = tonumber(ARGV[13]) end
@@ -135,8 +143,8 @@ return {'ok', redis.call('HGETALL', KEYS[1])}
 `;
 
 /**
- * KEYS: rate, ipDay (deletions from this network today), budgetErase, then (sub, dist) pairs.
- * ARGV: eraseReserve, ratePerMinute, maxCost, monthTtl, ipDailyDeletes, ipDayTtl, pairs.
+ * KEYS: rate, ipDay (deletions from this network today), budgetErase, revocation, then (sub, dist) pairs.
+ * ARGV: eraseReserve, ratePerMinute, maxCost, monthTtl, ipDailyDeletes, ipDayTtl, pairs, revokedTtl.
  * Deletion never touches the shared day/month counters: it spends its own monthly counter (capped at the
  * erase reserve), so a deletion flood can only use up deletion, and only a few calls a day per network.
  * Both per-client caps run before anything is charged; the charge is what the call really cost.
@@ -149,8 +157,11 @@ local d = redis.call('INCR', KEYS[2])
 if d == 1 then redis.call('EXPIRE', KEYS[2], ARGV[6]) end
 if d > tonumber(ARGV[5]) then return {'limited', 'day'} end
 if tonumber(redis.call('GET', KEYS[3]) or '0') + tonumber(ARGV[3]) > tonumber(ARGV[1]) then return {'paused'} end
+-- Delete and block any already-in-flight submission as ONE atomic operation.
+-- Even an empty day list requires a tombstone: an old POST may arrive later.
+redis.call('SET', KEYS[4], '1', 'EX', ARGV[8])
 local removed = 0
-for i = 4, #KEYS, 2 do
+for i = 5, #KEYS, 2 do
   local prev = redis.call('GET', KEYS[i])
   if prev then
     redis.call('DEL', KEYS[i])
@@ -159,7 +170,7 @@ for i = 4, #KEYS, 2 do
     removed = removed + 1
   end
 end
-local cost = 8 + tonumber(ARGV[7]) + 3 * removed
+local cost = 9 + tonumber(ARGV[7]) + 3 * removed
 if redis.call('INCRBY', KEYS[3], cost) == cost then redis.call('EXPIRE', KEYS[3], ARGV[4]) end
 return {'ok', removed}
 `;
@@ -182,13 +193,14 @@ export type Eval = (script: string, keys: readonly string[], args: readonly (str
 export function redisStore(evaluate: Eval): ScoreStore {
   return {
     async submit(keys, total, limits) {
-      const out = (await evaluate(SUBMIT_LUA, [keys.sub, keys.dist, keys.rate, keys.ipDay, keys.budget.day, keys.budget.month, keys.ipCalls], [
+      const out = (await evaluate(SUBMIT_LUA, [keys.sub, keys.dist, keys.rate, keys.ipDay, keys.budget.day, keys.budget.month, keys.ipCalls, keys.revocation], [
         total, limits.subTtl, limits.distTtl, limits.dailyBudget, limits.monthlyBudget, limits.ratePerMinute, limits.ipDailyStored,
         COST.submit, DAY_TTL, MONTH_TTL, IP_DAY_TTL, limits.ipDailyCalls, COST.duplicate,
       ])) as [string, unknown?, unknown[]?];
       const [status, second, flat] = out;
       if (status === 'stored' || status === 'duplicate') return { status, total: Number(second), ...countsFromHash(flat ?? []) };
       if (status === 'limited') return { status, until: second === 'day' ? 'day' : 'minute' };
+      if (status === 'revoked') return { status: 'revoked' };
       return { status: 'paused', scope: second === 'month' ? 'month' : 'day' };
     },
     async read(dist, budget, limits) {
@@ -200,9 +212,9 @@ export function redisStore(evaluate: Eval): ScoreStore {
       return countsFromHash((out[1] as unknown[] | undefined) ?? []);
     },
     async removeMany(pairs, client, budget, limits) {
-      const keys = [client.rate, client.ipDay, budget.erase, ...pairs.flatMap((p) => [p.sub, p.dist])];
+      const keys = [client.rate, client.ipDay, budget.erase, client.revocation, ...pairs.flatMap((p) => [p.sub, p.dist])];
       const out = (await evaluate(REMOVE_LUA, keys, [
-        limits.eraseReserve, limits.ratePerMinute, COST.remove(pairs.length), MONTH_TTL, limits.ipDailyDeletes, IP_DAY_TTL, pairs.length,
+        limits.eraseReserve, limits.ratePerMinute, COST.remove(pairs.length), MONTH_TTL, limits.ipDailyDeletes, IP_DAY_TTL, pairs.length, REVOKED_TTL,
       ])) as [string, unknown?];
       if (out[0] === 'limited') return { limited: out[1] === 'day' ? 'day' : 'minute' };
       if (out[0] !== 'ok') return 'paused';
@@ -259,6 +271,7 @@ export function memoryStore(now: () => number = Date.now): ScoreStore & { dump()
     async submit(keys, total, limits) {
       if (incrBy(keys.rate, 1, 120) > limits.ratePerMinute) return { status: 'limited', until: 'minute' };
       if (incrBy(keys.ipCalls, 1, IP_DAY_TTL) > limits.ipDailyCalls) return { status: 'limited', until: 'day' };
+      if (get(keys.revocation)) return { status: 'revoked' };
       const prev = get(keys.sub) as number | undefined;
       const paused = spend(keys.budget, prev !== undefined ? COST.duplicate : COST.submit, limits);
       if (paused) return { status: 'paused', scope: paused };
@@ -280,6 +293,7 @@ export function memoryStore(now: () => number = Date.now): ScoreStore & { dump()
       if (incrBy(client.rate, 1, 120) > limits.ratePerMinute) return { limited: 'minute' };
       if (incrBy(client.ipDay, 1, IP_DAY_TTL) > limits.ipDailyDeletes) return { limited: 'day' };
       if (((get(budget.erase) as number | undefined) ?? 0) + COST.remove(pairs.length) > limits.eraseReserve) return 'paused';
+      set(client.revocation, 1, REVOKED_TTL);
       let removed = 0;
       for (const { sub, dist } of pairs) {
         const prev = get(sub) as number | undefined;

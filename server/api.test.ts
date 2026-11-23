@@ -415,3 +415,28 @@ describe('percentile API spoofed proxy authority and network identity', () => {
     expect(codes).toEqual([200,200,429]);
   });
 });
+
+
+describe('percentile deletion revocation (shipping privacy contract)', () => {
+  it('blocks a late score POST and does not affect another browser', async () => {
+    const { ctx } = testContext();
+    const a = await roundsFor(DAY, 2);
+    const old = player(501);
+    const deletion = await handle(post({ player: old, days: [DAY] }, {}, 'DELETE'), ctx);
+    expect(deletion.status).toBe(200);
+    expect(await deletion.json()).toMatchObject({ status: 'ok', removed: 0 });
+    const revoked = await submit(ctx, { day: DAY, player: old, rounds: a.rounds });
+    expect(revoked).toMatchObject({ code: 409, body: { status: 'revoked' } });
+    const fresh = await submit(ctx, { day: DAY, player: player(502), rounds: a.rounds });
+    expect(fresh.body.status).toBe('stored');
+  });
+  it('a recorded score is removed and cannot be restored using its old browser code', async () => {
+    const { ctx } = testContext();
+    const a = await roundsFor(DAY, 2);
+    const old = player(503);
+    expect((await submit(ctx, { day: DAY, player: old, rounds: a.rounds })).body.status).toBe('stored');
+    const deletion = await handle(post({ player: old, days: [DAY] }, {}, 'DELETE'), ctx);
+    expect(await deletion.json()).toMatchObject({ status: 'ok', removed: 1 });
+    expect((await submit(ctx, { day: DAY, player: old, rounds: a.rounds })).body.status).toBe('revoked');
+  });
+});

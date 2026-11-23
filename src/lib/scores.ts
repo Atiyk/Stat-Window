@@ -23,6 +23,8 @@ type ApiBody = {
   percentile?: { rounded: number } | null;
   counts?: Record<string, number>;
   asOf?: string;
+  /** The number of linked scores removed by a confirmed DELETE (zero is valid). */
+  removed?: number;
 };
 
 const ENDPOINT = '/api/scores';
@@ -40,6 +42,8 @@ export function isQa(): boolean {
 }
 
 function toComparison(status: number, b: ApiBody | null): Comparison {
+  // Revoked browser keys must not be mistaken for a request to give consent.
+  if (b?.status === 'revoked') return { kind: 'disabled' };
   if (status === 409 || b?.status === 'consent-required') return { kind: 'consent' };
   if (b?.status === 'ineligible') return { kind: 'ineligible' };
   if (b?.status === 'disabled' || status === 404 || status === 405) return { kind: 'disabled' };
@@ -74,6 +78,7 @@ export async function submitDaily(
   fetchImpl: typeof fetch = fetch,
 ): Promise<Comparison> {
   if (opts.results.length !== 5) return { kind: 'ineligible' };
+  if (loadPrivacy().deleting || loadPrivacy().scores === 'off') return { kind: 'disabled' };
   const total = opts.results.reduce((s, r) => s + r.points, 0);
   // Already counted (first completion wins): just read the tally, which the edge caches.
   // Not in QA: the GET reads the public season's tally, while QA scores go to the 'qa' season,
@@ -91,9 +96,11 @@ export async function submitDaily(
         return c;
       }
     }
+    if (loadPrivacy().deleting || loadPrivacy().scores === 'off') return { kind: 'disabled' };
+    const player = scoreKey();
     const body = {
       day: opts.day,
-      player: scoreKey(),
+      player,
       rounds: opts.results.map((r) => ({ id: r.questionId, lo: r.lo, hi: r.hi })),
       total,
       consent,
@@ -102,7 +109,10 @@ export async function submitDaily(
     // Recorded before sending, so a lost response can't leave a stored score that "Delete" doesn't know about.
     const sent = loadPrivacy().sent;
     if (!sent.includes(opts.day)) savePrivacy({ sent: [...sent, opts.day] });
+    if (loadPrivacy().deleting || loadPrivacy().scores === 'off') return { kind: 'disabled' };
     const [status, b] = await call('POST', body, fetchImpl);
+    const latest = loadPrivacy();
+    if (latest.deleting || latest.scores === 'off' || latest.key !== player) return { kind: 'disabled' };
     const c = toComparison(status, b);
     const done = loadPrivacy().done;
     if ((c.kind === 'ready' || c.kind === 'gathering') && !done.includes(opts.day)) savePrivacy({ done: [...done, opts.day] });
@@ -133,16 +143,23 @@ export async function refreshComparison(day: string, score: number, fetchImpl: t
 /** Deletes every score this browser sent that the server still links to it, then forgets the key. */
 export async function deleteMyScores(fetchImpl: typeof fetch = fetch): Promise<'deleted' | 'nothing' | 'failed'> {
   const p = loadPrivacy();
-  if (!p.key || p.sent.length === 0) {
-    // Deleting is also a "stop": without this, the next results screen would send today's score again.
-    savePrivacy({ key: null, sent: [], done: [], scores: 'off' });
+  // Withdrawing consent is immediate; never lose the original code or known
+  // submission days until the server confirms deletion. Retry is always safe.
+  savePrivacy({ scores: 'off', deleting: !!p.key });
+  if (!p.key) {
+    // Without a code we cannot claim to have erased known linked submissions.
+    if (p.sent.length > 0) return 'failed';
+    savePrivacy({ key: null, sent: [], done: [], scores: 'off', deleting: false });
     return 'nothing';
   }
   try {
-    const [status] = await call('DELETE', { player: p.key, days: p.sent }, fetchImpl);
-    if (status !== 200) return 'failed';
-    // A fresh key, and the comparison switched off so the same days aren't sent again on the next visit.
-    savePrivacy({ key: newKey(), sent: [], done: [], scores: 'off' });
+    const [status, body] = await call('DELETE', { player: p.key, days: p.sent }, fetchImpl);
+    const removed = body?.removed;
+    if (status !== 200 || body?.status !== 'ok' || typeof removed !== 'number'
+        || !Number.isInteger(removed) || removed < 0) return 'failed';
+    // Another tab may have replaced the code while this request was in flight.
+    if (loadPrivacy().key !== p.key) return 'failed';
+    savePrivacy({ key: newKey(), sent: [], done: [], scores: 'off', deleting: false });
     return 'deleted';
   } catch {
     return 'failed';

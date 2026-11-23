@@ -12,6 +12,9 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
   const ref = useRef<HTMLDialogElement>(null);
   const [prefs, setPrefs] = useState<Prefs>(() => loadPrivacy());
   const [status, setStatus] = useState<string | null>(null);
+  // Avoid duplicate DELETEs and wasted free-tier calls from double taps.
+  const eraseBusy = useRef(false);
+  const [erasing, setErasing] = useState(false);
   const [hasHistoricalRankingKey, setHasHistoricalRankingKey] = useState(() => !!rankingChoice().key);
   const [rankingDeleteStatus, setRankingDeleteStatus] = useState<string | null>(null);
   const rankingDeleteBusy = useRef(false);
@@ -66,6 +69,7 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
           <input
             type="checkbox"
             checked={scoring}
+            disabled={prefs.deleting === true}
             onChange={(e) => {
               const on = e.target.checked;
               setPrefs(savePrivacy({ scores: on ? 'on' : 'off' }));
@@ -77,6 +81,7 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
             can see your percentile. It’s linked to a random code made in this browser for 7 days, then only an unlinked count remains.
             Your five windows are checked by the server and not kept.
             {prefs.scores === 'unset' && prefs.asked && ' Where you are, we ask first: it’s off until you tick it or tap “Count my score”.'}
+            {prefs.deleting && ' Deletion is still unconfirmed. New submissions are blocked until you retry and the server confirms removal.'}
           </span>
         </label>
         {signal && (
@@ -86,8 +91,15 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
           <button
             type="button"
             className="btn btn-quiet"
+            disabled={erasing}
             onClick={async () => {
-              setStatus('Deleting…');
+              if (eraseBusy.current) return;
+              eraseBusy.current = true;
+              setErasing(true);
+              try {
+                setStatus('Deleting…');
+              // Immediately stop any new submissions while the request is in flight.
+              setPrefs(savePrivacy({ scores: 'off', deleting: !!loadPrivacy().key }));
               const r = await deleteMyScores();
               if (r !== 'failed') track({ name: 'privacy', choice: 'deleted' });
               setPrefs(loadPrivacy());
@@ -96,11 +108,15 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
                   ? 'Done. Scores this browser sent in the last 7 days are deleted, its code is replaced, and the daily comparison is off until you tick it again.'
                   : r === 'nothing'
                     ? 'Nothing to delete: this browser hasn’t sent a score that’s still kept. The daily comparison is now off.'
-                    : 'Couldn’t reach the server. Try again later.',
-              );
+                    : 'Deletion is not confirmed. New scores are blocked and your original code is saved for a retry.',
+                );
+              } finally {
+                eraseBusy.current = false;
+                setErasing(false);
+              }
             }}
           >
-            Delete my scores
+            {erasing ? 'Deleting…' : 'Delete my scores'}
           </button>
         </p>
         {status && (

@@ -21,6 +21,8 @@ export type Privacy = {
   done: string[];
   /** The server said this location needs an explicit yes (so "unset" means "not counted"). */
   asked: boolean;
+  /** A DELETE was requested but is not confirmed: block all new submissions until retry succeeds. */
+  deleting?: boolean;
 };
 
 export const PRIVACY_KEY = 'stat-window:privacy:v1';
@@ -29,7 +31,7 @@ const DAY_RE = /^\d{4}-\d{2}-\d{2}$/;
 
 type Store = { getItem(k: string): string | null; setItem(k: string, v: string): void };
 
-const empty = (): Privacy => ({ analytics: 'unset', scores: 'unset', key: null, sent: [], done: [], asked: false });
+const empty = (): Privacy => ({ analytics: 'unset', scores: 'unset', key: null, sent: [], done: [], asked: false, deleting: false });
 /** Submission records live 7 days on the server (plus a grace day), so older days need no tracking. */
 const KEEP_DAYS = 9;
 let memory: Privacy = empty();
@@ -63,6 +65,7 @@ export function loadPrivacy(s: Store | null = storage()): Privacy {
       sent: days(raw.sent),
       done: days(raw.done),
       asked: raw.asked === true,
+      deleting: raw.deleting === true,
     };
   } catch {
     return empty();
@@ -81,6 +84,11 @@ export function savePrivacy(patch: Partial<Privacy>, s: Store | null = storage()
     // Memory only, for the rest of this session.
     unwritable = s;
   }
+  // A storage event does not fire in the tab which made the change.
+  // Let an already-open results screen stop displaying an obsolete percentile
+  // immediately when this tab withdraws consent or begins erasure.
+  if (typeof window !== 'undefined' && typeof window.dispatchEvent === 'function')
+    window.dispatchEvent(new Event('stat-window:privacy-choice'));
   return next;
 }
 
@@ -112,11 +120,13 @@ export function analyticsAllowed(p: Privacy, signal: boolean): boolean {
 
 /** Whether the player is (or would be) counted, as the Privacy dialog shows it. */
 export function scoresShownOn(p: Privacy, signal: boolean): boolean {
+  if (p.deleting) return false;
   return p.scores === 'on' || (p.scores === 'unset' && !signal && !p.asked);
 }
 
 /** What to do with a finished official daily: send it, ask first, or leave it. */
 export function scoreIntent(p: Privacy, signal: boolean): 'send' | 'ask' | 'skip' {
+  if (p.deleting) return 'skip';
   if (p.scores === 'off') return 'skip';
   if (p.scores === 'on') return 'send';
   // Asked before in this location, or a browser privacy signal: ask without a network round trip.

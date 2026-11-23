@@ -89,3 +89,18 @@ describe('consent where the server asks first', () => {
     expect(loadPrivacy(broken)).toMatchObject({ analytics: 'off', scores: 'off' });
   });
 });
+
+describe('post-erasure privacy barriers',()=>{
+  it('a pending deletion never sends new daily comparisons, even if the old preference is turned back on',()=>{
+    const s=mem();
+    savePrivacy({scores:'on',deleting:true,key:'a'.repeat(22),sent:['2026-11-18']},s);
+    const p=loadPrivacy(s);
+    expect(p.deleting).toBe(true);
+    expect(scoreIntent(p,false)).toBe('skip');
+    expect(scoresShownOn(p,false)).toBe(false);
+    savePrivacy({scores:'on'},s);
+    expect(scoreIntent(loadPrivacy(s),false)).toBe('skip');
+    savePrivacy({scores:'off',deleting:false,key:null,sent:[],done:[]},s);
+    expect(loadPrivacy(s).deleting).toBe(false);
+  });
+});

@@ -31,6 +31,7 @@ export function useComparison(eligible: boolean, day: string, results: readonly 
       inflight.set(key, p);
       void p.then((c) => {
         inflight.delete(key);
+        if (loadPrivacy().deleting || loadPrivacy().scores === 'off') { setState({ kind: 'off' }); return; }
         setState(c);
         const outcome = c.kind === 'consent' ? 'consent' : c.kind;
         trackOnce(`pct:${day}:${outcome}`, day, { name: 'percentile', outcome });
@@ -38,6 +39,22 @@ export function useComparison(eligible: boolean, day: string, results: readonly 
     },
     [day],
   );
+
+  useEffect(() => {
+    const update = () => {
+      const p = loadPrivacy();
+      if (p.deleting || p.scores === 'off') setState({ kind: 'off' });
+    };
+    window.addEventListener('stat-window:privacy-choice', update);
+    const storageUpdate = (e: StorageEvent) => {
+      if (e.key === 'stat-window:privacy:v1') update();
+    };
+    window.addEventListener('storage', storageUpdate);
+    return () => {
+      window.removeEventListener('stat-window:privacy-choice', update);
+      window.removeEventListener('storage', storageUpdate);
+    };
+  }, []);
 
   useEffect(() => {
     if (!eligible) return;
@@ -64,7 +81,10 @@ export function useComparison(eligible: boolean, day: string, results: readonly 
       // QA reads its own season's tally by sending the run again (see submitDaily).
       if (isQa()) return send(loadPrivacy().scores === 'on');
       const score = state.score;
-      void refreshComparison(day, score).then((c) => setState(c.kind === 'unavailable' ? state : c));
+      void refreshComparison(day, score).then((c) => {
+        if (loadPrivacy().deleting || loadPrivacy().scores === 'off') { setState({ kind: 'off' }); return; }
+        setState(c.kind === 'unavailable' ? state : c);
+      });
     },
   };
 }

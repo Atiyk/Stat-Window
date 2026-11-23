@@ -1,3 +1,5 @@
+> **V3 deletion integrity:** A daily percentile deletion first withdraws consent, then requires a valid server deletion confirmation before discarding the old random browser code. Failures retain the code and stop new score submissions. The server stores only a 9-day, HMAC-only revocation marker after a successful DELETE so delayed submissions cannot silently recreate scores. This is separate from deferred public leaderboards. Independent testing and exact-SHA CI are still required.
+
 # Privacy (source for /privacy.html)
 
 Plain-language notice for players. The served page is `public/privacy.html`; keep the two in step. Last updated 2026-11-22.

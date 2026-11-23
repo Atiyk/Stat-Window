@@ -145,7 +145,7 @@ test('a completed daily sends one streak event, bucketed 1, 2-6 or 7plus; practi
 test('first-time tutorial impressions and practice do not count as daily starts', async ({ page }) => {
   await page.clock.setFixedTime(NBA_FIRST);
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: /^A fictional NBA player has 20 points/ })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'How many regular-season games did the 2015–16 Golden State Warriors win?' })).toBeVisible();
   await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new']);
   // Practice now uses the real ruler and Lock action; it must not emit a real run start.
   await page.getByRole('slider', { name: 'Low end of your window' }).focus();

@@ -266,8 +266,12 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
           pairs.push({ sub: `${p}:sub:${await hmac(ctx.secret, `${season}:${day}:${player}`, 32)}`, dist: `${p}:dist` });
         }
       }
-      if (pairs.length === 0) return json(200, { status: 'ok', removed: 0 });
-      const r = await ctx.store.removeMany(pairs, { rate, ipDay: `sw:v1:${ctx.env}:ipdel:${ipHash}` }, budget, ctx.limits);
+      // Still write the HMAC revocation marker when no linked score is found:
+      // a delayed POST from another tab may already be in flight.
+      const r = await ctx.store.removeMany(pairs, {
+        rate, ipDay: `sw:v1:${ctx.env}:ipdel:${ipHash}`,
+        revocation: `sw:v1:${ctx.env}:revoked:${await hmac(ctx.secret, `score-browser:${player}`, 32)}`,
+      }, budget, ctx.limits);
       if (typeof r === 'object') {
         if (r.limited === 'day') {
           rememberLimited(ctx, delClient, now, 'day');
@@ -311,6 +315,7 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
         rate,
         ipDay: `sw:v1:${ctx.env}:ipd:${ipHash}`,
         ipCalls: `sw:v1:${ctx.env}:ipc:${ipHash}`,
+        revocation: `sw:v1:${ctx.env}:revoked:${await hmac(ctx.secret, `score-browser:${player}`, 32)}`,
         budget,
       },
       total,
@@ -324,6 +329,7 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
       rememberLimited(ctx, ipHash, now);
       return json(429, { status: 'limited' }, { 'Retry-After': '60' });
     }
+    if (out.status === 'revoked') return json(409, { status: 'revoked' });
     if (out.status === 'paused') {
       rememberPause(ctx, now, out.scope);
       return json(503, { status: 'paused' });

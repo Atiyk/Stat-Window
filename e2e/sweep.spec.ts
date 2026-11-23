@@ -355,14 +355,14 @@ test.describe('BUG-09, BUG-10, BUG-13: layout, colour and copy nits', () => {
     for (const c of pins) expect(c).toBe('rgb(167, 70, 36)');
   });
 
-  test('BUG-13: the two Sources links name their articles', async ({ page }) => {
+  test('BUG-13: source links stay outside gameplay and legal credits remain reachable', async ({ page }) => {
     await openAt(page, NOV21);
     await lockAndSettle(page);
-    await page.locator('.sources summary').click();
-    const names = await page.locator('.sources-body a[href*="wikipedia.org"]').allInnerTexts();
-    expect(names.length).toBeGreaterThanOrEqual(1);
-    expect(names[0]).toContain('List of NBA regular season records');
-    expect(new Set(names).size).toBe(names.length);
-    for (const n of names) expect(n).toContain('Wikipedia contributors');
+    await expect(page.locator('.sources')).toHaveCount(0);
+    await page.goto('/credits.html');
+    await expect(page.getByRole('heading', { name: 'Editorial credits' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Creative Commons Attribution-ShareAlike 4.0' }))
+      .toHaveAttribute('href', 'https://creativecommons.org/licenses/by-sa/4.0/');
+    expect(await page.locator('a[href*="en.wikipedia.org/wiki/"]').count()).toBeGreaterThan(100);
   });
 });

@@ -121,7 +121,6 @@ export function Onboarding({ onDone }: { onDone: () => void }) {
         <section className="story" aria-label="Practice answer" ref={answerRef} tabIndex={-1}>
           <p className="story-answer"><span className="tabular">{PRACTICE.answer}</span> wins</p>
           <p className="story-note">The Warriors finished 73–9, setting the NBA record for regular-season wins.</p>
-          <p className="context"><a href="https://www.nba.com/warriors/news/73-wins-20160413" target="_blank" rel="noopener noreferrer">Source: Golden State Warriors</a></p>
         </section>
       )}
 

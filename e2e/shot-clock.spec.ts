@@ -97,7 +97,8 @@ test('interactive tutorial is not scored and requires an explicit start', async 
   await expect(page.locator('.onboarding-play .story-answer')).toContainText('73');
   await expect(page.locator('.onboarding-play .ruler[data-state="hit"]')).toBeVisible();
   await expect(page.locator('.onboarding-play .story')).toContainText('The Warriors finished 73–9');
-  await expect(page.locator('.onboarding-play .story a')).toHaveAttribute('href', 'https://www.nba.com/warriors/news/73-wins-20160413');
+  // Source links were deliberately removed from the player-facing practice reveal.
+  await expect(page.locator('.onboarding-play .story a')).toHaveCount(0);
   const unsaved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
   expect(unsaved.runs?.['2026-11-15']?.results ?? []).toHaveLength(0);
   await page.getByRole('button', { name: "Start today's five" }).click();

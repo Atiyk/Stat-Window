@@ -51,7 +51,7 @@ export function verdict(total: number): string {
   if (total >= 250) return 'Starter material.';
   if (total >= 150) return 'Solid minutes.';
   if (total >= 50) return 'Rough day at the office.';
-  return 'Tomorrow’s a new game.';
+  return 'Tough five.';
 }
 
 export type PlayerStats = {

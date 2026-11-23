@@ -30,8 +30,7 @@ test('a full daily run scores every round, saves, and shares without spoilers', 
       await expect(page.locator('.outcome-miss')).toContainText('Missed by 3 goals');
     }
     points.push(round.points);
-    await page.locator('.sources summary').click();
-    await expect(page.locator('.sources a').first()).toHaveAttribute('href', /^https:\/\//);
+    await expect(page.locator('.sources, .story-extra-title')).toHaveCount(0);
     await next(page);
   }
 
@@ -72,8 +71,7 @@ test('verified NBA bonus trivia appears only after a reveal and stays stable aft
   await expect(fact).toBeVisible();
   const first = await fact.textContent();
   expect(first?.length).toBeGreaterThan(20);
-  await page.locator('.sources summary').click();
-  await expect(page.locator('.sources').getByRole('link').nth(2)).toHaveAttribute('href', /^https:\/\/en\.wikipedia\.org\//);
+  await expect(page.locator('.sources, .story-extra-title')).toHaveCount(0);
   await page.reload();
   await expect(page.locator('.story-extra-text')).toHaveText(first!);
 });

@@ -527,8 +527,7 @@ function Game(props: {
     );
   }
 
-  // Difficulty and the day's theme stay in the content for editors and validators; players
-  // see a plain count. The header already names the puzzle; this only says what kind of run it is.
+  // Difficulty and daily theme metadata stay internal; every round displays its own category.
   const where = daily || session.viaLink ? '' : 'Practice · ';
   const label = `${where}Question\u00a0${state.round + 1} of\u00a0${ROUNDS}`;
 
@@ -537,7 +536,6 @@ function Game(props: {
       state={state}
       dispatch={dispatch}
       label={label}
-      theme={session.slate.theme}
       challenge={session.viaLink && state.round === 0 && state.results.length === 0 ? { vs: session.vs, vsTime: session.vsTime } : null}
       onFirstTouch={() => { props.onWindowActive(); props.onFirstTouch(); }}
     />
@@ -554,7 +552,7 @@ function NoPuzzle({ today, archive, onPractice }: { today: string; archive: read
         <p className="archive-sub">
           {before
             ? `The first puzzle opens on ${formatDay(inventoryDays[0] ?? addDays(today, 1))}.`
-            : 'Every number is checked against a source before it goes live. Try an earlier day while you wait.'}
+            : 'Today’s game isn’t ready. Try an earlier day.'}
         </p>
       </header>
       {archive.length > 0 && (

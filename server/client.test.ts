@@ -99,7 +99,11 @@ describe('submitDaily → server → comparison', () => {
     expect(loadPrivacy().key).not.toBe(key);
     // Deleting also stops: the next results screen must not send the same day again.
     expect(loadPrivacy().scores).toBe('off');
-    expect(await deleteMyScores(fetchFor(ctx))).toBe('nothing');
+    // The new key still requires server confirmation: deleting it creates a
+    // revocation marker even when it has no recorded score or sent-day metadata.
+    // Do not claim 'nothing' before that safety boundary is confirmed.
+    expect(await deleteMyScores(fetchFor(ctx))).toBe('deleted');
+    expect(loadPrivacy()).toMatchObject({ scores: 'off', sent: [], deleting: false });
     savePrivacy({ sent: [DAY], key: 'a'.repeat(22) });
     const down = (() => Promise.reject(new TypeError('offline'))) as unknown as typeof fetch;
     expect(await deleteMyScores(down)).toBe('failed');

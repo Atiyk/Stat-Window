@@ -75,6 +75,7 @@ function Bound(props: {
       <input
         ref={focusInput}
         className="bound bound-input"
+        data-bound={which}
         data-wide-value={Math.max(minimum.length, maximum.length) >= 6 || undefined}
         aria-label={`${label}, between ${minimum} and ${maximum}`}
         inputMode="decimal"
@@ -98,9 +99,10 @@ function Bound(props: {
       ref={buttonRef}
       type="button"
       className="bound"
+      data-bound={which}
       data-wide-value={formatted.length >= 6 || undefined}
       disabled={!editable}
-      aria-label={`${label}: ${formatted}. Type an exact number`}
+      aria-label={editable ? `${label}: ${formatted}. Type an exact number` : `${label}: ${formatted}`}
       onClick={() => {
         onFirstTouch?.();
         setDraft(String(value));

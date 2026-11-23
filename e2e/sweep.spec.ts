@@ -272,7 +272,7 @@ test.describe('BUG-11: the share fallback', () => {
     expect(selected[0]).toBe(0);
     expect(selected[1]).toBe(selected[2]);
     const toast = page.locator('.toast');
-    await expect(toast).toHaveText(/Couldn’t copy automatically/);
+    await expect(toast).toHaveText('Copy the selected text');
     await page.waitForTimeout(300);
     await page.screenshot({ path: `${shots}/bug11-320-fallback.png` });
     const t = (await toast.boundingBox())!;

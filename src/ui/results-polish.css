@@ -1,0 +1,36 @@
+@keyframes result-arrive {
+  from { opacity: 0; transform: translateY(5px); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .daily-results .results-score { animation: result-arrive 380ms var(--ease-out) both; }
+  .daily-results .scorecard .ledger-cell { animation: result-arrive 220ms var(--ease-out) backwards; }
+}
+
+.streak-milestone {
+  width: fit-content;
+  max-width: 100%;
+  margin: 8px 0 0;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--band-hit);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 650;
+}
+
+.card-formats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 16px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.card-formats legend { padding: 0; font-size: 0.875rem; color: var(--ink-soft); }
+.card-formats label { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; cursor: pointer; }
+.card-formats input { inline-size: 1rem; block-size: 1rem; margin: 0; accent-color: var(--brand); }
+.save-score-card[aria-busy='true'],
+.results-actions .btn-primary[aria-busy='true'] { opacity: 0.65; cursor: progress; }
+.archive-toggle { min-height: 44px; margin-top: 8px; text-align: start; }

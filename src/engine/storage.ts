@@ -7,6 +7,8 @@ import type { RoundRecord } from './game';
  * crash the game; it is set aside under `<key>:corrupt` and the player starts fresh.
  */
 export const SAVE_KEY = 'stat-window:v1';
+// Keep untimed runs available if an older release writes to the daily save.
+export const UNTIMED_PRACTICE_KEY = 'stat-window:practice-untimed:v1';
 
 const RoundRecordSchema = z.object({
   questionId: z.string(),
@@ -74,7 +76,7 @@ export type SaveStore = {
   recordVisit(day: string): { first: string; last: string } | undefined;
 };
 
-export function createSaveStore(storage: StorageLike | null): SaveStore {
+export function createSaveStore(storage: StorageLike | null, key = SAVE_KEY): SaveStore {
   let memory: SaveData = emptySave();
   let persistent = storage !== null;
 
@@ -82,7 +84,7 @@ export function createSaveStore(storage: StorageLike | null): SaveStore {
     if (!storage) return memory;
     let raw: string | null;
     try {
-      raw = storage.getItem(SAVE_KEY);
+      raw = storage.getItem(key);
     } catch {
       persistent = false;
       return memory;
@@ -95,7 +97,7 @@ export function createSaveStore(storage: StorageLike | null): SaveStore {
       /* fall through */
     }
     try {
-      storage.setItem(`${SAVE_KEY}:corrupt`, raw);
+      storage.setItem(`${key}:corrupt`, raw);
     } catch {
       /* ignore */
     }
@@ -106,7 +108,7 @@ export function createSaveStore(storage: StorageLike | null): SaveStore {
     memory = data;
     if (!storage) return;
     try {
-      storage.setItem(SAVE_KEY, JSON.stringify(data));
+      storage.setItem(key, JSON.stringify(data));
     } catch {
       persistent = false;
     }

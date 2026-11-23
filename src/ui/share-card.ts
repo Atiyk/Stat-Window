@@ -5,9 +5,13 @@
  * The percentile line appears only when the caller passes a verified, gated result.
  */
 import type { RoundRecord } from '../engine/game';
-import { formatAnswerTime } from '../engine/summary';
+import { MAX_TOTAL, formatAnswerTime } from '../engine/summary';
+
+export type CardFormat = 'square' | 'portrait';
 
 export type CardInput = {
+  format?: CardFormat;
+  untimed?: boolean;
   label: string; // "No. 4" or "Beta No. 4"
   date: string; // "Nov 18"
   results: readonly RoundRecord[];
@@ -28,6 +32,7 @@ const C = {
 };
 
 export const CARD_SIZE = 1080;
+export const PORTRAIT_HEIGHT = 1920;
 
 /** What each round's tile shows: points band only, the same information as the share-text squares. */
 export function tileKind(r: RoundRecord): 'miss' | 'high' | 'mid' | 'low' {
@@ -39,51 +44,57 @@ export function tileKind(r: RoundRecord): 'miss' | 'high' | 'mid' | 'low' {
 
 export function drawCard(ctx: CanvasRenderingContext2D, input: CardInput): void {
   const S = CARD_SIZE;
+  const portrait = input.format === 'portrait';
+  const height = portrait ? PORTRAIT_HEIGHT : S;
+  const headerY = portrait ? 296 : 104;
+  const scoreY = portrait ? 830 : 520;
+  const footerY = portrait ? 1640 : S - 44;
   const total = input.results.reduce((s, r) => s + r.points, 0);
   const sans = "'DM Sans Variable', system-ui, sans-serif";
   ctx.fillStyle = C.paper;
-  ctx.fillRect(0, 0, S, S);
+  ctx.fillRect(0, 0, S, height);
 
   // Wordmark
   ctx.fillStyle = C.brand;
-  ctx.fillRect(96, 104, 12, 64);
-  ctx.fillRect(96, 104, 26, 12);
-  ctx.fillRect(96, 156, 26, 12);
-  ctx.fillRect(170, 104, 12, 64);
-  ctx.fillRect(156, 104, 26, 12);
-  ctx.fillRect(156, 156, 26, 12);
-  ctx.fillRect(134, 120, 12, 32);
+  ctx.fillRect(96, headerY, 12, 64);
+  ctx.fillRect(96, headerY, 26, 12);
+  ctx.fillRect(96, headerY + 52, 26, 12);
+  ctx.fillRect(170, headerY, 12, 64);
+  ctx.fillRect(156, headerY, 26, 12);
+  ctx.fillRect(156, headerY + 52, 26, 12);
+  ctx.fillRect(134, headerY + 16, 12, 32);
   ctx.fillStyle = C.ink;
   ctx.font = `850 58px ${sans}`;
   ctx.textBaseline = 'alphabetic';
-  ctx.fillText('Stat Window', 210, 158);
+  ctx.fillText('Stat Window', 210, headerY + 54);
   ctx.fillStyle = C.soft;
   ctx.font = `500 40px ${sans}`;
-  ctx.textAlign = 'right';
-  ctx.fillText(`${input.label} · ${input.date}`, S - 96, 156);
+  ctx.textAlign = portrait ? 'left' : 'right';
+  ctx.fillText(`${input.label} · ${input.date}`, portrait ? 96 : S - 96, headerY + (portrait ? 133 : 52));
   ctx.textAlign = 'left';
 
   // Score
   ctx.fillStyle = C.brand;
   ctx.font = `760 300px ${sans}`;
   const scoreText = String(total);
-  ctx.fillText(scoreText, 90, 520);
+  ctx.fillText(scoreText, 90, scoreY);
   const w = ctx.measureText(scoreText).width;
   ctx.fillStyle = C.soft;
   ctx.font = `500 60px ${sans}`;
-  ctx.fillText('of 500', 90 + w + 28, 520);
+  ctx.fillText(`of ${MAX_TOTAL}`, 90 + w + 28, scoreY);
 
-  if (input.answerMs !== undefined && input.answerMs !== null) {
+  const detail = input.untimed ? 'Untimed practice' : input.answerMs != null ? `Answer time ${formatAnswerTime(input.answerMs)}` : null;
+  if (detail) {
     ctx.fillStyle = C.soft;
     ctx.font = `600 34px ${sans}`;
-    ctx.fillText(`Answer time ${formatAnswerTime(input.answerMs)}`, 96, 558);
+    ctx.fillText(detail, 96, scoreY + 38);
   }
 
   // One tile per round
   const tile = 156;
   const gap = 24;
   const x0 = 96;
-  const y0 = 580;
+  const y0 = portrait ? 935 : 580;
   input.results.forEach((r, i) => {
     const x = x0 + i * (tile + gap);
     const kind = tileKind(r);
@@ -111,27 +122,28 @@ export function drawCard(ctx: CanvasRenderingContext2D, input: CardInput): void 
   });
 
   // Percentile (only when verified and gated) and the invitation
-  let y = 870;
+  let y = portrait ? 1390 : 870;
   if (input.percentile) {
     ctx.fillStyle = C.ink;
     ctx.font = `600 46px ${sans}`;
-    ctx.fillText(input.percentile.label, 96, 820);
+    const percentileY = portrait ? 1190 : 820;
+    ctx.fillText(input.percentile.label, 96, percentileY);
     ctx.fillStyle = C.soft;
     ctx.font = `400 34px ${sans}`;
-    ctx.fillText(input.percentile.detail, 96, 866);
-    y = 945;
+    ctx.fillText(input.percentile.detail, 96, percentileY + 46);
+    y = portrait ? 1440 : 945;
   }
   ctx.fillStyle = C.ink;
   ctx.font = `850 54px ${sans}`;
-  ctx.fillText(total > 0 ? `Same five questions. Beat ${total}?` : 'Same five questions. Your turn.', 96, y);
+  ctx.fillText(total > 0 && !input.untimed ? `Same five questions. Beat ${total}?` : 'Same five questions. Your turn.', 96, y);
   ctx.fillStyle = C.soft;
   ctx.font = `500 34px ${sans}`;
-  ctx.fillText(input.host, 96, S - 44);
+  ctx.fillText(input.host, 96, footerY);
   ctx.strokeStyle = C.line;
   ctx.lineWidth = 3;
   ctx.beginPath();
-  ctx.moveTo(96, S - 96);
-  ctx.lineTo(S - 96, S - 96);
+  ctx.moveTo(96, footerY - 52);
+  ctx.lineTo(S - 96, footerY - 52);
   ctx.stroke();
 }
 
@@ -142,7 +154,7 @@ export async function cardBlob(input: CardInput): Promise<Blob | null> {
     await document.fonts?.ready;
     const canvas = document.createElement('canvas');
     canvas.width = CARD_SIZE;
-    canvas.height = CARD_SIZE;
+    canvas.height = input.format === 'portrait' ? PORTRAIT_HEIGHT : CARD_SIZE;
     const ctx = canvas.getContext('2d');
     if (!ctx) return null;
     drawCard(ctx, input);

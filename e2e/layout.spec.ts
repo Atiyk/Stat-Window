@@ -41,11 +41,8 @@ test.describe('layout', () => {
       // The next step is on screen after every reveal, without scrolling.
       await expect(page.getByRole('button', { name: 'Next question' })).toBeInViewport({ ratio: 1 });
       await page.screenshot({ path: `${shots}/${tag}-reveal.png`, fullPage: true });
-      // Every link in the sources panel is a 44px target.
-      await page.locator('.sources summary').click();
-      for (const link of await page.locator('.sources-body a').all()) expect((await link.boundingBox())!.height).toBeGreaterThanOrEqual(44);
-      await page.locator('.sources summary').click();
-      await page.screenshot({ path: `${shots}/${tag}-reveal-fold.png` });
+      // No citation panel or generic fact heading interrupts the reveal.
+      await expect(page.locator('.sources, .story-extra-title')).toHaveCount(0);
       for (let i = 0; i < 4; i++) {
         await page.mouse.wheel(0, 600);
         await next(page);
@@ -103,15 +100,16 @@ test.describe('layout', () => {
     expect(await check()).toEqual([]);
   });
 
-  test('tablet shows Next while a long sourced fact remains scrollable', async ({ page }) => {
+  test('tablet shows Next while a long basketball fact remains scrollable', async ({ page }) => {
     await page.setViewportSize({ width: 768, height: 900 });
     await openAt(page, NBA_FIRST);
     await lockAndSettle(page);
     const action = page.getByRole('button', { name: 'Next question' });
     await expect(action).toBeInViewport({ ratio: 1 });
     await expect(page.locator('.story-extra-text')).toHaveText(/.{20,}/);
-    await page.locator('.sources summary').scrollIntoViewIfNeeded();
-    await expect(page.locator('.sources summary')).toBeInViewport();
+    await page.locator('.story-extra-text').scrollIntoViewIfNeeded();
+    await expect(page.locator('.story-extra-text')).toBeInViewport();
+    await expect(page.locator('.sources')).toHaveCount(0);
     await expect(action).toBeInViewport({ ratio: 1 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   });

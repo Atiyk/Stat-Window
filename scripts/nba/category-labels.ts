@@ -32,11 +32,16 @@ function nameAtTime(f: Fact, franchiseNames: Map<string, string>): string | null
 }
 
 export function labelFor(f: Fact, franchiseNames: Map<string, string>): string {
-  // The event date wins over the season start when the specific game takes
-  // place in the next calendar year.
+  // The event date wins when present; otherwise playoffs, Finals and All-Star
+  // events occur in the END year of the listed 2009-10-style season.
+  const seasonStart = f.season ? Number(f.season.slice(0, 4)) : null;
   const year = f.eventDate ? Number(f.eventDate.slice(0, 4))
-    : f.season ? Number(f.season.slice(0, 4)) : null;
+    : seasonStart !== null && ['finals', 'playoffs', 'all-star'].includes(f.scope)
+      ? seasonStart + 1
+      : seasonStart;
   const decade = year === null ? 'NBA' : `${Math.floor(year / 10) * 10}s`;
+  // A cumulative coaching record is not a single NBA Finals series.
+  if (f.id === 'nba-jackson10-titles') return 'Career · Phil Jackson';
   if (f.scope === 'career') return `Career · ${f.player ?? 'NBA Records'}`;
   if (f.scope === 'finals') return `${decade} · NBA Finals`;
   if (f.scope === 'all-star') return `${decade} · NBA All-Star`;

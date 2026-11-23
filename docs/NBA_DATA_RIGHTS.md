@@ -16,7 +16,7 @@ Exact excerpts and the URLs they were read from (2026-11-16) are in `sources.jso
 - About 85 article pages were read one at a time. No dumps, no API bulk export, no table scraping, nothing behind a login or rate limit.
 - A fact counts as verified only when the article sentence states the number with the same population, scope and date. Where a number is derived (for example a percentage from two counts), the arithmetic is stored in `source.derivation`.
 - **November 23, 2026 editorial polish:** Source evidence, article links, licence labels, and derivations remain in the verified fact database and day records. The game now shows only original Stat Window wording rather than a source disclosure after each answer.
-- A separate [NBA editorial credits page](/credits.html) lists the reference articles, credits their contributors, and links the CC BY-SA licence without interrupting question → answer → fact → next question.
+- A separate [editorial credits page](/credits.html) lists the NBA references and earlier mixed-sport archive sources, credits their contributors, and links the CC BY-SA licence without interrupting question → answer → fact → next question.
 - The short source extracts stored for editorial checking are not rendered in gameplay. If a future question or fact reproduces protected expression, attribution and licence requirements must be reviewed before publishing; retaining internal evidence alone does not satisfy required public credit.
 - Facts about records that could still change carry an `asOf` date, and the validator refuses a "still/current/remains" quote without one.
 

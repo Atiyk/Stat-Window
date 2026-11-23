@@ -107,7 +107,7 @@ function withoutParams(loc: Pick<Location, 'pathname' | 'search' | 'hash'>, name
 }
 
 /** The current address without the challenge parameters (`day`, `vs`). */
-const withoutChallenge = (loc: Pick<Location, 'pathname' | 'search' | 'hash'>) => withoutParams(loc, ['day', 'vs']);
+const withoutChallenge = (loc: Pick<Location, 'pathname' | 'search' | 'hash'>) => withoutParams(loc, ['day', 'vs', 'time']);
 
 const daysBetween = (a: string, b: string) => puzzleNumber(b) - puzzleNumber(a);
 

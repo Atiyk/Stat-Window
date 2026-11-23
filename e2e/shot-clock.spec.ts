@@ -302,3 +302,48 @@ test('a running daily round retains its deadline across Eastern midnight', async
   await page.clock.runFor(2500);
   await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');
 });
+
+
+test('other tabs reuse a scored first question rather than replaying it after reload', async ({ page, context }) => {
+  await openTimed(page);
+  const second = await context.newPage();
+  try {
+    await second.clock.install({ time: DAY1 });
+    await second.goto('/');
+    await startDailyIfNeeded(second);
+    await expect(second.locator('.question')).toBeVisible();
+    await page.clock.fastForward('00:10');
+
+    await lowBracket(page).focus();
+    await page.keyboard.press('ArrowRight');
+    await page.getByRole('button', { name: 'Lock the window' }).click();
+
+    // A completion in tab A is one durable Q1 result for the whole origin.
+    // Tab B must hydrate that result, not restart Q1 with a new shot clock.
+    await expect.poll(async () => second.evaluate(() => {
+      const save = JSON.parse(localStorage.getItem('stat-window:v1') || '{}');
+      return save.runs?.['2026-11-15']?.results?.length ?? 0;
+    })).toBe(1);
+    await second.reload();
+    await expect(second.locator('.outcome-word')).toBeVisible();
+    await expect(second.getByRole('button', { name: 'Lock the window' })).toHaveCount(0);
+
+    const beforeNext = await second.evaluate(() => {
+      const save = JSON.parse(localStorage.getItem('stat-window:v1') || '{}');
+      return save.runs?.['2026-11-15']?.results ?? [];
+    });
+    expect(beforeNext).toHaveLength(1);
+    expect(beforeNext[0].questionId).toBe('nba-gsw-2016-wins');
+
+    await second.getByRole('button', { name: 'Next question' }).click();
+    await expect(second.locator('.question')).toBeVisible();
+    await expect(second.locator('.shot-clock')).toContainText('24s');
+    const afterNext = await second.evaluate(() => {
+      const save = JSON.parse(localStorage.getItem('stat-window:v1') || '{}');
+      return save.runs?.['2026-11-15']?.results ?? [];
+    });
+    expect(afterNext).toHaveLength(1);
+  } finally {
+    await second.close();
+  }
+});

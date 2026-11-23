@@ -96,7 +96,7 @@ test('interactive tutorial is not scored and requires an explicit start', async 
   await expect(page.locator('.onboarding-play .story-answer')).toContainText('73');
   await expect(page.locator('.onboarding-play .ruler[data-state="hit"]')).toBeVisible();
   await expect(page.locator('.onboarding-play .story')).toContainText('The Warriors finished 73–9');
-  await expect(page.locator('.onboarding-play .story a')).toHaveAttribute('href', 'https://www.nba.com/warriors/news/73-wins-20160413');
+  await expect(page.locator('.onboarding-play .story a')).toHaveAttribute('href', 'https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season');
   const unsaved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
   expect(unsaved.runs?.['2026-11-15']?.results ?? []).toHaveLength(0);
   await page.getByRole('button', { name: "Start today's five" }).click();

@@ -7,16 +7,16 @@ import { Readout } from './Readout';
 import { Ruler, type RulerReveal } from './Ruler';
 
 /**
- * A tiny, entirely fictional round. The real Readout, Ruler, scoring and
- * reveal components are reused, but this never loads or saves a daily slate.
+ * A real, easy NBA-history warm-up using the same Readout, Ruler, scoring,
+ * and reveal as daily play. It never loads or saves a scored daily slate.
  * In particular, the 24-second shot clock is not mounted until onDone().
  */
 const PRACTICE: Pick<Question, 'min' | 'max' | 'step' | 'answer' | 'unit'> = {
   min: 0,
-  max: 80,
+  max: 82,
   step: 1,
-  answer: 42,
-  unit: { singular: 'point', plural: 'points' },
+  answer: 73,
+  unit: { singular: 'win', plural: 'wins' },
 };
 
 export function Onboarding({ onDone }: { onDone: () => void }) {
@@ -89,8 +89,8 @@ export function Onboarding({ onDone }: { onDone: () => void }) {
         </div>
         <header className="question-block">
           <p className="context">PRACTICE · CATCH THE NUMBER</p>
-          <h1 className="onboarding-practice-title" ref={titleRef} tabIndex={-1}>A fictional NBA player has 20 points at halftime. How many points do they finish with?</h1>
-          <p className="context onboarding-example-note">Made-up example · No timer · One practice guess</p>
+          <h1 className="onboarding-practice-title" ref={titleRef} tabIndex={-1}>How many regular-season games did the 2015–16 Golden State Warriors win?</h1>
+          <p className="context onboarding-example-note">Real NBA history · No timer · Practice only</p>
         </header>
       </div>
 
@@ -128,11 +128,11 @@ export function Onboarding({ onDone }: { onDone: () => void }) {
 
       {landed && score && (
         <section className="story" aria-label="Practice answer" ref={answerRef} tabIndex={-1}>
-          <p className="story-answer"><span className="tabular">{PRACTICE.answer}</span> points</p>
+          <p className="story-answer"><span className="tabular">{PRACTICE.answer}</span> wins</p>
           <p className="story-note">{score.hit
-            ? score.points === 0 ? 'You caught 42, but the window was too wide to earn points.' : 'You caught 42! A smaller window earns more when the answer is inside.'
-            : '42 fell outside your window. Try again to find a safer range.'}</p>
-          <p className="context">Practice only. This example is fictional, and no score was saved.</p>
+            ? score.points === 0 ? 'You caught 73, but the window was too wide to earn points.' : 'You caught 73! A smaller window earns more when the answer is inside.'
+            : '73 fell outside your window. Try again to find a safer range.'}</p>
+          <p className="context">The Warriors finished 73–9, setting the NBA record for regular-season wins. Practice only; no score was saved. <a href="https://www.nba.com/warriors/news/73-wins-20160413" target="_blank" rel="noopener noreferrer">Source: Golden State Warriors</a></p>
         </section>
       )}
 

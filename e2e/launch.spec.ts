@@ -56,6 +56,8 @@ test('new Day 1 starts at No. 1 with no beta archive, preserving old saves but r
   // Switching to official Day 1 must not count or publicly expose beta play.
   await at(page, first, `/?${preview}`);
   await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await page.setViewportSize({ width: 320, height: 568 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(321);
   await complete(page);
   await expect(page.locator('.stats dt', { hasText: 'Played' }).locator('..').locator('dd')).toHaveText('1');
   await expect(page.locator('.archive-list')).toHaveCount(0);
@@ -75,6 +77,20 @@ test('a retired beta challenge gives an explicit notice and strips its score/tim
   expect(params.get('launch-preview')).toBe(LAUNCH);
   await startDailyIfNeeded(page);
   await expect(page.locator('.question')).toBeVisible();
+  await expect(page.locator('.challenge-note')).toHaveCount(0);
+});
+
+test('retirement switches at Eastern midnight, not UTC midnight', async ({ page }) => {
+  const legacy = `/?day=2027-01-09&vs=300&${preview}`;
+  // Jan 10 04:59 UTC is still January 9 in New York (EST).
+  await at(page, '2027-01-10T04:59:59Z', legacy);
+  await startDailyIfNeeded(page);
+  await expect(page.locator('.challenge-note')).toContainText('300');
+
+  // At 05:00Z the New York puzzle day rolls over and the beta link retires.
+  await at(page, '2027-01-10T05:00:00Z', legacy);
+  await expect(page.locator('.link-note')).toContainText('beta puzzle was retired');
+  await expect(page.locator('.day-label')).toHaveText('No. 1');
   await expect(page.locator('.challenge-note')).toHaveCount(0);
 });
 

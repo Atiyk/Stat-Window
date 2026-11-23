@@ -8,7 +8,8 @@
  *   (and never under GPC/DNT); otherwise the results screen asks first.
  * - key: 22 random URL-safe characters, made the first time a score is sent. It is
  *   never put in a URL or sent to analytics; the server only stores a salted hash of
- *   it per day. "Delete my scores" sends it once more, then a new one is made.
+ *   it per day. "Delete my scores" sends it for erasure, then clears it; a new code
+ *   is made only after a future opt-in submission.
  */
 export type ScoreChoice = 'unset' | 'on' | 'off';
 export type Privacy = {

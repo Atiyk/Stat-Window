@@ -256,9 +256,11 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
       // Its own memo key, so it never blocks that network's submissions.
       const delClient = `del:${ipHash}`;
       if (isLimited(ctx, delClient, now)) return json(429, { status: 'limited' }, untilMidnight);
-      const oldest = addDays(today, -DELETE_DAYS);
-      // Only days whose records can still exist; older ones were already unlinked by their TTL.
-      const days = [...new Set(Array.isArray(body.days) ? body.days.filter(isIsoDay) : [])].filter((d) => d >= oldest && d <= today).slice(0, DELETE_DAYS + 1);
+      // Never trust a local day list as an exhaustive erasure ledger. Storage may
+      // have been cleared, corrupted, or written by an older browser while the
+      // score is still retained. Every DELETE checks this fixed nine-day window;
+      // Redis remains bounded at 18 score/aggregate pairs (normal + QA).
+      const days = Array.from({ length: DELETE_DAYS + 1 }, (_, i) => addDays(today, -i));
       const pairs: { sub: string; dist: string }[] = [];
       for (const day of days) {
         for (const season of new Set([seasonOf(day, { launchDay: ctx.launchDay }), 'qa'])) {

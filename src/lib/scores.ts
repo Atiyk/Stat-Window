@@ -4,7 +4,7 @@
  */
 import type { RoundRecord } from '../engine/game';
 import { midrankPercentile, emptyDistribution, PERCENTILE_MIN_SAMPLE } from '../engine/percentile';
-import { loadPrivacy, newKey, savePrivacy, scoreKey } from './privacy';
+import { loadPrivacy, savePrivacy, scoreKey } from './privacy';
 
 export type Comparison =
   | { kind: 'ready'; percentile: number; n: number; score: number; asOf: string }
@@ -152,12 +152,6 @@ export async function deleteMyScores(fetchImpl: typeof fetch = fetch): Promise<'
     savePrivacy({ key: null, sent: [], done: [], scores: 'off', deleting: false });
     return 'nothing';
   }
-  if (p.sent.length === 0 && !p.deleting) {
-    // A newly rotated key that has never been submitted has no server-side
-    // score to erase. Do not spend a Redis write or falsely report deletion.
-    savePrivacy({ key: null, sent: [], done: [], scores: 'off', deleting: false });
-    return 'nothing';
-  }
   try {
     const [status, body] = await call('DELETE', { player: p.key, days: p.sent }, fetchImpl);
     const removed = body?.removed;
@@ -165,7 +159,10 @@ export async function deleteMyScores(fetchImpl: typeof fetch = fetch): Promise<'
         || !Number.isInteger(removed) || removed < 0) return 'failed';
     // Another tab may have replaced the code while this request was in flight.
     if (loadPrivacy().key !== p.key) return 'failed';
-    savePrivacy({ key: newKey(), sent: [], done: [], scores: 'off', deleting: false });
+    // Discard the old code only after confirmed atomic erasure/revocation. A fresh
+    // code is generated lazily on a future opted-in submission, so Delete again
+    // is a zero-network local no-op without risking an old key with lost day metadata.
+    savePrivacy({ key: null, sent: [], done: [], scores: 'off', deleting: false });
     return 'deleted';
   } catch {
     return 'failed';

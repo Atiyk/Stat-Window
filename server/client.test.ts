@@ -96,7 +96,7 @@ describe('submitDaily → server → comparison', () => {
     const key = loadPrivacy().key;
     expect(await deleteMyScores(fetchFor(ctx))).toBe('deleted');
     expect(loadPrivacy().sent).toEqual([]);
-    expect(loadPrivacy().key).not.toBe(key);
+    expect(loadPrivacy().key).toBeNull(); // no unused code to revoke until the next opt-in
     // Deleting also stops: the next results screen must not send the same day again.
     expect(loadPrivacy().scores).toBe('off');
     expect(await deleteMyScores(fetchFor(ctx))).toBe('nothing');

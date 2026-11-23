@@ -439,4 +439,18 @@ describe('percentile deletion revocation (shipping privacy contract)', () => {
     expect(await deletion.json()).toMatchObject({ status: 'ok', removed: 1 });
     expect((await submit(ctx, { day: DAY, player: old, rounds: a.rounds })).body.status).toBe('revoked');
   });
+  it('erases a stored score when the browser lost its sent-day list', async () => {
+    const { ctx } = testContext();
+    const a = await roundsFor(DAY, 2);
+    const old = player(504);
+    expect((await submit(ctx, { day: DAY, player: old, rounds: a.rounds })).body.status).toBe('stored');
+    // This happens with partial/corrupt browser storage or a previous client.
+    const deletion = await handle(post({ player: old, days: [] }, {}, 'DELETE'), ctx);
+    expect(deletion.status).toBe(200);
+    expect(await deletion.json()).toMatchObject({ status: 'ok', removed: 1 });
+    const readBack = await handle(new Request(`https://stat-window.vercel.app/api/scores?day=${DAY}`), ctx);
+    expect(await readBack.json()).toMatchObject({ n: 0 });
+    expect((await submit(ctx, { day: DAY, player: old, rounds: a.rounds })).body.status).toBe('revoked');
+  });
+
 });

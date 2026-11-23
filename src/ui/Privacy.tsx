@@ -99,8 +99,8 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
               try {
                 setStatus('Deleting…');
               // deleteMyScores() synchronously withdraws consent before it awaits
-              // the network. Do not pre-mark an unused rotated key as pending:
-              // that would trigger an unnecessary billable deletion on a fresh key.
+              // the network. A successfully deleted code is cleared and only regenerated
+              // on future opt-in, so repeated Delete on an empty browser is local-only.
               const pending = deleteMyScores();
               setPrefs(loadPrivacy());
               const r = await pending;
@@ -108,7 +108,7 @@ export function PrivacyDialog({ open, onClose }: { open: boolean; onClose: () =>
               setPrefs(loadPrivacy());
               setStatus(
                 r === 'deleted'
-                  ? 'Done. Scores this browser sent in the last 7 days are deleted, its code is replaced, and the daily comparison is off until you tick it again.'
+                  ? 'Done. Scores this browser sent in the last 7 days are deleted, its old code is cleared, and the daily comparison is off until you tick it again.'
                   : r === 'nothing'
                     ? 'Nothing to delete: this browser hasn’t sent a score that’s still kept. The daily comparison is now off.'
                     : 'Deletion is not confirmed. New scores are blocked and your original code is saved for a retry.',

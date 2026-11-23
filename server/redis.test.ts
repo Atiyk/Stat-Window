@@ -91,10 +91,10 @@ describe.skipIf(!url)('Lua scripts on a real redis-server', () => {
     expect((await del(player(31))).status).toBe(200);
     expect((await del(player(31))).status).toBe(429);
     expect(Number(await client.command(['GET', `${prefix}:m:${DAY.slice(0, 7)}`]))).toBe(shared);
-    expect(Number(await client.command(['GET', `${prefix}:e:${DAY.slice(0, 7)}`]))).toBe(2 * COST.removeSpent(2, 0));
+    expect(Number(await client.command(['GET', `${prefix}:e:${DAY.slice(0, 7)}`]))).toBe(2 * COST.removeSpent(18, 0));
     // Another network's real player still deletes their stored score.
     expect(await (await handle(post({ player: player(30), days: [DAY] }, { 'x-real-ip': '198.51.100.30' }, 'DELETE'), ctx)).json()).toMatchObject({ removed: 1 });
-    expect(Number(await client.command(['GET', `${prefix}:e:${DAY.slice(0, 7)}`]))).toBe(3 * COST.removeSpent(2, 0) + 3);
+    expect(Number(await client.command(['GET', `${prefix}:e:${DAY.slice(0, 7)}`]))).toBe(3 * COST.removeSpent(18, 0) + 3);
   });
   it('rejects an old-code POST after DELETE using real Redis 7, even when the POST started before erasure', async () => {
     const env = `${run}revoked`;

@@ -37,7 +37,7 @@ for (const [label, payload] of [
   });
 }
 
-test('percentile DELETE success (including zero linked records) rotates code only after explicit confirmation', async ({ page }) => {
+test('percentile DELETE success discards code only after explicit confirmation', async ({ page }) => {
   await initialize(page);
   let deletes = 0;
   await page.route('**/api/scores', route => {
@@ -50,14 +50,34 @@ test('percentile DELETE success (including zero linked records) rotates code onl
   await expect(page.getByText(/Done\. Scores this browser sent/)).toBeVisible();
   expect(deletes).toBe(1);
   const state = await page.evaluate(key => JSON.parse(localStorage.getItem(key) ?? '{}'), KEY);
-  expect(state.key).toMatch(/^[A-Za-z0-9_-]{22}$/);
-  expect(state.key).not.toBe(oldKey);
+  expect(state.key).toBeNull(); // New identity will be made lazily if comparison is enabled again.
   expect(state).toMatchObject({ scores: 'off', deleting: false, sent: [], done: [] });
-  // The newly generated code has not sent a score. Another Delete action is
-  // therefore local-only, avoiding an unnecessary Redis command or tombstone.
+  // No new code exists yet. Another Delete action remains local-only, avoiding
+  // unnecessary Redis commands while still erasing any code with unknown days.
   await page.getByRole('button', { name: 'Delete my scores' }).click();
   await expect(page.getByText(/Nothing to delete/)).toBeVisible();
   expect(deletes).toBe(1);
+});
+
+
+test('an old code with a lost sent-day list still requests server erasure', async ({ page }) => {
+  await page.addInitScript(({key,code}) => localStorage.setItem(key, JSON.stringify({
+    analytics: 'off', scores: 'on', key: code, asked: true, sent: [], done: [], deleting: false,
+  })), { key: KEY, code: oldKey });
+  const requests: string[] = [];
+  await page.route('**/api/scores', route => {
+    if (route.request().method() !== 'DELETE') throw new Error('Unexpected score submission');
+    const body = JSON.parse(route.request().postData() ?? '{}') as { player: string; days: string[] };
+    expect(body).toMatchObject({ player: oldKey, days: [] });
+    requests.push(body.player);
+    return route.fulfill({ status: 200, contentType: 'application/json',
+      body: '{"status":"ok","removed":1}' });
+  });
+  await page.goto('/?privacy=1');
+  await page.getByRole('button', { name: 'Delete my scores' }).click();
+  await expect(page.getByText(/Done\. Scores this browser sent/)).toBeVisible();
+  expect(requests).toEqual([oldKey]);
+  expect(await page.evaluate(k => JSON.parse(localStorage.getItem(k) ?? '{}').key, KEY)).toBeNull();
 });
 
 test('a pending daily score deletion cannot enqueue a duplicate DELETE from double taps', async ({ page }) => {

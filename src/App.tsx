@@ -4,11 +4,11 @@ import { inventoryDays, loadSlate } from './content/inventory';
 import type { Slate } from './content/schema';
 import { parseChallenge } from './engine/challenge';
 import { addDays, puzzleDay, puzzleNumber } from './engine/daily';
+import { verifiedDailyRounds, verifiedPreviousBest } from './engine/final-shot';
 import { currentSeason, inSeason, isRetiredDay, playableDays, publicNumber, seasonConfigFrom, type SeasonConfig } from './engine/season';
-import { scoreWindow } from './engine/scoring';
 import { isQa } from './lib/scores';
 import { gameReducer, initGame, ROUNDS, totalPoints, type GameAction, type GameState, type Mode, type PracticeTiming, type RoundRecord } from './engine/game';
-import { createSaveStore, UNTIMED_PRACTICE_KEY, type RunKind, type SavedRun, type SaveStore, type StorageLike } from './engine/storage';
+import { createSaveStore, SAVE_KEY, UNTIMED_PRACTICE_KEY, type RunKind, type SavedRun, type SaveStore, type StorageLike } from './engine/storage';
 import { MAX_TOTAL, playerStats, streakMilestone } from './engine/summary';
 import { analyticsEnabled, setCohort, track, trackOnce, type PlayMode, type ShareMethod } from './lib/track';
 import { CTA_TEST, previewAsOf, SURVIVAL_FLAG, wantsSurvival } from './survival/flag';
@@ -432,13 +432,7 @@ function PreviousDailyScore({ today, store }: { today: string; store: SaveStore 
       if (!active || !slate) return;
       const game = initGame(slate, 'daily', run.results, run.advanced);
       if (game.phase !== 'complete') return;
-      const valid = slate.questions.every((question, index) => {
-        const saved = game.results[index]!;
-        if (saved.timedOut) return !saved.hit && saved.points === 0 && saved.missBy === 0;
-        const scored = scoreWindow(question, saved);
-        return saved.hit === scored.hit && saved.points === scored.points && saved.missBy === scored.missBy;
-      });
-      if (valid) setPrevious({ day: yesterday, score: totalPoints(game.results) });
+      if (verifiedDailyRounds(slate, game.results)) setPrevious({ day: yesterday, score: totalPoints(game.results) });
     }).catch(() => undefined);
     return () => { active = false; };
   }, [store, today, yesterday]);
@@ -470,6 +464,30 @@ function Game(props: {
   const untimedPractice = session.timing === 'untimed';
   const playMode: PlayMode = session.viaLink ? 'challenge' : session.mode;
   const eventRun = untimedPractice ? 'untimedPractice' : session.kind;
+  const season = currentSeason(today, SEASON);
+  const comparesPersonalBest = session.kind === 'runs' && playMode === 'daily'
+    && currentSeason(session.day, SEASON) === season;
+  const [previousBest, setPreviousBest] = useState<number | null>(null);
+  useEffect(() => {
+    if (!comparesPersonalBest || !store.persistent) return;
+    let request = 0;
+    const refreshBest = () => {
+      const current = ++request;
+      void verifiedPreviousBest(store.load().runs, session.day, SEASON, loadSlate)
+        .catch(() => null)
+        .then((best) => { if (current === request) setPreviousBest(best); });
+    };
+    const historyChanged = (event: StorageEvent) => {
+      // Yesterday can become a completed historical run in another tab just after midnight.
+      if (event.key === SAVE_KEY || event.key === null) refreshBest();
+    };
+    refreshBest();
+    window.addEventListener('storage', historyChanged);
+    return () => {
+      request++;
+      window.removeEventListener('storage', historyChanged);
+    };
+  }, [comparesPersonalBest, session.day, store]);
 
   const [state, rawDispatch] = useReducer(gameReducer, undefined, (): GameState => {
     const saved = store.load()[session.kind]?.[session.day];
@@ -527,9 +545,9 @@ function Game(props: {
     const saved = store.saveRun(session.day, { results: state.results, advanced }, session.kind);
     if (untimedPractice && state.results.length > 0) {
       try { window.sessionStorage.removeItem(startKey); } catch { /* storage blocked */ }
-      if (hasConflictingLock(saved, state.results)) adoptSave(saved);
     }
-  }, [store, session.day, session.kind, state.results, advanced, untimedPractice, startKey, adoptSave]);
+    if ((daily || untimedPractice) && hasConflictingLock(saved, state.results)) adoptSave(saved);
+  }, [store, session.day, session.kind, state.results, advanced, daily, untimedPractice, startKey, adoptSave]);
 
   const pub = publicNumber(session.day, SEASON);
   useEffect(() => {
@@ -568,7 +586,7 @@ function Game(props: {
     return () => window.removeEventListener('pagehide', onHide);
   }, [playMode]);
 
-  // Adopt another tab's progress between rounds. Conflicting untimed locks
+  // Adopt another tab's progress between rounds. Conflicting shared locks
   // always reconcile with the saved result, even during the local reveal.
   useEffect(() => {
     const onStorage = () => {
@@ -576,7 +594,7 @@ function Game(props: {
       if (!saved) return;
       const interactive = state.phase === 'ready' || state.phase === 'adjusting';
       if ((interactive && saved.results.length > state.results.length) ||
-          (untimedPractice && hasConflictingLock(saved, state.results))) {
+          ((daily || untimedPractice) && hasConflictingLock(saved, state.results))) {
         adoptSave(saved);
       }
     };
@@ -609,13 +627,9 @@ function Game(props: {
 
   if (state.phase === 'complete') {
     // Only the current season's runs count, so beta history never inflates an official launch.
-    const season = currentSeason(today, SEASON);
     const history = inSeason(store.load().runs, season, SEASON);
     const stats = playerStats(history, today);
-    const officialHighlight = freshCompletion && session.kind === 'runs' && playMode === 'daily' && currentSeason(session.day, SEASON) === season;
-    const previous = officialHighlight
-      ? playerStats(Object.fromEntries(Object.entries(history).filter(([day]) => day < session.day)), session.day)
-      : null;
+    const officialHighlight = freshCompletion && comparesPersonalBest;
     const milestone = officialHighlight
       ? streakMilestone(playerStats(history, session.day).streak)
       : null;
@@ -636,7 +650,10 @@ function Game(props: {
         vsTime={session.vsTime}
         results={state.results}
         stats={stats}
-        officialHighlight={officialHighlight ? { lastBest: previous?.played ? previous.best : null, milestone } : undefined}
+        officialHighlight={officialHighlight ? {
+          lastBest: verifiedDailyRounds(session.slate, state.results) ? previousBest : null,
+          milestone,
+        } : undefined}
         animateScorecard={freshCompletion}
         archive={props.archive.filter((d) => d !== session.day)}
         onPractice={props.onPractice}
@@ -673,6 +690,8 @@ function Game(props: {
       dispatch={dispatch}
       label={label}
       timing={session.timing}
+      courtRun={daily}
+      previousBest={comparesPersonalBest ? previousBest : null}
       challenge={session.viaLink && state.round === 0 && state.results.length === 0 ? { vs: session.vs, vsTime: session.vsTime } : null}
       onFirstTouch={() => { props.onWindowActive(); props.onFirstTouch(); }}
     />

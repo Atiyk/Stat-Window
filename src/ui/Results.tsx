@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { Slate } from '../content/schema';
 import { challengeUrl } from '../engine/challenge';
+import { courtRunCheckpoints } from '../engine/court-run';
+import { buildShotChart } from '../engine/shot-chart';
 import { msUntilNextPuzzle } from '../engine/daily';
 import { REMIND_COPY, followsPuzzleClock, googleCalendarUrl, icsPath, nextReminder, reminderHour, reminderTime } from '../engine/remind';
 import { totalPoints, type Mode, type PracticeTiming, type RoundRecord } from '../engine/game';
@@ -11,12 +13,20 @@ import { isMixedSportDay } from '../content/cutover';
 import { track, type PlayMode, type ShareMethod } from '../lib/track';
 import { useNow } from './hooks';
 import { ComparisonLine, ConsentChoice } from './Comparison';
-import { cardBlob, type CardFormat, type CardInput } from './share-card';
+import { cardBlob, type CardFormat, type CardInput, type CardStyle } from './share-card';
+import { CourtRun } from './CourtRun';
+import { ShotChart } from './ShotChart';
 import { useComparison } from './use-comparison';
 import { Leaderboard } from './Leaderboard';
 import { InstallPrompt } from './InstallPrompt';
 import { PracticeTimingChoice } from './PracticeTimingChoice';
 import './results-polish.css';
+
+const CARD_STYLES = [
+  { value: 'classic', label: 'Classic' },
+  { value: 'shot-chart', label: 'Shot Chart' },
+  { value: 'court-run', label: 'Court Run' },
+] as const;
 
 type Props = {
   slate: Slate;
@@ -64,6 +74,7 @@ function friendLine(total: number, vs: number, time: number | null, vsTime: numb
 
 export function Results({ slate, label, eligible, onPrivacy, mode, playMode, untimedPractice = false, isToday, vs, vsTime, results, stats, officialHighlight, animateScorecard = false, archive, onPractice, onBackToToday, onShared, survivalCta = null }: Props) {
   const total = totalPoints(results);
+  const [cardStyle, setCardStyle] = useState<CardStyle>('classic');
   const [format, setFormat] = useState<CardFormat>('square');
   const [cardOptionsOpen, setCardOptionsOpen] = useState(false);
   const [archiveExpanded, setArchiveExpanded] = useState(false);
@@ -79,18 +90,31 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
   const comparison = { ...raw, join: () => (raw.join(), refocus()), decline: () => (raw.decline(), refocus()) };
   const verified = comparison.state.kind === 'ready' ? comparison.state : null;
   const sample = verified?.n.toLocaleString('en-US');
-  const percentile = verified ? `${ordinal(verified.percentile)} percentile today` : null;
+  const percentile = verified ? `${ordinal(verified.percentile)} percentile ${isToday ? 'today' : 'for this puzzle'}` : null;
   const percentileLine = percentile ? `${percentile} (${sample} games)` : null;
-  const cardInput = useMemo<CardInput>(() => ({
-    label,
-    format,
-    untimed: untimedPractice,
-    date: formatDay(slate.date),
-    results,
-    answerMs,
-    percentile: percentile ? { label: percentile, detail: `based on ${sample} eligible completed games` } : null,
-    host: window.location.host || 'stat-window.vercel.app',
-  }), [label, format, untimedPractice, slate.date, results, answerMs, percentile, sample]);
+  const practice = mode === 'practice';
+  const practiceLabel = playMode === 'challenge' ? 'Challenge' : untimedPractice ? 'Untimed practice' : 'Practice';
+  const cardContext = practice ? practiceLabel : playMode === 'challenge' ? 'Challenge' : !isToday ? 'Past daily' : null;
+  const checkpoints = useMemo(() => courtRunCheckpoints(results), [results]);
+  const attempts = useMemo(() => buildShotChart(slate, results), [slate, results]);
+  const cardInput = useMemo<CardInput>(() => {
+    const puzzle = { label, format, date: formatDay(slate.date), context: cardContext } as const;
+    if (cardStyle === 'classic') {
+      return {
+        ...puzzle,
+        style: cardStyle,
+        untimed: untimedPractice,
+        results,
+        answerMs,
+        percentile: percentile ? { label: percentile, detail: `based on ${sample} eligible completed games` } : null,
+        host: window.location.host || 'stat-window.vercel.app',
+      };
+    }
+    const puzzleUrl = challengeUrl(window.location.origin, slate.date);
+    return cardStyle === 'shot-chart'
+      ? { ...puzzle, style: cardStyle, total, puzzleUrl, attempts }
+      : { ...puzzle, style: cardStyle, total, puzzleUrl, checkpoints };
+  }, [label, format, cardContext, cardStyle, slate.date, untimedPractice, results, answerMs, percentile, sample, total, attempts, checkpoints]);
   const now = useNow(1000);
   // The reminder slot is fixed when the screen opens, not every second.
   const remind = useMemo(() => {
@@ -144,7 +168,8 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
 
   const nativeShare = typeof navigator !== 'undefined' && !!navigator.share && matchMedia('(pointer: coarse)').matches;
   const canShareFile = nativeShare && typeof navigator.canShare === 'function';
-  const filename = `stat-window-${slate.date}${untimedPractice ? '-untimed' : ''}${format === 'portrait' ? '-portrait' : ''}.png`;
+  const styleSuffix = cardStyle === 'classic' ? '' : `-${cardStyle}`;
+  const filename = `stat-window-${slate.date}${untimedPractice ? '-untimed' : ''}${styleSuffix}${format === 'portrait' ? '-portrait' : ''}.png`;
   const [preparedCard, setPreparedCard] = useState<{ input: CardInput; blob: Blob | null; file: File | null } | null>(null);
   const card = preparedCard?.input === cardInput ? preparedCard : null;
   const cardPrepared = card !== null;
@@ -251,9 +276,6 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
   const nextAt = new Date(now.getTime() + msUntilNextPuzzle(now));
   const local = localTimeOf(nextAt);
 
-  const practice = mode === 'practice';
-  const practiceLabel = playMode === 'challenge' ? 'Challenge' : untimedPractice ? 'Untimed practice' : 'Practice';
-
   return (
     <article className="results daily-results">
       <header className="results-head">
@@ -307,6 +329,15 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
           </button>
           <div className="score-card-options" id="score-card-options" hidden={!cardOptionsOpen}>
             <fieldset className="card-formats" disabled={pending !== null}>
+              <legend>Score card style</legend>
+              {CARD_STYLES.map(({ value, label: styleLabel }) => (
+                <label key={value}>
+                  <input type="radio" name="card-style" checked={cardStyle === value} onChange={() => setCardStyle(value)} />
+                  {styleLabel}
+                </label>
+              ))}
+            </fieldset>
+            <fieldset className="card-formats" disabled={pending !== null}>
               <legend>Score card format</legend>
               {(['square', 'portrait'] as const).map((option) => (
                 <label key={option}>
@@ -339,6 +370,8 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
             Try Survival: 20 rounds, one life
           </button>
         )}
+        <CourtRun total={total} checkpoints={checkpoints} />
+        <ShotChart attempts={attempts} total={total} />
         <ConsentChoice comparison={comparison} onPrivacy={onPrivacy} />
         <p className="next-window">
           Next puzzle in <span className="tabular">{formatCountdown(msUntilNextPuzzle(now))}</span>, at 12:00 AM Eastern

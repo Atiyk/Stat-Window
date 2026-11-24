@@ -1,0 +1,83 @@
+.shot-chart {
+  min-inline-size: 0;
+  border-block: 1px solid var(--line);
+}
+
+.shot-chart > summary {
+  cursor: pointer;
+  min-block-size: 44px;
+  padding-block: 10px;
+  font-weight: 700;
+}
+
+.shot-chart > summary::marker { color: var(--brand); }
+
+.shot-chart-body {
+  display: grid;
+  gap: var(--space-2);
+  padding-block: var(--space-1) var(--space-3);
+}
+
+.shot-chart-body p { margin: 0; }
+.shot-chart-score { display: flex; gap: var(--space-1) var(--space-3); flex-wrap: wrap; }
+.shot-chart-score span, .shot-chart-caption { color: var(--ink-soft); }
+.shot-chart-caption, .shot-chart-detail { font-size: 0.875rem; }
+
+.shot-chart-court {
+  display: block;
+  inline-size: min(100%, 32rem);
+  block-size: auto;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.shot-chart-divider {
+  fill: none;
+  stroke: var(--tick);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+.shot-marker-shape { fill: var(--surface); stroke: var(--ink); stroke-width: 1.7; }
+.shot-marker-number { fill: var(--ink); font-size: 14px; font-weight: 700; }
+.shot-marker[data-outcome='made'] .shot-marker-shape { fill: var(--brand); stroke: var(--brand-press); }
+.shot-marker[data-outcome='made'] .shot-marker-number { fill: var(--on-brand); }
+.shot-marker[data-outcome='timeout'] .shot-marker-shape { stroke-dasharray: 4 2; }
+.shot-marker[data-outcome='unavailable'] .shot-marker-shape { stroke-dasharray: 1 2; }
+.shot-chart-court [data-selected] .shot-marker-shape { stroke-width: 3; }
+
+.shot-chart-key {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-3);
+  margin: 0;
+  padding: 0;
+  color: var(--ink-soft);
+  list-style: none;
+  font-size: 0.8125rem;
+}
+
+.shot-chart-key li { display: inline-flex; gap: var(--space-1); align-items: center; }
+
+.shot-chart-questions { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+
+.shot-chart-questions button {
+  cursor: pointer;
+  min-inline-size: 44px;
+  min-block-size: 44px;
+  padding: 0 var(--space-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-small);
+  background: var(--surface);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.shot-chart-questions button[aria-pressed='true'] {
+  border-color: var(--brand);
+  background: var(--brand-soft);
+  text-decoration: underline;
+}
+
+.shot-chart-detail { min-block-size: 3em; color: var(--ink); }

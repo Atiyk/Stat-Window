@@ -1,0 +1,157 @@
+.court-outline {
+  fill: none;
+  stroke: var(--tick);
+  stroke-width: 1.35;
+}
+
+.court-run__graphic {
+  display: block;
+  height: auto;
+}
+
+.court-run__route {
+  fill: none;
+  stroke: var(--tick);
+  stroke-width: 1.5;
+  stroke-dasharray: 2 5;
+  stroke-linecap: round;
+}
+
+.court-run__ball {
+  transform-box: view-box;
+  transform-origin: 0 0;
+}
+
+.court-run__ball circle {
+  fill: var(--brand);
+  stroke: var(--paper);
+  stroke-width: 2;
+}
+
+.court-run__ball path {
+  fill: none;
+  stroke: var(--paper);
+  stroke-width: .8;
+}
+
+.court-run__score,
+.court-run__label {
+  margin: 0;
+}
+
+.court-run--compact {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-inline-size: 0;
+  color: var(--ink-soft);
+  font-size: .8125rem;
+  line-height: 1.2;
+}
+
+.court-run--compact .court-run__score {
+  flex: none;
+  min-inline-size: 10ch;
+  color: var(--ink-soft);
+  font-weight: 550;
+  font-size: inherit;
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+  white-space: nowrap;
+}
+
+.court-run__score strong { color: var(--ink); font-weight: 800; }
+
+.court-run--compact .court-run__label { overflow-wrap: anywhere; }
+
+.court-run--compact .court-run__graphic { flex: none; width: 72px; }
+
+.court-run--compact .court-outline path {
+  vector-effect: non-scaling-stroke;
+  stroke-width: .55;
+}
+
+@media (max-width: 719px) {
+  .court-run--compact .court-run__graphic { margin-inline-start: auto; }
+}
+
+@media (min-width: 1024px) and (min-height: 521px) {
+  .court-run--compact .court-run__graphic { width: 96px; }
+}
+
+.court-run--results {
+  min-inline-size: 0;
+  padding: clamp(var(--space-3), 4vw, var(--space-5));
+  border: 1px solid var(--line);
+  border-radius: var(--radius-panel);
+  background: var(--surface);
+}
+
+.court-run__head {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--space-3);
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.court-run--results .court-run__label {
+  font-size: 1.25rem;
+  letter-spacing: -.02em;
+  line-height: 1.2;
+}
+
+.court-run--results .court-run__score,
+.court-run__summary {
+  color: var(--ink-soft);
+  font-size: .9375rem;
+}
+
+.court-run__summary { margin: var(--space-1) 0 var(--space-2); }
+
+.court-run--results .court-run__graphic {
+  width: 100%;
+  max-width: 440px;
+  margin-inline: auto;
+}
+
+.court-run__earned,
+.court-run__stem {
+  fill: none;
+  stroke: var(--brand);
+  stroke-linecap: round;
+}
+
+.court-run__earned { stroke-width: 2.25; }
+.court-run__stem { stroke-width: 1.15; }
+
+.court-run__checkpoint circle {
+  fill: var(--surface);
+  stroke: var(--brand);
+  stroke-width: 1.4;
+}
+
+.court-run__checkpoint text {
+  fill: var(--ink);
+  font-size: 10px;
+  font-weight: 760;
+  text-anchor: middle;
+}
+
+.court-run__checkpoints {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, max(40px, 2em)), 1fr));
+  gap: var(--space-1);
+  padding: 0;
+  margin: var(--space-2) 0 0;
+  list-style: none;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.court-run__checkpoints li {
+  display: grid;
+  line-height: 1.3;
+}
+
+.court-run__checkpoints strong { color: var(--ink); }

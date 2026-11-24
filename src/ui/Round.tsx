@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type Dispatch, type ReactNode } from 'react';
 import { canLock, currentQuestion, ROUNDS, totalPoints, type GameAction, type GameState, type PracticeTiming } from '../engine/game';
+import { finalShot, verifiedDailyRounds } from '../engine/final-shot';
 import { MAX_POINTS_PER_ROUND, potentialPoints } from '../engine/scoring';
 import { formatValue, unitFor } from '../lib/format';
 import { feedback } from './feedback';
@@ -9,6 +10,7 @@ import { usePrefersReducedMotion } from './hooks';
 import { browserFunFactSeed, pickFunFact } from './fun-facts';
 import { pickReactions } from './reactions';
 import { contextLabel } from '../content/category';
+import { CourtRun } from './CourtRun';
 import './round-polish.css';
 
 type Props = {
@@ -20,6 +22,8 @@ type Props = {
   challenge?: { vs: number | null; vsTime: number | null } | null;
   onFirstTouch: () => void;
   timing?: PracticeTiming;
+  courtRun?: boolean;
+  previousBest?: number | null;
   /**
    * Survival mode only. Everything else about the round (window, lock, reveal,
    * scoring) is the Daily Five's, unchanged; this only swaps the ledger, the
@@ -69,7 +73,7 @@ function savedShotStart(id: string, day: string, shared: boolean): number | null
 }
 const easeOutCubic = (t: number) => 1 - (1 - t) ** 3;
 
-export function Round({ state, dispatch, label, challenge = null, onFirstTouch, timing = 'timed', survival }: Props) {
+export function Round({ state, dispatch, label, challenge = null, onFirstTouch, timing = 'timed', courtRun = false, previousBest = null, survival }: Props) {
   const q = currentQuestion(state);
   const reduced = usePrefersReducedMotion();
   const last = state.results[state.round];
@@ -288,11 +292,27 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
   const short = survival !== undefined && worth < survival.need;
   const lockable = canLock(state) && !short;
   const isLast = state.round >= ROUNDS - 1;
+  const target = isLast && previousBest !== null && verifiedDailyRounds(state.slate, state.results)
+    ? finalShot(previousBest, totalPoints(state.results.slice(0, ROUNDS - 1)))
+    : null;
+  let targetText: string | null = null;
+  if (target && previousBest !== null) {
+    if (!resolved) {
+      targetText = target.kind === 'surpassed' ? 'You’ve already set a new personal best.'
+        : `${target.points} ${target.points === 1 ? 'point' : 'points'} for a new personal best.`;
+    } else if (runningTotal > previousBest) {
+      targetText = 'New personal best.';
+    } else if (runningTotal === previousBest) {
+      targetText = 'Personal best matched.';
+    } else {
+      targetText = `Personal best remains ${previousBest} points.`;
+    }
+  }
 
   return (
     <article ref={roundRef} className="round" data-phase={state.phase} data-fresh-result={freshResult || undefined}>
       <div className="round-head">
-      <div className="round-top">
+      <div className="round-top" data-has-court={courtRun || undefined}>
         {survival ? survival.ledger : <ol className="ledger" aria-label="Rounds">
           {Array.from({ length: ROUNDS }, (_, i) => {
             const r = state.results[i];
@@ -310,9 +330,9 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
         </ol>}
         <p className="round-meta">
           <span className="round-label">{label}</span>
-          <span className="round-total" data-earned={freshResult && last.points > 0 || undefined}>
+          {!courtRun && <span className="round-total" data-earned={freshResult && last.points > 0 || undefined}>
             <span className="tabular">{runningTotal}</span> pts
-          </span>
+          </span>}
           {timed && <span className="shot-clock" data-urgent={interactive && secondsLeft <= 5 || undefined} role="timer"
             aria-label={interactive ? `Shot clock: ${secondsLeft} seconds left` : 'Shot clock stopped'}>
             {!interactive && last?.elapsedMs !== undefined
@@ -320,6 +340,11 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
               : `${secondsLeft}s`}
           </span>}
         </p>
+        {courtRun && (
+          <div className="round-court">
+            <CourtRun total={runningTotal} animate={!!freshResult && last.points > 0} />
+          </div>
+        )}
       </div>
 
       <header className="question-block">
@@ -334,10 +359,11 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
             )}
           </p>
         )}
-        <h1 className="question" ref={headingRef} tabIndex={-1}>
+        <h1 className="question" ref={headingRef} tabIndex={-1} aria-describedby={targetText ? 'round-record-target' : undefined}>
           {q.prompt}
         </h1>
         <p className="context">{contextLabel(q)}</p>
+        {targetText && <p id="round-record-target" className="round-record-target" aria-live="polite">{targetText}</p>}
       </header>
       </div>
 

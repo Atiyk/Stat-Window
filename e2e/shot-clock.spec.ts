@@ -25,7 +25,7 @@ test('shot clock expiry is a zero-point turnover, not a normal miss or a second 
   await page.keyboard.press('ArrowRight');
   await page.clock.fastForward('00:25');
   await page.clock.runFor(2500);
-  await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');
+  await expect(page.locator('.outcome-word')).toHaveText('Time’s up.');
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
   expect(saved.runs['2026-11-15'].results[0]).toMatchObject({ points: 0, timedOut: true, elapsedMs: 24000 });
   await expect(page.getByRole('button', { name: 'Next question' })).toBeVisible();
@@ -45,7 +45,7 @@ test('refresh does not buy another 24 seconds', async ({ page }) => {
   expect(left).toBeLessThanOrEqual(16);
   await page.clock.fastForward('00:17');
   await page.clock.runFor(2500);
-  await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');
+  await expect(page.locator('.outcome-word')).toHaveText('Time’s up.');
 });
 
 test('a late lock cannot score after the deadline, even before the next timer tick', async ({ page }) => {
@@ -134,7 +134,7 @@ test('Q2 countdown begins on Next without touching the window', async ({ page })
   await page.getByRole('button', { name: 'Next question' }).click();
   await page.clock.fastForward('00:25');
   await page.clock.runFor(2500);
-  await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');
+  await expect(page.locator('.outcome-word')).toHaveText('Time’s up.');
 });
 
 test('opening and abandoning the tutorial does not start the clock or a scored run', async ({ page }) => {
@@ -263,7 +263,7 @@ test('a blocked localStorage getter does not crash the daily clock', async ({ pa
   await expect(page.locator('.shot-clock')).toContainText('24s');
   await page.clock.fastForward('00:25');
   await page.clock.runFor(2500);
-  await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');
+  await expect(page.locator('.outcome-word')).toHaveText('Time’s up.');
 });
 
 test('backgrounded daily play expires by wall time without granting another attempt on return', async ({ page }) => {
@@ -282,7 +282,7 @@ test('backgrounded daily play expires by wall time without granting another atte
     document.dispatchEvent(new Event('visibilitychange'));
   });
   await page.clock.runFor(2500);
-  await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');
+  await expect(page.locator('.outcome-word')).toHaveText('Time’s up.');
   await expect(page.getByRole('button', { name: 'Lock the window' })).toHaveCount(0);
   const run = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
   expect(run.runs['2026-11-15'].results[0]).toMatchObject({ points: 0, timedOut: true, elapsedMs: 24000 });
@@ -302,7 +302,7 @@ test('a running daily round retains its deadline across Eastern midnight', async
   await expect.poll(async () => Number((await page.locator('.shot-clock').textContent())?.match(/(\d+)s/)?.[1])).toBeLessThanOrEqual(9);
   await page.clock.fastForward('00:10');
   await page.clock.runFor(2500);
-  await expect(page.locator('.outcome-word')).toContainText('Shot clock violation.');
+  await expect(page.locator('.outcome-word')).toHaveText('Time’s up.');
 });
 
 

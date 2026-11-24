@@ -5,10 +5,11 @@ import type { Slate } from './content/schema';
 import { parseChallenge } from './engine/challenge';
 import { addDays, puzzleDay, puzzleNumber } from './engine/daily';
 import { currentSeason, inSeason, isRetiredDay, playableDays, publicNumber, seasonConfigFrom, type SeasonConfig } from './engine/season';
+import { scoreWindow } from './engine/scoring';
 import { isQa } from './lib/scores';
-import { gameReducer, initGame, ROUNDS, type GameAction, type GameState, type Mode, type PracticeTiming, type RoundRecord } from './engine/game';
+import { gameReducer, initGame, ROUNDS, totalPoints, type GameAction, type GameState, type Mode, type PracticeTiming, type RoundRecord } from './engine/game';
 import { createSaveStore, UNTIMED_PRACTICE_KEY, type RunKind, type SavedRun, type SaveStore, type StorageLike } from './engine/storage';
-import { playerStats, streakMilestone } from './engine/summary';
+import { MAX_TOTAL, playerStats, streakMilestone } from './engine/summary';
 import { analyticsEnabled, setCohort, track, trackOnce, type PlayMode, type ShareMethod } from './lib/track';
 import { CTA_TEST, previewAsOf, SURVIVAL_FLAG, wantsSurvival } from './survival/flag';
 import { armFor, exposedYesterday, markExposed, type Arm } from './survival/experiment';
@@ -416,6 +417,37 @@ export function App() {
   );
 }
 
+function PreviousDailyScore({ today, store }: { today: string; store: SaveStore }) {
+  const yesterday = addDays(today, -1);
+  const [previous, setPrevious] = useState<{ day: string; score: number } | null>(null);
+
+  useEffect(() => {
+    if (!store.persistent || currentSeason(yesterday, SEASON) !== currentSeason(today, SEASON)) return;
+    const run = store.load().runs[yesterday];
+    if (!run || run.advanced !== ROUNDS || run.results.length !== ROUNDS) return;
+
+    // Match the saved answers and points against the published slate before showing a score.
+    let active = true;
+    void loadSlate(yesterday).then((slate) => {
+      if (!active || !slate) return;
+      const game = initGame(slate, 'daily', run.results, run.advanced);
+      if (game.phase !== 'complete') return;
+      const valid = slate.questions.every((question, index) => {
+        const saved = game.results[index]!;
+        if (saved.timedOut) return !saved.hit && saved.points === 0 && saved.missBy === 0;
+        const scored = scoreWindow(question, saved);
+        return saved.hit === scored.hit && saved.points === scored.points && saved.missBy === scored.missBy;
+      });
+      if (valid) setPrevious({ day: yesterday, score: totalPoints(game.results) });
+    }).catch(() => undefined);
+    return () => { active = false; };
+  }, [store, today, yesterday]);
+
+  return previous?.day === yesterday ? (
+    <p className="ready-previous">Yesterday: <strong className="tabular">{previous.score} / {MAX_TOTAL}</strong></p>
+  ) : null;
+}
+
 function Game(props: {
   session: Session;
   store: SaveStore;
@@ -464,14 +496,14 @@ function Game(props: {
     props.onWindowActive(); setStarted(true);
   };
 
-  const [freshOfficialResult, setFreshOfficialResult] = useState(false);
+  const [freshCompletion, setFreshCompletion] = useState(false);
   const dispatch = useCallback(
     (a: GameAction) => {
       if (a.type === 'setWindow') props.onWindowActive();
       if (a.type === 'next' && state.phase === 'resolved') {
         track({ name: 'round_next', mode: playMode, round: state.round + 1 });
-        if (state.results.length === ROUNDS && session.kind === 'runs' && playMode === 'daily') {
-          setFreshOfficialResult((store.load().runs[session.day]?.advanced ?? 0) < ROUNDS);
+        if (state.results.length === ROUNDS) {
+          setFreshCompletion((store.load()[session.kind]?.[session.day]?.advanced ?? 0) < ROUNDS);
         }
       }
       if (a.type === 'setWindow' && state.round === 0 && state.phase === 'ready' && state.results.length === 0) {
@@ -580,11 +612,11 @@ function Game(props: {
     const season = currentSeason(today, SEASON);
     const history = inSeason(store.load().runs, season, SEASON);
     const stats = playerStats(history, today);
-    const official = session.kind === 'runs' && playMode === 'daily';
-    const previous = official
+    const officialHighlight = freshCompletion && session.kind === 'runs' && playMode === 'daily' && currentSeason(session.day, SEASON) === season;
+    const previous = officialHighlight
       ? playerStats(Object.fromEntries(Object.entries(history).filter(([day]) => day < session.day)), session.day)
       : null;
-    const milestone = official && freshOfficialResult
+    const milestone = officialHighlight
       ? streakMilestone(playerStats(history, session.day).streak)
       : null;
     // The comparison takes only the first completed run of today's official puzzle
@@ -604,7 +636,8 @@ function Game(props: {
         vsTime={session.vsTime}
         results={state.results}
         stats={stats}
-        officialHighlight={official ? { lastBest: previous?.played ? previous.best : null, milestone } : undefined}
+        officialHighlight={officialHighlight ? { lastBest: previous?.played ? previous.best : null, milestone } : undefined}
+        animateScorecard={freshCompletion}
         archive={props.archive.filter((d) => d !== session.day)}
         onPractice={props.onPractice}
         onBackToToday={props.onBackToToday}
@@ -623,13 +656,16 @@ function Game(props: {
         <h1 ref={untimedPractice ? practiceHeading : undefined} tabIndex={untimedPractice ? -1 : undefined}>Ready for five?</h1>
         <p>{untimedPractice ? 'Take your time on all five questions.' : 'Catch five numbers in your windows. You’ll have 24 seconds per question.'}</p>
         <button type="button" className="btn btn-primary" onClick={start}>{untimedPractice ? 'Start practice' : "Start today's five"}</button>
+        {playMode === 'daily' && session.day === today && <PreviousDailyScore today={today} store={store} />}
       </article>
     );
   }
 
   // Difficulty and daily theme metadata stay internal; every round displays its own category.
   const where = untimedPractice ? 'Untimed practice · ' : daily || session.viaLink ? '' : 'Practice · ';
-  const label = `${where}Question\u00a0${state.round + 1} of\u00a0${ROUNDS}`;
+  const label = state.round === ROUNDS - 1
+    ? `Final\u00a0window · ${ROUNDS}\u00a0of\u00a0${ROUNDS}`
+    : `${where}Question\u00a0${state.round + 1} of\u00a0${ROUNDS}`;
 
   return (
     <Round

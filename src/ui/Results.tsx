@@ -4,14 +4,14 @@ import { challengeUrl } from '../engine/challenge';
 import { msUntilNextPuzzle } from '../engine/daily';
 import { REMIND_COPY, followsPuzzleClock, googleCalendarUrl, icsPath, nextReminder, reminderHour, reminderTime } from '../engine/remind';
 import { totalPoints, type Mode, type PracticeTiming, type RoundRecord } from '../engine/game';
-import { MAX_TOTAL, answerTimeMs, formatAnswerTime, shareText, postgameHighlight, type PlayerStats, type StreakMilestone } from '../engine/summary';
+import { MAX_TOTAL, answerTimeMs, formatAnswerTime, shareText, postgameHighlight, type OfficialHighlight, type PlayerStats } from '../engine/summary';
 import { ordinal } from '../engine/percentile';
 import { formatCountdown, formatDay, formatValue } from '../lib/format';
 import { isMixedSportDay } from '../content/cutover';
 import { track, type PlayMode, type ShareMethod } from '../lib/track';
 import { useNow } from './hooks';
 import { ComparisonLine, ConsentChoice } from './Comparison';
-import { cardBlob, type CardFormat } from './share-card';
+import { cardBlob, type CardFormat, type CardInput } from './share-card';
 import { useComparison } from './use-comparison';
 import { Leaderboard } from './Leaderboard';
 import { InstallPrompt } from './InstallPrompt';
@@ -35,7 +35,8 @@ type Props = {
   vsTime: number | null;
   results: readonly RoundRecord[];
   stats: PlayerStats;
-  officialHighlight?: { lastBest: number | null; milestone: StreakMilestone | null } | undefined;
+  officialHighlight?: OfficialHighlight | undefined;
+  animateScorecard?: boolean;
   archive: readonly string[];
   onPractice: (day: string, timing?: PracticeTiming) => void;
   onBackToToday: () => void;
@@ -61,12 +62,13 @@ function friendLine(total: number, vs: number, time: number | null, vsTime: numb
   return `Tied at ${total} points. Rematch?`;
 }
 
-export function Results({ slate, label, eligible, onPrivacy, mode, playMode, untimedPractice = false, isToday, vs, vsTime, results, stats, officialHighlight, archive, onPractice, onBackToToday, onShared, survivalCta = null }: Props) {
+export function Results({ slate, label, eligible, onPrivacy, mode, playMode, untimedPractice = false, isToday, vs, vsTime, results, stats, officialHighlight, animateScorecard = false, archive, onPractice, onBackToToday, onShared, survivalCta = null }: Props) {
   const total = totalPoints(results);
   const [format, setFormat] = useState<CardFormat>('square');
+  const [cardOptionsOpen, setCardOptionsOpen] = useState(false);
   const [archiveExpanded, setArchiveExpanded] = useState(false);
   const [practiceTiming, setPracticeTiming] = useState<PracticeTiming>('timed');
-  const [pending, setPending] = useState<'share' | 'save' | null>(null);
+  const [pending, setPending] = useState<'challenge' | 'image' | 'save' | null>(null);
   const working = useRef(false);
   const answerMs = untimedPractice ? null : answerTimeMs(results);
   const raw = useComparison(eligible, slate.date, results);
@@ -76,17 +78,19 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
   const refocus = () => window.requestAnimationFrame(() => slotRef.current?.focus());
   const comparison = { ...raw, join: () => (raw.join(), refocus()), decline: () => (raw.decline(), refocus()) };
   const verified = comparison.state.kind === 'ready' ? comparison.state : null;
-  const percentileLine = verified ? `${ordinal(verified.percentile)} percentile today (${verified.n.toLocaleString('en-US')} games)` : null;
-  const cardInput = () => ({
+  const sample = verified?.n.toLocaleString('en-US');
+  const percentile = verified ? `${ordinal(verified.percentile)} percentile today` : null;
+  const percentileLine = percentile ? `${percentile} (${sample} games)` : null;
+  const cardInput = useMemo<CardInput>(() => ({
     label,
     format,
     untimed: untimedPractice,
     date: formatDay(slate.date),
     results,
     answerMs,
-    percentile: verified ? { label: `${ordinal(verified.percentile)} percentile today`, detail: `based on ${verified.n.toLocaleString('en-US')} eligible completed games` } : null,
+    percentile: percentile ? { label: percentile, detail: `based on ${sample} eligible completed games` } : null,
     host: window.location.host || 'stat-window.vercel.app',
-  });
+  }), [label, format, untimedPractice, slate.date, results, answerMs, percentile, sample]);
   const now = useNow(1000);
   // The reminder slot is fixed when the screen opens, not every second.
   const remind = useMemo(() => {
@@ -139,44 +143,48 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
   };
 
   const nativeShare = typeof navigator !== 'undefined' && !!navigator.share && matchMedia('(pointer: coarse)').matches;
-  // The card is drawn ahead of the tap: Safari only allows share() straight from the gesture,
-  // so awaiting fonts and a canvas inside the click could cost the share sheet.
-  const cardKey = `${slate.date}|${format}|${label}|${total}|${answerMs ?? ''}|${percentileLine ?? ''}`;
-  const card = useRef<{ key: string; blob: Blob | null } | null>(null);
+  const canShareFile = nativeShare && typeof navigator.canShare === 'function';
+  const filename = `stat-window-${slate.date}${untimedPractice ? '-untimed' : ''}${format === 'portrait' ? '-portrait' : ''}.png`;
+  const [preparedCard, setPreparedCard] = useState<{ input: CardInput; blob: Blob | null; file: File | null } | null>(null);
+  const card = preparedCard?.input === cardInput ? preparedCard : null;
+  const cardPrepared = card !== null;
+  // Prepare the selected image ahead of its share tap so Safari keeps the user gesture.
   useEffect(() => {
-    if (!nativeShare) return;
+    if (!cardOptionsOpen || !canShareFile || cardPrepared) return;
     let live = true;
-    void cardBlob(cardInput()).then((blob) => {
-      if (live) card.current = { key: cardKey, blob };
+    void cardBlob(cardInput).then((blob) => {
+      if (!live) return;
+      let file: File | null = null;
+      if (blob) {
+        try {
+          const png = new File([blob], filename, { type: 'image/png' });
+          if (navigator.canShare({ files: [png] })) file = png;
+        } catch {
+          // Download remains available when the browser cannot share files.
+        }
+      }
+      setPreparedCard({ input: cardInput, blob, file });
     });
     return () => {
       live = false;
     };
-    // cardInput is derived from cardKey's parts.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [nativeShare, cardKey]);
+  }, [cardOptionsOpen, canShareFile, cardPrepared, cardInput, filename]);
 
-  const filename = `stat-window-${slate.date}${untimedPractice ? '-untimed' : ''}${format === 'portrait' ? '-portrait' : ''}.png`;
-
-  const share = async () => {
+  const share = async (file: File | null = null) => {
     if (working.current) return;
     working.current = true;
-    setPending('share');
+    setPending(file ? 'image' : 'challenge');
     setToast(null);
     setFallback(null);
     const url = challengeUrl(window.location.origin, slate.date, untimedPractice ? undefined : total, answerMs);
     const text = shareText({ label, results, url, percentile: percentileLine, answerMs, untimed: untimedPractice });
     try {
-      // Native share sheet on touch devices; with the image card when the browser accepts files.
       if (nativeShare) {
-        const blob = card.current?.key === cardKey ? card.current.blob : null;
-        const file = blob ? new File([blob], filename, { type: 'image/png' }) : null;
-        const withFile = file && navigator.canShare?.({ files: [file] }) ? { files: [file] } : {};
         try {
-          await navigator.share({ text, ...withFile });
+          await navigator.share(file ? { text, files: [file] } : { text });
           // The sheet closed with a target picked. Whether anything was sent isn't observable.
           setFallback(null);
-          report('files' in withFile ? 'native-image' : 'native');
+          report(file ? 'native-image' : 'native');
           return;
         } catch (e) {
           if (e instanceof DOMException && e.name === 'AbortError') throw e;
@@ -186,7 +194,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
       if (!navigator.clipboard?.writeText) throw new Error('No clipboard');
       await navigator.clipboard.writeText(text);
       setFallback(null);
-      setToast('Copied');
+      setToast(file ? 'Challenge copied. Save the image separately.' : 'Copied');
       report('clipboard');
     } catch (e) {
       if (e instanceof DOMException && e.name === 'AbortError') {
@@ -194,7 +202,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
         return;
       }
       setFallback(text);
-      setToast('Copy the selected text');
+      setToast(file ? 'Copy the selected text and save the image separately.' : 'Copy the selected text');
       report('failed');
     } finally {
       working.current = false;
@@ -209,8 +217,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
     setToast(null);
     let href: string | null = null;
     try {
-      const cached = card.current?.key === cardKey ? card.current.blob : null;
-      const blob = cached ?? await cardBlob(cardInput());
+      const blob = card?.blob ?? await cardBlob(cardInput);
       if (!blob) throw new Error('Card unavailable');
       href = URL.createObjectURL(blob);
       const link = document.createElement('a');
@@ -260,28 +267,23 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
           <span className="results-score tabular">{total}</span>
           <span className="results-max">of {MAX_TOTAL}</span>
         </h1>
-        <p className="results-verdict">{postgameHighlight(results, officialHighlight?.lastBest)}</p>
-        {officialHighlight?.milestone && (
-          <p className="streak-milestone">{officialHighlight.milestone} days in a row</p>
-        )}
-        {answerMs !== null && <p className="results-time">Answer time <strong className="tabular">{formatAnswerTime(answerMs)}</strong></p>}
-        <ol className="ledger scorecard" aria-label="Question by question">
+        <p className="results-verdict">{postgameHighlight(results, officialHighlight)}</p>
+        <ol className="ledger scorecard" role="list" aria-label="Question by question" data-arrive={animateScorecard || undefined}>
           {results.map((r, i) => (
-            <li key={i} className="ledger-cell" data-status={!r.hit ? 'miss' : r.points > 0 ? 'hit' : 'zero'} style={{ animationDelay: `${i * 36}ms` }}>
+            <li key={i} className="ledger-cell" data-status={!r.hit ? 'miss' : r.points > 0 ? 'hit' : 'zero'} style={animateScorecard ? { animationDelay: `${i * 30}ms` } : undefined}>
               <span className="sr-only">
-                Question {i + 1}: {r.points} points
+                Question {i + 1}, {r.points} points, {r.timedOut ? 'time expired' : r.hit ? 'hit' : 'miss'}
               </span>
               <span className="ledger-num" aria-hidden="true">{r.points}</span>
             </li>
           ))}
         </ol>
-        <ComparisonLine comparison={comparison} onPrivacy={onPrivacy} ref={slotRef} />
-        {vs !== null && <p className="versus">{friendLine(total, vs, answerMs, vsTime)}</p>}
+        {answerMs !== null && <p className="results-time">Answer time <strong className="tabular">{formatAnswerTime(answerMs)}</strong></p>}
       </header>
 
       <div className="results-actions">
         {/* The share of the day just played always comes first, on practice and challenge runs too. */}
-        <button type="button" className="btn btn-primary" aria-describedby="challenge-share-note" aria-busy={pending === 'share'} aria-disabled={pending !== null} onClick={share}>
+        <button type="button" className="btn btn-primary" aria-describedby="challenge-share-note" aria-busy={pending === 'challenge'} aria-disabled={pending !== null} onClick={() => void share()}>
           {untimedPractice ? 'Share practice score' : 'Challenge a friend'}
         </button>
         {fallback && (
@@ -299,18 +301,34 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
           {total > 0 || untimedPractice ? 'Send your score and the same five questions.' : 'Send the same five questions.'} No spoilers.
           {total > 0 && answerMs !== null && ' Time breaks ties.'}
         </p>
-        <fieldset className="card-formats" disabled={pending !== null}>
-          <legend>Score card format</legend>
-          {(['square', 'portrait'] as const).map((option) => (
-            <label key={option}>
-              <input type="radio" name="card-format" checked={format === option} onChange={() => setFormat(option)} />
-              {option === 'square' ? 'Square' : 'Portrait'}
-            </label>
-          ))}
-        </fieldset>
-        <button type="button" className="btn btn-link save-score-card" aria-busy={pending === 'save'} aria-disabled={pending !== null} onClick={saveCard}>
-          Save score card
-        </button>
+        <div className="score-card">
+          <button type="button" className="btn btn-link score-card-toggle" aria-expanded={cardOptionsOpen} aria-controls="score-card-options" onClick={() => setCardOptionsOpen((open) => !open)}>
+            Customize or save score card
+          </button>
+          <div className="score-card-options" id="score-card-options" hidden={!cardOptionsOpen}>
+            <fieldset className="card-formats" disabled={pending !== null}>
+              <legend>Score card format</legend>
+              {(['square', 'portrait'] as const).map((option) => (
+                <label key={option}>
+                  <input type="radio" name="card-format" checked={format === option} onChange={() => setFormat(option)} />
+                  {option === 'square' ? 'Square' : 'Portrait'}
+                </label>
+              ))}
+            </fieldset>
+            <div className="score-card-actions">
+              <button type="button" className="btn btn-quiet btn-small save-score-card" aria-busy={pending === 'save'} aria-disabled={pending !== null} onClick={() => void saveCard()}>
+                Save score card
+              </button>
+              {canShareFile && (!card || card.file) && (
+                <button type="button" className="btn btn-quiet btn-small share-score-card" aria-busy={!card || pending === 'image'} aria-disabled={!card?.file || pending !== null} onClick={() => { if (card?.file) void share(card.file); }}>
+                  Share score card
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+        <ComparisonLine comparison={comparison} onPrivacy={onPrivacy} ref={slotRef} />
+        {vs !== null && <p className="versus">{friendLine(total, vs, answerMs, vsTime)}</p>}
         {(practice || !isToday) && (
           <button type="button" className="btn btn-quiet" onClick={onBackToToday}>
             Play today’s puzzle

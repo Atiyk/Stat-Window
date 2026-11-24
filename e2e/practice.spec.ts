@@ -57,6 +57,7 @@ test('untimed practice restores its round, scores normally and stays outside off
   await expect(page.getByRole('status')).toContainText('100 points');
   await next(page);
   for (let i = 1; i < 5; i++) {
+    if (i === 4) await expect(page.locator('.round-label')).toHaveText('Final window · 5 of 5');
     await lockAndSettle(page);
     await next(page);
   }

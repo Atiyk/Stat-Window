@@ -53,26 +53,33 @@ export function streakMilestone(days: number): StreakMilestone | null {
   return days === 3 || days === 7 || days === 30 ? days : null;
 }
 
-/** One concrete takeaway. Earlier question order breaks ties between equally tight hits. */
-export function postgameHighlight(results: readonly RoundRecord[], lastBest: number | null = null): string {
+export type OfficialHighlight = { lastBest: number | null; milestone: StreakMilestone | null };
+
+/** Earlier question order breaks ties between equally high-scoring windows. */
+export function postgameHighlight(results: readonly RoundRecord[], official?: OfficialHighlight): string {
   const total = results.reduce((sum, round) => sum + round.points, 0);
-  if (lastBest !== null && total > lastBest) return `New personal best: ${total}.`;
+  if (official && official.lastBest !== null && total > official.lastBest) {
+    const gain = total - official.lastBest;
+    return `New personal best by ${gain} ${gain === 1 ? 'point' : 'points'}.`;
+  }
+  if (official?.milestone) return `${official.milestone} days in a row.`;
 
   const perfect = results.filter((round) => round.hit && round.points === 100).length;
   if (perfect > 1) return `${perfect} perfect windows.`;
 
-  let tightest = -1;
+  let bestWindow = -1;
   let hits = 0;
   results.forEach((round, index) => {
     if (!round.hit) return;
     hits++;
-    if (tightest < 0 || round.points > results[tightest]!.points) tightest = index;
+    if (bestWindow < 0 || round.points > results[bestWindow]!.points) bestWindow = index;
   });
-  if (tightest >= 0 && results[tightest]!.points > 0) {
-    return `Tightest hit: Q${tightest + 1} · ${results[tightest]!.points} points.`;
+  if (bestWindow >= 0 && results[bestWindow]!.points > 0) {
+    if (perfect === 1) return `Perfect window on question ${bestWindow + 1}.`;
+    return `Your best window was Q${bestWindow + 1} (${results[bestWindow]!.points} points).`;
   }
-  if (hits === 0) return 'All five answers landed outside your windows.';
-  return `${hits} of ${results.length} windows caught the answer.`;
+  if (hits === 0) return 'No points scored this game.';
+  return `${hits} of ${results.length} windows caught the answer without scoring.`;
 }
 
 export type PlayerStats = {

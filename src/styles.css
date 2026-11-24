@@ -2120,6 +2120,7 @@ a {
 
 .ready-card p { margin: 0; }
 .ready-card .btn-primary { margin-top: var(--space-2); }
+.ready-card .ready-previous { color: var(--ink-soft); font-size: 0.9375rem; }
 
 .onboarding-status {
   display: flex;

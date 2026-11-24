@@ -85,14 +85,12 @@ test.describe('BUG-03: a window worth 0 is honest before and after the lock', ()
         await page.keyboard.press('ArrowLeft');
         await page.reload();
         await expect(page.locator('.question')).toBeVisible();
-        await expect(page.locator('.verdict-line')).toHaveText('Pull the brackets in to start scoring.');
+        await expect(page.locator('.verdict-line')).toHaveText('Pull the brackets in. Tighter windows score more.');
       }
       await typeWindow(page, 26, 100);
       const lock = page.getByRole('button', { name: 'Lock the window' });
       await expect(lock).toBeEnabled();
-      await expect(page.locator('.verdict-line')).toContainText('Worth 0 even if it’s inside');
-      await expect(page.locator('.verdict-line')).not.toContainText('Drag a bracket in');
-      await expect(page.locator('.verdict-line')).not.toContainText('to start scoring');
+      await expect(page.locator('.verdict-line')).toHaveText('0 points even if it’s inside. Tighten up.');
       await page.screenshot({ path: `${shots}/bug03-prelock-${returning ? 'returning' : 'first'}.png` });
       await lock.click();
       await expect(page.locator('.story')).toBeVisible({ timeout: 5000 });

@@ -2,7 +2,8 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 import { collectErrors, DAY1, lockAndSettle, NBA_FIRST, NBA_LAST, NBA_MIDDLE, next, openAt } from './helpers';
 
-const WIDTHS = [320, 375, 390, 768, 1024, 1440];
+const WIDTHS = [320, 375, 390, 430, 768, 1024, 1440];
+const MOBILE_HEIGHTS: Partial<Record<number, number>> = { 320: 720, 375: 812, 390: 844, 430: 932 };
 /** The original launch day, then the first, middle and last NBA days. */
 const DAYS: { name: string; when: Date; widths: number[] }[] = [
   { name: 'launch', when: DAY1, widths: WIDTHS },
@@ -19,7 +20,7 @@ test.describe('layout', () => {
     const tag = day.name === 'launch' ? `${width}` : `${day.name}-${width}`;
     test(`no overflow, reachable controls and clean console at ${width}px (${day.name})`, async ({ page }) => {
       const errors = collectErrors(page);
-      await page.setViewportSize({ width, height: width < 700 ? 720 : 900 });
+      await page.setViewportSize({ width, height: MOBILE_HEIGHTS[width] ?? 900 });
       await openAt(page, day.when);
       const noOverflow = () => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth);
       expect(await noOverflow()).toBe(true);

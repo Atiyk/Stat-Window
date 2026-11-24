@@ -1,18 +1,24 @@
 import { expect, test } from '@playwright/test';
 import { readFileSync } from 'node:fs';
+import { normalizeWindow } from '../src/engine/game';
+import { scoreWindow, type Scored } from '../src/engine/scoring';
 import { NBA_DAYS } from './helpers';
 
 const day = NBA_DAYS[8]!;
 const dates = NBA_DAYS.slice(6, 9);
 const saveRuns = (advanced: number) => Object.fromEntries(dates.map((date, dayIndex) => {
   const { questions } = JSON.parse(readFileSync(new URL(`../content/days/${date}.json`, import.meta.url), 'utf8')) as {
-    questions: { id: string; answer: number; step: number; min: number; max: number }[];
+    questions: (Scored & { id: string })[];
   };
   return [date, {
-    results: questions.map(({ id, answer, step, min, max }) => ({
-      questionId: id, lo: Math.max(min, answer - step), hi: Math.min(max, answer + step),
-      hit: true, points: dayIndex === 2 ? 100 : 80, missBy: 0, elapsedMs: 5000,
-    })),
+    results: questions.map((q, index) => {
+      const { answer, min, max, step } = q;
+      const miss = dayIndex !== 2 && index === 4;
+      const window = normalizeWindow(q, miss
+        ? (answer > min + step ? { lo: min, hi: min + step } : { lo: max - step, hi: max })
+        : (answer === min ? { lo: min, hi: min + step } : { lo: answer - step, hi: answer }));
+      return { questionId: q.id, ...window, ...scoreWindow(q, window), elapsedMs: 5000 };
+    }),
     advanced: dayIndex === 2 ? advanced : 5,
   }];
 }));

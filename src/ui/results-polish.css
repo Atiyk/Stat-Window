@@ -1,22 +1,37 @@
 @keyframes result-arrive {
-  from { opacity: 0; transform: translateY(5px); }
+  from { transform: translateY(5px); }
 }
+
+.daily-results { row-gap: var(--space-5); }
+.daily-results .results-head + .results-actions { margin-top: calc(var(--space-2) - var(--space-5)); }
+.daily-results .scorecard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 2.25rem), 1fr));
+  max-width: 18rem;
+  margin-top: var(--space-4);
+}
+.daily-results .scorecard .ledger-cell { width: auto; height: auto; min-height: 44px; animation: none; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .daily-results .results-score { animation: result-arrive 380ms var(--ease-out) both; }
-  .daily-results .scorecard .ledger-cell { animation: result-arrive 220ms var(--ease-out) backwards; }
+  .daily-results .scorecard[data-arrive] .ledger-cell { animation: result-arrive var(--motion-short) var(--ease-out) backwards; }
 }
 
-.streak-milestone {
-  width: fit-content;
-  max-width: 100%;
-  margin: 8px 0 0;
-  padding: 4px 10px;
+.daily-results .share-note { color: var(--ink-soft); font-size: 0.875rem; }
+.score-card .score-card-toggle { justify-content: flex-start; text-align: start; text-wrap: pretty; }
+.score-card-options:not([hidden]) {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.score-card-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.score-card-actions .btn {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  padding-block: var(--space-2);
   border-radius: var(--radius-sm);
-  background: var(--band-hit);
-  color: var(--ink);
-  font-size: 0.875rem;
-  font-weight: 650;
 }
 
 .card-formats {
@@ -30,7 +45,8 @@
 }
 .card-formats legend { padding: 0; font-size: 0.875rem; color: var(--ink-soft); }
 .card-formats label { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; cursor: pointer; }
-.card-formats input { inline-size: 1rem; block-size: 1rem; margin: 0; accent-color: var(--brand); }
+.card-formats input { flex: none; inline-size: 1rem; block-size: 1rem; margin: 0; accent-color: var(--brand); }
 .save-score-card[aria-busy='true'],
+.share-score-card[aria-busy='true'],
 .results-actions .btn-primary[aria-busy='true'] { opacity: 0.65; cursor: progress; }
 .archive-toggle { min-height: 44px; margin-top: 8px; text-align: start; }

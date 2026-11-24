@@ -23,14 +23,15 @@ describe('shareText', () => {
 describe('postgameHighlight', () => {
   it('picks one real achievement and breaks equal-window ties by question order', () => {
     const results = run([12, 100, 100, 0, 40]).results;
-    expect(postgameHighlight(results, 220)).toBe('New personal best: 252.');
-    expect(postgameHighlight(results, 252)).toBe('2 perfect windows.');
-    expect(postgameHighlight(run([0, 85, 0, 85, 73]).results)).toBe('Tightest hit: Q2 · 85 points.');
+    expect(postgameHighlight(results, { lastBest: 251, milestone: 3 })).toBe('New personal best by 1 point.');
+    expect(postgameHighlight(results, { lastBest: 252, milestone: 3 })).toBe('3 days in a row.');
+    expect(postgameHighlight(results, { lastBest: 252, milestone: null })).toBe('2 perfect windows.');
+    expect(postgameHighlight(run([0, 85, 0, 85, 73]).results)).toBe('Your best window was Q2 (85 points).');
   });
   it('handles zero-point hits separately from misses', () => {
     const results = run([0, 0, 0, 0, 0]).results;
-    expect(postgameHighlight(results)).toBe('All five answers landed outside your windows.');
-    expect(postgameHighlight([{ ...results[0]!, hit: true, missBy: 0 }, ...results.slice(1)])).toBe('1 of 5 windows caught the answer.');
+    expect(postgameHighlight(results)).toBe('No points scored this game.');
+    expect(postgameHighlight([{ ...results[0]!, hit: true, missBy: 0 }, ...results.slice(1)])).toBe('1 of 5 windows caught the answer without scoring.');
   });
 });
 

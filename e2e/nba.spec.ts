@@ -17,7 +17,7 @@ for (const when of [NBA_FIRST, NBA_MIDDLE, NBA_LAST]) {
     expect(slate.theme.title.length).toBeGreaterThan(1);
     await openAt(page, when);
     for (let i = 0; i < 5; i++) {
-      await expect(page.locator('.round-meta')).toContainText(`Question ${i + 1} of 5`);
+      await expect(page.locator('.round-label')).toHaveText(i === 4 ? 'Final window · 5 of 5' : `Question ${i + 1} of 5`);
       await expect(page.locator('.round')).not.toContainText(LABELS);
       await expect(page.locator('.question-block .context')).toHaveText(categories[slate.questions[i]!.id]!);
       await expect(page.locator('.puzzle-theme, .theme-subtitle')).toHaveCount(0);

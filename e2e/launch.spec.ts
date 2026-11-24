@@ -56,6 +56,8 @@ test('new Day 1 starts at No. 1 with no beta archive, preserving old saves but r
   // Switching to official Day 1 must not count or publicly expose beta play.
   await at(page, first, `/?${preview}`);
   await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.getByRole('heading', { name: 'Ready for five?' })).toBeVisible();
+  await expect(page.locator('.ready-previous')).toHaveCount(0);
   await page.setViewportSize({ width: 320, height: 568 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(321);
   await complete(page);
@@ -64,6 +66,10 @@ test('new Day 1 starts at No. 1 with no beta archive, preserving old saves but r
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') ?? '{}'));
   expect(Object.keys(saved.runs)).toContain('2027-01-09');
   expect(Object.keys(saved.runs)).toContain(LAUNCH);
+
+  await at(page, second, `/?${preview}`);
+  const firstScore = saved.runs[LAUNCH].results.reduce((total: number, round: { points: number }) => total + round.points, 0);
+  await expect(page.locator('.ready-previous')).toHaveText(`Yesterday: ${firstScore} / 500`);
 });
 
 test('a retired beta challenge gives an explicit notice and strips its score/time link', async ({ page }) => {

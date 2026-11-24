@@ -177,26 +177,21 @@ test('blocked browser storage never uploads a score that the player cannot erase
 type NativeShareProbe = {
   shared: Array<{ text: string; files: Array<{ name: string; type: string; size: number }> }>;
   cancelNext: boolean;
-  cardQueued: boolean;
-  cardReady: boolean;
+  cardsQueued: number;
   prepareCard: () => void;
 };
 
-test('native share works while the card renders, attaches the ready image, and handles cancel', async ({ page }) => {
+test('native challenge shares straight away and the selected score card shares separately', async ({ page }) => {
   await stubScores(page, stored());
   await page.addInitScript(() => {
     const w = window as unknown as NativeShareProbe;
     w.shared = [];
     w.cancelNext = false;
-    w.cardQueued = false;
-    w.cardReady = false;
+    w.cardsQueued = 0;
     const toBlob = HTMLCanvasElement.prototype.toBlob;
     HTMLCanvasElement.prototype.toBlob = function (callback, type, quality) {
-      w.prepareCard = () => toBlob.call(this, (blob) => {
-        callback(blob);
-        w.cardReady = true;
-      }, type, quality);
-      w.cardQueued = true;
+      w.prepareCard = () => toBlob.call(this, callback, type, quality);
+      w.cardsQueued++;
     };
     Object.defineProperty(navigator, 'canShare', { value: (d: { files?: File[] }) => !!d.files, configurable: true });
     Object.defineProperty(navigator, 'share', {
@@ -213,30 +208,47 @@ test('native share works while the card renders, attaches the ready image, and h
   await playOut(page);
   const share = page.getByRole('button', { name: 'Challenge a friend' });
   const attempts = () => page.evaluate(() => (window as unknown as NativeShareProbe).shared);
-  await expect.poll(() => page.evaluate(() => (window as unknown as NativeShareProbe).cardQueued)).toBe(true);
+  const cardsQueued = () => page.evaluate(() => (window as unknown as NativeShareProbe).cardsQueued);
+  await expect(page.getByRole('radio', { name: 'Square' })).toHaveCount(0);
   await share.click();
   await expect.poll(attempts).toHaveLength(1);
   const [early] = await attempts();
   expect(early!.text).toMatch(new RegExp(`/\\?day=${DAY}&vs=\\d+&time=\\d+$`));
   expect(early!.files).toEqual([]);
+  expect(await cardsQueued()).toBe(0);
 
+  await page.getByRole('button', { name: 'Customize or save score card' }).click();
+  const shareCard = page.getByRole('button', { name: 'Share score card' });
+  await expect.poll(cardsQueued).toBe(1);
+  await expect(shareCard).toBeDisabled();
   await page.evaluate(() => (window as unknown as NativeShareProbe).prepareCard());
-  await expect.poll(() => page.evaluate(() => (window as unknown as NativeShareProbe).cardReady)).toBe(true);
-  await share.click();
+  await expect(shareCard).toBeEnabled();
+  await page.getByRole('radio', { name: 'Portrait' }).check();
+  await expect.poll(cardsQueued).toBe(2);
+  await expect(shareCard).toBeDisabled();
+  await shareCard.dispatchEvent('click');
+  expect(await attempts()).toHaveLength(1);
+  await page.evaluate(() => (window as unknown as NativeShareProbe).prepareCard());
+  await shareCard.click();
   await expect.poll(attempts).toHaveLength(2);
   const [, shared] = await attempts();
-  expect(shared!.files[0]).toMatchObject({ name: `stat-window-${DAY}.png`, type: 'image/png' });
+  expect(shared!.files[0]).toMatchObject({ name: `stat-window-${DAY}-portrait.png`, type: 'image/png' });
   expect(shared!.files[0]!.size).toBeGreaterThan(5000);
   expect(shared!.text).toBe(early!.text);
   await page.evaluate(() => ((window as unknown as NativeShareProbe).cancelNext = true));
-  await share.click();
+  await shareCard.click();
   await expect(page.getByRole('textbox', { name: 'Your result to copy' })).toHaveCount(0);
+  await expect(shareCard).toBeEnabled();
 });
 
 test('square and portrait score card PNGs export at their exact dimensions', async ({ page }) => {
   await stubScores(page, stored());
   await openAt(page, NBA_FIRST);
   await playOut(page);
+  const disclosure = page.getByRole('button', { name: 'Customize or save score card' });
+  await expect(disclosure).toHaveAttribute('aria-expanded', 'false');
+  await disclosure.click();
+  await expect(disclosure).toHaveAttribute('aria-expanded', 'true');
 
   for (const { format, suffix, height } of [
     { format: 'Square', suffix: '', height: 1080 },

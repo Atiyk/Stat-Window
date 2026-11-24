@@ -18,7 +18,7 @@ test('a full daily run scores every round, saves, and shares without spoilers', 
 
   const points: number[] = [];
   for (const [i, round] of DAY1_PLAN.entries()) {
-    await expect(page.locator('.round-meta')).toContainText(`Question ${i + 1} of 5`);
+    await expect(page.locator('.round-label')).toHaveText(i === 4 ? 'Final window · 5 of 5' : `Question ${i + 1} of 5`);
     await typeWindow(page, round.lo, round.hi);
     await expect(lowBracket(page)).toHaveAttribute('aria-valuenow', String(round.lo));
     await expect(highBracket(page)).toHaveAttribute('aria-valuenow', String(round.hi));

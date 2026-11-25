@@ -66,6 +66,7 @@ export function LiveCourtRun({ earned, potential, record = null, animate = false
   const ghost = potential !== null && potential > earned ? courtPosition(potential) : null;
   const recordAt = record !== null ? courtPosition(record) : null;
   const marker = useRef<SVGGElement>(null);
+  const trail = useRef<SVGPathElement>(null);
   const previous = useRef({ earned, potential });
   const [fate, setFate] = useState<Fate>(null);
 
@@ -96,10 +97,18 @@ export function LiveCourtRun({ earned, potential, record = null, animate = false
       { transform: 'translate(0, 0) scale(1.12, .88)', offset: .86, easing: 'cubic-bezier(.2, .7, .3, 1)' },
       { transform: 'none' },
     ], { duration: Math.round(380 + Math.min(1, (to - from) / 8.35) * 160) });
-    const settle = () => { if (document.hidden) travel.finish(); };
+    // The earned line grows with the ball rather than jumping ahead of it.
+    const grow = from > 0 && trail.current?.animate
+      ? trail.current.animate([{ transform: `scaleX(${from / to})` }, { transform: 'none' }], {
+          duration: travel.effect?.getTiming().duration as number,
+          easing: 'cubic-bezier(.45, 0, .25, 1)',
+        })
+      : trail.current?.animate?.([{ opacity: 0 }, { opacity: 1 }], { duration: 200, delay: 120, fill: 'backwards' });
+    const settle = () => { if (document.hidden) { travel.finish(); grow?.finish(); } };
     document.addEventListener('visibilitychange', settle);
     return () => {
       travel.cancel();
+      grow?.cancel();
       document.removeEventListener('visibilitychange', settle);
     };
   }, [earned, potential, animate, reduced]);
@@ -108,7 +117,7 @@ export function LiveCourtRun({ earned, potential, record = null, animate = false
     <div className="live-court" data-total={earned} data-potential={ghost ? potential : undefined}>
       <CourtSvg view={LIVE_VIEW} className="live-court__court" crop>
         <path className="court-route" d={`M${courtPosition(0).x} ${ball.y}H${courtPosition(MAX_TOTAL).x}`} />
-        {earned > 0 && <path className="court-trail" d={`M${courtPosition(0).x} ${ball.y}H${ball.x}`} />}
+        {earned > 0 && <path ref={trail} className="court-trail" d={`M${courtPosition(0).x} ${ball.y}H${ball.x}`} />}
         {ghost && <path className="court-trail court-trail--ghost" d={`M${ball.x} ${ball.y}H${ghost.x}`} />}
         {recordAt && (
           <g className="court-record" transform={`translate(${recordAt.x} ${recordAt.y})`} data-court-record="">
@@ -117,8 +126,10 @@ export function LiveCourtRun({ earned, potential, record = null, animate = false
           </g>
         )}
         {fate && (
-          <g key={fate.key} className="court-fate" data-fate={fate.kind} transform={`translate(${fate.x} ${ball.y})`} onAnimationEnd={() => setFate(null)}>
-            <Ball ghost />
+          <g key={fate.key} transform={`translate(${fate.x} ${ball.y})`}>
+            <g className="court-fate" data-fate={fate.kind} onAnimationEnd={() => setFate(null)}>
+              <Ball ghost />
+            </g>
           </g>
         )}
         {ghost && (

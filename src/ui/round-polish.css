@@ -46,7 +46,7 @@
 /* Desktop and short-wide layouts stack the head column in reverse: keep the court
    under the ledger, at a size that reads as a court and never crowds the question. */
 @media (min-width: 1024px), (min-width: 720px) and (max-height: 520px) {
-  .round-court { order: -1; flex-basis: auto; inline-size: min(25rem, 32vw); }
+  .round-court { order: -1; flex-basis: auto; inline-size: min(18.5rem, 32vw); }
 }
 
 .story.story-payoff {

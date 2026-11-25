@@ -122,3 +122,5 @@
 @media (prefers-reduced-motion: reduce) {
   .court-fate { display: none; }
 }
+
+.court-trail { transform-box: fill-box; transform-origin: left center; }

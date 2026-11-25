@@ -1,157 +1,124 @@
-.court-outline {
+/* NBA half court, drawn in feet (see src/engine/court.ts). Strokes are set in CSS pixels
+   with non-scaling-stroke, so linework stays crisp at every crop and size. */
+.court-lines path {
   fill: none;
-  stroke: var(--tick);
-  stroke-width: 1.35;
+  stroke: var(--court-line, color-mix(in oklch, var(--ink) 34%, var(--paper)));
+  stroke-width: 1.1px;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: butt;
 }
 
-.court-run__graphic {
-  display: block;
-  height: auto;
-}
+.court-lines [data-kind='boundary'] { stroke-width: 1.6px; }
+.court-lines [data-kind='dashed'] { stroke-dasharray: 3 3; }
+.court-lines [data-kind='board'] { stroke: var(--ink); stroke-width: 2px; }
+.court-lines [data-kind='rim'] { stroke: var(--answer-on-light); stroke-width: 1.4px; }
 
-.court-run__route {
+.court-paint { fill: color-mix(in oklch, var(--brand) 9%, var(--surface)); }
+
+.court-route,
+.court-trail {
   fill: none;
-  stroke: var(--tick);
-  stroke-width: 1.5;
-  stroke-dasharray: 2 5;
+  vector-effect: non-scaling-stroke;
   stroke-linecap: round;
 }
 
-.court-run__ball {
+.court-route { stroke: color-mix(in oklch, var(--ink) 28%, transparent); stroke-width: 1.25px; stroke-dasharray: 1 4; }
+.court-trail { stroke: var(--brand); stroke-width: 3px; }
+.court-trail--ghost { stroke-width: 2px; stroke-dasharray: 4 3; stroke-linecap: butt; }
+
+.court-ball circle {
+  fill: var(--brand);
+  stroke: var(--ink);
+  stroke-width: 1.5px;
+  vector-effect: non-scaling-stroke;
+}
+
+.court-ball path {
+  fill: none;
+  stroke: color-mix(in oklch, var(--ink) 70%, var(--brand));
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
+
+.court-ball--ghost {
+  fill: color-mix(in oklch, var(--surface) 80%, transparent);
+  stroke: var(--brand-press);
+  stroke-width: 1.75px;
+  stroke-dasharray: 3 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.court-ball-motion {
   transform-box: view-box;
   transform-origin: 0 0;
 }
 
-.court-run__ball circle {
-  fill: var(--brand);
-  stroke: var(--paper);
-  stroke-width: 2;
-}
-
-.court-run__ball path {
+.court-record path {
   fill: none;
-  stroke: var(--paper);
-  stroke-width: .8;
-}
-
-.court-run__score,
-.court-run__label {
-  margin: 0;
-}
-
-.court-run--compact {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  min-inline-size: 0;
-  color: var(--ink-soft);
-  font-size: .8125rem;
-  line-height: 1.2;
-}
-
-.court-run--compact .court-run__score {
-  flex: none;
-  min-inline-size: 10ch;
-  color: var(--ink-soft);
-  font-weight: 550;
-  font-size: inherit;
-  font-variant-numeric: tabular-nums;
-  text-align: end;
-  white-space: nowrap;
-}
-
-.court-run__score strong { color: var(--ink); font-weight: 800; }
-
-.court-run--compact .court-run__label { overflow-wrap: anywhere; }
-
-.court-run--compact .court-run__graphic { flex: none; width: 72px; }
-
-.court-run--compact .court-outline path {
+  stroke: var(--ink);
+  stroke-width: 1.5px;
   vector-effect: non-scaling-stroke;
-  stroke-width: .55;
 }
 
-@media (max-width: 719px) {
-  .court-run--compact .court-run__graphic { margin-inline-start: auto; }
+.court-record .court-record__flag { fill: var(--ink); stroke: none; }
+
+.court-fate {
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
-@media (min-width: 1024px) and (min-height: 521px) {
-  .court-run--compact .court-run__graphic { width: 96px; }
+.court-fate[data-fate='merge'] { animation: court-ghost-merge 420ms cubic-bezier(.2, .75, .25, 1) forwards; }
+.court-fate[data-fate='miss'] { animation: court-ghost-clear 180ms ease-in forwards; }
+
+@keyframes court-ghost-merge {
+  0%, 55% { opacity: 1; }
+  100% { opacity: 0; transform: scale(1.35); }
 }
 
-.court-run--results {
+@keyframes court-ghost-clear {
+  to { opacity: 0; transform: scale(.7); }
+}
+
+/* ───────── Live Court Run, gameplay ───────── */
+.live-court {
+  position: relative;
   min-inline-size: 0;
-  padding: clamp(var(--space-3), 4vw, var(--space-5));
-  border: 1px solid var(--line);
-  border-radius: var(--radius-panel);
+}
+
+.live-court__court {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 48.2 / 9;
+  border-radius: var(--radius-sm);
   background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
 }
 
-.court-run__head {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: var(--space-3);
-  align-items: baseline;
-  justify-content: space-between;
-}
-
-.court-run--results .court-run__label {
-  font-size: 1.25rem;
-  letter-spacing: -.02em;
+/* Map-style label: a halo in the court colour keeps it legible over linework. */
+.live-court__tag {
+  position: absolute;
+  inset-block-start: 1px;
+  translate: -50% 0;
+  color: var(--brand-press);
+  font-size: .75rem;
+  font-weight: 650;
   line-height: 1.2;
+  white-space: nowrap;
+  pointer-events: none;
+  text-shadow: 0 0 2px var(--surface), 0 0 2px var(--surface), 0 0 3px var(--surface);
 }
 
-.court-run--results .court-run__score,
-.court-run__summary {
-  color: var(--ink-soft);
-  font-size: .9375rem;
+.live-court__tag[data-anchor='start'] { translate: -12px 0; }
+.live-court__tag[data-anchor='end'] { translate: calc(-100% + 12px) 0; }
+.live-court__tag b { font-weight: 800; }
+
+/* Short phones: trim the strip's height, never its scale or the controls below it. */
+@media (max-width: 719px) and (max-height: 700px), (max-width: 359px) {
+  .live-court__court { aspect-ratio: 48.2 / 7; }
+  .live-court__tag { inset-block-start: 0; font-size: .6875rem; }
 }
 
-.court-run__summary { margin: var(--space-1) 0 var(--space-2); }
-
-.court-run--results .court-run__graphic {
-  width: 100%;
-  max-width: 440px;
-  margin-inline: auto;
+@media (prefers-reduced-motion: reduce) {
+  .court-fate { display: none; }
 }
-
-.court-run__earned,
-.court-run__stem {
-  fill: none;
-  stroke: var(--brand);
-  stroke-linecap: round;
-}
-
-.court-run__earned { stroke-width: 2.25; }
-.court-run__stem { stroke-width: 1.15; }
-
-.court-run__checkpoint circle {
-  fill: var(--surface);
-  stroke: var(--brand);
-  stroke-width: 1.4;
-}
-
-.court-run__checkpoint text {
-  fill: var(--ink);
-  font-size: 10px;
-  font-weight: 760;
-  text-anchor: middle;
-}
-
-.court-run__checkpoints {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, max(40px, 2em)), 1fr));
-  gap: var(--space-1);
-  padding: 0;
-  margin: var(--space-2) 0 0;
-  list-style: none;
-  color: var(--ink-soft);
-  text-align: center;
-}
-
-.court-run__checkpoints li {
-  display: grid;
-  line-height: 1.3;
-}
-
-.court-run__checkpoints strong { color: var(--ink); }

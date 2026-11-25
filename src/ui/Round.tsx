@@ -10,7 +10,8 @@ import { usePrefersReducedMotion } from './hooks';
 import { browserFunFactSeed, pickFunFact } from './fun-facts';
 import { pickReactions } from './reactions';
 import { contextLabel } from '../content/category';
-import { CourtRun } from './CourtRun';
+import { LiveCourtRun } from './CourtRun';
+import { courtRunMarkers } from '../engine/court-run';
 import './round-polish.css';
 
 type Props = {
@@ -295,6 +296,9 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
   const target = isLast && previousBest !== null && verifiedDailyRounds(state.slate, state.results)
     ? finalShot(previousBest, totalPoints(state.results.slice(0, ROUNDS - 1)))
     : null;
+  const markers = courtRunMarkers(state);
+  // The flag marks the exact total that beats the record: one more than the best.
+  const recordTotal = target?.kind === 'target' && previousBest !== null ? previousBest + 1 : null;
   let targetText: string | null = null;
   if (target && previousBest !== null) {
     if (!resolved) {
@@ -330,9 +334,9 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
         </ol>}
         <p className="round-meta">
           <span className="round-label">{label}</span>
-          {!courtRun && <span className="round-total" data-earned={freshResult && last.points > 0 || undefined}>
+          <span className="round-total" data-earned={freshResult && last.points > 0 || undefined}>
             <span className="tabular">{runningTotal}</span> pts
-          </span>}
+          </span>
           {timed && <span className="shot-clock" data-urgent={interactive && secondsLeft <= 5 || undefined} role="timer"
             aria-label={interactive ? `Shot clock: ${secondsLeft} seconds left` : 'Shot clock stopped'}>
             {!interactive && last?.elapsedMs !== undefined
@@ -342,7 +346,12 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
         </p>
         {courtRun && (
           <div className="round-court">
-            <CourtRun total={runningTotal} animate={!!freshResult && last.points > 0} />
+            <LiveCourtRun
+              earned={markers.earned}
+              potential={markers.potential}
+              record={recordTotal}
+              animate={!!freshResult}
+            />
           </div>
         )}
       </div>
@@ -363,7 +372,16 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
           {q.prompt}
         </h1>
         <p className="context">{contextLabel(q)}</p>
-        {targetText && <p id="round-record-target" className="round-record-target" aria-live="polite">{targetText}</p>}
+        {targetText && (
+          <p id="round-record-target" className="round-record-target" aria-live="polite">
+            {recordTotal !== null && courtRun && !resolved && (
+              <svg className="round-record-flag" viewBox="0 0 10 12" aria-hidden="true" focusable="false">
+                <path d="M1.5 0V12" /><path d="M1.5 1H9L7 3.5 9 6H1.5Z" />
+              </svg>
+            )}
+            {targetText}
+          </p>
+        )}
       </header>
       </div>
 

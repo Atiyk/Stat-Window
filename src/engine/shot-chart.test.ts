@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import type { Slate } from '../content/schema';
-import { COURT_HOOP } from './court-run';
+import { COURT, HOOP } from './court';
 import type { RoundRecord } from './game';
 import { scoreWindow, type Window } from './scoring';
-import { buildShotChart, SHOT_MARKER_RADIUS, SHOT_UNSUBMITTED_DIVIDER, type ShotAttempt } from './shot-chart';
+import { buildShotChart, shotDistance, SHOT_MARKER_RADIUS, SHOT_UNSUBMITTED_DIVIDER, type ShotAttempt } from './shot-chart';
 
 const slate: Slate = {
   date: '2026-11-24',
@@ -29,7 +29,7 @@ function round(index: number, window: Window, day = slate): RoundRecord {
 }
 
 function distance(attempt: ShotAttempt): number {
-  return Math.hypot(attempt.x - COURT_HOOP.x, attempt.y - COURT_HOOP.y);
+  return Math.hypot(attempt.x - HOOP.x, attempt.y - HOOP.y);
 }
 
 describe('buildShotChart', () => {
@@ -60,10 +60,10 @@ describe('buildShotChart', () => {
       if (potential > lastPotential) expect(radius).toBeGreaterThan(lastDistance);
       for (const attempt of attempts) {
         expect(distance(attempt)).toBeCloseTo(radius);
-        expect(attempt.x - SHOT_MARKER_RADIUS).toBeGreaterThanOrEqual(24);
-        expect(attempt.x + SHOT_MARKER_RADIUS).toBeLessThanOrEqual(344);
-        expect(attempt.y - SHOT_MARKER_RADIUS).toBeGreaterThanOrEqual(12);
-        expect(attempt.y + SHOT_MARKER_RADIUS).toBeLessThanOrEqual(168);
+        expect(attempt.x - SHOT_MARKER_RADIUS).toBeGreaterThan(SHOT_UNSUBMITTED_DIVIDER);
+        expect(attempt.x + SHOT_MARKER_RADIUS).toBeLessThanOrEqual(COURT.length);
+        expect(attempt.y - SHOT_MARKER_RADIUS).toBeGreaterThanOrEqual(0);
+        expect(attempt.y + SHOT_MARKER_RADIUS).toBeLessThanOrEqual(COURT.width);
       }
       lastPotential = potential;
       lastDistance = radius;
@@ -77,7 +77,7 @@ describe('buildShotChart', () => {
     expect(attempts).toEqual(buildShotChart(slate, rounds));
     for (const [index, attempt] of attempts.entries()) {
       for (const other of attempts.slice(index + 1)) {
-        expect(Math.hypot(attempt.x - other.x, attempt.y - other.y)).toBeGreaterThan(24);
+        expect(Math.hypot(attempt.x - other.x, attempt.y - other.y)).toBeGreaterThan(2 * SHOT_MARKER_RADIUS);
       }
     }
   });
@@ -91,7 +91,7 @@ describe('buildShotChart', () => {
     expect(miss).toMatchObject({ earned: 0, outcome: 'missed' });
     expect(expired).toMatchObject({ potential: null, earned: 0, outcome: 'timeout' });
     expect(expired!.x + SHOT_MARKER_RADIUS).toBeLessThan(SHOT_UNSUBMITTED_DIVIDER);
-    expect(expired!.x - SHOT_MARKER_RADIUS).toBeGreaterThanOrEqual(24);
+    expect(expired!.x - SHOT_MARKER_RADIUS).toBeGreaterThan(0);
   });
 
   it('keeps legacy scores and derives decimal risk without copying hidden inputs', () => {
@@ -111,5 +111,22 @@ describe('buildShotChart', () => {
       expect(attempt).not.toHaveProperty(hidden);
     }
     expect(JSON.stringify(attempt)).not.toContain('9.58');
+  });
+
+  it('never overlaps two submitted shots, whatever each window was worth', () => {
+    const widths = [1, 5, 12, 25, 40, 60, 80, 99];
+    for (const a of widths) for (const b of widths) {
+      const attempts = buildShotChart(slate, [a, b, a, b, a].map((w, i) => round(i, { lo: 0, hi: w })));
+      for (const [i, one] of attempts.entries()) {
+        for (const other of attempts.slice(i + 1)) {
+          expect(Math.hypot(one.x - other.x, one.y - other.y)).toBeGreaterThan(2 * SHOT_MARKER_RADIUS);
+        }
+      }
+    }
+  });
+
+  it('puts a 100-point window beyond the three-point line and a 0-point window close to the rim', () => {
+    expect(shotDistance(100)).toBeGreaterThan(COURT.threePointRadius);
+    expect(shotDistance(0)).toBeLessThanOrEqual(COURT.freeThrowCircleRadius + 1);
   });
 });

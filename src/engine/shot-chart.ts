@@ -1,5 +1,5 @@
 import type { Slate } from '../content/schema';
-import { COURT_HOOP, type CourtPoint } from './court-run';
+import { HOOP, type CourtPoint } from './court';
 import { ROUNDS, type RoundRecord } from './game';
 import { MAX_POINTS_PER_ROUND, potentialPoints } from './scoring';
 
@@ -21,14 +21,24 @@ export type ShotAttempt = CourtPoint & {
   readonly outcome: ShotOutcome;
 };
 
-export const SHOT_MARKER_RADIUS = 10;
-export const SHOT_UNSUBMITTED_DIVIDER = 50;
+/** Feet. Markers never overlap: see the separation test. */
+export const SHOT_MARKER_RADIUS = 1.45;
+/** Attempts without a submitted window sit behind this line, off the risk axis. */
+export const SHOT_UNSUBMITTED_DIVIDER = 5;
 
-const UNSUBMITTED_X = 36;
-const NEAREST_SHOT = 65;
-const FARTHEST_SHOT = 251;
-// Fixed question lanes separate markers even when their shot values match.
-const LANE_OFFSETS = [0, -51, 51, -26, 26];
+const UNSUBMITTED_X = 2.5;
+const UNSUBMITTED_SPACING = 3.8;
+/** 0 potential points sits at the rim's edge; 100 is a deep three (the arc is 23.75 ft). */
+const NEAREST_SHOT = 7;
+const FARTHEST_SHOT = 28;
+/** Each question keeps its own direction from the basket, so equal risks stay apart. */
+const LANE_DEGREES = [-54, -27, 0, 27, 54] as const;
+
+/** Feet from the basket for a window worth `potential` points at the time it was locked. */
+export function shotDistance(potential: number): number {
+  const p = Math.min(MAX_POINTS_PER_ROUND, Math.max(0, potential));
+  return NEAREST_SHOT + (FARTHEST_SHOT - NEAREST_SHOT) * p / MAX_POINTS_PER_ROUND;
+}
 
 function savedPotential(slate: Slate, record: RoundRecord, index: number): number | null {
   const question = slate.questions[index];
@@ -47,21 +57,24 @@ function savedPotential(slate: Slate, record: RoundRecord, index: number): numbe
 export function buildShotChart(slate: Slate, results: readonly RoundRecord[]): readonly ShotAttempt[] {
   return results.slice(0, ROUNDS).map((record, index) => {
     const number = index + 1;
-    const yOffset = LANE_OFFSETS[index]!;
-    const y = COURT_HOOP.y + yOffset;
     const earned = record.points;
+    const unsubmitted = { x: UNSUBMITTED_X, y: HOOP.y + (index - 2) * UNSUBMITTED_SPACING };
     if (record.timedOut) {
-      return { number, potential: null, earned, outcome: 'timeout', x: UNSUBMITTED_X, y };
+      return { number, potential: null, earned, outcome: 'timeout', ...unsubmitted };
     }
 
     const potential = savedPotential(slate, record, index);
     if (potential === null) {
-      return { number, potential, earned, outcome: 'unavailable', x: UNSUBMITTED_X, y };
+      return { number, potential, earned, outcome: 'unavailable', ...unsubmitted };
     }
 
-    const distance = NEAREST_SHOT + (FARTHEST_SHOT - NEAREST_SHOT) * potential / MAX_POINTS_PER_ROUND;
-    const x = COURT_HOOP.x - Math.sqrt(distance * distance - yOffset * yOffset);
+    const angle = (LANE_DEGREES[index]! * Math.PI) / 180;
+    const distance = shotDistance(potential);
     const outcome = !record.hit ? 'missed' : earned > 0 ? 'made' : 'zero';
-    return { number, potential, earned, outcome, x, y };
+    return {
+      number, potential, earned, outcome,
+      x: HOOP.x - distance * Math.cos(angle),
+      y: HOOP.y + distance * Math.sin(angle),
+    };
   });
 }

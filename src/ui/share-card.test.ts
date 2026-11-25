@@ -9,16 +9,17 @@ const day = '2026-11-24';
 const puzzleUrl = challengeUrl(`https://${host}`, day);
 const rounds = [80, 0, 0, 0, 74].map((points) => ({ points, hit: points > 0 }));
 const attempts: ShotAttempt[] = [
-  { number: 1, potential: 80, earned: 80, outcome: 'made', x: 101, y: 90 },
-  { number: 2, potential: 100, earned: 0, outcome: 'missed', x: 70, y: 39 },
-  { number: 3, potential: null, earned: 0, outcome: 'timeout', x: 36, y: 141 },
-  { number: 4, potential: 0, earned: 0, outcome: 'zero', x: 255, y: 64 },
-  { number: 5, potential: 74, earned: 74, outcome: 'made', x: 116, y: 116 },
+  { number: 1, potential: 80, earned: 80, outcome: 'made', x: 27.3, y: 6.1 },
+  { number: 2, potential: 100, earned: 0, outcome: 'missed', x: 16.8, y: 12.3 },
+  { number: 3, potential: null, earned: 0, outcome: 'timeout', x: 2.5, y: 25 },
+  { number: 4, potential: 0, earned: 0, outcome: 'zero', x: 35.5, y: 28.2 },
+  { number: 5, potential: 74, earned: 74, outcome: 'made', x: 28.7, y: 43.2 },
 ];
 
 const noop = () => {};
 function mockCanvas() {
   const words: string[] = [];
+  const scales: [number, number][] = [];
   const context = {
     fillText: (value: string) => words.push(value),
     measureText: (value: string) => ({ width: value.length * 30 }),
@@ -37,7 +38,7 @@ function mockCanvas() {
     save: noop,
     restore: noop,
     translate: noop,
-    scale: noop,
+    scale: (x: number, y: number) => scales.push([x, y]),
   };
   const png = new Blob(['png'], { type: 'image/png' });
   const canvas = {
@@ -48,7 +49,7 @@ function mockCanvas() {
   };
   vi.stubGlobal('document', { fonts: { ready: Promise.resolve() }, createElement: () => canvas });
   vi.stubGlobal('Path2D', class {});
-  return { canvas, png, words };
+  return { canvas, png, words, scales };
 }
 
 afterEach(() => vi.unstubAllGlobals());
@@ -66,12 +67,15 @@ describe.each<{ format: CardFormat; height: number }>([
     },
     {
       card: { ...puzzle, style: 'court-run', total: 154, puzzleUrl, checkpoints: courtRunCheckpoints(rounds) },
-      markers: ['Court Run', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', '80', `${host}/?day=${day}`],
+      markers: ['Court Run', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', '80', '+80', '+0', '+74', '154', `${host}/?day=${day}`],
     },
   ];
   it.each(styles)('draws the $card.style PNG with the correct score, puzzle, and result type', async ({ card, markers }) => {
-    const { canvas, png, words } = mockCanvas();
+    const { canvas, png, words, scales } = mockCanvas();
     expect(await cardBlob(card)).toBe(png);
+    // The court is never stretched: one factor for both axes.
+    for (const [x, y] of scales) expect(x).toBe(y);
+    if (card.style !== 'classic') expect(scales.length).toBeGreaterThan(0);
     expect(canvas.width).toBe(1080);
     expect(canvas.height).toBe(height);
     expect(words).toEqual(expect.arrayContaining([

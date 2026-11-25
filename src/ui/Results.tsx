@@ -14,8 +14,7 @@ import { track, type PlayMode, type ShareMethod } from '../lib/track';
 import { useNow } from './hooks';
 import { ComparisonLine, ConsentChoice } from './Comparison';
 import { cardBlob, type CardFormat, type CardInput, type CardStyle } from './share-card';
-import { CourtRun } from './CourtRun';
-import { ShotChart } from './ShotChart';
+import { PerformanceRecap } from './PerformanceRecap';
 import { useComparison } from './use-comparison';
 import { Leaderboard } from './Leaderboard';
 import { InstallPrompt } from './InstallPrompt';
@@ -370,8 +369,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
             Try Survival: 20 rounds, one life
           </button>
         )}
-        <CourtRun total={total} checkpoints={checkpoints} />
-        <ShotChart attempts={attempts} total={total} />
+        <PerformanceRecap attempts={attempts} checkpoints={checkpoints} total={total} />
         <ConsentChoice comparison={comparison} onPrivacy={onPrivacy} />
         <p className="next-window">
           Next puzzle in <span className="tabular">{formatCountdown(msUntilNextPuzzle(now))}</span>, at 12:00 AM Eastern

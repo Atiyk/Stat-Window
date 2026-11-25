@@ -2,9 +2,11 @@ import { readFileSync } from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
 import { parseSlate, type Question } from '../src/content/schema';
+import { HOOP } from '../src/engine/court';
 import { courtPosition } from '../src/engine/court-run';
+import { shotDistance } from '../src/engine/shot-chart';
 import { normalizeWindow, totalPoints, type RoundRecord } from '../src/engine/game';
-import { scoreWindow, type Window } from '../src/engine/scoring';
+import { potentialPoints as potential, scoreWindow, type Window } from '../src/engine/scoring';
 import { SAVE_KEY, type SaveData } from '../src/engine/storage';
 import { lockAndSettle, next, startDailyIfNeeded, typeWindow } from './helpers';
 
@@ -35,7 +37,7 @@ const previousRecord = (wins: number, extra = false) => ({
     ? normalizeWindow(q, { lo: q.min, hi: Math.max(q.answer, q.min + (q.max - q.min) / 2) })
     : missed(q))),
 });
-const progress = (page: Page) => page.locator('.court-run--compact');
+const progress = (page: Page) => page.locator('.live-court');
 
 async function seed(page: Page, runs: SaveData['runs'] = {}, practice?: SaveData['practice']) {
   await page.emulateMedia({ reducedMotion: 'reduce' });
@@ -88,23 +90,104 @@ test('the ball follows earned points through a hit, miss, timeout, zero-point ca
   await next(page);
 
   await expect(page.getByRole('heading', { name: 'Score 200 of 500' })).toBeVisible();
-  const checkpoints = page.getByRole('list', { name: 'Cumulative score by question' });
+  const recap = page.getByRole('region', { name: 'Your game on the court' });
+  const shotsTab = recap.getByRole('tab', { name: 'Shot chart' });
+  await expect(shotsTab).toHaveAttribute('aria-selected', 'true');
+  const shots = recap.getByRole('list', { name: 'Each shot' }).getByRole('listitem');
+  await expect(shots).toHaveCount(5);
+  await expect(shots.nth(0)).toContainText('Scored');
+  await expect(shots.nth(1)).toContainText('100');
+  await expect(shots.nth(1)).toContainText('Missed');
+  await expect(shots.nth(2)).toContainText('Timeout');
+  await expect(shots.nth(3)).toContainText('0-point catch');
+  // Distance from the basket is the window's value when it was locked: risk, not reward.
+  const far = async (n: number) => {
+    const [x, y] = (await recap.locator(`[data-shot="${n}"]`).getAttribute('transform'))!.match(/-?[\d.]+/g)!.map(Number);
+    return Math.hypot(x! - HOOP.x, y! - HOOP.y);
+  };
+  const worth = (i: number) => potential(slate.questions[i]!, [made, missed, made, catchZero][i]!(slate.questions[i]!));
+  expect(await far(1)).toBeCloseTo(shotDistance(worth(0)), 2);
+  expect(await far(2)).toBeCloseTo(shotDistance(worth(1)), 2);
+  expect(await far(4)).toBeCloseTo(shotDistance(0), 2);
+  await expect(shots.nth(1).locator('.sr-only')).toHaveText(`, window worth ${worth(1)} points`);
+  await shotsTab.focus();
+  await page.keyboard.press('ArrowRight');
+  const runTab = recap.getByRole('tab', { name: 'Court run' });
+  await expect(runTab).toBeFocused();
+  await expect(runTab).toHaveAttribute('aria-selected', 'true');
+  const checkpoints = recap.getByRole('list', { name: 'Cumulative score by question' });
   await expect(checkpoints.locator('strong')).toHaveText(['100', '100', '100', '100', '200']);
-  const disclosure = page.getByText('View your shot chart', { exact: true });
-  await disclosure.focus();
-  await page.keyboard.press('Enter');
-  const picks = page.getByRole('group', { name: 'Inspect a shot' });
-  await expect(picks.getByRole('button')).toHaveCount(5);
-  const q2 = picks.getByRole('button', { name: 'Q2', exact: true });
-  await q2.focus();
-  await page.keyboard.press('Enter');
-  await expect(page.locator('.shot-chart-detail')).toHaveText('Question 2 · Missed · 100 points possible · 0 points earned');
-  await picks.getByRole('button', { name: 'Q3', exact: true }).click();
-  await expect(page.locator('.shot-chart-detail')).toContainText('No window submitted');
-  await picks.getByRole('button', { name: 'Q4', exact: true }).click();
-  await expect(page.locator('.shot-chart-detail')).toContainText('0 points possible · 0 points earned');
-  const accessibility = await new AxeBuilder({ page }).include('.shot-chart').withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
+  await expect(recap.locator('.performance-caption')).toHaveText('16 more points reach the three-point line.');
+  const accessibility = await new AxeBuilder({ page }).include('.performance').withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze();
   expect(accessibility.violations).toEqual([]);
+});
+
+test('the outlined ball previews the window live, freezes on lock and resolves into the earned ball', async ({ page }) => {
+  await seed(page);
+  await page.clock.install({ time: now });
+  await page.goto('/');
+  await startDailyIfNeeded(page);
+  const q = slate.questions[0]!;
+  const ghost = progress(page).locator('[data-court-ghost]');
+  await expect(ghost).toHaveCount(0);
+  const lo = page.getByRole('slider', { name: 'Low end of your window' });
+  await lo.focus();
+  let last = -1;
+  for (let i = 0; i < 6; i++) {
+    await page.keyboard.press('PageUp');
+    const window = { lo: Number(await lo.getAttribute('aria-valuenow')), hi: q.max };
+    const worth = potential(q, window);
+    if (worth > 0) {
+      await expect(progress(page)).toHaveAttribute('data-potential', String(worth));
+      const { x } = courtPosition(worth);
+      await expect(ghost).toHaveAttribute('transform', `translate(${x} 25)`);
+      expect(worth).toBeGreaterThanOrEqual(last);
+      last = worth;
+    }
+  }
+  expect(last).toBeGreaterThan(0);
+  await expect(progress(page)).toHaveAttribute('data-total', '0');
+  await lo.focus();
+  await page.keyboard.press('Home');
+  await submit(page, made(q));
+  await expect(ghost).toHaveCount(0);
+  await expectCourt(page, scoreWindow(q, made(q)).points);
+});
+
+test('with motion on, the destination freezes on lock, the ball travels once, and nothing waits or replays', async ({ page }) => {
+  await page.route('**/api/scores*', (route) => route.fulfill({ status: 503, body: '{}' }));
+  await page.addInitScript(({ key, save }) => {
+    if (localStorage.getItem(key) === null) localStorage.setItem(key, JSON.stringify(save));
+  }, { key: SAVE_KEY, save: { version: 1, runs: { [day]: { results: prefix.slice(0, 1), advanced: 1 } }, settings: { sound: false, introSeen: true } } });
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.clock.install({ time: now });
+  await page.goto('/');
+  const q = slate.questions[1]!;
+  const window = made(q);
+  const worth = potential(q, window);
+  const earned = prefix[0]!.points;
+  await typeWindow(page, window.lo, window.hi);
+  await expect(progress(page)).toHaveAttribute('data-potential', String(earned + worth));
+  await page.clock.pauseAt(new Date((await page.evaluate(() => Date.now())) + 500));
+  await page.getByRole('button', { name: 'Lock the window' }).click();
+  await expect(page.locator('.round')).toHaveAttribute('data-phase', /locked|revealing/);
+  // Locked: the outline holds the submitted destination and the ball has not moved.
+  await expect(progress(page)).toHaveAttribute('data-potential', String(earned + worth));
+  await expect(progress(page)).toHaveAttribute('data-total', String(earned));
+  await page.clock.resume();
+  await expect(page.locator('.round')).toHaveAttribute('data-phase', 'resolved');
+  await expectCourt(page, earned + worth);
+  const marker = progress(page).locator('[data-court-marker]');
+  expect(await marker.evaluate((node) => node.getAnimations().length)).toBe(1);
+  // Next is available at once and cancels the decorative travel.
+  const nextButton = page.getByRole('button', { name: 'Next question' });
+  await expect(nextButton).toBeEnabled();
+  await nextButton.click();
+  await expect(page.locator('.round')).toHaveAttribute('data-phase', 'ready');
+  expect(await marker.evaluate((node) => node.getAnimations().length)).toBe(0);
+  await page.reload();
+  await expectCourt(page, earned + worth);
+  expect(await progress(page).locator('[data-court-marker]').evaluate((node) => node.getAnimations().length)).toBe(0);
 });
 
 test('the final target compares real prior scores and resolves from the fifth awarded score', async ({ page }) => {
@@ -117,7 +200,13 @@ test('the final target compares real prior scores and resolves from the fifth aw
   await page.goto('/');
   await expect(page.locator('.round-record-target')).toHaveText(`${needed} points for a new personal best.`);
   await expectCourt(page, 200);
-  await submit(page, made(last));
+  const flag = progress(page).locator('[data-court-record]');
+  const record = courtPosition(totalPoints(best.results) + 1);
+  await expect(flag).toHaveAttribute('transform', `translate(${record.x} ${record.y})`);
+  await typeWindow(page, made(last).lo, made(last).hi);
+  await expect(progress(page).locator('.live-court__tag')).toHaveText(`${200 + potential(last, made(last))} if inside · new best`);
+  await lockAndSettle(page);
+  await expect(flag).toHaveCount(0);
   await expect(page.locator('.round-record-target')).toHaveText('New personal best.');
   await next(page);
   await expect(page.locator('.results-verdict')).toHaveText(`New personal best by ${101 - needed} points.`);
@@ -286,15 +375,21 @@ test('the final window and completed courts fit requested phone, tablet and desk
     await expect(progress(page)).toBeInViewport({ ratio: 1 });
     await expect(page.getByRole('timer')).toBeInViewport({ ratio: 1 });
     await expect(page.locator('.ruler-track')).toBeInViewport({ ratio: 1 });
+    await page.evaluate(() => document.fonts.ready);
+    await expect(page.locator('.action-bar .btn-primary'), `${width}x${height} Lock`).toBeInViewport({ ratio: 1 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth), `${width}px`).toBeLessThanOrEqual(width!);
   }
   await submit(page, made(last));
   await next(page);
-  await page.getByText('View your shot chart', { exact: true }).click();
   for (const [width, height] of sizes) {
     await page.setViewportSize({ width: width!, height: height! });
-    for (const court of await page.locator('.court-run--results svg, .shot-chart-court').all()) {
-      const rect = await court.boundingBox();
+    for (const tab of ['Court run', 'Shot chart']) {
+      await page.getByRole('tab', { name: tab }).click();
+      const court = page.locator('.performance-court');
+      const box = (await court.boundingBox())!;
+      // The full half court keeps its real 47 × 50 proportions at every size.
+      expect(box.width / box.height).toBeCloseTo(48.2 / 51.2, 2);
+      const rect = box;
       expect(rect!.x).toBeGreaterThanOrEqual(0);
       expect(Math.ceil(rect!.x + rect!.width)).toBeLessThanOrEqual(width!);
     }

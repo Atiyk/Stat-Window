@@ -4,12 +4,12 @@
  * an invitation. Never an answer, a window, a question or tomorrow's anything.
  * The percentile line appears only when the caller passes a verified, gated result.
  */
+import { COURT_LINES, FULL_COURT_VIEW, PAINT } from '../engine/court';
 import {
-  COURT_HEIGHT, COURT_HOOP, COURT_LINES, COURT_START, COURT_WIDTH,
-  courtCheckpointMarkerY, courtPosition, type CourtCheckpoint,
+  CHECKPOINT_RADIUS, COURT_END, COURT_START, courtCheckpointMarker, courtPosition, type CourtCheckpoint,
 } from '../engine/court-run';
 import type { RoundRecord } from '../engine/game';
-import { SHOT_MARKER_RADIUS, SHOT_OUTCOME_LABELS, SHOT_UNSUBMITTED_DIVIDER, type ShotAttempt } from '../engine/shot-chart';
+import { SHOT_MARKER_RADIUS, SHOT_OUTCOME_LABELS, SHOT_UNSUBMITTED_DIVIDER, SHOT_UNSUBMITTED_SPAN, type ShotAttempt } from '../engine/shot-chart';
 import { MAX_TOTAL, formatAnswerTime } from '../engine/summary';
 
 export type CardFormat = 'square' | 'portrait';
@@ -50,7 +50,11 @@ const C = {
   band: '#B8D5C9',
   bandSoft: '#E0ECE7',
   line: 'rgba(32, 37, 37, 0.16)',
-  courtLine: '#A2ABA4',
+  courtLine: '#9AA29E',
+  paint: '#EBF1EE',
+  rim: '#A74624',
+  brandSoft: '#E3EDE9',
+  brandPress: '#286251',
 };
 
 export const CARD_SIZE = 1080;
@@ -176,186 +180,264 @@ function drawClassicCard(ctx: CanvasRenderingContext2D, input: ClassicCard): voi
   ctx.stroke();
 }
 
-function drawCourt(ctx: CanvasRenderingContext2D, y: number, card: CourtCard): void {
-  const width = CARD_SIZE - 168;
-  const scale = width / COURT_WIDTH;
+/** Court art in feet, scaled uniformly to `width` pixels: the same lines and positions as the app. */
+function drawCourt(ctx: CanvasRenderingContext2D, x: number, y: number, width: number, card: CourtCard): number {
+  const view = FULL_COURT_VIEW;
+  const scale = width / view.width;
+  const px = 1 / scale;
   ctx.save();
-  ctx.translate(84, y);
+  ctx.translate(x, y);
   ctx.scale(scale, scale);
+  ctx.translate(-view.x, -view.y);
 
-  ctx.beginPath();
-  ctx.roundRect(0, 0, COURT_WIDTH, COURT_HEIGHT, 10);
+  // The court's own boundary is the frame: no second border around it.
   ctx.fillStyle = C.surface;
-  ctx.fill();
-  ctx.strokeStyle = C.line;
-  ctx.lineWidth = 1;
-  ctx.stroke();
+  ctx.fillRect(view.x, view.y, view.width, view.height);
+  ctx.fillStyle = C.paint;
+  ctx.fillRect(PAINT.x, PAINT.y, PAINT.width, PAINT.height);
 
-  ctx.strokeStyle = C.courtLine;
-  ctx.lineWidth = 1.2;
-  ctx.lineCap = 'round';
-  for (const path of COURT_LINES) ctx.stroke(new Path2D(path));
+  ctx.lineCap = 'butt';
+  for (const { d, kind } of COURT_LINES) {
+    ctx.strokeStyle = kind === 'rim' ? C.rim : kind === 'board' ? C.ink : C.courtLine;
+    ctx.lineWidth = (kind === 'boundary' ? 3.2 : kind === 'board' ? 4 : kind === 'rim' ? 2.8 : 2.2) * px;
+    ctx.setLineDash(kind === 'dashed' ? [6 * px, 6 * px] : []);
+    ctx.stroke(new Path2D(d));
+  }
+  ctx.setLineDash([]);
 
   if (card.style === 'court-run') {
-    drawRoute(ctx, card.total, card.checkpoints);
+    drawRoute(ctx, card.total, card.checkpoints, px);
   } else {
     if (card.attempts.some((attempt) => attempt.potential === null)) {
       ctx.beginPath();
-      ctx.setLineDash([3, 4]);
-      ctx.moveTo(SHOT_UNSUBMITTED_DIVIDER, 26);
-      ctx.lineTo(SHOT_UNSUBMITTED_DIVIDER, COURT_HEIGHT - 26);
+      ctx.strokeStyle = C.courtLine;
+      ctx.lineWidth = 2 * px;
+      ctx.setLineDash([6 * px, 6 * px]);
+      ctx.moveTo(SHOT_UNSUBMITTED_DIVIDER, SHOT_UNSUBMITTED_SPAN[0]);
+      ctx.lineTo(SHOT_UNSUBMITTED_DIVIDER, SHOT_UNSUBMITTED_SPAN[1]);
       ctx.stroke();
       ctx.setLineDash([]);
     }
-    for (const attempt of card.attempts) drawAttempt(ctx, attempt);
+    for (const attempt of card.attempts) drawAttempt(ctx, attempt, px);
   }
   ctx.restore();
+  return view.height * scale;
 }
 
-function drawRoute(ctx: CanvasRenderingContext2D, total: number, checkpoints: readonly CourtCheckpoint[]): void {
+function drawBall(ctx: CanvasRenderingContext2D, x: number, y: number, px: number): void {
+  const r = 1.15;
+  ctx.beginPath();
+  ctx.arc(x, y, r, 0, 2 * Math.PI);
+  ctx.fillStyle = C.brand;
+  ctx.fill();
+  ctx.strokeStyle = C.ink;
+  ctx.lineWidth = 3 * px;
+  ctx.stroke();
+  ctx.lineWidth = 2 * px;
+  ctx.beginPath();
+  ctx.moveTo(x - r, y); ctx.lineTo(x + r, y);
+  ctx.moveTo(x, y - r); ctx.lineTo(x, y + r);
+  ctx.stroke();
+}
+
+function drawRoute(ctx: CanvasRenderingContext2D, total: number, checkpoints: readonly CourtCheckpoint[], px: number): void {
+  const start = COURT_START;
+  const end = COURT_END;
   const final = courtPosition(total);
+  ctx.lineCap = 'round';
   ctx.beginPath();
   ctx.strokeStyle = C.courtLine;
-  ctx.setLineDash([3, 4]);
-  ctx.moveTo(COURT_START.x, COURT_START.y);
-  ctx.lineTo(COURT_HOOP.x, COURT_HOOP.y);
+  ctx.lineWidth = 2.5 * px;
+  ctx.setLineDash([2 * px, 8 * px]);
+  ctx.moveTo(start.x, start.y);
+  ctx.lineTo(end.x, end.y);
   ctx.stroke();
   ctx.setLineDash([]);
 
-  ctx.beginPath();
-  ctx.strokeStyle = C.brand;
-  ctx.lineWidth = 3;
-  ctx.moveTo(COURT_START.x, COURT_START.y);
-  ctx.lineTo(final.x, final.y);
-  ctx.stroke();
+  if (total > 0) {
+    ctx.beginPath();
+    ctx.strokeStyle = C.brand;
+    ctx.lineWidth = 6 * px;
+    ctx.moveTo(start.x, start.y);
+    ctx.lineTo(final.x, final.y);
+    ctx.stroke();
+  }
 
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  ctx.font = `780 10px ${SANS}`;
+  ctx.font = `800 1.45px ${SANS}`;
+  // Every stem first, so no stem ever crosses another round's label.
+  ctx.lineWidth = 2.4 * px;
+  ctx.strokeStyle = C.brand;
   for (const checkpoint of checkpoints) {
-    const markerY = courtCheckpointMarkerY(checkpoint);
-    ctx.lineWidth = 1.2;
-    ctx.strokeStyle = C.brand;
+    const label = courtCheckpointMarker(checkpoint);
     ctx.beginPath();
     ctx.moveTo(checkpoint.x, checkpoint.y);
-    ctx.lineTo(checkpoint.x, markerY);
+    ctx.lineTo(label.x, label.y);
     ctx.stroke();
-
+  }
+  for (const checkpoint of checkpoints) {
+    const label = courtCheckpointMarker(checkpoint);
     ctx.beginPath();
-    ctx.arc(checkpoint.x, markerY, 8.5, 0, 2 * Math.PI);
+    ctx.arc(label.x, label.y, CHECKPOINT_RADIUS, 0, 2 * Math.PI);
     ctx.fillStyle = C.surface;
     ctx.fill();
+    ctx.lineWidth = 2.8 * px;
     ctx.stroke();
     ctx.fillStyle = C.ink;
-    ctx.fillText(String(checkpoint.number), checkpoint.x, markerY + 0.5);
+    ctx.fillText(String(checkpoint.number), label.x, label.y + .05);
   }
-
-  ctx.beginPath();
-  ctx.arc(final.x, final.y, 9, 0, 2 * Math.PI);
-  ctx.fillStyle = C.brand;
-  ctx.fill();
-  ctx.strokeStyle = C.surface;
-  ctx.lineWidth = 1.5;
-  ctx.stroke();
+  drawBall(ctx, final.x, final.y, px);
 }
 
-function drawAttempt(ctx: CanvasRenderingContext2D, { x, y, outcome, number }: ShotAttempt): void {
-  const radius = SHOT_MARKER_RADIUS;
+function drawAttempt(ctx: CanvasRenderingContext2D, { x, y, outcome, number }: ShotAttempt, px: number): void {
+  const r = SHOT_MARKER_RADIUS;
   ctx.save();
   ctx.translate(x, y);
   ctx.beginPath();
   if (outcome === 'zero') {
-    ctx.moveTo(0, -12);
-    ctx.lineTo(12, 0);
-    ctx.lineTo(0, 12);
-    ctx.lineTo(-12, 0);
+    ctx.moveTo(0, -r * 1.2);
+    ctx.lineTo(r * 1.2, 0);
+    ctx.lineTo(0, r * 1.2);
+    ctx.lineTo(-r * 1.2, 0);
     ctx.closePath();
-  } else if (outcome === 'timeout') {
-    ctx.roundRect(-9, -9, 18, 18, 2);
+  } else if (outcome === 'timeout' || outcome === 'unavailable') {
+    ctx.roundRect(-r * .9, -r * .9, r * 1.8, r * 1.8, .25);
   } else {
-    ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+    ctx.arc(0, 0, r, 0, 2 * Math.PI);
   }
-  ctx.fillStyle = outcome === 'made' ? C.brand : C.surface;
+  ctx.fillStyle = outcome === 'made' ? C.brand : outcome === 'zero' ? C.brandSoft : C.surface;
   ctx.fill();
-  ctx.lineWidth = 1.3;
-  ctx.strokeStyle = outcome === 'made' ? C.brand : C.ink;
-  if (outcome === 'timeout') ctx.setLineDash([3, 2]);
-  if (outcome === 'unavailable') ctx.setLineDash([1, 2]);
+  ctx.lineWidth = (outcome === 'missed' ? 4 : 3) * px;
+  ctx.strokeStyle = outcome === 'made' || outcome === 'zero' ? C.brandPress : C.ink;
+  if (outcome === 'timeout') ctx.setLineDash([6 * px, 4 * px]);
+  if (outcome === 'unavailable') ctx.setLineDash([2 * px, 4 * px]);
   ctx.stroke();
-  ctx.fillStyle = outcome === 'made' ? C.surface : C.ink;
+  ctx.setLineDash([]);
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  ctx.font = `780 10px ${SANS}`;
-  ctx.fillText(String(number), 0, 0.5);
+  ctx.font = `800 1.55px ${SANS}`;
+  ctx.fillStyle = outcome === 'made' ? C.surface : C.ink;
+  ctx.fillText(String(number), 0, .05);
   ctx.restore();
+}
+
+function roundColumns(input: CourtCard): { number: number; value: string; note: string; quiet: boolean }[] {
+  return input.style === 'court-run'
+    ? input.checkpoints.map(({ number, total }, i) => ({
+        number, value: String(total), note: `+${total - (input.checkpoints[i - 1]?.total ?? 0)}`, quiet: false,
+      }))
+    : input.attempts.map(({ number, outcome, potential }) => ({
+        number, value: potential === null ? '–' : String(potential), note: SHOT_OUTCOME_LABELS[outcome],
+        // A missed window keeps its value but never looks like points scored.
+        quiet: outcome !== 'made',
+      }));
 }
 
 function drawCourtCard(ctx: CanvasRenderingContext2D, input: CourtCard): void {
   const portrait = input.format === 'portrait';
-  const headerY = portrait ? 248 : 62;
-  const scoreY = portrait ? 620 : 304;
-  const courtY = portrait ? 705 : 339;
-  const roundsY = portrait ? 1230 : 830;
-  const dividerY = portrait ? 1380 : 903;
-  const invitationY = portrait ? 1479 : 962;
-  const linkY = portrait ? 1540 : 1013;
-  const right = CARD_SIZE - 96;
+  const height = portrait ? PORTRAIT_HEIGHT : CARD_SIZE;
   const courtRun = input.style === 'court-run';
+  const title = courtRun ? 'Court Run' : 'Shot Chart';
+  const caption = courtRun ? ['How far the points', 'carried the ball'] : ['Farther out means', 'a bolder window'];
   ctx.fillStyle = C.paper;
-  ctx.fillRect(0, 0, CARD_SIZE, portrait ? PORTRAIT_HEIGHT : CARD_SIZE);
-  drawWordmark(ctx, headerY);
+  ctx.fillRect(0, 0, CARD_SIZE, height);
 
+  // Portrait keeps clear of story overlays at the top and bottom.
+  const headerY = portrait ? 248 : 72;
+  drawWordmark(ctx, headerY);
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'alphabetic';
   ctx.fillStyle = C.soft;
   ctx.font = `500 36px ${SANS}`;
-  ctx.fillText([input.label, input.date, input.context].filter(Boolean).join(' · '), 96, headerY + 111, 888);
+  ctx.fillText([input.label, input.date, input.context].filter(Boolean).join(' · '), 96, headerY + 116, 888);
+
+  const scoreY = portrait ? headerY + 300 : headerY + 290;
   ctx.fillStyle = C.brand;
-  ctx.font = `790 150px ${SANS}`;
+  ctx.font = `790 ${portrait ? 150 : 132}px ${SANS}`;
   const score = String(input.total);
-  ctx.fillText(score, 87, scoreY);
+  ctx.fillText(score, 88, scoreY);
   const scoreWidth = ctx.measureText(score).width;
   ctx.fillStyle = C.soft;
-  ctx.font = `600 46px ${SANS}`;
+  ctx.font = `600 ${portrait ? 46 : 40}px ${SANS}`;
   ctx.fillText(`of ${MAX_TOTAL}`, 104 + scoreWidth, scoreY);
 
-  ctx.textAlign = 'right';
-  ctx.fillStyle = C.ink;
-  ctx.font = `750 57px ${SANS}`;
-  ctx.fillText(courtRun ? 'Court Run' : 'Shot Chart', right, scoreY - 42);
-  ctx.fillStyle = C.soft;
-  ctx.font = `500 32px ${SANS}`;
-  ctx.fillText(courtRun ? 'Progress by points earned' : 'Farther means more potential points', right, scoreY, 428);
-  ctx.textAlign = 'left';
-
-  drawCourt(ctx, courtY, input);
-
-  const columns = input.style === 'court-run'
-    ? input.checkpoints.map(({ number, total }) => ({ number, value: String(total) }))
-    : input.attempts.map(({ number, outcome }) => ({ number, value: SHOT_OUTCOME_LABELS[outcome] }));
-  ctx.textAlign = 'center';
-  const columnWidth = (CARD_SIZE - 192) / 5;
-  for (const { number, value } of columns) {
-    const x = 96 + columnWidth * (number - 0.5);
-    ctx.fillStyle = C.soft;
-    ctx.font = `600 29px ${SANS}`;
-    ctx.fillText(`Q${number}`, x, roundsY);
+  const columns = roundColumns(input);
+  if (portrait) {
     ctx.fillStyle = C.ink;
-    ctx.font = `720 ${courtRun ? 44 : 27}px ${SANS}`;
-    ctx.fillText(value, x, roundsY + (portrait ? 49 : 41), columnWidth - 7);
-  }
-  ctx.textAlign = 'left';
+    ctx.font = `760 44px ${SANS}`;
+    ctx.fillText(title, 96, scoreY + 76);
+    const titleWidth = ctx.measureText(title).width;
+    ctx.fillStyle = C.soft;
+    ctx.font = `500 32px ${SANS}`;
+    ctx.fillText(caption.join(' '), 96 + titleWidth + 20, scoreY + 76, 888 - titleWidth - 20);
 
+    const courtWidth = 560;
+    const courtY = scoreY + 112;
+    const courtHeight = drawCourt(ctx, (CARD_SIZE - courtWidth) / 2, courtY, courtWidth, input);
+    const roundsY = courtY + courtHeight + 56;
+    const columnWidth = (CARD_SIZE - 192) / 5;
+    ctx.textAlign = 'center';
+    for (const { number, value, note, quiet } of columns) {
+      const cx = 96 + columnWidth * (number - .5);
+      ctx.fillStyle = C.soft;
+      ctx.font = `600 28px ${SANS}`;
+      ctx.fillText(`Q${number}`, cx, roundsY);
+      ctx.fillStyle = quiet ? C.soft : C.ink;
+      ctx.font = `${quiet ? 600 : 760} ${quiet ? 34 : 44}px ${SANS}`;
+      ctx.fillText(value, cx, roundsY + 50, columnWidth - 8);
+      ctx.fillStyle = C.soft;
+      ctx.font = `500 24px ${SANS}`;
+      ctx.fillText(note, cx, roundsY + 84, columnWidth - 8);
+    }
+    ctx.textAlign = 'left';
+    drawFooter(ctx, roundsY + 120, input.puzzleUrl);
+    return;
+  }
+
+  // Square: the court is the hero on the right, the story of each round on the left.
+  ctx.fillStyle = C.ink;
+  ctx.font = `760 46px ${SANS}`;
+  ctx.fillText(title, 96, scoreY + 82);
+  ctx.fillStyle = C.soft;
+  ctx.font = `500 30px ${SANS}`;
+  ctx.fillText(caption[0]!, 96, scoreY + 124, 350);
+  ctx.fillText(caption[1]!, 96, scoreY + 160, 350);
+
+  const courtWidth = 500;
+  drawCourt(ctx, CARD_SIZE - 84 - courtWidth, headerY + 140, courtWidth, input);
+
+  const listY = scoreY + 236;
+  columns.forEach(({ number, value, note, quiet }, i) => {
+    const rowY = listY + i * 54;
+    ctx.fillStyle = C.soft;
+    ctx.font = `600 28px ${SANS}`;
+    ctx.fillText(`Q${number}`, 96, rowY);
+    ctx.fillStyle = quiet ? C.soft : C.ink;
+    ctx.font = `${quiet ? 600 : 760} ${quiet ? 30 : 36}px ${SANS}`;
+    ctx.textAlign = 'right';
+    ctx.fillText(value, 236, rowY);
+    ctx.textAlign = 'left';
+    ctx.fillStyle = C.soft;
+    ctx.font = `500 30px ${SANS}`;
+    ctx.fillText(note, 260, rowY, 200);
+  });
+  drawFooter(ctx, CARD_SIZE - 160, input.puzzleUrl);
+}
+
+function drawFooter(ctx: CanvasRenderingContext2D, dividerY: number, puzzleUrl: string): void {
   ctx.strokeStyle = C.line;
   ctx.lineWidth = 3;
   ctx.beginPath();
   ctx.moveTo(96, dividerY);
-  ctx.lineTo(right, dividerY);
+  ctx.lineTo(CARD_SIZE - 96, dividerY);
   ctx.stroke();
   ctx.fillStyle = C.ink;
   ctx.font = `850 48px ${SANS}`;
-  ctx.fillText('Five questions. Your turn.', 96, invitationY, 888);
+  ctx.fillText('Five questions. Your turn.', 96, dividerY + 62, 888);
   ctx.fillStyle = C.soft;
-  ctx.font = `500 35px ${SANS}`;
-  ctx.fillText(input.puzzleUrl.replace(/^https?:\/\//, ''), 96, linkY, 888);
+  ctx.font = `500 34px ${SANS}`;
+  ctx.fillText(puzzleUrl.replace(/^https?:\/\//, ''), 96, dividerY + 110, 888);
 }
 
 export function drawCard(ctx: CanvasRenderingContext2D, input: CardInput): void {

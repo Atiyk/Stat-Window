@@ -1,0 +1,124 @@
+.performance {
+  display: grid;
+  gap: var(--space-3);
+  min-inline-size: 0;
+  padding-block: var(--space-4);
+  border-block: 1px solid var(--line);
+}
+
+.performance-tabs {
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  justify-self: start;
+  padding: 3px;
+  border-radius: calc(var(--radius-sm) + 3px);
+  background: var(--paper-2);
+}
+
+.performance-tabs [role='tab'] {
+  cursor: pointer;
+  min-block-size: 44px;
+  padding: 0 var(--space-4);
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--ink-soft);
+  font: inherit;
+  font-size: .9375rem;
+  font-weight: 700;
+  transition: background-color var(--motion-fast) ease, color var(--motion-fast) ease;
+}
+
+.performance-tabs [role='tab']:active { scale: .97; }
+
+.performance-tabs [role='tab'][aria-selected='true'] {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 0 0 1px var(--line), 0 1px 2px color-mix(in oklch, var(--ink) 10%, transparent);
+}
+
+.performance-tabs [role='tab']:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+.performance-panel { display: grid; gap: var(--space-3); min-inline-size: 0; }
+
+.performance-caption {
+  margin: 0;
+  max-inline-size: 40ch;
+  color: var(--ink-soft);
+  font-size: .9375rem;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+.performance-court {
+  display: block;
+  inline-size: min(100%, 30rem);
+  block-size: auto;
+  aspect-ratio: 48.2 / 51.2;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.performance-rounds {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-1);
+  inline-size: min(100%, 30rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.performance-rounds li { display: grid; line-height: 1.3; }
+.performance-q { color: var(--ink-soft); font-size: .8125rem; }
+.performance-rounds strong { font-size: 1.125rem; font-weight: 800; }
+.performance-note { color: var(--ink-soft); font-size: .75rem; overflow-wrap: anywhere; }
+
+.performance-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+  margin: 0;
+  padding: 0;
+  color: var(--ink-soft);
+  list-style: none;
+  font-size: .8125rem;
+}
+
+.performance-key li { display: inline-flex; gap: 6px; align-items: center; }
+
+.shot-chart-divider {
+  fill: none;
+  stroke: var(--tick);
+  stroke-width: 1px;
+  stroke-dasharray: 3 3;
+  vector-effect: non-scaling-stroke;
+}
+
+.shot-marker-shape {
+  fill: var(--surface);
+  stroke: var(--ink);
+  stroke-width: 1.5px;
+  vector-effect: non-scaling-stroke;
+}
+
+.shot-marker-number { fill: var(--ink); font-size: 1.55px; font-weight: 800; }
+.shot-marker[data-outcome='made'] .shot-marker-shape { fill: var(--brand); stroke: var(--brand-press); }
+.shot-marker[data-outcome='made'] .shot-marker-number { fill: var(--on-brand); }
+.shot-marker[data-outcome='zero'] .shot-marker-shape { fill: var(--brand-soft); stroke: var(--brand-press); }
+.shot-marker[data-outcome='timeout'] .shot-marker-shape { stroke-dasharray: 3 2; }
+.shot-marker[data-outcome='unavailable'] .shot-marker-shape { stroke-dasharray: 1 2; }
+
+.court-checkpoint-stem { fill: none; }
+.court-checkpoint-stem { stroke: var(--brand); stroke-width: 1.2px; vector-effect: non-scaling-stroke; }
+.court-checkpoint circle { fill: var(--surface); stroke: var(--brand); stroke-width: 1.4px; vector-effect: non-scaling-stroke; }
+.court-checkpoint text { fill: var(--ink); font-size: 1.45px; font-weight: 800; }
+
+/* A missed window keeps its value, quieter, so it never reads as points scored. */
+.performance-rounds li[data-outcome]:not([data-outcome='made']) strong { color: var(--ink-soft); font-size: .9375rem; font-weight: 700; line-height: 1.6; }
+.performance-rounds-label { margin: 0 0 calc(-1 * var(--space-2)); font-weight: 600; }
+.performance-panel:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; border-radius: var(--radius-sm); }
+.shot-marker[data-outcome='missed'] .shot-marker-shape { stroke-width: 2px; }

@@ -375,6 +375,8 @@ test('the final window and completed courts fit requested phone, tablet and desk
     await expect(progress(page)).toBeInViewport({ ratio: 1 });
     await expect(page.getByRole('timer')).toBeInViewport({ ratio: 1 });
     await expect(page.locator('.ruler-track')).toBeInViewport({ ratio: 1 });
+    await page.evaluate(() => document.fonts.ready);
+    await expect(page.locator('.action-bar .btn-primary'), `${width}x${height} Lock`).toBeInViewport({ ratio: 1 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth), `${width}px`).toBeLessThanOrEqual(width!);
   }
   await submit(page, made(last));

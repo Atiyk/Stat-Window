@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type Dispatch, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type Dispatch, type ReactNode } from 'react';
 import { canLock, currentQuestion, ROUNDS, totalPoints, type GameAction, type GameState, type PracticeTiming } from '../engine/game';
 import { finalShot, verifiedDailyRounds } from '../engine/final-shot';
 import { MAX_POINTS_PER_ROUND, potentialPoints } from '../engine/scoring';
@@ -10,7 +10,8 @@ import { usePrefersReducedMotion } from './hooks';
 import { browserFunFactSeed, pickFunFact } from './fun-facts';
 import { pickReactions } from './reactions';
 import { contextLabel } from '../content/category';
-import { LiveCourtRun } from './CourtRun';
+import { COURT_TRAVEL_DELAY_MS, courtTravelMs, LiveCourtRun } from './CourtRun';
+import { courtPosition } from '../engine/court-run';
 import { courtRunMarkers } from '../engine/court-run';
 import './round-polish.css';
 
@@ -316,7 +317,13 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
   return (
     <article ref={roundRef} className="round" data-phase={state.phase} data-fresh-result={freshResult || undefined}>
       <div className="round-head">
-      <div className="round-top" data-has-court={courtRun || undefined}>
+      <div
+        className="round-top"
+        data-has-court={courtRun || undefined}
+        // The running total pulses when the ball lands, not before it sets off.
+        style={courtRun && freshResult && last.points > 0 ? { '--court-landing': `${COURT_TRAVEL_DELAY_MS + Math.round(.86 * courtTravelMs(
+          courtPosition(markers.earned - last.points).x, courtPosition(markers.earned).x))}ms` } as CSSProperties : undefined}
+      >
         {survival ? survival.ledger : <ol className="ledger" aria-label="Rounds">
           {Array.from({ length: ROUNDS }, (_, i) => {
             const r = state.results[i];

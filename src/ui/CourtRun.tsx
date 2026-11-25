@@ -137,8 +137,8 @@ export function LiveCourtRun({ earned, potential, record = null, animate = false
         {recordAt && (
           // Below the route only, so it never crosses the outlined ball or its label.
           <g className="court-record" transform={`translate(${recordAt.x} ${recordAt.y})`} data-court-record="">
-            <path d="M0 1.45V3.3" />
-            <path className="court-record__flag" d="M0 3.3H1.7L1.15 2.75 1.7 2.2H0Z" />
+            <path d="M0 1.4V2.85" />
+            <path className="court-record__flag" d="M0 1.4H1.6L1.1 1.75 1.6 2.1H0Z" />
           </g>
         )}
         <g data-court-ball="" transform={`translate(${ball.x} ${ball.y})`}>

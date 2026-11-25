@@ -72,7 +72,7 @@
 
 /* The outline holds until the ball arrives in it, then dissolves into the ball. */
 @keyframes court-ghost-merge {
-  0%, 70% { opacity: 1; }
+  0%, 88% { opacity: 1; }
   100% { opacity: 0; }
 }
 

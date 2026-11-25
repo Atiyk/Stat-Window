@@ -105,9 +105,7 @@
   vector-effect: non-scaling-stroke;
 }
 
-.shot-marker-cross { stroke: var(--ink); stroke-width: 1.5px; vector-effect: non-scaling-stroke; }
-.shot-marker-number,
-.shot-marker-label { fill: var(--ink); font-size: 1.55px; font-weight: 800; }
+.shot-marker-number { fill: var(--ink); font-size: 1.55px; font-weight: 800; }
 .shot-marker[data-outcome='made'] .shot-marker-shape { fill: var(--brand); stroke: var(--brand-press); }
 .shot-marker[data-outcome='made'] .shot-marker-number { fill: var(--on-brand); }
 .shot-marker[data-outcome='zero'] .shot-marker-shape { fill: var(--brand-soft); stroke: var(--brand-press); }
@@ -118,3 +116,9 @@
 .court-checkpoint-stem { stroke: var(--brand); stroke-width: 1.2px; vector-effect: non-scaling-stroke; }
 .court-checkpoint circle { fill: var(--surface); stroke: var(--brand); stroke-width: 1.4px; vector-effect: non-scaling-stroke; }
 .court-checkpoint text { fill: var(--ink); font-size: 1.45px; font-weight: 800; }
+
+/* A missed window keeps its value, quieter, so it never reads as points scored. */
+.performance-rounds li[data-outcome]:not([data-outcome='made']) strong { color: var(--ink-soft); font-size: .9375rem; font-weight: 700; line-height: 1.6; }
+.performance-rounds-label { margin: 0 0 calc(-1 * var(--space-2)); font-weight: 600; }
+.performance-panel:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; border-radius: var(--radius-sm); }
+.shot-marker[data-outcome='missed'] .shot-marker-shape { stroke-width: 2px; }

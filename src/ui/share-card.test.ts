@@ -19,9 +19,10 @@ const attempts: ShotAttempt[] = [
 const noop = () => {};
 function mockCanvas() {
   const words: string[] = [];
+  const baselines: number[] = [];
   const scales: [number, number][] = [];
   const context = {
-    fillText: (value: string) => words.push(value),
+    fillText: (value: string, _x: number, y: number) => { words.push(value); baselines.push(y); },
     measureText: (value: string) => ({ width: value.length * 30 }),
     fillRect: noop,
     strokeRect: noop,
@@ -49,7 +50,7 @@ function mockCanvas() {
   };
   vi.stubGlobal('document', { fonts: { ready: Promise.resolve() }, createElement: () => canvas });
   vi.stubGlobal('Path2D', class {});
-  return { canvas, png, words, scales };
+  return { canvas, png, words, scales, baselines };
 }
 
 afterEach(() => vi.unstubAllGlobals());
@@ -71,10 +72,15 @@ describe.each<{ format: CardFormat; height: number }>([
     },
   ];
   it.each(styles)('draws the $card.style PNG with the correct score, puzzle, and result type', async ({ card, markers }) => {
-    const { canvas, png, words, scales } = mockCanvas();
+    const { canvas, png, words, scales, baselines } = mockCanvas();
     expect(await cardBlob(card)).toBe(png);
     // The court is never stretched: one factor for both axes.
     for (const [x, y] of scales) expect(x).toBe(y);
+    // Portrait cards keep every line of text clear of story overlays at the top and bottom.
+    if (format === 'portrait' && card.style !== 'classic') {
+      expect(Math.min(...baselines.filter((y) => y > 60))).toBeGreaterThanOrEqual(250);
+      expect(Math.max(...baselines.filter((y) => y > 60))).toBeLessThanOrEqual(1560);
+    }
     if (card.style !== 'classic') expect(scales.length).toBeGreaterThan(0);
     expect(canvas.width).toBe(1080);
     expect(canvas.height).toBe(height);

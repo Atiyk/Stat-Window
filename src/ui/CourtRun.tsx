@@ -1,7 +1,6 @@
 import { useLayoutEffect, useRef, useState, type ReactNode } from 'react';
-import { COURT_LINES, laneView, viewBox, type CourtView } from '../engine/court';
-import { courtPosition } from '../engine/court-run';
-import { MAX_TOTAL } from '../engine/summary';
+import { COURT_LINES, laneView, PAINT, viewBox, type CourtView } from '../engine/court';
+import { COURT_END, COURT_START, courtPosition } from '../engine/court-run';
 import { usePrefersReducedMotion } from './hooks';
 import './court.css';
 
@@ -20,7 +19,7 @@ export function CourtSvg({ view, className, children, crop = false }: { view: Co
 export function CourtLines() {
   return (
     <g className="court-lines">
-      <rect className="court-paint" x="28" y="17" width="19" height="16" />
+      <rect className="court-paint" x={PAINT.x} y={PAINT.y} width={PAINT.width} height={PAINT.height} />
       {COURT_LINES.map(({ d, kind }) => <path key={d} d={d} data-kind={kind} />)}
     </g>
   );
@@ -46,12 +45,17 @@ const percentX = (x: number) => `${((x - LIVE_VIEW.x) / LIVE_VIEW.width) * 100}%
 /** Labels centre on their ball, but stay inside the strip near either end. */
 const anchor = (x: number) => x < 6 ? 'start' : x > 38 ? 'end' : 'center';
 
-type Fate = { key: number; x: number; kind: 'merge' | 'miss' } | null;
+type Fate = { key: number; x: number; kind: 'merge' | 'miss'; ms: number } | null;
+
+/** The answer lands first; the ball sets off a beat later, so one thing moves at a time. */
+export const COURT_TRAVEL_DELAY_MS = 150;
+export const courtTravelMs = (fromX: number, toX: number) => Math.round(380 + Math.min(1, (toX - fromX) / 8.35) * 160);
+const X_EASE = 'cubic-bezier(.45, 0, .25, 1)';
 
 /**
- * Prototype A: the solid ball is points already awarded; the outlined ball is where the
- * current window would take it if the answer is inside. Positions come straight from
- * props, so the outline tracks the brackets with no easing or lag.
+ * The live Court Run: the solid ball is points already awarded; the outlined ball is
+ * where the current window would take it if the answer is inside. Positions come
+ * straight from props, so the outline tracks the brackets with no easing or lag.
  */
 export function LiveCourtRun({ earned, potential, record = null, animate = false }: {
   earned: number;
@@ -66,6 +70,7 @@ export function LiveCourtRun({ earned, potential, record = null, animate = false
   const ghost = potential !== null && potential > earned ? courtPosition(potential) : null;
   const recordAt = record !== null ? courtPosition(record) : null;
   const marker = useRef<SVGGElement>(null);
+  const hop = useRef<SVGGElement>(null);
   const trail = useRef<SVGPathElement>(null);
   const previous = useRef({ earned, potential });
   const [fate, setFate] = useState<Fate>(null);
@@ -76,39 +81,49 @@ export function LiveCourtRun({ earned, potential, record = null, animate = false
     if (before.earned === earned && before.potential === potential) return;
     const lastGhost = before.potential;
     const motion = animate && !reduced && !document.hidden;
+    const from = courtPosition(before.earned).x;
+    const to = courtPosition(earned).x;
+    const duration = courtTravelMs(from, to);
     if (!motion || lastGhost === null || potential !== null) {
       setFate(null);
     } else {
-      // The preview resolves: it joins the ball on a hit, or clears on a miss.
-      setFate({ key: Date.now(), x: courtPosition(lastGhost).x, kind: earned > before.earned ? 'merge' : 'miss' });
+      // The preview resolves: the ball fills its outline on a hit; on a miss it clears.
+      setFate({
+        key: Date.now(),
+        x: courtPosition(lastGhost).x,
+        kind: earned > before.earned ? 'merge' : 'miss',
+        ms: COURT_TRAVEL_DELAY_MS + duration,
+      });
     }
 
-    const from = courtPosition(before.earned).x;
-    const to = courtPosition(earned).x;
     const node = marker.current;
     if (!motion || to <= from || !node?.animate) return;
     const offset = from - to;
-    // Pose to pose: a small gather, a low arc, a squash on landing, then rest.
-    // The group itself already sits at the true total; only this offset animates.
+    const timing = { duration, delay: COURT_TRAVEL_DELAY_MS, fill: 'backwards' } as const;
+    // Pose to pose. Horizontal travel is one smooth curve with a small gather; the
+    // hop and the landing squash ride on an inner group, peaking mid-flight.
+    // The outer group already sits at the true total; only these offsets animate.
     const travel = node.animate([
-      { transform: `translate(${offset}px, 0)`, easing: 'cubic-bezier(.3, 0, .6, 1)' },
-      { transform: `translate(${offset - .35}px, 0) scale(1.04, .96)`, offset: .12, easing: 'cubic-bezier(.33, 0, .2, 1)' },
-      { transform: `translate(${offset * .45}px, -1.3px)`, offset: .55, easing: 'cubic-bezier(.4, 0, .7, .6)' },
-      { transform: 'translate(0, 0) scale(1.12, .88)', offset: .86, easing: 'cubic-bezier(.2, .7, .3, 1)' },
+      { transform: `translateX(${offset}px)`, easing: 'cubic-bezier(.3, 0, .6, 1)' },
+      { transform: `translateX(${offset - .35}px)`, offset: .12, easing: X_EASE },
+      { transform: 'translateX(0)' },
+    ], timing);
+    const lift = hop.current?.animate?.([
+      { transform: 'none', easing: 'cubic-bezier(.33, 0, .2, 1)' },
+      { transform: 'translateY(.12px) scale(1.04, .96)', offset: .12, easing: 'cubic-bezier(.2, .6, .35, 1)' },
+      { transform: 'translateY(-1.3px)', offset: .5, easing: 'cubic-bezier(.6, 0, .8, .4)' },
+      { transform: 'scale(1.12, .88)', offset: .86, easing: 'cubic-bezier(.2, .7, .3, 1)' },
       { transform: 'none' },
-    ], { duration: Math.round(380 + Math.min(1, (to - from) / 8.35) * 160) });
-    // The earned line grows with the ball rather than jumping ahead of it.
-    const grow = from > 0 && trail.current?.animate
-      ? trail.current.animate([{ transform: `scaleX(${from / to})` }, { transform: 'none' }], {
-          duration: travel.effect?.getTiming().duration as number,
-          easing: 'cubic-bezier(.45, 0, .25, 1)',
-        })
-      : trail.current?.animate?.([{ opacity: 0 }, { opacity: 1 }], { duration: 200, delay: 120, fill: 'backwards' });
-    const settle = () => { if (document.hidden) { travel.finish(); grow?.finish(); } };
+    ], timing);
+    // The earned line grows with the ball, on the same horizontal curve.
+    const grow = trail.current?.animate?.(from > 0
+      ? [{ transform: `scaleX(${from / to})`, easing: 'cubic-bezier(.3, 0, .6, 1)' }, { transform: `scaleX(${(from - .35) / to})`, offset: .12, easing: X_EASE }, { transform: 'none' }]
+      : [{ transform: 'scaleX(0)', easing: X_EASE }, { transform: 'none' }], timing);
+    const all = [travel, lift, grow];
+    const settle = () => { if (document.hidden) all.forEach((a) => a?.finish()); };
     document.addEventListener('visibilitychange', settle);
     return () => {
-      travel.cancel();
-      grow?.cancel();
+      all.forEach((a) => a?.cancel());
       document.removeEventListener('visibilitychange', settle);
     };
   }, [earned, potential, animate, reduced]);
@@ -116,36 +131,40 @@ export function LiveCourtRun({ earned, potential, record = null, animate = false
   return (
     <div className="live-court" data-total={earned} data-potential={ghost ? potential : undefined}>
       <CourtSvg view={LIVE_VIEW} className="live-court__court" crop>
-        <path className="court-route" d={`M${courtPosition(0).x} ${ball.y}H${courtPosition(MAX_TOTAL).x}`} />
-        {earned > 0 && <path ref={trail} className="court-trail" d={`M${courtPosition(0).x} ${ball.y}H${ball.x}`} />}
+        <path className="court-route" d={`M${COURT_START.x} ${ball.y}H${COURT_END.x}`} />
+        {earned > 0 && <path ref={trail} className="court-trail" d={`M${COURT_START.x} ${ball.y}H${ball.x}`} />}
         {ghost && <path className="court-trail court-trail--ghost" d={`M${ball.x} ${ball.y}H${ghost.x}`} />}
         {recordAt && (
+          // Below the route only, so it never crosses the outlined ball or its label.
           <g className="court-record" transform={`translate(${recordAt.x} ${recordAt.y})`} data-court-record="">
-            <path d="M0 -3.2V3.4" />
-            <path className="court-record__flag" d="M0 3.4H2L1.35 2.7 2 2H0Z" />
+            <path d="M0 1.45V3.3" />
+            <path className="court-record__flag" d="M0 3.3H1.7L1.15 2.75 1.7 2.2H0Z" />
           </g>
         )}
+        <g data-court-ball="" transform={`translate(${ball.x} ${ball.y})`}>
+          <g ref={marker} className="court-ball-motion" data-court-marker="">
+            <g ref={hop} className="court-ball-motion">
+              <Ball />
+            </g>
+          </g>
+        </g>
         {fate && (
           <g key={fate.key} transform={`translate(${fate.x} ${ball.y})`}>
-            <g className="court-fate" data-fate={fate.kind} onAnimationEnd={() => setFate(null)}>
+            <g className="court-fate" data-fate={fate.kind} style={{ animationDuration: `${fate.kind === 'merge' ? fate.ms : 180}ms` }} onAnimationEnd={() => setFate(null)}>
               <Ball ghost />
             </g>
           </g>
         )}
         {ghost && (
+          // Drawn over the ball: when the two overlap, the dashed outline stays visible.
           <g className="court-ghost" data-court-ghost="" transform={`translate(${ghost.x} ${ghost.y})`}>
             <Ball ghost />
           </g>
         )}
-        <g data-court-ball="" transform={`translate(${ball.x} ${ball.y})`}>
-          <g ref={marker} className="court-ball-motion" data-court-marker="">
-            <Ball />
-          </g>
-        </g>
       </CourtSvg>
       {ghost && (
         <span className="live-court__tag" data-anchor={anchor(ghost.x)} style={{ left: percentX(ghost.x) }} aria-hidden="true">
-          <b className="tabular">{potential}</b> if inside
+          <b className="tabular">{potential}</b> if inside{record !== null && potential! >= record ? ' · new best' : ''}
         </span>
       )}
     </div>

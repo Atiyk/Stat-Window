@@ -22,7 +22,7 @@
   stroke-linecap: round;
 }
 
-.court-route { stroke: color-mix(in oklch, var(--ink) 28%, transparent); stroke-width: 1.25px; stroke-dasharray: 1 4; }
+.court-route { stroke: color-mix(in oklch, var(--ink) 45%, transparent); stroke-width: 1.25px; stroke-dasharray: 1 4; }
 .court-trail { stroke: var(--brand); stroke-width: 3px; }
 .court-trail--ghost { stroke-width: 2px; stroke-dasharray: 4 3; stroke-linecap: butt; }
 
@@ -41,7 +41,7 @@
 }
 
 .court-ball--ghost {
-  fill: color-mix(in oklch, var(--surface) 80%, transparent);
+  fill: none;
   stroke: var(--brand-press);
   stroke-width: 1.75px;
   stroke-dasharray: 3 2;
@@ -67,12 +67,13 @@
   transform-origin: center;
 }
 
-.court-fate[data-fate='merge'] { animation: court-ghost-merge 420ms cubic-bezier(.2, .75, .25, 1) forwards; }
+.court-fate[data-fate='merge'] { animation: court-ghost-merge 600ms linear forwards; }
 .court-fate[data-fate='miss'] { animation: court-ghost-clear 180ms ease-in forwards; }
 
+/* The outline holds until the ball arrives in it, then dissolves into the ball. */
 @keyframes court-ghost-merge {
-  0%, 55% { opacity: 1; }
-  100% { opacity: 0; transform: scale(1.35); }
+  0%, 70% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 @keyframes court-ghost-clear {
@@ -116,11 +117,21 @@
 /* Short phones: trim the strip's height, never its scale or the controls below it. */
 @media (max-width: 719px) and (max-height: 700px), (max-width: 359px) {
   .live-court__court { aspect-ratio: 48.2 / 7; }
-  .live-court__tag { inset-block-start: 0; font-size: .6875rem; }
+  .live-court__tag { inset-block-start: 0; }
+}
+
+@media (max-width: 359px) and (max-height: 640px) {
+  .live-court__court { aspect-ratio: 48.2 / 6; }
+  .live-court__tag { inset-block-start: -1px; }
+}
+
+/* Tablets: a wide strip at full depth would outweigh the question. */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .live-court__court { aspect-ratio: 48.2 / 6.5; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .court-fate { display: none; }
 }
 
-.court-trail { transform-box: fill-box; transform-origin: left center; }
+.court-trail:not(.court-trail--ghost) { transform-box: fill-box; transform-origin: left center; }

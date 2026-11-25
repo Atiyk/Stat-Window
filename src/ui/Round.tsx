@@ -349,7 +349,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
             <LiveCourtRun
               earned={markers.earned}
               potential={markers.potential}
-              record={recordTotal}
+              record={resolved ? null : recordTotal}
               animate={!!freshResult}
             />
           </div>

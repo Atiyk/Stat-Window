@@ -56,6 +56,14 @@ export const CORNER_THREE_DISTANCE = MID_Y - COURT.cornerThreeFromSideline;
 export const THREE_POINT_BREAK_X =
   HOOP.x - Math.sqrt(COURT.threePointRadius ** 2 - CORNER_THREE_DISTANCE ** 2);
 
+/** The painted lane: baseline to the free-throw line's far edge, 16 ft wide. */
+export const PAINT = {
+  x: FREE_THROW_X,
+  y: MID_Y - COURT.laneWidth / 2,
+  width: COURT.freeThrowFromBaseline,
+  height: COURT.laneWidth,
+} as const;
+
 const r = (n: number) => Math.round(n * 1000) / 1000;
 
 export type CourtLine = { readonly d: string; readonly kind: 'line' | 'dashed' | 'boundary' | 'rim' | 'board' };

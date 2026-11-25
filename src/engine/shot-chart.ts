@@ -25,10 +25,12 @@ export type ShotAttempt = CourtPoint & {
 export const SHOT_MARKER_RADIUS = 1.45;
 /** Attempts without a submitted window sit behind this line, off the risk axis. */
 export const SHOT_UNSUBMITTED_DIVIDER = 5;
+/** The divider's extent: just past the first and last unsubmitted slots. */
+export const SHOT_UNSUBMITTED_SPAN = [HOOP.y - 11, HOOP.y + 11] as const;
 
 const UNSUBMITTED_X = 2.5;
 const UNSUBMITTED_SPACING = 3.8;
-/** 0 potential points sits at the rim's edge; 100 is a deep three (the arc is 23.75 ft). */
+/** 0 potential points sits 7 ft out, just past the restricted area; 100 is a deep three (the arc is 23.75 ft). */
 const NEAREST_SHOT = 7;
 const FARTHEST_SHOT = 28;
 /** Each question keeps its own direction from the basket, so equal risks stay apart. */

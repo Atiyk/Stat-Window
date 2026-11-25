@@ -1,9 +1,9 @@
 import { useId, useRef, useState, type KeyboardEvent } from 'react';
 import { FULL_COURT_VIEW } from '../engine/court';
 import {
-  CHECKPOINT_RADIUS, courtCheckpointMarker, courtLandmarks, courtPosition, type CourtCheckpoint,
+  CHECKPOINT_RADIUS, COURT_END, COURT_START, courtCheckpointMarker, courtLandmarks, courtPosition, type CourtCheckpoint,
 } from '../engine/court-run';
-import { SHOT_MARKER_RADIUS, SHOT_OUTCOME_LABELS, SHOT_UNSUBMITTED_DIVIDER, type ShotAttempt } from '../engine/shot-chart';
+import { SHOT_MARKER_RADIUS, SHOT_OUTCOME_LABELS, SHOT_UNSUBMITTED_DIVIDER, SHOT_UNSUBMITTED_SPAN, type ShotAttempt } from '../engine/shot-chart';
 import { Ball, CourtSvg } from './CourtRun';
 import './performance-recap.css';
 
@@ -18,8 +18,7 @@ export function ShotMarker({ outcome, number }: { outcome: ShotAttempt['outcome'
       ) : (
         <circle className="shot-marker-shape" r={r} />
       )}
-      {outcome === 'missed' && <path className="shot-marker-cross" d={`M${-r * .5} ${-r * .5} ${r * .5} ${r * .5}M${r * .5} ${-r * .5} ${-r * .5} ${r * .5}`} />}
-      {number !== undefined && outcome !== 'missed' && <text className="shot-marker-number" textAnchor="middle" dy=".36em">{number}</text>}
+      {number !== undefined && <text className="shot-marker-number" textAnchor="middle" dy=".36em">{number}</text>}
     </g>
   );
 }
@@ -28,12 +27,11 @@ function ShotChartCourt({ attempts }: { attempts: readonly ShotAttempt[] }) {
   return (
     <CourtSvg view={FULL_COURT_VIEW} className="performance-court">
       {attempts.some(({ potential }) => potential === null) && (
-        <path className="shot-chart-divider" d={`M${SHOT_UNSUBMITTED_DIVIDER} 14V36`} />
+        <path className="shot-chart-divider" d={`M${SHOT_UNSUBMITTED_DIVIDER} ${SHOT_UNSUBMITTED_SPAN[0]}V${SHOT_UNSUBMITTED_SPAN[1]}`} />
       )}
       {attempts.map(({ number, outcome, x, y }) => (
         <g key={number} transform={`translate(${x} ${y})`} data-shot={number}>
           <ShotMarker outcome={outcome} number={number} />
-          {outcome === 'missed' && <text className="shot-marker-label" textAnchor="middle" y={-SHOT_MARKER_RADIUS - .5}>{number}</text>}
         </g>
       ))}
     </CourtSvg>
@@ -42,10 +40,10 @@ function ShotChartCourt({ attempts }: { attempts: readonly ShotAttempt[] }) {
 
 function CourtRunCourt({ total, checkpoints }: { total: number; checkpoints: readonly CourtCheckpoint[] }) {
   const end = courtPosition(total);
-  const start = courtPosition(0);
+  const start = COURT_START;
   return (
     <CourtSvg view={FULL_COURT_VIEW} className="performance-court">
-      <path className="court-route" d={`M${start.x} ${start.y}H${courtPosition(500).x}`} />
+      <path className="court-route" d={`M${start.x} ${start.y}H${COURT_END.x}`} />
       {total > 0 && <path className="court-trail" d={`M${start.x} ${start.y}H${end.x}`} />}
       {checkpoints.map((checkpoint) => {
         const label = courtCheckpointMarker(checkpoint);
@@ -119,10 +117,10 @@ export function PerformanceRecap({ attempts, checkpoints, total }: {
           </button>
         ))}
       </div>
-      <div role="tabpanel" id={`${id}-panel`} aria-labelledby={`${id}-${view}-tab`} className="performance-panel">
+      <div role="tabpanel" id={`${id}-panel`} aria-labelledby={`${id}-${view}-tab`} className="performance-panel" tabIndex={0}>
         {view === 'shots' ? (
           <>
-            <p className="performance-caption">Farther from the basket means a tighter, bolder window. Numbers are the points each window was worth.</p>
+            <p className="performance-caption">Each circle is a question. Farther from the basket means a tighter, bolder window.</p>
             <ShotChartCourt attempts={attempts} />
             <ol className="performance-rounds" aria-label="Each shot" role="list">
               {attempts.map(({ number, outcome, potential }) => (
@@ -137,7 +135,7 @@ export function PerformanceRecap({ attempts, checkpoints, total }: {
             <ul className="performance-key" role="list" aria-label="Shot chart key">
               {outcomes.map((outcome) => (
                 <li key={outcome}>
-                  <svg width="16" height="16" viewBox="-1.7 -1.7 3.4 3.4" aria-hidden="true" focusable="false">
+                  <svg width="16" height="16" viewBox="-1.9 -1.9 3.8 3.8" aria-hidden="true" focusable="false">
                     <ShotMarker outcome={outcome} />
                   </svg>
                   {SHOT_OUTCOME_LABELS[outcome]}
@@ -149,6 +147,7 @@ export function PerformanceRecap({ attempts, checkpoints, total }: {
           <>
             <p className="performance-caption">{runLine}</p>
             <CourtRunCourt total={total} checkpoints={checkpoints} />
+            <p className="performance-q performance-rounds-label" aria-hidden="true">Running total</p>
             <ol className="performance-rounds" aria-label="Cumulative score by question" role="list">
               {checkpoints.map(({ number, total: cumulative }) => (
                 <li key={number}>

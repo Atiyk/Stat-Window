@@ -100,3 +100,6 @@
 }
 .round-record-flag path:first-child { fill: none; stroke: var(--ink); stroke-width: 1.6; }
 .round-record-flag path:last-child { fill: var(--ink); }
+
+/* With the court on, the running total answers the ball: it pulses as the ball lands. */
+.round-top[data-has-court] .round-total[data-earned] .tabular { animation-delay: 540ms; }

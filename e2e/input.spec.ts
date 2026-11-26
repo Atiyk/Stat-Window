@@ -103,14 +103,17 @@ test('mouse: both ends of a narrow window drag precisely from off-center contact
 test('six-digit scales fit at 320px with 200% text and keep exact editable values', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 568 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await openAt(page, new Date('2026-12-17T15:00:00Z'));
+  // 2027-01-10 Q2: All-Star attendance on a 0–150,000 scale (six-digit labels).
+  await openAt(page, new Date('2027-01-10T15:00:00Z'));
   await lockAndSettle(page);
   await next(page);
-  await expect(page.locator('.question')).toContainText('prize money');
+  await expect(page.locator('.question')).toContainText('All-Star Game');
   await page.addStyleTag({ content: 'html { font-size: 200% }' });
   await page.evaluate(() => document.fonts.ready);
-  const highReadout = page.getByRole('button', { name: /^High end: 750,000/ });
+  const highReadout = page.getByRole('button', { name: /^High end: \d{1,3},\d{3}/ });
   await expect(highReadout).toBeVisible();
+  const highValue = (await highReadout.getAttribute('aria-label') ?? (await highReadout.innerText())).match(/\d{1,3}(,\d{3})+/)![0].replace(/,/g, '');
+  expect(Number(highValue)).toBeGreaterThanOrEqual(10000);
   const labels = await page.locator('.tick-label').evaluateAll((elements) =>
     elements.map((element) => {
       const { left, right } = element.getBoundingClientRect();
@@ -123,11 +126,12 @@ test('six-digit scales fit at 320px with 200% text and keep exact editable value
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
   await highReadout.click();
   const input = page.getByRole('textbox', { name: /^High end/ });
-  await expect(input).toHaveValue('750000');
+  await expect(input).toHaveValue(highValue);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
-  await input.fill('700000');
+  const typed = String(Number(highValue) - 1000);
+  await input.fill(typed);
   await input.press('Enter');
-  await expect(highBracket(page)).toHaveAttribute('aria-valuenow', '700000');
+  await expect(highBracket(page)).toHaveAttribute('aria-valuenow', typed);
 });
 
 test('touch: dragging a bracket moves it and never scrolls the page', async ({ page, isMobile }) => {

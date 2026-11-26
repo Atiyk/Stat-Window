@@ -206,6 +206,21 @@ test.describe('Weekly Scoreboard', () => {
     expect(text).not.toMatch(/How many|\bwindows?\b/);
   });
 
+  test('the weekly image previews in square and portrait and downloads as a PNG', async ({ page }) => {
+    await seed(page, at(TODAY), week(['2026-11-23', '2026-11-25']));
+    await page.goto('/?weekly');
+    const img = page.locator('.weekly-image__preview img');
+    await expect(img).toHaveAttribute('alt', /Weekly scorecard image: .*Tue not played/);
+    const size = () => img.evaluate((el: HTMLImageElement) => el.decode().then(() => [el.naturalWidth, el.naturalHeight]));
+    expect(await size()).toEqual([1080, 1080]);
+    await page.getByLabel('Portrait').check();
+    await expect.poll(size).toEqual([1080, 1920]);
+    const download = page.waitForEvent('download');
+    await page.getByRole('button', { name: 'Save image' }).click();
+    expect((await download).suggestedFilename()).toBe('stat-window-week-2026-11-23-portrait.png');
+    await expect(page.getByRole('status')).toHaveText('Download started');
+  });
+
   test('back returns to today’s puzzle', async ({ page }) => {
     await seed(page, at(TODAY), week(['2026-11-24']));
     await page.goto('/?weekly');

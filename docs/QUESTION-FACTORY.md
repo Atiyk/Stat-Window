@@ -18,24 +18,59 @@ npm run factory -- plan --batch nba-1996-bulls-and-2016-warriors --start 2027-01
 # Review data/question-factory/proposals/<batch>.json; no live content was published.
 ```
 
-The same commands work for `--sport NFL`, `--sport MLB`, `--sport NHL`, `--sport SOCCER`, or any other sport. Add a **reviewed policy file** under `data/question-factory/policies/<sport>.json` for each new sport: approved hosts must reflect independently established license/terms permissions. `init` creates a **blank, explicitly unapproved** policy for new sports. The NBA policy permits only `en.wikipedia.org`, consistent with `docs/NBA_DATA_RIGHTS.md`; do not use a Basketball-Reference/NBA.com scraper or blindly trust scraped GitHub/Kaggle mirrors. Research facts are not permission to bulk copy an upstream dataset.
+The same commands work for `--sport NFL`, `--sport MLB`, `--sport NHL`, `--sport SOCCER`, or any other sport. Add a **reviewed policy file** under `data/question-factory/policies/<sport>.json` for each new sport: approved hosts must reflect independently established license/terms permissions. `init` creates a **blank, explicitly unapproved** policy for new sports. The NBA rights register (`docs/NBA_DATA_RIGHTS.md`) approves Wikipedia and, for single facts a person reads by hand one page at a time, Basketball-Reference. Agents research on Wikipedia only: Basketball-Reference's terms forbid automated access, so no scraper, bot or agent fetch ever touches it. The factory policy `data/question-factory/policies/nba.json` still lists only `en.wikipedia.org`. Never use NBA.com or scraped GitHub/Kaggle mirrors. Research facts are not permission to bulk copy an upstream dataset.
 
 `npm run factory -- check` checks all committed candidate batches. `npm run factory:check` is the CI-friendly equivalent. **Neither command approves drafts.**
 
-## V5 question formats (NBA pipeline)
+## Question formats and the 2/2/1 rule (NBA, taxonomy v2 from V5.2)
 
-NBA facts can carry `question.format` (reference, missing-point chart, difference, ratio, ranking, trajectory). Validation, metadata, the spoiler rule and the `scripts/nba/revise.ts` editorial-batch workflow are documented in [V5.md](V5.md).
+Players see three formats (`PLAYER_FORMATS` in `src/content/formats.ts`). The format is the question's single primary task; subjects, eras and stat families never count toward it.
 
-## V5.1 daily variety rule (official slates)
+| Format | What the player sees | Fact spec (`question.format`) |
+|---|---|---|
+| `recall` | A clear numerical question on its own. | Omit `format`. Write `{kind: "recall", derive}` only when the answer is computed (a gap, a share, a sum), or `{kind: "recall", ranking: {population, ties}}` for a rank or count. |
+| `reference` | The prompt prints a related verified figure that helps the estimate. | `{kind: "reference", references: [factId, ...]}`; the prompt must print each reference's figure. |
+| `missing-point` | A small bar chart of related verified observations with one gap: the answer. | `{kind: "missing-point", chart: {title, unit, points: [{label, fact}]}}` |
 
-From `VARIETY_FROM` (2026-11-30) every official five-question slate must use **at least three canonical formats and at most two of any one** (2+2+1, 2+1+1+1 or 1+1+1+1+1). The format is the question's single primary reasoning task (`question.format.kind`; plain recall omits it); subjects, eras and stat families never count. `slateFormatIssues` in `src/content/formats.ts` is the one implementation, enforced by `validateNba`, `content:check` (day files must carry `meta.format`), `content:publish:check`, the factory `plan` (research facts may set `format`; otherwise `difference` → difference, `sum` → trajectory, `literal` → recall) and CI.
+`difference`, `ratio`, `ranking` and `trajectory` are **retired** (`RETIRED_FORMATS`). They stay in the storage schema only because published beta days, saved runs and the Survival reserve keep the label they were played with. A former difference or trajectory question keeps its derivation and becomes `recall`, or `reference`/`missing-point` if that is genuinely what the player sees. Never relabel a question with a format it doesn't use.
 
-Generation rules for future requests:
-1. Judge substance first (hook, decision, clarity, fairness, scale, payoff). Never relabel a question with a format it doesn't use, and never add a weak question to satisfy the counts.
-2. Build formats from verified facts: a reference prints another verified figure as an anchor that helps but isn't effectively the answer; a chart shows 3–7 comparable observations (same family and unit) and must **not** list bars in value order (the validator rejects it, because neighbours bracket the hidden answer); differences and ratios state direction, denominator, unit and rounding; rankings state population and ties.
-3. Supports must be played on a strictly earlier day or sit in the reserve.
-4. Record one decision per slot with `scripts/nba/revise.ts` (several disjoint batches: `--batch a.json,b.json`; while editors work in parallel, `--check --scope FROM..TO`). The audit is `data/nba/editorial/v51-audit.json`. `scripts/nba/editorial-brief.ts` prints a range and its support pool; `scripts/nba/variety-report.ts` prints the day-by-day mix.
-5. Independent editorial review of every changed slot is required before release.
+### The 2/2/1 rule
+
+Every official slate (from `VARIETY_FROM`, 2026-11-30):
+1. two questions of one format, two of another, one of the third: all three formats present;
+2. no retired format;
+3. a format sequence (format per slot) different from the previous and the next official day;
+4. the single format rotates across the season. `data/nba/editorial/v52/plan.json` gives each day's target `sequence` and `single`; keep the day's `single` and move slots within the day only if it stays 2/2/1 and differs from its neighbours.
+
+Enforcement:
+- `slateFormatIssues` and `sequenceIssues` in `src/content/formats.ts` are the one implementation.
+- `validateNba` (`scripts/nba/model.ts`) runs both on the calendar, so `content:check`, `content:publish:check`, the build and CI fail on a bad day or a repeated sequence. `content:check` also runs `slateFormatIssues` on day files, which must carry `meta.format`.
+- The factory's `selectSlate` (`scripts/question-factory/core.ts`) only proposes official slates that pass `slateFormatIssues`. A research fact sets `format` to `reference` or `missing-point`; otherwise it counts as `recall`. `plan` does not check sequences across days, so the NBA validator catches those after integration.
+- `scripts/nba/formats.test.ts`, block "V5.2 official-season audit": one audit decision per official slot in `data/nba/editorial/v52-audit.json` matching the calendar, every day 2/2/1, no repeated consecutive sequence, and each format the single on at least a quarter of days.
+- `scripts/nba/formats.ts` `formatIssues` checks each spec: references printed in the prompt, chart size and labels, same unit and family, bars within the scale and on its step, bars not in value order around the gap, a derivation shown in `source.derivation`.
+
+### Reference quality
+
+A shared unit alone does not make two numbers comparable. A coach's age does not help estimate a young MVP's age; another young MVP's age does. Good anchors are comparable players or styles, similar achievements, the same career stage, comparable playoff performances, related team records, or a familiar benchmark that gives scale. Reject an anchor within about 5% of the answer or one that effectively discloses it, and reject misleading comparisons. If no reference helps, make the question recall and rebalance the day with another slot. The editorial note for every reference question says why the reference materially helps.
+
+### Chart quality
+
+The chart tells a basketball story: a player's scoring evolution, title teams' win totals, historic playoff nights, comparable players in similar roles, an outlier. Several unrelated numbers that share a unit are not a story. Rules:
+- 3 to 7 bars (prefer 3 to 5, readable inside 24 seconds), labels of 14 characters or fewer ("Kobe '06"), title of 48 or fewer;
+- the same stat family and unit as the question;
+- bars ordered by season, chronology or name, never by value around the hidden bar (the validator rejects it);
+- every bar at or below the scale max and representable at the question's step;
+- the prompt says what the bars are in a few words; the note says what story the chart tells.
+
+### Supports, reveals and the five-question arc
+
+- A reference or chart bar must come from a fact played as a daily on a strictly earlier day, or sitting in the reserve.
+- Reveals and fun facts give concise, sourced context (about 140 characters): perspective, history, a comparison, a story. They never restate the question or the answer, and they skip "Benchmark:" lines and empty adjectives. Every fun fact carries its source name, URL and a short verbatim quote.
+- Q1 is an accessible opener, Q2 an interesting estimation decision, Q3 a change in presentation or reasoning, Q4 more demanding, Q5 a memorable final shot that stays interesting even when the score is poor. The hidden ladder (easy, medium, hard, hard, expert) and the rating guards below still apply.
+
+### Recording editorial changes
+
+Record one decision per slot (`retained`, `reframed` with a `patch`, or `replaced` with a `newFact`) with `scripts/nba/revise.ts`. Several disjoint batches: `--batch a.json,b.json`; while editors work in parallel, `--check --scope FROM..TO`. `"format": null` in a patch returns a question to plain recall. A reframe never changes the answer. `scripts/nba/editorial-brief.ts` prints a range and its support pool; `scripts/nba/variety-report.ts` prints the day-by-day mix. Independent editorial review of every changed slot is required before release. Earlier audits (`launch-audit.json`, `v51-audit.json`) are frozen records; V5's spec details are in [V5.md](V5.md).
 
 ## Working data contract
 

@@ -96,6 +96,7 @@ Report small numbers as counts with an interval, not as rates: 7 of 10 is "somew
 | `/e/scouting/open/{home,results}` | the Scouting Report was opened from the home screen or a results screen (each open; a user action) | is the report worth keeping, and where is it found |
 | `/e/weekly/open/{home,results,scouting}` | the Weekly Scoreboard was opened from that entry point | weekly engagement |
 | `/e/weekly/share/{native,clipboard,failed,cancelled}` | the weekly scorecard share button result | does the weekly card get used? |
+| `/e/weekly/share/{native-image,image-saved}` | the share sheet sent the weekly scorecard PNG / "Save image" downloaded it | does the weekly image get used? |
 | `/e/practice/{expand,start}/home` | the home "Practice" disclosure was opened / a past game was started from it | practice discovery |
 (V5.1 entries carry no scores, days, answers or counts: only the fixed words in braces.)
 

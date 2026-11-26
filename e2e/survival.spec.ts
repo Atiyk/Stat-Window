@@ -249,8 +249,15 @@ test.describe('public flag (on): the offer, the gate, the events', () => {
   test.skip(({ isMobile }) => isMobile, 'event wiring is the same on mobile; run once');
   test.use({ baseURL: ON });
 
+  // These days are in the official season, so every path carries the season cohort
+  // (`/e/s1/…`, docs/LAUNCH.md). The assertions below are about Survival's own vocabulary,
+  // so the cohort is checked once here and then stripped.
   const views = (page: Page) =>
-    page.evaluate(() => ((window as unknown as { vaq?: unknown[][] }).vaq ?? []).filter((c) => c[0] === 'pageview').map((c) => (c[1] as { path: string }).path));
+    page.evaluate(() => ((window as unknown as { vaq?: unknown[][] }).vaq ?? []).filter((c) => c[0] === 'pageview').map((c) => (c[1] as { path: string }).path))
+      .then((paths) => {
+        for (const p of paths) if (p.startsWith('/e/')) expect(p, 'official-season events carry the s1 cohort').toMatch(/^\/e\/s1\//);
+        return paths.map((p) => p.replace(/^\/e\/s1\//, '/e/'));
+      });
 
   const ARM_KEY = 'stat-window:x:survival-cta:v1';
   const setArm = (page: Page, arm: 'cta' | 'control') =>

@@ -10,7 +10,7 @@
   color: var(--ink-soft);
   text-wrap: balance;
 }
-.q-chart__unit { color: var(--tick); }
+.q-chart__unit { color: var(--ink-soft); } /* text: --tick (3.99:1 on cream) is for marks only */
 .q-chart__cols {
   display: grid;
   gap: 6px;

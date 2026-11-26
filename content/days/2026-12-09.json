@@ -254,7 +254,7 @@
     {
       "id": "nba-dame21-playoffs-12-threes",
       "sport": "NBA",
-      "prompt": "The chart shows famous shooting nights. How many threes did Damian Lillard make in his 2021 double-overtime playoff game at Denver?",
+      "prompt": "The chart mixes regular-season and playoff nights. How many threes did Damian Lillard make in his 2021 double-overtime playoff game?",
       "context": "Damian Lillard · Blazers at Nuggets · 2021 playoffs",
       "answer": 12,
       "unit": {
@@ -302,27 +302,27 @@
         }
       ],
       "chart": {
-        "title": "Threes made in one game",
+        "title": "Threes in one game (season and playoffs)",
         "unit": "three-pointers",
         "points": [
           {
-            "label": "Kobe '03",
+            "label": "Kobe '03 reg",
             "value": 12
           },
           {
-            "label": "Allen '10",
+            "label": "Allen '10 Fin",
             "value": 8
           },
           {
-            "label": "Miller '12",
+            "label": "Miller '12 Fin",
             "value": 7
           },
           {
-            "label": "Curry '16",
+            "label": "Curry '16 reg",
             "value": 13
           },
           {
-            "label": "Dame '21",
+            "label": "Dame '21 PO",
             "value": null
           }
         ]

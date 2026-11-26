@@ -70,7 +70,7 @@
     {
       "id": "nba-celtics02-4q",
       "sport": "NBA",
-      "prompt": "The chart shows famous one-quarter explosions. How many fourth-quarter points did Boston score in Game 3 of the 2002 East finals?",
+      "prompt": "Cleveland scored a Finals-record 49 in a quarter in 2017. How many fourth-quarter points did Boston score in Game 3 of the 2002 East finals?",
       "context": "2002 East finals · Game 3 · vs New Jersey",
       "answer": 41,
       "unit": {
@@ -117,43 +117,14 @@
           }
         }
       ],
-      "chart": {
-        "title": "Points in one quarter",
-        "unit": "points",
-        "points": [
-          {
-            "label": "Isiah '88",
-            "value": 25
-          },
-          {
-            "label": "Miller '94",
-            "value": 25
-          },
-          {
-            "label": "Celtics '02",
-            "value": null
-          },
-          {
-            "label": "Klay '15",
-            "value": 37
-          },
-          {
-            "label": "Cavs '17",
-            "value": 49
-          }
-        ]
-      },
       "meta": {
-        "format": "missing-point",
+        "format": "reference",
         "family": "points-period",
         "era": "cross-era",
         "subjects": [
           "Boston Celtics"
         ],
         "supports": [
-          "nba-isiah88-finals-injured-quarter-25",
-          "nba-miller94-4q",
-          "nba-klay15-quarter-37",
           "nba-cavs17-g4-q1"
         ]
       }

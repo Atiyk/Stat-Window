@@ -55,7 +55,17 @@
             "quote": "Kobe Bryant was named the Most Valuable Player of the Finals for the second consecutive year"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "titles",
+        "era": "2000s",
+        "subjects": [
+          "Phil Jackson",
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-bulls97-wins",
@@ -106,7 +116,16 @@
             "quote": "a bold, gradient \"Purple Mountain\" motif"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "1990s",
+        "subjects": [
+          "Chicago Bulls"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-duncan14-season-rpg",
@@ -157,7 +176,17 @@
             "quote": "Tim Duncan | C | 74 | 74 | 2,158 | 721 | 220 | 43 | 139 | 1,119"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "rebounds-average",
+        "era": "2010s",
+        "subjects": [
+          "Tim Duncan",
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-allen13-g6-seconds",
@@ -208,7 +237,17 @@
             "quote": "Game 6 of the 2013 NBA Finals received the 2013 ESPY award for Best Game"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "time",
+        "era": "2010s",
+        "subjects": [
+          "Ray Allen",
+          "Miami Heat"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-shai25-finals-g7-12-assists",
@@ -259,7 +298,17 @@
             "quote": "most blocks (5) in a Game 7"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "assists-game",
+        "era": "2020s",
+        "subjects": [
+          "Shai Gilgeous-Alexander",
+          "Oklahoma City Thunder"
+        ],
+        "supports": []
+      }
     }
   ]
 }

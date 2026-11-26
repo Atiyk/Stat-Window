@@ -55,12 +55,22 @@
             "quote": "breaking the Sixers franchise record for most points in a game previously set by Wilt Chamberlain in 1967"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2020s",
+        "subjects": [
+          "Joel Embiid",
+          "Philadelphia 76ers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-harden19-30-streak",
       "sport": "NBA",
-      "prompt": "In 2018–19, James Harden scored 30 or more in how many straight games?",
+      "prompt": "Kobe Bryant once scored 40 or more in 9 straight games. In 2018–19, how many straight games did James Harden score 30 or more?",
       "context": "Houston Rockets · December 2018 to February 2019",
       "answer": 32,
       "unit": {
@@ -106,7 +116,19 @@
             "quote": "they clinched another playoff spot for the 7th straight year"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "scoring-streak",
+        "era": "cross-era",
+        "subjects": [
+          "James Harden",
+          "Houston Rockets"
+        ],
+        "supports": [
+          "nba-kobe03-40-streak"
+        ]
+      }
     },
     {
       "id": "nba-pippen97-g3-threes",
@@ -157,7 +179,17 @@
             "quote": "Chicago attempted a 4th-quarter comeback, cutting a 24-point deficit down to 7"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "threes-game",
+        "era": "1990s",
+        "subjects": [
+          "Scottie Pippen",
+          "Chicago Bulls"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-andersen13-fg",
@@ -208,7 +240,17 @@
             "quote": "Chris Andersen  | 5  | 0  | 14.2"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "shooting-pct",
+        "era": "2010s",
+        "subjects": [
+          "Chris Andersen",
+          "Miami Heat"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-herro20-bubble-ecf-g4-thirtyseven",
@@ -259,7 +301,17 @@
             "quote": "he was named to the 2019–20 NBA All-Rookie Second Team"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "Tyler Herro",
+          "Miami Heat"
+        ],
+        "supports": []
+      }
     }
   ]
 }

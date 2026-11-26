@@ -55,7 +55,16 @@
             "quote": "During this game Draymond Green recorded a five-by-five game"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "win-streak",
+        "era": "2010s",
+        "subjects": [
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-sonics79-january-wins",
@@ -106,58 +115,80 @@
             "quote": "January 11 @ Phoenix W 109–106"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-month",
+        "era": "1970s",
+        "subjects": [
+          "Oklahoma City Thunder"
+        ],
+        "supports": []
+      }
     },
     {
-      "id": "nba-blazers77-g4-margin",
+      "id": "nba-knicks24-wins-v5",
       "sport": "NBA",
-      "prompt": "By how many points did Portland win Game 4 of the 1977 Finals?",
-      "context": "1977 NBA Finals · Game 4 · vs Philadelphia",
-      "answer": 32,
+      "prompt": "How many regular-season games did the 2023–24 Knicks win as the Eastern Conference's No. 2 seed?",
+      "context": "New York Knicks · 2023–24 · Boston was the No. 1 seed",
+      "answer": 50,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 0,
-      "max": 45,
+      "min": 28,
+      "max": 66,
       "step": 1,
-      "note": "32, the largest Game 4 margin until 2024.",
+      "note": "50, 14 behind Boston: the widest gap between the East's top two seeds since 1976.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-        "quote": "the 32 point win being the largest margin of victory in a Finals game 4 until 2024"
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
+        "quote": "widest margin of wins between the first and second seeds in the Eastern Conference since 1976 at 14 games",
+        "derivation": "Boston 64 wins − 14-win gap to the second seed = 50 wins for New York."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Julius Erving led Philadelphia with 24 points in its Game 4 defeat.",
+          "text": "New York finished second in both the Atlantic Division and the Eastern Conference behind Boston.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Pts: Erving 24"
+            "url": "https://en.wikipedia.org/wiki/2023%E2%80%9324_Boston_Celtics_season",
+            "quote": "the second-place team in the Atlantic Division and the entire Eastern Conference, the New York Knicks."
           }
         },
         {
-          "text": "Maurice Lucas's Blazers had lost the opening pair in Philadelphia before evening the series at home.",
+          "text": "That spring Jalen Brunson passed the 46 points Bernard King scored in 1984, a Knicks playoff mark.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "The series started 2–0 in favor of Philadelphia, but Portland rebounded in the next four games"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "he surpassed the 46 points scored by Bernard King in 1984"
           }
         },
         {
-          "text": "Walton contributed 13 rebounds despite foul trouble in that victory.",
+          "text": "In that record playoff game, Brunson made 18 of his 34 shots.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
-            "quote": "Rebs: Walton 13"
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
+            "quote": "Brunson shot 18-of-34 from the field"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "difference",
+        "family": "wins-season",
+        "era": "2020s",
+        "subjects": [
+          "New York Knicks"
+        ],
+        "supports": [
+          "nba-celtics24-wins",
+          "nba-celtics24-seed-gap"
+        ]
+      }
     },
     {
       "id": "nba-green16-g7",
@@ -208,20 +239,30 @@
             "quote": "Kyrie Irving added 26 points for Cleveland"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "Draymond Green",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-dame21-playoffs-12-threes",
       "sport": "NBA",
-      "prompt": "In Damian Lillard's incredible double-overtime 2021 playoff battle with Denver, how many threes did he make?",
+      "prompt": "The chart shows famous shooting nights. How many threes did Damian Lillard make in his 2021 double-overtime playoff game at Denver?",
       "context": "Damian Lillard · Blazers at Nuggets · 2021 playoffs",
       "answer": 12,
       "unit": {
         "singular": "three-pointer",
         "plural": "three-pointers"
       },
-      "min": 2,
-      "max": 30,
+      "min": 0,
+      "max": 18,
       "step": 1,
       "note": "12 threes, a playoff record, as Dame scored 55 in a heartbreaking defeat.",
       "source": {
@@ -259,7 +300,48 @@
             "quote": "the Nuggets rallied to a 147–140 double-overtime victory to take a 3–2 series lead"
           }
         }
-      ]
+      ],
+      "chart": {
+        "title": "Threes made in one game",
+        "unit": "three-pointers",
+        "points": [
+          {
+            "label": "Kobe '03",
+            "value": 12
+          },
+          {
+            "label": "Allen '10",
+            "value": 8
+          },
+          {
+            "label": "Miller '12",
+            "value": 7
+          },
+          {
+            "label": "Curry '16",
+            "value": 13
+          },
+          {
+            "label": "Dame '21",
+            "value": null
+          }
+        ]
+      },
+      "meta": {
+        "format": "missing-point",
+        "family": "threes-game",
+        "era": "cross-era",
+        "subjects": [
+          "Damian Lillard",
+          "Portland Trail Blazers"
+        ],
+        "supports": [
+          "nba-kobe03-threes",
+          "nba-allen10-g2-threes",
+          "nba-miller12-g5-threes",
+          "nba-curry16-13-threes"
+        ]
+      }
     }
   ]
 }

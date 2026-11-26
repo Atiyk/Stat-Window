@@ -55,20 +55,30 @@
             "quote": "Curry finished the season averaging 30.1 points per game"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "threes-season",
+        "era": "2010s",
+        "subjects": [
+          "Stephen Curry",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-celtics02-4q",
       "sport": "NBA",
-      "prompt": "Boston erased a big deficit in Game 3 of the 2002 East finals. How many points did it score in the fourth quarter?",
+      "prompt": "The chart shows famous one-quarter explosions. How many fourth-quarter points did Boston score in Game 3 of the 2002 East finals?",
       "context": "2002 East finals · Game 3 · vs New Jersey",
       "answer": 41,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 24,
-      "max": 62,
+      "min": 10,
+      "max": 60,
       "step": 1,
       "note": "41, to New Jersey's 16.",
       "source": {
@@ -106,20 +116,60 @@
             "quote": "Pts: Paul Pierce 28"
           }
         }
-      ]
+      ],
+      "chart": {
+        "title": "Points in one quarter",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Isiah '88",
+            "value": 25
+          },
+          {
+            "label": "Miller '94",
+            "value": 25
+          },
+          {
+            "label": "Celtics '02",
+            "value": null
+          },
+          {
+            "label": "Klay '15",
+            "value": 37
+          },
+          {
+            "label": "Cavs '17",
+            "value": 49
+          }
+        ]
+      },
+      "meta": {
+        "format": "missing-point",
+        "family": "points-period",
+        "era": "cross-era",
+        "subjects": [
+          "Boston Celtics"
+        ],
+        "supports": [
+          "nba-isiah88-finals-injured-quarter-25",
+          "nba-miller94-4q",
+          "nba-klay15-quarter-37",
+          "nba-cavs17-g4-q1"
+        ]
+      }
     },
     {
       "id": "nba-kobe05-62-three-quarters",
       "sport": "NBA",
-      "prompt": "Kobe Bryant sat out the fourth quarter against Dallas on December 20, 2005. How many points did he have through three?",
+      "prompt": "A month before his 81-point game, Kobe Bryant sat out the fourth quarter against Dallas. How many points did he have through three?",
       "context": "Lakers vs Dallas Mavericks · 2005–06",
       "answer": 62,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 30,
-      "max": 85,
+      "min": 25,
+      "max": 80,
       "step": 1,
       "note": "62, one more than the whole Mavericks team had at that point.",
       "source": {
@@ -157,7 +207,19 @@
             "quote": "Jeanie Buss, Jackson's girlfriend, owner's Jerry Buss daughter, and Lakers vice president of player personnel, was self-admittedly mad at Jackson"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "points-game",
+        "era": "2000s",
+        "subjects": [
+          "Kobe Bryant",
+          "Los Angeles Lakers"
+        ],
+        "supports": [
+          "nba-kobe-81"
+        ]
+      }
     },
     {
       "id": "nba-celtics08-g6-margin",
@@ -208,7 +270,16 @@
             "quote": "every Boston player who saw action scored"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "margin",
+        "era": "2000s",
+        "subjects": [
+          "Boston Celtics"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-kings23-light-beam-sixteen-drought",
@@ -259,7 +330,16 @@
             "quote": "Mike Brown was named NBA Coach Of The Year for his role in ending the playoff drought."
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "seasons-count",
+        "era": "2020s",
+        "subjects": [
+          "Sacramento Kings"
+        ],
+        "supports": []
+      }
     }
   ]
 }

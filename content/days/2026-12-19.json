@@ -55,12 +55,21 @@
             "quote": "The 2022–23 Denver Nuggets season was the 47th season for the franchise"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "2020s",
+        "subjects": [
+          "Denver Nuggets"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-jordan91-straight-makes",
       "sport": "NBA",
-      "prompt": "In Game 2 of the 1991 Finals, Michael Jordan made how many shots in a row?",
+      "prompt": "Chris Paul went 14 for 14 from the field in a 2022 playoff game. In Game 2 of the 1991 Finals, Jordan made how many shots in a row?",
       "context": "1991 NBA Finals · Game 2 · vs Lakers",
       "answer": 13,
       "unit": {
@@ -106,7 +115,19 @@
             "quote": "one of Albert's most iconic calls"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "field-goals",
+        "era": "cross-era",
+        "subjects": [
+          "Michael Jordan",
+          "Chicago Bulls"
+        ],
+        "supports": [
+          "nba-cp3-2022-perfect-playoff-shots"
+        ]
+      }
     },
     {
       "id": "nba-giannis21-g6-ft",
@@ -157,7 +178,17 @@
             "quote": "His defense helped limit Booker to 19 points"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "free-throws",
+        "era": "2020s",
+        "subjects": [
+          "Giannis Antetokounmpo",
+          "Milwaukee Bucks"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-sixers01-opening-streak",
@@ -208,7 +239,16 @@
             "quote": "At one point, the team's record was 42–14, but finished 14–12 the rest of the way"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "win-streak",
+        "era": "2000s",
+        "subjects": [
+          "Philadelphia 76ers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-vince01-sixers-first-half-eight-threes",
@@ -259,7 +299,17 @@
             "quote": "May 11, 2001, vs. Philadelphia 76ers"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "threes-game",
+        "era": "2000s",
+        "subjects": [
+          "Vince Carter",
+          "Toronto Raptors"
+        ],
+        "supports": []
+      }
     }
   ]
 }

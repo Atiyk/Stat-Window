@@ -9,15 +9,15 @@
     {
       "id": "nba-kobe-81",
       "sport": "NBA",
-      "prompt": "How many points did Kobe Bryant score against Toronto on January 22, 2006?",
-      "context": "Lakers vs Toronto Raptors · 2005–06",
+      "prompt": "The chart shows three famous scoring nights. How many points did Kobe Bryant score against Toronto in January 2006?",
+      "context": "Lakers vs Toronto Raptors · January 22, 2006",
       "answer": 81,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
       "min": 40,
-      "max": 105,
+      "max": 110,
       "step": 1,
       "note": "81, his career high.",
       "source": {
@@ -40,11 +40,11 @@
           }
         },
         {
-          "text": "Bryant poured in 55 points after halftime alone.",
+          "text": "By the time of this game, Bryant had already become the youngest player to win three championships.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
-            "quote": "with 55 points in the second half"
+            "quote": "At age 23, he became the youngest player to win three championships"
           }
         },
         {
@@ -55,7 +55,43 @@
             "quote": "Bryant play 42 minutes, shooting 28-of-46 from the field, including 7-of-13 on three-pointers"
           }
         }
-      ]
+      ],
+      "chart": {
+        "title": "Points in one game",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Baylor '60",
+            "value": 71
+          },
+          {
+            "label": "Wilt '61",
+            "value": 78
+          },
+          {
+            "label": "Wilt '62",
+            "value": 100
+          },
+          {
+            "label": "Kobe '06",
+            "value": null
+          }
+        ]
+      },
+      "meta": {
+        "format": "missing-point",
+        "family": "points-game",
+        "era": "cross-era",
+        "subjects": [
+          "Kobe Bryant",
+          "Los Angeles Lakers"
+        ],
+        "supports": [
+          "nba-baylor60-71",
+          "nba-wilt61-78",
+          "nba-wilt-100"
+        ]
+      }
     },
     {
       "id": "nba-sonics94-opening-streak",
@@ -106,7 +142,16 @@
             "quote": "won 17 of their final 19 games of the season"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "win-streak",
+        "era": "1990s",
+        "subjects": [
+          "Oklahoma City Thunder"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-jokic23-finals-g3-rebounds",
@@ -157,20 +202,30 @@
             "quote": "Christian Braun scored 15 points"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "rebounds-game",
+        "era": "2020s",
+        "subjects": [
+          "Nikola Jokić",
+          "Denver Nuggets"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-bibby02-regular-apg",
       "sport": "NBA",
-      "prompt": "How many assists per game did Mike Bibby average for the 2002 Kings?",
+      "prompt": "Chris Webber averaged 4.8 assists for the 2001–02 Kings. How many did point guard Mike Bibby average?",
       "context": "Sacramento · first season after the Grizzlies trade",
       "answer": 5,
       "unit": {
         "singular": "assist per game",
         "plural": "assists per game"
       },
-      "min": 1,
-      "max": 12,
+      "min": 2,
+      "max": 10,
       "step": 0.1,
       "note": "5.0 assists per game as Sacramento's new point guard.",
       "source": {
@@ -208,7 +263,17 @@
             "quote": "Mike Bibby | 16 | 16 | 41.3 | .444 | .424 | .826"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "assists-average",
+        "era": "2000s",
+        "subjects": [
+          "Mike Bibby",
+          "Sacramento Kings"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-celtics08-allen-kg-g6-combined",
@@ -260,7 +325,16 @@
             "quote": "Kevin Garnett delivered his famous \"anything is possible\" speech"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-combined",
+        "era": "2000s",
+        "subjects": [
+          "Boston Celtics"
+        ],
+        "supports": []
+      }
     }
   ]
 }

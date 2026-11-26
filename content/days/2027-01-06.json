@@ -55,22 +55,31 @@
             "quote": "back-to-back Finals appearances, also against the Miami Heat"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-month",
+        "era": "2010s",
+        "subjects": [
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-wilt-60-point-games",
       "sport": "NBA",
-      "prompt": "How many regular-season 60-point games did Wilt Chamberlain have?",
+      "prompt": "Kobe Bryant had six regular-season games of 60 or more points. How many did Wilt Chamberlain have?",
       "context": "Wilt Chamberlain · 1959–1973",
       "answer": 32,
       "unit": {
         "singular": "game",
         "plural": "games"
       },
-      "min": 0,
-      "max": 45,
+      "min": 8,
+      "max": 60,
       "step": 1,
-      "note": "32. Kobe Bryant had six.",
+      "note": "32, more than five times Kobe's total.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_scoring_leaders",
@@ -106,7 +115,17 @@
             "quote": "at Hershey Sports Arena in Hershey, Pennsylvania"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "ranking",
+        "family": "scoring-games",
+        "era": "1970s",
+        "subjects": [
+          "Wilt Chamberlain",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-shaq00-g2-fta",
@@ -157,22 +176,32 @@
             "quote": "he passed to Robert Horry who converted not only the layup, but the foul shot"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "free-throws",
+        "era": "1990s",
+        "subjects": [
+          "Shaquille O'Neal",
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-suns05-road-victories",
       "sport": "NBA",
-      "prompt": "How many road games did Phoenix win during the 2004–05 regular season?",
+      "prompt": "The 1995–96 Bulls won 33 road games. How many road games did the 2004–05 Suns win?",
       "context": "Phoenix Suns · 41 regular-season away games",
       "answer": 31,
       "unit": {
         "singular": "road win",
         "plural": "road wins"
       },
-      "min": 17,
-      "max": 41,
+      "min": 14,
+      "max": 40,
       "step": 1,
-      "note": "31 road victories—matching the team's home wins.",
+      "note": "31 road wins, matching their 31–10 home record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
@@ -208,7 +237,18 @@
             "quote": "In the first round of the playoffs, the Suns swept the Memphis Grizzlies in four games"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "wins-situational",
+        "era": "cross-era",
+        "subjects": [
+          "Phoenix Suns"
+        ],
+        "supports": [
+          "nba-bulls96-road-wins"
+        ]
+      }
     },
     {
       "id": "nba-bird85-hawks-sixty",
@@ -223,7 +263,7 @@
       "min": 10,
       "max": 130,
       "step": 1,
-      "note": "60 points—just nine days after teammate Kevin McHale had scored 56.",
+      "note": "60 points, just nine days after teammate Kevin McHale had scored 56.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Larry_Bird",
@@ -259,7 +299,17 @@
             "quote": "Bird scored his playoff career-high 43 points against the Detroit Pistons"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "1980s",
+        "subjects": [
+          "Larry Bird",
+          "Boston Celtics"
+        ],
+        "supports": []
+      }
     }
   ]
 }

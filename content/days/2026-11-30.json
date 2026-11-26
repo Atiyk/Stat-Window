@@ -55,7 +55,17 @@
             "quote": "Dirk Nowitzki had a chance to tie the game at the free throw line with 3.4 seconds to go, but missed 1 of 2"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2000s",
+        "subjects": [
+          "Dwyane Wade",
+          "Miami Heat"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-allen10-g2-threes",
@@ -106,7 +116,17 @@
             "quote": "The last Finals series to be tied at 1–1 after two games was the 2004 NBA Finals"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "threes-game",
+        "era": "2000s",
+        "subjects": [
+          "Ray Allen",
+          "Boston Celtics"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-gordon23-finals-g4-points",
@@ -157,7 +177,17 @@
             "quote": "Bruce Brown came off the bench and scored 11 of his 21 points in the fourth quarter"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2020s",
+        "subjects": [
+          "Aaron Gordon",
+          "Denver Nuggets"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-korver15-three-pct",
@@ -209,7 +239,17 @@
             "quote": "Kyle Korver | March 15, 2015 | March 21, 2015 | Broken nose"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "shooting-pct",
+        "era": "2010s",
+        "subjects": [
+          "Kyle Korver",
+          "Atlanta Hawks"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-lakers00-portland-g7-comeback",
@@ -260,7 +300,16 @@
             "quote": "Pts: Rasheed Wallace 30"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "comeback",
+        "era": "1990s",
+        "subjects": [
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     }
   ]
 }

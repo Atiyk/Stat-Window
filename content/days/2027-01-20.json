@@ -55,7 +55,17 @@
             "quote": "Jokić was awarded his first NBA Conference Finals Most Valuable Player Award"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "triple-doubles-season",
+        "era": "2020s",
+        "subjects": [
+          "Nikola Jokić",
+          "Denver Nuggets"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-westbrook12-g4",
@@ -106,7 +116,17 @@
             "quote": "Mario Chalmers scored 25 points and made two key plays to seal Miami's win"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "Russell Westbrook",
+          "Oklahoma City Thunder"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-celtics-lakers-finals-record",
@@ -157,12 +177,21 @@
             "quote": "The Celtics won their previous NBA Finals appearance against the Lakers in 2008"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "titles",
+        "era": "2000s",
+        "subjects": [
+          "Boston Celtics"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-spurs97-wins",
       "sport": "NBA",
-      "prompt": "How many games did the Spurs win in 1996–97, the season before they drafted Tim Duncan?",
+      "prompt": "The 1998–99 Spurs went 37–13 in the lockout season. How many games had San Antonio won two seasons earlier, in 1996–97?",
       "context": "San Antonio Spurs · 1996–97 · 82 games",
       "answer": 20,
       "unit": {
@@ -172,7 +201,7 @@
       "min": 12,
       "max": 54,
       "step": 1,
-      "note": "20, finishing 20–62.",
+      "note": "20, finishing 20–62. The lottery pick that followed became Tim Duncan.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/David_Robinson",
@@ -208,7 +237,18 @@
             "quote": "Sean Elliott, who missed more than half the season"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "wins-season",
+        "era": "1990s",
+        "subjects": [
+          "San Antonio Spurs"
+        ],
+        "supports": [
+          "nba-spurs99-wins"
+        ]
+      }
     },
     {
       "id": "nba-lakers01-shaq-kobe-fifteen-playoff-wins",
@@ -223,7 +263,7 @@
       "min": 0,
       "max": 26,
       "step": 1,
-      "note": "15 wins against just one loss—the Lakers swept the first three rounds and then beat Iverson's Sixers.",
+      "note": "15 wins against one loss. The Lakers swept the West, then beat Iverson's Sixers.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2001_NBA_playoffs",
@@ -259,7 +299,16 @@
             "quote": "going undefeated in regulation and on the road (finishing 8–0 in the latter category)"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-playoffs",
+        "era": "2000s",
+        "subjects": [
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     }
   ]
 }

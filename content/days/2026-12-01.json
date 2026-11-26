@@ -55,7 +55,16 @@
             "quote": "Hedo Türkoğlu's game winner in game four of that series"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "2000s",
+        "subjects": [
+          "Orlando Magic"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-rose11-mvp-youngest-age",
@@ -106,7 +115,17 @@
             "quote": "formerly the youngest MVP"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "age",
+        "era": "2010s",
+        "subjects": [
+          "Derrick Rose",
+          "Chicago Bulls"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-luka22-knicks-triple-rebounds",
@@ -157,7 +176,17 @@
             "quote": "previously held by Nowitzki (53)"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "rebounds-game",
+        "era": "2020s",
+        "subjects": [
+          "Luka Dončić",
+          "Dallas Mavericks"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-mcgrady04-35-seconds",
@@ -208,7 +237,17 @@
             "quote": "After the All-Star break, Houston rebounded from their slow start, finishing the season with 51 wins"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-run",
+        "era": "2000s",
+        "subjects": [
+          "Tracy McGrady",
+          "Houston Rockets"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-lillard19-okc-winner-distance",
@@ -259,7 +298,17 @@
             "quote": "This was also the last Thunder game to feature both Russell Westbrook and Paul George"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "distance",
+        "era": "2010s",
+        "subjects": [
+          "Damian Lillard",
+          "Portland Trail Blazers"
+        ],
+        "supports": []
+      }
     }
   ]
 }

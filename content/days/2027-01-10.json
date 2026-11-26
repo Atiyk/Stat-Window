@@ -55,12 +55,22 @@
             "quote": "Giannis Antetokounmpo was named NBA Finals Most Valuable Player"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "scoring-average",
+        "era": "2020s",
+        "subjects": [
+          "Giannis Antetokounmpo",
+          "Milwaukee Bucks"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-allstar10-attendance",
       "sport": "NBA",
-      "prompt": "The 2010 NBA All-Star Game set the attendance record for a basketball game. How many people were there?",
+      "prompt": "The first All-Star Game, in 1951, drew 10,094 fans. How many people watched the record-setting 2010 game at Cowboys Stadium?",
       "context": "2010 NBA All-Star Game · held in a football stadium",
       "answer": 108713,
       "unit": {
@@ -106,7 +116,16 @@
             "quote": "This marked the first All-Star game where neither team wore a white uniform"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "attendance",
+        "era": "cross-era",
+        "subjects": [],
+        "supports": [
+          "nba-allstar51-attendance"
+        ]
+      }
     },
     {
       "id": "nba-miller-career-threes",
@@ -157,7 +176,17 @@
             "quote": "Stephen Curry, who is credited with revolutionizing the game by inspiring teams to more heavily employ the three-point shot"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "threes-career",
+        "era": "2000s",
+        "subjects": [
+          "Reggie Miller",
+          "Indiana Pacers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-wilt72-finals-reb",
@@ -208,7 +237,17 @@
             "quote": "win their sixth NBA title and their first since 1954, when the team was still based in Minneapolis"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "rebounds-game",
+        "era": "1970s",
+        "subjects": [
+          "Wilt Chamberlain",
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-curry22-allstar-sixteen-threes",
@@ -259,7 +298,17 @@
             "quote": "Team LeBron won the game 163–160."
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "threes-game",
+        "era": "2020s",
+        "subjects": [
+          "Stephen Curry",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     }
   ]
 }

@@ -55,20 +55,29 @@
             "quote": "The Sonics would go on to avenge their NBA Finals loss and defeat the Bullets"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "1970s",
+        "subjects": [
+          "Oklahoma City Thunder"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-jordan93-g4-55",
       "sport": "NBA",
-      "prompt": "How many points did Michael Jordan score in Game 4 of the 1993 Finals against Phoenix?",
+      "prompt": "Michael Jordan averaged 41.0 points in the 1993 Finals. How many did he score in Game 4 against Phoenix?",
       "context": "1993 NBA Finals · Game 4 · Chicago Stadium",
       "answer": 55,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 35,
-      "max": 85,
+      "min": 30,
+      "max": 75,
       "step": 1,
       "note": "55 at Chicago Stadium.",
       "source": {
@@ -106,35 +115,47 @@
             "quote": "The Phoenix Suns won Game 3 in triple overtime"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "points-game",
+        "era": "1990s",
+        "subjects": [
+          "Michael Jordan",
+          "Chicago Bulls"
+        ],
+        "supports": [
+          "nba-jordan93-finals-ppg"
+        ]
+      }
     },
     {
-      "id": "nba-jazz98-g3-54",
+      "id": "nba-bulls98-g3-margin-v5",
       "sport": "NBA",
-      "prompt": "Utah lost Game 3 of the 1998 Finals by 42 points. How many points did the Jazz score?",
+      "prompt": "Chicago routed Utah in Game 3 of the 1998 Finals. By how many points did the Bulls win?",
       "context": "1998 NBA Finals · Game 3 · at Chicago",
-      "answer": 54,
+      "answer": 42,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 30,
-      "max": 105,
+      "min": 10,
+      "max": 60,
       "step": 1,
-      "note": "54, in a 96–54 loss.",
+      "note": "42 points, a Finals record for margin of defeat.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
         "quote": "In a 96–54 loss, the Jazz set the record for the 42-point loss in Finals history"
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Chicago's entire roster eventually scored in the rout, including backup center Bill Wennington late.",
+          "text": "Every player on Chicago's roster scored at least once in the rout.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
@@ -142,7 +163,7 @@
           }
         },
         {
-          "text": "Utah had beaten Chicago in both regular-season meetings and entered the championship series confident.",
+          "text": "Utah had beaten Chicago in both regular-season meetings that year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
@@ -150,14 +171,23 @@
           }
         },
         {
-          "text": "The Jazz entered the Finals after sweeping Shaquille O'Neal's Los Angeles Lakers in the West finals.",
+          "text": "The Jazz reached the Finals by sweeping the Lakers in the West finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
             "quote": "the Jazz uneventfully swept the Los Angeles Lakers"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "margin",
+        "era": "1990s",
+        "subjects": [
+          "Chicago Bulls"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-wilt-100-fga",
@@ -208,7 +238,17 @@
             "quote": "Chamberlain set five other league records that game, including most free throws made"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "field-goals",
+        "era": "1960s",
+        "subjects": [
+          "Wilt Chamberlain",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-curry13-knicks-54",
@@ -259,7 +299,17 @@
             "quote": "his Warriors lost to the Knicks, 109–105"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "Stephen Curry",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     }
   ]
 }

@@ -55,12 +55,22 @@
             "quote": "Carlos Boozer | Signed 5-year contract for $80 Million | Utah Jazz"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "scoring-average",
+        "era": "2010s",
+        "subjects": [
+          "Derrick Rose",
+          "Chicago Bulls"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-oscar-career-td",
       "sport": "NBA",
-      "prompt": "How many career triple-doubles did Oscar Robertson record?",
+      "prompt": "Russell Westbrook had 42 triple-doubles in 2016–17 alone. How many did Oscar Robertson record in his whole career?",
       "context": "Royals and Bucks · 1960–1974",
       "answer": 181,
       "unit": {
@@ -106,7 +116,19 @@
             "quote": "For the first time in his career, Robertson had won an NBA championship"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "triple-doubles-career",
+        "era": "cross-era",
+        "subjects": [
+          "Oscar Robertson",
+          "Sacramento Kings"
+        ],
+        "supports": [
+          "nba-westbrook17-td"
+        ]
+      }
     },
     {
       "id": "nba-klay16-wcf-threes",
@@ -157,7 +179,17 @@
             "quote": "they defeated the Thunder 96–88"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "threes-game",
+        "era": "2010s",
+        "subjects": [
+          "Klay Thompson",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-spurs14-blowouts",
@@ -208,7 +240,16 @@
             "quote": "their other starters combined for only 28 points on 32 percent shooting"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-by-margin",
+        "era": "2010s",
+        "subjects": [
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-ad20-lakers-ten-straight-wcf-winner",
@@ -259,7 +300,17 @@
             "quote": "It was Davis second career (first in the playoff) game-winning buzzer beater."
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-run",
+        "era": "2010s",
+        "subjects": [
+          "Anthony Davis",
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     }
   ]
 }

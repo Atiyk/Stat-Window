@@ -55,19 +55,29 @@
             "quote": "the fourth player in league history to put up 72 or more points in a game"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2020s",
+        "subjects": [
+          "Luka Dončić",
+          "Dallas Mavericks"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-gsw16-allstar-wins",
       "sport": "NBA",
-      "prompt": "What was the Warriors' win total at the 2016 All-Star break?",
+      "prompt": "Golden State opened 2015–16 with 24 straight wins. What was its win total at the All-Star break?",
       "context": "Golden State Warriors · 2015–16 · first half of the season",
       "answer": 48,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 28,
+      "min": 24,
       "max": 60,
       "step": 1,
       "note": "48–4, the best record ever at the break.",
@@ -106,7 +116,18 @@
             "quote": "fastest team to reach 50 wins in a season, accomplishing this in just 55 games"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "wins-season",
+        "era": "2010s",
+        "subjects": [
+          "Golden State Warriors"
+        ],
+        "supports": [
+          "nba-gsw16-start"
+        ]
+      }
     },
     {
       "id": "nba-cavs17-g4-q1",
@@ -157,7 +178,16 @@
             "quote": "Kevin Durant was unanimously voted the NBA Finals Most Valuable Player"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-period",
+        "era": "2010s",
+        "subjects": [
+          "Cleveland Cavaliers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-nance84-season-ppg",
@@ -208,7 +238,17 @@
             "quote": "Larry Nance | 82 | 82 | 35.4 | .576"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "scoring-average",
+        "era": "1980s",
+        "subjects": [
+          "Larry Nance",
+          "Phoenix Suns"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-kobe10-finals-game7-twentyfive-percent",
@@ -223,7 +263,7 @@
       "min": 0,
       "max": 75,
       "step": 1,
-      "note": "Just 25%—6 of 24. Kobe put up 23 points and claimed his fifth championship.",
+      "note": "Just 25%, 6 of 24, but Kobe scored a game-high 23, with 10 in the fourth quarter.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
@@ -259,7 +299,17 @@
             "quote": "as well as head coach Phil Jackson’s first-ever Finals Game 7"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "shooting-pct",
+        "era": "2000s",
+        "subjects": [
+          "Kobe Bryant",
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     }
   ]
 }

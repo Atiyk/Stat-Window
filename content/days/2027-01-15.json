@@ -55,12 +55,22 @@
             "quote": "Aaron McKie provided the team with 11.6 points, 5.0 assists and 1.4 steals per game, and was named the NBA Sixth Man of the Year"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "scoring-average",
+        "era": "2000s",
+        "subjects": [
+          "Allen Iverson",
+          "Philadelphia 76ers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-davis84-regular-apg",
       "sport": "NBA",
-      "prompt": "How many assists per game did Walter Davis average for Phoenix in 1983–84?",
+      "prompt": "Steve Nash averaged 11.5 assists for the 2004–05 Suns. What did Phoenix scorer Walter Davis average in 1983–84?",
       "context": "Suns · veteran scorer and creator",
       "answer": 5.5,
       "unit": {
@@ -106,7 +116,19 @@
             "quote": "Walter Davis | 78 | 70 | 32.6 | .512 | .230 | .863"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "assists-average",
+        "era": "cross-era",
+        "subjects": [
+          "Walter Davis",
+          "Phoenix Suns"
+        ],
+        "supports": [
+          "nba-nash05-regular-apg"
+        ]
+      }
     },
     {
       "id": "nba-miller94-4q",
@@ -157,58 +179,79 @@
             "quote": "most notably against the New York Knicks, for which he earned the nickname \"Knick Killer\""
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-period",
+        "era": "1990s",
+        "subjects": [
+          "Reggie Miller",
+          "Indiana Pacers"
+        ],
+        "supports": []
+      }
     },
     {
-      "id": "nba-raptors01-team-blocks",
+      "id": "nba-curry13-msg-scoring-share-v5",
       "sport": "NBA",
-      "prompt": "In March 2001, Toronto set what was then the NBA record for team blocks in a game. How many?",
-      "context": "Toronto Raptors · 2000–01 regular season",
-      "answer": 23,
+      "prompt": "In a 109–105 loss at the Knicks in February 2013, what percent of Golden State's points did Stephen Curry score?",
+      "context": "Golden State Warriors · at New York · February 27, 2013",
+      "answer": 51,
       "unit": {
-        "singular": "block",
-        "plural": "blocks"
+        "singular": "percent",
+        "plural": "percent"
       },
-      "min": 0,
-      "max": 30,
+      "min": 10,
+      "max": 80,
       "step": 1,
-      "note": "23, an NBA record at the time.",
+      "note": "51%: 54 of the Warriors' 105 points, more than all his teammates combined.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
-        "quote": "The Raptors combined for 23 blocks, an NBA record at the time"
+        "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+        "quote": "On February 27, 2013, Stephen Curry scored 54 points but his Warriors lost to the Knicks, 109–105.",
+        "derivation": "Curry 54 of Golden State's 105 points: 54 / 105 × 100 = 51.4%, rounded to 51%."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Toronto reserve Keon Clark supplied the biggest share of the swats despite not starting against Atlanta.",
+          "text": "Steph hit 11 three-pointers against New York.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
-            "quote": "Keon Clark  | Toronto Raptors  | March 23, 2001"
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+            "quote": "making a Warriors franchise-record 11 three-pointers on 11 of 13 shooting from 3-point range"
           }
         },
         {
-          "text": "Clark astonishingly committed no personal fouls while sending shot after shot away.",
+          "text": "Curry shot 18-for-28 overall.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
-            "quote": "Did not commit a personal foul; holds the NBA record for most blocks"
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+            "quote": "He shot 18 for 28 from the field"
           }
         },
         {
-          "text": "The Raptors' defensive masterpiece came against the Atlanta Hawks in a comfortable win.",
+          "text": "New York won despite Curry's scoring display.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
-            "quote": "Atlanta Hawks  | 112–86"
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
+            "quote": "his Warriors lost to the Knicks, 109–105"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "ratio",
+        "family": "scoring-share",
+        "era": "2010s",
+        "subjects": [
+          "Stephen Curry",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-murray20-utah-g6-nine-threes",
@@ -259,7 +302,17 @@
             "quote": "Following Game 6, Murray became emotional during the postgame interview with TNT’s Jared Greenberg"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "threes-game",
+        "era": "2010s",
+        "subjects": [
+          "Jamal Murray",
+          "Denver Nuggets"
+        ],
+        "supports": []
+      }
     }
   ]
 }

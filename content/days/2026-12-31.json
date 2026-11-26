@@ -55,22 +55,31 @@
             "quote": "the Cavaliers swept the Detroit Pistons in the First Round in four games, swept the Atlanta Hawks in the Semifinals in four games"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "2000s",
+        "subjects": [
+          "Cleveland Cavaliers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-detroit04-winter-streak",
       "sport": "NBA",
-      "prompt": "How many straight games did Larry Brown's Pistons win across December and January?",
+      "prompt": "The chart shows three other teams' regular-season winning streaks. How long was the 2003–04 Pistons' streak across December and January?",
       "context": "Detroit Pistons · 2003–04 · regular season",
       "answer": 13,
       "unit": {
         "singular": "game",
         "plural": "games"
       },
-      "min": 6,
+      "min": 4,
       "max": 24,
       "step": 1,
-      "note": "Thirteen straight during Brown's first season in Detroit.",
+      "note": "13 straight, in Larry Brown's first season in Detroit.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
@@ -106,7 +115,42 @@
             "quote": "finishing second in the Central Division with a 54–28 record."
           }
         }
-      ]
+      ],
+      "chart": {
+        "title": "Regular-season winning streaks",
+        "unit": "games",
+        "points": [
+          {
+            "label": "Bucks '71",
+            "value": 20
+          },
+          {
+            "label": "Rockets '94",
+            "value": 15
+          },
+          {
+            "label": "Spurs '14",
+            "value": 19
+          },
+          {
+            "label": "Pistons '04",
+            "value": null
+          }
+        ]
+      },
+      "meta": {
+        "format": "missing-point",
+        "family": "win-streak",
+        "era": "cross-era",
+        "subjects": [
+          "Detroit Pistons"
+        ],
+        "supports": [
+          "nba-bucks71-streak",
+          "nba-rockets94-start",
+          "nba-spurs14-streak"
+        ]
+      }
     },
     {
       "id": "nba-holiday21-playoffs-apg",
@@ -157,7 +201,17 @@
             "quote": "Jrue Holiday (from New Orleans)"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "assists-average",
+        "era": "2020s",
+        "subjects": [
+          "Jrue Holiday",
+          "Milwaukee Bucks"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-sikma79-suns-g7-points",
@@ -208,7 +262,17 @@
             "quote": "facing the defending NBA champion Washington Bullets"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "1970s",
+        "subjects": [
+          "Jack Sikma",
+          "Oklahoma City Thunder"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-love10-knicks-thirty-one-boards",
@@ -259,7 +323,17 @@
             "quote": "a home game against the New York Knicks on November 12, 2010"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "rebounds-game",
+        "era": "2010s",
+        "subjects": [
+          "Kevin Love",
+          "Minnesota Timberwolves"
+        ],
+        "supports": []
+      }
     }
   ]
 }

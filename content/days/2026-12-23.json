@@ -55,12 +55,21 @@
             "quote": "Walter Davis was selected as a reserve for the Western Conference"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "1980s",
+        "subjects": [
+          "Phoenix Suns"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-dumars89-17-straight",
       "sport": "NBA",
-      "prompt": "In Game 3 of the 1989 Finals, Joe Dumars scored how many points in a row in the third quarter?",
+      "prompt": "Tracy McGrady once scored 13 points in 35 seconds. In Game 3 of the 1989 Finals, Joe Dumars scored how many points in a row?",
       "context": "1989 NBA Finals · Game 3 · at Los Angeles",
       "answer": 17,
       "unit": {
@@ -106,7 +115,19 @@
             "quote": "sweeping both the Boston Celtics and the Milwaukee Bucks"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "points-run",
+        "era": "cross-era",
+        "subjects": [
+          "Joe Dumars",
+          "Detroit Pistons"
+        ],
+        "supports": [
+          "nba-mcgrady04-35-seconds"
+        ]
+      }
     },
     {
       "id": "nba-robinson99-finals-rpg",
@@ -157,7 +178,17 @@
             "quote": "defeating the Los Angeles Lakers and Portland Trail Blazers"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "rebounds-average",
+        "era": "1990s",
+        "subjects": [
+          "David Robinson",
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-bulls96-road-wins",
@@ -208,7 +239,16 @@
             "quote": "held a 42–5 record at the All-Star break"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "1990s",
+        "subjects": [
+          "Chicago Bulls"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-trae21-bucks-g1-48",
@@ -259,7 +299,17 @@
             "quote": "Asts: Trae Young 11"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2020s",
+        "subjects": [
+          "Trae Young",
+          "Atlanta Hawks"
+        ],
+        "supports": []
+      }
     }
   ]
 }

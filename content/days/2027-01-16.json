@@ -55,7 +55,17 @@
             "quote": "his shot was just a bit long and hit the back rim"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-run",
+        "era": "1990s",
+        "subjects": [
+          "Reggie Miller",
+          "Indiana Pacers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-pistons50-19-18",
@@ -106,20 +116,29 @@
             "quote": "gave pro basketball a great black eye"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-team-game",
+        "era": "1950s",
+        "subjects": [
+          "Detroit Pistons"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-payton94-apg",
       "sport": "NBA",
-      "prompt": "How many assists per game did Gary Payton average in Seattle's dominant season?",
-      "context": "Gary Payton · Seattle · regular season",
+      "prompt": "The chart shows four classic assist seasons. What did Gary Payton average for the 1993–94 SuperSonics?",
+      "context": "Gary Payton · Seattle · 1993–94 regular season",
       "answer": 6,
       "unit": {
         "singular": "assist per game",
         "plural": "assists per game"
       },
-      "min": 2,
-      "max": 13,
+      "min": 1,
+      "max": 16,
       "step": 0.1,
       "note": "6.0 assists per game, alongside elite on-ball defense.",
       "source": {
@@ -157,7 +176,48 @@
             "quote": "Nate McMillan provided with 6.0 points, 5.3 assists and 3.0 steals per game"
           }
         }
-      ]
+      ],
+      "chart": {
+        "title": "Assists per game",
+        "unit": "apg",
+        "points": [
+          {
+            "label": "Stockton '90",
+            "value": 14.5
+          },
+          {
+            "label": "Payton '94",
+            "value": null
+          },
+          {
+            "label": "Jackson '98",
+            "value": 8.7
+          },
+          {
+            "label": "Bibby '02",
+            "value": 5
+          },
+          {
+            "label": "Nash '05",
+            "value": 11.5
+          }
+        ]
+      },
+      "meta": {
+        "format": "missing-point",
+        "family": "assists-average",
+        "era": "cross-era",
+        "subjects": [
+          "Gary Payton",
+          "Oklahoma City Thunder"
+        ],
+        "supports": [
+          "nba-stockton90-apg",
+          "nba-jackson98-regular-apg",
+          "nba-bibby02-regular-apg",
+          "nba-nash05-regular-apg"
+        ]
+      }
     },
     {
       "id": "nba-mowilliams09-season-ppg",
@@ -208,7 +268,17 @@
             "quote": "February 11 Phoenix W 109–92 Maurice Williams (44)"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "scoring-average",
+        "era": "2000s",
+        "subjects": [
+          "Mo Williams",
+          "Cleveland Cavaliers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-jordan98-last-shot-five-point-two",
@@ -259,7 +329,17 @@
             "quote": "Michael Jordan took 35 of the Bulls' 67 shots, leading the team in scoring and minutes played with 45 points"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "time",
+        "era": "1990s",
+        "subjects": [
+          "Michael Jordan",
+          "Chicago Bulls"
+        ],
+        "supports": []
+      }
     }
   ]
 }

@@ -23,7 +23,8 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { addDays } from '../../src/engine/daily.ts';
-import { eraOf, leaksAnswer, loadNbaData, questionFromFact, ROOT, validateNba, type Fact, type NbaData } from './model.ts';
+import { eraOf, leaksAnswer, loadNbaData, questionFromFact, ROOT, v5Context, validateNba, type Fact, type NbaData } from './model.ts';
+import { supportsOf } from './formats.ts';
 import type { SurvivalCatalog, SurvivalTag } from '../../src/survival/catalog.ts';
 
 export const CATALOG_PATH = join(ROOT, 'content', 'survival', 'catalog.json');
@@ -54,9 +55,17 @@ export function leakHorizon(f: Fact, scheduled: ReadonlyMap<string, string>, fac
   let notBefore = own ? addDays(own, 1) : null;
   const leaks: string[] = [];
   const text = textOf(f);
+  // V5: a chart, reference or derivation shows another fact's figure by construction.
+  const supports = new Set(supportsOf(f));
   for (const g of facts) {
     if (g.id === f.id) continue;
     const day = scheduled.get(g.id);
+    if (day && supports.has(g.id)) {
+      leaks.push(g.id);
+      const after = addDays(day, 1);
+      if (!notBefore || after > notBefore) notBefore = after;
+      continue;
+    }
     if (!day || !related(f, g, text)) continue;
     // 27 on a 0.1 scale is written "27.0" in the day file but "27" in prose: check both.
     const printed = leaksAnswer(text, g.answer, g.question.step) || (Number.isInteger(g.answer) && leaksAnswer(text, g.answer, 1));
@@ -72,6 +81,7 @@ export function buildCatalog(data: NbaData): SurvivalCatalog {
   const scheduled = new Map<string, string>();
   for (const d of data.calendar.days) for (const id of d.questions) scheduled.set(id, d.date);
   const byId = new Map(data.facts.map((f) => [f.id, f]));
+  const v5 = v5Context(data);
   const ids = [...data.calendar.days.flatMap((d) => d.questions), ...data.calendar.reserve];
   const tags: Record<string, SurvivalTag> = {};
   for (const id of ids) {
@@ -98,7 +108,7 @@ export function buildCatalog(data: NbaData): SurvivalCatalog {
     version: 1,
     cutover: data.calendar.cutover,
     tags,
-    reserves: data.calendar.reserve.map((id) => questionFromFact(byId.get(id)!)),
+    reserves: data.calendar.reserve.map((id) => questionFromFact(byId.get(id)!, v5)),
   };
 }
 

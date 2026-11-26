@@ -55,7 +55,16 @@
             "quote": "the Heat were one of 22 teams invited to the NBA Bubble"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "2010s",
+        "subjects": [
+          "Miami Heat"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-spurs14-streak",
@@ -106,20 +115,29 @@
             "quote": "the Mavericks in the regular season for 2 consecutive years. San Antonio won 4–3"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "win-streak",
+        "era": "2010s",
+        "subjects": [
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-kobe16-final-game",
       "sport": "NBA",
-      "prompt": "How many points did Kobe Bryant score in his final NBA game, at age 37?",
+      "prompt": "Kobe Bryant scored 81 in a January 2006 game. How many did he score in his final NBA game, at age 37?",
       "context": "Lakers vs Utah Jazz · April 13, 2016",
       "answer": 60,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 10,
-      "max": 75,
+      "min": 20,
+      "max": 80,
       "step": 1,
       "note": "60, the oldest player ever to score 60.",
       "source": {
@@ -157,7 +175,19 @@
             "quote": "His remaining playing career was hampered by injuries and reduced playing time"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "points-game",
+        "era": "cross-era",
+        "subjects": [
+          "Kobe Bryant",
+          "Los Angeles Lakers"
+        ],
+        "supports": [
+          "nba-kobe-81"
+        ]
+      }
     },
     {
       "id": "nba-unseld75-finals-g2-rebounds",
@@ -208,7 +238,17 @@
             "quote": "Rick Barry poured in 38 points"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "rebounds-game",
+        "era": "1970s",
+        "subjects": [
+          "Wes Unseld",
+          "Washington Wizards"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-durant21-nets-bucks-g5-49",
@@ -259,7 +299,17 @@
             "quote": "Brooklyn leads series, 3–2"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2020s",
+        "subjects": [
+          "Kevin Durant",
+          "Brooklyn Nets"
+        ],
+        "supports": []
+      }
     }
   ]
 }

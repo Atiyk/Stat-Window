@@ -55,7 +55,16 @@
             "quote": "Conference: 2nd (Western)"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "2000s",
+        "subjects": [
+          "New Orleans Pelicans"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-magic09-kings-threes",
@@ -106,7 +115,16 @@
             "quote": "January 13 @ Sacramento W 139–107"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "threes-game",
+        "era": "2000s",
+        "subjects": [
+          "Orlando Magic"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-kobe03-40-streak",
@@ -157,20 +175,30 @@
             "quote": "lost in the semifinals in six games to the eventual champions San Antonio Spurs"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "scoring-streak",
+        "era": "2000s",
+        "subjects": [
+          "Kobe Bryant",
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-dumars89-finals-ppg",
       "sport": "NBA",
-      "prompt": "Joe Dumars was 1989 Finals MVP. What was his scoring average in the series?",
+      "prompt": "Shaquille O'Neal averaged 38.0 points in the 2000 Finals. What did 1989 Finals MVP Joe Dumars average?",
       "context": "1989 NBA Finals · four games vs Lakers",
       "answer": 27.3,
       "unit": {
         "singular": "point per game",
         "plural": "points per game"
       },
-      "min": 6,
-      "max": 34,
+      "min": 10,
+      "max": 40,
       "step": 0.1,
       "note": "27.3 points per game.",
       "source": {
@@ -208,7 +236,19 @@
             "quote": "the team, led by Isiah Thomas and Bill Laimbeer, had embraced the title as a marketing brand"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "scoring-average",
+        "era": "cross-era",
+        "subjects": [
+          "Joe Dumars",
+          "Detroit Pistons"
+        ],
+        "supports": [
+          "nba-shaq00-finals-ppg"
+        ]
+      }
     },
     {
       "id": "nba-cp3-2022-perfect-playoff-shots",
@@ -259,7 +299,17 @@
             "quote": "In Devin Booker's return from the hamstring injury that had kept him out the previous three games"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "field-goals",
+        "era": "2020s",
+        "subjects": [
+          "Chris Paul",
+          "Phoenix Suns"
+        ],
+        "supports": []
+      }
     }
   ]
 }

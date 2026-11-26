@@ -55,7 +55,17 @@
             "quote": "did so in 30 minutes, the fewest minutes played in NBA history to achieve such a feat"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2020s",
+        "subjects": [
+          "Victor Wembanyama",
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-bobcats12-wins",
@@ -106,12 +116,21 @@
             "quote": "1 | 9 | Kemba Walker"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "2010s",
+        "subjects": [
+          "Charlotte Hornets"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-ainge88-threes",
       "sport": "NBA",
-      "prompt": "In 1987–88 Danny Ainge became the first player with 100 threes in a season. How many did he make?",
+      "prompt": "Stephen Curry made 402 threes in 2015–16. In 1987–88, Danny Ainge became the first to make over 100. How many did he make?",
       "context": "Boston Celtics · 1987–88",
       "answer": 148,
       "unit": {
@@ -157,7 +176,19 @@
             "quote": "FIBA, introduced the three-point line in 1984, at 6.25 m (20 ft 6 in), and it made its Olympic debut in 1988"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "threes-season",
+        "era": "cross-era",
+        "subjects": [
+          "Danny Ainge",
+          "Boston Celtics"
+        ],
+        "supports": [
+          "nba-curry16-season-threes-402"
+        ]
+      }
     },
     {
       "id": "nba-teague15-assists-average",
@@ -208,7 +239,17 @@
             "quote": "January 7 Memphis W 96–86 Jeff Teague (25)"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "assists-average",
+        "era": "2010s",
+        "subjects": [
+          "Jeff Teague",
+          "Atlanta Hawks"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-blazers19-nuggets-game3-four-overtimes",
@@ -260,7 +301,16 @@
             "quote": "Game three became the second playoff game in NBA history to go into quadruple-overtime, joining a 1953 game"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "overtimes",
+        "era": "2010s",
+        "subjects": [
+          "Portland Trail Blazers"
+        ],
+        "supports": []
+      }
     }
   ]
 }

@@ -55,12 +55,22 @@
             "quote": "Chris Paul | 80 | 80 | 37.6 | .488 | .369 | .851"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "assists-average",
+        "era": "2000s",
+        "subjects": [
+          "Chris Paul",
+          "New Orleans Pelicans"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-wade06-finals-ppg",
       "sport": "NBA",
-      "prompt": "Dwyane Wade was 2006 Finals MVP. What did he average?",
+      "prompt": "Shaquille O'Neal averaged 38.0 points in the 2000 Finals. What did his Miami teammate Dwyane Wade average as 2006 Finals MVP?",
       "context": "2006 NBA Finals · six games",
       "answer": 34.7,
       "unit": {
@@ -106,7 +116,19 @@
             "quote": "winning their first NBA championship in franchise history"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "scoring-average",
+        "era": "cross-era",
+        "subjects": [
+          "Dwyane Wade",
+          "Miami Heat"
+        ],
+        "supports": [
+          "nba-shaq00-finals-ppg"
+        ]
+      }
     },
     {
       "id": "nba-floyd87-51",
@@ -157,20 +179,30 @@
             "quote": "He hit six 3 pointers, a playoff record"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "1980s",
+        "subjects": [
+          "Sleepy Floyd",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-blazers77-g4-q3",
       "sport": "NBA",
-      "prompt": "Portland scored how many points in the third quarter of Game 4 of the 1977 Finals?",
+      "prompt": "Cleveland's 49-point first quarter in 2017 set the Finals record for a period. How many did Portland score in a 1977 Finals third quarter?",
       "context": "1977 NBA Finals · Game 4 · vs Philadelphia, at Portland",
       "answer": 41,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 26,
-      "max": 68,
+      "min": 14,
+      "max": 56,
       "step": 1,
       "note": "41.",
       "source": {
@@ -208,7 +240,18 @@
             "quote": "Series tied, 2–2"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "points-period",
+        "era": "cross-era",
+        "subjects": [
+          "Portland Trail Blazers"
+        ],
+        "supports": [
+          "nba-cavs17-g4-q1"
+        ]
+      }
     },
     {
       "id": "nba-clippers19-warriors-g2-31-comeback",
@@ -259,7 +302,16 @@
             "quote": "In Game 2 of their series against the reigning champion Golden State Warriors"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "comeback",
+        "era": "2010s",
+        "subjects": [
+          "Los Angeles Clippers"
+        ],
+        "supports": []
+      }
     }
   ]
 }

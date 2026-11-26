@@ -55,12 +55,22 @@
             "quote": "a 120–100 win"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2020s",
+        "subjects": [
+          "Stephen Curry",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-rodman92-rpg",
       "sport": "NBA",
-      "prompt": "What did Dennis Rodman average in rebounds in 1991–92, his first rebounding title?",
+      "prompt": "Dennis Rodman averaged 14.9 rebounds for the 1995–96 Bulls. What did he average in 1991–92, his first rebounding title?",
       "context": "Detroit Pistons · 1991–92",
       "answer": 18.7,
       "unit": {
@@ -106,7 +116,19 @@
             "quote": "Detroit beat Portland in five games and claimed their second title"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "rebounds-average",
+        "era": "1990s",
+        "subjects": [
+          "Dennis Rodman",
+          "Detroit Pistons"
+        ],
+        "supports": [
+          "nba-rodman96-rpg"
+        ]
+      }
     },
     {
       "id": "nba-gsw22-g6-run",
@@ -157,7 +179,16 @@
             "quote": "This was the second time that a road team won an NBA championship in Boston"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-run",
+        "era": "2020s",
+        "subjects": [
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-turkoglu09-regular-apg",
@@ -208,7 +239,17 @@
             "quote": "Following the season, Türkoğlu was traded to the Toronto Raptors"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "assists-average",
+        "era": "2000s",
+        "subjects": [
+          "Hedo Türkoğlu",
+          "Orlando Magic"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-lebron16-finals-game7-block-110s",
@@ -260,7 +301,17 @@
             "quote": "Kyrie Irving made a go-ahead three-point field goal over Stephen Curry"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "time",
+        "era": "2010s",
+        "subjects": [
+          "LeBron James",
+          "Cleveland Cavaliers"
+        ],
+        "supports": []
+      }
     }
   ]
 }

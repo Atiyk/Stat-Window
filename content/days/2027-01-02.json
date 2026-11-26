@@ -55,7 +55,16 @@
             "quote": "The Heat fall 101–97 to the Chicago Bulls, ending their winning streak"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "win-streak",
+        "era": "2010s",
+        "subjects": [
+          "Miami Heat"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-curry18-g2-threes",
@@ -106,7 +115,17 @@
             "quote": "the Warriors got 26 points, nine rebounds, and seven assists from Kevin Durant"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "threes-game",
+        "era": "2010s",
+        "subjects": [
+          "Stephen Curry",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-kemp94-rpg",
@@ -157,58 +176,79 @@
             "quote": "Kemp also participated in the NBA Slam Dunk Contest for the fourth time"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "rebounds-average",
+        "era": "1990s",
+        "subjects": [
+          "Shawn Kemp",
+          "Oklahoma City Thunder"
+        ],
+        "supports": []
+      }
     },
     {
-      "id": "nba-pacers00-home-streak",
+      "id": "nba-lebron09-g1-scoring-share-v5",
       "sport": "NBA",
-      "prompt": "The 1999–2000 Pacers set a franchise record for consecutive home wins. How many?",
-      "context": "Indiana Pacers · 1999–2000",
-      "answer": 25,
+      "prompt": "Orlando beat Cleveland 107–106 in Game 1 of the 2009 East finals. What percent of the Cavs' points did LeBron score?",
+      "context": "Cleveland Cavaliers · 2009 East finals · Game 1",
+      "answer": 46,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "percent",
+        "plural": "percent"
       },
       "min": 0,
-      "max": 36,
+      "max": 70,
       "step": 1,
-      "note": "25.",
+      "note": "46%: 49 of Cleveland's 106 points, in a one-point loss.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-        "quote": "including a franchise-best 25 game win streak at home"
+        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+        "quote": "May 20 Orlando L 106–107 LeBron James (49)",
+        "derivation": "LeBron 49 of Cleveland's 106 points: 49 / 106 × 100 = 46.2%, rounded to 46%."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "The Pacers finally defeated the rival Knicks in the Eastern finals to reach their first NBA championship series.",
+          "text": "Cleveland swept both Detroit and Atlanta before the Eastern Conference finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
-            "quote": "The Pacers advanced to the NBA Finals for the first time in franchise history"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "the Cavaliers swept the Detroit Pistons in the First Round in four games, swept the Atlanta Hawks in the Semifinals in four games"
           }
         },
         {
-          "text": "Indiana's coach during that Finals run was former Boston Celtics star Larry Bird.",
+          "text": "LeBron averaged a remarkable 35.3 points during Cleveland's entire playoff run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-            "quote": "Indiana Pacers  Larry Bird"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "LeBron James | 14 | 14 | 41.4 | .510 | .333 | .749 | 9.1 | 7.3 | 1.6 | .9 | 35.3"
           }
         },
         {
-          "text": "Both finalists were playing in newly opened home arenas, Indiana's Fieldhouse and Los Angeles's Staples Center.",
+          "text": "The Magic eventually reached the NBA Finals but lost to Kobe Bryant's Lakers.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
-            "quote": "both teams in the Finals featured newly built arenas"
+            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
+            "quote": "The Magic would go on to lose to the Los Angeles Lakers in the NBA Finals in five games."
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "ratio",
+        "family": "scoring-share",
+        "era": "2000s",
+        "subjects": [
+          "LeBron James",
+          "Cleveland Cavaliers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-isiah88-finals-injured-quarter-25",
@@ -259,7 +299,17 @@
             "quote": "Thomas had 43 points and eight assists despite his ankle injury"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-period",
+        "era": "1980s",
+        "subjects": [
+          "Isiah Thomas",
+          "Detroit Pistons"
+        ],
+        "supports": []
+      }
     }
   ]
 }

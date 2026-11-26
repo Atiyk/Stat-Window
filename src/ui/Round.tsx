@@ -13,6 +13,7 @@ import { contextLabel } from '../content/category';
 import { COURT_TRAVEL_DELAY_MS, courtTravelMs, LiveCourtRun } from './CourtRun';
 import { courtPosition } from '../engine/court-run';
 import { courtRunMarkers } from '../engine/court-run';
+import { QuestionChart } from './QuestionChart';
 import './round-polish.css';
 
 type Props = {
@@ -379,6 +380,13 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
           {q.prompt}
         </h1>
         <p className="context">{contextLabel(q)}</p>
+        {q.chart && (
+          <QuestionChart
+            question={q}
+            window={!interactive && last ? { lo: last.lo, hi: last.hi } : state.window}
+            reveal={reveal ? reveal.progress : null}
+          />
+        )}
         {targetText && (
           <p id="round-record-target" className="round-record-target" aria-live="polite">
             {recordTotal !== null && courtRun && !resolved && (

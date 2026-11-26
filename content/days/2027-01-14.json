@@ -55,7 +55,16 @@
             "quote": "19,006 40–8"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-situational",
+        "era": "2010s",
+        "subjects": [
+          "Atlanta Hawks"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-adebayo20-regular-rpg",
@@ -106,7 +115,17 @@
             "quote": "Bam Adebayo | PF | 72 | 72 | 2,417 | 735 | 368 | 82 | 93"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "rebounds-average",
+        "era": "2010s",
+        "subjects": [
+          "Bam Adebayo",
+          "Miami Heat"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-celtics08-playoff-games",
@@ -157,7 +176,16 @@
             "quote": "Coach Doc Rivers played for the 1993–94 New York Knicks, which held the previous record"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "playoff-games",
+        "era": "2000s",
+        "subjects": [
+          "Boston Celtics"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-parker14-season-ppg",
@@ -208,12 +236,22 @@
             "quote": "Tony Parker | PG | 68 | 68 | 1,997 | 155 | 388 | 36 | 9 | 1,134 | 29.4 | 2.3 | 5.7"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "scoring-average",
+        "era": "2010s",
+        "subjects": [
+          "Tony Parker",
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-pacers24-msg-game7-671-shooting",
       "sport": "NBA",
-      "prompt": "In the Pacers' unbelievable 2024 Game 7 shootout at Madison Square Garden, what percent did Indiana shoot from the field?",
+      "prompt": "The 2014 Spurs shot a Finals-record 75.8% in one first half. What did Indiana shoot for its whole 2024 Game 7 at the Garden?",
       "context": "Indiana Pacers at Knicks · May 2024 · East semifinals Game 7",
       "answer": 67.1,
       "unit": {
@@ -259,7 +297,18 @@
             "quote": "the Pacers ultimately prevailed and overcame an 0–2 series deficit for the first time ever."
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "shooting-pct",
+        "era": "cross-era",
+        "subjects": [
+          "Indiana Pacers"
+        ],
+        "supports": [
+          "nba-spurs14-g3-fg"
+        ]
+      }
     }
   ]
 }

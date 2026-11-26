@@ -55,7 +55,17 @@
             "quote": "forming a new All-Star \"Fantastic Four\" of Kevin Durant, Stephen Curry, Klay Thompson and Draymond Green"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "threes-game",
+        "era": "2010s",
+        "subjects": [
+          "Stephen Curry",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-shaq00-finals-ppg",
@@ -106,20 +116,30 @@
             "quote": "to win their first NBA championship since 1988 and their twelfth overall"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "scoring-average",
+        "era": "1990s",
+        "subjects": [
+          "Shaquille O'Neal",
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-murray23-finals-apg",
       "sport": "NBA",
-      "prompt": "How many assists per game did Jamal Murray average in the 2023 NBA Finals?",
+      "prompt": "John Stockton averaged 14.5 assists a game in 1989–90. What did Jamal Murray average in the 2023 Finals?",
       "context": "Denver Nuggets · five-game 2023 championship series",
       "answer": 10,
       "unit": {
         "singular": "assist per game",
         "plural": "assists per game"
       },
-      "min": 3,
-      "max": 19,
+      "min": 4,
+      "max": 17,
       "step": 0.1,
       "note": "10.0 assists a night, complementing Jokić's scoring and passing.",
       "source": {
@@ -157,7 +177,19 @@
             "quote": "Jokić and Murray also became the second pair of teammates to each put up at least 25 points and 10 assists"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "assists-average",
+        "era": "cross-era",
+        "subjects": [
+          "Jamal Murray",
+          "Denver Nuggets"
+        ],
+        "supports": [
+          "nba-stockton90-apg"
+        ]
+      }
     },
     {
       "id": "nba-giannis21-finals-g6-blocks",
@@ -208,7 +240,17 @@
             "quote": "first championship since 1971"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "blocks-game",
+        "era": "2020s",
+        "subjects": [
+          "Giannis Antetokounmpo",
+          "Milwaukee Bucks"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-wade06-g5-ft-scoring-share",
@@ -260,7 +302,17 @@
             "quote": "Dallas Mavericks 100, Miami Heat 101 (OT)"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "shooting-pct",
+        "era": "2000s",
+        "subjects": [
+          "Dwyane Wade",
+          "Miami Heat"
+        ],
+        "supports": []
+      }
     }
   ]
 }

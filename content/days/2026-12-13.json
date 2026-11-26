@@ -55,20 +55,30 @@
             "quote": "Steve Kerr benched him for parts of the fourth quarter, while Looney remained on the floor"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2020s",
+        "subjects": [
+          "Stephen Curry",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-rodman96-rpg",
       "sport": "NBA",
-      "prompt": "How many rebounds per game did Dennis Rodman average for the 1995–96 Bulls?",
+      "prompt": "The chart shows two other rebounding seasons. How many rebounds per game did Dennis Rodman average for the 1995–96 Bulls?",
       "context": "Chicago Bulls · 1995–96 regular season",
       "answer": 14.9,
       "unit": {
         "singular": "rebound per game",
         "plural": "rebounds per game"
       },
-      "min": 10,
-      "max": 23,
+      "min": 6,
+      "max": 20,
       "step": 0.1,
       "note": "14.9 a night, while scoring just 5.5 points.",
       "source": {
@@ -106,20 +116,51 @@
             "quote": "a nine-year veteran and four year rebounding champion"
           }
         }
-      ]
+      ],
+      "chart": {
+        "title": "Rebounds per game in a season",
+        "unit": "rebounds",
+        "points": [
+          {
+            "label": "Rodman '96",
+            "value": null
+          },
+          {
+            "label": "Howard '09",
+            "value": 13.8
+          },
+          {
+            "label": "Noah '11",
+            "value": 10.4
+          }
+        ]
+      },
+      "meta": {
+        "format": "missing-point",
+        "family": "rebounds-average",
+        "era": "cross-era",
+        "subjects": [
+          "Dennis Rodman",
+          "Chicago Bulls"
+        ],
+        "supports": [
+          "nba-howard09-regular-rpg",
+          "nba-noah11-rebounds-average"
+        ]
+      }
     },
     {
       "id": "nba-allen10-g3-fga",
       "sport": "NBA",
-      "prompt": "Two days after his record night, Ray Allen went 0-for-how-many from the field in Game 3?",
+      "prompt": "Ray Allen made 8 threes in Game 2 of the 2010 Finals. In Game 3 he went 0-for-how-many from the field?",
       "context": "2010 NBA Finals · Game 3 · vs Lakers",
       "answer": 13,
       "unit": {
         "singular": "shot",
         "plural": "shots"
       },
-      "min": 4,
-      "max": 28,
+      "min": 2,
+      "max": 20,
       "step": 1,
       "note": "0 for 13.",
       "source": {
@@ -157,7 +198,19 @@
             "quote": "Kevin Garnett scored the first six points of the game"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "field-goals",
+        "era": "2000s",
+        "subjects": [
+          "Ray Allen",
+          "Boston Celtics"
+        ],
+        "supports": [
+          "nba-allen10-g2-threes"
+        ]
+      }
     },
     {
       "id": "nba-west70-60-foot",
@@ -208,7 +261,17 @@
             "quote": "the Knicks were able to win, 111–108"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "distance",
+        "era": "1960s",
+        "subjects": [
+          "Jerry West",
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-westbrook17-50-nuggets-winner",
@@ -259,7 +322,17 @@
             "quote": "106–105 road victory"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "Russell Westbrook",
+          "Oklahoma City Thunder"
+        ],
+        "supports": []
+      }
     }
   ]
 }

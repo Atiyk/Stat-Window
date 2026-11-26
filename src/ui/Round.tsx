@@ -377,12 +377,10 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
       </div>
 
       <header className="question-block">
-        {challenge && interactive && (
+        {challenge && interactive && !challenge.race && (
           <p className="challenge-note">
             {challenge.vs === null ? (
               'A friend sent you these five.'
-            ) : challenge.race ? (
-              'Race your friend, one question at a time.'
             ) : (
               <>
                 Beat your friend’s <b className="tabular">{challenge.vs}</b> points{challenge.vsTime !== null ? ` in ${Math.ceil(challenge.vsTime / 1000)}s` : ''}.
@@ -583,8 +581,8 @@ function raceSentence(s: RaceStanding): string {
  * says what will appear; afterwards it compares the same number of rounds.
  */
 function RaceLine({ standing, fresh }: { standing: RaceStanding; fresh: boolean }) {
-  // Before the first reveal the line is empty but keeps its height, so nothing shifts when it fills.
-  if (standing.completed === 0) return <p className="race-line" />;
+  // Before the first reveal the line introduces the race in the same space, so nothing shifts when it fills.
+  if (standing.completed === 0) return <p className="race-line race-line--intro">Race your friend, one question at a time.</p>;
   return (
     <p className="race-line" data-fresh={fresh || undefined}>
       <span className="sr-only">{raceSentence(standing)}</span>

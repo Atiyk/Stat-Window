@@ -23,11 +23,11 @@ test.beforeEach(async ({ page }) => {
 test('a race link reveals the friend round by round, then compares every round', async ({ page }) => {
   const errors = collectErrors(page);
   await openAt(page, AFTER_MIDNIGHT, RACE);
-  // The total stays out of the note: with it, the friend's last round could be worked out before it is played.
-  await expect(page.locator('.challenge-note')).toHaveText('Race your friend, one question at a time.');
+  // No total up front: with it, the friend's last round could be worked out before it is played.
+  await expect(page.locator('.challenge-note')).toHaveCount(0);
+  await expect(page.locator('.race-line')).toHaveText('Race your friend, one question at a time.');
   // The court is on for the race, and nothing about the friend's rounds shows before a reveal.
   await expect(page.locator('.live-court')).toBeVisible();
-  await expect(page.locator('.race-line')).toHaveText('');
   await expect(page.locator('[data-court-friend]')).toHaveCount(0);
   await expect(page.locator('body')).not.toContainText('Friend 48');
 

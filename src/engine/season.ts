@@ -62,17 +62,19 @@ export type PublicNumber = { readonly season: SeasonId; readonly number: number;
 
 /**
  * "No. 7" or "Beta No. 12". In beta mode every day keeps the number it has always
- * had. After launch, beta days are labelled as such so they can't be mistaken for
- * official puzzles.
+ * had. Once the launch has begun (`today` on or after the launch day), beta days are
+ * labelled as such so they can't be mistaken for official puzzles. Before that, a
+ * scheduled launch changes no label: the merged build looks exactly like beta.
  */
-export function publicNumber(day: string, config: SeasonConfig): PublicNumber {
+export function publicNumber(day: string, config: SeasonConfig, today?: string): PublicNumber {
   const season = seasonOf(day, config);
   if (season === 's1') {
     const number = dayIndex(day, config.launchDay!) + 1;
     return { season, number, label: `No. ${number}` };
   }
   const number = dayIndex(day, EPOCH_DAY) + 1;
-  return { season, number, label: config.launchDay === null ? `No. ${number}` : `Beta No. ${number}` };
+  const begun = config.launchDay !== null && (today === undefined || today >= config.launchDay);
+  return { season, number, label: begun ? `Beta No. ${number}` : `No. ${number}` };
 }
 
 /** Publicly playable days. A formal launch retires the beta catalog from discovery and links,

@@ -117,7 +117,8 @@ test.describe('New York', () => {
     await expect(icsLink(page)).toBeVisible();
     await expect(googleLink(page)).toBeVisible();
 
-    await openAt(page, NBA_MIDDLE, `/?day=${NBA_DAYS[3]}&vs=200`);
+    // A season day before NBA_MIDDLE: beta links retire once the official season has begun.
+    await openAt(page, NBA_MIDDLE, `/?day=${NBA_DAYS.find((d) => d > '2026-11-30')}&vs=200`);
     await playFive(page);
     await expect(page.locator('.results-context')).toContainText('Challenge');
     await expect(icsLink(page)).toBeVisible();

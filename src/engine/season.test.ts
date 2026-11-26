@@ -60,3 +60,12 @@ describe('formal launch dry run (synthetic launch day 2027-01-10)', () => {
     expect(parseLaunchDay('2027-01-10')).toBe('2027-01-10');
   });
 });
+
+describe('a scheduled launch changes no label before it begins', () => {
+  const LAUNCH = { launchDay: '2027-01-10' };
+  it('keeps beta numbering until today reaches the launch day, then marks beta days', () => {
+    expect(publicNumber('2027-01-05', LAUNCH, '2027-01-05').label).toBe(`No. ${puzzleNumber('2027-01-05')}`);
+    expect(publicNumber('2027-01-05', LAUNCH, '2027-01-10').label).toBe(`Beta No. ${puzzleNumber('2027-01-05')}`);
+    expect(publicNumber('2027-01-10', LAUNCH, '2027-01-10').label).toBe('No. 1');
+  });
+});

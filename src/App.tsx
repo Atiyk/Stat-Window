@@ -374,7 +374,7 @@ export function App() {
     setSettings((s) => ({ ...s, ...patch }));
   };
 
-  const number = publicNumber(session ? session.day : today, SEASON).label;
+  const number = publicNumber(session ? session.day : today, SEASON, today).label;
   const archive = playableDays(inventoryDays, today, SEASON).filter((d) => d < today).reverse();
 
   return (
@@ -612,7 +612,7 @@ function Game(props: {
     if ((daily || untimedPractice) && hasConflictingLock(saved, state.results)) adoptSave(saved);
   }, [store, session.day, session.kind, state.results, advanced, daily, untimedPractice, startKey, adoptSave]);
 
-  const pub = publicNumber(session.day, SEASON);
+  const pub = publicNumber(session.day, SEASON, today);
   useEffect(() => {
     if (state.phase === 'complete') props.onRunComplete();
   }, [state.phase, props.onRunComplete]);

@@ -186,6 +186,20 @@ function parseLaunchDay(raw) {
 function seasonOf(day, config) {
 	return config.launchDay !== null && day >= config.launchDay ? "s1" : "beta";
 }
+// src/engine/launch-config.ts
+/**
+* The official season's launch day, the single source of truth for the client label,
+* the score API's season and the CI release gates (docs/LAUNCH.md).
+*
+* `null` keeps the public beta. Setting a date schedules the restarted official season:
+* that canonical Eastern day becomes "No. 1" at 12:00 AM Eastern. It is changed only by a
+* reviewed commit, and `scripts/season-check.ts` refuses a change unless the new day is
+* still in the future (Eastern), is on or after VARIETY_FROM and has enough validated
+* official slates. The old VITE_LAUNCH_DAY / LAUNCH_DAY environment variables are no
+* longer read; a build fails if either is set to a different value, so a stale
+* dashboard setting can never split the client and server seasons.
+*/
+var LAUNCH_DAY = "2026-11-30";
 // server/api.ts
 /**
 * Score submission and daily percentile API (one Vercel Function at /api/scores).
@@ -554,7 +568,7 @@ function contextFromEnv(env, deps) {
 		store: deps.store,
 		secret: ns === "" ? "" : secret,
 		env: ns,
-		launchDay: parseLaunchDay(null),
+		launchDay: parseLaunchDay(LAUNCH_DAY),
 		loadSlate: deps.loadSlate,
 		now: () => /* @__PURE__ */ new Date(),
 		limits: {

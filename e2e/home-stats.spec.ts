@@ -139,7 +139,7 @@ test.describe('direct destinations skip the home', () => {
 });
 
 test('missing inventory: an honest message, with the player’s own history still reachable', async ({ page }) => {
-  await seed(page, at('2027-03-01'), week(['2026-11-24']));
+  await seed(page, at('2027-03-01'), week(['2027-01-20'])); // an official-season day: history counts the current season
   await page.goto('/');
   await expect(page.getByRole('heading', { name: /still being checked/ })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Scouting Report' })).toBeVisible();
@@ -171,11 +171,12 @@ test.describe('Weekly Scoreboard', () => {
   });
 
   test('a previous eligible week can be reviewed', async ({ page }) => {
-    await seed(page, at('2026-12-01'), week(['2026-11-24', '2026-11-26']));
+    // Official-season weeks (from the Nov 30 launch): beta weeks don't count once it has begun.
+    await seed(page, at('2026-12-08'), week(['2026-12-01', '2026-12-03']));
     await page.goto('/?weekly');
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Nov 30 – Dec 6, 2026');
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Dec 7 – Dec 13, 2026');
     await page.getByRole('button', { name: 'Last week' }).click();
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Nov 23 – Nov 29, 2026');
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Nov 30 – Dec 6, 2026');
     await expect(page.locator('.weekly__stats')).toContainText('2 of 7');
   });
 
@@ -242,14 +243,14 @@ test.describe('Scouting Report', () => {
 });
 
 test('midnight transition: an idle home moves to the new day and the week rolls on Monday (Eastern)', async ({ page }) => {
-  // Sunday 2026-11-29 23:59:50 EST (04:59:50Z Monday).
-  await page.clock.install({ time: new Date('2026-11-30T04:59:50Z') });
+  // Sunday 2026-12-06 23:59:50 EST (04:59:50Z Monday), inside the official season.
+  await page.clock.install({ time: new Date('2026-12-07T04:59:50Z') });
   await page.addInitScript(({ key, save }) => localStorage.setItem(key, JSON.stringify(save)), {
-    key: SAVE_KEY, save: { version: 1, runs: week(['2026-11-24', '2026-11-29']), settings: { sound: false, introSeen: true } },
+    key: SAVE_KEY, save: { version: 1, runs: week(['2026-12-01', '2026-12-06']), settings: { sound: false, introSeen: true } },
   });
   await page.goto('/?weekly');
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Nov 23 – Nov 29, 2026');
-  await page.clock.fastForward('00:45');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Nov 30 – Dec 6, 2026');
+  await page.clock.fastForward('00:45');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Dec 7 – Dec 13, 2026');
   await expect(page.getByRole('button', { name: 'Last week' })).toBeVisible();
 });

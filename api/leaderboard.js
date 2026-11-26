@@ -56,6 +56,20 @@ function isIsoDay(s) {
 function parseLaunchDay(raw) {
 	return isIsoDay(raw) && raw > "2026-11-15" ? raw : null;
 }
+// src/engine/launch-config.ts
+/**
+* The official season's launch day, the single source of truth for the client label,
+* the score API's season and the CI release gates (docs/LAUNCH.md).
+*
+* `null` keeps the public beta. Setting a date schedules the restarted official season:
+* that canonical Eastern day becomes "No. 1" at 12:00 AM Eastern. It is changed only by a
+* reviewed commit, and `scripts/season-check.ts` refuses a change unless the new day is
+* still in the future (Eastern), is on or after VARIETY_FROM and has enough validated
+* official slates. The old VITE_LAUNCH_DAY / LAUNCH_DAY environment variables are no
+* longer read; a build fails if either is set to a different value, so a stale
+* dashboard setting can never split the client and server seasons.
+*/
+var LAUNCH_DAY = "2026-11-30";
 /** Number of decimals implied by a step (0.01 -> 2). */
 function stepDecimals(step) {
 	const s = String(step);
@@ -445,7 +459,7 @@ function leaderboardContext(env, store, loadSlate) {
 		store,
 		secret: ns ? secret : "",
 		env: ns,
-		launchDay: parseLaunchDay(null),
+		launchDay: parseLaunchDay(LAUNCH_DAY),
 		now: () => /* @__PURE__ */ new Date(),
 		loadSlate,
 		allowedOrigins: (env.SCORES_ALLOWED_ORIGINS ?? "https://stat-window.vercel.app").split(",").map((s) => s.trim()).filter(Boolean),

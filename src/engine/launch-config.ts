@@ -10,7 +10,7 @@
  * longer read; a build fails if either is set to a different value, so a stale
  * dashboard setting can never split the client and server seasons.
  */
-export const LAUNCH_DAY: string | null = null;
+export const LAUNCH_DAY: string | null = '2026-11-30';
 
 /**
  * Emergency rollback acknowledgement, committed like the launch day: set it to the

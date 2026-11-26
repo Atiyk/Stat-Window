@@ -192,6 +192,36 @@ describe('question comparison in the browser: one cached read, never in the way'
     expect(questionCrowdFor(DAY, 0, id)).toBeNull();
   });
 
+  it('GPC, Do Not Track, an ask-first location or a pending deletion mean no read and no line', async () => {
+    const ctx = await seeded();
+    const id = (await records(2))[0]!.questionId;
+    const original = globalThis.navigator;
+    const restore = () => vi.stubGlobal('navigator', original);
+    const { calls, wrapped } = counting(fetchFor(ctx));
+    for (const nav of [{ globalPrivacyControl: true }, { doNotTrack: '1' }]) {
+      vi.stubGlobal('navigator', nav);
+      resetQuestionCrowd();
+      await prefetchQuestionCrowd(DAY, wrapped);
+      expect(questionCrowdFor(DAY, 0, id)).toBeNull();
+      restore();
+    }
+    for (const prefs of [{ scores: 'unset', asked: true }, { scores: 'on', deleting: true }] as const) {
+      savePrivacy(prefs);
+      resetQuestionCrowd();
+      await prefetchQuestionCrowd(DAY, wrapped);
+      expect(questionCrowdFor(DAY, 0, id)).toBeNull();
+    }
+    expect(calls).toEqual([]);
+    // A signal that appears after a read was made also withholds the line already fetched.
+    mem.clear();
+    resetQuestionCrowd();
+    await prefetchQuestionCrowd(DAY, fetchFor(ctx));
+    expect(questionCrowdFor(DAY, 0, id)).not.toBeNull();
+    vi.stubGlobal('navigator', { globalPrivacyControl: true });
+    expect(questionCrowdFor(DAY, 0, id)).toBeNull();
+    restore();
+  });
+
   it('offline, paused, disabled or malformed answers mean no line and no error', async () => {
     const id = (await records(2))[0]!.questionId;
     const answers: (() => Promise<Response>)[] = [

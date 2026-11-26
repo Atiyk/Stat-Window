@@ -92,8 +92,8 @@ export function ConsentChoice({ comparison: c, onPrivacy }: { comparison: Compar
         See how today’s score compares?
       </p>
       <p className="consent-detail">
-        We’d add your total to today’s tally of scores, kept with a random code from this browser for 7 days, then only as an
-        unlinked count. Your five windows are checked by the server and not kept.{' '}
+        We’d add your total and each question’s points to today’s tallies, kept with a random code from this browser for 7 days,
+        then only as unlinked counts. Your five windows are checked by the server and not kept.{' '}
         {onPrivacy && (
           <button type="button" className="btn-link" onClick={onPrivacy}>
             Details

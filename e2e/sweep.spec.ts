@@ -103,7 +103,7 @@ test.describe('BUG-03: a window worth 0 is honest before and after the lock', ()
   test('Help explains that a nearly whole ruler also scores 0', async ({ page }) => {
     await openAt(page, NOV21);
     await page.getByRole('button', { name: 'How to play' }).click();
-    await expect(page.getByRole('dialog', { name: 'How it works' })).toContainText(/nearly the whole ruler.*scores? 0/i);
+    await expect(page.getByRole('dialog', { name: 'How to play' })).toContainText(/nearly the whole ruler.*scores? 0/i);
   });
 });
 

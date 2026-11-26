@@ -14,6 +14,8 @@ import { COURT_TRAVEL_DELAY_MS, courtTravelMs, LiveCourtRun } from './CourtRun';
 import { courtPosition } from '../engine/court-run';
 import { courtRunMarkers } from '../engine/court-run';
 import { QuestionChart } from './QuestionChart';
+import { FormatCue } from './FormatCue';
+import type { QuestionFormat } from '../content/formats';
 import { raceStanding, type RaceStanding } from '../engine/friend-race';
 import './round-polish.css';
 
@@ -39,6 +41,8 @@ type Props = {
    * running total, the score line and the Next button, and adds the minimum.
    */
   survival?: SurvivalChrome | undefined;
+  /** Opens the How to play guide at a format (offered only once the clock has stopped). */
+  onGuide?: ((format: QuestionFormat) => void) | undefined;
 };
 
 export type SurvivalChrome = {
@@ -82,7 +86,7 @@ function savedShotStart(id: string, day: string, shared: boolean): number | null
 }
 const easeOutCubic = (t: number) => 1 - (1 - t) ** 3;
 
-export function Round({ state, dispatch, label, challenge = null, onFirstTouch, timing = 'timed', courtRun = false, previousBest = null, survival, race = null }: Props) {
+export function Round({ state, dispatch, label, challenge = null, onFirstTouch, timing = 'timed', courtRun = false, previousBest = null, survival, race = null, onGuide }: Props) {
   const q = currentQuestion(state);
   const reduced = usePrefersReducedMotion();
   const last = state.results[state.round];
@@ -392,6 +396,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
           {q.prompt}
         </h1>
         <p className="context">{contextLabel(q)}</p>
+        <FormatCue key={q.id} question={q} live={interactive} resolved={state.phase === 'resolved'} onGuide={onGuide} />
         {q.chart && (
           <QuestionChart
             question={q}

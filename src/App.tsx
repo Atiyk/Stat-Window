@@ -15,7 +15,8 @@ import { CTA_TEST, previewAsOf, SURVIVAL_FLAG, wantsSurvival } from './survival/
 import { armFor, exposedYesterday, markExposed, type Arm } from './survival/experiment';
 import { formatDay } from './lib/format';
 import { setSoundEnabled } from './ui/feedback';
-import { Help } from './ui/Help';
+import { GuideLink, Help, type GuideView } from './ui/Help';
+import type { QuestionFormat } from './content/formats';
 import { PrivacyDialog } from './ui/Privacy';
 import { Mark } from './ui/Mark';
 import { Results } from './ui/Results';
@@ -155,6 +156,10 @@ export function App() {
   const activeWindowRef = useRef(false);
   const [missing, setMissing] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
+  // Where the How to play guide opens, and whether a timed question's clock is live under it.
+  const [guideView, setGuideView] = useState<GuideView>('list');
+  const [clockLive, setClockLive] = useState(false);
+  const openGuide = useCallback((at: GuideView = 'list') => { setGuideView(at); setHelpOpen(true); }, []);
   const [privacyOpen, setPrivacyOpen] = useState(() => new URLSearchParams(window.location.search).has('privacy'));
   // A ?day= link that can't be honoured (future, malformed or unpublished): say so once, then today opens.
   const [badLink, setBadLink] = useState(false);
@@ -349,7 +354,7 @@ export function App() {
           >
             <SoundIcon on={settings.sound} />
           </button>
-          <button type="button" className="icon-btn" aria-label="How to play" onClick={() => setHelpOpen(true)}>
+          <button type="button" className="icon-btn" aria-label="How to play" onClick={() => openGuide()}>
             <span aria-hidden="true" className="icon-q">?</span>
           </button>
         </div>
@@ -399,6 +404,8 @@ export function App() {
             storage={storage}
             onSurvival={openSurvival}
             onPrivacy={() => setPrivacyOpen(true)}
+            onGuide={openGuide}
+            onClockLive={setClockLive}
           />
         ) : missing ? (
           <NoPuzzle today={today} archive={archive} onPractice={openPractice} />
@@ -413,7 +420,7 @@ export function App() {
         </p>
       )}
 
-      <Help open={helpOpen} onClose={() => setHelpOpen(false)} onPrivacy={() => { setHelpOpen(false); setPrivacyOpen(true); }} />
+      <Help open={helpOpen} view={guideView} clockLive={clockLive && view === 'daily'} onClose={() => setHelpOpen(false)} onPrivacy={() => { setHelpOpen(false); setPrivacyOpen(true); }} />
       <PrivacyDialog open={privacyOpen} onClose={() => setPrivacyOpen(false)} />
     </div>
   );
@@ -460,6 +467,8 @@ function Game(props: {
   storage: StorageLike | null;
   onSurvival: () => void;
   onPrivacy: () => void;
+  onGuide: (at?: GuideView) => void;
+  onClockLive: (live: boolean) => void;
 }) {
   const { session, store, today, offer } = props;
   const daily = session.mode === 'daily';
@@ -627,6 +636,14 @@ function Game(props: {
     }
   }, [complete, officialToday, offer.arm, props.storage, today]);
 
+  // The guide needs to know when a timed clock is running under it (it never pauses it).
+  const clockLive = started && session.timing === 'timed' && (state.phase === 'ready' || state.phase === 'adjusting');
+  const { onClockLive } = props;
+  useEffect(() => {
+    onClockLive(clockLive);
+    return () => onClockLive(false);
+  }, [clockLive, onClockLive]);
+
   if (state.phase === 'complete') {
     // Only the current season's runs count, so beta history never inflates an official launch.
     const history = inSeason(store.load().runs, season, SEASON);
@@ -670,13 +687,15 @@ function Game(props: {
   }
 
   if (!started && state.results.length === 0) {
-    return props.showHint && !untimedPractice ? <Onboarding onDone={() => { props.onTutorialDone(); start(); }} /> : (
+    // A friend's challenge link goes straight to its Start gate: no first-play walkthrough in the way.
+    return props.showHint && !untimedPractice && !session.viaLink ? <Onboarding onDone={() => { props.onTutorialDone(); start(); }} onGuide={() => props.onGuide()} /> : (
       <article className="ready-card">
         <p className="context">{untimedPractice ? 'Untimed practice' : daily ? 'Daily puzzle' : 'Practice'}</p>
         <h1 ref={untimedPractice ? practiceHeading : undefined} tabIndex={untimedPractice ? -1 : undefined}>Ready for five?</h1>
         <p>{untimedPractice ? 'Take your time on all five questions.' : 'Catch five numbers in your windows. You’ll have 24 seconds per question.'}</p>
         <button type="button" className="btn btn-primary" onClick={start}>{untimedPractice ? 'Start practice' : "Start today's five"}</button>
         {playMode === 'daily' && session.day === today && <PreviousDailyScore today={today} store={store} />}
+        <GuideLink onOpen={() => props.onGuide()} />
       </article>
     );
   }
@@ -698,6 +717,7 @@ function Game(props: {
       previousBest={comparesPersonalBest ? previousBest : null}
       challenge={session.viaLink && state.round === 0 && state.results.length === 0 ? { vs: session.vs, vsTime: session.vsTime, race: session.vsRounds !== null } : null}
       onFirstTouch={() => { props.onWindowActive(); props.onFirstTouch(); }}
+      onGuide={(f: QuestionFormat) => props.onGuide(f)}
     />
   );
 }

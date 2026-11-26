@@ -49,7 +49,11 @@ jobs:
         # (main against itself would always pass). season-check fails if the base can't be read.
         # The production build separately refuses a mid-day activation (docs/LAUNCH.md).
         run: |
-          if [ "${{ github.event_name }}" = push ]; then base=$(git rev-parse HEAD^); else git fetch --no-tags --depth=1 origin main && base=$(git rev-parse FETCH_HEAD); fi
+          if [ "${{ github.event_name }}" = push ]; then
+            # The commit main pointed at before this push (all of a multi-commit push is checked at once).
+            before="${{ github.event.before }}"
+            if git cat-file -e "$before^{commit}" 2>/dev/null || git fetch --no-tags --depth=1 origin "$before"; then base=$before; else base=$(git rev-parse HEAD^); fi
+          else git fetch --no-tags --depth=1 origin main && base=$(git rev-parse FETCH_HEAD); fi
           node --experimental-strip-types scripts/season-check.ts --base "$base"
       - name: Published days unchanged relative to main (the lock only grows)
         run: git fetch --no-tags --depth=1 origin main && npm run content:lock:base -- --base FETCH_HEAD

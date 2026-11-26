@@ -38,6 +38,7 @@ export default defineConfig(async ({ command }) => {
   if (command === 'build' && process.env.VERCEL_ENV === 'production') {
     if (process.env.VITE_LAUNCH_PREVIEW) throw new Error('VITE_LAUNCH_PREVIEW is set in a production build; the launch preview is for non-production builds only.');
     const today = puzzleDay(new Date());
+    if (process.env.LAUNCH_GUARD_ACK) console.warn(`LAUNCH_GUARD_ACK=${process.env.LAUNCH_GUARD_ACK} is set: delete it from the Vercel environment after this one deploy (docs/LAUNCH.md).`);
     const issue = LAUNCH_DAY === null || LAUNCH_DAY > today ? null
       : activationIssue({ launchDay: LAUNCH_DAY, deployed: await deployedLaunchDay(), today, ack: process.env.LAUNCH_GUARD_ACK });
     if (issue) throw new Error(issue);

@@ -42,7 +42,8 @@ The launch day lives in **`src/engine/launch-config.ts`** (`LAUNCH_DAY`), one va
 - Make the CI check a **required status** on main (GitHub → Settings → Branches → main → Require status checks: `check`), so a PR whose check went stale can't be merged without re-running it.
 - Tabs opened before the activation deploy fetch `/launch.json` at the midnight rollover and reload if the deployed launch day differs from their bundle, so a long-open tab doesn't keep beta numbering on *L*.
 - Merge before 12:00 AM Eastern on *L*. Until the boundary the merged build behaves exactly like beta (the same code path the launch e2e proves with a future launch day); at the boundary today becomes No. 1. This is **scheduled** activation; it is **observed** only after someone opens production on *L* and sees No. 1.
-- **Never mid-day.** If the merge slips past midnight Eastern of *L*, the push check fails and the production build refuses to deploy it; pick a later day.
+- **Never mid-day.** If the merge slips past midnight Eastern of *L*, the push check fails and the production build refuses to deploy it (and every later production build, since production still serves beta). Players are unaffected: the beta deployment stays live. To recover, commit `LAUNCH_DAY = null` with `SEASON_ROLLBACK_FROM = '<L>'` (the season never went live, so no `s1` data exists and no new season id is needed), then schedule a new future day in a following PR. The same applies after a Vercel Instant Rollback to a pre-launch deployment.
+- `LAUNCH_GUARD_ACK` is a one-deploy override; delete it from the Vercel environment straight after (the build warns while it is set).
 
 ## Moving to a custom domain
 

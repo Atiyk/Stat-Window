@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { collectErrors, DAY1, DAY2, NBA_FIRST, highBracket, lockAndSettle, lowBracket, next, openAt, typeWindow, startDailyIfNeeded } from './helpers';
+import { openFold } from './results-helpers';
 
 // Day 1 answers (content/days/2026-11-15.json): 73, 23, 92, 138, 2632
 const DAY1_PLAN = [
@@ -132,6 +133,7 @@ test('practice on an earlier day does not touch the daily record', async ({ page
     await next(page);
   }
   await expect(page.locator('.stats')).toContainText('Played1');
+  await openFold(page, 'Practice a past game');
   await page.getByRole('button', { name: 'Nov 15' }).click();
   await startDailyIfNeeded(page);
   await expect(page.locator('.round-meta')).toContainText('Practice');

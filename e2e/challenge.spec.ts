@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { collectErrors, DAY2, lockAndSettle, next, openAt, typeWindow, startDailyIfNeeded } from './helpers';
+import { openFold } from './results-helpers';
 
 // Day 2 (content/days/2026-11-16.json) opens with Barry Bonds; day 3 with the 1995–96 Bulls.
 const BONDS = 'Barry Bonds';
@@ -125,6 +126,7 @@ test('sharing falls back to selectable text when there is no share sheet or clip
 test('practice runs of earlier days are saved, so a refresh does not re-roll them', async ({ page }) => {
   await openAt(page, DAY2);
   await playOut(page);
+  await openFold(page, 'Practice a past game');
   await page.getByRole('button', { name: 'Nov 15' }).click();
   await startDailyIfNeeded(page);
   await expect(page.locator('.round-meta')).toContainText('Practice');
@@ -133,6 +135,7 @@ test('practice runs of earlier days are saved, so a refresh does not re-roll the
   await page.reload();
   // Reload goes back to today (finished); the practice run waits where it was left.
   await expect(page.locator('.results-title')).toBeVisible();
+  await openFold(page, 'Practice a past game');
   await page.getByRole('button', { name: 'Nov 15' }).click();
   await expect(page.locator('.round-meta')).toContainText('Question 2 of 5');
   await expect(page.locator('.stats')).toHaveCount(0);

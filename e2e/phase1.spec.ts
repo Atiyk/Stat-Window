@@ -1,6 +1,7 @@
 import { expect, test, type Page, type Route } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
 import { collectErrors, DAY2, lockAndSettle, NBA_FIRST, next, openAt } from './helpers';
+import { openFold, resultsFold } from './results-helpers';
 
 /**
  * Phase 1: the daily comparison states, share branches and privacy controls. The score
@@ -222,7 +223,7 @@ test('native challenge shares straight away and the selected score card shares s
   expect(early!.files).toEqual([]);
   expect(await cardsQueued()).toBe(0);
 
-  await page.getByRole('button', { name: 'Customize or save score card' }).click();
+  await openFold(page, 'Score card image');
   const shareCard = page.getByRole('button', { name: 'Share score card' });
   await expect.poll(cardsQueued).toBe(1);
   await expect(shareCard).toBeDisabled();
@@ -250,10 +251,10 @@ test('square and portrait score card PNGs export at their exact dimensions', asy
   await stubScores(page, stored());
   await openAt(page, NBA_FIRST);
   await playOut(page);
-  const disclosure = page.getByRole('button', { name: 'Customize or save score card' });
-  await expect(disclosure).toHaveAttribute('aria-expanded', 'false');
-  await disclosure.click();
-  await expect(disclosure).toHaveAttribute('aria-expanded', 'true');
+  const disclosure = resultsFold(page, 'Score card image');
+  await expect(disclosure).not.toHaveAttribute('open');
+  await expect(page.getByRole('radio', { name: 'Square' })).toBeHidden();
+  await openFold(page, 'Score card image');
 
   for (const { format, suffix, height } of [
     { format: 'Square', suffix: '', height: 1080 },

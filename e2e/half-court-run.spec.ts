@@ -9,6 +9,7 @@ import { normalizeWindow, totalPoints, type RoundRecord } from '../src/engine/ga
 import { potentialPoints as potential, scoreWindow, type Window } from '../src/engine/scoring';
 import { SAVE_KEY, type SaveData } from '../src/engine/storage';
 import { lockAndSettle, next, startDailyIfNeeded, typeWindow } from './helpers';
+import { openFold } from './results-helpers';
 
 const day = '2026-11-24';
 const previousDay = '2026-11-23';
@@ -90,6 +91,10 @@ test('the ball follows earned points through a hit, miss, timeout, zero-point ca
   await next(page);
 
   await expect(page.getByRole('heading', { name: 'Score 200 of 500' })).toBeVisible();
+  // The finished game's court reads the total: the ball stops where 200 points carried it.
+  await expectCourt(page, 200);
+  await expect(page.locator('.results-court__caption')).toHaveText('16 more points reach the three-point line.');
+  await openFold(page, 'Your answers');
   const recap = page.getByRole('region', { name: 'Your game on the court' });
   const shotsTab = recap.getByRole('tab', { name: 'Shot chart' });
   await expect(shotsTab).toHaveAttribute('aria-selected', 'true');
@@ -295,7 +300,7 @@ test('all six styles and formats export actual-sized PNGs for the day played', a
   await page.goto('/');
   await expect(page.getByRole('button', { name: 'Challenge a friend' })).toBeVisible();
   await expect(page.getByRole('radio', { name: 'Classic' })).toBeHidden();
-  await page.getByRole('button', { name: 'Customize or save score card' }).click();
+  await openFold(page, 'Score card image');
   await expect(page.getByRole('radio', { name: 'Classic' })).toBeChecked();
 
   const hashes = new Set<string>();
@@ -338,7 +343,7 @@ test('the mobile share callback receives the selected file and the same-day chal
   await page.getByRole('button', { name: 'Challenge a friend' }).click();
   await expect(page.locator('body')).toHaveAttribute('data-share-tap', 'true');
   await expect(page.locator('body')).toHaveAttribute('data-share-file', '');
-  await page.getByRole('button', { name: 'Customize or save score card' }).click();
+  await openFold(page, 'Score card image');
   await page.getByRole('radio', { name: 'Shot Chart' }).check();
   await page.getByRole('radio', { name: 'Portrait' }).check();
   const imageShare = page.getByRole('button', { name: 'Share score card' });
@@ -356,7 +361,7 @@ test('a failed export keeps the share action available', async ({ page }) => {
     HTMLCanvasElement.prototype.toBlob = (callback) => callback(null);
   });
   await page.goto('/');
-  await page.getByRole('button', { name: 'Customize or save score card' }).click();
+  await openFold(page, 'Score card image');
   await page.getByRole('radio', { name: 'Court Run' }).check();
   await page.getByRole('button', { name: 'Save score card', exact: true }).click();
   await expect(page.getByText('Couldn’t make the image. Try again.')).toBeVisible();
@@ -381,6 +386,7 @@ test('the final window and completed courts fit requested phone, tablet and desk
   }
   await submit(page, made(last));
   await next(page);
+  await openFold(page, 'Your answers');
   for (const [width, height] of sizes) {
     await page.setViewportSize({ width: width!, height: height! });
     for (const tab of ['Court run', 'Shot chart']) {

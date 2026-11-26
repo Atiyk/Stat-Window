@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
 import { lockAndSettle, NBA_DAYS, NBA_FIRST, next, startDailyIfNeeded } from './helpers';
+import { openFold } from './results-helpers';
 
 const installSuggestion = (page: Page) => page.locator('.install-prompt');
 const installButton = (page: Page) => page.getByRole('button', { name: 'Install Stat Window' });
@@ -86,6 +87,7 @@ test('a native install offer waits for the second official result and stays dism
     await lockAndSettle(page);
     await next(page);
   }
+  await openFold(page, 'Next puzzle and reminders');
   await expect(installButton(page)).toBeVisible();
   await expect(page.locator('html')).not.toHaveAttribute('data-install-prompt-calls');
   await installButton(page).focus();

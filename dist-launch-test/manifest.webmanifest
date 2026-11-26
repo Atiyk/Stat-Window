@@ -1,0 +1,15 @@
+{
+  "id": "/",
+  "name": "Stat Window",
+  "short_name": "Stat Window",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#F7F4EE",
+  "background_color": "#F7F4EE",
+  "icons": [
+    { "src": "/icons/court-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/court-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/court-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

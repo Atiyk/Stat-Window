@@ -163,7 +163,7 @@
     {
       "id": "nba-barkley93-suns-rpg",
       "sport": "NBA",
-      "prompt": "What was Charles Barkley's rebounding average during his Suns MVP season?",
+      "prompt": "Dwight Howard averaged 13.8 rebounds in 2008–09. What did Charles Barkley average in his Suns MVP season?",
       "context": "Charles Barkley · Phoenix Suns · 1992–93",
       "answer": 12.1,
       "unit": {
@@ -211,14 +211,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "rebounds-average",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "Charles Barkley",
           "Phoenix Suns"
         ],
-        "supports": []
+        "supports": [
+          "nba-howard09-regular-rpg"
+        ]
       }
     },
     {
@@ -284,7 +286,7 @@
     {
       "id": "nba-lillard14-rockets-series-winner-nine-tenths",
       "sport": "NBA",
-      "prompt": "Ray Allen's tying three in 2013 Finals Game 6 came with 5.2 seconds left. How much time was left when Lillard caught the 2014 inbound?",
+      "prompt": "How many seconds were left when Damian Lillard caught the inbound for his 2014 series-winning shot over Houston?",
       "context": "Damian Lillard · Blazers vs Rockets · 2014 first round",
       "answer": 0.9,
       "unit": {
@@ -332,16 +334,14 @@
         }
       ],
       "meta": {
-        "format": "reference",
+        "format": "recall",
         "family": "time",
         "era": "2010s",
         "subjects": [
           "Damian Lillard",
           "Portland Trail Blazers"
         ],
-        "supports": [
-          "nba-allen13-g6-seconds"
-        ]
+        "supports": []
       }
     }
   ]

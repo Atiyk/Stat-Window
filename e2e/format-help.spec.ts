@@ -170,7 +170,8 @@ test.describe('returning and linked players', () => {
     await page.goto('/');
     await expect(page.locator('.ready-card')).toBeVisible();
     await expect(page.locator('.onboarding-play')).toHaveCount(0);
-    await page.getByRole('button', { name: 'How to play · question types' }).click();
+    // The returning-player home places the guide as a quiet secondary row.
+    await page.locator('.home-more__row', { hasText: 'How to play' }).click();
     await expect(guide(page)).toBeVisible();
     await expect(guide(page).getByRole('heading', { name: 'How to play' })).toBeVisible();
     for (const f of FORMATS) await expect(guide(page).locator(`[data-guide-open="${f}"]`)).toContainText(FORMAT_GUIDE[f].label);

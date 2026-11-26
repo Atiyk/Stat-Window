@@ -257,7 +257,7 @@
     {
       "id": "nba-kawhi19-philly-game7-41",
       "sport": "NBA",
-      "prompt": "Draymond Green scored 32 in Game 7 of the 2016 Finals. How many did Kawhi Leonard score in his 2019 Game 7 against Philadelphia?",
+      "prompt": "The chart shows three other playoff scoring nights. How many points did Kawhi Leonard score in his 2019 Game 7 against Philadelphia?",
       "context": "Kawhi Leonard · Raptors vs 76ers · 2019 playoffs",
       "answer": 41,
       "unit": {
@@ -304,16 +304,40 @@
           }
         }
       ],
+      "chart": {
+        "title": "Playoff scoring nights",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Green '16",
+            "value": 32
+          },
+          {
+            "label": "LeBron '13",
+            "value": 37
+          },
+          {
+            "label": "Curry '22",
+            "value": 43
+          },
+          {
+            "label": "Kawhi '19",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Kawhi Leonard",
           "Toronto Raptors"
         ],
         "supports": [
-          "nba-green16-g7"
+          "nba-green16-g7",
+          "nba-lebron13-g7",
+          "nba-curry22-g4"
         ]
       }
     }

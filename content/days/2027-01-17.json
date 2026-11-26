@@ -9,7 +9,7 @@
     {
       "id": "nba-luka24-73-hawks",
       "sport": "NBA",
-      "prompt": "Against Atlanta in January 2024, how many points did Luka Dončić score in his career-best game?",
+      "prompt": "Elgin Baylor scored 71 in 1960. How many points did Luka Dončić score in his January 2024 career-best game against Atlanta?",
       "context": "Luka Dončić · Mavericks at Hawks · January 2024",
       "answer": 73,
       "unit": {
@@ -57,14 +57,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Luka Dončić",
           "Dallas Mavericks"
         ],
-        "supports": []
+        "supports": [
+          "nba-baylor60-71"
+        ]
       }
     },
     {
@@ -284,7 +286,7 @@
     {
       "id": "nba-kobe10-finals-game7-twentyfive-percent",
       "sport": "NBA",
-      "prompt": "The 1948 Warriors shot a record-low 16.4% as a team in one game. What percent did Kobe shoot in his brutal 2010 Finals Game 7?",
+      "prompt": "What percent of his shots did Kobe Bryant make in Game 7 of the 2010 Finals, a game in which he scored a game-high 23?",
       "context": "Kobe Bryant · Lakers vs Celtics · 2010 Finals Game 7",
       "answer": 25,
       "unit": {
@@ -332,16 +334,14 @@
         }
       ],
       "meta": {
-        "format": "reference",
+        "format": "recall",
         "family": "shooting-pct",
-        "era": "cross-era",
+        "era": "2000s",
         "subjects": [
           "Kobe Bryant",
           "Los Angeles Lakers"
         ],
-        "supports": [
-          "nba-warriors48-low-fg-v5"
-        ]
+        "supports": []
       }
     }
   ]

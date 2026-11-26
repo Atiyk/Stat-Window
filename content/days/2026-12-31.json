@@ -218,7 +218,7 @@
     {
       "id": "nba-sikma79-suns-g7-points",
       "sport": "NBA",
-      "prompt": "How many points did Jack Sikma score in Game 7 against Phoenix in 1979?",
+      "prompt": "LeBron scored 37 in Game 7 of the 2013 Finals. How many did Jack Sikma score in Game 7 against Phoenix in 1979?",
       "context": "Seattle · Western Conference finals · deciding game",
       "answer": 33,
       "unit": {
@@ -266,20 +266,22 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
-        "era": "1970s",
+        "era": "cross-era",
         "subjects": [
           "Jack Sikma",
           "Oklahoma City Thunder"
         ],
-        "supports": []
+        "supports": [
+          "nba-lebron13-g7"
+        ]
       }
     },
     {
       "id": "nba-love10-knicks-thirty-one-boards",
       "sport": "NBA",
-      "prompt": "Luka grabbed 21 boards in a 60-point game against the Knicks. How many did Kevin Love grab in his 2010 '30–30' game against them?",
+      "prompt": "In Kevin Love's 2010 '30–30' game against the Knicks, how many rebounds did he grab?",
       "context": "Kevin Love · Timberwolves vs Knicks · November 2010",
       "answer": 31,
       "unit": {
@@ -327,16 +329,14 @@
         }
       ],
       "meta": {
-        "format": "reference",
+        "format": "recall",
         "family": "rebounds-game",
-        "era": "cross-era",
+        "era": "2010s",
         "subjects": [
           "Kevin Love",
           "Minnesota Timberwolves"
         ],
-        "supports": [
-          "nba-luka22-knicks-triple-rebounds"
-        ]
+        "supports": []
       }
     }
   ]

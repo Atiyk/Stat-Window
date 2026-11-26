@@ -113,3 +113,13 @@
 
 /* With the court on, the running total answers the ball: it pulses as the ball lands. */
 .round-top[data-has-court] .round-total[data-earned] .tabular { animation-delay: var(--court-landing, 540ms); }
+
+/* V5.1 reference and chart prompts carry an anchor, so they run longer. On wide screens a
+   long prompt steps down one size, so the reveal and its Next action stay above the fold. */
+@media (min-width: 900px) {
+  .question[data-long] { font-size: clamp(1.75rem, 1rem + 1.9vw, 2.5rem); max-width: 34ch; }
+}
+@media (min-width: 900px) {
+  /* A long prompt over a chart: the chart needs the height. */
+  .question[data-long='chart'] { font-size: clamp(1.5rem, 0.9rem + 1.4vw, 2.1rem); }
+}

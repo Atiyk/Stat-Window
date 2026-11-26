@@ -61,3 +61,5 @@
 .week-strip__day:not([data-state='completed']) .week-strip__value { color: var(--ink-soft); font-weight: 500; }
 .week-strip__name { font-size: 0.6875rem; color: var(--ink-soft); }
 .week-strip__day[data-state='open'] .week-strip__name { color: var(--accent); font-weight: 800; }
+/* The desktop results layout names .stats a grid area; sub-pages keep a single column. */
+.weekly > *, .scouting > * { grid-area: auto; }

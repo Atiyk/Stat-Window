@@ -9,7 +9,7 @@
     {
       "id": "nba-embiid24-70-spurs",
       "sport": "NBA",
-      "prompt": "Against San Antonio in January 2024, how many points did Joel Embiid score in his career-best game?",
+      "prompt": "Luka Dončić scored 73 against Atlanta in January 2024. How many did Joel Embiid score against San Antonio that month?",
       "context": "Joel Embiid · 76ers vs. Spurs · January 2024",
       "answer": 70,
       "unit": {
@@ -57,14 +57,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
         "era": "2020s",
         "subjects": [
           "Joel Embiid",
           "Philadelphia 76ers"
         ],
-        "supports": []
+        "supports": [
+          "nba-luka24-73-hawks"
+        ]
       }
     },
     {
@@ -286,7 +288,7 @@
     {
       "id": "nba-herro20-bubble-ecf-g4-thirtyseven",
       "sport": "NBA",
-      "prompt": "In the 2020 bubble, Donovan Mitchell scored 57 against Denver. How many did rookie Tyler Herro score in East finals Game 4?",
+      "prompt": "As a 20-year-old rookie in Game 4 of the 2020 East finals, how many points did Tyler Herro score?",
       "context": "Tyler Herro · Heat vs Celtics · 2020 East finals Game 4",
       "answer": 37,
       "unit": {
@@ -334,16 +336,14 @@
         }
       ],
       "meta": {
-        "format": "reference",
+        "format": "recall",
         "family": "points-game",
         "era": "2010s",
         "subjects": [
           "Tyler Herro",
           "Miami Heat"
         ],
-        "supports": [
-          "nba-mitchell20-bubble-fiftyseven"
-        ]
+        "supports": []
       }
     }
   ]

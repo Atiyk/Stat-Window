@@ -257,8 +257,8 @@
     {
       "id": "nba-lebron16-finals-game7-block-110s",
       "sport": "NBA",
-      "prompt": "Kyrie's Game 7 three in the 2016 Finals came with 53 seconds left. How many seconds remained when LeBron blocked Iguodala earlier?",
-      "context": "LeBron James · Cavaliers at Warriors · 2016 Finals Game 7",
+      "prompt": "With the 2016 Finals Game 7 tied at 89, LeBron blocked Iguodala. How many seconds were left on the clock?",
+      "context": "Kyrie's go-ahead three came later, with 53 seconds left",
       "answer": 110,
       "unit": {
         "singular": "second",

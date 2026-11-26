@@ -289,8 +289,8 @@
     {
       "id": "nba-lakers01-shaq-kobe-fifteen-playoff-wins",
       "sport": "NBA",
-      "prompt": "The 1989 Lakers won their first 11 playoff games. How many did the 2001 Lakers win while losing only once all postseason?",
-      "context": "Los Angeles Lakers · 2001 NBA championship run",
+      "prompt": "The 2001 Lakers lost only once all postseason, to Iverson's Sixers. How many playoff games did they win?",
+      "context": "Benchmark: the 1989 Lakers won their first 11 playoff games",
       "answer": 15,
       "unit": {
         "singular": "win",

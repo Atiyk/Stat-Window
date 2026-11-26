@@ -284,8 +284,8 @@
     {
       "id": "nba-durant21-nets-bucks-g5-49",
       "sport": "NBA",
-      "prompt": "Jimmy Butler scored 56 against Giannis's Bucks in 2023. How many did Kevin Durant score against them in 2021 Game 5?",
-      "context": "Kevin Durant · Nets vs Bucks · June 2021",
+      "prompt": "Kevin Durant put the Nets ahead of the Bucks in 2021 Game 5 with a triple-double. How many points did he score?",
+      "context": "Benchmark: Jimmy Butler scored 56 against Milwaukee in 2023",
       "answer": 49,
       "unit": {
         "singular": "point",

@@ -284,8 +284,8 @@
     {
       "id": "nba-tatum22-bucks-g6-46",
       "sport": "NBA",
-      "prompt": "Jimmy Butler scored 56 against Milwaukee in the 2023 playoffs. Facing elimination at Milwaukee in 2022, how many did Jayson Tatum score?",
-      "context": "Jayson Tatum · Celtics at Bucks · 2022 playoffs",
+      "prompt": "Facing elimination at Milwaukee in 2022, Jayson Tatum forced a Game 7. How many points did he score?",
+      "context": "Benchmark: Jimmy Butler scored 56 against Milwaukee in 2023",
       "answer": 46,
       "unit": {
         "singular": "point",

@@ -255,7 +255,7 @@
     {
       "id": "nba-ja22-warriors-game2-47",
       "sport": "NBA",
-      "prompt": "LeBron James scored 37 in Game 7 of the 2013 Finals. How many did Ja Morant score against Curry's Warriors in 2022 Game 2?",
+      "prompt": "The chart shows four other playoff scoring nights. How many points did Ja Morant score against Curry's Warriors in 2022 Game 2?",
       "context": "Ja Morant · Grizzlies vs Warriors · May 2022",
       "answer": 47,
       "unit": {
@@ -302,8 +302,34 @@
           }
         }
       ],
+      "chart": {
+        "title": "Playoff scoring nights",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Butler '23",
+            "value": 56
+          },
+          {
+            "label": "Giannis '21",
+            "value": 50
+          },
+          {
+            "label": "Durant '21",
+            "value": 49
+          },
+          {
+            "label": "Klay '16",
+            "value": 41
+          },
+          {
+            "label": "Ja '22",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "points-game",
         "era": "cross-era",
         "subjects": [
@@ -311,7 +337,10 @@
           "Memphis Grizzlies"
         ],
         "supports": [
-          "nba-lebron13-g7"
+          "nba-butler23-56-bucks-upset",
+          "nba-giannis21-g6",
+          "nba-durant21-nets-bucks-g5-49",
+          "nba-klay16-okc-game6-41"
         ]
       }
     }

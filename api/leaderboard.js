@@ -42,8 +42,8 @@ function puzzleStartUtcMs(day) {
 *   (unchanged from before this module). Once a launch day is configured, that day is
 *   "No. 1", the next "No. 2", and every earlier day becomes "Beta No. N".
 *
-* The launch day is fixed at build time (VITE_LAUNCH_DAY). Unset means beta: the live
-* game behaves exactly as before. Non-production builds can preview a launch with
+* The launch day is committed in src/engine/launch-config.ts (one value for the client and
+* the score API). Null means beta: the live game behaves exactly as before. Non-production builds can preview a launch with
 * `?launch-preview=YYYY-MM-DD` when VITE_LAUNCH_PREVIEW=1 (never in production).
 */
 var DAY$1 = /^\d{4}-\d{2}-\d{2}$/;
@@ -445,7 +445,7 @@ function leaderboardContext(env, store, loadSlate) {
 		store,
 		secret: ns ? secret : "",
 		env: ns,
-		launchDay: parseLaunchDay(env.LAUNCH_DAY ?? env.VITE_LAUNCH_DAY),
+		launchDay: parseLaunchDay(null),
 		now: () => /* @__PURE__ */ new Date(),
 		loadSlate,
 		allowedOrigins: (env.SCORES_ALLOWED_ORIGINS ?? "https://stat-window.vercel.app").split(",").map((s) => s.trim()).filter(Boolean),

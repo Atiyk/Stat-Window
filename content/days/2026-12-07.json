@@ -278,8 +278,8 @@
     {
       "id": "nba-brunson24-philly-47",
       "sport": "NBA",
-      "prompt": "Jerry West scored 53 in Game 1 of the 1969 Finals. How many did Jalen Brunson score for a Knicks playoff record in 2024?",
-      "context": "Jalen Brunson · Knicks at 76ers · April 2024",
+      "prompt": "How many points did Jalen Brunson score at Philadelphia in April 2024 for a Knicks playoff record?",
+      "context": "Benchmark: Jerry West scored 53 in Game 1 of the 1969 Finals",
       "answer": 47,
       "unit": {
         "singular": "point",

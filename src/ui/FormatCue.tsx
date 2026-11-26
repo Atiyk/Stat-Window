@@ -53,7 +53,7 @@ export function FormatCue({ question, context, live, resolved, onGuide }: {
 
   return (
     <div className="format-cue" data-format={guide.format} data-new={(isNew && !resolved) || undefined}>
-      <p className="context">{context}{compact && toggle}</p>
+      <p className="context"><span className="context-text">{context}</span>{compact && toggle}</p>
       {!compact && (
         <p className="format-cue__line">
           {isNew && <span className="format-cue__new">New type</span>}

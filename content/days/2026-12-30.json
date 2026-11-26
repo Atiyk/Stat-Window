@@ -9,7 +9,7 @@
     {
       "id": "nba-suns05-season-win-gain",
       "sport": "NBA",
-      "prompt": "How many more regular-season games did the 2004–05 Suns win than the season before?",
+      "prompt": "The 2001–02 Nets improved by 26 wins. By how many wins did the 2004–05 Suns improve on the season before?",
       "context": "Phoenix Suns · Steve Nash's return · 2004–05",
       "answer": 33,
       "unit": {
@@ -57,13 +57,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "wins-change",
         "era": "2000s",
         "subjects": [
           "Phoenix Suns"
         ],
-        "supports": []
+        "supports": [
+          "nba-nets02-improvement"
+        ]
       }
     },
     {
@@ -284,7 +286,7 @@
     {
       "id": "nba-curry21-blazers-62",
       "sport": "NBA",
-      "prompt": "Curry scored 54 at Madison Square Garden in 2013. How many points did he score against Lillard's Blazers in January 2021, his career best?",
+      "prompt": "Stephen Curry set a career high against Damian Lillard's Blazers in January 2021. How many points did he score?",
       "context": "Stephen Curry · Warriors vs Blazers · January 2021",
       "answer": 62,
       "unit": {
@@ -332,16 +334,14 @@
         }
       ],
       "meta": {
-        "format": "reference",
+        "format": "recall",
         "family": "points-game",
-        "era": "cross-era",
+        "era": "2020s",
         "subjects": [
           "Stephen Curry",
           "Golden State Warriors"
         ],
-        "supports": [
-          "nba-curry13-knicks-54"
-        ]
+        "supports": []
       }
     }
   ]

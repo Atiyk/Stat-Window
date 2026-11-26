@@ -281,8 +281,8 @@
     {
       "id": "nba-celtics08-finals-g4-comeback-24",
       "sport": "NBA",
-      "prompt": "Utah once rallied from 36 down against Denver. How big a deficit did Boston erase against Kobe's Lakers to steal Game 4 of the 2008 Finals?",
-      "context": "Boston Celtics · 2008 Finals Game 4 · Los Angeles",
+      "prompt": "In Game 4 of the 2008 Finals, Boston trailed the Lakers by a huge margin before winning 97–91. At its largest, how big was the deficit?",
+      "context": "Benchmark: Utah once rallied from 36 down against Denver",
       "answer": 24,
       "unit": {
         "singular": "point",

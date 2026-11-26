@@ -285,8 +285,8 @@
     {
       "id": "nba-blazers19-nuggets-game3-four-overtimes",
       "sport": "NBA",
-      "prompt": "Before the shot clock, a 1950–51 game went 6 overtimes. How many overtimes did Portland and Denver play in 2019 playoff Game 3?",
-      "context": "Trail Blazers vs Nuggets · 2019 West semifinals Game 3",
+      "prompt": "Portland and Denver played Game 3 of the 2019 West semifinals. How many overtimes did it take?",
+      "context": "Benchmark: a 1950–51 game went 6 overtimes, before the shot clock",
       "answer": 4,
       "unit": {
         "singular": "overtime",

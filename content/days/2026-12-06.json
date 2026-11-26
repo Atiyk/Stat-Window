@@ -9,7 +9,7 @@
     {
       "id": "nba-celtics86-wins",
       "sport": "NBA",
-      "prompt": "The chart shows three other great Celtics seasons. How many games did the 1985–86 Celtics win?",
+      "prompt": "The 1986–87 Lakers won 65 games. How many did Larry Bird's 1985–86 Celtics win?",
       "context": "Boston Celtics · 1985–86 · 82 games",
       "answer": 67,
       "unit": {
@@ -56,39 +56,15 @@
           }
         }
       ],
-      "chart": {
-        "title": "Boston Celtics regular-season wins",
-        "unit": "wins",
-        "points": [
-          {
-            "label": "1985–86",
-            "value": null
-          },
-          {
-            "label": "1972–73",
-            "value": 68
-          },
-          {
-            "label": "2023–24",
-            "value": 64
-          },
-          {
-            "label": "2007–08",
-            "value": 66
-          }
-        ]
-      },
       "meta": {
-        "format": "missing-point",
+        "format": "reference",
         "family": "wins-season",
-        "era": "cross-era",
+        "era": "1980s",
         "subjects": [
           "Boston Celtics"
         ],
         "supports": [
-          "nba-celtics73-wins",
-          "nba-celtics24-wins",
-          "nba-celtics08-wins"
+          "nba-lakers87-wins"
         ]
       }
     },
@@ -155,7 +131,7 @@
     {
       "id": "nba-jackson98-regular-apg",
       "sport": "NBA",
-      "prompt": "John Stockton averaged 14.5 assists in 1989–90. What was Mark Jackson's assists-per-game average for the 1997–98 Pacers?",
+      "prompt": "The chart shows three other assist averages. What did Mark Jackson average for the 1997–98 Pacers?",
       "context": "Indiana · 1997–98 regular season",
       "answer": 8.7,
       "unit": {
@@ -202,8 +178,30 @@
           }
         }
       ],
+      "chart": {
+        "title": "Assists per game averages",
+        "unit": "apg",
+        "points": [
+          {
+            "label": "Stockton '90",
+            "value": 14.5
+          },
+          {
+            "label": "Murray '23",
+            "value": 10
+          },
+          {
+            "label": "Bibby '02",
+            "value": 5
+          },
+          {
+            "label": "Jackson '98",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "assists-average",
         "era": "cross-era",
         "subjects": [
@@ -211,7 +209,9 @@
           "Indiana Pacers"
         ],
         "supports": [
-          "nba-stockton90-apg"
+          "nba-stockton90-apg",
+          "nba-murray23-finals-apg",
+          "nba-bibby02-regular-apg"
         ]
       }
     },

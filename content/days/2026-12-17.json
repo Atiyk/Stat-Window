@@ -57,7 +57,7 @@
         }
       ],
       "meta": {
-        "format": "ranking",
+        "format": "recall",
         "family": "draft-pick",
         "era": "2010s",
         "subjects": [
@@ -252,7 +252,7 @@
     {
       "id": "nba-shaq00-finals-g2-24-boards",
       "sport": "NBA",
-      "prompt": "When a hobbled Kobe barely played 2000 Finals Game 2 against Indiana, how many rebounds did Shaq grab?",
+      "prompt": "The chart shows four other big rebounding nights. How many boards did Shaq grab with Kobe hobbled in Game 2 of the 2000 Finals?",
       "context": "Shaquille O'Neal · Lakers vs Pacers · 2000 Finals",
       "answer": 24,
       "unit": {
@@ -299,15 +299,46 @@
           }
         }
       ],
+      "chart": {
+        "title": "Big rebounding nights",
+        "unit": "rebounds",
+        "points": [
+          {
+            "label": "Unseld '75",
+            "value": 20
+          },
+          {
+            "label": "Shaq '00",
+            "value": null
+          },
+          {
+            "label": "Luka '22",
+            "value": 21
+          },
+          {
+            "label": "Jokić '23",
+            "value": 21
+          },
+          {
+            "label": "Giannis '24",
+            "value": 19
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "rebounds-game",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "Shaquille O'Neal",
           "Los Angeles Lakers"
         ],
-        "supports": []
+        "supports": [
+          "nba-unseld75-finals-g2-rebounds",
+          "nba-luka22-knicks-triple-rebounds",
+          "nba-jokic23-finals-g3-rebounds",
+          "nba-giannis24-cup-final-rebounds-v5"
+        ]
       }
     }
   ]

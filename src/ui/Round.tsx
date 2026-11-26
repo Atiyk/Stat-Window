@@ -401,7 +401,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
             )}
           </p>
         )}
-        <h1 className="question" ref={headingRef} tabIndex={-1} aria-describedby={targetText ? 'round-record-target' : undefined}>
+        <h1 className="question" data-long={q.prompt.length > 96 ? (q.chart ? "chart" : "text") : undefined} ref={headingRef} tabIndex={-1} aria-describedby={targetText ? 'round-record-target' : undefined}>
           {q.prompt}
         </h1>
         <FormatCue key={q.id} question={q} context={contextLabel(q)} live={interactive} resolved={state.phase === 'resolved'} onGuide={onGuide} />

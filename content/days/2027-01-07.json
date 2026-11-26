@@ -9,7 +9,7 @@
     {
       "id": "nba-rose11-season-ppg",
       "sport": "NBA",
-      "prompt": "What was Derrick Rose's scoring average in his 2010–11 MVP season?",
+      "prompt": "Lew Alcindor led the NBA at 31.7 points per game in 1970–71. What was Derrick Rose's average in his 2010–11 MVP season?",
       "context": "Chicago Bulls · 2010–11 · regular season",
       "answer": 25,
       "unit": {
@@ -57,14 +57,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "scoring-average",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Derrick Rose",
           "Chicago Bulls"
         ],
-        "supports": []
+        "supports": [
+          "nba-alcindor71-ppg"
+        ]
       }
     },
     {
@@ -280,7 +282,7 @@
     {
       "id": "nba-ad20-lakers-ten-straight-wcf-winner",
       "sport": "NBA",
-      "prompt": "LeBron scored Cleveland's final 25 points in a 2007 playoff game. How many straight points did AD score to beat Denver in 2020 Game 2?",
+      "prompt": "Anthony Davis's buzzer-beating three beat Denver in 2020 Game 2. How many straight points did he score to close the game?",
       "context": "Anthony Davis · Lakers vs Nuggets · 2020 Western finals",
       "answer": 10,
       "unit": {
@@ -328,16 +330,14 @@
         }
       ],
       "meta": {
-        "format": "reference",
+        "format": "recall",
         "family": "points-run",
-        "era": "cross-era",
+        "era": "2010s",
         "subjects": [
           "Anthony Davis",
           "Los Angeles Lakers"
         ],
-        "supports": [
-          "nba-lebron07-final-twentyfive"
-        ]
+        "supports": []
       }
     }
   ]

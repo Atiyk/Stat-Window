@@ -279,8 +279,8 @@
     {
       "id": "nba-pacers24-msg-game7-671-shooting",
       "sport": "NBA",
-      "prompt": "The 2014 Spurs shot a Finals-record 75.8% in one first half. What did Indiana shoot for its whole 2024 Game 7 at the Garden?",
-      "context": "Indiana Pacers at Knicks · May 2024 · East semifinals Game 7",
+      "prompt": "What percent of its shots did Indiana make over the full Game 7 at Madison Square Garden in May 2024?",
+      "context": "Benchmark: the 2014 Spurs shot a Finals-record 75.8% in one first half",
       "answer": 67.1,
       "unit": {
         "singular": "percent",

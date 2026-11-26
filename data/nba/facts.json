@@ -1885,14 +1885,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows three other great Celtics seasons. How many games did the 1985–86 Celtics win?",
+   "prompt": "The 1986–87 Lakers won 65 games. How many did Larry Bird's 1985–86 Celtics win?",
    "context": "Boston Celtics · 1985–86 · 82 games",
    "reveal": "67–15, including 40–1 at home.",
    "min": 40,
    "max": 82,
    "step": 1,
    "difficulty": "easy",
-   "difficultyReason": "Three other Boston win totals frame the scale; players place Bird's best team among them.",
+   "difficultyReason": "The Lakers' 65 wins set the bar for a great 1980s team; players judge where Bird's best Celtics side landed.",
    "ratings": {
     "interest": 4,
     "recognizability": 4,
@@ -1926,29 +1926,10 @@
     }
    ],
    "format": {
-    "kind": "missing-point",
-    "chart": {
-     "title": "Boston Celtics regular-season wins",
-     "unit": "wins",
-     "points": [
-      {
-       "label": "1985–86",
-       "fact": "nba-celtics86-wins"
-      },
-      {
-       "label": "1972–73",
-       "fact": "nba-celtics73-wins"
-      },
-      {
-       "label": "2023–24",
-       "fact": "nba-celtics24-wins"
-      },
-      {
-       "label": "2007–08",
-       "fact": "nba-celtics08-wins"
-      }
-     ]
-    }
+    "kind": "reference",
+    "references": [
+     "nba-lakers87-wins"
+    ]
    }
   }
  },
@@ -1973,14 +1954,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Michael Jordan set a playoff scoring record against the 1986 Celtics in a loss. How many points did he score?",
+   "prompt": "Michael Jordan scored 55 in Game 4 of the 1993 Finals. How many did he score in his 1986 playoff-record loss to the Celtics?",
    "context": "1986 first round · Game 2 · at Boston",
    "reveal": "63 points, a playoff record, in a Bulls loss.",
    "min": 25,
    "max": 80,
    "step": 1,
    "difficulty": "easy",
-   "difficultyReason": "A famous record; a playoff record must sit above familiar 50-point games. Editorial V3: moved from Q2 to Q1 because this recognizable NBA event or star has a plausible fan-estimable numeric range, with the existing independent source excerpt and original engagement ratings preserved.",
+   "difficultyReason": "Jordan's 55 in the 1993 Finals is a familiar benchmark; a playoff record must sit well above it.",
    "ratings": {
     "interest": 5,
     "recognizability": 4,
@@ -2012,7 +1993,13 @@
       "quote": "Boston Garden 14,890"
      }
     }
-   ]
+   ],
+   "format": {
+    "kind": "reference",
+    "references": [
+     "nba-jordan93-g4-55"
+    ]
+   }
   }
  },
  {
@@ -6701,14 +6688,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Klay Thompson scored 60 points against Indiana on December 5, 2016. How many minutes did he play?",
-   "context": "Golden State Warriors · 2016–17",
+   "prompt": "Willis Reed played 27 minutes in Game 7 of the 1970 Finals. How many minutes did Klay Thompson play in his 60-point game?",
+   "context": "Klay Thompson · Warriors vs Pacers · December 5, 2016",
    "reveal": "29.",
    "min": 20,
    "max": 48,
    "step": 1,
    "difficulty": "medium",
-   "difficultyReason": "The 48-minute cap frames it; the short night is the surprise.",
+   "difficultyReason": "The 48-minute cap frames it, and a Game 7 benchmark gives a sense of limited minutes; the short night is the surprise.",
    "ratings": {
     "interest": 4,
     "recognizability": 3,
@@ -6740,7 +6727,13 @@
       "quote": "He joins Wilt Chamberlain, Steph Curry, Rick Barry, and Joe Fulks"
      }
     }
-   ]
+   ],
+   "format": {
+    "kind": "reference",
+    "references": [
+     "nba-reed70-g7-minutes"
+    ]
+   }
   }
  },
  {
@@ -11314,14 +11307,7 @@
       "quote": "The Nuggets defeated the Lakers in four games, marking their first sweep of an opponent"
      }
     }
-   ],
-   "format": {
-    "kind": "ranking",
-    "ranking": {
-     "population": "Players selected in the 2014 NBA draft, by overall pick number",
-     "ties": "No ties: every overall pick number is unique"
-    }
-   }
+   ]
   }
  },
  {
@@ -17010,14 +16996,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "What was Derrick Rose's scoring average in his 2010–11 MVP season?",
+   "prompt": "Lew Alcindor led the NBA at 31.7 points per game in 1970–71. What was Derrick Rose's average in his 2010–11 MVP season?",
    "context": "Chicago Bulls · 2010–11 · regular season",
    "reveal": "25.0 points per game alongside his playmaking.",
    "min": 14,
    "max": 43,
    "step": 0.1,
    "difficulty": "easy",
-   "difficultyReason": "Famous MVP year, but a season PPG needs a careful numerical estimate. Editorial V3: moved from Q2 to Q1 because this recognizable NBA event or star has a plausible fan-estimable numeric range, with the existing independent source excerpt and original engagement ratings preserved.",
+   "difficultyReason": "A scoring champion's 31.7 sets the top of the scale; players judge how far below it an MVP guard's average sat.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -17049,7 +17035,13 @@
       "quote": "Carlos Boozer | Signed 5-year contract for $80 Million | Utah Jazz"
      }
     }
-   ]
+   ],
+   "format": {
+    "kind": "reference",
+    "references": [
+     "nba-alcindor71-ppg"
+    ]
+   }
   }
  },
  {
@@ -17262,14 +17254,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "How many more regular-season games did the 2004–05 Suns win than the season before?",
+   "prompt": "The 2001–02 Nets improved by 26 wins. By how many wins did the 2004–05 Suns improve on the season before?",
    "context": "Phoenix Suns · Steve Nash's return · 2004–05",
    "reveal": "33 more wins after Nash's arrival transformed the team.",
    "min": 15,
    "max": 55,
    "step": 1,
    "difficulty": "easy",
-   "difficultyReason": "The famous turnaround is well known; a broad scale keeps the magnitude guessable.",
+   "difficultyReason": "The Nets' 26-win jump sets a benchmark; players judge how a famous turnaround compares.",
    "ratings": {
     "interest": 5,
     "recognizability": 4,
@@ -17301,7 +17293,13 @@
       "quote": "wearing a white patch on their jerseys for the entire season"
      }
     }
-   ]
+   ],
+   "format": {
+    "kind": "reference",
+    "references": [
+     "nba-nets02-improvement"
+    ]
+   }
   }
  },
  {
@@ -18854,14 +18852,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "How many points did Jack Sikma score in Game 7 against Phoenix in 1979?",
+   "prompt": "LeBron scored 37 in Game 7 of the 2013 Finals. How many did Jack Sikma score in Game 7 against Phoenix in 1979?",
    "context": "Seattle · Western Conference finals · deciding game",
    "reveal": "33 points from Sikma to put Seattle into the Finals.",
    "min": 14,
    "max": 69,
    "step": 1,
    "difficulty": "hard",
-   "difficultyReason": "A decisive game deep in the historical record is a demanding estimate.",
+   "difficultyReason": "A modern Game 7 benchmark gives a deep-history game some footing; players judge how a big man's night compares.",
    "ratings": {
     "interest": 5,
     "recognizability": 3,
@@ -18893,7 +18891,13 @@
       "quote": "facing the defending NBA champion Washington Bullets"
      }
     }
-   ]
+   ],
+   "format": {
+    "kind": "reference",
+    "references": [
+     "nba-lebron13-g7"
+    ]
+   }
   }
  },
  {
@@ -19112,14 +19116,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "John Stockton averaged 14.5 assists in 1989–90. What was Mark Jackson's assists-per-game average for the 1997–98 Pacers?",
+   "prompt": "The chart shows three other assist averages. What did Mark Jackson average for the 1997–98 Pacers?",
    "context": "Indiana · 1997–98 regular season",
    "reveal": "8.7 assists per game from Indiana's veteran point guard.",
    "min": 3,
    "max": 19,
    "step": 0.1,
    "difficulty": "hard",
-   "difficultyReason": "Stockton's 14.5 marks the top of the scale; players decide how much lower a durable veteran point guard sits.",
+   "difficultyReason": "Three other assist averages bracket the scale; players place a durable veteran point guard between a record-setter and a role player.",
    "ratings": {
     "interest": 5,
     "recognizability": 3,
@@ -19153,10 +19157,29 @@
     }
    ],
    "format": {
-    "kind": "reference",
-    "references": [
-     "nba-stockton90-apg"
-    ]
+    "kind": "missing-point",
+    "chart": {
+     "title": "Assists per game averages",
+     "unit": "apg",
+     "points": [
+      {
+       "label": "Stockton '90",
+       "fact": "nba-stockton90-apg"
+      },
+      {
+       "label": "Murray '23",
+       "fact": "nba-murray23-finals-apg"
+      },
+      {
+       "label": "Bibby '02",
+       "fact": "nba-bibby02-regular-apg"
+      },
+      {
+       "label": "Jackson '98",
+       "fact": "nba-jackson98-regular-apg"
+      }
+     ]
+    }
    }
   }
  },
@@ -21663,14 +21686,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "What was Charles Barkley's rebounding average during his Suns MVP season?",
+   "prompt": "Dwight Howard averaged 13.8 rebounds in 2008–09. What did Charles Barkley average in his Suns MVP season?",
    "context": "Charles Barkley · Phoenix Suns · 1992–93",
    "reveal": "12.1 rebounds a night in an all-around MVP campaign.",
    "min": 5,
    "max": 21,
    "step": 0.1,
    "difficulty": "hard",
-   "difficultyReason": "Fans know Barkley as a great rebounder but the exact decimal is hard.",
+   "difficultyReason": "Howard's 13.8 is a known rebounding benchmark; players judge how a scoring MVP forward compared.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -21702,7 +21725,13 @@
       "quote": "the Suns fell down 2–0 to the Los Angeles Lakers before rallying to defeat them in five games"
      }
     }
-   ]
+   ],
+   "format": {
+    "kind": "reference",
+    "references": [
+     "nba-howard09-regular-rpg"
+    ]
+   }
   }
  },
  {
@@ -22185,14 +22214,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Against Atlanta in January 2024, how many points did Luka Dončić score in his career-best game?",
+   "prompt": "Elgin Baylor scored 71 in 1960. How many points did Luka Dončić score in his January 2024 career-best game against Atlanta?",
    "context": "Luka Dončić · Mavericks at Hawks · January 2024",
    "reveal": "73 points. Luka hit 25 of 33 from the field.",
    "min": 35,
    "max": 105,
    "step": 1,
    "difficulty": "easy",
-   "difficultyReason": "Luka's widely shared scoring explosion is a recent star moment; an informed fan can bracket a high career-best total.",
+   "difficultyReason": "Baylor's old 71-point record is a famous benchmark; players judge how a modern 70-plus night compares.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -22224,7 +22253,13 @@
       "quote": "the fourth player in league history to put up 72 or more points in a game"
      }
     }
-   ]
+   ],
+   "format": {
+    "kind": "reference",
+    "references": [
+     "nba-baylor60-71"
+    ]
+   }
   }
  },
  {
@@ -22248,14 +22283,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Against San Antonio in January 2024, how many points did Joel Embiid score in his career-best game?",
+   "prompt": "Luka Dončić scored 73 against Atlanta in January 2024. How many did Joel Embiid score against San Antonio that month?",
    "context": "Joel Embiid · 76ers vs. Spurs · January 2024",
    "reveal": "70 points, plus 18 rebounds.",
    "min": 20,
    "max": 100,
    "step": 1,
    "difficulty": "easy",
-   "difficultyReason": "A recent MVP and career-high 70-point night provide a modern, relatable range-estimation anchor.",
+   "difficultyReason": "Luka's 73 the same month is a close benchmark; players judge how another star's career night compared.",
    "ratings": {
     "interest": 4,
     "recognizability": 5,
@@ -22287,7 +22322,13 @@
       "quote": "breaking the Sixers franchise record for most points in a game previously set by Wilt Chamberlain in 1967"
      }
     }
-   ]
+   ],
+   "format": {
+    "kind": "reference",
+    "references": [
+     "nba-luka24-73-hawks"
+    ]
+   }
   }
  },
  {
@@ -23885,8 +23926,8 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Jerry West scored 53 in Game 1 of the 1969 Finals. How many did Jalen Brunson score for a Knicks playoff record in 2024?",
-   "context": "Jalen Brunson · Knicks at 76ers · April 2024",
+   "prompt": "How many points did Jalen Brunson score at Philadelphia in April 2024 for a Knicks playoff record?",
+   "context": "Benchmark: Jerry West scored 53 in Game 1 of the 1969 Finals",
    "reveal": "47 points, a Knicks playoff record, alongside 10 assists in Philadelphia.",
    "min": 15,
    "max": 105,
@@ -24260,8 +24301,8 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Michael Jordan scored 55 in Game 4 of the 1993 Finals. How many did Anthony Edwards score in his franchise-record 2024 opener at Denver?",
-   "context": "Anthony Edwards · Wolves at Nuggets · May 2024",
+   "prompt": "In April 2024 Brunson set the Knicks' playoff record with 47. How many did Anthony Edwards score for Minnesota's in Game 1 at Denver?",
+   "context": "Edwards vs Brunson · franchise playoff records, spring 2024",
    "reveal": "43 points in Denver. Ant launched the upset bid with a Minnesota postseason scoring record.",
    "min": 15,
    "max": 100,
@@ -24303,7 +24344,7 @@
    "format": {
     "kind": "reference",
     "references": [
-     "nba-jordan93-g4-55"
+     "nba-brunson24-philly-47"
     ]
    }
   }
@@ -24518,8 +24559,8 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Jimmy Butler scored 56 against Giannis's Bucks in 2023. How many did Kevin Durant score against them in 2021 Game 5?",
-   "context": "Kevin Durant · Nets vs Bucks · June 2021",
+   "prompt": "Kevin Durant put the Nets ahead of the Bucks in 2021 Game 5 with a triple-double. How many points did he score?",
+   "context": "Benchmark: Jimmy Butler scored 56 against Milwaukee in 2023",
    "reveal": "49 points, with 17 rebounds and 10 assists, to put the Nets ahead in the series.",
    "min": 10,
    "max": 120,
@@ -24587,14 +24628,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "When a hobbled Kobe barely played 2000 Finals Game 2 against Indiana, how many rebounds did Shaq grab?",
+   "prompt": "The chart shows four other big rebounding nights. How many boards did Shaq grab with Kobe hobbled in Game 2 of the 2000 Finals?",
    "context": "Shaquille O'Neal · Lakers vs Pacers · 2000 Finals",
    "reveal": "24 rebounds alongside 40 points. Shaq dominated while Kobe battled an ankle injury.",
    "min": 5,
    "max": 65,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "The iconic Shaq-and-Kobe title run and a huge 40-point double-double make 24 rebounds an estimable exceptional total.",
+   "difficultyReason": "Four other big rebounding games sit near 20; players judge how far above them a dominant 40-point Finals night went.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -24626,7 +24667,36 @@
       "quote": "111–104 Lakers victory"
      }
     }
-   ]
+   ],
+   "format": {
+    "kind": "missing-point",
+    "chart": {
+     "title": "Big rebounding nights",
+     "unit": "rebounds",
+     "points": [
+      {
+       "label": "Unseld '75",
+       "fact": "nba-unseld75-finals-g2-rebounds"
+      },
+      {
+       "label": "Shaq '00",
+       "fact": "nba-shaq00-finals-g2-24-boards"
+      },
+      {
+       "label": "Luka '22",
+       "fact": "nba-luka22-knicks-triple-rebounds"
+      },
+      {
+       "label": "Jokić '23",
+       "fact": "nba-jokic23-finals-g3-rebounds"
+      },
+      {
+       "label": "Giannis '24",
+       "fact": "nba-giannis24-cup-final-rebounds-v5"
+      }
+     ]
+    }
+   }
   }
  },
  {
@@ -24994,8 +25064,8 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Elgin Baylor's Finals record is 61 points. How many did Trae Young score for the Hawks in the 2021 East finals opener?",
-   "context": "Trae Young · Hawks at Bucks · June 2021",
+   "prompt": "In his conference finals debut at Milwaukee in 2021, how many points did Trae Young score to steal Game 1?",
+   "context": "Bar to chase: Baylor's Finals record is 61 points",
    "reveal": "48 points and 11 assists. Atlanta stole the opening game on Milwaukee's home court.",
    "min": 10,
    "max": 120,
@@ -25063,14 +25133,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Draymond Green scored 32 in Game 7 of the 2016 Finals. How many did Kawhi Leonard score in his 2019 Game 7 against Philadelphia?",
+   "prompt": "The chart shows three other playoff scoring nights. How many points did Kawhi Leonard score in his 2019 Game 7 against Philadelphia?",
    "context": "Kawhi Leonard · Raptors vs 76ers · 2019 playoffs",
    "reveal": "41 points. Kawhi's four-bounce jumper sent Toronto through in a legendary Game 7.",
    "min": 10,
    "max": 110,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "A superstar's Game 7 total frames how much a winner-take-all scoring night can reach.",
+   "difficultyReason": "Three star playoff nights bracket the scale; players judge how a Game 7 total sits among them.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -25104,10 +25174,29 @@
     }
    ],
    "format": {
-    "kind": "reference",
-    "references": [
-     "nba-green16-g7"
-    ]
+    "kind": "missing-point",
+    "chart": {
+     "title": "Playoff scoring nights",
+     "unit": "points",
+     "points": [
+      {
+       "label": "Green '16",
+       "fact": "nba-green16-g7"
+      },
+      {
+       "label": "LeBron '13",
+       "fact": "nba-lebron13-g7"
+      },
+      {
+       "label": "Curry '22",
+       "fact": "nba-curry22-g4"
+      },
+      {
+       "label": "Kawhi '19",
+       "fact": "nba-kawhi19-philly-game7-41"
+      }
+     ]
+    }
    }
   }
  },
@@ -25132,14 +25221,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "LeBron James scored 37 in Game 7 of the 2013 Finals. How many did Ja Morant score against Curry's Warriors in 2022 Game 2?",
+   "prompt": "The chart shows four other playoff scoring nights. How many points did Ja Morant score against Curry's Warriors in 2022 Game 2?",
    "context": "Ja Morant · Grizzlies vs Warriors · May 2022",
    "reveal": "47 points, including Memphis's final 15, to even the series.",
    "min": 10,
    "max": 120,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "Curry's own star night against the same season's Warriors frames the estimate.",
+   "difficultyReason": "Four playoff scoring nights from 41 to 56 frame the scale; players judge where a postseason-high 47 sits.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -25173,10 +25262,33 @@
     }
    ],
    "format": {
-    "kind": "reference",
-    "references": [
-     "nba-lebron13-g7"
-    ]
+    "kind": "missing-point",
+    "chart": {
+     "title": "Playoff scoring nights",
+     "unit": "points",
+     "points": [
+      {
+       "label": "Butler '23",
+       "fact": "nba-butler23-56-bucks-upset"
+      },
+      {
+       "label": "Giannis '21",
+       "fact": "nba-giannis21-g6"
+      },
+      {
+       "label": "Durant '21",
+       "fact": "nba-durant21-nets-bucks-g5-49"
+      },
+      {
+       "label": "Klay '16",
+       "fact": "nba-klay16-okc-game6-41"
+      },
+      {
+       "label": "Ja '22",
+       "fact": "nba-ja22-warriors-game2-47"
+      }
+     ]
+    }
    }
   }
  },
@@ -25264,8 +25376,8 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Jimmy Butler scored 56 against Milwaukee in the 2023 playoffs. Facing elimination at Milwaukee in 2022, how many did Jayson Tatum score?",
-   "context": "Jayson Tatum · Celtics at Bucks · 2022 playoffs",
+   "prompt": "Facing elimination at Milwaukee in 2022, Jayson Tatum forced a Game 7. How many points did he score?",
+   "context": "Benchmark: Jimmy Butler scored 56 against Milwaukee in 2023",
    "reveal": "46 points, plus nine boards, to force Game 7 and keep Boston alive.",
    "min": 10,
    "max": 120,
@@ -25333,14 +25445,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Curry scored 54 at Madison Square Garden in 2013. How many points did he score against Lillard's Blazers in January 2021, his career best?",
+   "prompt": "Stephen Curry set a career high against Damian Lillard's Blazers in January 2021. How many points did he score?",
    "context": "Stephen Curry · Warriors vs Blazers · January 2021",
    "reveal": "62 points, a Curry career high, as Golden State beat Portland.",
    "min": 15,
    "max": 140,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "Curry's 54 at MSG is a known foothold; players judge how far past it his career-best night went.",
+   "difficultyReason": "A career-best night for a modern superstar; fans bracket it against his usual 40-point peaks.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -25372,13 +25484,7 @@
       "quote": "named the Player of the Week for the Western Conference"
      }
     }
-   ],
-   "format": {
-    "kind": "reference",
-    "references": [
-     "nba-curry13-knicks-54"
-    ]
-   }
+   ]
   }
  },
  {
@@ -25402,14 +25508,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Luka grabbed 21 boards in a 60-point game against the Knicks. How many did Kevin Love grab in his 2010 '30–30' game against them?",
+   "prompt": "In Kevin Love's 2010 '30–30' game against the Knicks, how many rebounds did he grab?",
    "context": "Kevin Love · Timberwolves vs Knicks · November 2010",
    "reveal": "31 rebounds, matching his 31 points in one of the NBA's rare 30–30 games.",
    "min": 5,
    "max": 85,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "Luka's 21 against the same opponent frames a huge night; players judge how far past it a 30-30 game goes.",
+   "difficultyReason": "A rare 30–30 game puts the rebound total far above a normal night; players judge how far.",
    "ratings": {
     "interest": 5,
     "recognizability": 4,
@@ -25441,13 +25547,7 @@
       "quote": "a home game against the New York Knicks on November 12, 2010"
      }
     }
-   ],
-   "format": {
-    "kind": "reference",
-    "references": [
-     "nba-luka22-knicks-triple-rebounds"
-    ]
-   }
+   ]
   }
  },
  {
@@ -25786,8 +25886,8 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Utah once rallied from 36 down against Denver. How big a deficit did Boston erase against Kobe's Lakers to steal Game 4 of the 2008 Finals?",
-   "context": "Boston Celtics · 2008 Finals Game 4 · Los Angeles",
+   "prompt": "In Game 4 of the 2008 Finals, Boston trailed the Lakers by a huge margin before winning 97–91. At its largest, how big was the deficit?",
+   "context": "Benchmark: Utah once rallied from 36 down against Denver",
    "reveal": "24 points. Boston stormed back in L.A. for a 97–91 win and a 3–1 series lead.",
    "min": 0,
    "max": 80,
@@ -25855,14 +25955,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Donovan Mitchell and Jamal Murray combined for 101 points in Game 4 of their 2020 series. How many did Mitchell score in Game 1?",
+   "prompt": "In Game 1 of his 2020 bubble series against Denver, how many points did Donovan Mitchell score in an overtime loss?",
    "context": "Donovan Mitchell · Jazz vs Nuggets · 2020 bubble",
    "reveal": "57 points in an overtime loss. It began a blistering playoff scoring duel with Jamal Murray.",
    "min": 10,
    "max": 130,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "The 101-point duel in Game 4 sets the series' scoring level; players judge how much of an opening-game shootout was Mitchell.",
+   "difficultyReason": "A famous bubble shootout; players judge how big an overtime-loss scoring night can get.",
    "ratings": {
     "interest": 5,
     "recognizability": 4,
@@ -25894,13 +25994,7 @@
       "quote": "the third most in playoff history"
      }
     }
-   ],
-   "format": {
-    "kind": "reference",
-    "references": [
-     "nba-murray-mitchell20-game4-combined"
-    ]
-   }
+   ]
   }
  },
  {
@@ -25987,14 +26081,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "LeBron scored Cleveland's final 25 points in a 2007 playoff game. How many straight points did AD score to beat Denver in 2020 Game 2?",
+   "prompt": "Anthony Davis's buzzer-beating three beat Denver in 2020 Game 2. How many straight points did he score to close the game?",
    "context": "Anthony Davis · Lakers vs Nuggets · 2020 Western finals",
    "reveal": "AD scored the Lakers' final 10, including the game-winning three at the buzzer.",
    "min": 0,
    "max": 50,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "LeBron's 25 straight frames how long a closing run can last; players judge how much shorter AD's was.",
+   "difficultyReason": "A closing run is short but memorable; players judge how many straight points it took to finish the game.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -26026,13 +26120,7 @@
       "quote": "It was Davis second career (first in the playoff) game-winning buzzer beater."
      }
     }
-   ],
-   "format": {
-    "kind": "reference",
-    "references": [
-     "nba-lebron07-final-twentyfive"
-    ]
-   }
+   ]
   }
  },
  {
@@ -26056,14 +26144,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Ray Allen's tying three in 2013 Finals Game 6 came with 5.2 seconds left. How much time was left when Lillard caught the 2014 inbound?",
+   "prompt": "How many seconds were left when Damian Lillard caught the inbound for his 2014 series-winning shot over Houston?",
    "context": "Damian Lillard · Blazers vs Rockets · 2014 first round",
    "reveal": "Just 0.9 seconds. Lillard caught the inbound and hit the buzzer-beater to eliminate Houston.",
    "min": 0,
    "max": 8,
    "step": 0.1,
    "difficulty": "expert",
-   "difficultyReason": "Allen's 5.2 seconds is the clutch-clock benchmark; players judge how far below it Lillard's inbound was.",
+   "difficultyReason": "A famous buzzer-beater; players must judge how little time could be left on a catch-and-shoot.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -26095,13 +26183,7 @@
       "quote": "Houston won 3–1 in the regular-season series"
      }
     }
-   ],
-   "format": {
-    "kind": "reference",
-    "references": [
-     "nba-allen13-g6-seconds"
-    ]
-   }
+   ]
   }
  },
  {
@@ -26188,8 +26270,8 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Curry hit a then-record 13 threes in a regular-season game in 2016. How many did he make in his 50-point 2022 All-Star Game?",
-   "context": "Stephen Curry · 2022 NBA All-Star Game · Cleveland",
+   "prompt": "Curry scored 50 in the 2022 All-Star Game in Cleveland. How many threes did he make to set the All-Star record?",
+   "context": "Benchmark: Curry hit 13 threes in a regular-season game in 2016",
    "reveal": "16 threes in one All-Star Game. Curry earned MVP after putting on an unprecedented long-range show.",
    "min": 0,
    "max": 45,
@@ -26257,14 +26339,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Kyrie's 2016 Game 7 three came with 53 seconds left. How many seconds were left on Durant's pull-up three over LeBron in Game 3 of 2017?",
+   "prompt": "How many seconds were left on Kevin Durant's go-ahead pull-up three over LeBron in Game 3 of the 2017 Finals?",
    "context": "Kevin Durant · Warriors at Cavaliers · 2017 Finals Game 3",
    "reveal": "45.3 seconds. KD's three capped Golden State's furious comeback on the way to his first title.",
    "min": 20,
    "max": 60,
    "step": 0.1,
    "difficulty": "expert",
-   "difficultyReason": "Kyrie's 53 seconds is the same rivalry's defining clock number; players judge how much earlier or later Durant's dagger came.",
+   "difficultyReason": "A famous Finals dagger; players judge how much time was left on a late go-ahead shot.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -26296,13 +26378,7 @@
       "quote": "Iguodala blocked LeBron James' potential game-tying 3"
      }
     }
-   ],
-   "format": {
-    "kind": "reference",
-    "references": [
-     "nba-kyrie16-finals-g7-shot-53-sec"
-    ]
-   }
+   ]
   }
  },
  {
@@ -26452,8 +26528,8 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The 2014 Spurs shot a Finals-record 75.8% in one first half. What did Indiana shoot for its whole 2024 Game 7 at the Garden?",
-   "context": "Indiana Pacers at Knicks · May 2024 · East semifinals Game 7",
+   "prompt": "What percent of its shots did Indiana make over the full Game 7 at Madison Square Garden in May 2024?",
+   "context": "Benchmark: the 2014 Spurs shot a Finals-record 75.8% in one first half",
    "reveal": "67.1% from the field in a road Game 7, an NBA playoff record.",
    "min": 45,
    "max": 80,
@@ -26521,14 +26597,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Klay Thompson set the playoff record with 11 threes in 2016. With Denver facing elimination, how many did Jamal Murray hit in 2020 Game 6?",
+   "prompt": "The chart shows four other playoff three-point nights. With Denver facing elimination in 2020 Game 6, how many threes did Jamal Murray hit?",
    "context": "Jamal Murray · Nuggets at Jazz · 2020 first-round Game 6",
    "reveal": "Nine made threes on only 12 attempts! Murray scored 50 to force Game 7.",
    "min": 0,
    "max": 25,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "Klay's 11 was the playoff record; players decide how close Murray's 50-point night came to it.",
+   "difficultyReason": "Four playoff three-point nights from 7 to 12 frame the scale; players judge where a 50-point elimination game sits.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -26562,10 +26638,33 @@
     }
    ],
    "format": {
-    "kind": "reference",
-    "references": [
-     "nba-klay16-wcf-threes"
-    ]
+    "kind": "missing-point",
+    "chart": {
+     "title": "Threes in a playoff game",
+     "unit": "threes",
+     "points": [
+      {
+       "label": "Dame '21",
+       "fact": "nba-dame21-playoffs-12-threes"
+      },
+      {
+       "label": "Klay '16",
+       "fact": "nba-klay16-wcf-threes"
+      },
+      {
+       "label": "Allen '10",
+       "fact": "nba-allen10-g2-threes"
+      },
+      {
+       "label": "Miller '12",
+       "fact": "nba-miller12-g5-threes"
+      },
+      {
+       "label": "Murray '20",
+       "fact": "nba-murray20-utah-g6-nine-threes"
+      }
+     ]
+    }
    }
   }
  },
@@ -26653,14 +26752,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The 1948 Warriors shot a record-low 16.4% as a team in one game. What percent did Kobe shoot in his brutal 2010 Finals Game 7?",
+   "prompt": "What percent of his shots did Kobe Bryant make in Game 7 of the 2010 Finals, a game in which he scored a game-high 23?",
    "context": "Kobe Bryant · Lakers vs Celtics · 2010 Finals Game 7",
    "reveal": "Just 25%, 6 of 24, but Kobe scored a game-high 23, with 10 in the fourth quarter.",
    "min": 0,
    "max": 75,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "The 16.4% record low frames the floor; players judge how close Kobe's miserable night came to it.",
+   "difficultyReason": "A famously ugly shooting night in a title game; players judge how low a superstar can go.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -26692,13 +26791,7 @@
       "quote": "as well as head coach Phil Jackson’s first-ever Finals Game 7"
      }
     }
-   ],
-   "format": {
-    "kind": "reference",
-    "references": [
-     "nba-warriors48-low-fg-v5"
-    ]
-   }
+   ]
   }
  },
  {
@@ -26722,8 +26815,8 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Dallas once led the Clippers by 50 at halftime. In Luka's 2022 Game 7 rout of Phoenix, how far ahead were the Mavericks at the half?",
-   "context": "Mavericks at Suns · May 2022 · Game 7",
+   "prompt": "In Game 7 at Phoenix in May 2022, Luka's Mavericks routed the Suns. How many points did Dallas lead by at halftime?",
+   "context": "Benchmark: Dallas once led the Clippers by 50 at halftime",
    "reveal": "Dallas led by 30 at halftime, 57–27. Phoenix never recovered from the Game 7 embarrassment.",
    "min": 0,
    "max": 65,
@@ -26791,14 +26884,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "In the 2020 bubble, Donovan Mitchell scored 57 against Denver. How many did rookie Tyler Herro score in East finals Game 4?",
+   "prompt": "As a 20-year-old rookie in Game 4 of the 2020 East finals, how many points did Tyler Herro score?",
    "context": "Tyler Herro · Heat vs Celtics · 2020 East finals Game 4",
    "reveal": "37 points from a 20-year-old rookie. Herro helped power Miami's surprise Finals run.",
    "min": 0,
    "max": 90,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "Mitchell's 57 shows what a bubble breakout looks like; players judge whether a rookie could come close.",
+   "difficultyReason": "A rookie breakout in a conference finals; players judge how high a career night can go.",
    "ratings": {
     "interest": 5,
     "recognizability": 4,
@@ -26830,13 +26923,7 @@
       "quote": "he was named to the 2019–20 NBA All-Rookie Second Team"
      }
     }
-   ],
-   "format": {
-    "kind": "reference",
-    "references": [
-     "nba-mitchell20-bubble-fiftyseven"
-    ]
-   }
+   ]
   }
  },
  {
@@ -26860,8 +26947,8 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The 1989 Lakers won their first 11 playoff games. How many did the 2001 Lakers win while losing only once all postseason?",
-   "context": "Los Angeles Lakers · 2001 NBA championship run",
+   "prompt": "The 2001 Lakers lost only once all postseason, to Iverson's Sixers. How many playoff games did they win?",
+   "context": "Benchmark: the 1989 Lakers won their first 11 playoff games",
    "reveal": "15 wins against one loss. The Lakers swept the West, then beat Iverson's Sixers.",
    "min": 0,
    "max": 26,
@@ -26992,8 +27079,8 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Kyrie's Game 7 three in the 2016 Finals came with 53 seconds left. How many seconds remained when LeBron blocked Iguodala earlier?",
-   "context": "LeBron James · Cavaliers at Warriors · 2016 Finals Game 7",
+   "prompt": "With the 2016 Finals Game 7 tied at 89, LeBron blocked Iguodala. How many seconds were left on the clock?",
+   "context": "Kyrie's go-ahead three came later, with 53 seconds left",
    "reveal": "110 seconds (1:50). The Block helped Cleveland finish its historic Finals comeback.",
    "min": 0,
    "max": 300,
@@ -27293,8 +27380,8 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Before the shot clock, a 1950–51 game went 6 overtimes. How many overtimes did Portland and Denver play in 2019 playoff Game 3?",
-   "context": "Trail Blazers vs Nuggets · 2019 West semifinals Game 3",
+   "prompt": "Portland and Denver played Game 3 of the 2019 West semifinals. How many overtimes did it take?",
+   "context": "Benchmark: a 1950–51 game went 6 overtimes, before the shot clock",
    "reveal": "Four overtimes! It was the first quadruple-overtime playoff game since 1955.",
    "min": 0,
    "max": 9,

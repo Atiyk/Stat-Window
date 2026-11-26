@@ -9,7 +9,7 @@
     {
       "id": "nba-jordan86-63",
       "sport": "NBA",
-      "prompt": "Michael Jordan set a playoff scoring record against the 1986 Celtics in a loss. How many points did he score?",
+      "prompt": "Michael Jordan scored 55 in Game 4 of the 1993 Finals. How many did he score in his 1986 playoff-record loss to the Celtics?",
       "context": "1986 first round · Game 2 · at Boston",
       "answer": 63,
       "unit": {
@@ -57,14 +57,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
-        "era": "1980s",
+        "era": "cross-era",
         "subjects": [
           "Michael Jordan",
           "Chicago Bulls"
         ],
-        "supports": []
+        "supports": [
+          "nba-jordan93-g4-55"
+        ]
       }
     },
     {
@@ -280,7 +282,7 @@
     {
       "id": "nba-mitchell20-bubble-fiftyseven",
       "sport": "NBA",
-      "prompt": "Donovan Mitchell and Jamal Murray combined for 101 points in Game 4 of their 2020 series. How many did Mitchell score in Game 1?",
+      "prompt": "In Game 1 of his 2020 bubble series against Denver, how many points did Donovan Mitchell score in an overtime loss?",
       "context": "Donovan Mitchell · Jazz vs Nuggets · 2020 bubble",
       "answer": 57,
       "unit": {
@@ -328,16 +330,14 @@
         }
       ],
       "meta": {
-        "format": "reference",
+        "format": "recall",
         "family": "points-game",
         "era": "2010s",
         "subjects": [
           "Donovan Mitchell",
           "Utah Jazz"
         ],
-        "supports": [
-          "nba-murray-mitchell20-game4-combined"
-        ]
+        "supports": []
       }
     }
   ]

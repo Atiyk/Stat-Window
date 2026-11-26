@@ -14,6 +14,7 @@
 import { scoreWindow, toSteps, rangeSteps, type Window } from '../src/engine/scoring.ts';
 import { emptyTally, midrankPercentile, PERCENTILE_MIN_SAMPLE, summarizeQuestion, type QuestionOutcome, type QuestionStat } from '../src/engine/percentile.ts';
 import { isIsoDay, parseLaunchDay, seasonOf } from '../src/engine/season.ts';
+import { LAUNCH_DAY } from '../src/engine/launch-config.ts';
 import { puzzleDay, puzzleStartUtcMs, addDays as addPuzzleDays } from '../src/engine/daily.ts';
 import type { BudgetKeys, Limits, ScoreStore } from './store.ts';
 
@@ -407,7 +408,8 @@ export function contextFromEnv(env: Record<string, string | undefined>, deps: { 
     store: deps.store,
     secret: ns === '' ? '' : secret,
     env: ns,
-    launchDay: parseLaunchDay(env.LAUNCH_DAY ?? env.VITE_LAUNCH_DAY),
+    // Committed (src/engine/launch-config.ts), so the API season always matches the client label.
+    launchDay: parseLaunchDay(LAUNCH_DAY),
     loadSlate: deps.loadSlate,
     now: () => new Date(),
     limits: {

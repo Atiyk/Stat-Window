@@ -5,6 +5,7 @@ import type { Slate } from './content/schema';
 import { parseChallenge } from './engine/challenge';
 import { addDays, puzzleDay, puzzleNumber } from './engine/daily';
 import { verifiedDailyRounds, verifiedPreviousBest } from './engine/final-shot';
+import { LAUNCH_DAY } from './engine/launch-config';
 import { currentSeason, inSeason, isRetiredDay, playableDays, publicNumber, seasonConfigFrom, type SeasonConfig } from './engine/season';
 import { isQa } from './lib/scores';
 import { gameReducer, initGame, ROUNDS, totalPoints, type GameAction, type GameState, type Mode, type PracticeTiming, type RoundRecord } from './engine/game';
@@ -127,11 +128,11 @@ const withoutGameLink = (loc: Pick<Location, 'pathname' | 'search' | 'hash'>) =>
 const daysBetween = (a: string, b: string) => puzzleNumber(b) - puzzleNumber(a);
 
 /**
- * Beta unless the build sets VITE_LAUNCH_DAY (docs/LAUNCH.md). Non-production builds with
+ * Beta unless src/engine/launch-config.ts commits a LAUNCH_DAY (docs/LAUNCH.md). Non-production builds with
  * VITE_LAUNCH_PREVIEW=1 can try a launch day with ?launch-preview=YYYY-MM-DD.
  */
 const SEASON: SeasonConfig = seasonConfigFrom(
-  { launchDay: import.meta.env.VITE_LAUNCH_DAY, preview: import.meta.env.VITE_LAUNCH_PREVIEW },
+  { launchDay: LAUNCH_DAY ?? undefined, preview: import.meta.env.VITE_LAUNCH_PREVIEW },
   typeof window === 'undefined' ? '' : window.location.search,
 );
 // Set before any component mounts, so even a child's first event carries the QA or season prefix.

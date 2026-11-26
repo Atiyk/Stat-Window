@@ -15,13 +15,13 @@
 .outcomes__list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-1); font-size: 0.9375rem; }
 .outcomes__list li { display: flex; align-items: center; gap: var(--space-2); min-height: 28px; }
 [data-outcome='scoringHits'] { --o: var(--brand); }
-[data-outcome='zeroCatches'] { --o: #6b8cae; }
-[data-outcome='misses'] { --o: var(--accent); }
-[data-outcome='timeouts'] { --o: #4e5f73; }
+[data-outcome='zeroCatches'] { --o: color-mix(in srgb, var(--brand) 45%, var(--paper)); }
+[data-outcome='misses'] { --o: var(--danger); }
+[data-outcome='timeouts'] { --o: var(--ink-soft); }
 .outcomes__bar > span, .outcomes__swatch { background: var(--o); }
 .outcomes__swatch { flex: none; width: 12px; height: 12px; border-radius: 3px; }
 /* Shape as well as colour: timeouts are hatched, zero-point catches outlined. */
-.outcomes__list [data-outcome='timeouts'] .outcomes__swatch, .outcomes__bar > [data-outcome='timeouts'] { background: repeating-linear-gradient(135deg, #4e5f73 0 3px, var(--paper-2) 3px 6px); }
+.outcomes__list [data-outcome='timeouts'] .outcomes__swatch, .outcomes__bar > [data-outcome='timeouts'] { background: repeating-linear-gradient(135deg, var(--ink-soft) 0 3px, var(--paper-2) 3px 6px); }
 .outcomes__list [data-outcome='zeroCatches'] .outcomes__swatch, .outcomes__bar > [data-outcome='zeroCatches'] { background: color-mix(in srgb, var(--brand) 45%, var(--paper)); }
 
 .observations { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-2); }

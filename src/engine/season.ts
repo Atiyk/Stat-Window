@@ -9,8 +9,8 @@
  *   (unchanged from before this module). Once a launch day is configured, that day is
  *   "No. 1", the next "No. 2", and every earlier day becomes "Beta No. N".
  *
- * The launch day is fixed at build time (VITE_LAUNCH_DAY). Unset means beta: the live
- * game behaves exactly as before. Non-production builds can preview a launch with
+ * The launch day is committed in src/engine/launch-config.ts (one value for the client and
+ * the score API). Null means beta: the live game behaves exactly as before. Non-production builds can preview a launch with
  * `?launch-preview=YYYY-MM-DD` when VITE_LAUNCH_PREVIEW=1 (never in production).
  */
 import { EPOCH_DAY } from './daily.ts';

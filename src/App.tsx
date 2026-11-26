@@ -17,7 +17,7 @@ import { armFor, exposedYesterday, markExposed, type Arm } from './survival/expe
 import { formatDay } from './lib/format';
 import { setSoundEnabled } from './ui/feedback';
 import { GuideLink, Help, type GuideView } from './ui/Help';
-import type { QuestionFormat } from './content/formats';
+import type { PlayerFormat } from './content/formats';
 import { PrivacyDialog } from './ui/Privacy';
 import { Mark } from './ui/Mark';
 import { Results } from './ui/Results';
@@ -563,6 +563,8 @@ function Game(props: {
     if ((store.load()[session.kind]?.[session.day]?.results.length ?? 0) > 0) return true;
     try { return window.sessionStorage.getItem(startKey) !== null; } catch { return false; }
   });
+  // A new player on the home chose to learn first: the untimed walkthrough, then the daily.
+  const [learning, setLearning] = useState(false);
   const practiceHeading = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
     if (practiceHeading.current) {
@@ -741,17 +743,25 @@ function Game(props: {
   }
 
   if (!started && state.results.length === 0) {
-    // A friend's challenge link goes straight to its Start gate: no first-play walkthrough in the way.
-    if (props.showHint && !untimedPractice && !session.viaLink) return <Onboarding onDone={() => { props.onTutorialDone(); start(); }} onGuide={() => props.onGuide()} />;
+    const ownDaily = playMode === 'daily' && session.kind === 'runs' && session.day === today && !session.viaLink;
+    const finishTutorial = () => { props.onTutorialDone(); start(); };
+    // The walkthrough: chosen from the home by a new player, or first on a new player's timed
+    // practice. A friend's challenge link goes straight to its Start gate: no walkthrough in the way.
+    if (learning || (props.showHint && !ownDaily && !untimedPractice && !session.viaLink)) {
+      return <Onboarding playLabel={ownDaily ? `Play Game ${pub.number}` : 'Start practice'} onDone={finishTutorial} onGuide={() => props.onGuide()} />;
+    }
     // A friend's link, practice and untimed practice go straight to their own start gate; only the
-    // player's own official daily gets the returning-player home.
-    if (playMode === 'daily' && session.kind === 'runs' && session.day === today && !session.viaLink) {
+    // player's own official daily gets the home, which teaches new players at a glance.
+    if (ownDaily) {
       return (
         <Home
+          isNew={props.showHint}
+          gameNumber={pub.number}
+          onLearn={() => setLearning(true)}
           store={store}
           today={today}
           config={SEASON}
-          onStart={start}
+          onStart={props.showHint ? finishTutorial : start}
           previous={<PreviousDailyScore today={today} store={store} />}
           archive={props.archive}
           onPractice={props.onPractice}
@@ -776,7 +786,7 @@ function Game(props: {
           cta: 'Start the challenge',
         }
         : daily
-          ? { context: 'Daily puzzle', title: 'Ready for five?', body: 'Catch five numbers in your windows. You’ll have 24 seconds per question.', cta: "Start today's five" }
+          ? { context: 'Daily puzzle', title: 'How well do you know ball?', body: 'Five NBA questions, 24 seconds each. Frame each answer between two brackets.', cta: `Play Game ${pub.number}` }
           : { context: `Practice · ${puzzle}`, title: 'Ready for five?', body: '24 seconds per question. Not counted in your stats.', cta: 'Start practice' };
     return (
       <article className="ready-card">
@@ -806,7 +816,7 @@ function Game(props: {
       previousBest={comparesPersonalBest ? previousBest : null}
       challenge={session.viaLink && state.round === 0 && state.results.length === 0 ? { vs: session.vs, vsTime: session.vsTime, race: session.vsRounds !== null } : null}
       onFirstTouch={() => { props.onWindowActive(); props.onFirstTouch(); }}
-      onGuide={(f: QuestionFormat) => props.onGuide(f)}
+      onGuide={(f: PlayerFormat) => props.onGuide(f)}
     />
   );
 }

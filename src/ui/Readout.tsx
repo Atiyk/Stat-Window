@@ -7,19 +7,41 @@ type Props = {
   question: Pick<Question, 'min' | 'max' | 'step' | 'unit'>;
   window: Window;
   editable: boolean;
+  /** After the reveal the answer leads; the window steps down and says whose it is. */
+  caption?: string | undefined;
   onFirstTouch?: (() => void) | undefined;
   onChange: (w: Window, moving: 'lo' | 'hi') => void;
 };
 
+/**
+ * A typed bracket value, or null when it isn't a number. Spaces and thousands commas
+ * are ignored; on a decimal scale a lone comma is read as the decimal mark ("27,4"),
+ * since a phone's keypad may offer only that.
+ */
+export function parseTyped(text: string, step: number): number | null {
+  let t = text.trim().replace(/\s/g, '');
+  if (step < 1 && !t.includes('.') && /^-?\d*,\d+$/.test(t)) t = t.replace(',', '.');
+  t = t.replace(/,/g, '');
+  if (!/^-?(\d+\.?\d*|\.\d+)$/.test(t)) return null;
+  const n = Number(t);
+  return Number.isFinite(n) ? n : null;
+}
+
+/** The phone keyboard for a scale: digits only unless it needs a decimal mark or a minus sign. */
+export function keyboardFor(q: Pick<Question, 'step' | 'min'>): 'numeric' | 'decimal' | 'text' {
+  return q.min < 0 ? 'text' : q.step < 1 ? 'decimal' : 'numeric';
+}
+
 /** The two ends of the window, set huge. Tap either number to type an exact value. */
-export function Readout({ question: q, window: w, editable, onChange, onFirstTouch }: Props) {
+export function Readout({ question: q, window: w, editable, caption, onChange, onFirstTouch }: Props) {
   const [editing, setEditing] = useState<'lo' | 'hi' | null>(null);
   useEffect(() => {
     if (!editable) setEditing(null);
   }, [editable]);
 
   return (
-    <div className="readout">
+    <div className="readout" data-caption={caption ? true : undefined}>
+      {caption && <span className="readout-caption">{caption}</span>}
       <Bound which="lo" q={q} value={w.lo} editable={editable} editing={editing === 'lo'} setEditing={setEditing} onFirstTouch={onFirstTouch}
         onCommit={(v) => onChange({ lo: v, hi: w.hi }, 'lo')} />
       <span className="readout-to" aria-hidden="true">to</span>
@@ -62,9 +84,8 @@ function Bound(props: {
   }, [editing, value]);
 
   const commit = () => {
-    const text = draft.replace(/[,\s]/g, '');
-    const n = Number(text);
-    if (editable && text !== '' && Number.isFinite(n)) onCommit(n);
+    const n = parseTyped(draft, q.step);
+    if (editable && n !== null) onCommit(n);
     setEditing(null);
   };
 
@@ -78,7 +99,7 @@ function Bound(props: {
         data-bound={which}
         data-wide-value={Math.max(minimum.length, maximum.length) >= 6 || undefined}
         aria-label={`${label}, between ${minimum} and ${maximum}`}
-        inputMode="decimal"
+        inputMode={keyboardFor(q)}
         enterKeyHint="done"
         autoComplete="off"
         value={draft}

@@ -1,0 +1,99 @@
+/* The rules in one glance: a wide and a tight window on the same answer, on the navy field. */
+.window-demo {
+  --demo-muted: #b7c4d4;
+  --demo-control: #dce4ee;
+  --demo-axis: #8395ab;
+  --demo-band: #2d5283;
+  margin: 0;
+  width: 100%;
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  border-radius: var(--radius);
+  background: var(--brand);
+  color: var(--paper);
+}
+.window-demo__rows { display: grid; gap: var(--space-3); }
+.window-demo__row {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr) 3rem;
+  align-items: center;
+  gap: var(--space-3);
+}
+.window-demo__name { font-size: 0.875rem; font-weight: 600; color: var(--demo-muted); line-height: 1.2; }
+.window-demo__points {
+  justify-self: end;
+  font-size: 1.375rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.window-demo__row[data-row='wide'] .window-demo__points { color: var(--demo-muted); font-weight: 700; }
+
+/* Every moving part is a full-width layer moved by transform, so percentages are of the track. */
+.window-demo__track { position: relative; display: block; height: 28px; overflow: hidden; }
+.window-demo__track::before {
+  /* the number line */
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: var(--demo-axis);
+}
+.window-demo__band,
+.window-demo__edge,
+.window-demo__ball { position: absolute; inset: 0; transform-origin: left center; }
+.window-demo__band {
+  inset: 4px 0 2px;
+  background: var(--demo-band);
+  transform: translateX(calc(var(--lo) * 1%)) scaleX(calc((var(--hi) - var(--lo)) / 100));
+}
+.window-demo__edge--lo { transform: translateX(calc(var(--lo) * 1%)); }
+.window-demo__edge--hi { transform: translateX(calc(var(--hi) * 1%)); }
+.window-demo__ball { transform: translateX(calc(var(--answer) * 1%)); }
+.window-demo__edge > span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 7px;
+  border: 0 solid var(--demo-control);
+  border-block-width: 3px;
+}
+.window-demo__edge--lo > span { left: -2px; border-left-width: 3px; }
+.window-demo__edge--hi > span { left: -5px; border-right-width: 3px; }
+.window-demo__ball > span {
+  /* The ball is copper with a cream ring: copper alone is too low-contrast on navy. */
+  position: absolute;
+  top: 50%;
+  left: -7px;
+  width: 14px;
+  height: 14px;
+  margin-top: -6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 2px var(--paper);
+}
+.window-demo__caption {
+  margin-top: var(--space-3);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--demo-muted);
+  text-wrap: pretty;
+}
+
+/* Once, on arrival: the tight row starts as wide as the first and closes in on the ball. */
+@media (prefers-reduced-motion: no-preference) {
+  .window-demo__row[data-row='tight'] .window-demo__band { animation: demo-band 640ms cubic-bezier(0.77, 0, 0.175, 1) 320ms both; }
+  .window-demo__row[data-row='tight'] .window-demo__edge--lo { animation: demo-lo 640ms cubic-bezier(0.77, 0, 0.175, 1) 320ms both; }
+  .window-demo__row[data-row='tight'] .window-demo__edge--hi { animation: demo-hi 640ms cubic-bezier(0.77, 0, 0.175, 1) 320ms both; }
+  .window-demo__row[data-row='tight'] .window-demo__points { animation: demo-points 200ms var(--ease-out) 900ms both; }
+}
+@keyframes demo-band { from { transform: translateX(calc(var(--from-lo) * 1%)) scaleX(calc((var(--from-hi) - var(--from-lo)) / 100)); } }
+@keyframes demo-lo { from { transform: translateX(calc(var(--from-lo) * 1%)); } }
+@keyframes demo-hi { from { transform: translateX(calc(var(--from-hi) * 1%)); } }
+@keyframes demo-points { from { opacity: 0; transform: translateY(3px); } }
+
+@media (max-width: 359px) {
+  .window-demo { padding: var(--space-3); }
+  .window-demo__row { grid-template-columns: 2.75rem minmax(0, 1fr) 2.5rem; gap: var(--space-2); }
+  .window-demo__name { font-size: 0.8125rem; }
+  .window-demo__points { font-size: 1.125rem; }
+}

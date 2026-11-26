@@ -15,7 +15,7 @@ import { courtPosition } from '../engine/court-run';
 import { courtRunMarkers } from '../engine/court-run';
 import { QuestionChart } from './QuestionChart';
 import { FormatCue } from './FormatCue';
-import type { QuestionFormat } from '../content/formats';
+import type { PlayerFormat } from '../content/formats';
 import { raceStanding, type RaceStanding } from '../engine/friend-race';
 import { questionCrowdLine } from '../engine/percentile';
 import { crowdThreshold, prefetchQuestionCrowd, questionCrowdFor } from '../lib/scores';
@@ -44,7 +44,7 @@ type Props = {
    */
   survival?: SurvivalChrome | undefined;
   /** Opens the How to play guide at a format (offered only once the clock has stopped). */
-  onGuide?: ((format: QuestionFormat) => void) | undefined;
+  onGuide?: ((format: PlayerFormat) => void) | undefined;
 };
 
 export type SurvivalChrome = {
@@ -307,7 +307,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
     : resolved.points === 0 ? 'Inside, but too wide to score.' : 'Inside.');
   const pointsLabel = resolved && `${resolved.points} ${resolved.points === 1 ? 'point' : 'points'}`;
   const announcement = resolved
-    ? `${resultLabel}${missDistance ? ` Missed by ${missDistance}.` : ''} ${pointsLabel}. The answer is ${formatValue(q.answer, q.step)} ${unitFor(q.answer, q.unit)}.`
+    ? `The answer is ${formatValue(q.answer, q.step)} ${unitFor(q.answer, q.unit)}. ${resultLabel}${missDistance ? ` Missed by ${missDistance}.` : ''} ${pointsLabel}.`
     : !interactive ? last?.timedOut ? 'Time’s up.' : 'Window locked.' : '';
   // Don't leak the outcome before the answer lands.
   const runningTotal = survival ? survival.total : totalPoints(state.phase === 'resolved' ? state.results : state.results.slice(0, state.round));
@@ -337,6 +337,64 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
       targetText = `Personal best remains ${previousBest} points.`;
     }
   }
+
+  const verdictLine = (
+    <div className="verdict-line">
+      {resolved && last.timedOut ? (
+        <p className="outcome outcome-miss">
+          <span className="outcome-word">{resultLabel}</span>
+          <span className="outcome-score tabular">{pointsLabel}</span>
+        </p>
+      ) : resolved && survival ? (
+        <SurvivalOutcome points={last.points} hit={last.hit} need={survival.need} perfect={!!perfect} missBy={missDistance} />
+      ) : resolved ? (
+        last.hit ? (
+          <p className="outcome outcome-hit" data-zero={last.points === 0 || undefined}>
+            <span className="outcome-word">
+              <span className="outcome-glyph" aria-hidden="true">✓</span>
+              {resultLabel}
+            </span>
+            <span className="outcome-points tabular" data-perfect-window={perfect || undefined} aria-hidden="true">+{last.points}</span>
+            <span className="sr-only">{pointsLabel}.</span>
+          </p>
+        ) : (
+          <p className="outcome outcome-miss">
+            <span className="outcome-word">
+              <span className="outcome-glyph" aria-hidden="true">✕</span>
+              {resultLabel}
+            </span>
+            <span className="outcome-score tabular">{pointsLabel}</span>
+            {missDistance && <span className="outcome-detail">Missed by {missDistance}.</span>}
+          </p>
+        )
+      ) : state.phase === 'locked' || state.phase === 'revealing' ? (
+        <p className="worth worth-locked">{last?.timedOut ? 'Time’s up. Revealing the answer…' : 'Window locked. Revealing the answer…'}</p>
+      ) : survival ? (
+        <p className="worth" data-short={short || undefined}>
+          {worth === 0 ? (
+            <>Pull the brackets in. You need <b className="tabular">{survival.need}</b> to survive.</>
+          ) : short ? (
+            <>Worth <b className="tabular">{worth}</b>. You need <b className="tabular">{survival.need}</b>: tighten it.</>
+          ) : (
+            <>Worth <b className="tabular">{worth}</b> if it’s inside. You need {survival.need}.</>
+          )}
+        </p>
+      ) : worth === 0 && canLock(state) ? (
+        // Lockable, but so wide it rounds to 0: say so before the lock, not after.
+        <p className="worth worth-points" data-zero>
+          <b className="tabular">0</b> points even if it’s inside. Tighten up.
+        </p>
+      ) : worth === 0 ? (
+        <p className="worth">
+          Pull the brackets in. Tighter windows score more.
+        </p>
+      ) : (
+        <p className="worth worth-points">
+          <b className="tabular">{worth}</b> {worth === 1 ? 'point' : 'points'} if the answer is inside.
+        </p>
+      )}
+    </div>
+  );
 
   return (
     <article ref={roundRef} className="round" data-phase={state.phase} data-fresh-result={freshResult || undefined}>
@@ -427,10 +485,18 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
 
       <section className="field" aria-label="Your window">
         <div className="field-inner">
+          {resolved && (
+            // The reveal reads in order: the answer, caught or not, the points; the window steps down below.
+            <p className="reveal-answer">
+              <span className="tabular">{formatValue(q.answer, q.step)}</span> {unitFor(q.answer, q.unit)}
+            </p>
+          )}
+          {resolved && verdictLine}
           <Readout
             question={q}
             window={state.window}
             editable={interactive}
+            caption={resolved ? 'Your window' : undefined}
             onFirstTouch={() => { startShot(); onFirstTouch(); }}
             onChange={(w, m) => {
               // Typing an exact number also starts the clock and retires the tutorial.
@@ -441,62 +507,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
           />
 
           <div className="sr-only" role="status">{announcement}{raceAnnouncement}</div>
-          <div className="verdict-line">
-            {resolved && last.timedOut ? (
-              <p className="outcome outcome-miss">
-                <span className="outcome-word">{resultLabel}</span>
-                <span className="outcome-score tabular">{pointsLabel}</span>
-              </p>
-            ) : resolved && survival ? (
-              <SurvivalOutcome points={last.points} hit={last.hit} need={survival.need} perfect={!!perfect} missBy={missDistance} />
-            ) : resolved ? (
-              last.hit ? (
-                <p className="outcome outcome-hit" data-zero={last.points === 0 || undefined}>
-                  <span className="outcome-word">
-                    <span className="outcome-glyph" aria-hidden="true">✓</span>
-                    {resultLabel}
-                  </span>
-                  <span className="outcome-points tabular" data-perfect-window={perfect || undefined} aria-hidden="true">+{last.points}</span>
-                  <span className="sr-only">{pointsLabel}.</span>
-                </p>
-              ) : (
-                <p className="outcome outcome-miss">
-                  <span className="outcome-word">
-                    <span className="outcome-glyph" aria-hidden="true">✕</span>
-                    {resultLabel}
-                  </span>
-                  <span className="outcome-score tabular">{pointsLabel}</span>
-                  {missDistance && <span className="outcome-detail">Missed by {missDistance}.</span>}
-                </p>
-              )
-            ) : state.phase === 'locked' || state.phase === 'revealing' ? (
-              <p className="worth worth-locked">{last?.timedOut ? 'Time’s up. Revealing the answer…' : 'Window locked. Revealing the answer…'}</p>
-            ) : survival ? (
-              <p className="worth" data-short={short || undefined}>
-                {worth === 0 ? (
-                  <>Pull the brackets in. You need <b className="tabular">{survival.need}</b> to survive.</>
-                ) : short ? (
-                  <>Worth <b className="tabular">{worth}</b>. You need <b className="tabular">{survival.need}</b>: tighten it.</>
-                ) : (
-                  <>Worth <b className="tabular">{worth}</b> if it’s inside. You need {survival.need}.</>
-                )}
-              </p>
-            ) : worth === 0 && canLock(state) ? (
-              // Lockable, but so wide it rounds to 0: say so before the lock, not after.
-              <p className="worth worth-points" data-zero>
-                <b className="tabular">0</b> points even if it’s inside. Tighten up.
-              </p>
-            ) : worth === 0 ? (
-              <p className="worth">
-                Pull the brackets in. Tighter windows score more.
-              </p>
-            ) : (
-              <p className="worth worth-points">
-                <b className="tabular">{worth}</b> {worth === 1 ? 'point' : 'points'} if the answer is inside.
-              </p>
-            )}
-          </div>
-
+          {!resolved && verdictLine}
           <Ruler
             question={q}
             window={state.window}
@@ -513,17 +524,15 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
 
       {resolved && (
         <section className={survival ? 'story' : 'story story-payoff'} aria-label="About this answer">
-          <p className="story-answer">
-            <span className="tabular">{formatValue(q.answer, q.step)}</span> {unitFor(q.answer, q.unit)}
-          </p>
+          {reaction && !survival && <p className="story-reaction">{reaction}</p>}
           <p className="story-note">{q.note}</p>
-          {crowdLine && <p className="story-reaction story-crowd">{crowdLine}</p>}
           {extra && (
             <aside className="story-extra" aria-label="Bonus sports fact">
               <p className="story-extra-text">{extra.text}</p>
             </aside>
           )}
-          {reaction && !survival && <p className="story-reaction">{reaction}</p>}
+          {/* Crowd data is a snapshot, never awaited: it can only follow the context, never hold up Next. */}
+          {crowdLine && <p className="story-crowd">{crowdLine}</p>}
         </section>
       )}
 

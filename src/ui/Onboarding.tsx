@@ -8,7 +8,12 @@ import { TeachingPlay } from './TeachingPlay';
  * risk, scoring and court advancement) and can be skipped at once. It never loads or
  * saves a scored slate, and the 24-second shot clock is not mounted until onDone().
  */
-export function Onboarding({ onDone, onGuide }: { onDone: () => void; onGuide?: (() => void) | undefined }) {
+export function Onboarding({ onDone, onGuide, playLabel }: {
+  onDone: () => void;
+  onGuide?: (() => void) | undefined;
+  /** What the final button starts, e.g. "Play Game 12". */
+  playLabel: string;
+}) {
   return (
     <TeachingPlay
       example={CORE_INTRO}
@@ -31,15 +36,15 @@ export function Onboarding({ onDone, onGuide }: { onDone: () => void; onGuide?: 
               {moved ? 'Lock the window' : 'Pull the brackets in first'}
             </button>
           ) : phase === 'resolved' ? (
-            <button type="button" className="btn btn-primary" onClick={onDone}>Start today's five</button>
+            <button type="button" className="btn btn-primary" onClick={onDone}>{playLabel}</button>
           ) : (
             <button type="button" className="btn btn-primary" disabled>Revealing…</button>
           )}
           {phase === 'resolved' && <button type="button" className="btn btn-quiet" onClick={replay}>Try another window</button>}
           {phase === 'resolved' && (
             <p className="onboarding-footnote">
-              Five questions, 24 seconds each. Press Start to begin the first clock.
-              {onGuide && <> Questions come in a few types; <button type="button" className="btn-link" onClick={onGuide}>see how each works</button>.</>}
+              The real game is five questions, 24 seconds each; the clock starts with the first one.
+              {onGuide && <> <button type="button" className="btn-link" onClick={onGuide}>See the three question types</button>.</>}
             </p>
           )}
         </>

@@ -1,13 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { FORMATS } from './formats';
+import { PLAYER_FORMATS, RETIRED_FORMATS } from './formats';
 import { QuestionSchema } from './schema';
 import { CORE_INTRO, explainWindow, FORMAT_GUIDE, guideFor, TEACHING_EXAMPLES } from './teaching';
 import { scoreWindow } from '../engine/scoring';
 
 describe('format help coverage', () => {
-  it('links every canonical format to its guidance and one verified example', () => {
-    expect(Object.keys(FORMAT_GUIDE).sort()).toEqual([...FORMATS].sort());
-    for (const f of FORMATS) {
+  it('links every player format to its guidance and exactly one verified example', () => {
+    expect(Object.keys(FORMAT_GUIDE).sort()).toEqual([...PLAYER_FORMATS].sort());
+    for (const f of PLAYER_FORMATS) {
       const g = FORMAT_GUIDE[f];
       expect(g.label.trim().length, f).toBeGreaterThan(2);
       expect(g.instruction.length, f).toBeLessThanOrEqual(80);
@@ -15,13 +15,13 @@ describe('format help coverage', () => {
       expect(g.example.question.meta?.format, f).toBe(f);
       expect(g.example.id, f).toBe(g.example.question.id);
     }
-    expect(TEACHING_EXAMPLES.map((e) => e.question.meta?.format)).toEqual([...FORMATS]);
+    expect(TEACHING_EXAMPLES.map((e) => e.question.meta?.format)).toEqual([...PLAYER_FORMATS]);
   });
 
   it('labels are distinct, so no two formats read the same', () => {
-    const labels = FORMATS.map((f) => FORMAT_GUIDE[f].label);
+    const labels = PLAYER_FORMATS.map((f) => FORMAT_GUIDE[f].label);
     expect(new Set(labels).size).toBe(labels.length);
-    const lines = FORMATS.map((f) => FORMAT_GUIDE[f].instruction);
+    const lines = PLAYER_FORMATS.map((f) => FORMAT_GUIDE[f].instruction);
     expect(new Set(lines).size).toBe(lines.length);
   });
 
@@ -49,6 +49,15 @@ describe('format help coverage', () => {
     expect(guideFor(null).format).toBe('recall');
     expect(guideFor('vibes').format).toBe('recall');
     expect(guideFor('missing-point').label).toBe(FORMAT_GUIDE['missing-point'].label);
+  });
+
+  it('retired formats have no lesson of their own: historical questions get the recall guide', () => {
+    for (const f of RETIRED_FORMATS) {
+      expect(f in FORMAT_GUIDE, f).toBe(false);
+      const g = guideFor(f);
+      expect(g.format, f).toBe('recall');
+      expect(g.instruction, f).toBe(FORMAT_GUIDE.recall.instruction);
+    }
   });
 
   it('example prompts never print their own answer (no leakage before the lock)', () => {

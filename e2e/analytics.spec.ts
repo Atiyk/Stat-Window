@@ -145,15 +145,16 @@ test('a completed daily sends one streak event, bucketed 1, 2-6 or 7plus; practi
 test('first-time tutorial impressions and practice do not count as daily starts', async ({ page }) => {
   await page.clock.setFixedTime(NBA_FIRST);
   await page.goto('/');
+  await page.getByRole('button', { name: 'Try a practice question first' }).click();
   await expect(page.getByRole('heading', { name: 'How many regular-season games did the 2015–16 Golden State Warriors win?' })).toBeVisible();
   await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new']);
   // Practice now uses the real ruler and Lock action; it must not emit a real run start.
   await page.getByRole('slider', { name: 'Low end of your window' }).focus();
   await page.keyboard.press('ArrowRight');
   await page.getByRole('button', { name: 'Lock the window' }).click();
-  await expect(page.locator('.onboarding-play .story-answer')).toBeVisible();
+  await expect(page.locator('.onboarding-play .reveal-answer')).toBeVisible();
   await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new']);
-  await page.getByRole('button', { name: "Start today's five" }).click();
+  await page.getByRole('button', { name: /^Play Game \d+$/ }).click();
   await expect(page.locator('.question')).toBeVisible();
   await expect.poll(() => views(page)).toContain('/e/start/daily');
   // Refresh preserves an in-progress clock, not a second run-start event.
@@ -170,9 +171,9 @@ test('a returning player can leave the ready screen without registering a start'
     }));
   });
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Ready for five?' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'How well do you know ball?' })).toBeVisible();
   await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new']);
-  await page.getByRole('button', { name: "Start today's five" }).click();
+  await page.getByRole('button', { name: /^Play Game \d+$/ }).click();
   await expect(page.locator('.question')).toBeVisible();
   await expect.poll(() => views(page)).toContain('/e/start/daily');
 });

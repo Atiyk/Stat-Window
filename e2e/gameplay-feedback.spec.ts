@@ -12,10 +12,14 @@ test('short phones show conditional scoring, the answer first, and final-round p
   await expect(verdict).toHaveText('1 point if the answer is inside.');
   await expect(page.locator('.round-total .tabular')).toHaveText('0');
   await lockAndSettle(page);
+  // Reveal order: the answer, then caught or not with the points, then the player's window; the story follows.
+  const field = page.getByRole('region', { name: 'Your window' });
+  await expect(field.locator('.field-inner > :first-child')).toHaveText('73 wins');
+  await expect(field.locator('.reveal-answer + .verdict-line .outcome-hit')).toContainText('Inside.');
+  await expect(field.locator('.verdict-line + .readout')).toContainText('Your window');
   const story = page.getByRole('region', { name: 'About this answer' });
-  await expect(story.locator('> :first-child')).toHaveText('73 wins');
-  await expect(story.locator('.story-answer + .story-note')).toBeVisible();
-  await expect(page.locator('.field [role="status"]')).toContainText('1 point. The answer is 73 wins.');
+  await expect(story.locator('.story-note')).toBeVisible();
+  await expect(page.locator('.field [role="status"]')).toContainText('The answer is 73 wins. Inside. 1 point.');
   await expect(page.getByRole('button', { name: 'Next question' })).toBeInViewport({ ratio: 1 });
 
   for (let round = 2; round <= 4; round++) {

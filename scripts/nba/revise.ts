@@ -29,7 +29,7 @@ export type Decision = {
   id: string;
   verdict: Verdict;
   note: string;
-  patch?: { question: Partial<Fact['question']>; claim?: string; source?: Partial<Fact['source']> };
+  patch?: { question: Partial<Omit<Fact['question'], 'format'>> & { format?: Fact['question']['format'] | null }; claim?: string; source?: Partial<Fact['source']> };
   newFact?: Fact;
 };
 export type Batch = { batch: string; editor: string; decisions: Decision[] };
@@ -79,7 +79,9 @@ export function applyBatch(data: NbaData, audit: Audit, batch: Batch, today: str
     if (d.verdict === 'reframed') {
       const f = byId.get(d.id);
       if (!f || !d.patch) throw new Error(`${at}: a reframe needs a patch`);
-      f.question = { ...f.question, ...d.patch.question };
+      f.question = { ...f.question, ...d.patch.question } as Fact['question'];
+      // `format: null` turns a reference or chart question back into plain recall.
+      if ((d.patch.question as { format?: unknown }).format === null) delete f.question.format;
       if (d.patch.claim) f.claim = d.patch.claim;
       if (d.patch.source) f.source = { ...f.source, ...d.patch.source };
     } else if (d.verdict === 'replaced') {

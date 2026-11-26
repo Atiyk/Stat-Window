@@ -37,6 +37,8 @@
     "factory:check": "node --experimental-strip-types scripts/question-factory/cli.ts check",
     "api:build": "vite build --config vite.api.config.ts --logLevel warn && vite build --config vite.leaderboard.config.ts --logLevel warn",
     "api:check": "node --experimental-strip-types scripts/api-check.ts",
+    "brand:icons": "node --experimental-strip-types scripts/brand/icons.ts && node scripts/og/render.cjs",
+    "brand:check": "node --experimental-strip-types scripts/brand/icons.ts --check",
     "categories:check": "node --experimental-strip-types scripts/nba/category-labels.ts --check"
   },
   "dependencies": {

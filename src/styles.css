@@ -1,22 +1,23 @@
-/* Stat Window: chalk page, ink playing field, juniper controls and score. */
+/* Stat Window, Garden Classic: jersey-cream page, garden-navy court and controls, basketball-copper accents. */
 :root {
-  --paper: #f7f6f2;
-  --ink: #202525;
-  --brand: #347967;
-  --on-brand: #fff;
+  --paper: #f7f4ee;
+  --ink: #132a47;
+  --brand: #17365d;
+  --on-brand: #f7f4ee;
+  --accent: #b94b21;
   --surface: color-mix(in srgb, var(--paper) 40%, white);
   --paper-2: color-mix(in srgb, var(--ink) 6%, var(--paper));
   --line: color-mix(in srgb, var(--ink) 16%, transparent);
-  --ink-soft: #505c59;
-  --brand-press: #286251;
-  --brand-soft: color-mix(in srgb, var(--brand) 12%, var(--paper));
-  --band: color-mix(in srgb, var(--brand) 22%, var(--paper));
-  --band-hit: color-mix(in srgb, var(--brand) 30%, var(--paper));
-  --tick: #75817c;
-  --focus: var(--brand-press);
-  --danger: #a33d26;
-  --answer-on-light: #a74624;
-  --answer-on-dark: #ffad7a;
+  --ink-soft: #4e5f73;
+  --brand-press: #0f2744;
+  --brand-soft: color-mix(in srgb, var(--brand) 10%, var(--paper));
+  --band: color-mix(in srgb, var(--brand) 18%, var(--paper));
+  --band-hit: color-mix(in srgb, var(--brand) 26%, var(--paper));
+  --tick: #6b7a8d;
+  --focus: var(--accent);
+  --danger: #a32d2d;
+  --answer-on-light: #b94b21;
+  --answer-on-dark: #f4b08e;
 
   --font: 'DM Sans Variable', 'DM Sans', ui-sans-serif, system-ui, sans-serif;
   --radius-small: 6px;
@@ -381,12 +382,12 @@ a {
   grid-area: field;
   padding: 0 var(--gutter);
   --field-text: var(--paper);
-  --field-muted: #bdcac5;
-  --field-control: #afd9c9;
-  --field-axis: #859891;
+  --field-muted: #b7c4d4;
+  --field-control: #dce4ee;
+  --field-axis: #8395ab;
   --field-focus: var(--paper);
-  --field-band: color-mix(in srgb, var(--brand) 70%, var(--ink));
-  --field-hit: color-mix(in srgb, var(--brand) 65%, var(--field-control));
+  --field-band: #2d5283;
+  --field-hit: #3f6698;
   --field-hatch: color-mix(in srgb, var(--field-muted) 10%, var(--ink));
   color: var(--field-text);
 }
@@ -1431,7 +1432,7 @@ a {
   opacity: 0;
   pointer-events: none;
   transition: opacity 180ms ease, transform 220ms var(--ease-out);
-  box-shadow: 0 10px 30px rgb(32 49 43 / 0.2); /* taste-skill-ignore: floating toast */
+  box-shadow: 0 10px 30px rgb(19 42 71 / 0.2); /* taste-skill-ignore: floating toast */
 }
 
 .toast[data-visible='true'] {
@@ -1451,7 +1452,7 @@ a {
 }
 
 .help::backdrop {
-  background: rgb(32 37 37 / 55%);
+  background: rgb(19 42 71 / 55%);
 }
 
 .help[open] {
@@ -1634,7 +1635,7 @@ a {
     padding: 12px var(--gutter) max(14px, env(safe-area-inset-bottom));
     background: var(--paper);
     border-top: 1px solid var(--line);
-    box-shadow: 0 -4px 18px rgb(19 34 26 / 8%);
+    box-shadow: 0 -4px 18px rgb(19 42 71 / 8%);
   }
 }
 
@@ -1768,7 +1769,7 @@ a {
 @media (prefers-contrast: more) {
   :root {
     --ink-soft: var(--ink);
-    --line: rgb(32 37 37 / 54%);
+    --line: rgb(19 42 71 / 54%);
     --tick: var(--ink-soft);
   }
 }

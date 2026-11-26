@@ -42,6 +42,8 @@ jobs:
         run: npm run nba:db -- --out build/nba.sqlite && npm run nba:report:check && npm run content:publish:check && npm run survival:catalog:check
       - name: Published days unchanged relative to main (the lock only grows)
         run: git fetch --no-tags --depth=1 origin main && npm run content:lock:base -- --base FETCH_HEAD
+      - name: Brand SVGs generated from the canonical symbol
+        run: npm run brand:check
       - name: Review-gated cross-sport Question Factory
         run: npm run factory:check
       - run: npm run typecheck

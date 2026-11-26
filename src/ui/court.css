@@ -27,7 +27,7 @@
 .court-trail--ghost { stroke-width: 2px; stroke-dasharray: 4 3; stroke-linecap: butt; }
 
 .court-ball circle {
-  fill: var(--brand);
+  fill: var(--accent);
   stroke: var(--ink);
   stroke-width: 1.5px;
   vector-effect: non-scaling-stroke;
@@ -35,7 +35,7 @@
 
 .court-ball path {
   fill: none;
-  stroke: color-mix(in oklch, var(--ink) 70%, var(--brand));
+  stroke: color-mix(in oklch, var(--ink) 75%, var(--accent));
   stroke-width: 1px;
   vector-effect: non-scaling-stroke;
 }

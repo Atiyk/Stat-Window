@@ -11,6 +11,7 @@ import {
 import type { RoundRecord } from '../engine/game';
 import { SHOT_MARKER_RADIUS, SHOT_OUTCOME_LABELS, SHOT_UNSUBMITTED_DIVIDER, SHOT_UNSUBMITTED_SPAN, type ShotAttempt } from '../engine/shot-chart';
 import { MAX_TOTAL, formatAnswerTime } from '../engine/summary';
+import { drawSymbol } from '../brand/symbol';
 
 export type CardFormat = 'square' | 'portrait';
 export type CardStyle = 'classic' | 'shot-chart' | 'court-run';
@@ -41,20 +42,22 @@ type CourtCard = CardHeading & {
 
 export type CardInput = ClassicCard | CourtCard;
 
+// Garden Classic: jersey cream, garden navy, basketball copper (and tints of them).
 const C = {
-  paper: '#F7F6F2',
-  surface: '#FDFCF9',
-  ink: '#202525',
-  soft: '#505B58',
-  brand: '#347967',
-  band: '#B8D5C9',
-  bandSoft: '#E0ECE7',
-  line: 'rgba(32, 37, 37, 0.16)',
-  courtLine: '#9AA29E',
-  paint: '#EBF1EE',
-  rim: '#A74624',
-  brandSoft: '#E3EDE9',
-  brandPress: '#286251',
+  paper: '#F7F4EE',
+  surface: '#FCFAF6',
+  ink: '#132A47',
+  soft: '#4E5F73',
+  brand: '#17365D',
+  band: '#B9C6D6',
+  bandSoft: '#E1E6EC',
+  line: 'rgba(19, 42, 71, 0.16)',
+  courtLine: '#97A2AF',
+  paint: '#EBEEF1',
+  rim: '#B94B21',
+  brandSoft: '#E3E8EE',
+  brandPress: '#0F2744',
+  copper: '#B94B21',
 };
 
 export const CARD_SIZE = 1080;
@@ -71,19 +74,12 @@ export function tileKind(r: ClassicCard['results'][number]): 'miss' | 'high' | '
 const SANS = "'DM Sans Variable', system-ui, sans-serif";
 
 function drawWordmark(ctx: CanvasRenderingContext2D, headerY: number): void {
-  const sans = SANS;
-  ctx.fillStyle = C.brand;
-  ctx.fillRect(96, headerY, 12, 64);
-  ctx.fillRect(96, headerY, 26, 12);
-  ctx.fillRect(96, headerY + 52, 26, 12);
-  ctx.fillRect(170, headerY, 12, 64);
-  ctx.fillRect(156, headerY, 26, 12);
-  ctx.fillRect(156, headerY + 52, 26, 12);
-  ctx.fillRect(134, headerY + 16, 12, 32);
+  // The symbol, then the name as separate text: the artwork never contains lettering.
+  drawSymbol(ctx, 92, headerY - 4, 72, { line: C.brand, ball: C.copper });
   ctx.fillStyle = C.ink;
-  ctx.font = `850 58px ${sans}`;
+  ctx.font = `850 58px ${SANS}`;
   ctx.textBaseline = 'alphabetic';
-  ctx.fillText('Stat Window', 210, headerY + 54);
+  ctx.fillText('Stat Window', 186, headerY + 54);
 }
 
 function drawClassicCard(ctx: CanvasRenderingContext2D, input: ClassicCard): void {
@@ -228,7 +224,7 @@ function drawBall(ctx: CanvasRenderingContext2D, x: number, y: number, px: numbe
   const r = 1.15;
   ctx.beginPath();
   ctx.arc(x, y, r, 0, 2 * Math.PI);
-  ctx.fillStyle = C.brand;
+  ctx.fillStyle = C.copper;
   ctx.fill();
   ctx.strokeStyle = C.ink;
   ctx.lineWidth = 3 * px;

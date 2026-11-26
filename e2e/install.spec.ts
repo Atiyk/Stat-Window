@@ -57,7 +57,7 @@ test('manifest starts at the live daily game with install and Apple icons', asyn
   }, { manifestHref, appleIconHref: await appleIcon.getAttribute('href') });
   expect(manifest).toMatchObject({
     id: '/', start_url: '/', scope: '/', display: 'standalone', name: 'Stat Window', short_name: 'Stat Window',
-    theme_color: '#F7F6F2', background_color: '#F7F6F2',
+    theme_color: '#F7F4EE', background_color: '#F7F4EE',
     icons: [
       { sizes: '192x192', type: 'image/png', purpose: 'any' },
       { sizes: '512x512', type: 'image/png', purpose: 'any' },

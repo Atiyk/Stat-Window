@@ -36,8 +36,8 @@ test.describe('returning player, daily not started', () => {
   test('Daily Five is the dominant action; secondary options appear only when real', async ({ page }) => {
     await seed(page, at(TODAY), week(['2026-11-23', '2026-11-24']));
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: 'Ready for five?' })).toBeVisible();
-    await expect(page.getByRole('button', { name: "Start today's five" })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'How well do you know ball?' })).toBeVisible();
+    await expect(page.getByRole('button', { name: /^Play Game \d+$/ })).toBeVisible();
     // Exactly one primary button on the page.
     await expect(page.locator('.ready-card .btn-primary')).toHaveCount(1);
     const more = page.getByRole('navigation', { name: 'More ways to play' });
@@ -54,7 +54,7 @@ test.describe('returning player, daily not started', () => {
   test('Daily Five stays one click away', async ({ page }) => {
     await seed(page, at(TODAY), week(['2026-11-24']));
     await page.goto('/');
-    await page.getByRole('button', { name: "Start today's five" }).click();
+    await page.getByRole('button', { name: /^Play Game \d+$/ }).click();
     await expect(page.locator('.question')).toBeVisible();
   });
 
@@ -82,7 +82,7 @@ test.describe('returning player, daily not started', () => {
   test('a first-day player with no history sees no empty stats', async ({ page }) => {
     await seed(page, at(TODAY));
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: 'Ready for five?' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'How well do you know ball?' })).toBeVisible();
     await expect(page.getByRole('button', { name: /Scouting Report/ })).toHaveCount(0);
     await expect(page.getByRole('button', { name: /Weekly Scoreboard/ })).toHaveCount(0);
     await expect(page.locator('.week-glance')).toHaveCount(0);
@@ -91,7 +91,7 @@ test.describe('returning player, daily not started', () => {
   test('practice-only and beta-only history never create weekly progress', async ({ page }) => {
     await seed(page, at(TODAY), {}, { practice: week(['2026-11-24']) });
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: 'Ready for five?' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'How well do you know ball?' })).toBeVisible();
     await expect(page.locator('.week-glance')).toHaveCount(0);
     await expect(page.getByRole('button', { name: /Scouting Report/ })).toHaveCount(0);
   });
@@ -102,7 +102,7 @@ test('an unfinished daily resumes directly in its round', async ({ page }) => {
   await seed(page, at(TODAY), { [TODAY]: { results: partial.results.slice(0, 2), advanced: 2 } });
   await page.goto('/');
   await expect(page.locator('.question')).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Ready for five?' })).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: 'How well do you know ball?' })).toHaveCount(0);
   await expect(page.locator('.round-meta')).toContainText('Question 3 of 5');
 });
 
@@ -111,7 +111,7 @@ test.describe('daily completed', () => {
     await seed(page, at(TODAY), week(['2026-11-23', '2026-11-24', TODAY]));
     await page.goto('/');
     await expect(page.locator('.results-score')).toBeVisible();
-    await expect(page.getByRole('button', { name: "Start today's five" })).toHaveCount(0);
+    await expect(page.getByRole('button', { name: /^Play Game \d+$/ })).toHaveCount(0);
     await expect(page.locator('.week-glance')).toContainText('3 of 7 games');
     await expect(page.locator('.week-glance .week-strip__day')).toHaveCount(7);
     await expect(page.locator('.next-window')).toContainText('Next puzzle in');
@@ -202,7 +202,7 @@ test.describe('Weekly Scoreboard', () => {
     await seed(page, at(TODAY), week(['2026-11-24']));
     await page.goto('/?weekly');
     await page.getByRole('button', { name: /Today’s puzzle/ }).click();
-    await expect(page.getByRole('heading', { name: 'Ready for five?' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'How well do you know ball?' })).toBeVisible();
   });
 });
 

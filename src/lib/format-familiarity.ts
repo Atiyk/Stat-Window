@@ -36,3 +36,18 @@ export function markFormatSeen(format: QuestionFormat, s: Store | null = storage
     s?.setItem(FAMILIARITY_KEY, JSON.stringify(FORMATS.filter((f) => seen.has(f))));
   } catch { /* storage blocked: the cue may show again, which is harmless */ }
 }
+
+/**
+ * Whether this is the player's first question of a format, so its one-line instruction
+ * shows. Unreadable storage counts as met: a browser that can't remember would
+ * otherwise repeat the line on every question.
+ */
+export function isFirstEncounter(format: QuestionFormat, s: Store | null = storage()): boolean {
+  if (!s) return false;
+  try {
+    s.getItem(FAMILIARITY_KEY);
+  } catch {
+    return false;
+  }
+  return !seenFormats(s).has(format);
+}

@@ -5,7 +5,7 @@
  */
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
-import { FORMATS } from '../src/content/formats';
+import { PLAYER_FORMATS, RETIRED_FORMATS } from '../src/content/formats';
 import { FORMAT_GUIDE } from '../src/content/teaching';
 import { FAMILIARITY_KEY } from '../src/lib/format-familiarity';
 import { SAVE_KEY } from '../src/engine/storage';
@@ -54,6 +54,12 @@ const noHorizontalScroll = (page: Page) => page.evaluate(() => {
   return document.documentElement.scrollWidth <= innerWidth + 1 && (!d || d.scrollWidth <= d.clientWidth + 1);
 });
 
+/** A new visitor's home offers the walkthrough beside Play; this opens it. */
+async function openWalkthrough(page: Page) {
+  await page.getByRole('button', { name: 'Try a practice question first' }).click();
+  await expect(page.locator('.onboarding-play')).toBeVisible();
+}
+
 async function playExample(page: Page) {
   const dialog = guide(page);
   await dialog.getByRole('slider', { name: 'Low end of your window' }).focus();
@@ -64,9 +70,24 @@ async function playExample(page: Page) {
 }
 
 test.describe('first use', () => {
-  test('a new player gets a short, skippable, interactive walkthrough that teaches through play', async ({ page }) => {
+  test('a new visitor sees the hook, the rules as a picture, Play and a way to learn first', async ({ page }) => {
     await page.clock.install({ time: BETA_DAY });
     await page.goto('/');
+    const home = page.locator('.home');
+    await expect(home.getByRole('heading', { level: 1 })).toHaveText('How well do you know ball?');
+    await expect(home).toContainText('NBA');
+    // The demo states the rule in numbers computed by the real scoring formula.
+    await expect(home.locator('.window-demo figcaption')).toContainText(/tighter window scores \d+, the wide one \d+/);
+    await expect(home.getByRole('button', { name: 'Play Game 12' })).toBeVisible();
+    await expect(home.getByRole('button', { name: 'Try a practice question first' })).toBeVisible();
+    await expect(home).toContainText('Free, no account');
+    await expect(page.locator('.onboarding-play')).toHaveCount(0);
+  });
+
+  test('a new player can learn with a short, skippable, interactive walkthrough that teaches through play', async ({ page }) => {
+    await page.clock.install({ time: BETA_DAY });
+    await page.goto('/');
+    await openWalkthrough(page);
     const intro = page.locator('.onboarding-play');
     await expect(intro.getByRole('heading', { level: 1 })).toHaveText(/2015–16 Golden State Warriors/);
     await expect(intro.locator('.onboarding-coach')).toHaveText(/Drag either bracket, or tap a big number/);
@@ -99,7 +120,7 @@ test.describe('first use', () => {
     expect(JSON.parse(state.local[SAVE_KEY] ?? '{"runs":{}}').runs['2026-11-26']?.results ?? []).toEqual([]);
     expect(Object.keys(state.session).filter((k) => k.startsWith('stat-window:shot'))).toEqual([]);
     expect(Object.keys(JSON.parse(state.local['stat-window:sent'] ?? '{}')).filter((k) => /^(start|touch):/.test(k))).toEqual([]);
-    await page.getByRole('button', { name: "Start today's five" }).click();
+    await page.getByRole('button', { name: 'Play Game 12' }).click();
     await expect(page.locator('.round:not(.onboarding-play) .question')).toBeVisible();
     await expect(page.locator('.format-cue')).toBeVisible();
   });
@@ -107,6 +128,7 @@ test.describe('first use', () => {
   test('a miss explains the narrow-window risk; a near-full window explains the zero', async ({ page }) => {
     await page.clock.install({ time: BETA_DAY });
     await page.goto('/');
+    await openWalkthrough(page);
     const intro = page.locator('.onboarding-play');
     await intro.getByRole('slider', { name: 'High end of your window' }).focus();
     await page.keyboard.press('Home');
@@ -123,9 +145,18 @@ test.describe('first use', () => {
   test('skip starts the daily at once and is remembered', async ({ page }) => {
     await page.clock.install({ time: BETA_DAY });
     await page.goto('/');
+    await openWalkthrough(page);
     await page.getByRole('button', { name: 'Skip tutorial and start' }).click();
     await expect(page.locator('.round:not(.onboarding-play) .question')).toBeVisible();
     await expect(page.locator('.shot-clock')).toContainText('24s');
+    expect(JSON.parse((await snapshot(page)).local[SAVE_KEY]!).settings.introSeen).toBe(true);
+  });
+
+  test('Play on the home starts the daily in one tap and retires the walkthrough offer', async ({ page }) => {
+    await page.clock.install({ time: BETA_DAY });
+    await page.goto('/');
+    await page.getByRole('button', { name: 'Play Game 12' }).click();
+    await expect(page.locator('.round:not(.onboarding-play) .question')).toBeVisible();
     expect(JSON.parse((await snapshot(page)).local[SAVE_KEY]!).settings.introSeen).toBe(true);
   });
 
@@ -135,26 +166,21 @@ test.describe('first use', () => {
       const w = window as unknown as { __ttfma: { ready?: number; first?: number } };
       w.__ttfma = {};
       new MutationObserver((_, obs) => {
-        if (document.querySelector('.onboarding-play [role="slider"]')) { w.__ttfma.ready = performance.now(); obs.disconnect(); }
+        if (document.querySelector('.home .btn-primary')) { w.__ttfma.ready = performance.now(); obs.disconnect(); }
       }).observe(document, { subtree: true, childList: true });
       const first = (e: Event) => {
-        if (w.__ttfma.first === undefined && (e.target as Element | null)?.closest?.('.ruler, .readout')) w.__ttfma.first = performance.now();
+        if (w.__ttfma.first === undefined && (e.target as Element | null)?.closest?.('.home .btn-primary')) w.__ttfma.first = performance.now();
       };
       addEventListener('pointerdown', first, true);
       addEventListener('keydown', first, true);
     });
     await page.goto('/');
-    const hi = page.getByRole('slider', { name: 'High end of your window' });
-    await expect(hi).toBeVisible();
-    const box = (await hi.boundingBox())!;
-    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
-    await page.mouse.down();
-    await page.mouse.move(box.x - 30, box.y + box.height / 2, { steps: 3 });
-    await page.mouse.up();
+    await page.getByRole('button', { name: /^Play Game \d+$/ }).click();
+    await expect(page.locator('.round .question')).toBeVisible();
     const m = await page.evaluate(() => (window as unknown as { __ttfma: { ready: number; first: number } }).__ttfma);
     expect(m.ready).toBeGreaterThan(0);
     expect(m.first).toBeGreaterThanOrEqual(m.ready);
-    const line = `TTFMA lab (${info.project.name}): bracket interactive at ${Math.round(m.ready)} ms after navigation start; first bracket input at ${Math.round(m.first)} ms (scripted, no think time)`;
+    const line = `TTFMA lab (${info.project.name}): Play interactive at ${Math.round(m.ready)} ms after navigation start; first press at ${Math.round(m.first)} ms (scripted, no think time)`;
     console.log(line);
     if (existsSync('/home/user/work')) {
       mkdirSync(SHOTS, { recursive: true });
@@ -174,7 +200,10 @@ test.describe('returning and linked players', () => {
     await page.locator('.home-more__row', { hasText: 'How to play' }).click();
     await expect(guide(page)).toBeVisible();
     await expect(guide(page).getByRole('heading', { name: 'How to play' })).toBeVisible();
-    for (const f of FORMATS) await expect(guide(page).locator(`[data-guide-open="${f}"]`)).toContainText(FORMAT_GUIDE[f].label);
+    for (const f of PLAYER_FORMATS) await expect(guide(page).locator(`[data-guide-open="${f}"]`)).toContainText(FORMAT_GUIDE[f].label);
+    // Exactly one lesson per player format; the retired formats have none.
+    await expect(guide(page).locator('[data-guide-open]')).toHaveCount(1 + PLAYER_FORMATS.length);
+    for (const f of RETIRED_FORMATS) await expect(guide(page).locator(`[data-guide-open="${f}"]`)).toHaveCount(0);
   });
 
   test('a direct challenge link skips onboarding friction and goes to the game', async ({ page }) => {
@@ -193,8 +222,9 @@ test.describe('returning and linked players', () => {
     const a = await context.newPage();
     await a.clock.install({ time: BETA_DAY });
     await a.goto('/');
-    await expect(a.locator('.onboarding-play')).toBeVisible();
+    await expect(a.getByRole('button', { name: 'Try a practice question first' })).toBeVisible();
     await a.reload();
+    await a.getByRole('button', { name: 'Try a practice question first' }).click();
     await expect(a.locator('.onboarding-play')).toBeVisible();
     await a.getByRole('button', { name: 'Skip tutorial and start' }).click();
     await expect(a.locator('.round:not(.onboarding-play) .question')).toBeVisible();
@@ -203,6 +233,7 @@ test.describe('returning and linked players', () => {
     await b.goto('/');
     await expect(b.locator('.round .question, .ready-card').first()).toBeVisible();
     await expect(b.locator('.onboarding-play')).toHaveCount(0);
+    await expect(b.getByRole('button', { name: 'Try a practice question first' })).toHaveCount(0);
   });
 });
 
@@ -221,7 +252,7 @@ test.describe('the guide: one replayable worked example per format', () => {
       await shoot(page, `guide-${w}x${h}`);
       await guide(page).locator('.guide-types').scrollIntoViewIfNeeded();
       await shoot(page, `guide-types-${w}x${h}`);
-      for (const f of ['intro', ...FORMATS] as const) {
+      for (const f of ['intro', ...PLAYER_FORMATS] as const) {
         await guide(page).locator(`[data-guide-open="${f}"]`).click();
         const play = guide(page).locator('.guide-play');
         await expect(play.getByRole('heading', { level: 3 })).toBeFocused();
@@ -266,7 +297,7 @@ test.describe('the guide: one replayable worked example per format', () => {
     await helpButton.focus();
     await page.keyboard.press('Enter');
     await expect(guide(page).getByRole('heading', { name: 'How to play' })).toBeFocused();
-    await guide(page).locator('[data-guide-open="ratio"]').focus();
+    await guide(page).locator('[data-guide-open="reference"]').focus();
     await page.keyboard.press('Enter');
     await expect(guide(page).locator('.guide-play h3')).toBeFocused();
     await page.keyboard.press('Tab');
@@ -276,7 +307,7 @@ test.describe('the guide: one replayable worked example per format', () => {
     await page.keyboard.press('Enter');
     // Reduced motion: the answer lands at once, focus moves to it.
     await expect(guide(page).locator('.teaching-story')).toBeFocused();
-    await expect(guide(page).locator('.sr-only[role="status"]')).toContainText('Answer: 59 percent');
+    await expect(guide(page).locator('.sr-only[role="status"]')).toContainText('Answer: 24 free throws.');
     await page.keyboard.press('Escape');
     await expect(guide(page)).toBeHidden();
     await expect(helpButton).toBeFocused();
@@ -288,11 +319,11 @@ test.describe('contextual guidance during a timed, mixed-format daily', () => {
     await seed(page, true);
     await page.clock.install({ time: MIXED_DAY });
     await page.goto('/');
-    await page.getByRole('button', { name: "Start today's five" }).click();
+    await page.getByRole('button', { name: /^Play Game \d+$/ }).click();
     const cue = page.locator('.round .format-cue');
     await expect(cue).toHaveAttribute('data-format', 'missing-point');
     await expect(cue).toContainText(FORMAT_GUIDE['missing-point'].instruction);
-    await expect(cue.locator('.format-cue__new')).toBeVisible();
+    await expect(cue.locator('.format-cue__line')).toBeVisible();
     // The in-round "?" expands in place; no overlay, and the clock keeps counting.
     await page.getByRole('button', { name: 'About missing data point questions' }).click();
     await expect(cue.locator('.format-cue__detail')).toBeVisible();
@@ -324,19 +355,27 @@ test.describe('contextual guidance during a timed, mixed-format daily', () => {
     await expect(guide(page).locator('.guide-play .q-chart')).toBeVisible();
     await guide(page).getByRole('button', { name: 'Close' }).click();
     expect(JSON.parse((await snapshot(page)).local[FAMILIARITY_KEY]!)).toContain('missing-point');
-    // A new format mid-slate gets its own cue once; plain recall never shows the tag.
+    // The format is met: its line is gone, the "?" stays.
+    await expect(cue.locator('.format-cue__line')).toHaveCount(0);
+    // Each new format mid-slate gets its one line on first encounter, and only then.
     await next(page);
     await expect(cue).toHaveAttribute('data-format', 'reference');
-    await expect(cue.locator('.format-cue__new')).toBeVisible();
+    await expect(cue.locator('.format-cue__line')).toHaveText(new RegExp(FORMAT_GUIDE.reference.instruction));
     await lockAndSettle(page);
+    await expect(cue.locator('.format-cue__line')).toHaveCount(0);
     await next(page);
+    // Plain recall needs no line (the home and the walkthrough teach it); its "?" is there.
     await expect(cue).toHaveAttribute('data-format', 'recall');
-    await expect(cue.locator('.format-cue__new')).toHaveCount(0);
+    await expect(cue.locator('.format-cue__line')).toHaveCount(0);
+    await expect(page.getByRole('button', { name: 'About straight recall questions' })).toBeVisible();
     await lockAndSettle(page);
     await next(page);
-    // Repeat exposure of reference in the same slate: no tag.
-    await expect(cue).toHaveAttribute('data-format', 'reference');
-    await expect(cue.locator('.format-cue__new')).toHaveCount(0);
+    // Repeat exposure of missing-point in the same slate: no line, and the help control is still there.
+    await expect(cue).toHaveAttribute('data-format', 'missing-point');
+    await expect(cue.locator('.format-cue__line')).toHaveCount(0);
+    await expect(page.getByRole('button', { name: 'About missing data point questions' })).toBeVisible();
+    // No "New type" badges anywhere.
+    await expect(page.getByText('New type')).toHaveCount(0);
   });
 
   test('repeat exposures across refreshes do not nag', async ({ page }) => {
@@ -344,18 +383,18 @@ test.describe('contextual guidance during a timed, mixed-format daily', () => {
     await page.addInitScript((key) => localStorage.setItem(key, JSON.stringify(['missing-point'])), FAMILIARITY_KEY);
     await page.clock.install({ time: MIXED_DAY });
     await page.goto('/');
-    await page.getByRole('button', { name: "Start today's five" }).click();
+    await page.getByRole('button', { name: /^Play Game \d+$/ }).click();
     await expect(page.locator('.round .format-cue')).toHaveAttribute('data-format', 'missing-point');
-    await expect(page.locator('.round .format-cue__new')).toHaveCount(0);
+    await expect(page.locator('.round .format-cue__line')).toHaveCount(0);
     await page.reload();
-    await expect(page.locator('.round .format-cue__new')).toHaveCount(0);
+    await expect(page.locator('.round .format-cue__line')).toHaveCount(0);
   });
 
   test('missing metadata falls back to recall guidance', async ({ page }) => {
     await seed(page, true);
     await page.clock.install({ time: new Date('2026-11-17T15:00:00Z') });
     await page.goto('/');
-    await page.getByRole('button', { name: "Start today's five" }).click();
+    await page.getByRole('button', { name: /^Play Game \d+$/ }).click();
     await expect(page.locator('.round .format-cue')).toHaveAttribute('data-format', 'recall');
     await expect(page.locator('.round .format-cue')).toContainText(FORMAT_GUIDE.recall.instruction);
   });
@@ -364,14 +403,14 @@ test.describe('contextual guidance during a timed, mixed-format daily', () => {
     await seed(page, true);
     await page.clock.install({ time: MIXED_DAY });
     await page.goto('/');
-    await page.getByRole('button', { name: "Start today's five" }).click();
+    await page.getByRole('button', { name: /^Play Game \d+$/ }).click();
     await lowBracket(page).focus();
     await page.keyboard.press('ArrowRight');
     await page.getByRole('button', { name: 'Lock the window' }).click();
     await expect(page.locator('.round .story')).toBeVisible();
     const before = await snapshot(page);
     await page.getByRole('button', { name: 'How to play', exact: true }).click();
-    for (const f of ['intro', 'ranking', 'difference'] as const) {
+    for (const f of ['intro', 'reference', 'missing-point'] as const) {
       await guide(page).locator(`[data-guide-open="${f}"]`).click();
       await playExample(page);
       await guide(page).getByRole('button', { name: 'Back to question types' }).click();

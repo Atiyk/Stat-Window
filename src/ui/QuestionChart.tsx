@@ -25,27 +25,29 @@ export function QuestionChart({ question, window, reveal }: {
   const pct = (v: number) => `${Math.max(0, Math.min(100, (v / top) * 100))}%`;
   const shown = (v: number) => formatValue(v, question.step);
   const revealed = reveal === 1;
+  // Text equivalent: every known bar's value; the hidden one only once the answer has landed.
   const spoken = chart.points
     .map((p) => `${p.label}: ${p.value === null ? (revealed ? shown(question.answer) : 'hidden, your estimate') : shown(p.value)}`)
     .join('. ');
 
   return (
-    <figure className="q-chart" data-revealing={reveal !== null || undefined}>
+    <figure className="q-chart" data-revealing={reveal !== null || undefined} data-revealed={revealed || undefined}>
       <figcaption className="q-chart__title">
         {chart.title} <span className="q-chart__unit">({chart.unit})</span>
       </figcaption>
-      <p className="sr-only">{spoken}.</p>
+      <p className="sr-only">Bars start at 0. {spoken}.</p>
       <ol className="q-chart__cols" aria-hidden="true" style={{ gridTemplateColumns: `repeat(${chart.points.length}, minmax(0, 1fr))` }}>
         {chart.points.map((p) => {
           const hidden = p.value === null;
           return (
             <li key={p.label} className="q-chart__col" data-hidden={hidden || undefined}>
               <span className="q-chart__value tabular">
-                {hidden ? (revealed ? shown(question.answer) : '?') : shown(p.value!)}
+                {hidden ? (revealed ? <span className="q-chart__answer">{shown(question.answer)}</span> : '?') : shown(p.value!)}
               </span>
               <span className="q-chart__plot">
                 {hidden ? (
                   <>
+                    {/* Full height on purpose: the slot says "somewhere on this scale", never a height. */}
                     <span className="q-chart__slot" />
                     <span className="q-chart__band" style={{ bottom: pct(window.lo), height: `calc(${pct(window.hi)} - ${pct(window.lo)})` }} />
                     {reveal !== null && (

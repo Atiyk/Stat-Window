@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { FAMILIARITY_KEY, markFormatSeen, seenFormats } from './format-familiarity';
+import { FAMILIARITY_KEY, isFirstEncounter, markFormatSeen, seenFormats } from './format-familiarity';
 import { SAVE_KEY } from '../engine/storage';
 
 const memory = () => {
@@ -31,5 +31,21 @@ describe('format familiarity', () => {
     const blocked = { getItem: () => { throw new Error('blocked'); }, setItem: () => { throw new Error('blocked'); } };
     expect(seenFormats(blocked).size).toBe(0);
     expect(() => markFormatSeen('ranking', blocked)).not.toThrow();
+  });
+});
+
+describe('first encounter', () => {
+  it('shows the instruction line only until the format has been met', () => {
+    const s = memory();
+    expect(isFirstEncounter('reference', s)).toBe(true);
+    expect(isFirstEncounter('recall', s)).toBe(true);
+    markFormatSeen('reference', s);
+    expect(isFirstEncounter('reference', s)).toBe(false);
+    expect(isFirstEncounter('missing-point', s)).toBe(true);
+  });
+
+  it('treats blocked storage as already met, so a broken browser never nags', () => {
+    const blocked = { getItem: () => { throw new Error('blocked'); }, setItem: () => { throw new Error('blocked'); } };
+    expect(isFirstEncounter('reference', blocked)).toBe(false);
   });
 });

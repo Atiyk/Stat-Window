@@ -117,7 +117,7 @@ test('a day file that stays missing does not reload forever', async ({ page }) =
   // and therefore no Start gate. Assert the app's failure state directly;
   // the regular onboarding helper would wait for a button that must not exist.
   await expect(page.locator('.results-title')).toHaveText('Today’s puzzle is still being checked.');
-  await expect(page.getByRole('button', { name: "Start today's five" })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: /^(Play Game \d+|Start today's five)$/ })).toHaveCount(0);
   await page.waitForTimeout(1500);
   expect(loads).toBeLessThanOrEqual(2);
 });

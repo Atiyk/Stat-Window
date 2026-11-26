@@ -56,7 +56,7 @@ test('new Day 1 starts at No. 1 with no beta archive, preserving old saves but r
   // Switching to official Day 1 must not count or publicly expose beta play.
   await at(page, first, `/?${preview}`);
   await expect(page.locator('.day-label')).toHaveText('No. 1');
-  await expect(page.getByRole('heading', { name: 'Ready for five?' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'How well do you know ball?' })).toBeVisible();
   await expect(page.locator('.ready-previous')).toHaveCount(0);
   await page.setViewportSize({ width: 320, height: 568 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(321);

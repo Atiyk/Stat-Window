@@ -63,10 +63,6 @@
   padding-top: var(--space-4);
 }
 
-.story-payoff .story-answer {
-  font-size: clamp(1.5rem, 1.125rem + 1.65vw, 2.25rem);
-  overflow-wrap: anywhere;
-}
 
 .story-payoff .story-extra {
   margin: var(--space-3) 0 0;
@@ -76,24 +72,56 @@
   font-size: 0.9375rem;
 }
 
+/* The reaction leads the story as one short line in the outcome's voice; the crowd line closes it. */
 .story-payoff .story-reaction {
-  margin: var(--space-2) 0 0;
+  margin: 0 0 var(--space-1);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+.story-crowd {
+  margin: var(--space-3) 0 0;
   font-size: 0.875rem;
   line-height: 1.4;
   color: var(--ink-soft);
 }
 
+/* ── The reveal, in reading order: the answer, caught or not with the points, then the window. ── */
+.reveal-answer {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 1.6rem + 4vw, 4.25rem);
+  line-height: 1;
+  letter-spacing: -0.045em;
+  color: var(--answer-on-dark);
+  overflow-wrap: anywhere;
+}
+.reveal-answer .tabular { font-variant-numeric: tabular-nums; }
+.field .reveal-answer + .verdict-line { min-height: 0; margin-top: var(--space-2); }
+/* The player's window steps down to a caption-sized line once the answer leads. */
+.readout[data-caption] { align-items: baseline; gap: 0 6px; margin-top: var(--space-2); }
+.round .field .readout[data-caption] .bound {
+  min-height: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  border-bottom: 0;
+}
+.round .field .readout[data-caption] :is(.readout-to, .readout-unit, .readout-caption) { font-size: 1rem; }
+.readout-caption { color: var(--field-muted); font-weight: 600; }
+@media (prefers-reduced-motion: no-preference) {
+  .round[data-fresh-result] .reveal-answer { animation: reveal-answer-in 200ms var(--ease-out) both; }
+}
+@keyframes reveal-answer-in { from { opacity: 0; transform: translateY(4px); } }
+
 @media (max-width: 719px) and (max-height: 700px), (min-width: 720px) and (max-height: 520px), (max-width: 359px) {
-  .round[data-phase='resolved']:has(.story-payoff) .readout .bound {
-    font-size: 1.75rem;
-    min-height: 0;
-    border-bottom: 0;
-  }
-
-  .round[data-phase='resolved']:has(.story-payoff) :is(.readout-to, .readout-unit) {
-    font-size: 1rem;
-  }
-
+  /* Short phones: the reveal keeps its order but not its size, so the ruler stays above Next. */
+  .reveal-answer { font-size: 1.875rem; }
+  .field .reveal-answer + .verdict-line { margin-top: 2px; }
+  .field .reveal-answer + .verdict-line :is(.outcome-word, .outcome-points) { font-size: 1.25rem; }
+  .field .reveal-answer + .verdict-line .outcome { gap: 0 8px; }
+  .round .field .readout[data-caption] { margin-top: 2px; }
+  .round .field .readout[data-caption] .bound { font-size: 1.0625rem; }
+  .round .field .readout[data-caption] :is(.readout-to, .readout-unit, .readout-caption) { font-size: 0.875rem; }
   .story.story-payoff {
     padding-top: var(--space-3);
   }

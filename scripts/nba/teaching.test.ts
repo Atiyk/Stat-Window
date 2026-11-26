@@ -7,7 +7,7 @@
  */
 import { readdirSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { FORMATS } from '../../src/content/formats.ts';
+import { PLAYER_FORMATS } from '../../src/content/formats.ts';
 import { CORE_INTRO, FORMAT_GUIDE, TEACHING_EXAMPLES, TEACHING_PLAYED_BY, type TeachingExample } from '../../src/content/teaching.ts';
 import { formatIssues, type FormatFact, type FormatSpec } from './formats.ts';
 import { loadNbaData } from './model.ts';
@@ -147,8 +147,8 @@ describe('teaching examples are built only from verified, already-played beta fa
     expect(asksIt).toEqual([]);
   });
 
-  it('covers every canonical format', () => {
-    expect(TEACHING_EXAMPLES.map((e) => e.question.meta!.format)).toEqual([...FORMATS]);
-    for (const f of FORMATS) expect(FORMAT_GUIDE[f].example.question.meta!.format).toBe(f);
+  it('covers every player format with exactly one example', () => {
+    expect(TEACHING_EXAMPLES.map((e) => e.question.meta!.format)).toEqual([...PLAYER_FORMATS]);
+    for (const f of PLAYER_FORMATS) expect(FORMAT_GUIDE[f].example.question.meta!.format).toBe(f);
   });
 });

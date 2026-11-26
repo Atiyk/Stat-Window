@@ -9,19 +9,7 @@
   line-height: 1.3;
   color: var(--ink-soft);
 }
-.format-cue__new {
-  display: inline-block;
-  margin-right: 6px;
-  padding: 0 6px;
-  line-height: 1.35;
-  border: 1px solid currentColor;
-  border-radius: 999px;
-  color: var(--accent);
-  font-size: 0.75rem;
-  font-weight: 750;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
+
 .format-cue__toggle {
   /* A 44px target that keeps the line height of a 24px glyph. */
   position: relative;
@@ -88,12 +76,12 @@
 .guide-detail { font-size: 0.9375rem !important; line-height: 1.4; }
 .guide-live {
   padding: 10px 12px;
-  border-left: 4px solid var(--accent);
   border-radius: var(--radius-small);
   background: var(--paper-2);
   font-size: 0.9375rem !important;
   font-weight: 600;
 }
+.window-demo.help-demo { margin: 4px 0 16px; }
 .guide-section { margin: 20px 0 6px; font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; }
 .guide-intro { font-size: 0.9375rem !important; color: var(--ink-soft); }
 .guide-types { display: grid; gap: 8px; margin: 0 0 16px; padding: 0; list-style: none; }

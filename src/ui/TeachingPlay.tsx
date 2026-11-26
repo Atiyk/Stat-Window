@@ -93,7 +93,7 @@ export function TeachingPlay({
   const feedback = score && landed ? explainWindow(q, window, score) : null;
   const outcome = score?.hit ? (score.points === 0 ? 'Inside, but too wide to score.' : 'Inside.') : 'Outside.';
   const answerText = `${formatValue(q.answer, q.step)} ${unitFor(q.answer, q.unit)}`;
-  const announcement = !score ? '' : landed ? `${outcome} ${score.points} points. Answer: ${answerText}.` : 'Window locked.';
+  const announcement = !score ? '' : landed ? `Answer: ${answerText}. ${outcome} ${score.points} points.` : 'Window locked.';
   const change = (next: Window, moving?: 'lo' | 'hi') => {
     if (editable) setWindow(normalizeWindow(q, next, moving));
   };
@@ -117,6 +117,33 @@ export function TeachingPlay({
       ? 'Still worth 0: a window this wide is a free catch, so it scores nothing. Keep pulling in.'
       : 'Tighter is worth more, but only if it still catches the answer. Edges count. Lock when you’re happy.';
 
+  const verdictLine = (
+    <div className="verdict-line">
+      {landed && score ? score.hit ? (
+        <p className="outcome outcome-hit" data-zero={score.points === 0 || undefined}>
+          <span className="outcome-word">
+            <span className="outcome-glyph" aria-hidden="true">✓</span>
+            {outcome}
+          </span>
+          <span className="outcome-points tabular">+{score.points}</span>
+        </p>
+      ) : (
+        <p className="outcome outcome-miss">
+          <span className="outcome-word"><span className="outcome-glyph" aria-hidden="true">✕</span>{outcome}</span>
+          <span className="outcome-detail">Missed by {formatValue(score.missBy, q.step)} {unitFor(score.missBy, q.unit)}.</span>
+        </p>
+      ) : score ? (
+        <p className="worth worth-locked">Window locked. Revealing the answer…</p>
+      ) : (
+        <p className="worth" data-zero={moved && worth === 0 || undefined}>
+          {worth > 0 ? <>Worth <b className="tabular">{worth}</b> if it’s inside.</> : moved
+            ? <>Worth <b className="tabular">0</b> even if it’s inside. Pull in further.</>
+            : 'Pull the brackets in to start scoring.'}
+        </p>
+      )}
+    </div>
+  );
+
   return (
     <article className={`round teaching-play ${className}`} aria-label={label} data-phase={phase} data-example={example.id}>
       <div className="round-head">
@@ -133,32 +160,13 @@ export function TeachingPlay({
       <section className="field" aria-label="Your practice window">
         <div className="field-inner">
           {coachLine && <p className="onboarding-coach" aria-live="polite">{coachLine}</p>}
-          <Readout question={q} window={window} editable={editable} onChange={change} />
+          {landed && score && (
+            <p className="reveal-answer"><span className="tabular">{formatValue(q.answer, q.step)}</span> {unitFor(q.answer, q.unit)}</p>
+          )}
+          {landed && verdictLine}
+          <Readout question={q} window={window} editable={editable} caption={landed ? 'Your window' : undefined} onChange={change} />
           <div className="sr-only" role="status">{announcement}</div>
-          <div className="verdict-line">
-            {landed && score ? score.hit ? (
-              <p className="outcome outcome-hit" data-zero={score.points === 0 || undefined}>
-                <span className="outcome-word">
-                  <span className="outcome-glyph" aria-hidden="true">✓</span>
-                  {outcome}
-                </span>
-                <span className="outcome-points tabular">+{score.points}</span>
-              </p>
-            ) : (
-              <p className="outcome outcome-miss">
-                <span className="outcome-word"><span className="outcome-glyph" aria-hidden="true">✕</span>{outcome}</span>
-                <span className="outcome-detail">Missed by {formatValue(score.missBy, q.step)} {unitFor(score.missBy, q.unit)}.</span>
-              </p>
-            ) : score ? (
-              <p className="worth worth-locked">Window locked. Revealing the answer…</p>
-            ) : (
-              <p className="worth" data-zero={moved && worth === 0 || undefined}>
-                {worth > 0 ? <>Worth <b className="tabular">{worth}</b> if it’s inside.</> : moved
-                  ? <>Worth <b className="tabular">0</b> even if it’s inside. Pull in further.</>
-                  : 'Pull the brackets in to start scoring.'}
-              </p>
-            )}
-          </div>
+          {!landed && verdictLine}
           <Ruler question={q} window={window} interactive={editable} reveal={reveal}
             onChange={change} onCommit={lock} onFirstTouch={() => undefined} />
         </div>
@@ -177,7 +185,6 @@ export function TeachingPlay({
 
       {feedback && score && (
         <section className="story teaching-story" aria-label="Practice answer" ref={answerRef} tabIndex={-1} data-feedback={feedback.kind}>
-          <p className="story-answer"><span className="tabular">{formatValue(q.answer, q.step)}</span> {unitFor(q.answer, q.unit)}</p>
           <p className="story-note">{q.note}</p>
           <p className="teaching-why"><strong>{feedback.headline}</strong> {feedback.detail}</p>
           {example.why !== q.note && <p className="teaching-why">{example.why}</p>}

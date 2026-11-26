@@ -28,7 +28,7 @@ test('yesterday’s completed daily score appears under the deliberate Start', a
   await expect(page.locator('.ready-previous')).toHaveText(`Yesterday: ${totalPoints(results)} / 500`);
   await expect(page.getByRole('timer')).toHaveCount(0);
   await expect(page.locator('.question')).toHaveCount(0);
-  await page.getByRole('button', { name: "Start today's five" }).click();
+  await page.getByRole('button', { name: /^Play Game \d+$/ }).click();
   await expect(page.getByRole('timer')).toHaveText('24s');
   await expect(page.locator('.ready-previous')).toHaveCount(0);
 });
@@ -40,7 +40,7 @@ for (const [scenario, runs, practice] of [
 ] as const) {
   test(`the ready screen shows no previous score with ${scenario}`, async ({ page }) => {
     await openReady(page, runs, practice);
-    await expect(page.getByRole('heading', { name: 'Ready for five?' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'How well do you know ball?' })).toBeVisible();
     await expect(page.locator('.ready-previous')).toHaveCount(0);
   });
 }
@@ -53,13 +53,14 @@ for (const [scenario, rewrite] of [
     const historicalSlate = page.waitForResponse(new RegExp(`/(assets/${yesterday}-[^/]+\\.js|content/days/${yesterday}\\.json)(\\?.*)?$`));
     await openReady(page, { [yesterday]: { ...completed, results: results.map(rewrite) } });
     await (await historicalSlate).finished();
-    await expect(page.getByRole('heading', { name: 'Ready for five?' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'How well do you know ball?' })).toBeVisible();
     await expect(page.locator('.ready-previous')).toHaveCount(0);
   });
 }
 
 test('the fresh tutorial shows no score acknowledgment', async ({ page }) => {
   await openReady(page, { [yesterday]: completed }, undefined, false);
+  await page.getByRole('button', { name: 'Try a practice question first' }).click();
   await expect(page.getByRole('button', { name: 'Skip tutorial and start' })).toBeVisible();
   await expect(page.locator('.ready-previous')).toHaveCount(0);
 });

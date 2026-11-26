@@ -41,7 +41,9 @@ test('Day 1: honest practice state, no empty stats, then genuine weekly progress
   await page.clock.setFixedTime(at('2026-12-02T15:00:00Z'));
   await page.goto(`/?${preview}`);
   await expect(page.locator('.day-label')).toHaveText('No. 1');
-  await expect(page.getByRole('heading', { name: 'Ready for five?' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'How well do you know ball?' })).toBeVisible();
+  // Day 1 of the season is Game 1.
+  await expect(page.getByRole('button', { name: 'Play Game 1', exact: true })).toBeVisible();
   await expect(page.locator('.home-more__empty')).toContainText('Opens tomorrow');
   await expect(page.getByRole('button', { name: /Scouting Report/ })).toHaveCount(0);
   await expect(page.getByRole('button', { name: /Weekly Scoreboard/ })).toHaveCount(0);
@@ -87,7 +89,8 @@ test('midnight Eastern: an idle results screen becomes the new day’s home and 
   await expect(page.locator('.day-label')).toHaveText('No. 1');
   await page.clock.fastForward('01:00');
   await expect(page.locator('.day-label')).toHaveText('No. 2');
-  await expect(page.getByRole('heading', { name: 'Ready for five?' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'How well do you know ball?' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Play Game 2', exact: true })).toBeVisible();
   await expect(page.locator('.week-glance')).toContainText('1 of 5 games');
   await expect(page.locator('.week-strip__day[data-state="open"]')).toHaveCount(1);
 });

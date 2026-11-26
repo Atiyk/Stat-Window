@@ -11,7 +11,7 @@
 .court-lines [data-kind='boundary'] { stroke-width: 1.6px; }
 .court-lines [data-kind='dashed'] { stroke-dasharray: 3 3; }
 .court-lines [data-kind='board'] { stroke: var(--ink); stroke-width: 2px; }
-.court-lines [data-kind='rim'] { stroke: var(--answer-on-light); stroke-width: 1.4px; }
+.court-lines [data-kind='rim'] { stroke: var(--brand); stroke-width: 1.4px; }
 
 .court-paint { fill: color-mix(in oklch, var(--brand) 9%, var(--surface)); }
 
@@ -27,7 +27,7 @@
 .court-trail--ghost { stroke-width: 2px; stroke-dasharray: 4 3; stroke-linecap: butt; }
 
 .court-ball circle {
-  fill: var(--brand);
+  fill: var(--accent);
   stroke: var(--ink);
   stroke-width: 1.5px;
   vector-effect: non-scaling-stroke;
@@ -35,7 +35,7 @@
 
 .court-ball path {
   fill: none;
-  stroke: color-mix(in oklch, var(--ink) 70%, var(--brand));
+  stroke: color-mix(in oklch, var(--ink) 75%, var(--accent));
   stroke-width: 1px;
   vector-effect: non-scaling-stroke;
 }

@@ -340,9 +340,9 @@ test.describe('BUG-09, BUG-10, BUG-13: layout, colour and copy nits', () => {
     await page.getByRole('slider', { name: 'Low end of your window' }).focus();
     await page.keyboard.press('ArrowRight');
     const ring = await page.locator('.bracket-lo .bracket-grip').evaluate((e) => getComputedStyle(e).outlineColor);
-    expect(ring).not.toBe('rgb(255, 173, 122)');
+    expect(ring).not.toBe('rgb(244, 176, 142)');
     await lockAndSettle(page);
-    await expect(page.locator('.marker-pin')).toHaveCSS('background-color', 'rgb(255, 173, 122)');
+    await expect(page.locator('.marker-pin')).toHaveCSS('background-color', 'rgb(244, 176, 142)');
     await next(page);
     for (let i = 0; i < 4; i++) {
       await lockAndSettle(page);
@@ -350,7 +350,7 @@ test.describe('BUG-09, BUG-10, BUG-13: layout, colour and copy nits', () => {
     }
     const pins = await page.locator('.recap-pin').evaluateAll((els) => els.map((e) => getComputedStyle(e).backgroundColor));
     expect(pins).toHaveLength(5);
-    for (const c of pins) expect(c).toBe('rgb(167, 70, 36)');
+    for (const c of pins) expect(c).toBe('rgb(185, 75, 33)');
   });
 
   test('BUG-13: source links stay outside gameplay and legal credits remain reachable', async ({ page }) => {

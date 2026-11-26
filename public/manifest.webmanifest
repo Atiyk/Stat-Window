@@ -5,11 +5,11 @@
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "theme_color": "#F7F6F2",
-  "background_color": "#F7F6F2",
+  "theme_color": "#F7F4EE",
+  "background_color": "#F7F4EE",
   "icons": [
-    { "src": "/icons/window-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/icons/window-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "/icons/window-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    { "src": "/icons/court-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/court-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/court-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ]
 }

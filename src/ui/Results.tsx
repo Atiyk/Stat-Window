@@ -8,7 +8,8 @@ import { msUntilNextPuzzle } from '../engine/daily';
 import { REMIND_COPY, followsPuzzleClock, googleCalendarUrl, icsPath, nextReminder, reminderHour, reminderTime } from '../engine/remind';
 import { totalPoints, type Mode, type PracticeTiming, type RoundRecord } from '../engine/game';
 import { MAX_TOTAL, answerTimeMs, formatAnswerTime, shareText, postgameHighlight, type OfficialHighlight, type PlayerStats } from '../engine/summary';
-import { ordinal } from '../engine/percentile';
+import { ordinal, toughestQuestion } from '../engine/percentile';
+import { crowdThreshold, questionCrowdFor } from '../lib/scores';
 import { formatCountdown, formatDay, formatValue } from '../lib/format';
 import { isMixedSportDay } from '../content/cutover';
 import { track, type PlayMode, type ShareMethod } from '../lib/track';
@@ -94,6 +95,11 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
   const sample = verified?.n.toLocaleString('en-US');
   const percentile = verified ? `${ordinal(verified.percentile)} percentile ${isToday ? 'today' : 'for this puzzle'}` : null;
   const percentileLine = percentile ? `${percentile} (${sample} games)` : null;
+  // One deeper crowd line, from the read the round reveals already made (never on the share card).
+  const counted = comparison.state.kind === 'ready' || comparison.state.kind === 'gathering';
+  const toughest = eligible && isToday && counted
+    ? toughestQuestion(slate.questions.map((q, i) => questionCrowdFor(slate.date, i, q.id)), crowdThreshold(slate.date))
+    : null;
   const practice = mode === 'practice';
   const practiceLabel = playMode === 'challenge' ? 'Challenge' : untimedPractice ? 'Untimed practice' : 'Practice';
   const cardContext = practice ? practiceLabel : playMode === 'challenge' ? 'Challenge' : !isToday ? 'Past daily' : null;
@@ -368,6 +374,11 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
           </div>
         </div>
         <ComparisonLine comparison={comparison} onPrivacy={onPrivacy} ref={slotRef} />
+        {toughest && (
+          <p className="percentile percentile-quiet crowd-toughest">
+            Toughest for the crowd today: Question {toughest.index + 1}, scored in {toughest.scored}% of {toughest.n.toLocaleString('en-US')} eligible completed games.
+          </p>
+        )}
         {vs !== null && !vsRounds && <p className="versus">{friendLine(total, vs, answerMs, vsTime)}</p>}
         {(practice || !isToday) && (
           <button type="button" className="btn btn-quiet" onClick={onBackToToday}>

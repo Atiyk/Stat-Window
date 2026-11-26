@@ -15,6 +15,8 @@ import { courtPosition } from '../engine/court-run';
 import { courtRunMarkers } from '../engine/court-run';
 import { QuestionChart } from './QuestionChart';
 import { raceStanding, type RaceStanding } from '../engine/friend-race';
+import { questionCrowdLine } from '../engine/percentile';
+import { crowdThreshold, prefetchQuestionCrowd, questionCrowdFor } from '../lib/scores';
 import './round-polish.css';
 
 type Props = {
@@ -101,6 +103,13 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
         factSeed,
       ).at(-1)?.text
     : undefined, [resolved, state.results, state.round, state.slate.questions, q, factSeed]);
+  // Crowd comparison (docs/PERCENTILES.md): today's official run only. One cached read, started now so it is
+  // usually here by the first reveal; the line is a snapshot taken when this round resolves, never awaited.
+  const crowdDay = state.mode === 'daily' && survival === undefined ? state.slate.date : null;
+  useEffect(() => { if (crowdDay) void prefetchQuestionCrowd(crowdDay); }, [crowdDay]);
+  const crowdLine = useMemo(() => resolved && crowdDay
+    ? questionCrowdLine(questionCrowdFor(crowdDay, state.round, resolved.questionId), resolved.points, crowdThreshold(crowdDay))
+    : null, [resolved, crowdDay, state.round]);
   const [progress, setProgress] = useState(0);
   const liveResult = useRef<typeof last>(undefined);
   const roundRef = useRef<HTMLElement>(null);
@@ -504,6 +513,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
             <span className="tabular">{formatValue(q.answer, q.step)}</span> {unitFor(q.answer, q.unit)}
           </p>
           <p className="story-note">{q.note}</p>
+          {crowdLine && <p className="story-reaction story-crowd">{crowdLine}</p>}
           {extra && (
             <aside className="story-extra" aria-label="Bonus sports fact">
               <p className="story-extra-text">{extra.text}</p>

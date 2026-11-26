@@ -229,7 +229,12 @@ describe('percentiles past the sample gate', () => {
     expect(JSON.parse(text)).toMatchObject({ n: 1, ready: false });
     expect(text).not.toContain('counts');
     expect(text).not.toContain(player(1));
-    expect((await handle(new Request('https://stat-window.vercel.app/api/scores?day=2026-11-20'), ctx)).status).toBe(422);
+    // Another valid day is not an error, just nothing to read (and no store call).
+    const future = await handle(new Request('https://stat-window.vercel.app/api/scores?day=2026-11-20'), ctx);
+    expect(future.status).toBe(200);
+    expect(await future.json()).toMatchObject({ status: 'ineligible' });
+    expect(future.headers.get('cache-control')).toBe('no-store');
+    expect((await handle(new Request('https://stat-window.vercel.app/api/scores?day=2026-13-40'), ctx)).status).toBe(422);
     // Junk parameters would bypass the edge cache, so they are refused.
     for (const q of [`?day=${DAY}&x=1`, `?day=${DAY}&`, `?day=${DAY}&&&`, `?%64ay=${DAY}`, `?d%61y=${DAY}&`]) {
       expect((await handle(new Request(`https://stat-window.vercel.app/api/scores${q}`), ctx)).status).toBe(422);

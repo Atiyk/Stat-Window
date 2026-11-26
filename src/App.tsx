@@ -74,7 +74,7 @@ function safeLocalStorage(): StorageLike | null {
  * `viaLink` marks a run opened from a friend's same-puzzle link; `vs` is the score
  * that link claimed, shown for comparison only.
  */
-type Session = { mode: Mode; kind: RunKind; timing: PracticeTiming; day: string; slate: Slate; viaLink: boolean; vs: number | null; vsTime: number | null };
+type Session = { mode: Mode; kind: RunKind; timing: PracticeTiming; day: string; slate: Slate; viaLink: boolean; vs: number | null; vsTime: number | null; vsRounds: readonly number[] | null };
 
 /**
  * A tab opened before a deploy still holds the old list of day files. If one of
@@ -108,7 +108,7 @@ function withoutParams(loc: Pick<Location, 'pathname' | 'search' | 'hash'>, name
   return `${loc.pathname}${rest ? `?${rest}` : ''}${loc.hash}`;
 }
 
-const gameParams = ['day', 'vs', 'time', 'practice'] as const;
+const gameParams = ['day', 'vs', 'time', 'v', 'r', 'practice'] as const;
 const withoutGameLink = (loc: Pick<Location, 'pathname' | 'search' | 'hash'>) => withoutParams(loc, gameParams);
 
 const daysBetween = (a: string, b: string) => puzzleNumber(b) - puzzleNumber(a);
@@ -163,7 +163,7 @@ export function App() {
   useEffect(() => setSoundEnabled(settings.sound), [settings.sound]);
 
   const open = useCallback(
-    async (day: string, options: { link?: { vs: number | null; vsTime: number | null }; timing?: PracticeTiming } = {}) => {
+    async (day: string, options: { link?: { vs: number | null; vsTime: number | null; rounds?: readonly number[] | undefined }; timing?: PracticeTiming } = {}) => {
       const request = ++openRequest.current;
       let { link, timing = 'timed' } = options;
       // Never load retired beta content, even through stale UI callbacks.
@@ -201,6 +201,7 @@ export function App() {
         viaLink: link !== undefined,
         vs: link?.vs ?? null,
         vsTime: link?.vsTime ?? null,
+        vsRounds: link?.rounds ?? null,
       });
     },
     [store],
@@ -219,12 +220,13 @@ export function App() {
         name: 'challenge_open',
         kind: link.kind === 'day' ? (link.day === dayNow ? 'today' : 'past') : link.kind,
         withScore: link.kind === 'day' && link.vs !== null,
+        withRounds: link.kind === 'day' && link.rounds !== undefined,
       });
     }
     if (link.kind === 'day') {
       // A legacy challenge link always retains its timed rules.
       if (practice !== null) window.history.replaceState(null, '', withoutParams(window.location, ['practice']));
-      void open(link.day, { link: { vs: link.vs, vsTime: link.vsTime } });
+      void open(link.day, { link: { vs: link.vs, vsTime: link.vsTime, rounds: link.rounds } });
       return;
     }
     if (link.kind === 'none' && practice !== null && practice < dayNow && playable.includes(practice)) {
@@ -648,6 +650,7 @@ function Game(props: {
         isToday={session.day === today}
         vs={session.vs}
         vsTime={session.vsTime}
+        vsRounds={session.vsRounds}
         results={state.results}
         stats={stats}
         officialHighlight={officialHighlight ? {
@@ -690,9 +693,10 @@ function Game(props: {
       dispatch={dispatch}
       label={label}
       timing={session.timing}
-      courtRun={daily}
+      courtRun={daily || session.vsRounds !== null}
+      race={session.vsRounds}
       previousBest={comparesPersonalBest ? previousBest : null}
-      challenge={session.viaLink && state.round === 0 && state.results.length === 0 ? { vs: session.vs, vsTime: session.vsTime } : null}
+      challenge={session.viaLink && state.round === 0 && state.results.length === 0 ? { vs: session.vs, vsTime: session.vsTime, race: session.vsRounds !== null } : null}
       onFirstTouch={() => { props.onWindowActive(); props.onFirstTouch(); }}
     />
   );

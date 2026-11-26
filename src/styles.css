@@ -2179,3 +2179,50 @@ a {
   .onboarding-play .story-answer { font-size: 1.125rem; }
   .onboarding-play .story-note { font-size: 0.9375rem; line-height: 1.35; }
 }
+
+/* Results: a friend race (link v2), head to head. */
+.race-result {
+  margin: 18px 0 0;
+  padding: 14px 0 0;
+  border-top: 1px solid var(--line);
+}
+.race-result__title {
+  margin: 0 0 8px;
+  font-size: 1.125rem;
+  font-weight: 750;
+  letter-spacing: -.01em;
+  color: var(--ink);
+}
+.race-result[data-result='won'] .race-result__title { color: var(--brand-press); }
+.race-table {
+  inline-size: 100%;
+  max-inline-size: 26rem;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: .9375rem;
+  font-variant-numeric: tabular-nums;
+}
+.race-table :is(thead td, tbody th) { inline-size: 4.5rem; }
+.race-table thead th:last-child { inline-size: 3.5rem; }
+.race-table :is(th, td) {
+  padding: 4px 2px;
+  text-align: end;
+}
+.race-table thead th {
+  color: var(--ink-soft);
+  font-size: .75rem;
+  font-weight: 600;
+}
+.race-table tbody th {
+  text-align: start;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.race-table tbody tr + tr { border-top: 1px solid var(--line); }
+.race-table td[data-won] { font-weight: 800; color: var(--brand-press); }
+.race-table .race-table__total { padding-inline-start: 10px; font-weight: 800; }
+.race-result__note {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  font-size: .9375rem;
+}

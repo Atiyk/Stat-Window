@@ -57,18 +57,21 @@ const X_EASE = 'cubic-bezier(.45, 0, .25, 1)';
  * where the current window would take it if the answer is inside. Positions come
  * straight from props, so the outline tracks the brackets with no easing or lag.
  */
-export function LiveCourtRun({ earned, potential, record = null, animate = false }: {
+export function LiveCourtRun({ earned, potential, record = null, animate = false, friend = null }: {
   earned: number;
   potential: number | null;
   /** The total that would beat the verified personal best, when it is in reach this round. */
   record?: number | null;
   /** True only for a result that just landed in this tab: never on restore or adoption. */
   animate?: boolean;
+  /** A friend race: the friend's total after the rounds this player has finished. */
+  friend?: number | null;
 }) {
   const reduced = usePrefersReducedMotion();
   const ball = courtPosition(earned);
   const ghost = potential !== null && potential > earned ? courtPosition(potential) : null;
   const recordAt = record !== null ? courtPosition(record) : null;
+  const friendAt = friend !== null ? courtPosition(friend) : null;
   const marker = useRef<SVGGElement>(null);
   const hop = useRef<SVGGElement>(null);
   const trail = useRef<SVGPathElement>(null);
@@ -139,6 +142,14 @@ export function LiveCourtRun({ earned, potential, record = null, animate = false
           <g className="court-record" transform={`translate(${recordAt.x} ${recordAt.y})`} data-court-record="">
             <path d="M0 1.4V2.85" />
             <path className="court-record__flag" d="M0 1.4H1.6L1.1 1.75 1.6 2.1H0Z" />
+          </g>
+        )}
+        {friendAt && (
+          // Below the route, a pin rather than a ball: it never reads as a third ball or covers the tag.
+          // It moves after the player's ball lands (CSS delay), so one thing travels at a time.
+          <g className="court-friend" data-court-friend={friend} style={{ transform: `translate(${friendAt.x}px, ${friendAt.y}px)` }}>
+            <path className="court-friend__stem" d="M0 .3V1.3" />
+            <path className="court-friend__pin" d="M0 1.1L.72 2.25H-.72Z" />
           </g>
         )}
         <g data-court-ball="" transform={`translate(${ball.x} ${ball.y})`}>

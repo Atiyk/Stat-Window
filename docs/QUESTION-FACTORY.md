@@ -22,6 +22,10 @@ The same commands work for `--sport NFL`, `--sport MLB`, `--sport NHL`, `--sport
 
 `npm run factory -- check` checks all committed candidate batches. `npm run factory:check` is the CI-friendly equivalent. **Neither command approves drafts.**
 
+## V5 question formats (NBA pipeline)
+
+NBA facts can carry `question.format` (reference, missing-point chart, difference, ratio, ranking, trajectory). Validation, metadata, the spoiler rule and the `scripts/nba/revise.ts` editorial-batch workflow are documented in [V5.md](V5.md).
+
 ## Working data contract
 
 1. **Research batch**: `data/question-factory/batches/<slug>.json`. Fields: `version:1`, `id`, `sport`, `topic`, `author`, `themes` and `facts`. Create themed research groups around a team-season, player run, matchup, era or remarkable event; research broadly once, reuse sources efficiently, and spread related days apart.

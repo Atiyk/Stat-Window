@@ -236,16 +236,15 @@ function ipPrefix(ip) {
 	] : left).slice(0, 4).map((h) => h.replace(/^0+(?=.)/, "")).join(":") + "::/64";
 }
 function clientIp(req) {
-	return ipPrefix((req.headers.get("x-real-ip") ?? req.headers.get("x-forwarded-for") ?? "").split(",")[0].trim() || "unknown");
+	return ipPrefix((req.headers.get("x-real-ip") ?? "unknown").trim() || "unknown");
 }
 function sameOrigin(req, ctx) {
 	if (req.headers.get("sec-fetch-site") === "cross-site") return false;
 	const origin = req.headers.get("origin");
 	if (!origin) return true;
 	try {
-		const o = new URL(origin);
-		const host = req.headers.get("x-forwarded-host") ?? req.headers.get("host") ?? new URL(req.url).host;
-		return o.host === host || ctx.allowedOrigins.includes(o.origin);
+		const supplied = new URL(origin).origin;
+		return supplied === new URL(req.url).origin || ctx.allowedOrigins.includes(supplied);
 	} catch {
 		return false;
 	}
@@ -362,8 +361,7 @@ async function handle(req, ctx) {
 			if (typeof player !== "string" || !PLAYER.test(player)) return json(422, { status: "invalid" });
 			const delClient = `del:${ipHash}`;
 			if (isLimited(ctx, delClient, now)) return json(429, { status: "limited" }, untilMidnight);
-			const oldest = addDays(today, -8);
-			const days = [...new Set(Array.isArray(body.days) ? body.days.filter(isIsoDay) : [])].filter((d) => d >= oldest && d <= today).slice(0, 9);
+			const days = Array.from({ length: 9 }, (_, i) => addDays(today, -i));
 			const pairs = [];
 			for (const day of days) for (const season of /* @__PURE__ */ new Set([seasonOf(day, { launchDay: ctx.launchDay }), "qa"])) {
 				const p = keyPrefix(ctx, season, day);
@@ -372,13 +370,10 @@ async function handle(req, ctx) {
 					dist: `${p}:dist`
 				});
 			}
-			if (pairs.length === 0) return json(200, {
-				status: "ok",
-				removed: 0
-			});
 			const r = await ctx.store.removeMany(pairs, {
 				rate,
-				ipDay: `sw:v1:${ctx.env}:ipdel:${ipHash}`
+				ipDay: `sw:v1:${ctx.env}:ipdel:${ipHash}`,
+				revocation: `sw:v1:${ctx.env}:revoked:${await hmac(ctx.secret, `score-browser:${player}`, 32)}`
 			}, budget, ctx.limits);
 			if (typeof r === "object") {
 				if (r.limited === "day") {
@@ -425,6 +420,7 @@ async function handle(req, ctx) {
 			rate,
 			ipDay: `sw:v1:${ctx.env}:ipd:${ipHash}`,
 			ipCalls: `sw:v1:${ctx.env}:ipc:${ipHash}`,
+			revocation: `sw:v1:${ctx.env}:revoked:${await hmac(ctx.secret, `score-browser:${player}`, 32)}`,
 			budget
 		}, total, ctx.limits);
 		if (out.status === "limited") {
@@ -435,6 +431,7 @@ async function handle(req, ctx) {
 			rememberLimited(ctx, ipHash, now);
 			return json(429, { status: "limited" }, { "Retry-After": "60" });
 		}
+		if (out.status === "revoked") return json(409, { status: "revoked" });
 		if (out.status === "paused") {
 			rememberPause(ctx, now, out.scope);
 			return json(503, { status: "paused" });
@@ -519,20 +516,22 @@ function fileSlates(root = process.cwd()) {
 * per script, charged up front, so the counters never under-count.
 */
 var COST = {
-	submit: 20,
+	submit: 21,
 	/** A resend of a run already stored: checked before the full charge, and it stops after the GET and HGETALL. */
-	duplicate: 13,
+	duplicate: 14,
 	read: 8,
 	/** Deletion's upper bound, checked against the erase reserve before any record is read. */
-	remove: (pairs) => 8 + 4 * pairs,
+	remove: (pairs) => 9 + 4 * pairs,
 	/** What deletion actually spends: a GET per pair, plus DEL, HINCRBY and HDEL for each record that existed. */
-	removeSpent: (pairs, removed) => 8 + pairs + 3 * removed
+	removeSpent: (pairs, removed) => 9 + pairs + 3 * removed
 };
 var DAY_TTL = 172800;
 var MONTH_TTL = 2764800;
 var IP_DAY_TTL = 93600;
+/** Beyond the 7-day linked-score TTL so a delayed POST cannot recreate deleted data. */
+var REVOKED_TTL = 777600;
 /**
-* KEYS: sub, dist, rate, ipDay, budgetDay, budgetMonth, ipCalls.
+* KEYS: sub, dist, rate, ipDay, budgetDay, budgetMonth, ipCalls, revocation.
 * ARGV: total, subTtl, distTtl, dailyBudget, monthlyBudget, ratePerMinute, ipDailyStored, cost, dayTtl, monthTtl, ipDayTtl,
 *       ipDailyCalls, duplicateCost.
 * The per-minute rate and the per-network daily call cap run first, and the duplicate check before the charge,
@@ -545,6 +544,9 @@ if r > tonumber(ARGV[6]) then return {'limited', 'minute'} end
 local c = redis.call('INCR', KEYS[7])
 if c == 1 then redis.call('EXPIRE', KEYS[7], ARGV[11]) end
 if c > tonumber(ARGV[12]) then return {'limited', 'day'} end
+-- A previously erased browser code cannot submit again, even if POST verification
+-- started before an atomic DELETE on another tab/server instance.
+if redis.call('GET', KEYS[8]) then return {'revoked'} end
 local prev = redis.call('GET', KEYS[1])
 local cost = tonumber(ARGV[8])
 if prev then cost = tonumber(ARGV[13]) end
@@ -572,8 +574,8 @@ if redis.call('INCRBY', KEYS[3], cost) == cost then redis.call('EXPIRE', KEYS[3]
 return {'ok', redis.call('HGETALL', KEYS[1])}
 `;
 /**
-* KEYS: rate, ipDay (deletions from this network today), budgetErase, then (sub, dist) pairs.
-* ARGV: eraseReserve, ratePerMinute, maxCost, monthTtl, ipDailyDeletes, ipDayTtl, pairs.
+* KEYS: rate, ipDay (deletions from this network today), budgetErase, revocation, then (sub, dist) pairs.
+* ARGV: eraseReserve, ratePerMinute, maxCost, monthTtl, ipDailyDeletes, ipDayTtl, pairs, revokedTtl.
 * Deletion never touches the shared day/month counters: it spends its own monthly counter (capped at the
 * erase reserve), so a deletion flood can only use up deletion, and only a few calls a day per network.
 * Both per-client caps run before anything is charged; the charge is what the call really cost.
@@ -586,8 +588,11 @@ local d = redis.call('INCR', KEYS[2])
 if d == 1 then redis.call('EXPIRE', KEYS[2], ARGV[6]) end
 if d > tonumber(ARGV[5]) then return {'limited', 'day'} end
 if tonumber(redis.call('GET', KEYS[3]) or '0') + tonumber(ARGV[3]) > tonumber(ARGV[1]) then return {'paused'} end
+-- Delete and block any already-in-flight submission as ONE atomic operation.
+-- Even an empty day list requires a tombstone: an old POST may arrive later.
+redis.call('SET', KEYS[4], '1', 'EX', ARGV[8])
 local removed = 0
-for i = 4, #KEYS, 2 do
+for i = 5, #KEYS, 2 do
   local prev = redis.call('GET', KEYS[i])
   if prev then
     redis.call('DEL', KEYS[i])
@@ -596,7 +601,7 @@ for i = 4, #KEYS, 2 do
     removed = removed + 1
   end
 end
-local cost = 8 + tonumber(ARGV[7]) + 3 * removed
+local cost = 9 + tonumber(ARGV[7]) + 3 * removed
 if redis.call('INCRBY', KEYS[3], cost) == cost then redis.call('EXPIRE', KEYS[3], ARGV[4]) end
 return {'ok', removed}
 `;
@@ -624,7 +629,8 @@ function redisStore(evaluate) {
 				keys.ipDay,
 				keys.budget.day,
 				keys.budget.month,
-				keys.ipCalls
+				keys.ipCalls,
+				keys.revocation
 			], [
 				total,
 				limits.subTtl,
@@ -649,6 +655,7 @@ function redisStore(evaluate) {
 				status,
 				until: second === "day" ? "day" : "minute"
 			};
+			if (status === "revoked") return { status: "revoked" };
 			return {
 				status: "paused",
 				scope: second === "month" ? "month" : "day"
@@ -674,6 +681,7 @@ function redisStore(evaluate) {
 				client.rate,
 				client.ipDay,
 				budget.erase,
+				client.revocation,
 				...pairs.flatMap((p) => [p.sub, p.dist])
 			], [
 				limits.eraseReserve,
@@ -682,7 +690,8 @@ function redisStore(evaluate) {
 				MONTH_TTL,
 				limits.ipDailyDeletes,
 				IP_DAY_TTL,
-				pairs.length
+				pairs.length,
+				REVOKED_TTL
 			]);
 			if (out[0] === "limited") return { limited: out[1] === "day" ? "day" : "minute" };
 			if (out[0] !== "ok") return "paused";

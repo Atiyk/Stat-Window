@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { normalizeWindow } from '../src/engine/game';
 import { scoreWindow, type Scored } from '../src/engine/scoring';
 import { NBA_DAYS } from './helpers';
+import { openFold } from './results-helpers';
 
 const day = NBA_DAYS[8]!;
 const dates = NBA_DAYS.slice(6, 9);
@@ -40,6 +41,7 @@ test('one earned takeaway on completion, no repeat after refresh, and past games
   await expect(page.locator('.scorecard .ledger-cell')).toHaveCount(5);
   await expect(page.locator('.scorecard .ledger-cell').first()).toHaveCSS('animation-name', 'none');
 
+  await openFold(page, 'Practice a past game');
   const archive = page.getByRole('region', { name: 'Past games' });
   const days = archive.getByRole('list').getByRole('listitem');
   await expect(days).toHaveCount(5);
@@ -60,6 +62,7 @@ test('one earned takeaway on completion, no repeat after refresh, and past games
   await expect(page.getByRole('heading', { name: 'Score 500 of 500' })).toBeVisible();
   await expect(page.locator('.results-verdict')).toHaveText('5 perfect windows.');
   await expect(page.locator('.scorecard')).not.toHaveAttribute('data-arrive');
+  await openFold(page, 'Practice a past game');
 
   await archive.getByRole('radio', { name: 'Untimed', exact: true }).check();
   await days.first().getByRole('button').click();

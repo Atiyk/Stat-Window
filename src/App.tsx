@@ -736,7 +736,8 @@ function Game(props: {
           if (offer.arm && officialToday && (m === 'native' || m === 'clipboard')) track({ name: 'experiment', arm: offer.arm, step: 'daily-share' });
         }}
         survivalCta={offer.open && offer.cta && officialToday ? props.onSurvival : null}
-        weekly={<WeekGlance store={store} today={today} config={SEASON} onOpen={() => { track({ name: 'weekly_open', source: 'results' }); props.nav.weekly(); }} />}
+        weekly={<WeekGlance store={store} today={today} config={SEASON} onOpen={() => { track({ name: 'weekly_open', source: 'results' }); props.nav.weekly(); }} link={false} />}
+        onWeekly={() => { track({ name: 'weekly_open', source: 'results' }); props.nav.weekly(); }}
         onScouting={() => { track({ name: 'scouting_open', source: 'results' }); props.nav.scouting(); }}
       />
     );

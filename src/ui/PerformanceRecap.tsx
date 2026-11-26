@@ -63,6 +63,18 @@ function CourtRunCourt({ total, checkpoints }: { total: number; checkpoints: rea
   );
 }
 
+/** One true sentence about where the points carried the ball, by real court features. */
+export function courtRunLine(total: number): string {
+  const { reached, next } = courtLandmarks(total);
+  return total === 0
+    ? 'The ball is still at half court.'
+    : reached?.name === 'the rim'
+      ? 'All the way to the rim. A perfect game.'
+      : reached
+        ? `Inside ${reached.name}${next ? `. ${next.at - total} more points reach ${next.name}.` : '.'}`
+        : `${next!.at - total} more points reach ${next!.name}.`;
+}
+
 const VIEWS = [
   { value: 'shots', label: 'Shot chart' },
   { value: 'run', label: 'Court run' },
@@ -78,14 +90,7 @@ export function PerformanceRecap({ attempts, checkpoints, total }: {
   const id = useId();
   const [view, setView] = useState<View>('shots');
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
-  const { reached, next } = courtLandmarks(total);
-  const runLine = total === 0
-    ? 'The ball is still at half court.'
-    : reached?.name === 'the rim'
-      ? 'All the way to the rim. A perfect game.'
-      : reached
-        ? `Inside ${reached.name}${next ? `. ${next.at - total} more points reach ${next.name}.` : '.'}`
-        : `${next!.at - total} more points reach ${next!.name}.`;
+  const runLine = courtRunLine(total);
   const outcomes = [...new Set(attempts.map(({ outcome }) => outcome))];
 
   const onKey = (event: KeyboardEvent<HTMLDivElement>) => {

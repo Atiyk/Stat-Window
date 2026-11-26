@@ -150,11 +150,14 @@ test.describe('Weekly Scoreboard', () => {
     await seed(page, at(TODAY), week(['2026-11-23', '2026-11-25']));
     await page.goto('/?weekly');
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Nov 23 – Nov 29, 2026');
-    const rows = page.locator('.week-row');
-    await expect(rows).toHaveCount(7);
-    await expect(rows.nth(1)).toContainText('Not played'); // Tuesday elapsed, no run
-    await expect(rows.nth(2)).toContainText(/^Wed/); // Wednesday finished
-    await expect(rows.nth(3)).toContainText('Not yet played'); // Thursday
+    const days = page.getByRole('list', { name: 'Day by day' }).getByRole('listitem');
+    await expect(days).toHaveCount(7);
+    await expect(days.nth(1)).toContainText('Tuesday Nov 24: not played'); // Tuesday elapsed, no run
+    await expect(days.nth(1).locator('.week-day__note')).toHaveText('not played'); // said on screen, not by colour
+    await expect(days.nth(2)).toContainText(/^Wednesday Nov 25: \d+ points/); // Wednesday finished
+    await expect(days.nth(2)).toHaveAttribute('data-mark', 'score');
+    await expect(days.nth(3)).toContainText('Thursday Nov 26: not yet played');
+    await expect(days.nth(3).locator('.week-day__note')).toHaveText('to come');
     await expect(page.locator('.weekly__stats')).toContainText('2 of 7');
   });
 
@@ -162,11 +165,14 @@ test.describe('Weekly Scoreboard', () => {
     await seed(page, at('2026-11-16'), week(['2026-11-16']));
     await page.goto('/?weekly');
     await expect(page.locator('.weekly__stats')).toContainText('1 of 7');
-    await page.getByRole('button', { name: 'Last week' }).click();
-    const rows = page.locator('.week-row');
-    await expect(rows.first()).toContainText('Before the season began');
-    await expect(rows.nth(5)).toContainText('Before the season began');
-    await expect(rows.nth(6)).toContainText('Not played'); // Sunday Nov 15 was a real, unplayed day
+    await expect(page.getByRole('button', { name: 'Next week' })).toHaveAttribute('aria-disabled', 'true');
+    await page.getByRole('button', { name: 'Previous week' }).click();
+    await expect(page.getByRole('button', { name: 'Previous week' })).toHaveAttribute('aria-disabled', 'true');
+    const days = page.getByRole('list', { name: 'Day by day' }).getByRole('listitem');
+    await expect(days.first()).toContainText('before the season began');
+    await expect(days.first().locator('.week-day__note')).toHaveText('not open');
+    await expect(days.nth(5)).toContainText('before the season began');
+    await expect(days.nth(6)).toContainText('not played'); // Sunday Nov 15 was a real, unplayed day
     await expect(page.locator('.weekly__stats')).toContainText('0 of 1');
   });
 
@@ -175,9 +181,11 @@ test.describe('Weekly Scoreboard', () => {
     await seed(page, at('2026-12-08'), week(['2026-12-01', '2026-12-03']));
     await page.goto('/?weekly');
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Dec 7 – Dec 13, 2026');
-    await page.getByRole('button', { name: 'Last week' }).click();
+    await page.getByRole('button', { name: 'Previous week' }).click();
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Nov 30 – Dec 6, 2026');
     await expect(page.locator('.weekly__stats')).toContainText('2 of 7');
+    await page.getByRole('button', { name: 'Next week' }).click();
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Dec 7 – Dec 13, 2026');
   });
 
   test('the spoiler-free share text names dates, scores, participation and invites play', async ({ page }) => {
@@ -196,6 +204,21 @@ test.describe('Weekly Scoreboard', () => {
     expect(text).toContain('2 of 7 games played');
     expect(text).toContain('Play along');
     expect(text).not.toMatch(/How many|\bwindows?\b/);
+  });
+
+  test('the weekly image previews in square and portrait and downloads as a PNG', async ({ page }) => {
+    await seed(page, at(TODAY), week(['2026-11-23', '2026-11-25']));
+    await page.goto('/?weekly');
+    const img = page.locator('.weekly-image__preview img');
+    await expect(img).toHaveAttribute('alt', /Weekly scorecard image: .*Tue not played/);
+    const size = () => img.evaluate((el: HTMLImageElement) => el.decode().then(() => [el.naturalWidth, el.naturalHeight]));
+    expect(await size()).toEqual([1080, 1080]);
+    await page.getByLabel('Portrait').check();
+    await expect.poll(size).toEqual([1080, 1920]);
+    const download = page.waitForEvent('download');
+    await page.getByRole('button', { name: 'Save image' }).click();
+    expect((await download).suggestedFilename()).toBe('stat-window-week-2026-11-23-portrait.png');
+    await expect(page.getByRole('status')).toHaveText('Download started');
   });
 
   test('back returns to today’s puzzle', async ({ page }) => {
@@ -219,7 +242,11 @@ test.describe('Scouting Report', () => {
     await expect(page.locator('.scouting__metrics')).toContainText('Completed games2');
     await expect(page.getByText(/Your last 7 completed games/)).toHaveCount(0); // needs 7 + 7 games
     await expect(page.locator('.outcomes__list')).toContainText('scoring hits');
-    await page.getByText('Risk profile', { exact: false }).first().click();
+    await expect(page.locator('.profile')).toContainText('Strongest categoryNot clear yet'); // no conclusion from 10 attempts
+    await expect(page.locator('.profile')).toContainText('Recent trendNot yet');
+    await page.locator('summary', { hasText: 'Every window' }).click();
+    await expect(page.locator('.outcomes__list')).toBeVisible();
+    await page.locator('summary', { hasText: 'Risk profile' }).click();
     await expect(page.locator('.scouting-table[data-x], .scouting-table').first()).toBeVisible();
     await page.getByText('Knowledge profile').click();
     await expect(page.getByText('Era not recorded')).toBeVisible(); // beta days predate structured metadata
@@ -252,5 +279,5 @@ test('midnight transition: an idle home moves to the new day and the week rolls 
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Nov 30 – Dec 6, 2026');
   await page.clock.fastForward('00:45');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Dec 7 – Dec 13, 2026');
-  await expect(page.getByRole('button', { name: 'Last week' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Previous week' })).toBeVisible();
 });

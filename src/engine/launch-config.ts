@@ -12,6 +12,32 @@
  */
 export const LAUNCH_DAY: string | null = null;
 
+/**
+ * Emergency rollback acknowledgement, committed like the launch day: set it to the
+ * started launch day that is being cancelled, in the same commit that sets LAUNCH_DAY
+ * back to null. The season check accepts cancelling a started season only when this
+ * names it, so the step is reviewable and needs no CI secret. Leave null otherwise.
+ */
+export const SEASON_ROLLBACK_FROM: string | null = null;
+
+/**
+ * The production build's own guard against switching on part-way through a day.
+ * Vercel deploys main without waiting for CI, so a launch commit merged after midnight
+ * Eastern on (or after) its launch day would renumber a day already being played.
+ * `previous` is LAUNCH_DAY at the commit before the one being built (from git);
+ * `undefined` means it could not be read. A build is refused when it is the one that
+ * first activates a launch day that has already begun, or when that can't be ruled out.
+ */
+export function activationIssue(o: { launchDay: string | null; previous: string | null | undefined; today: string }): string | null {
+  const { launchDay, previous, today } = o;
+  if (launchDay === null || launchDay > today) return null;
+  if (previous === launchDay) return null;
+  if (previous === undefined) {
+    return `LAUNCH_DAY ${launchDay} has begun (today is ${today} Eastern) and the previous commit's launch day could not be read, so this build might switch the season on mid-day. Refusing to build.`;
+  }
+  return `this commit sets LAUNCH_DAY ${launchDay} but ${launchDay} has already begun (today is ${today} Eastern): deploying it would switch the season on mid-day. Choose a future launch day.`;
+}
+
 /** Throws when a deployment environment still carries a launch day that disagrees with the commit. */
 export function assertLaunchEnv(env: Readonly<Record<string, string | undefined>>): void {
   for (const name of ['VITE_LAUNCH_DAY', 'LAUNCH_DAY'] as const) {

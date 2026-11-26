@@ -93,10 +93,10 @@ describe.skipIf(!url)('Lua scripts on a real redis-server', () => {
     expect((await del(player(31))).status).toBe(200);
     expect((await del(player(31))).status).toBe(429);
     expect(Number(await client.command(['GET', `${prefix}:m:${DAY.slice(0, 7)}`]))).toBe(shared);
-    expect(Number(await client.command(['GET', `${prefix}:e:${DAY.slice(0, 7)}`]))).toBe(2 * COST.removeSpent(18, 0));
+    expect(Number(await client.command(['GET', `${prefix}:e:${DAY.slice(0, 7)}`]))).toBe(2 * COST.removeSpent(27, 0));
     // Another network's real player still deletes their stored score.
     expect(await (await handle(post({ player: player(30), days: [DAY] }, { 'x-real-ip': '198.51.100.30' }, 'DELETE'), ctx)).json()).toMatchObject({ removed: 1 });
-    expect(Number(await client.command(['GET', `${prefix}:e:${DAY.slice(0, 7)}`]))).toBe(2 * COST.removeSpent(18, 0) + COST.removeSpent(18, 1, 5));
+    expect(Number(await client.command(['GET', `${prefix}:e:${DAY.slice(0, 7)}`]))).toBe(2 * COST.removeSpent(27, 0) + COST.removeSpent(27, 1, 5));
   });
   it('rejects an old-code POST after DELETE using real Redis 7, even when the POST started before erasure', async () => {
     const env = `${run}revoked`;
@@ -219,7 +219,20 @@ describe.skipIf(!url)('Lua scripts on a real redis-server', () => {
       const q = await hash(`sw:v1:${env}:beta:${DAY}:q`);
       expect([...q.keys()].sort()).toEqual((await fieldsOf(other.rounds)).sort());
       expect([...q.values()].every((v) => v === 1)).toBe(true);
-      expect(Number(await client.command(['GET', `${prefix}:e:${DAY.slice(0, 7)}`]))).toBe(COST.removeSpent(18, 1, 5));
+      expect(Number(await client.command(['GET', `${prefix}:e:${DAY.slice(0, 7)}`]))).toBe(COST.removeSpent(27, 1, 5));
+    });
+
+    it('after an emergency rollback (launch day back to null), deletion still finds and removes s1 records', async () => {
+      const env = `${run}g5`;
+      const { ctx } = testContext({ store: redisStore(client.evaluate), limits, minSample: 1, env, budgetPrefix: `sw:v1:${env}:budget`, launchDay: DAY });
+      const a = await roundsFor(DAY, 2);
+      expect(await (await handle(post({ day: DAY, player: player(230), rounds: a.rounds }), ctx)).json()).toMatchObject({ status: 'stored' });
+      expect((await client.command(['KEYS', `sw:v1:${env}:s1:${DAY}:sub:*`])) as string[]).toHaveLength(1);
+      (ctx as { launchDay: string | null }).launchDay = null;
+      const del = await handle(post({ player: player(230), days: [] }, {}, 'DELETE'), ctx);
+      expect(await del.json()).toMatchObject({ status: 'ok', removed: 1 });
+      expect((await client.command(['KEYS', `sw:v1:${env}:s1:${DAY}:sub:*`])) as string[]).toHaveLength(0);
+      expect(sum(await hash(`sw:v1:${env}:s1:${DAY}:q`))).toBe(0);
     });
 
     it('past the question ceiling stores total-only and flags the day; reads then withhold questions; the read ceiling pauses only reads', async () => {
@@ -286,7 +299,7 @@ describe.skipIf(!url)('Lua scripts on a real redis-server', () => {
       // Record 1 was stored with its five fields; record 2 total-only (the ceiling).
       expect(await bill(REMOVE_LUA, [`${env}:drl`, `${env}:dday`, budget.erase, `${env}:drev`, ...triples], removeArgs)).toBeLessThanOrEqual(COST.removeSpent(18, 2, 5));
       expect(Number(await client.command(['GET', budget.erase]))).toBe(COST.removeSpent(18, 2, 5));
-      expect(COST.removeSpent(18, 18, 90)).toBeLessThanOrEqual(COST.remove(18));
+      expect(COST.removeSpent(27, 27, 135)).toBeLessThanOrEqual(COST.remove(27));
     });
   });
 });

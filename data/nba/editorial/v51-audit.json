@@ -27,7 +27,7 @@
    "id": "nba-gordon23-finals-g4-points",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Three other supporting-cast Finals nights frame what a role player can score, so Gordon's 27 becomes a placement decision, not a memory test. Independent review (AB, P1): Chart mixes scopes: 'Sprewell '99' = 25 is Sprewell's SECOND-HALF points (quote: 'The Knicks scored 39 points in the second half, and Latrell Sprewell scored 25 of them'), not a Finals game total (he scored more in the game); fixed.",
+   "note": "Three other supporting-cast Finals nights frame what a role player can score, so Gordon's 27 becomes a placement decision, not a memory test. Independent review (AB, P1): Chart mixes scopes: 'Sprewell '99' = 25 is Sprewell's SECOND-HALF points (quote: 'The Knicks scored 39 points in the second half, and Latrell Sprewell scored 25 of them'), not a Finals game total (he scored more in the game); fixed. Editorial re-review: The reveal says '27 points, his highest-scoring game of that Finals', which no stored quote or fun-fact quote supports..",
    "batch": "v51-A",
    "editor": "editor-A (independent V5.1 editor)"
   },
@@ -137,7 +137,7 @@
    "id": "nba-webber02-season-ppg",
    "verdict": "reframed",
    "format": "reference",
-   "note": "Wilt's record 50.4 average sets the ceiling, so Webber's number is a judgment about how far below it a star scores. Independent review (AB, P2): Wilt's 50.4 sits above the ruler (max 47), so the anchor is off the scale and says little about a 24.5 star average beyond 'below the all-time record'; fixed.",
+   "note": "Wilt's record 50.4 average sets the ceiling, so Webber's number is a judgment about how far below it a star scores. Independent review (AB, P2): Wilt's 50.4 sits above the ruler (max 47), so the anchor is off the scale and says little about a 24.5 star average beyond 'below the all-time record'; fixed. Editorial re-review: The reveal 'despite missed time' is not in the stored quote or any fun-fact quote..",
    "batch": "v51-A",
    "editor": "editor-A (independent V5.1 editor)"
   },
@@ -247,7 +247,7 @@
    "id": "nba-klay16-okc-game6-41",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Three other playoff scoring nights give Klay's 41 a place to land, turning a recall finale into chart reading. Independent review (AB, P1): Same scope error as 11-30 Q3; fixed.",
+   "note": "Three other playoff scoring nights give Klay's 41 a place to land, turning a recall finale into chart reading. Independent review (AB, P1): Same scope error as 11-30 Q3; fixed. Editorial re-review: The prompt's 'Down 3–2 in 2016' (series score) is not in the stored quote.",
    "batch": "v51-A",
    "editor": "editor-A (independent V5.1 editor)"
   },
@@ -307,7 +307,7 @@
    "id": "nba-celtics86-wins",
    "verdict": "reframed",
    "format": "reference",
-   "note": "Existing Celtics wins chart question; keeps a chart opener. Finale variety pass: Wins-chart openers on 12-05 and 12-06 in a row.",
+   "note": "Existing Celtics wins chart question; keeps a chart opener. Finale variety pass: Wins-chart openers on 12-05 and 12-06 in a row. Editorial re-review: Finale-pass reference leaks the answer on the opener.",
    "batch": "v51-A",
    "editor": "editor-A (independent V5.1 editor)"
   },
@@ -327,7 +327,7 @@
    "id": "nba-jackson98-regular-apg",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Stockton's 14.5 is the league's passing gold standard, so Jackson's 8.7 becomes a defensible estimate. Finale variety pass: Day needs a chart once Q1 stops being one.",
+   "note": "Stockton's 14.5 is the league's passing gold standard, so Jackson's 8.7 becomes a defensible estimate. Finale variety pass: Day needs a chart once Q1 stops being one. Editorial re-review: Chart scope: 'Murray '23' (10.0) is a five-game Finals average beside two regular-season averages, under the unqualified title 'Assists per game averages'.",
    "batch": "v51-A",
    "editor": "editor-A (independent V5.1 editor)"
   },
@@ -647,7 +647,7 @@
    "id": "nba-ant24-nuggets-g1-43",
    "verdict": "reframed",
    "format": "reference",
-   "note": "Brunson's Knicks record 47 is the 2024 playoff scoring benchmark, so Ant's franchise record is easy to calibrate. Independent review (AB, P1): The anchor leaks the expert finale; fixed. Finale variety pass: Finale template.",
+   "note": "Brunson's Knicks record 47 is the 2024 playoff scoring benchmark, so Ant's franchise record is easy to calibrate. Independent review (AB, P1): The anchor leaks the expert finale; fixed. Finale variety pass: Finale template. Editorial re-review: Finale-pass reintroduces the exact leak the first review fixed.",
    "batch": "v51-A",
    "editor": "editor-A (independent V5.1 editor)"
   },
@@ -737,7 +737,7 @@
    "id": "nba-west08-season-ppg",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Two other scoring averages (13.5 and 24.5) show where a secondary star sits. Independent review (AB, P2): The chart label 'Robinson '20' (Duncan Robinson) appears on the same day as Q2 about David Robinson's Spurs; fixed.",
+   "note": "Two other scoring averages (13.5 and 24.5) show where a secondary star sits. Independent review (AB, P2): The chart label 'Robinson '20' (Duncan Robinson) appears on the same day as Q2 about David Robinson's Spurs; fixed. Editorial re-review: The reveal 'next to Chris Paul' is not in West's stored quote (the same unsupported claim the first review flagged on 01-16 Q4)..",
    "batch": "v51-A",
    "editor": "editor-A (independent V5.1 editor)"
   },
@@ -817,7 +817,7 @@
    "id": "nba-spurs14-streak",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "A bare streak length is hard to place. A chart of four famous streaks (24, 22, 18, 15) shows what long looks like, so the Spurs' 19 is read against real company. Independent review (CD, P0): Spoiler into this range: the Dec 16 reveal '19, including a 16–0 March' gives away the answer to 2027-01-06 Q1 (nba-spurs14-march-wins, 16 March wins); fixed.",
+   "note": "A bare streak length is hard to place. A chart of four famous streaks (24, 22, 18, 15) shows what long looks like, so the Spurs' 19 is read against real company. Independent review (CD, P0): Spoiler into this range: the Dec 16 reveal '19, including a 16–0 March' gives away the answer to 2027-01-06 Q1 (nba-spurs14-march-wins, 16 March wins); fixed. Editorial re-review: The P0 spoiler is fixed (the reveal no longer says '16–0').",
    "batch": "v51-B",
    "editor": "editor-B (independent V5.1 editor)"
   },
@@ -1198,7 +1198,7 @@
    "id": "nba-trae21-bucks-g1-48",
    "verdict": "reframed",
    "format": "reference",
-   "note": "Trae Young's 48 against the Bucks is a Hawks playoff story; Derrick Rose's 44 against Atlanta in 2011 is a natural anchor for a playoff scoring explosion in the same arena. Independent review (AB, P1): The anchor leaks the expert finale; fixed. Finale variety pass: Finale template.",
+   "note": "Trae Young's 48 against the Bucks is a Hawks playoff story; Derrick Rose's 44 against Atlanta in 2011 is a natural anchor for a playoff scoring explosion in the same arena. Independent review (AB, P1): The anchor leaks the expert finale; fixed. Finale variety pass: Finale template. Editorial re-review: The context 'Bar to chase: Baylor's Finals record is 61 points' is misleading, since Trae was not chasing a Finals record in a conference finals game..",
    "batch": "v51-B",
    "editor": "editor-B (independent V5.1 editor)"
   },
@@ -1349,7 +1349,7 @@
    "id": "nba-ja22-warriors-game2-47",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Ja Morant's 47 against Golden State reads better next to Steph Curry's 43 in a 2022 Finals game: two star playoff nights from the same season. Independent review (AB, P1): The anchor leaks the expert finale; fixed. Finale variety pass: Finale template (reference).",
+   "note": "Ja Morant's 47 against Golden State reads better next to Steph Curry's 43 in a 2022 Finals game: two star playoff nights from the same season. Independent review (AB, P1): The anchor leaks the expert finale; fixed. Finale variety pass: Finale template (reference). Editorial re-review: The bars descend (56, 50, 49, 41) with the hidden bar last, which reads as 'below 41' when the answer is 47.",
    "batch": "v51-B",
    "editor": "editor-B (independent V5.1 editor)"
   },
@@ -1600,7 +1600,7 @@
    "id": "nba-love10-knicks-thirty-one-boards",
    "verdict": "reframed",
    "format": "recall",
-   "note": "Love's 31 boards is a memorable number, but a bare recall gives no scale. Luka's 21-board night against the same Knicks sets a modern high-water mark to beat. Finale variety pass: Reference finales were repeating the same template.",
+   "note": "Love's 31 boards is a memorable number, but a bare recall gives no scale. Luka's 21-board night against the same Knicks sets a modern high-water mark to beat. Finale variety pass: Reference finales were repeating the same template. Editorial re-review: The reverted recall prompt prints '30–30', which defines the answer as 30 or more rebounds.",
    "batch": "v51-C",
    "editor": "editor-C (independent V5.1 editor)"
   },
@@ -2101,7 +2101,7 @@
    "id": "nba-curry22-allstar-sixteen-threes",
    "verdict": "reframed",
    "format": "reference",
-   "note": "Sixteen threes in an All-Star Game is staggering, but the scale is unclear. Curry's regular-season record of 13 is the natural bar to measure it against. Finale variety pass: Finale template.",
+   "note": "Sixteen threes in an All-Star Game is staggering, but the scale is unclear. Curry's regular-season record of 13 is the natural bar to measure it against. Finale variety pass: Finale template. Editorial re-review: The prompt prints 'scored 50', which caps the threes at 16 (50 / 3 = 16.7).",
    "batch": "v51-C",
    "editor": "editor-C (independent V5.1 editor)"
   },
@@ -2121,7 +2121,7 @@
    "id": "nba-klay16-60-minutes",
    "verdict": "reframed",
    "format": "reference",
-   "note": "Klay scoring 60 in just 29 minutes is one of the great efficiency stories; a bounded recall, and a satisfying Q2 surprise. Finale variety pass: Compensates for reverting the Q5 finale: Reed's 27 minutes is a quirky same-stat benchmark for a 60-point night played in under half a game..",
+   "note": "Klay scoring 60 in just 29 minutes is one of the great efficiency stories; a bounded recall, and a satisfying Q2 surprise. Finale variety pass: Compensates for reverting the Q5 finale: Reed's 27 minutes is a quirky same-stat benchmark for a 60-point night played in under half a game.. Editorial re-review: Anchor: Reed's 27 is 2 from 29 on a 20–48 ruler (7.1%), and an injured Game 7 captain's minutes is only loosely related.",
    "batch": "v51-C",
    "editor": "editor-C (independent V5.1 editor)"
   },
@@ -2171,7 +2171,7 @@
    "id": "nba-howard09-g4-blocks",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Howard's Finals-record blocks was a bare recall. Four notable block games (Hakeem, Wemby, Duncan, Giannis) show where nine sits among the great defensive nights. Independent review (CD, P2): The chart mixes Finals games (Giannis, Duncan) with regular-season games (Wemby, Hakeem) under 'Blocks in a game'; fixed.",
+   "note": "Howard's Finals-record blocks was a bare recall. Four notable block games (Hakeem, Wemby, Duncan, Giannis) show where nine sits among the great defensive nights. Independent review (CD, P2): The chart mixes Finals games (Giannis, Duncan) with regular-season games (Wemby, Hakeem) under 'Blocks in a game'; fixed. Editorial re-review: The prompt calls the bars 'big block games', but Giannis's 5 is not a big blocks game..",
    "batch": "v51-C",
    "editor": "editor-C (independent V5.1 editor)"
   },
@@ -2351,7 +2351,7 @@
    "id": "nba-murray20-utah-g6-nine-threes",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Murray's nine threes was a plain recall. Klay's 11 in 2016 (then the playoff record) gives a ceiling to reason from, so the player weighs a bubble night against the record. Finale variety pass: Finale template (reference).",
+   "note": "Murray's nine threes was a plain recall. Klay's 11 in 2016 (then the playoff record) gives a ceiling to reason from, so the player weighs a bubble night against the record. Finale variety pass: Finale template (reference). Editorial re-review: The bars descend (12, 11, 8, 7) with the hidden bar last, which reads as 'below 7' when the answer is 9..",
    "batch": "v51-D",
    "editor": "editor-D (independent V5.1 editor)"
   },
@@ -2391,7 +2391,7 @@
    "id": "nba-mowilliams09-season-ppg",
    "verdict": "reframed",
    "format": "reference",
-   "note": "Mo Williams's average was a bare recall. David West's 20.6 beside Chris Paul is a comparable second-star anchor. Independent review (CD, P2): 'next to Chris Paul' isn't in David West's stored quote (a Hornets team stat line); fixed.",
+   "note": "Mo Williams's average was a bare recall. David West's 20.6 beside Chris Paul is a comparable second-star anchor. Independent review (CD, P2): 'next to Chris Paul' isn't in David West's stored quote (a Hornets team stat line); fixed. Editorial re-review: 'beside LeBron' is not in Williams's stored quote (the same kind of unsupported phrase the first review removed for 'next to Chris Paul').",
    "batch": "v51-D",
    "editor": "editor-D (independent V5.1 editor)"
   },
@@ -2411,7 +2411,7 @@
    "id": "nba-luka24-73-hawks",
    "verdict": "reframed",
    "format": "reference",
-   "note": "Luka's 73 is a premier hook; recall kept. Finale variety pass: Compensates for reverting the Q5 finale: Baylor's 71 is the old scoring-record benchmark for a 70-plus night..",
+   "note": "Luka's 73 is a premier hook; recall kept. Finale variety pass: Compensates for reverting the Q5 finale: Baylor's 71 is the old scoring-record benchmark for a 70-plus night.. Editorial re-review: Finale-pass reference leaks the answer.",
    "batch": "v51-D",
    "editor": "editor-D (independent V5.1 editor)"
   },
@@ -2511,7 +2511,7 @@
    "id": "nba-embiid24-70-spurs",
    "verdict": "reframed",
    "format": "reference",
-   "note": "Embiid's 70-point night is a strong star opener; kept as recall. Finale variety pass: Compensates for reverting the Q5 finale: Luka's 73 the same month (played 01-17) is a strong, close benchmark for Embiid's 70..",
+   "note": "Embiid's 70-point night is a strong star opener; kept as recall. Finale variety pass: Compensates for reverting the Q5 finale: Luka's 73 the same month (played 01-17) is a strong, close benchmark for Embiid's 70.. Editorial re-review: Finale-pass reference leaks the answer.",
    "batch": "v51-D",
    "editor": "editor-D (independent V5.1 editor)"
   },
@@ -2893,7 +2893,7 @@
    "id": "nba-teague15-assists-average",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Teague's 7.0 was a bare recall. A chart of four guards' assist averages frames a solid All-Star point guard. Independent review (CD, P1): Chart order gives the answer away; fixed.",
+   "note": "Teague's 7.0 was a bare recall. A chart of four guards' assist averages frames a solid All-Star point guard. Independent review (CD, P1): Chart order gives the answer away; fixed. Editorial re-review: The prompt says 'four other guards' assist averages', but the stored quotes list Jimmy Butler as an SF and LeBron James was a forward, so the claim contradicts the chart's own support.",
    "batch": "v51-D",
    "editor": "editor-D (independent V5.1 editor)"
   },

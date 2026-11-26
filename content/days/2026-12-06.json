@@ -9,7 +9,7 @@
     {
       "id": "nba-celtics86-wins",
       "sport": "NBA",
-      "prompt": "The 1986–87 Lakers won 65 games. How many did Larry Bird's 1985–86 Celtics win?",
+      "prompt": "The 2018–19 champion Raptors won 58 games. How many did Larry Bird's 1985–86 Celtics win?",
       "context": "Boston Celtics · 1985–86 · 82 games",
       "answer": 67,
       "unit": {
@@ -59,12 +59,12 @@
       "meta": {
         "format": "reference",
         "family": "wins-season",
-        "era": "1980s",
+        "era": "cross-era",
         "subjects": [
           "Boston Celtics"
         ],
         "supports": [
-          "nba-lakers87-wins"
+          "nba-raptors19-regular-wins"
         ]
       }
     },
@@ -179,24 +179,24 @@
         }
       ],
       "chart": {
-        "title": "Assists per game averages",
+        "title": "Assists per game: seasons and one Finals",
         "unit": "apg",
         "points": [
-          {
-            "label": "Stockton '90",
-            "value": 14.5
-          },
-          {
-            "label": "Murray '23",
-            "value": 10
-          },
           {
             "label": "Bibby '02",
             "value": 5
           },
           {
+            "label": "Stockton '90",
+            "value": 14.5
+          },
+          {
             "label": "Jackson '98",
             "value": null
+          },
+          {
+            "label": "Murray '23 Fin",
+            "value": 10
           }
         ]
       },
@@ -209,9 +209,9 @@
           "Indiana Pacers"
         ],
         "supports": [
+          "nba-bibby02-regular-apg",
           "nba-stockton90-apg",
-          "nba-murray23-finals-apg",
-          "nba-bibby02-regular-apg"
+          "nba-murray23-finals-apg"
         ]
       }
     },

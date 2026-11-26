@@ -158,6 +158,9 @@ export type QuestionStat = {
   readonly missed?: number;
 };
 
+/** Published percentiles are multiples of this, so the table stays coarse. */
+export const PCT_STEP = 5;
+
 const share = (part: number, n: number) => (part >= SMALL_CELL && n - part >= SMALL_CELL ? Math.round((100 * part) / n) : undefined);
 
 export function summarizeQuestion(id: string, t: QuestionTally, minSample = PERCENTILE_MIN_SAMPLE): QuestionStat {
@@ -165,17 +168,26 @@ export function summarizeQuestion(id: string, t: QuestionTally, minSample = PERC
   if (n < minSample || n === 0) return { id, n, ready: false };
   // Points histogram with every zero-point outcome (miss, timeout, too-wide catch) at 0.
   const counts = [t.zero + t.miss + t.timeout, ...t.scoring.slice(1)];
-  const pct: number[] = [];
-  let below = 0;
-  for (let p = 0; p <= MAX_ROUND_POINTS; p++) {
-    const equal = counts[p]!;
-    pct.push(Math.min(100, Math.max(0, Math.round((100 * (below + 0.5 * equal)) / n))));
-    below += equal;
-  }
   const scoredCount = n - counts[0]!;
+  // The table is withheld while the zero cell or the scoring cell holds 1 to 4 games
+  // (it would reveal the small count the shares hide; an empty cell reveals nothing
+  // about anyone), and published in steps of PCT_STEP points, so neighbouring entries
+  // can't be differenced back into single-game cells.
+  const small = (c: number) => c > 0 && c < SMALL_CELL;
+  let pct: number[] | undefined;
+  if (!small(counts[0]!) && !small(scoredCount)) {
+    pct = [];
+    let below = 0;
+    for (let p = 0; p <= MAX_ROUND_POINTS; p++) {
+      const equal = counts[p]!;
+      const exact = (100 * (below + 0.5 * equal)) / n;
+      pct.push(Math.min(100, Math.max(0, Math.round(exact / PCT_STEP) * PCT_STEP)));
+      below += equal;
+    }
+  }
   const scored = share(scoredCount, n);
   const missed = share(t.miss, n);
-  return { id, n, ready: true, pct, ...(scored !== undefined ? { scored } : {}), ...(missed !== undefined ? { missed } : {}) };
+  return { id, n, ready: true, ...(pct ? { pct } : {}), ...(scored !== undefined ? { scored } : {}), ...(missed !== undefined ? { missed } : {}) };
 }
 
 const pctInt = (v: unknown) => Number.isInteger(v) && (v as number) >= 0 && (v as number) <= 100;

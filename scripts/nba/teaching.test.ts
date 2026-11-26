@@ -11,6 +11,7 @@ import { FORMATS } from '../../src/content/formats.ts';
 import { CORE_INTRO, FORMAT_GUIDE, TEACHING_EXAMPLES, TEACHING_PLAYED_BY, type TeachingExample } from '../../src/content/teaching.ts';
 import { formatIssues, type FormatFact, type FormatSpec } from './formats.ts';
 import { loadNbaData } from './model.ts';
+import { puzzleDay } from '../../src/engine/daily.ts';
 
 const data = loadNbaData();
 const byId = new Map(data.facts.map((f) => [f.id, f] as const));
@@ -56,6 +57,15 @@ function asFormatFact(e: TeachingExample): FormatFact {
     question: { prompt: q.prompt, context: q.context, reveal: q.note, step: q.step, max: q.max, ...(spec ? { format: spec } : {}) },
   };
 }
+
+describe('the played-by cutoff is a finished day', () => {
+  // The guide can be opened before a player locks today's window, so an example built
+  // from today's (or a later) daily would give its answer away. The cutoff must be a
+  // day that has already ended in Eastern time, checked against the real clock.
+  it('is strictly before today, Eastern', () => {
+    expect(TEACHING_PLAYED_BY < puzzleDay(new Date())).toBe(true);
+  });
+});
 
 describe('teaching examples are built only from verified, already-played beta facts', () => {
   it.each(TEACHING_EXAMPLES.map((e) => [e.id, e] as const))('%s', (_id, e) => {

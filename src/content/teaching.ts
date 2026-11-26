@@ -19,7 +19,7 @@ import { formatValue, unitFor } from '../lib/format';
  *
  * Ids start with `teach-` so they can never collide with a published question id.
  */
-export const TEACHING_PLAYED_BY = '2026-11-29';
+export const TEACHING_PLAYED_BY = '2026-11-25';
 
 /** Where an example's numbers come from, by verified fact id (checked by the test). */
 export type TeachingBasis = {
@@ -67,27 +67,27 @@ export const FORMAT_GUIDE = {
     instruction: 'Estimate the number, then frame it.',
     detail: 'The question asks for one verified figure. Set your window around what you remember: tighter pays more, but it has to catch the answer.',
     example: {
-      id: 'teach-recall-curry-13-threes',
-      basis: { fact: 'nba-curry16-13-threes' },
+      id: 'teach-recall-kobe-12-threes',
+      basis: { fact: 'nba-kobe03-threes' },
       why: 'Plain recall: the number asked for is the answer. Frame what you remember, as tight as you trust it.',
       question: {
-        id: 'teach-recall-curry-13-threes',
+        id: 'teach-recall-kobe-12-threes',
         sport: 'NBA',
-        prompt: 'On November 7, 2016, Stephen Curry set what was then the single-game record for threes. How many did he make?',
-        context: 'Golden State Warriors · 2016–17 regular season',
-        answer: 13,
+        prompt: 'On January 7, 2003, Kobe Bryant set the NBA record for threes in a game. How many did he make?',
+        context: 'Los Angeles Lakers · 2002–03 regular season',
+        answer: 12,
         unit: { singular: 'three-pointer', plural: 'three-pointers' },
-        min: 6,
-        max: 24,
+        min: 7,
+        max: 26,
         step: 1,
-        note: '13, then the single-game record.',
+        note: '12, a record at the time.',
         source: {
           name: WIKI,
-          url: 'https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season',
-          quote: 'Stephen Curry set a new record of 13 three-pointers made in a single game',
+          url: 'https://en.wikipedia.org/wiki/Kobe_Bryant',
+          quote: 'He broke an NBA record for three-pointers on January 7, 2003, when he made 12 against the Seattle SuperSonics.',
         },
         verified: VERIFIED,
-        meta: { format: 'recall', family: 'threes-game', era: '2010s', subjects: ['Stephen Curry', 'Golden State Warriors'], supports: [] },
+        meta: { format: 'recall', family: 'threes-game', era: '2000s', subjects: ['Kobe Bryant', 'Los Angeles Lakers'], supports: [] },
       },
     },
   },
@@ -96,33 +96,33 @@ export const FORMAT_GUIDE = {
     instruction: 'Use the reference figure as an anchor; it isn’t the answer.',
     detail: 'The prompt prints a verified number from another player, team or season. Reason from it (higher or lower, and by how much), then frame the number actually asked for.',
     example: {
-      id: 'teach-reference-murray-stockton',
-      basis: { fact: 'nba-murray23-finals-apg', references: ['nba-stockton90-apg'] },
-      why: 'Stockton’s 14.5 is the anchor, not the answer. Murray’s 10.0 in the 2023 Finals sits well below the all-time season record.',
+      id: 'teach-reference-dirk-wilt-free-throws',
+      basis: { fact: 'nba-dirk11-24-ft', references: ['nba-wilt-100-ftm'] },
+      why: 'Wilt’s 28 is the anchor, not the answer. Dirk’s record night was a little lower, 24, but he never missed.',
       question: {
-        id: 'teach-reference-murray-stockton',
+        id: 'teach-reference-dirk-wilt-free-throws',
         sport: 'NBA',
-        prompt: 'John Stockton averaged 14.5 assists a game in 1989–90. What did Jamal Murray average in the 2023 Finals?',
-        context: 'Denver Nuggets · five-game 2023 championship series',
-        answer: 10,
-        unit: { singular: 'assist per game', plural: 'assists per game' },
-        min: 4,
-        max: 17,
-        step: 0.1,
-        note: '10.0 assists a night, complementing Jokić’s scoring and passing.',
+        prompt: 'Wilt Chamberlain made 28 free throws in his 100-point game. In the 2011 West finals, how many did Dirk Nowitzki make without a miss?',
+        context: '2011 West finals · Game 1 · vs Oklahoma City',
+        answer: 24,
+        unit: { singular: 'free throw', plural: 'free throws' },
+        min: 14,
+        max: 44,
+        step: 1,
+        note: '24 of 24, a playoff record.',
         source: {
           name: WIKI,
-          url: 'https://en.wikipedia.org/wiki/2023_NBA_Finals',
-          quote: 'Jamal Murray | 5 | 5 | 42.2 | .451 | .387 | .929 | 6.2 | 10.0 | 1.0 | 0.0 | 21.4',
+          url: 'https://en.wikipedia.org/wiki/2010%E2%80%9311_Dallas_Mavericks_season',
+          quote: 'set a playoff record for most free throws made without a miss with 24, previously held by',
         },
         verified: VERIFIED,
-        meta: { format: 'reference', family: 'assists-average', era: 'cross-era', subjects: ['Jamal Murray', 'Denver Nuggets'], supports: ['nba-stockton90-apg'] },
+        meta: { format: 'reference', family: 'free-throws', era: 'cross-era', subjects: ['Dirk Nowitzki', 'Dallas Mavericks'], supports: ['nba-wilt-100-ftm'] },
       },
     },
   },
   'missing-point': {
     label: 'Missing data point',
-    instruction: 'Read the chart’s units and known bars, then frame the hidden one.',
+    instruction: 'Read the known bars, then frame the hidden one.',
     detail: 'Each bar is a verified figure on the same scale; the dashed slot is the one you estimate. Read the title and unit first; your window is drawn on the slot as you move it.',
     example: {
       id: 'teach-missing-best-records',
@@ -130,8 +130,8 @@ export const FORMAT_GUIDE = {
         fact: 'nba-celtics24-wins',
         chart: [
           { label: 'Lakers ’87', fact: 'nba-lakers87-wins' },
+          { label: 'Suns ’93', fact: 'nba-suns93-regular-wins' },
           { label: 'Kings ’02', fact: 'nba-kings02-regular-wins' },
-          { label: 'Bulls ’11', fact: 'nba-bulls11-regular-wins' },
           { label: 'Bucks ’19', fact: 'nba-bucks19-season-wins' },
           { label: 'Celtics ’24', fact: 'nba-celtics24-wins' },
         ],
@@ -159,8 +159,8 @@ export const FORMAT_GUIDE = {
           unit: 'wins',
           points: [
             { label: 'Lakers ’87', value: 65 },
+            { label: 'Suns ’93', value: 62 },
             { label: 'Kings ’02', value: 61 },
-            { label: 'Bulls ’11', value: 62 },
             { label: 'Bucks ’19', value: 60 },
             { label: 'Celtics ’24', value: null },
           ],
@@ -170,7 +170,7 @@ export const FORMAT_GUIDE = {
           family: 'wins-season',
           era: 'cross-era',
           subjects: ['Boston Celtics'],
-          supports: ['nba-lakers87-wins', 'nba-kings02-regular-wins', 'nba-bulls11-regular-wins', 'nba-bucks19-season-wins'],
+          supports: ['nba-lakers87-wins', 'nba-suns93-regular-wins', 'nba-kings02-regular-wins', 'nba-bucks19-season-wins'],
         },
       },
     },
@@ -357,14 +357,17 @@ export type WindowFeedback = { kind: 'hit' | 'zero' | 'miss'; headline: string; 
  */
 export function explainWindow(q: Pick<Question, 'min' | 'max' | 'step' | 'answer' | 'unit'>, w: Window, score: RoundScore): WindowFeedback {
   const v = (n: number) => `${formatValue(n, q.step)} ${unitFor(n, q.unit)}`;
+  // A ranking's unit names a position ("2 on the list"); a distance between positions is in places.
+  const positional = /^on the /.test(q.unit.plural);
+  const gap = (n: number) => positional ? `${formatValue(n, q.step)} ${n === 1 ? 'place' : 'places'}` : v(n);
   const span = `${formatValue(w.lo, q.step)}–${formatValue(w.hi, q.step)}`;
   const width = toSteps(q, w.hi) - toSteps(q, w.lo);
   const range = rangeSteps(q);
-  const widthText = v(Number((width * q.step).toFixed(6)));
+  const widthText = gap(Number((width * q.step).toFixed(6)));
   if (!score.hit) {
     return {
       kind: 'miss',
-      headline: `Outside by ${v(score.missBy)}.`,
+      headline: `Outside by ${gap(score.missBy)}.`,
       detail: `The answer, ${v(q.answer)}, fell outside ${span}. A miss scores 0 however tight the window was, so a narrow window is a bigger risk.`,
     };
   }

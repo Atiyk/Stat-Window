@@ -36,10 +36,13 @@ Every unpublished day is launch inventory: whichever date L becomes "No. 1" show
 
 The launch day lives in **`src/engine/launch-config.ts`** (`LAUNCH_DAY`), one value read by the client label, the score API's season and the CI gates. Activation is a reviewed commit to main that sets it to *L*; Vercel deploys main automatically.
 
-- `npm run season:check -- --base origin/main` (CI runs it on every PR and push) refuses a change unless *L* is a real date **strictly after today (Eastern)**, on or after `VARIETY_FROM` (2026-11-30, so every official slate passed the format cap), with at least 28 consecutive official slates from *L*. A season that has started can't be moved or cancelled by an ordinary change.
+- `npm run season:check -- --base origin/main` (CI runs it on every PR against main, and on every push to main against the commit before it) refuses a change unless *L* is a real date **at least 2 days after today (Eastern)** (so a PR that went green late in the evening still lands before the boundary if it is merged the next day), on or after `VARIETY_FROM` (2026-11-30, so every official slate passed the format cap), with at least 28 consecutive official slates from *L*. A season that has started can't be moved or cancelled by an ordinary change.
 - The build fails if `VITE_LAUNCH_DAY` or `LAUNCH_DAY` is still set in an environment to a different value (`assertLaunchEnv`), so a stale dashboard value can never split the client and server seasons. If they were ever set in Vercel, delete them.
+- **The production build re-checks the boundary itself**, because Vercel deploys main without waiting for CI. With `VERCEL_ENV=production`, `vite.config.ts` refuses to build when the commit being built is the one that first sets a `LAUNCH_DAY` that has already begun (it reads the previous commit's value with git; Vercel's clone keeps about 10 commits), and when `VITE_LAUNCH_PREVIEW` is set. A refused build leaves the previous deployment (beta) live.
+- Make the CI check a **required status** on main (GitHub → Settings → Branches → main → Require status checks: `check`), so a PR whose check went stale can't be merged without re-running it.
+- Tabs opened before the activation deploy fetch `/launch.json` at the midnight rollover and reload if the deployed launch day differs from their bundle, so a long-open tab doesn't keep beta numbering on *L*.
 - Merge before 12:00 AM Eastern on *L*. Until the boundary the merged build behaves exactly like beta (the same code path the launch e2e proves with a future launch day); at the boundary today becomes No. 1. This is **scheduled** activation; it is **observed** only after someone opens production on *L* and sees No. 1.
-- **Never mid-day.** If the merge slips past midnight Eastern of *L*, CI refuses *L*; pick the next day.
+- **Never mid-day.** If the merge slips past midnight Eastern of *L*, the push check fails and the production build refuses to deploy it; pick a later day.
 
 ## Moving to a custom domain
 
@@ -53,7 +56,7 @@ then redeploy production. No code change is needed. Unset, the list is `stat-win
 ## Rollback
 
 - **Before *L*:** revert the commit (or set `LAUNCH_DAY = null`). Nothing has changed for players.
-- **After *L* (emergency only):** set `LAUNCH_DAY = null` and push with `SEASON_ROLLBACK=1` set for the season-check step in that one CI run. Labels return to beta numbering and stats include all runs again. Season `s1` score, question-aggregate and analytics data stay in their own `s1` keys and paths (they never mixed with beta), so a later relaunch must use a **new season id** (`s2`), never re-open `s1`: add it to `SeasonId` in `src/engine/season.ts` and give it its own keys. Challenge links of `s1` days then retire like beta links did. Do not flush Redis or clear anyone's local data.
+- **After *L* (emergency only):** in one reviewed commit, set `LAUNCH_DAY = null` and `SEASON_ROLLBACK_FROM = '<L>'` (both in `src/engine/launch-config.ts`). The season check accepts cancelling a started season only when the acknowledgement names it, so the step needs no CI secret and shows in review. Deletion keeps working: DELETE searches every season in `SEASONS`, whatever the launch day is now. Labels return to beta numbering and stats include all runs again. Season `s1` score, question-aggregate and analytics data stay in their own `s1` keys and paths (they never mixed with beta), so a later relaunch must use a **new season id** (`s2`), never re-open `s1`: add it to `SeasonId` in `src/engine/season.ts` and give it its own keys. Challenge links of `s1` days then retire like beta links did. Do not flush Redis or clear anyone's local data.
 
 ## Left out of Phase 1
 

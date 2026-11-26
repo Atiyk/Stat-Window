@@ -161,3 +161,27 @@
   .guide .help-body { padding-inline: 12px; }
   .guide .guide-play .bound { font-size: 2.5rem; }
 }
+
+/* First-play walkthrough: Skip sits in the top row, visible on first paint at every
+   size; the court is the round's compact strip, so Lock stays above the fold. */
+.onboarding-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 var(--space-3);
+  margin: 0 0 var(--space-2);
+}
+.onboarding-top .onboarding-status { margin: 0; }
+.onboarding-skip { display: inline-flex; align-items: center; min-height: 44px; padding: 0; }
+.onboarding-play .teaching-court .live-court { max-inline-size: min(18.5rem, 100%); }
+.onboarding-skip { font-size: 0.9375rem; font-weight: 700; }
+/* Only Lock is in the bar while the window is set, so it can stick under the thumb like a round's. */
+.round.onboarding-play[data-phase='ready'] .action-bar { position: sticky; bottom: 0; }
+@media (max-width: 359px) {
+  .onboarding-status__kind { display: none; }
+  .onboarding-skip { font-size: 0.875rem; }
+}
+@media (max-height: 640px) {
+  .onboarding-play .onboarding-coach { margin-bottom: 4px; }
+}

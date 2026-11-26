@@ -69,7 +69,7 @@
     {
       "id": "nba-spurs14-streak",
       "sport": "NBA",
-      "prompt": "The chart shows four famous winning streaks. How long was the 2013–14 Spurs' longest winning streak?",
+      "prompt": "The chart shows four famous winning streaks. How long was the 2013–14 Spurs' late-season winning streak?",
       "context": "San Antonio Spurs · 2013–14 regular season",
       "answer": 19,
       "unit": {
@@ -121,24 +121,24 @@
         "unit": "games",
         "points": [
           {
+            "label": "Rockets '94",
+            "value": 15
+          },
+          {
             "label": "Warriors '16",
             "value": 24
           },
           {
-            "label": "Rockets '08",
-            "value": 22
+            "label": "Spurs '14",
+            "value": null
           },
           {
             "label": "Bulls '96",
             "value": 18
           },
           {
-            "label": "Rockets '94",
-            "value": 15
-          },
-          {
-            "label": "Spurs '14",
-            "value": null
+            "label": "Rockets '08",
+            "value": 22
           }
         ]
       },
@@ -150,10 +150,10 @@
           "San Antonio Spurs"
         ],
         "supports": [
+          "nba-rockets94-start",
           "nba-gsw16-start",
-          "nba-rockets08-streak",
           "nba-bulls96-18-streak",
-          "nba-rockets94-start"
+          "nba-rockets08-streak"
         ]
       }
     },

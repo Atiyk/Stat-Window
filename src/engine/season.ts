@@ -17,6 +17,14 @@ import { EPOCH_DAY } from './daily.ts';
 
 export type SeasonId = 'beta' | 's1';
 
+/**
+ * Every season id that has ever held records, oldest first. Deletion searches all of
+ * them, so a record survives no configuration change (an emergency rollback sets the
+ * launch day back to null, but `s1` records stay in `s1` keys). A relaunch adds its new
+ * id here, never re-opens an old one.
+ */
+export const SEASONS: readonly SeasonId[] = ['beta', 's1'];
+
 export type SeasonConfig = {
   /** First official day (UTC), or null while the game is in public beta. */
   readonly launchDay: string | null;

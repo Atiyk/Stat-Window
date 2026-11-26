@@ -49,7 +49,8 @@ export function TeachingPlay({
   coach?: boolean;
   /** Show the Live Court Run strip: points move the ball toward the hoop. */
   courtRun?: boolean;
-  status?: ReactNode;
+  /** The top row above the prompt; a function receives the phase. */
+  status?: ReactNode | ((phase: TeachingPhase) => ReactNode);
   actions: (c: TeachingControls) => ReactNode;
   className?: string;
   label: string;
@@ -120,7 +121,7 @@ export function TeachingPlay({
     <article className={`round teaching-play ${className}`} aria-label={label} data-phase={phase} data-example={example.id}>
       <div className="round-head">
         <header className="question-block">
-          {status}
+          {typeof status === 'function' ? status(phase) : status}
           <Title className={titleClassName} id={titleId} ref={titleRef} tabIndex={-1}>{q.prompt}</Title>
           <p className="context">{contextLabel(q)}</p>
           {q.chart && (

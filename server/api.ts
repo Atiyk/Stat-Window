@@ -13,7 +13,7 @@
  */
 import { scoreWindow, toSteps, rangeSteps, type Window } from '../src/engine/scoring.ts';
 import { emptyTally, midrankPercentile, PERCENTILE_MIN_SAMPLE, summarizeQuestion, type QuestionOutcome, type QuestionStat } from '../src/engine/percentile.ts';
-import { isIsoDay, parseLaunchDay, seasonOf } from '../src/engine/season.ts';
+import { isIsoDay, parseLaunchDay, seasonOf, SEASONS } from '../src/engine/season.ts';
 import { LAUNCH_DAY } from '../src/engine/launch-config.ts';
 import { puzzleDay, puzzleStartUtcMs, addDays as addPuzzleDays } from '../src/engine/daily.ts';
 import type { BudgetKeys, Limits, ScoreStore } from './store.ts';
@@ -297,12 +297,14 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
       if (isLimited(ctx, delClient, now)) return json(429, { status: 'limited' }, untilMidnight);
       // Never trust a local day list as an exhaustive erasure ledger. Storage may
       // have been cleared, corrupted, or written by an older browser while the
-      // score is still retained. Every DELETE checks this fixed nine-day window;
-      // Redis remains bounded at 18 score/aggregate pairs (normal + QA).
+      // score is still retained. Every DELETE checks this fixed nine-day window in
+      // every season that has ever held records, plus QA, whatever the launch day is
+      // configured to now: after an emergency rollback the launch day is null again
+      // but `s1` records are still in `s1` keys. Bounded at 9 × 3 = 27 pairs.
       const days = Array.from({ length: DELETE_DAYS + 1 }, (_, i) => addDays(today, -i));
       const pairs: { sub: string; dist: string; q: string }[] = [];
       for (const day of days) {
-        for (const season of new Set([seasonOf(day, { launchDay: ctx.launchDay }), 'qa'])) {
+        for (const season of [...SEASONS, 'qa'] as const) {
           const p = keyPrefix(ctx, season, day);
           pairs.push({ sub: `${p}:sub:${await hmac(ctx.secret, `${season}:${day}:${player}`, 32)}`, dist: `${p}:dist`, q: `${p}:q` });
         }

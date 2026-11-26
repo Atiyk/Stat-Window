@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { MIN_OFFICIAL_DAYS, parseLaunchConfig, seasonChangeIssues } from './season-check.ts';
+import { MIN_LEAD_DAYS, MIN_OFFICIAL_DAYS, parseLaunchConfig, parseRollbackFrom, seasonChangeIssues } from './season-check.ts';
 import { addDays } from '../src/engine/daily.ts';
 import { readFileSync } from 'node:fs';
 
@@ -33,5 +33,14 @@ describe('launch-day release gate', () => {
   it('allows rescheduling or cancelling a launch that has not started', () => {
     expect(seasonChangeIssues({ base: '2026-12-02', head: '2026-12-05', today: '2026-11-30', days })).toEqual([]);
     expect(seasonChangeIssues({ base: '2026-12-02', head: null, today: '2026-11-30', days })).toEqual([]);
+  });
+  it(`needs at least ${MIN_LEAD_DAYS} days of lead so a late merge can't cross the boundary`, () => {
+    expect(seasonChangeIssues({ base: null, head: '2026-12-02', today: '2026-12-01', days }).join()).toMatch(/days ahead/);
+    expect(seasonChangeIssues({ base: null, head: '2026-12-03', today: '2026-12-01', days })).toEqual([]);
+  });
+  it('reads the committed rollback acknowledgement', () => {
+    expect(parseRollbackFrom("export const SEASON_ROLLBACK_FROM: string | null = '2026-12-02';")).toBe('2026-12-02');
+    expect(parseRollbackFrom("export const SEASON_ROLLBACK_FROM: string | null = null;")).toBeNull();
+    expect(parseRollbackFrom('')).toBeNull();
   });
 });

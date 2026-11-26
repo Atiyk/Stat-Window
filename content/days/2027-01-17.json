@@ -9,7 +9,7 @@
     {
       "id": "nba-luka24-73-hawks",
       "sport": "NBA",
-      "prompt": "Elgin Baylor scored 71 in 1960. How many points did Luka Dončić score in his January 2024 career-best game against Atlanta?",
+      "prompt": "Kobe Bryant scored 81 against Toronto in 2006. How many points did Luka Dončić score in his January 2024 career-best game against Atlanta?",
       "context": "Luka Dončić · Mavericks at Hawks · January 2024",
       "answer": 73,
       "unit": {
@@ -65,7 +65,7 @@
           "Dallas Mavericks"
         ],
         "supports": [
-          "nba-baylor60-71"
+          "nba-kobe-81"
         ]
       }
     },

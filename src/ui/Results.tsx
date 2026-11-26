@@ -309,7 +309,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
           {results.map((r, i) => (
             <li key={i} className="ledger-cell" data-status={!r.hit ? 'miss' : r.points > 0 ? 'hit' : 'zero'} style={animateScorecard ? { animationDelay: `${i * 30}ms` } : undefined}>
               <span className="sr-only">
-                Question {i + 1}, {r.points} points, {r.timedOut ? 'time expired' : r.hit ? 'hit' : 'miss'}
+                Question {i + 1}, {r.points} points, {r.timedOut ? 'time expired' : !r.hit ? 'miss' : r.points > 0 ? 'hit' : 'caught for zero'}
               </span>
               <span className="ledger-num" aria-hidden="true">{r.points}</span>
             </li>
@@ -470,7 +470,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
       )}
 
       {!practice && stats.played > 0 && (
-        <section className="dist" aria-labelledby="dist-title">
+        <section className="dist" aria-labelledby="dist-title" data-arrive={animateScorecard || undefined}>
           <h2 id="dist-title" className="dist-title">Your days</h2>
           <p className="dist-sub">
             Longest run: <span className="tabular">{stats.longest}</span> {stats.longest === 1 ? 'day' : 'days'} in a row. Kept in this browser.

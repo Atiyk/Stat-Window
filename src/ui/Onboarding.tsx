@@ -17,7 +17,13 @@ export function Onboarding({ onDone, onGuide }: { onDone: () => void; onGuide?: 
       titleClassName="onboarding-practice-title"
       coach
       courtRun
-      status={<p className="context onboarding-status">Practice · <span className="shot-clock">No timer</span></p>}
+      status={(phase) => (
+        <div className="onboarding-top">
+          <p className="context onboarding-status"><span className="onboarding-status__kind">Practice · </span><span className="shot-clock">No timer</span></p>
+          {/* First in reading order and on first paint at every size: an experienced player starts at once. */}
+          {phase === 'ready' && <button type="button" className="btn-link onboarding-skip" onClick={onDone}>Skip tutorial and start</button>}
+        </div>
+      )}
       actions={({ phase, moved, lock, replay }) => (
         <>
           {phase === 'ready' ? (
@@ -30,7 +36,6 @@ export function Onboarding({ onDone, onGuide }: { onDone: () => void; onGuide?: 
             <button type="button" className="btn btn-primary" disabled>Revealing…</button>
           )}
           {phase === 'resolved' && <button type="button" className="btn btn-quiet" onClick={replay}>Try another window</button>}
-          {phase === 'ready' && <button type="button" className="btn btn-quiet" onClick={onDone}>Skip tutorial and start</button>}
           {phase === 'resolved' && (
             <p className="onboarding-footnote">
               Five questions, 24 seconds each. Press Start to begin the first clock.

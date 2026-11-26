@@ -1361,8 +1361,9 @@ a {
   border-radius: 4px;
   background: var(--tick);
   transform-origin: left center;
-  animation: dist-in 520ms var(--ease-out) both;
 }
+/* Only on a fresh finish: reopening the results must not replay the bars. */
+.dist[data-arrive] .dist-bar { animation: dist-in 520ms var(--ease-out) both; }
 
 /* Today's band is the one in pine, with a marker, so it reads without colour too. */
 .dist-row[data-today] .dist-bar {
@@ -1756,8 +1757,10 @@ a {
   *::before,
   *::after {
     animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 1ms !important;
+    transition-delay: 0ms !important;
   }
   .toast,
   .outcome,

@@ -211,7 +211,10 @@ describe('statistics: midrank, ties and small cells', () => {
     const few = summarizeQuestion('q', tally(Array(4).fill(10), { miss: 96 }), 100);
     expect(few.scored).toBeUndefined();
     expect(few.missed).toBeUndefined();
-    expect(few.pct).toHaveLength(101);
+    expect(few.pct).toBeUndefined(); // the table would reveal the 4 scoring games too
+    const enough = summarizeQuestion('q', tally(Array(5).fill(10), { miss: 95 }), 100);
+    expect(enough.pct).toHaveLength(101);
+    expect(enough.pct!.every((v) => v % 5 === 0)).toBe(true);
     const almostAll = summarizeQuestion('q', tally(Array(97).fill(10), { miss: 3 }), 100);
     expect(almostAll.scored).toBeUndefined();
   });
@@ -292,8 +295,8 @@ describe('deletion and revocation take back the question contributions', () => {
     expect([...before.values()].reduce((a, b) => a + b, 0)).toBe(10);
     const sl = await slate();
     expect(after.has(`${sl.questions[0]!.id}:m`)).toBe(false);
-    expect(store.dump().get(`sw:v1:budget:e:${DAY.slice(0, 7)}`)).toBe(COST.removeSpent(18, 1, 5));
-    expect(COST.remove(18)).toBeGreaterThanOrEqual(COST.removeSpent(18, 18, 90));
+    expect(store.dump().get(`sw:v1:budget:e:${DAY.slice(0, 7)}`)).toBe(COST.removeSpent(27, 1, 5));
+    expect(COST.remove(27)).toBeGreaterThanOrEqual(COST.removeSpent(27, 27, 135));
     expect((await read(ctx)).body.questions![0]).toMatchObject({ n: 1 });
   });
 

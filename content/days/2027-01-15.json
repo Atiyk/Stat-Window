@@ -308,16 +308,8 @@
         "unit": "threes",
         "points": [
           {
-            "label": "Dame '21",
-            "value": 12
-          },
-          {
             "label": "Klay '16",
             "value": 11
-          },
-          {
-            "label": "Allen '10",
-            "value": 8
           },
           {
             "label": "Miller '12",
@@ -326,6 +318,14 @@
           {
             "label": "Murray '20",
             "value": null
+          },
+          {
+            "label": "Dame '21",
+            "value": 12
+          },
+          {
+            "label": "Allen '10",
+            "value": 8
           }
         ]
       },
@@ -338,10 +338,10 @@
           "Denver Nuggets"
         ],
         "supports": [
-          "nba-dame21-playoffs-12-threes",
           "nba-klay16-wcf-threes",
-          "nba-allen10-g2-threes",
-          "nba-miller12-g5-threes"
+          "nba-miller12-g5-threes",
+          "nba-dame21-playoffs-12-threes",
+          "nba-allen10-g2-threes"
         ]
       }
     }

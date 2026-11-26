@@ -9,7 +9,7 @@
     {
       "id": "nba-embiid24-70-spurs",
       "sport": "NBA",
-      "prompt": "Luka Dončić scored 73 against Atlanta in January 2024. How many did Joel Embiid score against San Antonio that month?",
+      "prompt": "Michael Jordan scored a playoff-record 63 in 1986. How many points did Joel Embiid score against San Antonio in January 2024?",
       "context": "Joel Embiid · 76ers vs. Spurs · January 2024",
       "answer": 70,
       "unit": {
@@ -59,13 +59,13 @@
       "meta": {
         "format": "reference",
         "family": "points-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Joel Embiid",
           "Philadelphia 76ers"
         ],
         "supports": [
-          "nba-luka24-73-hawks"
+          "nba-jordan86-63"
         ]
       }
     },

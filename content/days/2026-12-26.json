@@ -307,14 +307,6 @@
         "unit": "points",
         "points": [
           {
-            "label": "Butler '23",
-            "value": 56
-          },
-          {
-            "label": "Giannis '21",
-            "value": 50
-          },
-          {
             "label": "Durant '21",
             "value": 49
           },
@@ -325,6 +317,14 @@
           {
             "label": "Ja '22",
             "value": null
+          },
+          {
+            "label": "Butler '23",
+            "value": 56
+          },
+          {
+            "label": "Giannis '21",
+            "value": 50
           }
         ]
       },
@@ -337,10 +337,10 @@
           "Memphis Grizzlies"
         ],
         "supports": [
-          "nba-butler23-56-bucks-upset",
-          "nba-giannis21-g6",
           "nba-durant21-nets-bucks-g5-49",
-          "nba-klay16-okc-game6-41"
+          "nba-klay16-okc-game6-41",
+          "nba-butler23-56-bucks-upset",
+          "nba-giannis21-g6"
         ]
       }
     }

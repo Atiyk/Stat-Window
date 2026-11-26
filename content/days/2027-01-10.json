@@ -278,7 +278,7 @@
     {
       "id": "nba-curry22-allstar-sixteen-threes",
       "sport": "NBA",
-      "prompt": "Curry scored 50 in the 2022 All-Star Game in Cleveland. How many threes did he make to set the All-Star record?",
+      "prompt": "Stephen Curry set the All-Star Game record for threes in 2022 in Cleveland. How many did he make?",
       "context": "Benchmark: Curry hit 13 threes in a regular-season game in 2016",
       "answer": 16,
       "unit": {
@@ -288,7 +288,7 @@
       "min": 0,
       "max": 45,
       "step": 1,
-      "note": "16 threes in one All-Star Game. Curry earned MVP after putting on an unprecedented long-range show.",
+      "note": "16 threes in one All-Star Game, on his way to 50 points and MVP.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2022_NBA_All-Star_Game",

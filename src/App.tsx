@@ -298,7 +298,22 @@ export function App() {
       if (d === today) return;
       setToday(d);
       const s = sessionRef.current;
-      if (!s || (s.kind === 'runs' && !activeWindowRef.current && !inProgress(store, s.day))) void open(d);
+      if (!s || (s.kind === 'runs' && !activeWindowRef.current && !inProgress(store, s.day))) void moveToNewDay(d);
+    };
+    // A tab opened before the deploy that scheduled (or cancelled) the season still has
+    // the old launch day in its bundle. Check the deployed one before opening the new day
+    // and reload if it differs, so numbering, stats and analytics follow the server.
+    const moveToNewDay = async (d: string) => {
+      try {
+        const res = await fetch('/launch.json', { cache: 'no-store' });
+        if (res.ok) {
+          const deployed = ((await res.json()) as { launchDay?: unknown }).launchDay;
+          if ((deployed === null || typeof deployed === 'string') && deployed !== LAUNCH_DAY && reloadForNewVersion()) return;
+        }
+      } catch {
+        // Offline or no manifest (dev server): keep this bundle's launch day.
+      }
+      void open(d);
     };
     const id = window.setInterval(check, 30_000);
     document.addEventListener('visibilitychange', check);
@@ -743,12 +758,28 @@ function Game(props: {
         />
       );
     }
+    // The gate names where the player is going: their official daily, a friend's
+    // challenge (with the date and the score to beat, before any clock starts), or practice.
+    const isToday = session.day === today;
+    const puzzle = isToday ? 'today’s puzzle' : `${formatDay(session.day)} puzzle`;
+    const gate = untimedPractice
+      ? { context: 'Untimed practice', title: 'Ready for five?', body: 'Take your time on all five questions. Not counted in your stats.', cta: 'Start practice' }
+      : session.viaLink
+        ? {
+          context: `Challenge · ${puzzle}`,
+          title: session.vs !== null ? `Beat ${session.vs} points` : 'Ready for five?',
+          body: `${session.vs !== null ? `Your friend scored ${session.vs}. ` : ''}The same five questions, 24 seconds each.${daily ? ' This counts as your daily.' : ' Not counted in your stats.'}`,
+          cta: 'Start the challenge',
+        }
+        : daily
+          ? { context: 'Daily puzzle', title: 'Ready for five?', body: 'Catch five numbers in your windows. You’ll have 24 seconds per question.', cta: "Start today's five" }
+          : { context: `Practice · ${puzzle}`, title: 'Ready for five?', body: '24 seconds per question. Not counted in your stats.', cta: 'Start practice' };
     return (
       <article className="ready-card">
-        <p className="context">{untimedPractice ? 'Untimed practice' : daily ? 'Daily puzzle' : 'Practice'}</p>
-        <h1 ref={untimedPractice ? practiceHeading : undefined} tabIndex={untimedPractice ? -1 : undefined}>Ready for five?</h1>
-        <p>{untimedPractice ? 'Take your time on all five questions.' : 'Catch five numbers in your windows. You’ll have 24 seconds per question.'}</p>
-        <button type="button" className="btn btn-primary" onClick={start}>{untimedPractice ? 'Start practice' : "Start today's five"}</button>
+        <p className="context">{gate.context}</p>
+        <h1 ref={untimedPractice ? practiceHeading : undefined} tabIndex={untimedPractice ? -1 : undefined}>{gate.title}</h1>
+        <p>{gate.body}</p>
+        <button type="button" className="btn btn-primary" onClick={start}>{gate.cta}</button>
         <GuideLink onOpen={() => props.onGuide()} />
       </article>
     );

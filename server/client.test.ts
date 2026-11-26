@@ -157,7 +157,7 @@ describe('question comparison in the browser: one cached read, never in the way'
     const s = questionCrowdFor(DAY, 0, ids[0]!);
     expect(s).toMatchObject({ n: 2, ready: true });
     expect(questionCrowdLine(s, 0, 2)).toBeNull(); // two games: shares stay suppressed (small cells)
-    expect(questionCrowdLine(s, 50, 2)).toMatch(/percentile for this question, among 2 eligible completed games\.$/);
+    expect(questionCrowdLine(s, 50, 2)).toBeNull(); // two scoring games: the table is a small cell too
     expect(questionCrowdFor(DAY, 0, ids[1]!)).toBeNull();
     expect(questionCrowdFor(DAY, 7, ids[0]!)).toBeNull();
   });

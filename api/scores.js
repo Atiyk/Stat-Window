@@ -96,20 +96,26 @@ function summarizeQuestion(id, t, minSample = 100) {
 		ready: false
 	};
 	const counts = [t.zero + t.miss + t.timeout, ...t.scoring.slice(1)];
-	const pct = [];
-	let below = 0;
-	for (let p = 0; p <= 100; p++) {
-		const equal = counts[p];
-		pct.push(Math.min(100, Math.max(0, Math.round(100 * (below + .5 * equal) / n))));
-		below += equal;
+	const scoredCount = n - counts[0];
+	const small = (c) => c > 0 && c < 5;
+	let pct;
+	if (!small(counts[0]) && !small(scoredCount)) {
+		pct = [];
+		let below = 0;
+		for (let p = 0; p <= 100; p++) {
+			const equal = counts[p];
+			const exact = 100 * (below + .5 * equal) / n;
+			pct.push(Math.min(100, Math.max(0, Math.round(exact / 5) * 5)));
+			below += equal;
+		}
 	}
-	const scored = share(n - counts[0], n);
+	const scored = share(scoredCount, n);
 	const missed = share(t.miss, n);
 	return {
 		id,
 		n,
 		ready: true,
-		pct,
+		...pct ? { pct } : {},
 		...scored !== void 0 ? { scored } : {},
 		...missed !== void 0 ? { missed } : {}
 	};
@@ -159,6 +165,13 @@ function puzzleStartUtcMs(day) {
 * the score API). Null means beta: the live game behaves exactly as before. Non-production builds can preview a launch with
 * `?launch-preview=YYYY-MM-DD` when VITE_LAUNCH_PREVIEW=1 (never in production).
 */
+/**
+* Every season id that has ever held records, oldest first. Deletion searches all of
+* them, so a record survives no configuration change (an emergency rollback sets the
+* launch day back to null, but `s1` records stay in `s1` keys). A relaunch adds its new
+* id here, never re-opens an old one.
+*/
+var SEASONS = ["beta", "s1"];
 var DAY = /^\d{4}-\d{2}-\d{2}$/;
 function isIsoDay(s) {
 	if (typeof s !== "string" || !DAY.test(s)) return false;
@@ -437,7 +450,7 @@ async function handle(req, ctx) {
 			if (isLimited(ctx, delClient, now)) return json(429, { status: "limited" }, untilMidnight);
 			const days = Array.from({ length: 9 }, (_, i) => addDays(today, -i));
 			const pairs = [];
-			for (const day of days) for (const season of /* @__PURE__ */ new Set([seasonOf(day, { launchDay: ctx.launchDay }), "qa"])) {
+			for (const day of days) for (const season of [...SEASONS, "qa"]) {
 				const p = keyPrefix(ctx, season, day);
 				pairs.push({
 					sub: `${p}:sub:${await hmac(ctx.secret, `${season}:${day}:${player}`, 32)}`,

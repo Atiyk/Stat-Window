@@ -224,7 +224,7 @@
     {
       "id": "nba-mowilliams09-season-ppg",
       "sport": "NBA",
-      "prompt": "David West averaged 20.6 for the 2007–08 Hornets. What did Mo Williams average beside LeBron in his first Cavaliers season?",
+      "prompt": "David West averaged 20.6 for the 2007–08 Hornets. What did Mo Williams average in his first season with the Cavaliers?",
       "context": "Cleveland Cavaliers · 2008–09 · regular season",
       "answer": 17.8,
       "unit": {
@@ -234,7 +234,7 @@
       "min": 8,
       "max": 31,
       "step": 0.1,
-      "note": "17.8 points per game as LeBron's new backcourt partner.",
+      "note": "17.8 points per game in his first Cleveland season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",

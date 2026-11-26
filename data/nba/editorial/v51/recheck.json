@@ -1,0 +1,431 @@
+{
+ "reviewer": "independent re-reviewer (post-fix pass, V5.1)",
+ "range": "2026-11-30..2027-01-27",
+ "slotsReviewed": 66,
+ "approved": 59,
+ "notes": "Scope: every slot that received a non-null fix from review-AB/review-CD (as applied), the manager's 12-01 Q2 Rose fix, the four chart reorders, and every slot in finale-pass.json (66 distinct slots, 6 of them touched by more than one pass; the current state is what was judged). 'approved' means no P0/P1 on the slot's current state. All fix patches were applied in memory and pass validateNba with 0 errors and the length limits; no repo file was written. Teaching examples: every number, season, unit and derivation in src/content/teaching.ts matches the stored quote, answer and unit of the verified fact it names, all facts are played on or before 2026-11-29 and none is in the reserve, and scripts/nba/teaching.test.ts passes (11/11). No P0 found: no spoiler of another question's answer survives, and the first review's P0 (12-16 Q2 reveal) is fixed. Supports are all played earlier or in the reserve (a daily may print reserve figures per docs/V5.md).",
+ "countsBySeverity": {
+  "P0": 0,
+  "P1": 7,
+  "P2": 18
+ },
+ "teaching": "No mismatches. Minor flavour text in notes (for example Magic as a rookie in the clincher, Kings at ARCO Arena, Murray complementing Jokic) is not in the stored quotes but is not a numeric claim and the numeric derivations (53 - 42 = 11, 36/61 = 59, 100 - 71 = 29, 16-3 second to the 2016-17 Warriors, five league-best win totals 60 to 65) all match.",
+ "findings": [
+  {
+   "severity": "P1",
+   "day": "2026-12-06",
+   "slot": 1,
+   "id": "nba-celtics86-wins",
+   "problem": "Finale-pass reference leaks the answer on the opener. The 1986–87 Lakers' 65 is 2 from 67 on a 40–82 ruler (4.8%), the same size of gap the first review flagged as a leak on 12-12 Q5 (4.7%) and 12-20 Q1. A narrow window around 65 wins. The Lakers fact is also a league-best team of the same era, so it says little beyond 'about here'.",
+   "fix": {
+    "question": {
+     "prompt": "The 2018–19 champion Raptors won 58 games. How many did Larry Bird's 1985–86 Celtics win?",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-raptors19-regular-wins"
+      ]
+     },
+     "difficultyReason": "Toronto's 58 wins set a modern title-team bar; players judge how far above it Bird's best Celtics side landed."
+    }
+   }
+  },
+  {
+   "severity": "P1",
+   "day": "2026-12-12",
+   "slot": 5,
+   "id": "nba-ant24-nuggets-g1-43",
+   "problem": "Finale-pass reintroduces the exact leak the first review fixed. Brunson's 47 is 4 from 43 on a 15–100 ruler (4.7%), in the same spring and as a 'franchise playoff record' pair, so a narrow window just under 47 wins. The prompt is also broken English ('score for Minnesota's in Game 1'), and the context 'franchise playoff records' repeats the record cue.",
+   "fix": {
+    "question": {
+     "prompt": "Michael Jordan scored 55 in Game 4 of the 1993 Finals. How many did Anthony Edwards score in Game 1 at Denver in 2024?",
+     "context": "Wolves at Nuggets · 2024 West semifinals · Game 1",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-jordan93-g4-55"
+      ]
+     },
+     "difficultyReason": "Jordan's 55 is a Finals-sized night; players judge how far below it a young star's franchise-record opener sat."
+    }
+   }
+  },
+  {
+   "severity": "P1",
+   "day": "2026-12-31",
+   "slot": 5,
+   "id": "nba-love10-knicks-thirty-one-boards",
+   "problem": "The reverted recall prompt prints '30–30', which defines the answer as 30 or more rebounds. The true answer is 31, the minimum that the label allows, so on a 5–85 ruler a 30–34 window is almost free. Retained from the finale pass's revert, not in the original wording.",
+   "fix": {
+    "question": {
+     "prompt": "In November 2010, Kevin Love had a career night against the Knicks. How many rebounds did he grab?"
+    }
+   }
+  },
+  {
+   "severity": "P1",
+   "day": "2027-01-10",
+   "slot": 5,
+   "id": "nba-curry22-allstar-sixteen-threes",
+   "problem": "The prompt prints 'scored 50', which caps the threes at 16 (50 / 3 = 16.7). The answer is exactly 16, the maximum, and 'to set the All-Star record' pushes a player to the ceiling. The same 50 also pre-announces the 2027-01-22 Q1 answer (Curry's 50 in the 2023 Game 7).",
+   "fix": {
+    "question": {
+     "prompt": "Stephen Curry set the All-Star Game record for threes in 2022 in Cleveland. How many did he make?",
+     "reveal": "16 threes in one All-Star Game, on his way to 50 points and MVP."
+    }
+   }
+  },
+  {
+   "severity": "P1",
+   "day": "2027-01-17",
+   "slot": 1,
+   "id": "nba-luka24-73-hawks",
+   "problem": "Finale-pass reference leaks the answer. Baylor's 71 is 2 from 73 on a 35–105 ruler (2.9%), the tightest anchor in the batch, on an easy opener that is then reused as the anchor for 01-19 Q1.",
+   "fix": {
+    "question": {
+     "prompt": "Kobe Bryant scored 81 against Toronto in 2006. How many points did Luka Dončić score in his January 2024 career-best game against Atlanta?",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-kobe-81"
+      ]
+     },
+     "difficultyReason": "Kobe's 81 is the modern ceiling; players judge how far below it a career-best 70-plus night sits."
+    }
+   }
+  },
+  {
+   "severity": "P1",
+   "day": "2027-01-19",
+   "slot": 1,
+   "id": "nba-embiid24-70-spurs",
+   "problem": "Finale-pass reference leaks the answer. Luka's 73 is 3 from 70 on a 20–100 ruler (3.75%), and the pair of 70-plus nights from the same month sit on adjacent Q1s (01-17, 01-19) with the same 'X scored N. How many did Y?' template.",
+   "fix": {
+    "question": {
+     "prompt": "Michael Jordan scored a playoff-record 63 in 1986. How many points did Joel Embiid score against San Antonio in January 2024?",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-jordan86-63"
+      ]
+     },
+     "difficultyReason": "Jordan's 63 is a famous scoring ceiling; players judge how a regular-season 70 compares."
+    }
+   }
+  },
+  {
+   "severity": "P1",
+   "day": "2027-01-26",
+   "slot": 4,
+   "id": "nba-teague15-assists-average",
+   "problem": "The prompt says 'four other guards' assist averages', but the stored quotes list Jimmy Butler as an SF and LeBron James was a forward, so the claim contradicts the chart's own support. A wrong label for two of the four bars.",
+   "fix": {
+    "question": {
+     "prompt": "The chart shows four other assist averages. What did Jeff Teague average for the 2014–15 Hawks?"
+    }
+   }
+  },
+  {
+   "severity": "P2",
+   "day": "2026-11-30",
+   "slot": 3,
+   "id": "nba-gordon23-finals-g4-points",
+   "problem": "The reveal says '27 points, his highest-scoring game of that Finals', which no stored quote or fun-fact quote supports.",
+   "fix": {
+    "question": {
+     "reveal": "27 points, helping Denver hold off a Miami comeback in Game 4."
+    }
+   }
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-01",
+   "slot": 2,
+   "id": "nba-rose11-mvp-youngest-age",
+   "problem": "Manager fix is honest and removes the leak (no 'youngest' cue, 35 is 13 above 22 on an 18–38 ruler), and the quote supports Mazzulla's 35. It is a weak anchor, though: a coach's age says little about an MVP's age, so the format is close to recall. It keeps the day legal (reference, not recall x3).",
+   "fix": null
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-02",
+   "slot": 4,
+   "id": "nba-webber02-season-ppg",
+   "problem": "The reveal 'despite missed time' is not in the stored quote or any fun-fact quote.",
+   "fix": {
+    "question": {
+     "reveal": "24.5 points per game, with 10.1 rebounds."
+    }
+   }
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-04",
+   "slot": 5,
+   "id": "nba-klay16-okc-game6-41",
+   "problem": "The prompt's 'Down 3–2 in 2016' (series score) is not in the stored quote. It is true, but unsupported.",
+   "fix": {
+    "question": {
+     "prompt": "The chart shows three other playoff scoring nights. How many points did Klay Thompson score in Game 6 at OKC in 2016?"
+    }
+   }
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-06",
+   "slot": 3,
+   "id": "nba-jackson98-regular-apg",
+   "problem": "Chart scope: 'Murray '23' (10.0) is a five-game Finals average beside two regular-season averages, under the unqualified title 'Assists per game averages'. The bars also descend (14.5, 10, 5) with the hidden bar last, which reads as 'below 5' when the answer is 8.7.",
+   "fix": {
+    "question": {
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Assists per game: seasons and one Finals",
+       "unit": "apg",
+       "points": [
+        {
+         "label": "Bibby '02",
+         "fact": "nba-bibby02-regular-apg"
+        },
+        {
+         "label": "Stockton '90",
+         "fact": "nba-stockton90-apg"
+        },
+        {
+         "label": "Jackson '98",
+         "fact": "nba-jackson98-regular-apg"
+        },
+        {
+         "label": "Murray '23 Fin",
+         "fact": "nba-murray23-finals-apg"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-14",
+   "slot": 4,
+   "id": "nba-west08-season-ppg",
+   "problem": "The reveal 'next to Chris Paul' is not in West's stored quote (the same unsupported claim the first review flagged on 01-16 Q4).",
+   "fix": {
+    "question": {
+     "reveal": "20.6 points per game for New Orleans."
+    }
+   }
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-16",
+   "slot": 2,
+   "id": "nba-spurs14-streak",
+   "problem": "The P0 spoiler is fixed (the reveal no longer says '16–0'). Two residual points: the prompt says 'longest winning streak', but the stored quote only says a 19-game streak; and the chart descends 24, 22, 18, 15 with the hidden bar last, which reads as 'below 15' when the answer is 19. The bars also mix season-opening streaks (Warriors, Rockets '94) with in-season ones.",
+   "fix": {
+    "question": {
+     "prompt": "The chart shows four famous winning streaks. How long was the 2013–14 Spurs' late-season winning streak?",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Famous winning streaks, in games",
+       "unit": "games",
+       "points": [
+        {
+         "label": "Rockets '94",
+         "fact": "nba-rockets94-start"
+        },
+        {
+         "label": "Warriors '16",
+         "fact": "nba-gsw16-start"
+        },
+        {
+         "label": "Spurs '14",
+         "fact": "nba-spurs14-streak"
+        },
+        {
+         "label": "Bulls '96",
+         "fact": "nba-bulls96-18-streak"
+        },
+        {
+         "label": "Rockets '08",
+         "fact": "nba-rockets08-streak"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-18",
+   "slot": 2,
+   "id": "nba-pistons89-wins",
+   "problem": "Easy for a 'medium' chart: the bars are 65 and 67 against an answer of 63 on a 50–82 ruler, and the title 'league-best' tells the player all are top records. The Celtics '86 (67) and Lakers '87 (65) pair is also the same pair that anchored 12-06 Q1, and Celtics '86 anchors 12-20 Q1 again (three uses in 15 days).",
+   "fix": null
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-23",
+   "slot": 5,
+   "id": "nba-trae21-bucks-g1-48",
+   "problem": "The context 'Bar to chase: Baylor's Finals record is 61 points' is misleading, since Trae was not chasing a Finals record in a conference finals game.",
+   "fix": {
+    "question": {
+     "context": "Benchmark: Baylor's NBA Finals record is 61 points"
+    }
+   }
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-24",
+   "slot": 5,
+   "id": "nba-kawhi19-philly-game7-41",
+   "problem": "Arc: 12-24 Q5 and 12-26 Q5 are the same expert 'playoff scoring nights' chart (title and stat) two days apart, and 12-24 Q2 is a points difference on the same theme.",
+   "fix": null
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-26",
+   "slot": 5,
+   "id": "nba-ja22-warriors-game2-47",
+   "problem": "The bars descend (56, 50, 49, 41) with the hidden bar last, which reads as 'below 41' when the answer is 47. The cluster also brackets the answer within 41–56 on a 10–120 ruler.",
+   "fix": {
+    "question": {
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Playoff scoring nights",
+       "unit": "points",
+       "points": [
+        {
+         "label": "Durant '21",
+         "fact": "nba-durant21-nets-bucks-g5-49"
+        },
+        {
+         "label": "Klay '16",
+         "fact": "nba-klay16-okc-game6-41"
+        },
+        {
+         "label": "Ja '22",
+         "fact": "nba-ja22-warriors-game2-47"
+        },
+        {
+         "label": "Butler '23",
+         "fact": "nba-butler23-56-bucks-upset"
+        },
+        {
+         "label": "Giannis '21",
+         "fact": "nba-giannis21-g6"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-31",
+   "slot": 4,
+   "id": "nba-sikma79-suns-g7-points",
+   "problem": "LeBron's 37 is 4 from 33 on a 14–69 ruler (7.3%); close enough to shrink a hard question, and a modern Finals game says little about a 1979 conference-finals night.",
+   "fix": null
+  },
+  {
+   "severity": "P2",
+   "day": "2027-01-11",
+   "slot": 2,
+   "id": "nba-klay16-60-minutes",
+   "problem": "Anchor: Reed's 27 is 2 from 29 on a 20–48 ruler (7.1%), and an injured Game 7 captain's minutes is only loosely related. The reveal '29.' has no payoff. No verified minutes fact exists as a better anchor, so the fix improves the reveal only.",
+   "fix": {
+    "question": {
+     "reveal": "29 minutes for 60 points against Indiana."
+    }
+   }
+  },
+  {
+   "severity": "P2",
+   "day": "2027-01-12",
+   "slot": 2,
+   "id": "nba-howard09-g4-blocks",
+   "problem": "The prompt calls the bars 'big block games', but Giannis's 5 is not a big blocks game.",
+   "fix": {
+    "question": {
+     "prompt": "The chart shows four other block games. How many blocks did Dwight Howard have in Game 4 of the 2009 Finals?"
+    }
+   }
+  },
+  {
+   "severity": "P2",
+   "day": "2027-01-15",
+   "slot": 5,
+   "id": "nba-murray20-utah-g6-nine-threes",
+   "problem": "The bars descend (12, 11, 8, 7) with the hidden bar last, which reads as 'below 7' when the answer is 9.",
+   "fix": {
+    "question": {
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Threes in a playoff game",
+       "unit": "threes",
+       "points": [
+        {
+         "label": "Klay '16",
+         "fact": "nba-klay16-wcf-threes"
+        },
+        {
+         "label": "Miller '12",
+         "fact": "nba-miller12-g5-threes"
+        },
+        {
+         "label": "Murray '20",
+         "fact": "nba-murray20-utah-g6-nine-threes"
+        },
+        {
+         "label": "Dame '21",
+         "fact": "nba-dame21-playoffs-12-threes"
+        },
+        {
+         "label": "Allen '10",
+         "fact": "nba-allen10-g2-threes"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "severity": "P2",
+   "day": "2027-01-16",
+   "slot": 2,
+   "id": "nba-pistons50-19-18",
+   "problem": "The anchor is a single quarter (Atlanta's 6) for a full-game total, so the units differ; it tells the player the era-scale only loosely.",
+   "fix": null
+  },
+  {
+   "severity": "P2",
+   "day": "2027-01-16",
+   "slot": 4,
+   "id": "nba-mowilliams09-season-ppg",
+   "problem": "'beside LeBron' is not in Williams's stored quote (the same kind of unsupported phrase the first review removed for 'next to Chris Paul'). The reveal repeats it.",
+   "fix": {
+    "question": {
+     "prompt": "David West averaged 20.6 for the 2007–08 Hornets. What did Mo Williams average in his first season with the Cavaliers?",
+     "reveal": "17.8 points per game in his first Cleveland season."
+    }
+   }
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-07",
+   "slot": 5,
+   "id": "(range-wide)",
+   "problem": "Arc repetition from the finale pass. Ten expert finales now use the same 'Benchmark: X ...' context line over a bare prompt (12-07, 12-16, 12-23, 12-29, 01-04, 01-10, 01-14, 01-18, 01-20, 01-26), and the Q1 slots on 12-06, 12-20, 12-30, 01-05, 01-07, 01-08, 01-17, 01-19 are again 'X did N. How many did Y?' references. The finale-pass fixes fixed the old finale template but moved the same device into the context line and into Q1. No single patch fixes this.",
+   "fix": null
+  }
+ ]
+}

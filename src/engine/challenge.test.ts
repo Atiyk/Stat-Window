@@ -59,3 +59,47 @@ describe('time tiebreaker challenge', () => {
     expect(parseChallenge('?day=2026-11-16&vs=333&time=999999', today, published)).toMatchObject({ kind: 'day', vsTime: null });
   });
 });
+
+describe('friend race links (v2: five round scores)', () => {
+  const race = '?day=2026-11-16&vs=247&time=61000&v=2&r=48.61.0.100.38';
+  it('parses five round scores that add up to the total', () => {
+    expect(parseChallenge(race, today, published)).toEqual({ kind: 'day', day: today, vs: 247, vsTime: 61000, rounds: [48, 61, 0, 100, 38] });
+  });
+  it('round trips through challengeUrl, in a fixed order', () => {
+    const url = challengeUrl('https://stat-window.vercel.app', '2026-11-16', 247, 61000, [48, 61, 0, 100, 38]);
+    expect(url).toBe('https://stat-window.vercel.app/?day=2026-11-16&vs=247&time=61000&v=2&r=48.61.0.100.38');
+    expect(parseChallenge(new URL(url).search, today, published)).toEqual({ kind: 'day', day: today, vs: 247, vsTime: 61000, rounds: [48, 61, 0, 100, 38] });
+  });
+  it('legacy links keep their final-total comparison (no rounds)', () => {
+    expect(parseChallenge('?day=2026-11-16&vs=247', today, published)).toEqual({ kind: 'day', day: today, vs: 247, vsTime: null });
+  });
+  it('a tampered race drops every friend score, but still opens the same five questions', () => {
+    const none = { kind: 'day', day: today, vs: null, vsTime: null };
+    for (const q of [
+      '?day=2026-11-16&vs=248&v=2&r=48.61.0.100.38', // total does not match
+      '?day=2026-11-16&v=2&r=48.61.0.100.38', // no total
+      '?day=2026-11-16&vs=247&v=2&r=48.61.0.100', // four rounds
+      '?day=2026-11-16&vs=348&v=2&r=48.61.0.100.38.101', // six rounds
+      '?day=2026-11-16&vs=248&v=2&r=48.61.0.101.38', // over 100
+      '?day=2026-11-16&vs=247&v=2&r=48.61.00.100.38', // leading zero
+      '?day=2026-11-16&vs=247&v=2&r=48.61.-0.100.38',
+      '?day=2026-11-16&vs=247&v=2&r=48.61.0.99.5e1',
+      '?day=2026-11-16&vs=247&v=2&r=48,61,0,100,38',
+      '?day=2026-11-16&vs=247&v=3&r=48.61.0.100.38', // unknown version
+      '?day=2026-11-16&vs=247&r=48.61.0.100.38', // rounds without a version
+      '?day=2026-11-16&vs=247&v=2&r=48.61.0.100.38&r=48.61.0.100.38', // duplicated
+      '?day=2026-11-16&vs=247&vs=247&v=2&r=48.61.0.100.38',
+      `?day=2026-11-16&vs=247&v=2&r=48.61.0.100.38${'0'.repeat(40)}`, // oversized
+    ]) expect(parseChallenge(q, today, published), q).toEqual(none);
+  });
+  it('long tracking parameters do not cost the friend score', () => {
+    expect(parseChallenge(`${race}&fbclid=${'x'.repeat(700)}`, today, published)).toEqual({ kind: 'day', day: today, vs: 247, vsTime: 61000, rounds: [48, 61, 0, 100, 38] });
+  });
+  it('a duplicated day is refused outright', () => {
+    expect(parseChallenge('?day=2026-11-15&day=2026-11-16&vs=1', today, published)).toEqual({ kind: 'invalid' });
+  });
+  it('carries no answers, windows or question text, only six small numbers', () => {
+    const url = new URL(challengeUrl('https://x.app', '2026-11-16', 247, 61000, [48, 61, 0, 100, 38]));
+    expect([...url.searchParams.keys()].sort()).toEqual(['day', 'r', 'time', 'v', 'vs']);
+  });
+});

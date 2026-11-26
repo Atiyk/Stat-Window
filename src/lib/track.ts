@@ -37,7 +37,7 @@ export type TrackEvent =
   /** A daily run finished; days = the daily streak it leaves (counted from the daily record). */
   | { name: 'streak'; days: number }
   | { name: 'share'; mode: PlayMode; method: ShareMethod }
-  | { name: 'challenge_open'; kind: ChallengeOpen; withScore: boolean }
+  | { name: 'challenge_open'; kind: ChallengeOpen; withScore: boolean; withRounds?: boolean }
   /** What the daily comparison showed on the results screen (exposure, not a verified ranking). */
   | { name: 'percentile'; outcome: ScoreOutcome }
   /** A privacy choice made in the app. */
@@ -114,7 +114,7 @@ function basePath(e: TrackEvent): string {
     case 'share':
       return `/e/share/${e.mode}/${e.method}`;
     case 'challenge_open':
-      return `/e/challenge-open/${e.kind}${e.withScore ? '/with-score' : ''}`;
+      return `/e/challenge-open/${e.kind}${e.withScore ? '/with-score' : ''}${e.withScore && e.withRounds ? '/with-rounds' : ''}`;
     case 'percentile':
       return `/e/percentile/${e.outcome}`;
     case 'privacy':

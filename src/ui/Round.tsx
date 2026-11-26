@@ -13,6 +13,8 @@ import { contextLabel } from '../content/category';
 import { COURT_TRAVEL_DELAY_MS, courtTravelMs, LiveCourtRun } from './CourtRun';
 import { courtPosition } from '../engine/court-run';
 import { courtRunMarkers } from '../engine/court-run';
+import { QuestionChart } from './QuestionChart';
+import { raceStanding, type RaceStanding } from '../engine/friend-race';
 import './round-polish.css';
 
 type Props = {
@@ -21,7 +23,12 @@ type Props = {
   /** Plain question index; difficulty remains an internal editorial label. */
   label: string;
   /** Set when the run came from a friend's link: shown before the first round only. */
-  challenge?: { vs: number | null; vsTime: number | null } | null;
+  challenge?: { vs: number | null; vsTime: number | null; race?: boolean } | null;
+  /**
+   * A friend race: the five round scores from a v2 link. The friend's score after
+   * round n appears only once this player's round n has resolved.
+   */
+  race?: readonly number[] | null;
   onFirstTouch: () => void;
   timing?: PracticeTiming;
   courtRun?: boolean;
@@ -75,7 +82,7 @@ function savedShotStart(id: string, day: string, shared: boolean): number | null
 }
 const easeOutCubic = (t: number) => 1 - (1 - t) ** 3;
 
-export function Round({ state, dispatch, label, challenge = null, onFirstTouch, timing = 'timed', courtRun = false, previousBest = null, survival }: Props) {
+export function Round({ state, dispatch, label, challenge = null, onFirstTouch, timing = 'timed', courtRun = false, previousBest = null, survival, race = null }: Props) {
   const q = currentQuestion(state);
   const reduced = usePrefersReducedMotion();
   const last = state.results[state.round];
@@ -298,6 +305,10 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
     ? finalShot(previousBest, totalPoints(state.results.slice(0, ROUNDS - 1)))
     : null;
   const markers = courtRunMarkers(state);
+  // Equivalent rounds only: exactly the rounds whose points this player can already see.
+  const visible = state.results.slice(0, state.phase === 'resolved' || state.phase === 'complete' ? state.round + 1 : state.round);
+  const standing = race && !survival ? raceStanding(visible.map((r) => r.points), race) : null;
+  const raceAnnouncement = resolved && standing ? ` ${raceSentence(standing)}` : '';
   // The flag marks the exact total that beats the record: one more than the best.
   const recordTotal = target?.kind === 'target' && previousBest !== null ? previousBest + 1 : null;
   let targetText: string | null = null;
@@ -358,13 +369,15 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
               potential={markers.potential}
               record={resolved ? null : recordTotal}
               animate={!!freshResult}
+              friend={standing && standing.completed > 0 ? standing.friend : null}
             />
+            {standing && <RaceLine standing={standing} fresh={!!freshResult} />}
           </div>
         )}
       </div>
 
       <header className="question-block">
-        {challenge && interactive && (
+        {challenge && interactive && !challenge.race && (
           <p className="challenge-note">
             {challenge.vs === null ? (
               'A friend sent you these five.'
@@ -379,6 +392,13 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
           {q.prompt}
         </h1>
         <p className="context">{contextLabel(q)}</p>
+        {q.chart && (
+          <QuestionChart
+            question={q}
+            window={!interactive && last ? { lo: last.lo, hi: last.hi } : state.window}
+            reveal={reveal ? reveal.progress : null}
+          />
+        )}
         {targetText && (
           <p id="round-record-target" className="round-record-target" aria-live="polite">
             {recordTotal !== null && courtRun && !resolved && (
@@ -407,7 +427,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
             }}
           />
 
-          <div className="sr-only" role="status">{announcement}</div>
+          <div className="sr-only" role="status">{announcement}{raceAnnouncement}</div>
           <div className="verdict-line">
             {resolved && last.timedOut ? (
               <p className="outcome outcome-miss">
@@ -538,6 +558,40 @@ function SurvivalOutcome({ hit, points, need, perfect, missBy }: { hit: boolean;
         {hit ? 'Inside, but short.' : 'Outside. Run over.'}
       </span>
       <span className="outcome-detail">{hit ? `${points} is under the ${need} this round needed. Run over.` : `Missed by ${missBy}`}</span>
+    </p>
+  );
+}
+
+function leadText(lead: number): string {
+  if (lead === 0) return 'level';
+  const n = Math.abs(lead);
+  return `${lead > 0 ? 'you lead by' : 'you trail by'} ${n} ${n === 1 ? 'point' : 'points'}`;
+}
+
+/** Short enough for the narrow court column in two-column layouts. */
+const leadShort = (lead: number) => lead === 0 ? 'level' : `${lead > 0 ? 'up' : 'down'} ${Math.abs(lead)}`;
+
+/** For screen readers: spoken on each reveal, and kept beside the court. */
+function raceSentence(s: RaceStanding): string {
+  return `Your friend had ${s.friend} after question ${s.completed}: ${leadText(s.lead)}.`;
+}
+
+/**
+ * The friend's running score, next to the court. Before the first reveal it only
+ * says what will appear; afterwards it compares the same number of rounds.
+ */
+function RaceLine({ standing, fresh }: { standing: RaceStanding; fresh: boolean }) {
+  // Before the first reveal the line introduces the race in the same space, so nothing shifts when it fills.
+  if (standing.completed === 0) return <p className="race-line race-line--intro">Race your friend, one question at a time.</p>;
+  return (
+    <p className="race-line" data-fresh={fresh || undefined}>
+      <span className="sr-only">{raceSentence(standing)}</span>
+      <span className="race-line__text" aria-hidden="true">
+        <span className="race-line__mark" />
+        Friend <b className="tabular">{standing.friend}</b>
+        <span className="race-line__sep"> · </span>
+        <span className="race-line__lead" data-lead={Math.sign(standing.lead)}>{leadShort(standing.lead)}</span>
+      </span>
     </p>
   );
 }

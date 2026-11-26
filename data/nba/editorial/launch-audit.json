@@ -1,0 +1,3072 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "day": "2026-11-28",
+   "slot": 1,
+   "id": "nba-curry16-13-threes",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Iconic record night, recognizable and estimable; a strong Q1.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-11-28",
+   "slot": 2,
+   "id": "nba-shaq00-finals-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Dominant, famous Finals; fair medium recall. Only scoring-average of the day.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-11-28",
+   "slot": 3,
+   "id": "nba-murray23-finals-apg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Reference format: estimability was 2. Anchor 14.5 is the verified answer of nba-stockton90-apg (played 2026-11-27, quote \"assists-per-game average over one season (14.5 in 1990)\"). Scale tightened to 4-17 for the anchor.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-11-28",
+   "slot": 4,
+   "id": "nba-giannis21-finals-g6-blocks",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Memorable title clincher; the blocks angle is estimable and fair.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-11-28",
+   "slot": 5,
+   "id": "nba-wade06-g5-ft-scoring-share",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Already a reasoning (share) question on a famous controversial night; strong expert finish.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-11-29",
+   "slot": 1,
+   "id": "nba-bulls11-regular-wins",
+   "verdict": "reframed",
+   "format": "recall",
+   "note": "Question unchanged. Fun fact 1 said Rose won MVP before his 23rd birthday, which gives away nba-rose11-mvp-youngest-age (2026-12-01 Q2: 22). Replaced with the April 8-0 record (quote from nba-bulls11-home-wins fun fact: \"April: 8–0 (home: 4–0; road: 4–0)\").",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-11-29",
+   "slot": 2,
+   "id": "nba-battier13-g7-threes",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Game 7 hero story with a clear reveal; fair medium.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-11-29",
+   "slot": 3,
+   "id": "nba-giannis24-cup-final-rebounds-v5",
+   "replaced": "nba-bucks24-cup-quarter",
+   "verdict": "replaced",
+   "format": "recall",
+   "note": "Old Q3 (Thunder held to 14 in a quarter) rated interest 2 / recognizability 2 with a one-word reveal. New fact: a different number in an existing verified quote (2024_NBA_Cup, fun-fact quote of nba-bucks24-cup-quarter: \"...points (26), rebounds (19), and assists (10)\"). Fun facts: nba-bucks24-cup-quarter FF1 and FF3, nba-thunder24-cup-3pa FF1.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-11-29",
+   "slot": 4,
+   "id": "nba-gsw16-threes",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Reference format: estimability was 2. Anchor 678 is the verified answer of nba-splash16-duo-threes-678 (played 2026-11-24). Fun fact 1 printed Curry's 402, the answer of nba-curry16-season-threes-402 (2027-01-24); replaced with the pair's 525 in 2014-15 (quote \"the two combined to make 525 threes\").",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-11-29",
+   "slot": 5,
+   "id": "nba-murray-mitchell20-game4-combined",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Famous bubble duel; combined total is estimable and surprising.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-11-30",
+   "slot": 1,
+   "id": "nba-wade06-g3",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Recognizable Finals comeback; estimable Q1.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-11-30",
+   "slot": 2,
+   "id": "nba-allen10-g2-threes",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Record shooting night; fair medium and sets up the Ray Allen callback on 2026-12-13.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-11-30",
+   "slot": 3,
+   "id": "nba-gordon23-finals-g4-points",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Clear, fair hard question with a satisfying reveal.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-11-30",
+   "slot": 4,
+   "id": "nba-korver15-three-pct",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Elite shooting season; kept as recall so the day does not repeat the reference format used on 11-28 and 11-29.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-11-30",
+   "slot": 5,
+   "id": "nba-lakers00-portland-g7-comeback",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Iconic comeback; strong expert finish.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-01",
+   "slot": 1,
+   "id": "nba-magic09-regular-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Recognizable contender; good Q1.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-01",
+   "slot": 2,
+   "id": "nba-rose11-mvp-youngest-age",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Famous milestone; age is very estimable. Spoiler in 11-29 Q1 fun facts removed.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-01",
+   "slot": 3,
+   "id": "nba-luka22-knicks-triple-rebounds",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Historic stat line; surprising and fair.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-01",
+   "slot": 4,
+   "id": "nba-mcgrady04-35-seconds",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Legendary finish; strong hard question.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-01",
+   "slot": 5,
+   "id": "nba-lillard19-okc-winner-distance",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Iconic shot; distance is estimable. A strong all-recall day kept as is.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-02",
+   "slot": 1,
+   "id": "nba-raptors19-regular-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Title team, estimable win total.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-02",
+   "slot": 2,
+   "id": "nba-grizzlies21-bench-points-v5",
+   "replaced": "nba-butler23-56",
+   "verdict": "replaced",
+   "format": "reference",
+   "note": "Old Q2 (Butler 56 vs Milwaukee) duplicates nba-butler23-56-bucks-upset, already played 2026-11-26 Q5. New fact: a different number in an existing verified quote (fun-fact quote of nba-grizzlies21-margin: \"bench points scored (93 points)\", same URL). Reference format: prompt prints 73, the verified answer of nba-grizzlies21-margin (played 2026-11-21). Reveal score 152–79 from nba-grizzlies21-margin quote. Fun facts copied from nba-grizzlies21-margin (FF1, own source quote, FF3).",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-02",
+   "slot": 3,
+   "id": "nba-stockton-missed",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Durability story with a startling reveal.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-02",
+   "slot": 4,
+   "id": "nba-webber02-season-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Recognizable star season; only scoring-average of the day.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-02",
+   "slot": 5,
+   "id": "nba-wolves24-denver-game7-comeback",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Recent, famous comeback; strong expert finish.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-03",
+   "slot": 1,
+   "id": "nba-kobe-81",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Missing-point chart (first chart of the batch). Columns: nba-baylor60-71 (71, played 11-22), nba-wilt61-78 (78, reserve, no embargo), nba-wilt-100 (100, played 11-17), all points-game. Fun fact 2 printed his 55 second-half points, the answer of nba-kobe06-second-half-55 (2027-01-08); replaced using the nba-kobe-three-titles-age quote (\"youngest player to win three championships\", no figure printed).",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-03",
+   "slot": 2,
+   "id": "nba-sonics94-opening-streak",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Fair streak question; good medium.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-03",
+   "slot": 3,
+   "id": "nba-jokic23-finals-g3-rebounds",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Historic Finals night; strong hard question.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-03",
+   "slot": 4,
+   "id": "nba-bibby02-regular-apg",
+   "verdict": "reframed",
+   "format": "recall",
+   "note": "Recall with an anchor (estimability was 2). Webber's 4.8 assists is in the verified quote of nba-webber02-season-ppg (\"Webber averaged 24.5 points, 10.1 rebounds, 4.8 assists\", played 2026-12-02). No format: 4.8 is not a fact answer, so it cannot be a formal reference. Scale tightened to 2-10.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-03",
+   "slot": 5,
+   "id": "nba-celtics08-allen-kg-g6-combined",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Famous clincher; combined total is estimable.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-04",
+   "slot": 1,
+   "id": "nba-duncan99-finals-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Finals MVP average; recognizable Q1.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-04",
+   "slot": 2,
+   "id": "nba-hakeem90-quadruple-blocks",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Rare quadruple-double; fair medium.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-04",
+   "slot": 3,
+   "id": "nba-bol85-quarter",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Quirky record with a big surprise; kept as the day's oddity.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-04",
+   "slot": 4,
+   "id": "nba-kawhi19-jokic23-playoff-points-gap-v5",
+   "replaced": "nba-pistons04-under-70",
+   "verdict": "replaced",
+   "format": "difference",
+   "note": "Old Q4 (Pistons held five straight opponents under 70) rated recognizability 2; Detroit also leads 12-08. New derived fact (difference): nba-kawhi19-playoff-points-732 (732, played 11-25) − nba-jokic23-playoff-points (600, played 11-27) = 132. Fun facts from nba-kawhi19-playoff-points-732 FF2 and FF1 and nba-jokic23-playoff-points FF1.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-04",
+   "slot": 5,
+   "id": "nba-klay16-okc-game6-41",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Legendary Game 6; strong expert finish.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-05",
+   "slot": 1,
+   "id": "nba-hornets08-season-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Chris Paul's best Hornets team; estimable Q1.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-05",
+   "slot": 2,
+   "id": "nba-magic09-kings-threes",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Record team shooting night; fun medium.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-05",
+   "slot": 3,
+   "id": "nba-kobe03-40-streak",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Famous scoring run; good hard question.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-05",
+   "slot": 4,
+   "id": "nba-dumars89-finals-ppg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Reference format: estimability was 2 and recognizability 2. Anchor 38.0 is the verified answer of nba-shaq00-finals-ppg (played 2026-11-28). Scale moved to 10-40 so the anchor fits.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-05",
+   "slot": 5,
+   "id": "nba-cp3-2022-perfect-playoff-shots",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Perfect shooting night; strong expert finish.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-06",
+   "slot": 1,
+   "id": "nba-celtics86-wins",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Missing-point chart; breaks up a run of plain \"how many wins\" openers. Columns: nba-celtics73-wins (68, reserve, no embargo), nba-celtics08-wins (66, played 11-26), nba-celtics24-wins (64, played 11-18), all wins-season.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-06",
+   "slot": 2,
+   "id": "nba-allstar24-east",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Record-scoring All-Star Game; fun medium.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-06",
+   "slot": 3,
+   "id": "nba-jackson98-regular-apg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Fair hard recall.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-06",
+   "slot": 4,
+   "id": "nba-noah11-rebounds-average",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Fair hard recall.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-06",
+   "slot": 5,
+   "id": "nba-luka20-clippers-buzzer-43",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Famous bubble winner; strong expert finish.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-07",
+   "slot": 1,
+   "id": "nba-pacers98-season-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Bird's first coaching year; estimable Q1.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-07",
+   "slot": 2,
+   "id": "nba-finals84-g5-heat",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Unforgettable oddity; great medium.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-07",
+   "slot": 3,
+   "id": "nba-miller12-g5-threes",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Clean question with a clear ceiling (eight attempts).",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-07",
+   "slot": 4,
+   "id": "nba-raptors19-sixers-g7-points",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Low score in a famous Game 7 is a good surprise.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-07",
+   "slot": 5,
+   "id": "nba-brunson24-philly-47",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Recent franchise record; strong expert finish.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-08",
+   "slot": 1,
+   "id": "nba-detroit04-regular-wins",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Reference format on a plain wins opener. Anchor 64 is the verified answer of nba-pistons06-wins (reserve, no embargo; quote \"won a franchise-record 64 games\").",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-08",
+   "slot": 2,
+   "id": "nba-wilt62-100-ft-share-v5",
+   "replaced": "nba-lakers20-lead-record",
+   "verdict": "replaced",
+   "format": "ratio",
+   "note": "Old Q2 (Lakers 57-0 when leading after three quarters) rated interest 2. New derived fact (percent): nba-wilt-100-ftm (28, played 11-17) / nba-wilt-100 (100, played 11-17) = 28%. Ratio format with a reference to nba-wade06-g5-ft-scoring-share (49, played 11-28), turning the earlier Wade share into a cross-era comparison. Reveal claim \"unusual night at the line\" from nba-wilt-100-ftm FF3 quote (\"far better rate than his roughly 50% career average\"). Fun facts from nba-wilt-100-ftm FF1/FF3 and nba-wilt-100 FF1.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-08",
+   "slot": 3,
+   "id": "nba-horry05-g5",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Big Shot Rob; fair hard recall.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-08",
+   "slot": 4,
+   "id": "nba-jordan93-finals-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Finals record average; good hard question and the anchor for 12-10 Q2.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-08",
+   "slot": 5,
+   "id": "nba-harden19-msg-61",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Famous MSG night; strong expert finish.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-09",
+   "slot": 1,
+   "id": "nba-gsw16-start",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Record start; recognizable Q1.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-09",
+   "slot": 2,
+   "id": "nba-sonics79-january-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Fair medium with a clear ceiling.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-09",
+   "slot": 3,
+   "id": "nba-knicks24-wins-v5",
+   "replaced": "nba-blazers77-g4-margin",
+   "verdict": "replaced",
+   "format": "difference",
+   "note": "Old Q3 (Portland's 32-point Game 4 margin in 1977) rated interest 2, and its answer matched the next question (Draymond 32). New derived fact (difference): nba-celtics24-wins (64, played 11-18) − nba-celtics24-seed-gap (14, played 11-18; quote \"widest margin of wins between the first and second seeds ... at 14 games\") = 50. Knicks as No. 2 seed: nba-celtics24-seed-gap FF1 quote. Fun facts from nba-celtics24-seed-gap FF1 and nba-brunson24-philly-47 FF3/FF1 (played 12-07).",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-09",
+   "slot": 4,
+   "id": "nba-green16-g7",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Game 7 performance; fair hard recall.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-09",
+   "slot": 5,
+   "id": "nba-dame21-playoffs-12-threes",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Missing-point chart, three days after the 12-06 chart. Columns: nba-kobe03-threes (12, 11-24), nba-allen10-g2-threes (8, 11-30), nba-miller12-g5-threes (7, 12-07), nba-curry16-13-threes (13, 11-28), all threes-game in three-pointers. Scale 0-18 so all columns are readable.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-10",
+   "slot": 1,
+   "id": "nba-sonics79-season-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Title team; estimable Q1.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-10",
+   "slot": 2,
+   "id": "nba-jordan93-g4-55",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Reference format linking the 12-08 Q4 series average to his best game. Anchor 41.0 is the verified answer of nba-jordan93-finals-ppg (played 2026-12-08).",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-10",
+   "slot": 3,
+   "id": "nba-bulls98-g3-margin-v5",
+   "replaced": "nba-jazz98-g3-54",
+   "verdict": "replaced",
+   "format": "recall",
+   "note": "Old Q3 (Utah's 54 points) shared its answer with Q5 (Curry 54) on the same day. New fact: a different number in the same verified quote (\"In a 96–54 loss, the Jazz set the record for the 42-point loss in Finals history\", 1998_NBA_Finals). The old answer 54 is not printed anywhere (it moves to reserve). Fun facts copied from nba-jazz98-g3-54.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-10",
+   "slot": 4,
+   "id": "nba-wilt-100-fga",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Famous game, fresh angle; fair hard recall.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-10",
+   "slot": 5,
+   "id": "nba-curry13-knicks-54",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Breakout MSG night; strong expert finish.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-11",
+   "slot": 1,
+   "id": "nba-bulls96-combined-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Iconic season; estimable Q1.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-11",
+   "slot": 2,
+   "id": "nba-bucks71-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Young franchise's title season; fair medium.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-11",
+   "slot": 3,
+   "id": "nba-warriors48-low-fg-v5",
+   "replaced": "nba-mcdonald76-ot",
+   "verdict": "replaced",
+   "format": "recall",
+   "note": "Old Q3 (Glenn McDonald's eight overtime points in 1976) rated interest 2. New fact: a different number from an existing verified quote (nba-spurs83-fg FF3: \"16.4% by the Philadelphia Warriors vs. the St. Louis Bombers on February 7, 1948\", List_of_NBA_regular_season_records). Fun facts: nba-spurs83-fg own quote (70.7%, played 11-21), nba-shot-clock-24 FF3 (shot clock arrived in 1954, quote \"Teams in the lead were running out the clock\"), nba-warriors75-season-wins FF2.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-11",
+   "slot": 4,
+   "id": "nba-curry15-g2-misses",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Unusual Curry record; fair hard recall.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-11",
+   "slot": 5,
+   "id": "nba-jokic-murray23-finals-g3-20-assists",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Historic pair of triple-doubles; strong expert finish.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-12",
+   "slot": 1,
+   "id": "nba-rodman-reb-titles",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Iconic rebounder; estimable Q1.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-12",
+   "slot": 2,
+   "id": "nba-barry75-finals-g2-points",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Fair medium recall from the 1975 upset.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-12",
+   "slot": 3,
+   "id": "nba-tatum22-turnovers",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Unexpected record; good surprise.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-12",
+   "slot": 4,
+   "id": "nba-howard09-regular-rpg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Dominant big-man season; kept as recall (it becomes a chart column on 12-13).",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-12",
+   "slot": 5,
+   "id": "nba-ant24-nuggets-g1-43",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Recent signature game; strong expert finish.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-13",
+   "slot": 1,
+   "id": "nba-curry22-g4",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Signature Finals game; recognizable Q1.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-13",
+   "slot": 2,
+   "id": "nba-rodman96-rpg",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Missing-point chart, four days after the 12-09 chart. Columns: nba-howard09-regular-rpg (13.8, played 12-12) and nba-noah11-rebounds-average (10.4, played 12-06), both rebounds-average in rebounds per game.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-13",
+   "slot": 3,
+   "id": "nba-allen10-g3-fga",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Reference format: the old prompt alluded to \"his record night\" without the figure. Anchor 8 is the verified answer of nba-allen10-g2-threes (played 2026-11-30).",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-13",
+   "slot": 4,
+   "id": "nba-west70-60-foot",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Legendary shot; distance is estimable.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-13",
+   "slot": 5,
+   "id": "nba-westbrook17-50-nuggets-winner",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Historic day; strong expert finish.",
+   "batch": "A",
+   "editor": "V5 editorial worker A"
+  },
+  {
+   "day": "2026-12-14",
+   "slot": 1,
+   "id": "nba-lebron13-g7",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-14",
+   "slot": 2,
+   "id": "nba-spurs90-improvement",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-14",
+   "slot": 3,
+   "id": "nba-kerr16-games-missed",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Obscure as bare recall; anchoring on the famous 24-0 start (nba-gsw16-start, played 2026-12-09, quote 'winning their first 24 games') turns it into reasoning. Kerr's 43 missed games: nba-kerr16-games-missed quote. No new claims.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-14",
+   "slot": 4,
+   "id": "nba-west08-season-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-14",
+   "slot": 5,
+   "id": "nba-jordan92-finals-shrug-first-half-35",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-15",
+   "slot": 1,
+   "id": "nba-hawks15-regular-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-15",
+   "slot": 2,
+   "id": "nba-kobe09-finals-ppg",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "A bare decimal recall becomes a comparison chart. Shown values are verified facts all played before 2026-12-15: nba-dumars89-finals-ppg 27.3, nba-jordan93-finals-ppg 41, nba-duncan99-finals-ppg 27.4, nba-shaq00-finals-ppg 38, nba-brown24-finals-ppg 20.8. Scale widened to 45 so the 41.0 column fits.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-15",
+   "slot": 3,
+   "id": "nba-bucks21-nets-g3-points",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-15",
+   "slot": 4,
+   "id": "nba-warriors16-splash-share-v5",
+   "replaced": "nba-kidd02-finals-td",
+   "verdict": "replaced",
+   "format": "ratio",
+   "note": "Kidd's '26th Finals triple-double' is a count nobody can estimate (interest 2, recognizability 2). Replaced by a ratio built from two verified facts: nba-splash16-duo-threes-678 (678, played 2026-11-24) and nba-gsw16-threes (1,077, played 2026-11-29). Fun facts reuse verified quotes from nba-splash16-duo-threes-678 (525) and nba-gsw16-threes fun-fact quotes (led league in scoring, three-point pct, assists; first to 1,000 in a 136–111 win).",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-15",
+   "slot": 5,
+   "id": "nba-lebron11-finals-g4-eight",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-16",
+   "slot": 1,
+   "id": "nba-heat20-regular-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-16",
+   "slot": 2,
+   "id": "nba-spurs14-streak",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-16",
+   "slot": 3,
+   "id": "nba-kobe16-final-game",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Adds Kobe's own 81 (nba-kobe-81, played 2026-12-03, quote 'Bryant scored a career-high 81 points') as an anchor; scale shifted to 20–80. Answer 60 per nba-kobe16-final-game quote. No new claims.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-16",
+   "slot": 4,
+   "id": "nba-unseld75-finals-g2-rebounds",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-16",
+   "slot": 5,
+   "id": "nba-durant21-nets-bucks-g5-49",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-17",
+   "slot": 1,
+   "id": "nba-jokic-draft-pick",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-17",
+   "slot": 2,
+   "id": "nba-cup23-prize",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-17",
+   "slot": 3,
+   "id": "nba-celtics02-19-threes",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-17",
+   "slot": 4,
+   "id": "nba-rockets18-27-misses",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Anchor nba-curry15-g2-misses (13, played 2026-12-11, quote 'most missed three-point attempts in an NBA Finals game with 13'). Answer 27 per nba-rockets18-27-misses quote. Scale unchanged (answer at 34%).",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-17",
+   "slot": 5,
+   "id": "nba-shaq00-finals-g2-24-boards",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-18",
+   "slot": 1,
+   "id": "nba-giannis21-g6",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-18",
+   "slot": 2,
+   "id": "nba-pistons89-wins",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Chart of verified league-best totals: nba-celtics86-wins 67 ('best record in the league at 67–15', played 2026-12-06), nba-lakers87-wins 65 ('league-best 65–17', played 2026-11-20); Pistons 63 is 'league-best 63–19' per its own quote. Chart day (next: 2026-12-21).",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-18",
+   "slot": 3,
+   "id": "nba-butler20-regular-apg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-18",
+   "slot": 4,
+   "id": "nba-giannis19-regular-rpg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-18",
+   "slot": 5,
+   "id": "nba-jokic25-61-point-triple-double",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-19",
+   "slot": 1,
+   "id": "nba-nuggets23-regular-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-19",
+   "slot": 2,
+   "id": "nba-jordan91-straight-makes",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Anchor nba-cp3-2022-perfect-playoff-shots (14, played 2026-12-05, quote 'a perfect 14-for-14 from the field'). Answer 13 per nba-jordan91-straight-makes quote ('hit his next 13 shots'). Scale unchanged.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-19",
+   "slot": 3,
+   "id": "nba-giannis21-g6-ft",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-19",
+   "slot": 4,
+   "id": "nba-sixers01-opening-streak",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-19",
+   "slot": 5,
+   "id": "nba-vince01-sixers-first-half-eight-threes",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-20",
+   "slot": 1,
+   "id": "nba-spurs14-season-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-20",
+   "slot": 2,
+   "id": "nba-barry80-threes",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Barry alone is obscure; Curry's 13 (nba-curry16-13-threes, played 2026-11-28, quote 'a new record of 13 three-pointers made in a single game') makes it a then-and-now comparison. Answer 8 per nba-barry80-threes quote ('set the original 3-point record at 8'). Scale unchanged.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-20",
+   "slot": 3,
+   "id": "nba-heat13-turnaround-v5",
+   "replaced": "nba-gsw19-g2-run",
+   "verdict": "replaced",
+   "format": "trajectory",
+   "note": "The 18-point Finals run (interest 2) is a number few can reason toward. Replaced by a trajectory from two verified reserve facts: nba-heat13-wins (66, quote '66–16, going 37–4 at home and 29–12 on the road') and nba-heat08-wins (15, quote 'winning only 15 games'). Fun facts reuse the nba-heat13-wins quote (37–4 at home, i.e. four home losses) and two nba-heat08-wins fun-fact quotes (Spoelstra replaced Riley; Mourning knee injury, on the 2007–08 Heat season page).",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-20",
+   "slot": 4,
+   "id": "nba-gus79-finals-g4-points",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-20",
+   "slot": 5,
+   "id": "nba-kyrie16-finals-g7-shot-53-sec",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-21",
+   "slot": 1,
+   "id": "nba-bucks21-regular-wins",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Wins question in a week full of them becomes a comparison: nba-spurs14-season-wins 62 (played 2026-12-20), nba-raptors19-regular-wins 58 (2026-12-02), nba-nuggets23-regular-wins 53 (2026-12-19), nba-celtics24-wins 64 (2026-11-18). The shortened season is already stated in the fact's existing context. Chart day (prev 2026-12-18, next 2026-12-25).",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-21",
+   "slot": 2,
+   "id": "nba-spurs99-final36-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-21",
+   "slot": 3,
+   "id": "nba-suns21-g1-ft",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Anchor nba-dirk11-24-ft (24, played 2026-11-25, quote 'most free throws made without a miss with 24'). Answer 25 per nba-suns21-g1-ft quote ('made their first 25 free throws'). Scale tightened to 10–45 (answer at 43%).",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-21",
+   "slot": 4,
+   "id": "nba-bird85-opener-steals",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-21",
+   "slot": 5,
+   "id": "nba-wemby24-10-blocks-blazers",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-22",
+   "slot": 1,
+   "id": "nba-jackson10-titles",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-22",
+   "slot": 2,
+   "id": "nba-bulls97-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-22",
+   "slot": 3,
+   "id": "nba-duncan14-season-rpg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-22",
+   "slot": 4,
+   "id": "nba-allen13-g6-seconds",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-22",
+   "slot": 5,
+   "id": "nba-shai25-finals-g7-12-assists",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-23",
+   "slot": 1,
+   "id": "nba-suns84-season-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-23",
+   "slot": 2,
+   "id": "nba-dumars89-17-straight",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Low recognizability as bare recall; anchored on nba-mcgrady04-35-seconds (13, played 2026-12-01, quote 'scoring 13 points in the final 35 seconds'). Answer 17 per nba-dumars89-17-straight quote ('17 consecutive points in the third quarter'). Scale unchanged.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-23",
+   "slot": 3,
+   "id": "nba-robinson99-finals-rpg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-23",
+   "slot": 4,
+   "id": "nba-bulls96-road-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-23",
+   "slot": 5,
+   "id": "nba-trae21-bucks-g1-48",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-24",
+   "slot": 1,
+   "id": "nba-sixers01-regular-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-24",
+   "slot": 2,
+   "id": "nba-stockton-malone-games",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-24",
+   "slot": 3,
+   "id": "nba-bulls96-home-streak",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-24",
+   "slot": 4,
+   "id": "nba-duncan03-g6-blocks",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Anchor nba-hakeem90-quadruple-blocks (11, played 2026-12-04, quote '18 points, 16 rebounds, 11 blocks and 10 assists'). Duncan's 8 per nba-duncan03-g6-blocks quote ('21 points, 20 rebounds, 10 assists and 8 blocks'). Scale 0–14 so the anchor sits inside.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-24",
+   "slot": 5,
+   "id": "nba-kawhi19-philly-game7-41",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-25",
+   "slot": 1,
+   "id": "nba-jordan98-g6",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-25",
+   "slot": 2,
+   "id": "nba-lakers72-wins",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Chart of verified neighbors: nba-bucks71-wins 66 (played 2026-12-11, quote '66–16 record') and nba-celtics73-wins 68 (reserve, quote 'won a franchise record 68 games in the 1972–73 season'). Prompt no longer says 'record' so the chart does not give it away; the reveal keeps the original record claim. Scale 50–80.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-25",
+   "slot": 3,
+   "id": "nba-bobcats12-losing-streak",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-25",
+   "slot": 4,
+   "id": "nba-avery99-finals-apg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-25",
+   "slot": 5,
+   "id": "nba-melo14-knicks-msg-62",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-26",
+   "slot": 1,
+   "id": "nba-sonics94-regular-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-26",
+   "slot": 2,
+   "id": "nba-sixers67-start-losses",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-26",
+   "slot": 3,
+   "id": "nba-bucks71-streak",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Anchor nba-rockets08-streak (22, reserve, quote 'the Rockets went on a 22-game winning streak'). Bucks 20 and 'longest at the time' per nba-bucks71-streak quote. Scale 2–30.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-26",
+   "slot": 4,
+   "id": "nba-wilt62-others-points-v5",
+   "replaced": "nba-sixers73-games-back",
+   "verdict": "replaced",
+   "format": "difference",
+   "note": "The 59 games back pre-solves the next day's slot (2026-12-27 Q1 asks the same 1972–73 Sixers' 9 wins) and made three 76ers items in two days. Replaced by a difference of two verified facts: nba-wilt-100-combined (316, reserve) and nba-wilt-100 (100, played 2026-11-17). Fun facts reuse verified quotes from nba-wilt-100 (Hershey arena; Knicks fouling) and nba-wilt-100-fga (not televised).",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-26",
+   "slot": 5,
+   "id": "nba-ja22-warriors-game2-47",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-27",
+   "slot": 1,
+   "id": "nba-sixers73-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-27",
+   "slot": 2,
+   "id": "nba-pacers98-road-wins",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Anchor nba-pacers98-season-wins (58, played 2026-12-07, quote '58–24 record'). Answer 26 per nba-pacers98-road-wins quote ('26–15 road record'). Scale 8–40.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-27",
+   "slot": 3,
+   "id": "nba-mutombo01-posttrade-rpg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-27",
+   "slot": 4,
+   "id": "nba-detroit04-rasheed-finish",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-27",
+   "slot": 5,
+   "id": "nba-lebron12-boston-g6-45",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-28",
+   "slot": 1,
+   "id": "nba-cavs16-g5-41",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-28",
+   "slot": 2,
+   "id": "nba-alcindor71-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-28",
+   "slot": 3,
+   "id": "nba-spurs14-g3-fg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-28",
+   "slot": 4,
+   "id": "nba-sixers83-turnaround-v5",
+   "replaced": "nba-allstar51-attendance",
+   "verdict": "replaced",
+   "format": "trajectory",
+   "note": "The 1951 All-Star crowd (interest 2) is hard to picture or reason toward. Replaced by a trajectory from verified facts: nba-sixers83-wins (65, reserve, quote 'the 76ers won 65 games in the 1982–83 NBA season') and nba-sixers73-wins (9, played 2026-12-27, the day before). Fun facts reuse verified quotes from nba-sixers73-wins (lost first 15; Hal Greer) and nba-sixers73-games-back (record wins six seasons earlier).",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-28",
+   "slot": 5,
+   "id": "nba-luka24-wolves-g2-32",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained: clear, fair and estimable as written; fits the day's mix.",
+   "batch": "B",
+   "editor": "V5 editorial worker B"
+  },
+  {
+   "day": "2026-12-29",
+   "slot": 1,
+   "id": "nba-lebron18-g1",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Iconic Finals night, recognizable and estimable; strong Q1.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2026-12-29",
+   "slot": 2,
+   "id": "nba-spurs14-international",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Surprising roster record with a natural roster-size bound; fine medium.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2026-12-29",
+   "slot": 3,
+   "id": "nba-majerle93-three-pointers",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Era-context threes total with a good surprise; fair hard Q3.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2026-12-29",
+   "slot": 4,
+   "id": "nba-bullets75-g1-halftime-lead",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Sets up the famous 1975 upset; bounded margin, fair hard.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2026-12-29",
+   "slot": 5,
+   "id": "nba-tatum22-bucks-g6-46",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Recent, recognizable elimination-game classic; strong closer.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2026-12-30",
+   "slot": 1,
+   "id": "nba-suns05-season-win-gain",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Nash-era turnaround is a strong, reasoning-friendly opener (already a change-across-seasons question).",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2026-12-30",
+   "slot": 2,
+   "id": "nba-elmore73-half",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained after integration: a worker's Wilt 100-point replacement was dropped because two other derived questions already use that game within three weeks; the original (first season blocks were counted) is unusual but verified and fair.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2026-12-30",
+   "slot": 3,
+   "id": "nba-james09-season-apg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Recognizable MVP season; the playmaking number is a fair hard estimate.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2026-12-30",
+   "slot": 4,
+   "id": "nba-mavs06-g4-q4",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Record-low Finals quarter is a genuine surprise; bounded range.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2026-12-30",
+   "slot": 5,
+   "id": "nba-curry21-blazers-62",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Curry career high is a strong, recognizable expert closer.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2026-12-31",
+   "slot": 1,
+   "id": "nba-cavs09-record-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "LeBron MVP team win total; ideal easy opener.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2026-12-31",
+   "slot": 2,
+   "id": "nba-detroit04-winter-streak",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Plain streak recall was forgettable; a missing-point chart turns it into comparison. Chart values: nba-bucks71-streak 20 (played 2026-12-26), nba-rockets94-start 15 (2026-11-19), nba-spurs14-streak 19 (2026-12-16). Reveal \"Larry Brown's first season in Detroit\" is backed by this fact's fun-fact quote \"the Pistons hired Larry Brown as head coach\".",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2026-12-31",
+   "slot": 3,
+   "id": "nba-holiday21-playoffs-apg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Title-run playmaking average; fair hard estimate with good surprise.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2026-12-31",
+   "slot": 4,
+   "id": "nba-sikma79-suns-g7-points",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Deciding-game hero with a bounded range; fine hard slot.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2026-12-31",
+   "slot": 5,
+   "id": "nba-love10-knicks-thirty-one-boards",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Famous 30–30 game; recognizable and surprising closer.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-01",
+   "slot": 1,
+   "id": "nba-westbrook17-td",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Record chase most fans followed; strong opener.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-01",
+   "slot": 2,
+   "id": "nba-frazier70-g7-ast",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Classic Game 7 masterpiece; the 36 points frame the assists.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-01",
+   "slot": 3,
+   "id": "nba-kobe09-finals-apg-v5",
+   "replaced": "nba-sprewell99-g5",
+   "verdict": "replaced",
+   "format": "reference",
+   "note": "Integration (editorial director): replaced worker draft nba-splash16-three-share-v5 to remove a duplicate or over-used subject across batches; weak original replaced with a reference question; every figure comes from the reference fact's verified quote.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-01",
+   "slot": 4,
+   "id": "nba-billups04-finals-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Finals MVP average; fair hard estimate.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-01",
+   "slot": 5,
+   "id": "nba-rose18-emotional-fifty",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Emotional, recognizable comeback night; strong closer.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-02",
+   "slot": 1,
+   "id": "nba-heat13-streak",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Headline streak; recognizable opener.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-02",
+   "slot": 2,
+   "id": "nba-curry18-g2-threes",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Finals record with a tight natural bound; good medium.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-02",
+   "slot": 3,
+   "id": "nba-kemp94-rpg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Star forward rebounding average; fair hard.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-02",
+   "slot": 4,
+   "id": "nba-lebron09-g1-scoring-share-v5",
+   "replaced": "nba-pacers00-home-streak",
+   "verdict": "replaced",
+   "format": "ratio",
+   "note": "Integration (editorial director): replaces a weak original; worker drafts for this slot duplicated other batches or repeated an earlier reveal. Every figure comes from the base fact's verified quote, and the derivation is recomputed by the validator.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-02",
+   "slot": 5,
+   "id": "nba-isiah88-finals-injured-quarter-25",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Legendary injured-ankle quarter; strong closer.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-03",
+   "slot": 1,
+   "id": "nba-lakers72-streak",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The NBA record streak; ideal opener.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-03",
+   "slot": 2,
+   "id": "nba-booker17-70",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Youngest 60-point scorer framing gives a floor; good medium.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-03",
+   "slot": 3,
+   "id": "nba-rodman92-34",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Bare career-high recall (recognizability 2) gains a verified anchor: nba-love10-knicks-thirty-one-boards (31, played 2026-12-31). \"30–30\" is supported by the Love fact's quote (31 points, 31 rebounds) and fun fact. Scale shifted up slightly since the anchor sets a floor.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-03",
+   "slot": 4,
+   "id": "nba-stockton91-28",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "All-time assist man's career high; fair hard.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-03",
+   "slot": 5,
+   "id": "nba-lebron07-final-twentyfive",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Iconic LeBron playoff run; strong closer.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-04",
+   "slot": 1,
+   "id": "nba-kawhi19-playoffs-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Title-run scoring average for a star; good opener.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-04",
+   "slot": 2,
+   "id": "nba-rockets18-wins",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "A bare win total gains comparison. Chart values: nba-bulls11-regular-wins 62 (2026-11-29), nba-spurs14-season-wins 62 (2026-12-20), nba-hawks15-regular-wins 60 (2026-12-15), nba-bucks19-season-wins 60 (2026-11-24). Harden on the Rockets is backed by this fact's fun-fact quote (Chris Paul paired with James Harden). Reveal is arithmetic over the chart.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-04",
+   "slot": 3,
+   "id": "nba-gsw16-home-streak",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Reference anchor nba-bulls96-home-streak (44, played 2026-12-24); its quote calls 44 a then-NBA record, and this fact's own fun fact says the previous record of 44 was held by the 1995–96 Bulls. Scale moved up because the anchor sets a floor.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-04",
+   "slot": 4,
+   "id": "nba-offensive-rebound-reset",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Rule-detail question with a strong 24-second-clock tie-in; fine hard.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-04",
+   "slot": 5,
+   "id": "nba-celtics08-finals-g4-comeback-24",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Famous Finals comeback; strong closer.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-05",
+   "slot": 1,
+   "id": "nba-jordan86-63",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Jordan playoff record; ideal opener.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-05",
+   "slot": 2,
+   "id": "nba-lakers00-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Shaq-Kobe first title team; fair medium.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-05",
+   "slot": 3,
+   "id": "nba-hawks86-third-quarter",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "A 36–6 quarter is a genuine surprise; prompt gives the final score as context.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-05",
+   "slot": 4,
+   "id": "nba-lakers23-cup-paint",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Retained after integration: the worker's replacement duplicated the Heat 2008 to 2013 turnaround already used on 2026-12-20, and no verified non-spoiling alternative was found. Weak (low interest); listed as remaining work in the inventory report.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-05",
+   "slot": 5,
+   "id": "nba-mitchell20-bubble-fiftyseven",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Bubble shootout; recognizable closer.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-06",
+   "slot": 1,
+   "id": "nba-spurs14-march-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Perfect month is a vivid, bounded opener.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-06",
+   "slot": 2,
+   "id": "nba-wilt-60-point-games",
+   "verdict": "reframed",
+   "format": "ranking",
+   "note": "Threshold count stated directly in the source quote (\"Wilt Chamberlain (32 times); Kobe Bryant (6 times)\"), so it fits the ranking format; Kobe's six is printed as a word from the same verified quote. Reveal \"more than five times\" is arithmetic (32 > 30).",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-06",
+   "slot": 3,
+   "id": "nba-shaq00-g2-fta",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Hack-a-Shaq record; surprising and estimable.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-06",
+   "slot": 4,
+   "id": "nba-suns05-road-victories",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Reference anchor nba-bulls96-road-wins (33, played 2026-12-23). Reveal rewritten to remove an em dash; the 31–10 home and road split is in this fact's quote.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-06",
+   "slot": 5,
+   "id": "nba-bird85-hawks-sixty",
+   "verdict": "reframed",
+   "format": "recall",
+   "note": "Strong closer kept; reveal reworded only to remove an em dash. Same claim, backed by this fact's fun-fact quote about McHale's 56 nine days earlier.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-07",
+   "slot": 1,
+   "id": "nba-rose11-season-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Youngest-MVP season average; good opener.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-07",
+   "slot": 2,
+   "id": "nba-oscar-career-td",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Reference anchor nba-westbrook17-td (42, played 2027-01-01). Scale 100–310 kept; the anchor helps reasoning without pointing at the answer.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-07",
+   "slot": 3,
+   "id": "nba-klay16-wcf-threes",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Elimination-game record; fair hard.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-07",
+   "slot": 4,
+   "id": "nba-spurs14-blowouts",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Record count of blowout playoff wins; good hard.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-07",
+   "slot": 5,
+   "id": "nba-ad20-lakers-ten-straight-wcf-winner",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Bubble buzzer-beater; strong closer.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-08",
+   "slot": 1,
+   "id": "nba-kobe06-second-half-55",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "The prompt already prints Kobe's 81; declaring it as a reference to nba-kobe-81 (81, played 2026-12-03) makes the anchor a checked, verified figure. Wording and scale unchanged.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-08",
+   "slot": 2,
+   "id": "nba-celtics84-wins",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "A bare champion win total becomes a franchise comparison. Chart values: nba-celtics73-wins 68 (reserve), nba-celtics86-wins 67 (2026-12-06), nba-celtics08-wins 66 (2026-11-26), nba-celtics24-wins 64 (2026-11-18). Reveal \"best record in the league\" is backed by this fact's quote (\"won 62 games to lead the league\").",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-08",
+   "slot": 3,
+   "id": "nba-barkley93-suns-rpg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "MVP season rebounding; fair hard.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-08",
+   "slot": 4,
+   "id": "nba-bulls11-home-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Home dominance of the Rose MVP team; bounded by 41.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-08",
+   "slot": 5,
+   "id": "nba-lillard14-rockets-series-winner-nine-tenths",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Iconic buzzer-beater with an intuitive clock; strong closer.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-09",
+   "slot": 1,
+   "id": "nba-nash05-regular-apg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "MVP assist average; good opener.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-09",
+   "slot": 2,
+   "id": "nba-celtics07-losing-streak",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Reference anchor nba-bobcats12-losing-streak (23, played 2026-12-25). \"A year before their title\" was already in the prompt and is backed by this fact's quote and fun facts (2008 Finals page).",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-09",
+   "slot": 3,
+   "id": "nba-miller98-season-ppg",
+   "verdict": "reframed",
+   "format": "recall",
+   "note": "Kept as recall but the old context (\"season before Michael Jordan's final Bulls title\") was wrong: 1997–98 was the season of that title. Context now states the season plainly.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-09",
+   "slot": 4,
+   "id": "nba-siakam19-g1",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Shooting line frames the total; fair hard.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-09",
+   "slot": 5,
+   "id": "nba-cavs-warriors16-game7-tied-six-games-610",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Delightful hidden stat from a famous Finals; strong closer.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-10",
+   "slot": 1,
+   "id": "nba-giannis21-playoffs-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Title-run scoring average; good opener.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-10",
+   "slot": 2,
+   "id": "nba-allstar10-attendance",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Reference anchor nba-allstar51-attendance (10,094, played 2026-12-28); \"first All-Star Game\" is backed by that fact's fun-fact quotes. Cowboys Stadium is backed by this fact's fun-fact quote (\"The venue for the game on February 14 was Cowboys Stadium\").",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-10",
+   "slot": 3,
+   "id": "nba-miller-career-threes",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Career record with era context; fair hard.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-10",
+   "slot": 4,
+   "id": "nba-wilt72-finals-reb",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Era-defying rebound total in a title clincher; fair hard.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-10",
+   "slot": 5,
+   "id": "nba-curry22-allstar-sixteen-threes",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Curry All-Star show; strong closer.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-11",
+   "slot": 1,
+   "id": "nba-mitchell23-seventy-one",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Recent 71-point night; recognizable opener.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-11",
+   "slot": 2,
+   "id": "nba-klay16-60-minutes",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The 48-minute frame makes the short night estimable and surprising.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-11",
+   "slot": 3,
+   "id": "nba-jordan97-flu-game",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Famous story with a fuzzy number becomes a comparison across Jordan's best-known playoff games. Chart values: nba-jordan86-63 63 (2027-01-05), nba-jordan93-g4-55 55 (2026-12-10), nba-jordan98-g6 45 (2026-12-25). Scale raised to 70 so the 63 column fits on the 0-to-max axis.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-11",
+   "slot": 4,
+   "id": "nba-six-overtime-game",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Pre-shot-clock oddity; ties into the game's clock theme.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-11",
+   "slot": 5,
+   "id": "nba-durant17-finals-g3-shot-45seconds",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Iconic clutch shot with an intuitive clock; strong closer.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-12",
+   "slot": 1,
+   "id": "nba-cavs09-home-wins",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Reference anchor nba-bulls11-home-wins (36, played 2027-01-08). Rose with the 2010–11 Bulls is backed by nba-rose11-season-ppg and nba-bulls11-regular-wins fun facts. Scale unchanged (19–41, 41-game cap).",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-12",
+   "slot": 2,
+   "id": "nba-howard09-g4-blocks",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Finals record with a natural bound; fine medium.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-12",
+   "slot": 3,
+   "id": "nba-rodman86-draft",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Late-pick surprise for a Hall of Famer; fair hard.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-12",
+   "slot": 4,
+   "id": "nba-stoudemire05-playoff-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Big postseason scoring average; fair hard.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-12",
+   "slot": 5,
+   "id": "nba-lakers11-mavs-game4-only-86",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Shock sweep of the champs; strong closer.",
+   "batch": "C",
+   "editor": "V5 editorial worker C"
+  },
+  {
+   "day": "2027-01-13",
+   "slot": 1,
+   "id": "nba-jokic23-finals-average",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Recognizable Finals MVP average; strong easy opener.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-13",
+   "slot": 2,
+   "id": "nba-kerr-player-titles",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Neat reasoning hook (nine overall, how many as a player); clear and fair.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-13",
+   "slot": 3,
+   "id": "nba-lucas84-season-rpg",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Obscure recall turned into a missing-point chart of verified rebounding averages, all played earlier: nba-barkley93-suns-rpg 12.1 (01-08), nba-kemp94-rpg 10.8 (01-02), nba-rodman96-rpg 14.9 (12-13), nba-giannis19-regular-rpg 12.5 (12-18). Scale tightened to 5-17 and kept off-centre. Day's one chart.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-13",
+   "slot": 4,
+   "id": "nba-warriors75-bench",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Low-interest bench total given an anchor: Rick Barry's 36 in Game 2 (nba-barry75-finals-g2-points, quote 'led by 36 points from Rick Barry', played 2026-12-12). Scale shifted to 40-160. Reveal unchanged (quote: 115-53 bench edge).",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-13",
+   "slot": 5,
+   "id": "nba-spurs14-finals-avg-margin-fourteen",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Memorable Spurs revenge Finals; estimable expert closer.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-14",
+   "slot": 1,
+   "id": "nba-hawks15-january-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Fun, estimable hook (an unbeaten month).",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-14",
+   "slot": 2,
+   "id": "nba-adebayo20-regular-rpg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Clear, fair medium.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-14",
+   "slot": 3,
+   "id": "nba-celtics08-playoff-games",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Good reasoning question (four rounds, several Game 7s); left as recall so it stays hard.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-14",
+   "slot": 4,
+   "id": "nba-parker14-season-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The day's only simple scoring average; fine as a hard estimate.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-14",
+   "slot": 5,
+   "id": "nba-pacers24-msg-game7-671-shooting",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Reference anchor added: nba-spurs14-g3-fg (quote 'a Finals-record 75.8% shooting effort from the team during the first half', played 2026-12-28). Compares a record half with a record full game. Scale unchanged.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-15",
+   "slot": 1,
+   "id": "nba-iverson01-season-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Iconic MVP scoring average; strong easy opener.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-15",
+   "slot": 2,
+   "id": "nba-davis84-regular-apg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Obscure recall given a franchise anchor: nba-nash05-regular-apg (quote 'Nash finished the season averaging 11.5 assists per game', played 2027-01-09). Ratings lowered to honest values.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-15",
+   "slot": 3,
+   "id": "nba-miller94-4q",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Famous Knick-killer night; fair hard question.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-15",
+   "slot": 4,
+   "id": "nba-curry13-msg-scoring-share-v5",
+   "replaced": "nba-raptors01-team-blocks",
+   "verdict": "replaced",
+   "format": "ratio",
+   "note": "Integration (editorial director): replaces a weak original; worker drafts for this slot duplicated other batches or repeated an earlier reveal. Every figure comes from the base fact's verified quote, and the derivation is recomputed by the validator.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-15",
+   "slot": 5,
+   "id": "nba-murray20-utah-g6-nine-threes",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Bubble classic; recognizable, estimable expert closer.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-16",
+   "slot": 1,
+   "id": "nba-miller95-8-points",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Iconic 8.9 seconds; great easy hook.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-16",
+   "slot": 2,
+   "id": "nba-pistons50-19-18",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Wonderful pre-shot-clock oddity; very estimable.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-16",
+   "slot": 3,
+   "id": "nba-payton94-apg",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Vague 'dominant season' prompt fixed (now names 1993–94) and framed as a missing-point chart of verified assist averages, all played earlier: nba-stockton90-apg 14.5 (11-27), nba-jackson98-regular-apg 8.7 (12-06), nba-bibby02-regular-apg 5.0 (12-03), nba-nash05-regular-apg 11.5 (01-09). Day's one chart.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-16",
+   "slot": 4,
+   "id": "nba-mowilliams09-season-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The day's one simple scoring average; fair hard estimate.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-16",
+   "slot": 5,
+   "id": "nba-jordan98-last-shot-five-point-two",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Iconic moment; estimable expert closer.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-17",
+   "slot": 1,
+   "id": "nba-luka24-73-hawks",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Recent, iconic, estimable easy opener.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-17",
+   "slot": 2,
+   "id": "nba-gsw16-allstar-wins",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Reference anchor: nba-gsw16-start (quote 'The Warriors began the 2015–16 season by winning their first 24 games', played 2026-12-09). Turns flat recall into reasoning from a known start. Scale floor raised to 24.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-17",
+   "slot": 3,
+   "id": "nba-cavs17-g4-q1",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Record quarter, fair hard estimate.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-17",
+   "slot": 4,
+   "id": "nba-nance84-season-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The day's one simple scoring average; fair hard estimate.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-17",
+   "slot": 5,
+   "id": "nba-kobe10-finals-game7-twentyfive-percent",
+   "verdict": "reframed",
+   "format": "recall",
+   "note": "Wording only: removed the em dash and an unsourced 'fifth championship' line from the reveal. New reveal figures come from the fact quote ('6 for 24 (25%)') and its fun-fact quote ('scored 10 of his game-high 23 points in the fourth quarter').",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-18",
+   "slot": 1,
+   "id": "nba-lebron16-finals-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Iconic Finals MVP average; strong easy opener.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-18",
+   "slot": 2,
+   "id": "nba-blazers78-start",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Clear 'of the first 60' framing makes it estimable.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-18",
+   "slot": 3,
+   "id": "nba-oscar62-assist-record-margin-v5",
+   "replaced": "nba-heat13-month-wins",
+   "verdict": "replaced",
+   "format": "difference",
+   "note": "Integration (editorial director): replaces a weak original; worker drafts for this slot duplicated other batches or repeated an earlier reveal. Every figure comes from the base fact's verified quote, and the derivation is recomputed by the validator.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-18",
+   "slot": 4,
+   "id": "nba-celtics09-streak",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Low-interest recall framed as a missing-point chart of verified win streaks, all played earlier: nba-bucks71-streak 20 (12-26), nba-lakers72-streak 33 (01-03), nba-heat13-streak 27 (01-02), nba-gsw16-start 24 (12-09). Reveal enriched from the fun-fact quote 'their momentum halted when they faced the Lakers on Christmas Day'. Second non-recall of the day; the trajectory at Q3 is a different format.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-18",
+   "slot": 5,
+   "id": "nba-mavs22-suns-game7-halftime-thirty",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Shocking Game 7; strong expert closer.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-19",
+   "slot": 1,
+   "id": "nba-embiid24-70-spurs",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Recent, iconic, estimable easy opener.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-19",
+   "slot": 2,
+   "id": "nba-harden19-30-streak",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Reference anchor: nba-kobe03-40-streak (quote 'posting 40 or more points in nine consecutive games', played 2026-12-05). Scale unchanged (answer at 67%).",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-19",
+   "slot": 3,
+   "id": "nba-pippen97-g3-threes",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Finals record context keeps it fair; good hard question.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-19",
+   "slot": 4,
+   "id": "nba-andersen13-fg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Surprising efficiency; estimable for a hard slot.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-19",
+   "slot": 5,
+   "id": "nba-herro20-bubble-ecf-g4-thirtyseven",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Rookie bubble moment; recognizable expert closer.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-20",
+   "slot": 1,
+   "id": "nba-jokic23-playoff-triple-doubles",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Recognizable, estimable easy opener.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-20",
+   "slot": 2,
+   "id": "nba-westbrook12-g4",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Big Finals scoring night; fair medium.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-20",
+   "slot": 3,
+   "id": "nba-celtics-lakers-finals-record",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Rivalry reasoning question (out of 11); fair hard.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-20",
+   "slot": 4,
+   "id": "nba-spurs97-wins",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Reference anchor: nba-spurs99-wins (quote 'a league-best 37–13 record', played 2026-11-23). Reveal adds the Duncan pick from the existing fun-fact quote 'They used that pick to select Tim Duncan out of Wake Forest University'.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-20",
+   "slot": 5,
+   "id": "nba-lakers01-shaq-kobe-fifteen-playoff-wins",
+   "verdict": "reframed",
+   "format": "recall",
+   "note": "Wording only: removed the em dash from the reveal. Claims come from the fact quote ('going 15–1') and existing fun-fact quotes (swept all three Western Conference series; Sixers handed the only loss).",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-21",
+   "slot": 1,
+   "id": "nba-klay15-quarter-37",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Iconic quarter; strong easy opener.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-21",
+   "slot": 2,
+   "id": "nba-suns93-december-win-streak",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Clear unbeaten-month framing; estimable medium.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-21",
+   "slot": 3,
+   "id": "nba-heat23-wins",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Missing-point chart of verified win totals, all played earlier: nba-raptors19-regular-wins 58 (12-02), nba-bucks21-regular-wins 46 (12-21), nba-nuggets23-regular-wins 53 (12-19), nba-celtics24-wins 64 (11-18). Title-team status per those facts' prompts/quotes (2018–19 champion Raptors, 2020–21 champion Bucks, Celtics 2023–24 title season, Nuggets 2023 Finals MVP Jokić). Day's one chart.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-21",
+   "slot": 4,
+   "id": "nba-wilt67-ppg-v5",
+   "replaced": "nba-wilt67-fta",
+   "verdict": "replaced",
+   "format": "reference",
+   "note": "Season free-throw attempts (interest 2) had little payoff. Replaced by a new fact from an existing verified quote on the same 1966–67 76ers page (fun-fact quote of nba-wilt67-fta: 'while scoring 24 points per game and once again leading the NBA in rebounds'), framed with reference nba-wilt62-ppg (50.4, played 2026-11-17). 'Champion' per nba-sixers73-wins fun-fact quote ('the 1966–1967 NBA Championship Team'). Reveal/fun facts from fun-fact quotes of nba-wilt67-fta, nba-sixers67-ppg and the source quote of nba-sixers67-start-losses (played 2026-12-26). The 875 attempts figure is deliberately not reused, since nba-wilt67-fta goes to reserve.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-21",
+   "slot": 5,
+   "id": "nba-mavs11-heat-finals-g2-comeback-fifteen",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Memorable Dirk comeback; strong expert closer.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-22",
+   "slot": 1,
+   "id": "nba-curry23-game7-fifty",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Recent, iconic easy opener.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-22",
+   "slot": 2,
+   "id": "nba-rodman92-rpg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Career-stage reference: nba-rodman96-rpg (quote 'Rodman averaged 5.5 points and 14.9 rebounds per game', played 2026-12-13). Scale unchanged (answer at 73%).",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-22",
+   "slot": 3,
+   "id": "nba-gsw22-g6-run",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Clear Finals run; fair hard estimate.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-22",
+   "slot": 4,
+   "id": "nba-turkoglu09-regular-apg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Point-forward angle makes it estimable; fair hard.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-22",
+   "slot": 5,
+   "id": "nba-lebron16-finals-game7-block-110s",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Iconic moment; estimable expert closer.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-23",
+   "slot": 1,
+   "id": "nba-paul08-regular-apg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Recognizable star playmaking average; good easy opener.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-23",
+   "slot": 2,
+   "id": "nba-wade06-finals-ppg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Reference anchor: nba-shaq00-finals-ppg (quote 'putting up 38.0 points', played 2026-11-28). Shaq on the 2006 Heat per the fun-fact quote of nba-mavs06-g4-q4 ('Rebs: Shaquille O'Neal 13', 2006 Finals page). Thin recall becomes a teammate comparison.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-23",
+   "slot": 3,
+   "id": "nba-floyd87-51",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The one-loss framing makes a big number estimable; fair hard.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-23",
+   "slot": 4,
+   "id": "nba-blazers77-g4-q3",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Low-interest quarter total given the Finals-record anchor nba-cavs17-g4-q1 (quote 'the most points of any period in an NBA Finals game', played 2027-01-17). Game 4 stays in the context. Scale tightened to 14-56 below the anchor's range.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-23",
+   "slot": 5,
+   "id": "nba-clippers19-warriors-g2-31-comeback",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Record comeback; strong expert closer.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-24",
+   "slot": 1,
+   "id": "nba-curry16-season-threes-402",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Iconic 400-three season; strong easy opener.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-24",
+   "slot": 2,
+   "id": "nba-celtics02-4q",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Missing-point chart of verified one-quarter totals, all played earlier: nba-isiah88-finals-injured-quarter-25 25 (01-02), nba-miller94-4q 25 (01-15), nba-klay15-quarter-37 37 (01-21), nba-cavs17-g4-q1 49 (01-17). Day's one chart. Fact-check fix: the chart mixed player and team quarters, so it became a reference to the 2017 Cavaliers record.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-24",
+   "slot": 3,
+   "id": "nba-kobe05-62-three-quarters",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Reference anchor: nba-kobe-81 (quote 'On January 22, 2006, Bryant scored a career-high 81 points', played 2026-12-03); the Dallas game was December 20, 2005 per this fact's quote, so 'a month before' is supported. Scale moved to 25-80 to keep the answer off-centre.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-24",
+   "slot": 4,
+   "id": "nba-celtics08-g6-margin",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Clear title-clincher margin; fair hard estimate.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-24",
+   "slot": 5,
+   "id": "nba-kings23-light-beam-sixteen-drought",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Beloved Kings story; recognizable expert closer.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-25",
+   "slot": 1,
+   "id": "nba-lillard23-seventy-one",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Recognizable 70-point night; good easy opener.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-25",
+   "slot": 2,
+   "id": "nba-season21-games",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Simple, estimable pandemic-season fact.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-25",
+   "slot": 3,
+   "id": "nba-lakers72-margin",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "References added: nba-lakers72-wins (quote 'Record: 69–13 (.841)', played 2026-12-25) and nba-lakers72-streak (quote 'an NBA record 33-game winning streak', played 2027-01-03). Scale unchanged.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-25",
+   "slot": 4,
+   "id": "nba-oscar71-ppg-v5",
+   "replaced": "nba-oscar71-apg",
+   "verdict": "replaced",
+   "format": "reference",
+   "note": "The old question needed an awkward 'about... nearest whole number' because the source text (8.3) and table (8.25) disagree. Replaced by a different figure in the same verified quote ('the Bucks' No. 2 scorer at 19.4 ppg', same url and quote as nba-oscar71-apg), framed with reference nba-alcindor71-ppg (31.7, played 2026-12-28). The day has no other scoring average. Reveal: Finals sweep per nba-bucks71-wins fun-fact quote 'They faced off against the Baltimore Bullets and swept them in four games'. The 8.3 assists figure is deliberately left out because nba-oscar71-apg goes to reserve.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-25",
+   "slot": 5,
+   "id": "nba-mavs24-finals-g4-blowout-margin",
+   "verdict": "reframed",
+   "format": "recall",
+   "note": "Wording only: removed the em dash from the reveal; claims from the fact quote ('avoided a sweep by the Celtics with a 122–84 blowout victory').",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-26",
+   "slot": 1,
+   "id": "nba-wemby24-five-five-points",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Rare five-by-five; recognizable easy opener.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-26",
+   "slot": 2,
+   "id": "nba-bobcats12-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Historic low; the 66-game context makes it estimable.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-26",
+   "slot": 3,
+   "id": "nba-ainge88-threes",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Cross-era reference: nba-curry16-season-threes-402 (quote 'he finished with 402', played 2027-01-24). Wording follows this fact's quote ('first player to make over 100 three-pointers in a season'). Scale unchanged (answer at 61%).",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-26",
+   "slot": 4,
+   "id": "nba-teague15-assists-average",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Fair hard estimate for a 60-win team's point guard.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-26",
+   "slot": 5,
+   "id": "nba-blazers19-nuggets-game3-four-overtimes",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Marathon game; estimable expert closer.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-27",
+   "slot": 1,
+   "id": "nba-tatum23-game7-51",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Reference anchor from the same player: nba-tatum22-bucks-g6-46 (quote 'Jayson Tatum led the way with 46 points', played 2026-12-29; 'elimination game at Milwaukee' follows that fact's verified prompt and claim, Game 6 at the Bucks with Boston facing elimination). Scale moved to 20-70 to keep the answer off-centre.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-27",
+   "slot": 2,
+   "id": "nba-bucks19-opening-win-streak",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Clear, estimable medium.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-27",
+   "slot": 3,
+   "id": "nba-curry-three-streak",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Surprising length; fair hard estimate.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-27",
+   "slot": 4,
+   "id": "nba-chandler08-regular-rpg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Fair hard estimate beside the CP3 opener earlier in the week.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  },
+  {
+   "day": "2027-01-27",
+   "slot": 5,
+   "id": "nba-shaq00-birthday-clippers-sixtyone",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Fun birthday career high; strong expert closer.",
+   "batch": "D",
+   "editor": "V5 editorial worker D"
+  }
+ ]
+}

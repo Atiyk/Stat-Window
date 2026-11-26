@@ -30,7 +30,8 @@
       "notBefore": "2027-01-07",
       "leaks": [
         "nba-wilt-100",
-        "nba-wilt-60-point-games"
+        "nba-wilt-60-point-games",
+        "nba-wilt62-100-ft-share-v5"
       ]
     },
     "nba-wilt-100-crowd": {
@@ -484,7 +485,6 @@
       "day": "2026-11-26",
       "notBefore": "2026-12-04",
       "leaks": [
-        "nba-butler23-56",
         "nba-luka22-knicks-triple-rebounds",
         "nba-jokic23-finals-g3-rebounds"
       ]
@@ -560,9 +560,12 @@
       "family": "assists-average",
       "franchise": "DEN",
       "era": "2020s",
-      "steps": 160,
+      "steps": 130,
       "day": "2026-11-28",
-      "notBefore": "2026-11-29"
+      "notBefore": "2026-11-29",
+      "leaks": [
+        "nba-stockton90-apg"
+      ]
     },
     "nba-giannis21-finals-g6-blocks": {
       "tier": "hard",
@@ -600,25 +603,29 @@
       "day": "2026-11-29",
       "notBefore": "2026-11-30"
     },
-    "nba-bucks24-cup-quarter": {
+    "nba-giannis24-cup-final-rebounds-v5": {
       "tier": "hard",
-      "family": "points-period",
-      "franchise": "OKC",
+      "family": "rebounds-game",
+      "franchise": "MIL",
       "era": "2020s",
-      "steps": 32,
+      "steps": 26,
       "day": "2026-11-29",
-      "notBefore": "2026-11-30"
+      "notBefore": "2026-12-22",
+      "leaks": [
+        "nba-wemby24-10-blocks-blazers"
+      ]
     },
     "nba-gsw16-threes": {
       "tier": "hard",
       "family": "threes-season",
       "franchise": "GSW",
       "era": "2010s",
-      "steps": 85,
+      "steps": 55,
       "day": "2026-11-29",
-      "notBefore": "2026-11-30",
+      "notBefore": "2027-01-11",
       "leaks": [
-        "nba-lebron-kyrie16-g5-combined-82"
+        "nba-splash16-duo-threes-678",
+        "nba-curry22-allstar-sixteen-threes"
       ]
     },
     "nba-murray-mitchell20-game4-combined": {
@@ -746,16 +753,16 @@
       "day": "2026-12-02",
       "notBefore": "2026-12-03"
     },
-    "nba-butler23-56": {
+    "nba-grizzlies21-bench-points-v5": {
       "tier": "medium",
-      "family": "points-game",
-      "franchise": "MIA",
+      "family": "points-team-game",
+      "franchise": "MEM",
       "era": "2020s",
-      "steps": 50,
+      "steps": 90,
       "day": "2026-12-02",
       "notBefore": "2026-12-03",
       "leaks": [
-        "nba-butler23-56-bucks-upset"
+        "nba-grizzlies21-margin"
       ]
     },
     "nba-stockton-missed": {
@@ -790,9 +797,13 @@
       "family": "points-game",
       "franchise": "LAL",
       "era": "2000s",
-      "steps": 65,
+      "steps": 70,
       "day": "2026-12-03",
-      "notBefore": "2026-12-04"
+      "notBefore": "2026-12-04",
+      "leaks": [
+        "nba-wilt-100",
+        "nba-baylor60-71"
+      ]
     },
     "nba-sonics94-opening-streak": {
       "tier": "medium",
@@ -822,7 +833,7 @@
       "family": "assists-average",
       "franchise": "SAC",
       "era": "2000s",
-      "steps": 110,
+      "steps": 80,
       "day": "2026-12-03",
       "notBefore": "2026-12-04"
     },
@@ -868,14 +879,18 @@
         "nba-bird85-opener-steals"
       ]
     },
-    "nba-pistons04-under-70": {
+    "nba-kawhi19-jokic23-playoff-points-gap-v5": {
       "tier": "hard",
-      "family": "defense-streak",
-      "franchise": "DET",
-      "era": "2000s",
-      "steps": 10,
+      "family": "points-season-total",
+      "franchise": "TOR",
+      "era": "2010s",
+      "steps": 150,
       "day": "2026-12-04",
-      "notBefore": "2026-12-05"
+      "notBefore": "2026-12-05",
+      "leaks": [
+        "nba-jokic23-playoff-points",
+        "nba-kawhi19-playoff-points-732"
+      ]
     },
     "nba-klay16-okc-game6-41": {
       "tier": "expert",
@@ -925,9 +940,12 @@
       "family": "scoring-average",
       "franchise": "DET",
       "era": "1980s",
-      "steps": 280,
+      "steps": 300,
       "day": "2026-12-05",
-      "notBefore": "2026-12-06"
+      "notBefore": "2026-12-06",
+      "leaks": [
+        "nba-shaq00-finals-ppg"
+      ]
     },
     "nba-cp3-2022-perfect-playoff-shots": {
       "tier": "expert",
@@ -943,9 +961,13 @@
       "family": "wins-season",
       "franchise": "BOS",
       "era": "1980s",
-      "steps": 54,
+      "steps": 42,
       "day": "2026-12-06",
-      "notBefore": "2026-12-07"
+      "notBefore": "2026-12-07",
+      "leaks": [
+        "nba-celtics24-wins",
+        "nba-celtics08-wins"
+      ]
     },
     "nba-allstar24-east": {
       "tier": "medium",
@@ -1044,20 +1066,22 @@
       "family": "wins-season",
       "franchise": "DET",
       "era": "2000s",
-      "steps": 32,
+      "steps": 40,
       "day": "2026-12-08",
       "notBefore": "2026-12-09"
     },
-    "nba-lakers20-lead-record": {
+    "nba-wilt62-100-ft-share-v5": {
       "tier": "medium",
-      "family": "wins-situational",
-      "franchise": "LAL",
-      "era": "2010s",
-      "steps": 50,
+      "family": "shooting-pct",
+      "franchise": "GSW",
+      "era": "1960s",
+      "steps": 55,
       "day": "2026-12-08",
-      "notBefore": "2027-01-06",
+      "notBefore": "2026-12-09",
       "leaks": [
-        "nba-mitchell20-bubble-fiftyseven"
+        "nba-wilt-100",
+        "nba-wilt-100-ftm",
+        "nba-wade06-g5-ft-scoring-share"
       ]
     },
     "nba-horry05-g5": {
@@ -1108,14 +1132,18 @@
       "day": "2026-12-09",
       "notBefore": "2026-12-10"
     },
-    "nba-blazers77-g4-margin": {
+    "nba-knicks24-wins-v5": {
       "tier": "hard",
-      "family": "margin",
-      "franchise": "POR",
-      "era": "1970s",
-      "steps": 45,
+      "family": "wins-season",
+      "franchise": "NYK",
+      "era": "2020s",
+      "steps": 38,
       "day": "2026-12-09",
-      "notBefore": "2026-12-10"
+      "notBefore": "2026-12-10",
+      "leaks": [
+        "nba-celtics24-wins",
+        "nba-celtics24-seed-gap"
+      ]
     },
     "nba-green16-g7": {
       "tier": "hard",
@@ -1131,9 +1159,15 @@
       "family": "threes-game",
       "franchise": "POR",
       "era": "2020s",
-      "steps": 28,
+      "steps": 18,
       "day": "2026-12-09",
-      "notBefore": "2026-12-10"
+      "notBefore": "2026-12-10",
+      "leaks": [
+        "nba-kobe03-threes",
+        "nba-miller12-g5-threes",
+        "nba-curry16-13-threes",
+        "nba-allen10-g2-threes"
+      ]
     },
     "nba-sonics79-season-wins": {
       "tier": "easy",
@@ -1149,16 +1183,19 @@
       "family": "points-game",
       "franchise": "CHI",
       "era": "1990s",
-      "steps": 50,
+      "steps": 45,
       "day": "2026-12-10",
-      "notBefore": "2026-12-11"
+      "notBefore": "2026-12-11",
+      "leaks": [
+        "nba-jordan93-finals-ppg"
+      ]
     },
-    "nba-jazz98-g3-54": {
+    "nba-bulls98-g3-margin-v5": {
       "tier": "hard",
-      "family": "points-team-game",
-      "franchise": "UTA",
+      "family": "margin",
+      "franchise": "CHI",
       "era": "1990s",
-      "steps": 75,
+      "steps": 50,
       "day": "2026-12-10",
       "notBefore": "2026-12-11"
     },
@@ -1181,10 +1218,7 @@
       "era": "2010s",
       "steps": 70,
       "day": "2026-12-10",
-      "notBefore": "2027-01-03",
-      "leaks": [
-        "nba-heat13-streak"
-      ]
+      "notBefore": "2026-12-11"
     },
     "nba-bulls96-combined-wins": {
       "tier": "easy",
@@ -1204,12 +1238,12 @@
       "day": "2026-12-11",
       "notBefore": "2026-12-12"
     },
-    "nba-mcdonald76-ot": {
+    "nba-warriors48-low-fg-v5": {
       "tier": "hard",
-      "family": "points-period",
-      "franchise": "BOS",
-      "era": "1970s",
-      "steps": 15,
+      "family": "shooting-pct",
+      "franchise": "GSW",
+      "era": "1940s",
+      "steps": 400,
       "day": "2026-12-11",
       "notBefore": "2026-12-12"
     },
@@ -1293,18 +1327,25 @@
       "family": "rebounds-average",
       "franchise": "CHI",
       "era": "1990s",
-      "steps": 130,
+      "steps": 140,
       "day": "2026-12-13",
-      "notBefore": "2026-12-14"
+      "notBefore": "2026-12-14",
+      "leaks": [
+        "nba-noah11-rebounds-average",
+        "nba-howard09-regular-rpg"
+      ]
     },
     "nba-allen10-g3-fga": {
       "tier": "hard",
       "family": "field-goals",
       "franchise": "BOS",
       "era": "2000s",
-      "steps": 24,
+      "steps": 18,
       "day": "2026-12-13",
-      "notBefore": "2026-12-14"
+      "notBefore": "2026-12-14",
+      "leaks": [
+        "nba-allen10-g2-threes"
+      ]
     },
     "nba-west70-60-foot": {
       "tier": "hard",
@@ -1347,9 +1388,12 @@
       "family": "games-missed",
       "franchise": "GSW",
       "era": "2010s",
-      "steps": 70,
+      "steps": 50,
       "day": "2026-12-14",
-      "notBefore": "2026-12-15"
+      "notBefore": "2026-12-15",
+      "leaks": [
+        "nba-gsw16-start"
+      ]
     },
     "nba-west08-season-ppg": {
       "tier": "hard",
@@ -1383,9 +1427,17 @@
       "family": "scoring-average",
       "franchise": "LAL",
       "era": "2000s",
-      "steps": 280,
+      "steps": 300,
       "day": "2026-12-15",
-      "notBefore": "2026-12-16"
+      "notBefore": "2027-01-02",
+      "leaks": [
+        "nba-jordan93-finals-ppg",
+        "nba-dumars89-finals-ppg",
+        "nba-shaq00-finals-ppg",
+        "nba-brown24-finals-ppg",
+        "nba-duncan99-finals-ppg",
+        "nba-kobe09-finals-apg-v5"
+      ]
     },
     "nba-bucks21-nets-g3-points": {
       "tier": "hard",
@@ -1396,14 +1448,19 @@
       "day": "2026-12-15",
       "notBefore": "2026-12-16"
     },
-    "nba-kidd02-finals-td": {
+    "nba-warriors16-splash-share-v5": {
       "tier": "hard",
-      "family": "triple-doubles-finals",
-      "franchise": "BKN",
-      "era": "2000s",
-      "steps": 60,
+      "family": "threes-season",
+      "franchise": "GSW",
+      "era": "2010s",
+      "steps": 65,
       "day": "2026-12-15",
-      "notBefore": "2026-12-16"
+      "notBefore": "2027-01-11",
+      "leaks": [
+        "nba-gsw16-threes",
+        "nba-splash16-duo-threes-678",
+        "nba-curry22-allstar-sixteen-threes"
+      ]
     },
     "nba-lebron11-finals-g4-eight": {
       "tier": "expert",
@@ -1441,9 +1498,12 @@
       "family": "points-game",
       "franchise": "LAL",
       "era": "2010s",
-      "steps": 65,
+      "steps": 60,
       "day": "2026-12-16",
-      "notBefore": "2026-12-17"
+      "notBefore": "2026-12-17",
+      "leaks": [
+        "nba-kobe-81"
+      ]
     },
     "nba-unseld75-finals-g2-rebounds": {
       "tier": "hard",
@@ -1501,7 +1561,11 @@
       "era": "2010s",
       "steps": 38,
       "day": "2026-12-17",
-      "notBefore": "2026-12-18"
+      "notBefore": "2026-12-18",
+      "leaks": [
+        "nba-curry16-13-threes",
+        "nba-curry15-g2-misses"
+      ]
     },
     "nba-shaq00-finals-g2-24-boards": {
       "tier": "expert",
@@ -1531,7 +1595,11 @@
       "era": "1980s",
       "steps": 32,
       "day": "2026-12-18",
-      "notBefore": "2026-12-19"
+      "notBefore": "2026-12-19",
+      "leaks": [
+        "nba-lakers87-wins",
+        "nba-celtics86-wins"
+      ]
     },
     "nba-butler20-regular-apg": {
       "tier": "hard",
@@ -1549,7 +1617,10 @@
       "era": "2010s",
       "steps": 150,
       "day": "2026-12-18",
-      "notBefore": "2026-12-19"
+      "notBefore": "2026-12-19",
+      "leaks": [
+        "nba-giannis24-cup-final-rebounds-v5"
+      ]
     },
     "nba-jokic25-61-point-triple-double": {
       "tier": "expert",
@@ -1583,7 +1654,10 @@
       "era": "1990s",
       "steps": 20,
       "day": "2026-12-19",
-      "notBefore": "2026-12-20"
+      "notBefore": "2026-12-20",
+      "leaks": [
+        "nba-cp3-2022-perfect-playoff-shots"
+      ]
     },
     "nba-giannis21-g6-ft": {
       "tier": "hard",
@@ -1596,7 +1670,8 @@
       "leaks": [
         "nba-mavs20-halftime-lead",
         "nba-giannis21-g6",
-        "nba-suns21-g1-ft"
+        "nba-suns21-g1-ft",
+        "nba-giannis24-cup-final-rebounds-v5"
       ]
     },
     "nba-sixers01-opening-streak": {
@@ -1640,16 +1715,24 @@
       "era": "1970s",
       "steps": 15,
       "day": "2026-12-20",
-      "notBefore": "2026-12-21"
+      "notBefore": "2026-12-21",
+      "leaks": [
+        "nba-curry16-13-threes",
+        "nba-curry15-g2-misses"
+      ]
     },
-    "nba-gsw19-g2-run": {
+    "nba-heat13-turnaround-v5": {
       "tier": "hard",
-      "family": "points-run",
-      "franchise": "GSW",
+      "family": "wins-change",
+      "franchise": "MIA",
       "era": "2010s",
-      "steps": 24,
+      "steps": 60,
       "day": "2026-12-20",
-      "notBefore": "2026-12-21"
+      "notBefore": "2027-01-16",
+      "leaks": [
+        "nba-lebron13-g7",
+        "nba-curry13-msg-scoring-share-v5"
+      ]
     },
     "nba-gus79-finals-g4-points": {
       "tier": "hard",
@@ -1676,7 +1759,13 @@
       "era": "2020s",
       "steps": 60,
       "day": "2026-12-21",
-      "notBefore": "2026-12-22"
+      "notBefore": "2026-12-22",
+      "leaks": [
+        "nba-celtics24-wins",
+        "nba-nuggets23-regular-wins",
+        "nba-raptors19-regular-wins",
+        "nba-spurs14-season-wins"
+      ]
     },
     "nba-spurs99-final36-wins": {
       "tier": "medium",
@@ -1692,9 +1781,12 @@
       "family": "free-throws",
       "franchise": "PHX",
       "era": "2020s",
-      "steps": 38,
+      "steps": 35,
       "day": "2026-12-21",
-      "notBefore": "2026-12-22"
+      "notBefore": "2026-12-22",
+      "leaks": [
+        "nba-dirk11-24-ft"
+      ]
     },
     "nba-bird85-opener-steals": {
       "tier": "hard",
@@ -1781,7 +1873,10 @@
       "era": "1980s",
       "steps": 26,
       "day": "2026-12-23",
-      "notBefore": "2026-12-24"
+      "notBefore": "2026-12-24",
+      "leaks": [
+        "nba-mcgrady04-35-seconds"
+      ]
     },
     "nba-robinson99-finals-rpg": {
       "tier": "hard",
@@ -1842,9 +1937,12 @@
       "family": "blocks-game",
       "franchise": "SAS",
       "era": "2000s",
-      "steps": 13,
+      "steps": 14,
       "day": "2026-12-24",
-      "notBefore": "2026-12-25"
+      "notBefore": "2026-12-25",
+      "leaks": [
+        "nba-hakeem90-quadruple-blocks"
+      ]
     },
     "nba-kawhi19-philly-game7-41": {
       "tier": "expert",
@@ -1872,9 +1970,12 @@
       "family": "wins-season",
       "franchise": "LAL",
       "era": "1970s",
-      "steps": 32,
+      "steps": 30,
       "day": "2026-12-25",
-      "notBefore": "2026-12-26"
+      "notBefore": "2026-12-26",
+      "leaks": [
+        "nba-bucks71-wins"
+      ]
     },
     "nba-bobcats12-losing-streak": {
       "tier": "hard",
@@ -1929,18 +2030,21 @@
       "family": "win-streak",
       "franchise": "MIL",
       "era": "1970s",
-      "steps": 32,
+      "steps": 28,
       "day": "2026-12-26",
       "notBefore": "2026-12-27"
     },
-    "nba-sixers73-games-back": {
+    "nba-wilt62-others-points-v5": {
       "tier": "hard",
-      "family": "games-back",
-      "franchise": "PHI",
-      "era": "1970s",
-      "steps": 50,
+      "family": "points-combined",
+      "franchise": "GSW",
+      "era": "1960s",
+      "steps": 120,
       "day": "2026-12-26",
-      "notBefore": "2026-12-27"
+      "notBefore": "2026-12-27",
+      "leaks": [
+        "nba-wilt-100"
+      ]
     },
     "nba-ja22-warriors-game2-47": {
       "tier": "expert",
@@ -1965,9 +2069,12 @@
       "family": "wins-situational",
       "franchise": "IND",
       "era": "1990s",
-      "steps": 34,
+      "steps": 32,
       "day": "2026-12-27",
-      "notBefore": "2026-12-28"
+      "notBefore": "2026-12-28",
+      "leaks": [
+        "nba-pacers98-season-wins"
+      ]
     },
     "nba-mutombo01-posttrade-rpg": {
       "tier": "hard",
@@ -2030,14 +2137,17 @@
       "day": "2026-12-28",
       "notBefore": "2026-12-29"
     },
-    "nba-allstar51-attendance": {
+    "nba-sixers83-turnaround-v5": {
       "tier": "hard",
-      "family": "attendance",
-      "franchise": null,
-      "era": "1950s",
-      "steps": 260,
+      "family": "wins-change",
+      "franchise": "PHI",
+      "era": "1980s",
+      "steps": 60,
       "day": "2026-12-28",
-      "notBefore": "2026-12-29"
+      "notBefore": "2026-12-29",
+      "leaks": [
+        "nba-sixers73-wins"
+      ]
     },
     "nba-luka24-wolves-g2-32": {
       "tier": "expert",
@@ -2155,9 +2265,14 @@
       "family": "win-streak",
       "franchise": "DET",
       "era": "2000s",
-      "steps": 18,
+      "steps": 20,
       "day": "2026-12-31",
-      "notBefore": "2027-01-01"
+      "notBefore": "2027-01-01",
+      "leaks": [
+        "nba-spurs14-streak",
+        "nba-rockets94-start",
+        "nba-bucks71-streak"
+      ]
     },
     "nba-holiday21-playoffs-apg": {
       "tier": "hard",
@@ -2204,14 +2319,17 @@
       "day": "2027-01-01",
       "notBefore": "2027-01-02"
     },
-    "nba-sprewell99-g5": {
+    "nba-kobe09-finals-apg-v5": {
       "tier": "hard",
-      "family": "points-game",
-      "franchise": "NYK",
-      "era": "1990s",
-      "steps": 39,
+      "family": "assists-average",
+      "franchise": "LAL",
+      "era": "2000s",
+      "steps": 130,
       "day": "2027-01-01",
-      "notBefore": "2027-01-02"
+      "notBefore": "2027-01-02",
+      "leaks": [
+        "nba-kobe09-finals-ppg"
+      ]
     },
     "nba-billups04-finals-ppg": {
       "tier": "hard",
@@ -2220,10 +2338,7 @@
       "era": "2000s",
       "steps": 260,
       "day": "2027-01-01",
-      "notBefore": "2027-01-02",
-      "leaks": [
-        "nba-pistons04-under-70"
-      ]
+      "notBefore": "2027-01-02"
     },
     "nba-rose18-emotional-fifty": {
       "tier": "expert",
@@ -2261,12 +2376,12 @@
       "day": "2027-01-02",
       "notBefore": "2027-01-03"
     },
-    "nba-pacers00-home-streak": {
+    "nba-lebron09-g1-scoring-share-v5": {
       "tier": "hard",
-      "family": "win-streak",
-      "franchise": "IND",
-      "era": "1990s",
-      "steps": 36,
+      "family": "scoring-share",
+      "franchise": "CLE",
+      "era": "2000s",
+      "steps": 70,
       "day": "2027-01-02",
       "notBefore": "2027-01-03"
     },
@@ -2304,7 +2419,10 @@
       "era": "1990s",
       "steps": 32,
       "day": "2027-01-03",
-      "notBefore": "2027-01-04"
+      "notBefore": "2027-01-04",
+      "leaks": [
+        "nba-love10-knicks-thirty-one-boards"
+      ]
     },
     "nba-stockton91-28": {
       "tier": "hard",
@@ -2344,18 +2462,27 @@
       "family": "wins-season",
       "franchise": "HOU",
       "era": "2010s",
-      "steps": 62,
+      "steps": 46,
       "day": "2027-01-04",
-      "notBefore": "2027-01-05"
+      "notBefore": "2027-01-05",
+      "leaks": [
+        "nba-bulls11-regular-wins",
+        "nba-hawks15-regular-wins",
+        "nba-spurs14-season-wins",
+        "nba-bucks19-season-wins"
+      ]
     },
     "nba-gsw16-home-streak": {
       "tier": "hard",
       "family": "win-streak",
       "franchise": "GSW",
       "era": "2010s",
-      "steps": 65,
+      "steps": 54,
       "day": "2027-01-04",
-      "notBefore": "2027-01-05"
+      "notBefore": "2027-01-05",
+      "leaks": [
+        "nba-bulls96-home-streak"
+      ]
     },
     "nba-offensive-rebound-reset": {
       "tier": "hard",
@@ -2421,10 +2548,7 @@
       "era": "2010s",
       "steps": 120,
       "day": "2027-01-05",
-      "notBefore": "2027-01-06",
-      "leaks": [
-        "nba-lakers20-lead-record"
-      ]
+      "notBefore": "2027-01-06"
     },
     "nba-spurs14-march-wins": {
       "tier": "easy",
@@ -2440,7 +2564,7 @@
       "family": "scoring-games",
       "franchise": "GSW",
       "era": "1970s",
-      "steps": 45,
+      "steps": 52,
       "day": "2027-01-06",
       "notBefore": "2027-01-07",
       "leaks": [
@@ -2461,9 +2585,13 @@
       "family": "wins-situational",
       "franchise": "PHX",
       "era": "2000s",
-      "steps": 24,
+      "steps": 26,
       "day": "2027-01-06",
-      "notBefore": "2027-01-07"
+      "notBefore": "2027-01-07",
+      "leaks": [
+        "nba-bulls96-road-wins",
+        "nba-suns05-season-win-gain"
+      ]
     },
     "nba-bird85-hawks-sixty": {
       "tier": "expert",
@@ -2490,7 +2618,10 @@
       "era": "1970s",
       "steps": 210,
       "day": "2027-01-07",
-      "notBefore": "2027-01-08"
+      "notBefore": "2027-01-08",
+      "leaks": [
+        "nba-westbrook17-td"
+      ]
     },
     "nba-klay16-wcf-threes": {
       "tier": "hard",
@@ -2536,9 +2667,14 @@
       "family": "wins-season",
       "franchise": "BOS",
       "era": "1980s",
-      "steps": 57,
+      "steps": 52,
       "day": "2027-01-08",
-      "notBefore": "2027-01-09"
+      "notBefore": "2027-01-09",
+      "leaks": [
+        "nba-celtics86-wins",
+        "nba-celtics24-wins",
+        "nba-celtics08-wins"
+      ]
     },
     "nba-barkley93-suns-rpg": {
       "tier": "hard",
@@ -2585,9 +2721,12 @@
       "family": "losing-streak",
       "franchise": "BOS",
       "era": "2000s",
-      "steps": 26,
+      "steps": 28,
       "day": "2027-01-09",
-      "notBefore": "2027-01-10"
+      "notBefore": "2027-01-10",
+      "leaks": [
+        "nba-bobcats12-losing-streak"
+      ]
     },
     "nba-miller98-season-ppg": {
       "tier": "hard",
@@ -2653,7 +2792,10 @@
       "era": "1970s",
       "steps": 34,
       "day": "2027-01-10",
-      "notBefore": "2027-01-11"
+      "notBefore": "2027-01-22",
+      "leaks": [
+        "nba-wilt67-ppg-v5"
+      ]
     },
     "nba-curry22-allstar-sixteen-threes": {
       "tier": "expert",
@@ -2693,10 +2835,13 @@
       "family": "points-game",
       "franchise": "CHI",
       "era": "1990s",
-      "steps": 55,
+      "steps": 58,
       "day": "2027-01-11",
       "notBefore": "2027-01-20",
       "leaks": [
+        "nba-jordan98-g6",
+        "nba-jordan86-63",
+        "nba-jordan93-g4-55",
         "nba-pippen97-g3-threes"
       ]
     },
@@ -2727,6 +2872,7 @@
       "day": "2027-01-12",
       "notBefore": "2027-01-13",
       "leaks": [
+        "nba-bulls11-home-wins",
         "nba-cavs09-record-wins"
       ]
     },
@@ -2789,18 +2935,27 @@
       "family": "rebounds-average",
       "franchise": "PHX",
       "era": "1980s",
-      "steps": 190,
+      "steps": 120,
       "day": "2027-01-13",
-      "notBefore": "2027-01-14"
+      "notBefore": "2027-01-14",
+      "leaks": [
+        "nba-rodman96-rpg",
+        "nba-kemp94-rpg",
+        "nba-barkley93-suns-rpg",
+        "nba-giannis19-regular-rpg"
+      ]
     },
     "nba-warriors75-bench": {
       "tier": "hard",
       "family": "points-series",
       "franchise": "GSW",
       "era": "1970s",
-      "steps": 140,
+      "steps": 120,
       "day": "2027-01-13",
-      "notBefore": "2027-01-14"
+      "notBefore": "2027-01-14",
+      "leaks": [
+        "nba-barry75-finals-g2-points"
+      ]
     },
     "nba-spurs14-finals-avg-margin-fourteen": {
       "tier": "expert",
@@ -2854,7 +3009,10 @@
       "era": "2020s",
       "steps": 350,
       "day": "2027-01-14",
-      "notBefore": "2027-01-15"
+      "notBefore": "2027-01-15",
+      "leaks": [
+        "nba-spurs14-g3-fg"
+      ]
     },
     "nba-iverson01-season-ppg": {
       "tier": "easy",
@@ -2872,7 +3030,10 @@
       "era": "1980s",
       "steps": 120,
       "day": "2027-01-15",
-      "notBefore": "2027-01-16"
+      "notBefore": "2027-01-16",
+      "leaks": [
+        "nba-nash05-regular-apg"
+      ]
     },
     "nba-miller94-4q": {
       "tier": "hard",
@@ -2883,14 +3044,18 @@
       "day": "2027-01-15",
       "notBefore": "2027-01-16"
     },
-    "nba-raptors01-team-blocks": {
+    "nba-curry13-msg-scoring-share-v5": {
       "tier": "hard",
-      "family": "blocks-team",
-      "franchise": "TOR",
-      "era": "2000s",
-      "steps": 30,
+      "family": "scoring-share",
+      "franchise": "GSW",
+      "era": "2010s",
+      "steps": 70,
       "day": "2027-01-15",
-      "notBefore": "2027-01-16"
+      "notBefore": "2027-01-16",
+      "leaks": [
+        "nba-curry13-knicks-54",
+        "nba-heat13-turnaround-v5"
+      ]
     },
     "nba-murray20-utah-g6-nine-threes": {
       "tier": "expert",
@@ -2927,9 +3092,15 @@
       "family": "assists-average",
       "franchise": "OKC",
       "era": "1990s",
-      "steps": 110,
+      "steps": 150,
       "day": "2027-01-16",
-      "notBefore": "2027-01-17"
+      "notBefore": "2027-01-17",
+      "leaks": [
+        "nba-stockton90-apg",
+        "nba-nash05-regular-apg",
+        "nba-jackson98-regular-apg",
+        "nba-bibby02-regular-apg"
+      ]
     },
     "nba-mowilliams09-season-ppg": {
       "tier": "hard",
@@ -2963,9 +3134,12 @@
       "family": "wins-season",
       "franchise": "GSW",
       "era": "2010s",
-      "steps": 32,
+      "steps": 36,
       "day": "2027-01-17",
-      "notBefore": "2027-01-18"
+      "notBefore": "2027-01-18",
+      "leaks": [
+        "nba-gsw16-start"
+      ]
     },
     "nba-cavs17-g4-q1": {
       "tier": "hard",
@@ -3012,12 +3186,12 @@
       "day": "2027-01-18",
       "notBefore": "2027-01-19"
     },
-    "nba-heat13-month-wins": {
+    "nba-oscar62-assist-record-margin-v5": {
       "tier": "hard",
-      "family": "wins-month",
-      "franchise": "MIA",
-      "era": "2010s",
-      "steps": 18,
+      "family": "assists-season",
+      "franchise": "SAC",
+      "era": "1960s",
+      "steps": 150,
       "day": "2027-01-18",
       "notBefore": "2027-01-19"
     },
@@ -3028,7 +3202,13 @@
       "era": "2000s",
       "steps": 32,
       "day": "2027-01-18",
-      "notBefore": "2027-01-19"
+      "notBefore": "2027-01-19",
+      "leaks": [
+        "nba-gsw16-start",
+        "nba-lakers72-streak",
+        "nba-heat13-streak",
+        "nba-bucks71-streak"
+      ]
     },
     "nba-mavs22-suns-game7-halftime-thirty": {
       "tier": "expert",
@@ -3057,8 +3237,8 @@
       "day": "2027-01-19",
       "notBefore": "2027-01-20",
       "leaks": [
-        "nba-siakam19-g1",
-        "nba-lebron07-final-twentyfive"
+        "nba-kobe03-40-streak",
+        "nba-siakam19-g1"
       ]
     },
     "nba-pippen97-g3-threes": {
@@ -3128,7 +3308,10 @@
       "era": "1990s",
       "steps": 42,
       "day": "2027-01-20",
-      "notBefore": "2027-01-21"
+      "notBefore": "2027-01-21",
+      "leaks": [
+        "nba-spurs99-wins"
+      ]
     },
     "nba-lakers01-shaq-kobe-fifteen-playoff-wins": {
       "tier": "expert",
@@ -3162,21 +3345,27 @@
       "family": "wins-season",
       "franchise": "MIA",
       "era": "2020s",
-      "steps": 32,
+      "steps": 40,
       "day": "2027-01-21",
       "notBefore": "2027-01-22",
       "leaks": [
-        "nba-nuggets23-regular-wins"
+        "nba-celtics24-wins",
+        "nba-nuggets23-regular-wins",
+        "nba-raptors19-regular-wins",
+        "nba-bucks21-regular-wins"
       ]
     },
-    "nba-wilt67-fta": {
+    "nba-wilt67-ppg-v5": {
       "tier": "hard",
-      "family": "free-throws",
+      "family": "scoring-average",
       "franchise": "PHI",
       "era": "1960s",
-      "steps": 190,
+      "steps": 50,
       "day": "2027-01-21",
-      "notBefore": "2027-01-22"
+      "notBefore": "2027-01-22",
+      "leaks": [
+        "nba-wilt62-ppg"
+      ]
     },
     "nba-mavs11-heat-finals-g2-comeback-fifteen": {
       "tier": "expert",
@@ -3203,7 +3392,10 @@
       "era": "1990s",
       "steps": 160,
       "day": "2027-01-22",
-      "notBefore": "2027-01-23"
+      "notBefore": "2027-01-23",
+      "leaks": [
+        "nba-rodman96-rpg"
+      ]
     },
     "nba-gsw22-g6-run": {
       "tier": "hard",
@@ -3255,7 +3447,10 @@
       "era": "2000s",
       "steps": 300,
       "day": "2027-01-23",
-      "notBefore": "2027-01-24"
+      "notBefore": "2027-01-24",
+      "leaks": [
+        "nba-shaq00-finals-ppg"
+      ]
     },
     "nba-floyd87-51": {
       "tier": "hard",
@@ -3273,7 +3468,10 @@
       "era": "1970s",
       "steps": 42,
       "day": "2027-01-23",
-      "notBefore": "2027-01-24"
+      "notBefore": "2027-01-24",
+      "leaks": [
+        "nba-cavs17-g4-q1"
+      ]
     },
     "nba-clippers19-warriors-g2-31-comeback": {
       "tier": "expert",
@@ -3301,9 +3499,12 @@
       "family": "points-period",
       "franchise": "BOS",
       "era": "2000s",
-      "steps": 38,
+      "steps": 50,
       "day": "2027-01-24",
-      "notBefore": "2027-01-25"
+      "notBefore": "2027-01-25",
+      "leaks": [
+        "nba-cavs17-g4-q1"
+      ]
     },
     "nba-kobe05-62-three-quarters": {
       "tier": "hard",
@@ -3312,7 +3513,10 @@
       "era": "2000s",
       "steps": 55,
       "day": "2027-01-24",
-      "notBefore": "2027-01-25"
+      "notBefore": "2027-01-25",
+      "leaks": [
+        "nba-kobe-81"
+      ]
     },
     "nba-celtics08-g6-margin": {
       "tier": "hard",
@@ -3360,16 +3564,23 @@
       "era": "1970s",
       "steps": 190,
       "day": "2027-01-25",
-      "notBefore": "2027-01-26"
+      "notBefore": "2027-01-26",
+      "leaks": [
+        "nba-lakers72-streak",
+        "nba-lakers72-wins"
+      ]
     },
-    "nba-oscar71-apg": {
+    "nba-oscar71-ppg-v5": {
       "tier": "hard",
-      "family": "assists-average",
+      "family": "scoring-average",
       "franchise": "MIL",
       "era": "1970s",
-      "steps": 12,
+      "steps": 300,
       "day": "2027-01-25",
-      "notBefore": "2027-01-26"
+      "notBefore": "2027-01-26",
+      "leaks": [
+        "nba-alcindor71-ppg"
+      ]
     },
     "nba-mavs24-finals-g4-blowout-margin": {
       "tier": "expert",
@@ -3411,7 +3622,11 @@
       "era": "1980s",
       "steps": 160,
       "day": "2027-01-26",
-      "notBefore": "2027-01-27"
+      "notBefore": "2027-01-27",
+      "leaks": [
+        "nba-curry16-season-threes-402",
+        "nba-curry22-allstar-sixteen-threes"
+      ]
     },
     "nba-teague15-assists-average": {
       "tier": "hard",
@@ -3436,9 +3651,12 @@
       "family": "points-game",
       "franchise": "BOS",
       "era": "2020s",
-      "steps": 70,
+      "steps": 50,
       "day": "2027-01-27",
-      "notBefore": "2027-01-28"
+      "notBefore": "2027-01-28",
+      "leaks": [
+        "nba-tatum22-bucks-g6-46"
+      ]
     },
     "nba-bucks19-opening-win-streak": {
       "tier": "medium",
@@ -3724,10 +3942,7 @@
       "era": "2000s",
       "steps": 38,
       "day": null,
-      "notBefore": "2026-12-16",
-      "leaks": [
-        "nba-kidd02-finals-td"
-      ]
+      "notBefore": null
     },
     "nba-robinson94-71": {
       "tier": "easy",
@@ -3918,7 +4133,6 @@
       "day": null,
       "notBefore": "2027-01-18",
       "leaks": [
-        "nba-curry18-g2-threes",
         "nba-curry22-allstar-sixteen-threes"
       ]
     },
@@ -3945,7 +4159,6 @@
       "day": null,
       "notBefore": "2027-01-20",
       "leaks": [
-        "nba-spurs14-blowouts",
         "nba-spurs14-finals-avg-margin-fourteen"
       ]
     },
@@ -4065,6 +4278,159 @@
       "steps": 150,
       "day": null,
       "notBefore": "2026-12-05"
+    },
+    "nba-bucks24-cup-quarter": {
+      "tier": "hard",
+      "family": "points-period",
+      "franchise": "OKC",
+      "era": "2020s",
+      "steps": 32,
+      "day": null,
+      "notBefore": "2026-11-30"
+    },
+    "nba-pistons04-under-70": {
+      "tier": "hard",
+      "family": "defense-streak",
+      "franchise": "DET",
+      "era": "2000s",
+      "steps": 10,
+      "day": null,
+      "notBefore": "2026-12-05"
+    },
+    "nba-lakers20-lead-record": {
+      "tier": "medium",
+      "family": "wins-situational",
+      "franchise": "LAL",
+      "era": "2010s",
+      "steps": 50,
+      "day": null,
+      "notBefore": "2027-01-06",
+      "leaks": [
+        "nba-mitchell20-bubble-fiftyseven"
+      ]
+    },
+    "nba-blazers77-g4-margin": {
+      "tier": "hard",
+      "family": "margin",
+      "franchise": "POR",
+      "era": "1970s",
+      "steps": 45,
+      "day": null,
+      "notBefore": "2026-12-10"
+    },
+    "nba-jazz98-g3-54": {
+      "tier": "hard",
+      "family": "points-team-game",
+      "franchise": "UTA",
+      "era": "1990s",
+      "steps": 75,
+      "day": null,
+      "notBefore": "2026-12-11",
+      "leaks": [
+        "nba-bulls98-g3-margin-v5"
+      ]
+    },
+    "nba-mcdonald76-ot": {
+      "tier": "hard",
+      "family": "points-period",
+      "franchise": "BOS",
+      "era": "1970s",
+      "steps": 15,
+      "day": null,
+      "notBefore": "2026-12-12"
+    },
+    "nba-kidd02-finals-td": {
+      "tier": "hard",
+      "family": "triple-doubles-finals",
+      "franchise": "BKN",
+      "era": "2000s",
+      "steps": 60,
+      "day": null,
+      "notBefore": "2026-12-16"
+    },
+    "nba-gsw19-g2-run": {
+      "tier": "hard",
+      "family": "points-run",
+      "franchise": "GSW",
+      "era": "2010s",
+      "steps": 24,
+      "day": null,
+      "notBefore": "2026-12-21"
+    },
+    "nba-sixers73-games-back": {
+      "tier": "hard",
+      "family": "games-back",
+      "franchise": "PHI",
+      "era": "1970s",
+      "steps": 50,
+      "day": null,
+      "notBefore": "2026-12-27"
+    },
+    "nba-allstar51-attendance": {
+      "tier": "hard",
+      "family": "attendance",
+      "franchise": null,
+      "era": "1950s",
+      "steps": 260,
+      "day": null,
+      "notBefore": "2026-12-29"
+    },
+    "nba-sprewell99-g5": {
+      "tier": "hard",
+      "family": "points-game",
+      "franchise": "NYK",
+      "era": "1990s",
+      "steps": 39,
+      "day": null,
+      "notBefore": "2027-01-02"
+    },
+    "nba-pacers00-home-streak": {
+      "tier": "hard",
+      "family": "win-streak",
+      "franchise": "IND",
+      "era": "1990s",
+      "steps": 36,
+      "day": null,
+      "notBefore": "2027-01-03"
+    },
+    "nba-raptors01-team-blocks": {
+      "tier": "hard",
+      "family": "blocks-team",
+      "franchise": "TOR",
+      "era": "2000s",
+      "steps": 30,
+      "day": null,
+      "notBefore": "2027-01-16"
+    },
+    "nba-heat13-month-wins": {
+      "tier": "hard",
+      "family": "wins-month",
+      "franchise": "MIA",
+      "era": "2010s",
+      "steps": 18,
+      "day": null,
+      "notBefore": "2027-01-19"
+    },
+    "nba-wilt67-fta": {
+      "tier": "hard",
+      "family": "free-throws",
+      "franchise": "PHI",
+      "era": "1960s",
+      "steps": 190,
+      "day": null,
+      "notBefore": "2027-01-22"
+    },
+    "nba-oscar71-apg": {
+      "tier": "hard",
+      "family": "assists-average",
+      "franchise": "MIL",
+      "era": "1970s",
+      "steps": 12,
+      "day": null,
+      "notBefore": "2027-01-26",
+      "leaks": [
+        "nba-oscar71-ppg-v5"
+      ]
     }
   },
   "reserves": [
@@ -4091,7 +4457,16 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "meta": {
+        "format": "recall",
+        "family": "win-streak",
+        "era": "1990s",
+        "subjects": [
+          "Chicago Bulls"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-sonics96-wins",
@@ -4116,7 +4491,16 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "1990s",
+        "subjects": [
+          "Oklahoma City Thunder"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-finals96-combined-wins",
@@ -4141,7 +4525,14 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "meta": {
+        "format": "recall",
+        "family": "wins-combined",
+        "era": "1990s",
+        "subjects": [],
+        "supports": []
+      }
     },
     {
       "id": "nba-wilt61-78",
@@ -4166,7 +4557,17 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "1960s",
+        "subjects": [
+          "Wilt Chamberlain",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-wilt-100-combined",
@@ -4191,7 +4592,16 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "meta": {
+        "format": "recall",
+        "family": "points-combined",
+        "era": "1960s",
+        "subjects": [
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-wilt62-total-points",
@@ -4216,7 +4626,17 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "meta": {
+        "format": "recall",
+        "family": "points-season-total",
+        "era": "1960s",
+        "subjects": [
+          "Wilt Chamberlain",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-curry19-g3",
@@ -4241,7 +4661,17 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "Stephen Curry",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-kobe-three-titles-age",
@@ -4266,7 +4696,17 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "meta": {
+        "format": "recall",
+        "family": "age",
+        "era": "2000s",
+        "subjects": [
+          "Kobe Bryant",
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-wade06-g5-fta",
@@ -4291,7 +4731,17 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "meta": {
+        "format": "recall",
+        "family": "free-throws",
+        "era": "2000s",
+        "subjects": [
+          "Dwyane Wade",
+          "Miami Heat"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-mavs07-wins",
@@ -4316,7 +4766,16 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "2000s",
+        "subjects": [
+          "Dallas Mavericks"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-knicks94-playoff-games",
@@ -4341,7 +4800,16 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "meta": {
+        "format": "recall",
+        "family": "playoff-games",
+        "era": "1990s",
+        "subjects": [
+          "New York Knicks"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-celtics08-g6-steals",
@@ -4366,7 +4834,16 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "meta": {
+        "format": "recall",
+        "family": "steals-team",
+        "era": "2000s",
+        "subjects": [
+          "Boston Celtics"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-duncan14-finals-reb",
@@ -4391,7 +4868,17 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "meta": {
+        "format": "recall",
+        "family": "rebounds-series",
+        "era": "2010s",
+        "subjects": [
+          "Tim Duncan",
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-diaw14-finals-ast",
@@ -4416,7 +4903,17 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "expert"
+      "difficulty": "expert",
+      "meta": {
+        "format": "recall",
+        "family": "assists-series",
+        "era": "2010s",
+        "subjects": [
+          "Boris Diaw",
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-leonard14-age",
@@ -4441,7 +4938,17 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "meta": {
+        "format": "recall",
+        "family": "age",
+        "era": "2010s",
+        "subjects": [
+          "Kawhi Leonard",
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-lakers01-39",
@@ -4466,7 +4973,16 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "meta": {
+        "format": "recall",
+        "family": "margin",
+        "era": "2000s",
+        "subjects": [
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-smith95-threes",
@@ -4491,7 +5007,17 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "meta": {
+        "format": "recall",
+        "family": "threes-game",
+        "era": "1990s",
+        "subjects": [
+          "Kenny Smith",
+          "Houston Rockets"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-middleton21-g4",
@@ -4516,7 +5042,17 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2020s",
+        "subjects": [
+          "Khris Middleton",
+          "Milwaukee Bucks"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-tatum22-debut-ast",
@@ -4541,7 +5077,17 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "meta": {
+        "format": "recall",
+        "family": "assists-game",
+        "era": "2020s",
+        "subjects": [
+          "Jayson Tatum",
+          "Boston Celtics"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-skiles90-30",
@@ -4566,7 +5112,17 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "meta": {
+        "format": "recall",
+        "family": "assists-game",
+        "era": "1990s",
+        "subjects": [
+          "Scott Skiles",
+          "Orlando Magic"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-lucas84-quarter-ast",
@@ -4591,7 +5147,17 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "expert"
+      "difficulty": "expert",
+      "meta": {
+        "format": "recall",
+        "family": "assists-period",
+        "era": "1980s",
+        "subjects": [
+          "John Lucas",
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-celtics73-wins",
@@ -4616,7 +5182,16 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "1970s",
+        "subjects": [
+          "Boston Celtics"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-pistons06-wins",
@@ -4641,7 +5216,16 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "2000s",
+        "subjects": [
+          "Detroit Pistons"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-sixers83-wins",
@@ -4666,7 +5250,16 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "1980s",
+        "subjects": [
+          "Philadelphia 76ers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-heat13-wins",
@@ -4691,7 +5284,16 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "medium"
+      "difficulty": "medium",
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "2010s",
+        "subjects": [
+          "Miami Heat"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-nets02-improvement",
@@ -4717,7 +5319,16 @@
         "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
-      "difficulty": "hard"
+      "difficulty": "hard",
+      "meta": {
+        "format": "recall",
+        "family": "wins-change",
+        "era": "2000s",
+        "subjects": [
+          "Brooklyn Nets"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-robinson94-71",
@@ -4768,7 +5379,17 @@
             "quote": "10.7 rebounds per game, career-high 4.8 assists per game and 3.3 blocks per game"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "1990s",
+        "subjects": [
+          "David Robinson",
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-gsw15-combined-wins",
@@ -4819,7 +5440,16 @@
             "quote": "The Warriors were the first team since the 1990–91 Bulls to win a title with a roster that did not have any players with Finals experience"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-combined",
+        "era": "2010s",
+        "subjects": [
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-baylor62-finals-61",
@@ -4870,7 +5500,17 @@
             "quote": "the Lakers did give Baylor a championship ring for his contributions at the start of the 1971–72 season"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "1960s",
+        "subjects": [
+          "Elgin Baylor",
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-rockets08-streak",
@@ -4921,7 +5561,16 @@
             "quote": "a strong 40-point and 10-rebound performance from McGrady in the decisive Game 6"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "win-streak",
+        "era": "2000s",
+        "subjects": [
+          "Houston Rockets"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-powe08-g2",
@@ -4972,7 +5621,17 @@
             "quote": "Over the course of the game, Powe shot 13 free throws while the Lakers shot 10"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2000s",
+        "subjects": [
+          "Leon Powe",
+          "Boston Celtics"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-lebron15-g1-fga",
@@ -5023,7 +5682,17 @@
             "quote": "he was diagnosed with a fractured left kneecap that would require surgery and was ruled out for the rest of the Finals"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "field-goals",
+        "era": "2010s",
+        "subjects": [
+          "LeBron James",
+          "Cleveland Cavaliers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-gsw16-mavs-39-threes",
@@ -5074,7 +5743,16 @@
             "quote": "Draymond Green recorded a five-by-five game"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "threes-combined",
+        "era": "2010s",
+        "subjects": [
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-walton77-g5-dreb",
@@ -5125,7 +5803,17 @@
             "quote": "Pts: Gross 25"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "defensive-rebounds",
+        "era": "1970s",
+        "subjects": [
+          "Bill Walton",
+          "Portland Trail Blazers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-wilt62-week-average",
@@ -5176,7 +5864,17 @@
             "quote": "no other player had ever scored 3,000 points at that point"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "scoring-average",
+        "era": "1960s",
+        "subjects": [
+          "Wilt Chamberlain",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-thunder24-cup-3pa",
@@ -5227,7 +5925,16 @@
             "quote": "the first year of a multiyear deal with the airline company Emirates"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "threes-attempts",
+        "era": "2020s",
+        "subjects": [
+          "Oklahoma City Thunder"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-spurs99-playoff-streak",
@@ -5278,7 +5985,16 @@
             "quote": "recorded back-to-back sweeps in the second round and the conference finals"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "win-streak",
+        "era": "1990s",
+        "subjects": [
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-heat08-wins",
@@ -5329,7 +6045,16 @@
             "quote": "Alonzo had suffered a season-ending and a possibly career-ending knee injury"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "2000s",
+        "subjects": [
+          "Miami Heat"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-spurs24-losing-streak",
@@ -5380,7 +6105,16 @@
             "quote": "were eliminated from playoff contention for the fifth consecutive season"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "losing-streak",
+        "era": "2020s",
+        "subjects": [
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-cavs16-parade",
@@ -5431,7 +6165,16 @@
             "quote": "made a phone call to general manager Bob Myers to urge him to try and sign"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "parade-crowd",
+        "era": "2010s",
+        "subjects": [
+          "Cleveland Cavaliers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-butler20-g3-ast",
@@ -5482,7 +6225,17 @@
             "quote": "Miami's starters outscored the Lakers' starters 89–51"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "assists-game",
+        "era": "2010s",
+        "subjects": [
+          "Jimmy Butler",
+          "Miami Heat"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-spurs99-alamodome-attendance",
@@ -5533,7 +6286,16 @@
             "quote": "Due to a lockout, the regular season began on February 5, 1999"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "attendance",
+        "era": "1990s",
+        "subjects": [
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-hornets08-spurs-g7-points",
@@ -5584,7 +6346,16 @@
             "quote": "May 19 San Antonio 82–91 West (20) Chandler (15) Paul (14)"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-team-game",
+        "era": "2000s",
+        "subjects": [
+          "New Orleans Pelicans"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-kareem89-retire-age",
@@ -5635,7 +6406,17 @@
             "quote": "Pistons guard Joe Dumars was named NBA Finals Most Valuable Player"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "age",
+        "era": "1980s",
+        "subjects": [
+          "Kareem Abdul-Jabbar",
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-rodman96-finals-oreb",
@@ -5686,7 +6467,17 @@
             "quote": "the Bulls swept the Magic to gain entry into the Finals"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "offensive-rebounds",
+        "era": "1990s",
+        "subjects": [
+          "Dennis Rodman",
+          "Chicago Bulls"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-curry16-ot-points",
@@ -5737,7 +6528,17 @@
             "quote": "Curry is the 11th player to win back-to-back MVP honors and is the first unanimous winner"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-period",
+        "era": "2010s",
+        "subjects": [
+          "Stephen Curry",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-raptors19-road-wins",
@@ -5788,7 +6589,16 @@
             "quote": "NBA Finals: 4–2 (home: 1–2; road: 3–0)"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-situational",
+        "era": "2010s",
+        "subjects": [
+          "Toronto Raptors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-diaw14-heat-g4-assists",
@@ -5839,7 +6649,17 @@
             "quote": "June 12 @ Miami W 107–86 Kawhi Leonard (20) Kawhi Leonard (14)"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "assists-game",
+        "era": "2010s",
+        "subjects": [
+          "Boris Diaw",
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-wilt72-total-reb",
@@ -5890,7 +6710,17 @@
             "quote": "Western Conference Finals: 4–2"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "rebounds-season",
+        "era": "1970s",
+        "subjects": [
+          "Wilt Chamberlain",
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-rose11-hawks-g3-points",
@@ -5941,7 +6771,17 @@
             "quote": "eliminated by the Miami Heat team led by LeBron James, Dwyane Wade, and Chris Bosh"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "Derrick Rose",
+          "Chicago Bulls"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-spurs99-memorial-day",
@@ -5992,7 +6832,16 @@
             "quote": "the Lakers, who were led by the All-Star trio of Shaquille O'Neal, Kobe Bryant and Glen Rice"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "comeback",
+        "era": "1990s",
+        "subjects": [
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-finals10-g7-viewers",
@@ -6043,7 +6892,14 @@
             "quote": "This game was the first Game 7 in an NBA Finals since 2005"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "viewership",
+        "era": "2000s",
+        "subjects": [],
+        "supports": []
+      }
     },
     {
       "id": "nba-paul21-seasons",
@@ -6094,7 +6950,17 @@
             "quote": "Paul became the first player in NBA playoff history to lose four series in which his team led 2–0"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "seasons-count",
+        "era": "2020s",
+        "subjects": [
+          "Chris Paul",
+          "Phoenix Suns"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-lakers04-g3-68",
@@ -6145,7 +7011,16 @@
             "quote": "Detroit wins NBA Finals, 4–1"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-team-game",
+        "era": "2000s",
+        "subjects": [
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-finals22-g1-threes",
@@ -6196,7 +7071,14 @@
             "quote": "the most ever for a player in his Finals debut"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "threes-combined",
+        "era": "2020s",
+        "subjects": [],
+        "supports": []
+      }
     },
     {
       "id": "nba-james09-magic-g1-points",
@@ -6247,7 +7129,17 @@
             "quote": "The Magic would go on to lose to the Los Angeles Lakers in the NBA Finals in five games."
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2000s",
+        "subjects": [
+          "LeBron James",
+          "Cleveland Cavaliers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-finals09-g2-q1",
@@ -6298,7 +7190,14 @@
             "quote": "forced Courtney Lee to miss an awkward layup shot"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-period",
+        "era": "2000s",
+        "subjects": [],
+        "supports": []
+      }
     },
     {
       "id": "nba-miller92-57",
@@ -6349,7 +7248,17 @@
             "quote": "left the game with 1:43 remaining to preserve Miller's 57-point record"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "1990s",
+        "subjects": [
+          "Reggie Miller",
+          "Indiana Pacers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-oscar62-assists",
@@ -6400,7 +7309,17 @@
             "quote": "He won the NBA MVP award and became the only player other than"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "assists-season",
+        "era": "1960s",
+        "subjects": [
+          "Oscar Robertson",
+          "Sacramento Kings"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-robinson20-season-ppg",
@@ -6451,7 +7370,17 @@
             "quote": "Duncan Robinson | SG | 73 | 68 | 2,166 | 232 | 102"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "scoring-average",
+        "era": "2010s",
+        "subjects": [
+          "Duncan Robinson",
+          "Miami Heat"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-jojo76-finals-points",
@@ -6502,7 +7431,981 @@
             "quote": "3 x-Phoenix Suns 42 40 .512"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-series",
+        "era": "1970s",
+        "subjects": [
+          "Jo Jo White",
+          "Boston Celtics"
+        ],
+        "supports": []
+      }
+    },
+    {
+      "id": "nba-bucks24-cup-quarter",
+      "sport": "NBA",
+      "prompt": "In the 2024 NBA Cup final, Milwaukee held Oklahoma City to how many points in one quarter?",
+      "context": "2024 NBA Cup final · Bucks vs Thunder",
+      "answer": 14,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 4,
+      "max": 36,
+      "step": 1,
+      "note": "14.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
+        "quote": "holding the Thunder to just 14 points in the period."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Khris Middleton missed Milwaukee's championship game because he was ill.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
+            "quote": "The Bucks missed Khris Middleton due to illness"
+          }
+        },
+        {
+          "text": "Giannis recorded a triple-double with 26 points, 19 rebounds and 10 assists in the Cup final.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
+            "quote": "Giannis Antetokounmpo recorded a triple-double while leading the Bucks in points (26), rebounds (19), and assists (10)."
+          }
+        },
+        {
+          "text": "The Bucks led by just one point at halftime, before pulling away after the break.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2024_NBA_Cup",
+            "quote": "The game was close at halftime, with the Bucks leading 51–50"
+          }
+        }
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-period",
+        "era": "2020s",
+        "subjects": [
+          "Oklahoma City Thunder"
+        ],
+        "supports": []
+      }
+    },
+    {
+      "id": "nba-pistons04-under-70",
+      "sport": "NBA",
+      "prompt": "The 2003–04 Pistons were the first team to hold how many straight opponents under 70 points?",
+      "context": "Detroit Pistons · 2003–04 regular season",
+      "answer": 5,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "note": "Five in a row.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+        "quote": "They became the first team in NBA history to hold five consecutive opponents under 70 points"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Detroit's front office added Rasheed Wallace in a complicated trade at the deadline.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "for guard Mike James and forward Rasheed Wallace"
+          }
+        },
+        {
+          "text": "The Pistons had replaced Rick Carlisle with Larry Brown as head coach before the season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "In his place, Dumars hired legendary coach Larry Brown"
+          }
+        },
+        {
+          "text": "Ben Wallace and Richard Hamilton were acquired through trades rather than drafted by Detroit.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
+            "quote": "He landed defensive stalwart Ben Wallace and guard Richard Hamilton by trading established stars"
+          }
+        }
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "defense-streak",
+        "era": "2000s",
+        "subjects": [
+          "Detroit Pistons"
+        ],
+        "supports": []
+      }
+    },
+    {
+      "id": "nba-lakers20-lead-record",
+      "sport": "NBA",
+      "prompt": "The 2019–20 Lakers never lost when leading after three quarters. How many such games did they win, playoffs included?",
+      "context": "Los Angeles Lakers · 2019–20 · regular season plus playoffs",
+      "answer": 57,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 35,
+      "max": 85,
+      "step": 1,
+      "note": "57, going 57–0.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
+        "quote": "to be undefeated in a season when leading entering the fourth quarter, going a combined 57–0 record"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "The Lakers–Heat series took place inside the Orlando-area NBA bubble with no paying fans in the building.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
+            "quote": "games were played in the Bubble behind closed doors"
+          }
+        },
+        {
+          "text": "Both Finals participants had missed the playoffs the previous year, an unprecedented turnaround for the matchup.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
+            "quote": "the first time that Finals participants had both missed the playoffs in the previous season"
+          }
+        },
+        {
+          "text": "Jeanie Buss became the first female controlling owner to guide her team to an NBA title.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
+            "quote": "Jeanie Buss became the first female controlling owner to guide her team to an NBA title"
+          }
+        }
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-situational",
+        "era": "2010s",
+        "subjects": [
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
+    },
+    {
+      "id": "nba-blazers77-g4-margin",
+      "sport": "NBA",
+      "prompt": "By how many points did Portland win Game 4 of the 1977 Finals?",
+      "context": "1977 NBA Finals · Game 4 · vs Philadelphia",
+      "answer": 32,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 45,
+      "step": 1,
+      "note": "32, the largest Game 4 margin until 2024.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+        "quote": "the 32 point win being the largest margin of victory in a Finals game 4 until 2024"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Julius Erving led Philadelphia with 24 points in its Game 4 defeat.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+            "quote": "Pts: Erving 24"
+          }
+        },
+        {
+          "text": "Maurice Lucas's Blazers had lost the opening pair in Philadelphia before evening the series at home.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+            "quote": "The series started 2–0 in favor of Philadelphia, but Portland rebounded in the next four games"
+          }
+        },
+        {
+          "text": "Walton contributed 13 rebounds despite foul trouble in that victory.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
+            "quote": "Rebs: Walton 13"
+          }
+        }
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "margin",
+        "era": "1970s",
+        "subjects": [
+          "Portland Trail Blazers"
+        ],
+        "supports": []
+      }
+    },
+    {
+      "id": "nba-jazz98-g3-54",
+      "sport": "NBA",
+      "prompt": "Utah lost Game 3 of the 1998 Finals by 42 points. How many points did the Jazz score?",
+      "context": "1998 NBA Finals · Game 3 · at Chicago",
+      "answer": 54,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 30,
+      "max": 105,
+      "step": 1,
+      "note": "54, in a 96–54 loss.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
+        "quote": "In a 96–54 loss, the Jazz set the record for the 42-point loss in Finals history"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Chicago's entire roster eventually scored in the rout, including backup center Bill Wennington late.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
+            "quote": "Every player on the Bulls roster scored at least once"
+          }
+        },
+        {
+          "text": "Utah had beaten Chicago in both regular-season meetings and entered the championship series confident.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
+            "quote": "The Jazz had won both regular season meetings with the Bulls"
+          }
+        },
+        {
+          "text": "The Jazz entered the Finals after sweeping Shaquille O'Neal's Los Angeles Lakers in the West finals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
+            "quote": "the Jazz uneventfully swept the Los Angeles Lakers"
+          }
+        }
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-team-game",
+        "era": "1990s",
+        "subjects": [
+          "Utah Jazz"
+        ],
+        "supports": []
+      }
+    },
+    {
+      "id": "nba-mcdonald76-ot",
+      "sport": "NBA",
+      "prompt": "In the triple-overtime Game 5 of 1976, reserve Glenn McDonald scored how many points?",
+      "context": "1976 NBA Finals · Game 5 · vs Phoenix",
+      "answer": 8,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 15,
+      "step": 1,
+      "note": "Eight, all in overtime.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
+        "quote": "Glenn McDonald scored eight points in the game, all in overtime."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Phoenix's Paul Westphal deliberately called a timeout the Suns didn't have to gain a tactical advantage.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
+            "quote": "The Suns' Paul Westphal also intentionally called a timeout even though his team had no more remaining"
+          }
+        },
+        {
+          "text": "John Havlicek appeared to win the epic with a late basket, only for more time to remain on the clock.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
+            "quote": "Havlicek hit what appeared to be the game-winning shot at the end of the second overtime"
+          }
+        },
+        {
+          "text": "The dramatic winner came from a lightly used Boston reserve, not one of the celebrated starters.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
+            "quote": "Glenn McDonald, a little-used Celtic reserve player"
+          }
+        }
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-period",
+        "era": "1970s",
+        "subjects": [
+          "Glenn McDonald",
+          "Boston Celtics"
+        ],
+        "supports": []
+      }
+    },
+    {
+      "id": "nba-kidd02-finals-td",
+      "sport": "NBA",
+      "prompt": "Jason Kidd posted a triple-double in the 2002 Finals. It was which number in Finals history?",
+      "context": "2002 NBA Finals · Game 1 · at Los Angeles",
+      "answer": 26,
+      "unit": {
+        "singular": "triple-double",
+        "plural": "triple-doubles"
+      },
+      "min": 15,
+      "max": 75,
+      "step": 1,
+      "note": "The 26th.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2002_NBA_Finals",
+        "quote": "Kidd finished with a triple-double, the 26th in Finals history"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "The Nets had improved by twenty-six wins in the regular season before reaching their first NBA Finals.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2002_NBA_Finals",
+            "quote": "a twenty-six-win improvement from the last season"
+          }
+        },
+        {
+          "text": "New Jersey coach Byron Scott, a former Showtime Laker, received a standing ovation in Los Angeles.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2002_NBA_Finals",
+            "quote": "New Jersey head coach Byron Scott, a member of the Showtime Lakers, received a standing ovation"
+          }
+        },
+        {
+          "text": "Shaquille O'Neal won Finals MVP for a third consecutive season as the Lakers completed a three-peat.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2002_NBA_Finals",
+            "quote": "Shaquille O'Neal of the Lakers was named the NBA Finals Most Valuable Player (MVP) for the third consecutive year"
+          }
+        }
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "triple-doubles-finals",
+        "era": "2000s",
+        "subjects": [
+          "Jason Kidd",
+          "Brooklyn Nets"
+        ],
+        "supports": []
+      }
+    },
+    {
+      "id": "nba-gsw19-g2-run",
+      "sport": "NBA",
+      "prompt": "Golden State opened the second half of Game 2 of the 2019 Finals with how many unanswered points?",
+      "context": "2019 NBA Finals · Game 2 · at Toronto",
+      "answer": 18,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "note": "18, the most to start a half in Finals history.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
+        "quote": "The Warriors' 18 unanswered points to begin the second half were the most in NBA Finals history to start a half."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Klay Thompson's night ended after he landed awkwardly while attempting a three and injured his hamstring.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
+            "quote": "Thompson left the game in the fourth quarter with a left hamstring injury"
+          }
+        },
+        {
+          "text": "Andre Iguodala hit a late outside shot to prevent Toronto's comeback from forcing another ending.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
+            "quote": "Iguodala cemented the win with a three-pointer with 5.9 seconds remaining"
+          }
+        },
+        {
+          "text": "DeMarcus Cousins made a rare Finals start and added rebounds and assists after returning from injury.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
+            "quote": "Cousins, who was moved into the starting lineup, had 11 points, 10 rebounds and six assists"
+          }
+        }
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-run",
+        "era": "2010s",
+        "subjects": [
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
+    },
+    {
+      "id": "nba-sixers73-games-back",
+      "sport": "NBA",
+      "prompt": "How many games behind first-place Boston did the 1972–73 Sixers finish in their division?",
+      "context": "Philadelphia 76ers · 1972–73 · Atlantic Division",
+      "answer": 59,
+      "unit": {
+        "singular": "game back",
+        "plural": "games back"
+      },
+      "min": 45,
+      "max": 95,
+      "step": 1,
+      "note": "59, an NBA record.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+        "quote": "The 76ers finished an NBA-record 59 games behind the Atlantic Division champion Boston Celtics."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Only six seasons earlier, Philadelphia had set an NBA record for regular-season wins.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+            "quote": "Only six seasons earlier, the 76ers had set the NBA record for most wins in a season"
+          }
+        },
+        {
+          "text": "Philadelphia's average scoring margin was an abysmal minus 12.1 points per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+            "quote": "their −12.1 points per game point differential"
+          }
+        },
+        {
+          "text": "The struggling roster was playing its tenth season in Philadelphia.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+            "quote": "their 24th season in the NBA and tenth in Philadelphia"
+          }
+        }
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "games-back",
+        "era": "1970s",
+        "subjects": [
+          "Philadelphia 76ers"
+        ],
+        "supports": []
+      }
+    },
+    {
+      "id": "nba-allstar51-attendance",
+      "sport": "NBA",
+      "prompt": "How many fans attended the first NBA All-Star Game in 1951?",
+      "context": "1951 NBA All-Star Game · Boston",
+      "answer": 10094,
+      "unit": {
+        "singular": "fan",
+        "plural": "fans"
+      },
+      "min": 4000,
+      "max": 30000,
+      "step": 100,
+      "note": "10,094, when the average crowd was about 3,500.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/NBA_All-Star_Game",
+        "quote": "drawing an attendance of 10,094, much higher than that season's average attendance of 3,500."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "The first All-Star Game came out of a public-relations push following a college basketball point-shaving scandal.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1951_NBA_All-Star_Game",
+            "quote": "the basketball world had just been rocked by the college basketball point-shaving scandal"
+          }
+        },
+        {
+          "text": "Celtics owner Walter Brown offered to host the event and cover any losses himself.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1951_NBA_All-Star_Game",
+            "quote": "Brown remained confident that it would be a success. He even offered to host the game"
+          }
+        },
+        {
+          "text": "The original All-Stars were chosen by sportswriters who were not allowed to vote for players from their own cities.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1951_NBA_All-Star_Game",
+            "quote": "They were not allowed to select players from their own cities"
+          }
+        }
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "attendance",
+        "era": "1950s",
+        "subjects": [],
+        "supports": []
+      }
+    },
+    {
+      "id": "nba-sprewell99-g5",
+      "sport": "NBA",
+      "prompt": "The Knicks scored 39 second-half points in the 1999 clincher. How many were Latrell Sprewell's?",
+      "context": "1999 NBA Finals · Game 5 · vs San Antonio",
+      "answer": 25,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 0,
+      "max": 39,
+      "step": 1,
+      "note": "25 of the 39.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+        "quote": "The Knicks scored 39 points in the second half, and Latrell Sprewell scored 25 of them"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "An Avery Johnson jumper became the championship-clinching basket as the Knicks fell just short.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+            "quote": "Avery Johnson hit the game-winner with 66 seconds remaining"
+          }
+        },
+        {
+          "text": "New York's Cinderella run came without injured franchise center Patrick Ewing.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+            "quote": "Patrick Ewing (2008; did not play)"
+          }
+        },
+        {
+          "text": "The Knicks came from the last East playoff seed and still won a Finals game at Madison Square Garden.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
+            "quote": "the first time an eighth-seeded team won an NBA Finals game"
+          }
+        }
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "1990s",
+        "subjects": [
+          "Latrell Sprewell",
+          "New York Knicks"
+        ],
+        "supports": []
+      }
+    },
+    {
+      "id": "nba-pacers00-home-streak",
+      "sport": "NBA",
+      "prompt": "The 1999–2000 Pacers set a franchise record for consecutive home wins. How many?",
+      "context": "Indiana Pacers · 1999–2000",
+      "answer": 25,
+      "unit": {
+        "singular": "game",
+        "plural": "games"
+      },
+      "min": 0,
+      "max": 36,
+      "step": 1,
+      "note": "25.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+        "quote": "including a franchise-best 25 game win streak at home"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "The Pacers finally defeated the rival Knicks in the Eastern finals to reach their first NBA championship series.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
+            "quote": "The Pacers advanced to the NBA Finals for the first time in franchise history"
+          }
+        },
+        {
+          "text": "Indiana's coach during that Finals run was former Boston Celtics star Larry Bird.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "Indiana Pacers  Larry Bird"
+          }
+        },
+        {
+          "text": "Both finalists were playing in newly opened home arenas, Indiana's Fieldhouse and Los Angeles's Staples Center.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
+            "quote": "both teams in the Finals featured newly built arenas"
+          }
+        }
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "win-streak",
+        "era": "1990s",
+        "subjects": [
+          "Indiana Pacers"
+        ],
+        "supports": []
+      }
+    },
+    {
+      "id": "nba-raptors01-team-blocks",
+      "sport": "NBA",
+      "prompt": "In March 2001, Toronto set what was then the NBA record for team blocks in a game. How many?",
+      "context": "Toronto Raptors · 2000–01 regular season",
+      "answer": 23,
+      "unit": {
+        "singular": "block",
+        "plural": "blocks"
+      },
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "note": "23, an NBA record at the time.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
+        "quote": "The Raptors combined for 23 blocks, an NBA record at the time"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Toronto reserve Keon Clark supplied the biggest share of the swats despite not starting against Atlanta.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
+            "quote": "Keon Clark  | Toronto Raptors  | March 23, 2001"
+          }
+        },
+        {
+          "text": "Clark astonishingly committed no personal fouls while sending shot after shot away.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
+            "quote": "Did not commit a personal foul; holds the NBA record for most blocks"
+          }
+        },
+        {
+          "text": "The Raptors' defensive masterpiece came against the Atlanta Hawks in a comfortable win.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
+            "quote": "Atlanta Hawks  | 112–86"
+          }
+        }
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "blocks-team",
+        "era": "2000s",
+        "subjects": [
+          "Toronto Raptors"
+        ],
+        "supports": []
+      }
+    },
+    {
+      "id": "nba-heat13-month-wins",
+      "sport": "NBA",
+      "prompt": "In 2012–13 Miami became the first team to win how many games in a single calendar month?",
+      "context": "Miami Heat · 2012–13 regular season",
+      "answer": 17,
+      "unit": {
+        "singular": "win",
+        "plural": "wins"
+      },
+      "min": 13,
+      "max": 31,
+      "step": 1,
+      "note": "17, going 17–1 in March 2013.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+        "quote": "becoming the first team in NBA history to win at least 17 games in a calendar month"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "During that remarkable stretch, Miami completed a sweep of all opposing NBA franchises by beating Indiana.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+            "quote": "the Heat beat every single team in the NBA with their victory against the Indiana Pacers"
+          }
+        },
+        {
+          "text": "Miami even won in San Antonio while James, Wade and Chalmers were out of the lineup.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+            "quote": "The Heat defeated the San Antonio Spurs 88-86 without all-stars LeBron James and Dwyane Wade"
+          }
+        },
+        {
+          "text": "Comebacks became routine: Miami erased a double-digit deficit against Detroit late in the streak.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+            "quote": "The Heat overcame an 11-point deficit to defeat the Detroit Pistons"
+          }
+        }
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-month",
+        "era": "2010s",
+        "subjects": [
+          "Miami Heat"
+        ],
+        "supports": []
+      }
+    },
+    {
+      "id": "nba-wilt67-fta",
+      "sport": "NBA",
+      "prompt": "How many free throws did Wilt Chamberlain attempt in 1966–67?",
+      "context": "Philadelphia 76ers · 1966–67 regular season",
+      "answer": 875,
+      "unit": {
+        "singular": "free-throw attempt",
+        "plural": "free-throw attempts"
+      },
+      "min": 550,
+      "max": 1500,
+      "step": 5,
+      "note": "875.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+        "quote": "his 875 free throw attempts"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Wilt hit a league-record share of his field-goal attempts as his offense shifted toward efficiency.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+            "quote": "Shooting less, he made a league-record 68% of his shots"
+          }
+        },
+        {
+          "text": "Even as he shot less frequently, Wilt still led the league in rebounds that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+            "quote": "while scoring 24 points per game and once again leading the NBA in rebounds"
+          }
+        },
+        {
+          "text": "The league named Wilt its regular-season MVP in the same year Philadelphia captured the title.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
+            "quote": "Wilt Chamberlain, NBA Most Valuable Player Award"
+          }
+        }
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "free-throws",
+        "era": "1960s",
+        "subjects": [
+          "Wilt Chamberlain",
+          "Philadelphia 76ers"
+        ],
+        "supports": []
+      }
+    },
+    {
+      "id": "nba-oscar71-apg",
+      "sport": "NBA",
+      "prompt": "In his first Bucks season, about how many assists per game did Oscar Robertson average, to the nearest whole number?",
+      "context": "Milwaukee Bucks · 1970–71",
+      "answer": 8,
+      "unit": {
+        "singular": "assist per game",
+        "plural": "assists per game"
+      },
+      "min": 2,
+      "max": 14,
+      "step": 1,
+      "note": "About 8: the text says 8.3, the season table 8.25.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+        "quote": "Robertson ranked third in the league in assists at 8.3 apg and was the Bucks' No. 2 scorer at 19.4 ppg.",
+        "derivation": "The article’s text says 8.3; its season table gives 668 assists in 81 games, 8.25. Either way, 8 to the nearest whole number."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Robertson also scored 19.4 points per game while partnering Alcindor.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+            "quote": "the Bucks' No. 2 scorer at 19.4 ppg"
+          }
+        },
+        {
+          "text": "Oscar finished third in the league in assists during his debut Bucks season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+            "quote": "Robertson ranked third in the league in assists"
+          }
+        },
+        {
+          "text": "Milwaukee's title came just a year after the franchise brought Oscar in from Cincinnati.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+            "quote": "A key part of this championship season was the acquisition of Oscar Robertson"
+          }
+        }
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "assists-average",
+        "era": "1970s",
+        "subjects": [
+          "Oscar Robertson",
+          "Milwaukee Bucks"
+        ],
+        "supports": []
+      }
     }
   ]
 }

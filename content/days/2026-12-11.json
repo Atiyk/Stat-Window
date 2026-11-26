@@ -55,7 +55,16 @@
             "quote": "the Bulls swept the Magic to gain entry into the Finals"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-combined",
+        "era": "1990s",
+        "subjects": [
+          "Chicago Bulls"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-bucks71-wins",
@@ -106,58 +115,76 @@
             "quote": "key reserves such as Lucius Allen, Bob Boozer and Dick Cunningham"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "1970s",
+        "subjects": [
+          "Milwaukee Bucks"
+        ],
+        "supports": []
+      }
     },
     {
-      "id": "nba-mcdonald76-ot",
+      "id": "nba-warriors48-low-fg-v5",
       "sport": "NBA",
-      "prompt": "In the triple-overtime Game 5 of 1976, reserve Glenn McDonald scored how many points?",
-      "context": "1976 NBA Finals · Game 5 · vs Phoenix",
-      "answer": 8,
+      "prompt": "In February 1948, the Philadelphia Warriors set the record for the lowest field-goal percentage in a game. What did they shoot?",
+      "context": "Philadelphia Warriors vs St. Louis Bombers · February 7, 1948",
+      "answer": 16.4,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "percent",
+        "plural": "percent"
       },
-      "min": 0,
-      "max": 15,
-      "step": 1,
-      "note": "Eight, all in overtime.",
+      "min": 5,
+      "max": 45,
+      "step": 0.1,
+      "note": "16.4%, a record low for one game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
-        "quote": "Glenn McDonald scored eight points in the game, all in overtime."
+        "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
+        "quote": "16.4% by the Philadelphia Warriors vs. the St. Louis Bombers on February 7, 1948"
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Phoenix's Paul Westphal deliberately called a timeout the Suns didn't have to gain a tactical advantage.",
+          "text": "At the other extreme, San Antonio shot 70.7% from the field against Dallas in April 1983.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
-            "quote": "The Suns' Paul Westphal also intentionally called a timeout even though his team had no more remaining"
+            "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
+            "quote": "70.7% (53/75) by the San Antonio Spurs vs. the Dallas Mavericks on April 16, 1983"
           }
         },
         {
-          "text": "John Havlicek appeared to win the epic with a late basket, only for more time to remain on the clock.",
+          "text": "Teams in that era had no shot clock, so a team protecting a lead could stall by passing instead of shooting.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
-            "quote": "Havlicek hit what appeared to be the game-winning shot at the end of the second overtime"
+            "url": "https://en.wikipedia.org/wiki/Shot_clock",
+            "quote": "Teams in the lead were running out the clock, passing the ball incessantly"
           }
         },
         {
-          "text": "The dramatic winner came from a lightly used Boston reserve, not one of the celebrated starters.",
+          "text": "The franchise was still based in Philadelphia when it won the 1956 championship.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1976_NBA_Finals",
-            "quote": "Glenn McDonald, a little-used Celtic reserve player"
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "win their first championship since 1956, when the team was still based in Philadelphia"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "shooting-pct",
+        "era": "1940s",
+        "subjects": [
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-curry15-g2-misses",
@@ -208,7 +235,17 @@
             "quote": "James had dubbed the undermanned Cavaliers as \"The Grit Squad\""
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "threes-attempts",
+        "era": "2010s",
+        "subjects": [
+          "Stephen Curry",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-jokic-murray23-finals-g3-20-assists",
@@ -259,7 +296,16 @@
             "quote": "grabbing a combined 31 rebounds to the Heat's total of 33"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "assists-game",
+        "era": "2020s",
+        "subjects": [
+          "Denver Nuggets"
+        ],
+        "supports": []
+      }
     }
   ]
 }

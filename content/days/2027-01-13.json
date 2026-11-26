@@ -55,7 +55,17 @@
             "quote": "They became the second former American Basketball Association (ABA) team to win an NBA title"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "scoring-average",
+        "era": "2020s",
+        "subjects": [
+          "Nikola Jokić",
+          "Denver Nuggets"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-kerr-player-titles",
@@ -106,20 +116,30 @@
             "quote": "Steve Kerr benched him for parts of the fourth quarter, while Looney remained on the floor"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "titles",
+        "era": "2000s",
+        "subjects": [
+          "Steve Kerr",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-lucas84-season-rpg",
       "sport": "NBA",
-      "prompt": "How many rebounds did Maurice Lucas average in 1983–84?",
+      "prompt": "The chart shows four big rebounding seasons. What did Phoenix forward Maurice Lucas average in 1983–84?",
       "context": "Phoenix Suns · veteran forward · regular season",
       "answer": 9.7,
       "unit": {
         "singular": "rebound per game",
         "plural": "rebounds per game"
       },
-      "min": 3,
-      "max": 22,
+      "min": 5,
+      "max": 17,
       "step": 0.1,
       "note": "9.7 rebounds per game from the tough big man.",
       "source": {
@@ -157,20 +177,61 @@
             "quote": "May 18, 1984 Los Angeles W 135–127 (OT) Davis (34) Lucas (17)"
           }
         }
-      ]
+      ],
+      "chart": {
+        "title": "Rebounds per game",
+        "unit": "rpg",
+        "points": [
+          {
+            "label": "Lucas '84",
+            "value": null
+          },
+          {
+            "label": "Barkley '93",
+            "value": 12.1
+          },
+          {
+            "label": "Kemp '94",
+            "value": 10.8
+          },
+          {
+            "label": "Rodman '96",
+            "value": 14.9
+          },
+          {
+            "label": "Giannis '19",
+            "value": 12.5
+          }
+        ]
+      },
+      "meta": {
+        "format": "missing-point",
+        "family": "rebounds-average",
+        "era": "cross-era",
+        "subjects": [
+          "Maurice Lucas",
+          "Phoenix Suns"
+        ],
+        "supports": [
+          "nba-barkley93-suns-rpg",
+          "nba-kemp94-rpg",
+          "nba-rodman96-rpg",
+          "nba-giannis19-regular-rpg"
+        ]
+      }
     },
     {
       "id": "nba-warriors75-bench",
       "sport": "NBA",
-      "prompt": "Through the first three games of the 1975 Finals, how many points did Golden State's bench score?",
+      "prompt": "Rick Barry scored 36 in Game 2 of the 1975 Finals. Through Games 1–3, how many points did Golden State's bench score?",
       "context": "1975 NBA Finals · Games 1–3 vs Washington",
       "answer": 115,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 0,
-      "max": 140,
+      "min": 40,
+      "max": 160,
       "step": 1,
       "note": "115, to Washington's 53, on the way to a sweep.",
       "source": {
@@ -208,7 +269,18 @@
             "quote": "backup center George Johnson had 10 points and nine rebounds off the bench"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "points-series",
+        "era": "1970s",
+        "subjects": [
+          "Golden State Warriors"
+        ],
+        "supports": [
+          "nba-barry75-finals-g2-points"
+        ]
+      }
     },
     {
       "id": "nba-spurs14-finals-avg-margin-fourteen",
@@ -259,7 +331,16 @@
             "quote": "The Spurs' Kawhi Leonard was named the Finals MVP"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "margin-average",
+        "era": "2010s",
+        "subjects": [
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     }
   ]
 }

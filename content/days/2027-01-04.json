@@ -55,22 +55,32 @@
             "quote": "first non-US team to win the NBA title"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "scoring-average",
+        "era": "2010s",
+        "subjects": [
+          "Kawhi Leonard",
+          "Toronto Raptors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-rockets18-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 2017–18 Rockets win?",
+      "prompt": "The chart shows four other strong teams of the 2010s. How many games did James Harden's 2017–18 Rockets win?",
       "context": "Houston Rockets · 2017–18 · 82 games",
       "answer": 65,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 20,
+      "min": 36,
       "max": 82,
       "step": 1,
-      "note": "65.",
+      "note": "65, the most of any team on the chart.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
@@ -91,7 +101,7 @@
           }
         },
         {
-          "text": "Houston clinched the West's top seed for the first time in franchise history, finishing ahead of Golden State.",
+          "text": "Houston clinched the No. 1 seed for the first time in franchise history.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
@@ -99,27 +109,67 @@
           }
         },
         {
-          "text": "Before facing the Warriors, Houston eliminated Minnesota and Utah in five games apiece.",
+          "text": "Houston beat the Utah Jazz in five games to reach the conference finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
             "quote": "they defeated the Utah Jazz in five games"
           }
         }
-      ]
+      ],
+      "chart": {
+        "title": "Regular-season wins",
+        "unit": "wins",
+        "points": [
+          {
+            "label": "Bulls '11",
+            "value": 62
+          },
+          {
+            "label": "Spurs '14",
+            "value": 62
+          },
+          {
+            "label": "Hawks '15",
+            "value": 60
+          },
+          {
+            "label": "Bucks '19",
+            "value": 60
+          },
+          {
+            "label": "Rockets '18",
+            "value": null
+          }
+        ]
+      },
+      "meta": {
+        "format": "missing-point",
+        "family": "wins-season",
+        "era": "2010s",
+        "subjects": [
+          "Houston Rockets"
+        ],
+        "supports": [
+          "nba-bulls11-regular-wins",
+          "nba-spurs14-season-wins",
+          "nba-hawks15-regular-wins",
+          "nba-bucks19-season-wins"
+        ]
+      }
     },
     {
       "id": "nba-gsw16-home-streak",
       "sport": "NBA",
-      "prompt": "Golden State set an NBA record for consecutive regular-season home wins. How long was the streak?",
+      "prompt": "Chicago's 44 straight home wins in the mid-1990s were the NBA record. How long was Golden State's home streak spanning 2015 and 2016?",
       "context": "Golden State Warriors · spanning 2015 and 2016",
       "answer": 54,
       "unit": {
         "singular": "game",
         "plural": "games"
       },
-      "min": 35,
-      "max": 100,
+      "min": 38,
+      "max": 92,
       "step": 1,
       "note": "54 straight home wins.",
       "source": {
@@ -142,7 +192,7 @@
           }
         },
         {
-          "text": "Boston ended Golden State's long run at Oracle Arena with a narrow April road win.",
+          "text": "The Boston Celtics handed Golden State its first home loss since January 2015.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
@@ -157,7 +207,18 @@
             "quote": "The previous record of 44 was held by the 1995–96 Chicago Bulls"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "win-streak",
+        "era": "cross-era",
+        "subjects": [
+          "Golden State Warriors"
+        ],
+        "supports": [
+          "nba-bulls96-home-streak"
+        ]
+      }
     },
     {
       "id": "nba-offensive-rebound-reset",
@@ -208,7 +269,14 @@
             "quote": "or if a shot attempt misses the rim entirely and airballs"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "rules",
+        "era": "timeless",
+        "subjects": [],
+        "supports": []
+      }
     },
     {
       "id": "nba-celtics08-finals-g4-comeback-24",
@@ -259,7 +327,16 @@
             "quote": "With 4:07 remaining in the fourth quarter, the Celtics took their first lead in the game"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "comeback",
+        "era": "2000s",
+        "subjects": [
+          "Boston Celtics"
+        ],
+        "supports": []
+      }
     }
   ]
 }

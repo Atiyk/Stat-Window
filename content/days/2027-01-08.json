@@ -55,22 +55,34 @@
             "quote": "including 7-of-13 on three-pointers"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "points-period",
+        "era": "2000s",
+        "subjects": [
+          "Kobe Bryant",
+          "Los Angeles Lakers"
+        ],
+        "supports": [
+          "nba-kobe-81"
+        ]
+      }
     },
     {
       "id": "nba-celtics84-wins",
       "sport": "NBA",
-      "prompt": "How many wins did Larry Bird's 1983–84 Celtics post in the regular season?",
+      "prompt": "The chart shows four other great Celtics seasons. How many games did Larry Bird's 1983–84 Celtics win?",
       "context": "Boston Celtics · 1983–84 · 82 games",
       "answer": 62,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 25,
+      "min": 30,
       "max": 82,
       "step": 1,
-      "note": "62, the league's best.",
+      "note": "62, the best record in the league that season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
@@ -83,7 +95,7 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Boston traded for Dennis Johnson because its perimeter defense needed help.",
+          "text": "Boston's most crucial addition was Dennis Johnson, acquired from Phoenix.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
@@ -99,14 +111,54 @@
           }
         },
         {
-          "text": "The Celtics survived a seven-game second-round battle with the Knicks.",
+          "text": "Boston beat the Knicks in a seven-game playoff series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
             "quote": "the New York Knicks in seven"
           }
         }
-      ]
+      ],
+      "chart": {
+        "title": "Celtics regular-season wins",
+        "unit": "wins",
+        "points": [
+          {
+            "label": "1972–73",
+            "value": 68
+          },
+          {
+            "label": "1983–84",
+            "value": null
+          },
+          {
+            "label": "1985–86",
+            "value": 67
+          },
+          {
+            "label": "2007–08",
+            "value": 66
+          },
+          {
+            "label": "2023–24",
+            "value": 64
+          }
+        ]
+      },
+      "meta": {
+        "format": "missing-point",
+        "family": "wins-season",
+        "era": "cross-era",
+        "subjects": [
+          "Boston Celtics"
+        ],
+        "supports": [
+          "nba-celtics73-wins",
+          "nba-celtics86-wins",
+          "nba-celtics08-wins",
+          "nba-celtics24-wins"
+        ]
+      }
     },
     {
       "id": "nba-barkley93-suns-rpg",
@@ -157,7 +209,17 @@
             "quote": "the Suns fell down 2–0 to the Los Angeles Lakers before rallying to defeat them in five games"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "rebounds-average",
+        "era": "1990s",
+        "subjects": [
+          "Charles Barkley",
+          "Phoenix Suns"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-bulls11-home-wins",
@@ -208,7 +270,16 @@
             "quote": "On March 12 the Bulls set a franchise record 18 converted 3-point shots"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-situational",
+        "era": "2010s",
+        "subjects": [
+          "Chicago Bulls"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-lillard14-rockets-series-winner-nine-tenths",
@@ -259,7 +330,17 @@
             "quote": "Houston won 3–1 in the regular-season series"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "time",
+        "era": "2010s",
+        "subjects": [
+          "Damian Lillard",
+          "Portland Trail Blazers"
+        ],
+        "supports": []
+      }
     }
   ]
 }

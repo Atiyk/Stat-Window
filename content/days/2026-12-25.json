@@ -55,12 +55,22 @@
             "quote": "When John Stockton passed the ball to Karl Malone, Jordan stole the ball away"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "1990s",
+        "subjects": [
+          "Michael Jordan",
+          "Chicago Bulls"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-lakers72-wins",
       "sport": "NBA",
-      "prompt": "The 1971–72 Lakers set a regular-season wins record. What was their win total?",
+      "prompt": "The chart shows win totals for three early-'70s powers. How many games did the 1971–72 Lakers win?",
       "context": "Los Angeles Lakers · 1971–72 · 82 games",
       "answer": 69,
       "unit": {
@@ -68,9 +78,9 @@
         "plural": "wins"
       },
       "min": 50,
-      "max": 82,
+      "max": 80,
       "step": 1,
-      "note": "69–13, a record that stood until the 1995–96 Bulls.",
+      "note": "69–13 (.841).",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
@@ -83,7 +93,7 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "The defending champion Bucks, led by Kareem Abdul-Jabbar, were expected to own the league for years.",
+          "text": "The defending champion Bucks were led by Kareem Abdul-Jabbar.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
@@ -91,7 +101,7 @@
           }
         },
         {
-          "text": "Los Angeles swept Chicago in the conference semifinals before battling Milwaukee in the West finals.",
+          "text": "Los Angeles swept its Western Conference semifinal series, 4–0.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
@@ -99,14 +109,44 @@
           }
         },
         {
-          "text": "Boston had repeatedly denied the Lakers a championship after their move west, making this title particularly cathartic.",
+          "text": "Boston had beaten the Lakers for the championship six times in eight years.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
             "quote": "The Lakers lost the championship to them six times in eight years"
           }
         }
-      ]
+      ],
+      "chart": {
+        "title": "Regular-season wins",
+        "unit": "wins",
+        "points": [
+          {
+            "label": "MIL 1970–71",
+            "value": 66
+          },
+          {
+            "label": "LAL 1971–72",
+            "value": null
+          },
+          {
+            "label": "BOS 1972–73",
+            "value": 68
+          }
+        ]
+      },
+      "meta": {
+        "format": "missing-point",
+        "family": "wins-season",
+        "era": "1970s",
+        "subjects": [
+          "Los Angeles Lakers"
+        ],
+        "supports": [
+          "nba-bucks71-wins",
+          "nba-celtics73-wins"
+        ]
+      }
     },
     {
       "id": "nba-bobcats12-losing-streak",
@@ -157,7 +197,16 @@
             "quote": "Bismack Biyombo led in rebounds per game (5.8), and point guard D. J. Augustin"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "losing-streak",
+        "era": "2010s",
+        "subjects": [
+          "Charlotte Hornets"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-avery99-finals-apg",
@@ -208,7 +257,17 @@
             "quote": "Avery Johnson | 5 | 5 | 39.2 | .500 | .000 | .600 | 2.6 | 7.2 | 0.6 | 0.0 | 9.2"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "assists-average",
+        "era": "1990s",
+        "subjects": [
+          "Avery Johnson",
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-melo14-knicks-msg-62",
@@ -259,7 +318,17 @@
             "quote": "Madison Square Garden record for single-game scoring"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "Carmelo Anthony",
+          "New York Knicks"
+        ],
+        "supports": []
+      }
     }
   ]
 }

@@ -55,7 +55,17 @@
             "quote": "The Nuggets defeated the Lakers in four games, marking their first sweep of an opponent"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "draft-pick",
+        "era": "2010s",
+        "subjects": [
+          "Nikola Jokić",
+          "Denver Nuggets"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-cup23-prize",
@@ -106,7 +116,14 @@
             "quote": "Quarterfinal and semifinal games counted as regular season games, affecting teams' positions in league standings, but the championship game did not."
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "prize-money",
+        "era": "2020s",
+        "subjects": [],
+        "supports": []
+      }
     },
     {
       "id": "nba-celtics02-19-threes",
@@ -157,12 +174,21 @@
             "quote": "hitting an NBA playoff record nine of them in the 4th quarter"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "threes-game",
+        "era": "2000s",
+        "subjects": [
+          "Boston Celtics"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-rockets18-27-misses",
       "sport": "NBA",
-      "prompt": "In Game 7 of the 2018 West finals, Houston set a playoff record by missing how many threes in a row?",
+      "prompt": "Stephen Curry missed 13 threes in a 2015 Finals game. In Game 7 of the 2018 West finals, Houston missed how many threes in a row?",
       "context": "2018 Western Conference finals · Game 7 · vs Golden State",
       "answer": 27,
       "unit": {
@@ -172,7 +198,7 @@
       "min": 14,
       "max": 52,
       "step": 1,
-      "note": "27 straight misses, in a 101–92 loss.",
+      "note": "27 straight misses, an NBA playoff record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
@@ -208,7 +234,18 @@
             "quote": "the first time the same two NBA teams met in the NBA Finals four seasons in a row"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "threes-attempts",
+        "era": "2010s",
+        "subjects": [
+          "Houston Rockets"
+        ],
+        "supports": [
+          "nba-curry15-g2-misses"
+        ]
+      }
     },
     {
       "id": "nba-shaq00-finals-g2-24-boards",
@@ -259,7 +296,17 @@
             "quote": "111–104 Lakers victory"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "rebounds-game",
+        "era": "1990s",
+        "subjects": [
+          "Shaquille O'Neal",
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     }
   ]
 }

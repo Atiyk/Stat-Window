@@ -55,7 +55,17 @@
             "quote": "The Warriors won three of the first four games and led 3–1"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "LeBron James",
+          "Cleveland Cavaliers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-alcindor71-ppg",
@@ -106,7 +116,17 @@
             "quote": "Bob Dandridge (18.4 ppg)"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "scoring-average",
+        "era": "1970s",
+        "subjects": [
+          "Kareem Abdul-Jabbar",
+          "Milwaukee Bucks"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-spurs14-g3-fg",
@@ -157,58 +177,80 @@
             "quote": "The Heat, who had been 8–0 at home in the playoffs"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "shooting-pct",
+        "era": "2010s",
+        "subjects": [
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
-      "id": "nba-allstar51-attendance",
+      "id": "nba-sixers83-turnaround-v5",
       "sport": "NBA",
-      "prompt": "How many fans attended the first NBA All-Star Game in 1951?",
-      "context": "1951 NBA All-Star Game · Boston",
-      "answer": 10094,
+      "prompt": "How many more regular-season games did the 1982–83 76ers win than the 1972–73 76ers?",
+      "context": "Philadelphia 76ers · ten seasons apart",
+      "answer": 56,
       "unit": {
-        "singular": "fan",
-        "plural": "fans"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 4000,
-      "max": 30000,
-      "step": 100,
-      "note": "10,094, when the average crowd was about 3,500.",
+      "min": 20,
+      "max": 80,
+      "step": 1,
+      "note": "56 more: from 9 wins to 65.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/NBA_All-Star_Game",
-        "quote": "drawing an attendance of 10,094, much higher than that season's average attendance of 3,500."
+        "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
+        "quote": "the 76ers won 65 games in the 1982–83 NBA season.",
+        "derivation": "76ers 1982–83 65 wins − 76ers 1972–73 9 wins = 56."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "The first All-Star Game came out of a public-relations push following a college basketball point-shaving scandal.",
+          "text": "The 1972–73 Sixers opened that season with 15 straight losses.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1951_NBA_All-Star_Game",
-            "quote": "the basketball world had just been rocked by the college basketball point-shaving scandal"
+            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+            "quote": "the 76ers lost their first 15 games of the season"
           }
         },
         {
-          "text": "Celtics owner Walter Brown offered to host the event and cover any losses himself.",
+          "text": "Philadelphia's collapse came only six seasons after it had set the NBA record for wins in a season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1951_NBA_All-Star_Game",
-            "quote": "Brown remained confident that it would be a success. He even offered to host the game"
+            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+            "quote": "Only six seasons earlier, the 76ers had set the NBA record for most wins in a season"
           }
         },
         {
-          "text": "The original All-Stars were chosen by sportswriters who were not allowed to vote for players from their own cities.",
+          "text": "Hal Greer was the only player from the 1967 title team still on the 1972–73 roster.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1951_NBA_All-Star_Game",
-            "quote": "They were not allowed to select players from their own cities"
+            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+            "quote": "Only Hal Greer remained on the roster from the 1966–1967 NBA Championship Team"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "trajectory",
+        "family": "wins-change",
+        "era": "cross-era",
+        "subjects": [
+          "Philadelphia 76ers"
+        ],
+        "supports": [
+          "nba-sixers83-wins",
+          "nba-sixers73-wins"
+        ]
+      }
     },
     {
       "id": "nba-luka24-wolves-g2-32",
@@ -259,7 +301,17 @@
             "quote": "Dallas Mavericks 109, Minnesota Timberwolves 108"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2020s",
+        "subjects": [
+          "Luka Dončić",
+          "Dallas Mavericks"
+        ],
+        "supports": []
+      }
     }
   ]
 }

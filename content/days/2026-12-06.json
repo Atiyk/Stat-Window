@@ -9,14 +9,14 @@
     {
       "id": "nba-celtics86-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 1985–86 Celtics win?",
+      "prompt": "The chart shows three other great Celtics seasons. How many games did the 1985–86 Celtics win?",
       "context": "Boston Celtics · 1985–86 · 82 games",
       "answer": 67,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 28,
+      "min": 40,
       "max": 82,
       "step": 1,
       "note": "67–15, including 40–1 at home.",
@@ -32,7 +32,7 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Boston's Garden-era home dominance was extraordinary: the team lost only once at home all regular season.",
+          "text": "Boston went 37–1 at the Boston Garden and 3–0 at the Hartford Civic Center.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
@@ -40,7 +40,7 @@
           }
         },
         {
-          "text": "Bill Walton won Sixth Man of the Year as a reserve behind Bird, Parish and McHale.",
+          "text": "Bill Walton won the Sixth Man of the Year Award.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
@@ -55,7 +55,42 @@
             "quote": "Larry Bird won his third consecutive MVP award"
           }
         }
-      ]
+      ],
+      "chart": {
+        "title": "Boston Celtics regular-season wins",
+        "unit": "wins",
+        "points": [
+          {
+            "label": "1972–73",
+            "value": 68
+          },
+          {
+            "label": "1985–86",
+            "value": null
+          },
+          {
+            "label": "2007–08",
+            "value": 66
+          },
+          {
+            "label": "2023–24",
+            "value": 64
+          }
+        ]
+      },
+      "meta": {
+        "format": "missing-point",
+        "family": "wins-season",
+        "era": "cross-era",
+        "subjects": [
+          "Boston Celtics"
+        ],
+        "supports": [
+          "nba-celtics73-wins",
+          "nba-celtics08-wins",
+          "nba-celtics24-wins"
+        ]
+      }
     },
     {
       "id": "nba-allstar24-east",
@@ -106,7 +141,14 @@
             "quote": "Gainbridge Fieldhouse (All-Star Game)"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-team-game",
+        "era": "2020s",
+        "subjects": [],
+        "supports": []
+      }
     },
     {
       "id": "nba-jackson98-regular-apg",
@@ -157,7 +199,17 @@
             "quote": "Jalen Rose | SF | 82 | 0"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "assists-average",
+        "era": "1990s",
+        "subjects": [
+          "Mark Jackson",
+          "Indiana Pacers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-noah11-rebounds-average",
@@ -208,7 +260,17 @@
             "quote": "Joakim Noah made the NBA All-Defensive Second Team"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "rebounds-average",
+        "era": "2010s",
+        "subjects": [
+          "Joakim Noah",
+          "Chicago Bulls"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-luka20-clippers-buzzer-43",
@@ -259,7 +321,17 @@
             "quote": "Dallas Mavericks 135, Los Angeles Clippers 133 (OT)"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "Luka Dončić",
+          "Dallas Mavericks"
+        ],
+        "supports": []
+      }
     }
   ]
 }

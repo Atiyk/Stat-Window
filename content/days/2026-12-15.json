@@ -55,20 +55,29 @@
             "quote": "their first-ever Conference finals since the NBA was split into two conferences"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "2010s",
+        "subjects": [
+          "Atlanta Hawks"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-kobe09-finals-ppg",
       "sport": "NBA",
-      "prompt": "Kobe Bryant won 2009 Finals MVP. What did he average in the series?",
+      "prompt": "The chart shows Finals scoring averages for five stars. What did Kobe Bryant average in the 2009 Finals?",
       "context": "2009 NBA Finals · five games vs Orlando",
       "answer": 32.4,
       "unit": {
         "singular": "point per game",
         "plural": "points per game"
       },
-      "min": 12,
-      "max": 40,
+      "min": 15,
+      "max": 45,
       "step": 0.1,
       "note": "32.4 points per game.",
       "source": {
@@ -83,7 +92,7 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Kobe and opponent Dwight Howard had won Olympic gold together for Team USA the previous summer.",
+          "text": "Kobe had won Olympic gold in Beijing the previous summer.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
@@ -91,7 +100,7 @@
           }
         },
         {
-          "text": "Pau Gasol became the first Spanish player to celebrate an NBA championship as a player.",
+          "text": "Pau Gasol became the first Spaniard to win an NBA championship.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
@@ -99,14 +108,60 @@
           }
         },
         {
-          "text": "Kobe received the Bill Russell Finals MVP trophy from commissioner David Stern in Orlando.",
+          "text": "Kobe received the Bill Russell NBA Finals MVP Trophy.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
             "quote": "presented Kobe Bryant with the Bill Russell NBA Finals MVP Trophy"
           }
         }
-      ]
+      ],
+      "chart": {
+        "title": "Finals scoring averages",
+        "unit": "points per game",
+        "points": [
+          {
+            "label": "Dumars 1989",
+            "value": 27.3
+          },
+          {
+            "label": "Jordan 1993",
+            "value": 41
+          },
+          {
+            "label": "Duncan 1999",
+            "value": 27.4
+          },
+          {
+            "label": "Shaq 2000",
+            "value": 38
+          },
+          {
+            "label": "Kobe 2009",
+            "value": null
+          },
+          {
+            "label": "Brown 2024",
+            "value": 20.8
+          }
+        ]
+      },
+      "meta": {
+        "format": "missing-point",
+        "family": "scoring-average",
+        "era": "cross-era",
+        "subjects": [
+          "Kobe Bryant",
+          "Los Angeles Lakers"
+        ],
+        "supports": [
+          "nba-dumars89-finals-ppg",
+          "nba-jordan93-finals-ppg",
+          "nba-duncan99-finals-ppg",
+          "nba-shaq00-finals-ppg",
+          "nba-brown24-finals-ppg"
+        ]
+      }
     },
     {
       "id": "nba-bucks21-nets-g3-points",
@@ -157,58 +212,80 @@
             "quote": "June 19 @ Brooklyn W 115–111 (OT)"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-team-game",
+        "era": "2020s",
+        "subjects": [
+          "Milwaukee Bucks"
+        ],
+        "supports": []
+      }
     },
     {
-      "id": "nba-kidd02-finals-td",
+      "id": "nba-warriors16-splash-share-v5",
       "sport": "NBA",
-      "prompt": "Jason Kidd posted a triple-double in the 2002 Finals. It was which number in Finals history?",
-      "context": "2002 NBA Finals · Game 1 · at Los Angeles",
-      "answer": 26,
+      "prompt": "What share of the 2015–16 Warriors' made threes came from Stephen Curry and Klay Thompson?",
+      "context": "Golden State · 2015–16 regular season · nearest percent",
+      "answer": 63,
       "unit": {
-        "singular": "triple-double",
-        "plural": "triple-doubles"
+        "singular": "percent",
+        "plural": "percent"
       },
-      "min": 15,
-      "max": 75,
+      "min": 25,
+      "max": 90,
       "step": 1,
-      "note": "The 26th.",
+      "note": "63%: the Splash Brothers made 678 of the team's 1,077 threes.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2002_NBA_Finals",
-        "quote": "Kidd finished with a triple-double, the 26th in Finals history"
+        "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+        "quote": "a record they broke the following season with 525 and again in the 2015–16 season with 678",
+        "derivation": "Curry and Thompson 678 ÷ Warriors 1,077 × 100 = 62.95, rounded to 63%."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "The Nets had improved by twenty-six wins in the regular season before reaching their first NBA Finals.",
+          "text": "A season earlier, in 2014–15, Curry and Thompson had combined for 525 threes.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_Finals",
-            "quote": "a twenty-six-win improvement from the last season"
+            "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+            "quote": "the two combined to make 525 threes"
           }
         },
         {
-          "text": "New Jersey coach Byron Scott, a former Showtime Laker, received a standing ovation in Los Angeles.",
+          "text": "Golden State also led the league in scoring, three-point percentage and assists that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_Finals",
-            "quote": "New Jersey head coach Byron Scott, a member of the Showtime Lakers, received a standing ovation"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "led the league in scoring (114.9 points), field goal percentage (.487), three-point percentage (.416), assists (28.9)"
           }
         },
         {
-          "text": "Shaquille O'Neal won Finals MVP for a third consecutive season as the Lakers completed a three-peat.",
+          "text": "Golden State became the first team to reach 1,000 threes in a season during a 136–111 win.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2002_NBA_Finals",
-            "quote": "Shaquille O'Neal of the Lakers was named the NBA Finals Most Valuable Player (MVP) for the third consecutive year"
+            "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
+            "quote": "first team in NBA history to score 1,000 three-pointers in a single season during their 136–111 win against"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "ratio",
+        "family": "threes-season",
+        "era": "2010s",
+        "subjects": [
+          "Golden State Warriors"
+        ],
+        "supports": [
+          "nba-splash16-duo-threes-678",
+          "nba-gsw16-threes"
+        ]
+      }
     },
     {
       "id": "nba-lebron11-finals-g4-eight",
@@ -259,7 +336,17 @@
             "quote": "preserving Dallas' 86–83 win"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "LeBron James",
+          "Miami Heat"
+        ],
+        "supports": []
+      }
     }
   ]
 }

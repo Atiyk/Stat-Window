@@ -13,6 +13,7 @@ import { join } from 'node:path';
 import { answerSpellings, type Question, type Slate } from '../../src/content/schema.ts';
 import { addDays } from '../../src/engine/daily.ts';
 import { potentialPoints } from '../../src/engine/scoring.ts';
+import { formatIssues, metaOf, resolveChart, supportsOf, type FormatSpec } from './formats.ts';
 
 export const ROOT = join(import.meta.dirname, '..', '..');
 export const DATA_DIR = join(ROOT, 'data', 'nba');
@@ -33,6 +34,11 @@ export const MIN_DAYS = 50;
 export const MIN_THEMED_DAYS = 30;
 export const VERIFIED_BY = 'Stat Window editorial';
 export const SOURCE_LABEL = 'Wikipedia contributors (CC BY-SA 4.0)';
+/**
+ * First day whose file carries V5 fields (format metadata and charts). Earlier day
+ * files keep their exact published bytes; the publisher refuses to rewrite them.
+ */
+export const V5_CONTENT_FROM = '2026-11-28';
 
 export type Ratings = { interest: number; recognizability: number; estimability: number; surprise: number };
 
@@ -69,6 +75,8 @@ export type Fact = {
     difficultyReason: string;
     ratings: Ratings;
     funFacts?: Question['funFacts'];
+    /** V5 framing (reference, chart, derivation, ranking). Absent means plain recall. */
+    format?: FormatSpec;
   };
 };
 
@@ -290,6 +298,9 @@ export function validateNba(data: NbaData): Report {
       at('prompt or context shows the answer');
   }
 
+  // ---- V5 formats: every shown or derived figure comes from a verified fact ----
+  for (const f of facts) for (const issue of formatIssues(f, byId)) errors.push(`${f.id}: ${issue}`);
+
   // ---- duplicates and near-duplicates -------------------------------------
   const seenKey = new Map<string, string>();
   const seenPrompt = new Map<string, string>();
@@ -403,6 +414,18 @@ export function validateNba(data: NbaData): Report {
     if (!isValidDate(notBefore) || notBefore <= calendar.cutover)
       errors.push(`reserve: invalid release embargo ${id} -> ${notBefore}`);
   }
+  // A question that shows or derives from another fact must come after that fact's own
+  // Daily Five day: never on the same day, never before it.
+  for (const d of days) {
+    for (const id of d.questions) {
+      const f = byId.get(id);
+      if (!f) continue;
+      for (const s of supportsOf(f)) {
+        const when = used.get(s);
+        if (when && when >= d.date) errors.push(`${d.date}: ${id} shows or derives from ${s}, which is not played until ${when}`);
+      }
+    }
+  }
   const unplaced = facts.filter((f) => !used.has(f.id) && !calendar.reserve.includes(f.id));
   for (const f of unplaced) errors.push(`${f.id}: neither scheduled nor in reserve`);
   const themed = days.filter((d) => d.theme?.kind !== 'mixed').length;
@@ -467,8 +490,17 @@ export function validateNba(data: NbaData): Report {
 // ---------------------------------------------------------------------------
 // Slate generation
 
-export function questionFromFact(f: Fact): Question & { difficulty: Difficulty } {
+/** What the publisher needs to add V5 fields: every fact by id and franchise names. */
+export type V5Context = { byId: ReadonlyMap<string, Fact>; franchiseName: (id: string) => string };
+
+export function v5Context(data: Pick<NbaData, 'facts' | 'franchises'>): V5Context {
+  const names = new Map(data.franchises.map((f) => [f.id, f.currentName]));
+  return { byId: new Map(data.facts.map((f) => [f.id, f])), franchiseName: (id) => names.get(id) ?? id };
+}
+
+export function questionFromFact(f: Fact, v5?: V5Context): Question & { difficulty: Difficulty } {
   const q = f.question;
+  const chart = v5 ? resolveChart(f, v5.byId) : undefined;
   return {
     id: f.id,
     sport: 'NBA',
@@ -489,18 +521,21 @@ export function questionFromFact(f: Fact): Question & { difficulty: Difficulty }
     verified: { on: f.verifiedOn ?? INSPECTED_ON, by: VERIFIED_BY },
     difficulty: q.difficulty,
     ...(q.funFacts ? { funFacts: q.funFacts } : {}),
+    ...(chart ? { chart } : {}),
+    ...(v5 ? { meta: metaOf(f, v5.byId, v5.franchiseName) } : {}),
   };
 }
 
 export function buildSlates(data: NbaData): Slate[] {
   const byId = new Map(data.facts.map((f) => [f.id, f]));
+  const v5 = v5Context(data);
   return data.calendar.days.map((d) => ({
     date: d.date,
     theme: { title: d.theme.title, subtitle: d.theme.subtitle, recap: d.theme.recap },
     questions: d.questions.map((id) => {
       const f = byId.get(id);
       if (!f) throw new Error(`${d.date}: unknown question ${id}`);
-      return questionFromFact(f);
+      return questionFromFact(f, d.date >= V5_CONTENT_FROM ? v5 : undefined);
     }),
   }));
 }

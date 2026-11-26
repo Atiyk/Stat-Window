@@ -55,7 +55,17 @@
             "quote": "Thompson scored a career-high 52 points, with 11 three-pointers"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-period",
+        "era": "2010s",
+        "subjects": [
+          "Klay Thompson",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-suns93-december-win-streak",
@@ -106,22 +116,31 @@
             "quote": "posted an 11-game winning streak between March and April"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "win-streak",
+        "era": "1990s",
+        "subjects": [
+          "Phoenix Suns"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-heat23-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 2022–23 Heat win before reaching the Finals?",
+      "prompt": "The chart shows four recent champions' win totals. How many did the 2022–23 Heat win on their way to the Finals?",
       "context": "Miami Heat · 2022–23 · 82 games",
       "answer": 44,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 32,
-      "max": 64,
+      "min": 30,
+      "max": 70,
       "step": 1,
-      "note": "44–38, then a run to the Finals as an eighth seed.",
+      "note": "44–38, then a run to the Finals through the play-in.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
@@ -134,7 +153,7 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Miami had to survive the play-in tournament to reach the postseason despite finishing seventh in the East.",
+          "text": "Miami had to go through two play-in games to reach the playoffs.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
@@ -142,7 +161,7 @@
           }
         },
         {
-          "text": "The Heat entered the playoffs with the league's worst scoring average and a negative point differential.",
+          "text": "Miami was the only playoff team with a negative point differential.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
@@ -157,35 +176,75 @@
             "quote": "undrafted players such as Martin, Gabe Vincent, Duncan Robinson, and Max Strus"
           }
         }
-      ]
+      ],
+      "chart": {
+        "title": "Regular-season wins",
+        "unit": "wins",
+        "points": [
+          {
+            "label": "Raptors '19",
+            "value": 58
+          },
+          {
+            "label": "Bucks '21",
+            "value": 46
+          },
+          {
+            "label": "Heat '23",
+            "value": null
+          },
+          {
+            "label": "Nuggets '23",
+            "value": 53
+          },
+          {
+            "label": "Celtics '24",
+            "value": 64
+          }
+        ]
+      },
+      "meta": {
+        "format": "missing-point",
+        "family": "wins-season",
+        "era": "cross-era",
+        "subjects": [
+          "Miami Heat"
+        ],
+        "supports": [
+          "nba-raptors19-regular-wins",
+          "nba-bucks21-regular-wins",
+          "nba-nuggets23-regular-wins",
+          "nba-celtics24-wins"
+        ]
+      }
     },
     {
-      "id": "nba-wilt67-fta",
+      "id": "nba-wilt67-ppg-v5",
       "sport": "NBA",
-      "prompt": "How many free throws did Wilt Chamberlain attempt in 1966–67?",
-      "context": "Philadelphia 76ers · 1966–67 regular season",
-      "answer": 875,
+      "prompt": "Wilt Chamberlain averaged 50.4 points in 1961–62. What did he average for the 1966–67 champion 76ers?",
+      "context": "Philadelphia 76ers · 1966–67 · regular season",
+      "answer": 24,
       "unit": {
-        "singular": "free-throw attempt",
-        "plural": "free-throw attempts"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 550,
-      "max": 1500,
-      "step": 5,
-      "note": "875.",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "note": "24 a game. Wilt shot less, made a league-record 68% of his shots and again led the NBA in rebounds.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-        "quote": "his 875 free throw attempts"
+        "quote": "while scoring 24 points per game and once again leading the NBA in rebounds"
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Wilt hit a league-record share of his field-goal attempts as his offense shifted toward efficiency.",
+          "text": "Wilt took fewer shots in 1966–67 and made a league-record 68 percent of them.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
@@ -193,22 +252,34 @@
           }
         },
         {
-          "text": "Even as he shot less frequently, Wilt still led the league in rebounds that season.",
+          "text": "Wilt also became a passer that season: his 8 assists per game set a record for centers.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "while scoring 24 points per game and once again leading the NBA in rebounds"
+            "quote": "Wilt Chamberlain's 8 assists per game set a record for centers"
           }
         },
         {
-          "text": "The league named Wilt its regular-season MVP in the same year Philadelphia captured the title.",
+          "text": "Philadelphia opened 1966–67 at 46–4, the best 50-game start in NBA history at the time.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
-            "quote": "Wilt Chamberlain, NBA Most Valuable Player Award"
+            "quote": "The 76ers started the season at 46–4, which remains the best 50-game start in the NBA history"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "scoring-average",
+        "era": "1960s",
+        "subjects": [
+          "Wilt Chamberlain",
+          "Philadelphia 76ers"
+        ],
+        "supports": [
+          "nba-wilt62-ppg"
+        ]
+      }
     },
     {
       "id": "nba-mavs11-heat-finals-g2-comeback-fifteen",
@@ -259,7 +330,16 @@
             "quote": "Dwyane Wade's potential game-winning 3 hit the back rim at the buzzer"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "comeback",
+        "era": "2010s",
+        "subjects": [
+          "Dallas Mavericks"
+        ],
+        "supports": []
+      }
     }
   ]
 }

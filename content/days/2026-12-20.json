@@ -55,12 +55,21 @@
             "quote": "Head coach | Gregg Popovich"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "2010s",
+        "subjects": [
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-barry80-threes",
       "sport": "NBA",
-      "prompt": "Rick Barry set the first NBA record for threes in a game in February 1980. How many did he make?",
+      "prompt": "Stephen Curry made 13 threes in a 2016 game. Rick Barry set the original NBA record in February 1980. How many did he make?",
       "context": "Houston Rockets vs Utah Jazz · 1979–80",
       "answer": 8,
       "unit": {
@@ -83,7 +92,7 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Barry's final season overlapped with Larry Bird's Boston debut; both were present for an early NBA three.",
+          "text": "In his final season, Barry made one of the NBA’s first three-pointers, in the same game as the very first.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
@@ -106,58 +115,83 @@
             "quote": "in Game 4, neither team attempted a single shot beyond the arc"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "threes-game",
+        "era": "cross-era",
+        "subjects": [
+          "Rick Barry",
+          "Houston Rockets"
+        ],
+        "supports": [
+          "nba-curry16-13-threes"
+        ]
+      }
     },
     {
-      "id": "nba-gsw19-g2-run",
+      "id": "nba-heat13-turnaround-v5",
       "sport": "NBA",
-      "prompt": "Golden State opened the second half of Game 2 of the 2019 Finals with how many unanswered points?",
-      "context": "2019 NBA Finals · Game 2 · at Toronto",
-      "answer": 18,
+      "prompt": "How many more regular-season games did the 2012–13 Heat win than the 2007–08 Heat?",
+      "context": "Miami Heat · five seasons apart",
+      "answer": 51,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 0,
-      "max": 24,
+      "min": 15,
+      "max": 75,
       "step": 1,
-      "note": "18, the most to start a half in Finals history.",
+      "note": "51 more: from 15 wins in 2007–08 to 66 in 2012–13.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-        "quote": "The Warriors' 18 unanswered points to begin the second half were the most in NBA Finals history to start a half."
+        "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+        "quote": "They finished the season with a record of 66–16, going 37–4 at home and 29–12 on the road",
+        "derivation": "Heat 2012–13 66 wins − Heat 2007–08 15 wins = 51."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Klay Thompson's night ended after he landed awkwardly while attempting a three and injured his hamstring.",
+          "text": "The 2012–13 Heat were nearly unbeatable at home, losing only four times there all season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-            "quote": "Thompson left the game in the fourth quarter with a left hamstring injury"
+            "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
+            "quote": "They finished the season with a record of 66–16, going 37–4 at home and 29–12 on the road"
           }
         },
         {
-          "text": "Andre Iguodala hit a late outside shot to prevent Toronto's comeback from forcing another ending.",
+          "text": "Erik Spoelstra replaced Pat Riley as Miami's head coach, with Riley staying on as team president.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-            "quote": "Iguodala cemented the win with a three-pointer with 5.9 seconds remaining"
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_Miami_Heat_season",
+            "quote": "He did, however, remain as team president and was replaced as head coach by Erik Spoelstra"
           }
         },
         {
-          "text": "DeMarcus Cousins made a rare Finals start and added rebounds and assists after returning from injury.",
+          "text": "Alonzo Mourning suffered a season-ending, possibly career-ending knee injury during the 2007–08 season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2019_NBA_Finals",
-            "quote": "Cousins, who was moved into the starting lineup, had 11 points, 10 rebounds and six assists"
+            "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_Miami_Heat_season",
+            "quote": "Alonzo had suffered a season-ending and a possibly career-ending knee injury"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "trajectory",
+        "family": "wins-change",
+        "era": "cross-era",
+        "subjects": [
+          "Miami Heat"
+        ],
+        "supports": [
+          "nba-heat13-wins",
+          "nba-heat08-wins"
+        ]
+      }
     },
     {
       "id": "nba-gus79-finals-g4-points",
@@ -208,7 +242,17 @@
             "quote": "May 29 Washington W 114–112 (OT)"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "1970s",
+        "subjects": [
+          "Gus Williams",
+          "Oklahoma City Thunder"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-kyrie16-finals-g7-shot-53-sec",
@@ -259,7 +303,17 @@
             "quote": "Cavaliers defeated the Warriors 93–89"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "time",
+        "era": "2010s",
+        "subjects": [
+          "Kyrie Irving",
+          "Cleveland Cavaliers"
+        ],
+        "supports": []
+      }
     }
   ]
 }

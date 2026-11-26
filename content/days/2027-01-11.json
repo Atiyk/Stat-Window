@@ -55,7 +55,17 @@
             "quote": "in a 145–134 overtime win over the Chicago Bulls"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2020s",
+        "subjects": [
+          "Donovan Mitchell",
+          "Cleveland Cavaliers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-klay16-60-minutes",
@@ -106,20 +116,30 @@
             "quote": "He joins Wilt Chamberlain, Steph Curry, Rick Barry, and Joe Fulks"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "minutes",
+        "era": "2010s",
+        "subjects": [
+          "Klay Thompson",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-jordan97-flu-game",
       "sport": "NBA",
-      "prompt": "Sick before Game 5 of the 1997 Finals, how many points did Michael Jordan score in the \"Flu Game\"?",
+      "prompt": "The chart shows three famous Michael Jordan playoff nights. How many points did he score in the 1997 Flu Game?",
       "context": "1997 NBA Finals · Game 5 · at Utah",
       "answer": 38,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 5,
-      "max": 60,
+      "min": 12,
+      "max": 70,
       "step": 1,
       "note": "38 in 44 minutes.",
       "source": {
@@ -134,7 +154,7 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Jordan awoke in the early morning with severe stomach symptoms before Game 5.",
+          "text": "Before Game 5, Jordan woke up vomiting and with diarrhea.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
@@ -142,7 +162,7 @@
           }
         },
         {
-          "text": "He later said he believed food poisoning from a pizza caused the illness.",
+          "text": "Jordan later said in The Last Dance that it was food poisoning.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
@@ -157,7 +177,43 @@
             "quote": "Jordan collapsed into Scottie Pippen's arms"
           }
         }
-      ]
+      ],
+      "chart": {
+        "title": "Michael Jordan, famous playoff games",
+        "unit": "points",
+        "points": [
+          {
+            "label": "1986 vs BOS",
+            "value": 63
+          },
+          {
+            "label": "1993 Finals",
+            "value": 55
+          },
+          {
+            "label": "1997 Flu Game",
+            "value": null
+          },
+          {
+            "label": "1998 Finals",
+            "value": 45
+          }
+        ]
+      },
+      "meta": {
+        "format": "missing-point",
+        "family": "points-game",
+        "era": "cross-era",
+        "subjects": [
+          "Michael Jordan",
+          "Chicago Bulls"
+        ],
+        "supports": [
+          "nba-jordan86-63",
+          "nba-jordan93-g4-55",
+          "nba-jordan98-g6"
+        ]
+      }
     },
     {
       "id": "nba-six-overtime-game",
@@ -208,7 +264,14 @@
             "quote": "The NBA tried several rule changes in the early 1950s to speed up the game"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "overtimes",
+        "era": "1950s",
+        "subjects": [],
+        "supports": []
+      }
     },
     {
       "id": "nba-durant17-finals-g3-shot-45seconds",
@@ -259,7 +322,17 @@
             "quote": "Iguodala blocked LeBron James' potential game-tying 3"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "time",
+        "era": "2010s",
+        "subjects": [
+          "Kevin Durant",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     }
   ]
 }

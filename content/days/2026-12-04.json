@@ -55,7 +55,17 @@
             "quote": "The Knicks barely qualified for the playoffs and received the eighth and final seed"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "scoring-average",
+        "era": "1990s",
+        "subjects": [
+          "Tim Duncan",
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-hakeem90-quadruple-blocks",
@@ -106,7 +116,17 @@
             "quote": "He won the NBA rebounding crown"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "blocks-game",
+        "era": "1980s",
+        "subjects": [
+          "Hakeem Olajuwon",
+          "Houston Rockets"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-bol85-quarter",
@@ -157,58 +177,82 @@
             "quote": "8 blocks in the fourth quarter, tying the NBA record"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "blocks-period",
+        "era": "1980s",
+        "subjects": [
+          "Manute Bol",
+          "Washington Wizards"
+        ],
+        "supports": []
+      }
     },
     {
-      "id": "nba-pistons04-under-70",
+      "id": "nba-kawhi19-jokic23-playoff-points-gap-v5",
       "sport": "NBA",
-      "prompt": "The 2003–04 Pistons were the first team to hold how many straight opponents under 70 points?",
-      "context": "Detroit Pistons · 2003–04 regular season",
-      "answer": 5,
+      "prompt": "How many more playoff points did Kawhi Leonard score on Toronto's 2019 title run than Nikola Jokić on Denver's in 2023?",
+      "context": "Two Finals MVP title runs · 2019 vs 2023",
+      "answer": 132,
       "unit": {
-        "singular": "game",
-        "plural": "games"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 0,
-      "max": 10,
-      "step": 1,
-      "note": "Five in a row.",
+      "min": 20,
+      "max": 320,
+      "step": 2,
+      "note": "132 more: Kawhi scored 732 in 2019, Jokić 600 in 2023.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-        "quote": "They became the first team in NBA history to hold five consecutive opponents under 70 points"
+        "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+        "quote": "Leonard scored 732 points during the 2019 playoffs; this was the third-best scoring total for a single NBA postseason in league history",
+        "derivation": "Kawhi Leonard 732 points (2019 playoffs) − Nikola Jokić 600 points (2023 playoffs) = 132."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Detroit's front office added Rasheed Wallace in a complicated trade at the deadline.",
+          "text": "At the time, only LeBron James (748 in 2018) and Michael Jordan (759 in 1992) had scored more in a single postseason.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "for guard Mike James and forward Rasheed Wallace"
+            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+            "quote": "behind only LeBron James (748, 2018) and Michael Jordan (759, 1992)"
           }
         },
         {
-          "text": "The Pistons had replaced Rick Carlisle with Larry Brown as head coach before the season.",
+          "text": "Kawhi Leonard was named Finals MVP for the second time after Toronto's 2019 title.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "In his place, Dumars hired legendary coach Larry Brown"
+            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+            "quote": "He was subsequently named NBA Finals MVP for the second time"
           }
         },
         {
-          "text": "Ben Wallace and Richard Hamilton were acquired through trades rather than drafted by Detroit.",
+          "text": "Jokić became the first center to win Finals MVP since Shaquille O'Neal in 2002.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
-            "quote": "He landed defensive stalwart Ben Wallace and guard Richard Hamilton by trading established stars"
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "becoming the first center to win the award since Shaquille O'Neal in 2002"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "difference",
+        "family": "points-season-total",
+        "era": "cross-era",
+        "subjects": [
+          "Kawhi Leonard",
+          "Toronto Raptors"
+        ],
+        "supports": [
+          "nba-kawhi19-playoff-points-732",
+          "nba-jokic23-playoff-points"
+        ]
+      }
     },
     {
       "id": "nba-klay16-okc-game6-41",
@@ -259,7 +303,17 @@
             "quote": "the Thunder once again handed the Warriors a commanding 118–94 defeat to take a 3–1 series lead"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "Klay Thompson",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     }
   ]
 }

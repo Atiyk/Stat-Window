@@ -135,3 +135,43 @@
 }
 
 .court-trail:not(.court-trail--ghost) { transform-box: fill-box; transform-origin: left center; }
+
+/* ───────── Friend race (link v2) ───────── */
+/* The friend is a pin under the route: a different shape from the balls, in ink. */
+.court-friend[data-animate] {
+  transition: transform 260ms var(--ease-out) var(--court-landing, 0ms);
+}
+.court-friend__pin { fill: var(--ink); }
+
+.race-line {
+  display: flex;
+  align-items: center;
+  gap: 0 4px;
+  min-block-size: 1.25rem;
+  margin: 4px 0 0;
+  color: var(--ink);
+  font-size: .8125rem;
+  line-height: 1.25rem;
+}
+.race-line__text { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 0 4px; min-inline-size: 0; }
+.race-line b { font-weight: 800; }
+.race-line__sep { color: var(--ink-soft); }
+.race-line__lead[data-lead='1'] { color: var(--brand-press); font-weight: 650; }
+.race-line__mark {
+  inline-size: 0;
+  block-size: 0;
+  border-inline: 4px solid transparent;
+  border-block-end: 7px solid var(--ink);
+}
+.race-line[data-fresh] :is(b, .race-line__lead) {
+  display: inline-block;
+  animation: race-line-in 200ms var(--ease-out) var(--court-landing, 0ms) backwards;
+}
+@keyframes race-line-in {
+  from { opacity: 0; transform: translateY(2px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .court-friend { transition: none; }
+  .race-line[data-fresh] :is(b, .race-line__lead) { animation: none; }
+}

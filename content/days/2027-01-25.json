@@ -55,7 +55,17 @@
             "quote": "the eighth player in NBA history to score 70 or more in a single game"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2020s",
+        "subjects": [
+          "Damian Lillard",
+          "Portland Trail Blazers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-season21-games",
@@ -106,12 +116,19 @@
             "quote": "The Suns' Chris Paul, acquired from the Oklahoma City Thunder in the offseason"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "season-length",
+        "era": "2020s",
+        "subjects": [],
+        "supports": []
+      }
     },
     {
       "id": "nba-lakers72-margin",
       "sport": "NBA",
-      "prompt": "By how many points per game did the 1971–72 Lakers outscore their opponents?",
+      "prompt": "The 1971–72 Lakers went 69–13 and won 33 straight. By how many points per game did they outscore opponents?",
       "context": "Los Angeles Lakers · 1971–72 regular season",
       "answer": 12.3,
       "unit": {
@@ -157,59 +174,82 @@
             "quote": "1971–72 game log\nTotal: 69–13 (Home: 36–5; Road: 33–8)"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "margin-average",
+        "era": "1970s",
+        "subjects": [
+          "Los Angeles Lakers"
+        ],
+        "supports": [
+          "nba-lakers72-wins",
+          "nba-lakers72-streak"
+        ]
+      }
     },
     {
-      "id": "nba-oscar71-apg",
+      "id": "nba-oscar71-ppg-v5",
       "sport": "NBA",
-      "prompt": "In his first Bucks season, about how many assists per game did Oscar Robertson average, to the nearest whole number?",
-      "context": "Milwaukee Bucks · 1970–71",
-      "answer": 8,
+      "prompt": "Lew Alcindor led the NBA at 31.7 points a game in 1970–71. What did Oscar Robertson, Milwaukee's No. 2 scorer, average?",
+      "context": "Milwaukee Bucks · 1970–71 · Oscar's first Bucks season",
+      "answer": 19.4,
       "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
+        "singular": "point per game",
+        "plural": "points per game"
       },
-      "min": 2,
-      "max": 14,
-      "step": 1,
-      "note": "About 8: the text says 8.3, the season table 8.25.",
+      "min": 10,
+      "max": 40,
+      "step": 0.1,
+      "note": "19.4 a game, behind Alcindor's 31.7. Milwaukee then swept Baltimore in the Finals.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-        "quote": "Robertson ranked third in the league in assists at 8.3 apg and was the Bucks' No. 2 scorer at 19.4 ppg.",
-        "derivation": "The article’s text says 8.3; its season table gives 668 assists in 81 games, 8.25. Either way, 8 to the nearest whole number."
+        "quote": "Robertson ranked third in the league in assists at 8.3 apg and was the Bucks' No. 2 scorer at 19.4 ppg."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Robertson also scored 19.4 points per game while partnering Alcindor.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "the Bucks' No. 2 scorer at 19.4 ppg"
-          }
-        },
-        {
-          "text": "Oscar finished third in the league in assists during his debut Bucks season.",
-          "source": {
-            "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-            "quote": "Robertson ranked third in the league in assists"
-          }
-        },
-        {
-          "text": "Milwaukee's title came just a year after the franchise brought Oscar in from Cincinnati.",
+          "text": "Milwaukee's championship season hinged on acquiring Robertson to pair with Alcindor.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
             "quote": "A key part of this championship season was the acquisition of Oscar Robertson"
           }
+        },
+        {
+          "text": "Bob Dandridge was another major scoring option, at 18.4 points a game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+            "quote": "Bob Dandridge (18.4 ppg)"
+          }
+        },
+        {
+          "text": "Alcindor took both the MVP and Finals MVP awards in that title season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+            "quote": "Lew Alcindor won MVP and Finals MVP honors"
+          }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "scoring-average",
+        "era": "1970s",
+        "subjects": [
+          "Oscar Robertson",
+          "Milwaukee Bucks"
+        ],
+        "supports": [
+          "nba-alcindor71-ppg"
+        ]
+      }
     },
     {
       "id": "nba-mavs24-finals-g4-blowout-margin",
@@ -224,7 +264,7 @@
       "min": 0,
       "max": 90,
       "step": 1,
-      "note": "By 38 points—Dallas won 122–84, delaying Boston's championship celebration.",
+      "note": "By 38 points. Dallas won 122–84 to avoid a sweep.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2024_NBA_Finals",
@@ -261,7 +301,16 @@
             "quote": "Midway through the first quarter, Lively scored his first career three-pointer"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "margin",
+        "era": "2020s",
+        "subjects": [
+          "Dallas Mavericks"
+        ],
+        "supports": []
+      }
     }
   ]
 }

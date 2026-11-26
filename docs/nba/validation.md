@@ -10,16 +10,16 @@ All gates pass: 0 errors.
 
 | Measure | Value |
 |---|---|
-| Verified facts (one question each) | 421 |
+| Verified facts (one question each) | 437 |
 | Scheduled questions | 360 |
-| Reserve questions | 61 |
+| Reserve questions | 77 |
 | Days | 72 (2026-11-17 to 2027-01-27) |
 | Themed days (not "mixed") | 6 |
-| Stat families | 80 |
+| Stat families | 81 |
 | Franchises | 30 |
 | Players | 121 |
-| Seasons | 61 |
-| Rejected examples logged | 22 |
+| Seasons | 62 |
+| Rejected examples logged | 23 |
 
 ## SQLite build
 
@@ -30,34 +30,34 @@ All gates pass: 0 errors.
 | franchises | 30 |
 | team_names | 49 |
 | players | 121 |
-| seasons | 61 |
-| stat_families | 83 |
-| stat_facts | 421 |
-| question_candidates | 421 |
-| question_tags | 1249 |
+| seasons | 62 |
+| stat_families | 84 |
+| stat_facts | 437 |
+| question_candidates | 437 |
+| question_tags | 1297 |
 | daily_themes | 72 |
 | daily_slates | 72 |
 | daily_slate_questions | 360 |
 
 Integrity: integrity_check ok, no foreign-key violations, every fact verified and sourced.
-Canonical dump sha256 (status as of 2026-11-16): `8ae9eab3e5cc655abae9f2ecd57fad0164490a17e7d0986f452244470846530c`.
+Canonical dump sha256 (status as of 2026-11-16): `f5d7ca0b1d703bc09ee5f5052a4da7dcebef64d0e45549e193d89c01cc92f876`.
 
 ## Difficulty
 
 | Difficulty | All facts | Scheduled |
 |---|---|---|
 | easy | 74 | 72 |
-| medium | 86 | 72 |
-| hard | 159 | 144 |
+| medium | 87 | 72 |
+| hard | 174 | 144 |
 | expert | 102 | 72 |
 
 Mean editorial ratings by slot (interest / recognizability / estimability / surprise):
 
-- Slot 1 (easy): 4.51 / 4.40 / 3.40 / 4.38
-- Slot 2 (medium): 3.56 / 3.32 / 2.86 / 4.68
-- Slot 3 (hard): 3.50 / 3.18 / 2.33 / 4.92
-- Slot 4 (hard): 3.51 / 3.11 / 2.25 / 4.92
-- Slot 5 (expert): 4.79 / 4.64 / 3.69 / 4.97
+- Slot 1 (easy): 4.53 / 4.40 / 3.42 / 4.36
+- Slot 2 (medium): 3.75 / 3.50 / 3.07 / 4.63
+- Slot 3 (hard): 3.79 / 3.36 / 2.56 / 4.78
+- Slot 4 (hard): 3.79 / 3.35 / 2.47 / 4.79
+- Slot 5 (expert): 4.79 / 4.63 / 3.69 / 4.96
 
 ## Range fairness
 
@@ -66,17 +66,17 @@ Where each answer sits on its scale (0 = min, 9 = top tenth). A flat spread mean
 | Tenth | Questions |
 |---|---|
 | 1 | 7 |
-| 2 | 37 |
+| 2 | 38 |
 | 3 | 129 |
-| 4 | 68 |
-| 5 | 46 |
-| 6 | 74 |
-| 7 | 42 |
-| 8 | 17 |
+| 4 | 69 |
+| 5 | 53 |
+| 6 | 88 |
+| 7 | 36 |
+| 8 | 16 |
 | 9 | 1 |
 
-Share of answers in the middle fifth: 28.5% (gate: at most 35%).
-Simulated "always centre the window" player: mean 52.20 points per question, best 90 (gate: no question above 90).
+Share of answers in the middle fifth: 29.7% (gate: at most 35%).
+Simulated "always centre the window" player: mean 53.04 points per question, best 90 (gate: no question above 90).
 Every answer sits strictly inside its scale and at least 8% away from either end; every scale has 5–400 whole steps.
 
 ## Editorial balance, by week
@@ -84,32 +84,33 @@ Every answer sits strictly inside its scale and at least 8% away from either end
 | Week | Stat families | Eras | Most-used franchise |
 |---|---|---|---|
 | 2026-11-17 to 2026-11-23 | 25 | 7 | BOS (7) |
-| 2026-11-24 to 2026-11-30 | 20 | 8 | DEN (4) |
+| 2026-11-24 to 2026-11-30 | 21 | 8 | DEN (4) |
 | 2026-12-01 to 2026-12-07 | 21 | 5 | BOS (3) |
-| 2026-12-08 to 2026-12-14 | 20 | 7 | GSW (8) |
+| 2026-12-08 to 2026-12-14 | 19 | 8 | GSW (10) |
 | 2026-12-15 to 2026-12-21 | 20 | 6 | MIL (5) |
-| 2026-12-22 to 2026-12-28 | 18 | 8 | PHI (5) |
-| 2026-12-29 to 2027-01-04 | 18 | 8 | CLE (4) |
+| 2026-12-22 to 2026-12-28 | 18 | 7 | PHI (5) |
+| 2026-12-29 to 2027-01-04 | 19 | 8 | CLE (5) |
 | 2027-01-05 to 2027-01-11 | 23 | 7 | LAL (6) |
-| 2027-01-12 to 2027-01-18 | 22 | 7 | CLE (4) |
-| 2027-01-19 to 2027-01-25 | 22 | 7 | GSW (5) |
+| 2027-01-12 to 2027-01-18 | 22 | 8 | CLE (4) |
+| 2027-01-19 to 2027-01-25 | 21 | 7 | GSW (5) |
 
 Every rolling 7-day window is also checked: at least 6 families, at least 3 eras, at most 10 questions about one franchise, and no two days in a row led by the same franchise. Each day has at most 2 questions from one family and at most 1 simple scoring average.
 
 ## Novelty
 
-113 players and 30 franchises appear. 13 of 72 days introduce no new player or franchise.
+110 players and 30 franchises appear. 15 of 72 days introduce no new player or franchise.
 
 ## Eras
 
+- 1940s: 1
 - 1950s: 4
-- 1960s: 23
-- 1970s: 32
-- 1980s: 32
-- 1990s: 64
-- 2000s: 85
-- 2010s: 113
-- 2020s: 67
+- 1960s: 27
+- 1970s: 33
+- 1980s: 33
+- 1990s: 65
+- 2000s: 87
+- 2010s: 117
+- 2020s: 69
 - timeless: 1
 
 ## Rejected candidates (examples)
@@ -136,3 +137,4 @@ Every rolling 7-day window is also checked: at least 6 families, at least 3 eras
 - **nba-lebron11-4q-total: Across all six fourth quarters of the 2011 Finals, how many points did LeBron James score? (8)**: quarantined after the 2026-11-16 audit. Single Wikipedia sentence (2011 NBA Finals) not corroborated; widely reported totals differ. Quarantined 2026-11-16 pending a second source. Full record in data/nba/quarantine.json.
 - **nba-celtics24-ortg: The 2023–24 Celtics set the record for offensive rating. How many points did they score per 100 possessions? (123.2)**: quarantined after the 2026-11-16 audit. Offensive rating differs by stats provider and the record may be stale; quarantined 2026-11-16. Full record in data/nba/quarantine.json.
 - **nba-lively24-fg: Dereck Lively II set the rookie record for field-goal percentage in 2023–24. What was it? (74.7)**: quarantined after the 2026-11-16 audit. Rookie-record claim likely ignores league minimums; not supported by his own article. Quarantined 2026-11-16. Full record in data/nba/quarantine.json.
+- **56, in a 119–114 win.**: duplicate. V5 audit: the same 56-point Butler game as nba-butler23-56-bucks-upset (2026-11-26). Dropped from the 2026-12-02 slate and not kept as a Survival reserve, so the game is asked once.

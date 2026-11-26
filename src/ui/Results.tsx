@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { Slate } from '../content/schema';
 import { challengeUrl } from '../engine/challenge';
+import { raceHighlight, raceOutcome } from '../engine/friend-race';
 import { courtRunCheckpoints } from '../engine/court-run';
 import { buildShotChart } from '../engine/shot-chart';
 import { msUntilNextPuzzle } from '../engine/daily';
@@ -42,6 +43,8 @@ type Props = {
   /** The score a friend's link claimed. Unverified: shown for comparison only. */
   vs: number | null;
   vsTime: number | null;
+  /** The friend's five round scores from a v2 link (a friend race), else null. Also unverified. */
+  vsRounds?: readonly number[] | null | undefined;
   results: readonly RoundRecord[];
   stats: PlayerStats;
   officialHighlight?: OfficialHighlight | undefined;
@@ -71,7 +74,7 @@ function friendLine(total: number, vs: number, time: number | null, vsTime: numb
   return `Tied at ${total} points. Rematch?`;
 }
 
-export function Results({ slate, label, eligible, onPrivacy, mode, playMode, untimedPractice = false, isToday, vs, vsTime, results, stats, officialHighlight, animateScorecard = false, archive, onPractice, onBackToToday, onShared, survivalCta = null }: Props) {
+export function Results({ slate, label, eligible, onPrivacy, mode, playMode, untimedPractice = false, isToday, vs, vsTime, vsRounds = null, results, stats, officialHighlight, animateScorecard = false, archive, onPractice, onBackToToday, onShared, survivalCta = null }: Props) {
   const total = totalPoints(results);
   const [cardStyle, setCardStyle] = useState<CardStyle>('classic');
   const [format, setFormat] = useState<CardFormat>('square');
@@ -200,7 +203,9 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
     setPending(file ? 'image' : 'challenge');
     setToast(null);
     setFallback(null);
-    const url = challengeUrl(window.location.origin, slate.date, untimedPractice ? undefined : total, answerMs);
+    const url = untimedPractice
+      ? challengeUrl(window.location.origin, slate.date)
+      : challengeUrl(window.location.origin, slate.date, total, answerMs, total > 0 ? results.map((r) => r.points) : undefined);
     const text = shareText({ label, results, url, percentile: percentileLine, answerMs, untimed: untimedPractice });
     try {
       if (nativeShare) {
@@ -300,6 +305,9 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
           ))}
         </ol>
         {answerMs !== null && <p className="results-time">Answer time <strong className="tabular">{formatAnswerTime(answerMs)}</strong></p>}
+        {vs !== null && vsRounds && vsRounds.length === results.length && (
+          <RaceResult you={results.map((r) => r.points)} friend={vsRounds} total={total} vs={vs} answerMs={answerMs} vsTime={vsTime} />
+        )}
       </header>
 
       <div className="results-actions">
@@ -319,7 +327,9 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
           />
         )}
         <p className="share-note" id="challenge-share-note">
-          {total > 0 || untimedPractice ? 'Send your score and the same five questions.' : 'Send the same five questions.'} No spoilers.
+          {untimedPractice ? 'Send your score and the same five questions.'
+            : total > 0 ? 'Send the same five questions. Your friend races your score, question by question.'
+            : 'Send the same five questions.'} No spoilers.
           {total > 0 && answerMs !== null && ' Time breaks ties.'}
         </p>
         <div className="score-card">
@@ -358,7 +368,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
           </div>
         </div>
         <ComparisonLine comparison={comparison} onPrivacy={onPrivacy} ref={slotRef} />
-        {vs !== null && <p className="versus">{friendLine(total, vs, answerMs, vsTime)}</p>}
+        {vs !== null && !vsRounds && <p className="versus">{friendLine(total, vs, answerMs, vsTime)}</p>}
         {(practice || !isToday) && (
           <button type="button" className="btn btn-quiet" onClick={onBackToToday}>
             Play today’s puzzle
@@ -500,5 +510,53 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
         {toast}
       </div>
     </article>
+  );
+}
+
+/**
+ * Head to head with a friend's v2 link: who won, every round side by side, and one
+ * true sentence about how it went. The friend's numbers come from the link as sent.
+ */
+function RaceResult({ you, friend, total, vs, answerMs, vsTime }: {
+  you: readonly number[];
+  friend: readonly number[];
+  total: number;
+  vs: number;
+  answerMs: number | null;
+  vsTime: number | null;
+}) {
+  const outcome = raceOutcome(total, vs, answerMs, vsTime);
+  const highlight = raceHighlight(you, friend);
+  const by = `${outcome.margin} ${outcome.margin === 1 ? 'point' : 'points'}`;
+  const headline = outcome.result === 'tie' ? `Tied at ${total}.`
+    : outcome.byTime ? (outcome.result === 'won' ? `You won on time, tied at ${total}.` : `Your friend won on time, tied at ${total}.`)
+    : outcome.result === 'won' ? `You won by ${by}.` : `Your friend won by ${by}.`;
+  return (
+    <section className="race-result" aria-labelledby="race-result-title" data-result={outcome.result}>
+      <h2 id="race-result-title" className="race-result__title">{headline}</h2>
+      <table className="race-table">
+        <caption className="sr-only">Your points and your friend’s, question by question</caption>
+        <thead>
+          <tr>
+            <td />
+            {you.map((_, i) => <th key={i} scope="col"><span className="sr-only">Question {i + 1}</span><span aria-hidden="true">Q{i + 1}</span></th>)}
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-row="you">
+            <th scope="row">You</th>
+            {you.map((p, i) => <td key={i} className="tabular" data-won={p > friend[i]! || undefined}>{p}</td>)}
+            <td className="tabular race-table__total">{total}</td>
+          </tr>
+          <tr data-row="friend">
+            <th scope="row">Friend</th>
+            {friend.map((p, i) => <td key={i} className="tabular" data-won={p > you[i]! || undefined}>{p}</td>)}
+            <td className="tabular race-table__total">{vs}</td>
+          </tr>
+        </tbody>
+      </table>
+      {highlight && <p className="race-result__note">{highlight}</p>}
+    </section>
   );
 }

@@ -26,6 +26,7 @@
     "content:publish": "node --experimental-strip-types scripts/nba/publish.ts",
     "content:publish:check": "node --experimental-strip-types scripts/nba/publish.ts --check",
     "content:lock": "node --experimental-strip-types scripts/content-lock.ts",
+    "content:lock:base": "node --experimental-strip-types scripts/lock-base-check.ts",
     "nba:reschedule": "node --experimental-strip-types scripts/nba/reschedule.ts",
     "survival:catalog": "node --experimental-strip-types scripts/nba/survival.ts",
     "survival:catalog:check": "node --experimental-strip-types scripts/nba/survival.ts --check",

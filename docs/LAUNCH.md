@@ -22,6 +22,10 @@
 - *L* must be a day that already has a published slate (or will, after the Question Factory), and must be after today. If *L* is past the last scheduled day (`2027-01-27` today), schedule more content first: `docs/QUESTION-FACTORY.md`.
 - Pick *L* at least 2 days ahead so a deploy can go out before midnight Eastern.
 
+## Launch inventory (V5.0)
+
+Every unpublished day is launch inventory: whichever date L becomes "No. 1" shows the revised slates from that date on. The V5.0 audit covered 2026-11-28 to 2027-01-27 (61 days, 305 slots; see [V5.md](V5.md)). Choosing L does not change content. Before activating, confirm `npm run content:publish:check` is clean and that `data/nba/editorial/launch-audit.json` still has one entry per unpublished slot from L on (the `formats.test.ts` coverage test). Days added after the audit need their own editorial batch through `scripts/nba/revise.ts`.
+
 ## Preflight (the day before)
 
 1. `npm ci && npm run content:check && npm test && npm run build`.

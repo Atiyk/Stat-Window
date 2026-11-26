@@ -55,7 +55,17 @@
             "quote": "suffered a leg injury in the first quarter, but returned in the second quarter"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "LeBron James",
+          "Cleveland Cavaliers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-spurs14-international",
@@ -106,7 +116,16 @@
             "quote": "as well as the increased use of chartered flights as opposed to commercial flights"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "roster",
+        "era": "2010s",
+        "subjects": [
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-majerle93-three-pointers",
@@ -157,7 +176,17 @@
             "quote": "Ainge contributed 11.8 points per game and 150 three-point field goals, also off the bench"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "threes-season",
+        "era": "1990s",
+        "subjects": [
+          "Dan Majerle",
+          "Phoenix Suns"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-bullets75-g1-halftime-lead",
@@ -208,7 +237,16 @@
             "quote": "then eliminated Thurmond and the Bulls in seven games to advance to the Finals"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "comeback",
+        "era": "1970s",
+        "subjects": [
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-tatum22-bucks-g6-46",
@@ -259,7 +297,17 @@
             "quote": "Boston Celtics 108, Milwaukee Bucks 95"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2020s",
+        "subjects": [
+          "Jayson Tatum",
+          "Boston Celtics"
+        ],
+        "supports": []
+      }
     }
   ]
 }

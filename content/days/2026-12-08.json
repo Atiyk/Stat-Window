@@ -9,15 +9,15 @@
     {
       "id": "nba-detroit04-regular-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 2003–04 Pistons win?",
+      "prompt": "The 2005–06 Pistons won a franchise-record 64 games. How many did Detroit's 2003–04 title team win?",
       "context": "Detroit Pistons · 2003–04 · 82 games",
       "answer": 54,
       "unit": {
         "singular": "win",
         "plural": "wins"
       },
-      "min": 40,
-      "max": 72,
+      "min": 30,
+      "max": 70,
       "step": 1,
       "note": "54–28, before the defense-first Pistons won the title.",
       "source": {
@@ -32,7 +32,7 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Detroit used its 2003 second-overall draft pick on Darko Miličić, who played a limited reserve role during the title season.",
+          "text": "Detroit made Darko Miličić its top pick in 2003 but used him only as a reserve.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
@@ -48,65 +48,91 @@
           }
         },
         {
-          "text": "The Pistons clinched the title at their home arena, the Palace of Auburn Hills, outside downtown Detroit.",
+          "text": "Detroit's home arena for the 2004 Finals was The Palace of Auburn Hills, in Auburn Hills, Michigan.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
             "quote": "The Palace of Auburn Hills, Auburn Hills, Michigan"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "wins-season",
+        "era": "2000s",
+        "subjects": [
+          "Detroit Pistons"
+        ],
+        "supports": [
+          "nba-pistons06-wins"
+        ]
+      }
     },
     {
-      "id": "nba-lakers20-lead-record",
+      "id": "nba-wilt62-100-ft-share-v5",
       "sport": "NBA",
-      "prompt": "The 2019–20 Lakers never lost when leading after three quarters. How many such games did they win, playoffs included?",
-      "context": "Los Angeles Lakers · 2019–20 · regular season plus playoffs",
-      "answer": 57,
+      "prompt": "Wade scored 49% of his points at the line in 2006 Finals Game 5. What share of Wilt's 100 points came on free throws?",
+      "context": "Wilt Chamberlain · Warriors vs Knicks · March 2, 1962",
+      "answer": 28,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "percent",
+        "plural": "percent"
       },
-      "min": 35,
-      "max": 85,
+      "min": 5,
+      "max": 60,
       "step": 1,
-      "note": "57, going 57–0.",
+      "note": "28%: Wilt made 28 free throws, an unusual night at the line for him.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
-        "quote": "to be undefeated in a season when leading entering the fourth quarter, going a combined 57–0 record"
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "by scoring 100 points for the Philadelphia Warriors in a 169–147 win over the New York Knicks on March 2, 1962",
+        "derivation": "28 free throws made ÷ 100 points × 100 = 28%."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "The Lakers–Heat series took place inside the Orlando-area NBA bubble with no paying fans in the building.",
+          "text": "Wilt had switched to shooting his free throws underhanded that season, on his coach's advice.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
-            "quote": "games were played in the Bubble behind closed doors"
+            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+            "quote": "He had started shooting free throws underhanded that season per McGuire's suggestion."
           }
         },
         {
-          "text": "Both Finals participants had missed the playoffs the previous year, an unprecedented turnaround for the matchup.",
+          "text": "His free-throw accuracy that night was far better than his roughly 50% career rate.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
-            "quote": "the first time that Finals participants had both missed the playoffs in the previous season"
+            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+            "quote": "the latter a far better rate than his roughly 50% career average."
           }
         },
         {
-          "text": "Jeanie Buss became the first female controlling owner to guide her team to an NBA title.",
+          "text": "The game was played at Hershey Sports Arena, an old gym originally built for ice hockey.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2020_NBA_Finals",
-            "quote": "Jeanie Buss became the first female controlling owner to guide her team to an NBA title"
+            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+            "quote": "The game was played at Hershey Sports Arena, an old, drafty gym originally built for ice hockey."
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "ratio",
+        "family": "shooting-pct",
+        "era": "cross-era",
+        "subjects": [
+          "Wilt Chamberlain",
+          "Golden State Warriors"
+        ],
+        "supports": [
+          "nba-wade06-g5-ft-scoring-share",
+          "nba-wilt-100-ftm",
+          "nba-wilt-100"
+        ]
+      }
     },
     {
       "id": "nba-horry05-g5",
@@ -157,7 +183,17 @@
             "quote": "Horry was already famous for nailing last-second shots in the playoffs"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2000s",
+        "subjects": [
+          "Robert Horry",
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-jordan93-finals-ppg",
@@ -208,7 +244,17 @@
             "quote": "Scottie Pippen  | 6  | 6  | 44.3  | .439  | .000  | .543  | 9.2  | 7.7"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "scoring-average",
+        "era": "1990s",
+        "subjects": [
+          "Michael Jordan",
+          "Chicago Bulls"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-harden19-msg-61",
@@ -259,7 +305,17 @@
             "quote": "he matched his career high with 61 points, including 27 in the first quarter"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "James Harden",
+          "Houston Rockets"
+        ],
+        "supports": []
+      }
     }
   ]
 }

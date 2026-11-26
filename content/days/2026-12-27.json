@@ -55,22 +55,31 @@
             "quote": "The Sixers ownership offered the head coaching job to Marquette University head coach Al McGuire"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "1970s",
+        "subjects": [
+          "Philadelphia 76ers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-pacers98-road-wins",
       "sport": "NBA",
-      "prompt": "How many away games did Indiana win during the 1997–98 regular season?",
+      "prompt": "Larry Bird's 1997–98 Pacers won 58 games. How many of those wins came away from home?",
       "context": "Pacers · Larry Bird's first year",
       "answer": 26,
       "unit": {
         "singular": "road win",
         "plural": "road wins"
       },
-      "min": 6,
+      "min": 8,
       "max": 40,
       "step": 1,
-      "note": "26 road victories, a franchise milestone.",
+      "note": "26 road wins, against 15 road losses.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
@@ -106,7 +115,18 @@
             "quote": "Bird was named the NBA Coach of the Year"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "wins-situational",
+        "era": "1990s",
+        "subjects": [
+          "Indiana Pacers"
+        ],
+        "supports": [
+          "nba-pacers98-season-wins"
+        ]
+      }
     },
     {
       "id": "nba-mutombo01-posttrade-rpg",
@@ -157,7 +177,17 @@
             "quote": "Mutombo averaged 11.7 points, 12.4 rebounds and 2.5 blocks per game in 26 games after the trade"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "rebounds-average",
+        "era": "2000s",
+        "subjects": [
+          "Dikembe Mutombo",
+          "Philadelphia 76ers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-detroit04-rasheed-finish",
@@ -208,7 +238,16 @@
             "quote": "they defeated the top-seeded Indiana Pacers in a defensive six game series"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "2000s",
+        "subjects": [
+          "Detroit Pistons"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-lebron12-boston-g6-45",
@@ -259,7 +298,17 @@
             "quote": "James was voted Finals MVP with averages of 28.6 points"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "LeBron James",
+          "Miami Heat"
+        ],
+        "supports": []
+      }
     }
   ]
 }

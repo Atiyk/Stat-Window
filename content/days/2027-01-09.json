@@ -55,20 +55,30 @@
             "quote": "Quentin Richardson won the Three-Point Shootout"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "assists-average",
+        "era": "2000s",
+        "subjects": [
+          "Steve Nash",
+          "Phoenix Suns"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-celtics07-losing-streak",
       "sport": "NBA",
-      "prompt": "A year before their title, the 2006–07 Celtics set a franchise record with a losing streak of how many games?",
+      "prompt": "The 2011–12 Bobcats lost 23 straight. A year before their title, how long was the 2006–07 Celtics' franchise-record losing streak?",
       "context": "Boston Celtics · 2006–07",
       "answer": 18,
       "unit": {
         "singular": "game",
         "plural": "games"
       },
-      "min": 0,
-      "max": 26,
+      "min": 8,
+      "max": 36,
       "step": 1,
       "note": "18 straight, in a 24-win season.",
       "source": {
@@ -83,7 +93,7 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Rajon Rondo was the young playmaker supporting Boston's reunited star trio.",
+          "text": "Second-year point guard Rajon Rondo started alongside Boston's newly formed Big Three.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
@@ -106,13 +116,24 @@
             "quote": "the 2007 off-season saw Celtics general manager Danny Ainge acquire Ray Allen and Kevin Garnett"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "losing-streak",
+        "era": "cross-era",
+        "subjects": [
+          "Boston Celtics"
+        ],
+        "supports": [
+          "nba-bobcats12-losing-streak"
+        ]
+      }
     },
     {
       "id": "nba-miller98-season-ppg",
       "sport": "NBA",
       "prompt": "How many points per game did Reggie Miller average in 1997–98?",
-      "context": "Pacers · season before Michael Jordan's final Bulls title",
+      "context": "Indiana Pacers · 1997–98 regular season",
       "answer": 19.5,
       "unit": {
         "singular": "point per game",
@@ -121,7 +142,7 @@
       "min": 9,
       "max": 42,
       "step": 0.1,
-      "note": "19.5 points per game from Indiana's leading scorer.",
+      "note": "19.5 points per game in 81 starts.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
@@ -150,14 +171,24 @@
           }
         },
         {
-          "text": "Miller led Indiana with twenty-eight points in the East finals' Game 3.",
+          "text": "Miller scored a team-high 28 in a 107–105 win over Chicago on May 23, 1998.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
             "quote": "May 23, 1998 Chicago W 107–105 Miller (28)"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "scoring-average",
+        "era": "1990s",
+        "subjects": [
+          "Reggie Miller",
+          "Indiana Pacers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-siakam19-g1",
@@ -208,7 +239,17 @@
             "quote": "Durant, the MVP of the last two NBA Finals, traveled with the team to Toronto, but remained sidelined"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "Pascal Siakam",
+          "Toronto Raptors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-cavs-warriors16-game7-tied-six-games-610",
@@ -259,7 +300,14 @@
             "quote": "LeBron James delivered what became known as \"The Block\" on a layup attempt by Andre Iguodala with the score tied at 89"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-series",
+        "era": "2010s",
+        "subjects": [],
+        "supports": []
+      }
     }
   ]
 }

@@ -108,5 +108,10 @@
     "claim": "nba-lively24-fg: Dereck Lively II set the rookie record for field-goal percentage in 2023–24. What was it? (74.7)",
     "reason": "quarantined after the 2026-11-16 audit",
     "detail": "Rookie-record claim likely ignores league minimums; not supported by his own article. Quarantined 2026-11-16. Full record in data/nba/quarantine.json."
+  },
+  {
+    "claim": "56, in a 119–114 win.",
+    "reason": "duplicate",
+    "detail": "V5 audit: the same 56-point Butler game as nba-butler23-56-bucks-upset (2026-11-26). Dropped from the 2026-12-02 slate and not kept as a Survival reserve, so the game is asked once."
   }
 ]

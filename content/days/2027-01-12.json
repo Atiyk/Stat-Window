@@ -9,7 +9,7 @@
     {
       "id": "nba-cavs09-home-wins",
       "sport": "NBA",
-      "prompt": "How many home games did the Cavaliers win in their dominant 2008–09 season?",
+      "prompt": "Derrick Rose's 2010–11 Bulls won 36 home games. How many did LeBron's 2008–09 Cavaliers win at home?",
       "context": "Cleveland at Quicken Loans Arena · 41 home games",
       "answer": 39,
       "unit": {
@@ -55,7 +55,18 @@
             "quote": "April 15 Philadelphia L 110–111 (OT)"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "wins-situational",
+        "era": "cross-era",
+        "subjects": [
+          "Cleveland Cavaliers"
+        ],
+        "supports": [
+          "nba-bulls11-home-wins"
+        ]
+      }
     },
     {
       "id": "nba-howard09-g4-blocks",
@@ -83,7 +94,7 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Orlando's center threatened Los Angeles near the end, but Derek Fisher hit a crucial late three.",
+          "text": "Trevor Ariza hit a 3-pointer for Los Angeles as the shot clock expired.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
@@ -91,7 +102,7 @@
           }
         },
         {
-          "text": "The Magic squandered foul-shot opportunities in a tight Game 4 despite leading at halftime.",
+          "text": "Poor free-throw shooting kept the Magic from building on their lead in Game 4.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
@@ -106,7 +117,17 @@
             "quote": "This win marked the first Finals win in Magic franchise history"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "blocks-game",
+        "era": "2000s",
+        "subjects": [
+          "Dwight Howard",
+          "Orlando Magic"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-rodman86-draft",
@@ -157,7 +178,17 @@
             "quote": "joining the rugged team of coach Chuck Daly that was called \"Bad Boys\""
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "draft-pick",
+        "era": "1980s",
+        "subjects": [
+          "Dennis Rodman",
+          "Detroit Pistons"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-stoudemire05-playoff-ppg",
@@ -208,7 +239,17 @@
             "quote": "the Suns lost 4–1 to the 2-seed, and eventual NBA champion, San Antonio Spurs"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "scoring-average",
+        "era": "2000s",
+        "subjects": [
+          "Amar'e Stoudemire",
+          "Phoenix Suns"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-lakers11-mavs-game4-only-86",
@@ -259,7 +300,16 @@
             "quote": "This would also prove to be Phil Jackson's final game as an NBA head coach."
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-team-game",
+        "era": "2010s",
+        "subjects": [
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     }
   ]
 }

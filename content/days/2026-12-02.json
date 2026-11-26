@@ -55,58 +55,78 @@
             "quote": "the Raptors promoted assistant coach Nick Nurse as their head coach"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "2010s",
+        "subjects": [
+          "Toronto Raptors"
+        ],
+        "supports": []
+      }
     },
     {
-      "id": "nba-butler23-56",
+      "id": "nba-grizzlies21-bench-points-v5",
       "sport": "NBA",
-      "prompt": "As an eighth seed, Miami beat Milwaukee in 2023. How many points did Jimmy Butler score in his career-high game in that series?",
-      "context": "2023 first round · Game 4 · vs Milwaukee",
-      "answer": 56,
+      "prompt": "Memphis beat Oklahoma City by a record 73 points in December 2021. How many points did the Grizzlies' bench score?",
+      "context": "Grizzlies vs Thunder · December 2, 2021",
+      "answer": 93,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 35,
-      "max": 85,
+      "min": 40,
+      "max": 130,
       "step": 1,
-      "note": "56, in a 119–114 win.",
+      "note": "93 bench points, in a 152–79 win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-        "quote": "scoring a career-high 56 points in a 119–114 victory"
+        "url": "https://en.wikipedia.org/wiki/2021%E2%80%9322_Memphis_Grizzlies_season",
+        "quote": "bench points scored (93 points)"
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Miami upset Milwaukee, whose regular-season record had made the Bucks the clear betting favorite.",
+          "text": "Before this game, the record margin belonged to Cleveland, which beat Miami by 68 points.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "they faced the Milwaukee Bucks, the team with the best record in the league"
+            "url": "https://en.wikipedia.org/wiki/2021%E2%80%9322_Memphis_Grizzlies_season",
+            "quote": "The previous record was a Cleveland Cavaliers 68–point blowout win over the Miami Heat"
           }
         },
         {
-          "text": "Tyler Herro broke his hand and Victor Oladipo tore a knee tendon in the opening playoff series.",
+          "text": "The final score was 152–79, and the game was played on December 2, 2021.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "they lost starter Tyler Herro in game 1 with a broken hand"
+            "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
+            "quote": "152–79 on December 2, 2021"
           }
         },
         {
-          "text": "Butler later won the East finals MVP as Miami held off Boston's attempted reverse sweep.",
+          "text": "That season Memphis won the Southwest Division for the first time in franchise history.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Butler was named the Eastern Conference finals MVP"
+            "url": "https://en.wikipedia.org/wiki/2021%E2%80%9322_Memphis_Grizzlies_season",
+            "quote": "They also won the Southwest division title for the first time in Grizzlies' franchise history"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "points-team-game",
+        "era": "2020s",
+        "subjects": [
+          "Memphis Grizzlies"
+        ],
+        "supports": [
+          "nba-grizzlies21-margin"
+        ]
+      }
     },
     {
       "id": "nba-stockton-missed",
@@ -157,7 +177,17 @@
             "quote": "He remained a starting NBA player until his retirement at age 41"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "games-missed",
+        "era": "2000s",
+        "subjects": [
+          "John Stockton",
+          "Utah Jazz"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-webber02-season-ppg",
@@ -208,7 +238,17 @@
             "quote": "and was named to the All-NBA Second Team"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "scoring-average",
+        "era": "2000s",
+        "subjects": [
+          "Chris Webber",
+          "Sacramento Kings"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-wolves24-denver-game7-comeback",
@@ -259,7 +299,16 @@
             "quote": "they closed the third quarter with a 28–9 run and took the lead in the fourth"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "comeback",
+        "era": "2020s",
+        "subjects": [
+          "Minnesota Timberwolves"
+        ],
+        "supports": []
+      }
     }
   ]
 }

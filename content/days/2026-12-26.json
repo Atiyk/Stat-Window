@@ -55,7 +55,16 @@
             "quote": "head coach George Karl was selected to coach the Western Conference"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "1990s",
+        "subjects": [
+          "Oklahoma City Thunder"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-sixers67-start-losses",
@@ -106,12 +115,21 @@
             "quote": "In the 1st round of the playoffs, they swept the Cincinnati Royals"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "losses-season",
+        "era": "1960s",
+        "subjects": [
+          "Philadelphia 76ers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-bucks71-streak",
       "sport": "NBA",
-      "prompt": "The 1970–71 Bucks set what was then the NBA's longest winning streak. How many games?",
+      "prompt": "The 2007–08 Rockets won 22 straight. How long was the 1970–71 Bucks' winning streak, the NBA's longest at that time?",
       "context": "Milwaukee Bucks · 1970–71",
       "answer": 20,
       "unit": {
@@ -119,7 +137,7 @@
         "plural": "games"
       },
       "min": 2,
-      "max": 34,
+      "max": 30,
       "step": 1,
       "note": "20 straight.",
       "source": {
@@ -157,58 +175,82 @@
             "quote": "The Bucks became the first team from the Midwest Division to win the NBA title"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "win-streak",
+        "era": "cross-era",
+        "subjects": [
+          "Milwaukee Bucks"
+        ],
+        "supports": [
+          "nba-rockets08-streak"
+        ]
+      }
     },
     {
-      "id": "nba-sixers73-games-back",
+      "id": "nba-wilt62-others-points-v5",
       "sport": "NBA",
-      "prompt": "How many games behind first-place Boston did the 1972–73 Sixers finish in their division?",
-      "context": "Philadelphia 76ers · 1972–73 · Atlantic Division",
-      "answer": 59,
+      "prompt": "In Wilt Chamberlain's 100-point game, how many points did everyone else on the floor score combined?",
+      "context": "Philadelphia Warriors vs New York Knicks · March 2, 1962",
+      "answer": 216,
       "unit": {
-        "singular": "game back",
-        "plural": "games back"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 45,
-      "max": 95,
-      "step": 1,
-      "note": "59, an NBA record.",
+      "min": 120,
+      "max": 360,
+      "step": 2,
+      "note": "216: the two teams scored a record 316 in all.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-        "quote": "The 76ers finished an NBA-record 59 games behind the Atlantic Division champion Boston Celtics."
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "The teams broke the record for most combined points in a game (316).",
+        "derivation": "Combined 316 points − Wilt Chamberlain's 100 = 216."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Only six seasons earlier, Philadelphia had set an NBA record for regular-season wins.",
+          "text": "The record shootout was played in Hershey, Pennsylvania, in a drafty old arena built for ice hockey.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-            "quote": "Only six seasons earlier, the 76ers had set the NBA record for most wins in a season"
+            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+            "quote": "The game was played at Hershey Sports Arena, an old, drafty gym originally built for ice hockey."
           }
         },
         {
-          "text": "Philadelphia's average scoring margin was an abysmal minus 12.1 points per game.",
+          "text": "No video of the game exists; it was never televised.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-            "quote": "their −12.1 points per game point differential"
+            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+            "quote": "The game was not televised, and no video footage of the game has been recovered"
           }
         },
         {
-          "text": "The struggling roster was playing its tenth season in Philadelphia.",
+          "text": "In the fourth quarter, the Knicks fouled other Warriors on purpose to keep the ball away from Wilt.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
-            "quote": "their 24th season in the NBA and tenth in Philadelphia"
+            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+            "quote": "During the fourth quarter, the Knicks began fouling other players to keep the ball away from Chamberlain"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "difference",
+        "family": "points-combined",
+        "era": "1960s",
+        "subjects": [
+          "Golden State Warriors"
+        ],
+        "supports": [
+          "nba-wilt-100-combined",
+          "nba-wilt-100"
+        ]
+      }
     },
     {
       "id": "nba-ja22-warriors-game2-47",
@@ -259,7 +301,17 @@
             "quote": "Series tied, 1–1"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2020s",
+        "subjects": [
+          "Ja Morant",
+          "Memphis Grizzlies"
+        ],
+        "supports": []
+      }
     }
   ]
 }

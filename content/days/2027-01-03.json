@@ -55,7 +55,16 @@
             "quote": "He was replaced at small forward by Jim McMillian"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "win-streak",
+        "era": "1970s",
+        "subjects": [
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-booker17-70",
@@ -106,20 +115,30 @@
             "quote": "Booker ended the season averaging 22.1 points per game, a near 9-point increment"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "Devin Booker",
+          "Phoenix Suns"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-rodman92-34",
       "sport": "NBA",
-      "prompt": "What was Dennis Rodman's career high in rebounds, set in March 1992?",
+      "prompt": "Kevin Love grabbed 31 rebounds in his 2010 30–30 game. What was Dennis Rodman's career high, set in March 1992?",
       "context": "Detroit Pistons · 1991–92",
       "answer": 34,
       "unit": {
         "singular": "rebound",
         "plural": "rebounds"
       },
-      "min": 20,
-      "max": 52,
+      "min": 22,
+      "max": 54,
       "step": 1,
       "note": "34.",
       "source": {
@@ -150,14 +169,26 @@
           }
         },
         {
-          "text": "Before rebounding defined his legend, Rodman won consecutive Defensive Player of the Year awards.",
+          "text": "Rodman had already won two Defensive Player of the Year awards.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
             "quote": "won his second Defensive Player of the Year Award"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "rebounds-game",
+        "era": "cross-era",
+        "subjects": [
+          "Dennis Rodman",
+          "Detroit Pistons"
+        ],
+        "supports": [
+          "nba-love10-knicks-thirty-one-boards"
+        ]
+      }
     },
     {
       "id": "nba-stockton91-28",
@@ -208,7 +239,17 @@
             "quote": "he passed Magic Johnson (who had 9,921 assists) as the NBA's all-time leader in assists"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "assists-game",
+        "era": "1990s",
+        "subjects": [
+          "John Stockton",
+          "Utah Jazz"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-lebron07-final-twentyfive",
@@ -259,7 +300,17 @@
             "quote": "made a driving layup with 2.2 seconds left in the second OT"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-run",
+        "era": "2000s",
+        "subjects": [
+          "LeBron James",
+          "Cleveland Cavaliers"
+        ],
+        "supports": []
+      }
     }
   ]
 }

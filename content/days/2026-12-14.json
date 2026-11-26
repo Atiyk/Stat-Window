@@ -55,7 +55,17 @@
             "quote": "Battier scored 18 points on six 3-pointers to offset scoreless nights by Bosh and Allen"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "LeBron James",
+          "Miami Heat"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-spurs90-improvement",
@@ -106,20 +116,29 @@
             "quote": "Sega produced a game featuring him entitled David Robinson's Supreme Court"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-change",
+        "era": "1980s",
+        "subjects": [
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-kerr16-games-missed",
       "sport": "NBA",
-      "prompt": "Coach Steve Kerr missed how many games at the start of 2015–16 with a back injury?",
+      "prompt": "Golden State opened 2015–16 with 24 straight wins. Coach Steve Kerr, out with a back injury, missed how many games to start?",
       "context": "Golden State Warriors · 2015–16 regular season",
       "answer": 43,
       "unit": {
         "singular": "game",
         "plural": "games"
       },
-      "min": 20,
-      "max": 90,
+      "min": 25,
+      "max": 75,
       "step": 1,
       "note": "The first 43 games.",
       "source": {
@@ -157,7 +176,19 @@
             "quote": "combining to average 52.2 points per game"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "games-missed",
+        "era": "2010s",
+        "subjects": [
+          "Steve Kerr",
+          "Golden State Warriors"
+        ],
+        "supports": [
+          "nba-gsw16-start"
+        ]
+      }
     },
     {
       "id": "nba-west08-season-ppg",
@@ -208,7 +239,17 @@
             "quote": "May 3 San Antonio 101–82 West (30)"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "scoring-average",
+        "era": "2000s",
+        "subjects": [
+          "David West",
+          "New Orleans Pelicans"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-jordan92-finals-shrug-first-half-35",
@@ -259,7 +300,17 @@
             "quote": "122–89 win over the Portland Trail Blazers"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-period",
+        "era": "1990s",
+        "subjects": [
+          "Michael Jordan",
+          "Chicago Bulls"
+        ],
+        "supports": []
+      }
     }
   ]
 }

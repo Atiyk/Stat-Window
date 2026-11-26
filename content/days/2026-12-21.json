@@ -9,7 +9,7 @@
     {
       "id": "nba-bucks21-regular-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 2020–21 champion Bucks win?",
+      "prompt": "The chart shows four recent regular-season win totals. How many did the shortened-season 2020–21 Bucks win?",
       "context": "Milwaukee · pandemic-shortened NBA season",
       "answer": 46,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 20,
       "max": 80,
       "step": 1,
-      "note": "46 wins, enough for the East's third seed.",
+      "note": "46–26 in the shortened season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
@@ -32,7 +32,7 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Milwaukee swept Miami to open the playoffs after losing to the Heat the previous postseason.",
+          "text": "Milwaukee opened the playoffs by sweeping sixth-seeded Miami.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
@@ -40,7 +40,7 @@
           }
         },
         {
-          "text": "Jrue Holiday arrived from New Orleans in a complicated offseason trade.",
+          "text": "Jrue Holiday arrived from New Orleans before the season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
@@ -48,14 +48,54 @@
           }
         },
         {
-          "text": "Milwaukee claimed its Central Division title after beating Chicago in late April.",
+          "text": "Milwaukee clinched the Central Division for a record tenth time with a win over Chicago.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
             "quote": "the Bucks clinched the Central Division for a record 10th time with a win over the Chicago Bulls"
           }
         }
-      ]
+      ],
+      "chart": {
+        "title": "Regular-season wins",
+        "unit": "wins",
+        "points": [
+          {
+            "label": "SAS 2013–14",
+            "value": 62
+          },
+          {
+            "label": "TOR 2018–19",
+            "value": 58
+          },
+          {
+            "label": "MIL 2020–21",
+            "value": null
+          },
+          {
+            "label": "DEN 2022–23",
+            "value": 53
+          },
+          {
+            "label": "BOS 2023–24",
+            "value": 64
+          }
+        ]
+      },
+      "meta": {
+        "format": "missing-point",
+        "family": "wins-season",
+        "era": "cross-era",
+        "subjects": [
+          "Milwaukee Bucks"
+        ],
+        "supports": [
+          "nba-spurs14-season-wins",
+          "nba-raptors19-regular-wins",
+          "nba-nuggets23-regular-wins",
+          "nba-celtics24-wins"
+        ]
+      }
     },
     {
       "id": "nba-spurs99-final36-wins",
@@ -106,20 +146,29 @@
             "quote": "posted a nine-game winning streak in March afterwards, posted a six-game winning streak"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-situational",
+        "era": "1990s",
+        "subjects": [
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-suns21-g1-ft",
       "sport": "NBA",
-      "prompt": "In Game 1 of the 2021 Finals, Phoenix made how many free throws in a row before its first miss?",
+      "prompt": "Dirk once made 24 free throws without a miss in a playoff game. How many in a row did Phoenix make to open Game 1 of the 2021 Finals?",
       "context": "2021 NBA Finals · Game 1 · vs Milwaukee",
       "answer": 25,
       "unit": {
         "singular": "free throw",
         "plural": "free throws"
       },
-      "min": 14,
-      "max": 52,
+      "min": 10,
+      "max": 45,
       "step": 1,
       "note": "25.",
       "source": {
@@ -134,7 +183,7 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Chris Paul scored heavily in his Finals debut and dominated the third quarter for Phoenix.",
+          "text": "In his Finals debut, Chris Paul scored a game-high 32 points.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
@@ -142,7 +191,7 @@
           }
         },
         {
-          "text": "Giannis returned from his knee injury and made an emphatic chase-down block on Mikal Bridges.",
+          "text": "Giannis made a chase-down block on a Mikal Bridges layup.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
@@ -157,7 +206,18 @@
             "quote": "until Jae Crowder missed with 24.8 seconds left in the game"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "free-throws",
+        "era": "cross-era",
+        "subjects": [
+          "Phoenix Suns"
+        ],
+        "supports": [
+          "nba-dirk11-24-ft"
+        ]
+      }
     },
     {
       "id": "nba-bird85-opener-steals",
@@ -208,7 +268,17 @@
             "quote": "Bird, McHale, Parish and Johnson, all scoring at least 20 points"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "steals-game",
+        "era": "1980s",
+        "subjects": [
+          "Larry Bird",
+          "Boston Celtics"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-wemby24-10-blocks-blazers",
@@ -259,7 +329,17 @@
             "quote": "At 20 years and 352 days old"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "blocks-game",
+        "era": "2020s",
+        "subjects": [
+          "Victor Wembanyama",
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
     }
   ]
 }

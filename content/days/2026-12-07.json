@@ -55,7 +55,16 @@
             "quote": "received the twelfth overall pick in the 1997 NBA draft"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "1990s",
+        "subjects": [
+          "Indiana Pacers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-finals84-g5-heat",
@@ -106,7 +115,16 @@
             "quote": "The Celtics did not warm up with their sweat pants on because of extreme heat"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "temperature",
+        "era": "1980s",
+        "subjects": [
+          "Boston Celtics"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-miller12-g5-threes",
@@ -157,7 +175,17 @@
             "quote": "the Heat survived a grueling Eastern Conference finals against the Boston Celtics"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "threes-game",
+        "era": "2010s",
+        "subjects": [
+          "Mike Miller",
+          "Miami Heat"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-raptors19-sixers-g7-points",
@@ -208,7 +236,16 @@
             "quote": "The Raptors defeated the Milwaukee Bucks in the Eastern Conference Finals"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-team-game",
+        "era": "2010s",
+        "subjects": [
+          "Toronto Raptors"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-brunson24-philly-47",
@@ -259,7 +296,17 @@
             "quote": "he surpassed the 46 points scored by Bernard King in 1984"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2020s",
+        "subjects": [
+          "Jalen Brunson",
+          "New York Knicks"
+        ],
+        "supports": []
+      }
     }
   ]
 }

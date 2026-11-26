@@ -87,7 +87,7 @@ Report small numbers as counts with an interval, not as rates: 7 of 10 is "somew
 | `/e/complete/{mode}/{0-99,…,400-500}` | round 5 locked | completion, score bands |
 | `/e/streak/daily/{1,2-6,7plus}` | once per completed daily (round 5 locked on a run saved to the daily record, including today's puzzle opened from a friend's link; never practice). The number is the daily streak that completion leaves, counted from this browser's saved days and bucketed like `gap` | are players coming back day after day? |
 | `/e/share/{mode}/{native,clipboard,failed,cancelled}` | share button result | share attempts |
-| `/e/challenge-open/{today,past,future,invalid}[/with-score]` | page opened with a `?day=` link | challenge links that worked |
+| `/e/challenge-open/{today,past,future,invalid}[/with-score[/with-rounds]]` | page opened with a `?day=` link; `/with-rounds` when it carried five valid round scores (friend race, link v2) | challenge links that worked |
 | `/e/share/{mode}/{native-image,image-saved}` | share sheet sent the PNG score card / "Save score card" downloaded it | does the card get used? |
 | `/e/percentile/{stored,gathering,ready,consent,ineligible,disabled,unavailable}` | once per browser and day, when the results screen settles the comparison | how many players see a real percentile vs the "not enough games" line |
 | `/e/privacy/{scores-on,scores-off,deleted}` | a comparison choice or a deletion in the app | consent and deletion rates |

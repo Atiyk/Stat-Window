@@ -55,7 +55,16 @@
             "quote": "wearing a white patch on their jerseys for the entire season"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-change",
+        "era": "2000s",
+        "subjects": [
+          "Phoenix Suns"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-elmore73-half",
@@ -106,7 +115,17 @@
             "quote": "Elmore Smith  (2)  | Los Angeles Lakers  | October 26, 1973"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "blocks-period",
+        "era": "1970s",
+        "subjects": [
+          "Elmore Smith",
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-james09-season-apg",
@@ -157,7 +176,17 @@
             "quote": "LeBron James passed Mark Price to become the Cavaliers' all-time steals leader"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "assists-average",
+        "era": "2000s",
+        "subjects": [
+          "LeBron James",
+          "Cleveland Cavaliers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-mavs06-g4-q4",
@@ -208,7 +237,16 @@
             "quote": "Rebs: Shaquille O'Neal 13"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-period",
+        "era": "2000s",
+        "subjects": [
+          "Dallas Mavericks"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-curry21-blazers-62",
@@ -259,7 +297,17 @@
             "quote": "named the Player of the Week for the Western Conference"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2020s",
+        "subjects": [
+          "Stephen Curry",
+          "Golden State Warriors"
+        ],
+        "supports": []
+      }
     }
   ]
 }

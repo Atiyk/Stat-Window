@@ -17,6 +17,7 @@ describe('eventPath', () => {
       [{ name: 'run_complete', mode: 'daily', total: 274 }, '/e/complete/daily/200-299'],
       [{ name: 'share', mode: 'daily', method: 'clipboard' }, '/e/share/daily/clipboard'],
       [{ name: 'challenge_open', kind: 'past', withScore: true }, '/e/challenge-open/past/with-score'],
+      [{ name: 'challenge_open', kind: 'today', withScore: true, withRounds: true }, '/e/challenge-open/today/with-score/with-rounds'],
     ];
     for (const [e, path] of cases) expect(eventPath(e)).toBe(path);
   });

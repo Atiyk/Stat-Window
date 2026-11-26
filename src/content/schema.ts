@@ -1,6 +1,7 @@
 import * as z from 'zod/mini';
 import { addDays } from '../engine/daily.ts';
 import { stepDecimals } from '../engine/scoring.ts';
+import { QuestionChartSchema, QuestionMetaSchema } from './formats.ts';
 
 const isoDay = z.string().check(z.regex(/^\d{4}-\d{2}-\d{2}$/, 'Expected YYYY-MM-DD'));
 
@@ -58,6 +59,10 @@ export const QuestionSchema = z
     verified: z.object({ on: isoDay, by: text(2) }),
     /** NBA days climb easy → medium → hard → hard → expert. Older days have no label. */
     difficulty: z.optional(z.enum(['easy', 'medium', 'hard', 'expert'])),
+    /** V5: verified observations shown before the lock; the one null value is this answer. */
+    chart: z.optional(QuestionChartSchema),
+    /** V5: format and classification. Absent on earlier days, which are plain recall. */
+    meta: z.optional(QuestionMetaSchema),
   })
   .check(
     z.superRefine((q, ctx) => {
@@ -77,6 +82,13 @@ export const QuestionSchema = z
       const hasFigure = answerSpellings(q.answer, q.step).some((s) =>
         q.source.quote.toLowerCase().includes(s.toLowerCase()),
       );
+      if (q.chart) {
+        const hidden = q.chart.points.filter((p) => p.value === null).length;
+        if (hidden !== 1) ctx.issues.push({ code: 'custom', input: q, message: `${q.id}: a chart hides exactly one observation (found ${hidden})` });
+        if (q.meta?.format !== 'missing-point') ctx.issues.push({ code: 'custom', input: q, message: `${q.id}: only missing-point questions carry a chart` });
+      } else if (q.meta?.format === 'missing-point') {
+        ctx.issues.push({ code: 'custom', input: q, message: `${q.id}: a missing-point question needs its chart` });
+      }
       if (!hasFigure && !q.source.derivation) {
         ctx.issues.push({ code: 'custom', input: q, message: `${q.id}: source quote must contain the answer, or give a derivation` });
       }

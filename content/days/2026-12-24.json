@@ -55,7 +55,16 @@
             "quote": "the 76ers slightly updated their white home uniforms and black road uniforms"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "2000s",
+        "subjects": [
+          "Philadelphia 76ers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-stockton-malone-games",
@@ -106,7 +115,17 @@
             "quote": "Stockton's number 12 jersey was retired by the Jazz during a game on November 22, 2004"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "games-together",
+        "era": "2000s",
+        "subjects": [
+          "John Stockton",
+          "Utah Jazz"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-bulls96-home-streak",
@@ -157,12 +176,21 @@
             "quote": "new black alternate road uniforms, which featured red pinstripes"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "win-streak",
+        "era": "1990s",
+        "subjects": [
+          "Chicago Bulls"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-duncan03-g6-blocks",
       "sport": "NBA",
-      "prompt": "Tim Duncan nearly had a quadruple-double in the 2003 title clincher. How many blocks did he have?",
+      "prompt": "Hakeem Olajuwon blocked 11 shots in his 1990 quadruple-double. How many did Tim Duncan block when he nearly had one in 2003?",
       "context": "2003 NBA Finals · Game 6 · vs New Jersey",
       "answer": 8,
       "unit": {
@@ -170,7 +198,7 @@
         "plural": "blocks"
       },
       "min": 0,
-      "max": 13,
+      "max": 14,
       "step": 1,
       "note": "Eight, with 21 points, 20 rebounds and 10 assists.",
       "source": {
@@ -185,7 +213,7 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "The clincher was David Robinson's final NBA game, and he retired as a champion.",
+          "text": "The series ended with David Robinson retiring as a champion.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2003_NBA_Finals",
@@ -208,7 +236,19 @@
             "quote": "Duncan and Robinson grabbed 37 rebounds between them, more than the total rebounds of the entire Nets team combined"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "blocks-game",
+        "era": "cross-era",
+        "subjects": [
+          "Tim Duncan",
+          "San Antonio Spurs"
+        ],
+        "supports": [
+          "nba-hakeem90-quadruple-blocks"
+        ]
+      }
     },
     {
       "id": "nba-kawhi19-philly-game7-41",
@@ -259,7 +299,17 @@
             "quote": "first game 7 buzzer beater in NBA history"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "Kawhi Leonard",
+          "Toronto Raptors"
+        ],
+        "supports": []
+      }
     }
   ]
 }

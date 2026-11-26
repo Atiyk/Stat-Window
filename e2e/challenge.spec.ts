@@ -118,7 +118,7 @@ test('sharing falls back to selectable text when there is no share sheet or clip
   await page.getByRole('button', { name: 'Challenge a friend' }).click();
   const box = page.getByRole('textbox', { name: 'Your result to copy' });
   await expect(box).toBeVisible();
-  await expect(box).toHaveValue(/\/\?day=2026-11-16&vs=\d+&time=\d+$/);
+  await expect(box).toHaveValue(/\/\?day=2026-11-16&vs=\d+&time=\d+(&v=2&r=\d+(\.\d+){4})?$/);
   await expect(box).toHaveValue(/Same five questions/);
 });
 

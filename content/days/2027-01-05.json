@@ -55,7 +55,17 @@
             "quote": "Boston Garden 14,890"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "1980s",
+        "subjects": [
+          "Michael Jordan",
+          "Chicago Bulls"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-lakers00-wins",
@@ -106,7 +116,16 @@
             "quote": "Another huge change for the Lakers was that it was their inaugural season at the Staples Center"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "wins-season",
+        "era": "1990s",
+        "subjects": [
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-hawks86-third-quarter",
@@ -157,7 +176,16 @@
             "quote": "this series marked the first time the \"NBA Finals\" branding was officially used"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-period",
+        "era": "1980s",
+        "subjects": [
+          "Atlanta Hawks"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-lakers23-cup-paint",
@@ -208,7 +236,16 @@
             "quote": "Indiana Pacers 109, Los Angeles Lakers 123"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-team-game",
+        "era": "2020s",
+        "subjects": [
+          "Los Angeles Lakers"
+        ],
+        "supports": []
+      }
     },
     {
       "id": "nba-mitchell20-bubble-fiftyseven",
@@ -259,7 +296,17 @@
             "quote": "the third most in playoff history"
           }
         }
-      ]
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "points-game",
+        "era": "2010s",
+        "subjects": [
+          "Donovan Mitchell",
+          "Utah Jazz"
+        ],
+        "supports": []
+      }
     }
   ]
 }

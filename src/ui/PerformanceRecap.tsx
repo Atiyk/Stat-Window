@@ -5,6 +5,7 @@ import {
 } from '../engine/court-run';
 import { SHOT_MARKER_RADIUS, SHOT_OUTCOME_LABELS, SHOT_UNSUBMITTED_DIVIDER, SHOT_UNSUBMITTED_SPAN, type ShotAttempt } from '../engine/shot-chart';
 import { Ball, CourtSvg } from './CourtRun';
+import { plural } from '../lib/format';
 import './performance-recap.css';
 
 export function ShotMarker({ outcome, number }: { outcome: ShotAttempt['outcome']; number?: number }) {
@@ -63,6 +64,8 @@ function CourtRunCourt({ total, checkpoints }: { total: number; checkpoints: rea
   );
 }
 
+const toNext = (points: number, name: string) => `${plural(points, 'more point', 'more points')} ${points === 1 ? 'reaches' : 'reach'} ${name}.`;
+
 /** One true sentence about where the points carried the ball, by real court features. */
 export function courtRunLine(total: number): string {
   const { reached, next } = courtLandmarks(total);
@@ -71,8 +74,8 @@ export function courtRunLine(total: number): string {
     : reached?.name === 'the rim'
       ? 'All the way to the rim. A perfect game.'
       : reached
-        ? `Inside ${reached.name}${next ? `. ${next.at - total} more points reach ${next.name}.` : '.'}`
-        : `${next!.at - total} more points reach ${next!.name}.`;
+        ? `Inside ${reached.name}${next ? `. ${toNext(next.at - total, next.name)}` : '.'}`
+        : toNext(next!.at - total, next!.name);
 }
 
 const VIEWS = [

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { niceTicks } from './format';
+import { niceTicks, plural } from './format';
 
 describe('niceTicks', () => {
   it('labels round values across the scale', () => {
@@ -17,5 +17,15 @@ describe('niceTicks', () => {
 
   it('does not crowd an end label against a round value', () => {
     expect(niceTicks(14, 100, 5).major[0]).toBe(20);
+  });
+});
+
+describe('plural', () => {
+  it('uses the singular for exactly one', () => {
+    expect(plural(1, 'point')).toBe('1 point');
+  });
+  it('uses the plural otherwise, with an irregular form when given', () => {
+    expect(plural(2, 'point')).toBe('2 points');
+    expect(plural(0, 'category', 'categories')).toBe('0 categories');
   });
 });

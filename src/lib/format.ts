@@ -5,6 +5,9 @@ export function formatValue(value: number, step: number): string {
   return value.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
 }
 
+/** “1 point”, “2 points”: a count with its noun in the right number. */
+export const plural = (n: number, one: string, many = `${one}s`): string => `${n} ${n === 1 ? one : many}`;
+
 export function unitFor(value: number, unit: { singular: string; plural: string }): string {
   return value === 1 ? unit.singular : unit.plural;
 }

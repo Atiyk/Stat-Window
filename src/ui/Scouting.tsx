@@ -6,13 +6,12 @@ import {
 } from '../engine/scouting';
 import type { SeasonConfig } from '../engine/season';
 import type { SaveStore } from '../engine/storage';
-import { formatDay } from '../lib/format';
+import { formatDay, plural } from '../lib/format';
 import { useOfficialHistory } from './use-history';
 import './weekly.css';
 import './scouting.css';
 
 const pct = (part: number, whole: number) => (whole ? `${Math.round((part / whole) * 100)}%` : '–');
-const plural = (n: number, one: string, many = `${one}s`) => `${n} ${n === 1 ? one : many}`;
 
 const OUTCOMES = [
   { key: 'scoringHits', label: 'Scoring hits', note: 'caught the answer and earned points' },

@@ -29,6 +29,8 @@ import type { SurvivalCatalog, SurvivalTag } from '../../src/survival/catalog.ts
 
 export const CATALOG_PATH = join(ROOT, 'content', 'survival', 'catalog.json');
 
+const DATE = /\b(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.? \d{1,2}(?:st|nd|rd|th)?\b/g;
+
 function textOf(f: Fact): string {
   return [f.question.prompt, f.question.context, f.question.reveal, f.claim, f.source.quote, f.source.derivation ?? ''].join(' \n ');
 }
@@ -54,7 +56,8 @@ export function leakHorizon(f: Fact, scheduled: ReadonlyMap<string, string>, fac
   const own = scheduled.get(f.id);
   let notBefore = own ? addDays(own, 1) : null;
   const leaks: string[] = [];
-  const text = textOf(f);
+  // Day numbers in dates ("November 24, 1960") are not figures, so they cannot print an answer.
+  const text = textOf(f).replace(DATE, ' ');
   // V5: a chart, reference or derivation shows another fact's figure by construction.
   const supports = new Set(supportsOf(f));
   for (const g of facts) {

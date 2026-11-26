@@ -23,7 +23,7 @@ export type ChallengeLink =
 
 /** Link versions. No `v` is the original final-total link; `v=2` adds the five round scores. */
 export const RACE_LINK_VERSION = '2';
-const MAX_SEARCH = 600;
+const MAX_OWN = 40;
 const ROUND = /^(0|[1-9]\d?|100)$/;
 
 /** Five dot-separated whole numbers from 0 to 100, or null. */
@@ -63,7 +63,9 @@ export function parseChallenge(search: string, today: string, published: readonl
   if (!published.includes(day)) return { kind: 'invalid' };
   const plain = { kind: 'day', day, vs: null, vsTime: null } as const;
   // A mangled or padded link still opens the same five questions, without any friend score.
-  if (search.length > MAX_SEARCH) return plain;
+  // Only the game's own parameters count, so long tracking tags (utm, fbclid) never cost a score.
+  const own = ['vs', 'time', 'v', 'r'].reduce((n, k) => n + params.getAll(k).join('').length, 0);
+  if (own > MAX_OWN) return plain;
   if (['vs', 'time', 'v', 'r'].some((k) => params.getAll(k).length > 1)) return plain;
   const time = params.get('time');
   const vsTime = time && /^\d{1,6}$/.test(time) && Number(time) <= 120_000 ? Number(time) : null;

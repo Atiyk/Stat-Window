@@ -71,7 +71,9 @@ export function LiveCourtRun({ earned, potential, record = null, animate = false
   const ball = courtPosition(earned);
   const ghost = potential !== null && potential > earned ? courtPosition(potential) : null;
   const recordAt = record !== null ? courtPosition(record) : null;
-  const friendAt = friend !== null ? courtPosition(friend) : null;
+  const friendPoint = friend !== null ? courtPosition(friend) : null;
+  // At 0 the start point is the strip's edge: keep the whole pin on the court.
+  const friendAt = friendPoint && { x: Math.max(friendPoint.x, LIVE_VIEW.x + .8), y: friendPoint.y };
   const marker = useRef<SVGGElement>(null);
   const hop = useRef<SVGGElement>(null);
   const trail = useRef<SVGPathElement>(null);
@@ -147,9 +149,8 @@ export function LiveCourtRun({ earned, potential, record = null, animate = false
         {friendAt && (
           // Below the route, a pin rather than a ball: it never reads as a third ball or covers the tag.
           // It moves after the player's ball lands (CSS delay), so one thing travels at a time.
-          <g className="court-friend" data-court-friend={friend} style={{ transform: `translate(${friendAt.x}px, ${friendAt.y}px)` }}>
-            <path className="court-friend__stem" d="M0 .3V1.3" />
-            <path className="court-friend__pin" d="M0 1.1L.72 2.25H-.72Z" />
+          <g className="court-friend" data-court-friend={friend} data-animate={animate || undefined} style={{ transform: `translate(${friendAt.x}px, ${friendAt.y}px)` }}>
+            <path className="court-friend__pin" d="M0 1.4L.72 2.5H-.72Z" />
           </g>
         )}
         <g data-court-ball="" transform={`translate(${ball.x} ${ball.y})`}>

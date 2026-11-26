@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { collectErrors, DAY2, lockAndSettle, next, openAt } from './helpers';
+import { collectErrors, DAY2, lockAndSettle, next, openAt, typeWindow } from './helpers';
 
 // Friend Ghost Race (challenge link v2): the friend's five round scores travel in the
 // link, and each one appears only after the recipient finishes the same round.
@@ -23,15 +23,18 @@ test.beforeEach(async ({ page }) => {
 test('a race link reveals the friend round by round, then compares every round', async ({ page }) => {
   const errors = collectErrors(page);
   await openAt(page, AFTER_MIDNIGHT, RACE);
-  await expect(page.locator('.challenge-note')).toContainText('Race your friend’s 247 points, one question at a time.');
+  // The total stays out of the note: with it, the friend's last round could be worked out before it is played.
+  await expect(page.locator('.challenge-note')).toHaveText('Race your friend, one question at a time.');
   // The court is on for the race, and nothing about the friend's rounds shows before a reveal.
   await expect(page.locator('.live-court')).toBeVisible();
-  await expect(page.locator('.race-line')).toHaveText('Your friend’s score appears after each question.');
+  await expect(page.locator('.race-line')).toHaveText('');
   await expect(page.locator('[data-court-friend]')).toHaveCount(0);
   await expect(page.locator('body')).not.toContainText('Friend 48');
 
+  await typeWindow(page, 70, 75); // Bonds, 73: 89 points
   await lockAndSettle(page);
   await expect(page.locator('.race-line')).toContainText('Friend 48');
+  await expect(page.locator('.race-line')).toContainText('up 41');
   await expect(page.locator('[data-court-friend]')).toHaveAttribute('data-court-friend', '48');
   // Only round one: the later rounds (61, 100, 38) are not on the page.
   await expect(page.locator('.race-line')).not.toContainText('109');
@@ -52,7 +55,7 @@ test('a race link reveals the friend round by round, then compares every round',
 
   const race = page.locator('.race-result');
   await expect(race).toBeVisible();
-  await expect(race.locator('h2')).toHaveText(/^(You won by \d+\.|Your friend won by \d+\.|Tie at \d+\.|You won on time, tied at \d+\.|Your friend won on time, tied at \d+\.)$/);
+  await expect(race.locator('h2')).toHaveText(/^(You won by \d+ points?\.|Your friend won by \d+ points?\.|Tied at \d+\.|You won on time, tied at \d+\.|Your friend won on time, tied at \d+\.)$/);
   await expect(race.locator('tr[data-row="friend"] td')).toHaveText(['48', '61', '0', '100', '38', '247']);
   await expect(race.locator('tr[data-row="you"] td')).toHaveCount(6);
   // The legacy total-only line is not shown twice.
@@ -81,6 +84,7 @@ test('legacy and tampered links keep working without a race', async ({ page }) =
 
 test('the sender’s link carries five round scores that add up to the total', async ({ page }) => {
   await openAt(page, DAY2);
+  await typeWindow(page, 70, 75);
   for (let i = 0; i < 5; i++) {
     await lockAndSettle(page);
     await next(page);

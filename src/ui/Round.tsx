@@ -382,9 +382,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
             {challenge.vs === null ? (
               'A friend sent you these five.'
             ) : challenge.race ? (
-              <>
-                Race your friend’s <b className="tabular">{challenge.vs}</b> points, one question at a time.
-              </>
+              'Race your friend, one question at a time.'
             ) : (
               <>
                 Beat your friend’s <b className="tabular">{challenge.vs}</b> points{challenge.vsTime !== null ? ` in ${Math.ceil(challenge.vsTime / 1000)}s` : ''}.
@@ -572,7 +570,10 @@ function leadText(lead: number): string {
   return `${lead > 0 ? 'you lead by' : 'you trail by'} ${n} ${n === 1 ? 'point' : 'points'}`;
 }
 
-/** For screen readers, on each reveal. */
+/** Short enough for the narrow court column in two-column layouts. */
+const leadShort = (lead: number) => lead === 0 ? 'level' : `${lead > 0 ? 'up' : 'down'} ${Math.abs(lead)}`;
+
+/** For screen readers: spoken on each reveal, and kept beside the court. */
 function raceSentence(s: RaceStanding): string {
   return `Your friend had ${s.friend} after question ${s.completed}: ${leadText(s.lead)}.`;
 }
@@ -582,18 +583,17 @@ function raceSentence(s: RaceStanding): string {
  * says what will appear; afterwards it compares the same number of rounds.
  */
 function RaceLine({ standing, fresh }: { standing: RaceStanding; fresh: boolean }) {
+  // Before the first reveal the line is empty but keeps its height, so nothing shifts when it fills.
+  if (standing.completed === 0) return <p className="race-line" />;
   return (
-    <p className="race-line" aria-hidden="true" data-fresh={fresh || undefined}>
-      {standing.completed === 0 ? (
-        'Your friend’s score appears after each question.'
-      ) : (
-        <>
-          <span className="race-line__mark" />
-          Friend <b className="tabular">{standing.friend}</b>
-          <span className="race-line__sep"> · </span>
-          <span className="race-line__lead" data-lead={Math.sign(standing.lead)}>{leadText(standing.lead)}</span>
-        </>
-      )}
+    <p className="race-line" data-fresh={fresh || undefined}>
+      <span className="sr-only">{raceSentence(standing)}</span>
+      <span className="race-line__text" aria-hidden="true">
+        <span className="race-line__mark" />
+        Friend <b className="tabular">{standing.friend}</b>
+        <span className="race-line__sep"> · </span>
+        <span className="race-line__lead" data-lead={Math.sign(standing.lead)}>{leadShort(standing.lead)}</span>
+      </span>
     </p>
   );
 }

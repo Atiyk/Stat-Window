@@ -89,8 +89,11 @@ describe('friend race links (v2: five round scores)', () => {
       '?day=2026-11-16&vs=247&r=48.61.0.100.38', // rounds without a version
       '?day=2026-11-16&vs=247&v=2&r=48.61.0.100.38&r=48.61.0.100.38', // duplicated
       '?day=2026-11-16&vs=247&vs=247&v=2&r=48.61.0.100.38',
-      `?day=2026-11-16&vs=247&v=2&r=48.61.0.100.38&pad=${'x'.repeat(600)}`, // oversized
+      `?day=2026-11-16&vs=247&v=2&r=48.61.0.100.38${'0'.repeat(40)}`, // oversized
     ]) expect(parseChallenge(q, today, published), q).toEqual(none);
+  });
+  it('long tracking parameters do not cost the friend score', () => {
+    expect(parseChallenge(`${race}&fbclid=${'x'.repeat(700)}`, today, published)).toEqual({ kind: 'day', day: today, vs: 247, vsTime: 61000, rounds: [48, 61, 0, 100, 38] });
   });
   it('a duplicated day is refused outright', () => {
     expect(parseChallenge('?day=2026-11-15&day=2026-11-16&vs=1', today, published)).toEqual({ kind: 'invalid' });

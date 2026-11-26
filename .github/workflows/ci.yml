@@ -40,6 +40,8 @@ jobs:
         run: npm run content:trivia:check -- --require-original
       - name: NBA database (reproducible SQLite build, reports, day files and Survival catalog up to date)
         run: npm run nba:db -- --out build/nba.sqlite && npm run nba:report:check && npm run content:publish:check && npm run survival:catalog:check
+      - name: Published days unchanged relative to main (the lock only grows)
+        run: git fetch --no-tags --depth=1 origin main && npm run content:lock:base -- --base FETCH_HEAD
       - name: Review-gated cross-sport Question Factory
         run: npm run factory:check
       - run: npm run typecheck

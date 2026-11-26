@@ -306,9 +306,9 @@ export function App() {
       window.history.pushState(null, '', url);
       void open(day, { timing });
     } else {
-      if (new URLSearchParams(loc.search).has('practice')) {
-        window.history.replaceState(null, '', withoutParams(loc, ['practice']));
-      }
+      // Leaving a friend's link for practice: a reload must reopen the practice, not the link.
+      const params = new URLSearchParams(loc.search);
+      if (gameParams.some((n) => params.has(n))) window.history.replaceState(null, '', withoutGameLink(loc));
       void open(day);
     }
   };

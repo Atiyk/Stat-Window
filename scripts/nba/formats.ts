@@ -41,7 +41,7 @@ export type FormatFact = {
   answer: number;
   unit: { singular: string; plural: string };
   source: { quote: string; derivation: string | null };
-  question: { prompt: string; context: string; reveal: string; step: number; format?: FormatSpec };
+  question: { prompt: string; context: string; reveal: string; step: number; max: number; format?: FormatSpec };
 };
 
 const round = (n: number, step: number) => Number(n.toFixed(stepDecimals(step)));
@@ -100,7 +100,7 @@ export function formatIssues(f: FormatFact, byId: ReadonlyMap<string, FormatFact
 
   if (spec.chart) {
     const { points, title, unit } = spec.chart;
-    if (spec.kind !== 'missing-point' && spec.kind !== 'trajectory') out.push('only missing-point and trajectory questions carry a chart');
+    if (spec.kind !== 'missing-point') out.push('only missing-point questions carry a chart (the schema ties a chart to that format)');
     if (points.length < 3 || points.length > 7) out.push(`a chart needs 3–7 observations, found ${points.length}`);
     if (points.filter((p) => p.fact === f.id).length !== 1) out.push('a chart must contain the question itself exactly once, as the hidden observation');
     if (new Set(points.map((p) => p.label)).size !== points.length) out.push('chart labels must be distinct');
@@ -112,6 +112,9 @@ export function formatIssues(f: FormatFact, byId: ReadonlyMap<string, FormatFact
       const g = get(p.fact, 'chart observation');
       if (g && g.unit.plural !== f.unit.plural) out.push(`chart observation ${g.id} is in ${g.unit.plural}, not ${f.unit.plural}`);
       if (g && g.family !== f.family) out.push(`chart observation ${g.id} measures ${g.family}, not ${f.family}`);
+      if (g && g.answer > f.question.max) out.push(`chart observation ${g.id} (${g.answer}) is above the scale's max ${f.question.max}`);
+      if (g && Math.abs(Math.round(g.answer / f.question.step) * f.question.step - g.answer) > 1e-9)
+        out.push(`chart observation ${g.id} (${g.answer}) cannot be shown at this question's step ${f.question.step}`);
     }
   } else if (spec.kind === 'missing-point') out.push('a missing-point question needs a chart');
 
@@ -148,7 +151,7 @@ export function formatIssues(f: FormatFact, byId: ReadonlyMap<string, FormatFact
   if ((spec.kind === 'difference' || spec.kind === 'ratio') && !spec.derive) out.push(`a ${spec.kind} question needs a derivation`);
   if (spec.kind === 'ratio' && spec.derive && spec.derive.op !== 'percent') out.push('a ratio question derives a percent');
   if (spec.kind === 'difference' && spec.derive && spec.derive.op !== 'difference') out.push('a difference question derives a difference');
-  if (spec.kind === 'trajectory' && !spec.derive && !spec.chart) out.push('a trajectory question needs a derivation or a chart');
+  if (spec.kind === 'trajectory' && !spec.derive) out.push('a trajectory question needs a derivation');
   if (spec.kind === 'ranking' && !(spec.ranking?.population?.trim() && spec.ranking.ties?.trim()))
     out.push('a ranking question must state its population and tie convention');
   return out;

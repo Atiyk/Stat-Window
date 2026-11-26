@@ -16,7 +16,7 @@ const base = (id: string, answer: number, extra: Partial<FormatFact> = {}, step 
   answer,
   unit: { singular: 'point per game', plural: 'points per game' },
   source: { quote: '', derivation: null },
-  question: { prompt: `What did ${id} average?`, context: 'ctx', reveal: 'reveal', step },
+  question: { prompt: `What did ${id} average?`, context: 'ctx', reveal: 'reveal', step, max: 1000 },
   ...extra,
 });
 const withFormat = (f: FormatFact, format: FormatSpec, patch: Partial<FormatFact['question']> = {}): FormatFact => ({
@@ -146,9 +146,25 @@ describe('ranking and trajectory', () => {
     expect(formatIssues(withFormat(r, { kind: 'ranking' }), index(r)).join()).toMatch(/population and tie/);
     expect(formatIssues(withFormat(r, { kind: 'ranking', ranking: { population: 'all NBA players, regular season', ties: 'shared rank' } }), index(r))).toEqual([]);
   });
-  it('a trajectory needs a derivation or a chart', () => {
+  it('a trajectory needs a derivation', () => {
     const t = base('nba-t', 4);
-    expect(formatIssues(withFormat(t, { kind: 'trajectory' }), index(t)).join()).toMatch(/derivation or a chart/);
+    expect(formatIssues(withFormat(t, { kind: 'trajectory' }), index(t)).join()).toMatch(/needs a derivation/);
+  });
+  it('a chart observation must fit the question scale and step', () => {
+    const own = base('nba-own', 30);
+    const big = base('nba-big', 2000);
+    const fine = base('nba-fine', 27.5, {}, 0.1);
+    const other = base('nba-o', 20);
+    const chart = (facts: string[]) => ({ kind: 'missing-point' as const, chart: { title: 'Points per game', unit: 'points', points: facts.map((fact, i) => ({ label: `P${i}`, fact })) } });
+    const issues = formatIssues(withFormat(own, chart(['nba-own', 'nba-big', 'nba-fine', 'nba-o'])), index(own, big, fine, other)).join('\n');
+    expect(issues).toMatch(/nba-big \(2000\) is above the scale's max 1000/);
+    expect(issues).toMatch(/nba-fine \(27.5\) cannot be shown at this question's step 1/);
+    expect(issues).not.toMatch(/nba-o /);
+  });
+  it('a chart only goes with the missing-point format', () => {
+    const own = base('nba-own', 30);
+    const spec = { kind: 'trajectory' as const, derive: { op: 'sum' as const, values: [10, 20] as [number, number] }, chart: { title: 'Points per game', unit: 'points', points: [] } };
+    expect(formatIssues(withFormat(own, spec), index(own)).join()).toMatch(/only missing-point questions carry a chart/);
   });
   it('rejects plain recall written as a format', () => {
     const t = base('nba-t', 4);

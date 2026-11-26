@@ -527,9 +527,10 @@ function RaceResult({ you, friend, total, vs, answerMs, vsTime }: {
 }) {
   const outcome = raceOutcome(total, vs, answerMs, vsTime);
   const highlight = raceHighlight(you, friend);
-  const headline = outcome.result === 'tie' ? `Tie at ${total}.`
+  const by = `${outcome.margin} ${outcome.margin === 1 ? 'point' : 'points'}`;
+  const headline = outcome.result === 'tie' ? `Tied at ${total}.`
     : outcome.byTime ? (outcome.result === 'won' ? `You won on time, tied at ${total}.` : `Your friend won on time, tied at ${total}.`)
-    : outcome.result === 'won' ? `You won by ${outcome.margin}.` : `Your friend won by ${outcome.margin}.`;
+    : outcome.result === 'won' ? `You won by ${by}.` : `Your friend won by ${by}.`;
   return (
     <section className="race-result" aria-labelledby="race-result-title" data-result={outcome.result}>
       <h2 id="race-result-title" className="race-result__title">{headline}</h2>
@@ -538,7 +539,7 @@ function RaceResult({ you, friend, total, vs, answerMs, vsTime }: {
         <thead>
           <tr>
             <td />
-            {you.map((_, i) => <th key={i} scope="col"><span className="sr-only">Question </span>Q{i + 1}</th>)}
+            {you.map((_, i) => <th key={i} scope="col"><span className="sr-only">Question {i + 1}</span><span aria-hidden="true">Q{i + 1}</span></th>)}
             <th scope="col">Total</th>
           </tr>
         </thead>

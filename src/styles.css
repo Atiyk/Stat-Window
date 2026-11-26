@@ -2219,7 +2219,8 @@ a {
   white-space: nowrap;
 }
 .race-table tbody tr + tr { border-top: 1px solid var(--line); }
-.race-table td[data-won] { font-weight: 800; color: var(--brand-press); }
+.race-table td[data-won] { font-weight: 800; }
+.race-table tr[data-row='you'] td[data-won] { color: var(--brand-press); }
 .race-table .race-table__total { padding-inline-start: 10px; font-weight: 800; }
 .race-result__note {
   margin: 8px 0 0;

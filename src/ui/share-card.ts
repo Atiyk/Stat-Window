@@ -507,7 +507,7 @@ export function drawWeeklyCard(ctx: CanvasRenderingContext2D, card: WeeklyCardMo
   const portrait = format === 'portrait';
   const S = CARD_SIZE;
   const L = portrait
-    ? { header: 200, kicker: 380, range: 448, total: 696, games: 780, bars: 860, barH: 400, divider: 1460, stats: 1530, invite: 1630, host: 1690 }
+    ? { header: 280, kicker: 430, range: 494, total: 720, games: 796, bars: 860, barH: 380, divider: 1420, stats: 1484, invite: 1576, host: 1632 }
     : { header: 88, kicker: 236, range: 290, total: 436, games: 510, bars: 556, barH: 170, divider: 874, stats: 926, invite: 984, host: 1030 };
   ctx.fillStyle = C.paper;
   ctx.fillRect(0, 0, S, portrait ? PORTRAIT_HEIGHT : S);

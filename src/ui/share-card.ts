@@ -483,7 +483,7 @@ function drawWeekDay(ctx: CanvasRenderingContext2D, d: WeeklyCardDay, x: number,
   if (d.note) {
     // The state's word sits inside its box, so a glance at a thumbnail still separates them.
     ctx.fillStyle = d.mark === 'zero' ? C.ink : C.soft;
-    const size = big ? 28 : 22;
+    const size = big ? 26 : 22;
     ctx.font = `600 ${size}px ${SANS}`;
     // Two short lines rather than squeezed type when the word is wider than the box.
     const lines = ctx.measureText(d.note).width > w - 16 && d.note.includes(' ') ? d.note.split(' ') : [d.note];
@@ -507,8 +507,8 @@ export function drawWeeklyCard(ctx: CanvasRenderingContext2D, card: WeeklyCardMo
   const portrait = format === 'portrait';
   const S = CARD_SIZE;
   const L = portrait
-    ? { header: 280, kicker: 440, range: 504, total: 740, games: 812, bars: 880, barH: 320, divider: 1392, stats: 1456, invite: 1548, host: 1600 }
-    : { header: 88, kicker: 236, range: 290, total: 452, games: 512, bars: 556, barH: 170, divider: 874, stats: 926, invite: 984, host: 1030 };
+    ? { header: 200, kicker: 380, range: 448, total: 696, games: 780, bars: 860, barH: 400, divider: 1460, stats: 1530, invite: 1630, host: 1690 }
+    : { header: 88, kicker: 236, range: 290, total: 436, games: 510, bars: 556, barH: 170, divider: 874, stats: 926, invite: 984, host: 1030 };
   ctx.fillStyle = C.paper;
   ctx.fillRect(0, 0, S, portrait ? PORTRAIT_HEIGHT : S);
   drawWordmark(ctx, L.header);
@@ -523,7 +523,7 @@ export function drawWeeklyCard(ctx: CanvasRenderingContext2D, card: WeeklyCardMo
   ctx.fillText(card.range, 96, L.range, S - 192);
 
   ctx.fillStyle = C.brand;
-  ctx.font = `790 ${portrait ? 220 : 160}px ${SANS}`;
+  ctx.font = `790 ${portrait ? 220 : 148}px ${SANS}`;
   const total = num(card.total);
   ctx.fillText(total, 88, L.total);
   const w = ctx.measureText(total).width;

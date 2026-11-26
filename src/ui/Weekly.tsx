@@ -84,7 +84,7 @@ export function Weekly({ store, today, config, onBack }: { store: SaveStore; tod
           {week ? weekRange(week) : 'Your week'}
         </h1>
         <p className="weekly__sub">
-          Weekly Scoreboard · {index === 0 ? 'this week' : 'last week'}, Monday to Sunday (Eastern)
+          Weekly Scoreboard · {index === 0 ? 'this week' : index === 1 ? 'last week' : `${index} weeks ago`}, Monday to Sunday (Eastern)
         </p>
         {starts.length > 1 && (
           <nav className="week-nav" aria-label="Choose a week">

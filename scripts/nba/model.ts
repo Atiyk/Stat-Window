@@ -14,6 +14,7 @@ import { answerSpellings, type Question, type Slate } from '../../src/content/sc
 import { addDays } from '../../src/engine/daily.ts';
 import { potentialPoints } from '../../src/engine/scoring.ts';
 import { formatIssues, metaOf, resolveChart, supportsOf, type FormatSpec } from './formats.ts';
+import { slateFormatIssues, VARIETY_FROM } from '../../src/content/formats.ts';
 
 export const ROOT = join(import.meta.dirname, '..', '..');
 export const DATA_DIR = join(ROOT, 'data', 'nba');
@@ -390,6 +391,9 @@ export function validateNba(data: NbaData): Report {
         if (issue) at(issue);
       }
     }
+    // V5.1: every official slate mixes at least three formats, at most two of each.
+    if (d.date >= VARIETY_FROM && fs.length === 5)
+      for (const issue of slateFormatIssues(fs.map((f) => f.question.format?.kind ?? 'recall'))) at(issue);
     const famCount = new Map<string, number>();
     for (const f of fs) famCount.set(f.family, (famCount.get(f.family) ?? 0) + 1);
     for (const [fam, n] of famCount) if (n > 2) at(`${n} questions from the ${fam} family (max 2)`);

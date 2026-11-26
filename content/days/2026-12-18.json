@@ -122,16 +122,16 @@
         "unit": "wins",
         "points": [
           {
+            "label": "DET 1988–89",
+            "value": null
+          },
+          {
             "label": "BOS 1985–86",
             "value": 67
           },
           {
             "label": "LAL 1986–87",
             "value": 65
-          },
-          {
-            "label": "DET 1988–89",
-            "value": null
           }
         ]
       },
@@ -151,7 +151,7 @@
     {
       "id": "nba-butler20-regular-apg",
       "sport": "NBA",
-      "prompt": "How many assists per game did Jimmy Butler average in his first Heat season?",
+      "prompt": "Kyle Lowry averaged 8.7 assists for Toronto in 2018–19. How many per game did Jimmy Butler average in his first Heat season?",
       "context": "Miami · 2019–20 regular season",
       "answer": 6,
       "unit": {
@@ -199,20 +199,22 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "assists-average",
         "era": "2010s",
         "subjects": [
           "Jimmy Butler",
           "Miami Heat"
         ],
-        "supports": []
+        "supports": [
+          "nba-lowry19-regular-apg"
+        ]
       }
     },
     {
       "id": "nba-giannis19-regular-rpg",
       "sport": "NBA",
-      "prompt": "What was Giannis Antetokounmpo's regular-season rebounding average in 2018–19?",
+      "prompt": "Dwight Howard averaged 13.8 rebounds in 2008–09. What did Giannis Antetokounmpo average in 2018–19, his first MVP season?",
       "context": "Giannis · Milwaukee Bucks · first MVP campaign",
       "answer": 12.5,
       "unit": {
@@ -260,14 +262,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "rebounds-average",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Giannis Antetokounmpo",
           "Milwaukee Bucks"
         ],
-        "supports": []
+        "supports": [
+          "nba-howard09-regular-rpg"
+        ]
       }
     },
     {

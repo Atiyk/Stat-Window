@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import type { Slate } from '../content/schema';
 import { challengeUrl } from '../engine/challenge';
 import { raceHighlight, raceOutcome } from '../engine/friend-race';
@@ -8,7 +8,8 @@ import { msUntilNextPuzzle } from '../engine/daily';
 import { REMIND_COPY, followsPuzzleClock, googleCalendarUrl, icsPath, nextReminder, reminderHour, reminderTime } from '../engine/remind';
 import { totalPoints, type Mode, type PracticeTiming, type RoundRecord } from '../engine/game';
 import { MAX_TOTAL, answerTimeMs, formatAnswerTime, shareText, postgameHighlight, type OfficialHighlight, type PlayerStats } from '../engine/summary';
-import { ordinal } from '../engine/percentile';
+import { ordinal, toughestQuestion } from '../engine/percentile';
+import { crowdThreshold, questionCrowdFor } from '../lib/scores';
 import { formatCountdown, formatDay, formatValue } from '../lib/format';
 import { isMixedSportDay } from '../content/cutover';
 import { track, type PlayMode, type ShareMethod } from '../lib/track';
@@ -21,6 +22,7 @@ import { Leaderboard } from './Leaderboard';
 import { InstallPrompt } from './InstallPrompt';
 import { PracticeTimingChoice } from './PracticeTimingChoice';
 import './results-polish.css';
+import './home.css';
 
 const CARD_STYLES = [
   { value: 'classic', label: 'Classic' },
@@ -56,6 +58,10 @@ type Props = {
   onShared?: ((method: ShareMethod) => void) | undefined;
   /** Survival is open and this player is offered it: a quiet secondary button. */
   survivalCta?: (() => void) | null | undefined;
+  /** Compact week-so-far strip (renders nothing until there is an eligible game). Official runs only. */
+  weekly?: ReactNode;
+  /** A quiet link to the Scouting Report. Official runs only. */
+  onScouting?: (() => void) | undefined;
 };
 
 /** "7:00 PM" in the player's own time zone, or null when that zone is UTC anyway. */
@@ -74,7 +80,7 @@ function friendLine(total: number, vs: number, time: number | null, vsTime: numb
   return `Tied at ${total} points. Rematch?`;
 }
 
-export function Results({ slate, label, eligible, onPrivacy, mode, playMode, untimedPractice = false, isToday, vs, vsTime, vsRounds = null, results, stats, officialHighlight, animateScorecard = false, archive, onPractice, onBackToToday, onShared, survivalCta = null }: Props) {
+export function Results({ slate, label, eligible, onPrivacy, mode, playMode, untimedPractice = false, isToday, vs, vsTime, vsRounds = null, results, stats, officialHighlight, animateScorecard = false, archive, onPractice, onBackToToday, onShared, survivalCta = null, weekly = null, onScouting }: Props) {
   const total = totalPoints(results);
   const [cardStyle, setCardStyle] = useState<CardStyle>('classic');
   const [format, setFormat] = useState<CardFormat>('square');
@@ -94,6 +100,11 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
   const sample = verified?.n.toLocaleString('en-US');
   const percentile = verified ? `${ordinal(verified.percentile)} percentile ${isToday ? 'today' : 'for this puzzle'}` : null;
   const percentileLine = percentile ? `${percentile} (${sample} games)` : null;
+  // One deeper crowd line, from the read the round reveals already made (never on the share card).
+  const counted = comparison.state.kind === 'ready' || comparison.state.kind === 'gathering';
+  const toughest = eligible && isToday && counted
+    ? toughestQuestion(slate.questions.map((q, i) => questionCrowdFor(slate.date, i, q.id)), crowdThreshold(slate.date))
+    : null;
   const practice = mode === 'practice';
   const practiceLabel = playMode === 'challenge' ? 'Challenge' : untimedPractice ? 'Untimed practice' : 'Practice';
   const cardContext = practice ? practiceLabel : playMode === 'challenge' ? 'Challenge' : !isToday ? 'Past daily' : null;
@@ -298,7 +309,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
           {results.map((r, i) => (
             <li key={i} className="ledger-cell" data-status={!r.hit ? 'miss' : r.points > 0 ? 'hit' : 'zero'} style={animateScorecard ? { animationDelay: `${i * 30}ms` } : undefined}>
               <span className="sr-only">
-                Question {i + 1}, {r.points} points, {r.timedOut ? 'time expired' : r.hit ? 'hit' : 'miss'}
+                Question {i + 1}, {r.points} points, {r.timedOut ? 'time expired' : !r.hit ? 'miss' : r.points > 0 ? 'hit' : 'caught for zero'}
               </span>
               <span className="ledger-num" aria-hidden="true">{r.points}</span>
             </li>
@@ -368,6 +379,11 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
           </div>
         </div>
         <ComparisonLine comparison={comparison} onPrivacy={onPrivacy} ref={slotRef} />
+        {toughest && (
+          <p className="percentile percentile-quiet crowd-toughest">
+            Toughest for the crowd today: Question {toughest.index + 1}, scored in {toughest.scored}% of {toughest.n.toLocaleString('en-US')} eligible completed games.
+          </p>
+        )}
         {vs !== null && !vsRounds && <p className="versus">{friendLine(total, vs, answerMs, vsTime)}</p>}
         {(practice || !isToday) && (
           <button type="button" className="btn btn-quiet" onClick={onBackToToday}>
@@ -381,6 +397,12 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
         )}
         <PerformanceRecap attempts={attempts} checkpoints={checkpoints} total={total} />
         <ConsentChoice comparison={comparison} onPrivacy={onPrivacy} />
+        {!practice && (weekly || onScouting) && (
+          <div className="results-more">
+            {weekly}
+            {onScouting && <button type="button" className="btn-link results-more__link" onClick={onScouting}>Scouting Report: how you estimate</button>}
+          </div>
+        )}
         <p className="next-window">
           Next puzzle in <span className="tabular">{formatCountdown(msUntilNextPuzzle(now))}</span>, at 12:00 AM Eastern
           {local ? ` (${local} your time)` : ''}.
@@ -448,7 +470,7 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
       )}
 
       {!practice && stats.played > 0 && (
-        <section className="dist" aria-labelledby="dist-title">
+        <section className="dist" aria-labelledby="dist-title" data-arrive={animateScorecard || undefined}>
           <h2 id="dist-title" className="dist-title">Your days</h2>
           <p className="dist-sub">
             Longest run: <span className="tabular">{stats.longest}</span> {stats.longest === 1 ? 'day' : 'days'} in a row. Kept in this browser.

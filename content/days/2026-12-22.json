@@ -9,7 +9,7 @@
     {
       "id": "nba-jackson10-titles",
       "sport": "NBA",
-      "prompt": "Phil Jackson won the 2010 title as Lakers coach. How many titles had he won as a head coach in total?",
+      "prompt": "Boston won 8 straight titles in the 1960s. After the Lakers' 2010 title, how many had coach Phil Jackson won in total?",
       "context": "Bulls and Lakers · through 2010",
       "answer": 11,
       "unit": {
@@ -57,14 +57,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "titles",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Phil Jackson",
           "Los Angeles Lakers"
         ],
-        "supports": []
+        "supports": [
+          "nba-celtics-eight-straight"
+        ]
       }
     },
     {
@@ -130,7 +132,7 @@
     {
       "id": "nba-duncan14-season-rpg",
       "sport": "NBA",
-      "prompt": "What was Tim Duncan's rebound average in the 2014 title season?",
+      "prompt": "Giannis Antetokounmpo averaged 12.5 rebounds in 2018–19. What was Tim Duncan's rebound average in the 2013–14 title season?",
       "context": "San Antonio · regular season · veteran center",
       "answer": 9.7,
       "unit": {
@@ -178,14 +180,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "rebounds-average",
         "era": "2010s",
         "subjects": [
           "Tim Duncan",
           "San Antonio Spurs"
         ],
-        "supports": []
+        "supports": [
+          "nba-giannis19-regular-rpg"
+        ]
       }
     },
     {
@@ -252,7 +256,7 @@
     {
       "id": "nba-shai25-finals-g7-12-assists",
       "sport": "NBA",
-      "prompt": "In Oklahoma City's 2025 Finals Game 7 title-clincher against Indiana, how many assists did Shai record?",
+      "prompt": "The chart shows four Finals playmaking nights. How many assists did Shai Gilgeous-Alexander record in 2025 Finals Game 7?",
       "context": "Shai Gilgeous-Alexander · Thunder vs Pacers · Game 7",
       "answer": 12,
       "unit": {
@@ -299,15 +303,46 @@
           }
         }
       ],
+      "chart": {
+        "title": "Assists in a Finals game",
+        "unit": "assists",
+        "points": [
+          {
+            "label": "Magic '84",
+            "value": 21
+          },
+          {
+            "label": "Butler '20",
+            "value": 13
+          },
+          {
+            "label": "Tatum '22",
+            "value": 13
+          },
+          {
+            "label": "Diaw '14",
+            "value": 9
+          },
+          {
+            "label": "Shai '25",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "assists-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Shai Gilgeous-Alexander",
           "Oklahoma City Thunder"
         ],
-        "supports": []
+        "supports": [
+          "nba-magic84-assists",
+          "nba-butler20-g3-ast",
+          "nba-tatum22-debut-ast",
+          "nba-diaw14-heat-g4-assists"
+        ]
       }
     }
   ]

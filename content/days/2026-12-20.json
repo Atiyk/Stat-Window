@@ -9,7 +9,7 @@
     {
       "id": "nba-spurs14-season-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 2013–14 champion Spurs win?",
+      "prompt": "The 1985–86 Celtics won 67 games. How many regular-season games did the 2013–14 champion Spurs win?",
       "context": "San Antonio · the Beautiful Game title",
       "answer": 62,
       "unit": {
@@ -57,13 +57,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "wins-season",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "San Antonio Spurs"
         ],
-        "supports": []
+        "supports": [
+          "nba-celtics86-wins"
+        ]
       }
     },
     {

@@ -9,7 +9,7 @@
     {
       "id": "nba-suns05-season-win-gain",
       "sport": "NBA",
-      "prompt": "How many more regular-season games did the 2004–05 Suns win than the season before?",
+      "prompt": "The 2001–02 Nets improved by 26 wins. By how many wins did the 2004–05 Suns improve on the season before?",
       "context": "Phoenix Suns · Steve Nash's return · 2004–05",
       "answer": 33,
       "unit": {
@@ -57,19 +57,21 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "wins-change",
         "era": "2000s",
         "subjects": [
           "Phoenix Suns"
         ],
-        "supports": []
+        "supports": [
+          "nba-nets02-improvement"
+        ]
       }
     },
     {
       "id": "nba-elmore73-half",
       "sport": "NBA",
-      "prompt": "In the first season blocks were counted, Elmore Smith set the record for blocks in a half. How many?",
+      "prompt": "Manute Bol blocked 8 shots in a single quarter in 1985. How many did Elmore Smith block in a half in 1973, an NBA record?",
       "context": "Los Angeles Lakers · October 28, 1973",
       "answer": 11,
       "unit": {
@@ -79,7 +81,7 @@
       "min": 0,
       "max": 15,
       "step": 1,
-      "note": "11.",
+      "note": "11: six in one quarter and five in the other. Bol tied it in 1985.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
@@ -117,20 +119,22 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "blocks-period",
-        "era": "1970s",
+        "era": "cross-era",
         "subjects": [
           "Elmore Smith",
           "Los Angeles Lakers"
         ],
-        "supports": []
+        "supports": [
+          "nba-bol85-quarter"
+        ]
       }
     },
     {
       "id": "nba-james09-season-apg",
       "sport": "NBA",
-      "prompt": "How many assists per game did LeBron average in his first MVP season?",
+      "prompt": "The chart shows four other assist seasons. How many assists per game did LeBron average in his first MVP season?",
       "context": "Cleveland Cavaliers · 2008–09 · regular season",
       "answer": 7.2,
       "unit": {
@@ -177,15 +181,46 @@
           }
         }
       ],
+      "chart": {
+        "title": "Assists per game in a season",
+        "unit": "assists",
+        "points": [
+          {
+            "label": "Stockton '90",
+            "value": 14.5
+          },
+          {
+            "label": "Lowry '19",
+            "value": 8.7
+          },
+          {
+            "label": "Butler '20",
+            "value": 6
+          },
+          {
+            "label": "Bibby '02",
+            "value": 5
+          },
+          {
+            "label": "LeBron '09",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "assists-average",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "LeBron James",
           "Cleveland Cavaliers"
         ],
-        "supports": []
+        "supports": [
+          "nba-stockton90-apg",
+          "nba-lowry19-regular-apg",
+          "nba-butler20-regular-apg",
+          "nba-bibby02-regular-apg"
+        ]
       }
     },
     {
@@ -251,7 +286,7 @@
     {
       "id": "nba-curry21-blazers-62",
       "sport": "NBA",
-      "prompt": "Against Damian Lillard's Portland team in January 2021, how many points did Steph Curry score in his career-best game?",
+      "prompt": "Stephen Curry set a career high against Damian Lillard's Blazers in January 2021. How many points did he score?",
       "context": "Stephen Curry · Warriors vs Blazers · January 2021",
       "answer": 62,
       "unit": {

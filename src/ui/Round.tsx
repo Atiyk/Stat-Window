@@ -14,7 +14,11 @@ import { COURT_TRAVEL_DELAY_MS, courtTravelMs, LiveCourtRun } from './CourtRun';
 import { courtPosition } from '../engine/court-run';
 import { courtRunMarkers } from '../engine/court-run';
 import { QuestionChart } from './QuestionChart';
+import { FormatCue } from './FormatCue';
+import type { QuestionFormat } from '../content/formats';
 import { raceStanding, type RaceStanding } from '../engine/friend-race';
+import { questionCrowdLine } from '../engine/percentile';
+import { crowdThreshold, prefetchQuestionCrowd, questionCrowdFor } from '../lib/scores';
 import './round-polish.css';
 
 type Props = {
@@ -39,6 +43,8 @@ type Props = {
    * running total, the score line and the Next button, and adds the minimum.
    */
   survival?: SurvivalChrome | undefined;
+  /** Opens the How to play guide at a format (offered only once the clock has stopped). */
+  onGuide?: ((format: QuestionFormat) => void) | undefined;
 };
 
 export type SurvivalChrome = {
@@ -82,7 +88,7 @@ function savedShotStart(id: string, day: string, shared: boolean): number | null
 }
 const easeOutCubic = (t: number) => 1 - (1 - t) ** 3;
 
-export function Round({ state, dispatch, label, challenge = null, onFirstTouch, timing = 'timed', courtRun = false, previousBest = null, survival, race = null }: Props) {
+export function Round({ state, dispatch, label, challenge = null, onFirstTouch, timing = 'timed', courtRun = false, previousBest = null, survival, race = null, onGuide }: Props) {
   const q = currentQuestion(state);
   const reduced = usePrefersReducedMotion();
   const last = state.results[state.round];
@@ -101,6 +107,13 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
         factSeed,
       ).at(-1)?.text
     : undefined, [resolved, state.results, state.round, state.slate.questions, q, factSeed]);
+  // Crowd comparison (docs/PERCENTILES.md): today's official run only. One cached read, started now so it is
+  // usually here by the first reveal; the line is a snapshot taken when this round resolves, never awaited.
+  const crowdDay = state.mode === 'daily' && survival === undefined ? state.slate.date : null;
+  useEffect(() => { if (crowdDay) void prefetchQuestionCrowd(crowdDay); }, [crowdDay]);
+  const crowdLine = useMemo(() => resolved && crowdDay
+    ? questionCrowdLine(questionCrowdFor(crowdDay, state.round, resolved.questionId), resolved.points, crowdThreshold(crowdDay))
+    : null, [resolved, crowdDay, state.round]);
   const [progress, setProgress] = useState(0);
   const liveResult = useRef<typeof last>(undefined);
   const roundRef = useRef<HTMLElement>(null);
@@ -388,10 +401,10 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
             )}
           </p>
         )}
-        <h1 className="question" ref={headingRef} tabIndex={-1} aria-describedby={targetText ? 'round-record-target' : undefined}>
+        <h1 className="question" data-long={q.prompt.length > 96 ? (q.chart ? "chart" : "text") : undefined} ref={headingRef} tabIndex={-1} aria-describedby={targetText ? 'round-record-target' : undefined}>
           {q.prompt}
         </h1>
-        <p className="context">{contextLabel(q)}</p>
+        <FormatCue key={q.id} question={q} context={contextLabel(q)} live={interactive} resolved={state.phase === 'resolved'} onGuide={onGuide} />
         {q.chart && (
           <QuestionChart
             question={q}
@@ -504,6 +517,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
             <span className="tabular">{formatValue(q.answer, q.step)}</span> {unitFor(q.answer, q.unit)}
           </p>
           <p className="story-note">{q.note}</p>
+          {crowdLine && <p className="story-reaction story-crowd">{crowdLine}</p>}
           {extra && (
             <aside className="story-extra" aria-label="Bonus sports fact">
               <p className="story-extra-text">{extra.text}</p>

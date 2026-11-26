@@ -129,7 +129,7 @@
     {
       "id": "nba-miller12-g5-threes",
       "sport": "NBA",
-      "prompt": "Mike Miller shot eight threes in the 2012 title clincher. How many did he make?",
+      "prompt": "The chart shows three other one-game three-point nights. How many threes did Mike Miller make in the 2012 title clincher?",
       "context": "2012 NBA Finals · Game 5 · vs Oklahoma City",
       "answer": 7,
       "unit": {
@@ -137,7 +137,7 @@
         "plural": "three-pointers"
       },
       "min": 0,
-      "max": 8,
+      "max": 14,
       "step": 1,
       "note": "Seven of eight, for 23 points.",
       "source": {
@@ -176,21 +176,47 @@
           }
         }
       ],
+      "chart": {
+        "title": "Threes made in one game",
+        "unit": "three-pointers",
+        "points": [
+          {
+            "label": "Cooper '87",
+            "value": 6
+          },
+          {
+            "label": "Battier '13",
+            "value": 6
+          },
+          {
+            "label": "Curry '16",
+            "value": 13
+          },
+          {
+            "label": "Miller '12",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "threes-game",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Mike Miller",
           "Miami Heat"
         ],
-        "supports": []
+        "supports": [
+          "nba-cooper87-threes",
+          "nba-battier13-g7-threes",
+          "nba-curry16-13-threes"
+        ]
       }
     },
     {
       "id": "nba-raptors19-sixers-g7-points",
       "sport": "NBA",
-      "prompt": "How many points did Toronto score in Game 7 against Philadelphia in 2019?",
+      "prompt": "New Orleans scored 82 points in Game 7 against San Antonio in 2008. How many did Toronto score in Game 7 against Philadelphia in 2019?",
       "context": "Eastern semifinals · Kawhi's buzzer-beater",
       "answer": 92,
       "unit": {
@@ -238,20 +264,22 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-team-game",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Toronto Raptors"
         ],
-        "supports": []
+        "supports": [
+          "nba-hornets08-spurs-g7-points"
+        ]
       }
     },
     {
       "id": "nba-brunson24-philly-47",
       "sport": "NBA",
-      "prompt": "Against Embiid's Sixers in the 2024 playoffs, how many points did Jalen Brunson score to set a Knicks playoff record?",
-      "context": "Jalen Brunson · Knicks at 76ers · April 2024",
+      "prompt": "How many points did Jalen Brunson score at Philadelphia in April 2024 for a Knicks playoff record?",
+      "context": "Benchmark: Jerry West scored 53 in Game 1 of the 1969 Finals",
       "answer": 47,
       "unit": {
         "singular": "point",
@@ -298,14 +326,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Jalen Brunson",
           "New York Knicks"
         ],
-        "supports": []
+        "supports": [
+          "nba-west69-g1"
+        ]
       }
     }
   ]

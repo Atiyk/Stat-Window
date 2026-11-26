@@ -70,7 +70,7 @@
     {
       "id": "nba-pistons50-19-18",
       "sport": "NBA",
-      "prompt": "Before the shot clock, the Fort Wayne Pistons beat the Lakers in 1950 with how many points?",
+      "prompt": "Atlanta once scored 6 in a playoff quarter. Before the shot clock, how many points did Fort Wayne score to beat Minneapolis in 1950?",
       "context": "Fort Wayne Pistons vs Minneapolis Lakers · November 22, 1950",
       "answer": 19,
       "unit": {
@@ -118,13 +118,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-team-game",
-        "era": "1950s",
+        "era": "cross-era",
         "subjects": [
           "Detroit Pistons"
         ],
-        "supports": []
+        "supports": [
+          "nba-hawks86-third-quarter"
+        ]
       }
     },
     {
@@ -222,7 +224,7 @@
     {
       "id": "nba-mowilliams09-season-ppg",
       "sport": "NBA",
-      "prompt": "How many points per game did Mo Williams average in his first Cavaliers season?",
+      "prompt": "David West averaged 20.6 for the 2007–08 Hornets. What did Mo Williams average in his first season with the Cavaliers?",
       "context": "Cleveland Cavaliers · 2008–09 · regular season",
       "answer": 17.8,
       "unit": {
@@ -232,7 +234,7 @@
       "min": 8,
       "max": 31,
       "step": 0.1,
-      "note": "17.8 points per game as LeBron's new backcourt partner.",
+      "note": "17.8 points per game in his first Cleveland season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
@@ -270,14 +272,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "scoring-average",
         "era": "2000s",
         "subjects": [
           "Mo Williams",
           "Cleveland Cavaliers"
         ],
-        "supports": []
+        "supports": [
+          "nba-west08-season-ppg"
+        ]
       }
     },
     {

@@ -151,7 +151,7 @@
     {
       "id": "nba-bobcats12-losing-streak",
       "sport": "NBA",
-      "prompt": "The 2011–12 Bobcats closed the season on a losing streak that wasn’t snapped until the next season began. How long was it?",
+      "prompt": "The 2023–24 Spurs lost 18 straight. The 2011–12 Bobcats' losing streak carried into the next season: how many games long was it?",
       "context": "Charlotte Bobcats · 2011–12",
       "answer": 23,
       "unit": {
@@ -199,19 +199,21 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "losing-streak",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Charlotte Hornets"
         ],
-        "supports": []
+        "supports": [
+          "nba-spurs24-losing-streak"
+        ]
       }
     },
     {
       "id": "nba-avery99-finals-apg",
       "sport": "NBA",
-      "prompt": "How many assists per game did Avery Johnson average in the 1999 Finals?",
+      "prompt": "Mark Jackson averaged 8.7 assists in 1997–98. How many assists per game did Avery Johnson average in the 1999 Finals?",
       "context": "Spurs vs Knicks · championship series",
       "answer": 7.2,
       "unit": {
@@ -259,14 +261,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "assists-average",
         "era": "1990s",
         "subjects": [
           "Avery Johnson",
           "San Antonio Spurs"
         ],
-        "supports": []
+        "supports": [
+          "nba-jackson98-regular-apg"
+        ]
       }
     },
     {

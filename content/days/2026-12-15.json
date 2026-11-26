@@ -166,7 +166,7 @@
     {
       "id": "nba-bucks21-nets-g3-points",
       "sport": "NBA",
-      "prompt": "How many points did the Bucks score in their crucial Game 3 win over Brooklyn?",
+      "prompt": "Toronto scored 92 in its 2019 Game 7 win over Philadelphia. How many points did Milwaukee score in Game 3 against Brooklyn in 2021?",
       "context": "2021 East semifinals · Milwaukee at home",
       "answer": 86,
       "unit": {
@@ -214,13 +214,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-team-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Milwaukee Bucks"
         ],
-        "supports": []
+        "supports": [
+          "nba-raptors19-sixers-g7-points"
+        ]
       }
     },
     {

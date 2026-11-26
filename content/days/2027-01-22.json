@@ -191,71 +191,74 @@
       }
     },
     {
-      "id": "nba-turkoglu09-regular-apg",
+      "id": "nba-lakers72-sixers73-win-gap-v51d",
       "sport": "NBA",
-      "prompt": "What was Hedo Türkoğlu's assists-per-game average in 2008–09?",
-      "context": "Magic · point-forward in a Finals season",
-      "answer": 4.9,
+      "prompt": "How many more games did the 1971–72 Lakers win than the 1972–73 76ers?",
+      "context": "Lakers 1971–72 vs Philadelphia 1972–73 · 82-game seasons",
+      "answer": 60,
       "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 1,
-      "max": 14,
-      "step": 0.1,
-      "note": "4.9 assists per game while running much of Orlando's offense.",
+      "min": 20,
+      "max": 78,
+      "step": 1,
+      "note": "60 more: the Lakers went 69–13, the 76ers 9–73.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-        "quote": "Hedo Türkoğlu | SF | 77 | 77 | 2,815 | 410 | 375 | 64 | 19 | 1,294 | 36.6 | 5.3 | 4.9"
+        "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+        "quote": "Record: 69–13 (.841)",
+        "derivation": "Los Angeles Lakers 69 wins (1971–72) − Philadelphia 76ers 9 wins (1972–73) = 60."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Türkoğlu collected 375 assists across the regular season.",
+          "text": "Los Angeles swept its Western Conference semifinal series, 4–0.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "Hedo Türkoğlu | SF | 77 | 77 | 2,815 | 410 | 375"
+            "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
+            "quote": "Western Conference Semifinals: 4–0"
           }
         },
         {
-          "text": "His late-game heroics helped Orlando survive Philadelphia early in the playoffs.",
+          "text": "Philadelphia lost its first 15 games before the season unraveled further.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "highlighted by forward Hedo Türkoğlu's game winner in game four of that series"
+            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+            "quote": "the 76ers lost their first 15 games of the season"
           }
         },
         {
-          "text": "After the season, Orlando sent Türkoğlu to Toronto in a multi-team deal.",
+          "text": "Veteran Hal Greer was the last holdover from the 1967 championship team and retired after the season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
-            "quote": "Following the season, Türkoğlu was traded to the Toronto Raptors"
+            "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
+            "quote": "Only Hal Greer remained on the roster from the 1966–1967 NBA Championship Team"
           }
         }
       ],
       "meta": {
-        "format": "recall",
-        "family": "assists-average",
-        "era": "2000s",
+        "format": "difference",
+        "family": "wins-season",
+        "era": "1970s",
         "subjects": [
-          "Hedo Türkoğlu",
-          "Orlando Magic"
+          "Los Angeles Lakers"
         ],
-        "supports": []
+        "supports": [
+          "nba-lakers72-wins",
+          "nba-sixers73-wins"
+        ]
       }
     },
     {
       "id": "nba-lebron16-finals-game7-block-110s",
       "sport": "NBA",
-      "prompt": "LeBron's iconic chase-down block preserved a Game 7 tie in 2016. How many seconds were left when he blocked Iguodala?",
-      "context": "LeBron James · Cavaliers at Warriors · 2016 Finals Game 7",
+      "prompt": "With the 2016 Finals Game 7 tied at 89, LeBron blocked Iguodala. How many seconds were left on the clock?",
+      "context": "Kyrie's go-ahead three came later, with 53 seconds left",
       "answer": 110,
       "unit": {
         "singular": "second",
@@ -303,14 +306,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "time",
         "era": "2010s",
         "subjects": [
           "LeBron James",
           "Cleveland Cavaliers"
         ],
-        "supports": []
+        "supports": [
+          "nba-kyrie16-finals-g7-shot-53-sec"
+        ]
       }
     }
   ]

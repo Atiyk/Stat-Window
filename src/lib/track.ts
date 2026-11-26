@@ -53,6 +53,12 @@ export type TrackEvent =
   | { name: 'survival_end'; round: number; reason: 'miss' | 'short' }
   | { name: 'survival_win' }
   | { name: 'survival_share'; method: ShareMethod }
+  /** Home and results entry points (V5.1). Fixed vocabulary only: no scores, days or answers. */
+  | { name: 'scouting_open'; source: 'home' | 'results' }
+  | { name: 'weekly_open'; source: 'home' | 'results' | 'scouting' }
+  | { name: 'weekly_share'; method: ShareMethod }
+  /** Practice discovery on the home screen: the list was opened, or a past game was started from it. */
+  | { name: 'practice_discover'; step: 'expand' | 'start' }
   /** The one experiment: arm is per browser, step is what happened. */
   | { name: 'experiment'; arm: 'cta' | 'control'; step: 'exposed' | 'first-exposure' | 'click' | 'daily-start' | 'next-day-start' | 'daily-share' };
 
@@ -133,6 +139,14 @@ function basePath(e: TrackEvent): string {
       return '/e/survival/win';
     case 'survival_share':
       return `/e/survival/share/${e.method}`;
+    case 'scouting_open':
+      return `/e/scouting/open/${e.source}`;
+    case 'weekly_open':
+      return `/e/weekly/open/${e.source}`;
+    case 'weekly_share':
+      return `/e/weekly/share/${e.method}`;
+    case 'practice_discover':
+      return `/e/practice/${e.step}/home`;
     case 'experiment':
       return `/e/x/survival-cta/${e.arm}/${e.step}`;
   }

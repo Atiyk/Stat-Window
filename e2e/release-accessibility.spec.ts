@@ -94,9 +94,9 @@ test.describe('release accessibility and viewport smoke', () => {
     };
     expect(await serious()).toEqual([]);
     await page.getByRole('button', { name: 'How to play' }).click();
-    await expect(page.getByRole('dialog', { name: 'How it works' })).toBeVisible();
+    await expect(page.getByRole('dialog', { name: 'How to play' })).toBeVisible();
     expect(await serious()).toEqual([]);
     await page.keyboard.press('Escape');
-    await expect(page.getByRole('dialog', { name: 'How it works' })).not.toBeVisible();
+    await expect(page.getByRole('dialog', { name: 'How to play' })).not.toBeVisible();
   });
 });

@@ -155,7 +155,7 @@
     {
       "id": "nba-holiday21-playoffs-apg",
       "sport": "NBA",
-      "prompt": "How many assists per game did Jrue Holiday average in the 2021 playoffs?",
+      "prompt": "Jamal Murray averaged 10.0 assists in the 2023 Finals. How many assists per game did Jrue Holiday average in the 2021 playoffs?",
       "context": "Bucks · full postseason · title run",
       "answer": 8.7,
       "unit": {
@@ -203,20 +203,22 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "assists-average",
         "era": "2020s",
         "subjects": [
           "Jrue Holiday",
           "Milwaukee Bucks"
         ],
-        "supports": []
+        "supports": [
+          "nba-murray23-finals-apg"
+        ]
       }
     },
     {
       "id": "nba-sikma79-suns-g7-points",
       "sport": "NBA",
-      "prompt": "How many points did Jack Sikma score in Game 7 against Phoenix in 1979?",
+      "prompt": "LeBron scored 37 in Game 7 of the 2013 Finals. How many did Jack Sikma score in Game 7 against Phoenix in 1979?",
       "context": "Seattle · Western Conference finals · deciding game",
       "answer": 33,
       "unit": {
@@ -264,20 +266,22 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
-        "era": "1970s",
+        "era": "cross-era",
         "subjects": [
           "Jack Sikma",
           "Oklahoma City Thunder"
         ],
-        "supports": []
+        "supports": [
+          "nba-lebron13-g7"
+        ]
       }
     },
     {
       "id": "nba-love10-knicks-thirty-one-boards",
       "sport": "NBA",
-      "prompt": "In Kevin Love's famous 2010 '30–30' game against the Knicks, how many rebounds did he grab?",
+      "prompt": "In November 2010, Kevin Love had a career night against the Knicks. How many rebounds did he grab?",
       "context": "Kevin Love · Timberwolves vs Knicks · November 2010",
       "answer": 31,
       "unit": {

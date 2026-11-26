@@ -19,9 +19,12 @@ async function playOut(page: Page) {
 
 type Posted = { method: string; body: Record<string, unknown> | null };
 async function stubScores(page: Page, answer: (p: Posted, n: number) => { status: number; body: unknown } | 'abort') {
-  const calls: Posted[] = [];
+  const calls: Posted[] & { reads: string[] } = Object.assign([] as Posted[], { reads: [] as string[] });
   await page.route('**/api/scores**', async (route: Route) => {
     const req = route.request();
+    // The anonymous question-comparison read (GET, no body) is not a submission; these tests count submissions.
+    if (req.method() === 'GET') calls.reads.push(req.url());
+    if (req.method() === 'GET') return route.fulfill({ status: 200, contentType: 'application/json', body: '{"status":"ineligible","reason":"not-today"}' });
     const p = { method: req.method(), body: req.postData() ? (JSON.parse(req.postData()!) as Record<string, unknown>) : null };
     calls.push(p);
     // The consent probe (no browser code yet) just learns whether this location needs a yes first.
@@ -121,6 +124,8 @@ test('Global Privacy Control: no request at all unless asked, and "No thanks" is
   await page.reload();
   await expect(page.locator('.percentile')).toContainText('You’re not in today’s comparison');
   expect(calls).toHaveLength(0);
+  // Not even the anonymous question-comparison read.
+  expect(calls.reads).toHaveLength(0);
 });
 
 test('practice and past-day challenge runs are never submitted', async ({ page }) => {

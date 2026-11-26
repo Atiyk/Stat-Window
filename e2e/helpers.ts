@@ -19,7 +19,7 @@ export const justAfterMidnight = (day: string) => new Date(puzzleStartUtcMs(day)
 /** Shared with legacy browser tests: an intentional Start is now mandatory before Q1. */
 export async function startDailyIfNeeded(page: Page) {
   const skip = page.getByRole('button', { name: 'Skip tutorial and start' });
-  const start = page.getByRole('button', { name: "Start today's five" });
+  const start = page.getByRole('button', { name: /^(Start today's five|Start the challenge|Start practice)$/ });
   await expect.poll(async () => {
     if (await skip.isVisible()) return 'skip';
     if (await start.isVisible()) return 'start';
@@ -27,7 +27,7 @@ export async function startDailyIfNeeded(page: Page) {
     // Do not mistake stale previous-day results during async archive navigation
     // for a finished new navigation; wait for the destination Start gate.
     return 'waiting';
-  }, { timeout: 5000 }).not.toBe('waiting');
+  }, { timeout: 15_000 }).not.toBe('waiting');
   if (await skip.isVisible()) await skip.click();
   else if (await start.isVisible()) await start.click();
 }
@@ -60,7 +60,7 @@ export async function lockAndSettle(page: Page) {
     await page.keyboard.press('ArrowRight');
   }
   await page.getByRole('button', { name: 'Lock the window' }).click();
-  await expect(page.locator('.story')).toBeVisible({ timeout: 5000 });
+  await expect(page.locator('.story')).toBeVisible({ timeout: 15_000 });
 }
 
 export async function next(page: Page) {

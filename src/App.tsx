@@ -5,6 +5,7 @@ import type { Slate } from './content/schema';
 import { parseChallenge } from './engine/challenge';
 import { addDays, puzzleDay, puzzleNumber } from './engine/daily';
 import { verifiedDailyRounds, verifiedPreviousBest } from './engine/final-shot';
+import { LAUNCH_DAY } from './engine/launch-config';
 import { currentSeason, inSeason, isRetiredDay, playableDays, publicNumber, seasonConfigFrom, type SeasonConfig } from './engine/season';
 import { isQa } from './lib/scores';
 import { gameReducer, initGame, ROUNDS, totalPoints, type GameAction, type GameState, type Mode, type PracticeTiming, type RoundRecord } from './engine/game';
@@ -15,13 +16,18 @@ import { CTA_TEST, previewAsOf, SURVIVAL_FLAG, wantsSurvival } from './survival/
 import { armFor, exposedYesterday, markExposed, type Arm } from './survival/experiment';
 import { formatDay } from './lib/format';
 import { setSoundEnabled } from './ui/feedback';
-import { Help } from './ui/Help';
+import { GuideLink, Help, type GuideView } from './ui/Help';
+import type { QuestionFormat } from './content/formats';
 import { PrivacyDialog } from './ui/Privacy';
 import { Mark } from './ui/Mark';
 import { Results } from './ui/Results';
 import { Round } from './ui/Round';
 import { Onboarding } from './ui/Onboarding';
 import { PracticeTimingChoice } from './ui/PracticeTimingChoice';
+import { Home } from './ui/Home';
+import { Scouting } from './ui/Scouting';
+import { Weekly, WeekGlance } from './ui/Weekly';
+import { hasFinishedOfficialRun } from './ui/use-history';
 
 // Survival is its own chunk, and is absent from the build while the flag is off.
 // (The env comparison is spelled out here so the bundler can drop the chunk.)
@@ -53,6 +59,14 @@ function useSurvivalOffer(today: string, storage: StorageLike | null): SurvivalO
     };
   }, [today, storage]);
   return offer;
+}
+
+type View = 'daily' | 'survival' | 'scouting' | 'weekly';
+/** `?survival` (existing), `?scouting` and `?weekly` open those screens; anything else is the daily game. */
+function viewFromSearch(search: string): View {
+  if (wantsSurvival(search)) return 'survival';
+  const params = new URLSearchParams(search);
+  return params.has('scouting') ? 'scouting' : params.has('weekly') ? 'weekly' : 'daily';
 }
 
 function safeLocalStorage(): StorageLike | null {
@@ -114,11 +128,11 @@ const withoutGameLink = (loc: Pick<Location, 'pathname' | 'search' | 'hash'>) =>
 const daysBetween = (a: string, b: string) => puzzleNumber(b) - puzzleNumber(a);
 
 /**
- * Beta unless the build sets VITE_LAUNCH_DAY (docs/LAUNCH.md). Non-production builds with
+ * Beta unless src/engine/launch-config.ts commits a LAUNCH_DAY (docs/LAUNCH.md). Non-production builds with
  * VITE_LAUNCH_PREVIEW=1 can try a launch day with ?launch-preview=YYYY-MM-DD.
  */
 const SEASON: SeasonConfig = seasonConfigFrom(
-  { launchDay: import.meta.env.VITE_LAUNCH_DAY, preview: import.meta.env.VITE_LAUNCH_PREVIEW },
+  { launchDay: LAUNCH_DAY ?? undefined, preview: import.meta.env.VITE_LAUNCH_PREVIEW },
   typeof window === 'undefined' ? '' : window.location.search,
 );
 // Set before any component mounts, so even a child's first event carries the QA or season prefix.
@@ -142,7 +156,7 @@ export function App() {
   const storage = useMemo(() => safeLocalStorage(), []);
   const store = useMemo(() => createSaveStore(storage), [storage]);
   const untimedStore = useMemo(() => createSaveStore(storage, UNTIMED_PRACTICE_KEY), [storage]);
-  const [view, setView] = useState<'daily' | 'survival'>(() => (wantsSurvival(window.location.search) ? 'survival' : 'daily'));
+  const [view, setView] = useState<View>(() => viewFromSearch(window.location.search));
   const [survivalSource, setSurvivalSource] = useState<'cta' | 'link'>('link');
 
   const [settings, setSettings] = useState(() => store.load().settings);
@@ -155,6 +169,10 @@ export function App() {
   const activeWindowRef = useRef(false);
   const [missing, setMissing] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
+  // Where the How to play guide opens, and whether a timed question's clock is live under it.
+  const [guideView, setGuideView] = useState<GuideView>('list');
+  const [clockLive, setClockLive] = useState(false);
+  const openGuide = useCallback((at: GuideView = 'list') => { setGuideView(at); setHelpOpen(true); }, []);
   const [privacyOpen, setPrivacyOpen] = useState(() => new URLSearchParams(window.location.search).has('privacy'));
   // A ?day= link that can't be honoured (future, malformed or unpublished): say so once, then today opens.
   const [badLink, setBadLink] = useState(false);
@@ -263,7 +281,7 @@ export function App() {
     const navigate = () => {
       const dayNow = puzzleDay(new Date());
       setToday(dayNow);
-      setView(wantsSurvival(window.location.search) ? 'survival' : 'daily');
+      setView(viewFromSearch(window.location.search));
       openAddress(dayNow);
     };
     window.addEventListener('popstate', navigate);
@@ -280,7 +298,26 @@ export function App() {
       if (d === today) return;
       setToday(d);
       const s = sessionRef.current;
-      if (!s || (s.kind === 'runs' && !activeWindowRef.current && !inProgress(store, s.day))) void open(d);
+      if (!s || (s.kind === 'runs' && !activeWindowRef.current && !inProgress(store, s.day))) void moveToNewDay(d);
+    };
+    // A tab opened before the deploy that scheduled (or cancelled) the season still has
+    // the old launch day in its bundle. Check the deployed one before opening the new day
+    // and reload if it differs, so numbering, stats and analytics follow the server.
+    const moveToNewDay = async (d: string) => {
+      try {
+        const res = await fetch('/launch.json', { cache: 'no-store', signal: AbortSignal.timeout(5_000) });
+        if (res.ok) {
+          const deployed = ((await res.json()) as { launchDay?: unknown }).launchDay;
+          if ((deployed === null || typeof deployed === 'string') && deployed !== LAUNCH_DAY) {
+            // Reload onto the new day, not back onto an old ?day= link.
+            window.history.replaceState(null, '', withoutGameLink(window.location));
+            if (reloadForNewVersion()) return;
+          }
+        }
+      } catch {
+        // Offline or no manifest (dev server): keep this bundle's launch day.
+      }
+      void open(d);
     };
     const id = window.setInterval(check, 30_000);
     document.addEventListener('visibilitychange', check);
@@ -321,12 +358,23 @@ export function App() {
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
+  const openView = (next: 'scouting' | 'weekly') => {
+    window.history.pushState(null, '', `/?${next}`);
+    setView(next);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+  const nav = {
+    scouting: () => openView('scouting'),
+    weekly: () => openView('weekly'),
+    howToPlay: () => openGuide('list'),
+  };
+
   const updateSettings = (patch: Partial<typeof settings>) => {
     store.saveSettings(patch);
     setSettings((s) => ({ ...s, ...patch }));
   };
 
-  const number = publicNumber(session ? session.day : today, SEASON).label;
+  const number = publicNumber(session ? session.day : today, SEASON, today).label;
   const archive = playableDays(inventoryDays, today, SEASON).filter((d) => d < today).reverse();
 
   return (
@@ -338,7 +386,7 @@ export function App() {
         </a>
         <div className="topbar-right">
           <span className="day-label">
-            {view === 'survival' ? 'Survival' : number}
+            {view === 'survival' ? 'Survival' : view === 'scouting' ? 'Scouting' : view === 'weekly' ? 'Weekly' : number}
           </span>
           <button
             type="button"
@@ -349,7 +397,7 @@ export function App() {
           >
             <SoundIcon on={settings.sound} />
           </button>
-          <button type="button" className="icon-btn" aria-label="How to play" onClick={() => setHelpOpen(true)}>
+          <button type="button" className="icon-btn" aria-label="How to play" onClick={() => openGuide()}>
             <span aria-hidden="true" className="icon-q">?</span>
           </button>
         </div>
@@ -381,6 +429,10 @@ export function App() {
               onBackToDaily={backToToday}
             />
           </Suspense>
+        ) : view === 'scouting' ? (
+          <Scouting store={store} today={today} config={SEASON} onBack={backToToday} onWeekly={() => { track({ name: 'weekly_open', source: 'scouting' }); nav.weekly(); }} />
+        ) : view === 'weekly' ? (
+          <Weekly store={store} today={today} config={SEASON} onBack={backToToday} />
         ) : session ? (
           <Game
             key={`${session.kind}:${session.timing}:${session.day}`}
@@ -399,9 +451,12 @@ export function App() {
             storage={storage}
             onSurvival={openSurvival}
             onPrivacy={() => setPrivacyOpen(true)}
+            nav={nav}
+            onGuide={openGuide}
+            onClockLive={setClockLive}
           />
         ) : missing ? (
-          <NoPuzzle today={today} archive={archive} onPractice={openPractice} />
+          <NoPuzzle today={today} archive={archive} onPractice={openPractice} store={store} nav={nav} />
         ) : (
           <p className="loading" aria-live="polite">Loading today’s puzzle…</p>
         )}
@@ -413,11 +468,14 @@ export function App() {
         </p>
       )}
 
-      <Help open={helpOpen} onClose={() => setHelpOpen(false)} onPrivacy={() => { setHelpOpen(false); setPrivacyOpen(true); }} />
+      <Help open={helpOpen} view={guideView} clockLive={clockLive && view === 'daily'} onClose={() => setHelpOpen(false)} onPrivacy={() => { setHelpOpen(false); setPrivacyOpen(true); }} />
       <PrivacyDialog open={privacyOpen} onClose={() => setPrivacyOpen(false)} />
     </div>
   );
 }
+
+/** Entry points to the secondary screens, and the home's "How to play" slot. */
+type Nav = { scouting: () => void; weekly: () => void; howToPlay: () => void };
 
 function PreviousDailyScore({ today, store }: { today: string; store: SaveStore }) {
   const yesterday = addDays(today, -1);
@@ -460,6 +518,9 @@ function Game(props: {
   storage: StorageLike | null;
   onSurvival: () => void;
   onPrivacy: () => void;
+  nav: Nav;
+  onGuide: (at?: GuideView) => void;
+  onClockLive: (live: boolean) => void;
 }) {
   const { session, store, today, offer } = props;
   const daily = session.mode === 'daily';
@@ -551,7 +612,7 @@ function Game(props: {
     if ((daily || untimedPractice) && hasConflictingLock(saved, state.results)) adoptSave(saved);
   }, [store, session.day, session.kind, state.results, advanced, daily, untimedPractice, startKey, adoptSave]);
 
-  const pub = publicNumber(session.day, SEASON);
+  const pub = publicNumber(session.day, SEASON, today);
   useEffect(() => {
     if (state.phase === 'complete') props.onRunComplete();
   }, [state.phase, props.onRunComplete]);
@@ -627,6 +688,14 @@ function Game(props: {
     }
   }, [complete, officialToday, offer.arm, props.storage, today]);
 
+  // The guide needs to know when a timed clock is running under it (it never pauses it).
+  const clockLive = started && session.timing === 'timed' && (state.phase === 'ready' || state.phase === 'adjusting');
+  const { onClockLive } = props;
+  useEffect(() => {
+    onClockLive(clockLive);
+    return () => onClockLive(false);
+  }, [clockLive, onClockLive]);
+
   if (state.phase === 'complete') {
     // Only the current season's runs count, so beta history never inflates an official launch.
     const history = inSeason(store.load().runs, season, SEASON);
@@ -665,18 +734,57 @@ function Game(props: {
           if (offer.arm && officialToday && (m === 'native' || m === 'clipboard')) track({ name: 'experiment', arm: offer.arm, step: 'daily-share' });
         }}
         survivalCta={offer.open && offer.cta && officialToday ? props.onSurvival : null}
+        weekly={<WeekGlance store={store} today={today} config={SEASON} onOpen={() => { track({ name: 'weekly_open', source: 'results' }); props.nav.weekly(); }} />}
+        onScouting={() => { track({ name: 'scouting_open', source: 'results' }); props.nav.scouting(); }}
       />
     );
   }
 
   if (!started && state.results.length === 0) {
-    return props.showHint && !untimedPractice ? <Onboarding onDone={() => { props.onTutorialDone(); start(); }} /> : (
+    // A friend's challenge link goes straight to its Start gate: no first-play walkthrough in the way.
+    if (props.showHint && !untimedPractice && !session.viaLink) return <Onboarding onDone={() => { props.onTutorialDone(); start(); }} onGuide={() => props.onGuide()} />;
+    // A friend's link, practice and untimed practice go straight to their own start gate; only the
+    // player's own official daily gets the returning-player home.
+    if (playMode === 'daily' && session.kind === 'runs' && session.day === today && !session.viaLink) {
+      return (
+        <Home
+          store={store}
+          today={today}
+          config={SEASON}
+          onStart={start}
+          previous={<PreviousDailyScore today={today} store={store} />}
+          archive={props.archive}
+          onPractice={props.onPractice}
+          onScouting={() => props.nav.scouting()}
+          onWeekly={() => props.nav.weekly()}
+          onSurvival={offer.open && offer.cta ? props.onSurvival : null}
+          onHowToPlay={props.nav.howToPlay}
+        />
+      );
+    }
+    // The gate names where the player is going: their official daily, a friend's
+    // challenge (with the date and the score to beat, before any clock starts), or practice.
+    const isToday = session.day === today;
+    const puzzle = isToday ? 'today’s puzzle' : `${formatDay(session.day)} puzzle`;
+    const gate = untimedPractice
+      ? { context: 'Untimed practice', title: 'Ready for five?', body: 'Take your time on all five questions. Not counted in your stats.', cta: 'Start practice' }
+      : session.viaLink
+        ? {
+          context: `Challenge · ${puzzle}`,
+          title: session.vs !== null && session.vs > 0 ? `Beat ${session.vs} ${session.vs === 1 ? 'point' : 'points'}` : 'Ready for five?',
+          body: `${session.vs !== null ? `Your friend scored ${session.vs}. ` : ''}The same five questions, 24 seconds each.${daily ? ' This counts as your daily.' : ' Not counted in your stats.'}`,
+          cta: 'Start the challenge',
+        }
+        : daily
+          ? { context: 'Daily puzzle', title: 'Ready for five?', body: 'Catch five numbers in your windows. You’ll have 24 seconds per question.', cta: "Start today's five" }
+          : { context: `Practice · ${puzzle}`, title: 'Ready for five?', body: '24 seconds per question. Not counted in your stats.', cta: 'Start practice' };
+    return (
       <article className="ready-card">
-        <p className="context">{untimedPractice ? 'Untimed practice' : daily ? 'Daily puzzle' : 'Practice'}</p>
-        <h1 ref={untimedPractice ? practiceHeading : undefined} tabIndex={untimedPractice ? -1 : undefined}>Ready for five?</h1>
-        <p>{untimedPractice ? 'Take your time on all five questions.' : 'Catch five numbers in your windows. You’ll have 24 seconds per question.'}</p>
-        <button type="button" className="btn btn-primary" onClick={start}>{untimedPractice ? 'Start practice' : "Start today's five"}</button>
-        {playMode === 'daily' && session.day === today && <PreviousDailyScore today={today} store={store} />}
+        <p className="context">{gate.context}</p>
+        <h1 ref={untimedPractice ? practiceHeading : undefined} tabIndex={untimedPractice ? -1 : undefined}>{gate.title}</h1>
+        <p>{gate.body}</p>
+        <button type="button" className="btn btn-primary" onClick={start}>{gate.cta}</button>
+        <GuideLink onOpen={() => props.onGuide()} />
       </article>
     );
   }
@@ -698,11 +806,12 @@ function Game(props: {
       previousBest={comparesPersonalBest ? previousBest : null}
       challenge={session.viaLink && state.round === 0 && state.results.length === 0 ? { vs: session.vs, vsTime: session.vsTime, race: session.vsRounds !== null } : null}
       onFirstTouch={() => { props.onWindowActive(); props.onFirstTouch(); }}
+      onGuide={(f: QuestionFormat) => props.onGuide(f)}
     />
   );
 }
 
-function NoPuzzle({ today, archive, onPractice }: { today: string; archive: readonly string[]; onPractice: (day: string, timing?: PracticeTiming) => void }) {
+function NoPuzzle({ today, archive, onPractice, store, nav }: { today: string; archive: readonly string[]; onPractice: (day: string, timing?: PracticeTiming) => void; store: SaveStore; nav: Nav }) {
   const before = today < (inventoryDays[0] ?? today);
   const [timing, setTiming] = useState<PracticeTiming>('timed');
   return (
@@ -716,6 +825,12 @@ function NoPuzzle({ today, archive, onPractice }: { today: string; archive: read
             : 'Today’s game isn’t ready. Try an earlier day.'}
         </p>
       </header>
+      {hasFinishedOfficialRun(store, today, SEASON) && (
+        <p className="home-links">
+          <button type="button" className="btn-link" onClick={() => { track({ name: 'scouting_open', source: 'home' }); nav.scouting(); }}>Scouting Report</button>
+          <button type="button" className="btn-link" onClick={() => { track({ name: 'weekly_open', source: 'home' }); nav.weekly(); }}>Weekly Scoreboard</button>
+        </p>
+      )}
       {archive.length > 0 && (
         <>
           <PracticeTimingChoice timing={timing} onChange={setTiming} />

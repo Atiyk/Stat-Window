@@ -283,8 +283,8 @@
     {
       "id": "nba-mavs22-suns-game7-halftime-thirty",
       "sport": "NBA",
-      "prompt": "In Luka's shocking 2022 Game 7 rout of top-seeded Phoenix, by how many points were the Mavericks ahead at halftime?",
-      "context": "Mavericks at Suns · May 2022 · Game 7",
+      "prompt": "In Game 7 at Phoenix in May 2022, Luka's Mavericks routed the Suns. How many points did Dallas lead by at halftime?",
+      "context": "Benchmark: Dallas once led the Clippers by 50 at halftime",
       "answer": 30,
       "unit": {
         "singular": "point",
@@ -331,13 +331,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "margin-halftime",
         "era": "2020s",
         "subjects": [
           "Dallas Mavericks"
         ],
-        "supports": []
+        "supports": [
+          "nba-mavs20-halftime-lead"
+        ]
       }
     }
   ]

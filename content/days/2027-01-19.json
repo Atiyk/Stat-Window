@@ -9,7 +9,7 @@
     {
       "id": "nba-embiid24-70-spurs",
       "sport": "NBA",
-      "prompt": "Against San Antonio in January 2024, how many points did Joel Embiid score in his career-best game?",
+      "prompt": "Michael Jordan scored a playoff-record 63 in 1986. How many points did Joel Embiid score against San Antonio in January 2024?",
       "context": "Joel Embiid · 76ers vs. Spurs · January 2024",
       "answer": 70,
       "unit": {
@@ -57,14 +57,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Joel Embiid",
           "Philadelphia 76ers"
         ],
-        "supports": []
+        "supports": [
+          "nba-jordan86-63"
+        ]
       }
     },
     {
@@ -133,7 +135,7 @@
     {
       "id": "nba-pippen97-g3-threes",
       "sport": "NBA",
-      "prompt": "Scottie Pippen tied the Finals record for threes in Game 3 of 1997. How many did he make?",
+      "prompt": "The chart shows four other playoff nights of threes. How many did Scottie Pippen make in Game 3 of the 1997 Finals?",
       "context": "1997 NBA Finals · Game 3 · at Utah",
       "answer": 7,
       "unit": {
@@ -180,15 +182,46 @@
           }
         }
       ],
+      "chart": {
+        "title": "Threes in a playoff game",
+        "unit": "threes",
+        "points": [
+          {
+            "label": "Pippen '97",
+            "value": null
+          },
+          {
+            "label": "Thompson '16",
+            "value": 11
+          },
+          {
+            "label": "Cooper '87",
+            "value": 6
+          },
+          {
+            "label": "Curry '18",
+            "value": 9
+          },
+          {
+            "label": "Allen '10",
+            "value": 8
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "threes-game",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "Scottie Pippen",
           "Chicago Bulls"
         ],
-        "supports": []
+        "supports": [
+          "nba-klay16-wcf-threes",
+          "nba-cooper87-threes",
+          "nba-curry18-g2-threes",
+          "nba-allen10-g2-threes"
+        ]
       }
     },
     {
@@ -255,7 +288,7 @@
     {
       "id": "nba-herro20-bubble-ecf-g4-thirtyseven",
       "sport": "NBA",
-      "prompt": "As a rookie in the 2020 bubble East finals against Boston, how many points did Tyler Herro explode for in Game 4?",
+      "prompt": "As a 20-year-old rookie in Game 4 of the 2020 East finals, how many points did Tyler Herro score?",
       "context": "Tyler Herro · Heat vs Celtics · 2020 East finals Game 4",
       "answer": 37,
       "unit": {

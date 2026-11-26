@@ -9,13 +9,21 @@
  *   (unchanged from before this module). Once a launch day is configured, that day is
  *   "No. 1", the next "No. 2", and every earlier day becomes "Beta No. N".
  *
- * The launch day is fixed at build time (VITE_LAUNCH_DAY). Unset means beta: the live
- * game behaves exactly as before. Non-production builds can preview a launch with
+ * The launch day is committed in src/engine/launch-config.ts (one value for the client and
+ * the score API). Null means beta: the live game behaves exactly as before. Non-production builds can preview a launch with
  * `?launch-preview=YYYY-MM-DD` when VITE_LAUNCH_PREVIEW=1 (never in production).
  */
 import { EPOCH_DAY } from './daily.ts';
 
 export type SeasonId = 'beta' | 's1';
+
+/**
+ * Every season id that has ever held records, oldest first. Deletion searches all of
+ * them, so a record survives no configuration change (an emergency rollback sets the
+ * launch day back to null, but `s1` records stay in `s1` keys). A relaunch adds its new
+ * id here, never re-opens an old one.
+ */
+export const SEASONS: readonly SeasonId[] = ['beta', 's1'];
 
 export type SeasonConfig = {
   /** First official day (UTC), or null while the game is in public beta. */
@@ -54,17 +62,19 @@ export type PublicNumber = { readonly season: SeasonId; readonly number: number;
 
 /**
  * "No. 7" or "Beta No. 12". In beta mode every day keeps the number it has always
- * had. After launch, beta days are labelled as such so they can't be mistaken for
- * official puzzles.
+ * had. Once the launch has begun (`today` on or after the launch day), beta days are
+ * labelled as such so they can't be mistaken for official puzzles. Before that, a
+ * scheduled launch changes no label: the merged build looks exactly like beta.
  */
-export function publicNumber(day: string, config: SeasonConfig): PublicNumber {
+export function publicNumber(day: string, config: SeasonConfig, today?: string): PublicNumber {
   const season = seasonOf(day, config);
   if (season === 's1') {
     const number = dayIndex(day, config.launchDay!) + 1;
     return { season, number, label: `No. ${number}` };
   }
   const number = dayIndex(day, EPOCH_DAY) + 1;
-  return { season, number, label: config.launchDay === null ? `No. ${number}` : `Beta No. ${number}` };
+  const begun = config.launchDay !== null && (today === undefined || today >= config.launchDay);
+  return { season, number, label: begun ? `Beta No. ${number}` : `No. ${number}` };
 }
 
 /** Publicly playable days. A formal launch retires the beta catalog from discovery and links,

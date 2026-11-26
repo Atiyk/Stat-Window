@@ -76,6 +76,50 @@ function midrankPercentile(counts, score) {
 		equal
 	};
 }
+function emptyTally() {
+	return {
+		scoring: Array.from({ length: 101 }, () => 0),
+		zero: 0,
+		miss: 0,
+		timeout: 0
+	};
+}
+function tallySize(t) {
+	return t.zero + t.miss + t.timeout + t.scoring.reduce((a, b) => a + b, 0);
+}
+var share = (part, n) => part >= 5 && n - part >= 5 ? Math.round(100 * part / n) : void 0;
+function summarizeQuestion(id, t, minSample = 100) {
+	const n = tallySize(t);
+	if (n < minSample || n === 0) return {
+		id,
+		n,
+		ready: false
+	};
+	const counts = [t.zero + t.miss + t.timeout, ...t.scoring.slice(1)];
+	const scoredCount = n - counts[0];
+	const small = (c) => c > 0 && c < 5;
+	let pct;
+	if (!small(counts[0]) && !small(scoredCount)) {
+		pct = [];
+		let below = 0;
+		for (let p = 0; p <= 100; p++) {
+			const equal = counts[p];
+			const exact = 100 * (below + .5 * equal) / n;
+			pct.push(Math.min(100, Math.max(0, Math.round(exact / 5) * 5)));
+			below += equal;
+		}
+	}
+	const scored = share(scoredCount, n);
+	const missed = share(t.miss, n);
+	return {
+		id,
+		n,
+		ready: true,
+		...pct ? { pct } : {},
+		...scored !== void 0 ? { scored } : {},
+		...missed !== void 0 ? { missed } : {}
+	};
+}
 var easternParts = new Intl.DateTimeFormat("en-US", {
 	timeZone: "America/New_York",
 	year: "numeric",
@@ -117,10 +161,17 @@ function puzzleStartUtcMs(day) {
 *   (unchanged from before this module). Once a launch day is configured, that day is
 *   "No. 1", the next "No. 2", and every earlier day becomes "Beta No. N".
 *
-* The launch day is fixed at build time (VITE_LAUNCH_DAY). Unset means beta: the live
-* game behaves exactly as before. Non-production builds can preview a launch with
+* The launch day is committed in src/engine/launch-config.ts (one value for the client and
+* the score API). Null means beta: the live game behaves exactly as before. Non-production builds can preview a launch with
 * `?launch-preview=YYYY-MM-DD` when VITE_LAUNCH_PREVIEW=1 (never in production).
 */
+/**
+* Every season id that has ever held records, oldest first. Deletion searches all of
+* them, so a record survives no configuration change (an emergency rollback sets the
+* launch day back to null, but `s1` records stay in `s1` keys). A relaunch adds its new
+* id here, never re-opens an old one.
+*/
+var SEASONS = ["beta", "s1"];
 var DAY = /^\d{4}-\d{2}-\d{2}$/;
 function isIsoDay(s) {
 	if (typeof s !== "string" || !DAY.test(s)) return false;
@@ -135,6 +186,20 @@ function parseLaunchDay(raw) {
 function seasonOf(day, config) {
 	return config.launchDay !== null && day >= config.launchDay ? "s1" : "beta";
 }
+// src/engine/launch-config.ts
+/**
+* The official season's launch day, the single source of truth for the client label,
+* the score API's season and the CI release gates (docs/LAUNCH.md).
+*
+* `null` keeps the public beta. Setting a date schedules the restarted official season:
+* that canonical Eastern day becomes "No. 1" at 12:00 AM Eastern. It is changed only by a
+* reviewed commit, and `scripts/season-check.ts` refuses a change unless the new day is
+* still in the future (Eastern), is on or after VARIETY_FROM and has enough validated
+* official slates. The old VITE_LAUNCH_DAY / LAUNCH_DAY environment variables are no
+* longer read; a build fails if either is set to a different value, so a stale
+* dashboard setting can never split the client and server seasons.
+*/
+var LAUNCH_DAY = "2026-11-30";
 // server/api.ts
 /**
 * Score submission and daily percentile API (one Vercel Function at /api/scores).
@@ -151,11 +216,15 @@ function seasonOf(day, config) {
 */
 var newMemo = () => ({
 	pausedUntil: 0,
+	readsPausedUntil: 0,
 	limitedUntil: /* @__PURE__ */ new Map()
 });
 /**
 * Budgets are in estimated Upstash commands (store.ts COST). Upstash Free allows 500K a month;
 * 380K leaves room for the deletion reserve, rate-limited and paused calls, and the export script.
+* Inside the daily budget, reads may spend at most `readDailyBudget`, and the question comparison
+* pauses first (`question*Ceiling`), so near capacity the overall percentile keeps working longest.
+* Cost model and capacity: docs/PERCENTILES.md "Cost".
 */
 var DEFAULT_LIMITS = {
 	subTtl: 604800,
@@ -166,7 +235,10 @@ var DEFAULT_LIMITS = {
 	ratePerMinute: 6,
 	ipDailyStored: 30,
 	ipDailyCalls: 40,
-	ipDailyDeletes: 5
+	ipDailyDeletes: 5,
+	readDailyBudget: 4e3,
+	questionDailyCeiling: 12e3,
+	questionMonthlyCeiling: 34e4
 };
 var PLAYER = /^[A-Za-z0-9_-]{22}$/;
 var ID = /^[a-z0-9-]{1,80}$/;
@@ -208,7 +280,8 @@ function budgetKeys(ctx, now) {
 	return {
 		day: `${ctx.budgetPrefix}:d:${utcDay(now)}`,
 		month: `${ctx.budgetPrefix}:m:${month}`,
-		erase: `${ctx.budgetPrefix}:e:${month}`
+		erase: `${ctx.budgetPrefix}:e:${month}`,
+		reads: `${ctx.budgetPrefix}:r:${utcDay(now)}`
 	};
 }
 var nextUtcMidnight = (now) => Date.parse(`${addDays(utcDay(now), 1)}T00:00:00Z`);
@@ -277,10 +350,16 @@ async function readBody(req) {
 		return;
 	}
 }
-/** Re-scores five windows against the slate. Null when anything doesn't match the published puzzle exactly. */
-function verifyRounds(slate, rounds) {
+/**
+* The verified total and, per question, how the window counts (percentile.ts QuestionOutcome).
+* Only these five outcomes are kept, never the windows: `t` is the full scale (how every client
+* records a shot-clock violation; a player can't lock the full scale), `m` a window that misses
+* the answer, `z` a catch too wide to score, otherwise the points.
+*/
+function verifyRun(slate, rounds) {
 	if (!Array.isArray(rounds) || rounds.length !== 5 || slate.questions.length !== 5) return null;
 	const ids = /* @__PURE__ */ new Set();
+	const outcomes = [];
 	let total = 0;
 	for (const [i, q] of slate.questions.entries()) {
 		const r = rounds[i];
@@ -295,9 +374,19 @@ function verifyRounds(slate, rounds) {
 		const hi = toSteps(q, w.hi);
 		const onGrid = (v, steps) => Math.abs(q.min + steps * q.step - v) <= q.step * 1e-6;
 		if (!onGrid(w.lo, lo) || !onGrid(w.hi, hi) || lo < 0 || hi > rangeSteps(q) || hi - lo < 1) return null;
-		total += scoreWindow(q, w).points;
+		const scored = scoreWindow(q, w);
+		total += scored.points;
+		outcomes.push(lo === 0 && hi === rangeSteps(q) ? "t" : !scored.hit ? "m" : scored.points === 0 ? "z" : scored.points);
 	}
-	return total;
+	return {
+		total,
+		outcomes
+	};
+}
+/** The question statistics for a day's slate, in slate order. Null when the comparison is paused or the slate is unknown. */
+function questionBody(slate, tallies, minSample) {
+	if (!slate || tallies === "paused" || slate.questions.length !== 5) return null;
+	return slate.questions.map((q) => summarizeQuestion(q.id, tallies.get(q.id) ?? emptyTally(), minSample));
 }
 function percentileBody(counts, n, score, ctx) {
 	const ready = n >= ctx.minSample;
@@ -329,16 +418,27 @@ async function handle(req, ctx) {
 		if (req.method === "GET") {
 			const url = new URL(req.url);
 			const day = url.searchParams.get("day");
-			if (!isIsoDay(day) || url.search !== `?day=${day}` || day > today || day < addDays(today, -1)) return json(422, { status: "invalid" });
-			if (paused) return json(503, { status: "paused" });
+			if (!isIsoDay(day) || url.search !== `?day=${day}`) return json(422, { status: "invalid" });
+			if (day > today || day < addDays(today, -1)) return json(200, {
+				status: "ineligible",
+				reason: "not-today",
+				asOf
+			});
+			if (paused || ctx.memo.readsPausedUntil > now.getTime()) return json(503, { status: "paused" });
 			const season = seasonOf(day, { launchDay: ctx.launchDay });
-			const read = await ctx.store.read(`${keyPrefix(ctx, season, day)}:dist`, budget, ctx.limits);
+			const p = keyPrefix(ctx, season, day);
+			const read = await ctx.store.read({
+				dist: `${p}:dist`,
+				q: `${p}:q`
+			}, budget, ctx.limits);
 			if ("paused" in read) {
-				rememberPause(ctx, now, read.paused);
+				if (read.paused === "reads") ctx.memo.readsPausedUntil = nextUtcMidnight(now);
+				else rememberPause(ctx, now, read.paused);
 				return json(503, { status: "paused" });
 			}
 			const ready = read.n >= ctx.minSample;
 			const counts = ready ? Object.fromEntries(read.counts.flatMap((c, s) => c > 0 ? [[s, c]] : [])) : void 0;
+			const questions = questionBody(await ctx.loadSlate(day).catch(() => null), read.questions, ctx.minSample);
 			return json(200, {
 				status: "ok",
 				day,
@@ -347,6 +447,7 @@ async function handle(req, ctx) {
 				threshold: ctx.minSample,
 				ready,
 				counts,
+				questions,
 				asOf
 			}, { "Cache-Control": "public, max-age=0, s-maxage=300, stale-while-revalidate=600" });
 		}
@@ -363,11 +464,12 @@ async function handle(req, ctx) {
 			if (isLimited(ctx, delClient, now)) return json(429, { status: "limited" }, untilMidnight);
 			const days = Array.from({ length: 9 }, (_, i) => addDays(today, -i));
 			const pairs = [];
-			for (const day of days) for (const season of /* @__PURE__ */ new Set([seasonOf(day, { launchDay: ctx.launchDay }), "qa"])) {
+			for (const day of days) for (const season of [...SEASONS, "qa"]) {
 				const p = keyPrefix(ctx, season, day);
 				pairs.push({
 					sub: `${p}:sub:${await hmac(ctx.secret, `${season}:${day}:${player}`, 32)}`,
-					dist: `${p}:dist`
+					dist: `${p}:dist`,
+					q: `${p}:q`
 				});
 			}
 			const r = await ctx.store.removeMany(pairs, {
@@ -409,20 +511,22 @@ async function handle(req, ctx) {
 			reason: "no-puzzle",
 			asOf
 		});
-		const total = verifyRounds(slate, body.rounds);
-		if (total === null || body.total !== void 0 && body.total !== total) return json(422, { status: "invalid" });
+		const run = verifyRun(slate, body.rounds);
+		if (run === null || body.total !== void 0 && body.total !== run.total) return json(422, { status: "invalid" });
+		const { total } = run;
 		if (paused) return json(503, { status: "paused" });
 		const season = body.test === true ? "qa" : seasonOf(day, { launchDay: ctx.launchDay });
 		const p = keyPrefix(ctx, season, day);
 		const out = await ctx.store.submit({
 			sub: `${p}:sub:${await hmac(ctx.secret, `${season}:${day}:${player}`, 32)}`,
 			dist: `${p}:dist`,
+			q: `${p}:q`,
 			rate,
 			ipDay: `sw:v1:${ctx.env}:ipd:${ipHash}`,
 			ipCalls: `sw:v1:${ctx.env}:ipc:${ipHash}`,
 			revocation: `sw:v1:${ctx.env}:revoked:${await hmac(ctx.secret, `score-browser:${player}`, 32)}`,
 			budget
-		}, total, ctx.limits);
+		}, total, ctx.limits, run.outcomes.map((o, i) => `${slate.questions[i].id}:${o}`));
 		if (out.status === "limited") {
 			if (out.until === "day") {
 				rememberLimited(ctx, postClient, now, "day");
@@ -457,18 +561,23 @@ function contextFromEnv(env, deps) {
 	const lowSampleForTests = env.SCORES_TEST_LOW_SAMPLE === "1" && env.VERCEL_ENV !== "production" && ns !== "production";
 	const requested = num(env.PERCENTILE_MIN_SAMPLE, 100);
 	const minSample = lowSampleForTests ? requested : Math.max(100, requested);
+	const dailyBudget = num(env.SCORES_DAILY_BUDGET, DEFAULT_LIMITS.dailyBudget);
+	const monthlyBudget = Math.min(num(env.SCORES_MONTHLY_BUDGET, DEFAULT_LIMITS.monthlyBudget), DEFAULT_LIMITS.monthlyBudget);
 	return {
 		enabled: env.SCORES_ENABLED === "1" && ns !== "",
 		store: deps.store,
 		secret: ns === "" ? "" : secret,
 		env: ns,
-		launchDay: parseLaunchDay(env.LAUNCH_DAY ?? env.VITE_LAUNCH_DAY),
+		launchDay: parseLaunchDay(LAUNCH_DAY),
 		loadSlate: deps.loadSlate,
 		now: () => /* @__PURE__ */ new Date(),
 		limits: {
 			...DEFAULT_LIMITS,
-			dailyBudget: num(env.SCORES_DAILY_BUDGET, DEFAULT_LIMITS.dailyBudget),
-			monthlyBudget: Math.min(num(env.SCORES_MONTHLY_BUDGET, DEFAULT_LIMITS.monthlyBudget), DEFAULT_LIMITS.monthlyBudget)
+			dailyBudget,
+			monthlyBudget,
+			readDailyBudget: Math.min(DEFAULT_LIMITS.readDailyBudget, Math.floor(dailyBudget * 2 / 7)),
+			questionDailyCeiling: Math.min(DEFAULT_LIMITS.questionDailyCeiling, Math.floor(dailyBudget * 6 / 7)),
+			questionMonthlyCeiling: Math.min(DEFAULT_LIMITS.questionMonthlyCeiling, Math.floor(monthlyBudget * 17 / 19))
 		},
 		graceSeconds: 7200,
 		minSample,
@@ -511,19 +620,36 @@ function fileSlates(root = process.cwd()) {
 }
 // server/store.ts
 /**
+* Durable store for daily score distributions. Spec: docs/PERCENTILES.md.
+*
+* Production uses Upstash Redis over its REST API (plain fetch, no SDK). Every
+* write is one Lua script, so the duplicate check, the bucket increment and the
+* caps run atomically: two tabs or a retried request can never count twice.
+* `memoryStore()` implements the same contract in-process for tests and local
+* preview; `scripts` are exported so the integration test can run them on a real
+* redis-server.
+*/
+/**
 * Upstash bills an EVAL as one command plus one per redis.call it runs
 * (https://upstash.com/docs/redis/overall/billing, "Lua scripts"). These are upper bounds
 * per script, charged up front, so the counters never under-count.
 */
 var COST = {
-	submit: 21,
+	/** A first completion with its five question outcomes: 21 for the total, plus 5 HINCRBY and 1 EXPIRE. */
+	submit: 27,
+	/** A first completion stored total-only because the question ceiling was reached: 21 plus HSET and EXPIRE of the pause flag. */
+	submitTotalOnly: 23,
 	/** A resend of a run already stored: checked before the full charge, and it stops after the GET and HGETALL. */
 	duplicate: 14,
-	read: 8,
-	/** Deletion's upper bound, checked against the erase reserve before any record is read. */
-	remove: (pairs) => 9 + 4 * pairs,
-	/** What deletion actually spends: a GET per pair, plus DEL, HINCRBY and HDEL for each record that existed. */
-	removeSpent: (pairs, removed) => 9 + pairs + 3 * removed
+	/** Three counter GETs, three INCRBY+EXPIRE, HGETALL of the totals and of the question tally. */
+	read: 12,
+	/** Deletion's upper bound, checked against the erase reserve before any record is read: per pair GET, DEL, 2 for the total, 2 per question. */
+	remove: (pairs) => 9 + 14 * pairs,
+	/**
+	* What deletion actually spends: a GET per pair, DEL + HINCRBY + HDEL for each record that existed,
+	* and HINCRBY + HDEL for each of its question outcomes (only records stored with questions have any).
+	*/
+	removeSpent: (pairs, removed, questionFields = 0) => 9 + pairs + 3 * removed + 2 * questionFields
 };
 var DAY_TTL = 172800;
 var MONTH_TTL = 2764800;
@@ -531,11 +657,14 @@ var IP_DAY_TTL = 93600;
 /** Beyond the 7-day linked-score TTL so a delayed POST cannot recreate deleted data. */
 var REVOKED_TTL = 777600;
 /**
-* KEYS: sub, dist, rate, ipDay, budgetDay, budgetMonth, ipCalls, revocation.
+* KEYS: sub, dist, rate, ipDay, budgetDay, budgetMonth, ipCalls, revocation, q.
 * ARGV: total, subTtl, distTtl, dailyBudget, monthlyBudget, ratePerMinute, ipDailyStored, cost, dayTtl, monthTtl, ipDayTtl,
-*       ipDailyCalls, duplicateCost.
+*       ipDailyCalls, duplicateCost, totalOnlyCost, questionDailyCeiling, questionMonthlyCeiling, then the question fields.
 * The per-minute rate and the per-network daily call cap run first, and the duplicate check before the charge,
 * so neither a flood nor endless resends of one run can spend more than a small, fixed share of the shared budget.
+* The record keeps the total and, when the questions were counted, the five fields it added, so DELETE can take
+* back exactly those (nothing else about the windows is stored). A record without fields (older versions, or the
+* ceiling) never touches the question tally.
 */
 var SUBMIT_LUA = `
 local r = redis.call('INCR', KEYS[3])
@@ -548,37 +677,68 @@ if c > tonumber(ARGV[12]) then return {'limited', 'day'} end
 -- started before an atomic DELETE on another tab/server instance.
 if redis.call('GET', KEYS[8]) then return {'revoked'} end
 local prev = redis.call('GET', KEYS[1])
-local cost = tonumber(ARGV[8])
-if prev then cost = tonumber(ARGV[13]) end
+local month = tonumber(redis.call('GET', KEYS[6]) or '0')
+local day = tonumber(redis.call('GET', KEYS[5]) or '0')
+local fields = #ARGV - 16
+local withQ = false
+local cost = tonumber(ARGV[14])
+if prev then
+  cost = tonumber(ARGV[13])
+elseif fields > 0 and month + tonumber(ARGV[8]) <= tonumber(ARGV[16]) and day + tonumber(ARGV[8]) <= tonumber(ARGV[15]) then
+  withQ = true
+  cost = tonumber(ARGV[8])
+end
 -- Read first: a paused call charges nothing, so it can't eat the deletion reserve.
-if tonumber(redis.call('GET', KEYS[6]) or '0') + cost > tonumber(ARGV[5]) then return {'paused', 'month'} end
-if tonumber(redis.call('GET', KEYS[5]) or '0') + cost > tonumber(ARGV[4]) then return {'paused', 'day'} end
+if month + cost > tonumber(ARGV[5]) then return {'paused', 'month'} end
+if day + cost > tonumber(ARGV[4]) then return {'paused', 'day'} end
 if redis.call('INCRBY', KEYS[5], cost) == cost then redis.call('EXPIRE', KEYS[5], ARGV[9]) end
 if redis.call('INCRBY', KEYS[6], cost) == cost then redis.call('EXPIRE', KEYS[6], ARGV[10]) end
-if prev then return {'duplicate', tonumber(prev), redis.call('HGETALL', KEYS[2])} end
+if prev then return {'duplicate', tonumber(string.match(prev, '^%d+')), redis.call('HGETALL', KEYS[2])} end
 local s = tonumber(redis.call('GET', KEYS[4]) or '0')
 if s >= tonumber(ARGV[7]) then return {'limited', 'day'} end
-redis.call('SET', KEYS[1], ARGV[1], 'EX', ARGV[2])
+local value = ARGV[1]
+if withQ then value = ARGV[1] .. ' ' .. table.concat(ARGV, ' ', 17) end
+redis.call('SET', KEYS[1], value, 'EX', ARGV[2])
 redis.call('HINCRBY', KEYS[2], ARGV[1], 1)
 redis.call('EXPIRE', KEYS[2], ARGV[3])
+if withQ then
+  for i = 17, #ARGV do redis.call('HINCRBY', KEYS[9], ARGV[i], 1) end
+  redis.call('EXPIRE', KEYS[9], ARGV[3])
+elseif fields > 0 then
+  -- This day's question sample is now incomplete: its statistics stay withheld.
+  redis.call('HSET', KEYS[9], '!', '1')
+  redis.call('EXPIRE', KEYS[9], ARGV[3])
+end
 if redis.call('INCR', KEYS[4]) == 1 then redis.call('EXPIRE', KEYS[4], ARGV[11]) end
 return {'stored', tonumber(ARGV[1]), redis.call('HGETALL', KEYS[2])}
 `;
-/** KEYS: dist, budgetDay, budgetMonth. ARGV: dailyBudget, monthlyBudget, cost, dayTtl, monthTtl. */
+/**
+* KEYS: dist, budgetDay, budgetMonth, budgetReads, q.
+* ARGV: dailyBudget, monthlyBudget, cost, dayTtl, monthTtl, readDailyBudget, questionDailyCeiling, questionMonthlyCeiling.
+* Past the question ceiling the question tally is not read (the third element is 'paused').
+*/
 var READ_LUA = `
 local cost = tonumber(ARGV[3])
-if tonumber(redis.call('GET', KEYS[3]) or '0') + cost > tonumber(ARGV[2]) then return {'paused', 'month'} end
-if tonumber(redis.call('GET', KEYS[2]) or '0') + cost > tonumber(ARGV[1]) then return {'paused', 'day'} end
+local month = tonumber(redis.call('GET', KEYS[3]) or '0')
+if month + cost > tonumber(ARGV[2]) then return {'paused', 'month'} end
+local day = tonumber(redis.call('GET', KEYS[2]) or '0')
+if day + cost > tonumber(ARGV[1]) then return {'paused', 'day'} end
+if tonumber(redis.call('GET', KEYS[4]) or '0') + cost > tonumber(ARGV[6]) then return {'paused', 'reads'} end
 if redis.call('INCRBY', KEYS[2], cost) == cost then redis.call('EXPIRE', KEYS[2], ARGV[4]) end
 if redis.call('INCRBY', KEYS[3], cost) == cost then redis.call('EXPIRE', KEYS[3], ARGV[5]) end
-return {'ok', redis.call('HGETALL', KEYS[1])}
+if redis.call('INCRBY', KEYS[4], cost) == cost then redis.call('EXPIRE', KEYS[4], ARGV[4]) end
+local dist = redis.call('HGETALL', KEYS[1])
+if month + cost > tonumber(ARGV[8]) or day + cost > tonumber(ARGV[7]) then return {'ok', dist, 'paused'} end
+return {'ok', dist, redis.call('HGETALL', KEYS[5])}
 `;
 /**
-* KEYS: rate, ipDay (deletions from this network today), budgetErase, revocation, then (sub, dist) pairs.
+* KEYS: rate, ipDay (deletions from this network today), budgetErase, revocation, then (sub, dist, q) triples.
 * ARGV: eraseReserve, ratePerMinute, maxCost, monthTtl, ipDailyDeletes, ipDayTtl, pairs, revokedTtl.
 * Deletion never touches the shared day/month counters: it spends its own monthly counter (capped at the
 * erase reserve), so a deletion flood can only use up deletion, and only a few calls a day per network.
 * Both per-client caps run before anything is charged; the charge is what the call really cost.
+* A record is `total` (older versions, or stored past the question ceiling) or `total field1 ... field5`;
+* each field is taken back out of the question tally it was added to.
 */
 var REMOVE_LUA = `
 local r = redis.call('INCR', KEYS[1])
@@ -592,16 +752,27 @@ if tonumber(redis.call('GET', KEYS[3]) or '0') + tonumber(ARGV[3]) > tonumber(AR
 -- Even an empty day list requires a tombstone: an old POST may arrive later.
 redis.call('SET', KEYS[4], '1', 'EX', ARGV[8])
 local removed = 0
-for i = 5, #KEYS, 2 do
+local fields = 0
+for i = 5, #KEYS, 3 do
   local prev = redis.call('GET', KEYS[i])
   if prev then
     redis.call('DEL', KEYS[i])
-    local left = redis.call('HINCRBY', KEYS[i + 1], prev, -1)
-    if left <= 0 then redis.call('HDEL', KEYS[i + 1], prev) end
+    local k = 0
+    for tok in string.gmatch(prev, '%S+') do
+      k = k + 1
+      if k > 6 then break end
+      local h = KEYS[i + 1]
+      if k > 1 then
+        h = KEYS[i + 2]
+        fields = fields + 1
+      end
+      local left = redis.call('HINCRBY', h, tok, -1)
+      if left <= 0 then redis.call('HDEL', h, tok) end
+    end
     removed = removed + 1
   end
 end
-local cost = 9 + tonumber(ARGV[7]) + 3 * removed
+local cost = 9 + tonumber(ARGV[7]) + 3 * removed + 2 * fields
 if redis.call('INCRBY', KEYS[3], cost) == cost then redis.call('EXPIRE', KEYS[3], ARGV[4]) end
 return {'ok', removed}
 `;
@@ -619,9 +790,32 @@ function countsFromHash(flat) {
 		n: counts.reduce((a, b) => a + b, 0)
 	};
 }
+var QUESTION_FIELD = /^([a-z0-9-]{1,80}):(t|m|z|[1-9]\d{0,2})$/;
+/**
+* Question tallies from the flat HGETALL of the `q` hash, or 'paused' when the day was flagged incomplete.
+* Malformed fields and non-positive counts are ignored, as for the totals.
+*/
+function questionsFromHash(flat) {
+	const out = /* @__PURE__ */ new Map();
+	for (let i = 0; i + 1 < flat.length; i += 2) {
+		const field = String(flat[i]);
+		if (field === "!") return "paused";
+		const value = Number(flat[i + 1]);
+		const m = QUESTION_FIELD.exec(field);
+		if (!m || !Number.isInteger(value) || value <= 0) continue;
+		const t = out.get(m[1]) ?? emptyTally();
+		out.set(m[1], t);
+		const o = m[2];
+		if (o === "t") t.timeout += value;
+		else if (o === "m") t.miss += value;
+		else if (o === "z") t.zero += value;
+		else if (Number(o) <= 100) t.scoring[Number(o)] = value;
+	}
+	return out;
+}
 function redisStore(evaluate) {
 	return {
-		async submit(keys, total, limits) {
+		async submit(keys, total, limits, fields = []) {
 			const [status, second, flat] = await evaluate(SUBMIT_LUA, [
 				keys.sub,
 				keys.dist,
@@ -630,7 +824,8 @@ function redisStore(evaluate) {
 				keys.budget.day,
 				keys.budget.month,
 				keys.ipCalls,
-				keys.revocation
+				keys.revocation,
+				keys.q
 			], [
 				total,
 				limits.subTtl,
@@ -644,7 +839,11 @@ function redisStore(evaluate) {
 				MONTH_TTL,
 				IP_DAY_TTL,
 				limits.ipDailyCalls,
-				COST.duplicate
+				COST.duplicate,
+				COST.submitTotalOnly,
+				limits.questionDailyCeiling,
+				limits.questionMonthlyCeiling,
+				...fields
 			]);
 			if (status === "stored" || status === "duplicate") return {
 				status,
@@ -661,20 +860,29 @@ function redisStore(evaluate) {
 				scope: second === "month" ? "month" : "day"
 			};
 		},
-		async read(dist, budget, limits) {
+		async read(keys, budget, limits) {
 			const out = await evaluate(READ_LUA, [
-				dist,
+				keys.dist,
 				budget.day,
-				budget.month
+				budget.month,
+				budget.reads,
+				keys.q
 			], [
 				limits.dailyBudget,
 				limits.monthlyBudget,
 				COST.read,
 				DAY_TTL,
-				MONTH_TTL
+				MONTH_TTL,
+				limits.readDailyBudget,
+				limits.questionDailyCeiling,
+				limits.questionMonthlyCeiling
 			]);
-			if (out[0] !== "ok") return { paused: out[1] === "month" ? "month" : "day" };
-			return countsFromHash(out[1] ?? []);
+			if (out[0] !== "ok") return { paused: out[1] === "month" ? "month" : out[1] === "reads" ? "reads" : "day" };
+			const q = out[2];
+			return {
+				...countsFromHash(out[1] ?? []),
+				questions: Array.isArray(q) ? questionsFromHash(q) : "paused"
+			};
 		},
 		async removeMany(pairs, client, budget, limits) {
 			const out = await evaluate(REMOVE_LUA, [
@@ -682,7 +890,11 @@ function redisStore(evaluate) {
 				client.ipDay,
 				budget.erase,
 				client.revocation,
-				...pairs.flatMap((p) => [p.sub, p.dist])
+				...pairs.flatMap((p) => [
+					p.sub,
+					p.dist,
+					p.q
+				])
 			], [
 				limits.eraseReserve,
 				limits.ratePerMinute,

@@ -2,6 +2,7 @@
 import { createHmac } from 'node:crypto';
 import { puzzleDay, addDays } from '../src/engine/daily.ts';
 import { parseLaunchDay } from '../src/engine/season.ts';
+import { LAUNCH_DAY } from '../src/engine/launch-config.ts';
 import { eligibleDay, verifyRounds, type ServerSlate } from './api.ts';
 
 /**
@@ -208,6 +209,6 @@ export function leaderboardContext(env:Record<string,string|undefined>,store:LBS
   // neither flag is configured on the first V3 production release.
   const eraseEnabled=enabled||(env.LEADERBOARDS_ERASURE_ENABLED==='1'&&!!ns&&!!secret&&erase>=MIN_ERASE_SUBCAP);
   return {enabled,eraseEnabled,
-    store,secret:ns?secret:'',env:ns,launchDay:parseLaunchDay(env.LAUNCH_DAY??env.VITE_LAUNCH_DAY),now:()=>new Date(),loadSlate,
+    store,secret:ns?secret:'',env:ns,launchDay:parseLaunchDay(LAUNCH_DAY),now:()=>new Date(),loadSlate,
     allowedOrigins:(env.SCORES_ALLOWED_ORIGINS??'https://stat-window.vercel.app').split(',').map(s=>s.trim()).filter(Boolean),caps:[day,month,erase] };
 }

@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { deriveAnswer, formatIssues, metaOf, resolveChart, supportsOf, type FormatFact, type FormatSpec } from './formats.ts';
+import { slateFormatIssues, VARIETY_FROM } from '../../src/content/formats.ts';
 import { buildSlates, loadNbaData, questionFromFact, ROOT, V5_CONTENT_FROM, v5Context, validateNba, type Fact, type NbaData } from './model.ts';
 import { buildCatalog, leakHorizon } from './survival.ts';
 import { parseSlate, QuestionSchema } from '../../src/content/schema.ts';
@@ -59,14 +60,18 @@ describe('missing-point charts', () => {
   const b = wins('nba-c86', 67, '1985-86');
   const c = wins('nba-c08', 66, '2007-08');
   const spec = (points: { label: string; fact: string }[]): FormatSpec => ({ kind: 'missing-point', chart: { title: 'Regular-season wins', unit: 'wins', points } });
-  const q = withFormat(c, spec([{ label: '1972–73', fact: a.id }, { label: '1985–86', fact: b.id }, { label: '2007–08', fact: c.id }]));
+  const q = withFormat(c, spec([{ label: '1985–86', fact: b.id }, { label: '2007–08', fact: c.id }, { label: '1972–73', fact: a.id }]));
 
+  it('rejects bars in value order, whose neighbours would bracket the hidden answer', () => {
+    const sorted = withFormat(c, spec([{ label: '1972–73', fact: a.id }, { label: '1985–86', fact: b.id }, { label: '2007–08', fact: c.id }]));
+    expect(formatIssues(sorted, index(a, b, sorted)).join()).toMatch(/value order/);
+  });
   it('resolves verified values and hides exactly the answer', () => {
     expect(formatIssues(q, index(a, b, q))).toEqual([]);
     expect(resolveChart(q, index(a, b, q))).toEqual({
       title: 'Regular-season wins',
       unit: 'wins',
-      points: [{ label: '1972–73', value: 68 }, { label: '1985–86', value: 67 }, { label: '2007–08', value: null }],
+      points: [{ label: '1985–86', value: 67 }, { label: '2007–08', value: null }, { label: '1972–73', value: 68 }],
     });
   });
   it('requires the question itself exactly once, 3–7 points and distinct labels', () => {
@@ -238,13 +243,20 @@ describe('V5 formats in the real calendar', () => {
   });
 });
 
+type AuditFile = { entries: { day: string; slot: number; id: string; verdict: string; format: string; note: string; replaced?: string }[] };
+const readAuditFile = (name: string) => JSON.parse(readFileSync(join(ROOT, 'data', 'nba', 'editorial', name), 'utf8')) as AuditFile;
+
 describe('V5 launch inventory audit', () => {
-  const audit = JSON.parse(readFileSync(join(ROOT, 'data', 'nba', 'editorial', 'launch-audit.json'), 'utf8')) as { entries: { day: string; slot: number; id: string; verdict: string; format: string; note: string }[] };
+  const audit = readAuditFile('launch-audit.json');
   const launch = real.calendar.days.filter((d) => d.date >= V5_CONTENT_FROM);
-  it('records exactly one reviewed decision for every launch-inventory slot, naming the question now in it', () => {
-    const bySlot = new Map(audit.entries.map((e) => [`${e.day}#${e.slot}`, e]));
+  it('records exactly one reviewed decision for every V5.0 launch-inventory slot', () => {
     expect(audit.entries.length).toBe(launch.length * 5);
-    for (const d of launch) d.questions.forEach((id, i) => {
+    const slots = new Set(audit.entries.map((e) => `${e.day}#${e.slot}`));
+    for (const d of launch) for (let i = 1; i <= 5; i++) expect(slots.has(`${d.date}#${i}`), `${d.date} Q${i}`).toBe(true);
+  });
+  it('days before the V5.1 audit still hold the question V5.0 decided on', () => {
+    const bySlot = new Map(audit.entries.map((e) => [`${e.day}#${e.slot}`, e]));
+    for (const d of launch.filter((x) => x.date < VARIETY_FROM)) d.questions.forEach((id, i) => {
       const e = bySlot.get(`${d.date}#${i + 1}`);
       expect(e?.id, `${d.date} Q${i + 1}`).toBe(id);
       expect(e!.note.trim().length).toBeGreaterThan(5);
@@ -252,5 +264,26 @@ describe('V5 launch inventory audit', () => {
       expect(e!.format).toBe(f.question.format?.kind ?? 'recall');
       if (e!.verdict === 'retained') expect(f.question.format, `${id} is retained but carries a new format`).toBeUndefined();
     });
+  });
+});
+
+describe('V5.1 official-season audit (every slot from VARIETY_FROM)', () => {
+  const audit = readAuditFile('v51-audit.json');
+  const official = real.calendar.days.filter((d) => d.date >= VARIETY_FROM);
+  it('records exactly one independent editorial decision per official slot, naming the question now in it', () => {
+    const bySlot = new Map(audit.entries.map((e) => [`${e.day}#${e.slot}`, e]));
+    expect(audit.entries.length).toBe(official.length * 5);
+    for (const d of official) d.questions.forEach((id, i) => {
+      const e = bySlot.get(`${d.date}#${i + 1}`);
+      expect(e?.id, `${d.date} Q${i + 1}`).toBe(id);
+      expect(e!.note.trim().length).toBeGreaterThan(5);
+      expect(e!.format).toBe(real.facts.find((x) => x.id === id)!.question.format?.kind ?? 'recall');
+    });
+  });
+  it('every official slate mixes at least three formats with at most two of each', () => {
+    for (const d of official) {
+      const formats = d.questions.map((id) => real.facts.find((x) => x.id === id)!.question.format?.kind ?? 'recall');
+      expect(slateFormatIssues(formats), d.date).toEqual([]);
+    }
   });
 });

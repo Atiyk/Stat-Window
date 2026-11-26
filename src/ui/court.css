@@ -68,7 +68,7 @@
 }
 
 .court-fate[data-fate='merge'] { animation: court-ghost-merge 600ms linear forwards; }
-.court-fate[data-fate='miss'] { animation: court-ghost-clear 180ms ease-in forwards; }
+.court-fate[data-fate='miss'] { animation: court-ghost-clear 180ms var(--ease-out) forwards; }
 
 /* The outline holds until the ball arrives in it, then dissolves into the ball. */
 @keyframes court-ghost-merge {

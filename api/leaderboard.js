@@ -42,8 +42,8 @@ function puzzleStartUtcMs(day) {
 *   (unchanged from before this module). Once a launch day is configured, that day is
 *   "No. 1", the next "No. 2", and every earlier day becomes "Beta No. N".
 *
-* The launch day is fixed at build time (VITE_LAUNCH_DAY). Unset means beta: the live
-* game behaves exactly as before. Non-production builds can preview a launch with
+* The launch day is committed in src/engine/launch-config.ts (one value for the client and
+* the score API). Null means beta: the live game behaves exactly as before. Non-production builds can preview a launch with
 * `?launch-preview=YYYY-MM-DD` when VITE_LAUNCH_PREVIEW=1 (never in production).
 */
 var DAY$1 = /^\d{4}-\d{2}-\d{2}$/;
@@ -56,6 +56,20 @@ function isIsoDay(s) {
 function parseLaunchDay(raw) {
 	return isIsoDay(raw) && raw > "2026-11-15" ? raw : null;
 }
+// src/engine/launch-config.ts
+/**
+* The official season's launch day, the single source of truth for the client label,
+* the score API's season and the CI release gates (docs/LAUNCH.md).
+*
+* `null` keeps the public beta. Setting a date schedules the restarted official season:
+* that canonical Eastern day becomes "No. 1" at 12:00 AM Eastern. It is changed only by a
+* reviewed commit, and `scripts/season-check.ts` refuses a change unless the new day is
+* still in the future (Eastern), is on or after VARIETY_FROM and has enough validated
+* official slates. The old VITE_LAUNCH_DAY / LAUNCH_DAY environment variables are no
+* longer read; a build fails if either is set to a different value, so a stale
+* dashboard setting can never split the client and server seasons.
+*/
+var LAUNCH_DAY = "2026-11-30";
 /** Number of decimals implied by a step (0.01 -> 2). */
 function stepDecimals(step) {
 	const s = String(step);
@@ -126,8 +140,18 @@ function eligibleDay(day, now, graceSeconds) {
 }
 /** Re-scores five windows against the slate. Null when anything doesn't match the published puzzle exactly. */
 function verifyRounds(slate, rounds) {
+	return verifyRun(slate, rounds)?.total ?? null;
+}
+/**
+* The verified total and, per question, how the window counts (percentile.ts QuestionOutcome).
+* Only these five outcomes are kept, never the windows: `t` is the full scale (how every client
+* records a shot-clock violation; a player can't lock the full scale), `m` a window that misses
+* the answer, `z` a catch too wide to score, otherwise the points.
+*/
+function verifyRun(slate, rounds) {
 	if (!Array.isArray(rounds) || rounds.length !== 5 || slate.questions.length !== 5) return null;
 	const ids = /* @__PURE__ */ new Set();
+	const outcomes = [];
 	let total = 0;
 	for (const [i, q] of slate.questions.entries()) {
 		const r = rounds[i];
@@ -142,9 +166,14 @@ function verifyRounds(slate, rounds) {
 		const hi = toSteps(q, w.hi);
 		const onGrid = (v, steps) => Math.abs(q.min + steps * q.step - v) <= q.step * 1e-6;
 		if (!onGrid(w.lo, lo) || !onGrid(w.hi, hi) || lo < 0 || hi > rangeSteps(q) || hi - lo < 1) return null;
-		total += scoreWindow(q, w).points;
+		const scored = scoreWindow(q, w);
+		total += scored.points;
+		outcomes.push(lo === 0 && hi === rangeSteps(q) ? "t" : !scored.hit ? "m" : scored.points === 0 ? "z" : scored.points);
 	}
-	return total;
+	return {
+		total,
+		outcomes
+	};
 }
 // server/leaderboard.ts
 /** Separate opt-in leaderboard API; deliberately disabled until its shared Upstash cost budget is approved. */
@@ -430,7 +459,7 @@ function leaderboardContext(env, store, loadSlate) {
 		store,
 		secret: ns ? secret : "",
 		env: ns,
-		launchDay: parseLaunchDay(env.LAUNCH_DAY ?? env.VITE_LAUNCH_DAY),
+		launchDay: parseLaunchDay(LAUNCH_DAY),
 		now: () => /* @__PURE__ */ new Date(),
 		loadSlate,
 		allowedOrigins: (env.SCORES_ALLOWED_ORIGINS ?? "https://stat-window.vercel.app").split(",").map((s) => s.trim()).filter(Boolean),

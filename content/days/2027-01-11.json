@@ -9,7 +9,7 @@
     {
       "id": "nba-mitchell23-seventy-one",
       "sport": "NBA",
-      "prompt": "In Cleveland's 2023 overtime comeback against Chicago, how many points did Donovan Mitchell score?",
+      "prompt": "Kobe Bryant scored 81 in 2006. How many points did Donovan Mitchell score in Cleveland's 2023 overtime comeback against Chicago?",
       "context": "Donovan Mitchell · Cavaliers vs. Bulls · January 2023",
       "answer": 71,
       "unit": {
@@ -57,21 +57,23 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Donovan Mitchell",
           "Cleveland Cavaliers"
         ],
-        "supports": []
+        "supports": [
+          "nba-kobe-81"
+        ]
       }
     },
     {
       "id": "nba-klay16-60-minutes",
       "sport": "NBA",
-      "prompt": "Klay Thompson scored 60 points against Indiana on December 5, 2016. How many minutes did he play?",
-      "context": "Golden State Warriors · 2016–17",
+      "prompt": "Willis Reed played 27 minutes in Game 7 of the 1970 Finals. How many minutes did Klay Thompson play in his 60-point game?",
+      "context": "Klay Thompson · Warriors vs Pacers · December 5, 2016",
       "answer": 29,
       "unit": {
         "singular": "minute",
@@ -80,7 +82,7 @@
       "min": 20,
       "max": 48,
       "step": 1,
-      "note": "29.",
+      "note": "29 minutes for 60 points against Indiana.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
@@ -118,14 +120,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "minutes",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Klay Thompson",
           "Golden State Warriors"
         ],
-        "supports": []
+        "supports": [
+          "nba-reed70-g7-minutes"
+        ]
       }
     },
     {
@@ -276,7 +280,7 @@
     {
       "id": "nba-durant17-finals-g3-shot-45seconds",
       "sport": "NBA",
-      "prompt": "In Durant's famous pull-up Finals Game 3 three over LeBron in 2017, how many seconds were left?",
+      "prompt": "How many seconds were left on Kevin Durant's go-ahead pull-up three over LeBron in Game 3 of the 2017 Finals?",
       "context": "Kevin Durant · Warriors at Cavaliers · 2017 Finals Game 3",
       "answer": 45.3,
       "unit": {

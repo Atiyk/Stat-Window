@@ -132,7 +132,7 @@
     {
       "id": "nba-robinson99-finals-rpg",
       "sport": "NBA",
-      "prompt": "What did David Robinson average in rebounds in the 1999 Finals?",
+      "prompt": "The chart shows four rebounding averages. What did David Robinson average in rebounds in the 1999 Finals?",
       "context": "San Antonio Spurs · championship series",
       "answer": 11.8,
       "unit": {
@@ -179,15 +179,46 @@
           }
         }
       ],
+      "chart": {
+        "title": "Rebounds per game, season or Finals",
+        "unit": "rpg",
+        "points": [
+          {
+            "label": "Duncan '14",
+            "value": 9.7
+          },
+          {
+            "label": "Noah '11",
+            "value": 10.4
+          },
+          {
+            "label": "Howard '09",
+            "value": 13.8
+          },
+          {
+            "label": "Rodman '96",
+            "value": 14.9
+          },
+          {
+            "label": "Robinson '99",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "rebounds-average",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "David Robinson",
           "San Antonio Spurs"
         ],
-        "supports": []
+        "supports": [
+          "nba-duncan14-season-rpg",
+          "nba-noah11-rebounds-average",
+          "nba-howard09-regular-rpg",
+          "nba-rodman96-rpg"
+        ]
       }
     },
     {
@@ -253,8 +284,8 @@
     {
       "id": "nba-trae21-bucks-g1-48",
       "sport": "NBA",
-      "prompt": "When Trae Young stunned Milwaukee in the 2021 East finals opener, how many points did he score?",
-      "context": "Trae Young · Hawks at Bucks · June 2021",
+      "prompt": "In his conference finals debut at Milwaukee in 2021, how many points did Trae Young score to steal Game 1?",
+      "context": "Benchmark: Baylor's NBA Finals record is 61 points",
       "answer": 48,
       "unit": {
         "singular": "point",
@@ -301,14 +332,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Trae Young",
           "Atlanta Hawks"
         ],
-        "supports": []
+        "supports": [
+          "nba-baylor62-finals-61"
+        ]
       }
     }
   ]

@@ -69,7 +69,7 @@
     {
       "id": "nba-spurs14-streak",
       "sport": "NBA",
-      "prompt": "The 2013–14 Spurs' longest winning streak lasted how many games?",
+      "prompt": "The chart shows four famous winning streaks. How long was the 2013–14 Spurs' late-season winning streak?",
       "context": "San Antonio Spurs · 2013–14 regular season",
       "answer": 19,
       "unit": {
@@ -79,7 +79,7 @@
       "min": 0,
       "max": 30,
       "step": 1,
-      "note": "19, including a 16–0 March.",
+      "note": "19 straight, from late February to early April.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
@@ -116,14 +116,45 @@
           }
         }
       ],
+      "chart": {
+        "title": "Famous winning streaks, in games",
+        "unit": "games",
+        "points": [
+          {
+            "label": "Rockets '94",
+            "value": 15
+          },
+          {
+            "label": "Warriors '16",
+            "value": 24
+          },
+          {
+            "label": "Spurs '14",
+            "value": null
+          },
+          {
+            "label": "Bulls '96",
+            "value": 18
+          },
+          {
+            "label": "Rockets '08",
+            "value": 22
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "win-streak",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "San Antonio Spurs"
         ],
-        "supports": []
+        "supports": [
+          "nba-rockets94-start",
+          "nba-gsw16-start",
+          "nba-bulls96-18-streak",
+          "nba-rockets08-streak"
+        ]
       }
     },
     {
@@ -253,8 +284,8 @@
     {
       "id": "nba-durant21-nets-bucks-g5-49",
       "sport": "NBA",
-      "prompt": "Against Giannis's Bucks in Brooklyn's dramatic 2021 playoff Game 5, how many points did Kevin Durant score?",
-      "context": "Kevin Durant · Nets vs Bucks · June 2021",
+      "prompt": "Kevin Durant put the Nets ahead of the Bucks in 2021 Game 5 with a triple-double. How many points did he score?",
+      "context": "Benchmark: Jimmy Butler scored 56 against Milwaukee in 2023",
       "answer": 49,
       "unit": {
         "singular": "point",
@@ -301,14 +332,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
         "era": "2020s",
         "subjects": [
           "Kevin Durant",
           "Brooklyn Nets"
         ],
-        "supports": []
+        "supports": [
+          "nba-butler23-56-bucks-upset"
+        ]
       }
     }
   ]

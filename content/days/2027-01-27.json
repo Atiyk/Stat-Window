@@ -72,7 +72,7 @@
     {
       "id": "nba-bucks19-opening-win-streak",
       "sport": "NBA",
-      "prompt": "How many consecutive games did Milwaukee win to open 2018–19?",
+      "prompt": "The 1993–94 Rockets opened with 15 straight wins. How many in a row did Giannis's Bucks win to open 2018–19?",
       "context": "Milwaukee Bucks · start of Giannis's first MVP season",
       "answer": 7,
       "unit": {
@@ -120,13 +120,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "win-streak",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Milwaukee Bucks"
         ],
-        "supports": []
+        "supports": [
+          "nba-rockets94-start"
+        ]
       }
     },
     {
@@ -193,7 +195,7 @@
     {
       "id": "nba-chandler08-regular-rpg",
       "sport": "NBA",
-      "prompt": "How many rebounds did Tyson Chandler average for the 2008 Hornets?",
+      "prompt": "The chart shows four other rebounding seasons. How many rebounds per game did Tyson Chandler average for the 2007–08 Hornets?",
       "context": "New Orleans · 2007–08 regular season",
       "answer": 11.7,
       "unit": {
@@ -240,15 +242,46 @@
           }
         }
       ],
+      "chart": {
+        "title": "Rebounds per game, regular season",
+        "unit": "rpg",
+        "points": [
+          {
+            "label": "Chandler '08",
+            "value": null
+          },
+          {
+            "label": "Giannis '19",
+            "value": 12.5
+          },
+          {
+            "label": "Noah '11",
+            "value": 10.4
+          },
+          {
+            "label": "Howard '09",
+            "value": 13.8
+          },
+          {
+            "label": "Kemp '94",
+            "value": 10.8
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "rebounds-average",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Tyson Chandler",
           "New Orleans Pelicans"
         ],
-        "supports": []
+        "supports": [
+          "nba-giannis19-regular-rpg",
+          "nba-noah11-rebounds-average",
+          "nba-howard09-regular-rpg",
+          "nba-kemp94-rpg"
+        ]
       }
     },
     {

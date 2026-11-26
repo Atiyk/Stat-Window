@@ -9,7 +9,7 @@
     {
       "id": "nba-nash05-regular-apg",
       "sport": "NBA",
-      "prompt": "What was Steve Nash's assists-per-game average for the 2004–05 Suns?",
+      "prompt": "John Stockton averaged 14.5 assists a game in 1989–90. What was Steve Nash's average for the 2004–05 Suns?",
       "context": "Phoenix Suns · 2004–05 regular season",
       "answer": 11.5,
       "unit": {
@@ -57,14 +57,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "assists-average",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Steve Nash",
           "Phoenix Suns"
         ],
-        "supports": []
+        "supports": [
+          "nba-stockton90-apg"
+        ]
       }
     },
     {
@@ -132,7 +134,7 @@
     {
       "id": "nba-miller98-season-ppg",
       "sport": "NBA",
-      "prompt": "How many points per game did Reggie Miller average in 1997–98?",
+      "prompt": "The chart shows four other scoring seasons. How many points per game did Reggie Miller average for the 1997–98 Pacers?",
       "context": "Indiana Pacers · 1997–98 regular season",
       "answer": 19.5,
       "unit": {
@@ -179,15 +181,46 @@
           }
         }
       ],
+      "chart": {
+        "title": "Points per game in a season",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Robinson '20",
+            "value": 13.5
+          },
+          {
+            "label": "West '08",
+            "value": 20.6
+          },
+          {
+            "label": "Webber '02",
+            "value": 24.5
+          },
+          {
+            "label": "Kareem '71",
+            "value": 31.7
+          },
+          {
+            "label": "Miller '98",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "scoring-average",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "Reggie Miller",
           "Indiana Pacers"
         ],
-        "supports": []
+        "supports": [
+          "nba-robinson20-season-ppg",
+          "nba-west08-season-ppg",
+          "nba-webber02-season-ppg",
+          "nba-alcindor71-ppg"
+        ]
       }
     },
     {

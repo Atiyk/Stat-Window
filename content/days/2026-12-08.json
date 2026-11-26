@@ -198,17 +198,17 @@
     {
       "id": "nba-jordan93-finals-ppg",
       "sport": "NBA",
-      "prompt": "What did Michael Jordan average per game in the 1993 Finals against Phoenix, a Finals record?",
+      "prompt": "The chart shows three other Finals scoring averages. What did Michael Jordan average in the 1993 Finals against Phoenix?",
       "context": "1993 NBA Finals · six games vs Phoenix",
       "answer": 41,
       "unit": {
         "singular": "point per game",
         "plural": "points per game"
       },
-      "min": 28,
+      "min": 15,
       "max": 60,
-      "step": 0.1,
-      "note": "41.0 points per game.",
+      "step": 0.2,
+      "note": "41.0 points per game, a Finals record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
@@ -245,15 +245,41 @@
           }
         }
       ],
+      "chart": {
+        "title": "Finals scoring averages",
+        "unit": "points per game",
+        "points": [
+          {
+            "label": "Duncan '99",
+            "value": 27.4
+          },
+          {
+            "label": "Shaq '00",
+            "value": 38
+          },
+          {
+            "label": "Brown '24",
+            "value": 20.8
+          },
+          {
+            "label": "Jordan '93",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "scoring-average",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "Michael Jordan",
           "Chicago Bulls"
         ],
-        "supports": []
+        "supports": [
+          "nba-duncan99-finals-ppg",
+          "nba-shaq00-finals-ppg",
+          "nba-brown24-finals-ppg"
+        ]
       }
     },
     {

@@ -26,6 +26,17 @@ The same commands work for `--sport NFL`, `--sport MLB`, `--sport NHL`, `--sport
 
 NBA facts can carry `question.format` (reference, missing-point chart, difference, ratio, ranking, trajectory). Validation, metadata, the spoiler rule and the `scripts/nba/revise.ts` editorial-batch workflow are documented in [V5.md](V5.md).
 
+## V5.1 daily variety rule (official slates)
+
+From `VARIETY_FROM` (2026-11-30) every official five-question slate must use **at least three canonical formats and at most two of any one** (2+2+1, 2+1+1+1 or 1+1+1+1+1). The format is the question's single primary reasoning task (`question.format.kind`; plain recall omits it); subjects, eras and stat families never count. `slateFormatIssues` in `src/content/formats.ts` is the one implementation, enforced by `validateNba`, `content:check` (day files must carry `meta.format`), `content:publish:check`, the factory `plan` (research facts may set `format`; otherwise `difference` → difference, `sum` → trajectory, `literal` → recall) and CI.
+
+Generation rules for future requests:
+1. Judge substance first (hook, decision, clarity, fairness, scale, payoff). Never relabel a question with a format it doesn't use, and never add a weak question to satisfy the counts.
+2. Build formats from verified facts: a reference prints another verified figure as an anchor that helps but isn't effectively the answer; a chart shows 3–7 comparable observations (same family and unit) and must **not** list bars in value order (the validator rejects it, because neighbours bracket the hidden answer); differences and ratios state direction, denominator, unit and rounding; rankings state population and ties.
+3. Supports must be played on a strictly earlier day or sit in the reserve.
+4. Record one decision per slot with `scripts/nba/revise.ts` (several disjoint batches: `--batch a.json,b.json`; while editors work in parallel, `--check --scope FROM..TO`). The audit is `data/nba/editorial/v51-audit.json`. `scripts/nba/editorial-brief.ts` prints a range and its support pool; `scripts/nba/variety-report.ts` prints the day-by-day mix.
+5. Independent editorial review of every changed slot is required before release.
+
 ## Working data contract
 
 1. **Research batch**: `data/question-factory/batches/<slug>.json`. Fields: `version:1`, `id`, `sport`, `topic`, `author`, `themes` and `facts`. Create themed research groups around a team-season, player run, matchup, era or remarkable event; research broadly once, reuse sources efficiently, and spread related days apart.

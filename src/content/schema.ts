@@ -1,7 +1,7 @@
 import * as z from 'zod/mini';
 import { addDays } from '../engine/daily.ts';
 import { stepDecimals } from '../engine/scoring.ts';
-import { QuestionChartSchema, QuestionMetaSchema } from './formats.ts';
+import { QuestionChartSchema, QuestionMetaSchema, slateFormatIssues, VARIETY_FROM } from './formats.ts';
 
 const isoDay = z.string().check(z.regex(/^\d{4}-\d{2}-\d{2}$/, 'Expected YYYY-MM-DD'));
 
@@ -138,6 +138,9 @@ export function checkInventory(slates: readonly Slate[], today: string): Invento
       if (prev) errors.push(`Duplicate question id ${q.id} on ${prev} and ${s.date}`);
       seen.set(q.id, s.date);
     }
+    // V5.1 daily variety: from VARIETY_FROM every slate proves its format mix with metadata.
+    if (s.date >= VARIETY_FROM)
+      for (const issue of slateFormatIssues(s.questions.map((q) => q.meta?.format))) errors.push(`${s.date}: ${issue}`);
     const next = sorted[i + 1];
     if (next && addDays(s.date, 1) !== next.date) errors.push(`Gap between ${s.date} and ${next.date}`);
     if (next && next.date === s.date) errors.push(`Two slates for ${s.date}`);

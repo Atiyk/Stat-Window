@@ -71,7 +71,7 @@
     {
       "id": "nba-howard09-g4-blocks",
       "sport": "NBA",
-      "prompt": "Dwight Howard set the Finals record for blocks in a game in 2009. How many?",
+      "prompt": "The chart shows four other block games. How many blocks did Dwight Howard have in Game 4 of the 2009 Finals?",
       "context": "2009 NBA Finals · Game 4 · vs Lakers",
       "answer": 9,
       "unit": {
@@ -81,7 +81,7 @@
       "min": 5,
       "max": 20,
       "step": 1,
-      "note": "Nine.",
+      "note": "Nine, a single-game NBA Finals record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
@@ -118,15 +118,46 @@
           }
         }
       ],
+      "chart": {
+        "title": "Blocks in a game (Finals and season)",
+        "unit": "blocks",
+        "points": [
+          {
+            "label": "Howard '09",
+            "value": null
+          },
+          {
+            "label": "Hakeem '90",
+            "value": 11
+          },
+          {
+            "label": "Giannis '21",
+            "value": 5
+          },
+          {
+            "label": "Wemby '24",
+            "value": 10
+          },
+          {
+            "label": "Duncan '03",
+            "value": 8
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "blocks-game",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Dwight Howard",
           "Orlando Magic"
         ],
-        "supports": []
+        "supports": [
+          "nba-hakeem90-quadruple-blocks",
+          "nba-giannis21-finals-g6-blocks",
+          "nba-wemby24-10-blocks-blazers",
+          "nba-duncan03-g6-blocks"
+        ]
       }
     },
     {
@@ -193,8 +224,8 @@
     {
       "id": "nba-stoudemire05-playoff-ppg",
       "sport": "NBA",
-      "prompt": "How many points per game did Amar'e Stoudemire average in the 2005 playoffs?",
-      "context": "Phoenix Suns · postseason scoring average",
+      "prompt": "Kobe Bryant averaged 32.4 points in the 2009 Finals. What did Amar'e Stoudemire average in the 2005 playoffs for Phoenix?",
+      "context": "Phoenix Suns · full 2005 playoffs, 15 games",
       "answer": 29.9,
       "unit": {
         "singular": "point per game",
@@ -241,14 +272,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "scoring-average",
         "era": "2000s",
         "subjects": [
           "Amar'e Stoudemire",
           "Phoenix Suns"
         ],
-        "supports": []
+        "supports": [
+          "nba-kobe09-finals-ppg"
+        ]
       }
     },
     {

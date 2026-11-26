@@ -1,0 +1,52 @@
+.scouting__lead { margin: 0; font-size: 1.0625rem; line-height: 1.45; max-width: 60ch; }
+.scouting__note { margin: 0; color: var(--ink-soft); font-size: 0.9375rem; line-height: 1.45; max-width: 62ch; }
+.scouting__note:empty { display: none; }
+.scouting__section { display: grid; gap: var(--space-3); }
+.scouting__h { margin: 0; font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em; }
+.scouting__h3 { margin: 0; font-size: 1rem; font-weight: 700; }
+.scouting__empty { display: grid; gap: var(--space-3); justify-items: start; }
+.scouting__metrics { grid-template-columns: repeat(auto-fit, minmax(min(100%, 8.5rem), 1fr)); }
+.scouting__metrics dd { font-size: 1.75rem; }
+.scouting__foot { margin: 0; }
+
+.outcomes { margin: 0; display: grid; gap: var(--space-3); }
+.outcomes__bar { display: flex; height: 16px; gap: 2px; border-radius: 6px; overflow: hidden; background: var(--paper-2); }
+.outcomes__bar > span { min-width: 4px; }
+.outcomes__list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-1); font-size: 0.9375rem; }
+.outcomes__list li { display: flex; align-items: center; gap: var(--space-2); min-height: 28px; }
+[data-outcome='scoringHits'] { --o: var(--brand); }
+[data-outcome='zeroCatches'] { --o: color-mix(in srgb, var(--brand) 45%, var(--paper)); }
+[data-outcome='misses'] { --o: var(--danger); }
+[data-outcome='timeouts'] { --o: var(--ink-soft); }
+.outcomes__bar > span, .outcomes__swatch { background: var(--o); }
+.outcomes__swatch { flex: none; width: 12px; height: 12px; border-radius: 3px; }
+/* Shape as well as colour: timeouts are hatched, zero-point catches outlined. */
+.outcomes__list [data-outcome='timeouts'] .outcomes__swatch, .outcomes__bar > [data-outcome='timeouts'] { background: repeating-linear-gradient(135deg, var(--ink-soft) 0 3px, var(--paper-2) 3px 6px); }
+.outcomes__list [data-outcome='zeroCatches'] .outcomes__swatch, .outcomes__bar > [data-outcome='zeroCatches'] { background: color-mix(in srgb, var(--brand) 45%, var(--paper)); }
+
+.observations { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-2); }
+.observations li { padding: 10px 12px; border-radius: var(--radius-sm); background: var(--brand-soft); line-height: 1.4; }
+
+.scouting__details { border-top: 1px solid var(--line); padding-top: var(--space-3); display: grid; gap: var(--space-3); }
+.scouting__details > summary {
+  display: grid; gap: 2px; min-height: 44px; cursor: pointer; list-style: none; position: relative; padding-right: 32px; font-weight: 700; font-size: 1.0625rem;
+}
+.scouting__details > summary::-webkit-details-marker { display: none; }
+.scouting__details > summary::after { content: '+'; position: absolute; right: 4px; top: 2px; font-size: 1.5rem; font-weight: 400; color: var(--ink-soft); }
+.scouting__details[open] > summary::after { content: '–'; }
+.scouting__details > summary > span { font-weight: 400; font-size: 0.875rem; color: var(--ink-soft); }
+.scouting__details > summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+.scouting__dim { display: grid; gap: var(--space-2); }
+
+.scouting-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+.scouting-table th, .scouting-table td { padding: 8px 4px; text-align: right; border-bottom: 1px solid var(--line); vertical-align: top; }
+.scouting-table thead th { color: var(--ink-soft); font-weight: 600; font-size: 0.75rem; }
+.scouting-table th:first-child { text-align: left; font-weight: 700; }
+.scouting-table tbody th { font-weight: 600; }
+.scouting-table__sub { display: block; font-weight: 400; font-size: 0.75rem; color: var(--ink-soft); }
+
+.trend { margin: 0; display: grid; gap: var(--space-2); }
+.trend svg { width: 100%; height: auto; overflow: visible; }
+.trend__axis { stroke: var(--line); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.trend__line { fill: none; stroke: var(--brand); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.trend__dot { fill: var(--brand); }

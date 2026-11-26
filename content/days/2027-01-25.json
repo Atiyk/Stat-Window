@@ -254,7 +254,7 @@
     {
       "id": "nba-mavs24-finals-g4-blowout-margin",
       "sport": "NBA",
-      "prompt": "Facing a sweep in the 2024 Finals, by how many points did Luka's Mavericks crush Boston in Game 4?",
+      "prompt": "Boston scored just 84 as Dallas avoided a sweep in Game 4 of the 2024 Finals. By how many points did the Mavericks win?",
       "context": "Dallas Mavericks vs Boston Celtics · 2024 Finals Game 4",
       "answer": 38,
       "unit": {
@@ -303,7 +303,7 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "difference",
         "family": "margin",
         "era": "2020s",
         "subjects": [

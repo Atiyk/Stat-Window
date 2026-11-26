@@ -193,7 +193,7 @@
     {
       "id": "nba-teague15-assists-average",
       "sport": "NBA",
-      "prompt": "How many assists per game did Jeff Teague average for the 2015 Hawks?",
+      "prompt": "The chart shows four other assist averages. What did Jeff Teague average for the 2014–15 Hawks?",
       "context": "Atlanta · 2014–15 regular season",
       "answer": 7,
       "unit": {
@@ -240,22 +240,53 @@
           }
         }
       ],
+      "chart": {
+        "title": "Assists per game, regular season",
+        "unit": "apg",
+        "points": [
+          {
+            "label": "Lowry '19",
+            "value": 8.7
+          },
+          {
+            "label": "Teague '15",
+            "value": null
+          },
+          {
+            "label": "Bibby '02",
+            "value": 5
+          },
+          {
+            "label": "James '09",
+            "value": 7.2
+          },
+          {
+            "label": "Butler '20",
+            "value": 6
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "assists-average",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Jeff Teague",
           "Atlanta Hawks"
         ],
-        "supports": []
+        "supports": [
+          "nba-lowry19-regular-apg",
+          "nba-bibby02-regular-apg",
+          "nba-james09-season-apg",
+          "nba-butler20-regular-apg"
+        ]
       }
     },
     {
       "id": "nba-blazers19-nuggets-game3-four-overtimes",
       "sport": "NBA",
-      "prompt": "Portland and Denver played a marathon 2019 playoff Game 3. How many overtimes did it take to decide it?",
-      "context": "Trail Blazers vs Nuggets · 2019 West semifinals Game 3",
+      "prompt": "Portland and Denver played Game 3 of the 2019 West semifinals. How many overtimes did it take?",
+      "context": "Benchmark: a 1950–51 game went 6 overtimes, before the shot clock",
       "answer": 4,
       "unit": {
         "singular": "overtime",
@@ -264,7 +295,7 @@
       "min": 0,
       "max": 9,
       "step": 1,
-      "note": "Four overtimes! It was the first quadruple-overtime playoff game of the shot-clock era.",
+      "note": "Four overtimes! It was the first quadruple-overtime playoff game since 1955.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
@@ -303,13 +334,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "overtimes",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Portland Trail Blazers"
         ],
-        "supports": []
+        "supports": [
+          "nba-six-overtime-game"
+        ]
       }
     }
   ]

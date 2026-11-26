@@ -68,26 +68,27 @@
       }
     },
     {
-      "id": "nba-celtics02-4q",
+      "id": "nba-celtics02-4q-margin-v51d",
       "sport": "NBA",
-      "prompt": "Cleveland scored a Finals-record 49 in a quarter in 2017. How many fourth-quarter points did Boston score in Game 3 of the 2002 East finals?",
-      "context": "2002 East finals · Game 3 · vs New Jersey",
-      "answer": 41,
+      "prompt": "In the fourth quarter of Game 3 of the 2002 East finals, by how many points did Boston outscore New Jersey?",
+      "context": "2002 East finals · Game 3 · Celtics vs Nets",
+      "answer": 25,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 10,
-      "max": 60,
+      "min": 5,
+      "max": 55,
       "step": 1,
-      "note": "41, to New Jersey's 16.",
+      "note": "By 25: Boston won the quarter 41–16.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
-        "quote": "the Celtics outscored the Nets 41–16 in the fourth quarter"
+        "quote": "the Celtics outscored the Nets 41–16 in the fourth quarter",
+        "derivation": "Boston 41 − New Jersey 16 = 25 points in the fourth quarter."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "medium",
@@ -118,15 +119,13 @@
         }
       ],
       "meta": {
-        "format": "reference",
+        "format": "difference",
         "family": "points-period",
-        "era": "cross-era",
+        "era": "2000s",
         "subjects": [
           "Boston Celtics"
         ],
-        "supports": [
-          "nba-cavs17-g4-q1"
-        ]
+        "supports": []
       }
     },
     {
@@ -195,7 +194,7 @@
     {
       "id": "nba-celtics08-g6-margin",
       "sport": "NBA",
-      "prompt": "Boston won the 2008 title-clinching Game 6 against the Lakers by how many points?",
+      "prompt": "Memphis beat Oklahoma City by 73 in 2021, the largest margin ever. By how many did Boston win the 2008 title clincher over the Lakers?",
       "context": "2008 NBA Finals · Game 6 · at Boston",
       "answer": 39,
       "unit": {
@@ -243,13 +242,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "margin",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Boston Celtics"
         ],
-        "supports": []
+        "supports": [
+          "nba-grizzlies21-margin"
+        ]
       }
     },
     {

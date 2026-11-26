@@ -1,6 +1,6 @@
 # Formal launch (Day 1) runbook
 
-**Phase 1 does not switch the launch on.** Production stays in the public beta: same numbers ("No. 4" on 2026-11-18), same slates, same links, same saved games. This page describes the one step that switches it on.
+**V5.1:** the owner authorized the Day 1 restart once every release gate passes; activation is the committed `LAUNCH_DAY` below. (Phase 1 did not switch the launch on.) Production stays in the public beta: same numbers ("No. 4" on 2026-11-18), same slates, same links, same saved games. This page describes the one step that switches it on.
 
 ## How numbering works (`src/engine/season.ts`)
 
@@ -32,14 +32,18 @@ Every unpublished day is launch inventory: whichever date L becomes "No. 1" show
 2. Dry run in a preview: build with `VITE_LAUNCH_PREVIEW=1` (Preview environment only) and open `/?launch-preview=<L>` with the clock on *L* and *L-1*. Check: header "No. 1" on *L*; beta catalog still works before *L*; on *L*, archive is empty, retired beta `?day=` links show a notice and today's game, results stats show only *L*, share text says "Stat Window No. 1"; on *L+1*, archive contains only *L*. Check valid s1 challenges, old saves, Eastern DST, Survival, and privacy remain unaffected.
 3. Unit tests cover it with a synthetic launch day: `src/engine/season.test.ts`.
 
-## The one activation step
+## The one activation step (V5.1: committed, not a dashboard variable)
 
-In Vercel → stat-window → Settings → Environment Variables, **Production**:
+The launch day lives in **`src/engine/launch-config.ts`** (`LAUNCH_DAY`), one value read by the client label, the score API's season and the CI gates. Activation is a reviewed commit to main that sets it to *L*; Vercel deploys main automatically.
 
-- `VITE_LAUNCH_DAY` = `<L>` (the client label), and
-- `LAUNCH_DAY` = `<L>` (the score API's season),
-
-then redeploy production (or merge anything) **before** 12:00 AM Eastern on *L*. Both must match.
+- `npm run season:check -- --base origin/main` (CI runs it on every PR against main, and on every push to main against the commit before it) refuses a change unless *L* is a real date **at least 2 days after today (Eastern)** (so a PR that went green late in the evening still lands before the boundary if it is merged the next day), on or after `VARIETY_FROM` (2026-11-30, so every official slate passed the format cap), with at least 28 consecutive official slates from *L*. A season that has started can't be moved or cancelled by an ordinary change.
+- The build fails if `VITE_LAUNCH_DAY` or `LAUNCH_DAY` is still set in an environment to a different value (`assertLaunchEnv`), so a stale dashboard value can never split the client and server seasons. If they were ever set in Vercel, delete them.
+- **The production build guards the boundary itself**, because Vercel deploys main without waiting for CI. It does not repeat the whole season check (lead time, runway, moves); it checks one thing: with `VERCEL_ENV=production`, once `LAUNCH_DAY` has begun, `vite.config.ts` builds only if production already serves that same launch day (it reads `https://$VERCEL_PROJECT_PRODUCTION_URL/launch.json`). So whichever commit would switch a begun season on mid-day, the launch commit or any later one, is refused, and the previous deployment (beta) stays live. If production can't be read (an outage), the build is refused too; set `LAUNCH_GUARD_ACK=<L>` for that one deploy only after checking that production already shows No. 1. A preview switch (`VITE_LAUNCH_PREVIEW`) also fails a production build.
+- Make the CI check a **required status** on main (GitHub → Settings → Branches → main → Require status checks: `check`), so a PR whose check went stale can't be merged without re-running it.
+- Tabs opened before the activation deploy fetch `/launch.json` at the midnight rollover and reload if the deployed launch day differs from their bundle, so a long-open tab doesn't keep beta numbering on *L*.
+- Merge before 12:00 AM Eastern on *L*. Until the boundary the merged build behaves exactly like beta (the same code path the launch e2e proves with a future launch day); at the boundary today becomes No. 1. This is **scheduled** activation; it is **observed** only after someone opens production on *L* and sees No. 1.
+- **Never mid-day.** If the merge slips past midnight Eastern of *L*, the push check fails and the production build refuses to deploy it (and every later production build, since production still serves beta). Players are unaffected: the beta deployment stays live. To recover, commit `LAUNCH_DAY = null` with `SEASON_ROLLBACK_FROM = '<L>'` (the season never went live, so no `s1` data exists and no new season id is needed), then schedule a new future day in a following PR. The same applies after a Vercel Instant Rollback to a pre-launch deployment.
+- `LAUNCH_GUARD_ACK` is a one-deploy override; delete it from the Vercel environment straight after (the build warns while it is set).
 
 ## Moving to a custom domain
 
@@ -52,7 +56,8 @@ then redeploy production. No code change is needed. Unset, the list is `stat-win
 
 ## Rollback
 
-Delete both variables and redeploy. Labels return to beta numbering, stats include all runs again, and season-`s1` score data stays in its own keys (it never mixed with beta).
+- **Before *L*:** revert the commit (or set `LAUNCH_DAY = null`). Nothing has changed for players.
+- **After *L* (emergency only):** in one reviewed commit, set `LAUNCH_DAY = null` and `SEASON_ROLLBACK_FROM = '<L>'` (both in `src/engine/launch-config.ts`). The season check accepts cancelling a started season only when the acknowledgement names it, so the step needs no CI secret and shows in review. Deletion keeps working: DELETE searches every season in `SEASONS`, whatever the launch day is now. Labels return to beta numbering and stats include all runs again. Season `s1` score, question-aggregate and analytics data stay in their own `s1` keys and paths (they never mixed with beta), so a later relaunch must use a **new season id** (`s2`), never re-open `s1`: add it to `SeasonId` in `src/engine/season.ts` and give it its own keys. Challenge links of `s1` days then retire like beta links did. Do not flush Redis or clear anyone's local data.
 
 ## Left out of Phase 1
 

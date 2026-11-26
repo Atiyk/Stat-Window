@@ -1,6 +1,8 @@
 import { expect, test, type Page } from '@playwright/test';
 import { addDays, puzzleDay } from '../src/engine/daily';
 import { SAVE_KEY, UNTIMED_PRACTICE_KEY } from '../src/engine/storage';
+import { LAUNCH_DAY } from '../src/engine/launch-config';
+import { formatDay } from '../src/lib/format';
 import { DAY1, DAY2, lockAndSettle, NBA_LAST, next, openAt, startDailyIfNeeded, typeWindow } from './helpers';
 
 const earlierDay = '2026-11-15';
@@ -88,30 +90,33 @@ test('untimed practice restores its round, scores normally and stays outside off
 });
 
 test('mode selection keeps timed practice separate and supports browser back and forward', async ({ page }) => {
+  // After the last scheduled day the official season has begun, so the archive holds only
+  // season days: practise its first one (the launch day).
   const noPuzzle = addDays(puzzleDay(NBA_LAST), 1);
+  const seasonDay = LAUNCH_DAY!;
   await page.clock.setFixedTime(new Date(`${noPuzzle}T15:00:00Z`));
   await page.goto('/');
   await expect(page.getByRole('radio', { name: 'Timed', exact: true })).toBeChecked();
-  const day = page.getByRole('button', { name: /^Nov 15(?:\s|$)/ });
+  const day = page.getByRole('button', { name: new RegExp(`^${formatDay(seasonDay)}(?:\\s|$)`) });
   await day.click();
   await startDailyIfNeeded(page);
   await expect(page.getByRole('timer')).toBeVisible();
   await lockAndSettle(page);
   await next(page);
-  const timedRun = (await saved(page)).practice?.[earlierDay];
+  const timedRun = (await saved(page)).practice?.[seasonDay];
   expect(timedRun?.results).toHaveLength(1);
 
   await page.reload();
   await page.getByRole('radio', { name: 'Untimed', exact: true }).check();
   await day.click();
-  await expect(page).toHaveURL(/\?practice=2026-11-15$/);
+  await expect(page).toHaveURL(new RegExp(`\\?practice=${seasonDay}$`));
   await startUntimed(page);
   await expect(page.locator('.round-meta')).toContainText('Question 1 of 5');
   await page.goBack();
   await expect(page.getByRole('radio', { name: 'Timed', exact: true })).toBeChecked();
   await page.goForward();
   await expect(page.locator('.round-meta')).toContainText('Untimed practice');
-  expect((await saved(page)).practice?.[earlierDay]).toEqual(timedRun);
+  expect((await saved(page)).practice?.[seasonDay]).toEqual(timedRun);
 });
 
 test('cross-tab practice progress survives Eastern midnight without opening a new day', async ({ page, context }) => {

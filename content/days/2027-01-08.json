@@ -163,7 +163,7 @@
     {
       "id": "nba-barkley93-suns-rpg",
       "sport": "NBA",
-      "prompt": "What was Charles Barkley's rebounding average during his Suns MVP season?",
+      "prompt": "Dwight Howard averaged 13.8 rebounds in 2008–09. What did Charles Barkley average in his Suns MVP season?",
       "context": "Charles Barkley · Phoenix Suns · 1992–93",
       "answer": 12.1,
       "unit": {
@@ -211,14 +211,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "rebounds-average",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "Charles Barkley",
           "Phoenix Suns"
         ],
-        "supports": []
+        "supports": [
+          "nba-howard09-regular-rpg"
+        ]
       }
     },
     {
@@ -284,7 +286,7 @@
     {
       "id": "nba-lillard14-rockets-series-winner-nine-tenths",
       "sport": "NBA",
-      "prompt": "Before Damian Lillard's iconic 2014 series-winning three against Houston, how many seconds did Portland have left to inbound?",
+      "prompt": "How many seconds were left when Damian Lillard caught the inbound for his 2014 series-winning shot over Houston?",
       "context": "Damian Lillard · Blazers vs Rockets · 2014 first round",
       "answer": 0.9,
       "unit": {
@@ -292,7 +294,7 @@
         "plural": "seconds"
       },
       "min": 0,
-      "max": 5,
+      "max": 8,
       "step": 0.1,
       "note": "Just 0.9 seconds. Lillard caught the inbound and hit the buzzer-beater to eliminate Houston.",
       "source": {

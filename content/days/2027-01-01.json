@@ -70,7 +70,7 @@
     {
       "id": "nba-frazier70-g7-ast",
       "sport": "NBA",
-      "prompt": "Walt Frazier scored 36 points in Game 7 of the 1970 Finals. How many assists did he have?",
+      "prompt": "The chart shows four other Finals assist games. Walt Frazier scored 36 in Game 7 of the 1970 Finals. How many assists did he have?",
       "context": "1970 NBA Finals · Game 7 · vs Lakers",
       "answer": 19,
       "unit": {
@@ -117,15 +117,46 @@
           }
         }
       ],
+      "chart": {
+        "title": "Assists in a Finals game",
+        "unit": "assists",
+        "points": [
+          {
+            "label": "Magic '84",
+            "value": 21
+          },
+          {
+            "label": "Tatum '22",
+            "value": 13
+          },
+          {
+            "label": "Shai '25",
+            "value": 12
+          },
+          {
+            "label": "Diaw '14",
+            "value": 9
+          },
+          {
+            "label": "Frazier '70",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "assists-game",
-        "era": "1960s",
+        "era": "cross-era",
         "subjects": [
           "Walt Frazier",
           "New York Knicks"
         ],
-        "supports": []
+        "supports": [
+          "nba-magic84-assists",
+          "nba-tatum22-debut-ast",
+          "nba-shai25-finals-g7-12-assists",
+          "nba-diaw14-heat-g4-assists"
+        ]
       }
     },
     {
@@ -194,7 +225,7 @@
     {
       "id": "nba-billups04-finals-ppg",
       "sport": "NBA",
-      "prompt": "What did 2004 Finals MVP Chauncey Billups average in points per game?",
+      "prompt": "Joe Dumars averaged 27.3 points as the 1989 Finals MVP. What did 2004 Finals MVP Chauncey Billups average for Detroit?",
       "context": "Detroit Pistons vs Lakers · 2004 Finals · five games",
       "answer": 21,
       "unit": {
@@ -242,14 +273,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "scoring-average",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Chauncey Billups",
           "Detroit Pistons"
         ],
-        "supports": []
+        "supports": [
+          "nba-dumars89-finals-ppg"
+        ]
       }
     },
     {

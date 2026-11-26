@@ -69,7 +69,7 @@
     {
       "id": "nba-booker17-70",
       "sport": "NBA",
-      "prompt": "Devin Booker became the youngest player to score 60 or more, at 20, in a regular-season game. How many points did he score?",
+      "prompt": "The chart shows three other big scoring nights. Devin Booker, at 20, became the youngest to score 60 or more. How many points did he score?",
       "context": "Phoenix Suns · 2016–17",
       "answer": 70,
       "unit": {
@@ -116,15 +116,41 @@
           }
         }
       ],
+      "chart": {
+        "title": "Points in one game",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Kobe '06",
+            "value": 81
+          },
+          {
+            "label": "Curry '21",
+            "value": 62
+          },
+          {
+            "label": "Harden '19",
+            "value": 61
+          },
+          {
+            "label": "Booker '17",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Devin Booker",
           "Phoenix Suns"
         ],
-        "supports": []
+        "supports": [
+          "nba-kobe-81",
+          "nba-curry21-blazers-62",
+          "nba-harden19-msg-61"
+        ]
       }
     },
     {
@@ -193,7 +219,7 @@
     {
       "id": "nba-stockton91-28",
       "sport": "NBA",
-      "prompt": "John Stockton's career high in assists came on January 15, 1991. How many?",
+      "prompt": "Scott Skiles had 30 assists in December 1990. How many did John Stockton have in his career-high game on January 15, 1991?",
       "context": "Utah Jazz vs San Antonio Spurs · 1990–91",
       "answer": 28,
       "unit": {
@@ -241,14 +267,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "assists-game",
         "era": "1990s",
         "subjects": [
           "John Stockton",
           "Utah Jazz"
         ],
-        "supports": []
+        "supports": [
+          "nba-skiles90-30"
+        ]
       }
     },
     {

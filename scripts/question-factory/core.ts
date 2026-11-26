@@ -3,6 +3,8 @@
  * Inputs are evidence-backed research facts; outputs are DRAFT questions.
  * Only a separate source check + editorial sign-off makes them eligible for a slate.
  */
+import { FORMATS, MAX_PER_FORMAT, slateFormatIssues, VARIETY_FROM, type QuestionFormat } from '../../src/content/formats.ts';
+
 export const VERSION = 1;
 export const LADDER = ['easy', 'medium', 'hard', 'hard', 'expert'] as const;
 export const TYPES = [
@@ -32,6 +34,8 @@ export type Coverage = {
 export type ResearchFact = {
   id: string; theme: string; kind: Kind; subject: string; event: string; statistic: string;
   values: Value[]; operation: Operation;
+  /** Canonical V5 question format (src/content/formats.ts FORMATS). Defaults from `operation`. */
+  format?: QuestionFormat;
   /** Used for comparisons ("A vs B"). */
   compareWith?: string; rankLabel?: string;
   customPrompt?: string; context: string; note: string;
@@ -72,6 +76,8 @@ export type SlateQuestion = {
   unit: { singular: string; plural: string }; min: number; max: number; step: number;
   note: string; source: { name: string; url: string; quote: string; derivation?: string };
   verified: { on: string; by: string }; difficulty: Difficulty;
+  /** Canonical V5 format, so the NBA publisher and the daily-variety gate can see it. */
+  format: string;
 };
 export type DayProposal = {
   date: string; theme: { title: string; subtitle: string; recap: string };
@@ -281,6 +287,7 @@ export function validateBatch(b: CandidateBatch): string[] {
     if (meanings.has(meaning)) errors.push(ERR(c.id, 'same underlying fact already used in batch'));
     meanings.add(meaning);
     if (!b.themes.some((t) => t.id === c.theme)) errors.push(ERR(c.id, 'missing theme'));
+    if (c.format !== undefined && !(FORMATS as readonly string[]).includes(c.format)) errors.push(ERR(c.id, `unknown question format ${String(c.format)}`));
     if (c.batchId !== b.id || c.sport.toLowerCase() !== b.sport.toLowerCase()) errors.push(ERR(c.id, 'batch/sport mismatch'));
   }
   for (const [index, c] of b.candidates.entries()) {
@@ -301,6 +308,7 @@ export function slateQuestion(c: Candidate): SlateQuestion {
     unit: c.unit, min: c.scale.min, max: c.scale.max, step: c.scale.step,
     note: c.note, source: { name: base.attribution, url: base.url, quote: base.quote, ...(derivation ? { derivation } : {}) },
     verified: { on: c.review.reviewedOn!, by: c.review.factChecker! }, difficulty: c.difficulty,
+    format: candidateFormat(c),
   };
 }
 const order = (a: Candidate, b: Candidate) =>
@@ -321,7 +329,17 @@ function suitsNbaSlot(c: Candidate, slot: number): boolean {
   return true;
 }
 
-function selectSlate(candidates: Candidate[], nba: boolean): Candidate[] | null {
+/**
+ * A candidate's canonical V5 question format (src/content/formats.ts). A research fact
+ * may name it (`format`); otherwise it follows from the arithmetic: a difference is a
+ * difference, a sum across seasons a trajectory, a single quoted number plain recall.
+ */
+export function candidateFormat(c: Pick<ResearchFact, 'operation'> & { format?: string }): string {
+  if (c.format) return c.format;
+  return c.operation === 'difference' ? 'difference' : c.operation === 'sum' ? 'trajectory' : 'recall';
+}
+
+function selectSlate(candidates: Candidate[], nba: boolean, formatsRequired = false): Candidate[] | null {
   const pools = LADDER.map((diff, slot) => candidates.filter((c) => c.difficulty === diff && (!nba || suitsNbaSlot(c, slot))));
   const available = [...new Set(pools.flat())];
   if (pools.some((pool) => !pool.length) || new Set(available.map((c) => c.kind)).size < 3) return null;
@@ -330,10 +348,13 @@ function selectSlate(candidates: Candidate[], nba: boolean): Candidate[] | null 
   function choose(selected: Candidate[]): Candidate[] | null {
     if (selected.length === LADDER.length) {
       const variety = new Set(selected.map((c) => c.kind)).size >= 3;
-      return variety && (!nba || hasNbaVariety(selected)) ? selected : null;
+      // V5.1: official slates mix at least three formats with at most two of each.
+      const formats = !formatsRequired || slateFormatIssues(selected.map(candidateFormat)).length === 0;
+      return variety && formats && (!nba || hasNbaVariety(selected)) ? selected : null;
     }
     const kindCount = (c: Candidate) => selected.filter((prior) => prior.kind === c.kind).length;
-    const pool = pools[selected.length]!.filter((c) => !selected.includes(c) && kindCount(c) < 2);
+    const formatCount = (c: Candidate) => selected.filter((prior) => candidateFormat(prior) === candidateFormat(c)).length;
+    const pool = pools[selected.length]!.filter((c) => !selected.includes(c) && kindCount(c) < 2 && (!formatsRequired || formatCount(c) < MAX_PER_FORMAT));
     pool.sort((a, b) => kindCount(a) - kindCount(b) || order(a, b));
     for (const c of pool) {
       if (nba) {
@@ -365,7 +386,7 @@ export function plan(b: CandidateBatch, policy: SourcePolicy | null, start: stri
     const options: { t: Theme; selected: Candidate[]; score: number }[] = [];
     for (const t of themes) {
       const available = approved.filter((c) => (nba || c.theme === t.id) && !chosen.has(c.id));
-      const selected = selectSlate(available, nba);
+      const selected = selectSlate(available, nba, addDays(start, d) >= VARIETY_FROM);
       if (!selected) continue;
       options.push({ t, selected, score: selected.reduce((s, x) => s + qualityScore(x.ratings), 0) });
     }
@@ -376,7 +397,8 @@ export function plan(b: CandidateBatch, policy: SourcePolicy | null, start: stri
     });
     if (!options.length) {
       const coverage = nba ? ' NBA days also need strong Q1/Q3/Q5, three subjects, three stat families, two dated eras and no repeated adjacent family.' : '';
-      throw new Error(`Only ${d} of ${days} complete slates found. Need 1 easy, 1 medium, 2 hard, 1 expert, >=3 types and <=2 per type per day with reviewed facts.${coverage}`);
+      const formats = addDays(start, d) >= VARIETY_FROM ? ' Official slates also need >=3 question formats and <=2 per format (set `format` on research facts, or use difference/sum operations).' : '';
+      throw new Error(`Only ${d} of ${days} complete slates found. Need 1 easy, 1 medium, 2 hard, 1 expert, >=3 types and <=2 per type per day with reviewed facts.${coverage}${formats}`);
     }
     const { t, selected } = options[0]!;
     for (const c of selected) chosen.add(c.id);

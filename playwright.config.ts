@@ -9,7 +9,7 @@ const SURVIVAL = !!process.env.SURVIVAL_E2E;
 const LEADERBOARD = !!process.env.LEADERBOARD_E2E;
 // A separate, never-deployed dry-run build verifies formal launch/retired-beta behavior.
 const LAUNCH = !!process.env.LAUNCH_E2E;
-const PORT = ANALYTICS ? 4174 : SURVIVAL ? 4175 : LEADERBOARD ? 4177 : LAUNCH ? 4178 : 4173;
+const PORT = Number(process.env.E2E_PORT) || (ANALYTICS ? 4174 : SURVIVAL ? 4175 : LEADERBOARD ? 4177 : LAUNCH ? 4178 : 4173);
 const BUILD = ANALYTICS
   ? `VITE_ANALYTICS=vercel npx vite build --outDir dist-analytics && npx vite preview --outDir dist-analytics --port ${PORT} --strictPort`
   : SURVIVAL

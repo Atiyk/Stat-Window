@@ -29,13 +29,15 @@ function fact(id: string, kind: ResearchFact['kind'], difficulty: ResearchFact['
     ratings: { recognition: 5, estimability: 5, surprise: 5, story: 5, clarity: 5 },
   };
 }
+// A legal official mix (V5.1): recall, reference, reference, ratio, recall = 2+2+1.
+const formats = [undefined, 'reference', 'reference', 'ratio', undefined] as const;
 const raws = [
   fact('test-q1', 'famous-moment', 'easy', 75),
   fact('test-q2', 'season-story', 'medium', 83),
   fact('test-q3', 'surprising-record', 'hard', 112),
   fact('test-q4', 'team-leader', 'hard', 91),
   fact('test-q5', 'streak', 'expert', 127),
-];
+].map((f, i) => (formats[i] ? { ...f, format: formats[i] } : f));
 const batch: ResearchBatch = {
   version: 1, id: 'test-factory', sport: 'TEST', topic: 'Fictional championship', author: 'researcher',
   themes: [{ id: 'historic-final', title: 'Historic final', subtitle: 'Test game season',
@@ -119,6 +121,16 @@ describe('question factory', () => {
       expect.stringContaining('canonical stat family'), expect.stringContaining('editorial notes'),
       expect.stringContaining('concise numeric question'),
     ]));
+  });
+  it('refuses an official slate with more than two questions of one format, and names the rule', () => {
+    const allRecall = reviewed(generate({ ...batch, facts: raws.map(({ format: _f, ...f }) => f) }));
+    expect(() => plan(allRecall, policy, '2027-01-06', 1)).toThrow('<=2 per format');
+    expect(plan(reviewed(generate(batch)), policy, '2027-01-06', 1).days[0]!.questions.map((q) => q.format))
+      .toEqual(['recall', 'reference', 'reference', 'ratio', 'recall']);
+  });
+  it('rejects an unknown question format on a research fact', () => {
+    const bad = reviewed(generate({ ...batch, facts: raws.map((f, i) => (i === 0 ? { ...f, format: 'trivia' as never } : f)) }));
+    expect(validateBatch(bad)).toEqual(expect.arrayContaining([expect.stringContaining('unknown question format trivia')]));
   });
   it('plans one mixed NBA slate across research themes with an accessible opener and memorable reveal and finale', () => {
     const planner = (b: CandidateBatch) => plan(b, nbaPolicy, '2027-02-01', 1);

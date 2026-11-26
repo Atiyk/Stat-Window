@@ -229,7 +229,12 @@ describe('percentiles past the sample gate', () => {
     expect(JSON.parse(text)).toMatchObject({ n: 1, ready: false });
     expect(text).not.toContain('counts');
     expect(text).not.toContain(player(1));
-    expect((await handle(new Request('https://stat-window.vercel.app/api/scores?day=2026-11-20'), ctx)).status).toBe(422);
+    // Another valid day is not an error, just nothing to read (and no store call).
+    const future = await handle(new Request('https://stat-window.vercel.app/api/scores?day=2026-11-20'), ctx);
+    expect(future.status).toBe(200);
+    expect(await future.json()).toMatchObject({ status: 'ineligible' });
+    expect(future.headers.get('cache-control')).toBe('no-store');
+    expect((await handle(new Request('https://stat-window.vercel.app/api/scores?day=2026-13-40'), ctx)).status).toBe(422);
     // Junk parameters would bypass the edge cache, so they are refused.
     for (const q of [`?day=${DAY}&x=1`, `?day=${DAY}&`, `?day=${DAY}&&&`, `?%64ay=${DAY}`, `?d%61y=${DAY}&`]) {
       expect((await handle(new Request(`https://stat-window.vercel.app/api/scores${q}`), ctx)).status).toBe(422);
@@ -258,7 +263,7 @@ describe('DELETE /api/scores', () => {
     ctx.store = { ...real, removeMany: (p, ...rest) => ((pairs = p.length), real.removeMany(p, ...rest)) };
     const days = Array.from({ length: 60 }, (_, i) => new Date(NOON.getTime() - i * 86_400_000).toISOString().slice(0, 10));
     expect((await handle(post({ player: player(1), days }, {}, 'DELETE'), ctx)).status).toBe(200);
-    expect(pairs).toBe(9 * 2);
+    expect(pairs).toBe(9 * 3);
   });
 });
 
@@ -299,8 +304,8 @@ describe('DELETE cannot drain the shared budget (CR-1)', () => {
     const { ctx, store } = testContext();
     expect(await del(ctx, player(9))).toBe(200);
     const erase = store.dump().get(`sw:v1:budget:e:${DAY.slice(0, 7)}`) as number;
-    expect(erase).toBe(COST.removeSpent(18, 0));
-    expect(erase).toBeLessThan(COST.remove(18));
+    expect(erase).toBe(COST.removeSpent(27, 0));
+    expect(erase).toBeLessThan(COST.remove(27));
   });
 });
 

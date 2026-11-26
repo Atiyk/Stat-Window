@@ -69,7 +69,7 @@
     {
       "id": "nba-bucks71-wins",
       "sport": "NBA",
-      "prompt": "In only their third season, how many games did the 1970–71 Bucks win?",
+      "prompt": "The chart shows three other title teams. In only their third season, how many games did the 1970–71 Bucks win?",
       "context": "Milwaukee Bucks · 1970–71 · 82 games",
       "answer": 66,
       "unit": {
@@ -116,20 +116,46 @@
           }
         }
       ],
+      "chart": {
+        "title": "Wins by other title-winning teams",
+        "unit": "wins",
+        "points": [
+          {
+            "label": "Warriors '75",
+            "value": 48
+          },
+          {
+            "label": "Lakers '87",
+            "value": 65
+          },
+          {
+            "label": "Raptors '19",
+            "value": 58
+          },
+          {
+            "label": "Bucks '71",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "wins-season",
-        "era": "1970s",
+        "era": "cross-era",
         "subjects": [
           "Milwaukee Bucks"
         ],
-        "supports": []
+        "supports": [
+          "nba-warriors75-season-wins",
+          "nba-lakers87-wins",
+          "nba-raptors19-regular-wins"
+        ]
       }
     },
     {
       "id": "nba-warriors48-low-fg-v5",
       "sport": "NBA",
-      "prompt": "In February 1948, the Philadelphia Warriors set the record for the lowest field-goal percentage in a game. What did they shoot?",
+      "prompt": "San Antonio shot an NBA-record 70.7% in a 1983 game. What did the Philadelphia Warriors shoot in their record-low game in February 1948?",
       "context": "Philadelphia Warriors vs St. Louis Bombers · February 7, 1948",
       "answer": 16.4,
       "unit": {
@@ -177,19 +203,21 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "shooting-pct",
-        "era": "1940s",
+        "era": "cross-era",
         "subjects": [
           "Golden State Warriors"
         ],
-        "supports": []
+        "supports": [
+          "nba-spurs83-fg"
+        ]
       }
     },
     {
       "id": "nba-curry15-g2-misses",
       "sport": "NBA",
-      "prompt": "In Game 2 of the 2015 Finals, Stephen Curry set a Finals record for missed threes. How many?",
+      "prompt": "John Starks missed 11 threes in Game 7 of the 1994 Finals. How many threes did Stephen Curry miss in Game 2 of the 2015 Finals?",
       "context": "2015 NBA Finals · Game 2 · vs Cleveland",
       "answer": 13,
       "unit": {
@@ -237,14 +265,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "threes-attempts",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Stephen Curry",
           "Golden State Warriors"
         ],
-        "supports": []
+        "supports": [
+          "nba-starks94-g7-3pa"
+        ]
       }
     },
     {

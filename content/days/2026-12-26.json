@@ -255,7 +255,7 @@
     {
       "id": "nba-ja22-warriors-game2-47",
       "sport": "NBA",
-      "prompt": "In Memphis's 2022 playoff showdown against Steph Curry's Warriors, how many points did Ja Morant score in Game 2?",
+      "prompt": "The chart shows four other playoff scoring nights. How many points did Ja Morant score against Curry's Warriors in 2022 Game 2?",
       "context": "Ja Morant · Grizzlies vs Warriors · May 2022",
       "answer": 47,
       "unit": {
@@ -302,15 +302,46 @@
           }
         }
       ],
+      "chart": {
+        "title": "Playoff scoring nights",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Durant '21",
+            "value": 49
+          },
+          {
+            "label": "Klay '16",
+            "value": 41
+          },
+          {
+            "label": "Ja '22",
+            "value": null
+          },
+          {
+            "label": "Butler '23",
+            "value": 56
+          },
+          {
+            "label": "Giannis '21",
+            "value": 50
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Ja Morant",
           "Memphis Grizzlies"
         ],
-        "supports": []
+        "supports": [
+          "nba-durant21-nets-bucks-g5-49",
+          "nba-klay16-okc-game6-41",
+          "nba-butler23-56-bucks-upset",
+          "nba-giannis21-g6"
+        ]
       }
     }
   ]

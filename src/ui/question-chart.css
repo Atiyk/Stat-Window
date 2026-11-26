@@ -10,7 +10,7 @@
   color: var(--ink-soft);
   text-wrap: balance;
 }
-.q-chart__unit { color: var(--tick); }
+.q-chart__unit { color: var(--ink-soft); } /* text: --tick (3.99:1 on cream) is for marks only */
 .q-chart__cols {
   display: grid;
   gap: 6px;
@@ -79,11 +79,26 @@
   .q-chart__cols { margin-top: 4px; }
 }
 
+/* Phones: a chart question must leave both bracket handles above the sticky Lock bar
+   at round start, because the clock is running (e2e/chart-fit.spec.ts). The prompt
+   steps down and the columns shorten; the chart stays readable. */
+@media (max-width: 719px) {
+  .round .question-block:has(.q-chart) .question { font-size: 1.25rem; line-height: 1.2; }
+  .round:not(.teaching-play) .q-chart { --q-chart-h: 36px; margin-top: var(--space-2); }
+  .round:not(.teaching-play) .q-chart__cols { margin-top: 4px; }
+}
+
 /* Short phones: a chart must not push the brackets under the Lock bar. */
 @media (max-width: 719px) and (max-height: 700px) {
-  .q-chart { --q-chart-h: 26px; margin-top: 4px; }
+  /* Same scope as the phone rule above, so it wins in timed rounds; the untimed guide keeps its chart. */
+  .round:not(.teaching-play) .q-chart { --q-chart-h: 26px; margin-top: 4px; }
+  .round .question-block:has(.q-chart) .question { font-size: 1rem; }
+  /* The court strip is decoration here (the clock is in the round meta line); the
+     brackets need the room. */
+  .round:has(.q-chart) .round-court { display: none; }
   .q-chart__title { font-size: .75rem; line-height: 1.2; }
   .q-chart__cols { margin-top: 2px; gap: 4px; }
   .q-chart__value { font-size: .75rem; line-height: 1.15; }
   .q-chart__label { margin-top: 2px; font-size: .6875rem; line-height: 1.1; }
 }
+

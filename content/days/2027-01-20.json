@@ -70,7 +70,7 @@
     {
       "id": "nba-westbrook12-g4",
       "sport": "NBA",
-      "prompt": "In Game 4 of the 2012 Finals, how many points did Russell Westbrook score in a loss?",
+      "prompt": "The chart shows five Finals scoring nights. How many points did Russell Westbrook score in Game 4 of the 2012 Finals?",
       "context": "2012 NBA Finals · Game 4 · at Miami",
       "answer": 43,
       "unit": {
@@ -117,15 +117,51 @@
           }
         }
       ],
+      "chart": {
+        "title": "Points in a Finals game",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Westbrook '12",
+            "value": null
+          },
+          {
+            "label": "Barry '75",
+            "value": 36
+          },
+          {
+            "label": "James '16",
+            "value": 41
+          },
+          {
+            "label": "Williams '79",
+            "value": 36
+          },
+          {
+            "label": "Wade '06",
+            "value": 42
+          },
+          {
+            "label": "Jordan '97",
+            "value": 38
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Russell Westbrook",
           "Oklahoma City Thunder"
         ],
-        "supports": []
+        "supports": [
+          "nba-barry75-finals-g2-points",
+          "nba-cavs16-g5-41",
+          "nba-gus79-finals-g4-points",
+          "nba-wade06-g3",
+          "nba-jordan97-flu-game"
+        ]
       }
     },
     {
@@ -253,8 +289,8 @@
     {
       "id": "nba-lakers01-shaq-kobe-fifteen-playoff-wins",
       "sport": "NBA",
-      "prompt": "Shaq and Kobe's 2001 Lakers lost only once in the entire postseason. How many playoff games did they win?",
-      "context": "Los Angeles Lakers · 2001 NBA championship run",
+      "prompt": "The 2001 Lakers lost only once all postseason, to Iverson's Sixers. How many playoff games did they win?",
+      "context": "Benchmark: the 1989 Lakers won their first 11 playoff games",
       "answer": 15,
       "unit": {
         "singular": "win",
@@ -301,13 +337,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "wins-playoffs",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Los Angeles Lakers"
         ],
-        "supports": []
+        "supports": [
+          "nba-lakers89-playoff-start"
+        ]
       }
     }
   ]

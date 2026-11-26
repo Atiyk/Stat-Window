@@ -108,7 +108,8 @@ test.describe('New York', () => {
     await page.locator('.archive-list button').first().click();
     // V3 deliberately gates every fresh five-question run, including practice.
     await expect(page.locator('.question')).toHaveCount(0);
-    await expect(page.getByRole('button', { name: "Start today's five" })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Start practice' })).toBeVisible();
+    await expect(page.locator('.ready-card')).toContainText('Not counted in your stats');
     await startDailyIfNeeded(page);
     await expect(page.locator('.round-meta')).toContainText('Practice');
     await playFive(page);
@@ -116,7 +117,8 @@ test.describe('New York', () => {
     await expect(icsLink(page)).toBeVisible();
     await expect(googleLink(page)).toBeVisible();
 
-    await openAt(page, NBA_MIDDLE, `/?day=${NBA_DAYS[3]}&vs=200`);
+    // A season day before NBA_MIDDLE: beta links retire once the official season has begun.
+    await openAt(page, NBA_MIDDLE, `/?day=${NBA_DAYS.find((d) => d > '2026-11-30')}&vs=200`);
     await playFive(page);
     await expect(page.locator('.results-context')).toContainText('Challenge');
     await expect(icsLink(page)).toBeVisible();

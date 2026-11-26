@@ -9,7 +9,7 @@
     {
       "id": "nba-luka24-73-hawks",
       "sport": "NBA",
-      "prompt": "Against Atlanta in January 2024, how many points did Luka Dončić score in his career-best game?",
+      "prompt": "Kobe Bryant scored 81 against Toronto in 2006. How many points did Luka Dončić score in his January 2024 career-best game against Atlanta?",
       "context": "Luka Dončić · Mavericks at Hawks · January 2024",
       "answer": 73,
       "unit": {
@@ -57,14 +57,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Luka Dončić",
           "Dallas Mavericks"
         ],
-        "supports": []
+        "supports": [
+          "nba-kobe-81"
+        ]
       }
     },
     {
@@ -192,7 +194,7 @@
     {
       "id": "nba-nance84-season-ppg",
       "sport": "NBA",
-      "prompt": "How many points per game did Larry Nance average in 1983–84?",
+      "prompt": "The chart shows four other scorers' averages. How many points per game did Larry Nance average for the 1983–84 Suns?",
       "context": "Phoenix · first Slam Dunk champion · season scoring",
       "answer": 17.7,
       "unit": {
@@ -239,21 +241,52 @@
           }
         }
       ],
+      "chart": {
+        "title": "Points per game, regular season",
+        "unit": "ppg",
+        "points": [
+          {
+            "label": "Nance '84",
+            "value": null
+          },
+          {
+            "label": "Miller '98",
+            "value": 19.5
+          },
+          {
+            "label": "Iverson '01",
+            "value": 31.1
+          },
+          {
+            "label": "Robinson '20",
+            "value": 13.5
+          },
+          {
+            "label": "Rose '11",
+            "value": 25
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "scoring-average",
-        "era": "1980s",
+        "era": "cross-era",
         "subjects": [
           "Larry Nance",
           "Phoenix Suns"
         ],
-        "supports": []
+        "supports": [
+          "nba-miller98-season-ppg",
+          "nba-iverson01-season-ppg",
+          "nba-robinson20-season-ppg",
+          "nba-rose11-season-ppg"
+        ]
       }
     },
     {
       "id": "nba-kobe10-finals-game7-twentyfive-percent",
       "sport": "NBA",
-      "prompt": "Kobe won the gritty 2010 Finals Game 7 over Boston despite a brutal shooting night. What percent did he shoot from the field?",
+      "prompt": "What percent of his shots did Kobe Bryant make in Game 7 of the 2010 Finals, a game in which he scored a game-high 23?",
       "context": "Kobe Bryant · Lakers vs Celtics · 2010 Finals Game 7",
       "answer": 25,
       "unit": {

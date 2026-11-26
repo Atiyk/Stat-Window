@@ -191,7 +191,7 @@
     {
       "id": "nba-wilt72-finals-reb",
       "sport": "NBA",
-      "prompt": "In the game that clinched the 1972 title, Wilt Chamberlain had 24 points and how many rebounds?",
+      "prompt": "The chart shows three other big Finals rebounding games. In the game that clinched the 1972 title, Wilt had 24 points and how many boards?",
       "context": "1972 NBA Finals · Game 5 · vs New York",
       "answer": 29,
       "unit": {
@@ -238,22 +238,48 @@
           }
         }
       ],
+      "chart": {
+        "title": "Rebounds in a Finals game",
+        "unit": "rebounds",
+        "points": [
+          {
+            "label": "Wilt '72",
+            "value": null
+          },
+          {
+            "label": "Unseld '75",
+            "value": 20
+          },
+          {
+            "label": "Shaq '00",
+            "value": 24
+          },
+          {
+            "label": "Jokic '23",
+            "value": 21
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "rebounds-game",
-        "era": "1970s",
+        "era": "cross-era",
         "subjects": [
           "Wilt Chamberlain",
           "Los Angeles Lakers"
         ],
-        "supports": []
+        "supports": [
+          "nba-unseld75-finals-g2-rebounds",
+          "nba-shaq00-finals-g2-24-boards",
+          "nba-jokic23-finals-g3-rebounds"
+        ]
       }
     },
     {
       "id": "nba-curry22-allstar-sixteen-threes",
       "sport": "NBA",
-      "prompt": "In his jaw-dropping 50-point 2022 All-Star Game, how many three-pointers did Stephen Curry make?",
-      "context": "Stephen Curry · 2022 NBA All-Star Game · Cleveland",
+      "prompt": "Stephen Curry set the All-Star Game record for threes in 2022 in Cleveland. How many did he make?",
+      "context": "Benchmark: Curry hit 13 threes in a regular-season game in 2016",
       "answer": 16,
       "unit": {
         "singular": "three-pointer",
@@ -262,7 +288,7 @@
       "min": 0,
       "max": 45,
       "step": 1,
-      "note": "16 threes in one All-Star Game. Curry earned MVP after putting on an unprecedented long-range show.",
+      "note": "16 threes in one All-Star Game, on his way to 50 points and MVP.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2022_NBA_All-Star_Game",
@@ -300,14 +326,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "threes-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Stephen Curry",
           "Golden State Warriors"
         ],
-        "supports": []
+        "supports": [
+          "nba-curry16-13-threes"
+        ]
       }
     }
   ]

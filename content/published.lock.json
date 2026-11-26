@@ -122,7 +122,7 @@
     "nba-raptors19-regular-wins|58|28|80|1",
     "nba-grizzlies21-bench-points-v5|93|40|130|1",
     "nba-stockton-missed|22|0|120|1",
-    "nba-webber02-season-ppg|24.5|13|47|0.1",
+    "nba-webber02-season-ppg|24.5|15|55|0.1",
     "nba-wolves24-denver-game7-comeback|20|2|58|1"
   ],
   "2026-12-03": [
@@ -156,7 +156,7 @@
   "2026-12-07": [
     "nba-pacers98-season-wins|58|28|82|1",
     "nba-finals84-g5-heat|97|82|122|1",
-    "nba-miller12-g5-threes|7|0|8|1",
+    "nba-miller12-g5-threes|7|0|14|1",
     "nba-raptors19-sixers-g7-points|92|65|135|1",
     "nba-brunson24-philly-47|47|15|105|1"
   ],
@@ -164,7 +164,7 @@
     "nba-detroit04-regular-wins|54|30|70|1",
     "nba-wilt62-100-ft-share-v5|28|5|60|1",
     "nba-horry05-g5|21|0|34|1",
-    "nba-jordan93-finals-ppg|41|28|60|0.1",
+    "nba-jordan93-finals-ppg|41|15|60|0.2",
     "nba-harden19-msg-61|61|0|95|1"
   ],
   "2026-12-09": [
@@ -240,7 +240,7 @@
   "2026-12-19": [
     "nba-nuggets23-regular-wins|53|37|78|1",
     "nba-jordan91-straight-makes|13|0|20|1",
-    "nba-giannis21-g6-ft|17|7|19|1",
+    "nba-giannis21-g6-ft-pct-v51b|89|40|100|1",
     "nba-sixers01-opening-streak|10|3|25|1",
     "nba-vince01-sixers-first-half-eight-threes|8|0|24|1"
   ],
@@ -274,7 +274,7 @@
   ],
   "2026-12-24": [
     "nba-sixers01-regular-wins|56|37|80|1",
-    "nba-stockton-malone-games|1412|400|2000|5",
+    "nba-wilt-kobe-record-gap-v51b|19|5|45|1",
     "nba-bulls96-home-streak|44|15|65|1",
     "nba-duncan03-g6-blocks|8|0|14|1",
     "nba-kawhi19-philly-game7-41|41|10|110|1"
@@ -297,12 +297,12 @@
     "nba-sixers73-wins|9|0|40|1",
     "nba-pacers98-road-wins|26|8|40|1",
     "nba-mutombo01-posttrade-rpg|12.4|5|22|0.1",
-    "nba-detroit04-rasheed-finish|16|4|22|1",
+    "nba-detroit04-rasheed-win-pct-v51b|84|40|100|1",
     "nba-lebron12-boston-g6-45|45|10|125|1"
   ],
   "2026-12-28": [
     "nba-cavs16-g5-41|41|25|75|1",
-    "nba-alcindor71-ppg|31.7|24|46|0.1",
+    "nba-alcindor71-ppg|31.7|24|55|0.1",
     "nba-spurs14-g3-fg|75.8|55|100|0.2",
     "nba-sixers83-turnaround-v5|56|20|80|1",
     "nba-luka24-wolves-g2-32|32|5|85|1"
@@ -311,7 +311,7 @@
     "nba-lebron18-g1|51|10|60|1",
     "nba-spurs14-international|10|5|19|1",
     "nba-majerle93-three-pointers|167|60|260|1",
-    "nba-bullets75-g1-halftime-lead|14|4|35|1",
+    "nba-bullets75-g1-halftime-lead|14|4|40|1",
     "nba-tatum22-bucks-g6-46|46|10|120|1"
   ],
   "2026-12-30": [
@@ -360,7 +360,7 @@
     "nba-jordan86-63|63|25|80|1",
     "nba-lakers00-wins|67|28|82|1",
     "nba-hawks86-third-quarter|6|0|26|1",
-    "nba-lakers23-cup-paint|86|55|130|1",
+    "nba-bucks71-bucks21-wins-gap-v51c|20|4|40|1",
     "nba-mitchell20-bubble-fiftyseven|57|10|130|1"
   ],
   "2027-01-06": [
@@ -382,7 +382,7 @@
     "nba-celtics84-wins|62|30|82|1",
     "nba-barkley93-suns-rpg|12.1|5|21|0.1",
     "nba-bulls11-home-wins|36|15|41|1",
-    "nba-lillard14-rockets-series-winner-nine-tenths|0.9|0|5|0.1"
+    "nba-lillard14-rockets-series-winner-nine-tenths|0.9|0|8|0.1"
   ],
   "2027-01-09": [
     "nba-nash05-regular-apg|11.5|6|22|0.1",
@@ -479,7 +479,7 @@
     "nba-curry23-game7-fifty|50|10|80|1",
     "nba-rodman92-rpg|18.7|7|23|0.1",
     "nba-gsw22-g6-run|21|0|28|1",
-    "nba-turkoglu09-regular-apg|4.9|1|14|0.1",
+    "nba-lakers72-sixers73-win-gap-v51d|60|20|78|1",
     "nba-lebron16-finals-game7-block-110s|110|0|300|1"
   ],
   "2027-01-23": [
@@ -491,7 +491,7 @@
   ],
   "2027-01-24": [
     "nba-curry16-season-threes-402|402|200|520|1",
-    "nba-celtics02-4q|41|10|60|1",
+    "nba-celtics02-4q-margin-v51d|25|5|55|1",
     "nba-kobe05-62-three-quarters|62|25|80|1",
     "nba-celtics08-g6-margin|39|22|62|1",
     "nba-kings23-light-beam-sixteen-drought|16|0|35|1"

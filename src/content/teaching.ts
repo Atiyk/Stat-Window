@@ -47,8 +47,6 @@ export type TeachingExample = {
 export type FormatGuide = {
   /** Display name of the format. */
   readonly label: string;
-  /** One line for the guide's list. */
-  readonly summary: string;
   /** The concise instruction shown under every question of this format during play. */
   readonly instruction: string;
   /** The deeper explanation: in-round disclosure and the guide. */
@@ -66,7 +64,6 @@ const VERIFIED = { on: '2026-11-26', by: 'Stat Window teaching inventory, from v
 export const FORMAT_GUIDE = {
   recall: {
     label: 'Straight recall',
-    summary: 'Estimate one NBA number.',
     instruction: 'Estimate the number, then frame it.',
     detail: 'The question asks for one verified figure. Set your window around what you remember: tighter pays more, but it has to catch the answer.',
     example: {
@@ -96,7 +93,6 @@ export const FORMAT_GUIDE = {
   },
   reference: {
     label: 'Reference figure',
-    summary: 'A related figure is given as an anchor.',
     instruction: 'Use the reference figure as an anchor; it isn’t the answer.',
     detail: 'The prompt prints a verified number from another player, team or season. Reason from it (higher or lower, and by how much), then frame the number actually asked for.',
     example: {
@@ -126,7 +122,6 @@ export const FORMAT_GUIDE = {
   },
   'missing-point': {
     label: 'Missing data point',
-    summary: 'A chart of real figures with one bar hidden.',
     instruction: 'Read the chart’s units and known bars, then frame the hidden one.',
     detail: 'Each bar is a verified figure on the same scale; the dashed slot is the one you estimate. Read the title and unit first; your window is drawn on the slot as you move it.',
     example: {
@@ -182,7 +177,6 @@ export const FORMAT_GUIDE = {
   },
   difference: {
     label: 'Difference',
-    summary: 'The gap between two figures.',
     instruction: 'Frame the gap between the two figures, in the direction asked.',
     detail: 'Work out both figures, then subtract in the order the question states. Your window is for the gap itself, not for either total.',
     example: {
@@ -213,7 +207,6 @@ export const FORMAT_GUIDE = {
   },
   ratio: {
     label: 'Percentage or share',
-    summary: 'A share of a stated whole.',
     instruction: 'Check what’s divided by what; frame the percentage, not a point gap.',
     detail: 'Find the numerator (the part) and the denominator (the whole) the prompt names, then estimate part ÷ whole as a percentage. A percentage is not a gap in percentage points.',
     example: {
@@ -244,7 +237,6 @@ export const FORMAT_GUIDE = {
   },
   ranking: {
     label: 'Ranking',
-    summary: 'A place or count under stated rules.',
     instruction: 'Frame the place or count under the stated rules.',
     detail: 'Read who is being ranked, what decides the order and how ties count. Then estimate the place (1 is the top) or the count, and frame it.',
     example: {
@@ -283,7 +275,6 @@ export const FORMAT_GUIDE = {
   },
   trajectory: {
     label: 'Career or era change',
-    summary: 'How a number moved across seasons.',
     instruction: 'Find the two seasons or milestones, then frame the change.',
     detail: 'Identify the starting and ending points the prompt names (two seasons, or a record and the mark that broke it), then estimate how far the number moved between them.',
     example: {

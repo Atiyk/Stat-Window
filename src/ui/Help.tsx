@@ -163,7 +163,7 @@ export function Help({ open, onClose, onPrivacy, view: requested = 'list', clock
                 <li key={f}>
                   <button type="button" className="guide-type" data-guide-open={f} data-format={f} disabled={clockLive} onClick={() => show(f)}>
                     <span className="guide-type__label">{FORMAT_GUIDE[f].label}</span>
-                    <span className="guide-type__summary">{FORMAT_GUIDE[f].summary} {FORMAT_GUIDE[f].instruction}</span>
+                    <span className="guide-type__summary">{FORMAT_GUIDE[f].instruction}</span>
                   </button>
                 </li>
               ))}

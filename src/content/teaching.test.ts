@@ -10,7 +10,6 @@ describe('format help coverage', () => {
     for (const f of FORMATS) {
       const g = FORMAT_GUIDE[f];
       expect(g.label.trim().length, f).toBeGreaterThan(2);
-      expect(g.summary.trim().length, f).toBeGreaterThan(5);
       expect(g.instruction.length, f).toBeLessThanOrEqual(80);
       expect(g.detail.trim().length, f).toBeGreaterThan(30);
       expect(g.example.question.meta?.format, f).toBe(f);

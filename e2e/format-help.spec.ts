@@ -1,6 +1,6 @@
 /**
  * Workstream T: layered onboarding, contextual format guidance and replayable
- * per-format worked examples. Screenshots go to /home/user/work/shots/T/ when
+ * per-format worked examples. Screenshots go to /home/user/work/shots/t/ when
  * SHOTS_DIR is set (or that default exists).
  */
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
@@ -11,10 +11,12 @@ import { FAMILIARITY_KEY } from '../src/lib/format-familiarity';
 import { SAVE_KEY } from '../src/engine/storage';
 import { lowBracket, lockAndSettle, next } from './helpers';
 
-const SHOTS = process.env.SHOTS_DIR ?? '/home/user/work/shots/T';
+const SHOTS = process.env.SHOTS_DIR ?? '/home/user/work/shots/t';
 const shoot = async (page: Page, name: string) => {
   if (!existsSync('/home/user/work')) return;
   mkdirSync(SHOTS, { recursive: true });
+  // Let open/close transitions finish so the picture shows the settled screen.
+  await page.evaluate(() => Promise.all(document.getAnimations().map((a) => a.finished.catch(() => undefined))));
   await page.screenshot({ path: `${SHOTS}/${name}.png`, fullPage: false });
 };
 

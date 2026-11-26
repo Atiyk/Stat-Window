@@ -1,9 +1,10 @@
 /* Workstream T: in-round format cue, the How to play guide and its worked examples. */
 
 /* ── In-round format cue: one quiet line under the context, never an overlay ── */
-.format-cue { margin: 4px 0 0; }
+.format-cue { margin: 0; }
+.context > .format-cue__toggle { margin-left: -2px; vertical-align: middle; }
 .format-cue__line {
-  margin: 0;
+  margin: 4px 0 0;
   font-size: 0.875rem;
   line-height: 1.3;
   color: var(--ink-soft);

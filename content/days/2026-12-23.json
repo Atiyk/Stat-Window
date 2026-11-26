@@ -284,7 +284,7 @@
     {
       "id": "nba-trae21-bucks-g1-48",
       "sport": "NBA",
-      "prompt": "Derrick Rose scored 44 against Atlanta in 2011. How many points did Trae Young score for the Hawks in the 2021 East finals opener?",
+      "prompt": "Elgin Baylor's Finals record is 61 points. How many did Trae Young score for the Hawks in the 2021 East finals opener?",
       "context": "Trae Young · Hawks at Bucks · June 2021",
       "answer": 48,
       "unit": {
@@ -340,7 +340,7 @@
           "Atlanta Hawks"
         ],
         "supports": [
-          "nba-rose11-hawks-g3-points"
+          "nba-baylor62-finals-61"
         ]
       }
     }

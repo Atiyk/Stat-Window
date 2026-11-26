@@ -281,7 +281,7 @@
     {
       "id": "nba-ant24-nuggets-g1-43",
       "sport": "NBA",
-      "prompt": "Jalen Brunson's Knicks playoff record in 2024 was 47 points. How many did Anthony Edwards score in his franchise-record opener at Denver?",
+      "prompt": "Michael Jordan scored 55 in Game 4 of the 1993 Finals. How many did Anthony Edwards score in his franchise-record 2024 opener at Denver?",
       "context": "Anthony Edwards · Wolves at Nuggets · May 2024",
       "answer": 43,
       "unit": {
@@ -331,13 +331,13 @@
       "meta": {
         "format": "reference",
         "family": "points-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Anthony Edwards",
           "Minnesota Timberwolves"
         ],
         "supports": [
-          "nba-brunson24-philly-47"
+          "nba-jordan93-g4-55"
         ]
       }
     }

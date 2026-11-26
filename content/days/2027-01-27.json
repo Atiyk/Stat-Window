@@ -247,24 +247,24 @@
         "unit": "rpg",
         "points": [
           {
-            "label": "Noah '11",
-            "value": 10.4
-          },
-          {
-            "label": "Kemp '94",
-            "value": 10.8
-          },
-          {
             "label": "Chandler '08",
             "value": null
           },
           {
-            "label": "Mutombo '01",
-            "value": 12.4
-          },
-          {
             "label": "Giannis '19",
             "value": 12.5
+          },
+          {
+            "label": "Noah '11",
+            "value": 10.4
+          },
+          {
+            "label": "Howard '09",
+            "value": 13.8
+          },
+          {
+            "label": "Kemp '94",
+            "value": 10.8
           }
         ]
       },
@@ -277,10 +277,10 @@
           "New Orleans Pelicans"
         ],
         "supports": [
+          "nba-giannis19-regular-rpg",
           "nba-noah11-rebounds-average",
-          "nba-kemp94-rpg",
-          "nba-mutombo01-posttrade-rpg",
-          "nba-giannis19-regular-rpg"
+          "nba-howard09-regular-rpg",
+          "nba-kemp94-rpg"
         ]
       }
     },

@@ -257,7 +257,7 @@
     {
       "id": "nba-kawhi19-philly-game7-41",
       "sport": "NBA",
-      "prompt": "LeBron James scored 37 in Game 7 of the 2013 Finals. How many did Kawhi Leonard score in his 2019 Game 7 against Philadelphia?",
+      "prompt": "Draymond Green scored 32 in Game 7 of the 2016 Finals. How many did Kawhi Leonard score in his 2019 Game 7 against Philadelphia?",
       "context": "Kawhi Leonard · Raptors vs 76ers · 2019 playoffs",
       "answer": 41,
       "unit": {
@@ -313,7 +313,7 @@
           "Toronto Raptors"
         ],
         "supports": [
-          "nba-lebron13-g7"
+          "nba-green16-g7"
         ]
       }
     }

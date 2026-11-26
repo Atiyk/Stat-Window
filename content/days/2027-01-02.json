@@ -69,7 +69,7 @@
     {
       "id": "nba-curry18-g2-threes",
       "sport": "NBA",
-      "prompt": "Ray Allen made 8 threes in Game 2 of the 2010 Finals. How many did Stephen Curry make in Game 2 of the 2018 Finals?",
+      "prompt": "Michael Cooper hit 6 threes in Game 2 of the 1987 Finals. How many did Stephen Curry make in Game 2 of the 2018 Finals?",
       "context": "2018 NBA Finals · Game 2 · vs Cleveland",
       "answer": 9,
       "unit": {
@@ -125,7 +125,7 @@
           "Golden State Warriors"
         ],
         "supports": [
-          "nba-allen10-g2-threes"
+          "nba-cooper87-threes"
         ]
       }
     },
@@ -184,24 +184,24 @@
         "unit": "rebounds",
         "points": [
           {
-            "label": "Duncan '14",
-            "value": 9.7
-          },
-          {
-            "label": "Mutombo '01",
-            "value": 12.4
-          },
-          {
-            "label": "Howard '09",
-            "value": 13.8
-          },
-          {
             "label": "Rodman '96",
             "value": 14.9
           },
           {
             "label": "Kemp '94",
             "value": null
+          },
+          {
+            "label": "Duncan '14",
+            "value": 9.7
+          },
+          {
+            "label": "Giannis '19",
+            "value": 12.5
+          },
+          {
+            "label": "Howard '09",
+            "value": 13.8
           }
         ]
       },
@@ -214,10 +214,10 @@
           "Oklahoma City Thunder"
         ],
         "supports": [
+          "nba-rodman96-rpg",
           "nba-duncan14-season-rpg",
-          "nba-mutombo01-posttrade-rpg",
-          "nba-howard09-regular-rpg",
-          "nba-rodman96-rpg"
+          "nba-giannis19-regular-rpg",
+          "nba-howard09-regular-rpg"
         ]
       }
     },

@@ -81,7 +81,7 @@
       "min": 5,
       "max": 20,
       "step": 1,
-      "note": "Nine.",
+      "note": "Nine, a single-game NBA Finals record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
@@ -119,28 +119,28 @@
         }
       ],
       "chart": {
-        "title": "Blocks in a game",
+        "title": "Blocks in a game (Finals and season)",
         "unit": "blocks",
         "points": [
           {
-            "label": "Giannis '21",
-            "value": 5
-          },
-          {
-            "label": "Duncan '03",
-            "value": 8
-          },
-          {
-            "label": "Wemby '24",
-            "value": 10
+            "label": "Howard '09",
+            "value": null
           },
           {
             "label": "Hakeem '90",
             "value": 11
           },
           {
-            "label": "Howard '09",
-            "value": null
+            "label": "Giannis '21",
+            "value": 5
+          },
+          {
+            "label": "Wemby '24",
+            "value": 10
+          },
+          {
+            "label": "Duncan '03",
+            "value": 8
           }
         ]
       },
@@ -153,10 +153,10 @@
           "Orlando Magic"
         ],
         "supports": [
+          "nba-hakeem90-quadruple-blocks",
           "nba-giannis21-finals-g6-blocks",
-          "nba-duncan03-g6-blocks",
           "nba-wemby24-10-blocks-blazers",
-          "nba-hakeem90-quadruple-blocks"
+          "nba-duncan03-g6-blocks"
         ]
       }
     },
@@ -225,7 +225,7 @@
       "id": "nba-stoudemire05-playoff-ppg",
       "sport": "NBA",
       "prompt": "Kobe Bryant averaged 32.4 points in the 2009 Finals. What did Amar'e Stoudemire average in the 2005 playoffs for Phoenix?",
-      "context": "Phoenix Suns · postseason scoring average",
+      "context": "Phoenix Suns · full 2005 playoffs, 15 games",
       "answer": 29.9,
       "unit": {
         "singular": "point per game",

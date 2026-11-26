@@ -69,7 +69,7 @@
     {
       "id": "nba-adebayo20-regular-rpg",
       "sport": "NBA",
-      "prompt": "The chart shows four stars' rebounding averages. What did Bam Adebayo average for the 2019–20 Heat?",
+      "prompt": "The chart shows three other rebounding averages. What did Bam Adebayo average for the 2019–20 Heat?",
       "context": "Miami · 2019–20 regular season",
       "answer": 10.2,
       "unit": {
@@ -121,24 +121,20 @@
         "unit": "rpg",
         "points": [
           {
-            "label": "Barkley '93",
-            "value": 12.1
-          },
-          {
-            "label": "Rodman '96",
-            "value": 14.9
+            "label": "Noah '11",
+            "value": 10.4
           },
           {
             "label": "Howard '09",
             "value": 13.8
           },
           {
-            "label": "Duncan '14",
-            "value": 9.7
-          },
-          {
             "label": "Adebayo '20",
             "value": null
+          },
+          {
+            "label": "Duncan '14",
+            "value": 9.7
           }
         ]
       },
@@ -151,8 +147,7 @@
           "Miami Heat"
         ],
         "supports": [
-          "nba-barkley93-suns-rpg",
-          "nba-rodman96-rpg",
+          "nba-noah11-rebounds-average",
           "nba-howard09-regular-rpg",
           "nba-duncan14-season-rpg"
         ]

@@ -132,7 +132,7 @@
     {
       "id": "nba-duncan14-season-rpg",
       "sport": "NBA",
-      "prompt": "Joakim Noah averaged 10.4 rebounds in 2010–11. What was Tim Duncan's rebound average in the 2013–14 title season?",
+      "prompt": "Giannis Antetokounmpo averaged 12.5 rebounds in 2018–19. What was Tim Duncan's rebound average in the 2013–14 title season?",
       "context": "San Antonio · regular season · veteran center",
       "answer": 9.7,
       "unit": {
@@ -188,7 +188,7 @@
           "San Antonio Spurs"
         ],
         "supports": [
-          "nba-noah11-rebounds-average"
+          "nba-giannis19-regular-rpg"
         ]
       }
     },

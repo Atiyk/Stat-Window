@@ -61,20 +61,20 @@
         "unit": "wins",
         "points": [
           {
-            "label": "1972–73",
-            "value": 68
-          },
-          {
             "label": "1985–86",
             "value": null
           },
           {
-            "label": "2007–08",
-            "value": 66
+            "label": "1972–73",
+            "value": 68
           },
           {
             "label": "2023–24",
             "value": 64
+          },
+          {
+            "label": "2007–08",
+            "value": 66
           }
         ]
       },
@@ -87,8 +87,8 @@
         ],
         "supports": [
           "nba-celtics73-wins",
-          "nba-celtics08-wins",
-          "nba-celtics24-wins"
+          "nba-celtics24-wins",
+          "nba-celtics08-wins"
         ]
       }
     },

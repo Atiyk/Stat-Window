@@ -60,14 +60,18 @@ describe('missing-point charts', () => {
   const b = wins('nba-c86', 67, '1985-86');
   const c = wins('nba-c08', 66, '2007-08');
   const spec = (points: { label: string; fact: string }[]): FormatSpec => ({ kind: 'missing-point', chart: { title: 'Regular-season wins', unit: 'wins', points } });
-  const q = withFormat(c, spec([{ label: '1972–73', fact: a.id }, { label: '1985–86', fact: b.id }, { label: '2007–08', fact: c.id }]));
+  const q = withFormat(c, spec([{ label: '1985–86', fact: b.id }, { label: '2007–08', fact: c.id }, { label: '1972–73', fact: a.id }]));
 
+  it('rejects bars in value order, whose neighbours would bracket the hidden answer', () => {
+    const sorted = withFormat(c, spec([{ label: '1972–73', fact: a.id }, { label: '1985–86', fact: b.id }, { label: '2007–08', fact: c.id }]));
+    expect(formatIssues(sorted, index(a, b, sorted)).join()).toMatch(/value order/);
+  });
   it('resolves verified values and hides exactly the answer', () => {
     expect(formatIssues(q, index(a, b, q))).toEqual([]);
     expect(resolveChart(q, index(a, b, q))).toEqual({
       title: 'Regular-season wins',
       unit: 'wins',
-      points: [{ label: '1972–73', value: 68 }, { label: '1985–86', value: 67 }, { label: '2007–08', value: null }],
+      points: [{ label: '1985–86', value: 67 }, { label: '2007–08', value: null }, { label: '1972–73', value: 68 }],
     });
   });
   it('requires the question itself exactly once, 3–7 points and distinct labels', () => {

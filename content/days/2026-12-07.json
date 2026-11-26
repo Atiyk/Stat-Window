@@ -129,7 +129,7 @@
     {
       "id": "nba-miller12-g5-threes",
       "sport": "NBA",
-      "prompt": "The chart shows three other one-game three-point nights. Mike Miller shot eight threes in the 2012 title clincher; how many did he make?",
+      "prompt": "The chart shows three other one-game three-point nights. How many threes did Mike Miller make in the 2012 title clincher?",
       "context": "2012 NBA Finals · Game 5 · vs Oklahoma City",
       "answer": 7,
       "unit": {
@@ -278,7 +278,7 @@
     {
       "id": "nba-brunson24-philly-47",
       "sport": "NBA",
-      "prompt": "Derrick Rose scored 44 against Atlanta in the 2011 playoffs. How many did Jalen Brunson score for a Knicks playoff record in 2024?",
+      "prompt": "Jerry West scored 53 in Game 1 of the 1969 Finals. How many did Jalen Brunson score for a Knicks playoff record in 2024?",
       "context": "Jalen Brunson · Knicks at 76ers · April 2024",
       "answer": 47,
       "unit": {
@@ -334,7 +334,7 @@
           "New York Knicks"
         ],
         "supports": [
-          "nba-rose11-hawks-g3-points"
+          "nba-west69-g1"
         ]
       }
     }

@@ -243,20 +243,20 @@
         "unit": "rebounds",
         "points": [
           {
-            "label": "Unseld '75",
-            "value": 20
+            "label": "Wilt '72",
+            "value": null
           },
           {
-            "label": "Jokic '23",
-            "value": 21
+            "label": "Unseld '75",
+            "value": 20
           },
           {
             "label": "Shaq '00",
             "value": 24
           },
           {
-            "label": "Wilt '72",
-            "value": null
+            "label": "Jokic '23",
+            "value": 21
           }
         ]
       },
@@ -270,8 +270,8 @@
         ],
         "supports": [
           "nba-unseld75-finals-g2-rebounds",
-          "nba-jokic23-finals-g3-rebounds",
-          "nba-shaq00-finals-g2-24-boards"
+          "nba-shaq00-finals-g2-24-boards",
+          "nba-jokic23-finals-g3-rebounds"
         ]
       }
     },

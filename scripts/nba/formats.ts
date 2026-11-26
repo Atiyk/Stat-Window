@@ -116,6 +116,15 @@ export function formatIssues(f: FormatFact, byId: ReadonlyMap<string, FormatFact
       if (g && Math.abs(Math.round(g.answer / f.question.step) * f.question.step - g.answer) > 1e-9)
         out.push(`chart observation ${g.id} (${g.answer}) cannot be shown at this question's step ${f.question.step}`);
     }
+    // The chart draws bars in array order. If every bar, the hidden one included, runs in
+    // value order, its neighbours bracket the answer: order bars by season, game or name.
+    const values = points.map((p) => (p.fact === f.id ? f.answer : byId.get(p.fact)?.answer));
+    if (values.length >= 3 && values.every((v) => v !== undefined)) {
+      const vs = values as number[];
+      const up = vs.every((v, i) => i === 0 || v >= vs[i - 1]!);
+      const down = vs.every((v, i) => i === 0 || v <= vs[i - 1]!);
+      if (up || down) out.push('chart bars run in value order around the hidden bar, so its neighbours give the answer away; reorder them (by season or name)');
+    }
   } else if (spec.kind === 'missing-point') out.push('a missing-point question needs a chart');
 
   if (spec.derive) {

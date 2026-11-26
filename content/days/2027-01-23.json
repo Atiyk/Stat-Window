@@ -308,28 +308,28 @@
         "unit": "points",
         "points": [
           {
-            "label": "Mavs '11",
-            "value": 15
+            "label": "Jazz '96",
+            "value": 36
           },
           {
             "label": "Lakers '00",
             "value": 16
           },
           {
-            "label": "Wolves '24",
-            "value": 20
-          },
-          {
             "label": "Celtics '08",
             "value": 24
+          },
+          {
+            "label": "Mavs '11",
+            "value": 15
           },
           {
             "label": "Clippers '19",
             "value": null
           },
           {
-            "label": "Jazz '96",
-            "value": 36
+            "label": "Wolves '24",
+            "value": 20
           }
         ]
       },
@@ -341,11 +341,11 @@
           "Los Angeles Clippers"
         ],
         "supports": [
-          "nba-mavs11-heat-finals-g2-comeback-fifteen",
+          "nba-jazz96-comeback",
           "nba-lakers00-portland-g7-comeback",
-          "nba-wolves24-denver-game7-comeback",
           "nba-celtics08-finals-g4-comeback-24",
-          "nba-jazz96-comeback"
+          "nba-mavs11-heat-finals-g2-comeback-fifteen",
+          "nba-wolves24-denver-game7-comeback"
         ]
       }
     }

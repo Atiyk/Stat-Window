@@ -193,7 +193,7 @@
     {
       "id": "nba-bullets75-g1-halftime-lead",
       "sport": "NBA",
-      "prompt": "The chart shows deficits famous teams overcame. How many points ahead were the Bullets at halftime of Game 1 of the 1975 Finals?",
+      "prompt": "The chart shows deficits teams came back from. How many points did Golden State trail by at halftime of Game 1 of the 1975 Finals?",
       "context": "Washington Bullets vs Golden State · Game 1",
       "answer": 14,
       "unit": {
@@ -245,8 +245,16 @@
         "unit": "points",
         "points": [
           {
+            "label": "Warriors '75",
+            "value": null
+          },
+          {
             "label": "Jazz '96",
             "value": 36
+          },
+          {
+            "label": "Lakers '00",
+            "value": 16
           },
           {
             "label": "Wolves '24",
@@ -255,14 +263,6 @@
           {
             "label": "Spurs '99",
             "value": 17
-          },
-          {
-            "label": "Lakers '00",
-            "value": 16
-          },
-          {
-            "label": "Bullets '75",
-            "value": null
           }
         ]
       },
@@ -275,16 +275,16 @@
         ],
         "supports": [
           "nba-jazz96-comeback",
+          "nba-lakers00-portland-g7-comeback",
           "nba-wolves24-denver-game7-comeback",
-          "nba-spurs99-memorial-day",
-          "nba-lakers00-portland-g7-comeback"
+          "nba-spurs99-memorial-day"
         ]
       }
     },
     {
       "id": "nba-tatum22-bucks-g6-46",
       "sport": "NBA",
-      "prompt": "Kawhi scored 41 in the 2019 Game 7 vs Philadelphia. Facing elimination in 2022 Game 6, how many did Jayson Tatum score vs Milwaukee?",
+      "prompt": "Jimmy Butler scored 56 against Milwaukee in the 2023 playoffs. Facing elimination at Milwaukee in 2022, how many did Jayson Tatum score?",
       "context": "Jayson Tatum · Celtics at Bucks · 2022 playoffs",
       "answer": 46,
       "unit": {
@@ -334,13 +334,13 @@
       "meta": {
         "format": "reference",
         "family": "points-game",
-        "era": "cross-era",
+        "era": "2020s",
         "subjects": [
           "Jayson Tatum",
           "Boston Celtics"
         ],
         "supports": [
-          "nba-kawhi19-philly-game7-41"
+          "nba-butler23-56-bucks-upset"
         ]
       }
     }

@@ -130,12 +130,12 @@
      "unit": "rebounds",
      "points": [
       {
-       "label": "Rodman '96",
-       "fact": "nba-rodman96-rpg"
-      },
-      {
        "label": "Howard '09",
        "fact": "nba-howard09-regular-rpg"
+      },
+      {
+       "label": "Rodman '96",
+       "fact": "nba-rodman96-rpg"
       },
       {
        "label": "Noah '11",
@@ -1118,9 +1118,9 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows three other Finals scoring averages. What did Michael Jordan average in the 1993 Finals against Phoenix, a Finals record?",
+   "prompt": "The chart shows three other Finals scoring averages. What did Michael Jordan average in the 1993 Finals against Phoenix?",
    "context": "1993 NBA Finals · six games vs Phoenix",
-   "reveal": "41.0 points per game.",
+   "reveal": "41.0 points per game, a Finals record.",
    "min": 15,
    "max": 60,
    "step": 0.2,
@@ -1932,20 +1932,20 @@
      "unit": "wins",
      "points": [
       {
-       "label": "1972–73",
-       "fact": "nba-celtics73-wins"
-      },
-      {
        "label": "1985–86",
        "fact": "nba-celtics86-wins"
       },
       {
-       "label": "2007–08",
-       "fact": "nba-celtics08-wins"
+       "label": "1972–73",
+       "fact": "nba-celtics73-wins"
       },
       {
        "label": "2023–24",
        "fact": "nba-celtics24-wins"
+      },
+      {
+       "label": "2007–08",
+       "fact": "nba-celtics08-wins"
       }
      ]
     }
@@ -2709,20 +2709,20 @@
      "unit": "rebounds",
      "points": [
       {
-       "label": "Unseld '75",
-       "fact": "nba-unseld75-finals-g2-rebounds"
+       "label": "Wilt '72",
+       "fact": "nba-wilt72-finals-reb"
       },
       {
-       "label": "Jokic '23",
-       "fact": "nba-jokic23-finals-g3-rebounds"
+       "label": "Unseld '75",
+       "fact": "nba-unseld75-finals-g2-rebounds"
       },
       {
        "label": "Shaq '00",
        "fact": "nba-shaq00-finals-g2-24-boards"
       },
       {
-       "label": "Wilt '72",
-       "fact": "nba-wilt72-finals-reb"
+       "label": "Jokic '23",
+       "fact": "nba-jokic23-finals-g3-rebounds"
       }
      ]
     }
@@ -3451,24 +3451,24 @@
      "unit": "threes",
      "points": [
       {
-       "label": "Cooper '87",
-       "fact": "nba-cooper87-threes"
-      },
-      {
        "label": "Pippen '97",
        "fact": "nba-pippen97-g3-threes"
       },
       {
-       "label": "Allen '10",
-       "fact": "nba-allen10-g2-threes"
+       "label": "Thompson '16",
+       "fact": "nba-klay16-wcf-threes"
+      },
+      {
+       "label": "Cooper '87",
+       "fact": "nba-cooper87-threes"
       },
       {
        "label": "Curry '18",
        "fact": "nba-curry18-g2-threes"
       },
       {
-       "label": "Thompson '16",
-       "fact": "nba-klay16-wcf-threes"
+       "label": "Allen '10",
+       "fact": "nba-allen10-g2-threes"
       }
      ]
     }
@@ -4047,16 +4047,16 @@
      "unit": "wins",
      "points": [
       {
+       "label": "DET 1988–89",
+       "fact": "nba-pistons89-wins"
+      },
+      {
        "label": "BOS 1985–86",
        "fact": "nba-celtics86-wins"
       },
       {
        "label": "LAL 1986–87",
        "fact": "nba-lakers87-wins"
-      },
-      {
-       "label": "DET 1988–89",
-       "fact": "nba-pistons89-wins"
       }
      ]
     }
@@ -4620,7 +4620,7 @@
   "question": {
    "prompt": "The chart shows four famous winning streaks. How long was the 2013–14 Spurs' longest winning streak?",
    "context": "San Antonio Spurs · 2013–14 regular season",
-   "reveal": "19, including a 16–0 March.",
+   "reveal": "19 straight, from late February to early April.",
    "min": 0,
    "max": 30,
    "step": 1,
@@ -5330,28 +5330,28 @@
      "unit": "points",
      "points": [
       {
+       "label": "Westbrook '12",
+       "fact": "nba-westbrook12-g4"
+      },
+      {
        "label": "Barry '75",
        "fact": "nba-barry75-finals-g2-points"
-      },
-      {
-       "label": "Williams '79",
-       "fact": "nba-gus79-finals-g4-points"
-      },
-      {
-       "label": "Jordan '97",
-       "fact": "nba-jordan97-flu-game"
       },
       {
        "label": "James '16",
        "fact": "nba-cavs16-g5-41"
       },
       {
+       "label": "Williams '79",
+       "fact": "nba-gus79-finals-g4-points"
+      },
+      {
        "label": "Wade '06",
        "fact": "nba-wade06-g3"
       },
       {
-       "label": "Westbrook '12",
-       "fact": "nba-westbrook12-g4"
+       "label": "Jordan '97",
+       "fact": "nba-jordan97-flu-game"
       }
      ]
     }
@@ -5379,7 +5379,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows three other one-game three-point nights. Mike Miller shot eight threes in the 2012 title clincher; how many did he make?",
+   "prompt": "The chart shows three other one-game three-point nights. How many threes did Mike Miller make in the 2012 title clincher?",
    "context": "2012 NBA Finals · Game 5 · vs Oklahoma City",
    "reveal": "Seven of eight, for 23 points.",
    "min": 0,
@@ -8098,11 +8098,11 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows four scoring averages. What was Lew Alcindor's average when he led the NBA in scoring in 1970–71?",
+   "prompt": "Wilt Chamberlain averaged a record 50.4 points in 1961–62. What was Lew Alcindor's average when he led the NBA in scoring in 1970–71?",
    "context": "Milwaukee Bucks · 1970–71",
    "reveal": "31.7 points per game.",
    "min": 24,
-   "max": 46,
+   "max": 55,
    "step": 0.1,
    "difficulty": "medium",
    "difficultyReason": "Four star scoring averages frame the scale; players place a league-leading season among them.",
@@ -8139,33 +8139,10 @@
     }
    ],
    "format": {
-    "kind": "missing-point",
-    "chart": {
-     "title": "Points per game, season or Finals",
-     "unit": "ppg",
-     "points": [
-      {
-       "label": "Webber '02",
-       "fact": "nba-webber02-season-ppg"
-      },
-      {
-       "label": "Kobe '09 Fin",
-       "fact": "nba-kobe09-finals-ppg"
-      },
-      {
-       "label": "Shaq '00 Fin",
-       "fact": "nba-shaq00-finals-ppg"
-      },
-      {
-       "label": "Jordan '93 Fin",
-       "fact": "nba-jordan93-finals-ppg"
-      },
-      {
-       "label": "Alcindor '71",
-       "fact": "nba-alcindor71-ppg"
-      }
-     ]
-    }
+    "kind": "reference",
+    "references": [
+     "nba-wilt62-ppg"
+    ]
    }
   }
  },
@@ -9606,7 +9583,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The 1966–67 Sixers averaged 125 points. Before the shot clock, Fort Wayne beat Minneapolis in 1950 with how many?",
+   "prompt": "Atlanta once scored 6 in a playoff quarter. Before the shot clock, how many points did Fort Wayne score to beat Minneapolis in 1950?",
    "context": "Fort Wayne Pistons vs Minneapolis Lakers · November 22, 1950",
    "reveal": "19, winning 19–18. The fourth quarter went 3–1.",
    "min": 0,
@@ -9649,7 +9626,7 @@
    "format": {
     "kind": "reference",
     "references": [
-     "nba-sixers67-ppg"
+     "nba-hawks86-third-quarter"
     ]
    }
   }
@@ -10197,7 +10174,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "John Starks missed 11 threes in Game 7 of the 1994 Finals. How many did Stephen Curry miss in Game 2 of 2015, a Finals record?",
+   "prompt": "John Starks missed 11 threes in Game 7 of the 1994 Finals. How many threes did Stephen Curry miss in Game 2 of the 2015 Finals?",
    "context": "2015 NBA Finals · Game 2 · vs Cleveland",
    "reveal": "13 misses, a Finals record.",
    "min": 3,
@@ -10461,7 +10438,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Ray Allen made 8 threes in Game 2 of the 2010 Finals. How many did Stephen Curry make in Game 2 of the 2018 Finals?",
+   "prompt": "Michael Cooper hit 6 threes in Game 2 of the 1987 Finals. How many did Stephen Curry make in Game 2 of the 2018 Finals?",
    "context": "2018 NBA Finals · Game 2 · vs Cleveland",
    "reveal": "Nine, a Finals record.",
    "min": 0,
@@ -10504,7 +10481,7 @@
    "format": {
     "kind": "reference",
     "references": [
-     "nba-allen10-g2-threes"
+     "nba-cooper87-threes"
     ]
    }
   }
@@ -12104,7 +12081,7 @@
   "question": {
    "prompt": "The chart shows four other big block games. How many blocks did Dwight Howard have in Game 4 of the 2009 Finals?",
    "context": "2009 NBA Finals · Game 4 · vs Lakers",
-   "reveal": "Nine.",
+   "reveal": "Nine, a single-game NBA Finals record.",
    "min": 5,
    "max": 20,
    "step": 1,
@@ -12145,28 +12122,28 @@
    "format": {
     "kind": "missing-point",
     "chart": {
-     "title": "Blocks in a game",
+     "title": "Blocks in a game (Finals and season)",
      "unit": "blocks",
      "points": [
       {
-       "label": "Giannis '21",
-       "fact": "nba-giannis21-finals-g6-blocks"
-      },
-      {
-       "label": "Duncan '03",
-       "fact": "nba-duncan03-g6-blocks"
-      },
-      {
-       "label": "Wemby '24",
-       "fact": "nba-wemby24-10-blocks-blazers"
+       "label": "Howard '09",
+       "fact": "nba-howard09-g4-blocks"
       },
       {
        "label": "Hakeem '90",
        "fact": "nba-hakeem90-quadruple-blocks"
       },
       {
-       "label": "Howard '09",
-       "fact": "nba-howard09-g4-blocks"
+       "label": "Giannis '21",
+       "fact": "nba-giannis21-finals-g6-blocks"
+      },
+      {
+       "label": "Wemby '24",
+       "fact": "nba-wemby24-10-blocks-blazers"
+      },
+      {
+       "label": "Duncan '03",
+       "fact": "nba-duncan03-g6-blocks"
       }
      ]
     }
@@ -12826,8 +12803,8 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Orlando made 23 threes in a 2009 game. Boston hit a playoff-record nine in one quarter against Philadelphia in 2002. How many in the game?",
-   "context": "2002 East first round · Celtics vs 76ers",
+   "prompt": "Orlando hit a record 23 threes in a 2009 game. How many threes did Boston hit in its 2002 playoff game against Philadelphia?",
+   "context": "2002 East first round · nine came in the fourth quarter",
    "reveal": "19, nine of them in the fourth quarter.",
    "min": 10,
    "max": 36,
@@ -15960,7 +15937,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows three other supporting-cast Finals scoring games. How many points did Aaron Gordon score in Game 4 of the 2023 Finals?",
+   "prompt": "The chart shows two other supporting-cast Finals scoring games. How many points did Aaron Gordon score in Game 4 of the 2023 Finals?",
    "context": "Denver Nuggets at Miami Heat · June 9, 2023",
    "reveal": "27 points, his highest-scoring game of that Finals.",
    "min": 8,
@@ -16009,10 +15986,6 @@
       {
        "label": "Powe '08",
        "fact": "nba-powe08-g2"
-      },
-      {
-       "label": "Sprewell '99",
-       "fact": "nba-sprewell99-g5"
       },
       {
        "label": "Middleton '21",
@@ -16463,7 +16436,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows deficits famous teams overcame. How many points ahead were the Bullets at halftime of Game 1 of the 1975 Finals?",
+   "prompt": "The chart shows deficits teams came back from. How many points did Golden State trail by at halftime of Game 1 of the 1975 Finals?",
    "context": "Washington Bullets vs Golden State · Game 1",
    "reveal": "14 points, before Golden State's second-half comeback.",
    "min": 4,
@@ -16510,8 +16483,16 @@
      "unit": "points",
      "points": [
       {
+       "label": "Warriors '75",
+       "fact": "nba-bullets75-g1-halftime-lead"
+      },
+      {
        "label": "Jazz '96",
        "fact": "nba-jazz96-comeback"
+      },
+      {
+       "label": "Lakers '00",
+       "fact": "nba-lakers00-portland-g7-comeback"
       },
       {
        "label": "Wolves '24",
@@ -16520,14 +16501,6 @@
       {
        "label": "Spurs '99",
        "fact": "nba-spurs99-memorial-day"
-      },
-      {
-       "label": "Lakers '00",
-       "fact": "nba-lakers00-portland-g7-comeback"
-      },
-      {
-       "label": "Bullets '75",
-       "fact": "nba-bullets75-g1-halftime-lead"
       }
      ]
     }
@@ -17491,7 +17464,7 @@
   },
   "question": {
    "prompt": "Kobe Bryant averaged 32.4 points in the 2009 Finals. What did Amar'e Stoudemire average in the 2005 playoffs for Phoenix?",
-   "context": "Phoenix Suns · postseason scoring average",
+   "context": "Phoenix Suns · full 2005 playoffs, 15 games",
    "reveal": "29.9 points per game across Phoenix's playoff run.",
    "min": 19,
    "max": 47,
@@ -18122,24 +18095,24 @@
      "unit": "apg",
      "points": [
       {
-       "label": "Bibby '02",
-       "fact": "nba-bibby02-regular-apg"
-      },
-      {
-       "label": "Butler '20",
-       "fact": "nba-butler20-regular-apg"
+       "label": "Lowry '19",
+       "fact": "nba-lowry19-regular-apg"
       },
       {
        "label": "Teague '15",
        "fact": "nba-teague15-assists-average"
       },
       {
+       "label": "Bibby '02",
+       "fact": "nba-bibby02-regular-apg"
+      },
+      {
        "label": "James '09",
        "fact": "nba-james09-season-apg"
       },
       {
-       "label": "Lowry '19",
-       "fact": "nba-lowry19-regular-apg"
+       "label": "Butler '20",
+       "fact": "nba-butler20-regular-apg"
       }
      ]
     }
@@ -19429,8 +19402,8 @@
    "prompt": "Wilt Chamberlain's record 1961–62 average was 50.4 points per game. How many did Chris Webber average for the 2001–02 Kings?",
    "context": "Sacramento · 2001–02 regular season",
    "reveal": "24.5 points per game despite missed time.",
-   "min": 13,
-   "max": 47,
+   "min": 15,
+   "max": 55,
    "step": 0.1,
    "difficulty": "hard",
    "difficultyReason": "Wilt's record average marks the ceiling; players decide where a 2002 star forward sits below it.",
@@ -19627,7 +19600,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows four stars' rebounding averages. What did Bam Adebayo average for the 2019–20 Heat?",
+   "prompt": "The chart shows three other rebounding averages. What did Bam Adebayo average for the 2019–20 Heat?",
    "context": "Miami · 2019–20 regular season",
    "reveal": "10.2 rebounds a game while anchoring the paint.",
    "min": 5,
@@ -19674,24 +19647,20 @@
      "unit": "rpg",
      "points": [
       {
-       "label": "Barkley '93",
-       "fact": "nba-barkley93-suns-rpg"
-      },
-      {
-       "label": "Rodman '96",
-       "fact": "nba-rodman96-rpg"
+       "label": "Noah '11",
+       "fact": "nba-noah11-rebounds-average"
       },
       {
        "label": "Howard '09",
        "fact": "nba-howard09-regular-rpg"
       },
       {
-       "label": "Duncan '14",
-       "fact": "nba-duncan14-season-rpg"
-      },
-      {
        "label": "Adebayo '20",
        "fact": "nba-adebayo20-regular-rpg"
+      },
+      {
+       "label": "Duncan '14",
+       "fact": "nba-duncan14-season-rpg"
       }
      ]
     }
@@ -19851,7 +19820,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The 2018–19 Bucks won 60 games. How many regular-season games did the 2013–14 champion Spurs win?",
+   "prompt": "The 1985–86 Celtics won 67 games. How many regular-season games did the 2013–14 champion Spurs win?",
    "context": "San Antonio · the Beautiful Game title",
    "reveal": "62 wins before the rematch with Miami.",
    "min": 20,
@@ -19894,7 +19863,7 @@
    "format": {
     "kind": "reference",
     "references": [
-     "nba-bucks19-season-wins"
+     "nba-celtics86-wins"
     ]
    }
   }
@@ -19983,7 +19952,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Joakim Noah averaged 10.4 rebounds in 2010–11. What was Tim Duncan's rebound average in the 2013–14 title season?",
+   "prompt": "Giannis Antetokounmpo averaged 12.5 rebounds in 2018–19. What was Tim Duncan's rebound average in the 2013–14 title season?",
    "context": "San Antonio · regular season · veteran center",
    "reveal": "9.7 rebounds per game in his later career.",
    "min": 3,
@@ -20026,7 +19995,7 @@
    "format": {
     "kind": "reference",
     "references": [
-     "nba-noah11-rebounds-average"
+     "nba-giannis19-regular-rpg"
     ]
    }
   }
@@ -20382,24 +20351,24 @@
      "unit": "rpg",
      "points": [
       {
-       "label": "Noah '11",
-       "fact": "nba-noah11-rebounds-average"
-      },
-      {
-       "label": "Kemp '94",
-       "fact": "nba-kemp94-rpg"
-      },
-      {
        "label": "Chandler '08",
        "fact": "nba-chandler08-regular-rpg"
       },
       {
-       "label": "Mutombo '01",
-       "fact": "nba-mutombo01-posttrade-rpg"
-      },
-      {
        "label": "Giannis '19",
        "fact": "nba-giannis19-regular-rpg"
+      },
+      {
+       "label": "Noah '11",
+       "fact": "nba-noah11-rebounds-average"
+      },
+      {
+       "label": "Howard '09",
+       "fact": "nba-howard09-regular-rpg"
+      },
+      {
+       "label": "Kemp '94",
+       "fact": "nba-kemp94-rpg"
       }
      ]
     }
@@ -20478,7 +20447,7 @@
        "fact": "nba-webber02-season-ppg"
       },
       {
-       "label": "Robinson '20",
+       "label": "Duncan R. '20",
        "fact": "nba-robinson20-season-ppg"
       },
       {
@@ -20845,24 +20814,24 @@
      "unit": "ppg",
      "points": [
       {
-       "label": "Alcindor '71",
-       "fact": "nba-alcindor71-ppg"
-      },
-      {
-       "label": "Webber '02",
-       "fact": "nba-webber02-season-ppg"
+       "label": "Nance '84",
+       "fact": "nba-nance84-season-ppg"
       },
       {
        "label": "Miller '98",
        "fact": "nba-miller98-season-ppg"
       },
       {
-       "label": "Nance '84",
-       "fact": "nba-nance84-season-ppg"
+       "label": "Iverson '01",
+       "fact": "nba-iverson01-season-ppg"
       },
       {
        "label": "Robinson '20",
        "fact": "nba-robinson20-season-ppg"
+      },
+      {
+       "label": "Rose '11",
+       "fact": "nba-rose11-season-ppg"
       }
      ]
     }
@@ -21114,7 +21083,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "David West averaged 20.6 next to Chris Paul in 2007–08. What did Mo Williams average beside LeBron in his first Cavaliers season?",
+   "prompt": "David West averaged 20.6 for the 2007–08 Hornets. What did Mo Williams average beside LeBron in his first Cavaliers season?",
    "context": "Cleveland Cavaliers · 2008–09 · regular season",
    "reveal": "17.8 points per game as LeBron's new backcourt partner.",
    "min": 8,
@@ -21425,24 +21394,24 @@
      "unit": "rebounds",
      "points": [
       {
-       "label": "Duncan '14",
-       "fact": "nba-duncan14-season-rpg"
-      },
-      {
-       "label": "Mutombo '01",
-       "fact": "nba-mutombo01-posttrade-rpg"
-      },
-      {
-       "label": "Howard '09",
-       "fact": "nba-howard09-regular-rpg"
-      },
-      {
        "label": "Rodman '96",
        "fact": "nba-rodman96-rpg"
       },
       {
        "label": "Kemp '94",
        "fact": "nba-kemp94-rpg"
+      },
+      {
+       "label": "Duncan '14",
+       "fact": "nba-duncan14-season-rpg"
+      },
+      {
+       "label": "Giannis '19",
+       "fact": "nba-giannis19-regular-rpg"
+      },
+      {
+       "label": "Howard '09",
+       "fact": "nba-howard09-regular-rpg"
       }
      ]
     }
@@ -23686,8 +23655,8 @@
      "unit": "points",
      "points": [
       {
-       "label": "Sprewell '99",
-       "fact": "nba-sprewell99-g5"
+       "label": "Powe '08",
+       "fact": "nba-powe08-g2"
       },
       {
        "label": "Iverson '01",
@@ -23916,7 +23885,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Derrick Rose scored 44 against Atlanta in the 2011 playoffs. How many did Jalen Brunson score for a Knicks playoff record in 2024?",
+   "prompt": "Jerry West scored 53 in Game 1 of the 1969 Finals. How many did Jalen Brunson score for a Knicks playoff record in 2024?",
    "context": "Jalen Brunson · Knicks at 76ers · April 2024",
    "reveal": "47 points, a Knicks playoff record, alongside 10 assists in Philadelphia.",
    "min": 15,
@@ -23959,7 +23928,7 @@
    "format": {
     "kind": "reference",
     "references": [
-     "nba-rose11-hawks-g3-points"
+     "nba-west69-g1"
     ]
    }
   }
@@ -24291,7 +24260,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Jalen Brunson's Knicks playoff record in 2024 was 47 points. How many did Anthony Edwards score in his franchise-record opener at Denver?",
+   "prompt": "Michael Jordan scored 55 in Game 4 of the 1993 Finals. How many did Anthony Edwards score in his franchise-record 2024 opener at Denver?",
    "context": "Anthony Edwards · Wolves at Nuggets · May 2024",
    "reveal": "43 points in Denver. Ant launched the upset bid with a Minnesota postseason scoring record.",
    "min": 15,
@@ -24334,7 +24303,7 @@
    "format": {
     "kind": "reference",
     "references": [
-     "nba-brunson24-philly-47"
+     "nba-jordan93-g4-55"
     ]
    }
   }
@@ -25025,7 +24994,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Derrick Rose scored 44 against Atlanta in 2011. How many points did Trae Young score for the Hawks in the 2021 East finals opener?",
+   "prompt": "Elgin Baylor's Finals record is 61 points. How many did Trae Young score for the Hawks in the 2021 East finals opener?",
    "context": "Trae Young · Hawks at Bucks · June 2021",
    "reveal": "48 points and 11 assists. Atlanta stole the opening game on Milwaukee's home court.",
    "min": 10,
@@ -25068,7 +25037,7 @@
    "format": {
     "kind": "reference",
     "references": [
-     "nba-rose11-hawks-g3-points"
+     "nba-baylor62-finals-61"
     ]
    }
   }
@@ -25094,7 +25063,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "LeBron James scored 37 in Game 7 of the 2013 Finals. How many did Kawhi Leonard score in his 2019 Game 7 against Philadelphia?",
+   "prompt": "Draymond Green scored 32 in Game 7 of the 2016 Finals. How many did Kawhi Leonard score in his 2019 Game 7 against Philadelphia?",
    "context": "Kawhi Leonard · Raptors vs 76ers · 2019 playoffs",
    "reveal": "41 points. Kawhi's four-bounce jumper sent Toronto through in a legendary Game 7.",
    "min": 10,
@@ -25137,7 +25106,7 @@
    "format": {
     "kind": "reference",
     "references": [
-     "nba-lebron13-g7"
+     "nba-green16-g7"
     ]
    }
   }
@@ -25163,7 +25132,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Stephen Curry scored 43 in Game 4 of the 2022 Finals. How many did Ja Morant score against Curry's Warriors in 2022 Game 2?",
+   "prompt": "LeBron James scored 37 in Game 7 of the 2013 Finals. How many did Ja Morant score against Curry's Warriors in 2022 Game 2?",
    "context": "Ja Morant · Grizzlies vs Warriors · May 2022",
    "reveal": "47 points, including Memphis's final 15, to even the series.",
    "min": 10,
@@ -25206,7 +25175,7 @@
    "format": {
     "kind": "reference",
     "references": [
-     "nba-curry22-g4"
+     "nba-lebron13-g7"
     ]
    }
   }
@@ -25295,7 +25264,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Kawhi scored 41 in the 2019 Game 7 vs Philadelphia. Facing elimination in 2022 Game 6, how many did Jayson Tatum score vs Milwaukee?",
+   "prompt": "Jimmy Butler scored 56 against Milwaukee in the 2023 playoffs. Facing elimination at Milwaukee in 2022, how many did Jayson Tatum score?",
    "context": "Jayson Tatum · Celtics at Bucks · 2022 playoffs",
    "reveal": "46 points, plus nine boards, to force Game 7 and keep Boston alive.",
    "min": 10,
@@ -25338,7 +25307,7 @@
    "format": {
     "kind": "reference",
     "references": [
-     "nba-kawhi19-philly-game7-41"
+     "nba-butler23-56-bucks-upset"
     ]
    }
   }
@@ -26018,7 +25987,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "LeBron scored Cleveland's final 25 points in a 2007 playoff game. How many straight points did AD score to finish off Denver in 2020?",
+   "prompt": "LeBron scored Cleveland's final 25 points in a 2007 playoff game. How many straight points did AD score to beat Denver in 2020 Game 2?",
    "context": "Anthony Davis · Lakers vs Nuggets · 2020 Western finals",
    "reveal": "AD scored the Lakers' final 10, including the game-winning three at the buzzer.",
    "min": 0,
@@ -26087,11 +26056,11 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Allen's 2013 Finals three came with 5.2 seconds left. How long did Portland have to inbound before Lillard's 2014 series-winner?",
+   "prompt": "Ray Allen's tying three in 2013 Finals Game 6 came with 5.2 seconds left. How much time was left when Lillard caught the 2014 inbound?",
    "context": "Damian Lillard · Blazers vs Rockets · 2014 first round",
    "reveal": "Just 0.9 seconds. Lillard caught the inbound and hit the buzzer-beater to eliminate Houston.",
    "min": 0,
-   "max": 5,
+   "max": 8,
    "step": 0.1,
    "difficulty": "expert",
    "difficultyReason": "Allen's 5.2 seconds is the clutch-clock benchmark; players judge how far below it Lillard's inbound was.",
@@ -26684,7 +26653,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "In 1948 the Warriors shot a record-low 16.4% in a game. What percent did Kobe shoot in his brutal 2010 Finals Game 7?",
+   "prompt": "The 1948 Warriors shot a record-low 16.4% as a team in one game. What percent did Kobe shoot in his brutal 2010 Finals Game 7?",
    "context": "Kobe Bryant · Lakers vs Celtics · 2010 Finals Game 7",
    "reveal": "Just 25%, 6 of 24, but Kobe scored a game-high 23, with 10 in the fourth quarter.",
    "min": 0,
@@ -27139,28 +27108,28 @@
      "unit": "points",
      "points": [
       {
-       "label": "Mavs '11",
-       "fact": "nba-mavs11-heat-finals-g2-comeback-fifteen"
+       "label": "Jazz '96",
+       "fact": "nba-jazz96-comeback"
       },
       {
        "label": "Lakers '00",
        "fact": "nba-lakers00-portland-g7-comeback"
       },
       {
-       "label": "Wolves '24",
-       "fact": "nba-wolves24-denver-game7-comeback"
-      },
-      {
        "label": "Celtics '08",
        "fact": "nba-celtics08-finals-g4-comeback-24"
+      },
+      {
+       "label": "Mavs '11",
+       "fact": "nba-mavs11-heat-finals-g2-comeback-fifteen"
       },
       {
        "label": "Clippers '19",
        "fact": "nba-clippers19-warriors-g2-31-comeback"
       },
       {
-       "label": "Jazz '96",
-       "fact": "nba-jazz96-comeback"
+       "label": "Wolves '24",
+       "fact": "nba-wolves24-denver-game7-comeback"
       }
      ]
     }
@@ -27324,9 +27293,9 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The NBA's longest game went 6 overtimes in 1951. How many did Portland and Denver play in 2019 playoff Game 3?",
+   "prompt": "Before the shot clock, a 1950–51 game went 6 overtimes. How many overtimes did Portland and Denver play in 2019 playoff Game 3?",
    "context": "Trail Blazers vs Nuggets · 2019 West semifinals Game 3",
-   "reveal": "Four overtimes! It was the first quadruple-overtime playoff game of the shot-clock era.",
+   "reveal": "Four overtimes! It was the first quadruple-overtime playoff game since 1955.",
    "min": 0,
    "max": 9,
    "step": 1,
@@ -27521,14 +27490,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Kobe Bryant was 23 when he became the youngest player to win three titles. How old was Derrick Rose when he won MVP in 2011?",
+   "prompt": "Joe Mazzulla was 35 when he coached Boston to the 2024 Finals. How old was Derrick Rose when he won MVP in 2011?",
    "context": "Chicago Bulls · 2010–11 MVP season",
    "reveal": "Just 22. Chicago's hometown star became the youngest MVP in league history.",
    "min": 18,
    "max": 38,
    "step": 1,
    "difficulty": "medium",
-   "difficultyReason": "Kobe's age at his third title anchors what 'young' means; players judge how much younger the MVP was.",
+   "difficultyReason": "The anchor sets an adult age on the scale without hinting the record; fans who know Rose was a young star narrow it to the early 20s.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -27564,7 +27533,7 @@
    "format": {
     "kind": "reference",
     "references": [
-     "nba-kobe-three-titles-age"
+     "nba-mazzulla24-age"
     ]
    }
   }
@@ -29227,7 +29196,7 @@
   },
   "question": {
    "prompt": "How many more regular-season games did Kareem's 1970–71 champion Bucks win than Giannis's 2020–21 champion Bucks?",
-   "context": "Milwaukee Bucks · a 82-game season vs a 72-game season",
+   "context": "Milwaukee Bucks · an 82-game season vs a 72-game season",
    "reveal": "20 more: 66 wins for Kareem's Bucks, 46 for Giannis's in a shortened season.",
    "min": 4,
    "max": 40,

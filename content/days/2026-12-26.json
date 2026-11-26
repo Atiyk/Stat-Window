@@ -255,7 +255,7 @@
     {
       "id": "nba-ja22-warriors-game2-47",
       "sport": "NBA",
-      "prompt": "Stephen Curry scored 43 in Game 4 of the 2022 Finals. How many did Ja Morant score against Curry's Warriors in 2022 Game 2?",
+      "prompt": "LeBron James scored 37 in Game 7 of the 2013 Finals. How many did Ja Morant score against Curry's Warriors in 2022 Game 2?",
       "context": "Ja Morant · Grizzlies vs Warriors · May 2022",
       "answer": 47,
       "unit": {
@@ -305,13 +305,13 @@
       "meta": {
         "format": "reference",
         "family": "points-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Ja Morant",
           "Memphis Grizzlies"
         ],
         "supports": [
-          "nba-curry22-g4"
+          "nba-lebron13-g7"
         ]
       }
     }

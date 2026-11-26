@@ -70,7 +70,7 @@
     {
       "id": "nba-alcindor71-ppg",
       "sport": "NBA",
-      "prompt": "The chart shows four scoring averages. What was Lew Alcindor's average when he led the NBA in scoring in 1970–71?",
+      "prompt": "Wilt Chamberlain averaged a record 50.4 points in 1961–62. What was Lew Alcindor's average when he led the NBA in scoring in 1970–71?",
       "context": "Milwaukee Bucks · 1970–71",
       "answer": 31.7,
       "unit": {
@@ -78,7 +78,7 @@
         "plural": "points per game"
       },
       "min": 24,
-      "max": 46,
+      "max": 55,
       "step": 0.1,
       "note": "31.7 points per game.",
       "source": {
@@ -117,34 +117,8 @@
           }
         }
       ],
-      "chart": {
-        "title": "Points per game, season or Finals",
-        "unit": "ppg",
-        "points": [
-          {
-            "label": "Webber '02",
-            "value": 24.5
-          },
-          {
-            "label": "Kobe '09 Fin",
-            "value": 32.4
-          },
-          {
-            "label": "Shaq '00 Fin",
-            "value": 38
-          },
-          {
-            "label": "Jordan '93 Fin",
-            "value": 41
-          },
-          {
-            "label": "Alcindor '71",
-            "value": null
-          }
-        ]
-      },
       "meta": {
-        "format": "missing-point",
+        "format": "reference",
         "family": "scoring-average",
         "era": "cross-era",
         "subjects": [
@@ -152,10 +126,7 @@
           "Milwaukee Bucks"
         ],
         "supports": [
-          "nba-webber02-season-ppg",
-          "nba-kobe09-finals-ppg",
-          "nba-shaq00-finals-ppg",
-          "nba-jordan93-finals-ppg"
+          "nba-wilt62-ppg"
         ]
       }
     },

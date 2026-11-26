@@ -245,24 +245,24 @@
         "unit": "apg",
         "points": [
           {
-            "label": "Bibby '02",
-            "value": 5
-          },
-          {
-            "label": "Butler '20",
-            "value": 6
+            "label": "Lowry '19",
+            "value": 8.7
           },
           {
             "label": "Teague '15",
             "value": null
           },
           {
+            "label": "Bibby '02",
+            "value": 5
+          },
+          {
             "label": "James '09",
             "value": 7.2
           },
           {
-            "label": "Lowry '19",
-            "value": 8.7
+            "label": "Butler '20",
+            "value": 6
           }
         ]
       },
@@ -275,17 +275,17 @@
           "Atlanta Hawks"
         ],
         "supports": [
+          "nba-lowry19-regular-apg",
           "nba-bibby02-regular-apg",
-          "nba-butler20-regular-apg",
           "nba-james09-season-apg",
-          "nba-lowry19-regular-apg"
+          "nba-butler20-regular-apg"
         ]
       }
     },
     {
       "id": "nba-blazers19-nuggets-game3-four-overtimes",
       "sport": "NBA",
-      "prompt": "The NBA's longest game went 6 overtimes in 1951. How many did Portland and Denver play in 2019 playoff Game 3?",
+      "prompt": "Before the shot clock, a 1950–51 game went 6 overtimes. How many overtimes did Portland and Denver play in 2019 playoff Game 3?",
       "context": "Trail Blazers vs Nuggets · 2019 West semifinals Game 3",
       "answer": 4,
       "unit": {
@@ -295,7 +295,7 @@
       "min": 0,
       "max": 9,
       "step": 1,
-      "note": "Four overtimes! It was the first quadruple-overtime playoff game of the shot-clock era.",
+      "note": "Four overtimes! It was the first quadruple-overtime playoff game since 1955.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",

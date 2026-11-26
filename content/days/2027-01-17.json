@@ -244,24 +244,24 @@
         "unit": "ppg",
         "points": [
           {
-            "label": "Alcindor '71",
-            "value": 31.7
-          },
-          {
-            "label": "Webber '02",
-            "value": 24.5
+            "label": "Nance '84",
+            "value": null
           },
           {
             "label": "Miller '98",
             "value": 19.5
           },
           {
-            "label": "Nance '84",
-            "value": null
+            "label": "Iverson '01",
+            "value": 31.1
           },
           {
             "label": "Robinson '20",
             "value": 13.5
+          },
+          {
+            "label": "Rose '11",
+            "value": 25
           }
         ]
       },
@@ -274,17 +274,17 @@
           "Phoenix Suns"
         ],
         "supports": [
-          "nba-alcindor71-ppg",
-          "nba-webber02-season-ppg",
           "nba-miller98-season-ppg",
-          "nba-robinson20-season-ppg"
+          "nba-iverson01-season-ppg",
+          "nba-robinson20-season-ppg",
+          "nba-rose11-season-ppg"
         ]
       }
     },
     {
       "id": "nba-kobe10-finals-game7-twentyfive-percent",
       "sport": "NBA",
-      "prompt": "In 1948 the Warriors shot a record-low 16.4% in a game. What percent did Kobe shoot in his brutal 2010 Finals Game 7?",
+      "prompt": "The 1948 Warriors shot a record-low 16.4% as a team in one game. What percent did Kobe shoot in his brutal 2010 Finals Game 7?",
       "context": "Kobe Bryant · Lakers vs Celtics · 2010 Finals Game 7",
       "answer": 25,
       "unit": {

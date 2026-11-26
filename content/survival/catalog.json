@@ -713,7 +713,10 @@
       "era": "2010s",
       "steps": 20,
       "day": "2026-12-01",
-      "notBefore": "2026-12-02"
+      "notBefore": "2026-12-02",
+      "leaks": [
+        "nba-mazzulla24-age"
+      ]
     },
     "nba-luka22-knicks-triple-rebounds": {
       "tier": "hard",
@@ -789,7 +792,7 @@
       "family": "scoring-average",
       "franchise": "SAC",
       "era": "2000s",
-      "steps": 340,
+      "steps": 400,
       "day": "2026-12-02",
       "notBefore": "2026-12-03",
       "leaks": [
@@ -1100,6 +1103,7 @@
       "day": "2026-12-07",
       "notBefore": "2026-12-08",
       "leaks": [
+        "nba-west69-g1",
         "nba-celtics24-playoff-losses"
       ]
     },
@@ -1382,7 +1386,7 @@
       "day": "2026-12-12",
       "notBefore": "2026-12-13",
       "leaks": [
-        "nba-brunson24-philly-47"
+        "nba-jordan93-g4-55"
       ]
     },
     "nba-curry22-g4": {
@@ -1795,8 +1799,7 @@
       "day": "2026-12-20",
       "notBefore": "2027-01-14",
       "leaks": [
-        "nba-spurs14-streak",
-        "nba-bucks19-season-wins",
+        "nba-celtics86-wins",
         "nba-melo14-knicks-msg-62",
         "nba-spurs14-finals-avg-margin-fourteen"
       ]
@@ -1936,8 +1939,10 @@
       "day": "2026-12-22",
       "notBefore": "2027-01-14",
       "leaks": [
-        "nba-noah11-rebounds-average",
-        "nba-spurs14-finals-avg-margin-fourteen"
+        "nba-spurs14-streak",
+        "nba-giannis19-regular-rpg",
+        "nba-spurs14-finals-avg-margin-fourteen",
+        "nba-giannis24-cup-final-rebounds-v5"
       ]
     },
     "nba-allen13-g6-seconds": {
@@ -2070,10 +2075,10 @@
       "day": "2026-12-24",
       "notBefore": "2027-01-28",
       "leaks": [
-        "nba-cavs16-g5-41",
-        "nba-lebron13-g7",
-        "nba-bucks19-opening-win-streak",
-        "nba-lillard19-okc-winner-distance"
+        "nba-green16-g7",
+        "nba-siakam19-g1",
+        "nba-harden19-30-streak",
+        "nba-bucks19-opening-win-streak"
       ]
     },
     "nba-jordan98-g6": {
@@ -2181,7 +2186,7 @@
       "day": "2026-12-26",
       "notBefore": "2026-12-27",
       "leaks": [
-        "nba-curry22-g4"
+        "nba-lebron13-g7"
       ]
     },
     "nba-sixers73-wins": {
@@ -2256,14 +2261,11 @@
       "family": "scoring-average",
       "franchise": "MIL",
       "era": "1970s",
-      "steps": 220,
+      "steps": 310,
       "day": "2026-12-28",
       "notBefore": "2026-12-29",
       "leaks": [
-        "nba-jordan93-finals-ppg",
-        "nba-shaq00-finals-ppg",
-        "nba-kobe09-finals-ppg",
-        "nba-webber02-season-ppg"
+        "nba-wilt62-ppg"
       ]
     },
     "nba-spurs14-g3-fg": {
@@ -2355,7 +2357,7 @@
       "day": "2026-12-29",
       "notBefore": "2026-12-30",
       "leaks": [
-        "nba-kawhi19-philly-game7-41"
+        "nba-butler23-56-bucks-upset"
       ]
     },
     "nba-suns05-season-win-gain": {
@@ -2544,7 +2546,7 @@
       "day": "2027-01-02",
       "notBefore": "2027-01-03",
       "leaks": [
-        "nba-allen10-g2-threes"
+        "nba-cooper87-threes"
       ]
     },
     "nba-kemp94-rpg": {
@@ -2557,9 +2559,9 @@
       "notBefore": "2027-01-03",
       "leaks": [
         "nba-rodman96-rpg",
-        "nba-mutombo01-posttrade-rpg",
         "nba-howard09-regular-rpg",
-        "nba-duncan14-season-rpg"
+        "nba-duncan14-season-rpg",
+        "nba-giannis19-regular-rpg"
       ]
     },
     "nba-lebron09-g1-scoring-share-v5": {
@@ -2916,7 +2918,7 @@
       "family": "time",
       "franchise": "POR",
       "era": "2010s",
-      "steps": 50,
+      "steps": 80,
       "day": "2027-01-08",
       "notBefore": "2027-01-09",
       "leaks": [
@@ -3229,10 +3231,9 @@
       "day": "2027-01-14",
       "notBefore": "2027-01-15",
       "leaks": [
-        "nba-rodman96-rpg",
+        "nba-noah11-rebounds-average",
         "nba-howard09-regular-rpg",
-        "nba-duncan14-season-rpg",
-        "nba-barkley93-suns-rpg"
+        "nba-duncan14-season-rpg"
       ]
     },
     "nba-celtics08-playoff-games": {
@@ -3343,7 +3344,8 @@
       "day": "2027-01-16",
       "notBefore": "2027-01-17",
       "leaks": [
-        "nba-sixers67-ppg"
+        "nba-hawks86-third-quarter",
+        "nba-six-overtime-game"
       ]
     },
     "nba-payton94-apg": {
@@ -3421,9 +3423,9 @@
       "day": "2027-01-17",
       "notBefore": "2027-01-18",
       "leaks": [
-        "nba-alcindor71-ppg",
-        "nba-miller98-season-ppg",
-        "nba-webber02-season-ppg"
+        "nba-iverson01-season-ppg",
+        "nba-rose11-season-ppg",
+        "nba-miller98-season-ppg"
       ]
     },
     "nba-kobe10-finals-game7-twentyfive-percent": {
@@ -4002,8 +4004,8 @@
       "day": "2027-01-27",
       "notBefore": "2027-01-28",
       "leaks": [
-        "nba-mutombo01-posttrade-rpg",
         "nba-noah11-rebounds-average",
+        "nba-howard09-regular-rpg",
         "nba-kemp94-rpg",
         "nba-giannis19-regular-rpg"
       ]

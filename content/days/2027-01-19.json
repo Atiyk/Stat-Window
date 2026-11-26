@@ -185,24 +185,24 @@
         "unit": "threes",
         "points": [
           {
-            "label": "Cooper '87",
-            "value": 6
-          },
-          {
             "label": "Pippen '97",
             "value": null
           },
           {
-            "label": "Allen '10",
-            "value": 8
+            "label": "Thompson '16",
+            "value": 11
+          },
+          {
+            "label": "Cooper '87",
+            "value": 6
           },
           {
             "label": "Curry '18",
             "value": 9
           },
           {
-            "label": "Thompson '16",
-            "value": 11
+            "label": "Allen '10",
+            "value": 8
           }
         ]
       },
@@ -215,10 +215,10 @@
           "Chicago Bulls"
         ],
         "supports": [
+          "nba-klay16-wcf-threes",
           "nba-cooper87-threes",
-          "nba-allen10-g2-threes",
           "nba-curry18-g2-threes",
-          "nba-klay16-wcf-threes"
+          "nba-allen10-g2-threes"
         ]
       }
     },

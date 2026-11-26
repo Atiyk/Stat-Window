@@ -128,8 +128,8 @@
     {
       "id": "nba-celtics02-19-threes",
       "sport": "NBA",
-      "prompt": "Orlando made 23 threes in a 2009 game. Boston hit a playoff-record nine in one quarter against Philadelphia in 2002. How many in the game?",
-      "context": "2002 East first round · Celtics vs 76ers",
+      "prompt": "Orlando hit a record 23 threes in a 2009 game. How many threes did Boston hit in its 2002 playoff game against Philadelphia?",
+      "context": "2002 East first round · nine came in the fourth quarter",
       "answer": 19,
       "unit": {
         "singular": "three-pointer",

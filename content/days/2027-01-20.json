@@ -122,28 +122,28 @@
         "unit": "points",
         "points": [
           {
+            "label": "Westbrook '12",
+            "value": null
+          },
+          {
             "label": "Barry '75",
             "value": 36
-          },
-          {
-            "label": "Williams '79",
-            "value": 36
-          },
-          {
-            "label": "Jordan '97",
-            "value": 38
           },
           {
             "label": "James '16",
             "value": 41
           },
           {
+            "label": "Williams '79",
+            "value": 36
+          },
+          {
             "label": "Wade '06",
             "value": 42
           },
           {
-            "label": "Westbrook '12",
-            "value": null
+            "label": "Jordan '97",
+            "value": 38
           }
         ]
       },
@@ -157,10 +157,10 @@
         ],
         "supports": [
           "nba-barry75-finals-g2-points",
-          "nba-gus79-finals-g4-points",
-          "nba-jordan97-flu-game",
           "nba-cavs16-g5-41",
-          "nba-wade06-g3"
+          "nba-gus79-finals-g4-points",
+          "nba-wade06-g3",
+          "nba-jordan97-flu-game"
         ]
       }
     },

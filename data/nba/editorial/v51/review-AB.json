@@ -1,0 +1,444 @@
+{
+ "reviewer": "independent V5.1 fact-checker / game editor (batches A+B)",
+ "range": "2026-11-30..2026-12-29",
+ "slotsReviewed": 60,
+ "approved": 48,
+ "notes": "slotsReviewed counts the 60 changed slots (57 reframed, 3 replaced). All 150 slots across 30 days were read; the 90 retained slots were skimmed and two retained P2s are noted. 'approved' means no P0/P1 finding (some approved slots carry P2 notes). All proposed fix patches were applied in memory to data/nba and pass validateNba with 0 errors. No repo file was written. Every numeric claim in the changed prompts, contexts and reveals checks against the stored quotes of the fact or its supports; the three replaced facts' derivations (17/19→89%, 16/19→84%, 100−81=19) match the wording, and no P0 spoiler was found.",
+ "countsBySeverity": {
+  "P1": 12,
+  "P2": 16
+ },
+ "findings": [
+  {
+   "severity": "P1",
+   "day": "2026-11-30",
+   "slot": 3,
+   "id": "nba-gordon23-finals-g4-points",
+   "problem": "Chart mixes scopes: 'Sprewell '99' = 25 is Sprewell's SECOND-HALF points (quote: 'The Knicks scored 39 points in the second half, and Latrell Sprewell scored 25 of them'), not a Finals game total (he scored more in the game). The chart is titled 'Supporting-cast Finals scoring games', so the observation is not comparable and misleads the placement.",
+   "fix": {
+    "question": {
+     "prompt": "The chart shows two other supporting-cast Finals scoring games. How many points did Aaron Gordon score in Game 4 of the 2023 Finals?",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Supporting-cast Finals scoring games",
+       "unit": "points",
+       "points": [
+        {
+         "label": "Powe '08",
+         "fact": "nba-powe08-g2"
+        },
+        {
+         "label": "Middleton '21",
+         "fact": "nba-middleton21-g4"
+        },
+        {
+         "label": "Gordon '23",
+         "fact": "nba-gordon23-finals-g4-points"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "severity": "P1",
+   "day": "2026-12-01",
+   "slot": 2,
+   "id": "nba-rose11-mvp-youngest-age",
+   "problem": "The anchor nearly gives the answer. Kobe's 23 is 1 year from Rose's 22 on an 18-38 scale (5% of the ruler), and 'youngest to win three titles' points straight at 'youngest MVP'. The Q2 surprise (a 22-year-old MVP) is gone. No other verified age fact played before 12-01 or in the reserve works: Kawhi 22 is the answer itself, and Mazzulla 35 and Kareem 42 are irrelevant.",
+   "fix": null,
+   "fixNote": "Replace the format, not the fact. Option A: put Q2 back to recall (the old prompt 'How old was Derrick Rose when he won the NBA's MVP award in 2011?') and give the day's third non-recall format to another slot, for example a new verified difference/ratio fact. Option B: replace Q2 with a new non-recall fact. Do not just remove the format: Q2 as recall would make the day recall x3 (illegal)."
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-02",
+   "slot": 4,
+   "id": "nba-webber02-season-ppg",
+   "problem": "Wilt's 50.4 sits above the ruler (max 47), so the anchor is off the scale and says little about a 24.5 star average beyond 'below the all-time record'. A weak anchor rather than a wrong one.",
+   "fix": {
+    "question": {
+     "min": 15,
+     "max": 55
+    }
+   },
+   "fixNote": "Widening to 15-55 at step 0.1 (400 steps, answer at 24%) puts the anchor on the ruler. Validator checked."
+  },
+  {
+   "severity": "P1",
+   "day": "2026-12-04",
+   "slot": 5,
+   "id": "nba-klay16-okc-game6-41",
+   "problem": "Same scope error as 11-30 Q3. The 'Sprewell '99' bar (25) is second-half points, shown as a whole 'playoff scoring in one game' observation.",
+   "fix": {
+    "question": {
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Playoff scoring in one game",
+       "unit": "points",
+       "points": [
+        {
+         "label": "Powe '08",
+         "fact": "nba-powe08-g2"
+        },
+        {
+         "label": "Iverson '01",
+         "fact": "nba-iverson01-g1"
+        },
+        {
+         "label": "Butler '23",
+         "fact": "nba-butler23-56-bucks-upset"
+        },
+        {
+         "label": "Klay '16",
+         "fact": "nba-klay16-okc-game6-41"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-05",
+   "slot": 1,
+   "id": "nba-hornets08-season-wins",
+   "problem": "Arc repetition. This reframe makes 12-05 Q1 a 'conference teams' wins' chart the day before 12-06 Q1, which is also a wins chart (Celtics '86, retained), and 12-01 Q1 is the same chart type. That is three wins-chart openers in six days, two of them on adjacent days.",
+   "fix": null,
+   "fixNote": "Consider making 12-05 Q1 a reference (for example 'The 2006–07 Mavericks won 67 games.', nba-mavs07-wins, reserve) and moving the day's chart to another slot."
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-06",
+   "slot": 2,
+   "id": "nba-allstar24-east",
+   "problem": "The anchor (a 125 ppg team season average from 1966–67) sits below the ruler's minimum (130) and is a different kind of game. It tells the player little about an All-Star score. It is acceptable as a 'normal basketball' contrast but weak.",
+   "fix": null
+  },
+  {
+   "severity": "P1",
+   "day": "2026-12-07",
+   "slot": 5,
+   "id": "nba-brunson24-philly-47",
+   "problem": "The anchor leaks the expert finale. Rose's 44 is 3 points from 47 on a 15-105 ruler (3.3%). With 'Knicks playoff record' telling the player the answer is a big night, a narrow window just above 44 wins. Q5 stops being an expert estimate.",
+   "fix": {
+    "question": {
+     "prompt": "Jerry West scored 53 in Game 1 of the 1969 Finals. How many did Jalen Brunson score for a Knicks playoff record in 2024?",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-west69-g1"
+      ]
+     }
+    }
+   },
+   "fixNote": "nba-west69-g1 was played 2026-11-22. Quote: 'He used this freedom to score 53 points on opposing guards'. Gap 6 (6.7% of the ruler), a ceiling-type anchor."
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-07",
+   "slot": 3,
+   "id": "nba-miller12-g5-threes",
+   "problem": "The prompt still prints 'shot eight threes', which caps the answer at 8, but the ruler was widened to 0-14 so Curry's 13 fits the chart. 9-14 is a dead zone, and the attempt count does more work than the chart.",
+   "fix": {
+    "question": {
+     "prompt": "The chart shows three other one-game three-point nights. How many threes did Mike Miller make in the 2012 title clincher?"
+    }
+   },
+   "fixNote": "The reveal 'Seven of eight, for 23 points.' still pays off the attempts."
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-08",
+   "slot": 4,
+   "id": "nba-jordan93-finals-ppg",
+   "problem": "The chart shows Shaq's 38.0 Finals average and the prompt says 'a Finals record'. Together they tell the player the answer is above 38.0 on a 15-60 ruler, which narrows a hard question to about 38-45.",
+   "fix": {
+    "question": {
+     "prompt": "The chart shows three other Finals scoring averages. What did Michael Jordan average in the 1993 Finals against Phoenix?",
+     "reveal": "41.0 points per game, a Finals record."
+    }
+   }
+  },
+  {
+   "severity": "P1",
+   "day": "2026-12-11",
+   "slot": 4,
+   "id": "nba-curry15-g2-misses",
+   "problem": "The prompt prints Starks's 11 misses in a Finals game and also says Curry's figure is 'a Finals record'. That sets a hard floor of 12 on a 3-21 ruler, and 13 sits one step above it, so the anchor plus the record cue nearly gives the answer.",
+   "fix": {
+    "question": {
+     "prompt": "John Starks missed 11 threes in Game 7 of the 1994 Finals. How many threes did Stephen Curry miss in Game 2 of the 2015 Finals?"
+    }
+   },
+   "fixNote": "The record stays in the reveal ('13 misses, a Finals record.')."
+  },
+  {
+   "severity": "P1",
+   "day": "2026-12-12",
+   "slot": 5,
+   "id": "nba-ant24-nuggets-g1-43",
+   "problem": "The anchor leaks the expert finale. Brunson's 47 is 4 from 43 on a 15-100 ruler (4.7%), in the same 2024 playoffs, five days after Brunson's own question was anchored the same way (Rose 44).",
+   "fix": {
+    "question": {
+     "prompt": "Michael Jordan scored 55 in Game 4 of the 1993 Finals. How many did Anthony Edwards score in his franchise-record 2024 opener at Denver?",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-jordan93-g4-55"
+      ]
+     }
+    }
+   },
+   "fixNote": "nba-jordan93-g4-55 was played 2026-12-10. Quote: 'scoring 55 points at Chicago Stadium'. Gap 12 (14%)."
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-14",
+   "slot": 4,
+   "id": "nba-west08-season-ppg",
+   "problem": "The chart label 'Robinson '20' (Duncan Robinson) appears on the same day as Q2 about David Robinson's Spurs. Players will read it as David Robinson.",
+   "fix": {
+    "question": {
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Regular-season scoring averages",
+       "unit": "points per game",
+       "points": [
+        {
+         "label": "Webber '02",
+         "fact": "nba-webber02-season-ppg"
+        },
+        {
+         "label": "Duncan R. '20",
+         "fact": "nba-robinson20-season-ppg"
+        },
+        {
+         "label": "West '08",
+         "fact": "nba-west08-season-ppg"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-15",
+   "slot": 3,
+   "id": "nba-bucks21-nets-g3-points",
+   "problem": "Toronto's 92 is 6 from 86 (6% of a 48-148 ruler). It is borderline close but defensible for a hard team-score estimate, and better than the bare recall. Note only.",
+   "fix": null
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-17",
+   "slot": 1,
+   "id": "nba-jokic-draft-pick",
+   "problem": "The 'ranking' label is honest only in a technical sense. The reasoning task is identical to the old recall (name the pick number), and the tie rule is the editor's own logic, not stated by the source. It reads as a relabel to reach the format count.",
+   "fix": null
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-17",
+   "slot": 3,
+   "id": "nba-celtics02-19-threes",
+   "problem": "The prompt is overloaded (138 chars, two figures, quarter vs game) and hard to parse in 5 seconds, and interest is rated 2.",
+   "fix": {
+    "question": {
+     "prompt": "Orlando hit a record 23 threes in a 2009 game. How many threes did Boston hit in its 2002 playoff game against Philadelphia?",
+     "context": "2002 East first round · nine came in the fourth quarter"
+    }
+   }
+  },
+  {
+   "severity": "P1",
+   "day": "2026-12-20",
+   "slot": 1,
+   "id": "nba-spurs14-season-wins",
+   "problem": "The anchor nearly gives the answer on the opener. The Bucks' 60 is 2 from 62 on a 20-86 ruler (3%), so the window collapses onto the anchor.",
+   "fix": {
+    "question": {
+     "prompt": "The 1985–86 Celtics won 67 games. How many regular-season games did the 2013–14 champion Spurs win?",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-celtics86-wins"
+      ]
+     }
+    }
+   },
+   "fixNote": "nba-celtics86-wins was played 2026-12-06 (67–15). Gap 5 (7.6%), still an easy opener."
+  },
+  {
+   "severity": "P1",
+   "day": "2026-12-22",
+   "slot": 3,
+   "id": "nba-duncan14-season-rpg",
+   "problem": "The anchor leaks. Noah's 10.4 is 0.7 from 9.7 on a 3-22 ruler (3.7%). Noah is also already the anchor on 12-12 and a chart bar on 12-23.",
+   "fix": {
+    "question": {
+     "prompt": "Giannis Antetokounmpo averaged 12.5 rebounds in 2018–19. What was Tim Duncan's rebound average in the 2013–14 title season?",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-giannis19-regular-rpg"
+      ]
+     }
+    }
+   },
+   "fixNote": "nba-giannis19-regular-rpg was played 2026-12-18. Gap 2.8 (15%)."
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-23",
+   "slot": 3,
+   "id": "nba-robinson99-finals-rpg",
+   "problem": "Two problems. (1) The chart compares four regular-season averages with a 5-game Finals average; the title 'season or Finals' admits it, but the labels don't say which is which. (2) Rebounding average is now the stat on 12-12 Q4, 12-13 Q2, 12-18 Q4, 12-22 Q3, 12-23 Q3 and 12-27 Q3, with the same Noah/Howard figures as anchors. On 12-22 and 12-23 it is the same stat in the same slot.",
+   "fix": null,
+   "fixNote": "Consider moving one of 12-22 Q3 / 12-23 Q3 / 12-27 Q3 to another stat family or format."
+  },
+  {
+   "severity": "P1",
+   "day": "2026-12-23",
+   "slot": 5,
+   "id": "nba-trae21-bucks-g1-48",
+   "problem": "The anchor leaks the expert finale. Rose's 44 is 4 from 48 on a 10-120 ruler (3.6%). It is the same anchor as 12-07 Q5. The editor's note says 'in the same arena', but Rose's game was in Chicago/Atlanta and Trae's was at Milwaukee (that claim is only in the note, not the player text).",
+   "fix": {
+    "question": {
+     "prompt": "Elgin Baylor's Finals record is 61 points. How many did Trae Young score for the Hawks in the 2021 East finals opener?",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-baylor62-finals-61"
+      ]
+     }
+    }
+   },
+   "fixNote": "nba-baylor62-finals-61 is in the reserve (Survival embargo until 2026-12-03 has passed; a daily may print reserve figures). Quote: 'Baylor set the still-standing NBA record for points in an NBA Finals game with 61.' Gap 13 (11.8%)."
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-24",
+   "slot": 2,
+   "id": "nba-wilt-kobe-record-gap-v51b",
+   "problem": "The difference is correct (100 − 81 = 19), but both operands are among the best-known numbers in the sport, and players saw Kobe's 81 as the 12-03 Q1 answer and printed in the 12-16 Q3 prompt. For most fans this is mental subtraction, not estimation.",
+   "fix": null
+  },
+  {
+   "severity": "P1",
+   "day": "2026-12-24",
+   "slot": 5,
+   "id": "nba-kawhi19-philly-game7-41",
+   "problem": "The anchor leaks the expert finale. LeBron's 37 is 4 from 41 on a 10-110 ruler (4%).",
+   "fix": {
+    "question": {
+     "prompt": "Draymond Green scored 32 in Game 7 of the 2016 Finals. How many did Kawhi Leonard score in his 2019 Game 7 against Philadelphia?",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-green16-g7"
+      ]
+     }
+    }
+   },
+   "fixNote": "nba-green16-g7 was played 2026-12-09. Quote: 'leading all scorers with 32 points'. Gap 9 (9%), and it keeps the Game 7 theme."
+  },
+  {
+   "severity": "P1",
+   "day": "2026-12-26",
+   "slot": 5,
+   "id": "nba-ja22-warriors-game2-47",
+   "problem": "The anchor leaks the expert finale. Curry's 43 is 4 from 47 on a 10-120 ruler (3.6%).",
+   "fix": {
+    "question": {
+     "prompt": "LeBron James scored 37 in Game 7 of the 2013 Finals. How many did Ja Morant score against Curry's Warriors in 2022 Game 2?",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-lebron13-g7"
+      ]
+     }
+    }
+   },
+   "fixNote": "nba-lebron13-g7 was played 2026-12-14. LeBron's 37 is freed up by the 12-24 fix. Gap 10 (9%)."
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-28",
+   "slot": 2,
+   "id": "nba-alcindor71-ppg",
+   "problem": "The chart is not like-for-like. The question is a regular-season scoring-title average, but three of the four shown bars are Finals series averages (Kobe '09, Shaq '00, Jordan '93) and only Webber is a season. The brief asks for comparable chart observations (same stat and scope). The 'Fin' labels and the title disclose the mix, so this is a P2.",
+   "fix": {
+    "question": {
+     "prompt": "Wilt Chamberlain averaged a record 50.4 points in 1961–62. What was Lew Alcindor's average when he led the NBA in scoring in 1970–71?",
+     "max": 55,
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-wilt62-ppg"
+      ]
+     }
+    }
+   },
+   "fixNote": "Same answer, ruler 24-55 at 0.1 (310 steps, answer at 25%). The day becomes recall, reference, reference, trajectory, recall (2+2+1, legal). Wilt's season record is a natural ceiling for a scoring champion's average. Validator checked."
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-29",
+   "slot": 4,
+   "id": "nba-bullets75-g1-halftime-lead",
+   "problem": "(1) The hidden bar is a halftime lead, not the largest deficit Golden State overcame, so it is not quite the 'points trailed before a comeback' scope of the other bars. (2) The four chart bars are the same comeback set as 12-02 Q5 (Lakers '00, Spurs '99, Jazz '96, Wolves '24), which feels recycled.",
+   "fix": null
+  },
+  {
+   "severity": "P1",
+   "day": "2026-12-29",
+   "slot": 5,
+   "id": "nba-tatum22-bucks-g6-46",
+   "problem": "The anchor leaks the expert finale. Kawhi's 41 is 5 from 46 on a 10-120 ruler (4.5%). Q1 on the same day has the identical template ('X scored N in a Finals/playoff game. How many did Y score?') on the same stat, points in a game.",
+   "fix": {
+    "question": {
+     "prompt": "Jimmy Butler scored 56 against Milwaukee in the 2023 playoffs. Facing elimination at Milwaukee in 2022, how many did Jayson Tatum score?",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-butler23-56-bucks-upset"
+      ]
+     }
+    }
+   },
+   "fixNote": "nba-butler23-56-bucks-upset was played 2026-11-26. Gap 10 (9%). The 12-16 Q5 Durant prompt uses the same anchor two weeks earlier. That is acceptable, but an editor could prefer another one."
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-23",
+   "slot": 5,
+   "id": "nba-trae21-bucks-g1-48",
+   "problem": "Arc repetition across the batch. Seven expert finales were reframed into the same one-template reference, '<Star> scored N in <game>. How many did <Star> score in <game>?' (12-07, 12-12, 12-16, 12-23, 12-24, 12-26, 12-29). Two of them are on adjacent days (12-23/12-24) and 12-29 also uses it at Q1. It is the same arithmetic and the same stat-pair on adjacent days, which the sequencing doc rejects.",
+   "fix": null,
+   "fixNote": "After fixing the leaks, move at least two of these finales back to a recall reveal or another format (a chart, or a difference with a verified operand), for example 12-24 or 12-26."
+  },
+  {
+   "severity": "P2",
+   "day": "2026-11-30",
+   "slot": 4,
+   "id": "nba-korver15-three-pct",
+   "problem": "The anchor is a 15-game playoff 3P% (Middleton 2019) for a regular-season 3P% question. The scopes differ, but it is a usable shooter benchmark. Note only.",
+   "fix": null
+  },
+  {
+   "severity": "P2",
+   "day": "2026-12-21",
+   "slot": 3,
+   "id": "nba-suns21-g1-ft",
+   "problem": "(Retained V5 question, noted while skimming.) Dirk's 24 is 1 from Phoenix's 25 on a 10-45 ruler, so the anchor nearly gives the answer. 12-19 Q2 (retained) has a similar issue: CP3's 14 against Jordan's 13 on a 0-20 ruler.",
+   "fix": null
+  }
+ ]
+}

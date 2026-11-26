@@ -1,0 +1,553 @@
+{
+  "reviewer": "independent V5.1 reviewer (batches C+D)",
+  "range": "2026-12-30..2027-01-27",
+  "slotsReviewed": 51,
+  "approved": 32,
+  "note": "slotsReviewed counts the reframed/replaced slots (all 145 slots in the 29 days were read). Chart fixes rely on src/ui/QuestionChart.tsx drawing points in array order (no sort). All patches were checked with formatIssues, length limits, answer-leak, 8–92% position, Jaccard <0.8 and support-played-earlier rules.",
+  "findings": [
+    {
+      "severity": "P0",
+      "day": "2026-12-16",
+      "slot": 2,
+      "id": "nba-spurs14-streak",
+      "problem": "Spoiler into this range: the Dec 16 reveal '19, including a 16–0 March' gives away the answer to 2027-01-06 Q1 (nba-spurs14-march-wins, 16 March wins). Pre-existing text, outside C/D's editing range, but it lands on a C day.",
+      "fix": {
+        "question": {
+          "reveal": "19 straight, from late February to early April."
+        }
+      }
+    },
+    {
+      "severity": "P1",
+      "day": "2027-01-19",
+      "slot": 3,
+      "id": "nba-pippen97-g3-threes",
+      "problem": "Chart order gives the answer away. The UI draws points in array order, and the other bars are sorted ascending around the hidden one: Cooper 6, ?, Allen 8, Curry 9, Klay 11. At step 1 that forces 7, the exact answer.",
+      "fix": {
+        "question": {
+          "format": {
+            "kind": "missing-point",
+            "chart": {
+              "title": "Threes in a playoff game",
+              "unit": "threes",
+              "points": [
+                {
+                  "label": "Pippen '97",
+                  "fact": "nba-pippen97-g3-threes"
+                },
+                {
+                  "label": "Thompson '16",
+                  "fact": "nba-klay16-wcf-threes"
+                },
+                {
+                  "label": "Cooper '87",
+                  "fact": "nba-cooper87-threes"
+                },
+                {
+                  "label": "Curry '18",
+                  "fact": "nba-curry18-g2-threes"
+                },
+                {
+                  "label": "Allen '10",
+                  "fact": "nba-allen10-g2-threes"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "severity": "P1",
+      "day": "2027-01-26",
+      "slot": 4,
+      "id": "nba-teague15-assists-average",
+      "problem": "Chart order gives the answer away. The bars are sorted ascending with the hidden one in place: Bibby 5, Butler 6, ?, LeBron 7.2, Lowry 8.7. That brackets 6–7.2 and the answer is 7.0. A 1.2-wide window on a 9.5-wide scale catches it.",
+      "fix": {
+        "question": {
+          "format": {
+            "kind": "missing-point",
+            "chart": {
+              "title": "Assists per game, regular season",
+              "unit": "apg",
+              "points": [
+                {
+                  "label": "Lowry '19",
+                  "fact": "nba-lowry19-regular-apg"
+                },
+                {
+                  "label": "Teague '15",
+                  "fact": "nba-teague15-assists-average"
+                },
+                {
+                  "label": "Bibby '02",
+                  "fact": "nba-bibby02-regular-apg"
+                },
+                {
+                  "label": "James '09",
+                  "fact": "nba-james09-season-apg"
+                },
+                {
+                  "label": "Butler '20",
+                  "fact": "nba-butler20-regular-apg"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "severity": "P1",
+      "day": "2027-01-27",
+      "slot": 4,
+      "id": "nba-chandler08-regular-rpg",
+      "problem": "Chart order gives the answer away. The bars are sorted ascending around the hidden one: Noah 10.4, Kemp 10.8, ?, Mutombo 12.4, Giannis 12.5. That brackets 10.8–12.4 and the answer is 11.7. Also, Mutombo's 12.4 covers only 26 post-trade games, under a 'regular season' title (P2).",
+      "fix": {
+        "question": {
+          "format": {
+            "kind": "missing-point",
+            "chart": {
+              "title": "Rebounds per game, regular season",
+              "unit": "rpg",
+              "points": [
+                {
+                  "label": "Chandler '08",
+                  "fact": "nba-chandler08-regular-rpg"
+                },
+                {
+                  "label": "Giannis '19",
+                  "fact": "nba-giannis19-regular-rpg"
+                },
+                {
+                  "label": "Noah '11",
+                  "fact": "nba-noah11-rebounds-average"
+                },
+                {
+                  "label": "Howard '09",
+                  "fact": "nba-howard09-regular-rpg"
+                },
+                {
+                  "label": "Kemp '94",
+                  "fact": "nba-kemp94-rpg"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "severity": "P1",
+      "day": "2027-01-17",
+      "slot": 4,
+      "id": "nba-nance84-season-ppg",
+      "problem": "Chart order gives the answer away. The bars are sorted descending with the hidden one in place: 31.7, 24.5, 19.5, ?, 13.5. That brackets 13.5–19.5 and the answer is 17.7. It is also nearly the same chart as 2027-01-09 Q3: three of its four points (Alcindor '71, Webber '02, Robinson '20) repeat eight days later (P2).",
+      "fix": {
+        "question": {
+          "format": {
+            "kind": "missing-point",
+            "chart": {
+              "title": "Points per game, regular season",
+              "unit": "ppg",
+              "points": [
+                {
+                  "label": "Nance '84",
+                  "fact": "nba-nance84-season-ppg"
+                },
+                {
+                  "label": "Miller '98",
+                  "fact": "nba-miller98-season-ppg"
+                },
+                {
+                  "label": "Iverson '01",
+                  "fact": "nba-iverson01-season-ppg"
+                },
+                {
+                  "label": "Robinson '20",
+                  "fact": "nba-robinson20-season-ppg"
+                },
+                {
+                  "label": "Rose '11",
+                  "fact": "nba-rose11-season-ppg"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "severity": "P1",
+      "day": "2027-01-20",
+      "slot": 2,
+      "id": "nba-westbrook12-g4",
+      "problem": "Chart order gives a strong hint. The five shown bars run strictly ascending (36, 36, 38, 41, 42) with the hidden bar last, so it reads as 'above 42'. The answer is 43.",
+      "fix": {
+        "question": {
+          "format": {
+            "kind": "missing-point",
+            "chart": {
+              "title": "Points in a Finals game",
+              "unit": "points",
+              "points": [
+                {
+                  "label": "Westbrook '12",
+                  "fact": "nba-westbrook12-g4"
+                },
+                {
+                  "label": "Barry '75",
+                  "fact": "nba-barry75-finals-g2-points"
+                },
+                {
+                  "label": "James '16",
+                  "fact": "nba-cavs16-g5-41"
+                },
+                {
+                  "label": "Williams '79",
+                  "fact": "nba-gus79-finals-g4-points"
+                },
+                {
+                  "label": "Wade '06",
+                  "fact": "nba-wade06-g3"
+                },
+                {
+                  "label": "Jordan '97",
+                  "fact": "nba-jordan97-flu-game"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "severity": "P1",
+      "day": "2027-01-23",
+      "slot": 5,
+      "id": "nba-clippers19-warriors-g2-31-comeback",
+      "problem": "Chart order gives the answer away. The bars are sorted ascending around the hidden one: 15, 16, 20, 24, ?, 36. That brackets 24–36 and the answer is 31. Putting the bars in date order removes the hint.",
+      "fix": {
+        "question": {
+          "format": {
+            "kind": "missing-point",
+            "chart": {
+              "title": "Points overcome in a comeback",
+              "unit": "points",
+              "points": [
+                {
+                  "label": "Jazz '96",
+                  "fact": "nba-jazz96-comeback"
+                },
+                {
+                  "label": "Lakers '00",
+                  "fact": "nba-lakers00-portland-g7-comeback"
+                },
+                {
+                  "label": "Celtics '08",
+                  "fact": "nba-celtics08-finals-g4-comeback-24"
+                },
+                {
+                  "label": "Mavs '11",
+                  "fact": "nba-mavs11-heat-finals-g2-comeback-fifteen"
+                },
+                {
+                  "label": "Clippers '19",
+                  "fact": "nba-clippers19-warriors-g2-31-comeback"
+                },
+                {
+                  "label": "Wolves '24",
+                  "fact": "nba-wolves24-denver-game7-comeback"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "severity": "P1",
+      "day": "2027-01-02",
+      "slot": 2,
+      "id": "nba-curry18-g2-threes",
+      "problem": "The anchor nearly gives the answer away. Allen's 8 is one below Curry's 9 on a 0–13 scale, and fans know Curry's 9 broke Allen's Finals record (the reveal says 'a Finals record'). A window of 8–10 is close to free points. Cooper's 6 (2026-11-20, a Game 2 Finals night) is still a useful anchor without giving the answer away.",
+      "fix": {
+        "question": {
+          "prompt": "Michael Cooper hit 6 threes in Game 2 of the 1987 Finals. How many did Stephen Curry make in Game 2 of the 2018 Finals?",
+          "format": {
+            "kind": "reference",
+            "references": [
+              "nba-cooper87-threes"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "severity": "P1",
+      "day": "2027-01-07",
+      "slot": 5,
+      "id": "nba-ad20-lakers-ten-straight-wcf-winner",
+      "problem": "Factual: 'to finish off Denver' says the shot ended the series. The stored quote says the 105–103 win gave a 2–0 series lead (Game 2).",
+      "fix": {
+        "question": {
+          "prompt": "LeBron scored Cleveland's final 25 points in a 2007 playoff game. How many straight points did AD score to beat Denver in 2020 Game 2?"
+        }
+      }
+    },
+    {
+      "severity": "P1",
+      "day": "2027-01-26",
+      "slot": 5,
+      "id": "nba-blazers19-nuggets-game3-four-overtimes",
+      "problem": "Two claims lack support. (a) The prompt says 'The NBA's longest game went 6 overtimes in 1951', but the support quote (Shot clock article) only says a six-overtime game was played, not that it was the longest, and the fact has no date. (b) The reveal says 'first quadruple-overtime playoff game of the shot-clock era', but the stored quote says 'first ... since 1955', and 1955 is already the shot-clock era. Either re-check the quote or match the reveal to it.",
+      "fix": {
+        "question": {
+          "prompt": "Before the shot clock, a 1950–51 game went 6 overtimes. How many overtimes did Portland and Denver play in 2019 playoff Game 3?",
+          "reveal": "Four overtimes! It was the first quadruple-overtime playoff game since 1955."
+        }
+      }
+    },
+    {
+      "severity": "P2",
+      "day": "2027-01-08",
+      "slot": 5,
+      "id": "nba-lillard14-rockets-series-winner-nine-tenths",
+      "problem": "Weak anchor. Allen's 5.2 is above the ruler's max of 5, so it only says 'less than the whole scale'. The prompt also says 'to inbound', but 0.9 s was the time on the clock, not an inbound count. Raising max to 8 puts the anchor on the ruler (answer at 11%, 80 steps) and the reworded prompt is accurate.",
+      "fix": {
+        "question": {
+          "prompt": "Ray Allen's tying three in 2013 Finals Game 6 came with 5.2 seconds left. How much time was left when Lillard caught the 2014 inbound?",
+          "max": 8
+        }
+      }
+    },
+    {
+      "severity": "P2",
+      "day": "2027-01-16",
+      "slot": 2,
+      "id": "nba-pistons50-19-18",
+      "problem": "Weak anchor. A team's 125-point season average is far off the 0–45 ruler and gives no basis for a single-game total. The 6-point quarter by Atlanta (2027-01-05 Q3) gives a per-quarter scale for a full pre-shot-clock game.",
+      "fix": {
+        "question": {
+          "prompt": "Atlanta once scored 6 in a playoff quarter. Before the shot clock, how many points did Fort Wayne score to beat Minneapolis in 1950?",
+          "format": {
+            "kind": "reference",
+            "references": [
+              "nba-hawks86-third-quarter"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "severity": "P2",
+      "day": "2027-01-14",
+      "slot": 2,
+      "id": "nba-adebayo20-regular-rpg",
+      "problem": "Repetitive across days. The day before (2027-01-13 Q3, Lucas) is also a rebounds-per-game chart sharing Barkley '93 and Rodman '96, and Rodman/Howard/Duncan also reappear from the 2027-01-02 Kemp chart. New points (Noah, Howard, Duncan; no partial-season Mutombo) cut the overlap with Jan 13 to zero.",
+      "fix": {
+        "question": {
+          "prompt": "The chart shows three other rebounding averages. What did Bam Adebayo average for the 2019–20 Heat?",
+          "format": {
+            "kind": "missing-point",
+            "chart": {
+              "title": "Rebounds per game, regular season",
+              "unit": "rpg",
+              "points": [
+                {
+                  "label": "Noah '11",
+                  "fact": "nba-noah11-rebounds-average"
+                },
+                {
+                  "label": "Howard '09",
+                  "fact": "nba-howard09-regular-rpg"
+                },
+                {
+                  "label": "Adebayo '20",
+                  "fact": "nba-adebayo20-regular-rpg"
+                },
+                {
+                  "label": "Duncan '14",
+                  "fact": "nba-duncan14-season-rpg"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "severity": "P2",
+      "day": "2027-01-02",
+      "slot": 3,
+      "id": "nba-kemp94-rpg",
+      "problem": "Comparability. Mutombo '01 (12.4) is a 26-game post-trade average, shown under 'Rebounds per game in a season'. Giannis '19 (12.5, a full season, played 2026-12-18) fits the same spot. Also, the bars ascend with the hidden one last, which falsely suggests a value above 14.9 (misleading, not a leak).",
+      "fix": {
+        "question": {
+          "format": {
+            "kind": "missing-point",
+            "chart": {
+              "title": "Rebounds per game in a season",
+              "unit": "rebounds",
+              "points": [
+                {
+                  "label": "Rodman '96",
+                  "fact": "nba-rodman96-rpg"
+                },
+                {
+                  "label": "Kemp '94",
+                  "fact": "nba-kemp94-rpg"
+                },
+                {
+                  "label": "Duncan '14",
+                  "fact": "nba-duncan14-season-rpg"
+                },
+                {
+                  "label": "Giannis '19",
+                  "fact": "nba-giannis19-regular-rpg"
+                },
+                {
+                  "label": "Howard '09",
+                  "fact": "nba-howard09-regular-rpg"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "severity": "P2",
+      "day": "2027-01-10",
+      "slot": 4,
+      "id": "nba-wilt72-finals-reb",
+      "problem": "Mild order hint. The bars ascend 20, 21, 24 with the hidden bar last, which reads as 'more than 24' (the answer is 29). Date order removes it.",
+      "fix": {
+        "question": {
+          "format": {
+            "kind": "missing-point",
+            "chart": {
+              "title": "Rebounds in a Finals game",
+              "unit": "rebounds",
+              "points": [
+                {
+                  "label": "Wilt '72",
+                  "fact": "nba-wilt72-finals-reb"
+                },
+                {
+                  "label": "Unseld '75",
+                  "fact": "nba-unseld75-finals-g2-rebounds"
+                },
+                {
+                  "label": "Shaq '00",
+                  "fact": "nba-shaq00-finals-g2-24-boards"
+                },
+                {
+                  "label": "Jokic '23",
+                  "fact": "nba-jokic23-finals-g3-rebounds"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "severity": "P2",
+      "day": "2027-01-12",
+      "slot": 2,
+      "id": "nba-howard09-g4-blocks",
+      "problem": "The chart mixes Finals games (Giannis, Duncan) with regular-season games (Wemby, Hakeem) under 'Blocks in a game'. The reveal 'Nine.' throws away the payoff now that the prompt no longer says it's a record (the quote states a Finals single-game record).",
+      "fix": {
+        "question": {
+          "reveal": "Nine, a single-game NBA Finals record.",
+          "format": {
+            "kind": "missing-point",
+            "chart": {
+              "title": "Blocks in a game (Finals and season)",
+              "unit": "blocks",
+              "points": [
+                {
+                  "label": "Howard '09",
+                  "fact": "nba-howard09-g4-blocks"
+                },
+                {
+                  "label": "Hakeem '90",
+                  "fact": "nba-hakeem90-quadruple-blocks"
+                },
+                {
+                  "label": "Giannis '21",
+                  "fact": "nba-giannis21-finals-g6-blocks"
+                },
+                {
+                  "label": "Wemby '24",
+                  "fact": "nba-wemby24-10-blocks-blazers"
+                },
+                {
+                  "label": "Duncan '03",
+                  "fact": "nba-duncan03-g6-blocks"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "severity": "P2",
+      "day": "2027-01-05",
+      "slot": 4,
+      "id": "nba-bucks71-bucks21-wins-gap-v51c",
+      "problem": "The same day already has a wins-season chart at Q2 (Lakers '00), so two win-total questions sit on one day. The 20-win gap is mostly the 72-game schedule, which the context gives away, so the judgment is thin. Also 'a 82-game' is a grammar slip.",
+      "fix": {
+        "question": {
+          "context": "Milwaukee Bucks · an 82-game season vs a 72-game season"
+        }
+      }
+    },
+    {
+      "severity": "P2",
+      "day": "2027-01-12",
+      "slot": 4,
+      "id": "nba-stoudemire05-playoff-ppg",
+      "problem": "Scope mismatch and a repeated anchor. Kobe's 32.4 is a 5-game Finals average, set against Stoudemire's 15-game full-playoff average. The same 'Kobe Bryant averaged 32.4 points in the 2009 Finals.' sentence already opens 2027-01-01 Q3. Better same-scope anchors (Kawhi 30.5, Giannis 30.2) are too close to 29.9 to use, so at least make the scope explicit.",
+      "fix": {
+        "question": {
+          "context": "Phoenix Suns · full 2005 playoffs, 15 games"
+        }
+      }
+    },
+    {
+      "severity": "P2",
+      "day": "2027-01-17",
+      "slot": 5,
+      "id": "nba-kobe10-finals-game7-twentyfive-percent",
+      "problem": "The anchor is a team's record-low FG% for a game, compared with one player's FG%. The prompt should say it's a team figure so the comparison is honest.",
+      "fix": {
+        "question": {
+          "prompt": "The 1948 Warriors shot a record-low 16.4% as a team in one game. What percent did Kobe shoot in his brutal 2010 Finals Game 7?"
+        }
+      }
+    },
+    {
+      "severity": "P2",
+      "day": "2027-01-16",
+      "slot": 4,
+      "id": "nba-mowilliams09-season-ppg",
+      "problem": "'next to Chris Paul' isn't in David West's stored quote (a Hornets team stat line). It's true, but unsupported. This is also the third Q4 in five days (Jan 12, 14, 16) built as 'X averaged N ppg. What did Y average?'",
+      "fix": {
+        "question": {
+          "prompt": "David West averaged 20.6 for the 2007–08 Hornets. What did Mo Williams average beside LeBron in his first Cavaliers season?"
+        }
+      }
+    },
+    {
+      "severity": "P2",
+      "day": "2026-12-30..2027-01-27",
+      "slot": 5,
+      "id": "(range-wide)",
+      "problem": "Arc repetition. 17 of the 29 days now end on a 'Famous X did N. How many did Y?' reference Q5 (Dec 30, 31; Jan 4, 5, 7, 8, 10, 11, 14, 15, 17, 18, 19, 20, 22, 26 among them). Some anchors are reused: Kyrie's 53 s on Jan 11 and Jan 22, Kobe's 32.4 on Jan 1 and Jan 12, Stockton's 14.5 on Dec 30 and Jan 9. Four rebound-average charts (Jan 2, 13, 14, 27) and two near-identical ppg and apg charts (Jan 9/17, Dec 30/Jan 26) repeat the same players. No single-slot patch fixes this; it needs a sequencing pass that moves some reference finales to recall or difference.",
+      "fix": null
+    }
+  ]
+}

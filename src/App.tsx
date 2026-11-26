@@ -22,6 +22,10 @@ import { Results } from './ui/Results';
 import { Round } from './ui/Round';
 import { Onboarding } from './ui/Onboarding';
 import { PracticeTimingChoice } from './ui/PracticeTimingChoice';
+import { Home } from './ui/Home';
+import { Scouting } from './ui/Scouting';
+import { Weekly, WeekGlance } from './ui/Weekly';
+import { hasFinishedOfficialRun } from './ui/use-history';
 
 // Survival is its own chunk, and is absent from the build while the flag is off.
 // (The env comparison is spelled out here so the bundler can drop the chunk.)
@@ -53,6 +57,14 @@ function useSurvivalOffer(today: string, storage: StorageLike | null): SurvivalO
     };
   }, [today, storage]);
   return offer;
+}
+
+type View = 'daily' | 'survival' | 'scouting' | 'weekly';
+/** `?survival` (existing), `?scouting` and `?weekly` open those screens; anything else is the daily game. */
+function viewFromSearch(search: string): View {
+  if (wantsSurvival(search)) return 'survival';
+  const params = new URLSearchParams(search);
+  return params.has('scouting') ? 'scouting' : params.has('weekly') ? 'weekly' : 'daily';
 }
 
 function safeLocalStorage(): StorageLike | null {
@@ -142,7 +154,7 @@ export function App() {
   const storage = useMemo(() => safeLocalStorage(), []);
   const store = useMemo(() => createSaveStore(storage), [storage]);
   const untimedStore = useMemo(() => createSaveStore(storage, UNTIMED_PRACTICE_KEY), [storage]);
-  const [view, setView] = useState<'daily' | 'survival'>(() => (wantsSurvival(window.location.search) ? 'survival' : 'daily'));
+  const [view, setView] = useState<View>(() => viewFromSearch(window.location.search));
   const [survivalSource, setSurvivalSource] = useState<'cta' | 'link'>('link');
 
   const [settings, setSettings] = useState(() => store.load().settings);
@@ -263,7 +275,7 @@ export function App() {
     const navigate = () => {
       const dayNow = puzzleDay(new Date());
       setToday(dayNow);
-      setView(wantsSurvival(window.location.search) ? 'survival' : 'daily');
+      setView(viewFromSearch(window.location.search));
       openAddress(dayNow);
     };
     window.addEventListener('popstate', navigate);
@@ -321,6 +333,17 @@ export function App() {
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
+  const openView = (next: 'scouting' | 'weekly') => {
+    window.history.pushState(null, '', `/?${next}`);
+    setView(next);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+  const nav = {
+    scouting: () => openView('scouting'),
+    weekly: () => openView('weekly'),
+    howToPlay: () => setHelpOpen(true),
+  };
+
   const updateSettings = (patch: Partial<typeof settings>) => {
     store.saveSettings(patch);
     setSettings((s) => ({ ...s, ...patch }));
@@ -338,7 +361,7 @@ export function App() {
         </a>
         <div className="topbar-right">
           <span className="day-label">
-            {view === 'survival' ? 'Survival' : number}
+            {view === 'survival' ? 'Survival' : view === 'scouting' ? 'Scouting' : view === 'weekly' ? 'Weekly' : number}
           </span>
           <button
             type="button"
@@ -381,6 +404,10 @@ export function App() {
               onBackToDaily={backToToday}
             />
           </Suspense>
+        ) : view === 'scouting' ? (
+          <Scouting store={store} today={today} config={SEASON} onBack={backToToday} onWeekly={() => { track({ name: 'weekly_open', source: 'scouting' }); nav.weekly(); }} />
+        ) : view === 'weekly' ? (
+          <Weekly store={store} today={today} config={SEASON} onBack={backToToday} />
         ) : session ? (
           <Game
             key={`${session.kind}:${session.timing}:${session.day}`}
@@ -399,9 +426,10 @@ export function App() {
             storage={storage}
             onSurvival={openSurvival}
             onPrivacy={() => setPrivacyOpen(true)}
+            nav={nav}
           />
         ) : missing ? (
-          <NoPuzzle today={today} archive={archive} onPractice={openPractice} />
+          <NoPuzzle today={today} archive={archive} onPractice={openPractice} store={store} nav={nav} />
         ) : (
           <p className="loading" aria-live="polite">Loading today’s puzzle…</p>
         )}
@@ -418,6 +446,9 @@ export function App() {
     </div>
   );
 }
+
+/** Entry points to the secondary screens, and the home's "How to play" slot. */
+type Nav = { scouting: () => void; weekly: () => void; howToPlay: () => void };
 
 function PreviousDailyScore({ today, store }: { today: string; store: SaveStore }) {
   const yesterday = addDays(today, -1);
@@ -460,6 +491,7 @@ function Game(props: {
   storage: StorageLike | null;
   onSurvival: () => void;
   onPrivacy: () => void;
+  nav: Nav;
 }) {
   const { session, store, today, offer } = props;
   const daily = session.mode === 'daily';
@@ -665,18 +697,39 @@ function Game(props: {
           if (offer.arm && officialToday && (m === 'native' || m === 'clipboard')) track({ name: 'experiment', arm: offer.arm, step: 'daily-share' });
         }}
         survivalCta={offer.open && offer.cta && officialToday ? props.onSurvival : null}
+        weekly={<WeekGlance store={store} today={today} config={SEASON} onOpen={() => { track({ name: 'weekly_open', source: 'results' }); props.nav.weekly(); }} />}
+        onScouting={() => { track({ name: 'scouting_open', source: 'results' }); props.nav.scouting(); }}
       />
     );
   }
 
   if (!started && state.results.length === 0) {
-    return props.showHint && !untimedPractice ? <Onboarding onDone={() => { props.onTutorialDone(); start(); }} /> : (
+    if (props.showHint && !untimedPractice) return <Onboarding onDone={() => { props.onTutorialDone(); start(); }} />;
+    // A friend's link, practice and untimed practice go straight to their own start gate; only the
+    // player's own official daily gets the returning-player home.
+    if (playMode === 'daily' && session.kind === 'runs' && session.day === today && !session.viaLink) {
+      return (
+        <Home
+          store={store}
+          today={today}
+          config={SEASON}
+          onStart={start}
+          previous={<PreviousDailyScore today={today} store={store} />}
+          archive={props.archive}
+          onPractice={props.onPractice}
+          onScouting={() => props.nav.scouting()}
+          onWeekly={() => props.nav.weekly()}
+          onSurvival={offer.open && offer.cta ? props.onSurvival : null}
+          onHowToPlay={props.nav.howToPlay}
+        />
+      );
+    }
+    return (
       <article className="ready-card">
         <p className="context">{untimedPractice ? 'Untimed practice' : daily ? 'Daily puzzle' : 'Practice'}</p>
         <h1 ref={untimedPractice ? practiceHeading : undefined} tabIndex={untimedPractice ? -1 : undefined}>Ready for five?</h1>
         <p>{untimedPractice ? 'Take your time on all five questions.' : 'Catch five numbers in your windows. You’ll have 24 seconds per question.'}</p>
         <button type="button" className="btn btn-primary" onClick={start}>{untimedPractice ? 'Start practice' : "Start today's five"}</button>
-        {playMode === 'daily' && session.day === today && <PreviousDailyScore today={today} store={store} />}
       </article>
     );
   }
@@ -702,7 +755,7 @@ function Game(props: {
   );
 }
 
-function NoPuzzle({ today, archive, onPractice }: { today: string; archive: readonly string[]; onPractice: (day: string, timing?: PracticeTiming) => void }) {
+function NoPuzzle({ today, archive, onPractice, store, nav }: { today: string; archive: readonly string[]; onPractice: (day: string, timing?: PracticeTiming) => void; store: SaveStore; nav: Nav }) {
   const before = today < (inventoryDays[0] ?? today);
   const [timing, setTiming] = useState<PracticeTiming>('timed');
   return (
@@ -716,6 +769,12 @@ function NoPuzzle({ today, archive, onPractice }: { today: string; archive: read
             : 'Today’s game isn’t ready. Try an earlier day.'}
         </p>
       </header>
+      {hasFinishedOfficialRun(store, today, SEASON) && (
+        <p className="home-links">
+          <button type="button" className="btn-link" onClick={() => { track({ name: 'scouting_open', source: 'home' }); nav.scouting(); }}>Scouting Report</button>
+          <button type="button" className="btn-link" onClick={() => { track({ name: 'weekly_open', source: 'home' }); nav.weekly(); }}>Weekly Scoreboard</button>
+        </p>
+      )}
       {archive.length > 0 && (
         <>
           <PracticeTimingChoice timing={timing} onChange={setTiming} />

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import type { Slate } from '../content/schema';
 import { challengeUrl } from '../engine/challenge';
 import { raceHighlight, raceOutcome } from '../engine/friend-race';
@@ -21,6 +21,7 @@ import { Leaderboard } from './Leaderboard';
 import { InstallPrompt } from './InstallPrompt';
 import { PracticeTimingChoice } from './PracticeTimingChoice';
 import './results-polish.css';
+import './home.css';
 
 const CARD_STYLES = [
   { value: 'classic', label: 'Classic' },
@@ -56,6 +57,10 @@ type Props = {
   onShared?: ((method: ShareMethod) => void) | undefined;
   /** Survival is open and this player is offered it: a quiet secondary button. */
   survivalCta?: (() => void) | null | undefined;
+  /** Compact week-so-far strip (renders nothing until there is an eligible game). Official runs only. */
+  weekly?: ReactNode;
+  /** A quiet link to the Scouting Report. Official runs only. */
+  onScouting?: (() => void) | undefined;
 };
 
 /** "7:00 PM" in the player's own time zone, or null when that zone is UTC anyway. */
@@ -74,7 +79,7 @@ function friendLine(total: number, vs: number, time: number | null, vsTime: numb
   return `Tied at ${total} points. Rematch?`;
 }
 
-export function Results({ slate, label, eligible, onPrivacy, mode, playMode, untimedPractice = false, isToday, vs, vsTime, vsRounds = null, results, stats, officialHighlight, animateScorecard = false, archive, onPractice, onBackToToday, onShared, survivalCta = null }: Props) {
+export function Results({ slate, label, eligible, onPrivacy, mode, playMode, untimedPractice = false, isToday, vs, vsTime, vsRounds = null, results, stats, officialHighlight, animateScorecard = false, archive, onPractice, onBackToToday, onShared, survivalCta = null, weekly = null, onScouting }: Props) {
   const total = totalPoints(results);
   const [cardStyle, setCardStyle] = useState<CardStyle>('classic');
   const [format, setFormat] = useState<CardFormat>('square');
@@ -381,6 +386,12 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
         )}
         <PerformanceRecap attempts={attempts} checkpoints={checkpoints} total={total} />
         <ConsentChoice comparison={comparison} onPrivacy={onPrivacy} />
+        {!practice && (weekly || onScouting) && (
+          <div className="results-more">
+            {weekly}
+            {onScouting && <button type="button" className="btn-link results-more__link" onClick={onScouting}>Scouting Report: how you estimate</button>}
+          </div>
+        )}
         <p className="next-window">
           Next puzzle in <span className="tabular">{formatCountdown(msUntilNextPuzzle(now))}</span>, at 12:00 AM Eastern
           {local ? ` (${local} your time)` : ''}.

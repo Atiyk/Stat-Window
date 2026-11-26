@@ -93,6 +93,11 @@ Report small numbers as counts with an interval, not as rates: 7 of 10 is "somew
 | `/e/privacy/{scores-on,scores-off,deleted}` | a comparison choice or a deletion in the app | consent and deletion rates |
 | `/e/remind/{ics,google}` | a calendar reminder link is tapped on any results screen (each tap) | how many players try to add a daily reminder |
 | `/e/remind/open` | the page is opened from the reminder event's link (`?from=calendar`), once per browser and puzzle day (midnight-to-midnight New York time), before `/e/start/*`. The parameter is then removed from the address | opens the reminder caused |
+| `/e/scouting/open/{home,results}` | the Scouting Report was opened from the home screen or a results screen (each open; a user action) | is the report worth keeping, and where is it found |
+| `/e/weekly/open/{home,results,scouting}` | the Weekly Scoreboard was opened from that entry point | weekly engagement |
+| `/e/weekly/share/{native,clipboard,failed,cancelled}` | the weekly scorecard share button result | does the weekly card get used? |
+| `/e/practice/{expand,start}/home` | the home "Practice" disclosure was opened / a past game was started from it | practice discovery |
+(V5.1 entries carry no scores, days, answers or counts: only the fixed words in braces.)
 
 Survival and its experiment add the paths in `docs/SURVIVAL.md` ("Measurement"); they are only sent from a build with `VITE_SURVIVAL=on`, which production does not have.
 

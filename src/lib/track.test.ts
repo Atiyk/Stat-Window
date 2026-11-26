@@ -18,6 +18,10 @@ describe('eventPath', () => {
       [{ name: 'share', mode: 'daily', method: 'clipboard' }, '/e/share/daily/clipboard'],
       [{ name: 'challenge_open', kind: 'past', withScore: true }, '/e/challenge-open/past/with-score'],
       [{ name: 'challenge_open', kind: 'today', withScore: true, withRounds: true }, '/e/challenge-open/today/with-score/with-rounds'],
+      [{ name: 'scouting_open', source: 'results' }, '/e/scouting/open/results'],
+      [{ name: 'weekly_open', source: 'home' }, '/e/weekly/open/home'],
+      [{ name: 'weekly_share', method: 'native' }, '/e/weekly/share/native'],
+      [{ name: 'practice_discover', step: 'expand' }, '/e/practice/expand/home'],
     ];
     for (const [e, path] of cases) expect(eventPath(e)).toBe(path);
   });

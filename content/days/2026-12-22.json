@@ -19,7 +19,7 @@
       "min": 6,
       "max": 19,
       "step": 1,
-      "note": "11.",
+      "note": "Six with Chicago and five with the Lakers; this one was also his first Finals Game 7 as a coach.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
@@ -72,7 +72,7 @@
     {
       "id": "nba-bulls97-wins",
       "sport": "NBA",
-      "prompt": "How many games did the 1996–97 Bulls win, a year after going 72–10?",
+      "prompt": "The chart shows three elite regular seasons. How many games did the 1996–97 Bulls win, a year after going 72–10?",
       "context": "Chicago Bulls · 1996–97 · 82 games",
       "answer": 69,
       "unit": {
@@ -82,7 +82,7 @@
       "min": 50,
       "max": 82,
       "step": 1,
-      "note": "69–13, the league's best record that season.",
+      "note": "The league's best record; injuries and a last-game Pippen miss ended their chase of 70.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
@@ -119,20 +119,46 @@
           }
         }
       ],
+      "chart": {
+        "title": "Elite regular seasons, in wins",
+        "unit": "wins",
+        "points": [
+          {
+            "label": "Celtics '86",
+            "value": 67
+          },
+          {
+            "label": "Bulls '97",
+            "value": null
+          },
+          {
+            "label": "Mavs '07",
+            "value": 67
+          },
+          {
+            "label": "Heat '13",
+            "value": 66
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "wins-season",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "Chicago Bulls"
         ],
-        "supports": []
+        "supports": [
+          "nba-celtics86-wins",
+          "nba-mavs07-wins",
+          "nba-heat13-wins"
+        ]
       }
     },
     {
       "id": "nba-duncan14-season-rpg",
       "sport": "NBA",
-      "prompt": "Giannis Antetokounmpo averaged 12.5 rebounds in 2018–19. What was Tim Duncan's rebound average in the 2013–14 title season?",
+      "prompt": "Joakim Noah averaged 10.4 rebounds as Chicago's center in 2010–11. What did Tim Duncan average in the 2013–14 title season, at 37?",
       "context": "San Antonio · regular season · veteran center",
       "answer": 9.7,
       "unit": {
@@ -142,7 +168,7 @@
       "min": 3,
       "max": 22,
       "step": 0.1,
-      "note": "9.7 rebounds per game in his later career.",
+      "note": "In fewer than 30 minutes a night, on a team where no one averaged 30.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
@@ -188,7 +214,7 @@
           "San Antonio Spurs"
         ],
         "supports": [
-          "nba-giannis19-regular-rpg"
+          "nba-noah11-rebounds-average"
         ]
       }
     },
@@ -205,7 +231,7 @@
       "min": 0,
       "max": 15,
       "step": 0.1,
-      "note": "5.2 seconds.",
+      "note": "The shot forced overtime; Miami won Game 6 and then the title in Game 7.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
@@ -266,7 +292,7 @@
       "min": 0,
       "max": 35,
       "step": 1,
-      "note": "12 assists plus 29 points in the championship clincher, sealing Shai's MVP season.",
+      "note": "With 29 points, capping an MVP season with a Finals MVP.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2025_NBA_Finals",
@@ -312,16 +338,16 @@
             "value": 21
           },
           {
+            "label": "Diaw '14",
+            "value": 9
+          },
+          {
             "label": "Butler '20",
             "value": 13
           },
           {
             "label": "Tatum '22",
             "value": 13
-          },
-          {
-            "label": "Diaw '14",
-            "value": 9
           },
           {
             "label": "Shai '25",
@@ -339,9 +365,9 @@
         ],
         "supports": [
           "nba-magic84-assists",
+          "nba-diaw14-heat-g4-assists",
           "nba-butler20-g3-ast",
-          "nba-tatum22-debut-ast",
-          "nba-diaw14-heat-g4-assists"
+          "nba-tatum22-debut-ast"
         ]
       }
     }

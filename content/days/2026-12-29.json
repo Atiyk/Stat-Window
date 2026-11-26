@@ -9,7 +9,7 @@
     {
       "id": "nba-lebron18-g1",
       "sport": "NBA",
-      "prompt": "Michael Jordan scored 55 in Game 4 of the 1993 Finals. How many did LeBron James score in his 2018 Game 1 loss at Golden State?",
+      "prompt": "Elgin Baylor set the NBA Finals record with 61 points in 1962. How many did LeBron James score in his 2018 Game 1 loss at Golden State?",
       "context": "2018 NBA Finals · Game 1 · at Golden State",
       "answer": 51,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 10,
       "max": 60,
       "step": 1,
-      "note": "51.",
+      "note": "The most ever in a Finals loss, on the night J. R. Smith dribbled out the clock in a tie game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2018_NBA_Finals",
@@ -65,65 +65,66 @@
           "Cleveland Cavaliers"
         ],
         "supports": [
-          "nba-jordan93-g4-55"
+          "nba-baylor62-finals-61"
         ]
       }
     },
     {
-      "id": "nba-spurs14-international",
+      "id": "nba-horry-seven-titles-v52b",
       "sport": "NBA",
-      "prompt": "The 2013–14 Spurs opened the season with an NBA-record number of international players. How many?",
-      "context": "San Antonio Spurs · 2013–14",
-      "answer": 10,
+      "prompt": "'Big Shot Rob' Horry won titles with Houston, the Lakers and San Antonio. How many NBA championships did he win in all?",
+      "context": "Robert Horry · 16 NBA seasons · 1992–2008",
+      "answer": 7,
       "unit": {
-        "singular": "player",
-        "plural": "players"
+        "singular": "title",
+        "plural": "titles"
       },
-      "min": 5,
-      "max": 19,
+      "min": 2,
+      "max": 14,
       "step": 1,
-      "note": "Ten.",
+      "note": "Two in Houston, three with the Lakers, two with the Spurs: more than any player outside the 1950s–60s Celtics.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-        "quote": "They also entered the season with an NBA-record ten international players."
+        "url": "https://en.wikipedia.org/wiki/Robert_Horry",
+        "quote": "Horry was a member of seven NBA championship winning teams over his 16-year career"
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "French forward Boris Diaw became a key ball-mover on the championship roster.",
+          "text": "His titles came with three different franchises.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "Diaw led all players in the series in assists"
+            "url": "https://en.wikipedia.org/wiki/Robert_Horry",
+            "quote": "two with the Houston Rockets, three with the Los Angeles Lakers, and two with the San Antonio Spurs"
           }
         },
         {
-          "text": "The team's system spread minutes so widely that no Spur averaged half an hour during the regular season.",
+          "text": "No one outside the 1950s and 1960s Celtics has won more than six titles except Horry.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "no player averaging 30 minutes during the regular season"
+            "url": "https://en.wikipedia.org/wiki/Robert_Horry",
+            "quote": "He is the only non-member of the 1950s and 1960s Boston Celtics to win more than six championships."
           }
         },
         {
-          "text": "The Finals marked the return of a less punishing travel format, partly enabled by charter flights.",
+          "text": "He retired holding the record for career three-pointers in the NBA Finals, with 56.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
-            "quote": "as well as the increased use of chartered flights as opposed to commercial flights"
+            "url": "https://en.wikipedia.org/wiki/Robert_Horry",
+            "quote": "When he retired, Horry held the record for three-pointers all-time in the NBA Finals with 56."
           }
         }
       ],
       "meta": {
         "format": "recall",
-        "family": "roster",
-        "era": "2010s",
+        "family": "titles",
+        "era": "2000s",
         "subjects": [
+          "Robert Horry",
           "San Antonio Spurs"
         ],
         "supports": []
@@ -142,7 +143,7 @@
       "min": 60,
       "max": 260,
       "step": 1,
-      "note": "167 made threes, tying for the league lead.",
+      "note": "Enough to share the league lead, while also making the All-Defensive second team.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
@@ -203,7 +204,7 @@
       "min": 4,
       "max": 40,
       "step": 1,
-      "note": "14 points, before Golden State's second-half comeback.",
+      "note": "Phil Smith's 20 off the bench led the comeback, and Golden State swept the series.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
@@ -241,7 +242,7 @@
         }
       ],
       "chart": {
-        "title": "Points trailed before a comeback",
+        "title": "Deficits erased in famous comebacks",
         "unit": "points",
         "points": [
           {
@@ -253,16 +254,16 @@
             "value": 36
           },
           {
+            "label": "Spurs '99",
+            "value": 17
+          },
+          {
             "label": "Lakers '00",
             "value": 16
           },
           {
             "label": "Wolves '24",
             "value": 20
-          },
-          {
-            "label": "Spurs '99",
-            "value": 17
           }
         ]
       },
@@ -275,17 +276,17 @@
         ],
         "supports": [
           "nba-jazz96-comeback",
+          "nba-spurs99-memorial-day",
           "nba-lakers00-portland-g7-comeback",
-          "nba-wolves24-denver-game7-comeback",
-          "nba-spurs99-memorial-day"
+          "nba-wolves24-denver-game7-comeback"
         ]
       }
     },
     {
       "id": "nba-tatum22-bucks-g6-46",
       "sport": "NBA",
-      "prompt": "Facing elimination at Milwaukee in 2022, Jayson Tatum forced a Game 7. How many points did he score?",
-      "context": "Benchmark: Jimmy Butler scored 56 against Milwaukee in 2023",
+      "prompt": "The chart shows three other star playoff nights against Milwaukee. Facing elimination there in 2022, how many did Jayson Tatum score?",
+      "context": "Jayson Tatum · Celtics at Bucks · 2022 East semifinals · Game 6",
       "answer": 46,
       "unit": {
         "singular": "point",
@@ -294,7 +295,7 @@
       "min": 10,
       "max": 120,
       "step": 1,
-      "note": "46 points, plus nine boards, to force Game 7 and keep Boston alive.",
+      "note": "With nine rebounds in a 108–95 win; Boston won Game 7 and reached the Finals.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
@@ -331,8 +332,30 @@
           }
         }
       ],
+      "chart": {
+        "title": "Star playoff nights against Milwaukee",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Durant '21",
+            "value": 49
+          },
+          {
+            "label": "Trae '21",
+            "value": 48
+          },
+          {
+            "label": "Tatum '22",
+            "value": null
+          },
+          {
+            "label": "Butler '23",
+            "value": 56
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "points-game",
         "era": "2020s",
         "subjects": [
@@ -340,6 +363,8 @@
           "Boston Celtics"
         ],
         "supports": [
+          "nba-durant21-nets-bucks-g5-49",
+          "nba-trae21-bucks-g1-48",
           "nba-butler23-56-bucks-upset"
         ]
       }

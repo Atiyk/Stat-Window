@@ -19,7 +19,7 @@
       "min": 5,
       "max": 22,
       "step": 1,
-      "note": "17 January wins without a defeat.",
+      "note": "17–0: Atlanta entered January at 23–8 and left it at 40–8, on the way to 60 wins.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
@@ -69,7 +69,7 @@
     {
       "id": "nba-adebayo20-regular-rpg",
       "sport": "NBA",
-      "prompt": "The chart shows three other rebounding averages. What did Bam Adebayo average for the 2019–20 Heat?",
+      "prompt": "The chart shows three other modern big men's rebounding. What did Bam Adebayo average for the 2019–20 Heat?",
       "context": "Miami · 2019–20 regular season",
       "answer": 10.2,
       "unit": {
@@ -79,7 +79,7 @@
       "min": 5,
       "max": 23,
       "step": 0.1,
-      "note": "10.2 rebounds a game while anchoring the paint.",
+      "note": "10.2 in his breakout season, plus 368 assists: Bam's passing is what set him apart from the bigs beside him.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
@@ -121,20 +121,20 @@
         "unit": "rpg",
         "points": [
           {
-            "label": "Noah '11",
-            "value": 10.4
-          },
-          {
             "label": "Howard '09",
             "value": 13.8
           },
           {
-            "label": "Adebayo '20",
-            "value": null
+            "label": "Noah '11",
+            "value": 10.4
           },
           {
             "label": "Duncan '14",
             "value": 9.7
+          },
+          {
+            "label": "Adebayo '20",
+            "value": null
           }
         ]
       },
@@ -147,8 +147,8 @@
           "Miami Heat"
         ],
         "supports": [
-          "nba-noah11-rebounds-average",
           "nba-howard09-regular-rpg",
+          "nba-noah11-rebounds-average",
           "nba-duncan14-season-rpg"
         ]
       }
@@ -166,7 +166,7 @@
       "min": 16,
       "max": 28,
       "step": 1,
-      "note": "26, then a record for a champion.",
+      "note": "26: seven games each against Atlanta and Cleveland, then six apiece to beat Detroit and the Lakers.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
@@ -214,11 +214,11 @@
       }
     },
     {
-      "id": "nba-parker14-season-ppg",
+      "id": "nba-kawhi14-finals-ppg-v52d",
       "sport": "NBA",
-      "prompt": "Derrick Rose averaged 25.0 points as the 2011 MVP. What did Tony Parker average for the 2013–14 champion Spurs?",
-      "context": "San Antonio · balanced championship attack",
-      "answer": 16.7,
+      "prompt": "Chauncey Billups averaged 21.0 as the 2004 Finals MVP of a starless Pistons team. What did 2014 Finals MVP Kawhi Leonard average?",
+      "context": "San Antonio Spurs vs Miami Heat · 2014 NBA Finals",
+      "answer": 17.8,
       "unit": {
         "singular": "point per game",
         "plural": "points per game"
@@ -226,61 +226,61 @@
       "min": 8,
       "max": 37,
       "step": 0.1,
-      "note": "16.7 points per game as part of a deep team.",
+      "note": "17.8 on 61.2% shooting; at 22 he was the third-youngest Finals MVP, and all four Spurs wins came by 15-plus.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-        "quote": "Tony Parker | PG | 68 | 68 | 1,997 | 155 | 388 | 36 | 9 | 1,134 | 29.4 | 2.3 | 5.7 | .5 | .1 | 16.7"
+        "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+        "quote": "Overall, he averaged 17.8 points on 61.2 percent shooting in the series"
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Parker played nearly two thousand minutes across sixty-eight appearances.",
+          "text": "Kawhi was 22 years and 351 days old, the third-youngest Finals MVP.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "Tony Parker | PG | 68 | 68 | 1,997"
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "Leonard was the third-youngest recipient of the award (22 years and 351 days old) since its inception in 1969"
           }
         },
         {
-          "text": "He dished out 388 assists in the regular season.",
+          "text": "He scored a career-high 29 in Game 3 to give San Antonio a 2–1 lead.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "Tony Parker | PG | 68 | 68 | 1,997 | 155 | 388"
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "The Spurs took a 2–1 lead in the series after a career-high 29 points from Leonard"
           }
         },
         {
-          "text": "Parker's passing average stood at 5.7 assists per game.",
+          "text": "San Antonio won each of its four games against Miami by at least 15 points.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
-            "quote": "Tony Parker | PG | 68 | 68 | 1,997 | 155 | 388 | 36 | 9 | 1,134 | 29.4 | 2.3 | 5.7"
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "They defeated Miami by margins of at least 15 points in each of their four wins"
           }
         }
       ],
       "meta": {
         "format": "reference",
         "family": "scoring-average",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
-          "Tony Parker",
+          "Kawhi Leonard",
           "San Antonio Spurs"
         ],
         "supports": [
-          "nba-rose11-season-ppg"
+          "nba-billups04-finals-ppg"
         ]
       }
     },
     {
       "id": "nba-pacers24-msg-game7-671-shooting",
       "sport": "NBA",
-      "prompt": "What percent of its shots did Indiana make over the full Game 7 at Madison Square Garden in May 2024?",
-      "context": "Benchmark: the 2014 Spurs shot a Finals-record 75.8% in one first half",
+      "prompt": "The 2014 Spurs shot a Finals-record 75.8% in one half. What percent did Indiana shoot over the full 2024 Game 7 at Madison Square Garden?",
+      "context": "Pacers at Knicks · 2024 East semifinals · Game 7",
       "answer": 67.1,
       "unit": {
         "singular": "percent",
@@ -289,7 +289,7 @@
       "min": 45,
       "max": 80,
       "step": 0.1,
-      "note": "67.1% from the field in a road Game 7, an NBA playoff record.",
+      "note": "67.1%, a playoff record; Indiana made 29 of its 38 first-half shots after trailing the series 0–2.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",

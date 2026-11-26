@@ -9,7 +9,7 @@
     {
       "id": "nba-cavs09-record-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did LeBron's 2008–09 Cavaliers win?",
+      "prompt": "The chart shows the NBA's best record in each of the three prior seasons. How many games did LeBron's 2008–09 Cavaliers win?",
       "context": "Cleveland Cavaliers · 2008–09 · 82 games",
       "answer": 66,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 42,
       "max": 82,
       "step": 1,
-      "note": "66 victories, the best record in the NBA that season.",
+      "note": "66, a franchise record and the league's best, before Orlando upset Cleveland in the East finals.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
@@ -56,20 +56,46 @@
           }
         }
       ],
+      "chart": {
+        "title": "NBA's best record, 2006 to 2009",
+        "unit": "wins",
+        "points": [
+          {
+            "label": "Pistons '06",
+            "value": 64
+          },
+          {
+            "label": "Mavs '07",
+            "value": 67
+          },
+          {
+            "label": "Celtics '08",
+            "value": 66
+          },
+          {
+            "label": "Cavs '09",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "wins-season",
         "era": "2000s",
         "subjects": [
           "Cleveland Cavaliers"
         ],
-        "supports": []
+        "supports": [
+          "nba-pistons06-wins",
+          "nba-mavs07-wins",
+          "nba-celtics08-wins"
+        ]
       }
     },
     {
       "id": "nba-detroit04-winter-streak",
       "sport": "NBA",
-      "prompt": "The chart shows three other teams' regular-season winning streaks. How long was the 2003–04 Pistons' streak across December and January?",
+      "prompt": "The chart shows three other champions' regular-season winning streaks. How long was the 2003–04 Pistons' streak across December and January?",
       "context": "Detroit Pistons · 2003–04 · regular season",
       "answer": 13,
       "unit": {
@@ -79,7 +105,7 @@
       "min": 4,
       "max": 24,
       "step": 1,
-      "note": "13 straight, in Larry Brown's first season in Detroit.",
+      "note": "13 straight in Larry Brown's first season. Detroit went on to beat the Lakers in five for the title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
@@ -117,7 +143,7 @@
         }
       ],
       "chart": {
-        "title": "Regular-season winning streaks",
+        "title": "Champions' regular-season win streaks",
         "unit": "games",
         "points": [
           {
@@ -129,12 +155,12 @@
             "value": 15
           },
           {
-            "label": "Spurs '14",
-            "value": 19
-          },
-          {
             "label": "Pistons '04",
             "value": null
+          },
+          {
+            "label": "Spurs '14",
+            "value": 19
           }
         ]
       },
@@ -155,8 +181,8 @@
     {
       "id": "nba-holiday21-playoffs-apg",
       "sport": "NBA",
-      "prompt": "Jamal Murray averaged 10.0 assists in the 2023 Finals. How many assists per game did Jrue Holiday average in the 2021 playoffs?",
-      "context": "Bucks · full postseason · title run",
+      "prompt": "Avery Johnson averaged 7.2 assists for the champion Spurs in the 1999 Finals. What did Jrue Holiday average in Milwaukee's 2021 playoffs?",
+      "context": "Milwaukee Bucks · 23 playoff games · 2021 title run",
       "answer": 8.7,
       "unit": {
         "singular": "assist per game",
@@ -165,7 +191,7 @@
       "min": 3,
       "max": 17,
       "step": 0.1,
-      "note": "8.7 assists a game from Milwaukee's two-way guard.",
+      "note": "8.7 a game over 23 starts, plus the late steal on Devin Booker that swung Finals Game 5.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
@@ -205,13 +231,13 @@
       "meta": {
         "format": "reference",
         "family": "assists-average",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Jrue Holiday",
           "Milwaukee Bucks"
         ],
         "supports": [
-          "nba-murray23-finals-apg"
+          "nba-avery99-finals-apg"
         ]
       }
     },
@@ -228,7 +254,7 @@
       "min": 14,
       "max": 69,
       "step": 1,
-      "note": "33 points from Sikma to put Seattle into the Finals.",
+      "note": "33 in a 114–110 win. Seattle then beat Washington in the Finals for its only NBA title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
@@ -291,7 +317,7 @@
       "min": 5,
       "max": 85,
       "step": 1,
-      "note": "31 rebounds, matching his 31 points in one of the NBA's rare 30–30 games.",
+      "note": "31, with 31 points: the NBA's first 30–30 game since Moses Malone in 1982.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Kevin_Love",
@@ -320,7 +346,7 @@
           }
         },
         {
-          "text": "He did it against New York.",
+          "text": "It came at home against the Knicks on November 12, 2010.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Kevin_Love",

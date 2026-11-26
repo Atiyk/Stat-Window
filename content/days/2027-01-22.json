@@ -9,7 +9,7 @@
     {
       "id": "nba-curry23-game7-fifty",
       "sport": "NBA",
-      "prompt": "In his Game 7 showdown with Sacramento in 2023, how many points did Stephen Curry score?",
+      "prompt": "The chart shows four other Game 7 scoring nights. How many points did Stephen Curry score at Sacramento in Game 7 in 2023?",
       "context": "Stephen Curry · Warriors at Kings · April 2023",
       "answer": 50,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 10,
       "max": 80,
       "step": 1,
-      "note": "50 points, the first ever in a playoff Game 7.",
+      "note": "50, the first 50-point game ever in a Game 7; Golden State won 120–100.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
@@ -56,15 +56,46 @@
           }
         }
       ],
+      "chart": {
+        "title": "Points in a playoff Game 7",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Sikma '79",
+            "value": 33
+          },
+          {
+            "label": "LeBron '13",
+            "value": 37
+          },
+          {
+            "label": "Green '16",
+            "value": 32
+          },
+          {
+            "label": "Kawhi '19",
+            "value": 41
+          },
+          {
+            "label": "Curry '23",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Stephen Curry",
           "Golden State Warriors"
         ],
-        "supports": []
+        "supports": [
+          "nba-sikma79-suns-g7-points",
+          "nba-lebron13-g7",
+          "nba-green16-g7",
+          "nba-kawhi19-philly-game7-41"
+        ]
       }
     },
     {
@@ -80,7 +111,7 @@
       "min": 7,
       "max": 23,
       "step": 0.1,
-      "note": "18.7 a game.",
+      "note": "18.7, the first of seven straight rebounding titles and almost four more a night than his Bulls figure.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
@@ -143,7 +174,7 @@
       "min": 0,
       "max": 28,
       "step": 1,
-      "note": "21–0, the longest in modern Finals history.",
+      "note": "21–0, after Boston opened the game 14–2; Golden State forced 12 first-half turnovers.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
@@ -242,7 +273,7 @@
         }
       ],
       "meta": {
-        "format": "difference",
+        "format": "recall",
         "family": "wins-season",
         "era": "1970s",
         "subjects": [

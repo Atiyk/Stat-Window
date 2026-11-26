@@ -9,7 +9,7 @@
     {
       "id": "nba-kobe-81",
       "sport": "NBA",
-      "prompt": "The chart shows three famous scoring nights. How many points did Kobe Bryant score against Toronto in January 2006?",
+      "prompt": "Bars: three single-game scoring records set before. How many points did Kobe Bryant score against Toronto in January 2006?",
       "context": "Lakers vs Toronto Raptors · January 22, 2006",
       "answer": 81,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 40,
       "max": 110,
       "step": 1,
-      "note": "81, his career high.",
+      "note": "81, second only to Wilt's 100, in a game the Lakers trailed by 14 at halftime.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
@@ -106,7 +106,7 @@
       "min": 3,
       "max": 28,
       "step": 1,
-      "note": "Ten straight wins to start the campaign.",
+      "note": "Ten. Seattle reached 26–3 and finished with the NBA's best record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
@@ -219,17 +219,17 @@
     {
       "id": "nba-bibby02-regular-apg",
       "sport": "NBA",
-      "prompt": "Kyle Lowry averaged 8.7 assists for the 2018–19 champion Raptors. How many did Kings point guard Mike Bibby average in 2001–02?",
+      "prompt": "Bars: other contenders' lead playmakers. How many assists per game did Kings point guard Mike Bibby average in 2001–02?",
       "context": "Sacramento Kings · 2001–02 regular season",
       "answer": 5,
       "unit": {
         "singular": "assist per game",
         "plural": "assists per game"
       },
-      "min": 2,
-      "max": 10,
+      "min": 1,
+      "max": 17,
       "step": 0.1,
-      "note": "5.0 assists per game as Sacramento's new point guard.",
+      "note": "5.0, barely above Chris Webber's 4.8: Sacramento's offense ran through its passing big men.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
@@ -266,8 +266,30 @@
           }
         }
       ],
+      "chart": {
+        "title": "Assists per game: playmakers on contenders",
+        "unit": "assists per game",
+        "points": [
+          {
+            "label": "Stockton '90",
+            "value": 14.5
+          },
+          {
+            "label": "Bibby '02",
+            "value": null
+          },
+          {
+            "label": "Türkoğlu '09",
+            "value": 4.9
+          },
+          {
+            "label": "Lowry '19",
+            "value": 8.7
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "assists-average",
         "era": "cross-era",
         "subjects": [
@@ -275,6 +297,8 @@
           "Sacramento Kings"
         ],
         "supports": [
+          "nba-stockton90-apg",
+          "nba-turkoglu09-regular-apg",
           "nba-lowry19-regular-apg"
         ]
       }

@@ -9,7 +9,7 @@
     {
       "id": "nba-lakers72-streak",
       "sport": "NBA",
-      "prompt": "The 1971–72 Lakers set the NBA record for consecutive wins. How long was the streak?",
+      "prompt": "Kareem's 1970–71 Bucks won 20 straight, then the NBA's longest streak. A season later, how long was the Lakers' record run?",
       "context": "Los Angeles Lakers · 1971–72",
       "answer": 33,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 6,
       "max": 48,
       "step": 1,
-      "note": "33 in a row, an NBA record.",
+      "note": "33 in a row, from November into January, on the way to a 69–13 season and the title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
@@ -57,19 +57,21 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "win-streak",
         "era": "1970s",
         "subjects": [
           "Los Angeles Lakers"
         ],
-        "supports": []
+        "supports": [
+          "nba-bucks71-streak"
+        ]
       }
     },
     {
       "id": "nba-booker17-70",
       "sport": "NBA",
-      "prompt": "The chart shows three other big scoring nights. Devin Booker, at 20, became the youngest to score 60 or more. How many points did he score?",
+      "prompt": "The chart shows three other 60-point games. At 20, Devin Booker became the youngest to score 60 or more. How many did he score?",
       "context": "Phoenix Suns · 2016–17",
       "answer": 70,
       "unit": {
@@ -79,7 +81,7 @@
       "min": 25,
       "max": 90,
       "step": 1,
-      "note": "70.",
+      "note": "70, in a loss at Boston. Kobe's 60 in his 2016 finale made him the oldest to reach 60.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_scoring_leaders",
@@ -117,7 +119,7 @@
         }
       ],
       "chart": {
-        "title": "Points in one game",
+        "title": "60-point games, 2006 to 2017",
         "unit": "points",
         "points": [
           {
@@ -125,12 +127,12 @@
             "value": 81
           },
           {
-            "label": "Curry '21",
+            "label": "Melo '14",
             "value": 62
           },
           {
-            "label": "Harden '19",
-            "value": 61
+            "label": "Kobe '16",
+            "value": 60
           },
           {
             "label": "Booker '17",
@@ -148,15 +150,15 @@
         ],
         "supports": [
           "nba-kobe-81",
-          "nba-curry21-blazers-62",
-          "nba-harden19-msg-61"
+          "nba-melo14-knicks-msg-62",
+          "nba-kobe16-final-game"
         ]
       }
     },
     {
       "id": "nba-rodman92-34",
       "sport": "NBA",
-      "prompt": "Kevin Love grabbed 31 rebounds in his 2010 30–30 game. What was Dennis Rodman's career high, set in March 1992?",
+      "prompt": "The chart shows three other monster rebounding games. What was Dennis Rodman's career high, set in March 1992?",
       "context": "Detroit Pistons · 1991–92",
       "answer": 34,
       "unit": {
@@ -166,7 +168,7 @@
       "min": 22,
       "max": 54,
       "step": 1,
-      "note": "34.",
+      "note": "34, in the season that began his run of seven straight rebounding titles.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
@@ -203,8 +205,30 @@
           }
         }
       ],
+      "chart": {
+        "title": "Monster rebounding games",
+        "unit": "rebounds",
+        "points": [
+          {
+            "label": "Unseld '75",
+            "value": 20
+          },
+          {
+            "label": "Rodman '92",
+            "value": null
+          },
+          {
+            "label": "Shaq '00",
+            "value": 24
+          },
+          {
+            "label": "Love '10",
+            "value": 31
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "rebounds-game",
         "era": "cross-era",
         "subjects": [
@@ -212,6 +236,8 @@
           "Detroit Pistons"
         ],
         "supports": [
+          "nba-unseld75-finals-g2-rebounds",
+          "nba-shaq00-finals-g2-24-boards",
           "nba-love10-knicks-thirty-one-boards"
         ]
       }
@@ -219,7 +245,7 @@
     {
       "id": "nba-stockton91-28",
       "sport": "NBA",
-      "prompt": "Scott Skiles had 30 assists in December 1990. How many did John Stockton have in his career-high game on January 15, 1991?",
+      "prompt": "Magic Johnson set the Finals record with 21 assists in 1984. How many did John Stockton have in his career-high game on January 15, 1991?",
       "context": "Utah Jazz vs San Antonio Spurs · 1990–91",
       "answer": 28,
       "unit": {
@@ -229,7 +255,7 @@
       "min": 16,
       "max": 48,
       "step": 1,
-      "note": "28, with 20 points.",
+      "note": "28, with 20 points against San Antonio, weeks after Scott Skiles set the record of 30.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/John_Stockton",
@@ -269,13 +295,13 @@
       "meta": {
         "format": "reference",
         "family": "assists-game",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "John Stockton",
           "Utah Jazz"
         ],
         "supports": [
-          "nba-skiles90-30"
+          "nba-magic84-assists"
         ]
       }
     },

@@ -9,7 +9,7 @@
     {
       "id": "nba-paul08-regular-apg",
       "sport": "NBA",
-      "prompt": "How many assists per game did Chris Paul average for New Orleans in 2008?",
+      "prompt": "How many assists per game did Chris Paul average for New Orleans in 2007–08?",
       "context": "Hornets · 2007–08 regular season",
       "answer": 11.6,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 5,
       "max": 22,
       "step": 0.1,
-      "note": "11.6 assists per game from the young star.",
+      "note": "11.6 a game, plus 2.71 steals, as New Orleans won 56 games.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
@@ -80,7 +80,7 @@
       "min": 24,
       "max": 54,
       "step": 0.1,
-      "note": "34.7 points per game.",
+      "note": "34.7 a game, as Miami came back from 0–2 down to win the franchise's first title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
@@ -143,7 +143,7 @@
       "min": 30,
       "max": 80,
       "step": 1,
-      "note": "51.",
+      "note": "51, sparing Golden State a sweep; it was the only game the 1987 Lakers lost in the West.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
@@ -204,7 +204,7 @@
       "min": 14,
       "max": 56,
       "step": 1,
-      "note": "41.",
+      "note": "41 in the third quarter, as Portland squared the series 2–2 on its way to the title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
@@ -256,7 +256,7 @@
     {
       "id": "nba-clippers19-warriors-g2-31-comeback",
       "sport": "NBA",
-      "prompt": "The chart shows five big comebacks. When the Clippers stunned the Warriors in 2019 playoff Game 2, how far behind had L.A. fallen?",
+      "prompt": "The chart shows four other playoff comebacks. When the Clippers stunned the Warriors in 2019 Game 2, how far behind had they fallen?",
       "context": "Los Angeles Clippers at Warriors · 2019 first round",
       "answer": 31,
       "unit": {
@@ -266,7 +266,7 @@
       "min": 0,
       "max": 75,
       "step": 1,
-      "note": "31 points down! The Clippers stole a comeback win in Golden State's own arena.",
+      "note": "31 points: down 94–63 in the third quarter, L.A. outscored the champions 72–37 the rest of the way.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
@@ -304,13 +304,9 @@
         }
       ],
       "chart": {
-        "title": "Points overcome in a comeback",
+        "title": "Points overcome, playoff comebacks",
         "unit": "points",
         "points": [
-          {
-            "label": "Jazz '96",
-            "value": 36
-          },
           {
             "label": "Lakers '00",
             "value": 16
@@ -341,7 +337,6 @@
           "Los Angeles Clippers"
         ],
         "supports": [
-          "nba-jazz96-comeback",
           "nba-lakers00-portland-g7-comeback",
           "nba-celtics08-finals-g4-comeback-24",
           "nba-mavs11-heat-finals-g2-comeback-fifteen",

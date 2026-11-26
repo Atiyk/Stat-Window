@@ -71,7 +71,7 @@
     {
       "id": "nba-howard09-g4-blocks",
       "sport": "NBA",
-      "prompt": "The chart shows four other block games. How many blocks did Dwight Howard have in Game 4 of the 2009 Finals?",
+      "prompt": "The chart shows four other big shot-blocking nights. How many blocks did Dwight Howard have in Game 4 of the 2009 Finals?",
       "context": "2009 NBA Finals · Game 4 · vs Lakers",
       "answer": 9,
       "unit": {
@@ -81,7 +81,7 @@
       "min": 5,
       "max": 20,
       "step": 1,
-      "note": "Nine, a single-game NBA Finals record.",
+      "note": "Nine, a Finals record, yet Orlando lost Game 4 to the Lakers in overtime.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
@@ -119,16 +119,20 @@
         }
       ],
       "chart": {
-        "title": "Blocks in a game (Finals and season)",
+        "title": "Big shot-blocking nights",
         "unit": "blocks",
         "points": [
           {
-            "label": "Howard '09",
-            "value": null
-          },
-          {
             "label": "Hakeem '90",
             "value": 11
+          },
+          {
+            "label": "Duncan '03",
+            "value": 8
+          },
+          {
+            "label": "Howard '09",
+            "value": null
           },
           {
             "label": "Giannis '21",
@@ -137,10 +141,6 @@
           {
             "label": "Wemby '24",
             "value": 10
-          },
-          {
-            "label": "Duncan '03",
-            "value": 8
           }
         ]
       },
@@ -154,9 +154,9 @@
         ],
         "supports": [
           "nba-hakeem90-quadruple-blocks",
+          "nba-duncan03-g6-blocks",
           "nba-giannis21-finals-g6-blocks",
-          "nba-wemby24-10-blocks-blazers",
-          "nba-duncan03-g6-blocks"
+          "nba-wemby24-10-blocks-blazers"
         ]
       }
     },
@@ -173,7 +173,7 @@
       "min": 10,
       "max": 75,
       "step": 1,
-      "note": "27th overall.",
+      "note": "27th overall. He became a two-time Defensive Player of the Year and a seven-time rebounding champion.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
@@ -224,7 +224,7 @@
     {
       "id": "nba-stoudemire05-playoff-ppg",
       "sport": "NBA",
-      "prompt": "Kobe Bryant averaged 32.4 points in the 2009 Finals. What did Amar'e Stoudemire average in the 2005 playoffs for Phoenix?",
+      "prompt": "Shaquille O'Neal averaged 38.0 points in the 2000 Finals. What did Amar'e Stoudemire average across Phoenix's 2005 playoffs?",
       "context": "Phoenix Suns · full 2005 playoffs, 15 games",
       "answer": 29.9,
       "unit": {
@@ -234,7 +234,7 @@
       "min": 19,
       "max": 47,
       "step": 0.1,
-      "note": "29.9 points per game across Phoenix's playoff run.",
+      "note": "29.9 with 10.7 rebounds, opening the Dallas series with 40 points.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
@@ -274,13 +274,13 @@
       "meta": {
         "format": "reference",
         "family": "scoring-average",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Amar'e Stoudemire",
           "Phoenix Suns"
         ],
         "supports": [
-          "nba-kobe09-finals-ppg"
+          "nba-shaq00-finals-ppg"
         ]
       }
     },

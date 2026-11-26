@@ -10,9 +10,9 @@ All gates pass: 0 errors.
 
 | Measure | Value |
 |---|---|
-| Verified facts (one question each) | 443 |
+| Verified facts (one question each) | 454 |
 | Scheduled questions | 360 |
-| Reserve questions | 83 |
+| Reserve questions | 94 |
 | Days | 72 (2026-11-17 to 2027-01-27) |
 | Themed days (not "mixed") | 6 |
 | Stat families | 81 |
@@ -32,31 +32,31 @@ All gates pass: 0 errors.
 | players | 121 |
 | seasons | 62 |
 | stat_families | 84 |
-| stat_facts | 443 |
-| question_candidates | 443 |
-| question_tags | 1315 |
+| stat_facts | 454 |
+| question_candidates | 454 |
+| question_tags | 1348 |
 | daily_themes | 72 |
 | daily_slates | 72 |
 | daily_slate_questions | 360 |
 
 Integrity: integrity_check ok, no foreign-key violations, every fact verified and sourced.
-Canonical dump sha256 (status as of 2026-11-16): `c96abf79e4e0dd38a68a2cfb04c16e21b1e47f166afe95ba527fdd7cf0a95fe9`.
+Canonical dump sha256 (status as of 2026-11-16): `b37495358c0be17c355c94a955b93aef2a51b32a787a38b2e44fdbcb8a801695`.
 
 ## Difficulty
 
 | Difficulty | All facts | Scheduled |
 |---|---|---|
 | easy | 74 | 72 |
-| medium | 89 | 72 |
-| hard | 178 | 144 |
+| medium | 95 | 72 |
+| hard | 183 | 144 |
 | expert | 102 | 72 |
 
 Mean editorial ratings by slot (interest / recognizability / estimability / surprise):
 
-- Slot 1 (easy): 4.53 / 4.40 / 3.46 / 4.36
-- Slot 2 (medium): 3.82 / 3.54 / 3.29 / 4.60
-- Slot 3 (hard): 3.82 / 3.38 / 2.82 / 4.78
-- Slot 4 (hard): 3.85 / 3.36 / 2.81 / 4.76
+- Slot 1 (easy): 4.54 / 4.40 / 3.57 / 4.35
+- Slot 2 (medium): 3.90 / 3.63 / 3.33 / 4.56
+- Slot 3 (hard): 3.83 / 3.39 / 2.85 / 4.76
+- Slot 4 (hard): 3.90 / 3.42 / 2.90 / 4.75
 - Slot 5 (expert): 4.79 / 4.63 / 3.71 / 4.96
 
 ## Range fairness
@@ -66,17 +66,17 @@ Where each answer sits on its scale (0 = min, 9 = top tenth). A flat spread mean
 | Tenth | Questions |
 |---|---|
 | 1 | 7 |
-| 2 | 41 |
-| 3 | 127 |
+| 2 | 43 |
+| 3 | 131 |
 | 4 | 70 |
 | 5 | 55 |
-| 6 | 89 |
-| 7 | 37 |
+| 6 | 93 |
+| 7 | 38 |
 | 8 | 16 |
 | 9 | 1 |
 
-Share of answers in the middle fifth: 30.0% (gate: at most 35%).
-Simulated "always centre the window" player: mean 53.01 points per question, best 90 (gate: no question above 90).
+Share of answers in the middle fifth: 29.3% (gate: at most 35%).
+Simulated "always centre the window" player: mean 52.84 points per question, best 90 (gate: no question above 90).
 Every answer sits strictly inside its scale and at least 8% away from either end; every scale has 5–400 whole steps.
 
 ## Editorial balance, by week
@@ -85,10 +85,10 @@ Every answer sits strictly inside its scale and at least 8% away from either end
 |---|---|---|---|
 | 2026-11-17 to 2026-11-23 | 25 | 7 | BOS (7) |
 | 2026-11-24 to 2026-11-30 | 21 | 8 | DEN (4) |
-| 2026-12-01 to 2026-12-07 | 21 | 5 | BOS (3) |
-| 2026-12-08 to 2026-12-14 | 19 | 8 | GSW (10) |
-| 2026-12-15 to 2026-12-21 | 21 | 6 | MIL (5) |
-| 2026-12-22 to 2026-12-28 | 17 | 7 | PHI (5) |
+| 2026-12-01 to 2026-12-07 | 21 | 7 | LAL (4) |
+| 2026-12-08 to 2026-12-14 | 17 | 8 | GSW (10) |
+| 2026-12-15 to 2026-12-21 | 21 | 7 | MIL (5) |
+| 2026-12-22 to 2026-12-28 | 18 | 7 | PHI (5) |
 | 2026-12-29 to 2027-01-04 | 19 | 8 | CLE (5) |
 | 2027-01-05 to 2027-01-11 | 22 | 7 | GSW (5) |
 | 2027-01-12 to 2027-01-18 | 22 | 8 | CLE (4) |
@@ -98,18 +98,18 @@ Every rolling 7-day window is also checked: at least 6 families, at least 3 eras
 
 ## Novelty
 
-109 players and 30 franchises appear. 16 of 72 days introduce no new player or franchise.
+105 players and 30 franchises appear. 17 of 72 days introduce no new player or franchise.
 
 ## Eras
 
 - 1940s: 1
 - 1950s: 4
-- 1960s: 27
-- 1970s: 35
-- 1980s: 33
+- 1960s: 31
+- 1970s: 36
+- 1980s: 35
 - 1990s: 65
-- 2000s: 90
-- 2010s: 117
+- 2000s: 92
+- 2010s: 119
 - 2020s: 70
 - timeless: 1
 

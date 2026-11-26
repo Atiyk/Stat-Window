@@ -19,7 +19,7 @@
       "min": 35,
       "max": 105,
       "step": 1,
-      "note": "73 points. Luka hit 25 of 33 from the field.",
+      "note": "73 on 25-of-33 shooting; Luka was only the fourth player ever to reach 72 in a game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87",
@@ -82,7 +82,7 @@
       "min": 24,
       "max": 60,
       "step": 1,
-      "note": "48–4, the best record ever at the break.",
+      "note": "48–4, the best record ever at the break; they reached 50 wins in a record 55 games.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
@@ -144,7 +144,7 @@
       "min": 34,
       "max": 72,
       "step": 1,
-      "note": "49 in the first quarter of Game 4.",
+      "note": "49 in the first quarter, and the win ended Golden State's 15–0 start to the playoffs.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2017_NBA_Finals",
@@ -194,7 +194,7 @@
     {
       "id": "nba-nance84-season-ppg",
       "sport": "NBA",
-      "prompt": "The chart shows four other scorers' averages. How many points per game did Larry Nance average for the 1983–84 Suns?",
+      "prompt": "The chart shows two later power forwards' scoring. What did high-flying Larry Nance average for the 1983–84 Suns?",
       "context": "Phoenix · first Slam Dunk champion · season scoring",
       "answer": 17.7,
       "unit": {
@@ -204,7 +204,7 @@
       "min": 9,
       "max": 33,
       "step": 0.1,
-      "note": "17.7 points per game from the athletic forward.",
+      "note": "17.7 on 57.6% shooting with 2.1 blocks a game, starting all 82.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
@@ -242,7 +242,7 @@
         }
       ],
       "chart": {
-        "title": "Points per game, regular season",
+        "title": "Power forwards, points per game",
         "unit": "ppg",
         "points": [
           {
@@ -250,20 +250,12 @@
             "value": null
           },
           {
-            "label": "Miller '98",
-            "value": 19.5
+            "label": "Webber '02",
+            "value": 24.5
           },
           {
-            "label": "Iverson '01",
-            "value": 31.1
-          },
-          {
-            "label": "Robinson '20",
-            "value": 13.5
-          },
-          {
-            "label": "Rose '11",
-            "value": 25
+            "label": "West '08",
+            "value": 20.6
           }
         ]
       },
@@ -276,10 +268,8 @@
           "Phoenix Suns"
         ],
         "supports": [
-          "nba-miller98-season-ppg",
-          "nba-iverson01-season-ppg",
-          "nba-robinson20-season-ppg",
-          "nba-rose11-season-ppg"
+          "nba-webber02-season-ppg",
+          "nba-west08-season-ppg"
         ]
       }
     },

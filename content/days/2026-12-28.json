@@ -9,7 +9,7 @@
     {
       "id": "nba-cavs16-g5-41",
       "sport": "NBA",
-      "prompt": "In Game 5 of the 2016 Finals, LeBron James and Kyrie Irving each scored how many points?",
+      "prompt": "The chart shows three other defining LeBron playoff nights. In 2016 Finals Game 5, LeBron and Kyrie Irving each scored how many?",
       "context": "2016 NBA Finals · Game 5 · at Golden State",
       "answer": 41,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 25,
       "max": 75,
       "step": 1,
-      "note": "41 apiece, the first teammates to both reach 40 in a Finals game.",
+      "note": "The first teammates to both score 40 in a Finals game, with Cleveland facing elimination.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
@@ -56,21 +56,47 @@
           }
         }
       ],
+      "chart": {
+        "title": "LeBron's defining playoff nights",
+        "unit": "points",
+        "points": [
+          {
+            "label": "LeBron '11",
+            "value": 8
+          },
+          {
+            "label": "LeBron '12",
+            "value": 45
+          },
+          {
+            "label": "LeBron '13",
+            "value": 37
+          },
+          {
+            "label": "LeBron '16",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
         "era": "2010s",
         "subjects": [
           "LeBron James",
           "Cleveland Cavaliers"
         ],
-        "supports": []
+        "supports": [
+          "nba-lebron11-finals-g4-eight",
+          "nba-lebron12-boston-g6-45",
+          "nba-lebron13-g7"
+        ]
       }
     },
     {
       "id": "nba-alcindor71-ppg",
       "sport": "NBA",
-      "prompt": "Wilt Chamberlain averaged a record 50.4 points in 1961–62. What was Lew Alcindor's average when he led the NBA in scoring in 1970–71?",
+      "prompt": "In only his second NBA season, 1970–71, Lew Alcindor led the league in scoring. What was his average?",
       "context": "Milwaukee Bucks · 1970–71",
       "answer": 31.7,
       "unit": {
@@ -80,7 +106,7 @@
       "min": 24,
       "max": 55,
       "step": 0.1,
-      "note": "31.7 points per game.",
+      "note": "He also won MVP and Finals MVP as the third-year Bucks won the title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
@@ -118,16 +144,14 @@
         }
       ],
       "meta": {
-        "format": "reference",
+        "format": "recall",
         "family": "scoring-average",
-        "era": "cross-era",
+        "era": "1970s",
         "subjects": [
           "Kareem Abdul-Jabbar",
           "Milwaukee Bucks"
         ],
-        "supports": [
-          "nba-wilt62-ppg"
-        ]
+        "supports": []
       }
     },
     {
@@ -143,7 +167,7 @@
       "min": 55,
       "max": 100,
       "step": 0.2,
-      "note": "75.8%, a Finals record for a half.",
+      "note": "A Finals record for a half, with Kawhi Leonard making his first six shots.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
@@ -195,7 +219,7 @@
     {
       "id": "nba-sixers83-turnaround-v5",
       "sport": "NBA",
-      "prompt": "How many more regular-season games did the 1982–83 76ers win than the 1972–73 76ers?",
+      "prompt": "The 1972–73 76ers won just 9 games. How many more regular-season games did the 1982–83 76ers win?",
       "context": "Philadelphia 76ers · ten seasons apart",
       "answer": 56,
       "unit": {
@@ -205,7 +229,7 @@
       "min": 20,
       "max": 80,
       "step": 1,
-      "note": "56 more: from 9 wins to 65.",
+      "note": "From 9–73 to 65–17; Moses Malone's champions then went 12–1 in the playoffs.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1983_NBA_Finals",
@@ -244,22 +268,22 @@
         }
       ],
       "meta": {
-        "format": "trajectory",
+        "format": "reference",
         "family": "wins-change",
         "era": "cross-era",
         "subjects": [
           "Philadelphia 76ers"
         ],
         "supports": [
-          "nba-sixers83-wins",
-          "nba-sixers73-wins"
+          "nba-sixers73-wins",
+          "nba-sixers83-wins"
         ]
       }
     },
     {
       "id": "nba-luka24-wolves-g2-32",
       "sport": "NBA",
-      "prompt": "In the 2024 West finals, Luka buried a Game 2 winner over Rudy Gobert. How many points did he score?",
+      "prompt": "The chart shows points on three other famous game-winner nights. How many did Luka Dončić score in the 2024 Game 2 he won over Rudy Gobert?",
       "context": "Luka Dončić · Mavericks at Timberwolves · 2024 playoffs",
       "answer": 32,
       "unit": {
@@ -269,7 +293,7 @@
       "min": 5,
       "max": 85,
       "step": 1,
-      "note": "32 points, a triple-double and a go-ahead three over the Defensive Player of the Year.",
+      "note": "With 13 assists, in a 109–108 win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
@@ -306,15 +330,41 @@
           }
         }
       ],
+      "chart": {
+        "title": "Points on famous game-winner nights",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Westbrook '17",
+            "value": 50
+          },
+          {
+            "label": "Kawhi '19",
+            "value": 41
+          },
+          {
+            "label": "Luka '20",
+            "value": 43
+          },
+          {
+            "label": "Luka '24",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Luka Dončić",
           "Dallas Mavericks"
         ],
-        "supports": []
+        "supports": [
+          "nba-westbrook17-50-nuggets-winner",
+          "nba-kawhi19-philly-game7-41",
+          "nba-luka20-clippers-buzzer-43"
+        ]
       }
     }
   ]

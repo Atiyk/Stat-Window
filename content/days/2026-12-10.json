@@ -19,7 +19,7 @@
       "min": 22,
       "max": 90,
       "step": 1,
-      "note": "52 wins under coach Lenny Wilkens.",
+      "note": "52–30, then Seattle beat Washington in a Finals rematch for its only championship.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
@@ -79,7 +79,7 @@
       "min": 30,
       "max": 75,
       "step": 1,
-      "note": "55 points in Game 4.",
+      "note": "55 at Chicago Stadium, putting the Bulls one win from a third straight title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
@@ -132,7 +132,7 @@
     {
       "id": "nba-bulls98-g3-margin-v5",
       "sport": "NBA",
-      "prompt": "Chicago routed Utah in Game 3 of the 1998 Finals. By how many points did the Bulls win?",
+      "prompt": "Bars: other lopsided playoff wins. By how many points did Chicago beat Utah in Game 3 of the 1998 Finals?",
       "context": "1998 NBA Finals · Game 3 · at Chicago",
       "answer": 42,
       "unit": {
@@ -142,7 +142,7 @@
       "min": 10,
       "max": 60,
       "step": 1,
-      "note": "42 points, a Finals record for margin of defeat.",
+      "note": "42, 96–54: the largest margin in NBA Finals history.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
@@ -179,14 +179,40 @@
           }
         }
       ],
+      "chart": {
+        "title": "Lopsided playoff wins",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Blazers '77",
+            "value": 32
+          },
+          {
+            "label": "Bulls '98",
+            "value": null
+          },
+          {
+            "label": "Lakers '01",
+            "value": 39
+          },
+          {
+            "label": "Nuggets '09",
+            "value": 58
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "margin",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "Chicago Bulls"
         ],
-        "supports": []
+        "supports": [
+          "nba-blazers77-g4-margin",
+          "nba-lakers01-39",
+          "nba-nuggets09-hornets-margin-v52a"
+        ]
       }
     },
     {
@@ -202,7 +228,7 @@
       "min": 20,
       "max": 85,
       "step": 1,
-      "note": "63, making 36.",
+      "note": "63 shots and 36 makes, both NBA records, plus 28 free throws.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
@@ -255,7 +281,7 @@
     {
       "id": "nba-curry13-knicks-54",
       "sport": "NBA",
-      "prompt": "The chart shows three other guard scoring nights. How many points did Steph Curry score against the Knicks at MSG in 2013?",
+      "prompt": "Bars: other guards' 50-point regular-season nights. How many points did Steph Curry score at Madison Square Garden in February 2013?",
       "context": "Stephen Curry · Warriors at Knicks · February 2013",
       "answer": 54,
       "unit": {
@@ -265,7 +291,7 @@
       "min": 5,
       "max": 75,
       "step": 1,
-      "note": "Curry scored 54 points and made 11 threes, but New York won 109–105.",
+      "note": "54 with 11 threes, a Warriors record, yet New York won 109–105.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
@@ -303,38 +329,33 @@
         }
       ],
       "chart": {
-        "title": "Guards' big scoring nights",
+        "title": "Guards' 50-point regular-season nights",
         "unit": "points",
         "points": [
           {
-            "label": "Klay '16",
-            "value": 41
-          },
-          {
-            "label": "Luka '20",
-            "value": 43
-          },
-          {
-            "label": "Harden '19",
-            "value": 61
+            "label": "Miller '92",
+            "value": 57
           },
           {
             "label": "Curry '13",
             "value": null
+          },
+          {
+            "label": "Harden '19",
+            "value": 61
           }
         ]
       },
       "meta": {
         "format": "missing-point",
         "family": "points-game",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Stephen Curry",
           "Golden State Warriors"
         ],
         "supports": [
-          "nba-klay16-okc-game6-41",
-          "nba-luka20-clippers-buzzer-43",
+          "nba-miller92-57",
           "nba-harden19-msg-61"
         ]
       }

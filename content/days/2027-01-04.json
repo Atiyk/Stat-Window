@@ -19,7 +19,7 @@
       "min": 15,
       "max": 43,
       "step": 0.1,
-      "note": "30.5 per game across Toronto's championship postseason.",
+      "note": "30.5 a game, 732 points in all, as Toronto won its first championship.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Toronto_Raptors_season",
@@ -70,7 +70,7 @@
     {
       "id": "nba-rockets18-wins",
       "sport": "NBA",
-      "prompt": "The chart shows four other strong teams of the 2010s. How many games did James Harden's 2017–18 Rockets win?",
+      "prompt": "The chart shows four other No. 1 seeds from the 2010s. How many games did James Harden's 2017–18 Rockets win?",
       "context": "Houston Rockets · 2017–18 · 82 games",
       "answer": 65,
       "unit": {
@@ -80,7 +80,7 @@
       "min": 36,
       "max": 82,
       "step": 1,
-      "note": "65, the most of any team on the chart.",
+      "note": "65, a franchise record, and Houston's first No. 1 seed in its history.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
@@ -118,7 +118,7 @@
         }
       ],
       "chart": {
-        "title": "Regular-season wins",
+        "title": "No. 1 seeds' wins, 2011 to 2019",
         "unit": "wins",
         "points": [
           {
@@ -134,12 +134,12 @@
             "value": 60
           },
           {
-            "label": "Bucks '19",
-            "value": 60
-          },
-          {
             "label": "Rockets '18",
             "value": null
+          },
+          {
+            "label": "Bucks '19",
+            "value": 60
           }
         ]
       },
@@ -171,7 +171,7 @@
       "min": 38,
       "max": 92,
       "step": 1,
-      "note": "54 straight home wins.",
+      "note": "54 straight, starting in January 2015, until Boston won at Oracle in April 2016.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
@@ -223,7 +223,7 @@
     {
       "id": "nba-offensive-rebound-reset",
       "sport": "NBA",
-      "prompt": "After an offensive rebound, what is the NBA shot clock reset to?",
+      "prompt": "The full NBA shot clock is 24 seconds. Since 2018–19, what is it reset to after an offensive rebound?",
       "context": "NBA rules · since 2018–19",
       "answer": 14,
       "unit": {
@@ -233,7 +233,7 @@
       "min": 1,
       "max": 21,
       "step": 1,
-      "note": "14 seconds.",
+      "note": "14 seconds. FIBA used the shorter offensive-rebound reset years before the NBA adopted it.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Shot_clock",
@@ -281,8 +281,8 @@
     {
       "id": "nba-celtics08-finals-g4-comeback-24",
       "sport": "NBA",
-      "prompt": "In Game 4 of the 2008 Finals, Boston trailed the Lakers by a huge margin before winning 97–91. At its largest, how big was the deficit?",
-      "context": "Benchmark: Utah once rallied from 36 down against Denver",
+      "prompt": "The chart shows three other famous playoff comebacks. In Game 4 of the 2008 Finals, how far did Boston trail before winning 97–91?",
+      "context": "Celtics at Lakers · 2008 NBA Finals · Game 4",
       "answer": 24,
       "unit": {
         "singular": "point",
@@ -291,7 +291,7 @@
       "min": 0,
       "max": 80,
       "step": 1,
-      "note": "24 points. Boston stormed back in L.A. for a 97–91 win and a 3–1 series lead.",
+      "note": "24 points: L.A. led 35–14 after one quarter. Boston went up 3–1 and won the title in six.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
@@ -328,15 +328,39 @@
           }
         }
       ],
+      "chart": {
+        "title": "Famous playoff comebacks",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Spurs '99",
+            "value": 17
+          },
+          {
+            "label": "Lakers '00",
+            "value": 16
+          },
+          {
+            "label": "Celtics '08",
+            "value": null
+          },
+          {
+            "label": "Wolves '24",
+            "value": 20
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "comeback",
         "era": "cross-era",
         "subjects": [
           "Boston Celtics"
         ],
         "supports": [
-          "nba-jazz96-comeback"
+          "nba-spurs99-memorial-day",
+          "nba-lakers00-portland-g7-comeback",
+          "nba-wolves24-denver-game7-comeback"
         ]
       }
     }

@@ -19,7 +19,7 @@
       "min": 1,
       "max": 21,
       "step": 1,
-      "note": "10 triple-doubles, an extraordinary number in one postseason.",
+      "note": "10; his eighth broke Wilt Chamberlain's 1967 record for triple-doubles in one postseason.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Nikola_Joki%C4%87",
@@ -70,7 +70,7 @@
     {
       "id": "nba-westbrook12-g4",
       "sport": "NBA",
-      "prompt": "The chart shows five Finals scoring nights. How many points did Russell Westbrook score in Game 4 of the 2012 Finals?",
+      "prompt": "The chart shows four other big Finals scoring nights. How many points did Russell Westbrook score in Game 4 of the 2012 Finals?",
       "context": "2012 NBA Finals · Game 4 · at Miami",
       "answer": 43,
       "unit": {
@@ -80,7 +80,7 @@
       "min": 25,
       "max": 75,
       "step": 1,
-      "note": "43, leading the Thunder.",
+      "note": "43 in a loss: Miami won behind Mario Chalmers's 25 and a cramping LeBron's late go-ahead basket.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
@@ -122,28 +122,24 @@
         "unit": "points",
         "points": [
           {
-            "label": "Westbrook '12",
-            "value": null
-          },
-          {
             "label": "Barry '75",
             "value": 36
           },
           {
-            "label": "James '16",
-            "value": 41
-          },
-          {
-            "label": "Williams '79",
-            "value": 36
+            "label": "Jordan '97",
+            "value": 38
           },
           {
             "label": "Wade '06",
             "value": 42
           },
           {
-            "label": "Jordan '97",
-            "value": 38
+            "label": "Westbrook '12",
+            "value": null
+          },
+          {
+            "label": "LeBron '16",
+            "value": 41
           }
         ]
       },
@@ -157,10 +153,9 @@
         ],
         "supports": [
           "nba-barry75-finals-g2-points",
-          "nba-cavs16-g5-41",
-          "nba-gus79-finals-g4-points",
+          "nba-jordan97-flu-game",
           "nba-wade06-g3",
-          "nba-jordan97-flu-game"
+          "nba-cavs16-g5-41"
         ]
       }
     },
@@ -177,7 +172,7 @@
       "min": 4,
       "max": 11,
       "step": 1,
-      "note": "Nine.",
+      "note": "Nine of 11, the latest in 2008; the Lakers won this 2010 rematch in seven games.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
@@ -227,7 +222,7 @@
     {
       "id": "nba-spurs97-wins",
       "sport": "NBA",
-      "prompt": "The 1998–99 Spurs went 37–13 in the lockout season. How many games had San Antonio won two seasons earlier, in 1996–97?",
+      "prompt": "Miami crashed to 15 wins in 2007–08. With David Robinson out most of 1996–97, how many games did San Antonio win?",
       "context": "San Antonio Spurs · 1996–97 · 82 games",
       "answer": 20,
       "unit": {
@@ -277,20 +272,20 @@
       "meta": {
         "format": "reference",
         "family": "wins-season",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "San Antonio Spurs"
         ],
         "supports": [
-          "nba-spurs99-wins"
+          "nba-heat08-wins"
         ]
       }
     },
     {
       "id": "nba-lakers01-shaq-kobe-fifteen-playoff-wins",
       "sport": "NBA",
-      "prompt": "The 2001 Lakers lost only once all postseason, to Iverson's Sixers. How many playoff games did they win?",
-      "context": "Benchmark: the 1989 Lakers won their first 11 playoff games",
+      "prompt": "The 1989 Lakers won their first 11 playoff games. The 2001 Lakers lost only once, to Iverson's Sixers. How many playoff games did they win?",
+      "context": "Los Angeles Lakers · 2001 playoffs",
       "answer": 15,
       "unit": {
         "singular": "win",
@@ -299,7 +294,7 @@
       "min": 0,
       "max": 26,
       "step": 1,
-      "note": "15 wins against one loss. The Lakers swept the West, then beat Iverson's Sixers.",
+      "note": "15–1, sweeping all three West series and going 8–0 on the road.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2001_NBA_playoffs",

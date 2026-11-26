@@ -19,7 +19,7 @@
       "min": 16,
       "max": 44,
       "step": 0.1,
-      "note": "31.1 a night, enough to lead the league and win MVP.",
+      "note": "31.1, and Iverson led the NBA in steals too, the scoring-and-steals double in his MVP year.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
@@ -68,65 +68,94 @@
       }
     },
     {
-      "id": "nba-davis84-regular-apg",
+      "id": "nba-jordan90-cavs-69-v52d",
       "sport": "NBA",
-      "prompt": "Steve Nash averaged 11.5 assists for the 2004–05 Suns. What did Phoenix scorer Walter Davis average in 1983–84?",
-      "context": "Suns · veteran scorer and creator",
-      "answer": 5.5,
+      "prompt": "The chart shows four other famous regular-season scoring nights. How many did Michael Jordan score in his 1990 career high at Cleveland?",
+      "context": "Chicago Bulls at Cleveland Cavaliers · March 28, 1990",
+      "answer": 69,
       "unit": {
-        "singular": "assist per game",
-        "plural": "assists per game"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 1,
-      "max": 13,
-      "step": 0.1,
-      "note": "5.5 assists per game from the veteran guard.",
+      "min": 25,
+      "max": 90,
+      "step": 1,
+      "note": "69 in a 117–113 road win, the most of his career, in a season he led the NBA at 33.6 a game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-        "quote": "Walter Davis | 78 | 70 | 32.6 | .512 | .230 | .863 | 2.6 | 5.5"
+        "url": "https://en.wikipedia.org/wiki/Michael_Jordan",
+        "quote": "On March 28, 1990, Jordan scored a career-high 69 points in a 117–113 road win over the Cavaliers."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Davis scored twenty points a game that year.",
+          "text": "Jordan led the league that season at 33.6 points a game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "Walter Davis | 78 | 70 | 32.6 | .512 | .230 | .863 | 2.6 | 5.5 | 1.4 | .2 | 20.0"
+            "url": "https://en.wikipedia.org/wiki/Michael_Jordan",
+            "quote": "averaged a league-leading 33.6 ppg on 52.6% shooting, to go with 6.9 rpg and 6.3 apg"
           }
         },
         {
-          "text": "He started seventy of his seventy-eight appearances.",
+          "text": "It was Phil Jackson's first season coaching the Bulls.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "Walter Davis | 78 | 70 | 32.6"
+            "url": "https://en.wikipedia.org/wiki/Michael_Jordan",
+            "quote": "under the guidance of new coach Phil Jackson"
           }
         },
         {
-          "text": "Davis hit 86.3 percent of his free throws.",
+          "text": "Chicago's season again ended against Detroit, for the third straight year.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
-            "quote": "Walter Davis | 78 | 70 | 32.6 | .512 | .230 | .863"
+            "url": "https://en.wikipedia.org/wiki/Michael_Jordan",
+            "quote": "the Bulls lost to the Pistons for the third consecutive season"
           }
         }
       ],
+      "chart": {
+        "title": "Big regular-season scoring nights",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Bird '85",
+            "value": 60
+          },
+          {
+            "label": "Jordan '90",
+            "value": null
+          },
+          {
+            "label": "Kobe '06",
+            "value": 81
+          },
+          {
+            "label": "Harden '19",
+            "value": 61
+          },
+          {
+            "label": "Curry '21",
+            "value": 62
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
-        "family": "assists-average",
+        "format": "missing-point",
+        "family": "points-game",
         "era": "cross-era",
         "subjects": [
-          "Walter Davis",
-          "Phoenix Suns"
+          "Michael Jordan",
+          "Chicago Bulls"
         ],
         "supports": [
-          "nba-nash05-regular-apg"
+          "nba-bird85-hawks-sixty",
+          "nba-kobe-81",
+          "nba-harden19-msg-61",
+          "nba-curry21-blazers-62"
         ]
       }
     },
@@ -143,7 +172,7 @@
       "min": 2,
       "max": 32,
       "step": 1,
-      "note": "25 of his 39.",
+      "note": "25 of his 39, while jawing with Spike Lee courtside; New York won the last two games and the series.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
@@ -194,7 +223,7 @@
     {
       "id": "nba-curry13-msg-scoring-share-v5",
       "sport": "NBA",
-      "prompt": "In a 109–105 loss at the Knicks in February 2013, what percent of Golden State's points did Stephen Curry score?",
+      "prompt": "LeBron once scored 46% of Cleveland's points in a playoff loss. What share of Golden State's 105 did Curry score at New York in 2013?",
       "context": "Golden State Warriors · at New York · February 27, 2013",
       "answer": 51,
       "unit": {
@@ -243,20 +272,22 @@
         }
       ],
       "meta": {
-        "format": "ratio",
+        "format": "reference",
         "family": "scoring-share",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Stephen Curry",
           "Golden State Warriors"
         ],
-        "supports": []
+        "supports": [
+          "nba-lebron09-g1-scoring-share-v5"
+        ]
       }
     },
     {
       "id": "nba-murray20-utah-g6-nine-threes",
       "sport": "NBA",
-      "prompt": "The chart shows four other playoff three-point nights. With Denver facing elimination in 2020 Game 6, how many threes did Jamal Murray hit?",
+      "prompt": "The chart shows three other playoff three-point barrages. Facing elimination in 2020 Game 6, how many threes did Jamal Murray hit?",
       "context": "Jamal Murray · Nuggets at Jazz · 2020 first-round Game 6",
       "answer": 9,
       "unit": {
@@ -266,7 +297,7 @@
       "min": 0,
       "max": 25,
       "step": 1,
-      "note": "Nine made threes on only 12 attempts! Murray scored 50 to force Game 7.",
+      "note": "9 of 12 from deep in his second 50-point game of the series, as Denver climbed out of a 3–1 hole.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
@@ -308,12 +339,12 @@
         "unit": "threes",
         "points": [
           {
-            "label": "Klay '16",
-            "value": 11
+            "label": "Battier '13",
+            "value": 6
           },
           {
-            "label": "Miller '12",
-            "value": 7
+            "label": "Klay '16",
+            "value": 11
           },
           {
             "label": "Murray '20",
@@ -322,10 +353,6 @@
           {
             "label": "Dame '21",
             "value": 12
-          },
-          {
-            "label": "Allen '10",
-            "value": 8
           }
         ]
       },
@@ -338,10 +365,9 @@
           "Denver Nuggets"
         ],
         "supports": [
+          "nba-battier13-g7-threes",
           "nba-klay16-wcf-threes",
-          "nba-miller12-g5-threes",
-          "nba-dame21-playoffs-12-threes",
-          "nba-allen10-g2-threes"
+          "nba-dame21-playoffs-12-threes"
         ]
       }
     }

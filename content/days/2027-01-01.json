@@ -19,7 +19,7 @@
       "min": 0,
       "max": 55,
       "step": 1,
-      "note": "42, passing Oscar Robertson's 41.",
+      "note": "42, one more than Oscar Robertson's 41 from 1961–62, a record that had stood for 55 years.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Oklahoma_City_Thunder_season",
@@ -70,7 +70,7 @@
     {
       "id": "nba-frazier70-g7-ast",
       "sport": "NBA",
-      "prompt": "The chart shows four other Finals assist games. Walt Frazier scored 36 in Game 7 of the 1970 Finals. How many assists did he have?",
+      "prompt": "The chart shows four other Finals assist games. Walt Frazier scored 36 in Game 7 of the 1970 Finals. How many assists did he add?",
       "context": "1970 NBA Finals · Game 7 · vs Lakers",
       "answer": 19,
       "unit": {
@@ -80,7 +80,7 @@
       "min": 12,
       "max": 38,
       "step": 1,
-      "note": "19, in a 113–99 win.",
+      "note": "19, two shy of Magic's Finals record, as the Knicks won their first title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
@@ -122,8 +122,16 @@
         "unit": "assists",
         "points": [
           {
+            "label": "Frazier '70",
+            "value": null
+          },
+          {
             "label": "Magic '84",
             "value": 21
+          },
+          {
+            "label": "Diaw '14",
+            "value": 9
           },
           {
             "label": "Tatum '22",
@@ -132,14 +140,6 @@
           {
             "label": "Shai '25",
             "value": 12
-          },
-          {
-            "label": "Diaw '14",
-            "value": 9
-          },
-          {
-            "label": "Frazier '70",
-            "value": null
           }
         ]
       },
@@ -153,16 +153,16 @@
         ],
         "supports": [
           "nba-magic84-assists",
+          "nba-diaw14-heat-g4-assists",
           "nba-tatum22-debut-ast",
-          "nba-shai25-finals-g7-12-assists",
-          "nba-diaw14-heat-g4-assists"
+          "nba-shai25-finals-g7-12-assists"
         ]
       }
     },
     {
       "id": "nba-kobe09-finals-apg-v5",
       "sport": "NBA",
-      "prompt": "Kobe Bryant averaged 32.4 points in the 2009 Finals. How many assists per game did he add?",
+      "prompt": "Jamal Murray averaged 10.0 assists running Denver in the 2023 Finals. How many did Kobe Bryant, a scoring wing, average in the 2009 Finals?",
       "context": "Los Angeles Lakers · 2009 NBA Finals vs Orlando",
       "answer": 7.4,
       "unit": {
@@ -172,7 +172,7 @@
       "min": 2,
       "max": 15,
       "step": 0.1,
-      "note": "7.4 a game, with 5.6 rebounds, on the way to Finals MVP.",
+      "note": "7.4, alongside 32.4 points a game, on the way to his first Finals MVP.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
@@ -212,13 +212,13 @@
       "meta": {
         "format": "reference",
         "family": "assists-average",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Kobe Bryant",
           "Los Angeles Lakers"
         ],
         "supports": [
-          "nba-kobe09-finals-ppg"
+          "nba-murray23-finals-apg"
         ]
       }
     },
@@ -235,7 +235,7 @@
       "min": 10,
       "max": 36,
       "step": 0.1,
-      "note": "21.0 per game for the Finals MVP, on 50.9% shooting.",
+      "note": "21.0, and Richard Hamilton actually outscored him: Detroit's balance beat Shaq and Kobe in five.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2004_NBA_Finals",
@@ -288,7 +288,7 @@
     {
       "id": "nba-rose18-emotional-fifty",
       "sport": "NBA",
-      "prompt": "After years of injuries, Derrick Rose's emotional Halloween 2018 comeback against Utah ended with how many points?",
+      "prompt": "The chart shows three other MVPs' career-high games. How many did Derrick Rose score in his emotional Halloween 2018 game against Utah?",
       "context": "Derrick Rose · Timberwolves vs Jazz · October 2018",
       "answer": 50,
       "unit": {
@@ -298,7 +298,7 @@
       "min": 10,
       "max": 110,
       "step": 1,
-      "note": "50 points. Rose blocked Utah's last attempt, then left the court in tears.",
+      "note": "50. Rose blocked Utah's last shot to seal it, then broke down in tears as his teammates mobbed him.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
@@ -335,15 +335,41 @@
           }
         }
       ],
+      "chart": {
+        "title": "Career-high games of NBA MVPs",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Rose '18",
+            "value": null
+          },
+          {
+            "label": "Harden '19",
+            "value": 61
+          },
+          {
+            "label": "Curry '21",
+            "value": 62
+          },
+          {
+            "label": "Jokić '25",
+            "value": 61
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Derrick Rose",
           "Minnesota Timberwolves"
         ],
-        "supports": []
+        "supports": [
+          "nba-harden19-msg-61",
+          "nba-curry21-blazers-62",
+          "nba-jokic25-61-point-triple-double"
+        ]
       }
     }
   ]

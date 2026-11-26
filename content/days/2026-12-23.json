@@ -9,7 +9,7 @@
     {
       "id": "nba-suns84-season-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 1983–84 Suns win?",
+      "prompt": "The chart shows wins for three other teams that made deep playoff runs. How many did the 1983–84 Suns win before reaching the West finals?",
       "context": "Phoenix · sixth seed · surprise West finalists",
       "answer": 41,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 19,
       "max": 75,
       "step": 1,
-      "note": "41 wins before their deep playoff run.",
+      "note": "A .500 team that upset Portland and Utah to reach the West finals.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
@@ -56,14 +56,40 @@
           }
         }
       ],
+      "chart": {
+        "title": "Modest records, deep playoff runs",
+        "unit": "wins",
+        "points": [
+          {
+            "label": "Warriors '75",
+            "value": 48
+          },
+          {
+            "label": "Suns '84",
+            "value": null
+          },
+          {
+            "label": "Heat '20",
+            "value": 44
+          },
+          {
+            "label": "Bucks '21",
+            "value": 46
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "wins-season",
-        "era": "1980s",
+        "era": "cross-era",
         "subjects": [
           "Phoenix Suns"
         ],
-        "supports": []
+        "supports": [
+          "nba-warriors75-season-wins",
+          "nba-heat20-regular-wins",
+          "nba-bucks21-regular-wins"
+        ]
       }
     },
     {
@@ -79,7 +105,7 @@
       "min": 0,
       "max": 26,
       "step": 1,
-      "note": "17 in a row, on his way to 31.",
+      "note": "On his way to 31 points, with Magic Johnson out injured; Dumars was named Finals MVP.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
@@ -132,7 +158,7 @@
     {
       "id": "nba-robinson99-finals-rpg",
       "sport": "NBA",
-      "prompt": "The chart shows four rebounding averages. What did David Robinson average in rebounds in the 1999 Finals?",
+      "prompt": "The chart shows rebounding averages for three other big men on Finals teams. What did David Robinson average in the 1999 Finals?",
       "context": "San Antonio Spurs · championship series",
       "answer": 11.8,
       "unit": {
@@ -142,7 +168,7 @@
       "min": 5,
       "max": 21,
       "step": 0.1,
-      "note": "11.8 rebounds a night during San Antonio's first championship.",
+      "note": "Alongside Tim Duncan in the Twin Towers' second season, for San Antonio's first title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
@@ -180,21 +206,9 @@
         }
       ],
       "chart": {
-        "title": "Rebounds per game, season or Finals",
-        "unit": "rpg",
+        "title": "Rebounds per game, Finals-team bigs",
+        "unit": "rebounds a game",
         "points": [
-          {
-            "label": "Duncan '14",
-            "value": 9.7
-          },
-          {
-            "label": "Noah '11",
-            "value": 10.4
-          },
-          {
-            "label": "Howard '09",
-            "value": 13.8
-          },
           {
             "label": "Rodman '96",
             "value": 14.9
@@ -202,6 +216,14 @@
           {
             "label": "Robinson '99",
             "value": null
+          },
+          {
+            "label": "Howard '09",
+            "value": 13.8
+          },
+          {
+            "label": "Duncan '14",
+            "value": 9.7
           }
         ]
       },
@@ -214,10 +236,9 @@
           "San Antonio Spurs"
         ],
         "supports": [
-          "nba-duncan14-season-rpg",
-          "nba-noah11-rebounds-average",
+          "nba-rodman96-rpg",
           "nba-howard09-regular-rpg",
-          "nba-rodman96-rpg"
+          "nba-duncan14-season-rpg"
         ]
       }
     },
@@ -234,7 +255,7 @@
       "min": 21,
       "max": 41,
       "step": 1,
-      "note": "33, the most ever until the 2015–16 Warriors won 34.",
+      "note": "The record until the 2015–16 Warriors won 34; Chicago lost only eight road games all season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
@@ -284,8 +305,8 @@
     {
       "id": "nba-trae21-bucks-g1-48",
       "sport": "NBA",
-      "prompt": "In his conference finals debut at Milwaukee in 2021, how many points did Trae Young score to steal Game 1?",
-      "context": "Benchmark: Baylor's NBA Finals record is 61 points",
+      "prompt": "Luka Dončić, traded for Trae Young on draft night, scored 43 in a 2020 playoff game. How many did Trae score in 2021 East finals Game 1?",
+      "context": "Trae Young · Hawks at Bucks · conference finals debut",
       "answer": 48,
       "unit": {
         "singular": "point",
@@ -294,7 +315,7 @@
       "min": 10,
       "max": 120,
       "step": 1,
-      "note": "48 points and 11 assists. Atlanta stole the opening game on Milwaukee's home court.",
+      "note": "With 11 assists, as Atlanta rallied in the second half to win 116–113.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
@@ -340,7 +361,7 @@
           "Atlanta Hawks"
         ],
         "supports": [
-          "nba-baylor62-finals-61"
+          "nba-luka20-clippers-buzzer-43"
         ]
       }
     }

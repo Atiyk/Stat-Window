@@ -19,7 +19,7 @@
       "min": 26,
       "max": 82,
       "step": 1,
-      "note": "60 wins, a franchise best and the East's top seed.",
+      "note": "A franchise record, and Atlanta then reached its first conference finals of the two-conference era.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2014%E2%80%9315_Atlanta_Hawks_season",
@@ -69,7 +69,7 @@
     {
       "id": "nba-kobe09-finals-ppg",
       "sport": "NBA",
-      "prompt": "The chart shows Finals scoring averages for five stars. What did Kobe Bryant average in the 2009 Finals?",
+      "prompt": "The chart shows four other Finals MVPs' scoring averages in their Finals. What did Kobe Bryant average against Orlando in 2009?",
       "context": "2009 NBA Finals · five games vs Orlando",
       "answer": 32.4,
       "unit": {
@@ -79,7 +79,7 @@
       "min": 15,
       "max": 45,
       "step": 0.1,
-      "note": "32.4 points per game.",
+      "note": "His first Finals MVP, a year after Olympic gold in Beijing.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
@@ -117,31 +117,27 @@
         }
       ],
       "chart": {
-        "title": "Finals scoring averages",
+        "title": "Finals MVPs' scoring averages",
         "unit": "points per game",
         "points": [
           {
-            "label": "Dumars 1989",
+            "label": "Dumars '89",
             "value": 27.3
           },
           {
-            "label": "Jordan 1993",
+            "label": "Jordan '93",
             "value": 41
           },
           {
-            "label": "Duncan 1999",
-            "value": 27.4
-          },
-          {
-            "label": "Shaq 2000",
+            "label": "Shaq '00",
             "value": 38
           },
           {
-            "label": "Kobe 2009",
+            "label": "Kobe '09",
             "value": null
           },
           {
-            "label": "Brown 2024",
+            "label": "Brown '24",
             "value": 20.8
           }
         ]
@@ -157,7 +153,6 @@
         "supports": [
           "nba-dumars89-finals-ppg",
           "nba-jordan93-finals-ppg",
-          "nba-duncan99-finals-ppg",
           "nba-shaq00-finals-ppg",
           "nba-brown24-finals-ppg"
         ]
@@ -166,7 +161,7 @@
     {
       "id": "nba-bucks21-nets-g3-points",
       "sport": "NBA",
-      "prompt": "Toronto scored 92 in its 2019 Game 7 win over Philadelphia. How many points did Milwaukee score in Game 3 against Brooklyn in 2021?",
+      "prompt": "The chart shows four low-scoring playoff team totals. How many points did Milwaukee score in its must-win 2021 Game 3 against Brooklyn?",
       "context": "2021 East semifinals · Milwaukee at home",
       "answer": 86,
       "unit": {
@@ -176,7 +171,7 @@
       "min": 48,
       "max": 148,
       "step": 1,
-      "note": "86 points were just enough to stay alive in the series.",
+      "note": "Enough by three: Brooklyn managed 83, and Khris Middleton's 35 carried a Bucks team that went on to win the title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
@@ -213,14 +208,43 @@
           }
         }
       ],
+      "chart": {
+        "title": "Points in low-scoring playoff games",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Jazz '98",
+            "value": 54
+          },
+          {
+            "label": "Lakers '04",
+            "value": 68
+          },
+          {
+            "label": "Hornets '08",
+            "value": 82
+          },
+          {
+            "label": "Raptors '19",
+            "value": 92
+          },
+          {
+            "label": "Bucks '21",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "points-team-game",
         "era": "cross-era",
         "subjects": [
           "Milwaukee Bucks"
         ],
         "supports": [
+          "nba-jazz98-g3-54",
+          "nba-lakers04-g3-68",
+          "nba-hornets08-spurs-g7-points",
           "nba-raptors19-sixers-g7-points"
         ]
       }
@@ -228,8 +252,8 @@
     {
       "id": "nba-warriors16-splash-share-v5",
       "sport": "NBA",
-      "prompt": "What share of the 2015–16 Warriors' made threes came from Stephen Curry and Klay Thompson?",
-      "context": "Golden State · 2015–16 regular season · nearest percent",
+      "prompt": "The 2015–16 Warriors made a record 1,077 threes. What share came from Stephen Curry and Klay Thompson? Nearest whole percent.",
+      "context": "Golden State · 2015–16 · Curry and Thompson's threes ÷ team threes",
       "answer": 63,
       "unit": {
         "singular": "percent",
@@ -238,7 +262,7 @@
       "min": 25,
       "max": 90,
       "step": 1,
-      "note": "63%: the Splash Brothers made 678 of the team's 1,077 threes.",
+      "note": "678 of them, breaking the duo's own record of 525 from a year earlier.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
@@ -277,15 +301,15 @@
         }
       ],
       "meta": {
-        "format": "ratio",
+        "format": "reference",
         "family": "threes-season",
         "era": "2010s",
         "subjects": [
           "Golden State Warriors"
         ],
         "supports": [
-          "nba-splash16-duo-threes-678",
-          "nba-gsw16-threes"
+          "nba-gsw16-threes",
+          "nba-splash16-duo-threes-678"
         ]
       }
     },
@@ -302,7 +326,7 @@
       "min": 0,
       "max": 40,
       "step": 1,
-      "note": "Only 8 points. It became one of the most discussed nights of LeBron's career.",
+      "note": "On 3-of-11 shooting. Dallas won 86–83 to tie the series, then took the next two for the title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2011_NBA_Finals",

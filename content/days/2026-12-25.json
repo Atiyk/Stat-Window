@@ -9,7 +9,7 @@
     {
       "id": "nba-jordan98-g6",
       "sport": "NBA",
-      "prompt": "How many points did Michael Jordan score in Game 6 of the 1998 Finals, the night of his title-winning last shot?",
+      "prompt": "The chart shows three other star Finals nights. How many points did Michael Jordan score in 1998 Finals Game 6, the night of his last shot?",
       "context": "1998 NBA Finals · Game 6 · at Utah",
       "answer": 45,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 30,
       "max": 80,
       "step": 1,
-      "note": "45, capped by the game-winner over Bryon Russell.",
+      "note": "Capped by a steal from Karl Malone and the winner over Bryon Russell, with Pippen hobbled.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Chicago_Bulls_season",
@@ -56,15 +56,41 @@
           }
         }
       ],
+      "chart": {
+        "title": "Star nights in the NBA Finals",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Jordan '93",
+            "value": 55
+          },
+          {
+            "label": "Jordan '98",
+            "value": null
+          },
+          {
+            "label": "Iverson '01",
+            "value": 48
+          },
+          {
+            "label": "Wade '06",
+            "value": 42
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "Michael Jordan",
           "Chicago Bulls"
         ],
-        "supports": []
+        "supports": [
+          "nba-jordan93-g4-55",
+          "nba-iverson01-g1",
+          "nba-wade06-g3"
+        ]
       }
     },
     {
@@ -80,7 +106,7 @@
       "min": 50,
       "max": 80,
       "step": 1,
-      "note": "69–13 (.841).",
+      "note": "The best record in NBA history at the time, and the franchise's first title in Los Angeles.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
@@ -161,7 +187,7 @@
       "min": 10,
       "max": 46,
       "step": 1,
-      "note": "23 straight losses.",
+      "note": "Their last win came on March 17, 2012, and the skid ran on into the next season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Charlotte_Bobcats_season",
@@ -213,7 +239,7 @@
     {
       "id": "nba-avery99-finals-apg",
       "sport": "NBA",
-      "prompt": "Mark Jackson averaged 8.7 assists in 1997–98. How many assists per game did Avery Johnson average in the 1999 Finals?",
+      "prompt": "Jamal Murray averaged 10.0 assists for Denver in the 2023 Finals. How many per game did Avery Johnson average in the 1999 Finals?",
       "context": "Spurs vs Knicks · championship series",
       "answer": 7.2,
       "unit": {
@@ -223,7 +249,7 @@
       "min": 2,
       "max": 17,
       "step": 0.1,
-      "note": "7.2 assists per game, plus a defining Finals shot.",
+      "note": "He ran the Twin Towers offense and hit the series-winning shot in Game 5.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
@@ -263,13 +289,13 @@
       "meta": {
         "format": "reference",
         "family": "assists-average",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "Avery Johnson",
           "San Antonio Spurs"
         ],
         "supports": [
-          "nba-jackson98-regular-apg"
+          "nba-murray23-finals-apg"
         ]
       }
     },
@@ -286,7 +312,7 @@
       "min": 15,
       "max": 140,
       "step": 1,
-      "note": "62 points, a Knicks and MSG record, with 13 rebounds and no turnovers.",
+      "note": "A Madison Square Garden record, with 13 rebounds and zero turnovers.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Carmelo_Anthony",

@@ -19,7 +19,7 @@
       "min": 5,
       "max": 24,
       "step": 1,
-      "note": "16 wins in an unblemished March.",
+      "note": "16–0, part of a 19-game streak, on the way to a Finals rematch with Miami.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
@@ -117,7 +117,7 @@
         }
       ],
       "meta": {
-        "format": "ranking",
+        "format": "recall",
         "family": "scoring-games",
         "era": "1970s",
         "subjects": [
@@ -193,7 +193,7 @@
     {
       "id": "nba-suns05-road-victories",
       "sport": "NBA",
-      "prompt": "The 1995–96 Bulls won 33 road games. How many road games did the 2004–05 Suns win?",
+      "prompt": "The 2018–19 champion Raptors won 26 road games. How many road games did Steve Nash's 2004–05 Suns win?",
       "context": "Phoenix Suns · 41 regular-season away games",
       "answer": 31,
       "unit": {
@@ -203,7 +203,7 @@
       "min": 14,
       "max": 40,
       "step": 1,
-      "note": "31 road wins, matching their 31–10 home record.",
+      "note": "31–10 on the road, identical to their home record, in a 62-win season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
@@ -248,14 +248,14 @@
           "Phoenix Suns"
         ],
         "supports": [
-          "nba-bulls96-road-wins"
+          "nba-raptors19-road-wins"
         ]
       }
     },
     {
       "id": "nba-bird85-hawks-sixty",
       "sport": "NBA",
-      "prompt": "When Larry Bird caught fire against Atlanta in March 1985, how many points did he score?",
+      "prompt": "The chart shows three other big scoring nights from Bird's era. How many points did Larry Bird score at Atlanta in March 1985?",
       "context": "Larry Bird · Celtics at Hawks · March 1985",
       "answer": 60,
       "unit": {
@@ -265,7 +265,7 @@
       "min": 10,
       "max": 130,
       "step": 1,
-      "note": "60 points, just nine days after teammate Kevin McHale had scored 56.",
+      "note": "60, a Celtics record, nine days after Kevin McHale had set it with 56.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Larry_Bird",
@@ -302,15 +302,41 @@
           }
         }
       ],
+      "chart": {
+        "title": "Big scoring nights, 1985 to 1994",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Bird '85",
+            "value": null
+          },
+          {
+            "label": "Jordan '86",
+            "value": 63
+          },
+          {
+            "label": "Miller '92",
+            "value": 57
+          },
+          {
+            "label": "Robinson '94",
+            "value": 71
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "1980s",
+        "era": "cross-era",
         "subjects": [
           "Larry Bird",
           "Boston Celtics"
         ],
-        "supports": []
+        "supports": [
+          "nba-jordan86-63",
+          "nba-miller92-57",
+          "nba-robinson94-71"
+        ]
       }
     }
   ]

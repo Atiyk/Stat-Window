@@ -19,7 +19,7 @@
       "min": 10,
       "max": 60,
       "step": 1,
-      "note": "37 points in a single quarter, without missing a shot.",
+      "note": "37 on 13-of-13 shooting, nine of them threes; he finished with 52.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
@@ -70,7 +70,7 @@
     {
       "id": "nba-suns93-december-win-streak",
       "sport": "NBA",
-      "prompt": "The 2012–13 Heat won 27 straight. How many in a row did Barkley's Suns win during December of his 1992–93 MVP season?",
+      "prompt": "The 2015 Hawks went 17–0 in January. How many in a row did Barkley's Suns win during an unbeaten December in 1992–93?",
       "context": "Phoenix Suns · December winning streak",
       "answer": 14,
       "unit": {
@@ -80,7 +80,7 @@
       "min": 4,
       "max": 34,
       "step": 1,
-      "note": "14 straight wins during an undefeated month.",
+      "note": "14, after a 7–4 start; Phoenix reached the All-Star break at 38–10.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1992%E2%80%9393_Phoenix_Suns_season",
@@ -125,14 +125,14 @@
           "Phoenix Suns"
         ],
         "supports": [
-          "nba-heat13-streak"
+          "nba-hawks15-january-wins"
         ]
       }
     },
     {
       "id": "nba-heat23-wins",
       "sport": "NBA",
-      "prompt": "The chart shows four recent champions' win totals. How many did the 2022–23 Heat win on their way to the Finals?",
+      "prompt": "The chart shows four recent champions' win totals. How many games did the 2022–23 Heat win before reaching the Finals?",
       "context": "Miami Heat · 2022–23 · 82 games",
       "answer": 44,
       "unit": {
@@ -142,7 +142,7 @@
       "min": 30,
       "max": 70,
       "step": 1,
-      "note": "44–38, then a run to the Finals through the play-in.",
+      "note": "44–38, then two play-in games; Miami was the only playoff team with a negative point differential.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
@@ -184,12 +184,12 @@
         "unit": "wins",
         "points": [
           {
-            "label": "Raptors '19",
-            "value": 58
+            "label": "Spurs '14",
+            "value": 62
           },
           {
-            "label": "Bucks '21",
-            "value": 46
+            "label": "Raptors '19",
+            "value": 58
           },
           {
             "label": "Heat '23",
@@ -213,8 +213,8 @@
           "Miami Heat"
         ],
         "supports": [
+          "nba-spurs14-season-wins",
           "nba-raptors19-regular-wins",
-          "nba-bucks21-regular-wins",
           "nba-nuggets23-regular-wins",
           "nba-celtics24-wins"
         ]

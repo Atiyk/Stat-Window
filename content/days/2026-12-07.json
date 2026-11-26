@@ -9,7 +9,7 @@
     {
       "id": "nba-pacers98-season-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did Larry Bird's 1998 Pacers win?",
+      "prompt": "As a player, Larry Bird led the 1985–86 Celtics to 67 wins. How many did his 1997–98 Pacers win in his first year as coach?",
       "context": "Indiana · Bird's rookie coaching year",
       "answer": 58,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 28,
       "max": 82,
       "step": 1,
-      "note": "58 wins in Bird's first coaching season.",
+      "note": "58, and Bird was named Coach of the Year in his first season on the bench.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
@@ -57,13 +57,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "wins-season",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "Indiana Pacers"
         ],
-        "supports": []
+        "supports": [
+          "nba-celtics86-wins"
+        ]
       }
     },
     {
@@ -79,7 +81,7 @@
       "min": 82,
       "max": 122,
       "step": 1,
-      "note": "97 °F.",
+      "note": "97 °F, hot enough that a referee fainted and Kareem Abdul-Jabbar was given oxygen.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1984_NBA_Finals",
@@ -129,7 +131,7 @@
     {
       "id": "nba-miller12-g5-threes",
       "sport": "NBA",
-      "prompt": "The chart shows three other one-game three-point nights. How many threes did Mike Miller make in the 2012 title clincher?",
+      "prompt": "Bars: memorable Finals three-point nights. How many threes did Heat reserve Mike Miller make in the 2012 title clincher?",
       "context": "2012 NBA Finals · Game 5 · vs Oklahoma City",
       "answer": 7,
       "unit": {
@@ -139,7 +141,7 @@
       "min": 0,
       "max": 14,
       "step": 1,
-      "note": "Seven of eight, for 23 points.",
+      "note": "Seven, on eight attempts, for 23 points as LeBron won his first title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2012_NBA_Finals",
@@ -177,7 +179,7 @@
         }
       ],
       "chart": {
-        "title": "Threes made in one game",
+        "title": "Threes in a Finals game",
         "unit": "three-pointers",
         "points": [
           {
@@ -185,16 +187,20 @@
             "value": 6
           },
           {
-            "label": "Battier '13",
-            "value": 6
+            "label": "Smith '95",
+            "value": 7
           },
           {
-            "label": "Curry '16",
-            "value": 13
+            "label": "Allen '10",
+            "value": 8
           },
           {
             "label": "Miller '12",
             "value": null
+          },
+          {
+            "label": "Battier '13",
+            "value": 6
           }
         ]
       },
@@ -208,8 +214,9 @@
         ],
         "supports": [
           "nba-cooper87-threes",
-          "nba-battier13-g7-threes",
-          "nba-curry16-13-threes"
+          "nba-smith95-threes",
+          "nba-allen10-g2-threes",
+          "nba-battier13-g7-threes"
         ]
       }
     },
@@ -278,8 +285,8 @@
     {
       "id": "nba-brunson24-philly-47",
       "sport": "NBA",
-      "prompt": "How many points did Jalen Brunson score at Philadelphia in April 2024 for a Knicks playoff record?",
-      "context": "Benchmark: Jerry West scored 53 in Game 1 of the 1969 Finals",
+      "prompt": "Bars: other guards' 40-point playoff nights. How many did Jalen Brunson score at Philadelphia in April 2024 for a Knicks playoff record?",
+      "context": "Knicks at 76ers · 2024 first round · Game 4",
       "answer": 47,
       "unit": {
         "singular": "point",
@@ -288,7 +295,7 @@
       "min": 15,
       "max": 105,
       "step": 1,
-      "note": "47 points, a Knicks playoff record, alongside 10 assists in Philadelphia.",
+      "note": "47 with 10 assists, passing Bernard King's 46 from 1984 for the Knicks' playoff record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
@@ -325,8 +332,30 @@
           }
         }
       ],
+      "chart": {
+        "title": "Guards' 40-point playoff nights",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Iverson '01",
+            "value": 48
+          },
+          {
+            "label": "Klay '16",
+            "value": 41
+          },
+          {
+            "label": "Luka '20",
+            "value": 43
+          },
+          {
+            "label": "Brunson '24",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "points-game",
         "era": "cross-era",
         "subjects": [
@@ -334,7 +363,9 @@
           "New York Knicks"
         ],
         "supports": [
-          "nba-west69-g1"
+          "nba-iverson01-g1",
+          "nba-klay16-okc-game6-41",
+          "nba-luka20-clippers-buzzer-43"
         ]
       }
     }

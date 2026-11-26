@@ -19,7 +19,7 @@
       "min": 37,
       "max": 80,
       "step": 1,
-      "note": "56–26, giving the Sixers the top seed in the East.",
+      "note": "Larry Brown won Coach of the Year and Iverson led Philadelphia to the Finals.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
@@ -67,24 +67,23 @@
       }
     },
     {
-      "id": "nba-wilt-kobe-record-gap-v51b",
+      "id": "nba-wilt62-halftime-points-v52b",
       "sport": "NBA",
-      "prompt": "How many more points did Wilt Chamberlain score against the Knicks in 1962 than Kobe Bryant against Toronto in 2006?",
-      "context": "Wilt's 1962 game vs Kobe's 2006 game · gap in points",
-      "answer": 19,
+      "prompt": "Wilt Chamberlain finished with 100 points against the Knicks in March 1962. How many did he have at halftime?",
+      "context": "Philadelphia Warriors vs New York Knicks · Hershey, Pennsylvania",
+      "answer": 41,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 5,
-      "max": 45,
+      "min": 10,
+      "max": 90,
       "step": 1,
-      "note": "19 more: Wilt scored 100 and Kobe 81.",
+      "note": "The Warriors led only 79–68 at the break; Wilt scored 59 after it, 31 in the fourth quarter.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
-        "quote": "On January 22, 2006, Bryant scored a career-high 81 points",
-        "derivation": "Wilt Chamberlain 100 points − Kobe Bryant 81 points = 19."
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "Chamberlain's point total stood at 41."
       },
       "verified": {
         "on": "2026-11-26",
@@ -93,41 +92,40 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Only audio of the fourth quarter survives, and the recording was added to the U.S. National Recording Registry.",
+          "text": "Even after his 41-point half, Philadelphia led by only 11 at the break.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
-            "quote": "there are only audio recordings of the game's fourth quarter, which was added for preservation in the United States' National Recording Registry"
+            "quote": "but still led 79–68"
           }
         },
         {
-          "text": "The Lakers trailed Toronto by 14 points at halftime before Kobe took over.",
+          "text": "After three quarters Wilt had 69, nine short of his own scoring record.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
-            "quote": "the Lakers trailed 63–49 at halftime"
+            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+            "quote": "His own total stood at 69, nine shy of his previous scoring record."
           }
         },
         {
-          "text": "He played 42 minutes and knocked down seven threes during the explosion.",
+          "text": "He made 28 of 32 free throws, far above his usual rate.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
-            "quote": "Bryant play 42 minutes, shooting 28-of-46 from the field, including 7-of-13 on three-pointers"
+            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+            "quote": "Chamberlain made 36 of 63 field-goals and 28 of 32"
           }
         }
       ],
       "meta": {
-        "format": "difference",
-        "family": "points-game",
-        "era": "cross-era",
+        "format": "reference",
+        "family": "points-period",
+        "era": "1960s",
         "subjects": [
-          "Kobe Bryant",
-          "Los Angeles Lakers"
+          "Wilt Chamberlain",
+          "Golden State Warriors"
         ],
         "supports": [
-          "nba-wilt-100",
-          "nba-kobe-81"
+          "nba-wilt-100"
         ]
       }
     },
@@ -144,7 +142,7 @@
       "min": 15,
       "max": 65,
       "step": 1,
-      "note": "44 in a row, then an NBA record.",
+      "note": "An NBA record at the time; Chicago finished that season 39–2 at the United Center.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
@@ -194,7 +192,7 @@
     {
       "id": "nba-duncan03-g6-blocks",
       "sport": "NBA",
-      "prompt": "Hakeem Olajuwon blocked 11 shots in his 1990 quadruple-double. How many did Tim Duncan block when he nearly had one in 2003?",
+      "prompt": "The chart shows blocks on three other famous two-way nights. How many did Tim Duncan block in his near quadruple-double in 2003?",
       "context": "2003 NBA Finals · Game 6 · vs New Jersey",
       "answer": 8,
       "unit": {
@@ -204,7 +202,7 @@
       "min": 0,
       "max": 14,
       "step": 1,
-      "note": "Eight, with 21 points, 20 rebounds and 10 assists.",
+      "note": "With 21 points, 20 rebounds and 10 assists, as David Robinson retired a champion.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2003_NBA_Finals",
@@ -241,8 +239,30 @@
           }
         }
       ],
+      "chart": {
+        "title": "Blocks on famous two-way nights",
+        "unit": "blocks",
+        "points": [
+          {
+            "label": "Hakeem '90",
+            "value": 11
+          },
+          {
+            "label": "Duncan '03",
+            "value": null
+          },
+          {
+            "label": "Giannis '21",
+            "value": 5
+          },
+          {
+            "label": "Wemby '24",
+            "value": 10
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "blocks-game",
         "era": "cross-era",
         "subjects": [
@@ -250,14 +270,16 @@
           "San Antonio Spurs"
         ],
         "supports": [
-          "nba-hakeem90-quadruple-blocks"
+          "nba-hakeem90-quadruple-blocks",
+          "nba-giannis21-finals-g6-blocks",
+          "nba-wemby24-10-blocks-blazers"
         ]
       }
     },
     {
       "id": "nba-kawhi19-philly-game7-41",
       "sport": "NBA",
-      "prompt": "The chart shows three other playoff scoring nights. How many points did Kawhi Leonard score in his 2019 Game 7 against Philadelphia?",
+      "prompt": "The chart shows two other Game 7 scoring nights. How many points did Kawhi Leonard score in his 2019 Game 7 against Philadelphia?",
       "context": "Kawhi Leonard · Raptors vs 76ers · 2019 playoffs",
       "answer": 41,
       "unit": {
@@ -267,7 +289,7 @@
       "min": 10,
       "max": 110,
       "step": 1,
-      "note": "41 points. Kawhi's four-bounce jumper sent Toronto through in a legendary Game 7.",
+      "note": "On 16-of-39 shooting, capped by the first Game 7 buzzer-beater in NBA history.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
@@ -305,20 +327,16 @@
         }
       ],
       "chart": {
-        "title": "Playoff scoring nights",
+        "title": "Points in a Game 7",
         "unit": "points",
         "points": [
-          {
-            "label": "Green '16",
-            "value": 32
-          },
           {
             "label": "LeBron '13",
             "value": 37
           },
           {
-            "label": "Curry '22",
-            "value": 43
+            "label": "Green '16",
+            "value": 32
           },
           {
             "label": "Kawhi '19",
@@ -329,15 +347,14 @@
       "meta": {
         "format": "missing-point",
         "family": "points-game",
-        "era": "cross-era",
+        "era": "2010s",
         "subjects": [
           "Kawhi Leonard",
           "Toronto Raptors"
         ],
         "supports": [
-          "nba-green16-g7",
           "nba-lebron13-g7",
-          "nba-curry22-g4"
+          "nba-green16-g7"
         ]
       }
     }

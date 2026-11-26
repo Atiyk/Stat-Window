@@ -9,7 +9,7 @@
     {
       "id": "nba-hornets08-season-wins",
       "sport": "NBA",
-      "prompt": "The chart shows three other Western Conference seasons. How many regular-season games did Chris Paul's 2007–08 Hornets win?",
+      "prompt": "Bars: other top Western Conference seasons. How many regular-season games did Chris Paul's 2007–08 Hornets win?",
       "context": "New Orleans · first full season back in the city",
       "answer": 56,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 23,
       "max": 82,
       "step": 1,
-      "note": "56 wins and a Southwest Division title.",
+      "note": "56 and a division title; Paul finished second to Kobe Bryant in MVP voting.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
@@ -57,20 +57,20 @@
         }
       ],
       "chart": {
-        "title": "West teams' wins in a season",
+        "title": "Wins by top West teams",
         "unit": "wins",
         "points": [
           {
-            "label": "Mavs '07",
-            "value": 67
+            "label": "Suns '93",
+            "value": 62
           },
           {
             "label": "Kings '02",
             "value": 61
           },
           {
-            "label": "Warriors '75",
-            "value": 48
+            "label": "Mavs '07",
+            "value": 67
           },
           {
             "label": "Hornets '08",
@@ -86,16 +86,16 @@
           "New Orleans Pelicans"
         ],
         "supports": [
-          "nba-mavs07-wins",
+          "nba-suns93-regular-wins",
           "nba-kings02-regular-wins",
-          "nba-warriors75-season-wins"
+          "nba-mavs07-wins"
         ]
       }
     },
     {
       "id": "nba-magic09-kings-threes",
       "sport": "NBA",
-      "prompt": "Stephen Curry's then-record 13 threes in a game came in 2016. How many threes did Orlando make as a team against Sacramento in January 2009?",
+      "prompt": "Golden State and Dallas combined for 39 threes in a 2016 game. How many did Orlando make alone at Sacramento in January 2009?",
       "context": "Magic at Kings · long-range barrage",
       "answer": 23,
       "unit": {
@@ -105,7 +105,7 @@
       "min": 10,
       "max": 55,
       "step": 1,
-      "note": "23 made threes in a high-scoring win.",
+      "note": "23, an NBA record at the time, with nine different Magic players hitting at least one.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
@@ -150,7 +150,7 @@
           "Orlando Magic"
         ],
         "supports": [
-          "nba-curry16-13-threes"
+          "nba-gsw16-mavs-39-threes"
         ]
       }
     },
@@ -218,7 +218,7 @@
     {
       "id": "nba-dumars89-finals-ppg",
       "sport": "NBA",
-      "prompt": "Shaquille O'Neal averaged 38.0 points in the 2000 Finals. What did 1989 Finals MVP Joe Dumars average?",
+      "prompt": "Bars: other Finals MVPs' scoring averages. What did Detroit guard Joe Dumars average in the 1989 Finals?",
       "context": "1989 NBA Finals · four games vs Lakers",
       "answer": 27.3,
       "unit": {
@@ -228,7 +228,7 @@
       "min": 10,
       "max": 40,
       "step": 0.1,
-      "note": "27.3 points per game.",
+      "note": "27.3, leading the Bad Boys to a sweep of the Lakers and Detroit's first title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1989_NBA_Finals",
@@ -265,8 +265,30 @@
           }
         }
       ],
+      "chart": {
+        "title": "Finals MVPs' scoring averages",
+        "unit": "points per game",
+        "points": [
+          {
+            "label": "Dumars '89",
+            "value": null
+          },
+          {
+            "label": "Duncan '99",
+            "value": 27.4
+          },
+          {
+            "label": "Shaq '00",
+            "value": 38
+          },
+          {
+            "label": "Brown '24",
+            "value": 20.8
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "scoring-average",
         "era": "cross-era",
         "subjects": [
@@ -274,7 +296,9 @@
           "Detroit Pistons"
         ],
         "supports": [
-          "nba-shaq00-finals-ppg"
+          "nba-duncan99-finals-ppg",
+          "nba-shaq00-finals-ppg",
+          "nba-brown24-finals-ppg"
         ]
       }
     },

@@ -9,7 +9,7 @@
     {
       "id": "nba-embiid24-70-spurs",
       "sport": "NBA",
-      "prompt": "Michael Jordan scored a playoff-record 63 in 1986. How many points did Joel Embiid score against San Antonio in January 2024?",
+      "prompt": "Carmelo Anthony set a Knicks record with 62 points in 2014. How many did Joel Embiid score against San Antonio in January 2024?",
       "context": "Joel Embiid · 76ers vs. Spurs · January 2024",
       "answer": 70,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 20,
       "max": 100,
       "step": 1,
-      "note": "70 points, plus 18 rebounds.",
+      "note": "70, with 18 rebounds, taking the 76ers' single-game record from Wilt Chamberlain.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Joel_Embiid",
@@ -65,14 +65,14 @@
           "Philadelphia 76ers"
         ],
         "supports": [
-          "nba-jordan86-63"
+          "nba-melo14-knicks-msg-62"
         ]
       }
     },
     {
       "id": "nba-harden19-30-streak",
       "sport": "NBA",
-      "prompt": "Kobe Bryant once scored 40 or more in 9 straight games. In 2018–19, how many straight games did James Harden score 30 or more?",
+      "prompt": "In 2018–19, James Harden scored 30 or more points in how many straight games?",
       "context": "Houston Rockets · December 2018 to February 2019",
       "answer": 32,
       "unit": {
@@ -82,7 +82,7 @@
       "min": 4,
       "max": 46,
       "step": 1,
-      "note": "32.",
+      "note": "32 straight, from December 13 to February 25, as Harden carried an injury-hit Houston back to the playoffs.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Houston_Rockets_season",
@@ -120,22 +120,20 @@
         }
       ],
       "meta": {
-        "format": "reference",
+        "format": "recall",
         "family": "scoring-streak",
-        "era": "cross-era",
+        "era": "2010s",
         "subjects": [
           "James Harden",
           "Houston Rockets"
         ],
-        "supports": [
-          "nba-kobe03-40-streak"
-        ]
+        "supports": []
       }
     },
     {
       "id": "nba-pippen97-g3-threes",
       "sport": "NBA",
-      "prompt": "The chart shows four other playoff nights of threes. How many did Scottie Pippen make in Game 3 of the 1997 Finals?",
+      "prompt": "The chart shows four other big Finals three-point nights. How many threes did Scottie Pippen make in Game 3 of the 1997 Finals?",
       "context": "1997 NBA Finals · Game 3 · at Utah",
       "answer": 7,
       "unit": {
@@ -145,7 +143,7 @@
       "min": 0,
       "max": 20,
       "step": 1,
-      "note": "Seven, then a Finals record.",
+      "note": "Seven, tying the Finals record of the time, yet Chicago lost as Karl Malone scored 37.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
@@ -183,28 +181,28 @@
         }
       ],
       "chart": {
-        "title": "Threes in a playoff game",
+        "title": "Threes in a Finals game",
         "unit": "threes",
         "points": [
+          {
+            "label": "Smith '95",
+            "value": 7
+          },
           {
             "label": "Pippen '97",
             "value": null
           },
           {
-            "label": "Thompson '16",
-            "value": 11
+            "label": "Allen '10",
+            "value": 8
           },
           {
-            "label": "Cooper '87",
-            "value": 6
+            "label": "Miller '12",
+            "value": 7
           },
           {
             "label": "Curry '18",
             "value": 9
-          },
-          {
-            "label": "Allen '10",
-            "value": 8
           }
         ]
       },
@@ -217,10 +215,10 @@
           "Chicago Bulls"
         ],
         "supports": [
-          "nba-klay16-wcf-threes",
-          "nba-cooper87-threes",
-          "nba-curry18-g2-threes",
-          "nba-allen10-g2-threes"
+          "nba-smith95-threes",
+          "nba-allen10-g2-threes",
+          "nba-miller12-g5-threes",
+          "nba-curry18-g2-threes"
         ]
       }
     },
@@ -237,7 +235,7 @@
       "min": 55,
       "max": 100,
       "step": 0.5,
-      "note": "80.7%, 46 of 57.",
+      "note": "80.7% on 46-of-57, from a big man Miami had signed to a ten-day contract in January.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
@@ -288,7 +286,7 @@
     {
       "id": "nba-herro20-bubble-ecf-g4-thirtyseven",
       "sport": "NBA",
-      "prompt": "As a 20-year-old rookie in Game 4 of the 2020 East finals, how many points did Tyler Herro score?",
+      "prompt": "Magic Johnson scored 42 as a rookie to clinch the 1980 Finals. How many did rookie Tyler Herro score in Game 4 of the 2020 East finals?",
       "context": "Tyler Herro · Heat vs Celtics · 2020 East finals Game 4",
       "answer": 37,
       "unit": {
@@ -298,7 +296,7 @@
       "min": 0,
       "max": 90,
       "step": 1,
-      "note": "37 points from a 20-year-old rookie. Herro helped power Miami's surprise Finals run.",
+      "note": "37, a career high; Miami reached the Finals, and Herro became the first player born in the 2000s to play in one.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Tyler_Herro",
@@ -336,14 +334,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Tyler Herro",
           "Miami Heat"
         ],
-        "supports": []
+        "supports": [
+          "nba-magic80-g6-points"
+        ]
       }
     }
   ]

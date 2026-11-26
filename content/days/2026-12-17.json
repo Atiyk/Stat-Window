@@ -19,7 +19,7 @@
       "min": 15,
       "max": 80,
       "step": 1,
-      "note": "41st overall.",
+      "note": "Denver's 41st pick led the franchise to its first championship after 47 NBA seasons.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
@@ -68,67 +68,96 @@
       }
     },
     {
-      "id": "nba-cup23-prize",
+      "id": "nba-celtics85-memorial-day-margin-v52b",
       "sport": "NBA",
-      "prompt": "How much prize money did each player on the 2023 In-Season Tournament champions earn?",
-      "context": "2023 In-Season Tournament · prize pool",
-      "answer": 500000,
+      "prompt": "The chart shows three other lopsided playoff wins. By how many points did Boston beat the Lakers in the 1985 'Memorial Day Massacre'?",
+      "context": "Boston Celtics vs Los Angeles Lakers · 1985 Finals · Game 1",
+      "answer": 34,
       "unit": {
-        "singular": "dollar",
-        "plural": "dollars"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 0,
-      "max": 750000,
-      "step": 10000,
-      "note": "$500,000 each.",
+      "min": 10,
+      "max": 80,
+      "step": 1,
+      "note": "148–114, with Scott Wedman 11 for 11, yet the Lakers won the series for their first Finals win over Boston.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-        "quote": "Players on the tournament championship team: $500,000 each"
+        "url": "https://en.wikipedia.org/wiki/1985_NBA_Finals",
+        "quote": "The Celtics defeated the Lakers 148–114. It was dubbed the \"Memorial Day Massacre\"",
+        "derivation": "Celtics 148 − Lakers 114 = 34 points."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Players on runner-up Indiana still collected $200,000 each for their tournament run.",
+          "text": "Scott Wedman made every shot he took that day.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "Players on the tournament runner-up team: $200,000 each"
+            "url": "https://en.wikipedia.org/wiki/1985_NBA_Finals",
+            "quote": "Scott Wedman made all 11 shots he took from the field."
           }
         },
         {
-          "text": "Losing semifinalists received $100,000 each, even without reaching the title game.",
+          "text": "The Lakers recovered to beat Boston in a Finals for the first time.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "Players on teams that lose in the semifinals: $100,000 each"
+            "url": "https://en.wikipedia.org/wiki/1985_NBA_Finals",
+            "quote": "the Los Angeles Lakers achieved their first NBA Finals victory over the Boston Celtics"
           }
         },
         {
-          "text": "Unlike earlier knockout games, the Cup championship did not count toward the NBA regular-season standings.",
+          "text": "Kareem Abdul-Jabbar, 38, was named Finals MVP.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "Quarterfinal and semifinal games counted as regular season games, affecting teams' positions in league standings, but the championship game did not."
+            "url": "https://en.wikipedia.org/wiki/1985_NBA_Finals",
+            "quote": "The 38-year-old Abdul-Jabbar was named MVP of the series"
           }
         }
       ],
+      "chart": {
+        "title": "Margins in lopsided playoff wins",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Blazers '77",
+            "value": 32
+          },
+          {
+            "label": "Celtics '85",
+            "value": null
+          },
+          {
+            "label": "Bulls '98",
+            "value": 42
+          },
+          {
+            "label": "Lakers '01",
+            "value": 39
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
-        "family": "prize-money",
-        "era": "2020s",
-        "subjects": [],
-        "supports": []
+        "format": "missing-point",
+        "family": "margin",
+        "era": "cross-era",
+        "subjects": [
+          "Boston Celtics"
+        ],
+        "supports": [
+          "nba-blazers77-g4-margin",
+          "nba-bulls98-g3-margin-v5",
+          "nba-lakers01-39"
+        ]
       }
     },
     {
       "id": "nba-celtics02-19-threes",
       "sport": "NBA",
-      "prompt": "Orlando hit a record 23 threes in a 2009 game. How many threes did Boston hit in its 2002 playoff game against Philadelphia?",
+      "prompt": "Orlando's 23 threes in 2009 set the regular-season record. How many did Boston hit to close out Philadelphia in the 2002 playoffs?",
       "context": "2002 East first round · nine came in the fourth quarter",
       "answer": 19,
       "unit": {
@@ -138,7 +167,7 @@
       "min": 10,
       "max": 36,
       "step": 1,
-      "note": "19, nine of them in the fourth quarter.",
+      "note": "A playoff record, nine of them in a fourth-quarter barrage that ended Allen Iverson's season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
@@ -190,8 +219,8 @@
     {
       "id": "nba-rockets18-27-misses",
       "sport": "NBA",
-      "prompt": "Stephen Curry missed 13 threes in a 2015 Finals game. In Game 7 of the 2018 West finals, Houston missed how many threes in a row?",
-      "context": "2018 Western Conference finals · Game 7 · vs Golden State",
+      "prompt": "In Game 7 of the 2018 West finals against Golden State, Houston missed how many three-pointers in a row?",
+      "context": "Houston Rockets vs Golden State · 2018 West finals · Game 7 · without Chris Paul",
       "answer": 27,
       "unit": {
         "singular": "missed three",
@@ -200,7 +229,7 @@
       "min": 14,
       "max": 52,
       "step": 1,
-      "note": "27 straight misses, an NBA playoff record.",
+      "note": "A playoff record; with Chris Paul out injured, the slump decided the series.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2017%E2%80%9318_Houston_Rockets_season",
@@ -238,21 +267,19 @@
         }
       ],
       "meta": {
-        "format": "reference",
+        "format": "recall",
         "family": "threes-attempts",
         "era": "2010s",
         "subjects": [
           "Houston Rockets"
         ],
-        "supports": [
-          "nba-curry15-g2-misses"
-        ]
+        "supports": []
       }
     },
     {
       "id": "nba-shaq00-finals-g2-24-boards",
       "sport": "NBA",
-      "prompt": "The chart shows four other big rebounding nights. How many boards did Shaq grab with Kobe hobbled in Game 2 of the 2000 Finals?",
+      "prompt": "The chart shows rebounds in other championship-round games. How many boards did Shaq grab, with Kobe hobbled, in Game 2 of the 2000 Finals?",
       "context": "Shaquille O'Neal · Lakers vs Pacers · 2000 Finals",
       "answer": 24,
       "unit": {
@@ -262,7 +289,7 @@
       "min": 5,
       "max": 65,
       "step": 1,
-      "note": "24 rebounds alongside 40 points. Shaq dominated while Kobe battled an ankle injury.",
+      "note": "With 40 points; Indiana fouled him so often he took 39 free throws.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
@@ -300,7 +327,7 @@
         }
       ],
       "chart": {
-        "title": "Big rebounding nights",
+        "title": "Rebounds in a title-round game",
         "unit": "rebounds",
         "points": [
           {
@@ -310,10 +337,6 @@
           {
             "label": "Shaq '00",
             "value": null
-          },
-          {
-            "label": "Luka '22",
-            "value": 21
           },
           {
             "label": "Jokić '23",
@@ -335,7 +358,6 @@
         ],
         "supports": [
           "nba-unseld75-finals-g2-rebounds",
-          "nba-luka22-knicks-triple-rebounds",
           "nba-jokic23-finals-g3-rebounds",
           "nba-giannis24-cup-final-rebounds-v5"
         ]

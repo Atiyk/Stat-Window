@@ -70,7 +70,7 @@
     {
       "id": "nba-celtics02-4q-margin-v51d",
       "sport": "NBA",
-      "prompt": "In the fourth quarter of Game 3 of the 2002 East finals, by how many points did Boston outscore New Jersey?",
+      "prompt": "Boston scored 41 in the fourth quarter of Game 3 of the 2002 East finals. By how many points did it outscore New Jersey in that quarter?",
       "context": "2002 East finals · Game 3 · Celtics vs Nets",
       "answer": 25,
       "unit": {
@@ -80,7 +80,7 @@
       "min": 5,
       "max": 55,
       "step": 1,
-      "note": "By 25: Boston won the quarter 41–16.",
+      "note": "By 25, 41–16, finishing a comeback from as many as 26 points down.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2002_NBA_playoffs",
@@ -119,27 +119,29 @@
         }
       ],
       "meta": {
-        "format": "difference",
+        "format": "reference",
         "family": "points-period",
         "era": "2000s",
         "subjects": [
           "Boston Celtics"
         ],
-        "supports": []
+        "supports": [
+          "nba-celtics02-4q"
+        ]
       }
     },
     {
       "id": "nba-kobe05-62-three-quarters",
       "sport": "NBA",
-      "prompt": "A month before his 81-point game, Kobe Bryant sat out the fourth quarter against Dallas. How many points did he have through three?",
+      "prompt": "The chart shows two other famous Kobe nights. How many points did he score in three quarters against Dallas in December 2005?",
       "context": "Lakers vs Dallas Mavericks · 2005–06",
       "answer": 62,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 25,
-      "max": 80,
+      "min": 15,
+      "max": 90,
       "step": 1,
       "note": "62, one more than the whole Mavericks team had at that point.",
       "source": {
@@ -178,23 +180,42 @@
           }
         }
       ],
+      "chart": {
+        "title": "Kobe Bryant's biggest scoring nights",
+        "unit": "points",
+        "points": [
+          {
+            "label": "vs DAL Dec '05",
+            "value": null
+          },
+          {
+            "label": "vs TOR Jan '06",
+            "value": 81
+          },
+          {
+            "label": "Final game '16",
+            "value": 60
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Kobe Bryant",
           "Los Angeles Lakers"
         ],
         "supports": [
-          "nba-kobe-81"
+          "nba-kobe-81",
+          "nba-kobe16-final-game"
         ]
       }
     },
     {
       "id": "nba-celtics08-g6-margin",
       "sport": "NBA",
-      "prompt": "Memphis beat Oklahoma City by 73 in 2021, the largest margin ever. By how many did Boston win the 2008 title clincher over the Lakers?",
+      "prompt": "Chicago beat Utah by 42 in Game 3 of the 1998 Finals. By how many did Boston beat the Lakers in the 2008 title clincher?",
       "context": "2008 NBA Finals · Game 6 · at Boston",
       "answer": 39,
       "unit": {
@@ -204,7 +225,7 @@
       "min": 22,
       "max": 62,
       "step": 1,
-      "note": "39, 131–92, then the biggest margin in a title clincher.",
+      "note": "39, 131–92, then the biggest margin in a title clincher; Boston also set a Finals record with 18 steals.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
@@ -249,7 +270,7 @@
           "Boston Celtics"
         ],
         "supports": [
-          "nba-grizzlies21-margin"
+          "nba-bulls98-g3-margin-v5"
         ]
       }
     },
@@ -266,7 +287,7 @@
       "min": 0,
       "max": 35,
       "step": 1,
-      "note": "16 straight missed postseasons. The long-suffering Kings finally got a playoff celebration.",
+      "note": "16, then the NBA's longest active drought; Mike Brown was named Coach of the Year for ending it.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Sacramento_Kings",

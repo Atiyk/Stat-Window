@@ -71,7 +71,7 @@
     {
       "id": "nba-allstar24-east",
       "sport": "NBA",
-      "prompt": "The 1966–67 Sixers set a team record of 125 points per game. How many points did the East score in the 2024 All-Star Game?",
+      "prompt": "Wilt's 100-point game produced 316 combined points. How many did the East score by itself in the 2024 All-Star Game?",
       "context": "2024 NBA All-Star Game · East vs West",
       "answer": 211,
       "unit": {
@@ -81,7 +81,7 @@
       "min": 130,
       "max": 270,
       "step": 1,
-      "note": "211, beating the West's 186.",
+      "note": "211, the most by one team in All-Star history, in a 211–186 win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/NBA_All-Star_Game",
@@ -124,14 +124,14 @@
         "era": "cross-era",
         "subjects": [],
         "supports": [
-          "nba-sixers67-ppg"
+          "nba-wilt-100-combined"
         ]
       }
     },
     {
       "id": "nba-jackson98-regular-apg",
       "sport": "NBA",
-      "prompt": "The chart shows three other assist averages. What did Mark Jackson average for the 1997–98 Pacers?",
+      "prompt": "Bars: other contending teams' point guards. How many assists per game did Mark Jackson average for Larry Bird's 1997–98 Pacers?",
       "context": "Indiana · 1997–98 regular season",
       "answer": 8.7,
       "unit": {
@@ -141,7 +141,7 @@
       "min": 3,
       "max": 19,
       "step": 0.1,
-      "note": "8.7 assists per game from Indiana's veteran point guard.",
+      "note": "8.7, on 713 assists in 82 starts, running Bird's offense around Reggie Miller.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
@@ -179,12 +179,12 @@
         }
       ],
       "chart": {
-        "title": "Assists per game: seasons and one Finals",
-        "unit": "apg",
+        "title": "Point guards on contending teams",
+        "unit": "assists per game",
         "points": [
           {
-            "label": "Bibby '02",
-            "value": 5
+            "label": "Oscar '71",
+            "value": 8
           },
           {
             "label": "Stockton '90",
@@ -195,8 +195,8 @@
             "value": null
           },
           {
-            "label": "Murray '23 Fin",
-            "value": 10
+            "label": "Bibby '02",
+            "value": 5
           }
         ]
       },
@@ -209,9 +209,9 @@
           "Indiana Pacers"
         ],
         "supports": [
-          "nba-bibby02-regular-apg",
+          "nba-oscar71-apg",
           "nba-stockton90-apg",
-          "nba-murray23-finals-apg"
+          "nba-bibby02-regular-apg"
         ]
       }
     },
@@ -279,7 +279,7 @@
     {
       "id": "nba-luka20-clippers-buzzer-43",
       "sport": "NBA",
-      "prompt": "In Luka Dončić's unforgettable 2020 bubble overtime winner against the Clippers, how many points did he score?",
+      "prompt": "Bars: playoff nights by stars aged 24 or younger. How many did Luka Dončić score in his 2020 overtime winner against the Clippers?",
       "context": "Luka Dončić · Mavericks vs Clippers · 2020 playoffs",
       "answer": 43,
       "unit": {
@@ -289,7 +289,7 @@
       "min": 15,
       "max": 95,
       "step": 1,
-      "note": "43 points, plus 17 boards and 13 assists, capped by his step-back game winner.",
+      "note": "43, with 17 rebounds and 13 assists, capped by a step-back three at the overtime buzzer.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs",
@@ -326,15 +326,41 @@
           }
         }
       ],
+      "chart": {
+        "title": "Playoff nights by stars aged 24 or under",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Magic '80",
+            "value": 42
+          },
+          {
+            "label": "James '09",
+            "value": 49
+          },
+          {
+            "label": "Rose '11",
+            "value": 44
+          },
+          {
+            "label": "Luka '20",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Luka Dončić",
           "Dallas Mavericks"
         ],
-        "supports": []
+        "supports": [
+          "nba-magic80-g6-points",
+          "nba-james09-magic-g1-points",
+          "nba-rose11-hawks-g3-points"
+        ]
       }
     }
   ]

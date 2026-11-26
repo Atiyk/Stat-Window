@@ -250,7 +250,7 @@
    },
    "questions": [
     "nba-magic09-regular-wins",
-    "nba-rose11-mvp-youngest-age",
+    "nba-magic80-finals-mvp-age-v52a",
     "nba-luka22-knicks-triple-rebounds",
     "nba-mcgrady04-35-seconds",
     "nba-lillard19-okc-winner-distance"
@@ -269,7 +269,7 @@
     "nba-raptors19-regular-wins",
     "nba-grizzlies21-bench-points-v5",
     "nba-stockton-missed",
-    "nba-webber02-season-ppg",
+    "nba-baylor62-season-ppg-v52a",
     "nba-wolves24-denver-game7-comeback"
    ]
   },
@@ -303,7 +303,7 @@
     "nba-duncan99-finals-ppg",
     "nba-hakeem90-quadruple-blocks",
     "nba-bol85-quarter",
-    "nba-kawhi19-jokic23-playoff-points-gap-v5",
+    "nba-nuggets09-hornets-margin-v52a",
     "nba-klay16-okc-game6-41"
    ]
   },
@@ -386,7 +386,7 @@
    },
    "questions": [
     "nba-gsw16-start",
-    "nba-sonics79-january-wins",
+    "nba-oscar62-season-rpg-v52a",
     "nba-knicks24-wins-v5",
     "nba-green16-g7",
     "nba-dame21-playoffs-12-threes"
@@ -422,7 +422,7 @@
     "nba-bulls96-combined-wins",
     "nba-bucks71-wins",
     "nba-warriors48-low-fg-v5",
-    "nba-curry15-g2-misses",
+    "nba-klay18-14-threes-v52a",
     "nba-jokic-murray23-finals-g3-20-assists"
    ]
   },
@@ -507,7 +507,7 @@
     "nba-heat20-regular-wins",
     "nba-spurs14-streak",
     "nba-kobe16-final-game",
-    "nba-unseld75-finals-g2-rebounds",
+    "nba-wilt60-55-rebounds-v52b",
     "nba-durant21-nets-bucks-g5-49"
    ]
   },
@@ -522,7 +522,7 @@
    },
    "questions": [
     "nba-jokic-draft-pick",
-    "nba-cup23-prize",
+    "nba-celtics85-memorial-day-margin-v52b",
     "nba-celtics02-19-threes",
     "nba-rockets18-27-misses",
     "nba-shaq00-finals-g2-24-boards"
@@ -641,7 +641,7 @@
    },
    "questions": [
     "nba-sixers01-regular-wins",
-    "nba-wilt-kobe-record-gap-v51b",
+    "nba-wilt62-halftime-points-v52b",
     "nba-bulls96-home-streak",
     "nba-duncan03-g6-blocks",
     "nba-kawhi19-philly-game7-41"
@@ -726,7 +726,7 @@
    },
    "questions": [
     "nba-lebron18-g1",
-    "nba-spurs14-international",
+    "nba-horry-seven-titles-v52b",
     "nba-majerle93-three-pointers",
     "nba-bullets75-g1-halftime-lead",
     "nba-tatum22-bucks-g6-46"
@@ -1000,7 +1000,7 @@
     "nba-hawks15-january-wins",
     "nba-adebayo20-regular-rpg",
     "nba-celtics08-playoff-games",
-    "nba-parker14-season-ppg",
+    "nba-kawhi14-finals-ppg-v52d",
     "nba-pacers24-msg-game7-671-shooting"
    ]
   },
@@ -1015,7 +1015,7 @@
    },
    "questions": [
     "nba-iverson01-season-ppg",
-    "nba-davis84-regular-apg",
+    "nba-jordan90-cavs-69-v52d",
     "nba-miller94-4q",
     "nba-curry13-msg-scoring-share-v5",
     "nba-murray20-utah-g6-nine-threes"
@@ -1309,7 +1309,18 @@
   "nba-detroit04-rasheed-finish",
   "nba-lakers23-cup-paint",
   "nba-turkoglu09-regular-apg",
-  "nba-celtics02-4q"
+  "nba-celtics02-4q",
+  "nba-rose11-mvp-youngest-age",
+  "nba-webber02-season-ppg",
+  "nba-kawhi19-jokic23-playoff-points-gap-v5",
+  "nba-sonics79-january-wins",
+  "nba-curry15-g2-misses",
+  "nba-unseld75-finals-g2-rebounds",
+  "nba-cup23-prize",
+  "nba-wilt-kobe-record-gap-v51b",
+  "nba-spurs14-international",
+  "nba-parker14-season-ppg",
+  "nba-davis84-regular-apg"
  ],
  "reserveNotBefore": {
   "nba-robinson94-71": "2027-01-09",
@@ -1368,6 +1379,17 @@
   "nba-detroit04-rasheed-finish": "2026-12-28",
   "nba-lakers23-cup-paint": "2027-01-06",
   "nba-turkoglu09-regular-apg": "2027-01-23",
-  "nba-celtics02-4q": "2027-01-25"
+  "nba-celtics02-4q": "2027-01-25",
+  "nba-rose11-mvp-youngest-age": "2026-12-02",
+  "nba-webber02-season-ppg": "2026-12-03",
+  "nba-kawhi19-jokic23-playoff-points-gap-v5": "2026-12-05",
+  "nba-sonics79-january-wins": "2026-12-10",
+  "nba-curry15-g2-misses": "2026-12-12",
+  "nba-unseld75-finals-g2-rebounds": "2026-12-17",
+  "nba-cup23-prize": "2026-12-18",
+  "nba-wilt-kobe-record-gap-v51b": "2026-12-25",
+  "nba-spurs14-international": "2026-12-30",
+  "nba-parker14-season-ppg": "2027-01-15",
+  "nba-davis84-regular-apg": "2027-01-16"
  }
 }

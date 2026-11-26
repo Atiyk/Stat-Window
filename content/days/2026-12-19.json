@@ -9,7 +9,7 @@
     {
       "id": "nba-nuggets23-regular-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 2022–23 Nuggets win?",
+      "prompt": "The chart shows wins for four other West No. 1 seeds. How many regular-season games did the 2022–23 Nuggets win?",
       "context": "Denver Nuggets · 2022–23 · 82 games",
       "answer": 53,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 37,
       "max": 78,
       "step": 1,
-      "note": "53–29, and Denver reached the Finals for the first time.",
+      "note": "Denver's first No. 1 seed ever, and the start of its first title run.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
@@ -56,14 +56,45 @@
           }
         }
       ],
+      "chart": {
+        "title": "West No. 1 seeds' regular-season wins",
+        "unit": "wins",
+        "points": [
+          {
+            "label": "Sonics '79",
+            "value": 52
+          },
+          {
+            "label": "Lakers '87",
+            "value": 65
+          },
+          {
+            "label": "Suns '93",
+            "value": 62
+          },
+          {
+            "label": "Kings '02",
+            "value": 61
+          },
+          {
+            "label": "Nuggets '23",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "wins-season",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Denver Nuggets"
         ],
-        "supports": []
+        "supports": [
+          "nba-sonics79-season-wins",
+          "nba-lakers87-wins",
+          "nba-suns93-regular-wins",
+          "nba-kings02-regular-wins"
+        ]
       }
     },
     {
@@ -79,7 +110,7 @@
       "min": 0,
       "max": 20,
       "step": 1,
-      "note": "13 straight.",
+      "note": "Including the famous mid-air hand switch, as Chicago evened the series and never lost again.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1991_NBA_Finals",
@@ -142,7 +173,7 @@
       "min": 40,
       "max": 100,
       "step": 1,
-      "note": "89%: 17 of 19 at the line, a big surprise from a streaky foul shooter.",
+      "note": "17 of 19, after shooting 55.6% at the line earlier in those playoffs.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
@@ -181,7 +212,7 @@
         }
       ],
       "meta": {
-        "format": "ratio",
+        "format": "recall",
         "family": "shooting-pct",
         "era": "2020s",
         "subjects": [
@@ -194,7 +225,7 @@
     {
       "id": "nba-sixers01-opening-streak",
       "sport": "NBA",
-      "prompt": "The 2015–16 Warriors opened 24–0. How many games in a row did Allen Iverson's 2000–01 Sixers win to start their season?",
+      "prompt": "The chart shows other season-opening winning streaks. How many games did Allen Iverson's 2000–01 Sixers win to start their season?",
       "context": "Philadelphia 76ers · opening streak · 2000–01",
       "answer": 10,
       "unit": {
@@ -204,7 +235,7 @@
       "min": 3,
       "max": 25,
       "step": 1,
-      "note": "Ten straight wins before their first loss.",
+      "note": "The start of a run to the East's best record and Philadelphia's first Finals since 1983.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
@@ -241,14 +272,38 @@
           }
         }
       ],
+      "chart": {
+        "title": "Season-opening win streaks",
+        "unit": "games",
+        "points": [
+          {
+            "label": "Rockets '94",
+            "value": 15
+          },
+          {
+            "label": "Sonics '94",
+            "value": 10
+          },
+          {
+            "label": "76ers '01",
+            "value": null
+          },
+          {
+            "label": "Warriors '16",
+            "value": 24
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "win-streak",
         "era": "cross-era",
         "subjects": [
           "Philadelphia 76ers"
         ],
         "supports": [
+          "nba-rockets94-start",
+          "nba-sonics94-opening-streak",
           "nba-gsw16-start"
         ]
       }
@@ -256,7 +311,7 @@
     {
       "id": "nba-vince01-sixers-first-half-eight-threes",
       "sport": "NBA",
-      "prompt": "In Vince Carter's legendary 2001 playoff duel with Allen Iverson's Sixers, how many threes did he hit in the first half?",
+      "prompt": "Kobe Bryant once made a then-record 12 threes in a game. In his 2001 playoff duel with Iverson, how many did Vince Carter hit in one half?",
       "context": "Vince Carter · Raptors vs 76ers · May 2001",
       "answer": 8,
       "unit": {
@@ -266,7 +321,7 @@
       "min": 0,
       "max": 24,
       "step": 1,
-      "note": "Eight first-half threes, as Vince poured in 50 points against Philadelphia.",
+      "note": "A playoff record for one half. Vince finished with 50 points.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Vince_Carter",
@@ -304,14 +359,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "threes-game",
         "era": "2000s",
         "subjects": [
           "Vince Carter",
           "Toronto Raptors"
         ],
-        "supports": []
+        "supports": [
+          "nba-kobe03-threes"
+        ]
       }
     }
   ]

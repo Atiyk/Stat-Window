@@ -130,7 +130,7 @@
     {
       "id": "nba-heat23-wins",
       "sport": "NBA",
-      "prompt": "The chart shows four recent title teams' win totals. How many did the 2022–23 Heat win before reaching the Finals?",
+      "prompt": "The chart shows four recent champions' win totals. How many did the 2022–23 Heat win on their way to the Finals?",
       "context": "Miami Heat · 2022–23 · 82 games",
       "answer": 44,
       "unit": {
@@ -140,7 +140,7 @@
       "min": 30,
       "max": 70,
       "step": 1,
-      "note": "44–38, then a run to the Finals as an eighth seed.",
+      "note": "44–38, then a run to the Finals through the play-in.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",

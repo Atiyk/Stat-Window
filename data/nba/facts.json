@@ -1065,7 +1065,7 @@
    },
    "funFacts": [
     {
-     "text": "Phil Jackson put Scottie Pippen on Magic Johnson as the key defensive adjustment.",
+     "text": "Putting Scottie Pippen on Magic Johnson was the key defensive switch.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/1991_NBA_Finals",
@@ -2475,7 +2475,7 @@
    "singular": "win",
    "plural": "wins"
   },
-  "claim": "69–13, including 36–5 at home.",
+  "claim": "69–13.",
   "source": {
    "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
    "quote": "Record: 69–13 (.841)",
@@ -2485,7 +2485,7 @@
   "question": {
    "prompt": "The chart shows win totals for three early-'70s powers. How many games did the 1971–72 Lakers win?",
    "context": "Los Angeles Lakers · 1971–72 · 82 games",
-   "reveal": "69–13, including 36–5 at home.",
+   "reveal": "69–13 (.841).",
    "min": 50,
    "max": 80,
    "step": 1,
@@ -2968,7 +2968,7 @@
    },
    "funFacts": [
     {
-     "text": "In his final season, Barry also made a three in the same game as one of the NBA’s first.",
+     "text": "In his final season, Barry made one of the NBA’s first three-pointers, in the same game as the very first.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
@@ -7069,7 +7069,7 @@
    },
    "funFacts": [
     {
-     "text": "Second-year point guard Rajon Rondo joined Boston's newly formed Big Three.",
+     "text": "Second-year point guard Rajon Rondo started alongside Boston's newly formed Big Three.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",
@@ -8180,7 +8180,7 @@
      }
     },
     {
-     "text": "Robertson won his first NBA championship with Milwaukee.",
+     "text": "Robertson won an NBA championship for the first time in his career with Milwaukee.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
@@ -11005,7 +11005,7 @@
    "singular": "win",
    "plural": "wins"
   },
-  "claim": "44–38, then a run to the Finals as an eighth seed.",
+  "claim": "44–38, then a run to the Finals through the play-in.",
   "source": {
    "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
    "quote": "They regressed from their 53–29 record the previous season and finished with a record of 44–38",
@@ -11013,9 +11013,9 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows four recent title teams' win totals. How many did the 2022–23 Heat win before reaching the Finals?",
+   "prompt": "The chart shows four recent champions' win totals. How many did the 2022–23 Heat win on their way to the Finals?",
    "context": "Miami Heat · 2022–23 · 82 games",
-   "reveal": "44–38, then a run to the Finals as an eighth seed.",
+   "reveal": "44–38, then a run to the Finals through the play-in.",
    "min": 30,
    "max": 70,
    "step": 1,
@@ -11765,7 +11765,7 @@
      }
     },
     {
-     "text": "The Magic squandered foul-shot opportunities in a tight Game 4 despite leading at halftime.",
+     "text": "Poor free-throw shooting kept the Magic from building on their lead in Game 4.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
@@ -13282,7 +13282,7 @@
    },
    "funFacts": [
     {
-     "text": "Kobe and opponent Dwight Howard had won Olympic gold together for Team USA the previous summer.",
+     "text": "Kobe had won Olympic gold in Beijing the previous summer.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
@@ -13298,7 +13298,7 @@
      }
     },
     {
-     "text": "Kobe received the Bill Russell Finals MVP trophy from commissioner David Stern in Orlando.",
+     "text": "Kobe received the Bill Russell NBA Finals MVP Trophy.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
@@ -18729,7 +18729,7 @@
   },
   "question": {
    "prompt": "Chris Webber averaged 4.8 assists for the 2001–02 Kings. How many did point guard Mike Bibby average?",
-   "context": "Sacramento · first season after the Grizzlies trade",
+   "context": "Sacramento Kings · 2001–02 regular season",
    "reveal": "5.0 assists per game as Sacramento's new point guard.",
    "min": 2,
    "max": 10,
@@ -20470,7 +20470,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows four classic assist seasons. What did Gary Payton average for the 1993–94 SuperSonics?",
+   "prompt": "The chart shows four other point guards' assist averages. What did Gary Payton average for the 1993–94 SuperSonics?",
    "context": "Gary Payton · Seattle · 1993–94 regular season",
    "reveal": "6.0 assists per game, alongside elite on-ball defense.",
    "min": 1,
@@ -27279,11 +27279,11 @@
    },
    "funFacts": [
     {
-     "text": "Kobe and opponent Dwight Howard had won Olympic gold together for Team USA the previous summer.",
+     "text": "Pau Gasol became the first Spaniard to win an NBA championship.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2009_NBA_Finals",
-      "quote": "the previous summer, winning a gold medal at the 2008 Summer Olympics in Beijing"
+      "quote": "Pau Gasol became the first Spaniard"
      }
     },
     {
@@ -27477,7 +27477,7 @@
   "question": {
    "prompt": "Bob Cousy's single-season assist record was 715. By how many assists did Oscar Robertson break it in 1961–62?",
    "context": "Cincinnati Royals · 1961–62 regular season",
-   "reveal": "By 184: Robertson logged 899 assists, in the season he averaged a triple-double.",
+   "reveal": "By 184: Robertson logged 899 assists to Cousy's 715.",
    "min": 20,
    "max": 320,
    "step": 2,

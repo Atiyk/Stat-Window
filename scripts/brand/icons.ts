@@ -24,7 +24,7 @@ const RASTERS: [string, number, string][] = [
   ['icons/court-192.png', 192, symbolSvg({ line: GARDEN.cream, ball: GARDEN.copper, tile: GARDEN.navy, tileRadius: 14 }, 0.82)],
   ['icons/court-512.png', 512, symbolSvg({ line: GARDEN.cream, ball: GARDEN.copper, tile: GARDEN.navy, tileRadius: 14 }, 0.82)],
   // Maskable: everything inside the central 80% safe zone.
-  ['icons/court-maskable-512.png', 512, symbolSvg({ line: GARDEN.cream, ball: GARDEN.copper, tile: GARDEN.navy, tileRadius: 0 }, 0.66)],
+  ['icons/court-maskable-512.png', 512, symbolSvg({ line: GARDEN.cream, ball: GARDEN.copper, tile: GARDEN.navy, tileRadius: 0 }, 0.62)],
 ];
 
 async function main() {

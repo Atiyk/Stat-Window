@@ -20,6 +20,8 @@ Text uses `--ink` `#132A47`, a deep shade of Garden Navy. Every other colour in 
 | Soft text `#4E5F73` on cream | 6.0:1 |
 | Light copper `#F4B08E` (answer on the navy field) | 6.7:1 |
 
+The playing field is Garden Navy. The rim on courts is navy too, so copper stays reserved for the ball and the answer.
+
 Copper on navy is only 2.4:1, so copper never carries meaning on navy without a cream or navy outline.
 
 ## Symbol

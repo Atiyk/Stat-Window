@@ -20,11 +20,13 @@ export const SYMBOL_VIEWBOX = 64;
 export const GARDEN = { cream: '#F7F4EE', navy: '#17365D', copper: '#B94B21' } as const;
 
 const SCALE = 1.08; // px per foot, so the 50 ft court width spans 54 of 64 px
-const TOP = 6; // baseline centreline
+export const SYMBOL_TOP = 8; // baseline centreline: centres the art (y 5 to 59) in the box
+const TOP = SYMBOL_TOP;
 const LINE = 6; // baseline and arc weight
 const LANE = 5; // lane weight
 const BALL = 6.4;
-const GAP = 1.6;
+const GAP = 4; // at least one clear pixel between arc and ball at 16 px, so it never reads as a stem
+export const SYMBOL_SCALE = SCALE;
 
 const round = (n: number) => Math.round(n * 100) / 100;
 const X = (ft: number) => round(32 - (COURT.width / 2) * SCALE + ft * SCALE);
@@ -67,7 +69,6 @@ export function drawSymbol(ctx: CanvasRenderingContext2D, x: number, y: number, 
   ctx.translate(x, y);
   ctx.scale(size / SYMBOL_VIEWBOX, size / SYMBOL_VIEWBOX);
   ctx.strokeStyle = colors.line;
-  ctx.lineCap = 'round';
   ctx.lineJoin = 'round';
   for (const part of [SYMBOL.baseline, SYMBOL.lane, SYMBOL.arc]) {
     ctx.lineWidth = part.width;

@@ -54,7 +54,7 @@ const C = {
   line: 'rgba(19, 42, 71, 0.16)',
   courtLine: '#97A2AF',
   paint: '#EBEEF1',
-  rim: '#B94B21',
+  rim: '#17365D',
   brandSoft: '#E3E8EE',
   brandPress: '#0F2744',
   copper: '#B94B21',

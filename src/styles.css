@@ -396,7 +396,7 @@ a {
   max-width: calc(var(--maxw) - 2 * var(--gutter));
   margin: 0 auto;
   padding: clamp(16px, 2.6vw, 28px) clamp(16px, 3vw, 32px) clamp(12px, 2vw, 24px);
-  background: var(--ink);
+  background: var(--brand);
   border-radius: var(--radius-panel);
 }
 
@@ -1039,6 +1039,7 @@ a {
 .btn-primary:disabled,
 .round[data-phase='ready'] .btn-primary:disabled {
   cursor: default;
+  transition: none;
   background: var(--paper-2);
   color: var(--ink-soft);
 

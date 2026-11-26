@@ -43,12 +43,16 @@ jobs:
         run: npm run content:trivia:check -- --require-original
       - name: NBA database (reproducible SQLite build, reports, day files and Survival catalog up to date)
         run: npm run nba:db -- --out build/nba.sqlite && npm run nba:report:check && npm run content:publish:check && npm run survival:catalog:check
+      - name: Official season launch day (future Eastern boundary, variety-checked runway, never moved once started)
+        # Runs before the shallow fetch of main below, which would cut HEAD^ out of the history.
+        # Pull requests compare with main; a push to main compares with the commit before it
+        # (main against itself would always pass). season-check fails if the base can't be read.
+        # The production build separately refuses a mid-day activation (docs/LAUNCH.md).
+        run: |
+          if [ "${{ github.event_name }}" = push ]; then base=$(git rev-parse HEAD^); else git fetch --no-tags --depth=1 origin main && base=$(git rev-parse FETCH_HEAD); fi
+          node --experimental-strip-types scripts/season-check.ts --base "$base"
       - name: Published days unchanged relative to main (the lock only grows)
         run: git fetch --no-tags --depth=1 origin main && npm run content:lock:base -- --base FETCH_HEAD
-      - name: Official season launch day (future Eastern boundary, variety-checked runway, never moved once started)
-        # Pull requests compare with main; a push to main compares with the commit before it
-        # (main against itself would always pass). The production build re-checks this.
-        run: node --experimental-strip-types scripts/season-check.ts --base ${{ github.event_name == 'push' && 'HEAD^' || 'FETCH_HEAD' }}
       - name: Brand SVGs generated from the canonical symbol
         run: npm run brand:check
       - name: Review-gated cross-sport Question Factory

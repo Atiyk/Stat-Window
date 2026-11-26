@@ -24,18 +24,22 @@ export const SEASON_ROLLBACK_FROM: string | null = null;
  * The production build's own guard against switching on part-way through a day.
  * Vercel deploys main without waiting for CI, so a launch commit merged after midnight
  * Eastern on (or after) its launch day would renumber a day already being played.
- * `previous` is LAUNCH_DAY at the commit before the one being built (from git);
- * `undefined` means it could not be read. A build is refused when it is the one that
- * first activates a launch day that has already begun, or when that can't be ruled out.
+ * `deployed` is the launch day production serves right now (its /launch.json), or
+ * `undefined` when that could not be read. Once a launch day has begun, a build is
+ * allowed only if production already serves that same day (the season went live at the
+ * boundary from an earlier deploy); otherwise it would be the one switching it on
+ * mid-day, whichever commit carries it. `ack` is an explicit override for an unreadable
+ * production (LAUNCH_GUARD_ACK=<L>, docs/LAUNCH.md).
  */
-export function activationIssue(o: { launchDay: string | null; previous: string | null | undefined; today: string }): string | null {
-  const { launchDay, previous, today } = o;
+export function activationIssue(o: { launchDay: string | null; deployed: string | null | undefined; today: string; ack?: string | undefined }): string | null {
+  const { launchDay, deployed, today } = o;
   if (launchDay === null || launchDay > today) return null;
-  if (previous === launchDay) return null;
-  if (previous === undefined) {
-    return `LAUNCH_DAY ${launchDay} has begun (today is ${today} Eastern) and the previous commit's launch day could not be read, so this build might switch the season on mid-day. Refusing to build.`;
+  if (deployed === launchDay) return null;
+  if (deployed === undefined) {
+    if (o.ack === launchDay) return null;
+    return `LAUNCH_DAY ${launchDay} has begun (today is ${today} Eastern) and production's /launch.json could not be read, so this build might switch the season on mid-day. Refusing to build (override: LAUNCH_GUARD_ACK=${launchDay}, docs/LAUNCH.md).`;
   }
-  return `this commit sets LAUNCH_DAY ${launchDay} but ${launchDay} has already begun (today is ${today} Eastern): deploying it would switch the season on mid-day. Choose a future launch day.`;
+  return `LAUNCH_DAY ${launchDay} has already begun (today is ${today} Eastern) but production serves ${String(deployed)}: deploying would switch the season on mid-day. Choose a future launch day.`;
 }
 
 /** Throws when a deployment environment still carries a launch day that disagrees with the commit. */

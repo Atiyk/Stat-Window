@@ -29,6 +29,8 @@ describe('launch-day release gate', () => {
     expect(seasonChangeIssues({ base: '2026-12-02', head: '2026-12-05', today: '2026-12-03', days }).join()).toMatch(/cannot be moved/);
     expect(seasonChangeIssues({ base: '2026-12-02', head: null, today: '2026-12-03', days }).join()).toMatch(/cannot be moved/);
     expect(seasonChangeIssues({ base: '2026-12-02', head: null, today: '2026-12-03', days, rollback: true })).toEqual([]);
+    // The acknowledgement only cancels; it never moves a started season (s1 is never re-opened).
+    expect(seasonChangeIssues({ base: '2026-12-02', head: '2026-12-09', today: '2026-12-03', days, rollback: true }).join()).toMatch(/cannot be moved/);
   });
   it('allows rescheduling or cancelling a launch that has not started', () => {
     expect(seasonChangeIssues({ base: '2026-12-02', head: '2026-12-05', today: '2026-11-30', days })).toEqual([]);

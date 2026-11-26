@@ -1,27 +1,22 @@
-import { execFileSync } from 'node:child_process';
 import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import { scoresApi } from './server/dev-plugin.ts';
 import { activationIssue, assertLaunchEnv, LAUNCH_DAY } from './src/engine/launch-config.ts';
 import { puzzleDay } from './src/engine/daily.ts';
-import { parseLaunchConfig } from './scripts/season-check.ts';
 
 // The launch day is committed; a leftover dashboard variable that disagrees fails the deploy.
 assertLaunchEnv(process.env);
 
-/** LAUNCH_DAY at the commit before HEAD, or undefined when git can't tell (no history). */
-function previousLaunchDay(): string | null | undefined {
+/** The launch day production serves now, from its /launch.json; undefined when unreadable. */
+async function deployedLaunchDay(): Promise<string | null | undefined> {
+  const host = process.env.VERCEL_PROJECT_PRODUCTION_URL || 'stat-window.vercel.app';
   try {
-    const text = execFileSync('git', ['show', 'HEAD~1:src/engine/launch-config.ts'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
-    return parseLaunchConfig(text) ?? null;
+    const res = await fetch(`https://${host}/launch.json`, { cache: 'no-store', signal: AbortSignal.timeout(10_000) });
+    if (!res.ok) return undefined;
+    const v = ((await res.json()) as { launchDay?: unknown }).launchDay;
+    return v === null || typeof v === 'string' ? v : undefined;
   } catch {
-    try {
-      // HEAD~1 exists but predates the config file: beta.
-      execFileSync('git', ['rev-parse', '--verify', 'HEAD~1'], { stdio: 'ignore' });
-      return null;
-    } catch {
-      return undefined;
-    }
+    return undefined;
   }
 }
 
@@ -36,13 +31,15 @@ const launchManifest = (): Plugin => ({
   },
 });
 
-export default defineConfig(({ command }) => {
+export default defineConfig(async ({ command }) => {
   // Vercel deploys main without waiting for CI, so the production build guards the
   // launch boundary itself (docs/LAUNCH.md): never switch the season on mid-day, and
   // never ship the launch preview switch.
   if (command === 'build' && process.env.VERCEL_ENV === 'production') {
     if (process.env.VITE_LAUNCH_PREVIEW) throw new Error('VITE_LAUNCH_PREVIEW is set in a production build; the launch preview is for non-production builds only.');
-    const issue = LAUNCH_DAY === null ? null : activationIssue({ launchDay: LAUNCH_DAY, previous: previousLaunchDay(), today: puzzleDay(new Date()) });
+    const today = puzzleDay(new Date());
+    const issue = LAUNCH_DAY === null || LAUNCH_DAY > today ? null
+      : activationIssue({ launchDay: LAUNCH_DAY, deployed: await deployedLaunchDay(), today, ack: process.env.LAUNCH_GUARD_ACK });
     if (issue) throw new Error(issue);
   }
   return {

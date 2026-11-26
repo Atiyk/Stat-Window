@@ -48,7 +48,7 @@ export function seasonChangeIssues(o: { base: string | null; head: string | null
   if (head === undefined) return [`${CONFIG} must export LAUNCH_DAY as a 'YYYY-MM-DD' string or null`];
   if (head === base) return [];
   const issues: string[] = [];
-  if (base !== null && base <= today && !o.rollback) issues.push(`the season that began on ${base} has started; it cannot be moved or cancelled (emergency rollback: docs/LAUNCH.md)`);
+  if (base !== null && base <= today && !(o.rollback && head === null)) issues.push(`the season that began on ${base} has started; it cannot be moved or cancelled (emergency rollback: docs/LAUNCH.md)`);
   if (head === null) return issues;
   if (!isIsoDay(head)) return [...issues, `LAUNCH_DAY ${head} is not a real date`];
   if (head <= today) issues.push(`LAUNCH_DAY ${head} is not in the future (today is ${today} Eastern); a launch must start at a future 12:00 AM Eastern boundary`);
@@ -65,14 +65,21 @@ function main() {
   const arg = (n: string) => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : undefined; };
   const baseRef = arg('--base') ?? 'origin/main';
   const today = [arg('--today') ?? '0000-00-00', puzzleDay(new Date())].sort().at(-1)!;
+  try {
+    execFileSync('git', ['rev-parse', '--verify', `${baseRef}^{commit}`], { stdio: 'ignore' });
+  } catch {
+    // Fail closed: an unreadable base would otherwise look like beta and let a started season move.
+    console.error(`season-check: base ${baseRef} is not a commit in this clone; fetch it first`);
+    process.exit(1);
+  }
   let baseText = '';
-  try { baseText = execFileSync('git', ['show', `${baseRef}:${CONFIG}`], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }); } catch { /* not on base yet: beta */ }
+  try { baseText = execFileSync('git', ['show', `${baseRef}:${CONFIG}`], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }); } catch { /* the file is not on base yet: beta */ }
   const base = baseText ? parseLaunchConfig(baseText) ?? null : null;
   const headText = readFileSync(CONFIG, 'utf8');
   const head = parseLaunchConfig(headText);
   const rollbackFrom = parseRollbackFrom(headText);
   const days = readdirSync(join(import.meta.dirname, '..', 'content', 'days')).filter((f) => f.endsWith('.json')).map((f) => f.slice(0, 10));
-  const issues = seasonChangeIssues({ base, head, today, days, rollback: base !== null && rollbackFrom === base });
+  const issues = seasonChangeIssues({ base, head, today, days, rollback: base !== null && head === null && rollbackFrom === base });
   if (issues.length) {
     console.error(`season-check: ${issues.join('\n  ')}`);
     process.exit(1);

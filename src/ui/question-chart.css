@@ -84,8 +84,8 @@
    steps down and the columns shorten; the chart stays readable. */
 @media (max-width: 719px) {
   .round .question-block:has(.q-chart) .question { font-size: 1.25rem; line-height: 1.2; }
-  .q-chart { --q-chart-h: 36px; margin-top: var(--space-2); }
-  .q-chart__cols { margin-top: 4px; }
+  .round:not(.teaching-play) .q-chart { --q-chart-h: 36px; margin-top: var(--space-2); }
+  .round:not(.teaching-play) .q-chart__cols { margin-top: 4px; }
 }
 
 /* Short phones: a chart must not push the brackets under the Lock bar. */

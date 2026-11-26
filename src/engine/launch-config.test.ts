@@ -14,17 +14,20 @@ describe('committed launch day', () => {
 
 describe('production build activation guard', () => {
   const L = '2026-12-01';
-  it('allows beta, a future launch, and later deploys of a season already live', () => {
-    expect(activationIssue({ launchDay: null, previous: null, today: L })).toBeNull();
-    expect(activationIssue({ launchDay: L, previous: null, today: '2026-11-30' })).toBeNull();
-    expect(activationIssue({ launchDay: L, previous: L, today: '2026-12-05' })).toBeNull();
+  it('allows beta, a future launch, and any deploy once production already serves the season', () => {
+    expect(activationIssue({ launchDay: null, deployed: null, today: L })).toBeNull();
+    expect(activationIssue({ launchDay: L, deployed: null, today: '2026-11-30' })).toBeNull();
+    expect(activationIssue({ launchDay: L, deployed: L, today: '2026-12-05' })).toBeNull();
+    expect(activationIssue({ launchDay: L, deployed: L, today: L })).toBeNull(); // a redeploy on L
   });
-  it('refuses the build that first activates a launch day that has already begun', () => {
-    expect(activationIssue({ launchDay: L, previous: null, today: L })).toMatch(/mid-day/);
-    expect(activationIssue({ launchDay: L, previous: '2026-12-03', today: '2026-12-02' })).toMatch(/mid-day/);
+  it('refuses any build that would switch a begun launch day on, whichever commit carries it', () => {
+    expect(activationIssue({ launchDay: L, deployed: null, today: L })).toMatch(/mid-day/);
+    expect(activationIssue({ launchDay: L, deployed: null, today: '2026-12-02' })).toMatch(/mid-day/);
+    expect(activationIssue({ launchDay: L, deployed: '2026-12-03', today: '2026-12-02' })).toMatch(/mid-day/);
   });
-  it('refuses when the previous commit cannot be read and the day has begun', () => {
-    expect(activationIssue({ launchDay: L, previous: undefined, today: L })).toMatch(/could not be read/);
-    expect(activationIssue({ launchDay: L, previous: undefined, today: '2026-11-30' })).toBeNull();
+  it('refuses when production cannot be read, unless explicitly acknowledged', () => {
+    expect(activationIssue({ launchDay: L, deployed: undefined, today: L })).toMatch(/could not be read/);
+    expect(activationIssue({ launchDay: L, deployed: undefined, today: L, ack: L })).toBeNull();
+    expect(activationIssue({ launchDay: L, deployed: undefined, today: '2026-11-30' })).toBeNull();
   });
 });

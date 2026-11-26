@@ -181,7 +181,10 @@ test.describe('returning and linked players', () => {
     await page.clock.install({ time: BETA_DAY });
     await page.goto('/?day=2026-11-25&vs=200');
     await expect(page.locator('.onboarding-play')).toHaveCount(0);
-    await page.getByRole('button', { name: "Start today's five" }).click();
+    // The gate names the challenge, its date and the score to beat before any clock runs.
+    await expect(page.locator('.ready-card .context')).toHaveText('Challenge · Nov 25 puzzle');
+    await expect(page.getByRole('heading', { name: 'Beat 200 points' })).toBeVisible();
+    await page.getByRole('button', { name: 'Start the challenge' }).click();
     await expect(page.locator('.challenge-note')).toContainText('200');
     await expect(page.locator('.shot-clock')).toContainText(/\d+s/);
   });

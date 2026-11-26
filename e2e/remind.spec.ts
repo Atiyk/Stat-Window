@@ -108,7 +108,8 @@ test.describe('New York', () => {
     await page.locator('.archive-list button').first().click();
     // V3 deliberately gates every fresh five-question run, including practice.
     await expect(page.locator('.question')).toHaveCount(0);
-    await expect(page.getByRole('button', { name: "Start today's five" })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Start practice' })).toBeVisible();
+    await expect(page.locator('.ready-card')).toContainText('Not counted in your stats');
     await startDailyIfNeeded(page);
     await expect(page.locator('.round-meta')).toContainText('Practice');
     await playFive(page);

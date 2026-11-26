@@ -213,7 +213,8 @@ const games = (n: number) => `${n.toLocaleString('en-US')} eligible completed ${
 export function questionCrowdLine(stat: QuestionStat | null | undefined, points: number, minSample = PERCENTILE_MIN_SAMPLE): string | null {
   if (!stat || !stat.ready || stat.n < Math.max(1, minSample)) return null;
   if (!Number.isInteger(points) || points < 0 || points > MAX_ROUND_POINTS) return null;
-  if (points > 0 && stat.pct) return `${ordinal(stat.pct[points]!)} percentile for this question, among ${games(stat.n)}.`;
+  // The table is in steps of 5; the ends are shown as 5th and 95th, never 0th or 100th.
+  if (points > 0 && stat.pct) return `${ordinal(Math.min(95, Math.max(5, stat.pct[points]!)))} percentile for this question, among ${games(stat.n)}.`;
   if (stat.scored !== undefined) return `${stat.scored}% of ${games(stat.n)} scored on this question.`;
   return null;
 }

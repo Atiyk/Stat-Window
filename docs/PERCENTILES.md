@@ -132,7 +132,7 @@ Treat percentiles as a friendly comparison among unverified browsers. A real lea
 | Consent probe, ineligible, invalid body | 0 | — | never reaches Redis |
 | GET (one edge-cache miss; carries the totals *and* the five question summaries) | ≤ 12 | 12, day + month + reads | was 8; cached 5 min at the edge, so cost scales with cache misses, not players |
 | GET while paused / reads ceiling | ≤ 4 | nothing | then memoised |
-| DELETE, upper bound (27 day/season pairs: 9 days × beta, s1 and QA, every record with questions) | ≤ 387 = 9 + 14 × 27 | checked against erase reserve | was 9 + 4 × 18 = 81 |
+| DELETE, upper bound (27 day/season pairs: 9 days × beta, s1 and QA, every record with questions) | ≤ 387 = 9 + 14 × 27 | checked against erase reserve | before V5.1: 9 + 4 × 18 = 81 (18 pairs, no question fields) |
 | DELETE, actually charged | 9 + 1/pair + 3/record + 2/question field | erase counter only | typical (1 record with questions, 27 pairs): 9 + 27 + 3 + 10 = 49 |
 | Revocation only (no linked record) | 36 = 9 + 27 | erase counter only | the tombstone is written in the same script |
 

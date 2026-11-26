@@ -305,10 +305,14 @@ export function App() {
     // and reload if it differs, so numbering, stats and analytics follow the server.
     const moveToNewDay = async (d: string) => {
       try {
-        const res = await fetch('/launch.json', { cache: 'no-store' });
+        const res = await fetch('/launch.json', { cache: 'no-store', signal: AbortSignal.timeout(5_000) });
         if (res.ok) {
           const deployed = ((await res.json()) as { launchDay?: unknown }).launchDay;
-          if ((deployed === null || typeof deployed === 'string') && deployed !== LAUNCH_DAY && reloadForNewVersion()) return;
+          if ((deployed === null || typeof deployed === 'string') && deployed !== LAUNCH_DAY) {
+            // Reload onto the new day, not back onto an old ?day= link.
+            window.history.replaceState(null, '', withoutGameLink(window.location));
+            if (reloadForNewVersion()) return;
+          }
         }
       } catch {
         // Offline or no manifest (dev server): keep this bundle's launch day.
@@ -767,7 +771,7 @@ function Game(props: {
       : session.viaLink
         ? {
           context: `Challenge · ${puzzle}`,
-          title: session.vs !== null ? `Beat ${session.vs} points` : 'Ready for five?',
+          title: session.vs !== null ? `Beat ${session.vs} ${session.vs === 1 ? 'point' : 'points'}` : 'Ready for five?',
           body: `${session.vs !== null ? `Your friend scored ${session.vs}. ` : ''}The same five questions, 24 seconds each.${daily ? ' This counts as your daily.' : ' Not counted in your stats.'}`,
           cta: 'Start the challenge',
         }

@@ -70,7 +70,7 @@
     {
       "id": "nba-barry75-finals-g2-points",
       "sport": "NBA",
-      "prompt": "How many points did Rick Barry score in Game 2 of the 1975 Finals?",
+      "prompt": "The chart shows three other Finals scoring games. How many points did Rick Barry score in Game 2 of the 1975 Finals?",
       "context": "Golden State vs Washington · 1975 Finals · Game 2",
       "answer": 36,
       "unit": {
@@ -117,15 +117,41 @@
           }
         }
       ],
+      "chart": {
+        "title": "Finals scoring games",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Gordon '23",
+            "value": 27
+          },
+          {
+            "label": "Middleton '21",
+            "value": 40
+          },
+          {
+            "label": "Curry '19",
+            "value": 47
+          },
+          {
+            "label": "Barry '75",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "1970s",
+        "era": "cross-era",
         "subjects": [
           "Rick Barry",
           "Golden State Warriors"
         ],
-        "supports": []
+        "supports": [
+          "nba-gordon23-finals-g4-points",
+          "nba-middleton21-g4",
+          "nba-curry19-g3"
+        ]
       }
     },
     {
@@ -192,7 +218,7 @@
     {
       "id": "nba-howard09-regular-rpg",
       "sport": "NBA",
-      "prompt": "How many rebounds per game did Dwight Howard average in 2008–09?",
+      "prompt": "Joakim Noah averaged 10.4 rebounds per game in 2010–11. How many did Dwight Howard average for the 2008–09 Magic?",
       "context": "Orlando Magic · regular season",
       "answer": 13.8,
       "unit": {
@@ -240,20 +266,22 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "rebounds-average",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Dwight Howard",
           "Orlando Magic"
         ],
-        "supports": []
+        "supports": [
+          "nba-noah11-rebounds-average"
+        ]
       }
     },
     {
       "id": "nba-ant24-nuggets-g1-43",
       "sport": "NBA",
-      "prompt": "In Anthony Edwards's statement-making 2024 playoff opener against champion Denver, how many points did he score?",
+      "prompt": "Jalen Brunson's Knicks playoff record in 2024 was 47 points. How many did Anthony Edwards score in his franchise-record opener at Denver?",
       "context": "Anthony Edwards · Wolves at Nuggets · May 2024",
       "answer": 43,
       "unit": {
@@ -301,14 +329,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
         "era": "2020s",
         "subjects": [
           "Anthony Edwards",
           "Minnesota Timberwolves"
         ],
-        "supports": []
+        "supports": [
+          "nba-brunson24-philly-47"
+        ]
       }
     }
   ]

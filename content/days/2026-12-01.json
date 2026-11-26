@@ -9,7 +9,7 @@
     {
       "id": "nba-magic09-regular-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did Dwight Howard's 2008–09 Magic win?",
+      "prompt": "The chart shows three other Eastern Conference seasons. How many regular-season games did Dwight Howard's 2008–09 Magic win?",
       "context": "Orlando · Eastern Conference champions",
       "answer": 59,
       "unit": {
@@ -56,20 +56,46 @@
           }
         }
       ],
+      "chart": {
+        "title": "East teams' wins in a season",
+        "unit": "wins",
+        "points": [
+          {
+            "label": "Celtics '08",
+            "value": 66
+          },
+          {
+            "label": "Bulls '11",
+            "value": 62
+          },
+          {
+            "label": "Heat '08",
+            "value": 15
+          },
+          {
+            "label": "Magic '09",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "wins-season",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Orlando Magic"
         ],
-        "supports": []
+        "supports": [
+          "nba-celtics08-wins",
+          "nba-bulls11-regular-wins",
+          "nba-heat08-wins"
+        ]
       }
     },
     {
       "id": "nba-rose11-mvp-youngest-age",
       "sport": "NBA",
-      "prompt": "How old was Derrick Rose when he won the NBA's MVP award in 2011?",
+      "prompt": "Kobe Bryant was 23 when he became the youngest player to win three titles. How old was Derrick Rose when he won MVP in 2011?",
       "context": "Chicago Bulls · 2010–11 MVP season",
       "answer": 22,
       "unit": {
@@ -117,14 +143,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "age",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Derrick Rose",
           "Chicago Bulls"
         ],
-        "supports": []
+        "supports": [
+          "nba-kobe-three-titles-age"
+        ]
       }
     },
     {
@@ -191,7 +219,7 @@
     {
       "id": "nba-mcgrady04-35-seconds",
       "sport": "NBA",
-      "prompt": "Tracy McGrady stunned San Antonio in December 2004 by scoring how many points in the final 35 seconds?",
+      "prompt": "Stephen Curry's record overtime in 2016 was 17 points. How many did Tracy McGrady score in the final 35 seconds to stun San Antonio in 2004?",
       "context": "Rockets vs Spurs · December 9, 2004",
       "answer": 13,
       "unit": {
@@ -239,14 +267,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-run",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Tracy McGrady",
           "Houston Rockets"
         ],
-        "supports": []
+        "supports": [
+          "nba-curry16-ot-points"
+        ]
       }
     },
     {

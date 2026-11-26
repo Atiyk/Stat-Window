@@ -131,7 +131,7 @@
     {
       "id": "nba-bol85-quarter",
       "sport": "NBA",
-      "prompt": "Manute Bol set the record for blocks in a quarter in December 1985. How many?",
+      "prompt": "Giannis Antetokounmpo blocked 5 shots in the 2021 title clincher. Manute Bol set the one-quarter record in 1985. How many did he block?",
       "context": "Washington Bullets · 1985–86",
       "answer": 8,
       "unit": {
@@ -179,14 +179,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "blocks-period",
-        "era": "1980s",
+        "era": "cross-era",
         "subjects": [
           "Manute Bol",
           "Washington Wizards"
         ],
-        "supports": []
+        "supports": [
+          "nba-giannis21-finals-g6-blocks"
+        ]
       }
     },
     {
@@ -257,7 +259,7 @@
     {
       "id": "nba-klay16-okc-game6-41",
       "sport": "NBA",
-      "prompt": "Down 3–2 to Durant's Thunder in 2016, how many points did Klay Thompson score in his legendary Game 6?",
+      "prompt": "The chart shows three other playoff scoring nights. Down 3–2 in 2016, how many points did Klay Thompson score in Game 6 at OKC?",
       "context": "Klay Thompson · Warriors at Thunder · 2016 playoffs",
       "answer": 41,
       "unit": {
@@ -304,15 +306,41 @@
           }
         }
       ],
+      "chart": {
+        "title": "Playoff scoring in one game",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Sprewell '99",
+            "value": 25
+          },
+          {
+            "label": "Iverson '01",
+            "value": 48
+          },
+          {
+            "label": "Butler '23",
+            "value": 56
+          },
+          {
+            "label": "Klay '16",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Klay Thompson",
           "Golden State Warriors"
         ],
-        "supports": []
+        "supports": [
+          "nba-sprewell99-g5",
+          "nba-iverson01-g1",
+          "nba-butler23-56-bucks-upset"
+        ]
       }
     }
   ]

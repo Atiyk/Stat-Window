@@ -9,7 +9,7 @@
     {
       "id": "nba-curry22-g4",
       "sport": "NBA",
-      "prompt": "With Golden State down 2–1 in the 2022 Finals, how many points did Stephen Curry score in Game 4?",
+      "prompt": "Stephen Curry scored 47 in Game 3 of the 2019 Finals. With Golden State down 2–1 in 2022, how many did he score in Game 4?",
       "context": "2022 NBA Finals · Game 4 · at Boston",
       "answer": 43,
       "unit": {
@@ -57,14 +57,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Stephen Curry",
           "Golden State Warriors"
         ],
-        "supports": []
+        "supports": [
+          "nba-curry19-g3"
+        ]
       }
     },
     {

@@ -155,7 +155,7 @@
     {
       "id": "nba-holiday21-playoffs-apg",
       "sport": "NBA",
-      "prompt": "How many assists per game did Jrue Holiday average in the 2021 playoffs?",
+      "prompt": "Jamal Murray averaged 10.0 assists in the 2023 Finals. How many assists per game did Jrue Holiday average in the 2021 playoffs?",
       "context": "Bucks · full postseason · title run",
       "answer": 8.7,
       "unit": {
@@ -203,14 +203,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "assists-average",
         "era": "2020s",
         "subjects": [
           "Jrue Holiday",
           "Milwaukee Bucks"
         ],
-        "supports": []
+        "supports": [
+          "nba-murray23-finals-apg"
+        ]
       }
     },
     {
@@ -277,7 +279,7 @@
     {
       "id": "nba-love10-knicks-thirty-one-boards",
       "sport": "NBA",
-      "prompt": "In Kevin Love's famous 2010 '30–30' game against the Knicks, how many rebounds did he grab?",
+      "prompt": "Luka grabbed 21 boards in a 60-point game against the Knicks. How many did Kevin Love grab in his 2010 '30–30' game against them?",
       "context": "Kevin Love · Timberwolves vs Knicks · November 2010",
       "answer": 31,
       "unit": {
@@ -325,14 +327,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "rebounds-game",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Kevin Love",
           "Minnesota Timberwolves"
         ],
-        "supports": []
+        "supports": [
+          "nba-luka22-knicks-triple-rebounds"
+        ]
       }
     }
   ]

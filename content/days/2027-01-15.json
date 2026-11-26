@@ -256,7 +256,7 @@
     {
       "id": "nba-murray20-utah-g6-nine-threes",
       "sport": "NBA",
-      "prompt": "With Denver facing elimination in the bubble's 2020 Jazz–Nuggets Game 6, how many threes did Jamal Murray hit?",
+      "prompt": "Klay Thompson set the playoff record with 11 threes in 2016. With Denver facing elimination, how many did Jamal Murray hit in 2020 Game 6?",
       "context": "Jamal Murray · Nuggets at Jazz · 2020 first-round Game 6",
       "answer": 9,
       "unit": {
@@ -304,14 +304,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "threes-game",
         "era": "2010s",
         "subjects": [
           "Jamal Murray",
           "Denver Nuggets"
         ],
-        "supports": []
+        "supports": [
+          "nba-klay16-wcf-threes"
+        ]
       }
     }
   ]

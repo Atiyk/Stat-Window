@@ -70,7 +70,7 @@
     {
       "id": "nba-allen10-g2-threes",
       "sport": "NBA",
-      "prompt": "How many threes did Ray Allen make in Game 2 of the 2010 Finals?",
+      "prompt": "Shane Battier hit 6 threes in Game 7 of the 2013 Finals. How many did Ray Allen make in Game 2 of the 2010 Finals?",
       "context": "2010 NBA Finals · Game 2 · at Los Angeles",
       "answer": 8,
       "unit": {
@@ -118,20 +118,22 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "threes-game",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Ray Allen",
           "Boston Celtics"
         ],
-        "supports": []
+        "supports": [
+          "nba-battier13-g7-threes"
+        ]
       }
     },
     {
       "id": "nba-gordon23-finals-g4-points",
       "sport": "NBA",
-      "prompt": "How many points did Aaron Gordon score in Game 4 of the 2023 Finals?",
+      "prompt": "The chart shows three other supporting-cast Finals scoring games. How many points did Aaron Gordon score in Game 4 of the 2023 Finals?",
       "context": "Denver Nuggets at Miami Heat · June 9, 2023",
       "answer": 27,
       "unit": {
@@ -178,21 +180,47 @@
           }
         }
       ],
+      "chart": {
+        "title": "Supporting-cast Finals scoring games",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Powe '08",
+            "value": 21
+          },
+          {
+            "label": "Sprewell '99",
+            "value": 25
+          },
+          {
+            "label": "Middleton '21",
+            "value": 40
+          },
+          {
+            "label": "Gordon '23",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Aaron Gordon",
           "Denver Nuggets"
         ],
-        "supports": []
+        "supports": [
+          "nba-powe08-g2",
+          "nba-sprewell99-g5",
+          "nba-middleton21-g4"
+        ]
       }
     },
     {
       "id": "nba-korver15-three-pct",
       "sport": "NBA",
-      "prompt": "What percentage of his threes did Kyle Korver make in 2014–15?",
+      "prompt": "Khris Middleton shot 43.5% from three in the 2019 playoffs. What did Kyle Korver shoot from three for the 2014–15 Hawks?",
       "context": "Atlanta Hawks · regular season · one decimal place",
       "answer": 49.2,
       "unit": {
@@ -241,14 +269,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "shooting-pct",
         "era": "2010s",
         "subjects": [
           "Kyle Korver",
           "Atlanta Hawks"
         ],
-        "supports": []
+        "supports": [
+          "nba-middleton19-playoff-three-pct"
+        ]
       }
     },
     {

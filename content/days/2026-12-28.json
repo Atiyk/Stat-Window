@@ -70,7 +70,7 @@
     {
       "id": "nba-alcindor71-ppg",
       "sport": "NBA",
-      "prompt": "Lew Alcindor led the NBA in scoring in 1970–71. What was his average?",
+      "prompt": "The chart shows four scoring averages. What was Lew Alcindor's average when he led the NBA in scoring in 1970–71?",
       "context": "Milwaukee Bucks · 1970–71",
       "answer": 31.7,
       "unit": {
@@ -117,21 +117,52 @@
           }
         }
       ],
+      "chart": {
+        "title": "Points per game, season or Finals",
+        "unit": "ppg",
+        "points": [
+          {
+            "label": "Webber '02",
+            "value": 24.5
+          },
+          {
+            "label": "Kobe '09 Fin",
+            "value": 32.4
+          },
+          {
+            "label": "Shaq '00 Fin",
+            "value": 38
+          },
+          {
+            "label": "Jordan '93 Fin",
+            "value": 41
+          },
+          {
+            "label": "Alcindor '71",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "scoring-average",
-        "era": "1970s",
+        "era": "cross-era",
         "subjects": [
           "Kareem Abdul-Jabbar",
           "Milwaukee Bucks"
         ],
-        "supports": []
+        "supports": [
+          "nba-webber02-season-ppg",
+          "nba-kobe09-finals-ppg",
+          "nba-shaq00-finals-ppg",
+          "nba-jordan93-finals-ppg"
+        ]
       }
     },
     {
       "id": "nba-spurs14-g3-fg",
       "sport": "NBA",
-      "prompt": "In the first half of Game 3 of the 2014 Finals, what percentage of their shots did the Spurs make?",
+      "prompt": "San Antonio shot 70.7% in a 1983 game, an NBA mark. What did the Spurs shoot in the first half of Game 3 of the 2014 Finals?",
       "context": "2014 NBA Finals · Game 3 · at Miami",
       "answer": 75.8,
       "unit": {
@@ -179,13 +210,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "shooting-pct",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "San Antonio Spurs"
         ],
-        "supports": []
+        "supports": [
+          "nba-spurs83-fg"
+        ]
       }
     },
     {

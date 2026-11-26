@@ -133,7 +133,7 @@
     {
       "id": "nba-pippen97-g3-threes",
       "sport": "NBA",
-      "prompt": "Scottie Pippen tied the Finals record for threes in Game 3 of 1997. How many did he make?",
+      "prompt": "The chart shows four other playoff nights of threes. How many did Scottie Pippen make in Game 3 of the 1997 Finals?",
       "context": "1997 NBA Finals · Game 3 · at Utah",
       "answer": 7,
       "unit": {
@@ -180,15 +180,46 @@
           }
         }
       ],
+      "chart": {
+        "title": "Threes in a playoff game",
+        "unit": "threes",
+        "points": [
+          {
+            "label": "Cooper '87",
+            "value": 6
+          },
+          {
+            "label": "Pippen '97",
+            "value": null
+          },
+          {
+            "label": "Allen '10",
+            "value": 8
+          },
+          {
+            "label": "Curry '18",
+            "value": 9
+          },
+          {
+            "label": "Thompson '16",
+            "value": 11
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "threes-game",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "Scottie Pippen",
           "Chicago Bulls"
         ],
-        "supports": []
+        "supports": [
+          "nba-cooper87-threes",
+          "nba-allen10-g2-threes",
+          "nba-curry18-g2-threes",
+          "nba-klay16-wcf-threes"
+        ]
       }
     },
     {
@@ -255,7 +286,7 @@
     {
       "id": "nba-herro20-bubble-ecf-g4-thirtyseven",
       "sport": "NBA",
-      "prompt": "As a rookie in the 2020 bubble East finals against Boston, how many points did Tyler Herro explode for in Game 4?",
+      "prompt": "In the 2020 bubble, Donovan Mitchell scored 57 against Denver. How many did rookie Tyler Herro score in East finals Game 4?",
       "context": "Tyler Herro · Heat vs Celtics · 2020 East finals Game 4",
       "answer": 37,
       "unit": {
@@ -303,14 +334,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
         "era": "2010s",
         "subjects": [
           "Tyler Herro",
           "Miami Heat"
         ],
-        "supports": []
+        "supports": [
+          "nba-mitchell20-bubble-fiftyseven"
+        ]
       }
     }
   ]

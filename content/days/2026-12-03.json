@@ -96,7 +96,7 @@
     {
       "id": "nba-sonics94-opening-streak",
       "sport": "NBA",
-      "prompt": "How many straight games did Seattle win to start its 1993–94 season?",
+      "prompt": "The 1993–94 Rockets opened with 15 straight wins. How many straight games did Seattle win to start its 1993–94 season?",
       "context": "SuperSonics · opening winning streak",
       "answer": 10,
       "unit": {
@@ -144,13 +144,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "win-streak",
         "era": "1990s",
         "subjects": [
           "Oklahoma City Thunder"
         ],
-        "supports": []
+        "supports": [
+          "nba-rockets94-start"
+        ]
       }
     },
     {
@@ -217,7 +219,7 @@
     {
       "id": "nba-bibby02-regular-apg",
       "sport": "NBA",
-      "prompt": "Chris Webber averaged 4.8 assists for the 2001–02 Kings. How many did point guard Mike Bibby average?",
+      "prompt": "Kyle Lowry averaged 8.7 assists for the 2018–19 champion Raptors. How many did Kings point guard Mike Bibby average in 2001–02?",
       "context": "Sacramento Kings · 2001–02 regular season",
       "answer": 5,
       "unit": {
@@ -265,14 +267,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "assists-average",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Mike Bibby",
           "Sacramento Kings"
         ],
-        "supports": []
+        "supports": [
+          "nba-lowry19-regular-apg"
+        ]
       }
     },
     {

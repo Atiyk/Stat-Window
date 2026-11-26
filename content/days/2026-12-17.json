@@ -9,7 +9,7 @@
     {
       "id": "nba-jokic-draft-pick",
       "sport": "NBA",
-      "prompt": "In 2023 Nikola Jokić became the lowest draft pick ever to win Finals MVP. Where was he picked in 2014?",
+      "prompt": "In 2023 Nikola Jokić became the lowest draft pick ever to win Finals MVP. What overall pick was he in the 2014 draft?",
       "context": "2014 NBA draft · Denver Nuggets",
       "answer": 41,
       "unit": {
@@ -57,7 +57,7 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "ranking",
         "family": "draft-pick",
         "era": "2010s",
         "subjects": [
@@ -128,7 +128,7 @@
     {
       "id": "nba-celtics02-19-threes",
       "sport": "NBA",
-      "prompt": "Boston made a playoff-record nine threes in one fourth quarter against Philadelphia in 2002. How many did it make in the whole game?",
+      "prompt": "Orlando made 23 threes in a 2009 game. Boston hit a playoff-record nine in one quarter against Philadelphia in 2002. How many in the game?",
       "context": "2002 East first round · Celtics vs 76ers",
       "answer": 19,
       "unit": {
@@ -176,13 +176,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "threes-game",
         "era": "2000s",
         "subjects": [
           "Boston Celtics"
         ],
-        "supports": []
+        "supports": [
+          "nba-magic09-kings-threes"
+        ]
       }
     },
     {

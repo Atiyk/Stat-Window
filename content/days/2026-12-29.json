@@ -9,7 +9,7 @@
     {
       "id": "nba-lebron18-g1",
       "sport": "NBA",
-      "prompt": "LeBron James scored the most points ever in a Finals loss in Game 1 of 2018. How many?",
+      "prompt": "Michael Jordan scored 55 in Game 4 of the 1993 Finals. How many did LeBron James score in his 2018 Game 1 loss at Golden State?",
       "context": "2018 NBA Finals · Game 1 · at Golden State",
       "answer": 51,
       "unit": {
@@ -57,14 +57,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "LeBron James",
           "Cleveland Cavaliers"
         ],
-        "supports": []
+        "supports": [
+          "nba-jordan93-g4-55"
+        ]
       }
     },
     {
@@ -191,7 +193,7 @@
     {
       "id": "nba-bullets75-g1-halftime-lead",
       "sport": "NBA",
-      "prompt": "How many points ahead were the Bullets at halftime of Game 1 of the 1975 Finals?",
+      "prompt": "The chart shows deficits famous teams overcame. How many points ahead were the Bullets at halftime of Game 1 of the 1975 Finals?",
       "context": "Washington Bullets vs Golden State · Game 1",
       "answer": 14,
       "unit": {
@@ -199,7 +201,7 @@
         "plural": "points"
       },
       "min": 4,
-      "max": 35,
+      "max": 40,
       "step": 1,
       "note": "14 points, before Golden State's second-half comeback.",
       "source": {
@@ -238,20 +240,51 @@
           }
         }
       ],
+      "chart": {
+        "title": "Points trailed before a comeback",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Jazz '96",
+            "value": 36
+          },
+          {
+            "label": "Wolves '24",
+            "value": 20
+          },
+          {
+            "label": "Spurs '99",
+            "value": 17
+          },
+          {
+            "label": "Lakers '00",
+            "value": 16
+          },
+          {
+            "label": "Bullets '75",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "comeback",
-        "era": "1970s",
+        "era": "cross-era",
         "subjects": [
           "Golden State Warriors"
         ],
-        "supports": []
+        "supports": [
+          "nba-jazz96-comeback",
+          "nba-wolves24-denver-game7-comeback",
+          "nba-spurs99-memorial-day",
+          "nba-lakers00-portland-g7-comeback"
+        ]
       }
     },
     {
       "id": "nba-tatum22-bucks-g6-46",
       "sport": "NBA",
-      "prompt": "Facing elimination against Giannis and the Bucks in 2022 Game 6, how many points did Jayson Tatum score?",
+      "prompt": "Kawhi scored 41 in the 2019 Game 7 vs Philadelphia. Facing elimination in 2022 Game 6, how many did Jayson Tatum score vs Milwaukee?",
       "context": "Jayson Tatum · Celtics at Bucks · 2022 playoffs",
       "answer": 46,
       "unit": {
@@ -299,14 +332,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Jayson Tatum",
           "Boston Celtics"
         ],
-        "supports": []
+        "supports": [
+          "nba-kawhi19-philly-game7-41"
+        ]
       }
     }
   ]

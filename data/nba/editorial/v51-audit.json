@@ -1,0 +1,2961 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "day": "2026-11-30",
+   "slot": 1,
+   "id": "nba-wade06-g3",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Recognizable Wade rescue of a 0-2 Finals; a quick confident opener, kept as plain recall.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-11-30",
+   "slot": 2,
+   "id": "nba-allen10-g2-threes",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Battier's six threes in a Game 7 gives a real yardstick, so the player judges how far above a big Finals night Allen went.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-11-30",
+   "slot": 3,
+   "id": "nba-gordon23-finals-g4-points",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Three other supporting-cast Finals nights frame what a role player can score, so Gordon's 27 becomes a placement decision, not a memory test.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-11-30",
+   "slot": 4,
+   "id": "nba-korver15-three-pct",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Middleton's 43.5% playoff mark is a familiar elite-shooter benchmark, turning a pure-memory percentage into an informed guess.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-11-30",
+   "slot": 5,
+   "id": "nba-lakers00-portland-g7-comeback",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Kobe-to-Shaq alley-oop Game 7 comeback is an iconic expert finish; kept as recall so the day has two clean recall bookends.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-01",
+   "slot": 1,
+   "id": "nba-magic09-regular-wins",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "A chart of three other East seasons (from 15 to 66 wins) gives a newcomer an easy scale for Howard's Magic.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-01",
+   "slot": 2,
+   "id": "nba-rose11-mvp-youngest-age",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Kobe's age at his third title is a vivid youth yardstick; Rose's 22 becomes a surprising comparison, not a bare number.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-01",
+   "slot": 3,
+   "id": "nba-luka22-knicks-triple-rebounds",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Luka's 60-point triple-double against the Knicks is a headline reveal with a natural rebound range.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-01",
+   "slot": 4,
+   "id": "nba-mcgrady04-35-seconds",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Curry's record 17-point overtime is a scoring-burst yardstick, so 13 points in 35 seconds can be reasoned about.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-01",
+   "slot": 5,
+   "id": "nba-lillard19-okc-winner-distance",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Lillard's series-ending 37-footer is an expert finish with a clear distance story; kept as recall.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-02",
+   "slot": 1,
+   "id": "nba-raptors19-regular-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Champion Raptors win total is an accessible opener; kept as recall.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-02",
+   "slot": 2,
+   "id": "nba-grizzlies21-bench-points-v5",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Already a good reference question (record 73-point margin as anchor); kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-02",
+   "slot": 3,
+   "id": "nba-stockton-missed",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Stockton's 22 missed games in 19 seasons is a striking durability reveal; kept as recall.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-02",
+   "slot": 4,
+   "id": "nba-webber02-season-ppg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Wilt's record 50.4 average sets the ceiling, so Webber's number is a judgment about how far below it a star scores.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-02",
+   "slot": 5,
+   "id": "nba-wolves24-denver-game7-comeback",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Three other famous comebacks (16 to 36 points) turn the Game 7 deficit into a chart-reading decision.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-03",
+   "slot": 1,
+   "id": "nba-kobe-81",
+   "verdict": "retained",
+   "format": "missing-point",
+   "note": "Existing chart question (three famous scoring nights); keeps a friendly chart opener.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-03",
+   "slot": 2,
+   "id": "nba-sonics94-opening-streak",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "The Rockets' 15-0 start in the same season makes the Sonics' streak a same-year comparison.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-03",
+   "slot": 3,
+   "id": "nba-jokic23-finals-g3-rebounds",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Jokic's Finals triple-double rebounds is a recognizable hard question; kept as recall.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-03",
+   "slot": 4,
+   "id": "nba-bibby02-regular-apg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Lowry's 8.7 is a clear point-guard benchmark; the old prompt printed an unsupported Webber figure, now removed.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-03",
+   "slot": 5,
+   "id": "nba-celtics08-allen-kg-g6-combined",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Allen plus Garnett title-clinching rout is a good expert finish; kept as recall.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-04",
+   "slot": 1,
+   "id": "nba-duncan99-finals-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Duncan's 1999 Finals MVP average is a clean familiar opener; kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-04",
+   "slot": 2,
+   "id": "nba-hakeem90-quadruple-blocks",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Hakeem's quadruple-double blocks is a strong curiosity question; kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-04",
+   "slot": 3,
+   "id": "nba-bol85-quarter",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Giannis's five blocks in a whole clincher makes Bol's quarter record feel startling.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-04",
+   "slot": 4,
+   "id": "nba-kawhi19-jokic23-playoff-points-gap-v5",
+   "verdict": "retained",
+   "format": "difference",
+   "note": "Existing difference question (Kawhi 2019 vs Jokic 2023 playoff points); kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-04",
+   "slot": 5,
+   "id": "nba-klay16-okc-game6-41",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Three other playoff scoring nights give Klay's 41 a place to land, turning a recall finale into chart reading.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-05",
+   "slot": 1,
+   "id": "nba-hornets08-season-wins",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Other West seasons (48 to 67 wins) give a casual fan an easy scale for Paul's breakout Hornets.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-05",
+   "slot": 2,
+   "id": "nba-magic09-kings-threes",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Curry's individual 13-three record helps size a whole team's barrage.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-05",
+   "slot": 3,
+   "id": "nba-kobe03-40-streak",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Kobe's nine straight 40-point games is a striking streak; kept as recall.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-05",
+   "slot": 4,
+   "id": "nba-dumars89-finals-ppg",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Existing Dumars/Shaq reference question; kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-05",
+   "slot": 5,
+   "id": "nba-cp3-2022-perfect-playoff-shots",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Chris Paul's perfect 14-for-14 clincher is a vivid expert finish; kept as recall.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-06",
+   "slot": 1,
+   "id": "nba-celtics86-wins",
+   "verdict": "retained",
+   "format": "missing-point",
+   "note": "Existing Celtics wins chart question; keeps a chart opener.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-06",
+   "slot": 2,
+   "id": "nba-allstar24-east",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "A record 125-point team average is a meaningful reference for an All-Star game that is nothing like normal basketball.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-06",
+   "slot": 3,
+   "id": "nba-jackson98-regular-apg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Stockton's 14.5 is the league's passing gold standard, so Jackson's 8.7 becomes a defensible estimate.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-06",
+   "slot": 4,
+   "id": "nba-noah11-rebounds-average",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Noah's rebound average is a fair hard question and later anchors Howard; kept as recall.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-06",
+   "slot": 5,
+   "id": "nba-luka20-clippers-buzzer-43",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Luka's bubble overtime buzzer-beater is a memorable finale; kept as recall.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-07",
+   "slot": 1,
+   "id": "nba-pacers98-season-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Larry Bird's Pacers is an easy, familiar opener; kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-07",
+   "slot": 2,
+   "id": "nba-finals84-g5-heat",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The 97-degree no-AC Finals game is a genuinely different, fun estimate; kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-07",
+   "slot": 3,
+   "id": "nba-miller12-g5-threes",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "A chart of famous three-point nights (6, 6 and 13) makes Miller's hot clincher a decision, not a hunch.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-07",
+   "slot": 4,
+   "id": "nba-raptors19-sixers-g7-points",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "The Hornets' 82 in another Game 7 gives a pace benchmark for a famously low-scoring decider.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-07",
+   "slot": 5,
+   "id": "nba-brunson24-philly-47",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Rose's 44-point playoff high gives a recognizable guard benchmark, so Brunson's franchise record is easy to size up.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-08",
+   "slot": 1,
+   "id": "nba-detroit04-regular-wins",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Existing Pistons reference question; kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-08",
+   "slot": 2,
+   "id": "nba-wilt62-100-ft-share-v5",
+   "verdict": "retained",
+   "format": "ratio",
+   "note": "Existing Wilt free-throw share ratio question; kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-08",
+   "slot": 3,
+   "id": "nba-horry05-g5",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Horry's clutch Game 5 is a recognizable hook; kept as recall.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-08",
+   "slot": 4,
+   "id": "nba-jordan93-finals-ppg",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Three other Finals averages (20.8 to 38.0) make Jordan's record 41.0 a satisfying 'how high?' decision.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-08",
+   "slot": 5,
+   "id": "nba-harden19-msg-61",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Harden's 61 at Madison Square Garden is a strong finale; kept as recall.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-09",
+   "slot": 1,
+   "id": "nba-gsw16-start",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Warriors' 24-0 start is a familiar opener and the later Kerr question depends on it; kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-09",
+   "slot": 2,
+   "id": "nba-sonics79-january-wins",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "The Heat's record 17-win month caps what any month can hold, so Seattle's January is a calibrated guess.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-09",
+   "slot": 3,
+   "id": "nba-knicks24-wins-v5",
+   "verdict": "retained",
+   "format": "difference",
+   "note": "Existing difference question (Knicks vs Boston seed gap); kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-09",
+   "slot": 4,
+   "id": "nba-green16-g7",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Draymond's Game 7 scoring lead is a fair hard recall; kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-09",
+   "slot": 5,
+   "id": "nba-dame21-playoffs-12-threes",
+   "verdict": "retained",
+   "format": "missing-point",
+   "note": "Existing Dame chart question (12 playoff threes); kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-10",
+   "slot": 1,
+   "id": "nba-sonics79-season-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Seattle's 1979 title team is an accessible opener; kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-10",
+   "slot": 2,
+   "id": "nba-jordan93-g4-55",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Existing Jordan reference question (Game 4 vs 41.0 average); kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-10",
+   "slot": 3,
+   "id": "nba-bulls98-g3-margin-v5",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Bulls' 42-point Finals rout is a clear blowout reveal; kept as recall.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-10",
+   "slot": 4,
+   "id": "nba-wilt-100-fga",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "LeBron's 38 shots in a Finals game is a wild-looking volume; Wilt's 63 becomes a real eye-opener.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-10",
+   "slot": 5,
+   "id": "nba-curry13-knicks-54",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Three other guard scoring nights (41 to 61) frame the MSG night: Curry's 54 sits between Luka and Harden.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-11",
+   "slot": 1,
+   "id": "nba-bulls96-combined-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The 87-13 Bulls is an iconic, easy opener; kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-11",
+   "slot": 2,
+   "id": "nba-bucks71-wins",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Other title teams' win totals (48 to 65) turn the Bucks' young-franchise season into a placement decision.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-11",
+   "slot": 3,
+   "id": "nba-warriors48-low-fg-v5",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "The Spurs' record-high 70.7% sets the opposite extreme, making the 1948 record low feel measurable.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-11",
+   "slot": 4,
+   "id": "nba-curry15-g2-misses",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Starks's infamous 0-for-11 is the classic Finals three-point disaster, so Curry's record misses have a real yardstick.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-11",
+   "slot": 5,
+   "id": "nba-jokic-murray23-finals-g3-20-assists",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Jokic and Murray's twin triple-doubles is a strong finale; kept as recall.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-12",
+   "slot": 1,
+   "id": "nba-rodman-reb-titles",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Rodman's seven straight rebounding titles is an easy, recognizable opener; kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-12",
+   "slot": 2,
+   "id": "nba-barry75-finals-g2-points",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Three other Finals scoring games (27, 40 and 47) turn Barry's 36 into a placement decision.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-12",
+   "slot": 3,
+   "id": "nba-tatum22-turnovers",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Tatum's 100 turnovers is a surprising record; kept as recall.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-12",
+   "slot": 4,
+   "id": "nba-howard09-regular-rpg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Noah's 10.4 gives a recognizable center benchmark, so Howard's number is an informed guess.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-12",
+   "slot": 5,
+   "id": "nba-ant24-nuggets-g1-43",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Brunson's Knicks record 47 is the 2024 playoff scoring benchmark, so Ant's franchise record is easy to calibrate.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-13",
+   "slot": 1,
+   "id": "nba-curry22-g4",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Curry's Game 3 2019 Finals 47 gives a quick benchmark for his Game 4 clincher-style night.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-13",
+   "slot": 2,
+   "id": "nba-rodman96-rpg",
+   "verdict": "retained",
+   "format": "missing-point",
+   "note": "Existing Rodman chart question; kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-13",
+   "slot": 3,
+   "id": "nba-allen10-g3-fga",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Existing Allen reference question (Game 2 threes vs 0-for-13); kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-13",
+   "slot": 4,
+   "id": "nba-west70-60-foot",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Jerry West's 60-foot buzzer-beater is a legendary distance estimate; kept as recall.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-13",
+   "slot": 5,
+   "id": "nba-westbrook17-50-nuggets-winner",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Westbrook's triple-double record buzzer-beater is a memorable finale; kept as recall.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-14",
+   "slot": 1,
+   "id": "nba-lebron13-g7",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "LeBron's Game 7 2013 Finals is a recognizable opener; kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-14",
+   "slot": 2,
+   "id": "nba-spurs90-improvement",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Kidd's Nets improving by 26 wins is the famous turnaround yardstick; Robinson's 35 is a bigger leap.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-14",
+   "slot": 3,
+   "id": "nba-kerr16-games-missed",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Existing Kerr reference question (24-0 Warriors); kept.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-14",
+   "slot": 4,
+   "id": "nba-west08-season-ppg",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Two other scoring averages (13.5 and 24.5) show where a secondary star sits.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-14",
+   "slot": 5,
+   "id": "nba-jordan92-finals-shrug-first-half-35",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Jordan's 35 first-half shrug game is a great expert finish; kept as recall.",
+   "batch": "v51-A",
+   "editor": "editor-A (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-15",
+   "slot": 1,
+   "id": "nba-hawks15-regular-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Easy, recognizable opener: a surprise top seed with a franchise-best 60 wins; a newcomer can bracket it in seconds.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-15",
+   "slot": 2,
+   "id": "nba-kobe09-finals-ppg",
+   "verdict": "retained",
+   "format": "missing-point",
+   "note": "Already a chart of Finals scoring averages; the five other stars give Kobe a real scale to read against. Keeps the day's one chart.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-15",
+   "slot": 3,
+   "id": "nba-bucks21-nets-g3-points",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Was a bare recall of a hard-to-know score. Printing Toronto's 92 in a decisive 2019 playoff game gives a feel for how low playoff teams score, so the 86 becomes a judgment rather than a guess.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-15",
+   "slot": 4,
+   "id": "nba-warriors16-splash-share-v5",
+   "verdict": "retained",
+   "format": "ratio",
+   "note": "Splash Brothers share of the team's threes is a well-defined ratio with explicit numerator, denominator and rounding; keeps the day's ratio.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-15",
+   "slot": 5,
+   "id": "nba-lebron11-finals-g4-eight",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "LeBron's infamous 8-point Game 4 is a vivid, discussable expert finish; stays recall because the story is the hook.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-16",
+   "slot": 1,
+   "id": "nba-heat20-regular-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Easy Heat opener (pandemic-season wins, Butler's first year) that anyone can bracket; kept as plain recall.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-16",
+   "slot": 2,
+   "id": "nba-spurs14-streak",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "A bare streak length is hard to place. A chart of four famous streaks (24, 22, 18, 15) shows what long looks like, so the Spurs' 19 is read against real company.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-16",
+   "slot": 3,
+   "id": "nba-kobe16-final-game",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Already a reference: Kobe's 81 anchors his 60-point farewell, a natural and emotional comparison. Retained.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-16",
+   "slot": 4,
+   "id": "nba-unseld75-finals-g2-rebounds",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Obscure 1975 Finals rebound count; weak on recognizability and no honest anchor exists in the pool (the only nearby rebound facts are 21, one off the answer). Retained as plain recall rather than forced; flagged as the day's weakest slot.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-16",
+   "slot": 5,
+   "id": "nba-durant21-nets-bucks-g5-49",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Durant's 49 against Giannis's Bucks is stronger with a rival-night anchor: Jimmy Butler's 56 against the same Bucks gives players a real scale for a playoff scoring explosion.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-17",
+   "slot": 1,
+   "id": "nba-jokic-draft-pick",
+   "verdict": "reframed",
+   "format": "ranking",
+   "note": "Same fact and answer, but the question is genuinely a rank: where in the 2014 draft order was Jokić taken. The lowest-ever Finals MVP draft slot is a great ranking hook, with a unique pick number so no tie rule is needed.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-17",
+   "slot": 2,
+   "id": "nba-cup23-prize",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Fresh, curious money angle (In-Season Tournament prize) with a plausible range; different stat family from its neighbours.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-17",
+   "slot": 3,
+   "id": "nba-celtics02-19-threes",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "A bare 19 is hard to anchor. Orlando's 23 threes in a 2009 game gives a team-threes scale and makes the Celtics' playoff-record fourth quarter a judgment about a whole game.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-17",
+   "slot": 4,
+   "id": "nba-rockets18-27-misses",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Already a reference (Curry's 13 misses against Houston's 27 straight). Strong, vivid, retained.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-17",
+   "slot": 5,
+   "id": "nba-shaq00-finals-g2-24-boards",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Shaq's Finals Game 2 against the hobbled-Kobe backdrop is a recognizable star expert finish; plain recall.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-18",
+   "slot": 1,
+   "id": "nba-giannis21-g6",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Giannis's 50-point title clincher is a household moment and an easy opener.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-18",
+   "slot": 2,
+   "id": "nba-pistons89-wins",
+   "verdict": "retained",
+   "format": "missing-point",
+   "note": "Already a chart of league-best records with the Bad Boys Pistons hidden; keeps the day's one chart.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-18",
+   "slot": 3,
+   "id": "nba-butler20-regular-apg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "A role-player assist average is hard from memory. Kyle Lowry's 8.7 as the point-guard benchmark turns it into a question about how much playmaking a forward like Butler did.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-18",
+   "slot": 4,
+   "id": "nba-giannis19-regular-rpg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Giannis's first MVP rebounding average is easier to judge next to Dwight Howard's dominant 13.8, a known center benchmark.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-18",
+   "slot": 5,
+   "id": "nba-jokic25-61-point-triple-double",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Jokić's 61-point triple-double in a double-overtime loss is a memorable expert finale.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-19",
+   "slot": 1,
+   "id": "nba-nuggets23-regular-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Easy Nuggets title-team win total; fresh era and franchise.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-19",
+   "slot": 2,
+   "id": "nba-jordan91-straight-makes",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Already a reference (Chris Paul's 14-for-14 anchors Jordan's 13 straight). Retained.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-19",
+   "slot": 3,
+   "id": "nba-giannis21-g6-ft-pct-v51b",
+   "replaced": "nba-giannis21-g6-ft",
+   "verdict": "replaced",
+   "format": "ratio",
+   "note": "The count of 17 free throws is arithmetic without a reason to care. The percentage is the real story: a notoriously shaky foul shooter at 89% in a title clincher, with made and attempted both named in the reveal.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-19",
+   "slot": 4,
+   "id": "nba-sixers01-opening-streak",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "A bare opening-streak length is hard to place. The 2015–16 Warriors' 24–0 start is the benchmark everyone knows; players judge how far a good Sixers team fell short of it.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-19",
+   "slot": 5,
+   "id": "nba-vince01-sixers-first-half-eight-threes",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Vince Carter's 2001 playoff duel with Iverson is a vivid expert finale about a first-half shooting night.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-20",
+   "slot": 1,
+   "id": "nba-spurs14-season-wins",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Champion Spurs' win total is easier with the Bucks' 60 wins as a nearby elite-season benchmark; keeps an accessible easy opener while adding an anchor.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-20",
+   "slot": 2,
+   "id": "nba-barry80-threes",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Already a reference (Curry's 13 threes anchors Rick Barry's original 8). Retained.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-20",
+   "slot": 3,
+   "id": "nba-heat13-turnaround-v5",
+   "verdict": "retained",
+   "format": "trajectory",
+   "note": "Already a trajectory from 15 to 66 wins; the Heat swing is a satisfying hard question. Retained.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-20",
+   "slot": 4,
+   "id": "nba-gus79-finals-g4-points",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Gus Williams' overtime Finals night is obscure, but it is one of two plain recalls that keep the day accessible; retained rather than forcing a weak anchor.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-20",
+   "slot": 5,
+   "id": "nba-kyrie16-finals-g7-shot-53-sec",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "'The Shot' is the iconic expert moment; the seconds remaining is a clean, memorable number.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-21",
+   "slot": 1,
+   "id": "nba-bucks21-regular-wins",
+   "verdict": "retained",
+   "format": "missing-point",
+   "note": "Already a chart of four recent win totals with the shortened-season Bucks hidden; accessible and keeps the day's one chart.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-21",
+   "slot": 2,
+   "id": "nba-spurs99-final36-wins",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "The 31-of-36 finish is much better as a reasoning puzzle: knowing the Spurs won 37 of 50 lockout games, players infer a slow start of only a handful of early wins.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-21",
+   "slot": 3,
+   "id": "nba-suns21-g1-ft",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Already a reference (Dirk's 24 straight free throws anchors Phoenix's 25). Retained.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-21",
+   "slot": 4,
+   "id": "nba-bird85-opener-steals",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Larry Bird's opening-night triple-double steal count is a fun niche hook for the hard slot; no honest anchor exists, kept as plain recall.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-21",
+   "slot": 5,
+   "id": "nba-wemby24-10-blocks-blazers",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Wembanyama's 10-block night is a current-star expert finale with a bounded range.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-22",
+   "slot": 1,
+   "id": "nba-jackson10-titles",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Phil Jackson's title count is easier to bracket against the Celtics' eight straight titles, a famous benchmark of championship dominance.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-22",
+   "slot": 2,
+   "id": "nba-bulls97-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The Bulls' 69 wins a year after 72–10 is a clean, recognizable curiosity question; retained as one of the day's plain recalls.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-22",
+   "slot": 3,
+   "id": "nba-duncan14-season-rpg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "A single career season rebound average is hard from memory. Noah's 10.4 gives a nearby benchmark, so the question becomes how far a veteran Duncan fell from a prime rebounder.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-22",
+   "slot": 4,
+   "id": "nba-allen13-g6-seconds",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Ray Allen's Game 6 corner three is a perfect hard-slot memory with an estimable time range; retained.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-22",
+   "slot": 5,
+   "id": "nba-shai25-finals-g7-12-assists",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Shai's Game 7 assist count reads better as a chart of four historic Finals playmaking nights (Magic 21 down to Diaw 9), so a title-clincher's 12 is placed against known games.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-23",
+   "slot": 1,
+   "id": "nba-suns84-season-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Easy Suns 41-win surprise West finalists; fresh franchise and era.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-23",
+   "slot": 2,
+   "id": "nba-dumars89-17-straight",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Already a reference (McGrady's 13 in 35 seconds anchors Dumars' 17 straight). Retained.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-23",
+   "slot": 3,
+   "id": "nba-robinson99-finals-rpg",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "David Robinson's Finals rebounding is easier next to a chart of other stars' averages (Duncan, Noah, Howard, Rodman), which show what a top rebounder averages.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-23",
+   "slot": 4,
+   "id": "nba-bulls96-road-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The 33 road wins of the 72-win Bulls is a vivid fact with a clear range; kept as plain recall to keep two accessible recalls on the day.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-23",
+   "slot": 5,
+   "id": "nba-trae21-bucks-g1-48",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Trae Young's 48 against the Bucks is a Hawks playoff story; Derrick Rose's 44 against Atlanta in 2011 is a natural anchor for a playoff scoring explosion in the same arena.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-24",
+   "slot": 1,
+   "id": "nba-sixers01-regular-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Iverson's 56-win Sixers are a recognizable easy opener with a clear range.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-24",
+   "slot": 2,
+   "id": "nba-wilt-kobe-record-gap-v51b",
+   "replaced": "nba-stockton-malone-games",
+   "verdict": "replaced",
+   "format": "difference",
+   "note": "The Stockton–Malone games-together count is a niche number that few can place. The Wilt 100 versus Kobe 81 gap is a medium question about the two most famous scoring nights, with direction and unit explicit.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-24",
+   "slot": 3,
+   "id": "nba-bulls96-home-streak",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The Bulls' 37–0 home start leading to a 44-game home streak is a vivid hard-slot fact with a bounded range; retained as plain recall.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-24",
+   "slot": 4,
+   "id": "nba-duncan03-g6-blocks",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Already a reference (Hakeem's 11 blocks anchors Duncan's near quadruple-double). Retained.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-24",
+   "slot": 5,
+   "id": "nba-kawhi19-philly-game7-41",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Kawhi's 41 in the four-bounce Game 7 is better with LeBron's 37 in the 2013 Finals Game 7 as a winner-take-all scoring anchor.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-25",
+   "slot": 1,
+   "id": "nba-jordan98-g6",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Jordan's 45 in the title-winning Game 6 is a household moment and an easy opener.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-25",
+   "slot": 2,
+   "id": "nba-lakers72-wins",
+   "verdict": "retained",
+   "format": "missing-point",
+   "note": "Already a chart of early-1970s win totals with the 1971–72 Lakers hidden. Retained.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-25",
+   "slot": 3,
+   "id": "nba-bobcats12-losing-streak",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "The Bobcats' 23-game losing streak is easier next to the Spurs' 18 straight losses in the Wembanyama rookie year, a recent benchmark for a historically bad run.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-25",
+   "slot": 4,
+   "id": "nba-avery99-finals-apg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Avery Johnson's Finals assist average is easier next to Mark Jackson's 8.7, a veteran-point-guard benchmark from the same era.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-25",
+   "slot": 5,
+   "id": "nba-melo14-knicks-msg-62",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Carmelo's 62-point Garden night is a signature expert-slot scoring explosion.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-26",
+   "slot": 1,
+   "id": "nba-sonics94-regular-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Seattle's 63-win team that lost in round one is a recognizable surprise opener.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-26",
+   "slot": 2,
+   "id": "nba-sixers67-start-losses",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The 1966–67 Sixers' 46–4 start framed as losses is a clean curiosity with a tiny, estimable range; plain recall.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-26",
+   "slot": 3,
+   "id": "nba-bucks71-streak",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Already a reference (the 2007–08 Rockets' 22 anchors the Bucks' 20). Retained.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-26",
+   "slot": 4,
+   "id": "nba-wilt62-others-points-v5",
+   "verdict": "retained",
+   "format": "difference",
+   "note": "Already a difference: everyone else's points in Wilt's 100-point game. A strong V5 question; retained.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-26",
+   "slot": 5,
+   "id": "nba-ja22-warriors-game2-47",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Ja Morant's 47 against Golden State reads better next to Steph Curry's 43 in a 2022 Finals game: two star playoff nights from the same season.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-27",
+   "slot": 1,
+   "id": "nba-sixers73-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The 9–73 Sixers are a famous easy opener with a bounded range.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-27",
+   "slot": 2,
+   "id": "nba-pacers98-road-wins",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Already a reference (the Pacers' 58 wins anchor the road-win count). Retained.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-27",
+   "slot": 3,
+   "id": "nba-mutombo01-posttrade-rpg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Mutombo's post-trade rebounding is easier next to Dwight Howard's 13.8 as a benchmark for a dominant defensive center.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-27",
+   "slot": 4,
+   "id": "nba-detroit04-rasheed-win-pct-v51b",
+   "replaced": "nba-detroit04-rasheed-finish",
+   "verdict": "replaced",
+   "format": "ratio",
+   "note": "Counting 16 of 19 wins is hard to care about. The win percentage after the Rasheed Wallace trade is a ratio with the 19-game denominator stated and rounding explicit.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-27",
+   "slot": 5,
+   "id": "nba-lebron12-boston-g6-45",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "LeBron's 45 in the Game 6 elimination night at Boston is a signature expert finale.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-28",
+   "slot": 1,
+   "id": "nba-cavs16-g5-41",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "LeBron and Kyrie each scoring 41 in Finals Game 5 is a recognizable, estimable opener.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-28",
+   "slot": 2,
+   "id": "nba-alcindor71-ppg",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Lew Alcindor's scoring title is easier to judge against a chart of other star scoring averages (Webber, Kobe, Shaq, Jordan) than from a bare number.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-28",
+   "slot": 3,
+   "id": "nba-spurs14-g3-fg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "A Finals-half shooting percentage is hard to place from nothing. San Antonio's 1983 70.7% game is the natural benchmark: players judge how far above it a Finals half could go.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-28",
+   "slot": 4,
+   "id": "nba-sixers83-turnaround-v5",
+   "verdict": "retained",
+   "format": "trajectory",
+   "note": "Already a trajectory from 9 to 65 wins; the Sixers swing is satisfying. Retained.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-28",
+   "slot": 5,
+   "id": "nba-luka24-wolves-g2-32",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Luka's Game 2 buzzer-beating winner against Minnesota is a memorable expert finale.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-29",
+   "slot": 1,
+   "id": "nba-lebron18-g1",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "LeBron's 51 in a Game 1 loss is easier to bracket with Jordan's 55 in the 1993 Finals as a Finals-scoring benchmark; stays an accessible opener.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-29",
+   "slot": 2,
+   "id": "nba-spurs14-international",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Ten international players is a surprising curiosity about the champion Spurs with a small, estimable range; plain recall.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-29",
+   "slot": 3,
+   "id": "nba-majerle93-three-pointers",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Majerle's league-tying 167 threes is a niche but bounded stat; no honest anchor or chart exists in the pool, so retained as plain recall (weaker than the rest of the day).",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-29",
+   "slot": 4,
+   "id": "nba-bullets75-g1-halftime-lead",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "The 14-point halftime lead is more interesting beside famous comeback deficits (36, 20, 17, 16): players see how big the Bullets' lead was before Golden State's rally.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-29",
+   "slot": 5,
+   "id": "nba-tatum22-bucks-g6-46",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Tatum's 46 facing elimination is easier next to Kawhi's 41 in a winner-take-all Game 7: two star scoring nights with a season on the line.",
+   "batch": "v51-B",
+   "editor": "editor-B (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-30",
+   "slot": 1,
+   "id": "nba-suns05-season-win-gain",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Nash-era Suns jump is a recognizable, surprising opener with a clean 33-win answer; kept as the day's accessible recall.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-30",
+   "slot": 2,
+   "id": "nba-elmore73-half",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Block records by half were an obscure 2-interest recall with nothing to anchor. Bol's 8-block quarter gives a per-period scale, so the player reasons how far a half goes.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-30",
+   "slot": 3,
+   "id": "nba-james09-season-apg",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "A bare season assist average was a pure memory test. Four star seasons on a chart let players place a forward's playmaking against point guards.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-30",
+   "slot": 4,
+   "id": "nba-mavs06-g4-q4",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Dallas's seven-point fourth quarter is a vivid Finals collapse and a genuine surprise; a plain recall keeps the slate to two recalls.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-30",
+   "slot": 5,
+   "id": "nba-curry21-blazers-62",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "A recall of a career night gains a real foothold: Curry's earlier 54 at MSG sets the floor, so players judge how far 62 goes past a career night they already know.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-31",
+   "slot": 1,
+   "id": "nba-cavs09-record-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "LeBron's 66-win Cavs: instantly recognizable, estimable opener with a clean scale.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-31",
+   "slot": 2,
+   "id": "nba-detroit04-winter-streak",
+   "verdict": "retained",
+   "format": "missing-point",
+   "note": "V5 chart of other teams' streaks already turns a niche Pistons streak into a visual estimate; the three comparison streaks make 13 reachable. Kept as the day's chart.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-31",
+   "slot": 3,
+   "id": "nba-holiday21-playoffs-apg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Holiday's playoff assists were a cold recall. Murray's 10.0 in the 2023 Finals gives a playoff-guard benchmark for a title run from the other side of the bracket.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-31",
+   "slot": 4,
+   "id": "nba-sikma79-suns-g7-points",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Sikma's Game 7 for Seattle is a good hard Q4: real basketball knowledge, a bounded range, a payoff story. Kept as recall.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2026-12-31",
+   "slot": 5,
+   "id": "nba-love10-knicks-thirty-one-boards",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Love's 31 boards is a memorable number, but a bare recall gives no scale. Luka's 21-board night against the same Knicks sets a modern high-water mark to beat.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-01",
+   "slot": 1,
+   "id": "nba-westbrook17-td",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Westbrook passing Oscar's triple-double mark is a household moment with a guessable range; kept as the opener.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-01",
+   "slot": 2,
+   "id": "nba-frazier70-g7-ast",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "A lone Game 7 assist total is hard to size. The chart of Finals assist games (with Magic's 21 as the ceiling) lets players place Frazier among the best.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-01",
+   "slot": 3,
+   "id": "nba-kobe09-finals-apg-v5",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "V5 reference already pairs Kobe's 32.4 scoring with an estimable assist average; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-01",
+   "slot": 4,
+   "id": "nba-billups04-finals-ppg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Billups's 21.0 is a pure memory test. Dumars's 27.3 as the earlier Pistons Finals MVP gives a same-franchise, same-award anchor to judge against.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-01",
+   "slot": 5,
+   "id": "nba-rose18-emotional-fifty",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Rose's Halloween comeback 50 is an emotional closer with a clear reveal; kept as the day's second recall.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-02",
+   "slot": 1,
+   "id": "nba-heat13-streak",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Miami's 27-game streak: a famous, bounded opener; kept as recall.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-02",
+   "slot": 2,
+   "id": "nba-curry18-g2-threes",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Nine threes in Game 2 is a Finals-record shooting night but a cold recall. Allen's 8 in the 2010 Finals gives a Finals-shooting benchmark to measure Curry against.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-02",
+   "slot": 3,
+   "id": "nba-kemp94-rpg",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Kemp's rebounding average is hard to place from memory. Four big rebounding seasons show where a high-flying forward sits relative to Rodman and Howard.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-02",
+   "slot": 4,
+   "id": "nba-lebron09-g1-scoring-share-v5",
+   "verdict": "retained",
+   "format": "ratio",
+   "note": "V5 ratio (LeBron's 49 of 106) is a well-defined share with its numerator and denominator in the reveal; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-02",
+   "slot": 5,
+   "id": "nba-isiah88-finals-injured-quarter-25",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Isiah's injured-ankle quarter is a great finish: a famous Finals moment with a surprising, estimable number. Kept as recall.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-03",
+   "slot": 1,
+   "id": "nba-lakers72-streak",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The 33-game Lakers streak is a famous record and easy to bound; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-03",
+   "slot": 2,
+   "id": "nba-booker17-70",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Booker's 70 was a stand-alone recall. Three famous scoring nights show how rare 70 is, so the player reasons about distance from 60.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-03",
+   "slot": 3,
+   "id": "nba-rodman92-34",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "V5 reference (Love's 31 boards as the anchor for Rodman's 34) is a strong, fair comparison; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-03",
+   "slot": 4,
+   "id": "nba-stockton91-28",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Stockton's career-high assist game was a cold recall. Skiles's 30 weeks earlier is a natural foothold: the record was fresh, so 28 is a near-miss to estimate.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-03",
+   "slot": 5,
+   "id": "nba-lebron07-final-twentyfive",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "LeBron's 25 straight against Detroit is an iconic playoff performance with a surprising number; kept as the closing recall.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-04",
+   "slot": 1,
+   "id": "nba-kawhi19-playoffs-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Kawhi's title-run scoring is a current, recognizable opener; kept as recall.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-04",
+   "slot": 2,
+   "id": "nba-rockets18-wins",
+   "verdict": "retained",
+   "format": "missing-point",
+   "note": "V5 chart gives four other strong 2010s teams to place Harden's Rockets; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-04",
+   "slot": 3,
+   "id": "nba-gsw16-home-streak",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "V5 reference (Chicago's 44 home wins as the anchor for Golden State's 54) is fair and surprising; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-04",
+   "slot": 4,
+   "id": "nba-offensive-rebound-reset",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "A shot-clock rules question is dry but accessible, with a 14-second reset most fans can bracket; kept as recall (a weaker slot, flagged in report).",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-04",
+   "slot": 5,
+   "id": "nba-celtics08-finals-g4-comeback-24",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Boston's 24-point comeback is a famous Finals swing but a bare recall has no scale. Utah's 36-point rally is the ceiling players judge Boston against.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-05",
+   "slot": 1,
+   "id": "nba-jordan86-63",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Jordan's 63 against the 1986 Celtics is among the most famous playoff nights; kept as the opener.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-05",
+   "slot": 2,
+   "id": "nba-lakers00-wins",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "A plain win total for the Shaq-Kobe Lakers had no scale. Three other champions' win totals put the 67 in perspective.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-05",
+   "slot": 3,
+   "id": "nba-hawks86-third-quarter",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Boston's 36–6 third quarter is a startling playoff blowout; it stays a recall as the day's surprise slot.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-05",
+   "slot": 4,
+   "id": "nba-bucks71-bucks21-wins-gap-v51c",
+   "replaced": "nba-lakers23-cup-paint",
+   "verdict": "replaced",
+   "format": "difference",
+   "note": "The Cup-final paint-points split was a 2-interest, 2-estimability stat with no hook. Replaced with a well-defined win gap between the champion Bucks of Kareem and Giannis (66 vs 46 in a shortened season), built from two verified win totals.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-05",
+   "slot": 5,
+   "id": "nba-mitchell20-bubble-fiftyseven",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Mitchell's 57 is a vivid bubble game, but a bare recall gives no scale. The Murray-Mitchell Game 4 duel (101 combined) tells players how big scoring got in that series.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-06",
+   "slot": 1,
+   "id": "nba-spurs14-march-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "San Antonio's unbeaten March is a charming, estimable opener; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-06",
+   "slot": 2,
+   "id": "nba-wilt-60-point-games",
+   "verdict": "retained",
+   "format": "ranking",
+   "note": "V5 ranking question (Kobe's 6 sixty-point games vs Wilt's 32) states its population and tie rule and has a great reveal; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-06",
+   "slot": 3,
+   "id": "nba-shaq00-g2-fta",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Shaq's 39 free-throw attempts is a Finals record with no sense of scale. Wade's 25 attempts in the 2006 Finals gives a recent high-volume benchmark.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-06",
+   "slot": 4,
+   "id": "nba-suns05-road-victories",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "V5 reference (the 72-win Bulls' road record as the anchor for the Nash Suns) is a well-matched comparison; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-06",
+   "slot": 5,
+   "id": "nba-bird85-hawks-sixty",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Bird's 60 against Atlanta is a star finish with an estimable range; kept as the day's second recall.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-07",
+   "slot": 1,
+   "id": "nba-rose11-season-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Rose's MVP-season scoring is a recognizable opener with a bounded range; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-07",
+   "slot": 2,
+   "id": "nba-oscar-career-td",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "V5 reference (Westbrook's 42 in a season as the anchor for Oscar's career 181) works as a scale-setting comparison; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-07",
+   "slot": 3,
+   "id": "nba-klay16-wcf-threes",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Klay's playoff record threes was a lone number. Three big three-point nights (including Curry's Finals record) place 11 relative to the other records.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-07",
+   "slot": 4,
+   "id": "nba-spurs14-blowouts",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The 2014 Spurs' 12 playoff wins by 15+ is a vivid measure of dominance; a clean, bounded recall in the hard slot.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-07",
+   "slot": 5,
+   "id": "nba-ad20-lakers-ten-straight-wcf-winner",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "AD's 10 straight is a famous buzzer-beater but a bare number has no scale. LeBron's final 25 team points against Detroit sets the ceiling for a late-game scoring run.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-08",
+   "slot": 1,
+   "id": "nba-kobe06-second-half-55",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "V5 reference (Kobe's 81 as the anchor for his 55 after halftime) is a strong, fair opener; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-08",
+   "slot": 2,
+   "id": "nba-celtics84-wins",
+   "verdict": "retained",
+   "format": "missing-point",
+   "note": "V5 chart of four other great Celtics seasons gives a clear scale for Bird's 62-win team; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-08",
+   "slot": 3,
+   "id": "nba-barkley93-suns-rpg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Barkley's MVP rebounding average is a good hard Q3 with an interesting reveal; kept as recall.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-08",
+   "slot": 4,
+   "id": "nba-bulls11-home-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Chicago's 36 home wins anchors the next Cavs question and is bounded by 41 home games; kept as recall.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-08",
+   "slot": 5,
+   "id": "nba-lillard14-rockets-series-winner-nine-tenths",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Lillard's 0.9 seconds is iconic, but players have no feel for how a decimal clock reads. Allen's 2013 Finals three at 5.2 seconds is the clutch benchmark for how little time is left.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-09",
+   "slot": 1,
+   "id": "nba-nash05-regular-apg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Nash's 11.5 is a good opener but a bare recall; Stockton's 14.5 in 1989-90 is the all-time ceiling that makes the guess a real judgment.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-09",
+   "slot": 2,
+   "id": "nba-celtics07-losing-streak",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "V5 reference (the 23-game Bobcats losing streak as the anchor for the 2006-07 Celtics) is a clean, surprising pair; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-09",
+   "slot": 3,
+   "id": "nba-miller98-season-ppg",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Miller's 19.5 points per game was a bare recall. Four season scoring averages (Robinson, West, Webber, Kareem) place a sharpshooter's role relative to stars and role players.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-09",
+   "slot": 4,
+   "id": "nba-siakam19-g1",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Siakam's 14-of-17 Finals debut is a good hard Q4 with real basketball texture; kept as recall.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-09",
+   "slot": 5,
+   "id": "nba-cavs-warriors16-game7-tied-six-games-610",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The 610-points-each tie before Game 7 is an oddly memorable 2016 Finals detail; kept as the closing recall.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-10",
+   "slot": 1,
+   "id": "nba-giannis21-playoffs-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Giannis's title-run scoring is a current, recognizable opener; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-10",
+   "slot": 2,
+   "id": "nba-allstar10-attendance",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "V5 reference (the 1951 All-Star Game's 10,094 as the anchor for the 2010 Cowboys Stadium crowd) is a vivid scale jump; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-10",
+   "slot": 3,
+   "id": "nba-miller-career-threes",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Miller's career three-point total is a clean milestone for the hard slot and a good bridge for fans of the shooting era; kept as recall.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-10",
+   "slot": 4,
+   "id": "nba-wilt72-finals-reb",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Wilt's 29 boards in a clincher is a bare recall. Three big Finals rebounding nights set the scale for the single-game Finals range.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-10",
+   "slot": 5,
+   "id": "nba-curry22-allstar-sixteen-threes",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Sixteen threes in an All-Star Game is staggering, but the scale is unclear. Curry's regular-season record of 13 is the natural bar to measure it against.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-11",
+   "slot": 1,
+   "id": "nba-mitchell23-seventy-one",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Mitchell's 71 is a huge number with no scale. Kobe's 81 sets the modern ceiling, so players judge how close a Cavaliers record came.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-11",
+   "slot": 2,
+   "id": "nba-klay16-60-minutes",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Klay scoring 60 in just 29 minutes is one of the great efficiency stories; a bounded recall, and a satisfying Q2 surprise.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-11",
+   "slot": 3,
+   "id": "nba-jordan97-flu-game",
+   "verdict": "retained",
+   "format": "missing-point",
+   "note": "V5 chart of three famous Jordan playoff nights puts the Flu Game's 38 in context; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-11",
+   "slot": 4,
+   "id": "nba-six-overtime-game",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The six-overtime game is a fun pre-shot-clock curiosity with a small, estimable range; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-11",
+   "slot": 5,
+   "id": "nba-durant17-finals-g3-shot-45seconds",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Durant's 45.3 seconds is a memorable dagger, but the clock reading is hard to guess. Kyrie's 53 seconds in the 2016 Game 7 is the matching moment from the same rivalry.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-12",
+   "slot": 1,
+   "id": "nba-cavs09-home-wins",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "V5 reference (Derrick Rose's Bulls home wins as the anchor for LeBron's Cavs) is a clean cross-team comparison; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-12",
+   "slot": 2,
+   "id": "nba-howard09-g4-blocks",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Howard's Finals-record blocks was a bare recall. Four notable block games (Hakeem, Wemby, Duncan, Giannis) show where nine sits among the great defensive nights.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-12",
+   "slot": 3,
+   "id": "nba-rodman86-draft",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Rodman falling to pick 27 is a good draft-night surprise for the hard slot; kept as recall.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-12",
+   "slot": 4,
+   "id": "nba-stoudemire05-playoff-ppg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Stoudemire's 29.9 playoff average is easy to forget. Kobe's 32.4 in the 2009 Finals is a familiar elite playoff scoring benchmark for judging a young big man.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-12",
+   "slot": 5,
+   "id": "nba-lakers11-mavs-game4-only-86",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Dallas's 122-86 sweep of the two-time champion Lakers is a memorable ending to Phil Jackson's run; kept as the closing recall.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-13",
+   "slot": 1,
+   "id": "nba-jokic23-finals-average",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "A bare Finals average is a thin opener. Jaylen Brown's 20.8 as the 2024 Finals MVP gives a fair benchmark for how much more Jokić scored a year earlier.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-13",
+   "slot": 2,
+   "id": "nba-kerr-player-titles",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Kerr's five playing titles (three Bulls, two Spurs) are a clean, surprising number for fans who know him as a coach; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-13",
+   "slot": 3,
+   "id": "nba-lucas84-season-rpg",
+   "verdict": "retained",
+   "format": "missing-point",
+   "note": "V5 chart of four big rebounding seasons gives a fair scale for Maurice Lucas; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-13",
+   "slot": 4,
+   "id": "nba-warriors75-bench",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "V5 reference (Barry's 36 as the anchor for the Warriors bench's 115) pairs a star with the surprising role of the bench; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-13",
+   "slot": 5,
+   "id": "nba-spurs14-finals-avg-margin-fourteen",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The Spurs' 14-point Finals margin over the Heat is a satisfying revenge-series closer with an estimable range; kept.",
+   "batch": "v51-C",
+   "editor": "editor-C (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-14",
+   "slot": 1,
+   "id": "nba-hawks15-january-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "An unbeaten January is a vivid, easy hook and the 17-0 reveal pays off; plain recall stays as the day opener.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-14",
+   "slot": 2,
+   "id": "nba-adebayo20-regular-rpg",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "A bare \"how many rpg\" asked for one exact number. A chart of four rebounding eras lets the player place a modern switchable center against Barkley, Rodman, Howard and Duncan.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-14",
+   "slot": 3,
+   "id": "nba-celtics08-playoff-games",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "A record 26 playoff games to win a title is a clean surprise; kept as recall so the day keeps two untouched estimates.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-14",
+   "slot": 4,
+   "id": "nba-parker14-season-ppg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Parker's scoring average was a bare recall of a modest number. Rose's 25.0 MVP average gives a star-guard anchor and the player must decide how much lower a balanced champion's point guard sits.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-14",
+   "slot": 5,
+   "id": "nba-pacers24-msg-game7-671-shooting",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Already a reference: the 75.8% Finals half from the 2014 Spurs sets the ceiling for a whole-game Game 7 figure; strong, kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-15",
+   "slot": 1,
+   "id": "nba-iverson01-season-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Iverson's MVP scoring average is an accessible star opener; kept as recall.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-15",
+   "slot": 2,
+   "id": "nba-davis84-regular-apg",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Nash's 11.5 gives a real anchor for a scoring guard's assist total; the reference works as built.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-15",
+   "slot": 3,
+   "id": "nba-miller94-4q",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Miller's 25 fourth-quarter points at the Garden is a fan-memorable, surprising number; kept as recall.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-15",
+   "slot": 4,
+   "id": "nba-curry13-msg-scoring-share-v5",
+   "verdict": "retained",
+   "format": "ratio",
+   "note": "A clean percent question with Curry's 54 and the 109-105 loss framed; the denominator is explicit. Kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-15",
+   "slot": 5,
+   "id": "nba-murray20-utah-g6-nine-threes",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Murray's nine threes was a plain recall. Klay's 11 in 2016 (then the playoff record) gives a ceiling to reason from, so the player weighs a bubble night against the record.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-16",
+   "slot": 1,
+   "id": "nba-miller95-8-points",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Eight points in 8.9 seconds is the day's iconic opener; kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-16",
+   "slot": 2,
+   "id": "nba-pistons50-19-18",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "A 19-point winning score is hard to guess blind. The 1966-67 Sixers' 125-a-game average shows how absurdly low a pre-shot-clock game was.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-16",
+   "slot": 3,
+   "id": "nba-payton94-apg",
+   "verdict": "retained",
+   "format": "missing-point",
+   "note": "Payton's chart of four point guards is already a sound missing-point question; kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-16",
+   "slot": 4,
+   "id": "nba-mowilliams09-season-ppg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Mo Williams's average was a bare recall. David West's 20.6 beside Chris Paul is a comparable second-star anchor.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-16",
+   "slot": 5,
+   "id": "nba-jordan98-last-shot-five-point-two",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The Last Shot seconds count is a memorable finale; kept as recall.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-17",
+   "slot": 1,
+   "id": "nba-luka24-73-hawks",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Luka's 73 is a premier hook; recall kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-17",
+   "slot": 2,
+   "id": "nba-gsw16-allstar-wins",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "The 24-0 start anchors a halfway record; already a working reference.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-17",
+   "slot": 3,
+   "id": "nba-cavs17-g4-q1",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Cleveland's Finals-record 49-point quarter is a great surprise; kept, and it is the scale anchor for the 01-23 quarter question.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-17",
+   "slot": 4,
+   "id": "nba-nance84-season-ppg",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "A bare Nance average. The chart of four scorers from four eras lets the player place a high-flying 1984 forward below the stars and above the specialist.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-17",
+   "slot": 5,
+   "id": "nba-kobe10-finals-game7-twentyfive-percent",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Kobe's 25% is more vivid next to the record: the 1948 Warriors shot 16.4%. The anchor shows what a truly historic bad night looks like.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-18",
+   "slot": 1,
+   "id": "nba-lebron16-finals-ppg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "LeBron's 2016 Finals average is a recognizable opener; kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-18",
+   "slot": 2,
+   "id": "nba-blazers78-start",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "A fun \"50 of the first 60\" fact for medium; kept as recall.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-18",
+   "slot": 3,
+   "id": "nba-oscar62-assist-record-margin-v5",
+   "verdict": "retained",
+   "format": "difference",
+   "note": "A clean difference with the operands stated in the reveal; Oscar vs Cousy is a great hook. Kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-18",
+   "slot": 4,
+   "id": "nba-celtics09-streak",
+   "verdict": "retained",
+   "format": "missing-point",
+   "note": "Chart of famous winning streaks frames the Celtics' 19; kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-18",
+   "slot": 5,
+   "id": "nba-mavs22-suns-game7-halftime-thirty",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Luka's Game 7 halftime lead needed a foothold. The Mavericks' own record 50-point halftime lead in 2020 shows how big Dallas leads can get.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-19",
+   "slot": 1,
+   "id": "nba-embiid24-70-spurs",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Embiid's 70-point night is a strong star opener; kept as recall.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-19",
+   "slot": 2,
+   "id": "nba-harden19-30-streak",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Kobe's 9 straight 40-point games gives the right scale for Harden's 30-point streak; reference kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-19",
+   "slot": 3,
+   "id": "nba-pippen97-g3-threes",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Pippen's seven threes was a bare recall. A chart of playoff three-point nights shows what a big night looked like across eras.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-19",
+   "slot": 4,
+   "id": "nba-andersen13-fg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Birdman's playoff shooting is a quirky, estimable figure with an easy-to-picture 46-of-57; kept as the day's plain recall.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-19",
+   "slot": 5,
+   "id": "nba-herro20-bubble-ecf-g4-thirtyseven",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Herro's 37 points as a rookie lands better against Mitchell's 57-point bubble opener; both happened in the same 2020 bubble.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-20",
+   "slot": 1,
+   "id": "nba-jokic23-playoff-triple-doubles",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Ten triple-doubles in a title run is a star hook; kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-20",
+   "slot": 2,
+   "id": "nba-westbrook12-g4",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Westbrook's 43 was a bare recall. A chart of five Finals scoring nights shows the typical high end and lets players decide whether a loss could top it.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-20",
+   "slot": 3,
+   "id": "nba-celtics-lakers-finals-record",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Boston's 9 of 11 Finals wins vs the Lakers is a rivalry hook; kept as recall.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-20",
+   "slot": 4,
+   "id": "nba-spurs97-wins",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "The 37-13 lockout Spurs anchor gives a real foothold for a 20-win team. Reference kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-20",
+   "slot": 5,
+   "id": "nba-lakers01-shaq-kobe-fifteen-playoff-wins",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "The 15-1 Lakers finale gets an anchor: the 1989 Lakers won 11 straight to open the playoffs, so the 2001 total is judged against a real dominant run.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-21",
+   "slot": 1,
+   "id": "nba-klay15-quarter-37",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Klay's 37-point quarter is an iconic opener; kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-21",
+   "slot": 2,
+   "id": "nba-suns93-december-win-streak",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Phoenix's 14-game December streak is easier to judge next to the 2012-13 Heat's famous 27.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-21",
+   "slot": 3,
+   "id": "nba-heat23-wins",
+   "verdict": "retained",
+   "format": "missing-point",
+   "note": "Chart of recent champions' win totals frames the Heat; kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-21",
+   "slot": 4,
+   "id": "nba-wilt67-ppg-v5",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "The 50.4 anchor makes Wilt's 24 a real decision; reference kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-21",
+   "slot": 5,
+   "id": "nba-mavs11-heat-finals-g2-comeback-fifteen",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Dirk's Finals comeback is a satisfying finale; kept as recall.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-22",
+   "slot": 1,
+   "id": "nba-curry23-game7-fifty",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Curry's 50-point Game 7 is a headline opener; kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-22",
+   "slot": 2,
+   "id": "nba-rodman92-rpg",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "The 14.9 Rodman anchor makes 18.7 a real decision; reference kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-22",
+   "slot": 3,
+   "id": "nba-gsw22-g6-run",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The 21-0 Finals run is a striking surprise; kept as recall.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-22",
+   "slot": 4,
+   "id": "nba-lakers72-sixers73-win-gap-v51d",
+   "replaced": "nba-turkoglu09-regular-apg",
+   "verdict": "replaced",
+   "format": "difference",
+   "note": "Türkoğlu's assists average was a weak recall (interest 4 but estimability 2). Replaced with a difference between two famous win totals: best-record Lakers vs worst-record Sixers.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-22",
+   "slot": 5,
+   "id": "nba-lebron16-finals-game7-block-110s",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "LeBron's block is easier to place in time next to Kyrie's shot: the block came earlier in Game 7 than Kyrie's 53-second three, so the player reasons about the order of the final minutes.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-23",
+   "slot": 1,
+   "id": "nba-paul08-regular-apg",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Chris Paul's assist average is a recognizable opener; kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-23",
+   "slot": 2,
+   "id": "nba-wade06-finals-ppg",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Shaq's 38.0 Finals average is a good anchor for Wade's 34.7; reference kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-23",
+   "slot": 3,
+   "id": "nba-floyd87-51",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Sleepy Floyd's 51 is a classic surprise; kept as recall.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-23",
+   "slot": 4,
+   "id": "nba-blazers77-g4-q3",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Kept as the one quarter-scoring question: Portland's 41 against Cleveland's 49 record. The twin on 01-24 is no longer a quarter-points question.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-23",
+   "slot": 5,
+   "id": "nba-clippers19-warriors-g2-31-comeback",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "The Clippers' 31-point comeback is more vivid in a chart of famous comebacks (Jazz 36, Celtics 24, Wolves 20, Lakers 16, Mavs 15); players place a playoff record.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-24",
+   "slot": 1,
+   "id": "nba-curry16-season-threes-402",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Curry's 402 threes in the 73-win season is a star opener; kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-24",
+   "slot": 2,
+   "id": "nba-celtics02-4q-margin-v51d",
+   "replaced": "nba-celtics02-4q",
+   "verdict": "replaced",
+   "format": "difference",
+   "note": "Fixes the 01-23/01-24 twin: both asked for a 41-point quarter off the same 49-point anchor. This one now asks for Boston's margin in the same 2002 fourth quarter, a difference with no anchor and a different answer (25).",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-24",
+   "slot": 3,
+   "id": "nba-kobe05-62-three-quarters",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Kobe's 62 through three quarters is a great hook; reference already works. Kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-24",
+   "slot": 4,
+   "id": "nba-celtics08-g6-margin",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Boston's 39-point clincher margin is easier to judge against Memphis's all-time record 73-point margin.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-24",
+   "slot": 5,
+   "id": "nba-kings23-light-beam-sixteen-drought",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Sacramento's 16-year drought is a feel-good finale; kept as recall.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-25",
+   "slot": 1,
+   "id": "nba-lillard23-seventy-one",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Lillard's 71-point night is a clear star opener; kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-25",
+   "slot": 2,
+   "id": "nba-season21-games",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The 72-game 2020-21 season is a pandemic curiosity; weak but estimable and kept as the day's plain recall.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-25",
+   "slot": 3,
+   "id": "nba-lakers72-margin",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "The 69-13 Lakers' scoring margin is anchored by their 33-game streak; reference kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-25",
+   "slot": 4,
+   "id": "nba-oscar71-ppg-v5",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Alcindor's 31.7 gives a clear anchor for Oscar's 19.4; reference kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-25",
+   "slot": 5,
+   "id": "nba-mavs24-finals-g4-blowout-margin",
+   "verdict": "reframed",
+   "format": "difference",
+   "note": "Dallas's Game 4 margin becomes a difference: Boston's 84 is printed, the player estimates Dallas's score and the gap, instead of recalling the margin.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-26",
+   "slot": 1,
+   "id": "nba-wemby24-five-five-points",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Wembanyama's five-by-five is a modern star hook; kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-26",
+   "slot": 2,
+   "id": "nba-bobcats12-wins",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The 7-59 Bobcats are a famous bad-team hook; kept as recall.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-26",
+   "slot": 3,
+   "id": "nba-ainge88-threes",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Curry's 402 gives Ainge's 148 a meaningful comparison; reference kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-26",
+   "slot": 4,
+   "id": "nba-teague15-assists-average",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Teague's 7.0 was a bare recall. A chart of four guards' assist averages frames a solid All-Star point guard.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-26",
+   "slot": 5,
+   "id": "nba-blazers19-nuggets-game3-four-overtimes",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "The four-overtime Blazers-Nuggets game gets a foothold: the longest game ever went 6 overtimes, so the player judges how close this marathon came.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-27",
+   "slot": 1,
+   "id": "nba-tatum23-game7-51",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Tatum's 51 in Game 7 with the 46-point anchor is a good opener; reference kept.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-27",
+   "slot": 2,
+   "id": "nba-bucks19-opening-win-streak",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Milwaukee's 7-game start is judged against the 1993-94 Rockets' 15-0 opening.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-27",
+   "slot": 3,
+   "id": "nba-curry-three-streak",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Curry's 157-game three-point streak is a surprising number; kept as recall.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-27",
+   "slot": 4,
+   "id": "nba-chandler08-regular-rpg",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Chandler's rebounding average is better with a chart of four rebounding seasons from different eras.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  },
+  {
+   "day": "2027-01-27",
+   "slot": 5,
+   "id": "nba-shaq00-birthday-clippers-sixtyone",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Shaq's 61-point birthday game is a star finale; kept as recall.",
+   "batch": "v51-D",
+   "editor": "editor-D (independent V5.1 editor)"
+  }
+ ]
+}

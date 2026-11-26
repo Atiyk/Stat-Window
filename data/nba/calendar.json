@@ -557,7 +557,7 @@
    "questions": [
     "nba-nuggets23-regular-wins",
     "nba-jordan91-straight-makes",
-    "nba-giannis21-g6-ft",
+    "nba-giannis21-g6-ft-pct-v51b",
     "nba-sixers01-opening-streak",
     "nba-vince01-sixers-first-half-eight-threes"
    ]
@@ -641,7 +641,7 @@
    },
    "questions": [
     "nba-sixers01-regular-wins",
-    "nba-stockton-malone-games",
+    "nba-wilt-kobe-record-gap-v51b",
     "nba-bulls96-home-streak",
     "nba-duncan03-g6-blocks",
     "nba-kawhi19-philly-game7-41"
@@ -694,7 +694,7 @@
     "nba-sixers73-wins",
     "nba-pacers98-road-wins",
     "nba-mutombo01-posttrade-rpg",
-    "nba-detroit04-rasheed-finish",
+    "nba-detroit04-rasheed-win-pct-v51b",
     "nba-lebron12-boston-g6-45"
    ]
   },
@@ -847,7 +847,7 @@
     "nba-jordan86-63",
     "nba-lakers00-wins",
     "nba-hawks86-third-quarter",
-    "nba-lakers23-cup-paint",
+    "nba-bucks71-bucks21-wins-gap-v51c",
     "nba-mitchell20-bubble-fiftyseven"
    ]
   },
@@ -1136,7 +1136,7 @@
     "nba-curry23-game7-fifty",
     "nba-rodman92-rpg",
     "nba-gsw22-g6-run",
-    "nba-turkoglu09-regular-apg",
+    "nba-lakers72-sixers73-win-gap-v51d",
     "nba-lebron16-finals-game7-block-110s"
    ]
   },
@@ -1168,7 +1168,7 @@
    },
    "questions": [
     "nba-curry16-season-threes-402",
-    "nba-celtics02-4q",
+    "nba-celtics02-4q-margin-v51d",
     "nba-kobe05-62-three-quarters",
     "nba-celtics08-g6-margin",
     "nba-kings23-light-beam-sixteen-drought"
@@ -1303,7 +1303,13 @@
   "nba-raptors01-team-blocks",
   "nba-heat13-month-wins",
   "nba-wilt67-fta",
-  "nba-oscar71-apg"
+  "nba-oscar71-apg",
+  "nba-giannis21-g6-ft",
+  "nba-stockton-malone-games",
+  "nba-detroit04-rasheed-finish",
+  "nba-lakers23-cup-paint",
+  "nba-turkoglu09-regular-apg",
+  "nba-celtics02-4q"
  ],
  "reserveNotBefore": {
   "nba-robinson94-71": "2027-01-09",
@@ -1356,6 +1362,12 @@
   "nba-raptors01-team-blocks": "2027-01-16",
   "nba-heat13-month-wins": "2027-01-19",
   "nba-wilt67-fta": "2027-01-22",
-  "nba-oscar71-apg": "2027-01-26"
+  "nba-oscar71-apg": "2027-01-26",
+  "nba-giannis21-g6-ft": "2026-12-20",
+  "nba-stockton-malone-games": "2026-12-25",
+  "nba-detroit04-rasheed-finish": "2026-12-28",
+  "nba-lakers23-cup-paint": "2027-01-06",
+  "nba-turkoglu09-regular-apg": "2027-01-23",
+  "nba-celtics02-4q": "2027-01-25"
  }
 }

@@ -70,7 +70,7 @@
     {
       "id": "nba-spurs90-improvement",
       "sport": "NBA",
-      "prompt": "With rookie David Robinson in 1989–90, the Spurs improved by how many wins over the year before?",
+      "prompt": "Jason Kidd's 2001–02 Nets improved by 26 wins. By how many wins did rookie David Robinson's 1989–90 Spurs improve?",
       "context": "San Antonio Spurs · 1989–90",
       "answer": 35,
       "unit": {
@@ -118,13 +118,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "wins-change",
-        "era": "1980s",
+        "era": "cross-era",
         "subjects": [
           "San Antonio Spurs"
         ],
-        "supports": []
+        "supports": [
+          "nba-nets02-improvement"
+        ]
       }
     },
     {
@@ -193,7 +195,7 @@
     {
       "id": "nba-west08-season-ppg",
       "sport": "NBA",
-      "prompt": "What was David West's scoring average on the 2007–08 Hornets?",
+      "prompt": "The chart shows two other scoring averages. What was David West's scoring average on the 2007–08 Hornets?",
       "context": "New Orleans · regular-season offense",
       "answer": 20.6,
       "unit": {
@@ -240,15 +242,36 @@
           }
         }
       ],
+      "chart": {
+        "title": "Regular-season scoring averages",
+        "unit": "points per game",
+        "points": [
+          {
+            "label": "Webber '02",
+            "value": 24.5
+          },
+          {
+            "label": "Robinson '20",
+            "value": 13.5
+          },
+          {
+            "label": "West '08",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "scoring-average",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "David West",
           "New Orleans Pelicans"
         ],
-        "supports": []
+        "supports": [
+          "nba-webber02-season-ppg",
+          "nba-robinson20-season-ppg"
+        ]
       }
     },
     {

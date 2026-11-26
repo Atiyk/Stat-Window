@@ -9,7 +9,7 @@
     {
       "id": "nba-hornets08-season-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did Chris Paul's 2007–08 Hornets win?",
+      "prompt": "The chart shows three other Western Conference seasons. How many regular-season games did Chris Paul's 2007–08 Hornets win?",
       "context": "New Orleans · first full season back in the city",
       "answer": 56,
       "unit": {
@@ -56,20 +56,46 @@
           }
         }
       ],
+      "chart": {
+        "title": "West teams' wins in a season",
+        "unit": "wins",
+        "points": [
+          {
+            "label": "Mavs '07",
+            "value": 67
+          },
+          {
+            "label": "Kings '02",
+            "value": 61
+          },
+          {
+            "label": "Warriors '75",
+            "value": 48
+          },
+          {
+            "label": "Hornets '08",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "wins-season",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "New Orleans Pelicans"
         ],
-        "supports": []
+        "supports": [
+          "nba-mavs07-wins",
+          "nba-kings02-regular-wins",
+          "nba-warriors75-season-wins"
+        ]
       }
     },
     {
       "id": "nba-magic09-kings-threes",
       "sport": "NBA",
-      "prompt": "How many three-pointers did Orlando make against Sacramento in January 2009?",
+      "prompt": "Stephen Curry's then-record 13 threes in a game came in 2016. How many threes did Orlando make as a team against Sacramento in January 2009?",
       "context": "Magic at Kings · long-range barrage",
       "answer": 23,
       "unit": {
@@ -117,13 +143,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "threes-game",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Orlando Magic"
         ],
-        "supports": []
+        "supports": [
+          "nba-curry16-13-threes"
+        ]
       }
     },
     {

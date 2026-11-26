@@ -9,7 +9,7 @@
     {
       "id": "nba-mitchell23-seventy-one",
       "sport": "NBA",
-      "prompt": "In Cleveland's 2023 overtime comeback against Chicago, how many points did Donovan Mitchell score?",
+      "prompt": "Kobe Bryant scored 81 in 2006. How many points did Donovan Mitchell score in Cleveland's 2023 overtime comeback against Chicago?",
       "context": "Donovan Mitchell · Cavaliers vs. Bulls · January 2023",
       "answer": 71,
       "unit": {
@@ -57,14 +57,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Donovan Mitchell",
           "Cleveland Cavaliers"
         ],
-        "supports": []
+        "supports": [
+          "nba-kobe-81"
+        ]
       }
     },
     {
@@ -276,7 +278,7 @@
     {
       "id": "nba-durant17-finals-g3-shot-45seconds",
       "sport": "NBA",
-      "prompt": "In Durant's famous pull-up Finals Game 3 three over LeBron in 2017, how many seconds were left?",
+      "prompt": "Kyrie's 2016 Game 7 three came with 53 seconds left. How many seconds were left on Durant's pull-up three over LeBron in Game 3 of 2017?",
       "context": "Kevin Durant · Warriors at Cavaliers · 2017 Finals Game 3",
       "answer": 45.3,
       "unit": {
@@ -324,14 +326,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "time",
         "era": "2010s",
         "subjects": [
           "Kevin Durant",
           "Golden State Warriors"
         ],
-        "supports": []
+        "supports": [
+          "nba-kyrie16-finals-g7-shot-53-sec"
+        ]
       }
     }
   ]

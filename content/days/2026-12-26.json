@@ -255,7 +255,7 @@
     {
       "id": "nba-ja22-warriors-game2-47",
       "sport": "NBA",
-      "prompt": "In Memphis's 2022 playoff showdown against Steph Curry's Warriors, how many points did Ja Morant score in Game 2?",
+      "prompt": "Stephen Curry scored 43 in Game 4 of the 2022 Finals. How many did Ja Morant score against Curry's Warriors in 2022 Game 2?",
       "context": "Ja Morant · Grizzlies vs Warriors · May 2022",
       "answer": 47,
       "unit": {
@@ -303,14 +303,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
         "era": "2020s",
         "subjects": [
           "Ja Morant",
           "Memphis Grizzlies"
         ],
-        "supports": []
+        "supports": [
+          "nba-curry22-g4"
+        ]
       }
     }
   ]

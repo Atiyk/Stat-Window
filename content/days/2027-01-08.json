@@ -284,7 +284,7 @@
     {
       "id": "nba-lillard14-rockets-series-winner-nine-tenths",
       "sport": "NBA",
-      "prompt": "Before Damian Lillard's iconic 2014 series-winning three against Houston, how many seconds did Portland have left to inbound?",
+      "prompt": "Allen's 2013 Finals three came with 5.2 seconds left. How long did Portland have to inbound before Lillard's 2014 series-winner?",
       "context": "Damian Lillard · Blazers vs Rockets · 2014 first round",
       "answer": 0.9,
       "unit": {
@@ -332,14 +332,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "time",
         "era": "2010s",
         "subjects": [
           "Damian Lillard",
           "Portland Trail Blazers"
         ],
-        "supports": []
+        "supports": [
+          "nba-allen13-g6-seconds"
+        ]
       }
     }
   ]

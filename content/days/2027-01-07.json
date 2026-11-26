@@ -133,7 +133,7 @@
     {
       "id": "nba-klay16-wcf-threes",
       "sport": "NBA",
-      "prompt": "Facing elimination at Oklahoma City in 2016, Klay Thompson set what was then the playoff record for threes. How many?",
+      "prompt": "The chart shows three other playoff three-point nights. Facing elimination in 2016, how many threes did Klay Thompson make in Game 6?",
       "context": "2016 Western Conference finals · Game 6",
       "answer": 11,
       "unit": {
@@ -180,15 +180,41 @@
           }
         }
       ],
+      "chart": {
+        "title": "Threes in a playoff game",
+        "unit": "threes",
+        "points": [
+          {
+            "label": "Battier '13",
+            "value": 6
+          },
+          {
+            "label": "Curry '18",
+            "value": 9
+          },
+          {
+            "label": "Dame '21",
+            "value": 12
+          },
+          {
+            "label": "Klay '16",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "threes-game",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Klay Thompson",
           "Golden State Warriors"
         ],
-        "supports": []
+        "supports": [
+          "nba-battier13-g7-threes",
+          "nba-curry18-g2-threes",
+          "nba-dame21-playoffs-12-threes"
+        ]
       }
     },
     {
@@ -254,7 +280,7 @@
     {
       "id": "nba-ad20-lakers-ten-straight-wcf-winner",
       "sport": "NBA",
-      "prompt": "In his famous 2020 bubble playoff buzzer-beater over Denver, how many straight Lakers points did Anthony Davis score to finish?",
+      "prompt": "LeBron scored Cleveland's final 25 points in a 2007 playoff game. How many straight points did AD score to finish off Denver in 2020?",
       "context": "Anthony Davis · Lakers vs Nuggets · 2020 Western finals",
       "answer": 10,
       "unit": {
@@ -302,14 +328,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-run",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Anthony Davis",
           "Los Angeles Lakers"
         ],
-        "supports": []
+        "supports": [
+          "nba-lebron07-final-twentyfive"
+        ]
       }
     }
   ]

@@ -131,7 +131,7 @@
     {
       "id": "nba-mutombo01-posttrade-rpg",
       "sport": "NBA",
-      "prompt": "What was Dikembe Mutombo's rebounding average after joining the 2000–01 Sixers?",
+      "prompt": "Dwight Howard averaged 13.8 rebounds in 2008–09. How many per game did Dikembe Mutombo average after joining the 2000–01 Sixers?",
       "context": "Philadelphia 76ers · post-trade regular-season stint",
       "answer": 12.4,
       "unit": {
@@ -179,37 +179,40 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "rebounds-average",
         "era": "2000s",
         "subjects": [
           "Dikembe Mutombo",
           "Philadelphia 76ers"
         ],
-        "supports": []
+        "supports": [
+          "nba-howard09-regular-rpg"
+        ]
       }
     },
     {
-      "id": "nba-detroit04-rasheed-finish",
+      "id": "nba-detroit04-rasheed-win-pct-v51b",
       "sport": "NBA",
-      "prompt": "After trading for Rasheed Wallace, how many of its final 19 games did Detroit win?",
-      "context": "Detroit Pistons · 2003–04 · post-trade finish",
-      "answer": 16,
+      "prompt": "After trading for Rasheed Wallace, what percent of its final 19 games did Detroit win? Nearest whole percent.",
+      "context": "Detroit Pistons · 2003–04 · wins ÷ games after the trade",
+      "answer": 84,
       "unit": {
-        "singular": "win",
-        "plural": "wins"
+        "singular": "percent",
+        "plural": "percent"
       },
-      "min": 4,
-      "max": 22,
+      "min": 40,
+      "max": 100,
       "step": 1,
-      "note": "Sixteen wins in the final 19 games helped lock in Detroit's playoff form.",
+      "note": "84%: 16 wins in 19 games, a late surge that carried into the playoffs.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
-        "quote": "With the addition of Wallace, the Pistons won 16 of their final 19 games"
+        "quote": "With the addition of Wallace, the Pistons won 16 of their final 19 games",
+        "derivation": "16 wins ÷ 19 games × 100 = 84.2, so 84% to the nearest whole percent."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
@@ -240,8 +243,8 @@
         }
       ],
       "meta": {
-        "format": "recall",
-        "family": "wins-season",
+        "format": "ratio",
+        "family": "wins-situational",
         "era": "2000s",
         "subjects": [
           "Detroit Pistons"

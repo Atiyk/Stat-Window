@@ -9,7 +9,7 @@
     {
       "id": "nba-jokic23-finals-average",
       "sport": "NBA",
-      "prompt": "Nikola Jokić won 2023 Finals MVP. What did he average in points per game?",
+      "prompt": "Jaylen Brown averaged 20.8 points as the 2024 Finals MVP. What did 2023 Finals MVP Nikola Jokić average?",
       "context": "2023 NBA Finals · Denver Nuggets vs Miami Heat",
       "answer": 30.2,
       "unit": {
@@ -57,14 +57,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "scoring-average",
         "era": "2020s",
         "subjects": [
           "Nikola Jokić",
           "Denver Nuggets"
         ],
-        "supports": []
+        "supports": [
+          "nba-brown24-finals-ppg"
+        ]
       }
     },
     {

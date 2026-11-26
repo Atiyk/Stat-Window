@@ -69,7 +69,7 @@
     {
       "id": "nba-sonics79-january-wins",
       "sport": "NBA",
-      "prompt": "How many games did Seattle win in January of its 1979 championship season?",
+      "prompt": "The 2012–13 Heat won a record 17 games in one calendar month. How many did Seattle win in January 1979 on its title run?",
       "context": "SuperSonics · January 1979 · monthly record",
       "answer": 10,
       "unit": {
@@ -117,13 +117,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "wins-month",
-        "era": "1970s",
+        "era": "cross-era",
         "subjects": [
           "Oklahoma City Thunder"
         ],
-        "supports": []
+        "supports": [
+          "nba-heat13-month-wins"
+        ]
       }
     },
     {

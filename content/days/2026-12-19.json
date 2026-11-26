@@ -130,26 +130,27 @@
       }
     },
     {
-      "id": "nba-giannis21-g6-ft",
+      "id": "nba-giannis21-g6-ft-pct-v51b",
       "sport": "NBA",
-      "prompt": "In his 50-point clincher, how many of his 19 free throws did Giannis make?",
-      "context": "2021 NBA Finals · Game 6 · vs Phoenix",
-      "answer": 17,
+      "prompt": "What percent of his free throws did Giannis Antetokounmpo make in the 2021 title clincher? Nearest whole percent.",
+      "context": "2021 NBA Finals · Game 6 · free throws made ÷ attempted",
+      "answer": 89,
       "unit": {
-        "singular": "free throw",
-        "plural": "free throws"
+        "singular": "percent",
+        "plural": "percent"
       },
-      "min": 7,
-      "max": 19,
+      "min": 40,
+      "max": 100,
       "step": 1,
-      "note": "17 of 19, a surprise from a weak free-throw shooter.",
+      "note": "89%: 17 of 19 at the line, a big surprise from a streaky foul shooter.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-        "quote": "Antetokounmpo made 16 of his 25 shots, and was a surprising 17 for 19 on his free throws"
+        "quote": "Antetokounmpo made 16 of his 25 shots, and was a surprising 17 for 19 on his free throws",
+        "derivation": "17 free throws made ÷ 19 attempted × 100 = 89.47, so 89% to the nearest whole percent."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
@@ -180,8 +181,8 @@
         }
       ],
       "meta": {
-        "format": "recall",
-        "family": "free-throws",
+        "format": "ratio",
+        "family": "shooting-pct",
         "era": "2020s",
         "subjects": [
           "Giannis Antetokounmpo",
@@ -193,7 +194,7 @@
     {
       "id": "nba-sixers01-opening-streak",
       "sport": "NBA",
-      "prompt": "How many games did the 2000–01 Sixers win in a row to start the season?",
+      "prompt": "The 2015–16 Warriors opened 24–0. How many games in a row did Allen Iverson's 2000–01 Sixers win to start their season?",
       "context": "Philadelphia 76ers · opening streak · 2000–01",
       "answer": 10,
       "unit": {
@@ -241,13 +242,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "win-streak",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Philadelphia 76ers"
         ],
-        "supports": []
+        "supports": [
+          "nba-gsw16-start"
+        ]
       }
     },
     {

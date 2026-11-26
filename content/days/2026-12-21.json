@@ -100,7 +100,7 @@
     {
       "id": "nba-spurs99-final36-wins",
       "sport": "NBA",
-      "prompt": "After a slow start, how many of their final 36 games did the 1999 Spurs win?",
+      "prompt": "The 1999 Spurs won 37 of 50 lockout-season games. After a slow start, how many of their final 36 did they win?",
       "context": "San Antonio · lockout season · closing stretch",
       "answer": 31,
       "unit": {
@@ -148,13 +148,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "wins-situational",
         "era": "1990s",
         "subjects": [
           "San Antonio Spurs"
         ],
-        "supports": []
+        "supports": [
+          "nba-spurs99-wins"
+        ]
       }
     },
     {

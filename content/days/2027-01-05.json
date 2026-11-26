@@ -70,7 +70,7 @@
     {
       "id": "nba-lakers00-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 1999–2000 Lakers win?",
+      "prompt": "The chart shows three other champions' win totals. How many regular-season games did the 1999–2000 Lakers win?",
       "context": "Los Angeles Lakers · 1999–2000 · 82 games",
       "answer": 67,
       "unit": {
@@ -117,14 +117,40 @@
           }
         }
       ],
+      "chart": {
+        "title": "Wins in a regular season",
+        "unit": "wins",
+        "points": [
+          {
+            "label": "Bulls '97",
+            "value": 69
+          },
+          {
+            "label": "Celtics '24",
+            "value": 64
+          },
+          {
+            "label": "Spurs '14",
+            "value": 62
+          },
+          {
+            "label": "Lakers '00",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "wins-season",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "Los Angeles Lakers"
         ],
-        "supports": []
+        "supports": [
+          "nba-bulls97-wins",
+          "nba-celtics24-wins",
+          "nba-spurs14-season-wins"
+        ]
       }
     },
     {
@@ -188,69 +214,73 @@
       }
     },
     {
-      "id": "nba-lakers23-cup-paint",
+      "id": "nba-bucks71-bucks21-wins-gap-v51c",
       "sport": "NBA",
-      "prompt": "In the 2023 In-Season Tournament final, how many points in the paint did the Lakers score?",
-      "context": "2023 In-Season Tournament final · vs Indiana",
-      "answer": 86,
+      "prompt": "How many more regular-season games did Kareem's 1970–71 champion Bucks win than Giannis's 2020–21 champion Bucks?",
+      "context": "Milwaukee Bucks · a 82-game season vs a 72-game season",
+      "answer": 20,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "win",
+        "plural": "wins"
       },
-      "min": 55,
-      "max": 130,
+      "min": 4,
+      "max": 40,
       "step": 1,
-      "note": "86, to Indiana's 44.",
+      "note": "20 more: 66 wins for Kareem's Bucks, 46 for Giannis's in a shortened season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-        "quote": "The Lakers dominated the Pacers inside, edging them with an 86–44 edge in points in the paint."
+        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+        "quote": "Milwaukee posted a 66–16 record in only its third year of existence",
+        "derivation": "1970–71 Bucks 66 wins − 2020–21 Bucks 46 wins = 20."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Indiana managed 44 paint points, far fewer than the eventual champion.",
+          "text": "The arrival of Oscar Robertson gave young star Lew Alcindor a legendary partner.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "an 86–44 edge in points in the paint"
+            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+            "quote": "A key part of this championship season was the acquisition of Oscar Robertson"
           }
         },
         {
-          "text": "Davis scored ten unanswered points during a decisive fourth-quarter Lakers surge.",
+          "text": "Milwaukee beat the Baltimore Bullets in a four-game Finals sweep to win its first title.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "Davis scored 10 straight points as part of the 13–0 run"
+            "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
+            "quote": "They faced off against the Baltimore Bullets and swept them in four games"
           }
         },
         {
-          "text": "The Lakers held off Indiana to win the first Cup championship 123–109 in Las Vegas.",
+          "text": "Jrue Holiday arrived from New Orleans before the season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
-            "quote": "Indiana Pacers 109, Los Angeles Lakers 123"
+            "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
+            "quote": "Jrue Holiday (from New Orleans)"
           }
         }
       ],
       "meta": {
-        "format": "recall",
-        "family": "points-team-game",
-        "era": "2020s",
+        "format": "difference",
+        "family": "wins-season",
+        "era": "cross-era",
         "subjects": [
-          "Los Angeles Lakers"
+          "Milwaukee Bucks"
         ],
-        "supports": []
+        "supports": [
+          "nba-bucks71-wins",
+          "nba-bucks21-regular-wins"
+        ]
       }
     },
     {
       "id": "nba-mitchell20-bubble-fiftyseven",
       "sport": "NBA",
-      "prompt": "In the bubble's wild 2020 Jazz–Nuggets opening playoff game, how many points did Donovan Mitchell score?",
+      "prompt": "Donovan Mitchell and Jamal Murray combined for 101 points in Game 4 of their 2020 series. How many did Mitchell score in Game 1?",
       "context": "Donovan Mitchell · Jazz vs Nuggets · 2020 bubble",
       "answer": 57,
       "unit": {
@@ -298,14 +328,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-game",
         "era": "2010s",
         "subjects": [
           "Donovan Mitchell",
           "Utah Jazz"
         ],
-        "supports": []
+        "supports": [
+          "nba-murray-mitchell20-game4-combined"
+        ]
       }
     }
   ]

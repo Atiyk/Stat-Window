@@ -70,7 +70,7 @@
     {
       "id": "nba-suns93-december-win-streak",
       "sport": "NBA",
-      "prompt": "How many consecutive games did Phoenix win during December in its Barkley MVP season?",
+      "prompt": "The 2012–13 Heat won 27 straight. How many in a row did Barkley's Suns win during December of his 1992–93 MVP season?",
       "context": "Phoenix Suns · December winning streak",
       "answer": 14,
       "unit": {
@@ -118,13 +118,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "win-streak",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "Phoenix Suns"
         ],
-        "supports": []
+        "supports": [
+          "nba-heat13-streak"
+        ]
       }
     },
     {

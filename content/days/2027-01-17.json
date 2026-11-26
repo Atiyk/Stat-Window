@@ -192,7 +192,7 @@
     {
       "id": "nba-nance84-season-ppg",
       "sport": "NBA",
-      "prompt": "How many points per game did Larry Nance average in 1983–84?",
+      "prompt": "The chart shows four other scorers' averages. How many points per game did Larry Nance average for the 1983–84 Suns?",
       "context": "Phoenix · first Slam Dunk champion · season scoring",
       "answer": 17.7,
       "unit": {
@@ -239,21 +239,52 @@
           }
         }
       ],
+      "chart": {
+        "title": "Points per game, regular season",
+        "unit": "ppg",
+        "points": [
+          {
+            "label": "Alcindor '71",
+            "value": 31.7
+          },
+          {
+            "label": "Webber '02",
+            "value": 24.5
+          },
+          {
+            "label": "Miller '98",
+            "value": 19.5
+          },
+          {
+            "label": "Nance '84",
+            "value": null
+          },
+          {
+            "label": "Robinson '20",
+            "value": 13.5
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "scoring-average",
-        "era": "1980s",
+        "era": "cross-era",
         "subjects": [
           "Larry Nance",
           "Phoenix Suns"
         ],
-        "supports": []
+        "supports": [
+          "nba-alcindor71-ppg",
+          "nba-webber02-season-ppg",
+          "nba-miller98-season-ppg",
+          "nba-robinson20-season-ppg"
+        ]
       }
     },
     {
       "id": "nba-kobe10-finals-game7-twentyfive-percent",
       "sport": "NBA",
-      "prompt": "Kobe won the gritty 2010 Finals Game 7 over Boston despite a brutal shooting night. What percent did he shoot from the field?",
+      "prompt": "In 1948 the Warriors shot a record-low 16.4% in a game. What percent did Kobe shoot in his brutal 2010 Finals Game 7?",
       "context": "Kobe Bryant · Lakers vs Celtics · 2010 Finals Game 7",
       "answer": 25,
       "unit": {
@@ -301,14 +332,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "shooting-pct",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Kobe Bryant",
           "Los Angeles Lakers"
         ],
-        "supports": []
+        "supports": [
+          "nba-warriors48-low-fg-v5"
+        ]
       }
     }
   ]

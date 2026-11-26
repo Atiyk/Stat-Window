@@ -256,7 +256,7 @@
     {
       "id": "nba-clippers19-warriors-g2-31-comeback",
       "sport": "NBA",
-      "prompt": "When the underdog Clippers stunned the dynasty Warriors in 2019 playoff Game 2, how far behind had L.A. fallen?",
+      "prompt": "The chart shows five big comebacks. When the Clippers stunned the Warriors in 2019 playoff Game 2, how far behind had L.A. fallen?",
       "context": "Los Angeles Clippers at Warriors · 2019 first round",
       "answer": 31,
       "unit": {
@@ -303,14 +303,50 @@
           }
         }
       ],
+      "chart": {
+        "title": "Points overcome in a comeback",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Mavs '11",
+            "value": 15
+          },
+          {
+            "label": "Lakers '00",
+            "value": 16
+          },
+          {
+            "label": "Wolves '24",
+            "value": 20
+          },
+          {
+            "label": "Celtics '08",
+            "value": 24
+          },
+          {
+            "label": "Clippers '19",
+            "value": null
+          },
+          {
+            "label": "Jazz '96",
+            "value": 36
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "comeback",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Los Angeles Clippers"
         ],
-        "supports": []
+        "supports": [
+          "nba-mavs11-heat-finals-g2-comeback-fifteen",
+          "nba-lakers00-portland-g7-comeback",
+          "nba-wolves24-denver-game7-comeback",
+          "nba-celtics08-finals-g4-comeback-24",
+          "nba-jazz96-comeback"
+        ]
       }
     }
   ]

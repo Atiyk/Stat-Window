@@ -192,7 +192,7 @@
     {
       "id": "nba-webber02-season-ppg",
       "sport": "NBA",
-      "prompt": "How many points per game did Chris Webber score for the 2002 Kings?",
+      "prompt": "Wilt Chamberlain's record 1961–62 average was 50.4 points per game. How many did Chris Webber average for the 2001–02 Kings?",
       "context": "Sacramento · 2001–02 regular season",
       "answer": 24.5,
       "unit": {
@@ -240,20 +240,22 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "scoring-average",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Chris Webber",
           "Sacramento Kings"
         ],
-        "supports": []
+        "supports": [
+          "nba-wilt62-ppg"
+        ]
       }
     },
     {
       "id": "nba-wolves24-denver-game7-comeback",
       "sport": "NBA",
-      "prompt": "How far behind did Anthony Edwards's Timberwolves fall before their dramatic 2024 Game 7 win over Denver?",
+      "prompt": "The chart shows three other big comebacks. How far behind did Anthony Edwards's Timberwolves fall before their 2024 Game 7 win at Denver?",
       "context": "Timberwolves at Nuggets · 2024 playoffs",
       "answer": 20,
       "unit": {
@@ -300,14 +302,40 @@
           }
         }
       ],
+      "chart": {
+        "title": "Comeback deficits overcome (points)",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Lakers '00",
+            "value": 16
+          },
+          {
+            "label": "Spurs '99",
+            "value": 17
+          },
+          {
+            "label": "Jazz '96",
+            "value": 36
+          },
+          {
+            "label": "Wolves '24",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "comeback",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Minnesota Timberwolves"
         ],
-        "supports": []
+        "supports": [
+          "nba-lakers00-portland-g7-comeback",
+          "nba-spurs99-memorial-day",
+          "nba-jazz96-comeback"
+        ]
       }
     }
   ]

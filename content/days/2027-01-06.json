@@ -130,7 +130,7 @@
     {
       "id": "nba-shaq00-g2-fta",
       "sport": "NBA",
-      "prompt": "How many free throws did Shaquille O'Neal attempt in Game 2 of the 2000 Finals?",
+      "prompt": "Dwyane Wade attempted 25 free throws in Game 5 of the 2006 Finals. How many did Shaquille O'Neal attempt in Game 2 of the 2000 Finals?",
       "context": "2000 NBA Finals · Game 2 · vs Indiana",
       "answer": 39,
       "unit": {
@@ -178,14 +178,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "free-throws",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "Shaquille O'Neal",
           "Los Angeles Lakers"
         ],
-        "supports": []
+        "supports": [
+          "nba-wade06-g5-fta"
+        ]
       }
     },
     {

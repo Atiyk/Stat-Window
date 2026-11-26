@@ -70,7 +70,7 @@
     {
       "id": "nba-pistons50-19-18",
       "sport": "NBA",
-      "prompt": "Before the shot clock, the Fort Wayne Pistons beat the Lakers in 1950 with how many points?",
+      "prompt": "The 1966–67 Sixers averaged 125 points. Before the shot clock, Fort Wayne beat Minneapolis in 1950 with how many?",
       "context": "Fort Wayne Pistons vs Minneapolis Lakers · November 22, 1950",
       "answer": 19,
       "unit": {
@@ -118,13 +118,15 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-team-game",
-        "era": "1950s",
+        "era": "cross-era",
         "subjects": [
           "Detroit Pistons"
         ],
-        "supports": []
+        "supports": [
+          "nba-sixers67-ppg"
+        ]
       }
     },
     {
@@ -222,7 +224,7 @@
     {
       "id": "nba-mowilliams09-season-ppg",
       "sport": "NBA",
-      "prompt": "How many points per game did Mo Williams average in his first Cavaliers season?",
+      "prompt": "David West averaged 20.6 next to Chris Paul in 2007–08. What did Mo Williams average beside LeBron in his first Cavaliers season?",
       "context": "Cleveland Cavaliers · 2008–09 · regular season",
       "answer": 17.8,
       "unit": {
@@ -270,14 +272,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "scoring-average",
         "era": "2000s",
         "subjects": [
           "Mo Williams",
           "Cleveland Cavaliers"
         ],
-        "supports": []
+        "supports": [
+          "nba-west08-season-ppg"
+        ]
       }
     },
     {

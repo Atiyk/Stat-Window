@@ -120,10 +120,14 @@ function main() {
     return i > -1 ? process.argv[i + 1] : undefined;
   };
   const file = arg('--batch');
-  if (!file) throw new Error('usage: revise.ts --batch file.json [--check]');
-  const batch = JSON.parse(readFileSync(file, 'utf8')) as Batch;
+  if (!file) throw new Error('usage: revise.ts --batch file.json[,file2.json…] [--check] [--scope FROM..TO]');
+  // Several disjoint batches (comma-separated) are applied together and validated once.
+  const batches = file.split(',').map((f) => JSON.parse(readFileSync(f, 'utf8')) as Batch);
   const today = puzzleDay(new Date());
-  const { data, audit } = applyBatch(loadNbaData(), readAudit(), batch, today);
+  let data = loadNbaData();
+  let audit = readAudit();
+  for (const b of batches) ({ data, audit } = applyBatch(data, audit, b, today));
+  const batch = { batch: batches.map((b) => b.batch).join('+'), editor: '', decisions: batches.flatMap((b) => b.decisions) };
   const report = validateNba(data);
   // --scope FROM..TO: while disjoint batches are in flight, ignore the daily-variety
   // errors of days outside this batch's range (they belong to other editors).

@@ -192,7 +192,7 @@
     {
       "id": "nba-wilt-100-fga",
       "sport": "NBA",
-      "prompt": "In his 100-point game, Wilt Chamberlain set a record for field-goal attempts. How many shots did he take?",
+      "prompt": "LeBron James took 38 shots in Game 1 of the 2015 Finals. In his 100-point game, how many shots did Wilt Chamberlain take?",
       "context": "Philadelphia vs New York · March 2, 1962",
       "answer": 63,
       "unit": {
@@ -240,20 +240,22 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "field-goals",
-        "era": "1960s",
+        "era": "cross-era",
         "subjects": [
           "Wilt Chamberlain",
           "Golden State Warriors"
         ],
-        "supports": []
+        "supports": [
+          "nba-lebron15-g1-fga"
+        ]
       }
     },
     {
       "id": "nba-curry13-knicks-54",
       "sport": "NBA",
-      "prompt": "Years before his championships, how many points did Steph Curry score against the Knicks at MSG in 2013?",
+      "prompt": "The chart shows three other guard scoring nights. How many points did Steph Curry score against the Knicks at MSG in 2013?",
       "context": "Stephen Curry · Warriors at Knicks · February 2013",
       "answer": 54,
       "unit": {
@@ -300,15 +302,41 @@
           }
         }
       ],
+      "chart": {
+        "title": "Guards' big scoring nights",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Klay '16",
+            "value": 41
+          },
+          {
+            "label": "Luka '20",
+            "value": 43
+          },
+          {
+            "label": "Harden '19",
+            "value": 61
+          },
+          {
+            "label": "Curry '13",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
         "era": "2010s",
         "subjects": [
           "Stephen Curry",
           "Golden State Warriors"
         ],
-        "supports": []
+        "supports": [
+          "nba-klay16-okc-game6-41",
+          "nba-luka20-clippers-buzzer-43",
+          "nba-harden19-msg-61"
+        ]
       }
     }
   ]

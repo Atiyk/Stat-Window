@@ -95,7 +95,7 @@
     {
       "id": "nba-allstar24-east",
       "sport": "NBA",
-      "prompt": "How many points did the East score in the 2024 All-Star Game?",
+      "prompt": "The 1966–67 Sixers set a team record of 125 points per game. How many points did the East score in the 2024 All-Star Game?",
       "context": "2024 NBA All-Star Game · East vs West",
       "answer": 211,
       "unit": {
@@ -143,17 +143,19 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "points-team-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [],
-        "supports": []
+        "supports": [
+          "nba-sixers67-ppg"
+        ]
       }
     },
     {
       "id": "nba-jackson98-regular-apg",
       "sport": "NBA",
-      "prompt": "What was Mark Jackson's assists-per-game average for the 1998 Pacers?",
+      "prompt": "John Stockton averaged 14.5 assists in 1989–90. What was Mark Jackson's assists-per-game average for the 1997–98 Pacers?",
       "context": "Indiana · 1997–98 regular season",
       "answer": 8.7,
       "unit": {
@@ -201,14 +203,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "assists-average",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "Mark Jackson",
           "Indiana Pacers"
         ],
-        "supports": []
+        "supports": [
+          "nba-stockton90-apg"
+        ]
       }
     },
     {

@@ -48,7 +48,13 @@ export type AuditEntry = {
 };
 export type Audit = { version: 1; entries: AuditEntry[] };
 
-export const AUDIT_PATH = join(DATA_DIR, 'editorial', 'launch-audit.json');
+/** V5.0's audit of the 2026-11-28 → 2027-01-27 inventory (frozen). */
+export const V5_AUDIT_PATH = join(DATA_DIR, 'editorial', 'launch-audit.json');
+/**
+ * V5.1's audit of the restarted official season (every slot from VARIETY_FROM). New
+ * batches are recorded here; the latest entry for a slot is its current decision.
+ */
+export const AUDIT_PATH = join(DATA_DIR, 'editorial', 'v51-audit.json');
 
 export function readAudit(path = AUDIT_PATH): Audit {
   return existsSync(path) ? (JSON.parse(readFileSync(path, 'utf8')) as Audit) : { version: 1, entries: [] };
@@ -119,6 +125,17 @@ function main() {
   const today = puzzleDay(new Date());
   const { data, audit } = applyBatch(loadNbaData(), readAudit(), batch, today);
   const report = validateNba(data);
+  // --scope FROM..TO: while disjoint batches are in flight, ignore the daily-variety
+  // errors of days outside this batch's range (they belong to other editors).
+  const scope = arg('--scope')?.split('..');
+  if (scope && process.argv.includes('--check')) {
+    const [from, to] = scope as [string, string];
+    report.errors = report.errors.filter((e) => {
+      const day = /^(\d{4}-\d{2}-\d{2}): /.exec(e)?.[1];
+      const variety = /(questions \(max 2 per format\)|formats? \(need at least 3\))$/.test(e);
+      return !(day && variety && (day < from || day > to));
+    });
+  }
   if (report.errors.length) {
     for (const e of report.errors) console.error(`error: ${e}`);
     process.exit(1);

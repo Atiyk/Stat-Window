@@ -55,3 +55,45 @@ export type QuestionMeta = z.infer<typeof QuestionMetaSchema>;
 
 /** Format of a played question: anything published before V5 is plain recall. */
 export const formatOf = (q: { meta?: QuestionMeta | undefined }): QuestionFormat => q.meta?.format ?? 'recall';
+
+/**
+ * V5.1 daily variety rule. From this canonical day on, every official five-question
+ * slate must use at least three distinct canonical formats, and never more than two
+ * questions of any one format (2+2+1, 2+1+1+1 or 1+1+1+1+1). The format is the
+ * question's single primary reasoning task (`meta.format`); subjects, eras and stat
+ * families are secondary metadata and never count toward this rule.
+ *
+ * It is the first day the restarted official season can begin (docs/LAUNCH.md), so
+ * every official slate is covered. Earlier days are published beta content whose
+ * bytes and lock fingerprints never change.
+ */
+export const VARIETY_FROM = '2026-11-30';
+export const MAX_PER_FORMAT = 2;
+export const MIN_FORMATS = 3;
+
+/**
+ * Problems with one slate's format mix. `formats` holds each question's canonical
+ * format, or `undefined`/an unknown string when the metadata is missing, which is
+ * itself an error: the cap cannot be proven without it.
+ */
+export function slateFormatIssues(formats: readonly (string | undefined)[]): string[] {
+  const issues: string[] = [];
+  if (formats.length !== 5) issues.push(`has ${formats.length} questions; an official slate has 5`);
+  const counts = new Map<QuestionFormat, number>();
+  formats.forEach((f, i) => {
+    if (f === undefined) issues.push(`Q${i + 1} has no format metadata`);
+    else if (!(FORMATS as readonly string[]).includes(f)) issues.push(`Q${i + 1} has unknown format ${f}`);
+    else counts.set(f as QuestionFormat, (counts.get(f as QuestionFormat) ?? 0) + 1);
+  });
+  if (issues.length) return issues;
+  for (const [f, n] of counts) if (n > MAX_PER_FORMAT) issues.push(`${n} ${f} questions (max ${MAX_PER_FORMAT} per format)`);
+  if (counts.size < MIN_FORMATS) issues.push(`only ${counts.size} format${counts.size === 1 ? "" : "s"} (need at least ${MIN_FORMATS})`);
+  return issues;
+}
+
+/** The distribution as a sorted pattern ("2+2+1"), for reports. */
+export function formatPattern(formats: readonly string[]): string {
+  const counts = new Map<string, number>();
+  for (const f of formats) counts.set(f, (counts.get(f) ?? 0) + 1);
+  return [...counts.values()].sort((a, b) => b - a).join('+');
+}

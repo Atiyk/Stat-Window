@@ -20,7 +20,11 @@ import { FORMATS, type QuestionChart, type QuestionFormat, type QuestionMeta } f
 export type DeriveOp = 'difference' | 'percent' | 'sum';
 
 export type FormatSpec = {
-  kind: Exclude<QuestionFormat, 'recall'>;
+  /**
+   * Player-facing format. `recall` is written explicitly only when the answer is
+   * derived or ranked (taxonomy v2: a computed statistic is still a recall question).
+   */
+  kind: QuestionFormat;
   references?: string[];
   chart?: { title: string; unit: string; points: { label: string; fact: string }[] };
   /**
@@ -76,10 +80,13 @@ export function formatIssues(f: FormatFact, byId: ReadonlyMap<string, FormatFact
   const spec = f.question.format;
   if (!spec) return [];
   const out: string[] = [];
-  if (!(FORMATS as readonly string[]).includes(spec.kind) || spec.kind === ('recall' as string)) {
-    out.push(`unknown format ${spec.kind} (omit format for plain recall)`);
+  if (!(FORMATS as readonly string[]).includes(spec.kind)) {
+    out.push(`unknown format ${spec.kind}`);
     return out;
   }
+  if (spec.kind === 'recall' && !spec.derive && !spec.ranking && !spec.references?.length && !spec.chart)
+    out.push('omit format for plain recall (write kind recall only with a derivation or ranking)');
+  if (spec.kind === 'recall' && (spec.references?.length || spec.chart)) out.push('a recall question prints no reference and shows no chart');
   const get = (id: string, role: string) => {
     if (id === f.id) {
       out.push(`${role} cannot be the question itself`);

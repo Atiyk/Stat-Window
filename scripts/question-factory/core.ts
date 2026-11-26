@@ -3,7 +3,7 @@
  * Inputs are evidence-backed research facts; outputs are DRAFT questions.
  * Only a separate source check + editorial sign-off makes them eligible for a slate.
  */
-import { FORMATS, MAX_PER_FORMAT, slateFormatIssues, VARIETY_FROM, type QuestionFormat } from '../../src/content/formats.ts';
+import { isPlayerFormat, MAX_PER_FORMAT, slateFormatIssues, VARIETY_FROM, type PlayerFormat } from '../../src/content/formats.ts';
 
 export const VERSION = 1;
 export const LADDER = ['easy', 'medium', 'hard', 'hard', 'expert'] as const;
@@ -34,8 +34,8 @@ export type Coverage = {
 export type ResearchFact = {
   id: string; theme: string; kind: Kind; subject: string; event: string; statistic: string;
   values: Value[]; operation: Operation;
-  /** Canonical V5 question format (src/content/formats.ts FORMATS). Defaults from `operation`. */
-  format?: QuestionFormat;
+  /** Player-facing format (src/content/formats.ts PLAYER_FORMATS). Defaults to recall. */
+  format?: PlayerFormat;
   /** Used for comparisons ("A vs B"). */
   compareWith?: string; rankLabel?: string;
   customPrompt?: string; context: string; note: string;
@@ -287,7 +287,7 @@ export function validateBatch(b: CandidateBatch): string[] {
     if (meanings.has(meaning)) errors.push(ERR(c.id, 'same underlying fact already used in batch'));
     meanings.add(meaning);
     if (!b.themes.some((t) => t.id === c.theme)) errors.push(ERR(c.id, 'missing theme'));
-    if (c.format !== undefined && !(FORMATS as readonly string[]).includes(c.format)) errors.push(ERR(c.id, `unknown question format ${String(c.format)}`));
+    if (c.format !== undefined && !isPlayerFormat(c.format)) errors.push(ERR(c.id, `unknown question format ${String(c.format)} (taxonomy v2: recall, reference or missing-point)`));
     if (c.batchId !== b.id || c.sport.toLowerCase() !== b.sport.toLowerCase()) errors.push(ERR(c.id, 'batch/sport mismatch'));
   }
   for (const [index, c] of b.candidates.entries()) {
@@ -330,13 +330,12 @@ function suitsNbaSlot(c: Candidate, slot: number): boolean {
 }
 
 /**
- * A candidate's canonical V5 question format (src/content/formats.ts). A research fact
- * may name it (`format`); otherwise it follows from the arithmetic: a difference is a
- * difference, a sum across seasons a trajectory, a single quoted number plain recall.
+ * A candidate's player-facing format (taxonomy v2, src/content/formats.ts). A research
+ * fact names it (`format`) when it prints a reference or needs a chart; otherwise it is
+ * recall. A difference or sum is the underlying statistic, not a format of its own.
  */
 export function candidateFormat(c: Pick<ResearchFact, 'operation'> & { format?: string }): string {
-  if (c.format) return c.format;
-  return c.operation === 'difference' ? 'difference' : c.operation === 'sum' ? 'trajectory' : 'recall';
+  return c.format ?? 'recall';
 }
 
 function selectSlate(candidates: Candidate[], nba: boolean, formatsRequired = false): Candidate[] | null {
@@ -348,7 +347,7 @@ function selectSlate(candidates: Candidate[], nba: boolean, formatsRequired = fa
   function choose(selected: Candidate[]): Candidate[] | null {
     if (selected.length === LADDER.length) {
       const variety = new Set(selected.map((c) => c.kind)).size >= 3;
-      // V5.1: official slates mix at least three formats with at most two of each.
+      // V5.2: official slates use all three player formats, 2/2/1.
       const formats = !formatsRequired || slateFormatIssues(selected.map(candidateFormat)).length === 0;
       return variety && formats && (!nba || hasNbaVariety(selected)) ? selected : null;
     }
@@ -397,7 +396,7 @@ export function plan(b: CandidateBatch, policy: SourcePolicy | null, start: stri
     });
     if (!options.length) {
       const coverage = nba ? ' NBA days also need strong Q1/Q3/Q5, three subjects, three stat families, two dated eras and no repeated adjacent family.' : '';
-      const formats = addDays(start, d) >= VARIETY_FROM ? ' Official slates also need >=3 question formats and <=2 per format (set `format` on research facts, or use difference/sum operations).' : '';
+      const formats = addDays(start, d) >= VARIETY_FROM ? ' Official slates also need all three formats in a 2/2/1 distribution, <=2 per format (set `format` to reference or missing-point on research facts).' : '';
       throw new Error(`Only ${d} of ${days} complete slates found. Need 1 easy, 1 medium, 2 hard, 1 expert, >=3 types and <=2 per type per day with reviewed facts.${coverage}${formats}`);
     }
     const { t, selected } = options[0]!;

@@ -14,7 +14,7 @@ import { answerSpellings, type Question, type Slate } from '../../src/content/sc
 import { addDays } from '../../src/engine/daily.ts';
 import { potentialPoints } from '../../src/engine/scoring.ts';
 import { formatIssues, metaOf, resolveChart, supportsOf, type FormatSpec } from './formats.ts';
-import { slateFormatIssues, VARIETY_FROM } from '../../src/content/formats.ts';
+import { sequenceIssues, slateFormatIssues, VARIETY_FROM } from '../../src/content/formats.ts';
 
 export const ROOT = join(import.meta.dirname, '..', '..');
 export const DATA_DIR = join(ROOT, 'data', 'nba');
@@ -391,7 +391,7 @@ export function validateNba(data: NbaData): Report {
         if (issue) at(issue);
       }
     }
-    // V5.1: every official slate mixes at least three formats, at most two of each.
+    // V5.2: every official slate uses all three player formats, 2/2/1.
     if (d.date >= VARIETY_FROM && fs.length === 5)
       for (const issue of slateFormatIssues(fs.map((f) => f.question.format?.kind ?? 'recall'))) at(issue);
     const famCount = new Map<string, number>();
@@ -417,6 +417,15 @@ export function validateNba(data: NbaData): Report {
     if (!calendar.reserve.includes(id)) errors.push(`reserve: embargo for non-reserve question ${id}`);
     if (!isValidDate(notBefore) || notBefore <= calendar.cutover)
       errors.push(`reserve: invalid release embargo ${id} -> ${notBefore}`);
+  }
+  // V5.2: consecutive official days never repeat the exact same format sequence.
+  {
+    const official = days.filter((d) => d.date >= VARIETY_FROM);
+    const seqs = official.map((d) => d.questions.map((id) => byId.get(id)?.question.format?.kind ?? 'recall'));
+    for (const issue of sequenceIssues(seqs)) {
+      const n = Number(/^day (\d+)/.exec(issue)![1]);
+      errors.push(`${official[n - 1]!.date}: repeats the format sequence of ${official[n - 2]!.date}`);
+    }
   }
   // A question that shows or derives from another fact must come after that fact's own
   // Daily Five day: never on the same day, never before it.

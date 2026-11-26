@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { deriveAnswer, formatIssues, metaOf, resolveChart, supportsOf, type FormatFact, type FormatSpec } from './formats.ts';
-import { slateFormatIssues, VARIETY_FROM } from '../../src/content/formats.ts';
+import { PLAYER_FORMATS, sequenceIssues, slateFormatIssues, VARIETY_FROM } from '../../src/content/formats.ts';
 import { buildSlates, loadNbaData, questionFromFact, ROOT, V5_CONTENT_FROM, v5Context, validateNba, type Fact, type NbaData } from './model.ts';
 import { buildCatalog, leakHorizon } from './survival.ts';
 import { parseSlate, QuestionSchema } from '../../src/content/schema.ts';
@@ -267,23 +267,43 @@ describe('V5 launch inventory audit', () => {
   });
 });
 
-describe('V5.1 official-season audit (every slot from VARIETY_FROM)', () => {
+describe('V5.1 official-season audit (frozen record)', () => {
   const audit = readAuditFile('v51-audit.json');
   const official = real.calendar.days.filter((d) => d.date >= VARIETY_FROM);
-  it('records exactly one independent editorial decision per official slot, naming the question now in it', () => {
+  it('still records one decision per official slot', () => {
+    expect(audit.entries.length).toBe(official.length * 5);
+    for (const e of audit.entries) expect(e.note.trim().length).toBeGreaterThan(5);
+  });
+});
+
+describe('V5.2 official-season audit (taxonomy v2, every slot from VARIETY_FROM)', () => {
+  const audit = readAuditFile('v52-audit.json');
+  const official = real.calendar.days.filter((d) => d.date >= VARIETY_FROM);
+  const kind = (id: string) => real.facts.find((x) => x.id === id)!.question.format?.kind ?? 'recall';
+  it('records exactly one editorial decision per official slot, naming the question now in it', () => {
     const bySlot = new Map(audit.entries.map((e) => [`${e.day}#${e.slot}`, e]));
     expect(audit.entries.length).toBe(official.length * 5);
     for (const d of official) d.questions.forEach((id, i) => {
       const e = bySlot.get(`${d.date}#${i + 1}`);
       expect(e?.id, `${d.date} Q${i + 1}`).toBe(id);
+      expect(['retained', 'reframed', 'replaced']).toContain(e!.verdict);
       expect(e!.note.trim().length).toBeGreaterThan(5);
-      expect(e!.format).toBe(real.facts.find((x) => x.id === id)!.question.format?.kind ?? 'recall');
+      expect(e!.format).toBe(kind(id));
     });
   });
-  it('every official slate mixes at least three formats with at most two of each', () => {
+  it('every official slate uses all three formats in a 2/2/1 distribution', () => {
+    for (const d of official) expect(slateFormatIssues(d.questions.map(kind)), d.date).toEqual([]);
+  });
+  it('no two consecutive official days repeat a format sequence', () => {
+    expect(sequenceIssues(official.map((d) => d.questions.map(kind)))).toEqual([]);
+  });
+  it('rotates the single format across the catalog (each is the single on at least a quarter of days)', () => {
+    const singles = new Map<string, number>();
     for (const d of official) {
-      const formats = d.questions.map((id) => real.facts.find((x) => x.id === id)!.question.format?.kind ?? 'recall');
-      expect(slateFormatIssues(formats), d.date).toEqual([]);
+      const counts = new Map<string, number>();
+      for (const id of d.questions) counts.set(kind(id), (counts.get(kind(id)) ?? 0) + 1);
+      for (const [f, n] of counts) if (n === 1) singles.set(f, (singles.get(f) ?? 0) + 1);
     }
+    for (const f of PLAYER_FORMATS) expect(singles.get(f) ?? 0, f).toBeGreaterThanOrEqual(Math.floor(official.length / 4));
   });
 });

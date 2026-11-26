@@ -3,8 +3,9 @@
  * Every call fails soft: the game, the score and sharing never wait on it.
  */
 import type { RoundRecord } from '../engine/game';
-import { midrankPercentile, emptyDistribution, PERCENTILE_MIN_SAMPLE } from '../engine/percentile';
-import { hasDurableScoreIdentity, loadPrivacy, savePrivacy, scoreKey } from './privacy';
+import { midrankPercentile, emptyDistribution, isQuestionStat, PERCENTILE_MIN_SAMPLE, type QuestionStat } from '../engine/percentile';
+import { addDays, puzzleDay } from '../engine/daily';
+import { browserSignal, hasDurableScoreIdentity, loadPrivacy, savePrivacy, scoreIntent, scoreKey } from './privacy';
 
 export type Comparison =
   | { kind: 'ready'; percentile: number; n: number; score: number; asOf: string }
@@ -25,6 +26,9 @@ type ApiBody = {
   asOf?: string;
   /** The number of linked scores removed by a confirmed DELETE (zero is valid). */
   removed?: number;
+  day?: string;
+  /** GET only: the five question summaries, in slate order (null while that comparison is paused). */
+  questions?: unknown;
 };
 
 const ENDPOINT = '/api/scores';
@@ -131,6 +135,7 @@ export async function refreshComparison(day: string, score: number, fetchImpl: t
   try {
     const res = await fetchImpl(`${ENDPOINT}?day=${encodeURIComponent(day)}`, { credentials: 'omit', signal: AbortSignal.timeout(6000) });
     const b = (await res.json().catch(() => null)) as ApiBody | null;
+    if (res.ok) rememberCrowd(day, b);
     if (!res.ok || b?.status !== 'ok' || typeof b.n !== 'number') return toComparison(res.status, b);
     const asOf = b.asOf ?? new Date().toISOString();
     const threshold = Math.max(b.threshold ?? PERCENTILE_MIN_SAMPLE, FLOOR);
@@ -171,4 +176,86 @@ export async function deleteMyScores(fetchImpl: typeof fetch = fetch): Promise<'
   } catch {
     return 'failed';
   }
+}
+
+/* ------------------------------------------------------------------------------------------
+ * Question comparison (docs/PERCENTILES.md "Question comparison"). The five question summaries
+ * come in the same edge-cached GET as the day's distribution: at most one read per day per page,
+ * started when today's official run is on screen. Nothing here can delay or block play: a miss,
+ * an error, a stale or malformed answer simply means no line.
+ * ------------------------------------------------------------------------------------------ */
+
+type Crowd = { asOf: number; threshold: number; stats: readonly (QuestionStat | null)[] };
+const crowd = new Map<string, Crowd | null>();
+const crowdInflight = new Map<string, Promise<void>>();
+/** Older than this (edge cache 5 min + stale-while-revalidate 10 min, with margin), a summary is not shown. */
+export const CROWD_STALE_MS = 30 * 60_000;
+
+function rememberCrowd(day: string, b: ApiBody | null) {
+  const asOf = Date.parse(b?.asOf ?? '');
+  const list = b?.questions;
+  if (b?.status !== 'ok' || b.day !== day || !Number.isFinite(asOf) || !Array.isArray(list) || list.length !== 5) {
+    crowd.set(day, null);
+    return;
+  }
+  const threshold = Math.max(typeof b.threshold === 'number' ? b.threshold : PERCENTILE_MIN_SAMPLE, FLOOR);
+  crowd.set(day, { asOf, threshold, stats: list.map((x) => (isQuestionStat(x) ? x : null)) });
+}
+
+/** Only today's (or, just after midnight, yesterday's) official puzzle has a readable crowd. */
+export function crowdDayOpen(day: string, now = new Date()): boolean {
+  const today = puzzleDay(now);
+  return day === today || day === addDays(today, -1);
+}
+
+function crowdAllowed(): boolean {
+  // Only where the daily comparison would go ahead without asking: "No thanks", a pending deletion,
+  // GPC/DNT or a location that asked first mean no request at all (as for the score itself), and QA
+  // never reads the public season.
+  return scoreIntent(loadPrivacy(), browserSignal()) === 'send' && !isQa();
+}
+
+/** Starts the one read for this day if none has been made on this page. Never throws. */
+export function prefetchQuestionCrowd(day: string, fetchImpl: typeof fetch = fetch): Promise<void> {
+  if (!crowdAllowed() || !crowdDayOpen(day) || crowd.has(day)) return Promise.resolve();
+  const running = crowdInflight.get(day);
+  if (running) return running;
+  const p = (async () => {
+    try {
+      const res = await fetchImpl(`${ENDPOINT}?day=${encodeURIComponent(day)}`, { credentials: 'omit', signal: AbortSignal.timeout(6000) });
+      const b = (await res.json().catch(() => null)) as ApiBody | null;
+      rememberCrowd(day, res.ok ? b : null);
+    } catch {
+      crowd.set(day, null);
+    } finally {
+      crowdInflight.delete(day);
+    }
+  })();
+  crowdInflight.set(day, p);
+  return p;
+}
+
+/**
+ * The summary for one question, if it is already here, fresh, for this exact question, and past the
+ * sample gate (the published build never goes below 100, whatever a server says). Synchronous: the
+ * caller takes a snapshot when the round resolves and never waits for the network.
+ */
+export function questionCrowdFor(day: string, index: number, questionId: string, now = Date.now()): QuestionStat | null {
+  if (!crowdAllowed() || loadPrivacy().scores === 'off') return null;
+  const c = crowd.get(day);
+  if (!c || now - c.asOf > CROWD_STALE_MS || c.asOf - now > 5 * 60_000) return null;
+  const s = c.stats[index];
+  if (!s || s.id !== questionId || !s.ready || s.n < c.threshold) return null;
+  return s;
+}
+
+/** The sample floor the stored summary was judged against (for the shared copy helpers). */
+export function crowdThreshold(day: string): number {
+  return Math.max(crowd.get(day)?.threshold ?? PERCENTILE_MIN_SAMPLE, FLOOR);
+}
+
+/** Test-only: forget cached reads. */
+export function resetQuestionCrowd() {
+  crowd.clear();
+  crowdInflight.clear();
 }

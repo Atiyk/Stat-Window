@@ -126,8 +126,18 @@ function eligibleDay(day, now, graceSeconds) {
 }
 /** Re-scores five windows against the slate. Null when anything doesn't match the published puzzle exactly. */
 function verifyRounds(slate, rounds) {
+	return verifyRun(slate, rounds)?.total ?? null;
+}
+/**
+* The verified total and, per question, how the window counts (percentile.ts QuestionOutcome).
+* Only these five outcomes are kept, never the windows: `t` is the full scale (how every client
+* records a shot-clock violation; a player can't lock the full scale), `m` a window that misses
+* the answer, `z` a catch too wide to score, otherwise the points.
+*/
+function verifyRun(slate, rounds) {
 	if (!Array.isArray(rounds) || rounds.length !== 5 || slate.questions.length !== 5) return null;
 	const ids = /* @__PURE__ */ new Set();
+	const outcomes = [];
 	let total = 0;
 	for (const [i, q] of slate.questions.entries()) {
 		const r = rounds[i];
@@ -142,9 +152,14 @@ function verifyRounds(slate, rounds) {
 		const hi = toSteps(q, w.hi);
 		const onGrid = (v, steps) => Math.abs(q.min + steps * q.step - v) <= q.step * 1e-6;
 		if (!onGrid(w.lo, lo) || !onGrid(w.hi, hi) || lo < 0 || hi > rangeSteps(q) || hi - lo < 1) return null;
-		total += scoreWindow(q, w).points;
+		const scored = scoreWindow(q, w);
+		total += scored.points;
+		outcomes.push(lo === 0 && hi === rangeSteps(q) ? "t" : !scored.hit ? "m" : scored.points === 0 ? "z" : scored.points);
 	}
-	return total;
+	return {
+		total,
+		outcomes
+	};
 }
 // server/leaderboard.ts
 /** Separate opt-in leaderboard API; deliberately disabled until its shared Upstash cost budget is approved. */

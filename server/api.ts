@@ -12,7 +12,7 @@
  * only a salted hash per day and season is, for at most a week.
  */
 import { scoreWindow, toSteps, rangeSteps, type Window } from '../src/engine/scoring.ts';
-import { midrankPercentile, PERCENTILE_MIN_SAMPLE } from '../src/engine/percentile.ts';
+import { emptyTally, midrankPercentile, PERCENTILE_MIN_SAMPLE, summarizeQuestion, type QuestionOutcome, type QuestionStat } from '../src/engine/percentile.ts';
 import { isIsoDay, parseLaunchDay, seasonOf } from '../src/engine/season.ts';
 import { puzzleDay, puzzleStartUtcMs, addDays as addPuzzleDays } from '../src/engine/daily.ts';
 import type { BudgetKeys, Limits, ScoreStore } from './store.ts';
@@ -40,12 +40,16 @@ export type ApiContext = {
   memo: Memo;
 };
 
-export type Memo = { pausedUntil: number; limitedUntil: Map<string, number> };
-export const newMemo = (): Memo => ({ pausedUntil: 0, limitedUntil: new Map() });
+/** `readsPausedUntil`: only GET is paused (its own daily ceiling); submissions and deletion carry on. */
+export type Memo = { pausedUntil: number; readsPausedUntil: number; limitedUntil: Map<string, number> };
+export const newMemo = (): Memo => ({ pausedUntil: 0, readsPausedUntil: 0, limitedUntil: new Map() });
 
 /**
  * Budgets are in estimated Upstash commands (store.ts COST). Upstash Free allows 500K a month;
  * 380K leaves room for the deletion reserve, rate-limited and paused calls, and the export script.
+ * Inside the daily budget, reads may spend at most `readDailyBudget`, and the question comparison
+ * pauses first (`question*Ceiling`), so near capacity the overall percentile keeps working longest.
+ * Cost model and capacity: docs/PERCENTILES.md "Cost".
  */
 export const DEFAULT_LIMITS: Limits = {
   subTtl: 7 * 86_400,
@@ -57,6 +61,9 @@ export const DEFAULT_LIMITS: Limits = {
   ipDailyStored: 30,
   ipDailyCalls: 40,
   ipDailyDeletes: 5,
+  readDailyBudget: 4_000,
+  questionDailyCeiling: 12_000,
+  questionMonthlyCeiling: 340_000,
 };
 /** Days back that DELETE looks (submission records live 7 days; one more for the grace period). */
 const DELETE_DAYS = 8;
@@ -101,7 +108,12 @@ function keyPrefix(ctx: ApiContext, season: string, day: string) {
 
 function budgetKeys(ctx: ApiContext, now: Date): BudgetKeys {
   const month = utcDay(now).slice(0, 7);
-  return { day: `${ctx.budgetPrefix}:d:${utcDay(now)}`, month: `${ctx.budgetPrefix}:m:${month}`, erase: `${ctx.budgetPrefix}:e:${month}` };
+  return {
+    day: `${ctx.budgetPrefix}:d:${utcDay(now)}`,
+    month: `${ctx.budgetPrefix}:m:${month}`,
+    erase: `${ctx.budgetPrefix}:e:${month}`,
+    reads: `${ctx.budgetPrefix}:r:${utcDay(now)}`,
+  };
 }
 
 const nextUtcMidnight = (now: Date) => Date.parse(`${addDays(utcDay(now), 1)}T00:00:00Z`);
@@ -185,8 +197,19 @@ async function readBody(req: Request): Promise<unknown | undefined> {
 
 /** Re-scores five windows against the slate. Null when anything doesn't match the published puzzle exactly. */
 export function verifyRounds(slate: ServerSlate, rounds: unknown): number | null {
+  return verifyRun(slate, rounds)?.total ?? null;
+}
+
+/**
+ * The verified total and, per question, how the window counts (percentile.ts QuestionOutcome).
+ * Only these five outcomes are kept, never the windows: `t` is the full scale (how every client
+ * records a shot-clock violation; a player can't lock the full scale), `m` a window that misses
+ * the answer, `z` a catch too wide to score, otherwise the points.
+ */
+export function verifyRun(slate: ServerSlate, rounds: unknown): { total: number; outcomes: QuestionOutcome[] } | null {
   if (!Array.isArray(rounds) || rounds.length !== 5 || slate.questions.length !== 5) return null;
   const ids = new Set<string>();
+  const outcomes: QuestionOutcome[] = [];
   let total = 0;
   for (const [i, q] of slate.questions.entries()) {
     const r = rounds[i] as { id?: unknown; lo?: unknown; hi?: unknown } | undefined;
@@ -199,9 +222,17 @@ export function verifyRounds(slate: ServerSlate, rounds: unknown): number | null
     // On the step grid, inside the scale, at least one step wide (the game's own rules).
     const onGrid = (v: number, steps: number) => Math.abs(q.min + steps * q.step - v) <= q.step * 1e-6;
     if (!onGrid(w.lo, lo) || !onGrid(w.hi, hi) || lo < 0 || hi > rangeSteps(q) || hi - lo < 1) return null;
-    total += scoreWindow(q, w).points;
+    const scored = scoreWindow(q, w);
+    total += scored.points;
+    outcomes.push(lo === 0 && hi === rangeSteps(q) ? 't' : !scored.hit ? 'm' : scored.points === 0 ? 'z' : scored.points);
   }
-  return total;
+  return { total, outcomes };
+}
+
+/** The question statistics for a day's slate, in slate order. Null when the comparison is paused or the slate is unknown. */
+function questionBody(slate: ServerSlate | null, tallies: Map<string, ReturnType<typeof emptyTally>> | 'paused', minSample: number): QuestionStat[] | null {
+  if (!slate || tallies === 'paused' || slate.questions.length !== 5) return null;
+  return slate.questions.map((q) => summarizeQuestion(q.id, tallies.get(q.id) ?? emptyTally(), minSample));
 }
 
 function percentileBody(counts: number[], n: number, score: number | null, ctx: ApiContext) {
@@ -226,18 +257,25 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
       const day = url.searchParams.get('day');
       // Exactly one parameter, so the edge cache can't be bypassed with junk query strings.
       // The raw query must be exactly ?day=YYYY-MM-DD: the edge cache keys on the raw string, so `&`, `%64ay` and friends would each miss it.
-      if (!isIsoDay(day) || url.search !== `?day=${day}` || day > today || day < addDays(today, -1)) return json(422, { status: 'invalid' });
-      if (paused) return json(503, { status: 'paused' });
+      if (!isIsoDay(day) || url.search !== `?day=${day}`) return json(422, { status: 'invalid' });
+      // A real day outside today/yesterday (a device with a wrong clock, an old tab): nothing to read, no store call,
+      // answered like POST's not-today so the browser treats it as "no comparison" rather than an error.
+      if (day > today || day < addDays(today, -1)) return json(200, { status: 'ineligible', reason: 'not-today', asOf });
+      if (paused || ctx.memo.readsPausedUntil > now.getTime()) return json(503, { status: 'paused' });
       const season = seasonOf(day, { launchDay: ctx.launchDay });
-      const read = await ctx.store.read(`${keyPrefix(ctx, season, day)}:dist`, budget, ctx.limits);
+      const p = keyPrefix(ctx, season, day);
+      const read = await ctx.store.read({ dist: `${p}:dist`, q: `${p}:q` }, budget, ctx.limits);
       if ('paused' in read) {
-        rememberPause(ctx, now, read.paused);
+        if (read.paused === 'reads') ctx.memo.readsPausedUntil = nextUtcMidnight(now);
+        else rememberPause(ctx, now, read.paused);
         return json(503, { status: 'paused' });
       }
       const ready = read.n >= ctx.minSample;
       const counts = ready ? Object.fromEntries(read.counts.flatMap((c, s) => (c > 0 ? [[s, c]] : []))) : undefined;
+      // Same read, same cache entry: the five question summaries (statistics only past the gate, per question).
+      const questions = questionBody(await ctx.loadSlate(day).catch(() => null), read.questions, ctx.minSample);
       // Aggregates only, and only past the threshold, so a tiny day can't reveal one player's score.
-      return json(200, { status: 'ok', day, season, n: read.n, threshold: ctx.minSample, ready, counts, asOf }, {
+      return json(200, { status: 'ok', day, season, n: read.n, threshold: ctx.minSample, ready, counts, questions, asOf }, {
         'Cache-Control': 'public, max-age=0, s-maxage=300, stale-while-revalidate=600',
       });
     }
@@ -261,11 +299,11 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
       // score is still retained. Every DELETE checks this fixed nine-day window;
       // Redis remains bounded at 18 score/aggregate pairs (normal + QA).
       const days = Array.from({ length: DELETE_DAYS + 1 }, (_, i) => addDays(today, -i));
-      const pairs: { sub: string; dist: string }[] = [];
+      const pairs: { sub: string; dist: string; q: string }[] = [];
       for (const day of days) {
         for (const season of new Set([seasonOf(day, { launchDay: ctx.launchDay }), 'qa'])) {
           const p = keyPrefix(ctx, season, day);
-          pairs.push({ sub: `${p}:sub:${await hmac(ctx.secret, `${season}:${day}:${player}`, 32)}`, dist: `${p}:dist` });
+          pairs.push({ sub: `${p}:sub:${await hmac(ctx.secret, `${season}:${day}:${player}`, 32)}`, dist: `${p}:dist`, q: `${p}:q` });
         }
       }
       // Still write the HMAC revocation marker when no linked score is found:
@@ -305,8 +343,9 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
     if (typeof player !== 'string' || !PLAYER.test(player)) return json(422, { status: 'invalid' });
     const slate = await ctx.loadSlate(day);
     if (!slate || slate.date !== day) return json(200, { status: 'ineligible', reason: 'no-puzzle', asOf });
-    const total = verifyRounds(slate, body.rounds);
-    if (total === null || (body.total !== undefined && body.total !== total)) return json(422, { status: 'invalid' });
+    const run = verifyRun(slate, body.rounds);
+    if (run === null || (body.total !== undefined && body.total !== run.total)) return json(422, { status: 'invalid' });
+    const { total } = run;
     if (paused) return json(503, { status: 'paused' });
     const season = body.test === true ? 'qa' : seasonOf(day, { launchDay: ctx.launchDay });
     const p = keyPrefix(ctx, season, day);
@@ -314,6 +353,7 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
       {
         sub: `${p}:sub:${await hmac(ctx.secret, `${season}:${day}:${player}`, 32)}`,
         dist: `${p}:dist`,
+        q: `${p}:q`,
         rate,
         ipDay: `sw:v1:${ctx.env}:ipd:${ipHash}`,
         ipCalls: `sw:v1:${ctx.env}:ipc:${ipHash}`,
@@ -322,6 +362,7 @@ export async function handle(req: Request, ctx: ApiContext): Promise<Response> {
       },
       total,
       ctx.limits,
+      run.outcomes.map((o, i) => `${slate.questions[i]!.id}:${o}`),
     );
     if (out.status === 'limited') {
       if (out.until === 'day') {
@@ -358,6 +399,9 @@ export function contextFromEnv(env: Record<string, string | undefined>, deps: { 
   const lowSampleForTests = env.SCORES_TEST_LOW_SAMPLE === '1' && env.VERCEL_ENV !== 'production' && ns !== 'production';
   const requested = num(env.PERCENTILE_MIN_SAMPLE, PERCENTILE_MIN_SAMPLE);
   const minSample = lowSampleForTests ? requested : Math.max(PERCENTILE_MIN_SAMPLE, requested);
+  const dailyBudget = num(env.SCORES_DAILY_BUDGET, DEFAULT_LIMITS.dailyBudget);
+  // Can only be lowered: the monthly ceiling is what keeps Upstash Free inside its 500K commands.
+  const monthlyBudget = Math.min(num(env.SCORES_MONTHLY_BUDGET, DEFAULT_LIMITS.monthlyBudget), DEFAULT_LIMITS.monthlyBudget);
   return {
     enabled: env.SCORES_ENABLED === '1' && ns !== '',
     store: deps.store,
@@ -368,9 +412,13 @@ export function contextFromEnv(env: Record<string, string | undefined>, deps: { 
     now: () => new Date(),
     limits: {
       ...DEFAULT_LIMITS,
-      dailyBudget: num(env.SCORES_DAILY_BUDGET, DEFAULT_LIMITS.dailyBudget),
-      // Can only be lowered: the monthly ceiling is what keeps Upstash Free inside its 500K commands.
-      monthlyBudget: Math.min(num(env.SCORES_MONTHLY_BUDGET, DEFAULT_LIMITS.monthlyBudget), DEFAULT_LIMITS.monthlyBudget),
+      dailyBudget,
+      monthlyBudget,
+      // The sub-ceilings scale down with a lowered budget, so the question comparison always pauses first
+      // and reads can never take the whole day.
+      readDailyBudget: Math.min(DEFAULT_LIMITS.readDailyBudget, Math.floor(dailyBudget * 2 / 7)),
+      questionDailyCeiling: Math.min(DEFAULT_LIMITS.questionDailyCeiling, Math.floor(dailyBudget * 6 / 7)),
+      questionMonthlyCeiling: Math.min(DEFAULT_LIMITS.questionMonthlyCeiling, Math.floor(monthlyBudget * 17 / 19)),
     },
     graceSeconds: 2 * 3600,
     // Production can never show a percentile (or return buckets) from fewer than 100 games.

@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { emptyDistribution, MAX_TOTAL, midrankPercentile, ordinal, PERCENTILE_MIN_SAMPLE, percentileView } from './percentile';
 import { MAX_TOTAL as SUMMARY_MAX } from './summary';
+import { MAX_ROUND_POINTS, isQuestionStat } from './percentile';
+import { MAX_POINTS_PER_ROUND } from './scoring';
 
 const dist = (scores: number[]) => {
   const d = emptyDistribution();
@@ -68,5 +70,16 @@ describe('percentileView (what the results screen may claim)', () => {
 
   it('is unavailable without data', () => {
     expect(percentileView(null).kind).toBe('unavailable');
+  });
+});
+
+describe('question statistics contract', () => {
+  it('keeps the per-round maximum in step with scoring', () => expect(MAX_ROUND_POINTS).toBe(MAX_POINTS_PER_ROUND));
+  it('rejects malformed question summaries rather than repairing them', () => {
+    expect(isQuestionStat({ id: 'q', n: 120, ready: true, pct: Array(101).fill(50), scored: 40 })).toBe(true);
+    for (const bad of [null, 1, { id: 'q', n: -1, ready: true }, { id: 'q', n: 1.5, ready: true }, { id: 'q', n: 120, ready: true, pct: Array(100).fill(1) },
+      { id: 'q', n: 120, ready: true, pct: Array(101).fill(101) }, { id: 'q', n: 120, ready: true, scored: 'x' }, { id: 1, n: 120, ready: true }]) {
+      expect(isQuestionStat(bad)).toBe(false);
+    }
   });
 });

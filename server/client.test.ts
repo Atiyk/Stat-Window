@@ -2,12 +2,13 @@
  * The browser client against the real server handler (in-memory store), so the
  * contract between them is tested end to end without a network.
  */
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { DEFAULT_LIMITS, handle } from './api.ts';
 import { DAY, NOON, roundsFor, testContext } from './fixtures.ts';
 import type { RoundRecord } from '../src/engine/game.ts';
 import { loadPrivacy, savePrivacy } from '../src/lib/privacy.ts';
-import { deleteMyScores, refreshComparison, submitDaily } from '../src/lib/scores.ts';
+import { CROWD_STALE_MS, deleteMyScores, prefetchQuestionCrowd, questionCrowdFor, refreshComparison, resetQuestionCrowd, submitDaily } from '../src/lib/scores.ts';
+import { questionCrowdLine } from '../src/engine/percentile.ts';
 
 const mem = new Map<string, string>();
 vi.stubGlobal('window', {
@@ -120,5 +121,130 @@ describe('submitDaily → server → comparison', () => {
     savePrivacy({ sent: [DAY], key: 'a'.repeat(22) });
     const down = (() => Promise.reject(new TypeError('offline'))) as unknown as typeof fetch;
     expect(await deleteMyScores(down)).toBe('failed');
+  });
+});
+
+describe('question comparison in the browser: one cached read, never in the way', () => {
+  const roomy = { ...DEFAULT_LIMITS, ratePerMinute: 1000, ipDailyStored: 1000, ipDailyCalls: 1000, dailyBudget: 100_000 };
+  const counting = (f: typeof fetch) => {
+    const calls: string[] = [];
+    const wrapped = ((i: RequestInfo | URL, init?: RequestInit) => (calls.push(`${init?.method ?? 'GET'} ${String(i)}`), f(i, init))) as typeof fetch;
+    return { calls, wrapped };
+  };
+  async function seeded() {
+    const { ctx } = testContext({ minSample: 2, limits: roomy });
+    for (const w of [2, 3]) {
+      mem.clear();
+      await submitDaily({ day: DAY, results: await records(w), consent: false }, fetchFor(ctx));
+    }
+    mem.clear();
+    return ctx;
+  }
+  beforeEach(() => {
+    resetQuestionCrowd();
+    vi.useFakeTimers({ toFake: ['Date'] });
+    vi.setSystemTime(NOON);
+  });
+  afterEach(() => vi.useRealTimers());
+
+  it('reads once per day per page, however many rounds ask, and serves each question only for its own id', async () => {
+    const ctx = await seeded();
+    const { calls, wrapped } = counting(fetchFor(ctx));
+    await Promise.all([prefetchQuestionCrowd(DAY, wrapped), prefetchQuestionCrowd(DAY, wrapped)]);
+    await prefetchQuestionCrowd(DAY, wrapped);
+    expect(calls).toEqual([`GET /api/scores?day=${DAY}`]);
+    const ids = (await records(2)).map((r) => r.questionId);
+    const s = questionCrowdFor(DAY, 0, ids[0]!);
+    expect(s).toMatchObject({ n: 2, ready: true });
+    expect(questionCrowdLine(s, 0, 2)).toBeNull(); // two games: shares stay suppressed (small cells)
+    expect(questionCrowdLine(s, 50, 2)).toMatch(/percentile for this question, among 2 eligible completed games\.$/);
+    expect(questionCrowdFor(DAY, 0, ids[1]!)).toBeNull();
+    expect(questionCrowdFor(DAY, 7, ids[0]!)).toBeNull();
+  });
+
+  it('is withheld when stale, before the server gate, after "No thanks", in QA, or for another day', async () => {
+    const ctx = await seeded();
+    await prefetchQuestionCrowd(DAY, fetchFor(ctx));
+    const id = (await records(2))[0]!.questionId;
+    expect(questionCrowdFor(DAY, 0, id)).not.toBeNull();
+    expect(questionCrowdFor(DAY, 0, id, NOON.getTime() + CROWD_STALE_MS + 1)).toBeNull();
+    savePrivacy({ scores: 'off' });
+    expect(questionCrowdFor(DAY, 0, id)).toBeNull();
+    resetQuestionCrowd();
+    const { calls, wrapped } = counting(fetchFor(ctx));
+    await prefetchQuestionCrowd(DAY, wrapped);
+    expect(calls).toEqual([]); // declined: not even an anonymous read
+    savePrivacy({ scores: 'unset' });
+    mem.set('stat-window:qa', '1');
+    await prefetchQuestionCrowd(DAY, wrapped);
+    expect(calls).toEqual([]);
+    mem.delete('stat-window:qa');
+    await prefetchQuestionCrowd('2026-11-10', wrapped);
+    expect(calls).toEqual([]);
+    const { ctx: gated } = testContext({ minSample: 3, limits: roomy });
+    for (const w of [2, 3]) {
+      mem.clear();
+      await submitDaily({ day: DAY, results: await records(w), consent: false }, fetchFor(gated));
+    }
+    mem.clear();
+    resetQuestionCrowd();
+    await prefetchQuestionCrowd(DAY, fetchFor(gated));
+    expect(questionCrowdFor(DAY, 0, id)).toBeNull();
+  });
+
+  it('GPC, Do Not Track, an ask-first location or a pending deletion mean no read and no line', async () => {
+    const ctx = await seeded();
+    const id = (await records(2))[0]!.questionId;
+    const original = globalThis.navigator;
+    const restore = () => vi.stubGlobal('navigator', original);
+    const { calls, wrapped } = counting(fetchFor(ctx));
+    for (const nav of [{ globalPrivacyControl: true }, { doNotTrack: '1' }]) {
+      vi.stubGlobal('navigator', nav);
+      resetQuestionCrowd();
+      await prefetchQuestionCrowd(DAY, wrapped);
+      expect(questionCrowdFor(DAY, 0, id)).toBeNull();
+      restore();
+    }
+    for (const prefs of [{ scores: 'unset', asked: true }, { scores: 'on', deleting: true }] as const) {
+      savePrivacy(prefs);
+      resetQuestionCrowd();
+      await prefetchQuestionCrowd(DAY, wrapped);
+      expect(questionCrowdFor(DAY, 0, id)).toBeNull();
+    }
+    expect(calls).toEqual([]);
+    // A signal that appears after a read was made also withholds the line already fetched.
+    mem.clear();
+    resetQuestionCrowd();
+    await prefetchQuestionCrowd(DAY, fetchFor(ctx));
+    expect(questionCrowdFor(DAY, 0, id)).not.toBeNull();
+    vi.stubGlobal('navigator', { globalPrivacyControl: true });
+    expect(questionCrowdFor(DAY, 0, id)).toBeNull();
+    restore();
+  });
+
+  it('offline, paused, disabled or malformed answers mean no line and no error', async () => {
+    const id = (await records(2))[0]!.questionId;
+    const answers: (() => Promise<Response>)[] = [
+      () => Promise.reject(new TypeError('offline')),
+      async () => new Response('{"status":"paused"}', { status: 503 }),
+      async () => new Response('not json', { status: 200 }),
+      async () => new Response(JSON.stringify({ status: 'ok', day: DAY, n: 500, threshold: 100, asOf: NOON.toISOString(), questions: [{ id, n: 500, ready: true, pct: [1, 2] }, 1, 2, 3, 4] })),
+      async () => new Response(JSON.stringify({ status: 'ok', day: '2026-11-17', n: 500, threshold: 100, asOf: NOON.toISOString(), questions: [] })),
+      async () => new Response(JSON.stringify({ status: 'ok', day: DAY, n: 500, threshold: 100, asOf: NOON.toISOString(), questions: null })),
+    ];
+    for (const answer of answers) {
+      resetQuestionCrowd();
+      await expect(prefetchQuestionCrowd(DAY, answer as unknown as typeof fetch)).resolves.toBeUndefined();
+      expect(questionCrowdFor(DAY, 0, id)).toBeNull();
+    }
+  });
+
+  it('the results screen’s refresh read fills the same cache, so no extra request is made', async () => {
+    const ctx = await seeded();
+    const { calls, wrapped } = counting(fetchFor(ctx));
+    await refreshComparison(DAY, 100, wrapped);
+    await prefetchQuestionCrowd(DAY, wrapped);
+    expect(calls).toHaveLength(1);
+    expect(questionCrowdFor(DAY, 0, (await records(2))[0]!.questionId)).not.toBeNull();
   });
 });

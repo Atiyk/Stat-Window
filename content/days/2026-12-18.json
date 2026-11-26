@@ -96,7 +96,7 @@
     {
       "id": "nba-pistons89-wins",
       "sport": "NBA",
-      "prompt": "The chart shows regular-season wins for three other 1980s champions. How many games did the 1988–89 'Bad Boys' Pistons win?",
+      "prompt": "Detroit's 2003–04 champions won 54 games. How many did the 1988–89 'Bad Boys' Pistons win?",
       "context": "Detroit Pistons · 1988–89 · 82 games",
       "answer": 63,
       "unit": {
@@ -143,46 +143,22 @@
           }
         }
       ],
-      "chart": {
-        "title": "1980s champions' regular-season wins",
-        "unit": "wins",
-        "points": [
-          {
-            "label": "76ers '83",
-            "value": 65
-          },
-          {
-            "label": "Celtics '86",
-            "value": 67
-          },
-          {
-            "label": "Lakers '87",
-            "value": 65
-          },
-          {
-            "label": "Pistons '89",
-            "value": null
-          }
-        ]
-      },
       "meta": {
-        "format": "missing-point",
+        "format": "reference",
         "family": "wins-season",
-        "era": "1980s",
+        "era": "cross-era",
         "subjects": [
           "Detroit Pistons"
         ],
         "supports": [
-          "nba-sixers83-wins",
-          "nba-celtics86-wins",
-          "nba-lakers87-wins"
+          "nba-detroit04-regular-wins"
         ]
       }
     },
     {
       "id": "nba-butler20-regular-apg",
       "sport": "NBA",
-      "prompt": "Hedo Türkoğlu averaged 4.9 assists as Orlando's point forward in 2008–09. What did Jimmy Butler average in his first Heat season?",
+      "prompt": "The chart shows three other contenders' lead playmakers. What did Jimmy Butler average in his first Heat season?",
       "context": "Miami · 2019–20 regular season",
       "answer": 6,
       "unit": {
@@ -229,8 +205,30 @@
           }
         }
       ],
+      "chart": {
+        "title": "Assists per game: lead playmakers",
+        "unit": "assists per game",
+        "points": [
+          {
+            "label": "Jackson '98",
+            "value": 8.7
+          },
+          {
+            "label": "Bibby '02",
+            "value": 5
+          },
+          {
+            "label": "Türkoğlu '09",
+            "value": 4.9
+          },
+          {
+            "label": "Butler '20",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "assists-average",
         "era": "cross-era",
         "subjects": [
@@ -238,6 +236,8 @@
           "Miami Heat"
         ],
         "supports": [
+          "nba-jackson98-regular-apg",
+          "nba-bibby02-regular-apg",
           "nba-turkoglu09-regular-apg"
         ]
       }

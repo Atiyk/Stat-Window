@@ -161,63 +161,62 @@
       }
     },
     {
-      "id": "nba-giannis21-g6-ft-pct-v51b",
+      "id": "nba-floyd87-51",
       "sport": "NBA",
-      "prompt": "What percent of his free throws did Giannis Antetokounmpo make in the 2021 title clincher? Nearest whole percent.",
-      "context": "2021 NBA Finals · Game 6 · free throws made ÷ attempted",
-      "answer": 89,
+      "prompt": "The 1987 Lakers lost one game in the West playoffs, when Sleepy Floyd scored how many in Oakland?",
+      "context": "1987 West semifinals · Game 4 · Warriors vs Lakers",
+      "answer": 51,
       "unit": {
-        "singular": "percent",
-        "plural": "percent"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 40,
-      "max": 100,
+      "min": 30,
+      "max": 80,
       "step": 1,
-      "note": "17 of 19, after shooting 55.6% at the line earlier in those playoffs.",
+      "note": "51, sparing Golden State a sweep; it was the only game the 1987 Lakers lost in the West.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-        "quote": "Antetokounmpo made 16 of his 25 shots, and was a surprising 17 for 19 on his free throws",
-        "derivation": "17 free throws made ÷ 19 attempted × 100 = 89.47, so 89% to the nearest whole percent."
+        "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+        "quote": "Their only loss was a Sleepy Floyd 51-point outburst in Game 4 in Oakland"
       },
       "verified": {
-        "on": "2026-11-26",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Giannis's clutch foul shooting contrasted sharply with his struggles at the line earlier in those playoffs.",
+          "text": "The Lakers swept Denver in the opening round, starting their Western playoff run without a loss.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-            "quote": "after hitting just 55.6% in the playoffs"
+            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+            "quote": "they swept the Denver Nuggets in the first round"
           }
         },
         {
-          "text": "His Finals MVP win made him the youngest recipient since Kawhi Leonard.",
+          "text": "Floyd's outburst allowed Golden State to avoid a second-round sweep.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-            "quote": "the youngest winner at age 26 since Kawhi Leonard (22) in 2014"
+            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+            "quote": "which allowed the Warriors to avoid a sweep"
           }
         },
         {
-          "text": "The Bucks secured the championship behind lockdown defense from Jrue Holiday on Devin Booker.",
+          "text": "Michael Cooper set a playoff mark with six made three-pointers against Boston in the Finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-            "quote": "His defense helped limit Booker to 19 points"
+            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+            "quote": "He hit six 3 pointers, a playoff record"
           }
         }
       ],
       "meta": {
         "format": "recall",
-        "family": "shooting-pct",
-        "era": "2020s",
+        "family": "points-game",
+        "era": "1980s",
         "subjects": [
-          "Giannis Antetokounmpo",
-          "Milwaukee Bucks"
+          "Sleepy Floyd",
+          "Golden State Warriors"
         ],
         "supports": []
       }

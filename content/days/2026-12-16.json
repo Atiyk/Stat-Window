@@ -196,7 +196,7 @@
       "min": 20,
       "max": 80,
       "step": 1,
-      "note": "He took 50 shots, and at 37 years, 234 days became the oldest player ever to score 60.",
+      "note": "60, and at 37 years, 234 days he became the oldest player ever to score 60 in a game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_scoring_leaders",
@@ -280,11 +280,11 @@
           }
         },
         {
-          "text": "He finished his career with 23,924 rebounds, 22.9 per game.",
+          "text": "Boston still won the game, 132–129, in Philadelphia.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain",
-            "quote": "23,924 (22.9 rpg)"
+            "quote": "in a 132–129 home loss against the Russell-led Boston Celtics"
           }
         },
         {
@@ -312,7 +312,7 @@
     {
       "id": "nba-durant21-nets-bucks-g5-49",
       "sport": "NBA",
-      "prompt": "With Kyrie Irving out and James Harden limping, Kevin Durant played all 48 minutes of 2021 Game 5 against Milwaukee. How many did he score?",
+      "prompt": "With the 2021 East semifinal tied 2–2, Kevin Durant led Brooklyn's comeback win over Milwaukee. How many did he score?",
       "context": "Brooklyn Nets vs Milwaukee Bucks · East semifinals · Game 5",
       "answer": 49,
       "unit": {
@@ -322,7 +322,7 @@
       "min": 10,
       "max": 120,
       "step": 1,
-      "note": "Plus 17 rebounds and 10 assists in a comeback win that put Brooklyn up 3–2.",
+      "note": "Plus 17 rebounds and 10 assists in a 114–108 win that put Brooklyn up 3–2.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
@@ -343,11 +343,11 @@
           }
         },
         {
-          "text": "He delivered 10 assists for a triple-double.",
+          "text": "The Nets came back to win the game 114–108.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
-            "quote": "Asts: Kevin Durant 10"
+            "url": "https://en.wikipedia.org/wiki/Kevin_Durant",
+            "quote": "leading the Nets to a 114–108 comeback victory"
           }
         },
         {

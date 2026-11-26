@@ -217,7 +217,7 @@
     {
       "id": "nba-klay18-14-threes-v52a",
       "sport": "NBA",
-      "prompt": "Bars: other record-setting three-point nights. How many threes did Klay Thompson make against Chicago in October 2018?",
+      "prompt": "Bars: other famous three-point nights. How many threes did Klay Thompson make against Chicago in October 2018?",
       "context": "Warriors at Bulls · October 29, 2018 · 27 minutes played",
       "answer": 14,
       "unit": {
@@ -265,16 +265,12 @@
         }
       ],
       "chart": {
-        "title": "Most threes in a game: the record chase",
+        "title": "Big three-point nights",
         "unit": "three-pointers",
         "points": [
           {
             "label": "Kobe '03",
             "value": 12
-          },
-          {
-            "label": "Curry '16",
-            "value": 13
           },
           {
             "label": "Klay '18",
@@ -296,29 +292,28 @@
         ],
         "supports": [
           "nba-kobe03-threes",
-          "nba-curry16-13-threes",
           "nba-dame21-playoffs-12-threes"
         ]
       }
     },
     {
-      "id": "nba-jokic-murray23-finals-g3-20-assists",
+      "id": "nba-trae21-bucks-g1-48",
       "sport": "NBA",
-      "prompt": "Jimmy Butler had 13 assists in his 2020 Finals Game 3 triple-double. How many did Jokić and Murray combine for in 2023 Game 3?",
-      "context": "Jokić + Murray · Denver vs Miami · 2023 Finals Game 3",
-      "answer": 20,
+      "prompt": "Luka Dončić, traded for Trae Young on draft night, scored 43 in a 2020 playoff game. How many did Trae score in 2021 East finals Game 1?",
+      "context": "Trae Young · Hawks at Bucks · conference finals debut",
+      "answer": 48,
       "unit": {
-        "singular": "assist",
-        "plural": "assists"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 5,
-      "max": 55,
+      "min": 10,
+      "max": 120,
       "step": 1,
-      "note": "20 combined assists, matching Miami's entire team, as both stars logged 30-point triple-doubles.",
+      "note": "With 11 assists, as Atlanta rallied in the second half to win 116–113.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-        "quote": "while their 20 assists matched Miami's total of 20."
+        "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+        "quote": "48 points in his conference finals debut"
       },
       "verified": {
         "on": "2026-11-16",
@@ -327,39 +322,40 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "They were the first NBA teammates with 30-point triple-doubles in one game.",
+          "text": "Atlanta rallied after halftime to pull off the road win.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Jokić and Murray became the first pair of teammates in NBA history to each record a 30-point triple-double in the same game"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+            "quote": "Hawks rallied in the 2nd half"
           }
         },
         {
-          "text": "Denver retook the Finals lead in a comfortable win.",
+          "text": "The Hawks escaped with a close victory.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "as the Nuggets won 109–94, reclaiming the series lead"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+            "quote": "Atlanta Hawks 116, Milwaukee Bucks 113"
           }
         },
         {
-          "text": "The pair nearly matched all of Miami's rebounds.",
+          "text": "Young dished 11 assists as well.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "grabbing a combined 31 rebounds to the Heat's total of 33"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+            "quote": "Asts: Trae Young 11"
           }
         }
       ],
       "meta": {
         "format": "reference",
-        "family": "assists-game",
+        "family": "points-game",
         "era": "cross-era",
         "subjects": [
-          "Denver Nuggets"
+          "Trae Young",
+          "Atlanta Hawks"
         ],
         "supports": [
-          "nba-butler20-g3-ast"
+          "nba-luka20-clippers-buzzer-43"
         ]
       }
     }

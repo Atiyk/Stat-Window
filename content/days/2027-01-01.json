@@ -288,7 +288,7 @@
     {
       "id": "nba-rose18-emotional-fifty",
       "sport": "NBA",
-      "prompt": "The chart shows three other MVPs' career-high games. How many did Derrick Rose score in his emotional Halloween 2018 game against Utah?",
+      "prompt": "The chart shows big scoring nights by three other MVPs. How many did Derrick Rose score in his emotional Halloween 2018 game against Utah?",
       "context": "Derrick Rose · Timberwolves vs Jazz · October 2018",
       "answer": 50,
       "unit": {
@@ -336,7 +336,7 @@
         }
       ],
       "chart": {
-        "title": "Career-high games of NBA MVPs",
+        "title": "Big scoring nights by NBA MVPs",
         "unit": "points",
         "points": [
           {

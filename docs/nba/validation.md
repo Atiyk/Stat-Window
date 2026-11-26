@@ -40,7 +40,7 @@ All gates pass: 0 errors.
 | daily_slate_questions | 360 |
 
 Integrity: integrity_check ok, no foreign-key violations, every fact verified and sourced.
-Canonical dump sha256 (status as of 2026-11-16): `b37495358c0be17c355c94a955b93aef2a51b32a787a38b2e44fdbcb8a801695`.
+Canonical dump sha256 (status as of 2026-11-16): `d3a6815eb200c6810442784916bace0b2c945281cc0a88aa06c63c2cae4dca3c`.
 
 ## Difficulty
 
@@ -86,19 +86,19 @@ Every answer sits strictly inside its scale and at least 8% away from either end
 | 2026-11-17 to 2026-11-23 | 25 | 7 | BOS (7) |
 | 2026-11-24 to 2026-11-30 | 21 | 8 | DEN (4) |
 | 2026-12-01 to 2026-12-07 | 21 | 7 | LAL (4) |
-| 2026-12-08 to 2026-12-14 | 17 | 8 | GSW (10) |
-| 2026-12-15 to 2026-12-21 | 21 | 7 | MIL (5) |
+| 2026-12-08 to 2026-12-14 | 16 | 8 | GSW (10) |
+| 2026-12-15 to 2026-12-21 | 20 | 7 | MIA (4) |
 | 2026-12-22 to 2026-12-28 | 18 | 7 | PHI (5) |
 | 2026-12-29 to 2027-01-04 | 19 | 8 | CLE (5) |
 | 2027-01-05 to 2027-01-11 | 22 | 7 | GSW (5) |
 | 2027-01-12 to 2027-01-18 | 22 | 8 | CLE (4) |
-| 2027-01-19 to 2027-01-25 | 21 | 7 | GSW (5) |
+| 2027-01-19 to 2027-01-25 | 21 | 6 | GSW (4) |
 
 Every rolling 7-day window is also checked: at least 6 families, at least 3 eras, at most 10 questions about one franchise, and no two days in a row led by the same franchise. Each day has at most 2 questions from one family and at most 1 simple scoring average.
 
 ## Novelty
 
-105 players and 30 franchises appear. 17 of 72 days introduce no new player or franchise.
+105 players and 30 franchises appear. 16 of 72 days introduce no new player or franchise.
 
 ## Eras
 

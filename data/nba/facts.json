@@ -2549,7 +2549,7 @@
   "question": {
    "prompt": "Kareem's 1970–71 Bucks won 20 straight, then the NBA's longest streak. A season later, how long was the Lakers' record run?",
    "context": "Los Angeles Lakers · 1971–72",
-   "reveal": "33 in a row, from November into January, on the way to a 69–13 season and the title.",
+   "reveal": "33 straight until Milwaukee ended it on January 9, 1972; the Lakers finished 69–13 and won the title.",
    "min": 6,
    "max": 48,
    "step": 1,
@@ -2772,7 +2772,7 @@
   "question": {
    "prompt": "The chart shows three other big Finals rebounding games. In the game that clinched the 1972 title, Wilt had 24 points and how many boards?",
    "context": "1972 NBA Finals · Game 5 · vs New York",
-   "reveal": "29 rebounds at age 35, with a sprained wrist, plus the Finals MVP award.",
+   "reveal": "29 to go with 24 points in a 114–100 clincher, and Wilt was named Finals MVP.",
    "min": 0,
    "max": 34,
    "step": 1,
@@ -4133,14 +4133,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows regular-season wins for three other 1980s champions. How many games did the 1988–89 'Bad Boys' Pistons win?",
+   "prompt": "Detroit's 2003–04 champions won 54 games. How many did the 1988–89 'Bad Boys' Pistons win?",
    "context": "Detroit Pistons · 1988–89 · 82 games",
    "reveal": "The league's best record, in their first season at the Palace; they then swept the Lakers for the title.",
    "min": 50,
    "max": 82,
    "step": 1,
    "difficulty": "medium",
-   "difficultyReason": "Champions with 65 to 67 wins frame it; players judge where Detroit's first title team sits.",
+   "difficultyReason": "A later Detroit champion's 54 is the anchor; players judge how far above it the league-best Bad Boys finished.",
    "ratings": {
     "interest": 4,
     "recognizability": 4,
@@ -4174,29 +4174,10 @@
     }
    ],
    "format": {
-    "kind": "missing-point",
-    "chart": {
-     "title": "1980s champions' regular-season wins",
-     "unit": "wins",
-     "points": [
-      {
-       "label": "76ers '83",
-       "fact": "nba-sixers83-wins"
-      },
-      {
-       "label": "Celtics '86",
-       "fact": "nba-celtics86-wins"
-      },
-      {
-       "label": "Lakers '87",
-       "fact": "nba-lakers87-wins"
-      },
-      {
-       "label": "Pistons '89",
-       "fact": "nba-pistons89-wins"
-      }
-     ]
-    }
+    "kind": "reference",
+    "references": [
+     "nba-detroit04-regular-wins"
+    ]
    }
   }
  },
@@ -11146,14 +11127,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows free throws made on famous nights. To open 2021 Finals Game 1, Phoenix made how many free throws in a row?",
+   "prompt": "To open Game 1 of the 2021 Finals against Milwaukee, Phoenix made how many free throws in a row?",
    "context": "2021 NBA Finals · Game 1 · vs Milwaukee",
    "reveal": "They nearly set a record for a game without a miss, until Jae Crowder missed with 24.8 seconds left.",
    "min": 10,
    "max": 45,
    "step": 1,
    "difficulty": "hard",
-   "difficultyReason": "Famous free-throw nights from 17 to 28 frame the guess.",
+   "difficultyReason": "No anchor: players judge how long a perfect run at the line can last in a Finals game, knowing it nearly set a record.",
    "ratings": {
     "interest": 4,
     "recognizability": 3,
@@ -11185,32 +11166,7 @@
       "quote": "until Jae Crowder missed with 24.8 seconds left in the game"
      }
     }
-   ],
-   "format": {
-    "kind": "missing-point",
-    "chart": {
-     "title": "Free throws made on famous nights",
-     "unit": "free throws",
-     "points": [
-      {
-       "label": "Wilt '62",
-       "fact": "nba-wilt-100-ftm"
-      },
-      {
-       "label": "Dirk '11",
-       "fact": "nba-dirk11-24-ft"
-      },
-      {
-       "label": "Giannis '21",
-       "fact": "nba-giannis21-g6-ft"
-      },
-      {
-       "label": "Suns '21",
-       "fact": "nba-suns21-g1-ft"
-      }
-     ]
-    }
-   }
+   ]
   }
  },
  {
@@ -12159,7 +12115,7 @@
   "question": {
    "prompt": "Wilt's 100-point game produced 316 combined points. How many did the East score by itself in the 2024 All-Star Game?",
    "context": "2024 NBA All-Star Game · East vs West",
-   "reveal": "211, the most by one team in All-Star history, in a 211–186 win.",
+   "reveal": "211–186, as the league brought back East versus West; Damian Lillard was the game's MVP.",
    "min": 130,
    "max": 270,
    "step": 1,
@@ -12928,7 +12884,7 @@
   "question": {
    "prompt": "Stephen Curry's record overtime in 2016 was 17 points. How many did Tracy McGrady score in the final 35 seconds to stun San Antonio in 2004?",
    "context": "Rockets vs Spurs · December 9, 2004",
-   "reveal": "13: four threes in 35 seconds, one of them a four-point play and the last a buzzer-beating winner.",
+   "reveal": "13: four straight threes, one of them a four-point play and the last a game-winner in the final two seconds.",
    "min": 6,
    "max": 30,
    "step": 1,
@@ -12950,7 +12906,7 @@
      }
     },
     {
-     "text": "His late explosion included consecutive triples, one converted into a four-point play and another to win at the buzzer.",
+     "text": "The burst was four straight threes, one a four-point play and the last a game-winner in the final two seconds.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/Tracy_McGrady",
@@ -14417,7 +14373,7 @@
   "question": {
    "prompt": "Kobe Bryant scored 81 in a January 2006 game. How many did he score in his final NBA game, at age 37?",
    "context": "Lakers vs Utah Jazz · April 13, 2016",
-   "reveal": "He took 50 shots, and at 37 years, 234 days became the oldest player ever to score 60.",
+   "reveal": "60, and at 37 years, 234 days he became the oldest player ever to score 60 in a game.",
    "min": 20,
    "max": 80,
    "step": 1,
@@ -17521,7 +17477,7 @@
   "question": {
    "prompt": "What did Joakim Noah average in rebounds in the 2010–11 regular season?",
    "context": "Chicago Bulls · injury-hit season",
-   "reveal": "10.4 rebounds per game despite substantial time missed.",
+   "reveal": "10.4 in 48 games, after surgery on a torn ligament in his right hand.",
    "min": 5,
    "max": 22,
    "step": 0.1,
@@ -18137,7 +18093,7 @@
   "question": {
    "prompt": "New Orleans scored 82 points in Game 7 against San Antonio in 2008. How many did Toronto score in Game 7 against Philadelphia in 2019?",
    "context": "Eastern semifinals · Kawhi's buzzer-beater",
-   "reveal": "92 points, including the shot that advanced Toronto.",
+   "reveal": "92–90: Kawhi Leonard's buzzer-beater over Joel Embiid ended the series.",
    "min": 65,
    "max": 135,
    "step": 1,
@@ -18464,7 +18420,7 @@
   "question": {
    "prompt": "The chart shows lead playmakers of other 58-plus-win teams. What did Jeff Teague average for the 60-win 2014–15 Hawks?",
    "context": "Atlanta · 2014–15 regular season",
-   "reveal": "7.0 assists with 15.9 points, the engine of an Atlanta team built on ball movement.",
+   "reveal": "7.0 with 15.9 points in 30.5 minutes a night, running the point for a 60-win Atlanta team.",
    "min": 1,
    "max": 10.5,
    "step": 0.1,
@@ -18709,7 +18665,7 @@
   "question": {
    "prompt": "Joakim Noah averaged 10.4 rebounds per game in 2010–11. How many did Dwight Howard average for the 2008–09 Magic?",
    "context": "Orlando Magic · regular season",
-   "reveal": "13.8 rebounds a night from Orlando's dominant center.",
+   "reveal": "13.8, plus 231 blocks, in the season he won Defensive Player of the Year.",
    "min": 4,
    "max": 30,
    "step": 0.1,
@@ -19065,7 +19021,7 @@
   "question": {
    "prompt": "The chart shows four low-scoring playoff team totals. How many points did Milwaukee score in its must-win 2021 Game 3 against Brooklyn?",
    "context": "2021 East semifinals · Milwaukee at home",
-   "reveal": "Enough by three: Brooklyn managed 83, and Khris Middleton's 35 carried a Bucks team that went on to win the title.",
+   "reveal": "86–83, with Khris Middleton scoring 35; Milwaukee won the series in seven and then the title.",
    "min": 48,
    "max": 148,
    "step": 1,
@@ -19989,11 +19945,11 @@
      }
     },
     {
-     "text": "His postseason three-point accuracy was 42.4 percent.",
+     "text": "Chris Webber averaged 4.8 assists, just behind Bibby.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
-      "quote": "Mike Bibby | 16 | 16 | 41.3 | .444 | .424 | .826"
+      "quote": "Chris Webber | 54 | 54 | 38.4 | .495 | .263 | .749 | 10.1 | 4.8"
      }
     }
    ],
@@ -20225,14 +20181,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Hedo Türkoğlu averaged 4.9 assists as Orlando's point forward in 2008–09. What did Jimmy Butler average in his first Heat season?",
+   "prompt": "The chart shows three other contenders' lead playmakers. What did Jimmy Butler average in his first Heat season?",
    "context": "Miami · 2019–20 regular season",
    "reveal": "6.0 a game alongside 19.9 points, with 103 steals in 58 games.",
    "min": 2,
    "max": 16,
    "step": 0.1,
    "difficulty": "hard",
-   "difficultyReason": "A playmaking forward's 4.9 frames it; players judge how far beyond that Butler's creation went.",
+   "difficultyReason": "Bars from 4.9 to 8.7 frame a forward running a Finals team's offense.",
    "ratings": {
     "interest": 5,
     "recognizability": 3,
@@ -20266,10 +20222,29 @@
     }
    ],
    "format": {
-    "kind": "reference",
-    "references": [
-     "nba-turkoglu09-regular-apg"
-    ]
+    "kind": "missing-point",
+    "chart": {
+     "title": "Assists per game: lead playmakers",
+     "unit": "assists per game",
+     "points": [
+      {
+       "label": "Jackson '98",
+       "fact": "nba-jackson98-regular-apg"
+      },
+      {
+       "label": "Bibby '02",
+       "fact": "nba-bibby02-regular-apg"
+      },
+      {
+       "label": "Türkoğlu '09",
+       "fact": "nba-turkoglu09-regular-apg"
+      },
+      {
+       "label": "Butler '20",
+       "fact": "nba-butler20-regular-apg"
+      }
+     ]
+    }
    }
   }
  },
@@ -20506,7 +20481,7 @@
   "question": {
    "prompt": "Joakim Noah averaged 10.4 rebounds as Chicago's center in 2010–11. What did Tim Duncan average in the 2013–14 title season, at 37?",
    "context": "San Antonio · regular season · veteran center",
-   "reveal": "In fewer than 30 minutes a night, on a team where no one averaged 30.",
+   "reveal": "9.7 in only 29.2 minutes a night at age 37, starting all 74 games he played.",
    "min": 3,
    "max": 22,
    "step": 0.1,
@@ -20707,7 +20682,7 @@
   "question": {
    "prompt": "Bars: other top Western Conference seasons. How many regular-season games did Chris Paul's 2007–08 Hornets win?",
    "context": "New Orleans · first full season back in the city",
-   "reveal": "56 and a division title; Paul finished second to Kobe Bryant in MVP voting.",
+   "reveal": "56–26 and second in the West; a win over the Clippers on April 15 clinched the Southwest Division.",
    "min": 23,
    "max": 82,
    "step": 1,
@@ -20729,11 +20704,11 @@
      }
     },
     {
-     "text": "Byron Scott coached the franchise through its resurgence.",
+     "text": "New Orleans clinched the Southwest Division by beating the Clippers on April 15.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
-      "quote": "Head coach | Byron Scott"
+      "quote": "This title was clinched with their win over the Los Angeles Clippers on April 15."
      }
     },
     {
@@ -20858,7 +20833,7 @@
   "question": {
    "prompt": "The chart shows four other star big men's rebounding. How many rebounds per game did Tyson Chandler average for the 2007–08 Hornets?",
    "context": "New Orleans · 2007–08 regular season",
-   "reveal": "11.7 with 62.3% shooting, finishing Chris Paul's lobs for a 56-win team.",
+   "reveal": "11.7 on 62.3% shooting, starting all 79 games he played for a 56-win Hornets team.",
    "min": 5,
    "max": 27,
    "step": 0.1,
@@ -24343,7 +24318,7 @@
   "question": {
    "prompt": "In Chris Paul's astonishing 2022 perfect-shooting playoff clincher, how many field goals did he make without a miss?",
    "context": "Chris Paul · Suns at Pelicans · 2022 playoffs",
-   "reveal": "14-for-14. Paul did not miss a single field goal in the playoff closeout.",
+   "reveal": "Perfect from the field and 4-for-4 at the line: 33 points to close out New Orleans.",
    "min": 1,
    "max": 36,
    "step": 1,
@@ -25270,9 +25245,9 @@
    "asOf": null
   },
   "question": {
-   "prompt": "With Kyrie Irving out and James Harden limping, Kevin Durant played all 48 minutes of 2021 Game 5 against Milwaukee. How many did he score?",
+   "prompt": "With the 2021 East semifinal tied 2–2, Kevin Durant led Brooklyn's comeback win over Milwaukee. How many did he score?",
    "context": "Brooklyn Nets vs Milwaukee Bucks · East semifinals · Game 5",
-   "reveal": "Plus 17 rebounds and 10 assists in a comeback win that put Brooklyn up 3–2.",
+   "reveal": "Plus 17 rebounds and 10 assists in a 114–108 win that put Brooklyn up 3–2.",
    "min": 10,
    "max": 120,
    "step": 1,
@@ -25294,11 +25269,11 @@
      }
     },
     {
-     "text": "He delivered 10 assists for a triple-double.",
+     "text": "The Nets came back to win the game 114–108.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
-      "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
-      "quote": "Asts: Kevin Durant 10"
+      "url": "https://en.wikipedia.org/wiki/Kevin_Durant",
+      "quote": "leading the Nets to a 114–108 comeback victory"
      }
     },
     {
@@ -25616,14 +25591,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "In Wembanyama's spectacular December 2024 two-way night against Portland, how many shots did he block?",
+   "prompt": "The chart shows two other famous shot-blocking nights. How many shots did Victor Wembanyama block against Portland in December 2024?",
    "context": "Victor Wembanyama · Spurs vs Blazers · December 2024",
    "reveal": "Tying his career high, with 30 points, at age 20 in a 114–94 win.",
    "min": 0,
    "max": 27,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "Wemby's breathtaking two-way game against Portland is modern highlight material; a double-digit block total makes an exciting estimate.",
+   "difficultyReason": "Hakeem's 11 in a quadruple-double and Giannis's 5 in a title clincher bracket what one elite rim protector can do in a night.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -25655,7 +25630,28 @@
       "quote": "At 20 years and 352 days old"
      }
     }
-   ]
+   ],
+   "format": {
+    "kind": "missing-point",
+    "chart": {
+     "title": "Blocks in one game: big men's nights",
+     "unit": "blocks",
+     "points": [
+      {
+       "label": "Hakeem '90",
+       "fact": "nba-hakeem90-quadruple-blocks"
+      },
+      {
+       "label": "Giannis '21",
+       "fact": "nba-giannis21-finals-g6-blocks"
+      },
+      {
+       "label": "Wemby '24",
+       "fact": "nba-wemby24-10-blocks-blazers"
+      }
+     ]
+    }
+   }
   }
  },
  {
@@ -25679,14 +25675,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows four Finals playmaking nights. How many assists did Shai Gilgeous-Alexander record in 2025 Finals Game 7?",
+   "prompt": "The chart shows three other Finals playmaking nights. How many assists did Shai Gilgeous-Alexander record in 2025 Finals Game 7?",
    "context": "Shai Gilgeous-Alexander · Thunder vs Pacers · Game 7",
    "reveal": "With 29 points, capping an MVP season with a Finals MVP.",
    "min": 0,
    "max": 35,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "Four Finals assist totals frame the scale; players place a scorer's title-clinching playmaking among them.",
+   "difficultyReason": "Three Finals assist totals frame the scale; players place a scorer's title-clinching playmaking among them.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -25732,10 +25728,6 @@
       {
        "label": "Diaw '14",
        "fact": "nba-diaw14-heat-g4-assists"
-      },
-      {
-       "label": "Butler '20",
-       "fact": "nba-butler20-g3-ast"
       },
       {
        "label": "Tatum '22",
@@ -26469,7 +26461,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows three other MVPs' career-high games. How many did Derrick Rose score in his emotional Halloween 2018 game against Utah?",
+   "prompt": "The chart shows big scoring nights by three other MVPs. How many did Derrick Rose score in his emotional Halloween 2018 game against Utah?",
    "context": "Derrick Rose · Timberwolves vs Jazz · October 2018",
    "reveal": "50. Rose blocked Utah's last shot to seal it, then broke down in tears as his teammates mobbed him.",
    "min": 10,
@@ -26512,7 +26504,7 @@
    "format": {
     "kind": "missing-point",
     "chart": {
-     "title": "Career-high games of NBA MVPs",
+     "title": "Big scoring nights by NBA MVPs",
      "unit": "points",
      "points": [
       {
@@ -27232,7 +27224,7 @@
   "question": {
    "prompt": "Kyrie Irving's 2016 Game 7 dagger came with 53 seconds left. How many seconds were left on Kevin Durant's go-ahead three in 2017 Game 3?",
    "context": "Kevin Durant · Warriors at Cavaliers · 2017 Finals Game 3",
-   "reveal": "45.3, capping an 11–0 closing run that put Golden State up 3–0.",
+   "reveal": "45.3, during 11 unanswered closing points that stole Game 3 and put Golden State up 3–0.",
    "min": 20,
    "max": 60,
    "step": 0.1,
@@ -28204,7 +28196,7 @@
   "question": {
    "prompt": "The chart shows three other lopsided playoff wins. Boston scored 84 in Game 4 of the 2024 Finals. By how much did Dallas win?",
    "context": "Dallas Mavericks vs Boston Celtics · 2024 Finals Game 4",
-   "reveal": "By 38, 122–84, to avoid a sweep; it topped Portland's 32 from 1977 as the biggest Game 4 margin in Finals history.",
+   "reveal": "By 38, 122–84, to avoid a sweep: the third-largest margin in NBA Finals history.",
    "min": 0,
    "max": 90,
    "step": 1,
@@ -30544,11 +30536,11 @@
      }
     },
     {
-     "text": "Because of his military service he appeared in only 48 games that season.",
+     "text": "He also averaged 18.6 rebounds that season.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/Elgin_Baylor",
-      "quote": "Despite playing only 48 games that season"
+      "quote": "18.6 rebounds, and 4.6 assists per game"
      }
     },
     {
@@ -30737,7 +30729,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Bars: other record-setting three-point nights. How many threes did Klay Thompson make against Chicago in October 2018?",
+   "prompt": "Bars: other famous three-point nights. How many threes did Klay Thompson make against Chicago in October 2018?",
    "context": "Warriors at Bulls · October 29, 2018 · 27 minutes played",
    "reveal": "14, breaking Curry's mark of 13, on his way to 52 points in just 27 minutes.",
    "min": 0,
@@ -30747,16 +30739,12 @@
    "format": {
     "kind": "missing-point",
     "chart": {
-     "title": "Most threes in a game: the record chase",
+     "title": "Big three-point nights",
      "unit": "three-pointers",
      "points": [
       {
        "label": "Kobe '03",
        "fact": "nba-kobe03-threes"
-      },
-      {
-       "label": "Curry '16",
-       "fact": "nba-curry16-13-threes"
       },
       {
        "label": "Klay '18",
@@ -30769,7 +30757,7 @@
      ]
     }
    },
-   "difficultyReason": "The 12-and-13 record line makes it estimable; players decide whether Klay matched or broke it in limited minutes.",
+   "difficultyReason": "Kobe's and Dame's 12 show what a historic night from deep looks like; players decide whether Klay went past them.",
    "ratings": {
     "interest": 5,
     "recognizability": 4,
@@ -30856,11 +30844,11 @@
      }
     },
     {
-     "text": "He finished his career with 23,924 rebounds, 22.9 per game.",
+     "text": "Boston still won the game, 132–129, in Philadelphia.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain",
-      "quote": "23,924 (22.9 rpg)"
+      "quote": "in a 132–129 home loss against the Russell-led Boston Celtics"
      }
     },
     {

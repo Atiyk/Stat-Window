@@ -1,0 +1,205 @@
+[
+ {
+  "day": "2026-12-21",
+  "slot": 3,
+  "severity": "P1",
+  "finding": "Free-throw chart mixed game totals (Wilt 28, Giannis 17) with consecutive makes (Dirk 24 without a miss, Suns' 25 in a row); bars not comparable.",
+  "resolution": "Suns question returned to recall; Q5 Wembanyama charted against Hakeem '90 (11) and Giannis '21 (5) so the day stays M/F/R/R/M (2/2/1, single reference)."
+ },
+ {
+  "day": "2026-12-11",
+  "slot": 4,
+  "severity": "P1",
+  "finding": "Klay 14-threes chart titled 'the record chase' with Curry's 13 bar disclosed the answer (record + 1).",
+  "resolution": "Removed the Curry bar, retitled 'Big three-point nights', new prompt/difficultyReason."
+ },
+ {
+  "day": "2026-12-16",
+  "slot": 5,
+  "severity": "P1",
+  "finding": "Prompt claimed Durant played all 48 minutes, Kyrie out, Harden limping: none on the 2021 playoffs page or the Kevin Durant article.",
+  "resolution": "Prompt rewritten to the sourced comeback in a 2-2 series; 114–108 comeback sourced via new fun fact (Kevin Durant article)."
+ },
+ {
+  "day": "2026-12-05",
+  "slot": 1,
+  "severity": "P1",
+  "finding": "Reveal 'Paul finished second to Kobe in MVP voting' is not on the cited season page.",
+  "resolution": "Reveal now uses the sourced April 15 Southwest Division clinch; fun fact added."
+ },
+ {
+  "day": "2026-12-06",
+  "slot": 2,
+  "severity": "P1",
+  "finding": "Reveal '211, the most by one team in All-Star history' is not stated on the NBA All-Star Game page.",
+  "resolution": "Reveal now: 211–186, East-vs-West format return, Lillard MVP (all sourced)."
+ },
+ {
+  "day": "2026-12-16",
+  "slot": 3,
+  "severity": "P1",
+  "finding": "Reveal 'He took 50 shots' not on any cited source.",
+  "resolution": "Removed; reveal keeps the sourced oldest-to-score-60 fact."
+ },
+ {
+  "day": "2027-01-25",
+  "slot": 5,
+  "severity": "P1",
+  "finding": "Reveal claimed the 38-point win was the biggest Game 4 margin, topping Portland's 32; 2024 Finals page says only 'third largest in NBA Finals history'.",
+  "resolution": "Reveal rewritten to the sourced third-largest Finals margin."
+ },
+ {
+  "day": "2027-01-10",
+  "slot": 4,
+  "severity": "P2",
+  "finding": "Reveal 'at age 35, with a sprained wrist' not on cited page.",
+  "resolution": "Reveal limited to 24 points, 114–100 clincher, Finals MVP (sourced)."
+ },
+ {
+  "day": "2027-01-11",
+  "slot": 5,
+  "severity": "P2",
+  "finding": "Reveal '11–0 closing run' capped by Durant's shot: source says the Warriors scored 11 unanswered points (shot inside the run).",
+  "resolution": "Reworded to 'during 11 unanswered closing points'."
+ },
+ {
+  "day": "2026-12-01",
+  "slot": 4,
+  "severity": "P2",
+  "finding": "McGrady reveal/fun fact said 'buzzer-beating'; source: 'game-winner in the final two seconds'.",
+  "resolution": "Reveal and fun fact corrected; 'four consecutive three-pointers' verified on Tracy McGrady page."
+ },
+ {
+  "day": "2027-01-03",
+  "slot": 1,
+  "severity": "P2",
+  "finding": "Lakers streak 'from November into January': start month not on source.",
+  "resolution": "Reveal now uses sourced end (Milwaukee, January 9, 1972)."
+ },
+ {
+  "day": "2027-01-26",
+  "slot": 4,
+  "severity": "P2",
+  "finding": "Teague reveal 'the engine' unsupported characterisation.",
+  "resolution": "Rewritten with roster-table minutes."
+ },
+ {
+  "day": "2027-01-27",
+  "slot": 4,
+  "severity": "P2",
+  "finding": "Chandler reveal 'finishing Chris Paul's lobs' unsupported.",
+  "resolution": "Rewritten with roster-table games started and FG%."
+ },
+ {
+  "day": "2027-01-01",
+  "slot": 5,
+  "severity": "P2",
+  "finding": "Rose chart titled 'Career-high games of NBA MVPs'; no cited quote calls Jokić's 61 a career high (Jokić article as fetched does not contain the 61-point game).",
+  "resolution": "Retitled 'Big scoring nights by NBA MVPs'; prompt updated."
+ },
+ {
+  "day": "2026-12-19",
+  "slot": 3,
+  "severity": "P2",
+  "finding": "Giannis 2021 clincher free throws the day after the same game's 50 points (12-18 Q1); 12-18 also has a second Giannis question.",
+  "resolution": "Swapped with 2027-01-23 Q3 (Sleepy Floyd 51, same format/difficulty); support order re-checked."
+ },
+ {
+  "day": "2026-12-11",
+  "slot": 5,
+  "severity": "P2",
+  "finding": "Jokić–Murray 2023 Finals Game 3 assists reused eight days after Jokić's rebounds in the same game (12-03 Q3, also a bar on 12-17).",
+  "resolution": "Swapped with 2026-12-23 Q5 (Trae Young 48, expert reference). Dropped Butler '20 bar from 12-22 Shai chart so Butler's 13 is not printed two days running."
+ },
+ {
+  "day": "2026-12-18",
+  "slot": 2,
+  "severity": "P2",
+  "finding": "Wins-season charts on 7 of 8 days 12-16..12-23 (and 12-01/02/05/11).",
+  "resolution": "12-18 broken: Pistons '89 became a reference (Detroit '04 54, played 12-08); Butler apg became a chart (Jackson, Bibby, Türkoğlu). Other cluster days could not be converted without breaking support order or 2/2/1 (see residual)."
+ },
+ {
+  "day": "2026-12-24",
+  "slot": 4,
+  "severity": "P3",
+  "finding": "Duncan '03 blocks chart reuses Hakeem/Giannis/Wemby bars three days after the new Wemby chart.",
+  "resolution": "Accepted; residual repetition."
+ },
+ {
+  "day": "2026-12-16",
+  "slot": 4,
+  "severity": "P3",
+  "finding": "Wilt 55 reveal cites 132–129 Boston win not in the fact's quote.",
+  "resolution": "Verified on Wilt Chamberlain page; fun fact added with that quote."
+ },
+ {
+  "day": "2026-12-02",
+  "slot": 4,
+  "severity": "P3",
+  "finding": "Baylor reveal cites 18.6 rebounds not in any quote.",
+  "resolution": "Verified on Elgin Baylor page; fun fact added."
+ },
+ {
+  "day": "2026-12-03",
+  "slot": 4,
+  "severity": "P3",
+  "finding": "Bibby reveal cites Webber's 4.8 not in any quote.",
+  "resolution": "Verified in the 2001–02 Kings roster table; fun fact added."
+ },
+ {
+  "day": "2026-12-22",
+  "slot": 3,
+  "severity": "P3",
+  "finding": "Duncan reveal 'on a team where no one averaged 30' ambiguous/unsourced.",
+  "resolution": "Rewritten to 29.2 minutes, 74 starts (sourced)."
+ },
+ {
+  "day": "2026-12-05",
+  "slot": 5,
+  "severity": "P3",
+  "finding": "CP3 reveal restated the answer.",
+  "resolution": "Now adds 33 points and 4-for-4 FT (sourced)."
+ },
+ {
+  "day": "2026-12-06",
+  "slot": 4,
+  "severity": "P3",
+  "finding": "Noah reveal vague ('substantial time missed').",
+  "resolution": "48 games, hand-ligament surgery (sourced)."
+ },
+ {
+  "day": "2026-12-12",
+  "slot": 4,
+  "severity": "P3",
+  "finding": "Howard reveal empty ('dominant center').",
+  "resolution": "231 blocks, DPOY (sourced)."
+ },
+ {
+  "day": "2026-12-07",
+  "slot": 4,
+  "severity": "P3",
+  "finding": "Raptors Game 7 reveal weak.",
+  "resolution": "92–90 and Kawhi's buzzer-beater over Embiid (sourced)."
+ },
+ {
+  "day": "2026-12-15",
+  "slot": 3,
+  "severity": "P3",
+  "finding": "Bucks reveal over 140 chars.",
+  "resolution": "Shortened."
+ },
+ {
+  "day": "2026-12-06",
+  "slot": 2,
+  "severity": "P3",
+  "finding": "Reference weak: Wilt-game combined 316 vs one All-Star team's total shares only the unit.",
+  "resolution": "Not changed (no comparable All-Star team total in the verified pool; swapping format would break the day's single). Residual."
+ },
+ {
+  "day": "2026-12-19",
+  "slot": 2,
+  "severity": "P3",
+  "finding": "Jordan 13 straight makes with CP3's 14-for-14 reference: anchor within ~8%, makes the answer easy.",
+  "resolution": "Not changed; residual."
+ }
+]

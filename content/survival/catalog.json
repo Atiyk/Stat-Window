@@ -1342,14 +1342,17 @@
         "nba-dame21-playoffs-12-threes"
       ]
     },
-    "nba-jokic-murray23-finals-g3-20-assists": {
+    "nba-trae21-bucks-g1-48": {
       "tier": "expert",
-      "family": "assists-game",
-      "franchise": "DEN",
+      "family": "points-game",
+      "franchise": "ATL",
       "era": "2020s",
-      "steps": 50,
+      "steps": 110,
       "day": "2026-12-11",
-      "notBefore": "2026-12-12"
+      "notBefore": "2026-12-12",
+      "leaks": [
+        "nba-luka20-clippers-buzzer-43"
+      ]
     },
     "nba-rodman-reb-titles": {
       "tier": "easy",
@@ -1647,9 +1650,8 @@
       "era": "2020s",
       "steps": 110,
       "day": "2026-12-16",
-      "notBefore": "2026-12-24",
+      "notBefore": "2026-12-17",
       "leaks": [
-        "nba-trae21-bucks-g1-48",
         "nba-giannis21-finals-g6-blocks"
       ]
     },
@@ -1733,8 +1735,7 @@
       "day": "2026-12-18",
       "notBefore": "2026-12-19",
       "leaks": [
-        "nba-lakers87-wins",
-        "nba-celtics86-wins"
+        "nba-detroit04-regular-wins"
       ]
     },
     "nba-butler20-regular-apg": {
@@ -1744,7 +1745,11 @@
       "era": "2010s",
       "steps": 140,
       "day": "2026-12-18",
-      "notBefore": "2026-12-19"
+      "notBefore": "2026-12-19",
+      "leaks": [
+        "nba-jackson98-regular-apg",
+        "nba-bibby02-regular-apg"
+      ]
     },
     "nba-giannis19-regular-rpg": {
       "tier": "hard",
@@ -1800,18 +1805,14 @@
         "nba-cp3-2022-perfect-playoff-shots"
       ]
     },
-    "nba-giannis21-g6-ft-pct-v51b": {
+    "nba-floyd87-51": {
       "tier": "hard",
-      "family": "shooting-pct",
-      "franchise": "MIL",
-      "era": "2020s",
-      "steps": 60,
+      "family": "points-game",
+      "franchise": "GSW",
+      "era": "1980s",
+      "steps": 50,
       "day": "2026-12-19",
-      "notBefore": "2026-12-22",
-      "leaks": [
-        "nba-suns21-g1-ft",
-        "nba-giannis24-cup-final-rebounds-v5"
-      ]
+      "notBefore": "2026-12-20"
     },
     "nba-sixers01-opening-streak": {
       "tier": "hard",
@@ -1938,11 +1939,7 @@
       "era": "2020s",
       "steps": 35,
       "day": "2026-12-21",
-      "notBefore": "2026-12-22",
-      "leaks": [
-        "nba-wilt-100-ftm",
-        "nba-dirk11-24-ft"
-      ]
+      "notBefore": "2026-12-22"
     },
     "nba-bird85-opener-steals": {
       "tier": "hard",
@@ -1963,7 +1960,11 @@
       "era": "2020s",
       "steps": 27,
       "day": "2026-12-21",
-      "notBefore": "2026-12-22"
+      "notBefore": "2026-12-22",
+      "leaks": [
+        "nba-giannis21-finals-g6-blocks",
+        "nba-hakeem90-quadruple-blocks"
+      ]
     },
     "nba-jackson10-titles": {
       "tier": "easy",
@@ -2076,17 +2077,14 @@
       "day": "2026-12-23",
       "notBefore": "2026-12-24"
     },
-    "nba-trae21-bucks-g1-48": {
+    "nba-jokic-murray23-finals-g3-20-assists": {
       "tier": "expert",
-      "family": "points-game",
-      "franchise": "ATL",
+      "family": "assists-game",
+      "franchise": "DEN",
       "era": "2020s",
-      "steps": 110,
+      "steps": 50,
       "day": "2026-12-23",
-      "notBefore": "2026-12-24",
-      "leaks": [
-        "nba-luka20-clippers-buzzer-43"
-      ]
+      "notBefore": "2026-12-24"
     },
     "nba-sixers01-regular-wins": {
       "tier": "easy",
@@ -3157,6 +3155,7 @@
       "day": "2027-01-10",
       "notBefore": "2027-01-22",
       "leaks": [
+        "nba-wilt-100",
         "nba-shaq00-finals-g2-24-boards",
         "nba-jokic23-finals-g3-rebounds",
         "nba-wilt67-ppg-v5"
@@ -3907,14 +3906,18 @@
         "nba-shaq00-finals-ppg"
       ]
     },
-    "nba-floyd87-51": {
+    "nba-giannis21-g6-ft-pct-v51b": {
       "tier": "hard",
-      "family": "points-game",
-      "franchise": "GSW",
-      "era": "1980s",
-      "steps": 50,
+      "family": "shooting-pct",
+      "franchise": "MIL",
+      "era": "2020s",
+      "steps": 60,
       "day": "2027-01-23",
-      "notBefore": "2027-01-24"
+      "notBefore": "2027-01-24",
+      "leaks": [
+        "nba-suns21-g1-ft",
+        "nba-giannis24-cup-final-rebounds-v5"
+      ]
     },
     "nba-blazers77-g4-q3": {
       "tier": "hard",
@@ -4054,8 +4057,7 @@
       "day": "2027-01-25",
       "notBefore": "2027-01-26",
       "leaks": [
-        "nba-celtics08-g6-margin",
-        "nba-luka24-wolves-g2-32"
+        "nba-celtics08-g6-margin"
       ]
     },
     "nba-wemby24-five-five-points": {

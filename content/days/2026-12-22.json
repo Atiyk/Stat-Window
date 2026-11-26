@@ -168,7 +168,7 @@
       "min": 3,
       "max": 22,
       "step": 0.1,
-      "note": "In fewer than 30 minutes a night, on a team where no one averaged 30.",
+      "note": "9.7 in only 29.2 minutes a night at age 37, starting all 74 games he played.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
@@ -282,7 +282,7 @@
     {
       "id": "nba-shai25-finals-g7-12-assists",
       "sport": "NBA",
-      "prompt": "The chart shows four Finals playmaking nights. How many assists did Shai Gilgeous-Alexander record in 2025 Finals Game 7?",
+      "prompt": "The chart shows three other Finals playmaking nights. How many assists did Shai Gilgeous-Alexander record in 2025 Finals Game 7?",
       "context": "Shai Gilgeous-Alexander · Thunder vs Pacers · Game 7",
       "answer": 12,
       "unit": {
@@ -342,10 +342,6 @@
             "value": 9
           },
           {
-            "label": "Butler '20",
-            "value": 13
-          },
-          {
             "label": "Tatum '22",
             "value": 13
           },
@@ -366,7 +362,6 @@
         "supports": [
           "nba-magic84-assists",
           "nba-diaw14-heat-g4-assists",
-          "nba-butler20-g3-ast",
           "nba-tatum22-debut-ast"
         ]
       }

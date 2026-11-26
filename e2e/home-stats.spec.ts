@@ -61,7 +61,7 @@ test.describe('returning player, daily not started', () => {
   test('How to play opens the guide without starting anything', async ({ page }) => {
     await seed(page, at(TODAY), week(['2026-11-24']));
     await page.goto('/');
-    await page.getByRole('button', { name: /^How to play/ }).click();
+    await page.locator('.home-more__row', { hasText: 'How to play' }).click();
     await expect(page.getByRole('dialog')).toBeVisible();
     await expect(page.locator('.question')).toHaveCount(0);
   });

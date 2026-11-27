@@ -8484,27 +8484,27 @@
   "eventDate": null,
   "franchise": "MIL",
   "player": "Oscar Robertson",
-  "answer": 8,
+  "answer": 8.2,
   "unit": {
    "singular": "assist per game",
    "plural": "assists per game"
   },
-  "claim": "About 8: the text says 8.3, the season table 8.25.",
+  "claim": "8.2 assists per game, third in the league, in Robertson's first Bucks season.",
   "source": {
-   "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-   "quote": "Robertson ranked third in the league in assists at 8.3 apg and was the Bucks' No. 2 scorer at 19.4 ppg.",
-   "derivation": "The article’s text says 8.3; its season table gives 668 assists in 81 games, 8.25. Either way, 8 to the nearest whole number.",
+   "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+   "quote": "| 1970–71† | Milwaukee | 81 |  | 39.4 | .496 | .850 | 5.7 | 8.2 |",
+   "derivation": null,
    "asOf": null
   },
   "question": {
-   "prompt": "In his first Bucks season, about how many assists per game did Oscar Robertson average, to the nearest whole number?",
+   "prompt": "In his first Bucks season, how many assists per game did Oscar Robertson average?",
    "context": "Milwaukee Bucks · 1970–71",
-   "reveal": "About 8: the text says 8.3, the season table 8.25.",
-   "min": 2,
-   "max": 14,
-   "step": 1,
+   "reveal": "8.2, third in the NBA, in the season his arrival helped bring Milwaukee the title.",
+   "min": 3,
+   "max": 17,
+   "step": 0.1,
    "difficulty": "hard",
-   "difficultyReason": "The decimal makes it hard.",
+   "difficultyReason": "A one-decimal season average for a famous passer late in his career; fans must judge how much his assists dipped beside Alcindor.",
    "ratings": {
     "interest": 2,
     "recognizability": 3,

@@ -2258,3 +2258,8 @@ a {
   color: var(--ink-soft);
   font-size: .9375rem;
 }
+
+/* Progress chips grow with the text size: at 100% text the pixel sizes above still decide,
+   at 200% the rem floor wins, so a score is never clipped by its own chip. */
+.ledger-cell { min-width: 1.5625rem; min-height: 1.5625rem; }
+.round-top .ledger { flex-wrap: wrap; }

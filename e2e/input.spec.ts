@@ -140,6 +140,27 @@ test('six-digit scales fit at 320px with 200% text and keep exact editable value
   await expect(highBracket(page)).toHaveAttribute('aria-valuenow', typed);
 });
 
+test('progress chips grow with 200% text at 390px, so no number is clipped', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await openAt(page, new Date('2027-01-10T15:00:00Z'));
+  await lockAndSettle(page);
+  await next(page);
+  await page.addStyleTag({ content: 'html { font-size: 200% }' });
+  await page.evaluate(() => document.fonts.ready);
+  const cells = page.locator('.round-top .ledger-cell');
+  await expect(cells).toHaveCount(5);
+  for (let i = 0; i < 5; i++) {
+    const cell = (await cells.nth(i).boundingBox())!;
+    const num = (await cells.nth(i).locator('.ledger-num').boundingBox())!;
+    expect(num.x, `chip ${i + 1} left`).toBeGreaterThanOrEqual(cell.x - 0.5);
+    expect(num.x + num.width, `chip ${i + 1} right`).toBeLessThanOrEqual(cell.x + cell.width + 0.5);
+    expect(num.y, `chip ${i + 1} top`).toBeGreaterThanOrEqual(cell.y - 0.5);
+    expect(num.y + num.height, `chip ${i + 1} bottom`).toBeLessThanOrEqual(cell.y + cell.height + 0.5);
+  }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+});
+
 test('touch: dragging a bracket moves it and never scrolls the page', async ({ page, isMobile }) => {
   test.skip(!isMobile, 'touch test');
   await openAt(page, DAY1);

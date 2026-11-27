@@ -109,6 +109,17 @@ test('the real page view never carries the challenge query string', async ({ pag
   expect(stripped).toBe(new URL('/', page.url()).href);
 });
 
+test('a QA link stays in the QA cohort when browser storage is blocked', async ({ page }) => {
+  await page.addInitScript(() => Object.defineProperty(window, 'localStorage', {
+    get: () => { throw new DOMException('Storage is blocked', 'SecurityError'); },
+  }));
+  await page.clock.setFixedTime(NBA_FIRST);
+  await page.goto('/?qa=1');
+  await startDailyIfNeeded(page);
+  await expect.poll(() => views(page)).toContain('/e/qa/start/daily');
+  expect((await views(page)).every((path) => path === '/' || path.startsWith('/e/qa/'))).toBe(true);
+});
+
 test('Do Not Track and Global Privacy Control send nothing and load no script', async ({ page }) => {
   await page.addInitScript(() => Object.defineProperty(Navigator.prototype, 'globalPrivacyControl', { get: () => true }));
   let loaded = false;

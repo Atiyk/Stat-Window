@@ -48,7 +48,7 @@ export function Onboarding({ onDone, onGuide, playLabel }: {
           {phase === 'resolved' && <button type="button" className="btn btn-quiet" onClick={replay}>Try another window</button>}
           {phase === 'resolved' && (
             <p className="onboarding-footnote">
-              The real game is five questions, 24 seconds each; the clock starts with the first one.
+              You’ll have 24 seconds per question.
               {onGuide && <> <button type="button" className="btn-link" onClick={onGuide}>See the three question types</button>.</>}
             </p>
           )}

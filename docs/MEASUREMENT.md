@@ -8,8 +8,8 @@ Use [the V5.3 launch measurement guide](V5.3-MEASUREMENT.md) for the 30-day read
 
 - **Why page views:** on Hobby, Vercel's custom events are not available ("Custom Events are available on Enterprise and Pro plans", [Vercel docs](https://vercel.com/docs/analytics/custom-events)). So each event is sent as a *virtual page view* on a path under `/e/…`, using the package's `pageview()` call. The counts appear in the dashboard's **Pages** list, one row per path.
 - **Cost:** Hobby includes 50,000 events a month across all projects on the team. Both kinds of page view count. Vercel pauses analytics collection at the limit, with no Hobby overage charge. A standard completed daily queues five core views and up to 0.7 sampled views on average. A share outcome adds one. [Vercel limits and pricing](https://vercel.com/docs/analytics/limits-and-pricing).
-- **On only on the production site.** Events are sent on the configured production hostnames, or on any host when the build sets `VITE_ANALYTICS=vercel` (the analytics e2e build). Previews, local runs and CI send nothing (in development they log to the console instead). `VITE_ANALYTICS=off` in Production switches it off after a redeploy.
-- **Production hostnames (`VITE_ANALYTICS_HOSTS`).** An optional build-time, comma-separated list of exact hostnames, for example `statwindow.example,stat-window.vercel.app`. Unset or empty means `stat-window.vercel.app`. Names are matched exactly and case-insensitively: no scheme, port, path or wildcard (entries like `https://…` or `*.vercel.app` are ignored), so `*.vercel.app` previews and other subdomains stay off. Setting it **replaces** the default, so keep `stat-window.vercel.app` in the list while both addresses serve the game. Moving to a real domain is this variable plus a redeploy, with no code change (`docs/LAUNCH.md`, "Moving to a custom domain"). Code: `analyticsHosts()` in `src/lib/track.ts`.
+- **Production hosts only.** Events are sent from the configured public hostnames on the Vercel Production target. A local build can set `VITE_ANALYTICS=vercel` for the isolated analytics test with a stubbed script. Vercel Preview and Development targets send nothing. `VITE_ANALYTICS=off` switches collection off after a deployment.
+- **Production hostnames (`VITE_ANALYTICS_HOSTS`).** Unset or empty uses `www.statwindow.app,statwindow.app,stat-window.vercel.app`. An optional build-time comma-separated list replaces these defaults. Matching is exact and case-insensitive. Entries with a scheme, port, path or wildcard are ignored. Keep the legacy host in the list while it serves the game. See `analyticsHosts()` in `src/lib/track.ts`.
 - **Auto-tracking is off; the real page view is sent by hand.** The Vercel script remembers the last `path` passed to `pageview()` and reuses it for later automatic page views (read from `va.vercel-scripts.com/v1/script.debug.js`, v0.1.3, on 2026-11-16), so with auto-tracking on, a real visit could be filed under a stale `/e/…` path. `startAnalytics()` injects with `disableAutoTrack: true` and sends `pageview({ route: '/', path: '/' })` once per page load.
 - **Counted once.** Starts and completions use local deduplication per browser, mode and puzzle day. First touch is also deduplicated for a sampled run. The browser prunes old entries after 14 days as it records new entries. A tab adopting saved rounds skips their lock events. Blocked storage limits deduplication to the current page load.
 - **Round diagnostics.** Approximately 10% of new daily starts with writable localStorage get a sampled-start event, an optional sampled first touch and up to five sampled locks. An entry in the existing deduplication ledger keeps the assignment on reload. Use sampled counts for both sides of a diagnostic ratio. Core visit, start, completion, streak, referral and share events are counted at full volume when play counts are enabled.
@@ -18,29 +18,27 @@ Use [the V5.3 launch measurement guide](V5.3-MEASUREMENT.md) for the 30-day read
 - **Choices (from Phase 1, 2026-11-18).** "Privacy and your data" (results footer, and the help dialog) has an on/off switch for usage counts, stored in `stat-window:privacy:v1`. Browsers that send Global Privacy Control or Do Not Track start with it **off**; only an explicit tap in that dialog turns it on for that browser. The sink re-checks the choice before every event, so switching off stops the next event, not the next page load. Switching it on takes effect immediately (`resumeAnalytics()`): the script loads and one real page view is sent if the host allows analytics. When storage fails, the choice remains in memory for the session.
 - **Cohorts.** Paths are prefixed so test and launch traffic never mix with the beta: `/e/qa/…` for any browser opened once with `?qa=1` (kept in `stat-window:qa`; use it for every manual production check), `/e/s1/…` once the formal launch is active (`docs/LAUNCH.md`). Unprefixed `/e/…` is the public beta.
 
-### Production status (checked 2026-11-18)
+### Production status (checked 2026-11-27)
 
 | Check | Result |
 |---|---|
-| Web Analytics enabled for the project | Yes. Enabled in the dashboard on 2026-11-18 (Hobby, capped ingestion). |
-| `VITE_ANALYTICS=vercel` set for Production | Yes, as a Config variable, Production only. Preview and local builds still send nothing. |
-| Phase 1 production build (`c30d612`) | Built **without** the variable: the variable was saved within the same minute as the merge and missed that build. The live bundle had analytics compiled off and the Privacy dialog said "Not active on this site build". |
-| Fix | The next build (`98683e9`) produced a byte-identical bundle, so the build never saw `vercel`; the saved value is most likely wrong and can only be read after an email check. Since 2026-11-18 the app no longer depends on it: analytics turns on by hostname (see above). |
+| Web Analytics script | The branded and legacy production hosts both serve `/_vercel/insights/script.js`. |
+| Dashboard configuration | `VITE_ANALYTICS_HOSTS` was absent. `VITE_ANALYTICS` was scoped to Production and contained `vercelvercel`. An unrecognized flag uses the hostname allow-list. |
+| V5.3 production build (`1f80a4a`) | A clean `?qa=1` browser on www sent no analytics requests. Vercel returned HTTP 200 for the legacy host's QA start, completion and streak views. |
+| V5.4 candidate | A QA browser loaded the candidate assets locally at the www origin and sent QA start, completion, streak and comparison-failure requests to Vercel's live www endpoint. Each returned HTTP 200. Verify receipt on the deployed build and in the dashboard after release. |
 
-Read every count before the receipt check as "not collected", not "zero".
+Treat branded traffic before the receipt check as missing measurement.
 
 ### Turning it on (owner, about two minutes)
 
 1. Vercel dashboard → the `stat-window` project → **Analytics** → **Enable** Web Analytics (Hobby, free).
-2. Nothing else: the production hostname turns it on (`stat-window.vercel.app`, or the list in `VITE_ANALYTICS_HOSTS`). (To switch it off, set `VITE_ANALYTICS` = `off` for Production and redeploy.)
-3. Deploy production (merge anything to `main`).
+2. The production hostnames turn collection on. To switch it off, set `VITE_ANALYTICS=off` for Production before the next deploy.
+3. Deploy the reviewed release through `main`.
 4. Check receipt (about five minutes, from a normal browser window with no ad blocker and Do Not Track / GPC off):
-   1. Open https://stat-window.vercel.app/ with DevTools → Network open, filter `view`.
+   1. Open https://www.statwindow.app/?qa=1 in a dedicated test browser with DevTools → Network open, filter `view`.
    2. You should see a successful `POST …/view` for the page and each queued event. A normal daily sends start and completion, and some daily runs also send sampled round diagnostics.
    3. If you instead see a console line `[Vercel Web Analytics] Failed to load script`, step 1 or 3 is not done.
-   4. Use `?qa=1` in a dedicated test browser. Analytics → **Pages** should list `/e/qa/start/daily` and `/e/qa/complete/daily/{band}` within a few minutes. A QA visit still uses the team's allowance. The first real page view `/` has no season prefix and includes QA page loads.
-
-Until step 2 is done, production sends nothing.
+   4. Analytics → **Pages** should list `/e/qa/start/daily` and `/e/qa/complete/daily/{band}` within a few minutes. A QA visit still uses the team's allowance. The first real page view `/` has no season prefix and includes QA page loads.
 
 Note on the Content-Security-Policy in `vercel.json` (`script-src 'self'`, `connect-src 'self'`): on Vercel the script and the endpoint are served from the site's own origin (`/_vercel/insights/…`), so the policy allows them. If step 4 shows a CSP error in the console instead, that assumption is wrong and the policy needs the endpoint added; report it rather than loosening the policy blind.
 
@@ -87,7 +85,7 @@ Report small numbers as counts with an interval, not as rates: 7 of 10 is "somew
 | `/e/streak/daily/{1,2-6,7plus}` | once per completed daily (round 5 locked on a run saved to the daily record, including today's puzzle opened from a friend's link; never practice). The number is the daily streak that completion leaves, counted from this browser's saved days and bucketed like `gap` | are players coming back day after day? |
 | `/e/share/{mode}/{native,clipboard,failed,cancelled}` | share button result | share attempts |
 | `/e/challenge-open/{today,past,future,invalid}[/with-score[/with-rounds]]` | page opened with a `?day=` link; `/with-rounds` when it carried five valid round scores (friend race, link v2) | challenge links that worked |
-| `/e/share/{mode}/{native-image,image-saved}` | share sheet sent the PNG score card / "Save score card" downloaded it | does the card get used? |
+| `/e/share/{mode}/{native-image,image-saved}` | native PNG sharing resolved after a target was picked / "Save score card" started a download | did the share or download action begin? |
 | `/e/failure/{game,comparison}` | a game load or render fails, or a score comparison returns unavailable | coarse availability signals |
 | `/e/privacy/{scores-on,scores-off,deleted}` | a comparison choice or a deletion in the app | consent and deletion rates |
 | `/e/remind/{ics,google}` | a calendar reminder link is tapped on any results screen (each tap) | how many players try to add a daily reminder |
@@ -95,7 +93,7 @@ Report small numbers as counts with an interval, not as rates: 7 of 10 is "somew
 | `/e/scouting/open/{home,results}` | the Scouting Report was opened from the home screen or a results screen (each open; a user action) | is the report worth keeping, and where is it found |
 | `/e/weekly/open/{home,results,scouting}` | the Weekly Scoreboard was opened from that entry point | weekly engagement |
 | `/e/weekly/share/{native,clipboard,failed,cancelled}` | the weekly scorecard share button result | does the weekly card get used? |
-| `/e/weekly/share/{native-image,image-saved}` | the share sheet sent the weekly scorecard PNG / "Save image" downloaded it | does the weekly image get used? |
+| `/e/weekly/share/{native-image,image-saved}` | native PNG sharing resolved after a target was picked / "Save image" started a download | did the share or download action begin? |
 | `/e/practice/{expand,start}/home` | the home "Practice" disclosure was opened / a past game was started from it | practice discovery |
 | `/e/tutorial/{start,skip,complete}` | the first-play tutorial was shown (per page load) / skipped before its lock / played through to its Play button (V5.2) | tutorial start and completion |
 (V5.1 entries carry no scores, days, answers or counts: only the fixed words in braces.)

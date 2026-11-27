@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState, type ReactNode } from 'react';
+import { useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { COURT_LINES, laneView, PAINT, viewBox, type CourtView } from '../engine/court';
 import { COURT_END, COURT_START, courtPosition } from '../engine/court-run';
 import { usePrefersReducedMotion } from './hooks';
@@ -40,7 +40,10 @@ export function Ball({ ghost = false }: { ghost?: boolean }) {
 }
 
 const STRIP_DEPTH = 9;
-export const LIVE_VIEW = laneView(STRIP_DEPTH);
+const lane = laneView(STRIP_DEPTH);
+// Keep the starting ball and its stroke inside the crop at zero points.
+const liveLeft = -BALL_RADIUS - .4;
+const LIVE_VIEW = { ...lane, x: liveLeft, width: lane.width + lane.x - liveLeft };
 const percentX = (x: number) => `${((x - LIVE_VIEW.x) / LIVE_VIEW.width) * 100}%`;
 /** Labels centre on their ball, but stay inside the strip near either end. */
 const anchor = (x: number) => x < 6 ? 'start' : x > 38 ? 'end' : 'center';
@@ -134,7 +137,8 @@ export function LiveCourtRun({ earned, potential, record = null, animate = false
   }, [earned, potential, animate, reduced]);
 
   return (
-    <div className="live-court" data-total={earned} data-potential={ghost ? potential : undefined}>
+    <div className="live-court" data-total={earned} data-potential={ghost ? potential : undefined}
+      style={{ '--live-court-width': LIVE_VIEW.width } as CSSProperties}>
       <CourtSvg view={LIVE_VIEW} className="live-court__court" crop>
         <path className="court-route" d={`M${COURT_START.x} ${ball.y}H${COURT_END.x}`} />
         {earned > 0 && <path ref={trail} className="court-trail" d={`M${COURT_START.x} ${ball.y}H${ball.x}`} />}

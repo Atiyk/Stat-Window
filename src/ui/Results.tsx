@@ -13,6 +13,7 @@ import { crowdThreshold, questionCrowdFor } from '../lib/scores';
 import { formatCountdown, formatDay, formatValue, plural } from '../lib/format';
 import { isMixedSportDay } from '../content/cutover';
 import { track, type AnalyticsCohort, type PlayMode, type ShareMethod } from '../lib/track';
+import { CANONICAL_HOST, CANONICAL_ORIGIN } from '../lib/site';
 import { useNow } from './hooks';
 import { ComparisonLine, ConsentChoice } from './Comparison';
 import { cardBlob, type CardFormat, type CardInput, type CardStyle } from './share-card';
@@ -127,10 +128,10 @@ export function Results({ slate, label, screenLabel = label, eligible, onPrivacy
         results,
         answerMs,
         percentile: percentile ? { label: percentile, detail: `based on ${sample} eligible completed games` } : null,
-        host: window.location.host || 'stat-window.vercel.app',
+        host: CANONICAL_HOST,
       };
     }
-    const puzzleUrl = challengeUrl(window.location.origin, slate.date);
+    const puzzleUrl = challengeUrl(CANONICAL_ORIGIN, slate.date);
     return cardStyle === 'shot-chart'
       ? { ...puzzle, style: cardStyle, total, untimed: untimedPractice, puzzleUrl, attempts }
       : { ...puzzle, style: cardStyle, total, untimed: untimedPractice, puzzleUrl, checkpoints };
@@ -153,7 +154,7 @@ export function Results({ slate, label, screenLabel = label, eligible, onPrivacy
     setToastText(text);
     if (text) setToastShown((n) => n + 1);
   };
-  const [fallback, setFallback] = useState<string | null>(null);
+  const [fallback, setFallback] = useState<{ text: string } | null>(null);
   const reminderLinkRef = useRef<HTMLAnchorElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const fallbackRef = useRef<HTMLTextAreaElement>(null);
@@ -226,8 +227,8 @@ export function Results({ slate, label, screenLabel = label, eligible, onPrivacy
     setToast(null);
     setFallback(null);
     const url = untimedPractice
-      ? challengeUrl(window.location.origin, slate.date)
-      : challengeUrl(window.location.origin, slate.date, total, answerMs, total > 0 ? results.map((r) => r.points) : undefined);
+      ? challengeUrl(CANONICAL_ORIGIN, slate.date)
+      : challengeUrl(CANONICAL_ORIGIN, slate.date, total, answerMs, total > 0 ? results.map((r) => r.points) : undefined);
     const text = shareText({ label, results, url, percentile: percentileLine, answerMs, untimed: untimedPractice });
     try {
       if (nativeShare) {
@@ -252,7 +253,7 @@ export function Results({ slate, label, screenLabel = label, eligible, onPrivacy
         report('cancelled');
         return;
       }
-      setFallback(text);
+      setFallback({ text });
       setToast(file ? 'Copy the selected text and save the image separately.' : 'Copy the selected text');
       report('failed');
     } finally {
@@ -357,17 +358,14 @@ export function Results({ slate, label, screenLabel = label, eligible, onPrivacy
           ref={fallbackRef}
           className="share-fallback"
           readOnly
-          value={fallback}
+          value={fallback.text}
           rows={5}
           aria-label="Your result to copy"
           onFocus={(e) => e.currentTarget.select()}
         />
       )}
       <p className="share-note" id="challenge-share-note">
-        {untimedPractice ? 'Send your score and the same five questions.'
-          : total > 0 ? 'Your friend races your score, question by question.'
-          : 'Send the same five questions.'} No spoilers.
-        {total > 0 && answerMs !== null && ' Time breaks ties.'}
+        Same five questions, no spoilers.{total > 0 && answerMs !== null && ' Time breaks ties.'}
       </p>
     </div>
   );
@@ -375,13 +373,13 @@ export function Results({ slate, label, screenLabel = label, eligible, onPrivacy
   const secondary = (
     <>
       {race && <RaceResult you={results.map((r) => r.points)} friend={vsRounds} total={total} vs={vs} answerMs={answerMs} vsTime={vsTime} />}
-      <ComparisonLine comparison={comparison} onPrivacy={onPrivacy} ref={slotRef} />
+      <ComparisonLine comparison={comparison} isToday={isToday} onPrivacy={onPrivacy} ref={slotRef} />
       {toughest && (
         <p className="percentile percentile-quiet crowd-toughest">
           Toughest for the crowd today: Question {toughest.index + 1}, scored in {toughest.scored}% of {toughest.n.toLocaleString('en-US')} eligible completed games.
         </p>
       )}
-      <ConsentChoice comparison={comparison} onPrivacy={onPrivacy} />
+      <ConsentChoice comparison={comparison} isToday={isToday} onPrivacy={onPrivacy} />
       {(practice || !isToday) && (
         <button type="button" className="btn btn-quiet" onClick={onBackToToday}>
           Play today’s puzzle
@@ -569,9 +567,9 @@ export function Results({ slate, label, screenLabel = label, eligible, onPrivacy
     </>
   );
 
-  const fold = (title: string, sub: string, body: ReactNode, onToggle?: (open: boolean) => void) => (
+  const fold = (title: string, body: ReactNode, onToggle?: (open: boolean) => void) => (
     <details className="results-fold" onToggle={onToggle && ((e) => onToggle(e.currentTarget.open))}>
-      <summary>{title}<span>{sub}</span></summary>
+      <summary>{title}</summary>
       <div className="results-fold__body">{body}</div>
     </details>
   );
@@ -589,11 +587,11 @@ export function Results({ slate, label, screenLabel = label, eligible, onPrivacy
         {secondary}
       </div>
       <div className="results-folds">
-        {fold('Your answers', 'Each question, the answer and your window', <>{review}<PerformanceRecap attempts={attempts} checkpoints={checkpoints} total={total} /></>)}
-        {fold('Score card image', 'Classic, Shot Chart or Court Run, to save or share', scoreCard, setCardOptionsOpen)}
-        {!practice && fold('Your stats', 'This week, average, best and streak', <>{weekly}{statsBlock}</>)}
-        {archive.length > 0 && fold('Practice a past game', 'Not counted in your stats', archiveBlock)}
-        {fold('Next puzzle and reminders', `New five at 12:00 AM Eastern`, nextBlock)}
+        {fold('Your answers', <>{review}<PerformanceRecap attempts={attempts} checkpoints={checkpoints} total={total} /></>)}
+        {fold('Score card image', scoreCard, setCardOptionsOpen)}
+        {!practice && fold('Your stats', <>{weekly}{statsBlock}</>)}
+        {archive.length > 0 && fold('Practice a past game', archiveBlock)}
+        {fold('Next puzzle and reminders', nextBlock)}
       </div>
       {links}
       {footer}

@@ -120,6 +120,36 @@ test('mode selection keeps timed practice separate and supports browser back and
   expect((await saved(page)).practice?.[seasonDay]).toEqual(timedRun);
 });
 
+test('timed archive practice cannot resume or change an unfinished official daily', async ({ page }) => {
+  const day = LAUNCH_DAY!;
+  await openAt(page, new Date(`${day}T15:00:00Z`));
+  await lockAndSettle(page);
+  await next(page);
+  await expect(page.locator('.round-meta')).toContainText('Question 2 of 5');
+  await expect(page.getByRole('timer')).toContainText('24s');
+  const original = (await saved(page)).runs[day];
+  expect(original?.results).toHaveLength(1);
+
+  await page.clock.setFixedTime(new Date(`${addDays(day, 1)}T15:00:00Z`));
+  await page.reload();
+  await page.getByRole('button', { name: /^Practice/ }).click();
+  await page.getByRole('button', { name: new RegExp(`^${formatDay(day)}(?:\\s|$)`) }).click();
+  await page.getByRole('button', { name: 'Start practice' }).click();
+  await expect(page.locator('.round-meta')).toContainText('Practice · Question 1 of 5');
+
+  for (let round = 0; round < 5; round++) {
+    await expect(page.getByRole('timer')).toContainText('24s');
+    await lockAndSettle(page);
+    await next(page);
+  }
+
+  await expect(page.locator('.results-context')).toContainText('not counted in your stats');
+  const after = await saved(page);
+  expect(after.runs[day]).toEqual(original);
+  expect(after.runs[addDays(day, 1)]?.results ?? []).toEqual([]);
+  expect(after.practice?.[day]?.results).toHaveLength(5);
+});
+
 test('cross-tab practice progress survives Eastern midnight without opening a new day', async ({ page, context }) => {
   const before = new Date('2026-11-17T04:59:50Z');
   await page.clock.setFixedTime(before);

@@ -60,7 +60,7 @@ export function Home({ isNew = false, gameNumber, onLearn, store, today, config,
   return (
     <article className="ready-card home" data-new={isNew || undefined}>
       <h1>How well do you know ball?</h1>
-      <p className="home-lede">Five NBA questions a day, each answered with a number. Frame your guess between two brackets.</p>
+      <p className="home-lede">Five NBA questions a day. Frame each guess between two brackets.</p>
       <WindowDemo className="home-demo" />
       <div className="home-actions">
         <button type="button" className="btn btn-primary" onClick={onStart}>Play Game {gameNumber}</button>
@@ -77,7 +77,7 @@ export function Home({ isNew = false, gameNumber, onLearn, store, today, config,
         {archive.length > 0 ? (
           <div className="home-more__item">
             <button type="button" className="home-more__row" aria-expanded={practiceOpen} aria-controls={listId} onClick={togglePractice}>
-              <span>Practice</span><small>Past puzzles, timed or untimed. Not counted in your stats.</small>
+              <span>Practice</span><small>Replay past games at your own pace.</small>
             </button>
             <div id={listId} className="home-practice" hidden={!practiceOpen}>
               <PracticeTimingChoice timing={timing} onChange={setTiming} />
@@ -97,7 +97,7 @@ export function Home({ isNew = false, gameNumber, onLearn, store, today, config,
             </div>
           </div>
         ) : (
-          <p className="home-more__empty"><span>Practice</span><small>Opens tomorrow, once today’s puzzle becomes a past game.</small></p>
+          <p className="home-more__empty"><span>Practice</span><small>Opens tomorrow.</small></p>
         )}
         {hasHistory && (
           <button type="button" className="home-more__row" onClick={() => { track({ name: 'scouting_open', source: 'home' }); onScouting(); }}>
@@ -106,7 +106,7 @@ export function Home({ isNew = false, gameNumber, onLearn, store, today, config,
         )}
         {hasHistory && (
           <button type="button" className="home-more__row" onClick={() => { track({ name: 'weekly_open', source: 'home' }); onWeekly(); }}>
-            <span>Weekly Scoreboard</span><small>This week and last, day by day.</small>
+            <span>Weekly Scoreboard</span><small>Daily scores and weekly totals.</small>
           </button>
         )}
         {onSurvival && (
@@ -116,7 +116,7 @@ export function Home({ isNew = false, gameNumber, onLearn, store, today, config,
         )}
         {onHowToPlay && (
           <button type="button" className="home-more__row" onClick={onHowToPlay}>
-            <span>How to play</span><small>The rules and the three question types.</small>
+            <span>How to play</span><small>Rules and worked examples.</small>
           </button>
         )}
       </nav>

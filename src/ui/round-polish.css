@@ -19,20 +19,6 @@
   line-height: 1.3;
 }
 
-/* The shortest screens keep the compact V4 spacing they already used with the court. */
-@media (max-width: 359px) and (max-height: 640px),
-       (min-width: 720px) and (max-height: 520px) {
-  .round:has(.round-court) .question-block { padding-block: 6px; }
-  .round:has(.round-court) .round-record-target { margin-top: 4px; }
-  .round[data-phase='ready']:has(.round-court) .ruler,
-  .round[data-phase='adjusting']:has(.round-court) .ruler { padding-top: 22px; }
-  .round:has(.round-court) .field-inner { padding-top: 6px; }
-  .round:has(.round-court) .ruler-track[data-interactive] { height: 106px; }
-  .round:has(.round-court) .ruler-track[data-interactive] .bracket { height: 104px; }
-  .round:has(.round-court) .bracket-shape::after { height: 14px; }
-  .round:has(.round-court) .bracket-grip { top: 80px; }
-}
-
 @media (max-width: 359px) and (max-height: 640px) {
   /* The court's flag and its "new best" tag carry the goal here; the sentence stays for
      screen readers until the reveal, so the Lock button keeps its place on screen. */
@@ -43,13 +29,6 @@
     overflow: hidden;
     clip-path: inset(50%);
     white-space: nowrap;
-  }
-  .round:has(.round-court) .question { font-size: 1.25rem; }
-  .round:has(.round-court) .readout .bound { font-size: min(2.5rem, 19vw); }
-  .round:has(.round-record-target) :is(.question-block, .field-inner) { padding-top: 4px; }
-  .round:is([data-phase='ready'], [data-phase='adjusting']):has(.round-record-target) .action-bar {
-    position: static;
-    padding-block: 4px max(4px, env(safe-area-inset-bottom));
   }
 }
 
@@ -172,7 +151,7 @@
     align-items: start;
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 0 max(var(--gutter), env(safe-area-inset-left)) 0 max(var(--gutter), env(safe-area-inset-right));
+    padding: 0 var(--gutter);
   }
   .round:not(.teaching-play) .round-head { display: contents; }
   .round:not(.teaching-play) :is(.round-top, .question-block, .story, .action-bar) {
@@ -206,19 +185,12 @@
   .round:not(.teaching-play) .round-top .ledger-num { font-size: 0.875rem; }
   .round:not(.teaching-play) .round-meta { font-size: 0.8125rem; }
   .round:not(.teaching-play) .round-court { order: 0; flex: 0 0 100%; inline-size: auto; }
-  .round:not(.teaching-play):has(.q-chart) .round-court { display: none; }
+  .round:not(.teaching-play) .round-court .live-court__court { --live-court-depth: 5.75; }
 
   .round:not(.teaching-play) .field { grid-area: field; padding: 0; }
   .round:not(.teaching-play) .field-inner { max-width: none; padding: 8px 14px 4px; }
   .round:not(.teaching-play) .bound { font-size: 2rem; }
   .round:not(.teaching-play) .verdict-line { min-height: 0; font-size: 0.875rem; line-height: 1.3; }
-  .round:not(.teaching-play)[data-phase='ready'] .ruler,
-  .round:not(.teaching-play)[data-phase='adjusting'] .ruler { padding-top: 18px; }
-  /* Full-height brackets (the short-wide court rule shortens them): the grips stay clear of the tick labels. */
-  .round:not(.teaching-play) .ruler-track[data-interactive] { height: 124px; }
-  .round:not(.teaching-play) .ruler-track[data-interactive] .bracket { height: 122px; }
-  .round:not(.teaching-play) .bracket-shape::after { height: 30px; }
-  .round:not(.teaching-play) .bracket-grip { top: 96px; }
 
   .round:not(.teaching-play) .action-bar {
     grid-area: action;
@@ -232,23 +204,121 @@
   .round:not(.teaching-play) .story { grid-area: story; }
 }
 
-/* Phones: the Lock bar is sticky, so a focused or scrolled-to bracket must stop clear of it
-   (its own height plus a little air), never underneath. */
-@media (max-width: 719px) {
-  .round:is([data-phase='ready'], [data-phase='adjusting']) .bracket {
-    scroll-margin-bottom: calc(72px + env(safe-area-inset-bottom));
+/* Compact gameplay keeps Lock in the document flow. If text, help or a short
+   viewport needs more room, the page scrolls with the brackets unobstructed. */
+@media (max-width: 719px), (max-height: 800px) {
+  .round:not(.teaching-play):is([data-phase='ready'], [data-phase='adjusting']) .action-bar {
+    position: static;
+    padding-block: 8px max(8px, env(safe-area-inset-bottom));
+  }
+  .round:not(.teaching-play):not([data-phase='resolved']) .field-inner { padding-block: 8px 6px; }
+  .round:not(.teaching-play):not([data-phase='resolved']) .verdict-line { min-height: 1.375rem; }
+  .round:not(.teaching-play):not([data-phase='resolved']) .worth { font-size: 0.875rem; line-height: 1.25; }
+  .round:not(.teaching-play):is([data-phase='ready'], [data-phase='adjusting']) .ruler { padding-top: 4px; }
+  .round:not(.teaching-play) .ruler-track[data-interactive] {
+    --grip-top: clamp(80px, 11dvh, 96px);
+    --axis-trim: max(0px, calc(92px - var(--grip-top)));
+    height: calc(var(--grip-top) + 26px);
+  }
+  /* The ruler labels keep their own lane even when the grip stems shorten. */
+  .round:not(.teaching-play) .ruler-track[data-interactive] .ruler-ticks::before { top: calc(62px - var(--axis-trim)); }
+  .round:not(.teaching-play) .ruler-track[data-interactive] .tick { top: calc(56px - var(--axis-trim)); }
+  .round:not(.teaching-play) .ruler-track[data-interactive] .tick-major { top: calc(50px - var(--axis-trim)); }
+  .round:not(.teaching-play) .ruler-track[data-interactive] .band { height: calc(54px - var(--axis-trim)); }
+  .round:not(.teaching-play) .ruler-track[data-interactive] .bracket { height: 100%; }
+  .round:not(.teaching-play) .ruler-track[data-interactive] .bracket-shape { height: calc(66px - var(--axis-trim)); }
+  .round:not(.teaching-play) .ruler-track[data-interactive] .bracket-shape::after { height: calc(var(--grip-top) - 66px + var(--axis-trim)); }
+  .round:not(.teaching-play) .ruler-track[data-interactive] .bracket-grip { top: var(--grip-top); }
+  .round:not(.teaching-play) .ruler-track[data-interactive] .bracket-tag {
+    top: 10px;
+    transform: translateX(calc(var(--bracket-position) * -1%));
   }
 }
 
-/* 320×568 with a chart: on first paint the bracket grips sat under the sticky Lock bar.
-   The readout and its hint step down so the whole bracket, grip included, starts above it. */
+@media (max-width: 719px) {
+  .app:has(.round:not(.teaching-play)) .topbar {
+    padding-block: max(4px, env(safe-area-inset-top)) 4px;
+  }
+  .round:not(.teaching-play) .round-top { padding-top: 2px; row-gap: 4px; }
+  .round:not(.teaching-play) .round-court .live-court__court { --live-court-depth: 6.5; }
+  .round:not(.teaching-play) .round-record-target { margin-top: 4px; }
+  .round:not(.teaching-play) .question-block { padding-block: 8px; }
+  .round:not(.teaching-play) .question {
+    font-size: clamp(1.25rem, .95rem + 2.5vw, 1.75rem);
+    line-height: 1.14;
+    max-width: none;
+  }
+  .round:not(.teaching-play) .context { margin-top: 4px; line-height: 1.3; }
+  .round:not(.teaching-play):not([data-phase='resolved']) .readout .bound {
+    font-size: clamp(1.875rem, .9rem + 5.5vw, 3rem);
+  }
+  .round:not(.teaching-play):not([data-phase='resolved']) .readout .bound[data-wide-value] {
+    font-size: min(2.125rem, 11vw);
+  }
+  .round:not(.teaching-play) .action-bar .btn { min-height: 48px; }
+}
+
+@media (max-width: 719px) and (min-height: 760px) {
+  .round:not(.teaching-play) .round-court .live-court__court { --live-court-depth: 9; }
+}
+
 @media (max-width: 359px) and (max-height: 640px) {
-  .round:is([data-phase='ready'], [data-phase='adjusting']):has(.q-chart) .field-inner { padding-top: 6px; }
-  .round:is([data-phase='ready'], [data-phase='adjusting']):has(.q-chart) .readout .bound { font-size: 2rem; }
-  .round:is([data-phase='ready'], [data-phase='adjusting']):has(.q-chart) .question-block { padding-block: 4px; }
-  .round:is([data-phase='ready'], [data-phase='adjusting']):has(.q-chart) .action-bar { padding-block: 6px max(6px, env(safe-area-inset-bottom)); }
-  .round:is([data-phase='ready'], [data-phase='adjusting']):has(.q-chart) .action-bar .btn { min-height: 48px; }
-  .round:is([data-phase='ready'], [data-phase='adjusting']):has(.q-chart) .verdict-line { min-height: 0; }
-  .round:is([data-phase='ready'], [data-phase='adjusting']):has(.q-chart) .verdict-line .worth { font-size: 0.8125rem; line-height: 1.2; }
-  .round:is([data-phase='ready'], [data-phase='adjusting']):has(.q-chart) .ruler { padding-top: 20px; }
+  .round:not(.teaching-play) .question { font-size: 1.25rem; }
+  .round:not(.teaching-play) .round-court .live-court__tag { font-size: .6875rem; }
+}
+
+/* On the shortest portrait chart rounds, the court sits beside the ledger.
+   The plot can then keep its full comparison scale and the grips keep their room. */
+@media (max-width: 719px) and (max-height: 650px) {
+  .round:has(.q-chart) .round-top[data-has-court] {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: 'ledger court' 'meta court';
+    gap: 2px 8px;
+  }
+  .round:has(.q-chart) .round-top[data-has-court] .ledger { grid-area: ledger; }
+  .round:has(.q-chart) .round-top[data-has-court] .round-meta {
+    grid-area: meta;
+    justify-content: start;
+    margin-left: 0;
+  }
+  .round:has(.q-chart) .round-top[data-has-court] .round-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .round:has(.q-chart) .round-top[data-has-court] .ledger-cell { width: 25px; height: 25px; }
+  .round:has(.q-chart) .round-top[data-has-court] .round-court { grid-area: court; }
+  .round:has(.q-chart) .round-top[data-has-court] .live-court__court { --live-court-depth: 9; }
+  .round:has(.q-chart) .round-top[data-has-court] .live-court__tag { font-size: .6875rem; }
+  .round:has(.q-chart) .round-top[data-has-court] .live-court__tag[data-anchor='start'] { translate: 0 0; }
+  .round:not(.teaching-play):has(.q-chart) .question-block { padding-block: 4px; }
+  .round:not(.teaching-play):not([data-phase='resolved']):has(.q-chart) .field-inner { padding-top: 4px; }
+  .round:not(.teaching-play):not([data-phase='resolved']):has(.q-chart) .verdict-line { min-height: 1.125rem; }
+  .round:not(.teaching-play):is([data-phase='ready'], [data-phase='adjusting']):has(.q-chart) .action-bar {
+    padding-block: 4px max(4px, env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 359px) and (max-height: 600px) {
+  .round:not(.teaching-play):has(.q-chart) :is(.context, .q-chart) { margin-top: 2px; }
+  .round:not(.teaching-play):not([data-phase='resolved']):has(.q-chart) .field-inner { padding-bottom: 4px; }
+  .round:not(.teaching-play):is([data-phase='ready'], [data-phase='adjusting']):has(.q-chart) .ruler { padding-top: 2px; }
+  .round:not(.teaching-play):is([data-phase='ready'], [data-phase='adjusting']):has(.q-chart) .action-bar .btn { min-height: 44px; }
+}
+
+/* Separate the touch grips at small window widths while the endpoints stay exact. */
+@media (pointer: coarse) {
+  @supports (width: 1cqw) {
+    .ruler-track[data-interactive] .bracket-grip {
+      --grip-offset: max(0px, calc(12px - var(--window-span) * .5cqw));
+      width: 24px;
+      margin-left: -12px;
+    }
+    .ruler-track[data-interactive] .bracket-lo .bracket-grip { translate: calc(-1 * var(--grip-offset)) 0; }
+    .ruler-track[data-interactive] .bracket-hi .bracket-grip { translate: var(--grip-offset) 0; }
+  }
 }

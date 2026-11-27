@@ -3,6 +3,7 @@ import { buildWeek, dayWords, monthDay, reviewableWeeks, weekdayLong, weekdaySho
 import { currentSeason, type SeasonConfig } from '../engine/season';
 import type { SaveStore } from '../engine/storage';
 import { track, type ShareMethod } from '../lib/track';
+import { CANONICAL_URL } from '../lib/site';
 import { useOfficialHistory } from './use-history';
 import { weeklyCardBlob, type CardFormat } from './share-card';
 import './results-polish.css';
@@ -131,7 +132,6 @@ function WeekRecord({ week }: { week: Week }) {
 function WeekBody({ week, unavailable }: { week: Week; unavailable: number }) {
   const maxLabel = week.seasonDays === 7 ? `of ${WEEK_MAX.toLocaleString('en-US')}` : `of ${week.maxPossible.toLocaleString('en-US')} possible`;
   const games = `${week.completed} of ${week.seasonDays}`;
-  const launchWeek = week.seasonDays < 7;
   return (
     <>
       <section className="week-summary" aria-label="Week summary">
@@ -147,18 +147,8 @@ function WeekBody({ week, unavailable }: { week: Week; unavailable: number }) {
         </dl>
       </section>
       <WeekRecord week={week} />
-      <p className="weekly__note">
-        {week.completed === 0
-          ? week.status === 'current' ? 'No eligible daily games this week yet. Today’s five counts as soon as you finish it.' : 'No eligible daily games this week.'
-          : week.completed === 1 && week.status === 'current'
-            ? 'Your first game of the week is in. Each daily five you finish adds to the total.'
-            : launchWeek
-              ? `Launch week: ${week.seasonDays} ${week.seasonDays === 1 ? 'day counts' : 'days count'} toward this scorecard.`
-              : 'Seven daily games, up to 3,500 points.'}
-        {' '}Days you didn’t play stay empty and are never scored as zero.
-        {unavailable > 0 && ` ${unavailable} saved ${unavailable === 1 ? 'game' : 'games'} couldn’t be verified and ${unavailable === 1 ? 'isn’t' : 'aren’t'} counted.`}
-        {' '}Official games only, from this browser.
-      </p>
+      {week.completed === 0 && <p className="weekly__note">No completed daily games {week.status === 'current' ? 'this week yet' : 'that week'}.</p>}
+      {unavailable > 0 && <p className="weekly__note">{unavailable} saved {unavailable === 1 ? 'game' : 'games'} couldn’t be verified.</p>}
       {week.completed > 0 && <WeekShare week={week} />}
     </>
   );
@@ -168,21 +158,24 @@ type Prepared = { format: CardFormat; blob: Blob | null; url: string | null; fil
 
 /** Share the week as text, or as an image: preview, download, or the native share sheet. */
 function WeekShare({ week }: { week: Week }) {
-  const [fallback, setFallback] = useState<string | null>(null);
+  const [fallback, setFallback] = useState<{ text: string } | null>(null);
   const [toast, setToast] = useState<string | null>(null);
   const [format, setFormat] = useState<CardFormat>('square');
   const [prepared, setPrepared] = useState<Prepared | null>(null);
   const boxRef = useRef<HTMLTextAreaElement>(null);
   const busy = useRef(false);
-  const url = `${window.location.origin}/`;
-  const model = useMemo(() => weeklyCard(week, url), [week, url]);
+  const model = useMemo(() => weeklyCard(week, CANONICAL_URL), [week]);
   const filename = `stat-window-week-${week.start}${format === 'portrait' ? '-portrait' : ''}.png`;
   const nativeShare = typeof navigator !== 'undefined' && !!navigator.share && matchMedia('(pointer: coarse)').matches;
   const canShareFile = nativeShare && typeof navigator.canShare === 'function';
   const report = (method: ShareMethod) => track({ name: 'weekly_share', method });
 
   useEffect(() => {
-    if (fallback) { boxRef.current?.focus({ preventScroll: true }); boxRef.current?.select(); }
+    const box = boxRef.current;
+    if (!fallback || !box) return;
+    box.focus({ preventScroll: true });
+    box.select();
+    box.scrollIntoView({ block: 'center', behavior: 'instant' });
   }, [fallback]);
   useEffect(() => {
     if (!toast) return;
@@ -219,7 +212,7 @@ function WeekShare({ week }: { week: Week }) {
   const shareText = async (file: File | null = null) => {
     if (busy.current) return;
     busy.current = true;
-    const text = weeklyShareText(week, url);
+    const text = weeklyShareText(week, CANONICAL_URL);
     setFallback(null);
     try {
       if (nativeShare) {
@@ -237,7 +230,7 @@ function WeekShare({ week }: { week: Week }) {
       report('clipboard');
     } catch (e) {
       if (e instanceof DOMException && e.name === 'AbortError') return report('cancelled');
-      setFallback(text);
+      setFallback({ text });
       setToast('Copy the selected text');
       report('failed');
     } finally {
@@ -266,11 +259,10 @@ function WeekShare({ week }: { week: Week }) {
   return (
     <section className="weekly__share" aria-labelledby="weekly-share-title">
       <h2 id="weekly-share-title" className="weekly__h">Share your week</h2>
-      <p className="weekly__note">Daily scores, dates and games played. Never questions or answers.</p>
       <div className="weekly__share-actions">
         <button type="button" className="btn btn-primary" onClick={() => void shareText()}>Share this week</button>
       </div>
-      {fallback && <textarea ref={boxRef} className="share-fallback" readOnly rows={9} value={fallback} aria-label="Your weekly scorecard to copy" onFocus={(e) => e.currentTarget.select()} />}
+      {fallback && <textarea ref={boxRef} className="share-fallback" readOnly rows={9} value={fallback.text} aria-label="Your weekly scorecard to copy" onFocus={(e) => e.currentTarget.select()} />}
       <div className="weekly-image">
         <fieldset className="card-formats">
           <legend>Image</legend>
@@ -282,8 +274,8 @@ function WeekShare({ week }: { week: Week }) {
           ))}
         </fieldset>
         <div className="weekly-image__preview" data-format={format}>
-          {image?.url ? <img src={image.url} alt={`Weekly scorecard image: ${weeklyShareText(week, url).split('\n').slice(1, -2).join(', ')}`} />
-            : image ? <p className="weekly__note">This browser couldn’t draw the image. Share this week still sends the text.</p>
+          {image?.url ? <img src={image.url} alt={`Weekly scorecard image: ${weeklyShareText(week, CANONICAL_URL).split('\n').slice(1, -2).join(', ')}`} />
+            : image ? <p className="weekly__note">Couldn’t make the image. You can still share the text.</p>
             : <p className="weekly__note" aria-live="polite">Drawing your scorecard…</p>}
         </div>
         <div className="weekly__share-actions">

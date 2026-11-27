@@ -6,6 +6,7 @@ import type { StorageLike } from '../engine/storage';
 import { potentialPoints } from '../engine/scoring';
 import { trackOnce, track, type ShareMethod } from '../lib/track';
 import { formatDay } from '../lib/format';
+import { CANONICAL_URL } from '../lib/site';
 import type { SurvivalCatalog } from '../survival/catalog';
 import {
   currentRound,
@@ -387,7 +388,7 @@ function SurvivalEnd(props: {
     const text = [
       status === 'won' ? `Stat Window Survival: all ${SURVIVAL_ROUNDS} rounds, ${points} pts` : `Stat Window Survival: ${rounds}/${SURVIVAL_ROUNDS} rounds, ${points} pts`,
       `${'🟩'.repeat(rounds)}${status === 'won' ? '' : '⬛'}`, // taste-skill-ignore: share-text convention
-      `${window.location.origin}/?survival`,
+      `${CANONICAL_URL}?survival`,
     ].join('\n');
     try {
       if (navigator.share && matchMedia('(pointer: coarse)').matches) {

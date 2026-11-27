@@ -15,9 +15,9 @@ const BUILD = ANALYTICS
   : SURVIVAL
     ? `VITE_SURVIVAL=preview npx vite build --outDir dist-survival && npx vite preview --outDir dist-survival --port ${PORT} --strictPort`
     : LEADERBOARD
-      ? `npx vite build --mode leaderboard-scaffold-qa --outDir dist-leaderboard-test && npx vite preview --outDir dist-leaderboard-test --port ${PORT} --strictPort`
+      ? `npx vite build --mode leaderboard-scaffold-qa --outDir build/leaderboard-e2e && npx vite preview --outDir build/leaderboard-e2e --port ${PORT} --strictPort`
       : LAUNCH
-        ? `VITE_LAUNCH_PREVIEW=1 npm run build -- --outDir dist-launch-test && npx vite preview --outDir dist-launch-test --port ${PORT} --strictPort`
+        ? `VITE_LAUNCH_PREVIEW=1 npm run build -- --outDir build/launch-e2e && npx vite preview --outDir build/launch-e2e --port ${PORT} --strictPort`
         : `npm run build && npx vite preview --port ${PORT} --strictPort`;
 const SURVIVAL_ON = 'VITE_SURVIVAL=on VITE_SURVIVAL_CTA_TEST=1 VITE_ANALYTICS=vercel npx vite build --outDir dist-survival-on && npx vite preview --outDir dist-survival-on --port 4176 --strictPort';
 

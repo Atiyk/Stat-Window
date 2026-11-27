@@ -9,13 +9,12 @@ import { LAUNCH_DAY } from './engine/launch-config';
 import { currentSeason, inSeason, isRetiredDay, playableDays, publicNumber, seasonConfigFrom, seasonOf, type SeasonConfig } from './engine/season';
 import { isQa } from './lib/scores';
 import { gameReducer, initGame, ROUNDS, totalPoints, type GameAction, type GameState, type Mode, type PracticeTiming, type RoundRecord } from './engine/game';
-import { createSaveStore, SAVE_KEY, UNTIMED_PRACTICE_KEY, type RunKind, type SavedRun, type SaveStore, type StorageLike } from './engine/storage';
+import { createSaveStore, SAVE_KEY, shotSessionKey, UNTIMED_PRACTICE_KEY, type RunKind, type SavedRun, type SaveStore, type StorageLike } from './engine/storage';
 import { MAX_TOTAL, playerStats, streakMilestone } from './engine/summary';
 import { analyticsEnabled, setCohort, track, trackOnce, type PlayMode, type ShareMethod } from './lib/track';
 import { CTA_TEST, previewAsOf, SURVIVAL_FLAG, wantsSurvival } from './survival/flag';
 import { armFor, exposedYesterday, markExposed, type Arm } from './survival/experiment';
 import { formatDay } from './lib/format';
-import { setSoundEnabled } from './ui/feedback';
 import { GuideLink, Help, type GuideView } from './ui/Help';
 import type { PlayerFormat } from './content/formats';
 import { PrivacyDialog } from './ui/Privacy';
@@ -82,9 +81,9 @@ function safeLocalStorage(): StorageLike | null {
 }
 
 /**
- * What is on screen. `kind` says where the run is saved: today's puzzle (and any
- * earlier day the player already started as their daily) goes to the daily record.
- * Timed and untimed practice have separate records outside the daily stats.
+ * What is on screen. `kind` says where the run is saved: today's puzzle and
+ * resumed dailies go to the daily record. Choosing a game in the practice
+ * archive always opens a separate practice record.
  * `viaLink` marks a run opened from a friend's same-puzzle link; `vs` is the score
  * that link claimed, shown for comparison only.
  */
@@ -184,12 +183,10 @@ export function App() {
   const [badLink, setBadLink] = useState(false);
   const [retiredLink, setRetiredLink] = useState(false);
 
-  useEffect(() => setSoundEnabled(settings.sound), [settings.sound]);
-
   const open = useCallback(
-    async (day: string, options: { link?: { vs: number | null; vsTime: number | null; rounds?: readonly number[] | undefined }; timing?: PracticeTiming } = {}) => {
+    async (day: string, options: { link?: { vs: number | null; vsTime: number | null; rounds?: readonly number[] | undefined }; timing?: PracticeTiming; practice?: boolean } = {}) => {
       const request = ++openRequest.current;
-      let { link, timing = 'timed' } = options;
+      let { link, timing = 'timed', practice = false } = options;
       // Never load retired beta content, even through stale UI callbacks.
       if (isRetiredDay(day, puzzleDay(new Date()), SEASON)) {
         setRetiredLink(true);
@@ -197,6 +194,7 @@ export function App() {
         day = puzzleDay(new Date());
         link = undefined;
         timing = 'timed';
+        practice = false;
       }
       let slate: Slate | null;
       try {
@@ -220,7 +218,7 @@ export function App() {
       const isToday = day === puzzleDay(new Date());
       // An earlier day counts only if the player really started it as their daily: seeing its
       // Start gate (which saves an empty record) is not starting it.
-      const kind: RunKind = timing === 'timed' && (isToday || startedDaily(store, day)) ? 'runs' : 'practice';
+      const kind: RunKind = !practice && timing === 'timed' && (isToday || startedDaily(store, day)) ? 'runs' : 'practice';
       setMissing(false);
       activeWindowRef.current = false;
       setSession({
@@ -362,10 +360,10 @@ export function App() {
       window.history.pushState(null, '', url);
       void open(day, { timing });
     } else {
-      // Leaving a friend's link for practice: a reload must reopen the practice, not the link.
+      // Leaving a friend's link for timed practice clears the old challenge parameters.
       const params = new URLSearchParams(loc.search);
       if (gameParams.some((n) => params.has(n))) window.history.replaceState(null, '', withoutGameLink(loc));
-      void open(day);
+      void open(day, { practice: true });
     }
   };
 
@@ -407,15 +405,6 @@ export function App() {
           <span className="day-label">
             {view === 'survival' ? 'Survival' : view === 'scouting' ? 'Scouting' : view === 'weekly' ? 'Weekly' : number}
           </span>
-          <button
-            type="button"
-            className="icon-btn"
-            aria-pressed={settings.sound}
-            aria-label={settings.sound ? 'Sound on' : 'Sound off'}
-            onClick={() => updateSettings({ sound: !settings.sound })}
-          >
-            <SoundIcon on={settings.sound} />
-          </button>
           <button type="button" className="icon-btn" aria-label="How to play" onClick={() => openGuide()}>
             <span aria-hidden="true" className="icon-q">?</span>
           </button>
@@ -578,7 +567,7 @@ function Game(props: {
   });
 
   const startKey = untimedPractice ? `stat-window:practice-start:v1:${session.day}`
-    : `stat-window:shot:v1:${session.slate.questions[0]?.id ?? ''}`;
+    : shotSessionKey(session.mode, session.slate.questions[0]?.id ?? '');
   const runEventKey = `${playMode}:${eventRun}:${session.day}`;
   const [started, setStarted] = useState(() => {
     if ((store.load()[session.kind]?.[session.day]?.results.length ?? 0) > 0) return true;
@@ -788,12 +777,12 @@ function Game(props: {
     const isToday = session.day === today;
     const puzzle = isToday ? 'today’s puzzle' : `${formatDay(session.day)} puzzle`;
     const gate = untimedPractice
-      ? { context: 'Untimed practice', title: 'Ready for five?', body: 'Take your time on all five questions. Not counted in your stats.', cta: 'Start practice' }
+      ? { context: 'Untimed practice', title: 'Ready for five?', body: 'Only daily games count toward your stats.', cta: 'Start practice' }
       : session.viaLink
         ? {
           context: `Challenge · ${puzzle}`,
-          title: session.vs !== null && session.vs > 0 ? `Beat ${session.vs} ${session.vs === 1 ? 'point' : 'points'}` : 'Ready for five?',
-          body: `A friend challenged you${session.vs !== null ? ` and scored ${session.vs}` : ''}. Same five NBA questions, 24 seconds each.${daily ? ' This counts as your daily.' : ' Practice · not counted in your stats.'}`,
+          title: session.vs !== null && session.vs > 0 ? `Beat ${session.vs} ${session.vs === 1 ? 'point' : 'points'}` : 'A friend challenged you',
+          body: `Same five questions, 24 seconds each. ${daily ? 'This counts as your daily.' : 'Practice · not counted in your stats.'}`,
           cta: 'Start the challenge',
         }
         : daily
@@ -868,18 +857,5 @@ function NoPuzzle({ today, archive, onPractice, store, nav }: { today: string; a
         </>
       )}
     </article>
-  );
-}
-
-function SoundIcon({ on }: { on: boolean }) {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor" />
-      {on ? (
-        <path d="M16 8.5c1.2 1 1.8 2.2 1.8 3.5s-.6 2.5-1.8 3.5M18.5 6c2 1.6 3 3.6 3 6s-1 4.4-3 6" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" />
-      ) : (
-        <path d="M16.5 9.5l5 5m0-5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      )}
-    </svg>
   );
 }

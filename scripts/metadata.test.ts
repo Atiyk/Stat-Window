@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
-const ORIGIN = 'https://stat-window.vercel.app';
+const ORIGIN = 'https://www.statwindow.app';
 const read = (p: string) => readFileSync(new URL(`../${p}`, import.meta.url), 'utf8');
 const html = read('index.html');
 const meta = (attr: 'name' | 'property', key: string) => html.match(new RegExp(`<meta ${attr}="${key}" content="([^"]*)"`))?.[1];
@@ -34,12 +34,16 @@ describe('public metadata (V5.2)', () => {
     expect(robots).toContain(`Sitemap: ${ORIGIN}/sitemap.xml`);
     const urls = [...read('public/sitemap.xml').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]!);
     expect(urls[0]).toBe(`${ORIGIN}/`);
-    for (const u of urls.slice(1)) expect(existsSync(new URL(`../public${new URL(u).pathname}`, import.meta.url))).toBe(true);
+    for (const u of urls.slice(1)) {
+      const page = new URL(u);
+      expect(page.origin).toBe(ORIGIN);
+      expect(read(`public${page.pathname}`)).toContain(`<link rel="canonical" href="${u}">`);
+    }
   });
 
-  it('the manifest names and describes the game', () => {
-    const m = JSON.parse(read('public/manifest.webmanifest')) as { name: string; description?: string };
-    expect(m.name).toBe('Stat Window');
+  it('the manifest names the game and opens on the player’s existing origin', () => {
+    const m = JSON.parse(read('public/manifest.webmanifest')) as { description?: string };
+    expect(m).toMatchObject({ name: 'Stat Window', id: '/', scope: '/', start_url: '/' });
     expect(m.description).toMatch(/daily NBA/);
   });
 });

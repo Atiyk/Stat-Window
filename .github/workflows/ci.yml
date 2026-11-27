@@ -107,8 +107,8 @@ jobs:
       - run: npm ci
       - name: Install desktop/mobile Chromium and iPhone WebKit
         run: npx playwright install --with-deps chromium webkit
-      - name: Verify beta unchanged until launch, fresh Day 1, archive, retired links and preserved saves
-        run: LAUNCH_E2E=1 npx playwright test e2e/launch.spec.ts --project=desktop --project=mobile --project=webkit-mobile
+      - name: Verify the launch rollover, archive, beta saves and first Weekly Scoreboard
+        run: LAUNCH_E2E=1 npx playwright test e2e/launch.spec.ts e2e/home-launch.spec.ts --project=desktop --project=mobile --project=webkit-mobile
 
   leaderboard-scaffold:
     if: github.event_name == 'pull_request'

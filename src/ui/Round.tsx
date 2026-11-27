@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties, type Dispatch
 import { canLock, currentQuestion, ROUNDS, totalPoints, type GameAction, type GameState, type PracticeTiming } from '../engine/game';
 import { finalShot, verifiedDailyRounds } from '../engine/final-shot';
 import { MAX_POINTS_PER_ROUND, potentialPoints } from '../engine/scoring';
+import { shotSessionKey } from '../engine/storage';
 import { formatValue, plural, unitFor } from '../lib/format';
 import { feedback } from './feedback';
 import { Readout } from './Readout';
@@ -67,15 +68,14 @@ const SHOT_CLOCK_MS = 24_000;
  * This is convenience, not anti-cheat: private windows and cleared storage
  * are independent, and nobody's times are server-verified.
  */
-const sessionShotKey = (id: string) => `stat-window:shot:v1:${id}`;
 const sharedShotKey = (day: string, id: string) => `stat-window:shot:daily:v1:${day}:${id}`;
-function savedShotStart(id: string, day: string, shared: boolean): number | null {
+function savedShotStart(sessionKey: string, crossTabKey: string, shared: boolean): number | null {
   if (typeof window === 'undefined') return null;
   const values: number[] = [];
   // Accessing the storage property itself can throw (some private or
   // restricted browsers), not only getItem. Guard the getter as well.
-  const keys: ['sessionStorage' | 'localStorage', string][] = [['sessionStorage', sessionShotKey(id)]];
-  if (shared) keys.push(['localStorage', sharedShotKey(day, id)]);
+  const keys: ['sessionStorage' | 'localStorage', string][] = [['sessionStorage', sessionKey]];
+  if (shared) keys.push(['localStorage', crossTabKey]);
   for (const [kind, key] of keys) {
     try {
       const raw = window[kind].getItem(key);
@@ -121,10 +121,13 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
   const actionRef = useRef<HTMLButtonElement>(null);
   const skipRef = useRef(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const shotKey = shotSessionKey(state.mode, q.id);
+  const crossTabKey = sharedShotKey(state.slate.date, q.id);
+  const shareWithTabs = state.mode === 'daily';
   // Restore the elapsed clock on the first render rather than briefly flashing
   // 24 seconds while React effects hydrate the saved deadline.
   const [initialShotStart] = useState(() => timed && interactive
-    ? savedShotStart(q.id, state.slate.date, state.mode === 'daily')
+    ? savedShotStart(shotKey, crossTabKey, shareWithTabs)
     : null);
   const [secondsLeft, setSecondsLeft] = useState(() => initialShotStart === null
     ? SHOT_CLOCK_MS / 1000
@@ -135,11 +138,8 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
   });
   const dispatchRef = useRef(dispatch);
   dispatchRef.current = dispatch;
-  const shotKey = sessionShotKey(q.id);
-  const crossTabKey = sharedShotKey(state.slate.date, q.id);
-  const shareWithTabs = state.mode === 'daily';
   const rememberStart = (at: number): number => {
-    const actual = Math.min(at, savedShotStart(q.id, state.slate.date, shareWithTabs) ?? at);
+    const actual = Math.min(at, savedShotStart(shotKey, crossTabKey, shareWithTabs) ?? at);
     try { window.sessionStorage.setItem(shotKey, String(actual)); } catch { /* storage blocked */ }
     if (shareWithTabs) {
       try { window.localStorage.setItem(crossTabKey, String(actual)); } catch { /* storage blocked */ }
@@ -295,16 +295,11 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
       return;
     }
     let raf = 0;
-    let lastTickAt = 0;
     const start = performance.now();
     const duration = state.round === 0 ? FIRST_TRAVEL_MS : TRAVEL_MS;
     skipRef.current = false;
     const step = (now: number) => {
       const t = skipRef.current ? 1 : Math.min(1, (now - start) / duration);
-      if (now - lastTickAt > 70 + t * 160 && t < 0.92) {
-        feedback.roll();
-        lastTickAt = now;
-      }
       if (t < 1) {
         setProgress(easeOutCubic(t));
         raf = requestAnimationFrame(step);
@@ -421,15 +416,11 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
         <p className="worth worth-points" data-zero>
           <b className="tabular">0</b> points even if it’s inside. Tighten up.
         </p>
-      ) : worth === 0 ? (
-        <p className="worth">
-          Pull the brackets in.<span className="worth-more"> Tighter windows score more.</span>
-        </p>
-      ) : (
+      ) : worth > 0 ? (
         <p className="worth worth-points">
           <b className="tabular">{worth}</b> {worth === 1 ? 'point' : 'points'} if the answer is inside.
         </p>
-      )}
+      ) : null}
     </div>
   );
 
@@ -500,7 +491,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
         <h1 className="question" data-long={q.prompt.length > 96 ? (q.chart ? "chart" : "text") : undefined} ref={headingRef} tabIndex={-1} aria-describedby={targetText ? 'round-record-target' : undefined}>
           {q.prompt}
         </h1>
-        <FormatCue key={q.id} question={q} context={contextLabel(q)} live={interactive} resolved={state.phase === 'resolved'} onGuide={onGuide} />
+        <FormatCue key={q.id} question={q} context={contextLabel(q)} live={interactive} onGuide={onGuide} />
         {q.chart && (
           <QuestionChart
             question={q}

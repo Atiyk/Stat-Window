@@ -6,8 +6,9 @@ This page is the runbook for the one step that switches the official season on, 
 
 | Item | State |
 |---|---|
-| `LAUNCH_DAY` | `'2026-11-28'` in `src/engine/launch-config.ts`. The previous V5.2 deployment serves a November 30 schedule. |
-| Scheduled activation | 12:00 AM Eastern on Saturday, November 28 (05:00 UTC), once `/launch.json` shows `2026-11-28` in production before the boundary. |
+| `LAUNCH_DAY` | `'2026-11-28'` in `src/engine/launch-config.ts`. |
+| Production schedule | On November 27, `https://www.statwindow.app/launch.json` served `{"launchDay":"2026-11-28"}` from V5.3 (`1f80a4ae362a9d5709d3834c1fae52cc513c4e76`). |
+| Scheduled activation | 12:00 AM Eastern on Saturday, November 28 (05:00 UTC). |
 | First week | Saturday Game 1 and Sunday Game 2 count toward the first Weekly Scoreboard, for a 1,000-point maximum. Monday Game 3 begins the first full week. |
 | Observed activation | Record who verified Game 1 on production and when after the boundary. A local clock simulation and a deployed schedule are separate checks. |
 | Vercel environment | Both obsolete launch variables were absent from the environment listing checked November 27. The [V5.2 record](V5.2-PROGRESS.md) has the earlier build history. |
@@ -41,7 +42,7 @@ The two V5.3 opening slates have a separate audit in `data/nba/editorial/v53-aud
 ## Preflight (the day before)
 
 1. `npm ci && npm run content:check && npm test && npm run build`.
-2. Dry run in a preview: build with `VITE_LAUNCH_PREVIEW=1` (Preview environment only) and open `/?launch-preview=<L>` with the clock on *L* and *L-1*. Check: header "No. 1" on *L*; beta catalog still works before *L*; on *L*, archive is empty, retired beta `?day=` links show a notice and today's game, results stats show only *L*, share text says "Stat Window No. 1"; on *L+1*, archive contains only *L*. Check valid s1 challenges, old saves, Eastern DST, Survival, and privacy remain unaffected.
+2. Dry run in a preview. Build with `VITE_LAUNCH_PREVIEW=1` (Preview environment only) and open `/?launch-preview=<L>` with the clock on *L* and *L-1*. Before *L*, check that the beta catalog still works. On *L*, check that the header shows “Game 1,” the archive starts empty, retired beta `?day=` links show a notice and open today's game, results stats count only *L*, and share text says “Stat Window No. 1.” On *L+1*, the archive should contain only *L*. Also check valid s1 challenges, saved runs, Eastern DST, Survival, and privacy.
 3. Unit tests cover it with a synthetic launch day: `src/engine/season.test.ts`.
 
 ## The one activation step (V5.1: committed, not a dashboard variable)
@@ -53,17 +54,15 @@ The launch day lives in **`src/engine/launch-config.ts`** (`LAUNCH_DAY`), one va
 - **The production build guards the boundary itself** by reading `https://$VERCEL_PROJECT_PRODUCTION_URL/launch.json`. The first November 28 production build requires the prior November 30 manifest and must pass that check before 8:00 PM Eastern on November 27. After that cutoff, builds for November 28 require production to already serve November 28. If the manifest is unreadable, this advance fails closed. For other launches that have begun, `LAUNCH_GUARD_ACK=<L>` applies only to an unreadable manifest, after confirming production already shows No. 1. A configured `VITE_LAUNCH_PREVIEW` fails any production build.
 - Make the CI check a **required status** on main (GitHub → Settings → Branches → main → Require status checks: `check`), so a PR whose check went stale can't be merged without re-running it.
 - Tabs opened before the activation deploy fetch `/launch.json` at the midnight rollover and reload if the deployed launch day differs from their bundle, so a long-open tab doesn't keep beta numbering on *L*.
-- Merge the November advance only when required checks pass and the build has time to reach production by 8:00 PM Eastern. Verify the production deployment SHA and `/launch.json`. If the release cannot clear that window, keep the November 30 deployment serving. At the scheduled boundary, verify that the public homepage shows Game 1.
-- **Never mid-day.** If the merge slips past midnight Eastern of *L*, the push check fails and the production build refuses to deploy it (and every later production build, since production still serves beta). Players are unaffected: the beta deployment stays live. To recover, commit `LAUNCH_DAY = null` with `SEASON_ROLLBACK_FROM = '<L>'` (the season never went live, so no `s1` data exists and no new season id is needed), then schedule a new future day in a following PR. The same applies after a Vercel Instant Rollback to a pre-launch deployment.
+- The first November 28 schedule deployment cleared the November 27 cutoff. For any subsequent release, verify the production deployment SHA and confirm `/launch.json` still reports November 28. At the scheduled boundary, verify that the public homepage shows Game 1.
+- The activation deadline applies to the first build for that schedule. A later release can rebuild the November 28 schedule while production's manifest still reports November 28. If the first activation was missed entirely, clear the schedule with `LAUNCH_DAY = null` and `SEASON_ROLLBACK_FROM = '<L>'`, then schedule a future day in a later PR. If the season already opened and an Instant Rollback restored an older schedule, follow the emergency procedure below and preserve existing `s1` records.
 - `LAUNCH_GUARD_ACK` is a one-deploy override; delete it from the Vercel environment straight after (the build warns while it is set).
 
-## Moving to a custom domain
+## Production domains
 
-Analytics only runs on its production hostnames (`docs/MEASUREMENT.md`). Before or with the domain change, in Vercel → stat-window → Settings → Environment Variables, **Production**:
+Publish and share `https://www.statwindow.app/`. Vercel redirects `statwindow.app` to www with a permanent 308 that keeps the path and query. Keep `stat-window.vercel.app` serving the game directly so existing challenge links and browser-local saves still work there. Privacy and credits pages link back on the current origin, and installed apps retain their existing origin and scope.
 
-- `VITE_ANALYTICS_HOSTS` = `<your-domain>,stat-window.vercel.app` (comma-separated exact hostnames; add `www.<your-domain>` too if it serves the game rather than redirecting),
-
-then redeploy production. No code change is needed. Unset, the list is `stat-window.vercel.app` only, so a build served from the new domain would send nothing. The score API needs no change: it accepts requests whose `Origin` matches the host they were sent to (`server/api.ts`, `sameOrigin`). Check receipt as in `docs/MEASUREMENT.md`, "Turning it on", step 4, on the new domain.
+The production analytics allow-list defaults to `www.statwindow.app,statwindow.app,stat-window.vercel.app` in code. Vercel's optional `VITE_ANALYTICS_HOSTS` variable can replace this list for a future build. The score API accepts requests whose `Origin` matches the host they were sent to (`server/api.ts`, `sameOrigin`). Follow [the branded production analytics check](MEASUREMENT.md#turning-it-on-owner-about-two-minutes) after deployment.
 
 
 ## Rollback

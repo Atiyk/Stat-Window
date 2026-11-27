@@ -185,6 +185,26 @@ test('touch: dragging a bracket moves it and never scrolls the page', async ({ p
   await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
   await expect(lowBracket(page)).toHaveAttribute('aria-valuenow', '61');
   expect(await page.evaluate(() => window.scrollY)).toBe(before);
+
+  // A one-step window must still offer two distinct touch grips.
+  await typeWindow(page, 62, 63);
+  const lowGrip = (await lowBracket(page).locator('.bracket-grip').boundingBox())!;
+  const highGrip = (await highBracket(page).locator('.bracket-grip').boundingBox())!;
+  expect(lowGrip.x + lowGrip.width - highGrip.x).toBeLessThan(1);
+  const step = track.width / 42;
+  for (const [grip, direction, slider, value] of [
+    [lowGrip, -1, lowBracket(page), '59'],
+    [highGrip, 1, highBracket(page), '66'],
+  ] as const) {
+    const x = grip.x + grip.width / 2;
+    const y = grip.y + grip.height / 2;
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y }] });
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: x + direction * 3 * step, y }] });
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+    await expect(slider).toHaveAttribute('aria-valuenow', value);
+    // Restore the narrow window before grabbing its other side.
+    await typeWindow(page, 62, 63);
+  }
 });
 
 test('the untouched full scale cannot be locked', async ({ page }) => {

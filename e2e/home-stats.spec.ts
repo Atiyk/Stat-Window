@@ -225,7 +225,32 @@ test.describe('Weekly Scoreboard', () => {
     expect(text).toMatch(/Mon \d+/);
     expect(text).toContain('2 of 7 games played');
     expect(text).toContain('Play along');
+    expect(text).toContain('https://www.statwindow.app/');
     expect(text).not.toMatch(/How many|\bwindows?\b/);
+  });
+
+  test('weekly sharing brings the selected fallback into view on each attempt', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.addInitScript(() => {
+      Object.defineProperty(navigator, 'share', { value: undefined });
+      Object.defineProperty(navigator, 'clipboard', { value: undefined });
+    });
+    await seed(page, at('2026-11-28'), week(['2026-11-28']));
+    await page.goto('/?weekly');
+    const share = page.getByRole('button', { name: 'Share this week' });
+    const box = page.getByRole('textbox', { name: 'Your weekly scorecard to copy' });
+    await expect(share).toBeVisible();
+    for (let attempt = 0; attempt < 2; attempt++) {
+      await share.evaluate((button) => {
+        const viewport = window.visualViewport?.height ?? innerHeight;
+        window.scrollBy(0, button.getBoundingClientRect().bottom - viewport + 6);
+      });
+      await share.click();
+      await expect(box).toBeInViewport({ ratio: 0.9 });
+      await expect(box).toBeFocused();
+      await expect(box).toHaveValue(/https:\/\/www\.statwindow\.app\/$/);
+      expect(await box.evaluate((el: HTMLTextAreaElement) => el.selectionEnd - el.selectionStart)).toBe((await box.inputValue()).length);
+    }
   });
 
   test('the weekly image previews in square and portrait and downloads as a PNG', async ({ page }) => {

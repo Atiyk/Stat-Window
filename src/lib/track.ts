@@ -7,13 +7,14 @@
  * per path then show up in the Vercel dashboard's Pages list. At the Hobby limit
  * Vercel pauses collection; it never bills a Hobby team.
  *
- * Off unless on a production host (VITE_ANALYTICS_HOSTS, default stat-window.vercel.app) or the build
- * sets VITE_ANALYTICS=vercel (so local runs, CI and preview builds send nothing). Also off when the browser sends Global Privacy Control or
+ * On the exact production hosts below, or when a local test build sets VITE_ANALYTICS=vercel.
+ * Also off when the browser sends Global Privacy Control or
  * Do Not Track. No cookies, no identifiers, no answers, no free text: every path
  * segment comes from the fixed vocabulary below.
  */
 import { inject, pageview } from '@vercel/analytics';
 import { analyticsAllowed, loadPrivacy, type Privacy } from './privacy';
+import { PRODUCTION_HOSTS } from './site';
 
 export type PlayMode = 'daily' | 'practice' | 'challenge';
 export type AnalyticsCohort = 'beta' | 's1' | 'qa';
@@ -246,29 +247,30 @@ export function privacySignal(nav: Navigator): boolean {
   return n.globalPrivacyControl === true || n.doNotTrack === '1';
 }
 
-/** The default production hostname. Override the list with VITE_ANALYTICS_HOSTS (docs/MEASUREMENT.md). */
-export const PRODUCTION_HOST = 'stat-window.vercel.app';
 const HOSTNAME = /^(?=.{1,253}$)[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)*$/;
 
 /**
  * The hostnames analytics runs on: VITE_ANALYTICS_HOSTS, comma-separated, exact names only (no scheme,
- * port, path or wildcard; anything else is ignored). Unset or empty means stat-window.vercel.app, so
- * moving to a real domain is a build variable, not a code change.
+ * port, path or wildcard; anything else is ignored). Unset or empty uses the public production hosts.
  */
 export function analyticsHosts(raw: string | undefined): string[] {
   const hosts = (raw ?? '').split(',').map((h) => h.trim().toLowerCase()).filter((h) => HOSTNAME.test(h));
-  return hosts.length ? [...new Set(hosts)] : [PRODUCTION_HOST];
+  return hosts.length ? [...new Set(hosts)] : [...PRODUCTION_HOSTS];
 }
 
 /**
- * On when the build sets VITE_ANALYTICS=vercel (any host, used by the analytics e2e build), or on one of
- * the production hostnames unless the build sets VITE_ANALYTICS=off (the emergency switch). Previews,
- * local runs and CI are on other hosts, so they send nothing.
+ * Only production can send on Vercel, and only from the configured public hostnames.
+ * Local analytics e2e builds can use VITE_ANALYTICS=vercel. The off switch applies everywhere.
  */
-export function analyticsOn(flag: string | undefined, host: string | undefined, hosts: readonly string[] = [PRODUCTION_HOST]): boolean {
+export function analyticsOn(
+  flag: string | undefined,
+  host: string | undefined,
+  hosts: readonly string[] = PRODUCTION_HOSTS,
+  deployment?: string,
+): boolean {
   const f = (flag ?? '').trim().toLowerCase();
-  if (f === 'off') return false;
-  if (f === 'vercel') return true;
+  if (f === 'off' || (deployment && deployment !== 'production')) return false;
+  if (f === 'vercel' && !deployment) return true;
   return host !== undefined && hosts.includes(host.toLowerCase());
 }
 
@@ -276,6 +278,7 @@ export const analyticsEnabled = analyticsOn(
   import.meta.env.VITE_ANALYTICS as string | undefined,
   typeof location === 'undefined' ? undefined : location.hostname,
   analyticsHosts(import.meta.env.VITE_ANALYTICS_HOSTS as string | undefined),
+  import.meta.env.VITE_VERCEL_ENV as string | undefined,
 );
 
 type Vercel = { inject: typeof inject; pageview: typeof pageview };

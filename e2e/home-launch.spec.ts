@@ -54,13 +54,13 @@ test('Day 1: honest practice state, no empty stats, then genuine weekly progress
   await expect(page.locator('.week-glance')).toContainText('1 of 5 games');
   await page.getByRole('button', { name: 'Weekly Scoreboard' }).click();
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Nov 30 – Dec 6, 2026');
-  const rows = page.locator('.week-row');
-  await expect(rows.nth(0)).toContainText('Before the season began');
-  await expect(rows.nth(1)).toContainText('Before the season began'); // Dec 1 beta play is not eligible
-  await expect(rows.nth(2)).not.toContainText('Before');
+  const days = page.getByRole('list', { name: 'Day by day' }).getByRole('listitem');
+  await expect(days.nth(0)).toHaveText(/Monday Nov 30: before the season began/i);
+  await expect(days.nth(1)).toHaveText(/Tuesday Dec 1: before the season began/i); // Dec 1 beta play is not eligible
+  await expect(days.nth(2)).toHaveText(/Wednesday Dec 2: \d+ points/i);
   await expect(page.locator('.weekly__stats')).toContainText('1 of 5');
-  await expect(page.locator('.weekly__stats')).toContainText('of 2,500 possible');
-  await expect(page.getByRole('button', { name: 'Last week' })).toHaveCount(0); // nothing eligible before launch
+  await expect(page.getByRole('region', { name: 'Week summary' })).toContainText('of 2,500 possible');
+  await expect(page.getByRole('navigation', { name: 'Choose a week' })).toHaveCount(0); // nothing eligible before launch
   await page.getByRole('button', { name: /Today’s puzzle/ }).click();
   await expect(page.locator('.results-score')).toBeVisible();
 });
@@ -104,7 +104,7 @@ test('the week rolls over on Monday: last week stays reviewable', async ({ page 
   await page.goto(`/?${preview}&weekly`);
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Dec 7 – Dec 13, 2026');
   await expect(page.locator('.weekly__stats')).toContainText('0 of 7');
-  await page.getByRole('button', { name: 'Last week' }).click();
+  await page.getByRole('button', { name: 'Previous week' }).click();
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Nov 30 – Dec 6, 2026');
   await expect(page.locator('.weekly__stats')).toContainText('1 of 5');
 });

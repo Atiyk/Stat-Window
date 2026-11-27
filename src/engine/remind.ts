@@ -12,9 +12,9 @@
  * or names the player.
  */
 import { EPOCH_DAY, PUZZLE_TIME_ZONE, addDays, puzzleDay, puzzleStartUtcMs } from './daily.ts';
+import { CANONICAL_URL } from '../lib/site.ts';
 
-export const SITE = 'https://stat-window.vercel.app';
-export const REMIND_URL = `${SITE}/?from=calendar`;
+export const REMIND_URL = `${CANONICAL_URL}?from=calendar`;
 export const REMIND_SUMMARY = "Stat Window: today's five";
 export const REMIND_DESCRIPTION = `A new puzzle every day at midnight US Eastern time (New York). Same five NBA numbers for everyone.\nPlay: ${REMIND_URL}\nTo stop, delete this repeating event.`;
 
@@ -176,6 +176,7 @@ export function icsText(hour: number): string {
     'METHOD:PUBLISH',
     ...PUZZLE_VTIMEZONE,
     'BEGIN:VEVENT',
+    // Keep the UID stable so calendars can recognize an existing reminder series.
     `UID:stat-window-daily-${hh}-new-york@stat-window.vercel.app`,
     'DTSTAMP:20261122T000000Z',
     `DTSTART;TZID=${PUZZLE_TIME_ZONE}:${SERIES_START}T${hh}0000`,

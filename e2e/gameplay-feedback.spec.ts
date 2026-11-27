@@ -7,7 +7,8 @@ test('short phones show conditional scoring, the answer first, and final-round p
   await openAt(page, DAY1);
 
   const verdict = page.locator('.verdict-line');
-  await expect(verdict).toHaveText('Pull the brackets in. Tighter windows score more.');
+  await expect(verdict).toBeEmpty();
+  await expect(page.getByRole('button', { name: 'Pull the brackets in first' })).toBeDisabled();
   await typeWindow(page, 40, 79);
   await expect(verdict).toHaveText('1 point if the answer is inside.');
   await expect(page.locator('.round-total .tabular')).toHaveText('0');

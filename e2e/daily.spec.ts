@@ -47,10 +47,9 @@ test('a full daily run scores every round, saves, and shares without spoilers', 
   if (browserName === 'chromium' && test.info().project.name === 'desktop') {
     await page.getByRole('button', { name: 'Challenge a friend' }).click();
     const shared = await page.evaluate(() => navigator.clipboard.readText());
-    const origin = new URL(page.url()).origin;
     expect(shared).toContain('Stat Window No. 1  274/500');
     expect(shared).toContain('Think you know ball? Beat 274.');
-    expect(shared).toContain(`${origin}/?day=2026-11-15&vs=274&time=`);
+    expect(shared).toContain('https://www.statwindow.app/?day=2026-11-15&vs=274&time=');
     // Spoiler-free: no answer appears in the share text.
     for (const answer of ['73', '23', '92', '138', '2632', '2,632']) {
       for (const line of shared.split('\n').slice(1, 3)) expect(line).not.toContain(answer);

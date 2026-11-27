@@ -121,7 +121,6 @@ function Empty({ unavailable, onBack }: { unavailable: number; onBack: () => voi
   return (
     <section className="scouting__empty">
       <p className="scouting__lead">Your report starts after your first completed daily game of this season.</p>
-      <p className="scouting__note">It uses official daily games only, kept in this browser. Practice and challenge replays of earlier days aren’t included.</p>
       {unavailable > 0 && <p className="scouting__note">{plural(unavailable, 'saved game')} couldn’t be verified, so nothing is counted yet.</p>}
       <button type="button" className="btn btn-primary" onClick={onBack}>Back to today’s puzzle</button>
     </section>

@@ -4,7 +4,7 @@ A short, free, in-person or video-call session with basketball fans you already 
 
 ## Before you start
 - Use the person's own phone if possible (iPhone and Android both, if you can find both). Note the browser.
-- Daily Five: send the plain link, https://stat-window.vercel.app/. Nothing else.
+- Daily Five: send the plain link, https://www.statwindow.app/. Nothing else.
 - Survival (only once it is on a Preview deployment): send the preview URL with `/?survival`. Never test Survival on production while the flag is off.
 - Say only: "This is a small basketball numbers game. Please think out loud. I'm testing the game, not you, and I won't help unless you're completely stuck." Then stop talking.
 - Keep two columns on your sheet: **what they did or said** (observed) and **what you think it means** (your guess). Don't mix them.

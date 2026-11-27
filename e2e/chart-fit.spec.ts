@@ -1,21 +1,22 @@
 import { expect, test } from '@playwright/test';
 import { highBracket, lowBracket, openAt } from './helpers';
 
-// A missing-point chart must leave both bracket handles on screen, above the sticky Lock
+// A missing-point chart must leave both bracket handles on screen, above the Lock
 // bar, at round start: the shot clock runs, so a player must never have to scroll to drag.
 const CHART_DAY = new Date('2026-12-01T15:00:00Z'); // Q1 is a missing-point chart with a long prompt
 
 // The whole handle, grip included, starts clear of the Lock bar, down to a 320×568 phone.
-for (const [size, need] of [[{ width: 390, height: 844 }, 'all'], [{ width: 320, height: 568 }, 'all'], [{ width: 1440, height: 900 }, 'all']] as const) {
+for (const size of [{ width: 390, height: 844 }, { width: 320, height: 568 }, { width: 1440, height: 900 }]) {
   test(`chart question at ${size.width}×${size.height}: both handles are visible above the Lock bar`, async ({ page }) => {
     await page.setViewportSize(size);
     await openAt(page, CHART_DAY);
     await expect(page.locator('.q-chart')).toBeVisible();
+    await expect(page.locator('.round-court .live-court__court')).toBeInViewport({ ratio: 1 });
     const lock = await page.getByRole('button', { name: /Lock the window|Pull the brackets in first/ }).boundingBox();
     for (const handle of [lowBracket(page), highBracket(page)]) {
       const box = (await handle.boundingBox())!;
       expect(box.y, 'handle top on screen').toBeGreaterThanOrEqual(0);
-      expect(box.y + (need === 'all' ? box.height : need), 'handle clear of the Lock bar').toBeLessThanOrEqual(lock!.y);
+      expect(box.y + box.height, 'handle clear of the Lock bar').toBeLessThanOrEqual(lock!.y);
     }
     expect(await page.evaluate(() => window.scrollY)).toBe(0);
   });
@@ -56,8 +57,7 @@ for (const size of [{ width: 844, height: 390 }, { width: 932, height: 430 }]) {
 
 // The bars must be tall enough to compare (42, 48 and 47 must not look identical), and the
 // Lock must still be on the first screen with both handles. Value labels never overlap.
-// The format instruction is onboarding guidance and stays visible on short phones too
-// (390×664 is the iPhone 13 class the webkit-mobile project uses).
+// Optional help stays accessible on short phones (390×664 is the iPhone 13 WebKit viewport).
 const MIN_PLOT = 88;
 for (const size of [{ width: 320, height: 568 }, { width: 390, height: 664 }, { width: 390, height: 844 }]) {
   test(`chart question at ${size.width}×${size.height}: plot is at least ${MIN_PLOT}px tall, labels apart, Lock in view`, async ({ page }) => {
@@ -65,12 +65,15 @@ for (const size of [{ width: 320, height: 568 }, { width: 390, height: 664 }, { 
     await openAt(page, CHART_DAY);
     const plot = (await page.locator('.q-chart__plot').first().boundingBox())!;
     expect(plot.height).toBeGreaterThanOrEqual(MIN_PLOT);
-    await expect(page.locator('.round .format-cue__line')).toBeVisible();
+    await expect(page.getByRole('button', { name: /About .* questions/ })).toBeInViewport({ ratio: 1 });
     await expect(page.getByRole('button', { name: /Lock the window|Pull the brackets in first/ })).toBeInViewport({ ratio: 1 });
-    // The visible grips, not just their hit areas, start clear of the sticky bar (background included).
+    await expect(page.locator('.round-court .live-court__court')).toBeInViewport({ ratio: 1 });
+    // The visible grips start clear of both the ruler labels and the action bar.
     const bar = (await page.locator('.action-bar').boundingBox())!;
+    const ticks = (await page.locator('.ruler .tick-label').first().boundingBox())!;
     for (const grip of await page.locator('.bracket-grip').all()) {
       const g = (await grip.boundingBox())!;
+      expect(g.y, 'grip below ruler labels').toBeGreaterThanOrEqual(ticks.y + ticks.height);
       expect(g.y + g.height, 'grip clear of the Lock bar').toBeLessThanOrEqual(bar.y);
     }
     const boxes = await page.locator('.q-chart__value').evaluateAll((els) => els.map((e) => {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { niceTicks, plural } from './format';
+import { chartUnitLabel, niceTicks, plural } from './format';
 
 describe('niceTicks', () => {
   it('labels round values across the scale', () => {
@@ -27,5 +27,20 @@ describe('plural', () => {
   it('uses the plural otherwise, with an irregular form when given', () => {
     expect(plural(2, 'point')).toBe('2 points');
     expect(plural(0, 'category', 'categories')).toBe('0 categories');
+  });
+});
+
+describe('chartUnitLabel', () => {
+  it('omits the unit when the chart title already names it (any case)', () => {
+    expect(chartUnitLabel('Points in one game', 'points')).toBeNull();
+    expect(chartUnitLabel('Assists per game: playmakers on contenders', 'assists per game')).toBeNull();
+    expect(chartUnitLabel('Elite regular seasons, in wins', 'wins')).toBeNull();
+    expect(chartUnitLabel('Rebounds per game, star centers', 'rebounds a game')).toBeNull(); // "a game" reads as "per game"
+  });
+  it('keeps the unit when the title only shares part of a word or names something else', () => {
+    expect(chartUnitLabel('Point guards on contending teams', 'assists per game')).toBe('assists per game');
+    expect(chartUnitLabel("Finals MVPs' scoring averages", 'points per game')).toBe('points per game');
+    expect(chartUnitLabel('Famous winning streaks', 'wins')).toBe('wins');
+    expect(chartUnitLabel('Threes in a Finals game', 'three-pointers')).toBe('three-pointers');
   });
 });

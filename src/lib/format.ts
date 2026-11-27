@@ -50,3 +50,13 @@ export function niceTicks(min: number, max: number, target: number): { major: nu
   if (!major.some((m) => Math.abs(m - max) < gap)) major.push(round(max));
   return { major, minor: minor.filter((t) => !major.includes(t)) };
 }
+
+/**
+ * The unit to print after a chart title, or null when the title already says it
+ * ("Points in one game" needs no "(points)"). Whole words, any case; "a game" reads as "per game".
+ */
+export function chartUnitLabel(title: string, unit: string): string | null {
+  const norm = (s: string) => s.toLowerCase().replace(/\ba game\b/g, 'per game').replace(/\s+/g, ' ').trim();
+  const phrase = norm(unit).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`(^|[^\\p{L}\\p{N}-])${phrase}($|[^\\p{L}\\p{N}-])`, 'u').test(norm(title)) ? null : unit;
+}

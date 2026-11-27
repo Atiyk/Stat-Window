@@ -21,3 +21,9 @@ for (const [size, need] of [[{ width: 390, height: 844 }, 'all'], [{ width: 320,
     expect(await page.evaluate(() => window.scrollY)).toBe(0);
   });
 }
+
+test('the chart caption does not repeat a unit its title already names', async ({ page }) => {
+  await openAt(page, new Date('2026-12-03T15:00:00Z')); // Q1: "Points in one game", unit points
+  await expect(page.locator('.q-chart__title')).toHaveText('Points in one game');
+  await expect(page.locator('.q-chart__unit')).toHaveCount(0);
+});

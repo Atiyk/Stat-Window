@@ -9,7 +9,7 @@
     {
       "id": "nba-kobe-81",
       "sport": "NBA",
-      "prompt": "Bars: three single-game scoring records set before. How many points did Kobe Bryant score against Toronto in January 2006?",
+      "prompt": "The chart shows three single-game scoring records set before it. How many points did Kobe Bryant score against Toronto in January 2006?",
       "context": "Lakers vs Toronto Raptors · January 22, 2006",
       "answer": 81,
       "unit": {
@@ -219,7 +219,7 @@
     {
       "id": "nba-bibby02-regular-apg",
       "sport": "NBA",
-      "prompt": "Bars: other contenders' lead playmakers. How many assists per game did Kings point guard Mike Bibby average in 2001–02?",
+      "prompt": "Compare other contenders' lead playmakers. How many assists per game did Kings point guard Mike Bibby average in 2001–02?",
       "context": "Sacramento Kings · 2001–02 regular season",
       "answer": 5,
       "unit": {

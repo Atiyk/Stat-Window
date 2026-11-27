@@ -9,7 +9,7 @@
     {
       "id": "nba-lebron13-g7",
       "sport": "NBA",
-      "prompt": "Bars: other stars' famous Finals nights. How many points did LeBron James score in Game 7 of the 2013 Finals?",
+      "prompt": "The chart shows other stars' famous Finals nights. How many points did LeBron James score in Game 7 of the 2013 Finals?",
       "context": "2013 NBA Finals · Game 7 · vs San Antonio",
       "answer": 37,
       "unit": {
@@ -221,7 +221,7 @@
     {
       "id": "nba-west08-season-ppg",
       "sport": "NBA",
-      "prompt": "Bars: other forwards' scoring seasons. What did David West average as Chris Paul's frontcourt partner on the 2007–08 Hornets?",
+      "prompt": "Other forwards' scoring seasons are charted. What did David West average as Chris Paul's frontcourt partner on the 2007–08 Hornets?",
       "context": "New Orleans · regular-season offense",
       "answer": 20.6,
       "unit": {

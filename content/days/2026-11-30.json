@@ -9,7 +9,7 @@
     {
       "id": "nba-wade06-g3",
       "sport": "NBA",
-      "prompt": "Bars: other guards' famous Finals nights. Down 2–0 in 2006, how many points did Dwyane Wade score to win Game 3?",
+      "prompt": "Other guards' famous Finals nights are charted. Down 2–0 in 2006, how many points did Dwyane Wade score to win Game 3?",
       "context": "2006 NBA Finals · Game 3 · vs Dallas",
       "answer": 42,
       "unit": {
@@ -159,7 +159,7 @@
     {
       "id": "nba-gordon23-finals-g4-points",
       "sport": "NBA",
-      "prompt": "Bars: Finals nights by players beside a superstar. How many points did Aaron Gordon score in Game 4 of the 2023 Finals?",
+      "prompt": "The chart shows Finals nights by players beside a superstar. How many points did Aaron Gordon score in Game 4 of the 2023 Finals?",
       "context": "Denver Nuggets at Miami Heat · June 9, 2023",
       "answer": 27,
       "unit": {

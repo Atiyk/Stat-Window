@@ -9,7 +9,7 @@
     {
       "id": "nba-gsw16-start",
       "sport": "NBA",
-      "prompt": "Bars: other famous season-opening win streaks. How many straight wins did the 2015–16 Warriors start with?",
+      "prompt": "The chart shows other famous season-opening win streaks. How many straight wins did the 2015–16 Warriors start with?",
       "context": "Golden State Warriors · 2015–16",
       "answer": 24,
       "unit": {
@@ -275,7 +275,7 @@
     {
       "id": "nba-dame21-playoffs-12-threes",
       "sport": "NBA",
-      "prompt": "Bars: record three-point nights in the Finals and season. How many threes did Damian Lillard make in his 2021 double-overtime playoff game?",
+      "prompt": "Compare the Finals and season three-point records. How many threes did Damian Lillard make in his 2021 double-overtime playoff game?",
       "context": "Damian Lillard · Blazers at Nuggets · 2021 playoffs",
       "answer": 12,
       "unit": {

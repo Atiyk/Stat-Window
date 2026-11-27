@@ -194,7 +194,7 @@
     {
       "id": "nba-nuggets09-hornets-margin-v52a",
       "sport": "NBA",
-      "prompt": "Bars: famous routs, plus the regular-season record. By how many points did Denver beat New Orleans in a 2009 playoff game?",
+      "prompt": "The chart shows famous routs, plus the regular-season record. By how many points did Denver beat New Orleans in a 2009 playoff game?",
       "context": "2009 Western Conference first round · Game 4 · at New Orleans",
       "answer": 58,
       "unit": {
@@ -280,7 +280,7 @@
     {
       "id": "nba-klay16-okc-game6-41",
       "sport": "NBA",
-      "prompt": "Bars: other famous playoff scoring nights. Facing elimination at OKC in 2016, how many did Klay Thompson score in Game 6?",
+      "prompt": "Compare other famous playoff scoring nights. Facing elimination at OKC in 2016, how many did Klay Thompson score in Game 6?",
       "context": "Klay Thompson · Warriors at Thunder · 2016 playoffs",
       "answer": 41,
       "unit": {

@@ -9,7 +9,7 @@
     {
       "id": "nba-hornets08-season-wins",
       "sport": "NBA",
-      "prompt": "Bars: other top Western Conference seasons. How many regular-season games did Chris Paul's 2007–08 Hornets win?",
+      "prompt": "The chart shows other top Western Conference seasons. How many regular-season games did Chris Paul's 2007–08 Hornets win?",
       "context": "New Orleans · first full season back in the city",
       "answer": 56,
       "unit": {
@@ -218,7 +218,7 @@
     {
       "id": "nba-dumars89-finals-ppg",
       "sport": "NBA",
-      "prompt": "Bars: other Finals MVPs' scoring averages. What did Detroit guard Joe Dumars average in the 1989 Finals?",
+      "prompt": "Compare other Finals MVPs' scoring averages. What did Detroit guard Joe Dumars average in the 1989 Finals?",
       "context": "1989 NBA Finals · four games vs Lakers",
       "answer": 27.3,
       "unit": {

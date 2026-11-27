@@ -42,10 +42,14 @@ export function shareText(opts: {
     `Stat Window ${opts.label ?? `No. ${opts.number ?? 0}`}  ${total}/${MAX_TOTAL}${detail}`,
     opts.results.map(roundMark).join(''),
     ...(opts.percentile ? [opts.percentile] : []),
-    total > 0 && !opts.untimed ? `Think you know ball? Beat ${total}.` : 'Same five questions. Your turn.',
+    inviteLine(total, opts.untimed),
     opts.url,
   ].join('\n');
 }
+
+/** The invitation under a shared score, the same in the text and on the card image. */
+export const inviteLine = (total: number, untimed = false): string =>
+  total > 0 && !untimed ? `Think you know ball? Beat ${total}.` : 'Same five questions. Your turn.';
 
 export type StreakMilestone = 3 | 7 | 30;
 

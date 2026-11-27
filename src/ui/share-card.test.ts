@@ -166,3 +166,20 @@ describe('weekly scorecard image', () => {
     expect(await weeklyCardBlob(model, 'square')).toBeNull();
   });
 });
+
+describe('classic card invitation', () => {
+  const card = { label: 'No. 9', date: 'Nov 24', format: 'square', context: null, style: 'classic', host } as const;
+  const lineOf = async (input: CardInput) => {
+    const { words } = mockCanvas();
+    await cardBlob(input);
+    return words.filter((w) => /Beat|Your turn/.test(w));
+  };
+  it('matches the share text: “Think you know ball? Beat N.”', async () => {
+    expect(await lineOf({ ...card, results: rounds })).toEqual(['Think you know ball? Beat 154.']);
+  });
+  it('a zero score or an untimed run gets the same line as the text', async () => {
+    const zero = rounds.map(() => ({ points: 0, hit: false }));
+    expect(await lineOf({ ...card, results: zero })).toEqual(['Same five questions. Your turn.']);
+    expect(await lineOf({ ...card, results: rounds, untimed: true })).toEqual(['Same five questions. Your turn.']);
+  });
+});

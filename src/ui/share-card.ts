@@ -10,7 +10,7 @@ import {
 } from '../engine/court-run';
 import type { RoundRecord } from '../engine/game';
 import { SHOT_MARKER_RADIUS, SHOT_OUTCOME_LABELS, SHOT_UNSUBMITTED_DIVIDER, SHOT_UNSUBMITTED_SPAN, type ShotAttempt } from '../engine/shot-chart';
-import { MAX_TOTAL, formatAnswerTime } from '../engine/summary';
+import { MAX_TOTAL, formatAnswerTime, inviteLine } from '../engine/summary';
 import { drawSymbol } from '../brand/symbol';
 import type { WeeklyCardDay, WeeklyCardModel } from '../engine/weekly';
 
@@ -167,7 +167,7 @@ function drawClassicCard(ctx: CanvasRenderingContext2D, input: ClassicCard): voi
   }
   ctx.fillStyle = C.ink;
   ctx.font = `850 54px ${sans}`;
-  ctx.fillText(total > 0 && !input.untimed ? `Same five questions. Beat ${total}?` : 'Same five questions. Your turn.', 96, y);
+  ctx.fillText(inviteLine(total, input.untimed), 96, y);
   ctx.fillStyle = C.soft;
   ctx.font = `500 34px ${sans}`;
   ctx.fillText(input.host, 96, footerY);

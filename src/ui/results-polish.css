@@ -120,3 +120,26 @@
 .results-links { display: flex; flex-wrap: wrap; gap: 0 var(--space-5); margin-top: calc(var(--space-2) - var(--space-5)); }
 .results-links .btn-link { min-height: 44px; margin: 0; color: var(--brand); font-size: 0.9375rem; }
 .results-simple .privacy-foot { margin: 0; }
+
+/* Short landscape (phones on their side): the score and Challenge a friend share the first
+   screen. Two columns: score, verdict and the share on the left; court, cells and time on the
+   right. DOM order (and so reading order) is unchanged. */
+@media (orientation: landscape) and (max-height: 500px) and (min-width: 640px) {
+  article.results-simple {
+    max-width: 920px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    grid-template-areas: 'head court' 'head ledger' 'actions time';
+    column-gap: 32px;
+    row-gap: var(--space-3);
+    align-items: start;
+  }
+  article.results-simple > * { grid-column: 1 / -1; }
+  article.results-simple .results-main { display: contents; }
+  article.results-simple .results-main > .results-head { grid-area: head; }
+  article.results-simple .results-main > .results-court { grid-area: court; }
+  article.results-simple .results-main > .scorecard { grid-area: ledger; }
+  article.results-simple .results-main > .results-time { grid-area: time; }
+  article.results-simple > .results-actions { grid-area: actions; }
+  article.results-simple .results-total { margin-top: 4px; }
+  article.results-simple .results-score { font-size: clamp(4rem, 22vh, 5.5rem); }
+}

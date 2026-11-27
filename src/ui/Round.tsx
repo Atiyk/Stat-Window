@@ -251,6 +251,23 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
     return () => window.clearTimeout(t);
   }, [state.phase, reduced, last]);
 
+  // The landed answer and the ruler's axis must sit above the sticky Next bar (at 320×568 it
+  // covered the axis). Scroll just enough, never so far that the answer itself leaves the top.
+  useEffect(() => {
+    if (state.phase !== 'resolved') return;
+    const root = roundRef.current;
+    const ruler = root?.querySelector('.ruler');
+    const answer = root?.querySelector('.reveal-answer');
+    const bar = root?.querySelector('.action-bar');
+    if (!ruler || !answer || !bar) return;
+    const sticky = /sticky|fixed/.test(getComputedStyle(bar).position);
+    const limit = Math.min(window.innerHeight, sticky ? bar.getBoundingClientRect().top : Infinity) - 8;
+    const overlap = ruler.getBoundingClientRect().bottom - limit;
+    const room = answer.getBoundingClientRect().top - 8;
+    const by = Math.min(overlap, room);
+    if (by > 0) window.scrollBy({ top: by, behavior: reduced ? 'instant' : 'smooth' });
+  }, [state.phase, state.round, reduced]);
+
   // Move the marker from the far end of the ruler and settle on the landing frame.
   useEffect(() => {
     if (state.phase !== 'revealing' || !last) return;

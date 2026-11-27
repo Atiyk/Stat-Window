@@ -151,6 +151,13 @@ describe('ranking and trajectory', () => {
     expect(formatIssues(withFormat(r, { kind: 'ranking' }), index(r)).join()).toMatch(/population and tie/);
     expect(formatIssues(withFormat(r, { kind: 'ranking', ranking: { population: 'all NBA players, regular season', ties: 'shared rank' } }), index(r))).toEqual([]);
   });
+  it('a recall question with a ranking spec states its population and tie rule too (taxonomy v2)', () => {
+    const r = base('nba-rank', 4);
+    const recall = (ranking: { population: string; ties: string }) => formatIssues(withFormat(r, { kind: 'recall', ranking }), index(r)).join();
+    expect(recall({ population: '', ties: 'shared rank' })).toMatch(/population and tie/);
+    expect(recall({ population: 'all NBA players, regular season', ties: ' ' })).toMatch(/population and tie/);
+    expect(recall({ population: 'all NBA players, regular season', ties: 'shared rank' })).toBe('');
+  });
   it('a trajectory needs a derivation', () => {
     const t = base('nba-t', 4);
     expect(formatIssues(withFormat(t, { kind: 'trajectory' }), index(t)).join()).toMatch(/needs a derivation/);

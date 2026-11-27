@@ -168,7 +168,8 @@ export function formatIssues(f: FormatFact, byId: ReadonlyMap<string, FormatFact
   if (spec.kind === 'ratio' && spec.derive && spec.derive.op !== 'percent') out.push('a ratio question derives a percent');
   if (spec.kind === 'difference' && spec.derive && spec.derive.op !== 'difference') out.push('a difference question derives a difference');
   if (spec.kind === 'trajectory' && !spec.derive) out.push('a trajectory question needs a derivation');
-  if (spec.kind === 'ranking' && !(spec.ranking?.population?.trim() && spec.ranking.ties?.trim()))
+  // A ranked count is a recall question under taxonomy v2; its ranking spec is held to the same rule.
+  if ((spec.kind === 'ranking' || spec.ranking) && !(spec.ranking?.population?.trim() && spec.ranking.ties?.trim()))
     out.push('a ranking question must state its population and tie convention');
   return out;
 }

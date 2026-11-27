@@ -22,6 +22,9 @@ describe('eventPath', () => {
       [{ name: 'weekly_open', source: 'home' }, '/e/weekly/open/home'],
       [{ name: 'weekly_share', method: 'native' }, '/e/weekly/share/native'],
       [{ name: 'practice_discover', step: 'expand' }, '/e/practice/expand/home'],
+      [{ name: 'tutorial', step: 'start' }, '/e/tutorial/start'],
+      [{ name: 'tutorial', step: 'skip' }, '/e/tutorial/skip'],
+      [{ name: 'tutorial', step: 'complete' }, '/e/tutorial/complete'],
     ];
     for (const [e, path] of cases) expect(eventPath(e)).toBe(path);
   });

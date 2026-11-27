@@ -98,6 +98,7 @@ Report small numbers as counts with an interval, not as rates: 7 of 10 is "somew
 | `/e/weekly/share/{native,clipboard,failed,cancelled}` | the weekly scorecard share button result | does the weekly card get used? |
 | `/e/weekly/share/{native-image,image-saved}` | the share sheet sent the weekly scorecard PNG / "Save image" downloaded it | does the weekly image get used? |
 | `/e/practice/{expand,start}/home` | the home "Practice" disclosure was opened / a past game was started from it | practice discovery |
+| `/e/tutorial/{start,skip,complete}` | the first-play tutorial was shown (per page load) / skipped before its lock / played through to its Play button (V5.2) | tutorial start and completion |
 (V5.1 entries carry no scores, days, answers or counts: only the fixed words in braces.)
 
 Survival and its experiment add the paths in `docs/SURVIVAL.md` ("Measurement"); they are only sent from a build with `VITE_SURVIVAL=on`, which production does not have.

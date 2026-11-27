@@ -149,20 +149,30 @@ test('first-time tutorial impressions and practice do not count as daily starts'
   await page.goto('/');
   await page.getByRole('button', { name: 'Try a practice question first' }).click();
   await expect(page.getByRole('heading', { name: 'How many regular-season games did the 2015–16 Golden State Warriors win?' })).toBeVisible();
-  await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new']);
+  // The tutorial counts as a tutorial start, never as a daily start.
+  await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new', '/e/tutorial/start']);
   // Practice now uses the real ruler and Lock action; it must not emit a real run start.
   await page.getByRole('slider', { name: 'Low end of your window' }).focus();
   await page.keyboard.press('ArrowRight');
   await page.getByRole('button', { name: 'Lock the window' }).click();
   await expect(page.locator('.onboarding-play .reveal-answer')).toBeVisible();
-  await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new']);
+  await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new', '/e/tutorial/start']);
   await page.getByRole('button', { name: /^Play Game \d+$/ }).click();
   await expect(page.locator('.question')).toBeVisible();
-  await expect.poll(() => views(page)).toContain('/e/start/daily');
+  await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new', '/e/tutorial/start', '/e/tutorial/complete', '/e/start/daily']);
   // Refresh preserves an in-progress clock, not a second run-start event.
   await page.reload();
   await expect(page.locator('.question')).toBeVisible();
   await expect.poll(() => views(page)).toEqual(['/']);
+});
+
+test('skipping the tutorial counts a skip, not a completion', async ({ page }) => {
+  await page.clock.setFixedTime(NBA_FIRST);
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Try a practice question first' }).click();
+  await page.getByRole('button', { name: 'Skip tutorial and start' }).click();
+  await expect(page.locator('.question')).toBeVisible();
+  await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new', '/e/tutorial/start', '/e/tutorial/skip', '/e/start/daily']);
 });
 
 test('a returning player can leave the ready screen without registering a start', async ({ page }) => {

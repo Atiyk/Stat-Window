@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import { CORE_INTRO } from '../content/teaching';
+import { track } from '../lib/track';
 import { TeachingPlay } from './TeachingPlay';
 
 /**
@@ -14,6 +16,9 @@ export function Onboarding({ onDone, onGuide, playLabel }: {
   /** What the final button starts, e.g. "Play Game 12". */
   playLabel: string;
 }) {
+  useEffect(() => track({ name: 'tutorial', step: 'start' }), []);
+  const skip = () => { track({ name: 'tutorial', step: 'skip' }); onDone(); };
+  const complete = () => { track({ name: 'tutorial', step: 'complete' }); onDone(); };
   return (
     <TeachingPlay
       example={CORE_INTRO}
@@ -26,7 +31,7 @@ export function Onboarding({ onDone, onGuide, playLabel }: {
         <div className="onboarding-top">
           <p className="context onboarding-status"><span className="onboarding-status__kind">Practice · </span><span className="shot-clock">No timer</span></p>
           {/* First in reading order and on first paint at every size: an experienced player starts at once. */}
-          {phase === 'ready' && <button type="button" className="btn-link onboarding-skip" onClick={onDone}>Skip tutorial and start</button>}
+          {phase === 'ready' && <button type="button" className="btn-link onboarding-skip" onClick={skip}>Skip tutorial and start</button>}
         </div>
       )}
       actions={({ phase, moved, lock, replay }) => (
@@ -36,7 +41,7 @@ export function Onboarding({ onDone, onGuide, playLabel }: {
               {moved ? 'Lock the window' : 'Pull the brackets in first'}
             </button>
           ) : phase === 'resolved' ? (
-            <button type="button" className="btn btn-primary" onClick={onDone}>{playLabel}</button>
+            <button type="button" className="btn btn-primary" onClick={complete}>{playLabel}</button>
           ) : (
             <button type="button" className="btn btn-primary" disabled>Revealing…</button>
           )}

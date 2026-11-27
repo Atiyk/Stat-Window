@@ -10,7 +10,7 @@ import { totalPoints, type Mode, type PracticeTiming, type RoundRecord } from '.
 import { MAX_TOTAL, answerTimeMs, formatAnswerTime, shareText, postgameHighlight, type OfficialHighlight, type PlayerStats } from '../engine/summary';
 import { ordinal, toughestQuestion } from '../engine/percentile';
 import { crowdThreshold, questionCrowdFor } from '../lib/scores';
-import { formatCountdown, formatDay, formatValue } from '../lib/format';
+import { formatCountdown, formatDay, formatValue, plural } from '../lib/format';
 import { isMixedSportDay } from '../content/cutover';
 import { track, type PlayMode, type ShareMethod } from '../lib/track';
 import { useNow } from './hooks';
@@ -76,9 +76,9 @@ function localTimeOf(at: Date): string | null {
   return at.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
 }
 
-function friendLine(total: number, vs: number, time: number | null, vsTime: number | null): string {
-  if (total > vs) return `You beat your friend by ${total - vs} points.`;
-  if (total < vs) return `Your friend leads by ${vs - total} points. Send a rematch.`;
+export function friendLine(total: number, vs: number, time: number | null, vsTime: number | null): string {
+  if (total > vs) return `You beat your friend by ${plural(total - vs, 'point')}.`;
+  if (total < vs) return `Your friend leads by ${plural(vs - total, 'point')}. Send a rematch.`;
   if (time !== null && vsTime !== null) {
     if (time < vsTime) return `Tied at ${total}. You win the time tiebreaker!`;
     if (time > vsTime) return `Tied at ${total}. Your friend wins on time.`;

@@ -70,7 +70,7 @@
     {
       "id": "nba-rockets18-wins",
       "sport": "NBA",
-      "prompt": "The chart shows four other No. 1 seeds from the 2010s. How many games did James Harden's 2017–18 Rockets win?",
+      "prompt": "The chart shows two other No. 1 seeds from the late 2010s. How many games did James Harden's 2017–18 Rockets win?",
       "context": "Houston Rockets · 2017–18 · 82 games",
       "answer": 65,
       "unit": {
@@ -118,17 +118,9 @@
         }
       ],
       "chart": {
-        "title": "No. 1 seeds' wins, 2011 to 2019",
+        "title": "No. 1 seeds' wins, 2015 to 2019",
         "unit": "wins",
         "points": [
-          {
-            "label": "Bulls '11",
-            "value": 62
-          },
-          {
-            "label": "Spurs '14",
-            "value": 62
-          },
           {
             "label": "Hawks '15",
             "value": 60
@@ -151,8 +143,6 @@
           "Houston Rockets"
         ],
         "supports": [
-          "nba-bulls11-regular-wins",
-          "nba-spurs14-season-wins",
           "nba-hawks15-regular-wins",
           "nba-bucks19-season-wins"
         ]

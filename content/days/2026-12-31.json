@@ -9,7 +9,7 @@
     {
       "id": "nba-cavs09-record-wins",
       "sport": "NBA",
-      "prompt": "The chart shows the NBA's best record in each of the three prior seasons. How many games did LeBron's 2008–09 Cavaliers win?",
+      "prompt": "Two other East No. 1 seeds are charted. How many games did LeBron's 2008–09 Cavaliers win?",
       "context": "Cleveland Cavaliers · 2008–09 · 82 games",
       "answer": 66,
       "unit": {
@@ -57,38 +57,33 @@
         }
       ],
       "chart": {
-        "title": "NBA's best record, 2006 to 2009",
+        "title": "East No. 1 seeds' wins, 2001 to 2011",
         "unit": "wins",
         "points": [
           {
-            "label": "Pistons '06",
-            "value": 64
-          },
-          {
-            "label": "Mavs '07",
-            "value": 67
-          },
-          {
-            "label": "Celtics '08",
-            "value": 66
+            "label": "Sixers '01",
+            "value": 56
           },
           {
             "label": "Cavs '09",
             "value": null
+          },
+          {
+            "label": "Bulls '11",
+            "value": 62
           }
         ]
       },
       "meta": {
         "format": "missing-point",
         "family": "wins-season",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Cleveland Cavaliers"
         ],
         "supports": [
-          "nba-pistons06-wins",
-          "nba-mavs07-wins",
-          "nba-celtics08-wins"
+          "nba-sixers01-regular-wins",
+          "nba-bulls11-regular-wins"
         ]
       }
     },

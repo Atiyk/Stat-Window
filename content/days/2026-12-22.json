@@ -72,7 +72,7 @@
     {
       "id": "nba-bulls97-wins",
       "sport": "NBA",
-      "prompt": "The chart shows three elite regular seasons. How many games did the 1996–97 Bulls win, a year after going 72–10?",
+      "prompt": "Three earlier champions' win totals are charted. How many games did the 1996–97 Bulls win, a year after going 72–10?",
       "context": "Chicago Bulls · 1996–97 · 82 games",
       "answer": 69,
       "unit": {
@@ -120,24 +120,24 @@
         }
       ],
       "chart": {
-        "title": "Elite regular seasons, in wins",
+        "title": "Champions' wins, 1983 to 1997",
         "unit": "wins",
         "points": [
           {
-            "label": "Celtics '86",
-            "value": 67
+            "label": "Sixers '83",
+            "value": 65
+          },
+          {
+            "label": "Lakers '87",
+            "value": 65
+          },
+          {
+            "label": "Pistons '89",
+            "value": 63
           },
           {
             "label": "Bulls '97",
             "value": null
-          },
-          {
-            "label": "Mavs '07",
-            "value": 67
-          },
-          {
-            "label": "Heat '13",
-            "value": 66
           }
         ]
       },
@@ -149,9 +149,9 @@
           "Chicago Bulls"
         ],
         "supports": [
-          "nba-celtics86-wins",
-          "nba-mavs07-wins",
-          "nba-heat13-wins"
+          "nba-sixers83-wins",
+          "nba-lakers87-wins",
+          "nba-pistons89-wins"
         ]
       }
     },

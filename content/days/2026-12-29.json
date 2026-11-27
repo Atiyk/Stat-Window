@@ -285,7 +285,7 @@
     {
       "id": "nba-tatum22-bucks-g6-46",
       "sport": "NBA",
-      "prompt": "The chart shows three other star playoff nights against Milwaukee. Facing elimination there in 2022, how many did Jayson Tatum score?",
+      "prompt": "The chart shows two other star playoff nights against Milwaukee. Facing elimination there in 2022, how many did Jayson Tatum score?",
       "context": "Jayson Tatum · Celtics at Bucks · 2022 East semifinals · Game 6",
       "answer": 46,
       "unit": {
@@ -341,10 +341,6 @@
             "value": 49
           },
           {
-            "label": "Trae '21",
-            "value": 48
-          },
-          {
             "label": "Tatum '22",
             "value": null
           },
@@ -364,7 +360,6 @@
         ],
         "supports": [
           "nba-durant21-nets-bucks-g5-49",
-          "nba-trae21-bucks-g1-48",
           "nba-butler23-56-bucks-upset"
         ]
       }

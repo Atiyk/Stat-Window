@@ -133,7 +133,7 @@
     {
       "id": "nba-kobe05-62-three-quarters",
       "sport": "NBA",
-      "prompt": "The chart shows two other famous Kobe nights. How many points did he score in three quarters against Dallas in December 2005?",
+      "prompt": "Kobe's 81 and the 70-point games of Booker and Luka are charted. How many did Kobe score in three quarters vs Dallas in December 2005?",
       "context": "Lakers vs Dallas Mavericks · 2005–06",
       "answer": 62,
       "unit": {
@@ -181,7 +181,7 @@
         }
       ],
       "chart": {
-        "title": "Kobe Bryant's biggest scoring nights",
+        "title": "Points in one game, 2005 to 2024",
         "unit": "points",
         "points": [
           {
@@ -189,12 +189,16 @@
             "value": null
           },
           {
-            "label": "vs TOR Jan '06",
+            "label": "Kobe '06",
             "value": 81
           },
           {
-            "label": "Final game '16",
-            "value": 60
+            "label": "Booker '17",
+            "value": 70
+          },
+          {
+            "label": "Luka '24",
+            "value": 73
           }
         ]
       },
@@ -208,7 +212,8 @@
         ],
         "supports": [
           "nba-kobe-81",
-          "nba-kobe16-final-game"
+          "nba-booker17-70",
+          "nba-luka24-73-hawks"
         ]
       }
     },

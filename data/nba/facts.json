@@ -2249,14 +2249,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Before 2006, Baylor and Wilt owned the biggest scoring nights. How many points did Kobe Bryant score against Toronto in January 2006?",
+   "prompt": "Wilt's 100 and the 71-point nights of Elgin Baylor and David Robinson are charted. How many did Kobe Bryant score against Toronto in 2006?",
    "context": "Lakers vs Toronto Raptors · January 22, 2006",
    "reveal": "81, second only to Wilt's 100, in a game the Lakers trailed by 14 at halftime.",
    "min": 40,
    "max": 110,
    "step": 1,
    "difficulty": "easy",
-   "difficultyReason": "The most famous modern scoring night, framed against the scoring records it chased; an easy, satisfying opener.",
+   "difficultyReason": "The most famous modern scoring night, framed by Wilt's 100 and two 71s; an easy, satisfying opener.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -2300,12 +2300,12 @@
        "fact": "nba-baylor60-71"
       },
       {
-       "label": "Wilt '61",
-       "fact": "nba-wilt61-78"
-      },
-      {
        "label": "Wilt '62",
        "fact": "nba-wilt-100"
+      },
+      {
+       "label": "Robinson '94",
+       "fact": "nba-robinson94-71"
       },
       {
        "label": "Kobe '06",
@@ -2463,14 +2463,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows two other famous Kobe nights. How many points did he score in three quarters against Dallas in December 2005?",
+   "prompt": "Kobe's 81 and the 70-point games of Booker and Luka are charted. How many did Kobe score in three quarters vs Dallas in December 2005?",
    "context": "Lakers vs Dallas Mavericks · 2005–06",
    "reveal": "62, one more than the whole Mavericks team had at that point.",
    "min": 15,
    "max": 90,
    "step": 1,
    "difficulty": "hard",
-   "difficultyReason": "Kobe's 81 and 60 frame his ceiling; players judge how much of that he reached before sitting the fourth quarter.",
+   "difficultyReason": "Full-game peaks of 70 to 81 frame his ceiling; players judge how much of that Kobe reached before sitting the fourth quarter.",
    "ratings": {
     "interest": 5,
     "recognizability": 4,
@@ -2506,7 +2506,7 @@
    "format": {
     "kind": "missing-point",
     "chart": {
-     "title": "Kobe Bryant's biggest scoring nights",
+     "title": "Points in one game, 2005 to 2024",
      "unit": "points",
      "points": [
       {
@@ -2514,12 +2514,16 @@
        "fact": "nba-kobe05-62-three-quarters"
       },
       {
-       "label": "vs TOR Jan '06",
+       "label": "Kobe '06",
        "fact": "nba-kobe-81"
       },
       {
-       "label": "Final game '16",
-       "fact": "nba-kobe16-final-game"
+       "label": "Booker '17",
+       "fact": "nba-booker17-70"
+      },
+      {
+       "label": "Luka '24",
+       "fact": "nba-luka24-73-hawks"
       }
      ]
     }
@@ -2616,14 +2620,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows win totals for three early-'70s powers. How many games did the 1971–72 Lakers win?",
+   "prompt": "The chart shows three later champions' win totals. How many games did the 1971–72 Lakers win?",
    "context": "Los Angeles Lakers · 1971–72 · 82 games",
    "reveal": "The best record in NBA history at the time, and the franchise's first title in Los Angeles.",
    "min": 50,
    "max": 80,
    "step": 1,
    "difficulty": "medium",
-   "difficultyReason": "Neighboring 66 and 68 frame it; whether the Lakers topped both is the call.",
+   "difficultyReason": "Later champions at 63 to 65 frame it; whether the early-'70s Lakers topped them all is the call.",
    "ratings": {
     "interest": 4,
     "recognizability": 4,
@@ -2659,20 +2663,24 @@
    "format": {
     "kind": "missing-point",
     "chart": {
-     "title": "Regular-season wins",
+     "title": "Champions' regular-season wins",
      "unit": "wins",
      "points": [
-      {
-       "label": "MIL 1970–71",
-       "fact": "nba-bucks71-wins"
-      },
       {
        "label": "LAL 1971–72",
        "fact": "nba-lakers72-wins"
       },
       {
-       "label": "BOS 1972–73",
-       "fact": "nba-celtics73-wins"
+       "label": "Lakers '87",
+       "fact": "nba-lakers87-wins"
+      },
+      {
+       "label": "Pistons '89",
+       "fact": "nba-pistons89-wins"
+      },
+      {
+       "label": "Celtics '24",
+       "fact": "nba-celtics24-wins"
       }
      ]
     }
@@ -3386,14 +3394,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows three elite regular seasons. How many games did the 1996–97 Bulls win, a year after going 72–10?",
+   "prompt": "Three earlier champions' win totals are charted. How many games did the 1996–97 Bulls win, a year after going 72–10?",
    "context": "Chicago Bulls · 1996–97 · 82 games",
    "reveal": "The league's best record; injuries and a last-game Pippen miss ended their chase of 70.",
    "min": 50,
    "max": 82,
    "step": 1,
    "difficulty": "medium",
-   "difficultyReason": "Elite totals of 66 and 67 frame it; players judge if the Bulls topped them.",
+   "difficultyReason": "Champions at 63 to 65 frame it; players judge how far the 72–10 Bulls' follow-up rose above them.",
    "ratings": {
     "interest": 4,
     "recognizability": 4,
@@ -3429,24 +3437,24 @@
    "format": {
     "kind": "missing-point",
     "chart": {
-     "title": "Elite regular seasons, in wins",
+     "title": "Champions' wins, 1983 to 1997",
      "unit": "wins",
      "points": [
       {
-       "label": "Celtics '86",
-       "fact": "nba-celtics86-wins"
+       "label": "Sixers '83",
+       "fact": "nba-sixers83-wins"
+      },
+      {
+       "label": "Lakers '87",
+       "fact": "nba-lakers87-wins"
+      },
+      {
+       "label": "Pistons '89",
+       "fact": "nba-pistons89-wins"
       },
       {
        "label": "Bulls '97",
        "fact": "nba-bulls97-wins"
-      },
-      {
-       "label": "Mavs '07",
-       "fact": "nba-mavs07-wins"
-      },
-      {
-       "label": "Heat '13",
-       "fact": "nba-heat13-wins"
       }
      ]
     }
@@ -3544,7 +3552,7 @@
    "max": 20,
    "step": 1,
    "difficulty": "hard",
-   "difficultyReason": "Finals barrages from 7 to 9 frame the scale; players judge whether a non-specialist matched the shooters.",
+   "difficultyReason": "Finals barrages from 6 to 9 frame the scale; players judge where a non-specialist landed among the shooters.",
    "ratings": {
     "interest": 3,
     "recognizability": 2,
@@ -3584,8 +3592,8 @@
      "unit": "threes",
      "points": [
       {
-       "label": "Smith '95",
-       "fact": "nba-smith95-threes"
+       "label": "Cooper '87",
+       "fact": "nba-cooper87-threes"
       },
       {
        "label": "Pippen '97",
@@ -3596,8 +3604,8 @@
        "fact": "nba-allen10-g2-threes"
       },
       {
-       "label": "Miller '12",
-       "fact": "nba-miller12-g5-threes"
+       "label": "Battier '13",
+       "fact": "nba-battier13-g7-threes"
       },
       {
        "label": "Curry '18",
@@ -4271,14 +4279,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Duncan's, Shaq's and Jaylen Brown's Finals MVP averages are charted. What did Detroit guard Joe Dumars average in the 1989 Finals?",
+   "prompt": "Shaq's and Jaylen Brown's Finals MVP averages are charted. What did Detroit guard Joe Dumars average in the 1989 Finals?",
    "context": "1989 NBA Finals · four games vs Lakers",
    "reveal": "27.3, leading the Bad Boys to a sweep of the Lakers and Detroit's first title.",
    "min": 10,
    "max": 40,
    "step": 0.1,
    "difficulty": "hard",
-   "difficultyReason": "Finals MVP averages from 20.8 to 38.0 frame it; players judge a guard on a defense-first champion.",
+   "difficultyReason": "Finals MVP averages of 20.8 and 38.0 frame a wide band; players judge a guard on a defense-first champion.",
    "ratings": {
     "interest": 3,
     "recognizability": 3,
@@ -4320,10 +4328,6 @@
       {
        "label": "Dumars '89",
        "fact": "nba-dumars89-finals-ppg"
-      },
-      {
-       "label": "Duncan '99",
-       "fact": "nba-duncan99-finals-ppg"
       },
       {
        "label": "Shaq '00",
@@ -5492,7 +5496,7 @@
    "max": 75,
    "step": 1,
    "difficulty": "medium",
-   "difficultyReason": "Finals nights from 36 to 42 frame the scale; players decide whether Westbrook beat them in a loss.",
+   "difficultyReason": "Finals nights from 36 to 50 frame the scale; players decide where Westbrook's night in a loss lands.",
    "ratings": {
     "interest": 3,
     "recognizability": 3,
@@ -5540,16 +5544,16 @@
        "fact": "nba-jordan97-flu-game"
       },
       {
-       "label": "Wade '06",
-       "fact": "nba-wade06-g3"
+       "label": "Iverson '01",
+       "fact": "nba-iverson01-g1"
       },
       {
        "label": "Westbrook '12",
        "fact": "nba-westbrook12-g4"
       },
       {
-       "label": "LeBron '16",
-       "fact": "nba-cavs16-g5-41"
+       "label": "Giannis '21",
+       "fact": "nba-giannis21-g6"
       }
      ]
     }
@@ -5584,7 +5588,7 @@
    "max": 14,
    "step": 1,
    "difficulty": "hard",
-   "difficultyReason": "Finals shooting nights from six to eight bracket it; players judge a hobbled reserve's clincher.",
+   "difficultyReason": "Finals shooting nights of six to eight bracket it; players judge a hobbled reserve's clincher.",
    "ratings": {
     "interest": 3,
     "recognizability": 3,
@@ -5626,10 +5630,6 @@
       {
        "label": "Cooper '87",
        "fact": "nba-cooper87-threes"
-      },
-      {
-       "label": "Smith '95",
-       "fact": "nba-smith95-threes"
       },
       {
        "label": "Allen '10",
@@ -5739,7 +5739,7 @@
    "max": 75,
    "step": 1,
    "difficulty": "easy",
-   "difficultyReason": "Three iconic guard Finals nights set a familiar band; Wade's 2006 run is widely remembered.",
+   "difficultyReason": "Three iconic guard Finals nights from 47 to 53 set a familiar band; Wade's 2006 run is widely remembered.",
    "ratings": {
     "interest": 4,
     "recognizability": 4,
@@ -5779,8 +5779,8 @@
      "unit": "points",
      "points": [
       {
-       "label": "Magic '80",
-       "fact": "nba-magic80-g6-points"
+       "label": "West '69",
+       "fact": "nba-west69-g1"
       },
       {
        "label": "Iverson '01",
@@ -5980,7 +5980,7 @@
    "max": 82,
    "step": 1,
    "difficulty": "medium",
-   "difficultyReason": "Three champions between 62 and 69 wins frame the answer; players decide whether the Lakers topped them.",
+   "difficultyReason": "Three champions between 46 and 62 wins frame the answer; players decide how far above them the Lakers went.",
    "ratings": {
     "interest": 4,
     "recognizability": 4,
@@ -6020,10 +6020,6 @@
      "unit": "wins",
      "points": [
       {
-       "label": "Bulls '97",
-       "fact": "nba-bulls97-wins"
-      },
-      {
        "label": "Lakers '00",
        "fact": "nba-lakers00-wins"
       },
@@ -6032,8 +6028,12 @@
        "fact": "nba-spurs14-season-wins"
       },
       {
-       "label": "Celtics '24",
-       "fact": "nba-celtics24-wins"
+       "label": "Bucks '21",
+       "fact": "nba-bucks21-regular-wins"
+      },
+      {
+       "label": "Nuggets '23",
+       "fact": "nba-nuggets23-regular-wins"
       }
      ]
     }
@@ -8258,14 +8258,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Later champions from Seattle, Philadelphia and Boston give the scale. In only their third season, how many games did the 1970–71 Bucks win?",
+   "prompt": "Later 1970s champions from Golden State and Seattle give the scale. In only their third season, how many games did the 1970–71 Bucks win?",
    "context": "Milwaukee Bucks · 1970–71 · 82 games",
    "reveal": "66–16 behind Lew Alcindor and Oscar Robertson, then a Finals sweep of Baltimore.",
    "min": 24,
    "max": 82,
    "step": 1,
    "difficulty": "medium",
-   "difficultyReason": "Three title teams (48 to 65 wins) give a scale for how dominant a young Kareem-era Bucks team was.",
+   "difficultyReason": "Two later champions with 48 and 52 wins show a title team needn't dominate; players judge how far above them the young Bucks went.",
    "ratings": {
     "interest": 3,
     "recognizability": 4,
@@ -8301,7 +8301,7 @@
    "format": {
     "kind": "missing-point",
     "chart": {
-     "title": "Champions of the 1970s and 1980s",
+     "title": "Champions of the 1970s",
      "unit": "wins",
      "points": [
       {
@@ -8309,16 +8309,12 @@
        "fact": "nba-bucks71-wins"
       },
       {
+       "label": "Warriors '75",
+       "fact": "nba-warriors75-season-wins"
+      },
+      {
        "label": "Sonics '79",
        "fact": "nba-sonics79-season-wins"
-      },
-      {
-       "label": "Sixers '83",
-       "fact": "nba-sixers83-wins"
-      },
-      {
-       "label": "Celtics '86",
-       "fact": "nba-celtics86-wins"
       }
      ]
     }
@@ -8409,14 +8405,14 @@
    "asOf": "2026-11-16"
   },
   "question": {
-   "prompt": "The chart shows winning streaks by three other champions. How long was the 1970–71 Bucks' winning streak, the NBA's longest at that time?",
+   "prompt": "The chart shows winning streaks by two other champions. How long was the 1970–71 Bucks' winning streak, the NBA's longest at that time?",
    "context": "Milwaukee Bucks · 1970–71",
    "reveal": "A league record until the Lakers broke it the very next season.",
    "min": 2,
    "max": 30,
    "step": 1,
    "difficulty": "hard",
-   "difficultyReason": "Champions' streaks of 15 to 19 frame the guess; 'longest at that time' hints it was higher still.",
+   "difficultyReason": "Champions' streaks of 15 and 18 frame the guess; 'longest at that time' hints it was higher still.",
    "ratings": {
     "interest": 4,
     "recognizability": 3,
@@ -8466,10 +8462,6 @@
       {
        "label": "Bulls '96",
        "fact": "nba-bulls96-18-streak"
-      },
-      {
-       "label": "Spurs '14",
-       "fact": "nba-spurs14-streak"
       }
      ]
     }
@@ -12664,14 +12656,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows four other No. 1 seeds from the 2010s. How many games did James Harden's 2017–18 Rockets win?",
+   "prompt": "The chart shows two other No. 1 seeds from the late 2010s. How many games did James Harden's 2017–18 Rockets win?",
    "context": "Houston Rockets · 2017–18 · 82 games",
    "reveal": "65, a franchise record, and Houston's first No. 1 seed in its history.",
    "min": 36,
    "max": 82,
    "step": 1,
    "difficulty": "medium",
-   "difficultyReason": "Four top seeds at 60 to 62 wins frame the guess; players judge whether Houston topped them.",
+   "difficultyReason": "Two 60-win top seeds frame the guess; players judge how far Houston topped them.",
    "ratings": {
     "interest": 4,
     "recognizability": 4,
@@ -12707,17 +12699,9 @@
    "format": {
     "kind": "missing-point",
     "chart": {
-     "title": "No. 1 seeds' wins, 2011 to 2019",
+     "title": "No. 1 seeds' wins, 2015 to 2019",
      "unit": "wins",
      "points": [
-      {
-       "label": "Bulls '11",
-       "fact": "nba-bulls11-regular-wins"
-      },
-      {
-       "label": "Spurs '14",
-       "fact": "nba-spurs14-season-wins"
-      },
       {
        "label": "Hawks '15",
        "fact": "nba-hawks15-regular-wins"
@@ -13433,14 +13417,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows four other great Celtics seasons. How many games did Larry Bird's 1983–84 Celtics win?",
+   "prompt": "The chart shows three other great Celtics seasons. How many games did Larry Bird's 1983–84 Celtics win?",
    "context": "Boston Celtics · 1983–84 · 82 games",
    "reveal": "62, the league's best, and Bird's Celtics then beat the Lakers in a seven-game Finals.",
    "min": 30,
    "max": 82,
    "step": 1,
    "difficulty": "medium",
-   "difficultyReason": "Four verified Celtics totals (68, 67, 66, 64) frame the guess; the 1983–84 total sits below all of them.",
+   "difficultyReason": "Three verified Celtics totals (68, 67, 66) frame the guess; the 1983–84 total sits below all of them.",
    "ratings": {
     "interest": 4,
     "recognizability": 4,
@@ -13494,10 +13478,6 @@
       {
        "label": "2007–08",
        "fact": "nba-celtics08-wins"
-      },
-      {
-       "label": "2023–24",
-       "fact": "nba-celtics24-wins"
       }
      ]
     }
@@ -16019,7 +15999,7 @@
    "max": 78,
    "step": 1,
    "difficulty": "easy",
-   "difficultyReason": "Top seeds with 52 to 65 wins frame the guess; players judge how strong a recent top seed needed to be.",
+   "difficultyReason": "Top seeds with 61 to 67 wins frame the guess; players judge whether a recent top seed needed that many.",
    "ratings": {
     "interest": 4,
     "recognizability": 4,
@@ -16059,10 +16039,6 @@
      "unit": "wins",
      "points": [
       {
-       "label": "Sonics '79",
-       "fact": "nba-sonics79-season-wins"
-      },
-      {
        "label": "Lakers '87",
        "fact": "nba-lakers87-wins"
       },
@@ -16073,6 +16049,10 @@
       {
        "label": "Kings '02",
        "fact": "nba-kings02-regular-wins"
+      },
+      {
+       "label": "Mavs '07",
+       "fact": "nba-mavs07-wins"
       },
       {
        "label": "Nuggets '23",
@@ -16459,7 +16439,7 @@
    "max": 25,
    "step": 1,
    "difficulty": "hard",
-   "difficultyReason": "Opening streaks of 10 to 24 frame the scale; players judge where the Sixers' start fits.",
+   "difficultyReason": "Opening streaks of 15 and 24 frame the scale; players judge how far short of them the Sixers' start fell.",
    "ratings": {
     "interest": 4,
     "recognizability": 3,
@@ -16501,10 +16481,6 @@
       {
        "label": "Rockets '94",
        "fact": "nba-rockets94-start"
-      },
-      {
-       "label": "Sonics '94",
-       "fact": "nba-sonics94-opening-streak"
       },
       {
        "label": "76ers '01",
@@ -18465,12 +18441,16 @@
      "unit": "apg",
      "points": [
       {
-       "label": "Bibby '02",
-       "fact": "nba-bibby02-regular-apg"
+       "label": "Oscar '71",
+       "fact": "nba-oscar71-apg"
       },
       {
-       "label": "James '09",
-       "fact": "nba-james09-season-apg"
+       "label": "Payton '94",
+       "fact": "nba-payton94-apg"
+      },
+      {
+       "label": "Bibby '02",
+       "fact": "nba-bibby02-regular-apg"
       },
       {
        "label": "Teague '15",
@@ -18513,7 +18493,7 @@
    "max": 83,
    "step": 1,
    "difficulty": "easy",
-   "difficultyReason": "Three East finalists between 60 and 64 wins make an approachable band for a conference champion.",
+   "difficultyReason": "Three East finalists between 62 and 66 wins make an approachable band for a conference champion.",
    "ratings": {
     "interest": 5,
     "recognizability": 4,
@@ -18561,8 +18541,8 @@
        "fact": "nba-bulls11-regular-wins"
       },
       {
-       "label": "Bucks '19",
-       "fact": "nba-bucks19-season-wins"
+       "label": "Heat '13",
+       "fact": "nba-heat13-wins"
       },
       {
        "label": "Celtics '24",
@@ -19019,14 +18999,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows four low-scoring playoff team totals. How many points did Milwaukee score in its must-win 2021 Game 3 against Brooklyn?",
+   "prompt": "The chart shows three low-scoring playoff team totals. How many points did Milwaukee score in its must-win 2021 Game 3 against Brooklyn?",
    "context": "2021 East semifinals · Milwaukee at home",
    "reveal": "86–83, with Khris Middleton scoring 35; Milwaukee won the series in seven and then the title.",
    "min": 48,
    "max": 148,
    "step": 1,
    "difficulty": "hard",
-   "difficultyReason": "Four grinding playoff totals set the scale; players judge where a defensive must-win night lands.",
+   "difficultyReason": "Three grinding playoff totals from 54 to 92 set the scale; players judge where a defensive must-win night lands.",
    "ratings": {
     "interest": 5,
     "recognizability": 4,
@@ -19072,10 +19052,6 @@
       {
        "label": "Lakers '04",
        "fact": "nba-lakers04-g3-68"
-      },
-      {
-       "label": "Hornets '08",
-       "fact": "nba-hornets08-spurs-g7-points"
       },
       {
        "label": "Raptors '19",
@@ -19319,7 +19295,7 @@
    "max": 82,
    "step": 1,
    "difficulty": "hard",
-   "difficultyReason": "Era peers from 36 to 53 set the scale; players judge a hot guard's overtime night.",
+   "difficultyReason": "Era peers at 42 and 53 set the scale; players judge a hot guard's overtime night.",
    "ratings": {
     "interest": 5,
     "recognizability": 3,
@@ -19361,10 +19337,6 @@
       {
        "label": "West '69",
        "fact": "nba-west69-g1"
-      },
-      {
-       "label": "Barry '75",
-       "fact": "nba-barry75-finals-g2-points"
       },
       {
        "label": "Williams '79",
@@ -19538,14 +19510,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows other contending teams' point guards. How many assists per game did Mark Jackson average for Larry Bird's 1997–98 Pacers?",
+   "prompt": "Walter Davis and Hedo Türkoğlu ran other finalists' offenses. How many assists per game did Mark Jackson average for the 1997–98 Pacers?",
    "context": "Indiana · 1997–98 regular season",
    "reveal": "The steady hand running Larry Bird's first Pacers offense, built around Reggie Miller's shooting.",
    "min": 3,
    "max": 19,
    "step": 0.1,
    "difficulty": "hard",
-   "difficultyReason": "Contenders' point guards range from 5.0 to 14.5; players place a pass-first veteran.",
+   "difficultyReason": "Two finalists' creators at 4.9 and 5.5 frame the low end; players judge how much more a pure point guard dished out.",
    "ratings": {
     "interest": 5,
     "recognizability": 3,
@@ -19581,24 +19553,20 @@
    "format": {
     "kind": "missing-point",
     "chart": {
-     "title": "Point guards on contending teams",
+     "title": "Lead playmakers on conference finalists",
      "unit": "assists per game",
      "points": [
       {
-       "label": "Oscar '71",
-       "fact": "nba-oscar71-apg"
-      },
-      {
-       "label": "Stockton '90",
-       "fact": "nba-stockton90-apg"
+       "label": "Davis '84",
+       "fact": "nba-davis84-regular-apg"
       },
       {
        "label": "Jackson '98",
        "fact": "nba-jackson98-regular-apg"
       },
       {
-       "label": "Bibby '02",
-       "fact": "nba-bibby02-regular-apg"
+       "label": "Türkoğlu '09",
+       "fact": "nba-turkoglu09-regular-apg"
       }
      ]
     }
@@ -19920,7 +19888,7 @@
    "max": 17,
    "step": 0.1,
    "difficulty": "hard",
-   "difficultyReason": "Contenders' playmakers range from 4.9 to 14.5; players must judge that Bibby was a scorer in a big-man offense.",
+   "difficultyReason": "Contenders' playmakers range from 8.2 to 14.5; players must judge that Bibby was a scorer in a big-man offense.",
    "ratings": {
     "interest": 4,
     "recognizability": 3,
@@ -19960,16 +19928,16 @@
      "unit": "assists per game",
      "points": [
       {
+       "label": "Oscar '71",
+       "fact": "nba-oscar71-apg"
+      },
+      {
        "label": "Stockton '90",
        "fact": "nba-stockton90-apg"
       },
       {
        "label": "Bibby '02",
        "fact": "nba-bibby02-regular-apg"
-      },
-      {
-       "label": "Türkoğlu '09",
-       "fact": "nba-turkoglu09-regular-apg"
       },
       {
        "label": "Lowry '19",
@@ -20093,14 +20061,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows three other modern big men's rebounding. What did Bam Adebayo average for the 2019–20 Heat?",
+   "prompt": "The chart shows three other big men's rebounding. What did Bam Adebayo average for the 2019–20 Heat?",
    "context": "Miami · 2019–20 regular season",
    "reveal": "10.2 in his breakout season, plus 368 assists: Bam's passing is what set him apart from the bigs beside him.",
    "min": 5,
    "max": 23,
    "step": 0.1,
    "difficulty": "medium",
-   "difficultyReason": "Three modern bigs from 9.7 to 13.8 frame the scale; players judge where a switchable, playmaking center lands.",
+   "difficultyReason": "Three bigs from 12.1 to 13.8 frame the scale; players judge how far below them a switchable, playmaking center lands.",
    "ratings": {
     "interest": 5,
     "recognizability": 4,
@@ -20140,16 +20108,16 @@
      "unit": "rpg",
      "points": [
       {
+       "label": "Barkley '93",
+       "fact": "nba-barkley93-suns-rpg"
+      },
+      {
        "label": "Howard '09",
        "fact": "nba-howard09-regular-rpg"
       },
       {
-       "label": "Noah '11",
-       "fact": "nba-noah11-rebounds-average"
-      },
-      {
-       "label": "Duncan '14",
-       "fact": "nba-duncan14-season-rpg"
+       "label": "Giannis '19",
+       "fact": "nba-giannis19-regular-rpg"
       },
       {
        "label": "Adebayo '20",
@@ -20332,14 +20300,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows two other league-best records from the early 2010s. How many regular-season games did the 2013–14 Spurs win?",
+   "prompt": "The chart shows four other champions' regular seasons. How many regular-season games did the 2013–14 Spurs win?",
    "context": "San Antonio · the Beautiful Game title",
    "reveal": "Then a Finals rematch in which they beat Miami in five games.",
    "min": 20,
    "max": 86,
    "step": 1,
    "difficulty": "easy",
-   "difficultyReason": "League-best totals of 62 and 66 frame it; players judge the Spurs' place among them.",
+   "difficultyReason": "Champions from 54 to 66 wins frame it; players judge where the Beautiful Game Spurs sit in that band.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -20375,12 +20343,16 @@
    "format": {
     "kind": "missing-point",
     "chart": {
-     "title": "League-best records, 2011–2014",
+     "title": "Champions' wins, 2004 to 2019",
      "unit": "wins",
      "points": [
       {
-       "label": "Bulls '11",
-       "fact": "nba-bulls11-regular-wins"
+       "label": "Pistons '04",
+       "fact": "nba-detroit04-regular-wins"
+      },
+      {
+       "label": "Celtics '08",
+       "fact": "nba-celtics08-wins"
       },
       {
        "label": "Heat '13",
@@ -20389,6 +20361,10 @@
       {
        "label": "Spurs '14",
        "fact": "nba-spurs14-season-wins"
+      },
+      {
+       "label": "Raptors '19",
+       "fact": "nba-raptors19-regular-wins"
       }
      ]
     }
@@ -21407,14 +21383,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows the NBA's best record in each of the three prior seasons. How many games did LeBron's 2008–09 Cavaliers win?",
+   "prompt": "Two other East No. 1 seeds are charted. How many games did LeBron's 2008–09 Cavaliers win?",
    "context": "Cleveland Cavaliers · 2008–09 · 82 games",
    "reveal": "66, a franchise record and the league's best, before Orlando upset Cleveland in the East finals.",
    "min": 42,
    "max": 82,
    "step": 1,
    "difficulty": "easy",
-   "difficultyReason": "Three league-best seasons from 64 to 67 frame the answer; players decide where Cleveland's peak lands.",
+   "difficultyReason": "East top seeds at 56 and 62 frame it; players decide how far above them Cleveland's peak landed.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -21450,24 +21426,20 @@
    "format": {
     "kind": "missing-point",
     "chart": {
-     "title": "NBA's best record, 2006 to 2009",
+     "title": "East No. 1 seeds' wins, 2001 to 2011",
      "unit": "wins",
      "points": [
       {
-       "label": "Pistons '06",
-       "fact": "nba-pistons06-wins"
-      },
-      {
-       "label": "Mavs '07",
-       "fact": "nba-mavs07-wins"
-      },
-      {
-       "label": "Celtics '08",
-       "fact": "nba-celtics08-wins"
+       "label": "Sixers '01",
+       "fact": "nba-sixers01-regular-wins"
       },
       {
        "label": "Cavs '09",
        "fact": "nba-cavs09-record-wins"
+      },
+      {
+       "label": "Bulls '11",
+       "fact": "nba-bulls11-regular-wins"
       }
      ]
     }
@@ -24235,7 +24207,7 @@
    "max": 95,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "Three famous playoff nights from 48 to 56 frame it; players judge a shooter's elimination-game explosion.",
+   "difficultyReason": "Three famous playoff nights from 44 to 61 frame it; players judge a shooter's elimination-game explosion.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -24275,12 +24247,12 @@
      "unit": "points",
      "points": [
       {
-       "label": "West '69",
-       "fact": "nba-west69-g1"
+       "label": "Baylor '62",
+       "fact": "nba-baylor62-finals-61"
       },
       {
-       "label": "Iverson '01",
-       "fact": "nba-iverson01-g1"
+       "label": "Rose '11",
+       "fact": "nba-rose11-hawks-g3-points"
       },
       {
        "label": "Klay '16",
@@ -24442,14 +24414,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Magic, LeBron and Rose had big playoff nights by age 24. How many did Luka Dončić score in his 2020 overtime winner vs the Clippers?",
+   "prompt": "Iverson and LeBron had big playoff nights at 25 or under. How many did 21-year-old Luka Dončić score in his 2020 OT winner vs the Clippers?",
    "context": "Luka Dončić · Mavericks vs Clippers · 2020 playoffs",
    "reveal": "With 17 rebounds and 13 assists: a playoff triple-double capped by his own game-winner.",
    "min": 15,
    "max": 95,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "Young stars' playoff nights from 42 to 49 frame it; players judge Luka's bubble masterpiece.",
+   "difficultyReason": "Young stars' playoff nights of 48 and 49 frame it; players judge whether Luka's bubble masterpiece reached them.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -24485,20 +24457,16 @@
    "format": {
     "kind": "missing-point",
     "chart": {
-     "title": "Playoff nights by stars aged 24 or under",
+     "title": "Playoff nights by stars aged 25 or under",
      "unit": "points",
      "points": [
       {
-       "label": "Magic '80",
-       "fact": "nba-magic80-g6-points"
+       "label": "Iverson '01",
+       "fact": "nba-iverson01-g1"
       },
       {
        "label": "James '09",
        "fact": "nba-james09-magic-g1-points"
-      },
-      {
-       "label": "Rose '11",
-       "fact": "nba-rose11-hawks-g3-points"
       },
       {
        "label": "Luka '20",
@@ -24537,7 +24505,7 @@
    "max": 105,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "Guards' playoff explosions from 41 to 48 frame it; players judge where a franchise record lands.",
+   "difficultyReason": "Guards' playoff explosions from 41 to 53 frame it; players judge where a franchise record lands.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -24577,8 +24545,8 @@
      "unit": "points",
      "points": [
       {
-       "label": "Iverson '01",
-       "fact": "nba-iverson01-g1"
+       "label": "West '69",
+       "fact": "nba-west69-g1"
       },
       {
        "label": "Klay '16",
@@ -25916,14 +25884,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows four other playoff scoring explosions. How many points did Ja Morant score against Curry's Warriors in 2022 Game 2?",
+   "prompt": "The chart shows three other playoff scoring explosions. How many points did Ja Morant score against Curry's Warriors in 2022 Game 2?",
    "context": "Ja Morant · Grizzlies vs Warriors · May 2022",
    "reveal": "Including Memphis's last 15 points, to even the series in a 106–101 win.",
    "min": 10,
    "max": 120,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "Four playoff scoring nights from 41 to 56 frame the scale; players judge where a postseason-high 47 sits.",
+   "difficultyReason": "Three playoff scoring nights from 41 to 56 frame the scale; players judge where Ja's postseason high sits.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -25965,10 +25933,6 @@
       {
        "label": "Klay '16",
        "fact": "nba-klay16-okc-game6-41"
-      },
-      {
-       "label": "Durant '21",
-       "fact": "nba-durant21-nets-bucks-g5-49"
       },
       {
        "label": "Giannis '21",
@@ -26096,14 +26060,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows three other star playoff nights against Milwaukee. Facing elimination there in 2022, how many did Jayson Tatum score?",
+   "prompt": "The chart shows two other star playoff nights against Milwaukee. Facing elimination there in 2022, how many did Jayson Tatum score?",
    "context": "Jayson Tatum · Celtics at Bucks · 2022 East semifinals · Game 6",
    "reveal": "With nine rebounds in a 108–95 win; Boston won Game 7 and reached the Finals.",
    "min": 10,
    "max": 120,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "Star nights against Milwaukee from 48 to 56 frame the guess.",
+   "difficultyReason": "Star nights against Milwaukee of 49 and 56 frame the guess.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -26145,10 +26109,6 @@
       {
        "label": "Durant '21",
        "fact": "nba-durant21-nets-bucks-g5-49"
-      },
-      {
-       "label": "Trae '21",
-       "fact": "nba-trae21-bucks-g1-48"
       },
       {
        "label": "Tatum '22",
@@ -26770,7 +26730,7 @@
    "max": 130,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "Three recent playoff explosions from 49 to 56 frame it; players judge whether Mitchell's topped them.",
+   "difficultyReason": "Three recent playoff explosions from 47 to 51 frame it; players judge how far Mitchell's topped them.",
    "ratings": {
     "interest": 5,
     "recognizability": 4,
@@ -26806,7 +26766,7 @@
    "format": {
     "kind": "missing-point",
     "chart": {
-     "title": "Playoff explosions, 2018 to 2023",
+     "title": "Playoff explosions, 2018 to 2022",
      "unit": "points",
      "points": [
       {
@@ -26822,8 +26782,8 @@
        "fact": "nba-durant21-nets-bucks-g5-49"
       },
       {
-       "label": "Butler '23",
-       "fact": "nba-butler23-56-bucks-upset"
+       "label": "Ja '22",
+       "fact": "nba-ja22-warriors-game2-47"
       }
      ]
     }
@@ -26858,7 +26818,7 @@
    "max": 130,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "Three era-mates' big nights from 57 to 71 frame it; players place Bird's career high among them.",
+   "difficultyReason": "Three era-mates' big nights from 51 to 71 frame it; players place Bird's career high among them.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -26902,12 +26862,12 @@
        "fact": "nba-bird85-hawks-sixty"
       },
       {
-       "label": "Jordan '86",
-       "fact": "nba-jordan86-63"
+       "label": "Floyd '87",
+       "fact": "nba-floyd87-51"
       },
       {
-       "label": "Miller '92",
-       "fact": "nba-miller92-57"
+       "label": "Jordan '93",
+       "fact": "nba-jordan93-g4-55"
       },
       {
        "label": "Robinson '94",
@@ -28194,14 +28154,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows three other lopsided playoff wins. Boston scored 84 in Game 4 of the 2024 Finals. By how much did Dallas win?",
+   "prompt": "The chart shows three other lopsided Finals wins. Boston scored 84 in Game 4 of the 2024 Finals. By how much did Dallas win?",
    "context": "Dallas Mavericks vs Boston Celtics · 2024 Finals Game 4",
    "reveal": "By 38, 122–84, to avoid a sweep: the third-largest margin in NBA Finals history.",
    "min": 0,
    "max": 90,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "Playoff routs from 32 to 39 frame the scale; with Boston's 84 given, players size Dallas's night.",
+   "difficultyReason": "Finals routs from 32 to 42 frame the scale; with Boston's 84 given, players size Dallas's night.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -28237,7 +28197,7 @@
    "format": {
     "kind": "missing-point",
     "chart": {
-     "title": "Playoff blowout margins",
+     "title": "Lopsided Finals wins",
      "unit": "points",
      "points": [
       {
@@ -28245,12 +28205,12 @@
        "fact": "nba-blazers77-g4-margin"
       },
       {
-       "label": "Lakers '01",
-       "fact": "nba-lakers01-39"
+       "label": "Celtics '85",
+       "fact": "nba-celtics85-memorial-day-margin-v52b"
       },
       {
-       "label": "Celtics '08",
-       "fact": "nba-celtics08-g6-margin"
+       "label": "Bulls '98",
+       "fact": "nba-bulls98-g3-margin-v5"
       },
       {
        "label": "Mavs '24",

@@ -254,7 +254,7 @@
     {
       "id": "nba-mavs24-finals-g4-blowout-margin",
       "sport": "NBA",
-      "prompt": "The chart shows three other lopsided playoff wins. Boston scored 84 in Game 4 of the 2024 Finals. By how much did Dallas win?",
+      "prompt": "The chart shows three other lopsided Finals wins. Boston scored 84 in Game 4 of the 2024 Finals. By how much did Dallas win?",
       "context": "Dallas Mavericks vs Boston Celtics · 2024 Finals Game 4",
       "answer": 38,
       "unit": {
@@ -303,7 +303,7 @@
         }
       ],
       "chart": {
-        "title": "Playoff blowout margins",
+        "title": "Lopsided Finals wins",
         "unit": "points",
         "points": [
           {
@@ -311,12 +311,12 @@
             "value": 32
           },
           {
-            "label": "Lakers '01",
-            "value": 39
+            "label": "Celtics '85",
+            "value": 34
           },
           {
-            "label": "Celtics '08",
-            "value": 39
+            "label": "Bulls '98",
+            "value": 42
           },
           {
             "label": "Mavs '24",
@@ -333,8 +333,8 @@
         ],
         "supports": [
           "nba-blazers77-g4-margin",
-          "nba-lakers01-39",
-          "nba-celtics08-g6-margin"
+          "nba-celtics85-memorial-day-margin-v52b",
+          "nba-bulls98-g3-margin-v5"
         ]
       }
     }

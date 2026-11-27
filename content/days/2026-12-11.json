@@ -69,7 +69,7 @@
     {
       "id": "nba-bucks71-wins",
       "sport": "NBA",
-      "prompt": "Later champions from Seattle, Philadelphia and Boston give the scale. In only their third season, how many games did the 1970–71 Bucks win?",
+      "prompt": "Later 1970s champions from Golden State and Seattle give the scale. In only their third season, how many games did the 1970–71 Bucks win?",
       "context": "Milwaukee Bucks · 1970–71 · 82 games",
       "answer": 66,
       "unit": {
@@ -117,7 +117,7 @@
         }
       ],
       "chart": {
-        "title": "Champions of the 1970s and 1980s",
+        "title": "Champions of the 1970s",
         "unit": "wins",
         "points": [
           {
@@ -125,30 +125,25 @@
             "value": null
           },
           {
+            "label": "Warriors '75",
+            "value": 48
+          },
+          {
             "label": "Sonics '79",
             "value": 52
-          },
-          {
-            "label": "Sixers '83",
-            "value": 65
-          },
-          {
-            "label": "Celtics '86",
-            "value": 67
           }
         ]
       },
       "meta": {
         "format": "missing-point",
         "family": "wins-season",
-        "era": "cross-era",
+        "era": "1970s",
         "subjects": [
           "Milwaukee Bucks"
         ],
         "supports": [
-          "nba-sonics79-season-wins",
-          "nba-sixers83-wins",
-          "nba-celtics86-wins"
+          "nba-warriors75-season-wins",
+          "nba-sonics79-season-wins"
         ]
       }
     },

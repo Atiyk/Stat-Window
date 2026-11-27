@@ -61,10 +61,6 @@
         "unit": "wins",
         "points": [
           {
-            "label": "Sonics '79",
-            "value": 52
-          },
-          {
             "label": "Lakers '87",
             "value": 65
           },
@@ -75,6 +71,10 @@
           {
             "label": "Kings '02",
             "value": 61
+          },
+          {
+            "label": "Mavs '07",
+            "value": 67
           },
           {
             "label": "Nuggets '23",
@@ -90,10 +90,10 @@
           "Denver Nuggets"
         ],
         "supports": [
-          "nba-sonics79-season-wins",
           "nba-lakers87-wins",
           "nba-suns93-regular-wins",
-          "nba-kings02-regular-wins"
+          "nba-kings02-regular-wins",
+          "nba-mavs07-wins"
         ]
       }
     },
@@ -280,10 +280,6 @@
             "value": 15
           },
           {
-            "label": "Sonics '94",
-            "value": 10
-          },
-          {
             "label": "76ers '01",
             "value": null
           },
@@ -302,7 +298,6 @@
         ],
         "supports": [
           "nba-rockets94-start",
-          "nba-sonics94-opening-streak",
           "nba-gsw16-start"
         ]
       }

@@ -129,7 +129,7 @@
     {
       "id": "nba-bucks71-streak",
       "sport": "NBA",
-      "prompt": "The chart shows winning streaks by three other champions. How long was the 1970–71 Bucks' winning streak, the NBA's longest at that time?",
+      "prompt": "The chart shows winning streaks by two other champions. How long was the 1970–71 Bucks' winning streak, the NBA's longest at that time?",
       "context": "Milwaukee Bucks · 1970–71",
       "answer": 20,
       "unit": {
@@ -191,10 +191,6 @@
           {
             "label": "Bulls '96",
             "value": 18
-          },
-          {
-            "label": "Spurs '14",
-            "value": 19
           }
         ]
       },
@@ -207,8 +203,7 @@
         ],
         "supports": [
           "nba-rockets94-start",
-          "nba-bulls96-18-streak",
-          "nba-spurs14-streak"
+          "nba-bulls96-18-streak"
         ]
       }
     },
@@ -280,7 +275,7 @@
     {
       "id": "nba-ja22-warriors-game2-47",
       "sport": "NBA",
-      "prompt": "The chart shows four other playoff scoring explosions. How many points did Ja Morant score against Curry's Warriors in 2022 Game 2?",
+      "prompt": "The chart shows three other playoff scoring explosions. How many points did Ja Morant score against Curry's Warriors in 2022 Game 2?",
       "context": "Ja Morant · Grizzlies vs Warriors · May 2022",
       "answer": 47,
       "unit": {
@@ -336,10 +331,6 @@
             "value": 41
           },
           {
-            "label": "Durant '21",
-            "value": 49
-          },
-          {
             "label": "Giannis '21",
             "value": 50
           },
@@ -363,7 +354,6 @@
         ],
         "supports": [
           "nba-klay16-okc-game6-41",
-          "nba-durant21-nets-bucks-g5-49",
           "nba-giannis21-g6",
           "nba-butler23-56-bucks-upset"
         ]

@@ -72,7 +72,7 @@
     {
       "id": "nba-celtics84-wins",
       "sport": "NBA",
-      "prompt": "The chart shows four other great Celtics seasons. How many games did Larry Bird's 1983–84 Celtics win?",
+      "prompt": "The chart shows three other great Celtics seasons. How many games did Larry Bird's 1983–84 Celtics win?",
       "context": "Boston Celtics · 1983–84 · 82 games",
       "answer": 62,
       "unit": {
@@ -138,10 +138,6 @@
           {
             "label": "2007–08",
             "value": 66
-          },
-          {
-            "label": "2023–24",
-            "value": 64
           }
         ]
       },
@@ -155,8 +151,7 @@
         "supports": [
           "nba-celtics73-wins",
           "nba-celtics86-wins",
-          "nba-celtics08-wins",
-          "nba-celtics24-wins"
+          "nba-celtics08-wins"
         ]
       }
     },

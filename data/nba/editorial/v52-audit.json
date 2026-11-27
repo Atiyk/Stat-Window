@@ -7,7 +7,7 @@
    "id": "nba-wade06-g3",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Charted against Magic '80, Iverson '01 and Curry '19, the bars tell the story of guards carrying a team on the Finals stage, so the opener becomes a judgement about where Wade's comeback night sits among them.; prompt polish; first-14 polish: reveal no longer repeats the 13-rebound fun fact",
+   "note": "Charted against Magic '80, Iverson '01 and Curry '19, the bars tell the story of guards carrying a team on the Finals stage, so the opener becomes a judgement about where Wade's comeback night sits among them.; prompt polish; first-14 polish: reveal no longer repeats the 13-rebound fun fact; remediation: chart near-collision fix: Magic '80 (42, equal to the hidden 42) swapped for West '69 (53)",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -57,7 +57,7 @@
    "id": "nba-magic09-regular-wins",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The old chart mixed a 15-win Heat team with contenders; the new bars are all Eastern Conference finalists from 2011 to 2024, a coherent story that lets an opener be placed quickly.; prompt polish; first-14 polish: chart lead-in varied",
+   "note": "The old chart mixed a 15-win Heat team with contenders; the new bars are all Eastern Conference finalists from 2011 to 2024, a coherent story that lets an opener be placed quickly.; prompt polish; first-14 polish: chart lead-in varied; remediation: chart near-collision fix: Bucks '19 (60, within 2%) swapped for Heat '13 (66)",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -159,7 +159,7 @@
    "id": "nba-kobe-81",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The chart is the record progression Kobe chased (Baylor 71, Wilt 78, Wilt 100), a clean story for an opener; the reveal now gives the halftime deficit instead of 'career high'.; prompt polish; first-14 polish: prompt names the charted landmarks; fun fact that repeated the reveal's halftime deficit replaced with his share of the team's points, chart lead-in reworded",
+   "note": "The chart is the record progression Kobe chased (Baylor 71, Wilt 78, Wilt 100), a clean story for an opener; the reveal now gives the halftime deficit instead of 'career high'.; prompt polish; first-14 polish: prompt names the charted landmarks; fun fact that repeated the reveal's halftime deficit replaced with his share of the team's points, chart lead-in reworded; remediation: chart near-collision fix: Wilt '61 (78, within 4%) swapped for Robinson '94 (71); prompt names the bars",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -189,7 +189,7 @@
    "id": "nba-bibby02-regular-apg",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Moved to a chart of lead playmakers on contenders (Stockton '90, Türkoğlu '09, Lowry '19): the spread from a point forward to a record passer shows that a 'point guard' label does not fix the number, and the reveal explains why Bibby's was low. critic: added a fun fact sourcing Webber's 4.8 used in the reveal.; prompt polish; first-14 polish: 'Compare other…' opener varied",
+   "note": "Moved to a chart of lead playmakers on contenders (Stockton '90, Türkoğlu '09, Lowry '19): the spread from a point forward to a record passer shows that a 'point guard' label does not fix the number, and the reveal explains why Bibby's was low. critic: added a fun fact sourcing Webber's 4.8 used in the reveal.; prompt polish; first-14 polish: 'Compare other…' opener varied; remediation: chart near-collision fix: Türkoğlu '09 (4.9, within 2%) swapped for Oscar '71 (8.2)",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -250,7 +250,7 @@
    "id": "nba-klay16-okc-game6-41",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Powe's bench game did not belong with elimination-night heroics; the bars are now three famous playoff scoring nights (West, Iverson, Butler) in chronological order, and the reveal explains the threes record and the series result.; prompt polish; first-14 polish: 'Compare other…' opener varied; two fun facts that repeated the reveal replaced with the 3–1 comeback and Game 7 result, chart lead-in reworded",
+   "note": "Powe's bench game did not belong with elimination-night heroics; the bars are now three famous playoff scoring nights (West, Iverson, Butler) in chronological order, and the reveal explains the threes record and the series result.; prompt polish; first-14 polish: 'Compare other…' opener varied; two fun facts that repeated the reveal replaced with the 3–1 comeback and Game 7 result, chart lead-in reworded; remediation: chart near-collision fix: West '69 and Iverson '01 (both on the 11-30 chart) swapped for Baylor '62 (61) and Rose '11 (44)",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -290,7 +290,7 @@
    "id": "nba-dumars89-finals-ppg",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Shown among other Finals MVPs' averages (Duncan '99, Shaq '00, Brown '24), the chart tells the story of what it takes to win the award, and a guard on a defense-first team matching Duncan is the surprise.; prompt polish; first-14 polish: 'Compare other…' opener varied; prompt names the charted MVPs",
+   "note": "Shown among other Finals MVPs' averages (Duncan '99, Shaq '00, Brown '24), the chart tells the story of what it takes to win the award, and a guard on a defense-first team matching Duncan is the surprise.; prompt polish; first-14 polish: 'Compare other…' opener varied; prompt names the charted MVPs; remediation: chart near-collision fix: Duncan '99 (27.4, within 0.4% and the previous day's answer) dropped; Shaq and Brown remain",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -330,7 +330,7 @@
    "id": "nba-jackson98-regular-apg",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The chart now shows point guards on contending teams only (Oscar '71, Stockton '90, Bibby '02) in season order, without the Finals-only bar; the reveal adds his 713 assists running Bird's offense.; prompt polish; first-14 polish: reveal no longer repeats the 713-assist and 82-start fun facts; remediation: Oscar '71 bar corrected to 8.2 apg (reserve fact nba-oscar71-apg: Wikipedia prose says 8.3, but both season tables give 8.2; answer 8->8.2, step 0.1, quote from the Oscar Robertson career table; not a scheduled question)",
+   "note": "The chart now shows point guards on contending teams only (Oscar '71, Stockton '90, Bibby '02) in season order, without the Finals-only bar; the reveal adds his 713 assists running Bird's offense.; prompt polish; first-14 polish: reveal no longer repeats the 713-assist and 82-start fun facts; remediation: Oscar '71 bar corrected to 8.2 apg (reserve fact nba-oscar71-apg: Wikipedia prose says 8.3, but both season tables give 8.2; answer 8->8.2, step 0.1, quote from the Oscar Robertson career table; not a scheduled question); remediation: chart near-collision fix: Oscar, Stockton and Bibby (repeats of 12-03) replaced by Davis '84 and Türkoğlu '09: playmakers on conference finalists",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -350,7 +350,7 @@
    "id": "nba-luka20-clippers-buzzer-43",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Bars are playoff scoring nights by stars aged 24 or younger (Magic, LeBron, Rose), so the chart tells a youth story that fits a 21-year-old's overtime winner; reveal gives the full triple-double.; prompt polish; first-14 polish: second 'The chart shows' opener of the day varied; fun fact adds the one-point deficit instead of repeating the reveal, chart lead-in names the charted stars",
+   "note": "Bars are playoff scoring nights by stars aged 24 or younger (Magic, LeBron, Rose), so the chart tells a youth story that fits a 21-year-old's overtime winner; reveal gives the full triple-double.; prompt polish; first-14 polish: second 'The chart shows' opener of the day varied; fun fact adds the one-point deficit instead of repeating the reveal, chart lead-in names the charted stars; remediation: chart near-collision fix: Magic '80 (42) and Rose '11 (44) within 3% swapped for Iverson '01 (48); story now stars aged 25 or under",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -380,7 +380,7 @@
    "id": "nba-miller12-g5-threes",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The bars run through Finals three-point nights from Cooper '87 to Battier '13, including the record progression (Smith's seven, Allen's eight), so the player places Miller's clincher inside a real history.; prompt polish; first-14 polish: 'The chart shows' opener varied",
+   "note": "The bars run through Finals three-point nights from Cooper '87 to Battier '13, including the record progression (Smith's seven, Allen's eight), so the player places Miller's clincher inside a real history.; prompt polish; first-14 polish: 'The chart shows' opener varied; remediation: chart near-collision fix: Smith '95 (7, equal) dropped",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -400,7 +400,7 @@
    "id": "nba-brunson24-philly-47",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The context line used a 'Benchmark:' construction and West's Finals night. The question becomes a chart of guards' 40-point playoff nights (Iverson, Klay, Luka), which tells the player what an elite guard explosion looks like.; prompt polish; first-14 polish: 'Compare other…' opener varied; fun fact repeating the reveal's Bernard King record replaced with Embiid's fourth quarter",
+   "note": "The context line used a 'Benchmark:' construction and West's Finals night. The question becomes a chart of guards' 40-point playoff nights (Iverson, Klay, Luka), which tells the player what an elite guard explosion looks like.; prompt polish; first-14 polish: 'Compare other…' opener varied; fun fact repeating the reveal's Bernard King record replaced with Embiid's fourth quarter; remediation: chart near-collision fix: Iverson '01 (48, within 2%) swapped for West '69 (53)",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -571,7 +571,7 @@
    "id": "nba-bucks71-wins",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The chart now shows champions of the 1970s and 1980s (Sonics '79, Sixers '83, Celtics '86), the era a third-year expansion champion belongs to; reveal names the two stars.; prompt polish; first-14 polish: 'The chart shows' opener varied",
+   "note": "The chart now shows champions of the 1970s and 1980s (Sonics '79, Sixers '83, Celtics '86), the era a third-year expansion champion belongs to; reveal names the two stars.; prompt polish; first-14 polish: 'The chart shows' opener varied; remediation: chart near-collision fix: Sixers '83 (65) and Celtics '86 (67) within 2% dropped; chart is 1970s champions Warriors '75 and Sonics '79",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -782,7 +782,7 @@
    "id": "nba-bucks21-nets-g3-points",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Toronto's 92 alone was an arbitrary single anchor within 7% of the answer. A chart of four famously low-scoring playoff nights (Utah's 54 to Toronto's 92) shows how far playoff defense can drag a score, so Milwaukee's must-win grind is a judgment about playoff pace. critic: reveal shortened under 140 chars.",
+   "note": "Toronto's 92 alone was an arbitrary single anchor within 7% of the answer. A chart of four famously low-scoring playoff nights (Utah's 54 to Toronto's 92) shows how far playoff defense can drag a score, so Milwaukee's must-win grind is a judgment about playoff pace. critic: reveal shortened under 140 chars.; remediation: chart near-collision fix: Hornets '08 (82, within 5%) dropped",
    "batch": "v52-B",
    "editor": "editor-B"
   },
@@ -964,7 +964,7 @@
    "id": "nba-nuggets23-regular-wins",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "A bare win total, now placed against other West No. 1 seeds from 1979 to 2002. The chart tells the story: Denver earned the top seed with fewer wins than the classic West leaders, then won the title anyway.",
+   "note": "A bare win total, now placed against other West No. 1 seeds from 1979 to 2002. The chart tells the story: Denver earned the top seed with fewer wins than the classic West leaders, then won the title anyway.; remediation: chart near-collision fix: Sonics '79 (52, within 2%) swapped for Mavs '07 (67)",
    "batch": "v52-B",
    "editor": "editor-B"
   },
@@ -994,7 +994,7 @@
    "id": "nba-sixers01-opening-streak",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Comparing with the Warriors' 24–0 alone only gave a ceiling. A chart of season-opening streaks (Seattle's 10, Houston's 15, Golden State's 24) tells a coherent story about hot starts and places Iverson's Sixers among them.",
+   "note": "Comparing with the Warriors' 24–0 alone only gave a ceiling. A chart of season-opening streaks (Seattle's 10, Houston's 15, Golden State's 24) tells a coherent story about hot starts and places Iverson's Sixers among them.; remediation: chart near-collision fix: Sonics '94 (10, equal) dropped",
    "batch": "v52-B",
    "editor": "editor-B"
   },
@@ -1014,7 +1014,7 @@
    "id": "nba-spurs14-season-wins",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The 1986 Celtics' 67 was a distant one-off anchor. A chart of league-best records from 2011 to 2014 (Bulls, Heat, Spurs) puts the Spurs in their own era, between the Heat they beat and the Bulls before them.",
+   "note": "The 1986 Celtics' 67 was a distant one-off anchor. A chart of league-best records from 2011 to 2014 (Bulls, Heat, Spurs) puts the Spurs in their own era, between the Heat they beat and the Bulls before them.; remediation: chart near-collision fix: Bulls '11 (62, equal) and Heat-only frame replaced by champions Pistons '04, Celtics '08, Heat '13, Raptors '19",
    "batch": "v52-B",
    "editor": "editor-B"
   },
@@ -1044,7 +1044,7 @@
    "id": "nba-gus79-finals-g4-points",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Bare recall of a 1979 box score had estimability 2. A chart of big Finals scoring nights from the same era (West's 53, Barry's 36, Magic's 42) makes it an estimate about what a hot guard could do in that era's Finals.",
+   "note": "Bare recall of a 1979 box score had estimability 2. A chart of big Finals scoring nights from the same era (West's 53, Barry's 36, Magic's 42) makes it an estimate about what a hot guard could do in that era's Finals.; remediation: chart near-collision fix: Barry '75 (36, equal) dropped",
    "batch": "v52-B",
    "editor": "editor-B"
   },
@@ -1124,7 +1124,7 @@
    "id": "nba-bulls97-wins",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "As plain recall the 72 in the prompt made the answer predictable. A chart of elite seasons (1986 Celtics, 2007 Mavs, 2013 Heat) asks whether the post-72 Bulls still belonged among the best records ever.",
+   "note": "As plain recall the 72 in the prompt made the answer predictable. A chart of elite seasons (1986 Celtics, 2007 Mavs, 2013 Heat) asks whether the post-72 Bulls still belonged among the best records ever.; remediation: chart near-collision fix: Celtics '86, Mavs '07, Heat '13 (66-67, within 5%) replaced by champions Sixers '83, Lakers '87, Pistons '89",
    "batch": "v52-B",
    "editor": "editor-B"
   },
@@ -1275,7 +1275,7 @@
    "id": "nba-lakers72-wins",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "A coherent chart (three early-'70s powers, in order) where the question is whether the Lakers topped both rivals. Only the reveal restated the answer.",
+   "note": "A coherent chart (three early-'70s powers, in order) where the question is whether the Lakers topped both rivals. Only the reveal restated the answer.; remediation: chart near-collision fix: Bucks '71 (66) and Celtics '73 (68) within 5% replaced by later champions Lakers '87, Pistons '89, Celtics '24",
    "batch": "v52-B",
    "editor": "editor-B"
   },
@@ -1335,7 +1335,7 @@
    "id": "nba-bucks71-streak",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The Rockets' 22 was a lone anchor. A chart of champions' winning streaks (1994 Rockets, 1996 Bulls, 2014 Spurs) tells the story of how title teams build runs and places the young Bucks among them.",
+   "note": "The Rockets' 22 was a lone anchor. A chart of champions' winning streaks (1994 Rockets, 1996 Bulls, 2014 Spurs) tells the story of how title teams build runs and places the young Bucks among them.; remediation: chart near-collision fix: Spurs '14 (19, within 5%) dropped",
    "batch": "v52-B",
    "editor": "editor-B"
   },
@@ -1355,7 +1355,7 @@
    "id": "nba-ja22-warriors-game2-47",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Same strong chart, now read by season (Klay 2016 to Butler 2023), so the bars tell the story of recent playoff explosions and Ja sits among them.",
+   "note": "Same strong chart, now read by season (Klay 2016 to Butler 2023), so the bars tell the story of recent playoff explosions and Ja sits among them.; remediation: chart near-collision fix: Durant '21 (49, within 5%) dropped",
    "batch": "v52-B",
    "editor": "editor-B"
   },
@@ -1506,7 +1506,7 @@
    "id": "nba-tatum22-bucks-g6-46",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The Butler 'Benchmark' line is gone. The chart of star playoff nights against the Giannis-era Bucks (Durant, Trae, Butler) tells one story, and Tatum's elimination-game answer is placed within it.",
+   "note": "The Butler 'Benchmark' line is gone. The chart of star playoff nights against the Giannis-era Bucks (Durant, Trae, Butler) tells one story, and Tatum's elimination-game answer is placed within it.; remediation: chart near-collision fix: Trae '21 (48, within 5%) dropped",
    "batch": "v52-B",
    "editor": "editor-B"
   },
@@ -1566,7 +1566,7 @@
    "id": "nba-cavs09-record-wins",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The chart shows the NBA's best record in each of the three previous seasons (64, 67, 66), a clean story of what a league-best team wins, so a newcomer can place LeBron's Cavaliers confidently.",
+   "note": "The chart shows the NBA's best record in each of the three previous seasons (64, 67, 66), a clean story of what a league-best team wins, so a newcomer can place LeBron's Cavaliers confidently.; remediation: chart near-collision fix: Pistons '06, Mavs '07, Celtics '08 (64-67, all within 3%) replaced by East No. 1 seeds Sixers '01 and Bulls '11",
    "batch": "v52-C",
    "editor": "editor-C"
   },
@@ -1776,7 +1776,7 @@
    "id": "nba-rockets18-wins",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Every bar is a conference No. 1 seed of the 2010s (60 to 62 wins), so the question is whether the Harden–Paul Rockets topped that tier. Bars now chronological.",
+   "note": "Every bar is a conference No. 1 seed of the 2010s (60 to 62 wins), so the question is whether the Harden–Paul Rockets topped that tier. Bars now chronological.; remediation: chart near-collision fix: Bulls '11 and Spurs '14 (62, within 5%) dropped",
    "batch": "v52-C",
    "editor": "editor-C"
   },
@@ -1826,7 +1826,7 @@
    "id": "nba-lakers00-wins",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Three champions' win totals (62 to 69) frame where the first Shaq–Kobe title team lands. Bars reordered by season.",
+   "note": "Three champions' win totals (62 to 69) frame where the first Shaq–Kobe title team lands. Bars reordered by season.; remediation: chart near-collision fix: Bulls '97 (69) and Celtics '24 (64) within 5% replaced by champions Bucks '21 and Nuggets '23",
    "batch": "v52-C",
    "editor": "editor-C"
   },
@@ -1856,7 +1856,7 @@
    "id": "nba-mitchell20-bubble-fiftyseven",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The chart shows three other modern playoff explosions (49 to 56), so the finale asks whether Mitchell's bubble night topped them. It did, in a loss.",
+   "note": "The chart shows three other modern playoff explosions (49 to 56), so the finale asks whether Mitchell's bubble night topped them. It did, in a loss.; remediation: chart near-collision fix: Butler '23 (56, within 2%) swapped for Ja '22 (47)",
    "batch": "v52-C",
    "editor": "editor-C"
   },
@@ -1906,7 +1906,7 @@
    "id": "nba-bird85-hawks-sixty",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The chart shows three signature nights of Bird's era (Jordan, Miller, Robinson, 57 to 71), so the finale asks where Bird's career night fits among them.",
+   "note": "The chart shows three signature nights of Bird's era (Jordan, Miller, Robinson, 57 to 71), so the finale asks where Bird's career night fits among them.; remediation: chart near-collision fix: Jordan '86 (63) and Miller '92 (57) at 5% swapped for Floyd '87 (51) and Jordan '93 (55)",
    "batch": "v52-C",
    "editor": "editor-C"
   },
@@ -1976,7 +1976,7 @@
    "id": "nba-celtics84-wins",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "A franchise-history chart: four great Celtics seasons (64 to 68) frame Bird's 1983–84 team. Reveal now says how that season ended.",
+   "note": "A franchise-history chart: four great Celtics seasons (64 to 68) frame Bird's 1983–84 team. Reveal now says how that season ended.; remediation: chart near-collision fix: 2023-24 (64, within 5%) dropped",
    "batch": "v52-C",
    "editor": "editor-C"
   },
@@ -2276,7 +2276,7 @@
    "id": "nba-adebayo20-regular-rpg",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Chart now runs chronologically through three modern bigs (Howard, Noah, Duncan), so it tells the story of where a switchable, passing center sits among traditional rebounders; the old rationale wrongly said four bars.",
+   "note": "Chart now runs chronologically through three modern bigs (Howard, Noah, Duncan), so it tells the story of where a switchable, passing center sits among traditional rebounders; the old rationale wrongly said four bars.; remediation: chart near-collision fix: Noah '11 (10.4) and Duncan '14 (9.7) within 5% swapped for Barkley '93 (12.1) and Giannis '19 (12.5)",
    "batch": "v52-D",
    "editor": "editor-D"
   },
@@ -2538,7 +2538,7 @@
    "id": "nba-pippen97-g3-threes",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Chart is now a coherent Finals-only story (Smith, Allen, Miller, Curry) instead of mixed playoff nights; Pippen's place among Finals shooters is the surprise.",
+   "note": "Chart is now a coherent Finals-only story (Smith, Allen, Miller, Curry) instead of mixed playoff nights; Pippen's place among Finals shooters is the surprise.; remediation: chart near-collision fix: Smith '95 and Miller '12 (7, equal) swapped for Cooper '87 (6) and Battier '13 (6)",
    "batch": "v52-D",
    "editor": "editor-D"
   },
@@ -2578,7 +2578,7 @@
    "id": "nba-westbrook12-g4",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Chart trimmed to five chronological Finals scoring nights (Barry to LeBron); the story is whether Westbrook's losing effort topped the classics.",
+   "note": "Chart trimmed to five chronological Finals scoring nights (Barry to LeBron); the story is whether Westbrook's losing effort topped the classics.; remediation: chart near-collision fix: Wade '06 (42) and LeBron '16 (41) within 5% swapped for Iverson '01 (48) and Giannis '21 (50)",
    "batch": "v52-D",
    "editor": "editor-D"
   },
@@ -2788,7 +2788,7 @@
    "id": "nba-kobe05-62-three-quarters",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Becomes the day's chart: Kobe's own famous nights (81 a month later, 60 in his finale) tell the story of where three quarters against Dallas sits.",
+   "note": "Becomes the day's chart: Kobe's own famous nights (81 a month later, 60 in his finale) tell the story of where three quarters against Dallas sits.; remediation: chart near-collision fix: Kobe's final game (60, within 4%) dropped; Booker '17 (70) and Luka '24 (73) added beside the 81",
    "batch": "v52-D",
    "editor": "editor-D"
   },
@@ -2858,7 +2858,7 @@
    "id": "nba-mavs24-finals-g4-blowout-margin",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Retired difference becomes the day's chart: lopsided playoff wins including Portland's 32, the Finals Game 4 record that Dallas broke, so the bars tell a record story. critic: 'biggest Game 4 margin, topping Portland's 32' is not on the 2024 Finals page; it says third-largest Finals margin.",
+   "note": "Retired difference becomes the day's chart: lopsided playoff wins including Portland's 32, the Finals Game 4 record that Dallas broke, so the bars tell a record story. critic: 'biggest Game 4 margin, topping Portland's 32' is not on the 2024 Finals page; it says third-largest Finals margin.; remediation: chart near-collision fix: Lakers '01 and Celtics '08 (39, within 3%) swapped for Celtics '85 (34) and Bulls '98 (42): Finals routs",
    "batch": "v52-D",
    "editor": "editor-D"
   },
@@ -2898,7 +2898,7 @@
    "id": "nba-teague15-assists-average",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The old chart mixed forwards at random. Now it is the lead playmakers of four 58-plus-win teams in order, Teague's 60-win Hawks among them. critic: removed unsupported 'the engine' characterisation; minutes from the roster table.",
+   "note": "The old chart mixed forwards at random. Now it is the lead playmakers of four 58-plus-win teams in order, Teague's 60-win Hawks among them. critic: removed unsupported 'the engine' characterisation; minutes from the roster table.; remediation: chart near-collision fix: James '09 (7.2, within 3%) swapped for Oscar '71 (8.2) and Payton '94 (6.0)",
    "batch": "v52-D",
    "editor": "editor-D"
   },

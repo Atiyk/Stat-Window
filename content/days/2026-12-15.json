@@ -161,7 +161,7 @@
     {
       "id": "nba-bucks21-nets-g3-points",
       "sport": "NBA",
-      "prompt": "The chart shows four low-scoring playoff team totals. How many points did Milwaukee score in its must-win 2021 Game 3 against Brooklyn?",
+      "prompt": "The chart shows three low-scoring playoff team totals. How many points did Milwaukee score in its must-win 2021 Game 3 against Brooklyn?",
       "context": "2021 East semifinals · Milwaukee at home",
       "answer": 86,
       "unit": {
@@ -221,10 +221,6 @@
             "value": 68
           },
           {
-            "label": "Hornets '08",
-            "value": 82
-          },
-          {
             "label": "Raptors '19",
             "value": 92
           },
@@ -244,7 +240,6 @@
         "supports": [
           "nba-jazz98-g3-54",
           "nba-lakers04-g3-68",
-          "nba-hornets08-spurs-g7-points",
           "nba-raptors19-sixers-g7-points"
         ]
       }

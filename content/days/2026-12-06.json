@@ -131,7 +131,7 @@
     {
       "id": "nba-jackson98-regular-apg",
       "sport": "NBA",
-      "prompt": "The chart shows other contending teams' point guards. How many assists per game did Mark Jackson average for Larry Bird's 1997–98 Pacers?",
+      "prompt": "Walter Davis and Hedo Türkoğlu ran other finalists' offenses. How many assists per game did Mark Jackson average for the 1997–98 Pacers?",
       "context": "Indiana · 1997–98 regular season",
       "answer": 8.7,
       "unit": {
@@ -179,24 +179,20 @@
         }
       ],
       "chart": {
-        "title": "Point guards on contending teams",
+        "title": "Lead playmakers on conference finalists",
         "unit": "assists per game",
         "points": [
           {
-            "label": "Oscar '71",
-            "value": 8.2
-          },
-          {
-            "label": "Stockton '90",
-            "value": 14.5
+            "label": "Davis '84",
+            "value": 5.5
           },
           {
             "label": "Jackson '98",
             "value": null
           },
           {
-            "label": "Bibby '02",
-            "value": 5
+            "label": "Türkoğlu '09",
+            "value": 4.9
           }
         ]
       },
@@ -209,9 +205,8 @@
           "Indiana Pacers"
         ],
         "supports": [
-          "nba-oscar71-apg",
-          "nba-stockton90-apg",
-          "nba-bibby02-regular-apg"
+          "nba-davis84-regular-apg",
+          "nba-turkoglu09-regular-apg"
         ]
       }
     },
@@ -279,7 +274,7 @@
     {
       "id": "nba-luka20-clippers-buzzer-43",
       "sport": "NBA",
-      "prompt": "Magic, LeBron and Rose had big playoff nights by age 24. How many did Luka Dončić score in his 2020 overtime winner vs the Clippers?",
+      "prompt": "Iverson and LeBron had big playoff nights at 25 or under. How many did 21-year-old Luka Dončić score in his 2020 OT winner vs the Clippers?",
       "context": "Luka Dončić · Mavericks vs Clippers · 2020 playoffs",
       "answer": 43,
       "unit": {
@@ -327,20 +322,16 @@
         }
       ],
       "chart": {
-        "title": "Playoff nights by stars aged 24 or under",
+        "title": "Playoff nights by stars aged 25 or under",
         "unit": "points",
         "points": [
           {
-            "label": "Magic '80",
-            "value": 42
+            "label": "Iverson '01",
+            "value": 48
           },
           {
             "label": "James '09",
             "value": 49
-          },
-          {
-            "label": "Rose '11",
-            "value": 44
           },
           {
             "label": "Luka '20",
@@ -357,9 +348,8 @@
           "Dallas Mavericks"
         ],
         "supports": [
-          "nba-magic80-g6-points",
-          "nba-james09-magic-g1-points",
-          "nba-rose11-hawks-g3-points"
+          "nba-iverson01-g1",
+          "nba-james09-magic-g1-points"
         ]
       }
     }

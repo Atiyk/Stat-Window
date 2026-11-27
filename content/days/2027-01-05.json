@@ -124,10 +124,6 @@
         "unit": "wins",
         "points": [
           {
-            "label": "Bulls '97",
-            "value": 69
-          },
-          {
             "label": "Lakers '00",
             "value": null
           },
@@ -136,8 +132,12 @@
             "value": 62
           },
           {
-            "label": "Celtics '24",
-            "value": 64
+            "label": "Bucks '21",
+            "value": 46
+          },
+          {
+            "label": "Nuggets '23",
+            "value": 53
           }
         ]
       },
@@ -149,9 +149,9 @@
           "Los Angeles Lakers"
         ],
         "supports": [
-          "nba-bulls97-wins",
           "nba-spurs14-season-wins",
-          "nba-celtics24-wins"
+          "nba-bucks21-regular-wins",
+          "nba-nuggets23-regular-wins"
         ]
       }
     },
@@ -330,7 +330,7 @@
         }
       ],
       "chart": {
-        "title": "Playoff explosions, 2018 to 2023",
+        "title": "Playoff explosions, 2018 to 2022",
         "unit": "points",
         "points": [
           {
@@ -346,8 +346,8 @@
             "value": 49
           },
           {
-            "label": "Butler '23",
-            "value": 56
+            "label": "Ja '22",
+            "value": 47
           }
         ]
       },
@@ -362,7 +362,7 @@
         "supports": [
           "nba-lebron18-g1",
           "nba-durant21-nets-bucks-g5-49",
-          "nba-butler23-56-bucks-upset"
+          "nba-ja22-warriors-game2-47"
         ]
       }
     }

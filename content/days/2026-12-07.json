@@ -187,10 +187,6 @@
             "value": 6
           },
           {
-            "label": "Smith '95",
-            "value": 7
-          },
-          {
             "label": "Allen '10",
             "value": 8
           },
@@ -214,7 +210,6 @@
         ],
         "supports": [
           "nba-cooper87-threes",
-          "nba-smith95-threes",
           "nba-allen10-g2-threes",
           "nba-battier13-g7-threes"
         ]
@@ -337,8 +332,8 @@
         "unit": "points",
         "points": [
           {
-            "label": "Iverson '01",
-            "value": 48
+            "label": "West '69",
+            "value": 53
           },
           {
             "label": "Klay '16",
@@ -363,7 +358,7 @@
           "New York Knicks"
         ],
         "supports": [
-          "nba-iverson01-g1",
+          "nba-west69-g1",
           "nba-klay16-okc-game6-41",
           "nba-luka20-clippers-buzzer-43"
         ]

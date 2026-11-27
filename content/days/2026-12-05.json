@@ -218,7 +218,7 @@
     {
       "id": "nba-dumars89-finals-ppg",
       "sport": "NBA",
-      "prompt": "Duncan's, Shaq's and Jaylen Brown's Finals MVP averages are charted. What did Detroit guard Joe Dumars average in the 1989 Finals?",
+      "prompt": "Shaq's and Jaylen Brown's Finals MVP averages are charted. What did Detroit guard Joe Dumars average in the 1989 Finals?",
       "context": "1989 NBA Finals · four games vs Lakers",
       "answer": 27.3,
       "unit": {
@@ -274,10 +274,6 @@
             "value": null
           },
           {
-            "label": "Duncan '99",
-            "value": 27.4
-          },
-          {
             "label": "Shaq '00",
             "value": 38
           },
@@ -296,7 +292,6 @@
           "Detroit Pistons"
         ],
         "supports": [
-          "nba-duncan99-finals-ppg",
           "nba-shaq00-finals-ppg",
           "nba-brown24-finals-ppg"
         ]

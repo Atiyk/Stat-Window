@@ -96,7 +96,7 @@
     {
       "id": "nba-lakers72-wins",
       "sport": "NBA",
-      "prompt": "The chart shows win totals for three early-'70s powers. How many games did the 1971–72 Lakers win?",
+      "prompt": "The chart shows three later champions' win totals. How many games did the 1971–72 Lakers win?",
       "context": "Los Angeles Lakers · 1971–72 · 82 games",
       "answer": 69,
       "unit": {
@@ -144,33 +144,38 @@
         }
       ],
       "chart": {
-        "title": "Regular-season wins",
+        "title": "Champions' regular-season wins",
         "unit": "wins",
         "points": [
-          {
-            "label": "MIL 1970–71",
-            "value": 66
-          },
           {
             "label": "LAL 1971–72",
             "value": null
           },
           {
-            "label": "BOS 1972–73",
-            "value": 68
+            "label": "Lakers '87",
+            "value": 65
+          },
+          {
+            "label": "Pistons '89",
+            "value": 63
+          },
+          {
+            "label": "Celtics '24",
+            "value": 64
           }
         ]
       },
       "meta": {
         "format": "missing-point",
         "family": "wins-season",
-        "era": "1970s",
+        "era": "cross-era",
         "subjects": [
           "Los Angeles Lakers"
         ],
         "supports": [
-          "nba-bucks71-wins",
-          "nba-celtics73-wins"
+          "nba-lakers87-wins",
+          "nba-pistons89-wins",
+          "nba-celtics24-wins"
         ]
       }
     },

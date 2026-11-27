@@ -185,8 +185,8 @@
         "unit": "threes",
         "points": [
           {
-            "label": "Smith '95",
-            "value": 7
+            "label": "Cooper '87",
+            "value": 6
           },
           {
             "label": "Pippen '97",
@@ -197,8 +197,8 @@
             "value": 8
           },
           {
-            "label": "Miller '12",
-            "value": 7
+            "label": "Battier '13",
+            "value": 6
           },
           {
             "label": "Curry '18",
@@ -215,9 +215,9 @@
           "Chicago Bulls"
         ],
         "supports": [
-          "nba-smith95-threes",
+          "nba-cooper87-threes",
           "nba-allen10-g2-threes",
-          "nba-miller12-g5-threes",
+          "nba-battier13-g7-threes",
           "nba-curry18-g2-threes"
         ]
       }

@@ -9,7 +9,7 @@
     {
       "id": "nba-kobe-81",
       "sport": "NBA",
-      "prompt": "Before 2006, Baylor and Wilt owned the biggest scoring nights. How many points did Kobe Bryant score against Toronto in January 2006?",
+      "prompt": "Wilt's 100 and the 71-point nights of Elgin Baylor and David Robinson are charted. How many did Kobe Bryant score against Toronto in 2006?",
       "context": "Lakers vs Toronto Raptors · January 22, 2006",
       "answer": 81,
       "unit": {
@@ -65,12 +65,12 @@
             "value": 71
           },
           {
-            "label": "Wilt '61",
-            "value": 78
-          },
-          {
             "label": "Wilt '62",
             "value": 100
+          },
+          {
+            "label": "Robinson '94",
+            "value": 71
           },
           {
             "label": "Kobe '06",
@@ -88,8 +88,8 @@
         ],
         "supports": [
           "nba-baylor60-71",
-          "nba-wilt61-78",
-          "nba-wilt-100"
+          "nba-wilt-100",
+          "nba-robinson94-71"
         ]
       }
     },
@@ -271,16 +271,16 @@
         "unit": "assists per game",
         "points": [
           {
+            "label": "Oscar '71",
+            "value": 8.2
+          },
+          {
             "label": "Stockton '90",
             "value": 14.5
           },
           {
             "label": "Bibby '02",
             "value": null
-          },
-          {
-            "label": "Türkoğlu '09",
-            "value": 4.9
           },
           {
             "label": "Lowry '19",
@@ -297,8 +297,8 @@
           "Sacramento Kings"
         ],
         "supports": [
+          "nba-oscar71-apg",
           "nba-stockton90-apg",
-          "nba-turkoglu09-regular-apg",
           "nba-lowry19-regular-apg"
         ]
       }

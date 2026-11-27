@@ -2,11 +2,12 @@
 
 Written 2026-11-16 after the NBA-only Daily Five release PR. Order matters: each step needs the one before it.
 
-## Launch-day reset (owner decision, 2026-11-16)
-stat-window.vercel.app is a pre-launch test site. The NBA calendar runs there from 2026-11-17 for testers only. When the owner says the game is live on its real domain, re-date the calendar so the Wilt day (calendar day 1) and Puzzle No. 1 fall on the launch date. That means a one-time, deliberate override of the published lock for the test days (no real players' saves exist yet), moving `EPOCH_DAY` and `NBA_CUTOVER`, and regenerating the Survival catalog, whose beta-gate date (now projected 2026-12-05) moves with it: about 18 days after launch. Do it in one PR, with the critic, before the domain goes public.
+## Launch-day reset (current runbook)
+
+The official season opens November 28 at midnight Eastern on [Stat Window](https://www.statwindow.app/). The committed season boundary sets Game 1 while preserving the published slates and existing saves. See [the launch runbook](LAUNCH.md).
 
 ## 0. Before anything new: one week of real numbers
-**Depends on:** the owner enabling Vercel Web Analytics and `VITE_ANALYTICS=vercel` (docs/MEASUREMENT.md).
+**Depends on:** confirming Vercel Web Analytics receipt on the branded production domain ([measurement checks](MEASUREMENT.md)).
 **Done when:** `scripts/analytics-readout.ts` prints real rates (not "not enough data") for daily start → round 1 → all five, and next-day return, for at least 7 days of the NBA calendar.
 **Don't build:** an A/B framework, a dashboard, accounts, or a leaderboard.
 

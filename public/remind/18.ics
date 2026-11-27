@@ -28,9 +28,9 @@ DURATION:PT5M
 RRULE:FREQ=DAILY
 SUMMARY:Stat Window: today's five
 DESCRIPTION:A new puzzle every day at midnight US Eastern time (New York). 
- Same five NBA numbers for everyone.\nPlay: https://stat-window.vercel.app/
- ?from=calendar\nTo stop\, delete this repeating event.
-URL:https://stat-window.vercel.app/?from=calendar
+ Same five NBA numbers for everyone.\nPlay: https://www.statwindow.app/?fro
+ m=calendar\nTo stop\, delete this repeating event.
+URL:https://www.statwindow.app/?from=calendar
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY

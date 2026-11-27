@@ -49,10 +49,8 @@ export type TeachingExample = {
 export type FormatGuide = {
   /** Display name of the format. */
   readonly label: string;
-  /** The concise instruction shown under every question of this format during play. */
-  readonly instruction: string;
-  /** The deeper explanation: in-round disclosure and the guide. */
-  readonly detail: string;
+  /** The optional tip available in-round and beside the guide's worked example. */
+  readonly tip: string;
   readonly example: TeachingExample;
 };
 
@@ -66,12 +64,11 @@ const VERIFIED = { on: '2026-11-26', by: 'Stat Window teaching inventory, from v
 export const FORMAT_GUIDE = {
   recall: {
     label: 'Straight recall',
-    instruction: 'Frame your best estimate of the number.',
-    detail: 'The question asks for one verified figure. Set your window around what you remember: tighter pays more, but it has to catch the answer.',
+    tip: 'Check the units. A season total and a per-game average can be far apart.',
     example: {
       id: 'teach-recall-kobe-12-threes',
       basis: { fact: 'nba-kobe03-threes' },
-      why: 'Plain recall: the number asked for is the answer. Frame what you remember, as tight as you trust it.',
+      why: 'Use a single-game scale for this one. You’re estimating Kobe’s made threes against Seattle.',
       question: {
         id: 'teach-recall-kobe-12-threes',
         sport: 'NBA',
@@ -95,12 +92,11 @@ export const FORMAT_GUIDE = {
   },
   reference: {
     label: 'Reference figure',
-    instruction: 'The figure given is a clue, not the answer.',
-    detail: 'The prompt prints a verified number from another player, team or season. Reason from it (higher or lower, and by how much), then frame the number actually asked for.',
+    tip: 'Start with the number in the prompt. How much higher or lower would you put the answer?',
     example: {
       id: 'teach-reference-dirk-wilt-free-throws',
       basis: { fact: 'nba-dirk11-24-ft', references: ['nba-wilt-100-ftm'] },
-      why: 'Wilt’s 28 is the anchor, not the answer. Dirk’s record night was a little lower, 24, but he never missed.',
+      why: 'Wilt made 28. Dirk finished four short of that mark without missing a free throw.',
       question: {
         id: 'teach-reference-dirk-wilt-free-throws',
         sport: 'NBA',
@@ -124,8 +120,7 @@ export const FORMAT_GUIDE = {
   },
   'missing-point': {
     label: 'Missing data point',
-    instruction: 'Read the bars, then frame the hidden one.',
-    detail: 'Each bar is a verified figure on the same scale, starting from zero. The dashed column is the one you estimate; your window is drawn on it as you move the brackets.',
+    tip: 'The bars share a scale. Use the labeled bars to place your window on the dashed one.',
     example: {
       id: 'teach-missing-best-records',
       basis: {

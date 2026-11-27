@@ -3,7 +3,6 @@ import type { Question } from '../content/schema';
 import { normalizeWindow } from '../engine/game';
 import type { Window } from '../engine/scoring';
 import { formatValue, niceTicks, unitFor } from '../lib/format';
-import { feedback } from './feedback';
 
 type Bound = 'lo' | 'hi';
 type Grab = { clientX: number; value: number; unitsPerPixel: number } & ({ kind: Bound } | { kind: 'band'; width: number });
@@ -60,7 +59,6 @@ export function Ruler({ question: q, window: w, interactive, reveal, onChange, o
     const prior = latestWindow.current;
     if (snapped.lo === prior.lo && snapped.hi === prior.hi) return;
     latestWindow.current = snapped;
-    feedback.tick();
     onChange(snapped, moving);
   };
 
@@ -177,6 +175,7 @@ export function Ruler({ question: q, window: w, interactive, reveal, onChange, o
         ref={trackRef}
         className="ruler-track"
         data-interactive={interactive || undefined}
+        style={interactive ? { '--window-span': hi - lo } as CSSProperties : undefined}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={(e) => { onPointerMove(e); endDrag(e); }}

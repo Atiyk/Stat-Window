@@ -46,7 +46,7 @@ All four were rendered on the same build, so only the colour tokens differ (`e2e
 - **Mark:** two pine brackets closing on an ink pin, with no tile (`src/ui/Mark.tsx`). The favicon puts the same glyph on paper.
 
 ## Motion (purpose for each move)
-- **Drag:** brackets track the pointer 1:1 with the grab offset kept; a grip tab under each bracket is the thumb target (48px wide). The value tag rides above the finger on touch devices. Tiny tick sound per step when sound is on.
+- **Drag:** brackets track the pointer 1:1 with the grab offset kept. A grip tab under each bracket provides a thumb target, and the value tag sits above the finger on touch devices.
 - **Lock:** the brackets clamp (260 ms) — the window is now fixed.
 - **Anticipation:** the answer flag travels along the ruler from the far end, counting as it goes, decelerating on a quint ease-out over 1.35 s. You watch it approach your window.
 - **Landing:** a hit pumps the highlighter band and the points count up; a miss hatches the band, shakes it, and states the distance ("Missed by 3 goals").

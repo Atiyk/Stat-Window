@@ -599,13 +599,13 @@ a {
   position: relative;
   height: 124px;
   margin: 0 22px; /* brackets overhang the ends */
-  touch-action: none;
   user-select: none;
   -webkit-user-select: none;
 }
 
 .ruler-track[data-interactive] {
   cursor: pointer;
+  touch-action: none;
 }
 
 .ruler-track:not([data-interactive]) {
@@ -732,7 +732,6 @@ a {
   height: 122px;
   margin-left: -24px;
   cursor: ew-resize;
-  touch-action: none;
   z-index: 2;
   outline: none;
 }

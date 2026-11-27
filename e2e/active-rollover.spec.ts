@@ -9,7 +9,9 @@ test('a beta game in progress at midnight can finish and checks the launch sched
   const previous = addDays(launch, -1);
   const midnight = puzzleStartUtcMs(launch);
   let manifestRequests = 0;
-  await page.route('**/api/scores**', route => route.fulfill({ status: 503, json: { status: 'disabled' } }));
+  await page.route('**/api/scores**', route => route.request().method() === 'POST'
+    ? route.fulfill({ status: 409, json: { status: 'consent-required' } })
+    : route.fulfill({ status: 503, json: { status: 'disabled' } }));
   await page.route('**/launch.json', route => {
     manifestRequests++;
     // A different schedule forces a reload. The test server serves the same bundle again.
@@ -28,6 +30,7 @@ test('a beta game in progress at midnight can finish and checks the launch sched
     await next(page);
   }
   await expect(page.locator('.results-score')).toBeVisible();
+  await expect(page.getByRole('group', { name: 'See how this score compares?' })).toBeVisible();
   expect(manifestRequests).toBe(0);
   await page.evaluate(() => { document.documentElement.dataset.testRollover = 'old-document'; });
 

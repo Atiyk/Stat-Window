@@ -1,5 +1,5 @@
 import * as z from 'zod/mini';
-import type { RoundRecord } from './game';
+import type { Mode, RoundRecord } from './game';
 
 /**
  * Browser-local save. This is a convenience, not anti-cheat: anyone can edit
@@ -9,6 +9,10 @@ import type { RoundRecord } from './game';
 export const SAVE_KEY = 'stat-window:v1';
 // Keep untimed runs available if an older release writes to the daily save.
 export const UNTIMED_PRACTICE_KEY = 'stat-window:practice-untimed:v1';
+
+export function shotSessionKey(mode: Mode, questionId: string): string {
+  return mode === 'daily' ? `stat-window:shot:v1:${questionId}` : `stat-window:shot:practice:v1:${questionId}`;
+}
 
 const RoundRecordSchema = z.object({
   questionId: z.string(),
@@ -38,6 +42,7 @@ const SaveSchema = z.object({
    * Optional so saves written before this field existed still load.
    */
   practice: z.optional(z.record(DayKey, RunSchema)),
+  // The old client requires sound in v1 saves. Keep the field readable on rollback.
   settings: z.object({ sound: z.boolean(), introSeen: z.boolean() }),
   /** First and latest UTC day this browser opened the game. Used only for return counts. */
   visits: z.optional(z.object({ first: DayKey, last: DayKey })),

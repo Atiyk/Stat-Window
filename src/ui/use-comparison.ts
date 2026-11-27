@@ -67,12 +67,12 @@ export function useComparison(eligible: boolean, day: string, results: readonly 
     state,
     join: () => {
       savePrivacy({ scores: 'on' });
-      track({ name: 'privacy', choice: 'scores-on' });
+      track({ name: 'privacy', choice: 'scores-on', cohort });
       send(true);
     },
     decline: () => {
       savePrivacy({ scores: 'off' });
-      track({ name: 'privacy', choice: 'scores-off' });
+      track({ name: 'privacy', choice: 'scores-off', cohort });
       setState({ kind: 'off' });
     },
     refresh: () => {

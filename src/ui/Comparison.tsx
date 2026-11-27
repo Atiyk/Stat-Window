@@ -15,34 +15,37 @@ const time = (iso: string) => {
  * until enough eligible games exist, never "beat X%", and the sample size is always shown.
  * The slot keeps a fixed minimum height while the answer loads, so nothing below it jumps.
  */
-export const ComparisonLine = forwardRef<HTMLDivElement, { comparison: ComparisonApi; onPrivacy?: (() => void) | undefined }>(function ComparisonLine(
-  { comparison: c, onPrivacy },
+type Props = { comparison: ComparisonApi; isToday: boolean; onPrivacy?: (() => void) | undefined };
+
+export const ComparisonLine = forwardRef<HTMLDivElement, Props>(function ComparisonLine(
+  { comparison: c, isToday, onPrivacy },
   ref,
 ) {
   const s = c.state;
   // Switched off or not eligible: nothing at all, not an empty gap.
   if (s.kind === 'none' || s.kind === 'disabled' || s.kind === 'ineligible') return null;
-  const quiet = s.kind === 'gathering' && s.n < PERCENTILE_PROGRESS_FROM;
+  const quiet = s.kind === 'consent' || (s.kind === 'gathering' && s.n < PERCENTILE_PROGRESS_FROM);
   return (
     <div className="percentile-slot" ref={ref} tabIndex={-1} aria-live="polite" data-empty={quiet || undefined}>
-      {line(c, onPrivacy)}
+      {line(c, isToday, onPrivacy)}
     </div>
   );
 });
 
-function line(c: ComparisonApi, onPrivacy: (() => void) | undefined) {
+function line(c: ComparisonApi, isToday: boolean, onPrivacy: (() => void) | undefined) {
   const s = c.state;
+  const puzzle = isToday ? 'today’s' : 'this puzzle’s';
   switch (s.kind) {
     case 'none':
     case 'disabled':
     case 'ineligible':
       return null;
     case 'loading':
-      return <p className="percentile percentile-quiet">Checking today’s games…</p>;
+      return <p className="percentile percentile-quiet">Checking {puzzle} games…</p>;
     case 'ready':
       return (
         <p className="percentile">
-          <b>{ordinal(s.percentile)} percentile today</b>
+          <b>{ordinal(s.percentile)} percentile {isToday ? 'today' : 'for this puzzle'}</b>
           <span className="percentile-detail">
             {' '}· based on {s.n.toLocaleString('en-US')} eligible completed {s.n === 1 ? 'game' : 'games'}, as of {time(s.asOf)}.{' '}
             <button type="button" className="btn-link" onClick={c.refresh}>
@@ -53,21 +56,21 @@ function line(c: ComparisonApi, onPrivacy: (() => void) | undefined) {
       );
     case 'gathering':
       // Too few games to say anything useful: no visible line (screen readers still hear the score was counted).
-      if (s.n < PERCENTILE_PROGRESS_FROM) return <p className="sr-only">Your score is in today’s tally.</p>;
+      if (s.n < PERCENTILE_PROGRESS_FROM) return <p className="sr-only">Your score is in {puzzle} tally.</p>;
       return (
         <p className="percentile percentile-quiet">
-          Percentiles unlock at {s.threshold.toLocaleString('en-US')} games today: {s.n.toLocaleString('en-US')} so far.{' '}
+          Percentiles unlock at {s.threshold.toLocaleString('en-US')} games{isToday ? ' today' : ''}: {s.n.toLocaleString('en-US')} so far.{' '}
           <button type="button" className="btn-link" onClick={c.refresh}>
             Refresh
           </button>
         </p>
       );
     case 'unavailable':
-      return <p className="percentile percentile-quiet">Today’s percentile isn’t available right now. Your score is saved here.</p>;
+      return <p className="percentile percentile-quiet">Percentile isn’t available right now.</p>;
     case 'off':
       return (
         <p className="percentile percentile-quiet">
-          You’re not in today’s comparison.{' '}
+          You’re not in {puzzle} comparison.{' '}
           {onPrivacy && (
             <button type="button" className="btn-link" onClick={onPrivacy}>
               Change
@@ -76,7 +79,7 @@ function line(c: ComparisonApi, onPrivacy: (() => void) | undefined) {
         </p>
       );
     case 'consent':
-      return <p className="percentile percentile-quiet">Today’s percentile is optional. Your choice is below.</p>;
+      return null;
   }
 }
 
@@ -84,15 +87,15 @@ function line(c: ComparisonApi, onPrivacy: (() => void) | undefined) {
  * The yes/no, placed under the share buttons so it never pushes them down. Both answers
  * look and weigh the same; nothing is sent until "Count my score".
  */
-export function ConsentChoice({ comparison: c, onPrivacy }: { comparison: ComparisonApi; onPrivacy?: (() => void) | undefined }) {
+export function ConsentChoice({ comparison: c, isToday, onPrivacy }: Props) {
   if (c.state.kind !== 'consent') return null;
   return (
     <div className="consent" role="group" aria-labelledby="consent-q">
       <p id="consent-q" className="consent-q">
-        See how today’s score compares?
+        See how {isToday ? 'today’s' : 'this'} score compares?
       </p>
       <p className="consent-detail">
-        We’d add your total and each question’s points to today’s tallies, kept with a random code from this browser for 7 days,
+        We’d add your total and each question’s points to the puzzle’s tallies, kept with a random code from this browser for 7 days,
         then only as unlinked counts. Your five windows are checked by the server and not kept.{' '}
         {onPrivacy && (
           <button type="button" className="btn-link" onClick={onPrivacy}>

@@ -23,14 +23,16 @@ async function clearOfDock(page: Page, el: Locator) {
 }
 
 test.describe('BUG-01: 320x568 first screen and reveal', () => {
-  test('ruler, hint, verdict and points clear the docked button', async ({ page }) => {
+  test('ruler, scoring feedback and reveal clear the action bar', async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 568 });
     await openAt(page, NOV21);
     await page.waitForTimeout(300);
     await page.screenshot({ path: `${shots}/bug01-320-first.png` });
     expect(await clearOfDock(page, page.locator('.ruler-track'))).toMatchObject({ ok: true });
-    expect(await clearOfDock(page, page.locator('.verdict-line p'))).toMatchObject({ ok: true });
+    await expect(page.locator('.verdict-line')).toBeEmpty();
     await expect(page.getByRole('button', { name: 'Pull the brackets in first' })).toBeInViewport({ ratio: 1 });
+    await page.getByRole('slider', { name: 'Low end of your window' }).press('ArrowRight');
+    expect(await clearOfDock(page, page.locator('.verdict-line p'))).toMatchObject({ ok: true });
     await lockAndSettle(page);
     await page.waitForTimeout(700);
     await page.screenshot({ path: `${shots}/bug01-320-reveal.png` });
@@ -80,13 +82,14 @@ test.describe('BUG-03: a window worth 0 is honest before and after the lock', ()
     test(`26 to 100 warns it scores 0, and the reveal says why (${returning ? 'returning' : 'first-time'} player)`, async ({ page }) => {
       await openAt(page, NOV21);
       if (returning) {
-        // Finish the first-time hint the normal way, then reload as a returning player.
+        // Make an adjustment, then return to the untouched window and reload.
         await page.getByRole('slider', { name: 'Low end of your window' }).focus();
         await page.keyboard.press('ArrowRight');
         await page.keyboard.press('ArrowLeft');
         await page.reload();
         await expect(page.locator('.question')).toBeVisible();
-        await expect(page.locator('.verdict-line')).toHaveText('Pull the brackets in. Tighter windows score more.');
+        await expect(page.locator('.verdict-line')).toBeEmpty();
+        await expect(page.getByRole('button', { name: 'Pull the brackets in first' })).toBeDisabled();
       }
       await typeWindow(page, 26, 100);
       const lock = page.getByRole('button', { name: 'Lock the window' });
@@ -309,7 +312,7 @@ test.describe('BUG-09, BUG-10, BUG-13: layout, colour and copy nits', () => {
     await page.waitForTimeout(200);
     await page.screenshot({ path: `${shots}/bug10-720x450.png` });
     expect(await clearOfDock(page, page.locator('.readout'))).toMatchObject({ ok: true });
-    expect(await clearOfDock(page, page.locator('.verdict-line p'))).toMatchObject({ ok: true });
+    expect(await clearOfDock(page, page.locator('.verdict-line'))).toMatchObject({ ok: true });
     // The window and its scale (the top 64px of the track) are on screen above the docked button.
     const track = (await page.locator('.ruler-track').boundingBox())!;
     const bar = (await page.locator('.action-bar').boundingBox())!;

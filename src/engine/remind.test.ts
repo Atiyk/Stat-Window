@@ -321,7 +321,7 @@ describe('icsText', () => {
       expect(lines.filter((l) => l.startsWith('DTSTART')).length).toBe(3);
       expect(lines).toContain('RRULE:FREQ=DAILY');
       expect(lines).toContain(`URL:${REMIND_URL}`);
-      expect(REMIND_URL).toBe('https://stat-window.vercel.app/?from=calendar');
+      expect(REMIND_URL).toBe('https://www.statwindow.app/?from=calendar');
       expect(lines).toContain(`UID:stat-window-daily-${hh(h)}-new-york@stat-window.vercel.app`);
       expect(lines).toContain('VERSION:2.0');
       expect(lines).toContain('DTSTAMP:20261122T000000Z');

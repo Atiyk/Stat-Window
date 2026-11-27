@@ -84,8 +84,8 @@ export function Help({ open, onClose, onPrivacy, view: requested = 'list', clock
         {example && view !== 'list' ? (
           <>
             <h2 id="help-title" className="help-title guide-title">{label}</h2>
-            <p className="guide-kicker">Untimed example · not saved or scored</p>
-            <p className="guide-detail">{view === 'intro' ? 'Drag or type a window, lock it, and see how the scoring works.' : FORMAT_GUIDE[view].detail}</p>
+            <p className="guide-kicker">Untimed practice</p>
+            {view !== 'intro' && <p className="guide-detail">{FORMAT_GUIDE[view].tip}</p>}
             <TeachingPlay
               key={`${view}:${run}`}
               example={example}
@@ -116,12 +116,11 @@ export function Help({ open, onClose, onPrivacy, view: requested = 'list', clock
             <h2 id="help-title" ref={titleRef} className="help-title" tabIndex={-1} autoFocus>How to play</h2>
             {clockLive && (
               <p className="guide-live" role="note">
-                Your shot clock is still running. This guide doesn’t pause it; worked examples open after this question.
+                Shot clock still running. Examples unlock after this question.
               </p>
             )}
             <p>
-              Five NBA questions a day, each with a number for an answer. Drag the two brackets to frame your estimate,
-              then lock the window before the 24-second shot clock runs out.
+              Bracket your estimate and lock it before the 24-second shot clock runs out. Play five NBA questions each day.
             </p>
             <WindowDemo className="help-demo" />
             <p>
@@ -131,22 +130,18 @@ export function Help({ open, onClose, onPrivacy, view: requested = 'list', clock
             </p>
 
             <h3 className="guide-section">Question types</h3>
-            <p className="guide-intro">
-              The basics, then the three question types. All use the same brackets, scoring and clock, and each has an untimed
-              example to try; nothing in it is saved or scored.
-            </p>
+            <p className="guide-intro">Try an untimed example. Only daily games count toward your stats.</p>
             <ul className="guide-types">
               <li>
                 <button type="button" className="guide-type" data-guide-open="intro" disabled={clockLive} onClick={() => show('intro')}>
                   <span className="guide-type__label">The basics</span>
-                  <span className="guide-type__summary">The Warriors walkthrough: drag, lock, score, move up the court.</span>
+                  <span className="guide-type__summary">Warriors walkthrough</span>
                 </button>
               </li>
               {GUIDE_FORMATS.map((f) => (
                 <li key={f}>
                   <button type="button" className="guide-type" data-guide-open={f} data-format={f} disabled={clockLive} onClick={() => show(f)}>
                     <span className="guide-type__label">{FORMAT_GUIDE[f].label}</span>
-                    <span className="guide-type__summary">{FORMAT_GUIDE[f].instruction}</span>
                   </button>
                 </li>
               ))}

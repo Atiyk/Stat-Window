@@ -35,8 +35,8 @@ export function WindowDemo({ className = '' }: { className?: string }) {
           </div>
         ))}
       </div>
-      <figcaption className="window-demo__caption">
-        Both catch the answer. The tighter window scores {tight!.points}, the wide one {wide!.points}. Miss, and it’s 0.
+      <figcaption className="sr-only">
+        Both windows catch the same answer. The wide window earns {wide!.points} points and the tight one earns {tight!.points}.
       </figcaption>
     </figure>
   );

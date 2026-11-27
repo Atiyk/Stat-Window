@@ -10,8 +10,8 @@ describe('format help coverage', () => {
     for (const f of PLAYER_FORMATS) {
       const g = FORMAT_GUIDE[f];
       expect(g.label.trim().length, f).toBeGreaterThan(2);
-      expect(g.instruction.length, f).toBeLessThanOrEqual(80);
-      expect(g.detail.trim().length, f).toBeGreaterThan(30);
+      expect(g.tip.trim().length, f).toBeGreaterThan(30);
+      expect(g.tip.length, f).toBeLessThanOrEqual(100);
       expect(g.example.question.meta?.format, f).toBe(f);
       expect(g.example.id, f).toBe(g.example.question.id);
     }
@@ -21,8 +21,8 @@ describe('format help coverage', () => {
   it('labels are distinct, so no two formats read the same', () => {
     const labels = PLAYER_FORMATS.map((f) => FORMAT_GUIDE[f].label);
     expect(new Set(labels).size).toBe(labels.length);
-    const lines = PLAYER_FORMATS.map((f) => FORMAT_GUIDE[f].instruction);
-    expect(new Set(lines).size).toBe(lines.length);
+    const tips = PLAYER_FORMATS.map((f) => FORMAT_GUIDE[f].tip);
+    expect(new Set(tips).size).toBe(tips.length);
   });
 
   it('every example (and the first-play walkthrough) is a schema-valid question with a unique teach- id', () => {
@@ -56,7 +56,7 @@ describe('format help coverage', () => {
       expect(f in FORMAT_GUIDE, f).toBe(false);
       const g = guideFor(f);
       expect(g.format, f).toBe('recall');
-      expect(g.instruction, f).toBe(FORMAT_GUIDE.recall.instruction);
+      expect(g.tip, f).toBe(FORMAT_GUIDE.recall.tip);
     }
   });
 

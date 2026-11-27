@@ -35,13 +35,21 @@ const ENDPOINT = '/api/scores';
 /** The published build never shows a percentile from fewer than 100 games, whatever a server says. */
 const FLOOR = (import.meta as ImportMeta & { env?: { DEV?: boolean } }).env?.DEV ? 0 : PERCENTILE_MIN_SAMPLE;
 
+let qaThisPage = false;
+
 /** QA runs (`?qa=1` once, remembered) go to a separate season that never reaches real rankings. */
 export function isQa(): boolean {
+  if (typeof window === 'undefined') return false;
+  if (qaThisPage) return true;
   try {
-    if (new URLSearchParams(window.location.search).get('qa') === '1') window.localStorage.setItem('stat-window:qa', '1');
-    return window.localStorage.getItem('stat-window:qa') === '1';
+    if (new URLSearchParams(window.location.search).get('qa') === '1') {
+      qaThisPage = true;
+      window.localStorage.setItem('stat-window:qa', '1');
+    }
+    return qaThisPage || window.localStorage.getItem('stat-window:qa') === '1';
   } catch {
-    return false;
+    // The QA marker still applies when storage is unavailable or the app rewrites the URL.
+    return qaThisPage;
   }
 }
 

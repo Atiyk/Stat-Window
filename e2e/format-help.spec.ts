@@ -7,7 +7,6 @@ import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { expect, test, type Page } from '@playwright/test';
 import { PLAYER_FORMATS, RETIRED_FORMATS } from '../src/content/formats';
 import { FORMAT_GUIDE } from '../src/content/teaching';
-import { FAMILIARITY_KEY } from '../src/lib/format-familiarity';
 import { SAVE_KEY } from '../src/engine/storage';
 import { lowBracket, lockAndSettle, next } from './helpers';
 
@@ -37,7 +36,6 @@ const snapshot = (page: Page) => page.evaluate(() => {
   const local: Record<string, string> = {};
   for (let i = 0; i < localStorage.length; i++) {
     const k = localStorage.key(i)!;
-    // Familiarity is its own key and the only one examples may never touch either.
     local[k] = localStorage.getItem(k)!;
   }
   const session: Record<string, string> = {};
@@ -76,12 +74,35 @@ test.describe('first use', () => {
     const home = page.locator('.home');
     await expect(home.getByRole('heading', { level: 1 })).toHaveText('How well do you know ball?');
     await expect(home).toContainText('NBA');
-    // The demo states the rule in numbers computed by the real scoring formula.
-    await expect(home.locator('.window-demo figcaption')).toContainText(/tighter window scores \d+, the wide one \d+/);
+    const demo = home.locator('.window-demo');
+    await expect(demo.locator('.window-demo__points')).toHaveText(['+16', '+79']);
+    await expect(demo).toHaveAccessibleName('Both windows catch the same answer. The wide window earns 16 points and the tight one earns 79.');
+    await expect(demo.locator('figcaption')).toHaveClass('sr-only');
     await expect(home.getByRole('button', { name: 'Play Game 12' })).toBeVisible();
     await expect(home.getByRole('button', { name: 'Try a practice question first' })).toBeVisible();
     await expect(home).toContainText('Free, no account');
     await expect(page.locator('.onboarding-play')).toHaveCount(0);
+  });
+
+  test('a saved sound preference never opens audio and does not block play', async ({ page }) => {
+    await seed(page, true, { settings: { sound: true, introSeen: true } });
+    await page.addInitScript(() => {
+      if (typeof AudioContext !== 'undefined') {
+        window.AudioContext = new Proxy(AudioContext, {
+          construct(target, args) {
+            sessionStorage.setItem('audio-context-opened', 'true');
+            return Reflect.construct(target, args);
+          },
+        });
+      }
+    });
+    await page.clock.install({ time: BETA_DAY });
+    await page.goto('/');
+    await expect(page.getByRole('button', { name: /sound/i })).toHaveCount(0);
+    await expect(page.getByRole('button', { name: 'Try a practice question first' })).toHaveCount(0);
+    await page.getByRole('button', { name: 'Play Game 12' }).click();
+    await lockAndSettle(page);
+    expect((await snapshot(page)).session['audio-context-opened']).toBeUndefined();
   });
 
   test('a new player can learn with a short, skippable, interactive walkthrough that teaches through play', async ({ page }) => {
@@ -322,12 +343,12 @@ test.describe('contextual guidance during a timed, mixed-format daily', () => {
     await page.getByRole('button', { name: /^Play Game \d+$/ }).click();
     const cue = page.locator('.round .format-cue');
     await expect(cue).toHaveAttribute('data-format', 'missing-point');
-    await expect(cue).toContainText(FORMAT_GUIDE['missing-point'].instruction);
-    await expect(cue.locator('.format-cue__line')).toBeVisible();
+    await expect(cue.locator('.format-cue__line')).toHaveCount(0);
+    await expect(cue.locator('.format-cue__detail')).toBeHidden();
     // The in-round "?" expands in place; no overlay, and the clock keeps counting.
     await page.getByRole('button', { name: 'About missing data point questions' }).click();
     await expect(cue.locator('.format-cue__detail')).toBeVisible();
-    await expect(cue.locator('.format-cue__detail')).toContainText('The shot clock keeps running');
+    await expect(cue.locator('.format-cue__detail')).toHaveText(FORMAT_GUIDE['missing-point'].tip);
     await shoot(page, 'round-format-cue-open-390');
     await expect(page.locator('dialog[open]')).toHaveCount(0);
     await page.clock.runFor(3000);
@@ -349,31 +370,25 @@ test.describe('contextual guidance during a timed, mixed-format daily', () => {
     await guide(page).getByRole('button', { name: 'Close' }).click();
     const saved = JSON.parse((await snapshot(page)).local[SAVE_KEY]!);
     expect(saved.runs['2026-12-03'].results[0]).toMatchObject({ timedOut: true, points: 0 });
-    // After the round resolves the deeper example is one tap away, and the format is now familiar.
+    // After the round resolves the worked example is one tap away.
     await expect(page.getByRole('button', { name: 'About missing data point questions' })).toHaveAttribute('aria-expanded', 'true');
     await page.getByRole('button', { name: 'Try a worked missing data point example' }).click();
     await expect(guide(page).locator('.guide-play .q-chart')).toBeVisible();
     await guide(page).getByRole('button', { name: 'Close' }).click();
-    expect(JSON.parse((await snapshot(page)).local[FAMILIARITY_KEY]!)).toContain('missing-point');
-    // The format is met: its line has faded out (keeping its space), the "?" stays.
-    await expect(cue.locator('.format-cue__line')).toBeHidden();
-    // Each new format mid-slate gets its one line on first encounter, and only then.
+    // Each new question starts with its optional help closed.
     await next(page);
     await expect(cue).toHaveAttribute('data-format', 'reference');
-    await expect(cue.locator('.format-cue__line')).toHaveText(new RegExp(FORMAT_GUIDE.reference.instruction));
-    const cueHeight = (await cue.boundingBox())!.height;
+    await expect(cue.locator('.format-cue__detail')).toBeHidden();
+    await page.getByRole('button', { name: 'About reference figure questions' }).click();
+    await expect(cue.locator('.format-cue__detail')).toHaveText(FORMAT_GUIDE.reference.tip);
     await lockAndSettle(page);
-    await expect(cue.locator('.format-cue__line')).toBeHidden();
-    // Fading the line out on reveal never shifts the layout below it.
-    expect((await cue.boundingBox())!.height).toBeCloseTo(cueHeight, 0);
     await next(page);
-    // Plain recall needs no line (the home and the walkthrough teach it); its "?" is there.
     await expect(cue).toHaveAttribute('data-format', 'recall');
-    await expect(cue.locator('.format-cue__line')).toHaveCount(0);
-    await expect(page.getByRole('button', { name: 'About straight recall questions' })).toBeVisible();
+    await page.getByRole('button', { name: 'About straight recall questions' }).click();
+    await expect(cue.locator('.format-cue__detail')).toHaveText(FORMAT_GUIDE.recall.tip);
     await lockAndSettle(page);
     await next(page);
-    // Repeat exposure of missing-point in the same slate: no line, and the help control is still there.
+    // A subsequent chart question still has help, closed by default.
     await expect(cue).toHaveAttribute('data-format', 'missing-point');
     await expect(cue.locator('.format-cue__line')).toHaveCount(0);
     await expect(page.getByRole('button', { name: 'About missing data point questions' })).toBeVisible();
@@ -381,16 +396,24 @@ test.describe('contextual guidance during a timed, mixed-format daily', () => {
     await expect(page.getByText('New type')).toHaveCount(0);
   });
 
-  test('repeat exposures across refreshes do not nag', async ({ page }) => {
+  test('old format preferences are harmless and stay unchanged across play and refresh', async ({ page }) => {
+    const legacyKey = 'stat-window:formats-seen:v1';
     await seed(page, true);
-    await page.addInitScript((key) => localStorage.setItem(key, JSON.stringify(['missing-point'])), FAMILIARITY_KEY);
+    await page.addInitScript((key) => {
+      if (!sessionStorage.getItem('format-seeded')) {
+        localStorage.setItem(key, '["recall"]');
+        sessionStorage.setItem('format-seeded', '1');
+      }
+    }, legacyKey);
     await page.clock.install({ time: MIXED_DAY });
     await page.goto('/');
     await page.getByRole('button', { name: /^Play Game \d+$/ }).click();
     await expect(page.locator('.round .format-cue')).toHaveAttribute('data-format', 'missing-point');
-    await expect(page.locator('.round .format-cue__line')).toHaveCount(0);
+    await expect(page.locator('.round .format-cue__detail')).toBeHidden();
+    await lockAndSettle(page);
     await page.reload();
-    await expect(page.locator('.round .format-cue__line')).toHaveCount(0);
+    await expect(page.locator('.round .format-cue__detail')).toBeHidden();
+    expect((await snapshot(page)).local[legacyKey]).toBe('["recall"]');
   });
 
   test('missing metadata falls back to recall guidance', async ({ page }) => {
@@ -399,7 +422,8 @@ test.describe('contextual guidance during a timed, mixed-format daily', () => {
     await page.goto('/');
     await page.getByRole('button', { name: /^Play Game \d+$/ }).click();
     await expect(page.locator('.round .format-cue')).toHaveAttribute('data-format', 'recall');
-    await expect(page.locator('.round .format-cue')).toContainText(FORMAT_GUIDE.recall.instruction);
+    await page.getByRole('button', { name: 'About straight recall questions' }).click();
+    await expect(page.locator('.round .format-cue__detail')).toHaveText(FORMAT_GUIDE.recall.tip);
   });
 
   test('a tutorial example cannot reset or overwrite a partially completed daily', async ({ page }) => {

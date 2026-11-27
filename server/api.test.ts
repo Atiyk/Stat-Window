@@ -3,6 +3,8 @@ import { contextFromEnv, DEFAULT_LIMITS, eligibleDay, handle, ipPrefix, verifyRo
 import { COST, memoryStore, type ScoreStore } from './store.ts';
 import { fileSlates } from './slates.ts';
 import { DAY, NOON, player, post, roundsFor, testContext } from './fixtures.ts';
+import { LAUNCH_DAY } from '../src/engine/launch-config.ts';
+import { currentSeason, seasonConfigFrom } from '../src/engine/season.ts';
 
 const submit = async (ctx: Parameters<typeof handle>[1], body: Record<string, unknown>, headers: Record<string, string> = {}) => {
   const res = await handle(post(body, headers), ctx);
@@ -458,4 +460,36 @@ describe('percentile deletion revocation (shipping privacy contract)', () => {
     expect((await submit(ctx, { day: DAY, player: old, rounds: a.rounds })).body.status).toBe('revoked');
   });
 
+});
+
+describe('Day 1 cutover: the score API season matches the client (docs/V5.2-DAY1-SIMULATION.md)', () => {
+  // The client derives its season from the same committed value (src/App.tsx, seasonConfigFrom).
+  const client = seasonConfigFrom({ launchDay: LAUNCH_DAY ?? undefined, preview: undefined });
+
+  it('reads the committed launch day, the same one the client numbers from', () => {
+    const { ctx } = testContext();
+    expect(ctx.launchDay).toBe(LAUNCH_DAY);
+    expect(ctx.launchDay).toBe(client.launchDay);
+  });
+
+  it.each([
+    ['2026-11-29', '2026-11-29T23:00:00Z'],
+    ['2026-11-30', '2026-11-30T15:00:00Z'],
+    ['2026-12-01', '2026-12-01T15:00:00Z'],
+  ])('stores %s under the season the client shows for it', async (day, at) => {
+    const { ctx, store } = testContext({}, { t: Date.parse(at) });
+    const a = await roundsFor(day, 2);
+    const res = await submit(ctx, { v: 1, day, player: player(500), rounds: a.rounds, total: a.total });
+    const season = currentSeason(day, client);
+    expect(res.code).toBe(200);
+    expect(res.body).toMatchObject({ status: 'stored', day, season });
+    expect([...store.dump().keys()].some((k) => k.startsWith(`sw:v1:development:${season}:${day}:`))).toBe(true);
+  });
+
+  it('when the committed launch day is 2026-11-30, Nov 29 is beta and Nov 30 is s1', () => {
+    if (LAUNCH_DAY !== '2026-11-30') return;
+    expect(currentSeason('2026-11-29', client)).toBe('beta');
+    expect(currentSeason('2026-11-30', client)).toBe('s1');
+    expect(currentSeason('2026-12-01', client)).toBe('s1');
+  });
 });

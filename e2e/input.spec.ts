@@ -147,11 +147,11 @@ test('progress chips grow with 200% text at 390px, so no number is clipped', asy
   await lockAndSettle(page);
   await next(page);
   await page.addStyleTag({ content: 'html { font-size: 200% }' });
+  await expect(page.locator('html')).toHaveCSS('font-size', '32px');
   await page.evaluate(() => document.fonts.ready);
   const cells = page.locator('.round-top .ledger-cell');
   await expect(cells).toHaveCount(5);
-  // The next question can scroll the page while WebKit applies the larger text.
-  // Measure each chip and its label in the same layout to use one viewport position.
+  // Measure each chip and its label together so WebKit uses the same text layout for both.
   const bounds = await cells.evaluateAll((elements) => elements.map((element) => ({
     cell: element.getBoundingClientRect().toJSON(),
     num: element.querySelector('.ledger-num')!.getBoundingClientRect().toJSON(),

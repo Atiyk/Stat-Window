@@ -16912,7 +16912,7 @@
   "question": {
    "prompt": "How many points per game did Tim Duncan average in the 1999 Finals?",
    "context": "Spurs vs Knicks · 1999 NBA Finals",
-   "reveal": "He added 14 rebounds a game as San Antonio won its first title.",
+   "reveal": "With 14 rebounds a game, it made him Finals MVP and brought San Antonio its first NBA championship.",
    "min": 18,
    "max": 42,
    "step": 0.1,
@@ -16934,11 +16934,11 @@
      }
     },
     {
-     "text": "San Antonio drafted Duncan after an injury-hit season and a fortunate draft lottery.",
+     "text": "Duncan was named Finals MVP as the Spurs beat the Knicks for their first NBA championship.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-      "quote": "The Spurs earned this draft pick through the draft lottery due to a 62-loss 1996–97 season"
+      "quote": "Tim Duncan was named the Most Valuable Player of the finals"
      }
     },
     {
@@ -19512,7 +19512,7 @@
   "question": {
    "prompt": "Walter Davis and Hedo Türkoğlu ran other finalists' offenses. How many assists per game did Mark Jackson average for the 1997–98 Pacers?",
    "context": "Indiana · 1997–98 regular season",
-   "reveal": "The steady hand running Larry Bird's first Pacers offense, built around Reggie Miller's shooting.",
+   "reveal": "8.7 a game from the pass-first point guard of a Pacers team that took Jordan's Bulls to a seventh game.",
    "min": 3,
    "max": 19,
    "step": 0.1,
@@ -19542,11 +19542,11 @@
      }
     },
     {
-     "text": "Jalen Rose played every game without making a single start.",
+     "text": "Indiana's season ended in a hard-fought seven-game series loss to the Bulls in the East finals.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-      "quote": "Jalen Rose | SF | 82 | 0"
+      "quote": "thus losing in a hard-fought seven-game series"
      }
     }
    ],
@@ -21825,7 +21825,7 @@
   "question": {
    "prompt": "The 1993–94 Rockets opened with 15 straight wins. How many straight games did Seattle win to start its 1993–94 season?",
    "context": "SuperSonics · opening winning streak",
-   "reveal": "Only the start: Seattle went on to finish with the NBA's best record.",
+   "reveal": "Ten straight to open a league-best season that ended in the first No. 8-over-No. 1 upset in playoff history.",
    "min": 3,
    "max": 28,
    "step": 1,
@@ -21855,11 +21855,11 @@
      }
     },
     {
-     "text": "Seattle finished the season by winning 17 of its last 19 games.",
+     "text": "Seattle's season ended in a first-round loss to eighth-seeded Denver, the first No. 8 seed to beat a No. 1.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
-      "quote": "won 17 of their final 19 games of the season"
+      "quote": "a #8 seed defeated a #1 seeded team"
      }
     }
    ],

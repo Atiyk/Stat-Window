@@ -1633,7 +1633,7 @@
   "question": {
    "prompt": "The chart shows other famous season-opening win streaks. How many straight wins did the 2015–16 Warriors start with?",
    "context": "Golden State Warriors · 2015–16",
-   "reveal": "24 before Milwaukee ended it, with Luke Walton coaching while Steve Kerr recovered.",
+   "reveal": "That beat Houston's charted 15–0 start of 1993–94 by nine games.",
    "min": 0,
    "max": 30,
    "step": 1,
@@ -2001,7 +2001,7 @@
    },
    "funFacts": [
     {
-     "text": "Boston went 37–1 at the Boston Garden and 3–0 at the Hartford Civic Center.",
+     "text": "Their lone home loss came at the Boston Garden; they also went 3–0 in Hartford.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
@@ -4271,7 +4271,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Compare other Finals MVPs' scoring averages. What did Detroit guard Joe Dumars average in the 1989 Finals?",
+   "prompt": "Duncan's, Shaq's and Jaylen Brown's Finals MVP averages are charted. What did Detroit guard Joe Dumars average in the 1989 Finals?",
    "context": "1989 NBA Finals · four games vs Lakers",
    "reveal": "27.3, leading the Bad Boys to a sweep of the Lakers and Detroit's first title.",
    "min": 10,
@@ -13154,7 +13154,7 @@
   "question": {
    "prompt": "Robert Horry hit the game-winner in Game 5 of the 2005 Finals. How many points did he score off the bench?",
    "context": "2005 NBA Finals · Game 5 · at Detroit",
-   "reveal": "21, with five of six threes.",
+   "reveal": "Five of six from three, the last of them the game-winner.",
    "min": 0,
    "max": 34,
    "step": 1,
@@ -19540,7 +19540,7 @@
   "question": {
    "prompt": "The chart shows other contending teams' point guards. How many assists per game did Mark Jackson average for Larry Bird's 1997–98 Pacers?",
    "context": "Indiana · 1997–98 regular season",
-   "reveal": "8.7, on 713 assists in 82 starts, running Bird's offense around Reggie Miller.",
+   "reveal": "The steady hand running Larry Bird's first Pacers offense, built around Reggie Miller's shooting.",
    "min": 3,
    "max": 19,
    "step": 0.1,
@@ -24316,9 +24316,9 @@
    "asOf": null
   },
   "question": {
-   "prompt": "In Chris Paul's astonishing 2022 perfect-shooting playoff clincher, how many field goals did he make without a miss?",
+   "prompt": "Chris Paul closed out New Orleans in 2022 without missing a shot from the field. How many field goals did he make?",
    "context": "Chris Paul · Suns at Pelicans · 2022 playoffs",
-   "reveal": "Perfect from the field and 4-for-4 at the line: 33 points to close out New Orleans.",
+   "reveal": "That perfect night was worth 33 points and finished off the Pelicans.",
    "min": 1,
    "max": 36,
    "step": 1,
@@ -24442,9 +24442,9 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows playoff nights by stars aged 24 or younger. How many did Luka Dončić score in his 2020 overtime winner against the Clippers?",
+   "prompt": "Playoff nights by stars aged 24 or younger are charted. How many did Luka Dončić score in his 2020 overtime winner against the Clippers?",
    "context": "Luka Dončić · Mavericks vs Clippers · 2020 playoffs",
-   "reveal": "43, with 17 rebounds and 13 assists, capped by a step-back three at the overtime buzzer.",
+   "reveal": "With 17 rebounds and 13 assists: a playoff triple-double capped by his own game-winner.",
    "min": 15,
    "max": 95,
    "step": 1,
@@ -24458,7 +24458,7 @@
    },
    "funFacts": [
     {
-     "text": "Luka nailed the three-pointer at the end of overtime.",
+     "text": "Dallas was down by one when Luka's three beat the overtime buzzer.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs",
@@ -24530,9 +24530,9 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Compare other guards' 40-point playoff nights. How many did Jalen Brunson score at Philadelphia in April 2024 for a Knicks playoff record?",
+   "prompt": "Other guards' 40-point playoff nights are charted. How many did Jalen Brunson score at Philadelphia in 2024 for a Knicks playoff record?",
    "context": "Knicks at 76ers · 2024 first round · Game 4",
-   "reveal": "47 with 10 assists, passing Bernard King's 46 from 1984 for the Knicks' playoff record.",
+   "reveal": "One more than Bernard King's 46 from 1984, and the win gave New York a 3–1 series lead.",
    "min": 15,
    "max": 105,
    "step": 1,
@@ -24562,11 +24562,11 @@
      }
     },
     {
-     "text": "Brunson surpassed Bernard King's Knicks postseason mark.",
+     "text": "Joel Embiid had 27 points for Philadelphia but went 0-for-5 in the fourth quarter.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
-      "quote": "he surpassed the 46 points scored by Bernard King in 1984"
+      "quote": "Joel Embiid had 27 points, 10 rebounds, and six assists, but shot 0-of-5 from the field in the fourth quarter"
      }
     }
    ],
@@ -24620,7 +24620,7 @@
   "question": {
    "prompt": "The chart shows other huge regular-season scoring nights. How many did James Harden score at Madison Square Garden in January 2019?",
    "context": "James Harden · Houston Rockets at Knicks · January 2019",
-   "reveal": "61 with 15 rebounds, and he scored 61 again two months later.",
+   "reveal": "A career high, with 15 rebounds, in a 114–110 Rockets win at the Garden.",
    "min": 0,
    "max": 95,
    "step": 1,
@@ -24634,23 +24634,23 @@
    },
    "funFacts": [
     {
-     "text": "Harden grabbed 15 rebounds that night.",
+     "text": "That season he scored 30 or more against all 29 other teams, an NBA first.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/James_Harden",
-      "quote": "61 points to go with 15 rebounds"
+      "quote": "became the first player in NBA history to score 30 or more points against all 29 other teams in a single season"
      }
     },
     {
-     "text": "Houston narrowly won at the Garden.",
+     "text": "He became only the third player with 2,700 points and 500 assists in one season.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/James_Harden",
-      "quote": "in a 114–110 win over the New York Knicks"
+      "quote": "became the third person in NBA history to record 2,700+ points and 500+ assists in a single season"
      }
     },
     {
-     "text": "He matched this career high again later that season.",
+     "text": "When he matched that career high later in the season, he scored 27 in the first quarter.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/James_Harden",
@@ -24706,9 +24706,9 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Compare the Finals and season three-point records. How many threes did Damian Lillard make in his 2021 double-overtime playoff game?",
+   "prompt": "Single-game three records from the Finals and regular season are charted. How many threes did Damian Lillard make in a 2021 playoff game?",
    "context": "Damian Lillard · Blazers at Nuggets · 2021 playoffs",
-   "reveal": "12 threes, a playoff record, as Dame scored 55 in a heartbreaking defeat.",
+   "reveal": "A playoff record, plus 10 assists, and Portland lost anyway.",
    "min": 0,
    "max": 18,
    "step": 1,
@@ -24722,7 +24722,7 @@
    },
    "funFacts": [
     {
-     "text": "Dame set a playoff career high in points that night.",
+     "text": "His fifty-five points were a playoff career high.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
@@ -29053,19 +29053,19 @@
      }
     },
     {
-     "text": "That spring Jalen Brunson passed the 46 points Bernard King scored in 1984, a Knicks playoff mark.",
+     "text": "In the first round, New York erased a five-point deficit in the final 30 seconds to win Game 2, 104–101.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
-      "quote": "he surpassed the 46 points scored by Bernard King in 1984"
+      "quote": "the Knicks overcame a five-point deficit in the final 30 seconds to win 104–101 and take a 2–0 series lead."
      }
     },
     {
-     "text": "In that record playoff game, Brunson made 18 of his 34 shots.",
+     "text": "Josh Hart's go-ahead three finished off the 76ers in Game 6.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
-      "quote": "Brunson shot 18-of-34 from the field"
+      "quote": "a wide open Josh Hart made a go-ahead three-pointer to put New York on top as they eliminated the 76ers 4-2."
      }
     }
    ]
@@ -30667,7 +30667,7 @@
   "question": {
    "prompt": "In 1961–62, guard Oscar Robertson averaged a triple-double for the Royals. How many rebounds per game did he average?",
    "context": "Cincinnati Royals · 1961–62 regular season · 6 ft 5 in guard",
-   "reveal": "12.5, with 30.8 points and 11.4 assists; nobody matched a triple-double season until Westbrook in 2016–17.",
+   "reveal": "12.5 to go with 30.8 points and 11.4 assists, from a 6-foot-5 guard.",
    "min": 5,
    "max": 25,
    "step": 0.1,

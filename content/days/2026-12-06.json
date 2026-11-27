@@ -32,7 +32,7 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Boston went 37–1 at the Boston Garden and 3–0 at the Hartford Civic Center.",
+          "text": "Their lone home loss came at the Boston Garden; they also went 3–0 in Hartford.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
@@ -141,7 +141,7 @@
       "min": 3,
       "max": 19,
       "step": 0.1,
-      "note": "8.7, on 713 assists in 82 starts, running Bird's offense around Reggie Miller.",
+      "note": "The steady hand running Larry Bird's first Pacers offense, built around Reggie Miller's shooting.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
@@ -279,7 +279,7 @@
     {
       "id": "nba-luka20-clippers-buzzer-43",
       "sport": "NBA",
-      "prompt": "The chart shows playoff nights by stars aged 24 or younger. How many did Luka Dončić score in his 2020 overtime winner against the Clippers?",
+      "prompt": "Playoff nights by stars aged 24 or younger are charted. How many did Luka Dončić score in his 2020 overtime winner against the Clippers?",
       "context": "Luka Dončić · Mavericks vs Clippers · 2020 playoffs",
       "answer": 43,
       "unit": {
@@ -289,7 +289,7 @@
       "min": 15,
       "max": 95,
       "step": 1,
-      "note": "43, with 17 rebounds and 13 assists, capped by a step-back three at the overtime buzzer.",
+      "note": "With 17 rebounds and 13 assists: a playoff triple-double capped by his own game-winner.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs",
@@ -302,7 +302,7 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Luka nailed the three-pointer at the end of overtime.",
+          "text": "Dallas was down by one when Luka's three beat the overtime buzzer.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs",

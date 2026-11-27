@@ -285,7 +285,7 @@
     {
       "id": "nba-brunson24-philly-47",
       "sport": "NBA",
-      "prompt": "Compare other guards' 40-point playoff nights. How many did Jalen Brunson score at Philadelphia in April 2024 for a Knicks playoff record?",
+      "prompt": "Other guards' 40-point playoff nights are charted. How many did Jalen Brunson score at Philadelphia in 2024 for a Knicks playoff record?",
       "context": "Knicks at 76ers · 2024 first round · Game 4",
       "answer": 47,
       "unit": {
@@ -295,7 +295,7 @@
       "min": 15,
       "max": 105,
       "step": 1,
-      "note": "47 with 10 assists, passing Bernard King's 46 from 1984 for the Knicks' playoff record.",
+      "note": "One more than Bernard King's 46 from 1984, and the win gave New York a 3–1 series lead.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
@@ -324,11 +324,11 @@
           }
         },
         {
-          "text": "Brunson surpassed Bernard King's Knicks postseason mark.",
+          "text": "Joel Embiid had 27 points for Philadelphia but went 0-for-5 in the fourth quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
-            "quote": "he surpassed the 46 points scored by Bernard King in 1984"
+            "quote": "Joel Embiid had 27 points, 10 rebounds, and six assists, but shot 0-of-5 from the field in the fourth quarter"
           }
         }
       ],

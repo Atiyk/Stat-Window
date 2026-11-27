@@ -218,7 +218,7 @@
     {
       "id": "nba-dumars89-finals-ppg",
       "sport": "NBA",
-      "prompt": "Compare other Finals MVPs' scoring averages. What did Detroit guard Joe Dumars average in the 1989 Finals?",
+      "prompt": "Duncan's, Shaq's and Jaylen Brown's Finals MVP averages are charted. What did Detroit guard Joe Dumars average in the 1989 Finals?",
       "context": "1989 NBA Finals · four games vs Lakers",
       "answer": 27.3,
       "unit": {
@@ -305,7 +305,7 @@
     {
       "id": "nba-cp3-2022-perfect-playoff-shots",
       "sport": "NBA",
-      "prompt": "In Chris Paul's astonishing 2022 perfect-shooting playoff clincher, how many field goals did he make without a miss?",
+      "prompt": "Chris Paul closed out New Orleans in 2022 without missing a shot from the field. How many field goals did he make?",
       "context": "Chris Paul · Suns at Pelicans · 2022 playoffs",
       "answer": 14,
       "unit": {
@@ -315,7 +315,7 @@
       "min": 1,
       "max": 36,
       "step": 1,
-      "note": "Perfect from the field and 4-for-4 at the line: 33 points to close out New Orleans.",
+      "note": "That perfect night was worth 33 points and finished off the Pelicans.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",

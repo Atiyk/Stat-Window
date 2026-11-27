@@ -290,7 +290,7 @@
    "id": "nba-dumars89-finals-ppg",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Shown among other Finals MVPs' averages (Duncan '99, Shaq '00, Brown '24), the chart tells the story of what it takes to win the award, and a guard on a defense-first team matching Duncan is the surprise.; prompt polish",
+   "note": "Shown among other Finals MVPs' averages (Duncan '99, Shaq '00, Brown '24), the chart tells the story of what it takes to win the award, and a guard on a defense-first team matching Duncan is the surprise.; prompt polish; first-14 polish: 'Compare other…' opener varied; prompt names the charted MVPs",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -300,7 +300,7 @@
    "id": "nba-cp3-2022-perfect-playoff-shots",
    "verdict": "reframed",
    "format": "recall",
-   "note": "A spectacular, memorable finale: perfection is the hook and the attempts are boundable from a normal star's shot volume. critic: reveal restated the answer; now adds the 33 points and perfect free throws.",
+   "note": "A spectacular, memorable finale: perfection is the hook and the attempts are boundable from a normal star's shot volume. critic: reveal restated the answer; now adds the 33 points and perfect free throws.; first-14 polish: 'astonishing' dropped from the prompt; reveal no longer repeats the 4-for-4 fun fact",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -308,9 +308,9 @@
    "day": "2026-12-06",
    "slot": 1,
    "id": "nba-celtics86-wins",
-   "verdict": "retained",
+   "verdict": "reframed",
    "format": "reference",
-   "note": "Toronto's 58 is a modern champion's regular season, a fair yardstick that leaves room to judge how much better Bird's peak Celtics were; the 40–1 home reveal is memorable.",
+   "note": "Toronto's 58 is a modern champion's regular season, a fair yardstick that leaves room to judge how much better Bird's peak Celtics were; the 40–1 home reveal is memorable.; first-14 polish: fun fact no longer restates the reveal's 40–1",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -330,7 +330,7 @@
    "id": "nba-jackson98-regular-apg",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The chart now shows point guards on contending teams only (Oscar '71, Stockton '90, Bibby '02) in season order, without the Finals-only bar; the reveal adds his 713 assists running Bird's offense.; prompt polish",
+   "note": "The chart now shows point guards on contending teams only (Oscar '71, Stockton '90, Bibby '02) in season order, without the Finals-only bar; the reveal adds his 713 assists running Bird's offense.; prompt polish; first-14 polish: reveal no longer repeats the 713-assist and 82-start fun facts",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -350,7 +350,7 @@
    "id": "nba-luka20-clippers-buzzer-43",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Bars are playoff scoring nights by stars aged 24 or younger (Magic, LeBron, Rose), so the chart tells a youth story that fits a 21-year-old's overtime winner; reveal gives the full triple-double.; prompt polish",
+   "note": "Bars are playoff scoring nights by stars aged 24 or younger (Magic, LeBron, Rose), so the chart tells a youth story that fits a 21-year-old's overtime winner; reveal gives the full triple-double.; prompt polish; first-14 polish: second 'The chart shows' opener of the day varied; fun fact adds the one-point deficit instead of repeating the reveal",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -400,7 +400,7 @@
    "id": "nba-brunson24-philly-47",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The context line used a 'Benchmark:' construction and West's Finals night. The question becomes a chart of guards' 40-point playoff nights (Iverson, Klay, Luka), which tells the player what an elite guard explosion looks like.; prompt polish",
+   "note": "The context line used a 'Benchmark:' construction and West's Finals night. The question becomes a chart of guards' 40-point playoff nights (Iverson, Klay, Luka), which tells the player what an elite guard explosion looks like.; prompt polish; first-14 polish: 'Compare other…' opener varied; fun fact repeating the reveal's Bernard King record replaced with Embiid's fourth quarter",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -428,9 +428,9 @@
    "day": "2026-12-08",
    "slot": 3,
    "id": "nba-horry05-g5",
-   "verdict": "retained",
+   "verdict": "reframed",
    "format": "recall",
-   "note": "A bench hero's total is hard to size, which suits a hard slot; the five-of-six threes reveal explains it.",
+   "note": "A bench hero's total is hard to size, which suits a hard slot; the five-of-six threes reveal explains it.; first-14 polish: reveal no longer restates the answer",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -450,7 +450,7 @@
    "id": "nba-harden19-msg-61",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The bars are the great regular-season scoring explosions (Baylor 71, Robinson 71, Kobe 81) in season order, which tells the player Harden's night belongs in that conversation; reveal adds that he matched it later that season.; prompt polish",
+   "note": "The bars are the great regular-season scoring explosions (Baylor 71, Robinson 71, Kobe 81) in season order, which tells the player Harden's night belongs in that conversation; reveal adds that he matched it later that season.; prompt polish; first-14 polish: formulaic fun facts that repeated the reveal replaced with his 2018–19 scoring records",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -460,7 +460,7 @@
    "id": "nba-gsw16-start",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Charted against the two other great opening streaks (Houston's 15 and Seattle's 10, both 1993–94), the opener becomes a judgement of how far the Warriors went past them; reveal adds the Walton story.; prompt polish",
+   "note": "Charted against the two other great opening streaks (Houston's 15 and Seattle's 10, both 1993–94), the opener becomes a judgement of how far the Warriors went past them; reveal adds the Walton story.; prompt polish; first-14 polish: reveal puts the streak against the chart instead of repeating the Walton and Milwaukee fun facts",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -471,7 +471,7 @@
    "replaced": "nba-sonics79-january-wins",
    "verdict": "replaced",
    "format": "recall",
-   "note": "A title team's January win count is an obscure number with little estimation value. Oscar Robertson's triple-double season is basketball history, and a 6-foot-5 guard averaging double-digit rebounds is a genuine estimation decision.",
+   "note": "A title team's January win count is an obscure number with little estimation value. Oscar Robertson's triple-double season is basketball history, and a 6-foot-5 guard averaging double-digit rebounds is a genuine estimation decision.; first-14 polish: reveal no longer repeats the Westbrook fun fact",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -481,7 +481,7 @@
    "id": "nba-knicks24-wins-v5",
    "verdict": "reframed",
    "format": "reference",
-   "note": "The retired difference format becomes a reference: Boston's 64 as the No. 1 seed is the natural anchor for the No. 2 seed, and the context's 'widest gap since 1976' tells the player to go well below it.",
+   "note": "The retired difference format becomes a reference: Boston's 64 as the No. 1 seed is the natural anchor for the No. 2 seed, and the context's 'widest gap since 1976' tells the player to go well below it.; first-14 polish: two fun facts that repeated the Brunson game played two days earlier replaced with other Knicks playoff moments",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -501,7 +501,7 @@
    "id": "nba-dame21-playoffs-12-threes",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Kobe's 12-three bar matched the answer exactly and gave it away. The bars are now the record line: Smith's and Allen's Finals records and Curry's regular-season 13, so the player judges where the playoff record sits.; prompt polish",
+   "note": "Kobe's 12-three bar matched the answer exactly and gave it away. The bars are now the record line: Smith's and Allen's Finals records and Curry's regular-season 13, so the player judges where the playoff record sits.; prompt polish; first-14 polish: ambiguous 'season' record in the prompt clarified as regular season; reveal no longer repeats the points fun fact",
    "batch": "v52-A",
    "editor": "editor-A"
   },

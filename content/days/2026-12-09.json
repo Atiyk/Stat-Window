@@ -19,7 +19,7 @@
       "min": 0,
       "max": 30,
       "step": 1,
-      "note": "24 before Milwaukee ended it, with Luke Walton coaching while Steve Kerr recovered.",
+      "note": "That beat Houston's charted 15–0 start of 1993–94 by nine games.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
@@ -100,7 +100,7 @@
       "min": 5,
       "max": 25,
       "step": 0.1,
-      "note": "12.5, with 30.8 points and 11.4 assists; nobody matched a triple-double season until Westbrook in 2016–17.",
+      "note": "12.5 to go with 30.8 points and 11.4 assists, from a 6-foot-5 guard.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
@@ -183,19 +183,19 @@
           }
         },
         {
-          "text": "That spring Jalen Brunson passed the 46 points Bernard King scored in 1984, a Knicks playoff mark.",
+          "text": "In the first round, New York erased a five-point deficit in the final 30 seconds to win Game 2, 104–101.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
-            "quote": "he surpassed the 46 points scored by Bernard King in 1984"
+            "quote": "the Knicks overcame a five-point deficit in the final 30 seconds to win 104–101 and take a 2–0 series lead."
           }
         },
         {
-          "text": "In that record playoff game, Brunson made 18 of his 34 shots.",
+          "text": "Josh Hart's go-ahead three finished off the 76ers in Game 6.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
-            "quote": "Brunson shot 18-of-34 from the field"
+            "quote": "a wide open Josh Hart made a go-ahead three-pointer to put New York on top as they eliminated the 76ers 4-2."
           }
         }
       ],
@@ -275,7 +275,7 @@
     {
       "id": "nba-dame21-playoffs-12-threes",
       "sport": "NBA",
-      "prompt": "Compare the Finals and season three-point records. How many threes did Damian Lillard make in his 2021 double-overtime playoff game?",
+      "prompt": "Single-game three records from the Finals and regular season are charted. How many threes did Damian Lillard make in a 2021 playoff game?",
       "context": "Damian Lillard · Blazers at Nuggets · 2021 playoffs",
       "answer": 12,
       "unit": {
@@ -285,7 +285,7 @@
       "min": 0,
       "max": 18,
       "step": 1,
-      "note": "12 threes, a playoff record, as Dame scored 55 in a heartbreaking defeat.",
+      "note": "A playoff record, plus 10 assists, and Portland lost anyway.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
@@ -298,7 +298,7 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Dame set a playoff career high in points that night.",
+          "text": "His fifty-five points were a playoff career high.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Damian_Lillard",

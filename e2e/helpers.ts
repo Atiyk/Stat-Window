@@ -19,7 +19,7 @@ export const justAfterMidnight = (day: string) => new Date(puzzleStartUtcMs(day)
 /** Shared with legacy browser tests: an intentional Start is now mandatory before Q1. */
 export async function startDailyIfNeeded(page: Page) {
   const skip = page.getByRole('button', { name: 'Skip tutorial and start' });
-  const start = page.getByRole('button', { name: /^(Start today's five|Start the challenge|Start practice)$/ });
+  const start = page.getByRole('button', { name: /^(Play Game \d+|Start today's five|Start the challenge|Start practice)$/ });
   await expect.poll(async () => {
     if (await skip.isVisible()) return 'skip';
     if (await start.isVisible()) return 'start';
@@ -78,4 +78,10 @@ export function collectErrors(page: Page): string[] {
     if (r.status() >= 400) errors.push(`${r.status()} ${r.url()}`);
   });
   return errors;
+}
+
+/** A new visitor's home offers the untimed walkthrough beside Play; this opens it. */
+export async function openWalkthrough(page: Page) {
+  await page.getByRole('button', { name: 'Try a practice question first' }).click();
+  await expect(page.locator('.onboarding-play')).toBeVisible();
 }

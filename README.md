@@ -1,6 +1,6 @@
 # Stat Window
 
-A daily NBA numbers game. Five real, sourced NBA facts a day; for each one, drag two brackets to frame a window you're sure the answer sits inside. The tighter the window, the more it scores. Miss, and the round scores zero.
+A daily NBA numbers game. Five real, sourced NBA facts a day, in three question types (a straight estimate, one with a reference figure, and a chart with a missing bar); for each one, drag two brackets to frame a window you're sure the answer sits inside. The tighter the window, the more it scores. Miss, and the round scores zero.
 
 Free, no sign-up, same puzzle for everyone, new one at 12:00 AM Eastern. A 24-second shot clock runs for each question; faster answer time breaks ties between equal scores.
 
@@ -21,16 +21,20 @@ npm run build          # content check + typecheck + production build to dist/
 - `content/published.lock.json`: the scoring fields (ids, answers, scales, order) of every day. `npm run content:check` fails if a published day changes them; `npm run content:lock` records changes to days not yet out.
 - Same-puzzle links: `/?day=YYYY-MM-DD&vs=N` opens that day's five for a friend (`src/engine/challenge.ts`).
 - `data/nba/`, `db/migrations/`, `scripts/nba/`: the NBA fact database, SQLite schema, validators, publisher and reports (`docs/nba/`).
-- `src/ui/`: the ruler interaction, round, results and help screens. One stylesheet, `src/styles.css`.
+- `src/ui/`: the ruler interaction, round, results, Weekly Scoreboard, Scouting Report and help screens. Brand tokens live in `src/styles.css` (see docs/BRAND.md); screens add their own stylesheets beside them.
 
 ## Docs
 - [Scoring specification](docs/SCORING.md)
 - [Content inventory and publishing workflow](docs/CONTENT.md)
-- [Visual identity and design rationale](docs/DESIGN.md)
+- [Brand: Garden Classic palette and Court Geometry symbol](docs/BRAND.md)
+- [Earlier design directions (history)](docs/DESIGN.md)
 - [Content audit of every question](docs/CONTENT-AUDIT.md)
 - [Measurement: events, privacy, how to turn analytics on](docs/MEASUREMENT.md)
 - [QA evidence and known limitations](docs/QA.md)
 - [Skill application ledger](docs/SKILLS.md)
+- [Formal launch runbook and current launch state](docs/LAUNCH.md)
+- [Question formats, the 2/2/1 rule and the Question Factory](docs/QUESTION-FACTORY.md)
+- [V5.2 release report](docs/V5.2.md)
 
 ## Deploying
 The Vercel project builds `main` with `npm run build` (which regenerates the checked score API bundle) and serves `dist/` (see `vercel.json`). Merging to `main` publishes; pull requests get preview deployments. The build fails if any content is invalid, so bad data can't ship.
@@ -38,8 +42,8 @@ The Vercel project builds `main` with `npm run build` (which regenerates the che
 ## Known limitations
 - Progress is stored in this browser only (localStorage). It is not anti-cheat, and it doesn't sync across devices.
 - Future slates are public files in a static site. Fine for a free game; move slates behind an edge function before offering prizes.
-- The game launched with mixed-sport days (2026-11-15 and 11-16; they stay playable from the archive and by link). From the NBA cutover in `data/nba/calendar.json` it is NBA-only: 50 themed days built from a checked fact database in `data/nba` (see [docs/CONTENT.md](docs/CONTENT.md) and [docs/NBA_DATA_RIGHTS.md](docs/NBA_DATA_RIGHTS.md)). After the last day the game says there's no new puzzle until more are published.
-- Analytics are off until the owner enables Vercel Web Analytics and sets `VITE_ANALYTICS=vercel` (see docs/MEASUREMENT.md).
+- The public beta began with two mixed-sport days (2026-11-15 and 11-16) and has been NBA-only since the cutover in `data/nba/calendar.json`. The official season starts on the committed `LAUNCH_DAY` (2026-11-30, [docs/LAUNCH.md](docs/LAUNCH.md)): from then on beta days, mixed-sport and NBA, leave the archive and old links open today's game. Days are built from a checked fact database in `data/nba` and currently run to 2027-01-27 (see [docs/CONTENT.md](docs/CONTENT.md) and [docs/NBA_DATA_RIGHTS.md](docs/NBA_DATA_RIGHTS.md)). After the last day the game says there's no new puzzle until more are published.
+- Analytics send only from the production hostnames, without cookies or IDs, and players can turn them off; previews and local runs send nothing (see docs/MEASUREMENT.md).
 
 ## Adding questions in any sport
 

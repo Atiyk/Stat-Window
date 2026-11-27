@@ -20,7 +20,11 @@ import { FORMATS, type QuestionChart, type QuestionFormat, type QuestionMeta } f
 export type DeriveOp = 'difference' | 'percent' | 'sum';
 
 export type FormatSpec = {
-  kind: Exclude<QuestionFormat, 'recall'>;
+  /**
+   * Player-facing format. `recall` is written explicitly only when the answer is
+   * derived or ranked (taxonomy v2: a computed statistic is still a recall question).
+   */
+  kind: QuestionFormat;
   references?: string[];
   chart?: { title: string; unit: string; points: { label: string; fact: string }[] };
   /**
@@ -71,15 +75,22 @@ function prints(text: string, value: number, step: number): boolean {
   return answerSpellings(value, step).some((s) => !/^[a-z]+$/.test(s) && new RegExp(`(^|[^0-9.,])${s.replace(/[.,]/g, (c) => `\\${c}`)}(?![0-9]|[.,][0-9])`).test(text));
 }
 
-/** Issues with one fact's format, given every fact by id. Empty means valid. */
-export function formatIssues(f: FormatFact, byId: ReadonlyMap<string, FormatFact>): string[] {
+/**
+ * Issues with one fact's format, given every fact by id. Empty means valid.
+ * `teaching`: the untimed walkthrough example, whose lesson is reading a tight cluster of
+ * bars, so the near-collision gate (a known bar within 5% of the answer) does not apply.
+ */
+export function formatIssues(f: FormatFact, byId: ReadonlyMap<string, FormatFact>, opts: { teaching?: boolean } = {}): string[] {
   const spec = f.question.format;
   if (!spec) return [];
   const out: string[] = [];
-  if (!(FORMATS as readonly string[]).includes(spec.kind) || spec.kind === ('recall' as string)) {
-    out.push(`unknown format ${spec.kind} (omit format for plain recall)`);
+  if (!(FORMATS as readonly string[]).includes(spec.kind)) {
+    out.push(`unknown format ${spec.kind}`);
     return out;
   }
+  if (spec.kind === 'recall' && !spec.derive && !spec.ranking && !spec.references?.length && !spec.chart)
+    out.push('omit format for plain recall (write kind recall only with a derivation or ranking)');
+  if (spec.kind === 'recall' && (spec.references?.length || spec.chart)) out.push('a recall question prints no reference and shows no chart');
   const get = (id: string, role: string) => {
     if (id === f.id) {
       out.push(`${role} cannot be the question itself`);
@@ -113,6 +124,9 @@ export function formatIssues(f: FormatFact, byId: ReadonlyMap<string, FormatFact
       if (g && g.unit.plural !== f.unit.plural) out.push(`chart observation ${g.id} is in ${g.unit.plural}, not ${f.unit.plural}`);
       if (g && g.family !== f.family) out.push(`chart observation ${g.id} measures ${g.family}, not ${f.family}`);
       if (g && g.answer > f.question.max) out.push(`chart observation ${g.id} (${g.answer}) is above the scale's max ${f.question.max}`);
+      // A bar this close to the hidden one hands over the answer (42 beside a hidden 43).
+      if (g && !opts.teaching && Math.abs(g.answer - f.answer) <= 0.05 * Math.abs(f.answer) + 1e-9)
+        out.push(`chart observation ${g.id} (${g.answer}) is within 5% of the hidden answer ${f.answer}; pick a bar further away`);
       if (g && Math.abs(Math.round(g.answer / f.question.step) * f.question.step - g.answer) > 1e-9)
         out.push(`chart observation ${g.id} (${g.answer}) cannot be shown at this question's step ${f.question.step}`);
     }
@@ -161,7 +175,8 @@ export function formatIssues(f: FormatFact, byId: ReadonlyMap<string, FormatFact
   if (spec.kind === 'ratio' && spec.derive && spec.derive.op !== 'percent') out.push('a ratio question derives a percent');
   if (spec.kind === 'difference' && spec.derive && spec.derive.op !== 'difference') out.push('a difference question derives a difference');
   if (spec.kind === 'trajectory' && !spec.derive) out.push('a trajectory question needs a derivation');
-  if (spec.kind === 'ranking' && !(spec.ranking?.population?.trim() && spec.ranking.ties?.trim()))
+  // A ranked count is a recall question under taxonomy v2; its ranking spec is held to the same rule.
+  if ((spec.kind === 'ranking' || spec.ranking) && !(spec.ranking?.population?.trim() && spec.ranking.ties?.trim()))
     out.push('a ranking question must state its population and tie convention');
   return out;
 }

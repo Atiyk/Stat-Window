@@ -1,0 +1,2116 @@
+{
+ "batch": "v52-B",
+ "editor": "editor-B",
+ "decisions": [
+  {
+   "day": "2026-12-15",
+   "slot": 1,
+   "id": "nba-hawks15-regular-wins",
+   "verdict": "reframed",
+   "note": "Strong, accessible opener on a surprise top seed; only the reveal restated the answer, so it now adds the franchise-record and conference-finals context.",
+   "patch": {
+    "question": {
+     "reveal": "A franchise record, and Atlanta then reached its first conference finals of the two-conference era."
+    }
+   }
+  },
+  {
+   "day": "2026-12-15",
+   "slot": 2,
+   "id": "nba-kobe09-finals-ppg",
+   "verdict": "reframed",
+   "note": "The old chart mixed six Finals averages without a thread. Now every bar is a Finals MVP (Dumars to Jaylen Brown), so the chart tells what an MVP-level Finals scorer looks like across eras and Kobe's 2009 sits among peers.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows four other Finals MVPs' scoring averages in their Finals. What did Kobe Bryant average against Orlando in 2009?",
+     "reveal": "His first Finals MVP, a year after Olympic gold in Beijing.",
+     "difficultyReason": "Finals MVP averages from 20.8 to 41.0 frame the range; players place a peak-Kobe series inside it.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Finals MVPs' scoring averages",
+       "unit": "points per game",
+       "points": [
+        {
+         "label": "Dumars '89",
+         "fact": "nba-dumars89-finals-ppg"
+        },
+        {
+         "label": "Jordan '93",
+         "fact": "nba-jordan93-finals-ppg"
+        },
+        {
+         "label": "Shaq '00",
+         "fact": "nba-shaq00-finals-ppg"
+        },
+        {
+         "label": "Kobe '09",
+         "fact": "nba-kobe09-finals-ppg"
+        },
+        {
+         "label": "Brown '24",
+         "fact": "nba-brown24-finals-ppg"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-15",
+   "slot": 3,
+   "id": "nba-bucks21-nets-g3-points",
+   "verdict": "reframed",
+   "note": "Toronto's 92 alone was an arbitrary single anchor within 7% of the answer. A chart of four famously low-scoring playoff nights (Utah's 54 to Toronto's 92) shows how far playoff defense can drag a score, so Milwaukee's must-win grind is a judgment about playoff pace.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows four low-scoring playoff team totals. How many points did Milwaukee score in its must-win 2021 Game 3 against Brooklyn?",
+     "reveal": "Enough by three: Brooklyn managed 83, and Khris Middleton's 35 carried a Bucks team that went on to win the title.",
+     "difficultyReason": "Four grinding playoff totals set the scale; players judge where a defensive must-win night lands.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Points in low-scoring playoff games",
+       "unit": "points",
+       "points": [
+        {
+         "label": "Jazz '98",
+         "fact": "nba-jazz98-g3-54"
+        },
+        {
+         "label": "Lakers '04",
+         "fact": "nba-lakers04-g3-68"
+        },
+        {
+         "label": "Hornets '08",
+         "fact": "nba-hornets08-spurs-g7-points"
+        },
+        {
+         "label": "Raptors '19",
+         "fact": "nba-raptors19-sixers-g7-points"
+        },
+        {
+         "label": "Bucks '21",
+         "fact": "nba-bucks21-nets-g3-points"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-15",
+   "slot": 4,
+   "id": "nba-warriors16-splash-share-v5",
+   "verdict": "reframed",
+   "note": "The bare share asked for two numbers at once. Printing the team's record 1,077 threes gives the denominator, so the player reasons from Curry's record season and Klay's volume to a share; the reference is the half of the ratio fans can't be expected to know.",
+   "patch": {
+    "question": {
+     "prompt": "The 2015–16 Warriors made a record 1,077 threes. What share came from Stephen Curry and Klay Thompson? Nearest whole percent.",
+     "context": "Golden State · 2015–16 · Curry and Thompson's threes ÷ team threes",
+     "reveal": "678 of them, breaking the duo's own record of 525 from a year earlier.",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-gsw16-threes"
+      ],
+      "derive": {
+       "op": "percent",
+       "of": [
+        "nba-splash16-duo-threes-678",
+        "nba-gsw16-threes"
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-15",
+   "slot": 5,
+   "id": "nba-lebron11-finals-g4-eight",
+   "verdict": "reframed",
+   "note": "A memorable finale with a strong hook; the reveal restated the answer with an empty adjective, so it now gives the shooting line and the series consequence.",
+   "patch": {
+    "question": {
+     "reveal": "On 3-of-11 shooting. Dallas won 86–83 to tie the series, then took the next two for the title."
+    }
+   }
+  },
+  {
+   "day": "2026-12-16",
+   "slot": 1,
+   "id": "nba-heat20-regular-wins",
+   "verdict": "reframed",
+   "note": "A bare win total from a shortened season is hard to place. The chart puts Miami beside four other East finalists (58 to 66 wins), which tells the real story: the 2020 Heat reached the Finals from a far more modest regular season.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows regular-season wins for four other East finalists. How many did the 2019–20 Heat win before their Bubble run to the Finals?",
+     "context": "Miami · Jimmy Butler's first season · 73 games before the Bubble",
+     "reveal": "44–29, a fifth seed's record; Miami then knocked out top-seeded Milwaukee on the way to the Finals.",
+     "difficultyReason": "East finalists with 58 to 66 wins frame the guess; the shortened 73-game schedule pulls the answer well below them.",
+     "ratings": {
+      "interest": 5,
+      "recognizability": 5,
+      "estimability": 4,
+      "surprise": 4
+     },
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "East finalists' regular-season wins",
+       "unit": "wins",
+       "points": [
+        {
+         "label": "Celtics '08",
+         "fact": "nba-celtics08-wins"
+        },
+        {
+         "label": "Hawks '15",
+         "fact": "nba-hawks15-regular-wins"
+        },
+        {
+         "label": "Raptors '19",
+         "fact": "nba-raptors19-regular-wins"
+        },
+        {
+         "label": "Heat '20",
+         "fact": "nba-heat20-regular-wins"
+        },
+        {
+         "label": "Celtics '24",
+         "fact": "nba-celtics24-wins"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-16",
+   "slot": 2,
+   "id": "nba-spurs14-streak",
+   "verdict": "reframed",
+   "note": "The streak chart was out of chronological order and mixed in an opening streak. Four famous midseason runs now read left to right by season, so the Spurs' March surge is placed among the Bulls, Rockets and Warriors.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows three famous winning streaks. How long was the 2013–14 Spurs' longest winning streak?",
+     "reveal": "It ran from late February to early April and included a perfect 16–0 March.",
+     "difficultyReason": "Streaks of 18 to 24 frame the scale; players place the Spurs' run among them.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Famous winning streaks, in games",
+       "unit": "games",
+       "points": [
+        {
+         "label": "Bulls '96",
+         "fact": "nba-bulls96-18-streak"
+        },
+        {
+         "label": "Rockets '08",
+         "fact": "nba-rockets08-streak"
+        },
+        {
+         "label": "Spurs '14",
+         "fact": "nba-spurs14-streak"
+        },
+        {
+         "label": "Warriors '16",
+         "fact": "nba-gsw16-start"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-16",
+   "slot": 3,
+   "id": "nba-kobe16-final-game",
+   "verdict": "reframed",
+   "note": "The 81 is the right reference: Kobe's own peak gives the ceiling, and the estimate is how much a 37-year-old in his final game still had. The reveal now adds the shot volume and the age record instead of repeating the number.",
+   "patch": {
+    "question": {
+     "reveal": "He took 50 shots, and at 37 years, 234 days became the oldest player ever to score 60."
+    }
+   }
+  },
+  {
+   "day": "2026-12-16",
+   "slot": 4,
+   "id": "nba-unseld75-finals-g2-rebounds",
+   "verdict": "replaced",
+   "note": "Unseld's 20 in one 1975 game was an obscure number with estimability 2. Wilt's NBA-record 55 rebounds is one of the sport's defining marks, and printing his 31 in one half of that same game turns it into a real part-to-whole estimate.",
+   "newFact": {
+    "verifiedOn": "2026-11-26",
+    "id": "nba-wilt60-55-rebounds-v52b",
+    "family": "rebounds-game",
+    "scope": "regular-season",
+    "season": "1960-61",
+    "eventDate": "1960-11-24",
+    "franchise": "GSW",
+    "player": "Wilt Chamberlain",
+    "answer": 55,
+    "unit": {
+     "singular": "rebound",
+     "plural": "rebounds"
+    },
+    "claim": "Wilt Chamberlain grabbed an NBA-record 55 rebounds against Boston on November 24, 1960.",
+    "source": {
+     "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain",
+     "quote": "On November 24, 1960, Chamberlain grabbed an NBA-record 55 rebounds, along with 34 points and 4 assists",
+     "derivation": null,
+     "asOf": null
+    },
+    "question": {
+     "prompt": "Wilt Chamberlain grabbed 31 rebounds in one half against Bill Russell's Celtics in 1960. How many did he finish that game with?",
+     "context": "Philadelphia Warriors vs Boston Celtics · November 24, 1960",
+     "reveal": "An NBA record. He also scored 34, and Boston won anyway, 132–129.",
+     "min": 25,
+     "max": 80,
+     "step": 1,
+     "difficulty": "hard",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-wilt60-half-reb"
+      ]
+     },
+     "difficultyReason": "The 31-rebound half anchors the estimate; players judge how much Wilt added after it.",
+     "ratings": {
+      "interest": 5,
+      "recognizability": 4,
+      "estimability": 3,
+      "surprise": 5
+     },
+     "funFacts": [
+      {
+       "text": "Wilt added 34 points and four assists in the same game.",
+       "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain",
+        "quote": "Chamberlain grabbed an NBA-record 55 rebounds, along with 34 points and 4 assists"
+       }
+      },
+      {
+       "text": "He finished his career with 23,924 rebounds, 22.9 per game.",
+       "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain",
+        "quote": "23,924 (22.9 rpg)"
+       }
+      },
+      {
+       "text": "He won eleven rebounding titles in his career.",
+       "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain",
+        "quote": "He won seven scoring, eleven rebounding, nine durability, and nine field goal percentage titles."
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "day": "2026-12-16",
+   "slot": 5,
+   "id": "nba-durant21-nets-bucks-g5-49",
+   "verdict": "reframed",
+   "note": "The Butler 'Benchmark' was an arbitrary same-opponent comparison. This is the day's single recall: Durant's 49-17-10 is famous enough to estimate directly, and the reveal now explains the stakes rather than listing the stat line.",
+   "patch": {
+    "question": {
+     "prompt": "With Kyrie Irving out and James Harden limping, Kevin Durant played all 48 minutes of 2021 Game 5 against Milwaukee. How many did he score?",
+     "context": "Brooklyn Nets vs Milwaukee Bucks · East semifinals · Game 5",
+     "reveal": "Plus 17 rebounds and 10 assists in a comeback win that put Brooklyn up 3–2.",
+     "difficultyReason": "A famous superstar carry job; players estimate how high one player went with his co-stars sidelined.",
+     "format": null
+    }
+   }
+  },
+  {
+   "day": "2026-12-17",
+   "slot": 1,
+   "id": "nba-jokic-draft-pick",
+   "verdict": "reframed",
+   "note": "A great opener: the lowest-drafted Finals MVP is a well-known storyline, so newcomers can bracket the second round. The reveal now gives what the pick led to rather than restating it.",
+   "patch": {
+    "question": {
+     "reveal": "Denver's 41st pick led the franchise to its first championship after 47 NBA seasons."
+    }
+   }
+  },
+  {
+   "day": "2026-12-17",
+   "slot": 2,
+   "id": "nba-cup23-prize",
+   "verdict": "replaced",
+   "note": "Prize money rewards little basketball knowledge. The 1985 'Memorial Day Massacre' is a famous Finals moment, and the chart of other lopsided playoff routs (Portland '77, Chicago '98, the Lakers '01) gives a coherent scale for how big a Finals blowout gets.",
+   "newFact": {
+    "verifiedOn": "2026-11-26",
+    "id": "nba-celtics85-memorial-day-margin-v52b",
+    "family": "margin",
+    "scope": "finals",
+    "season": "1984-85",
+    "eventDate": "1985-05-27",
+    "franchise": "BOS",
+    "player": null,
+    "answer": 34,
+    "unit": {
+     "singular": "point",
+     "plural": "points"
+    },
+    "claim": "Boston beat the Lakers 148–114, a 34-point margin, in Game 1 of the 1985 Finals.",
+    "source": {
+     "url": "https://en.wikipedia.org/wiki/1985_NBA_Finals",
+     "quote": "The Celtics defeated the Lakers 148–114. It was dubbed the \"Memorial Day Massacre\"",
+     "derivation": "Celtics 148 − Lakers 114 = 34 points.",
+     "asOf": null
+    },
+    "question": {
+     "prompt": "The chart shows three other lopsided playoff wins. By how many points did Boston beat the Lakers in the 1985 'Memorial Day Massacre'?",
+     "context": "Boston Celtics vs Los Angeles Lakers · 1985 Finals · Game 1",
+     "reveal": "148–114, with Scott Wedman 11 for 11, yet the Lakers won the series for their first Finals win over Boston.",
+     "min": 10,
+     "max": 80,
+     "step": 1,
+     "difficulty": "medium",
+     "format": {
+      "kind": "missing-point",
+      "derive": {
+       "op": "difference",
+       "values": [
+        148,
+        114
+       ]
+      },
+      "chart": {
+       "title": "Margins in lopsided playoff wins",
+       "unit": "points",
+       "points": [
+        {
+         "label": "Blazers '77",
+         "fact": "nba-blazers77-g4-margin"
+        },
+        {
+         "label": "Celtics '85",
+         "fact": "nba-celtics85-memorial-day-margin-v52b"
+        },
+        {
+         "label": "Bulls '98",
+         "fact": "nba-bulls98-g3-margin-v5"
+        },
+        {
+         "label": "Lakers '01",
+         "fact": "nba-lakers01-39"
+        }
+       ]
+      }
+     },
+     "difficultyReason": "Routs of 32 to 42 frame the scale; players judge how big the famous massacre really was.",
+     "ratings": {
+      "interest": 4,
+      "recognizability": 4,
+      "estimability": 4,
+      "surprise": 4
+     },
+     "funFacts": [
+      {
+       "text": "Scott Wedman made every shot he took that day.",
+       "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1985_NBA_Finals",
+        "quote": "Scott Wedman made all 11 shots he took from the field."
+       }
+      },
+      {
+       "text": "The Lakers recovered to beat Boston in a Finals for the first time.",
+       "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1985_NBA_Finals",
+        "quote": "the Los Angeles Lakers achieved their first NBA Finals victory over the Boston Celtics"
+       }
+      },
+      {
+       "text": "Kareem Abdul-Jabbar, 38, was named Finals MVP.",
+       "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1985_NBA_Finals",
+        "quote": "The 38-year-old Abdul-Jabbar was named MVP of the series"
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "day": "2026-12-17",
+   "slot": 3,
+   "id": "nba-celtics02-19-threes",
+   "verdict": "reframed",
+   "note": "Orlando's 23, then the regular-season record, is a meaningful ceiling: a playoff record should sit somewhat below it, so the player reasons from the reference rather than guessing. The reveal now explains why the game mattered.",
+   "patch": {
+    "question": {
+     "prompt": "Orlando's 23 threes in 2009 set the regular-season record. How many did Boston hit to close out Philadelphia in the 2002 playoffs?",
+     "reveal": "A playoff record, nine of them in a fourth-quarter barrage that ended Allen Iverson's season.",
+     "ratings": {
+      "interest": 3,
+      "recognizability": 3,
+      "estimability": 3,
+      "surprise": 5
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-17",
+   "slot": 4,
+   "id": "nba-rockets18-27-misses",
+   "verdict": "reframed",
+   "note": "Curry's 13 missed threes measured a different thing (one player's misses in a game, not a team's consecutive misses), so it misled more than it helped. The streak is memorable on its own and works best as plain recall.",
+   "patch": {
+    "question": {
+     "prompt": "In Game 7 of the 2018 West finals against Golden State, Houston missed how many three-pointers in a row?",
+     "context": "Houston Rockets vs Golden State · 2018 West finals · Game 7 · without Chris Paul",
+     "reveal": "A playoff record; with Chris Paul out injured, the slump decided the series.",
+     "difficultyReason": "Fans remember the cold spell; how long a run of misses lasted is the estimate.",
+     "format": null
+    }
+   }
+  },
+  {
+   "day": "2026-12-17",
+   "slot": 5,
+   "id": "nba-shaq00-finals-g2-24-boards",
+   "verdict": "reframed",
+   "note": "The old chart mixed a regular-season Luka game with title games. Four championship-round rebounding nights (Unseld, Jokić, Giannis in the Cup final) now give a coherent scale for Shaq's peak dominance.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows rebounds in other championship-round games. How many boards did Shaq grab, with Kobe hobbled, in Game 2 of the 2000 Finals?",
+     "reveal": "With 40 points; Indiana fouled him so often he took 39 free throws.",
+     "difficultyReason": "Title-round rebounding nights near 20 set the scale; players judge how far above them peak Shaq went.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Rebounds in a title-round game",
+       "unit": "rebounds",
+       "points": [
+        {
+         "label": "Unseld '75",
+         "fact": "nba-unseld75-finals-g2-rebounds"
+        },
+        {
+         "label": "Shaq '00",
+         "fact": "nba-shaq00-finals-g2-24-boards"
+        },
+        {
+         "label": "Jokić '23",
+         "fact": "nba-jokic23-finals-g3-rebounds"
+        },
+        {
+         "label": "Giannis '24",
+         "fact": "nba-giannis24-cup-final-rebounds-v5"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-18",
+   "slot": 1,
+   "id": "nba-giannis21-g6",
+   "verdict": "reframed",
+   "note": "As a bare recall the 50 was a coin flip around round numbers. The chart shows other title-clinching Finals nights (Magic's 42, LeBron's 37, Draymond's 32), which tells the story of how rare a 50-point clincher is.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows points by three stars in a title-clinching Finals game. How many did Giannis Antetokounmpo score to clinch the 2021 title?",
+     "reveal": "With 14 rebounds and five blocks, to end Milwaukee's 50-year title drought.",
+     "difficultyReason": "Clincher totals of 32 to 42 frame the guess; players decide whether Giannis went past them.",
+     "ratings": {
+      "interest": 5,
+      "recognizability": 4,
+      "estimability": 4,
+      "surprise": 4
+     },
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Points in a title-clinching Finals game",
+       "unit": "points",
+       "points": [
+        {
+         "label": "Magic '80",
+         "fact": "nba-magic80-g6-points"
+        },
+        {
+         "label": "LeBron '13",
+         "fact": "nba-lebron13-g7"
+        },
+        {
+         "label": "Green '16",
+         "fact": "nba-green16-g7"
+        },
+        {
+         "label": "Giannis '21",
+         "fact": "nba-giannis21-g6"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-18",
+   "slot": 2,
+   "id": "nba-pistons89-wins",
+   "verdict": "reframed",
+   "note": "The three-bar chart was ordered so the bars bracketed nothing in particular, and chronological order would have been monotonic. Adding the 1983 Sixers makes a clean '1980s champions' story read by season.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows regular-season wins for three other 1980s champions. How many games did the 1988–89 'Bad Boys' Pistons win?",
+     "reveal": "The league's best record, in their first season at the Palace; they then swept the Lakers for the title.",
+     "difficultyReason": "Champions with 65 to 67 wins frame it; players judge where Detroit's first title team sits.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "1980s champions' regular-season wins",
+       "unit": "wins",
+       "points": [
+        {
+         "label": "76ers '83",
+         "fact": "nba-sixers83-wins"
+        },
+        {
+         "label": "Celtics '86",
+         "fact": "nba-celtics86-wins"
+        },
+        {
+         "label": "Lakers '87",
+         "fact": "nba-lakers87-wins"
+        },
+        {
+         "label": "Pistons '89",
+         "fact": "nba-pistons89-wins"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-18",
+   "slot": 3,
+   "id": "nba-butler20-regular-apg",
+   "verdict": "reframed",
+   "note": "Lowry is a point guard, so his 8.7 said little about a forward. Hedo Türkoğlu's 4.9 as Orlando's point forward is the comparable role, so the player judges how much more Butler created as Miami's primary playmaking forward.",
+   "patch": {
+    "question": {
+     "prompt": "Hedo Türkoğlu averaged 4.9 assists as Orlando's point forward in 2008–09. What did Jimmy Butler average in his first Heat season?",
+     "reveal": "6.0 a game alongside 19.9 points, with 103 steals in 58 games.",
+     "difficultyReason": "A playmaking forward's 4.9 frames it; players judge how far beyond that Butler's creation went.",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-turkoglu09-regular-apg"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-18",
+   "slot": 4,
+   "id": "nba-giannis19-regular-rpg",
+   "verdict": "reframed",
+   "note": "Howard's league-leading 13.8 is a sound ceiling: the best rebounding center of his era frames how close a wing-sized MVP could get. The reveal now gives the full MVP line instead of filler.",
+   "patch": {
+    "question": {
+     "prompt": "Dwight Howard led the NBA with 13.8 rebounds a game in 2008–09. What did Giannis Antetokounmpo average in 2018–19, his first MVP season?",
+     "reveal": "To go with 27.7 points and 5.9 assists, as Milwaukee finished with the East's best record."
+    }
+   }
+  },
+  {
+   "day": "2026-12-18",
+   "slot": 5,
+   "id": "nba-jokic25-61-point-triple-double",
+   "verdict": "reframed",
+   "note": "A recent, memorable finale that works as plain recall. The reveal now gives the record context rather than adjectives.",
+   "patch": {
+    "question": {
+     "reveal": "The highest-scoring triple-double in NBA history, in a 140–139 double-overtime loss."
+    }
+   }
+  },
+  {
+   "day": "2026-12-19",
+   "slot": 1,
+   "id": "nba-nuggets23-regular-wins",
+   "verdict": "reframed",
+   "note": "A bare win total, now placed against other West No. 1 seeds from 1979 to 2002. The chart tells the story: Denver earned the top seed with fewer wins than the classic West leaders, then won the title anyway.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows wins for four other West No. 1 seeds. How many regular-season games did the 2022–23 Nuggets win?",
+     "reveal": "Denver's first No. 1 seed ever, and the start of its first title run.",
+     "difficultyReason": "Top seeds with 52 to 65 wins frame the guess; players judge how strong a recent top seed needed to be.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "West No. 1 seeds' regular-season wins",
+       "unit": "wins",
+       "points": [
+        {
+         "label": "Sonics '79",
+         "fact": "nba-sonics79-season-wins"
+        },
+        {
+         "label": "Lakers '87",
+         "fact": "nba-lakers87-wins"
+        },
+        {
+         "label": "Suns '93",
+         "fact": "nba-suns93-regular-wins"
+        },
+        {
+         "label": "Kings '02",
+         "fact": "nba-kings02-regular-wins"
+        },
+        {
+         "label": "Nuggets '23",
+         "fact": "nba-nuggets23-regular-wins"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-19",
+   "slot": 2,
+   "id": "nba-jordan91-straight-makes",
+   "verdict": "reframed",
+   "note": "Chris Paul's 14-for-14 is a real comparable (a perfect playoff shooting night) and shows what a long run of makes looks like, though it sits close to the answer. The reveal now gives the context of the streak.",
+   "patch": {
+    "question": {
+     "reveal": "Including the famous mid-air hand switch, as Chicago evened the series and never lost again.",
+     "difficultyReason": "A perfect 14-for-14 night shows what a long run of makes looks like; players judge whether Jordan's streak reached it."
+    }
+   }
+  },
+  {
+   "day": "2026-12-19",
+   "slot": 3,
+   "id": "nba-giannis21-g6-ft-pct-v51b",
+   "verdict": "reframed",
+   "note": "The percentage is the real story: a shaky foul shooter in a title clincher. Kept as a computed recall question, under taxonomy v2.",
+   "patch": {
+    "question": {
+     "reveal": "17 of 19, after shooting 55.6% at the line earlier in those playoffs.",
+     "format": {
+      "kind": "recall",
+      "derive": {
+       "op": "percent",
+       "values": [
+        17,
+        19
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-19",
+   "slot": 4,
+   "id": "nba-sixers01-opening-streak",
+   "verdict": "reframed",
+   "note": "Comparing with the Warriors' 24–0 alone only gave a ceiling. A chart of season-opening streaks (Seattle's 10, Houston's 15, Golden State's 24) tells a coherent story about hot starts and places Iverson's Sixers among them.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows other season-opening winning streaks. How many games did Allen Iverson's 2000–01 Sixers win to start their season?",
+     "reveal": "The start of a run to the East's best record and Philadelphia's first Finals since 1983.",
+     "difficultyReason": "Opening streaks of 10 to 24 frame the scale; players judge where the Sixers' start fits.",
+     "ratings": {
+      "interest": 4,
+      "recognizability": 3,
+      "estimability": 4,
+      "surprise": 4
+     },
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Season-opening win streaks",
+       "unit": "games",
+       "points": [
+        {
+         "label": "Rockets '94",
+         "fact": "nba-rockets94-start"
+        },
+        {
+         "label": "Sonics '94",
+         "fact": "nba-sonics94-opening-streak"
+        },
+        {
+         "label": "76ers '01",
+         "fact": "nba-sixers01-opening-streak"
+        },
+        {
+         "label": "Warriors '16",
+         "fact": "nba-gsw16-start"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-19",
+   "slot": 5,
+   "id": "nba-vince01-sixers-first-half-eight-threes",
+   "verdict": "reframed",
+   "note": "Kobe's 12 threes, then the full-game record, is a meaningful anchor for a half: the player reasons about how much of a record full-game total one great half could hold. It gives scale without disclosing the answer.",
+   "patch": {
+    "question": {
+     "prompt": "Kobe Bryant once made a then-record 12 threes in a game. In his 2001 playoff duel with Iverson, how many did Vince Carter hit in one half?",
+     "reveal": "A playoff record for one half. Vince finished with 50 points.",
+     "difficultyReason": "A full-game record of 12 frames what a single half could hold.",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-kobe03-threes"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-20",
+   "slot": 1,
+   "id": "nba-spurs14-season-wins",
+   "verdict": "reframed",
+   "note": "The 1986 Celtics' 67 was a distant one-off anchor. A chart of league-best records from 2011 to 2014 (Bulls, Heat, Spurs) puts the Spurs in their own era, between the Heat they beat and the Bulls before them.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows two other league-best records from the early 2010s. How many regular-season games did the 2013–14 Spurs win?",
+     "reveal": "Then a Finals rematch in which they beat Miami in five games.",
+     "difficultyReason": "League-best totals of 62 and 66 frame it; players judge the Spurs' place among them.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "League-best records, 2011–2014",
+       "unit": "wins",
+       "points": [
+        {
+         "label": "Bulls '11",
+         "fact": "nba-bulls11-regular-wins"
+        },
+        {
+         "label": "Heat '13",
+         "fact": "nba-heat13-wins"
+        },
+        {
+         "label": "Spurs '14",
+         "fact": "nba-spurs14-season-wins"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-20",
+   "slot": 2,
+   "id": "nba-barry80-threes",
+   "verdict": "reframed",
+   "note": "Curry's 13 is a sound modern ceiling: knowing how rare the three was in 1980 the player reasons how far below today's record the first one sat. The reveal now adds why it was so low.",
+   "patch": {
+    "question": {
+     "prompt": "Stephen Curry made a record 13 threes in a 2016 game. Rick Barry set the original record in February 1980. How many did he make?",
+     "reveal": "In the shot's debut season; in that year's Finals, Julius Erving made the only three of the series."
+    }
+   }
+  },
+  {
+   "day": "2026-12-20",
+   "slot": 3,
+   "id": "nba-heat13-turnaround-v5",
+   "verdict": "reframed",
+   "note": "The 15-to-66 swing is a genuine computed question (taxonomy v2: a difference is still recall). The reveal now names the two totals and the turning point.",
+   "patch": {
+    "question": {
+     "reveal": "From 15–67 to 66–16. LeBron, Wade and Bosh turned the worst team in the league into a juggernaut.",
+     "format": {
+      "kind": "recall",
+      "derive": {
+       "op": "difference",
+       "of": [
+        "nba-heat13-wins",
+        "nba-heat08-wins"
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-20",
+   "slot": 4,
+   "id": "nba-gus79-finals-g4-points",
+   "verdict": "reframed",
+   "note": "Bare recall of a 1979 box score had estimability 2. A chart of big Finals scoring nights from the same era (West's 53, Barry's 36, Magic's 42) makes it an estimate about what a hot guard could do in that era's Finals.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows big Finals scoring nights from 1969 to 1980. How many did Seattle's Gus Williams score in overtime Game 4 in 1979?",
+     "reveal": "Seattle won 114–112 to move within one win of its only NBA title.",
+     "difficultyReason": "Era peers from 36 to 53 set the scale; players judge a hot guard's overtime night.",
+     "ratings": {
+      "interest": 5,
+      "recognizability": 3,
+      "estimability": 3,
+      "surprise": 5
+     },
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Big Finals scoring nights, 1969–80",
+       "unit": "points",
+       "points": [
+        {
+         "label": "West '69",
+         "fact": "nba-west69-g1"
+        },
+        {
+         "label": "Barry '75",
+         "fact": "nba-barry75-finals-g2-points"
+        },
+        {
+         "label": "Williams '79",
+         "fact": "nba-gus79-finals-g4-points"
+        },
+        {
+         "label": "Magic '80",
+         "fact": "nba-magic80-g6-points"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-20",
+   "slot": 5,
+   "id": "nba-kyrie16-finals-g7-shot-53-sec",
+   "verdict": "reframed",
+   "note": "A memorable final shot that works well as recall. The reveal now gives the score it created and how it ended.",
+   "patch": {
+    "question": {
+     "reveal": "It broke an 89–89 tie; Cleveland held on to win 93–89 and finish its 3–1 comeback."
+    }
+   }
+  },
+  {
+   "day": "2026-12-21",
+   "slot": 1,
+   "id": "nba-bucks21-regular-wins",
+   "verdict": "reframed",
+   "note": "The chart already tells a story (recent champions' win totals) and the shortened season is the twist; only the reveal restated the answer.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows regular-season wins for four other recent champions. How many did the 2020–21 Bucks win in the shortened 72-game season?",
+     "reveal": "A third seed's record. Milwaukee then won its first title in 50 years."
+    }
+   }
+  },
+  {
+   "day": "2026-12-21",
+   "slot": 2,
+   "id": "nba-spurs99-final36-wins",
+   "verdict": "reframed",
+   "note": "A strong reference: the season total pins down the slow start, so players reason backwards to the closing run. The reveal now adds what came next.",
+   "patch": {
+    "question": {
+     "reveal": "After a 6–8 start; the Spurs carried the form into a 15–2 playoff run and their first title."
+    }
+   }
+  },
+  {
+   "day": "2026-12-21",
+   "slot": 3,
+   "id": "nba-suns21-g1-ft",
+   "verdict": "reframed",
+   "note": "Dirk's 24 was within 4% of the answer and effectively gave it away. A chart of famous free-throw nights (Wilt 28, Dirk 24, Giannis 17) frames the scale without pointing at the answer.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows free throws made on famous nights. To open 2021 Finals Game 1, Phoenix made how many free throws in a row?",
+     "reveal": "They nearly set a record for a game without a miss, until Jae Crowder missed with 24.8 seconds left.",
+     "difficultyReason": "Famous free-throw nights from 17 to 28 frame the guess.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Free throws made on famous nights",
+       "unit": "free throws",
+       "points": [
+        {
+         "label": "Wilt '62",
+         "fact": "nba-wilt-100-ftm"
+        },
+        {
+         "label": "Dirk '11",
+         "fact": "nba-dirk11-24-ft"
+        },
+        {
+         "label": "Giannis '21",
+         "fact": "nba-giannis21-g6-ft"
+        },
+        {
+         "label": "Suns '21",
+         "fact": "nba-suns21-g1-ft"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-21",
+   "slot": 4,
+   "id": "nba-bird85-opener-steals",
+   "verdict": "reframed",
+   "note": "A real surprise (Bird was never thought of as a ball hawk), so it rewards bold estimation. The reveal now gives the full line and the result.",
+   "patch": {
+    "question": {
+     "reveal": "Part of a near quadruple-double: 21 points, 12 rebounds, 10 assists, in an overtime loss."
+    }
+   }
+  },
+  {
+   "day": "2026-12-21",
+   "slot": 5,
+   "id": "nba-wemby24-10-blocks-blazers",
+   "verdict": "reframed",
+   "note": "A modern highlight finale that works as recall. The reveal now gives context instead of adjectives.",
+   "patch": {
+    "question": {
+     "reveal": "Tying his career high, with 30 points, at age 20 in a 114–94 win."
+    }
+   }
+  },
+  {
+   "day": "2026-12-22",
+   "slot": 1,
+   "id": "nba-jackson10-titles",
+   "verdict": "reframed",
+   "note": "Boston's eight straight is the dynasty benchmark everyone knows, so it tells the player how many titles counts as historic; the reveal now adds context.",
+   "patch": {
+    "question": {
+     "reveal": "Six with Chicago and five with the Lakers; this one was also his first Finals Game 7 as a coach."
+    }
+   }
+  },
+  {
+   "day": "2026-12-22",
+   "slot": 2,
+   "id": "nba-bulls97-wins",
+   "verdict": "reframed",
+   "note": "As plain recall the 72 in the prompt made the answer predictable. A chart of elite seasons (1986 Celtics, 2007 Mavs, 2013 Heat) asks whether the post-72 Bulls still belonged among the best records ever.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows three elite regular seasons. How many games did the 1996–97 Bulls win, a year after going 72–10?",
+     "reveal": "The league's best record; injuries and a last-game Pippen miss ended their chase of 70.",
+     "difficultyReason": "Elite totals of 66 and 67 frame it; players judge if the Bulls topped them.",
+     "ratings": {
+      "interest": 4,
+      "recognizability": 4,
+      "estimability": 4,
+      "surprise": 4
+     },
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Elite regular seasons, in wins",
+       "unit": "wins",
+       "points": [
+        {
+         "label": "Celtics '86",
+         "fact": "nba-celtics86-wins"
+        },
+        {
+         "label": "Bulls '97",
+         "fact": "nba-bulls97-wins"
+        },
+        {
+         "label": "Mavs '07",
+         "fact": "nba-mavs07-wins"
+        },
+        {
+         "label": "Heat '13",
+         "fact": "nba-heat13-wins"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-22",
+   "slot": 3,
+   "id": "nba-duncan14-season-rpg",
+   "verdict": "reframed",
+   "note": "Giannis was a different role and era. Joakim Noah's 10.4 as a starting center in 2010–11 is the comparable: a modern defensive big's rate frames what a 37-year-old Duncan on limited minutes still gave.",
+   "patch": {
+    "question": {
+     "prompt": "Joakim Noah averaged 10.4 rebounds as Chicago's center in 2010–11. What did Tim Duncan average in the 2013–14 title season, at 37?",
+     "reveal": "In fewer than 30 minutes a night, on a team where no one averaged 30.",
+     "difficultyReason": "A modern starting center's 10.4 frames how much a veteran Duncan still rebounded.",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-noah11-rebounds-average"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-22",
+   "slot": 4,
+   "id": "nba-allen13-g6-seconds",
+   "verdict": "reframed",
+   "note": "The single recall of the day, and a good one: everyone remembers 'a few seconds', and the decimal rewards memory. Reveal improved.",
+   "patch": {
+    "question": {
+     "reveal": "The shot forced overtime; Miami won Game 6 and then the title in Game 7."
+    }
+   }
+  },
+  {
+   "day": "2026-12-22",
+   "slot": 5,
+   "id": "nba-shai25-finals-g7-12-assists",
+   "verdict": "reframed",
+   "note": "The chart's Finals playmaking nights were out of season order; read chronologically, they now run from Magic's record 21 to Shai's clincher.",
+   "patch": {
+    "question": {
+     "reveal": "With 29 points, capping an MVP season with a Finals MVP.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Assists in a Finals game",
+       "unit": "assists",
+       "points": [
+        {
+         "label": "Magic '84",
+         "fact": "nba-magic84-assists"
+        },
+        {
+         "label": "Diaw '14",
+         "fact": "nba-diaw14-heat-g4-assists"
+        },
+        {
+         "label": "Butler '20",
+         "fact": "nba-butler20-g3-ast"
+        },
+        {
+         "label": "Tatum '22",
+         "fact": "nba-tatum22-debut-ast"
+        },
+        {
+         "label": "Shai '25",
+         "fact": "nba-shai25-finals-g7-12-assists"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-23",
+   "slot": 1,
+   "id": "nba-suns84-season-wins",
+   "verdict": "reframed",
+   "note": "A bare .500 record is hard to place. The chart shows other modest regular seasons that became deep playoff runs (1975 Warriors, 2020 Heat, 2021 Bucks), which is exactly Phoenix's 1984 story.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows wins for three other teams that made deep playoff runs. How many did the 1983–84 Suns win before reaching the West finals?",
+     "reveal": "A .500 team that upset Portland and Utah to reach the West finals.",
+     "difficultyReason": "Modest records of 44 to 48 frame the guess; players judge how ordinary Phoenix's season was.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Modest records, deep playoff runs",
+       "unit": "wins",
+       "points": [
+        {
+         "label": "Warriors '75",
+         "fact": "nba-warriors75-season-wins"
+        },
+        {
+         "label": "Suns '84",
+         "fact": "nba-suns84-season-wins"
+        },
+        {
+         "label": "Heat '20",
+         "fact": "nba-heat20-regular-wins"
+        },
+        {
+         "label": "Bucks '21",
+         "fact": "nba-bucks21-regular-wins"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-23",
+   "slot": 2,
+   "id": "nba-dumars89-17-straight",
+   "verdict": "reframed",
+   "note": "McGrady's 13 in 35 seconds is the most famous individual scoring burst, so it gives scale for a one-man run; Dumars's quieter streak is measured against it. Reveal now gives context.",
+   "patch": {
+    "question": {
+     "reveal": "On his way to 31 points, with Magic Johnson out injured; Dumars was named Finals MVP."
+    }
+   }
+  },
+  {
+   "day": "2026-12-23",
+   "slot": 3,
+   "id": "nba-robinson99-finals-rpg",
+   "verdict": "reframed",
+   "note": "The old chart mixed seasons with no thread. All four bars are now big men on title or Finals teams, read by season, so the Admiral's Finals average is placed among Rodman, Howard and Duncan.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows rebounding averages for three other big men on Finals teams. What did David Robinson average in the 1999 Finals?",
+     "reveal": "Alongside Tim Duncan in the Twin Towers' second season, for San Antonio's first title.",
+     "difficultyReason": "Bigs from 9.7 to 14.9 frame the scale; players place the Admiral's Finals average among them.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Rebounds per game, Finals-team bigs",
+       "unit": "rebounds a game",
+       "points": [
+        {
+         "label": "Rodman '96",
+         "fact": "nba-rodman96-rpg"
+        },
+        {
+         "label": "Robinson '99",
+         "fact": "nba-robinson99-finals-rpg"
+        },
+        {
+         "label": "Howard '09",
+         "fact": "nba-howard09-regular-rpg"
+        },
+        {
+         "label": "Duncan '14",
+         "fact": "nba-duncan14-season-rpg"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-23",
+   "slot": 4,
+   "id": "nba-bulls96-road-wins",
+   "verdict": "reframed",
+   "note": "The day's single recall. The 41-game cap keeps it estimable and the record context is strong; the reveal no longer repeats the answer.",
+   "patch": {
+    "question": {
+     "reveal": "The record until the 2015–16 Warriors won 34; Chicago lost only eight road games all season."
+    }
+   }
+  },
+  {
+   "day": "2026-12-23",
+   "slot": 5,
+   "id": "nba-trae21-bucks-g1-48",
+   "verdict": "reframed",
+   "note": "Baylor's Finals record was a 'Benchmark' line from a different stage and era. Luka Dončić, the player Atlanta swapped Trae for on draft night, is the real comparable: a young star's playoff career night sets the scale.",
+   "patch": {
+    "question": {
+     "prompt": "Luka Dončić, traded for Trae Young on draft night, scored 43 in a 2020 playoff game. How many did Trae score in 2021 East finals Game 1?",
+     "context": "Trae Young · Hawks at Bucks · conference finals debut",
+     "reveal": "With 11 assists, as Atlanta rallied in the second half to win 116–113.",
+     "difficultyReason": "A same-draft star's playoff career night frames the estimate.",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-luka20-clippers-buzzer-43"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-24",
+   "slot": 1,
+   "id": "nba-sixers01-regular-wins",
+   "verdict": "reframed",
+   "note": "Accessible opener on a famous Iverson season; the reveal now adds why the season mattered.",
+   "patch": {
+    "question": {
+     "reveal": "Larry Brown won Coach of the Year and Iverson led Philadelphia to the Finals."
+    }
+   }
+  },
+  {
+   "day": "2026-12-24",
+   "slot": 2,
+   "id": "nba-wilt-kobe-record-gap-v51b",
+   "verdict": "replaced",
+   "note": "The 100-minus-81 gap was predictable arithmetic. How Wilt's 100 was split is a real estimation question: the printed total sets the frame, and the player judges how much came after halftime.",
+   "newFact": {
+    "verifiedOn": "2026-11-26",
+    "id": "nba-wilt62-halftime-points-v52b",
+    "family": "points-period",
+    "scope": "regular-season",
+    "season": "1961-62",
+    "eventDate": "1962-03-02",
+    "franchise": "GSW",
+    "player": "Wilt Chamberlain",
+    "answer": 41,
+    "unit": {
+     "singular": "point",
+     "plural": "points"
+    },
+    "claim": "Wilt Chamberlain had 41 points at halftime of his 100-point game.",
+    "source": {
+     "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+     "quote": "Chamberlain's point total stood at 41.",
+     "derivation": null,
+     "asOf": null
+    },
+    "question": {
+     "prompt": "Wilt Chamberlain finished with 100 points against the Knicks in March 1962. How many did he have at halftime?",
+     "context": "Philadelphia Warriors vs New York Knicks · Hershey, Pennsylvania",
+     "reveal": "The Warriors led only 79–68 at the break; Wilt scored 59 after it, 31 in the fourth quarter.",
+     "min": 10,
+     "max": 90,
+     "step": 1,
+     "difficulty": "medium",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-wilt-100"
+      ]
+     },
+     "difficultyReason": "Everyone knows the final 100; judging whether he was ahead of pace at the half is the estimate.",
+     "ratings": {
+      "interest": 5,
+      "recognizability": 5,
+      "estimability": 4,
+      "surprise": 4
+     },
+     "funFacts": [
+      {
+       "text": "Even after his 41-point half, Philadelphia led by only 11 at the break.",
+       "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "but still led 79–68"
+       }
+      },
+      {
+       "text": "After three quarters Wilt had 69, nine short of his own scoring record.",
+       "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "His own total stood at 69, nine shy of his previous scoring record."
+       }
+      },
+      {
+       "text": "He made 28 of 32 free throws, far above his usual rate.",
+       "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+        "quote": "Chamberlain made 36 of 63 field-goals and 28 of 32"
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "day": "2026-12-24",
+   "slot": 3,
+   "id": "nba-bulls96-home-streak",
+   "verdict": "reframed",
+   "note": "A good recall: the printed 37–0 start gives the frame, and the player reasons about how many wins came before it. Reveal improved.",
+   "patch": {
+    "question": {
+     "reveal": "An NBA record at the time; Chicago finished that season 39–2 at the United Center."
+    }
+   }
+  },
+  {
+   "day": "2026-12-24",
+   "slot": 4,
+   "id": "nba-duncan03-g6-blocks",
+   "verdict": "reframed",
+   "note": "Hakeem's 11 alone signalled the answer was below 10. A chart of blocks on famous two-way nights (Hakeem's quadruple-double, Giannis's clincher, Wembanyama's 10) shows the range of elite shot-blocking games.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows blocks on three other famous two-way nights. How many did Tim Duncan block in his near quadruple-double in 2003?",
+     "reveal": "With 21 points, 20 rebounds and 10 assists, as David Robinson retired a champion.",
+     "difficultyReason": "Two-way nights with 5 to 11 blocks frame the guess.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Blocks on famous two-way nights",
+       "unit": "blocks",
+       "points": [
+        {
+         "label": "Hakeem '90",
+         "fact": "nba-hakeem90-quadruple-blocks"
+        },
+        {
+         "label": "Duncan '03",
+         "fact": "nba-duncan03-g6-blocks"
+        },
+        {
+         "label": "Giannis '21",
+         "fact": "nba-giannis21-finals-g6-blocks"
+        },
+        {
+         "label": "Wemby '24",
+         "fact": "nba-wemby24-10-blocks-blazers"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-24",
+   "slot": 5,
+   "id": "nba-kawhi19-philly-game7-41",
+   "verdict": "reframed",
+   "note": "The chart mixed a Game 4 with Game 7s and was out of order. Now it shows only Game 7 scoring (LeBron 2013, Draymond 2016), the clearest frame for Kawhi's night.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows two other Game 7 scoring nights. How many points did Kawhi Leonard score in his 2019 Game 7 against Philadelphia?",
+     "reveal": "On 16-of-39 shooting, capped by the first Game 7 buzzer-beater in NBA history.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Points in a Game 7",
+       "unit": "points",
+       "points": [
+        {
+         "label": "LeBron '13",
+         "fact": "nba-lebron13-g7"
+        },
+        {
+         "label": "Green '16",
+         "fact": "nba-green16-g7"
+        },
+        {
+         "label": "Kawhi '19",
+         "fact": "nba-kawhi19-philly-game7-41"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-25",
+   "slot": 1,
+   "id": "nba-jordan98-g6",
+   "verdict": "reframed",
+   "note": "An iconic opener; the chart of other star Finals nights (Jordan's 55, Iverson's 48, Wade's 42) gives a newcomer an easy frame for Jordan's last-shot game.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows three other star Finals nights. How many points did Michael Jordan score in 1998 Finals Game 6, the night of his last shot?",
+     "reveal": "Capped by a steal from Karl Malone and the winner over Bryon Russell, with Pippen hobbled.",
+     "difficultyReason": "Star Finals nights from 42 to 55 frame the guess.",
+     "ratings": {
+      "interest": 5,
+      "recognizability": 5,
+      "estimability": 4,
+      "surprise": 4
+     },
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Star nights in the NBA Finals",
+       "unit": "points",
+       "points": [
+        {
+         "label": "Jordan '93",
+         "fact": "nba-jordan93-g4-55"
+        },
+        {
+         "label": "Jordan '98",
+         "fact": "nba-jordan98-g6"
+        },
+        {
+         "label": "Iverson '01",
+         "fact": "nba-iverson01-g1"
+        },
+        {
+         "label": "Wade '06",
+         "fact": "nba-wade06-g3"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-25",
+   "slot": 2,
+   "id": "nba-lakers72-wins",
+   "verdict": "reframed",
+   "note": "A coherent chart (three early-'70s powers, in order) where the question is whether the Lakers topped both rivals. Only the reveal restated the answer.",
+   "patch": {
+    "question": {
+     "reveal": "The best record in NBA history at the time, and the franchise's first title in Los Angeles."
+    }
+   }
+  },
+  {
+   "day": "2026-12-25",
+   "slot": 3,
+   "id": "nba-bobcats12-losing-streak",
+   "verdict": "reframed",
+   "note": "A good reference: the Spurs' 18 is a comparable modern franchise-record skid and frames how long an infamous streak runs. The reveal now explains the streak.",
+   "patch": {
+    "question": {
+     "reveal": "Their last win came on March 17, 2012, and the skid ran on into the next season."
+    }
+   }
+  },
+  {
+   "day": "2026-12-25",
+   "slot": 4,
+   "id": "nba-avery99-finals-apg",
+   "verdict": "reframed",
+   "note": "Mark Jackson's regular-season average was a different context. Jamal Murray's 10.0 in the 2023 Finals is the comparable: a title team's point guard in the Finals, so the player judges Avery's playmaking against it.",
+   "patch": {
+    "question": {
+     "prompt": "Jamal Murray averaged 10.0 assists for Denver in the 2023 Finals. How many per game did Avery Johnson average in the 1999 Finals?",
+     "reveal": "He ran the Twin Towers offense and hit the series-winning shot in Game 5.",
+     "difficultyReason": "A recent title team's Finals point guard frames Avery's playmaking.",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-murray23-finals-apg"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-25",
+   "slot": 5,
+   "id": "nba-melo14-knicks-msg-62",
+   "verdict": "reframed",
+   "note": "A memorable Christmas-week finale that works as plain recall. Reveal now gives the record context.",
+   "patch": {
+    "question": {
+     "reveal": "A Madison Square Garden record, with 13 rebounds and zero turnovers."
+    }
+   }
+  },
+  {
+   "day": "2026-12-26",
+   "slot": 1,
+   "id": "nba-sonics94-regular-wins",
+   "verdict": "reframed",
+   "note": "Strong opener on a dominant team; the reveal now states the twist that makes the number memorable.",
+   "patch": {
+    "question": {
+     "reveal": "The league's best record, and then one of the biggest upsets ever: out in the first round to No. 8 Denver."
+    }
+   }
+  },
+  {
+   "day": "2026-12-26",
+   "slot": 2,
+   "id": "nba-sixers67-start-losses",
+   "verdict": "reframed",
+   "note": "A clean recall: the record start implies very few losses, and the player decides how few. Reveal improved.",
+   "patch": {
+    "question": {
+     "reveal": "46–4, still tied for the best 50-game start; the Sixers then ended Boston's run of eight titles."
+    }
+   }
+  },
+  {
+   "day": "2026-12-26",
+   "slot": 3,
+   "id": "nba-bucks71-streak",
+   "verdict": "reframed",
+   "note": "The Rockets' 22 was a lone anchor. A chart of champions' winning streaks (1994 Rockets, 1996 Bulls, 2014 Spurs) tells the story of how title teams build runs and places the young Bucks among them.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows winning streaks by three other champions. How long was the 1970–71 Bucks' winning streak, the NBA's longest at that time?",
+     "reveal": "A league record until the Lakers broke it the very next season.",
+     "difficultyReason": "Champions' streaks of 15 to 19 frame the guess; 'longest at that time' hints it was higher still.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Title teams' winning streaks",
+       "unit": "games",
+       "points": [
+        {
+         "label": "Bucks '71",
+         "fact": "nba-bucks71-streak"
+        },
+        {
+         "label": "Rockets '94",
+         "fact": "nba-rockets94-start"
+        },
+        {
+         "label": "Bulls '96",
+         "fact": "nba-bulls96-18-streak"
+        },
+        {
+         "label": "Spurs '14",
+         "fact": "nba-spurs14-streak"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-26",
+   "slot": 4,
+   "id": "nba-wilt62-others-points-v5",
+   "verdict": "reframed",
+   "note": "Printing the 1966–67 Sixers' 125 points a game gives the era's pace, so the player builds the estimate from two teams' scoring minus Wilt's 100 instead of guessing blind. That is a real basketball reference, not a relabel.",
+   "patch": {
+    "question": {
+     "prompt": "The 1966–67 76ers averaged 125 points a game. In Wilt Chamberlain's 100-point game, how many did everyone else on the floor score combined?",
+     "reveal": "The teams combined for a record 316, with Philadelphia winning 169–147.",
+     "difficultyReason": "An era team-scoring average sets the pace; players subtract Wilt's 100 from their estimate of a shootout.",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-sixers67-ppg"
+      ],
+      "derive": {
+       "op": "difference",
+       "of": [
+        "nba-wilt-100-combined",
+        "nba-wilt-100"
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-26",
+   "slot": 5,
+   "id": "nba-ja22-warriors-game2-47",
+   "verdict": "reframed",
+   "note": "Same strong chart, now read by season (Klay 2016 to Butler 2023), so the bars tell the story of recent playoff explosions and Ja sits among them.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows four other playoff scoring explosions. How many points did Ja Morant score against Curry's Warriors in 2022 Game 2?",
+     "reveal": "Including Memphis's last 15 points, to even the series in a 106–101 win.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Recent playoff scoring explosions",
+       "unit": "points",
+       "points": [
+        {
+         "label": "Klay '16",
+         "fact": "nba-klay16-okc-game6-41"
+        },
+        {
+         "label": "Durant '21",
+         "fact": "nba-durant21-nets-bucks-g5-49"
+        },
+        {
+         "label": "Giannis '21",
+         "fact": "nba-giannis21-g6"
+        },
+        {
+         "label": "Ja '22",
+         "fact": "nba-ja22-warriors-game2-47"
+        },
+        {
+         "label": "Butler '23",
+         "fact": "nba-butler23-56-bucks-upset"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-27",
+   "slot": 1,
+   "id": "nba-sixers73-wins",
+   "verdict": "reframed",
+   "note": "The day's single recall, and an ideal opener: many fans know the 1972–73 Sixers were historically bad. The reveal now gives the shape of the collapse.",
+   "patch": {
+    "question": {
+     "reveal": "They lost their first 15 games, only six seasons after setting the record for wins."
+    }
+   }
+  },
+  {
+   "day": "2026-12-27",
+   "slot": 2,
+   "id": "nba-pacers98-road-wins",
+   "verdict": "reframed",
+   "note": "A strong reference: the 58-win total turns a road split into reasoning about 41 home and 41 road games. Reveal improved.",
+   "patch": {
+    "question": {
+     "reveal": "26–15 away from Indianapolis, and Bird was named Coach of the Year in his first season."
+    }
+   }
+  },
+  {
+   "day": "2026-12-27",
+   "slot": 3,
+   "id": "nba-mutombo01-posttrade-rpg",
+   "verdict": "reframed",
+   "note": "Howard alone was a ceiling. A chart of star centers' rebounding (Howard, Noah, Duncan) places Mutombo's post-trade stint among peers at the same position.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows three other star centers' rebounding. How many per game did Dikembe Mutombo average after joining the 2000–01 Sixers?",
+     "reveal": "In 26 games after the trade, with 2.5 blocks a night, as he won a fourth Defensive Player of the Year.",
+     "difficultyReason": "Centers from 9.7 to 13.8 frame the scale; players place an elite defensive big among them.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Rebounds per game, star centers",
+       "unit": "rebounds a game",
+       "points": [
+        {
+         "label": "Mutombo '01",
+         "fact": "nba-mutombo01-posttrade-rpg"
+        },
+        {
+         "label": "Howard '09",
+         "fact": "nba-howard09-regular-rpg"
+        },
+        {
+         "label": "Noah '11",
+         "fact": "nba-noah11-rebounds-average"
+        },
+        {
+         "label": "Duncan '14",
+         "fact": "nba-duncan14-season-rpg"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-27",
+   "slot": 4,
+   "id": "nba-detroit04-rasheed-win-pct-v51b",
+   "verdict": "reframed",
+   "note": "Printing Detroit's 54–28 season record gives the baseline (about two-thirds), so the player estimates how much hotter the post-trade team ran. The reference is the whole point of the estimate.",
+   "patch": {
+    "question": {
+     "prompt": "The 2003–04 Pistons won 54 of 82 games. After trading for Rasheed Wallace, what percent of their final 19 did they win? Nearest percent.",
+     "reveal": "16 wins in 19, and the surge carried them to the 2004 title.",
+     "difficultyReason": "The season record sets a baseline; players judge how far above it the post-trade run went.",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-detroit04-regular-wins"
+      ],
+      "derive": {
+       "op": "percent",
+       "values": [
+        16,
+        19
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-27",
+   "slot": 5,
+   "id": "nba-lebron12-boston-g6-45",
+   "verdict": "reframed",
+   "note": "As bare recall this was a round-number guess. A chart of other must-win playoff nights (LeBron 2013, Klay 2016, Kawhi 2019) frames a legacy-defining performance.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows points in three other must-win playoff games. Facing elimination at Boston in 2012, how many did LeBron score in Game 6?",
+     "reveal": "With 15 rebounds; Miami won Game 7 and LeBron took his first title weeks later.",
+     "difficultyReason": "Must-win nights from 37 to 41 frame the guess.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Points in must-win playoff games",
+       "unit": "points",
+       "points": [
+        {
+         "label": "LeBron '12",
+         "fact": "nba-lebron12-boston-g6-45"
+        },
+        {
+         "label": "LeBron '13",
+         "fact": "nba-lebron13-g7"
+        },
+        {
+         "label": "Klay '16",
+         "fact": "nba-klay16-okc-game6-41"
+        },
+        {
+         "label": "Kawhi '19",
+         "fact": "nba-kawhi19-philly-game7-41"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-28",
+   "slot": 1,
+   "id": "nba-cavs16-g5-41",
+   "verdict": "reframed",
+   "note": "The chart shows LeBron's defining playoff nights, from the 8-point low in 2011 to the 45 at Boston, so the opener tells the story of his arc and the 2016 Game 5 is the next chapter.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows three other defining LeBron playoff nights. In 2016 Finals Game 5, LeBron and Kyrie Irving each scored how many?",
+     "reveal": "The first teammates to both score 40 in a Finals game, with Cleveland facing elimination.",
+     "difficultyReason": "LeBron's big nights from 37 to 45 frame the guess.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "LeBron's defining playoff nights",
+       "unit": "points",
+       "points": [
+        {
+         "label": "LeBron '11",
+         "fact": "nba-lebron11-finals-g4-eight"
+        },
+        {
+         "label": "LeBron '12",
+         "fact": "nba-lebron12-boston-g6-45"
+        },
+        {
+         "label": "LeBron '13",
+         "fact": "nba-lebron13-g7"
+        },
+        {
+         "label": "LeBron '16",
+         "fact": "nba-cavs16-g5-41"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-28",
+   "slot": 2,
+   "id": "nba-alcindor71-ppg",
+   "verdict": "reframed",
+   "note": "Wilt's record 50.4 was an outlier that misled more than helped. A scoring title in a second pro season is a clean recall question for fans of the era.",
+   "patch": {
+    "question": {
+     "prompt": "In only his second NBA season, 1970–71, Lew Alcindor led the league in scoring. What was his average?",
+     "reveal": "He also won MVP and Finals MVP as the third-year Bucks won the title.",
+     "difficultyReason": "Scoring-title averages cluster around 30; the decimal decides it.",
+     "format": null
+    }
+   }
+  },
+  {
+   "day": "2026-12-28",
+   "slot": 3,
+   "id": "nba-spurs14-g3-fg",
+   "verdict": "reframed",
+   "note": "The Spurs' own 70.7% full-game record is the right reference: same franchise, same stat, so the player reasons how much hotter a single half could run. Reveal improved.",
+   "patch": {
+    "question": {
+     "reveal": "A Finals record for a half, with Kawhi Leonard making his first six shots."
+    }
+   }
+  },
+  {
+   "day": "2026-12-28",
+   "slot": 4,
+   "id": "nba-sixers83-turnaround-v5",
+   "verdict": "reframed",
+   "note": "The player now sees yesterday's 9 wins, which is what the question always relied on; the estimate is the champion's total. Honest reference with the derivation kept.",
+   "patch": {
+    "question": {
+     "prompt": "The 1972–73 76ers won just 9 games. How many more regular-season games did the 1982–83 76ers win?",
+     "reveal": "From 9–73 to 65–17; Moses Malone's champions then went 12–1 in the playoffs.",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-sixers73-wins"
+      ],
+      "derive": {
+       "op": "difference",
+       "of": [
+        "nba-sixers83-wins",
+        "nba-sixers73-wins"
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-28",
+   "slot": 5,
+   "id": "nba-luka24-wolves-g2-32",
+   "verdict": "reframed",
+   "note": "As bare recall this was a guess. A chart of other famous game-winner nights (Westbrook, Kawhi, Luka's own 2020 buzzer-beater) gives a scale and a story; Luka's 2024 night is lower than its fame suggests.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows points on three other famous game-winner nights. How many did Luka Dončić score in the 2024 Game 2 he won over Rudy Gobert?",
+     "reveal": "With 13 assists, in a 109–108 win.",
+     "difficultyReason": "Game-winner nights from 41 to 50 frame the guess, but the answer sits well below them.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Points on famous game-winner nights",
+       "unit": "points",
+       "points": [
+        {
+         "label": "Westbrook '17",
+         "fact": "nba-westbrook17-50-nuggets-winner"
+        },
+        {
+         "label": "Kawhi '19",
+         "fact": "nba-kawhi19-philly-game7-41"
+        },
+        {
+         "label": "Luka '20",
+         "fact": "nba-luka20-clippers-buzzer-43"
+        },
+        {
+         "label": "Luka '24",
+         "fact": "nba-luka24-wolves-g2-32"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-29",
+   "slot": 1,
+   "id": "nba-lebron18-g1",
+   "verdict": "reframed",
+   "note": "Elgin Baylor's 61 is the Finals record, so it sets a clean ceiling for the biggest Finals nights; Jordan's 55 sat within 8%. The reveal now explains why it is remembered.",
+   "patch": {
+    "question": {
+     "prompt": "Elgin Baylor set the NBA Finals record with 61 points in 1962. How many did LeBron James score in his 2018 Game 1 loss at Golden State?",
+     "reveal": "The most ever in a Finals loss, on the night J. R. Smith dribbled out the clock in a tie game.",
+     "format": {
+      "kind": "reference",
+      "references": [
+       "nba-baylor62-finals-61"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-29",
+   "slot": 2,
+   "id": "nba-spurs14-international",
+   "verdict": "replaced",
+   "note": "The fifth 2013–14 Spurs question in two weeks, with estimability 2. Robert Horry's seven rings is a memorable playoff-drama number that rewards real knowledge.",
+   "newFact": {
+    "verifiedOn": "2026-11-26",
+    "id": "nba-horry-seven-titles-v52b",
+    "family": "titles",
+    "scope": "career",
+    "season": "2006-07",
+    "eventDate": null,
+    "franchise": "SAS",
+    "player": "Robert Horry",
+    "answer": 7,
+    "unit": {
+     "singular": "title",
+     "plural": "titles"
+    },
+    "claim": "Robert Horry won seven NBA championships with three franchises.",
+    "source": {
+     "url": "https://en.wikipedia.org/wiki/Robert_Horry",
+     "quote": "Horry was a member of seven NBA championship winning teams over his 16-year career",
+     "derivation": null,
+     "asOf": null
+    },
+    "question": {
+     "prompt": "'Big Shot Rob' Horry won titles with Houston, the Lakers and San Antonio. How many NBA championships did he win in all?",
+     "context": "Robert Horry · 16 NBA seasons · 1992–2008",
+     "reveal": "Two in Houston, three with the Lakers, two with the Spurs: more than any player outside the 1950s–60s Celtics.",
+     "min": 2,
+     "max": 14,
+     "step": 1,
+     "difficulty": "medium",
+     "difficultyReason": "Fans know he won a lot; whether he passed Jordan's six is the estimate.",
+     "ratings": {
+      "interest": 5,
+      "recognizability": 4,
+      "estimability": 3,
+      "surprise": 4
+     },
+     "funFacts": [
+      {
+       "text": "His titles came with three different franchises.",
+       "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Robert_Horry",
+        "quote": "two with the Houston Rockets, three with the Los Angeles Lakers, and two with the San Antonio Spurs"
+       }
+      },
+      {
+       "text": "No one outside the 1950s and 1960s Celtics has won more than six titles except Horry.",
+       "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Robert_Horry",
+        "quote": "He is the only non-member of the 1950s and 1960s Boston Celtics to win more than six championships."
+       }
+      },
+      {
+       "text": "He retired holding the record for career three-pointers in the NBA Finals, with 56.",
+       "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Robert_Horry",
+        "quote": "When he retired, Horry held the record for three-pointers all-time in the NBA Finals with 56."
+       }
+      }
+     ]
+    }
+   }
+  },
+  {
+   "day": "2026-12-29",
+   "slot": 3,
+   "id": "nba-majerle93-three-pointers",
+   "verdict": "reframed",
+   "note": "A pre-modern threes total with real era context; recall rewards knowing how rare 150-plus threes were in 1993. The reveal now adds a comparison instead of restating.",
+   "patch": {
+    "question": {
+     "reveal": "Enough to share the league lead, while also making the All-Defensive second team."
+    }
+   }
+  },
+  {
+   "day": "2026-12-29",
+   "slot": 4,
+   "id": "nba-bullets75-g1-halftime-lead",
+   "verdict": "reframed",
+   "note": "Same comeback chart, now read by season, so the bars tell the story of famous comebacks from 1975 to 2024.",
+   "patch": {
+    "question": {
+     "reveal": "Phil Smith's 20 off the bench led the comeback, and Golden State swept the series.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Deficits erased in famous comebacks",
+       "unit": "points",
+       "points": [
+        {
+         "label": "Warriors '75",
+         "fact": "nba-bullets75-g1-halftime-lead"
+        },
+        {
+         "label": "Jazz '96",
+         "fact": "nba-jazz96-comeback"
+        },
+        {
+         "label": "Spurs '99",
+         "fact": "nba-spurs99-memorial-day"
+        },
+        {
+         "label": "Lakers '00",
+         "fact": "nba-lakers00-portland-g7-comeback"
+        },
+        {
+         "label": "Wolves '24",
+         "fact": "nba-wolves24-denver-game7-comeback"
+        }
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "day": "2026-12-29",
+   "slot": 5,
+   "id": "nba-tatum22-bucks-g6-46",
+   "verdict": "reframed",
+   "note": "The Butler 'Benchmark' line is gone. The chart of star playoff nights against the Giannis-era Bucks (Durant, Trae, Butler) tells one story, and Tatum's elimination-game answer is placed within it.",
+   "patch": {
+    "question": {
+     "prompt": "The chart shows three other star playoff nights against Milwaukee. Facing elimination there in 2022, how many did Jayson Tatum score?",
+     "context": "Jayson Tatum · Celtics at Bucks · 2022 East semifinals · Game 6",
+     "reveal": "With nine rebounds in a 108–95 win; Boston won Game 7 and reached the Finals.",
+     "difficultyReason": "Star nights against Milwaukee from 48 to 56 frame the guess.",
+     "format": {
+      "kind": "missing-point",
+      "chart": {
+       "title": "Star playoff nights against Milwaukee",
+       "unit": "points",
+       "points": [
+        {
+         "label": "Durant '21",
+         "fact": "nba-durant21-nets-bucks-g5-49"
+        },
+        {
+         "label": "Trae '21",
+         "fact": "nba-trae21-bucks-g1-48"
+        },
+        {
+         "label": "Tatum '22",
+         "fact": "nba-tatum22-bucks-g6-46"
+        },
+        {
+         "label": "Butler '23",
+         "fact": "nba-butler23-56-bucks-upset"
+        }
+       ]
+      }
+     }
+    }
+   }
+  }
+ ]
+}

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties, type Dispatch
 import { canLock, currentQuestion, ROUNDS, totalPoints, type GameAction, type GameState, type PracticeTiming } from '../engine/game';
 import { finalShot, verifiedDailyRounds } from '../engine/final-shot';
 import { MAX_POINTS_PER_ROUND, potentialPoints } from '../engine/scoring';
-import { formatValue, unitFor } from '../lib/format';
+import { formatValue, plural, unitFor } from '../lib/format';
 import { feedback } from './feedback';
 import { Readout } from './Readout';
 import { Ruler, type RulerReveal } from './Ruler';
@@ -15,10 +15,11 @@ import { courtPosition } from '../engine/court-run';
 import { courtRunMarkers } from '../engine/court-run';
 import { QuestionChart } from './QuestionChart';
 import { FormatCue } from './FormatCue';
-import type { QuestionFormat } from '../content/formats';
+import type { PlayerFormat } from '../content/formats';
 import { raceStanding, type RaceStanding } from '../engine/friend-race';
 import { questionCrowdLine } from '../engine/percentile';
 import { crowdThreshold, prefetchQuestionCrowd, questionCrowdFor } from '../lib/scores';
+import { ClockGlyph } from './ClockGlyph';
 import './round-polish.css';
 
 type Props = {
@@ -44,7 +45,7 @@ type Props = {
    */
   survival?: SurvivalChrome | undefined;
   /** Opens the How to play guide at a format (offered only once the clock has stopped). */
-  onGuide?: ((format: QuestionFormat) => void) | undefined;
+  onGuide?: ((format: PlayerFormat) => void) | undefined;
 };
 
 export type SurvivalChrome = {
@@ -250,6 +251,42 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
     return () => window.clearTimeout(t);
   }, [state.phase, reduced, last]);
 
+  // The landed answer and the ruler's axis must sit above the sticky Next bar (at 320×568 it
+  // covered the axis). Scroll just enough, never so far that the answer itself leaves the top.
+  // The story and verdict still grow for a frame or two after 'resolved' commits (instantly under
+  // reduced motion), so measure after layout and re-check while it settles. The target is absolute
+  // (scrollY + shortfall), so a re-check during a smooth scroll lands on the same place.
+  useEffect(() => {
+    if (state.phase !== 'resolved') return;
+    const root = roundRef.current;
+    if (!root) return;
+    const fit = () => {
+      const ruler = root.querySelector('.ruler');
+      const answer = root.querySelector('.reveal-answer');
+      const bar = root.querySelector('.action-bar');
+      if (!ruler || !answer || !bar) return;
+      const sticky = /sticky|fixed/.test(getComputedStyle(bar).position);
+      const limit = Math.min(window.innerHeight, sticky ? bar.getBoundingClientRect().top : Infinity) - 8;
+      const overlap = ruler.getBoundingClientRect().bottom - limit;
+      const room = answer.getBoundingClientRect().top - 8;
+      const by = Math.min(overlap, room);
+      if (by > 0.5) window.scrollTo({ top: window.scrollY + by, behavior: reduced ? 'instant' : 'smooth' });
+    };
+    let raf = requestAnimationFrame(fit);
+    const refit = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(fit);
+    };
+    const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(refit);
+    observer?.observe(root);
+    const settled = window.setTimeout(() => observer?.disconnect(), 1000);
+    return () => {
+      cancelAnimationFrame(raf);
+      observer?.disconnect();
+      window.clearTimeout(settled);
+    };
+  }, [state.phase, state.round, reduced]);
+
   // Move the marker from the far end of the ruler and settle on the landing frame.
   useEffect(() => {
     if (state.phase !== 'revealing' || !last) return;
@@ -307,7 +344,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
     : resolved.points === 0 ? 'Inside, but too wide to score.' : 'Inside.');
   const pointsLabel = resolved && `${resolved.points} ${resolved.points === 1 ? 'point' : 'points'}`;
   const announcement = resolved
-    ? `${resultLabel}${missDistance ? ` Missed by ${missDistance}.` : ''} ${pointsLabel}. The answer is ${formatValue(q.answer, q.step)} ${unitFor(q.answer, q.unit)}.`
+    ? `The answer is ${formatValue(q.answer, q.step)} ${unitFor(q.answer, q.unit)}. ${resultLabel}${missDistance ? ` Missed by ${missDistance}.` : ''} ${pointsLabel}.`
     : !interactive ? last?.timedOut ? 'Time’s up.' : 'Window locked.' : '';
   // Don't leak the outcome before the answer lands.
   const runningTotal = survival ? survival.total : totalPoints(state.phase === 'resolved' ? state.results : state.results.slice(0, state.round));
@@ -338,6 +375,64 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
     }
   }
 
+  const verdictLine = (
+    <div className="verdict-line">
+      {resolved && last.timedOut ? (
+        <p className="outcome outcome-miss">
+          <span className="outcome-word">{resultLabel}</span>
+          <span className="outcome-score tabular">{pointsLabel}</span>
+        </p>
+      ) : resolved && survival ? (
+        <SurvivalOutcome points={last.points} hit={last.hit} need={survival.need} perfect={!!perfect} missBy={missDistance} />
+      ) : resolved ? (
+        last.hit ? (
+          <p className="outcome outcome-hit" data-zero={last.points === 0 || undefined}>
+            <span className="outcome-word">
+              <span className="outcome-glyph" aria-hidden="true">✓</span>
+              {resultLabel}
+            </span>
+            <span className="outcome-points tabular" data-perfect-window={perfect || undefined} aria-hidden="true">+{last.points}</span>
+            <span className="sr-only">{pointsLabel}.</span>
+          </p>
+        ) : (
+          <p className="outcome outcome-miss">
+            <span className="outcome-word">
+              <span className="outcome-glyph" aria-hidden="true">✕</span>
+              {resultLabel}
+            </span>
+            <span className="outcome-score tabular">{pointsLabel}</span>
+            {missDistance && <span className="outcome-detail">Missed by {missDistance}.</span>}
+          </p>
+        )
+      ) : state.phase === 'locked' || state.phase === 'revealing' ? (
+        <p className="worth worth-locked">{last?.timedOut ? 'Time’s up. Revealing the answer…' : 'Window locked. Revealing the answer…'}</p>
+      ) : survival ? (
+        <p className="worth" data-short={short || undefined}>
+          {worth === 0 ? (
+            <>Pull the brackets in. You need <b className="tabular">{survival.need}</b> to survive.</>
+          ) : short ? (
+            <>Worth <b className="tabular">{worth}</b>. You need <b className="tabular">{survival.need}</b>: tighten it.</>
+          ) : (
+            <>Worth <b className="tabular">{worth}</b> if it’s inside. You need {survival.need}.</>
+          )}
+        </p>
+      ) : worth === 0 && canLock(state) ? (
+        // Lockable, but so wide it rounds to 0: say so before the lock, not after.
+        <p className="worth worth-points" data-zero>
+          <b className="tabular">0</b> points even if it’s inside. Tighten up.
+        </p>
+      ) : worth === 0 ? (
+        <p className="worth">
+          Pull the brackets in.<span className="worth-more"> Tighter windows score more.</span>
+        </p>
+      ) : (
+        <p className="worth worth-points">
+          <b className="tabular">{worth}</b> {worth === 1 ? 'point' : 'points'} if the answer is inside.
+        </p>
+      )}
+    </div>
+  );
+
   return (
     <article ref={roundRef} className="round" data-phase={state.phase} data-fresh-result={freshResult || undefined}>
       <div className="round-head">
@@ -354,11 +449,12 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
             const shown = r && (i < state.round || state.phase === 'resolved' || state.phase === 'complete');
             const status = shown ? (!r.hit ? 'miss' : r.points > 0 ? 'hit' : 'zero') : i === state.round ? 'current' : 'todo';
             return (
-              <li key={i} className="ledger-cell" data-status={status} data-new-result={freshResult && i === state.round || undefined}>
+              <li key={i} className="ledger-cell" data-status={status} data-timeout={shown && r.timedOut || undefined} data-new-result={freshResult && i === state.round || undefined}>
                 <span className="sr-only">
-                  Question {i + 1}: {shown ? `${r.points} points` : i === state.round ? 'now playing' : 'to play'}
+                  Question {i + 1}: {shown ? `${r.points} points${r.timedOut ? ', time ran out' : ''}` : i === state.round ? 'now playing' : 'to play'}
                 </span>
                 <span className="ledger-num" aria-hidden="true">{shown ? r.points : i + 1}</span>
+                {shown && r.timedOut && <ClockGlyph />}
               </li>
             );
           })}
@@ -396,7 +492,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
               'A friend sent you these five.'
             ) : (
               <>
-                Beat your friend’s <b className="tabular">{challenge.vs}</b> points{challenge.vsTime !== null ? ` in ${Math.ceil(challenge.vsTime / 1000)}s` : ''}.
+                Beat your friend’s <b className="tabular">{plural(challenge.vs, 'point')}</b>{challenge.vsTime !== null ? ` in ${Math.ceil(challenge.vsTime / 1000)}s` : ''}.
               </>
             )}
           </p>
@@ -427,10 +523,18 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
 
       <section className="field" aria-label="Your window">
         <div className="field-inner">
+          {resolved && (
+            // The reveal reads in order: the answer, caught or not, the points; the window steps down below.
+            <p className="reveal-answer">
+              <span className="tabular">{formatValue(q.answer, q.step)}</span> {unitFor(q.answer, q.unit)}
+            </p>
+          )}
+          {resolved && verdictLine}
           <Readout
             question={q}
             window={state.window}
             editable={interactive}
+            caption={resolved ? 'Your window' : undefined}
             onFirstTouch={() => { startShot(); onFirstTouch(); }}
             onChange={(w, m) => {
               // Typing an exact number also starts the clock and retires the tutorial.
@@ -441,62 +545,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
           />
 
           <div className="sr-only" role="status">{announcement}{raceAnnouncement}</div>
-          <div className="verdict-line">
-            {resolved && last.timedOut ? (
-              <p className="outcome outcome-miss">
-                <span className="outcome-word">{resultLabel}</span>
-                <span className="outcome-score tabular">{pointsLabel}</span>
-              </p>
-            ) : resolved && survival ? (
-              <SurvivalOutcome points={last.points} hit={last.hit} need={survival.need} perfect={!!perfect} missBy={missDistance} />
-            ) : resolved ? (
-              last.hit ? (
-                <p className="outcome outcome-hit" data-zero={last.points === 0 || undefined}>
-                  <span className="outcome-word">
-                    <span className="outcome-glyph" aria-hidden="true">✓</span>
-                    {resultLabel}
-                  </span>
-                  <span className="outcome-points tabular" data-perfect-window={perfect || undefined} aria-hidden="true">+{last.points}</span>
-                  <span className="sr-only">{pointsLabel}.</span>
-                </p>
-              ) : (
-                <p className="outcome outcome-miss">
-                  <span className="outcome-word">
-                    <span className="outcome-glyph" aria-hidden="true">✕</span>
-                    {resultLabel}
-                  </span>
-                  <span className="outcome-score tabular">{pointsLabel}</span>
-                  {missDistance && <span className="outcome-detail">Missed by {missDistance}.</span>}
-                </p>
-              )
-            ) : state.phase === 'locked' || state.phase === 'revealing' ? (
-              <p className="worth worth-locked">{last?.timedOut ? 'Time’s up. Revealing the answer…' : 'Window locked. Revealing the answer…'}</p>
-            ) : survival ? (
-              <p className="worth" data-short={short || undefined}>
-                {worth === 0 ? (
-                  <>Pull the brackets in. You need <b className="tabular">{survival.need}</b> to survive.</>
-                ) : short ? (
-                  <>Worth <b className="tabular">{worth}</b>. You need <b className="tabular">{survival.need}</b>: tighten it.</>
-                ) : (
-                  <>Worth <b className="tabular">{worth}</b> if it’s inside. You need {survival.need}.</>
-                )}
-              </p>
-            ) : worth === 0 && canLock(state) ? (
-              // Lockable, but so wide it rounds to 0: say so before the lock, not after.
-              <p className="worth worth-points" data-zero>
-                <b className="tabular">0</b> points even if it’s inside. Tighten up.
-              </p>
-            ) : worth === 0 ? (
-              <p className="worth">
-                Pull the brackets in. Tighter windows score more.
-              </p>
-            ) : (
-              <p className="worth worth-points">
-                <b className="tabular">{worth}</b> {worth === 1 ? 'point' : 'points'} if the answer is inside.
-              </p>
-            )}
-          </div>
-
+          {!resolved && verdictLine}
           <Ruler
             question={q}
             window={state.window}
@@ -513,17 +562,15 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
 
       {resolved && (
         <section className={survival ? 'story' : 'story story-payoff'} aria-label="About this answer">
-          <p className="story-answer">
-            <span className="tabular">{formatValue(q.answer, q.step)}</span> {unitFor(q.answer, q.unit)}
-          </p>
+          {reaction && !survival && <p className="story-reaction">{reaction}</p>}
           <p className="story-note">{q.note}</p>
-          {crowdLine && <p className="story-reaction story-crowd">{crowdLine}</p>}
           {extra && (
             <aside className="story-extra" aria-label="Bonus sports fact">
               <p className="story-extra-text">{extra.text}</p>
             </aside>
           )}
-          {reaction && !survival && <p className="story-reaction">{reaction}</p>}
+          {/* Crowd data is a snapshot, never awaited: it can only follow the context, never hold up Next. */}
+          {crowdLine && <p className="story-crowd">{crowdLine}</p>}
         </section>
       )}
 

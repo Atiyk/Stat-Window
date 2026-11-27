@@ -36,13 +36,13 @@
    "www.sports-reference.com",
    "sports-reference.com"
   ],
-  "license": "Proprietary; see the site's data use policy and terms of use.",
+  "license": "Proprietary database. Its data use policy says individual facts may be reused; its terms of use forbid automated access and building a substitute database.",
   "upstreamOrigin": "Sports Reference's own compiled database.",
-  "acquisition": "Not accessed for content. Excluded by project rule: no scraping or bulk download to populate the game.",
-  "attribution": "Not applicable.",
-  "allowedUse": "None for content.",
-  "reviewStatus": "rejected",
-  "reviewedOn": "2026-11-16",
+  "acquisition": "Manual only: a person opens one page at a time in a browser and reads the figure. Never scripts, bots, scrapers, crawlers or AI agents (including WebFetch-style tools), never bulk download, never copying tables.",
+  "attribution": "Credit \"Basketball-Reference.com (Sports Reference)\" with a link to the exact page the fact was read from.",
+  "allowedUse": "Individual facts, restated in our own words with attribution and a link. A short excerpt of 160 characters or fewer may be stored as verification evidence. No tables, no bulk reuse, no derived database that could substitute for the site.",
+  "reviewStatus": "approved",
+  "reviewedOn": "2026-11-26",
   "policyEvidence": [
    {
     "url": "https://www.sports-reference.com/data_use.html",
@@ -64,7 +64,8 @@
     "checkedOn": "2026-11-16",
     "excerpt": "to create any database, archive, or other data store that competes with or constitutes a material substitute"
    }
-  ]
+  ],
+  "policyNote": "The owner approved Basketball-Reference as a source alongside Wikipedia (recorded 2026-11-26), superseding the earlier Wikipedia-only rule. The policyEvidence excerpts still bind: facts are reusable, automated access is not. scripts/nba/model.ts and data/question-factory/policies/nba.json accept these hosts (2026-11-27)."
  },
  {
   "id": "nba-com",

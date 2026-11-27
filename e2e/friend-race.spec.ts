@@ -70,6 +70,11 @@ test('a race link reveals the friend round by round, then compares every round',
   expect(errors).toEqual([]);
 });
 
+test('a legacy link from a 1-point friend reads "1 point", not "1 points"', async ({ page }) => {
+  await openAt(page, AFTER_MIDNIGHT, '/?day=2026-11-16&vs=1');
+  await expect(page.locator('.challenge-note')).toHaveText('Beat your friend’s 1 point.');
+});
+
 test('legacy and tampered links keep working without a race', async ({ page }) => {
   // Legacy: total only. No race line, the old final comparison.
   await openAt(page, AFTER_MIDNIGHT, '/?day=2026-11-16&vs=247');

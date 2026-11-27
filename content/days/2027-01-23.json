@@ -9,7 +9,7 @@
     {
       "id": "nba-paul08-regular-apg",
       "sport": "NBA",
-      "prompt": "How many assists per game did Chris Paul average for New Orleans in 2008?",
+      "prompt": "How many assists per game did Chris Paul average for New Orleans in 2007–08?",
       "context": "Hornets · 2007–08 regular season",
       "answer": 11.6,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 5,
       "max": 22,
       "step": 0.1,
-      "note": "11.6 assists per game from the young star.",
+      "note": "11.6 a game, plus 2.71 steals, as New Orleans won 56 games.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
@@ -80,7 +80,7 @@
       "min": 24,
       "max": 54,
       "step": 0.1,
-      "note": "34.7 points per game.",
+      "note": "34.7 a game, as Miami came back from 0–2 down to win the franchise's first title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
@@ -131,62 +131,63 @@
       }
     },
     {
-      "id": "nba-floyd87-51",
+      "id": "nba-giannis21-g6-ft-pct-v51b",
       "sport": "NBA",
-      "prompt": "The 1987 Lakers lost one game in the West playoffs, when Sleepy Floyd scored how many in Oakland?",
-      "context": "1987 West semifinals · Game 4 · Warriors vs Lakers",
-      "answer": 51,
+      "prompt": "What percent of his free throws did Giannis Antetokounmpo make in the 2021 title clincher? Nearest whole percent.",
+      "context": "2021 NBA Finals · Game 6 · free throws made ÷ attempted",
+      "answer": 89,
       "unit": {
-        "singular": "point",
-        "plural": "points"
+        "singular": "percent",
+        "plural": "percent"
       },
-      "min": 30,
-      "max": 80,
+      "min": 40,
+      "max": 100,
       "step": 1,
-      "note": "51.",
+      "note": "17 of 19, after shooting 55.6% at the line earlier in those playoffs.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
-        "quote": "Their only loss was a Sleepy Floyd 51-point outburst in Game 4 in Oakland"
+        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+        "quote": "Antetokounmpo made 16 of his 25 shots, and was a surprising 17 for 19 on his free throws",
+        "derivation": "17 free throws made ÷ 19 attempted × 100 = 89.47, so 89% to the nearest whole percent."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "The Lakers swept Denver in the opening round, starting their Western playoff run without a loss.",
+          "text": "Giannis's clutch foul shooting contrasted sharply with his struggles at the line earlier in those playoffs.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
-            "quote": "they swept the Denver Nuggets in the first round"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "after hitting just 55.6% in the playoffs"
           }
         },
         {
-          "text": "Floyd's outburst allowed Golden State to avoid a second-round sweep.",
+          "text": "His Finals MVP win made him the youngest recipient since Kawhi Leonard.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
-            "quote": "which allowed the Warriors to avoid a sweep"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "the youngest winner at age 26 since Kawhi Leonard (22) in 2014"
           }
         },
         {
-          "text": "Michael Cooper set a playoff mark with six made three-pointers against Boston in the Finals.",
+          "text": "The Bucks secured the championship behind lockdown defense from Jrue Holiday on Devin Booker.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
-            "quote": "He hit six 3 pointers, a playoff record"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
+            "quote": "His defense helped limit Booker to 19 points"
           }
         }
       ],
       "meta": {
         "format": "recall",
-        "family": "points-game",
-        "era": "1980s",
+        "family": "shooting-pct",
+        "era": "2020s",
         "subjects": [
-          "Sleepy Floyd",
-          "Golden State Warriors"
+          "Giannis Antetokounmpo",
+          "Milwaukee Bucks"
         ],
         "supports": []
       }
@@ -204,7 +205,7 @@
       "min": 14,
       "max": 56,
       "step": 1,
-      "note": "41.",
+      "note": "41 in the third quarter, as Portland squared the series 2–2 on its way to the title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
@@ -256,7 +257,7 @@
     {
       "id": "nba-clippers19-warriors-g2-31-comeback",
       "sport": "NBA",
-      "prompt": "The chart shows five big comebacks. When the Clippers stunned the Warriors in 2019 playoff Game 2, how far behind had L.A. fallen?",
+      "prompt": "The chart shows four other playoff comebacks. When the Clippers stunned the Warriors in 2019 Game 2, how far behind had they fallen?",
       "context": "Los Angeles Clippers at Warriors · 2019 first round",
       "answer": 31,
       "unit": {
@@ -266,7 +267,7 @@
       "min": 0,
       "max": 75,
       "step": 1,
-      "note": "31 points down! The Clippers stole a comeback win in Golden State's own arena.",
+      "note": "31 points: down 94–63 in the third quarter, L.A. outscored the champions 72–37 the rest of the way.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2019_NBA_playoffs",
@@ -304,13 +305,9 @@
         }
       ],
       "chart": {
-        "title": "Points overcome in a comeback",
+        "title": "Points overcome, playoff comebacks",
         "unit": "points",
         "points": [
-          {
-            "label": "Jazz '96",
-            "value": 36
-          },
           {
             "label": "Lakers '00",
             "value": 16
@@ -341,7 +338,6 @@
           "Los Angeles Clippers"
         ],
         "supports": [
-          "nba-jazz96-comeback",
           "nba-lakers00-portland-g7-comeback",
           "nba-celtics08-finals-g4-comeback-24",
           "nba-mavs11-heat-finals-g2-comeback-fifteen",

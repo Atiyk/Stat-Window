@@ -50,3 +50,100 @@
 .share-score-card[aria-busy='true'],
 .results-actions .btn-primary[aria-busy='true'] { opacity: 0.65; cursor: progress; }
 .archive-toggle { min-height: 44px; margin-top: 8px; text-align: start; }
+
+/* ───────── V5.2 results: one column of essentials, everything else folded ───────── */
+.results-simple { max-width: 640px; grid-template-columns: minmax(0, 1fr); grid-template-areas: none; row-gap: var(--space-5); }
+.results-simple > *, .results-simple .results-main > * { grid-area: auto; grid-row: auto; }
+.daily-results .results-head + .results-actions { margin-top: 0; }
+.results-main { display: grid; gap: var(--space-4); min-width: 0; }
+.daily-results .results-context { margin: 0 0 var(--space-2); }
+.daily-results .results-verdict { margin-top: var(--space-2); }
+
+.results-court { margin: 0; display: grid; gap: var(--space-2); }
+.results-court .live-court__court { aspect-ratio: 48.2 / 9; }
+.results-court__caption { margin: 0; color: var(--ink-soft); font-size: 0.9375rem; line-height: 1.4; text-wrap: pretty; }
+
+/* Five cells, each labelled with its question: points large, a miss outlined and dashed. */
+.daily-results .scorecard {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-1);
+  max-width: none;
+  margin: 0;
+}
+.daily-results .scorecard .ledger-cell {
+  width: auto; height: auto; min-height: 56px;
+  display: grid; grid-template-rows: auto auto; place-content: center; justify-items: center; gap: 0;
+}
+.daily-results .scorecard .ledger-q { position: relative; font-size: min(0.6875rem, 3.2vw); font-weight: 650; letter-spacing: 0.02em; line-height: 1.2; }
+.daily-results .scorecard .ledger-num { font-size: min(1.25rem, 5.4vw); line-height: 1.15; }
+.daily-results .scorecard [data-status='hit'] .ledger-q { color: color-mix(in srgb, var(--on-brand) 82%, var(--brand)); }
+.daily-results .scorecard [data-status='zero'] .ledger-q { color: var(--brand-press); }
+.daily-results .scorecard [data-status='miss'] { background: transparent; border: 1.5px dashed var(--ink-soft); }
+.daily-results .scorecard [data-status='miss']::after { display: none; }
+.daily-results .scorecard [data-status='miss'] .ledger-q,
+.daily-results .scorecard [data-status='miss'] .ledger-num { color: var(--ink-soft); }
+.daily-results .scorecard .clock-glyph { top: 4px; right: 4px; width: 12px; height: 12px; }
+.daily-results .results-time { margin: 0; }
+
+.results-cta { display: grid; gap: var(--space-2); }
+.results-cta .btn-primary { width: 100%; }
+.results-cta .btn-primary:active { transform: scale(0.97); }
+
+/* Progressive disclosure: flat rows, never cards inside cards. */
+.results-folds { display: grid; border-top: 1px solid var(--line); }
+.results-fold { border-bottom: 1px solid var(--line); }
+.results-fold > summary {
+  display: grid; gap: 1px; align-content: center; min-height: 60px; padding: 10px 36px 10px 0; position: relative;
+  cursor: pointer; list-style: none; font-weight: 700; font-size: 1.0625rem;
+  transition: transform var(--motion-fast) var(--ease-out);
+}
+.results-fold > summary::-webkit-details-marker { display: none; }
+.results-fold > summary > span { font-weight: 400; font-size: 0.875rem; color: var(--ink-soft); line-height: 1.3; }
+.results-fold > summary::after {
+  content: ''; position: absolute; right: 10px; top: 50%; width: 9px; height: 9px; margin-top: -7px;
+  border-right: 2px solid var(--ink-soft); border-bottom: 2px solid var(--ink-soft); transform: rotate(45deg);
+  transition: transform var(--motion-short) var(--ease-out);
+}
+.results-fold[open] > summary::after { transform: translateY(4px) rotate(-135deg); }
+.results-fold > summary:active { transform: scale(0.99); }
+.results-fold > summary:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; border-radius: 4px; }
+.results-fold__body { display: grid; gap: var(--space-4); padding: var(--space-1) 0 var(--space-5); min-width: 0; }
+.results-fold__body .performance { border-block: 0; padding-block: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .results-fold[open] .results-fold__body { animation: fold-in var(--motion-short) var(--ease-out); }
+}
+@keyframes fold-in { from { opacity: 0; transform: translateY(-4px); } }
+
+.results-simple .score-card { display: grid; gap: var(--space-2); }
+.results-simple .week-glance { padding-top: 0; border-top: 0; }
+.results-links { display: flex; flex-wrap: wrap; gap: 0 var(--space-5); margin-top: calc(var(--space-2) - var(--space-5)); }
+.results-links .btn-link { min-height: 44px; margin: 0; color: var(--brand); font-size: 0.9375rem; }
+.results-simple .privacy-foot { margin: 0; }
+
+/* The outcome against a friend's total-only link sits under the verdict, with the score:
+   set compactly so Challenge a friend stays close (on the first screen in short landscape). */
+.results-simple .results-head .versus { margin-top: 4px; font-size: 0.9375rem; line-height: 1.3; }
+
+/* Short landscape (phones on their side): the score and Challenge a friend share the first
+   screen. Two columns: score, verdict and the share on the left; court, cells and time on the
+   right. DOM order (and so reading order) is unchanged. */
+@media (orientation: landscape) and (max-height: 500px) and (min-width: 640px) {
+  article.results-simple {
+    max-width: 920px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    grid-template-areas: 'head court' 'head ledger' 'actions time';
+    column-gap: 32px;
+    row-gap: var(--space-3);
+    align-items: start;
+  }
+  article.results-simple > * { grid-column: 1 / -1; }
+  article.results-simple .results-main { display: contents; }
+  article.results-simple .results-main > .results-head { grid-area: head; }
+  article.results-simple .results-main > .results-court { grid-area: court; }
+  article.results-simple .results-main > .scorecard { grid-area: ledger; }
+  article.results-simple .results-main > .results-time { grid-area: time; }
+  article.results-simple > .results-actions { grid-area: actions; }
+  article.results-simple .results-total { margin-top: 4px; }
+  article.results-simple .results-score { font-size: clamp(4rem, 22vh, 5.5rem); }
+}

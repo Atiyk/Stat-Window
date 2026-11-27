@@ -1,6 +1,6 @@
 # Visual identity and design rationale
 
-The Chalk, Ink, and Juniper polish candidate is documented in [Design and gameplay polish](DESIGN-POLISH-PROGRESS.md). The earlier design directions are recorded below.
+**History only.** The current identity is Garden Classic (Jersey Cream `#F7F4EE`, Garden Navy `#17365D`, Basketball Copper `#B94B21`) with the Court Geometry symbol: see [BRAND.md](BRAND.md). None of the palettes, fonts or marks below ship today. They record the directions tried before it: Clubhouse, Court, and the Chalk, Ink and Juniper polish candidate ([DESIGN-POLISH-PROGRESS.md](DESIGN-POLISH-PROGRESS.md)).
 
 ## Court (proposed 2026-11-18, replaces the Clubhouse colours if approved)
 The Clubhouse look (cream paper, pine, terracotta, a soft serif, a white rounded card with a hairline border) had become the default look of generated pages, so it read as AI-made. Court keeps the pine identity and the caliper interaction and changes the rest:

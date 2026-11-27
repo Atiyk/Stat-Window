@@ -19,7 +19,7 @@
       "min": 25,
       "max": 80,
       "step": 1,
-      "note": "63 points, a playoff record, in a Bulls loss.",
+      "note": "63, a playoff record, in a double-overtime loss at Boston Garden.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Chicago_Bulls_season",
@@ -82,7 +82,7 @@
       "min": 28,
       "max": 82,
       "step": 1,
-      "note": "67–15.",
+      "note": "67 in Phil Jackson's first season, built on winning streaks of 11, 16 and 19 games.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
@@ -120,24 +120,24 @@
         }
       ],
       "chart": {
-        "title": "Wins in a regular season",
+        "title": "Champions' regular-season wins",
         "unit": "wins",
         "points": [
           {
-            "label": "Bulls '97",
-            "value": 69
-          },
-          {
-            "label": "Celtics '24",
-            "value": 64
+            "label": "Lakers '00",
+            "value": null
           },
           {
             "label": "Spurs '14",
             "value": 62
           },
           {
-            "label": "Lakers '00",
-            "value": null
+            "label": "Bucks '21",
+            "value": 46
+          },
+          {
+            "label": "Nuggets '23",
+            "value": 53
           }
         ]
       },
@@ -149,9 +149,9 @@
           "Los Angeles Lakers"
         ],
         "supports": [
-          "nba-bulls97-wins",
-          "nba-celtics24-wins",
-          "nba-spurs14-season-wins"
+          "nba-spurs14-season-wins",
+          "nba-bucks21-regular-wins",
+          "nba-nuggets23-regular-wins"
         ]
       }
     },
@@ -168,7 +168,7 @@
       "min": 0,
       "max": 26,
       "step": 1,
-      "note": "Six, as Boston won the quarter 36–6.",
+      "note": "Six, as Boston won the quarter 36–6. Those Celtics went 67–15 and won the title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1986_NBA_Finals",
@@ -267,7 +267,7 @@
         }
       ],
       "meta": {
-        "format": "difference",
+        "format": "recall",
         "family": "wins-season",
         "era": "cross-era",
         "subjects": [
@@ -282,7 +282,7 @@
     {
       "id": "nba-mitchell20-bubble-fiftyseven",
       "sport": "NBA",
-      "prompt": "In Game 1 of his 2020 bubble series against Denver, how many points did Donovan Mitchell score in an overtime loss?",
+      "prompt": "The chart shows three other recent playoff scoring explosions. How many did Donovan Mitchell score in his 2020 bubble opener against Denver?",
       "context": "Donovan Mitchell · Jazz vs Nuggets · 2020 bubble",
       "answer": 57,
       "unit": {
@@ -292,7 +292,7 @@
       "min": 10,
       "max": 130,
       "step": 1,
-      "note": "57 points in an overtime loss. It began a blistering playoff scoring duel with Jamal Murray.",
+      "note": "57 in an overtime loss, then the third-most in playoff history. Six days later he scored 51.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
@@ -305,7 +305,7 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Utah lost that opener in overtime.",
+          "text": "Utah lost 135–125 in overtime despite his 57.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
@@ -329,15 +329,41 @@
           }
         }
       ],
+      "chart": {
+        "title": "Playoff explosions, 2018 to 2022",
+        "unit": "points",
+        "points": [
+          {
+            "label": "LeBron '18",
+            "value": 51
+          },
+          {
+            "label": "Mitchell '20",
+            "value": null
+          },
+          {
+            "label": "Durant '21",
+            "value": 49
+          },
+          {
+            "label": "Ja '22",
+            "value": 47
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Donovan Mitchell",
           "Utah Jazz"
         ],
-        "supports": []
+        "supports": [
+          "nba-lebron18-g1",
+          "nba-durant21-nets-bucks-g5-49",
+          "nba-ja22-warriors-game2-47"
+        ]
       }
     }
   ]

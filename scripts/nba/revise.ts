@@ -29,7 +29,7 @@ export type Decision = {
   id: string;
   verdict: Verdict;
   note: string;
-  patch?: { question: Partial<Fact['question']>; claim?: string; source?: Partial<Fact['source']> };
+  patch?: { question: Partial<Omit<Fact['question'], 'format'>> & { format?: Fact['question']['format'] | null }; claim?: string; source?: Partial<Fact['source']> };
   newFact?: Fact;
 };
 export type Batch = { batch: string; editor: string; decisions: Decision[] };
@@ -50,11 +50,13 @@ export type Audit = { version: 1; entries: AuditEntry[] };
 
 /** V5.0's audit of the 2026-11-28 → 2027-01-27 inventory (frozen). */
 export const V5_AUDIT_PATH = join(DATA_DIR, 'editorial', 'launch-audit.json');
+/** V5.1's audit of the restarted official season (frozen). */
+export const V51_AUDIT_PATH = join(DATA_DIR, 'editorial', 'v51-audit.json');
 /**
- * V5.1's audit of the restarted official season (every slot from VARIETY_FROM). New
- * batches are recorded here; the latest entry for a slot is its current decision.
+ * V5.2's audit of the official season (every slot from VARIETY_FROM, taxonomy v2).
+ * New batches are recorded here; one decision per slot.
  */
-export const AUDIT_PATH = join(DATA_DIR, 'editorial', 'v51-audit.json');
+export const AUDIT_PATH = join(DATA_DIR, 'editorial', 'v52-audit.json');
 
 export function readAudit(path = AUDIT_PATH): Audit {
   return existsSync(path) ? (JSON.parse(readFileSync(path, 'utf8')) as Audit) : { version: 1, entries: [] };
@@ -77,7 +79,9 @@ export function applyBatch(data: NbaData, audit: Audit, batch: Batch, today: str
     if (d.verdict === 'reframed') {
       const f = byId.get(d.id);
       if (!f || !d.patch) throw new Error(`${at}: a reframe needs a patch`);
-      f.question = { ...f.question, ...d.patch.question };
+      f.question = { ...f.question, ...d.patch.question } as Fact['question'];
+      // `format: null` turns a reference or chart question back into plain recall.
+      if ((d.patch.question as { format?: unknown }).format === null) delete f.question.format;
       if (d.patch.claim) f.claim = d.patch.claim;
       if (d.patch.source) f.source = { ...f.source, ...d.patch.source };
     } else if (d.verdict === 'replaced') {
@@ -136,7 +140,7 @@ function main() {
     const [from, to] = scope as [string, string];
     report.errors = report.errors.filter((e) => {
       const day = /^(\d{4}-\d{2}-\d{2}): /.exec(e)?.[1];
-      const variety = /(questions \(max 2 per format\)|formats? \(need at least 3\))$/.test(e);
+      const variety = /(\(2\/2\/1 allows at most 2\)|every official day uses all three formats\)|uses the retired \w+ format|repeats the format sequence of .*)$/.test(e);
       return !(day && variety && (day < from || day > to));
     });
   }

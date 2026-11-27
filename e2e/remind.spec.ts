@@ -1,6 +1,7 @@
 import { expect, test, type BrowserContext, type Page } from '@playwright/test';
 import { addDays, puzzleStartUtcMs } from '../src/engine/daily';
 import { collectErrors, lockAndSettle, NBA_DAYS, NBA_FIRST, NBA_MIDDLE, next, openAt, startDailyIfNeeded } from './helpers';
+import { openFold } from './results-helpers';
 
 /** The daily calendar reminder on the results screen (src/engine/remind.ts). */
 
@@ -10,6 +11,7 @@ async function playFive(page: Page) {
     await next(page);
   }
   await expect(page.locator('.results-score')).toBeVisible();
+  await openFold(page, 'Next puzzle and reminders');
 }
 
 const icsLink = (page: Page) => page.getByRole('link', { name: 'Apple or Outlook calendar' });
@@ -105,6 +107,7 @@ test.describe('New York', () => {
     const errors = collectErrors(page);
     await openAt(page, NBA_MIDDLE);
     await playFive(page);
+    await openFold(page, 'Practice a past game');
     await page.locator('.archive-list button').first().click();
     // V3 deliberately gates every fresh five-question run, including practice.
     await expect(page.locator('.question')).toHaveCount(0);
@@ -207,7 +210,7 @@ test('layout: wraps at 320px, 44px targets, and Tab reaches both links after the
     await page.keyboard.press('Tab');
     order.push(await page.evaluate(() => (document.activeElement?.getAttribute('aria-label') ?? document.activeElement?.textContent ?? '').trim()));
   }
-  const customize = order.indexOf('Customize or save score card');
+  const customize = order.findIndex((label) => label.startsWith('Score card image'));
   const ics = order.indexOf('Apple or Outlook calendar');
   const google = order.indexOf('Google Calendar (opens in a new tab)');
   expect(customize).toBeGreaterThanOrEqual(0);

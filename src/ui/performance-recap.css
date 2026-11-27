@@ -76,6 +76,7 @@
 .performance-q { color: var(--ink-soft); font-size: .8125rem; }
 .performance-rounds strong { font-size: 1.125rem; font-weight: 800; }
 .performance-note { color: var(--ink-soft); font-size: .75rem; overflow-wrap: anywhere; }
+.performance-worth { color: var(--ink-soft); font-size: .6875rem; overflow-wrap: anywhere; }
 
 .performance-key {
   display: flex;

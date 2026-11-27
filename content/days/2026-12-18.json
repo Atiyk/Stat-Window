@@ -9,7 +9,7 @@
     {
       "id": "nba-giannis21-g6",
       "sport": "NBA",
-      "prompt": "How many points did Giannis Antetokounmpo score in the 2021 title clincher?",
+      "prompt": "The chart shows points by three stars in a title-clinching Finals game. How many did Giannis Antetokounmpo score to clinch the 2021 title?",
       "context": "2021 NBA Finals · Game 6 · vs Phoenix",
       "answer": 50,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 15,
       "max": 65,
       "step": 1,
-      "note": "50, with 14 rebounds and five blocks.",
+      "note": "With 14 rebounds and five blocks, to end Milwaukee's 50-year title drought.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
@@ -56,21 +56,47 @@
           }
         }
       ],
+      "chart": {
+        "title": "Points in a title-clinching Finals game",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Magic '80",
+            "value": 42
+          },
+          {
+            "label": "LeBron '13",
+            "value": 37
+          },
+          {
+            "label": "Green '16",
+            "value": 32
+          },
+          {
+            "label": "Giannis '21",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Giannis Antetokounmpo",
           "Milwaukee Bucks"
         ],
-        "supports": []
+        "supports": [
+          "nba-magic80-g6-points",
+          "nba-lebron13-g7",
+          "nba-green16-g7"
+        ]
       }
     },
     {
       "id": "nba-pistons89-wins",
       "sport": "NBA",
-      "prompt": "The chart shows three league-best records. How many games did the 1988–89 \"Bad Boys\" Pistons win?",
+      "prompt": "Detroit's 2003–04 champions won 54 games. How many did the 1988–89 'Bad Boys' Pistons win?",
       "context": "Detroit Pistons · 1988–89 · 82 games",
       "answer": 63,
       "unit": {
@@ -80,7 +106,7 @@
       "min": 50,
       "max": 82,
       "step": 1,
-      "note": "63–19, the league's best.",
+      "note": "The league's best record, in their first season at the Palace; they then swept the Lakers for the title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1988%E2%80%9389_Detroit_Pistons_season",
@@ -117,41 +143,22 @@
           }
         }
       ],
-      "chart": {
-        "title": "League-best regular-season wins",
-        "unit": "wins",
-        "points": [
-          {
-            "label": "DET 1988–89",
-            "value": null
-          },
-          {
-            "label": "BOS 1985–86",
-            "value": 67
-          },
-          {
-            "label": "LAL 1986–87",
-            "value": 65
-          }
-        ]
-      },
       "meta": {
-        "format": "missing-point",
+        "format": "reference",
         "family": "wins-season",
-        "era": "1980s",
+        "era": "cross-era",
         "subjects": [
           "Detroit Pistons"
         ],
         "supports": [
-          "nba-celtics86-wins",
-          "nba-lakers87-wins"
+          "nba-detroit04-regular-wins"
         ]
       }
     },
     {
       "id": "nba-butler20-regular-apg",
       "sport": "NBA",
-      "prompt": "Kyle Lowry averaged 8.7 assists for Toronto in 2018–19. How many per game did Jimmy Butler average in his first Heat season?",
+      "prompt": "The chart shows three other contenders' lead playmakers. What did Jimmy Butler average in his first Heat season?",
       "context": "Miami · 2019–20 regular season",
       "answer": 6,
       "unit": {
@@ -161,7 +168,7 @@
       "min": 2,
       "max": 16,
       "step": 0.1,
-      "note": "6.0 assists per night as a creative forward.",
+      "note": "6.0 a game alongside 19.9 points, with 103 steals in 58 games.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
@@ -198,23 +205,47 @@
           }
         }
       ],
+      "chart": {
+        "title": "Assists per game: lead playmakers",
+        "unit": "assists per game",
+        "points": [
+          {
+            "label": "Jackson '98",
+            "value": 8.7
+          },
+          {
+            "label": "Bibby '02",
+            "value": 5
+          },
+          {
+            "label": "Türkoğlu '09",
+            "value": 4.9
+          },
+          {
+            "label": "Butler '20",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "assists-average",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Jimmy Butler",
           "Miami Heat"
         ],
         "supports": [
-          "nba-lowry19-regular-apg"
+          "nba-jackson98-regular-apg",
+          "nba-bibby02-regular-apg",
+          "nba-turkoglu09-regular-apg"
         ]
       }
     },
     {
       "id": "nba-giannis19-regular-rpg",
       "sport": "NBA",
-      "prompt": "Dwight Howard averaged 13.8 rebounds in 2008–09. What did Giannis Antetokounmpo average in 2018–19, his first MVP season?",
+      "prompt": "Dwight Howard led the NBA with 13.8 rebounds a game in 2008–09. What did Giannis Antetokounmpo average in 2018–19, his first MVP season?",
       "context": "Giannis · Milwaukee Bucks · first MVP campaign",
       "answer": 12.5,
       "unit": {
@@ -224,7 +255,7 @@
       "min": 6,
       "max": 21,
       "step": 0.1,
-      "note": "12.5 rebounds per game, while dominating both ends.",
+      "note": "To go with 27.7 points and 5.9 assists, as Milwaukee finished with the East's best record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2018%E2%80%9319_Milwaukee_Bucks_season",
@@ -287,7 +318,7 @@
       "min": 15,
       "max": 135,
       "step": 1,
-      "note": "61 points, plus 10 rebounds and 10 assists, in a heartbreaking double-overtime loss.",
+      "note": "The highest-scoring triple-double in NBA history, in a 140–139 double-overtime loss.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Nikola_Joki%C4%87",

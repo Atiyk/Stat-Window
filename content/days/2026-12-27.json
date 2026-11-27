@@ -19,7 +19,7 @@
       "min": 0,
       "max": 40,
       "step": 1,
-      "note": "Nine, finishing 9–73.",
+      "note": "They lost their first 15 games, only six seasons after setting the record for wins.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1972%E2%80%9373_Philadelphia_76ers_season",
@@ -79,7 +79,7 @@
       "min": 8,
       "max": 40,
       "step": 1,
-      "note": "26 road wins, against 15 road losses.",
+      "note": "26–15 away from Indianapolis, and Bird was named Coach of the Year in his first season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
@@ -131,7 +131,7 @@
     {
       "id": "nba-mutombo01-posttrade-rpg",
       "sport": "NBA",
-      "prompt": "Dwight Howard averaged 13.8 rebounds in 2008–09. How many per game did Dikembe Mutombo average after joining the 2000–01 Sixers?",
+      "prompt": "The chart shows three other star centers' rebounding. How many per game did Dikembe Mutombo average after joining the 2000–01 Sixers?",
       "context": "Philadelphia 76ers · post-trade regular-season stint",
       "answer": 12.4,
       "unit": {
@@ -141,7 +141,7 @@
       "min": 5,
       "max": 22,
       "step": 0.1,
-      "note": "12.4 rebounds per game for Philadelphia.",
+      "note": "In 26 games after the trade, with 2.5 blocks a night, as he won a fourth Defensive Player of the Year.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
@@ -178,23 +178,47 @@
           }
         }
       ],
+      "chart": {
+        "title": "Rebounds per game, star centers",
+        "unit": "rebounds a game",
+        "points": [
+          {
+            "label": "Mutombo '01",
+            "value": null
+          },
+          {
+            "label": "Howard '09",
+            "value": 13.8
+          },
+          {
+            "label": "Noah '11",
+            "value": 10.4
+          },
+          {
+            "label": "Duncan '14",
+            "value": 9.7
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "rebounds-average",
-        "era": "2000s",
+        "era": "cross-era",
         "subjects": [
           "Dikembe Mutombo",
           "Philadelphia 76ers"
         ],
         "supports": [
-          "nba-howard09-regular-rpg"
+          "nba-howard09-regular-rpg",
+          "nba-noah11-rebounds-average",
+          "nba-duncan14-season-rpg"
         ]
       }
     },
     {
       "id": "nba-detroit04-rasheed-win-pct-v51b",
       "sport": "NBA",
-      "prompt": "After trading for Rasheed Wallace, what percent of its final 19 games did Detroit win? Nearest whole percent.",
+      "prompt": "The 2003–04 Pistons won 54 of 82 games. After trading for Rasheed Wallace, what percent of their final 19 did they win? Nearest percent.",
       "context": "Detroit Pistons · 2003–04 · wins ÷ games after the trade",
       "answer": 84,
       "unit": {
@@ -204,7 +228,7 @@
       "min": 40,
       "max": 100,
       "step": 1,
-      "note": "84%: 16 wins in 19 games, a late surge that carried into the playoffs.",
+      "note": "16 wins in 19, and the surge carried them to the 2004 title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
@@ -243,19 +267,21 @@
         }
       ],
       "meta": {
-        "format": "ratio",
+        "format": "reference",
         "family": "wins-situational",
         "era": "2000s",
         "subjects": [
           "Detroit Pistons"
         ],
-        "supports": []
+        "supports": [
+          "nba-detroit04-regular-wins"
+        ]
       }
     },
     {
       "id": "nba-lebron12-boston-g6-45",
       "sport": "NBA",
-      "prompt": "Facing elimination at Boston in 2012, how many points did LeBron score in his defining East finals Game 6?",
+      "prompt": "The chart shows points in three other must-win playoff games. Facing elimination at Boston in 2012, how many did LeBron score in Game 6?",
       "context": "LeBron James · Miami Heat at Boston Celtics · June 2012",
       "answer": 45,
       "unit": {
@@ -265,7 +291,7 @@
       "min": 10,
       "max": 125,
       "step": 1,
-      "note": "45 points and 15 rebounds. Miami survived and won LeBron's first championship.",
+      "note": "With 15 rebounds; Miami won Game 7 and LeBron took his first title weeks later.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/LeBron_James",
@@ -302,15 +328,41 @@
           }
         }
       ],
+      "chart": {
+        "title": "Points in must-win playoff games",
+        "unit": "points",
+        "points": [
+          {
+            "label": "LeBron '12",
+            "value": null
+          },
+          {
+            "label": "LeBron '13",
+            "value": 37
+          },
+          {
+            "label": "Klay '16",
+            "value": 41
+          },
+          {
+            "label": "Kawhi '19",
+            "value": 41
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
         "era": "2010s",
         "subjects": [
           "LeBron James",
           "Miami Heat"
         ],
-        "supports": []
+        "supports": [
+          "nba-lebron13-g7",
+          "nba-klay16-okc-game6-41",
+          "nba-kawhi19-philly-game7-41"
+        ]
       }
     }
   ]

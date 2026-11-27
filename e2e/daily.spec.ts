@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { collectErrors, DAY1, DAY2, NBA_FIRST, highBracket, lockAndSettle, lowBracket, next, openAt, typeWindow, startDailyIfNeeded } from './helpers';
+import { openFold } from './results-helpers';
 
 // Day 1 answers (content/days/2026-11-15.json): 73, 23, 92, 138, 2632
 const DAY1_PLAN = [
@@ -14,7 +15,7 @@ test('a full daily run scores every round, saves, and shares without spoilers', 
   const errors = collectErrors(page);
   await context.grantPermissions(['clipboard-read', 'clipboard-write']).catch(() => {});
   await openAt(page, DAY1);
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
 
   const points: number[] = [];
   for (const [i, round] of DAY1_PLAN.entries()) {
@@ -48,7 +49,7 @@ test('a full daily run scores every round, saves, and shares without spoilers', 
     const shared = await page.evaluate(() => navigator.clipboard.readText());
     const origin = new URL(page.url()).origin;
     expect(shared).toContain('Stat Window No. 1  274/500');
-    expect(shared).toContain('Same five questions. Can you beat 274?');
+    expect(shared).toContain('Think you know ball? Beat 274.');
     expect(shared).toContain(`${origin}/?day=2026-11-15&vs=274&time=`);
     // Spoiler-free: no answer appears in the share text.
     for (const answer of ['73', '23', '92', '138', '2632', '2,632']) {
@@ -95,17 +96,17 @@ test('everyone gets the slate for the Eastern date, and a new one at midnight Ea
   await openAt(page, new Date('2026-11-16T04:59:00Z'));
   await expect(page.locator('.question')).toContainText('Golden State Warriors');
   await openAt(page, new Date('2026-11-16T05:00:30Z'));
-  await expect(page.locator('.day-label')).toHaveText('No. 2');
+  await expect(page.locator('.day-label')).toHaveText('Game 2');
   await expect(page.locator('.question')).toContainText('Barry Bonds');
 });
 
 test('an idle tab before Start sees the next Eastern day without burning question time', async ({ page }) => {
   await page.clock.install({ time: new Date('2026-11-16T04:59:50Z') });
   await page.goto('/');
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
   await expect(page.locator('.round:not(.onboarding-play) .question')).toHaveCount(0);
   await page.clock.fastForward('00:45');
-  await expect(page.locator('.day-label')).toHaveText('No. 2');
+  await expect(page.locator('.day-label')).toHaveText('Game 2');
   await expect(page.locator('.round:not(.onboarding-play) .question')).toHaveCount(0);
   await startDailyIfNeeded(page);
   await expect(page.locator('.question')).toContainText('Barry Bonds');
@@ -115,13 +116,13 @@ test('an adjusted but not locked first window survives Eastern midnight', async 
   await page.clock.install({ time: new Date('2026-11-16T04:59:50Z') });
   await page.goto('/');
   await startDailyIfNeeded(page);
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
   const low = lowBracket(page);
   await low.focus();
   await page.keyboard.press('ArrowRight');
   await expect(low).toHaveAttribute('aria-valuenow', '41');
   await page.clock.fastForward('00:15');
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
   await expect(lowBracket(page)).toHaveAttribute('aria-valuenow', '41');
 });
 
@@ -132,6 +133,7 @@ test('practice on an earlier day does not touch the daily record', async ({ page
     await next(page);
   }
   await expect(page.locator('.stats')).toContainText('Played1');
+  await openFold(page, 'Practice a past game');
   await page.getByRole('button', { name: 'Nov 15' }).click();
   await startDailyIfNeeded(page);
   await expect(page.locator('.round-meta')).toContainText('Practice');

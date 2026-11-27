@@ -7,11 +7,18 @@ import { formatDay } from '../lib/format';
 import { track } from '../lib/track';
 import { PracticeTimingChoice } from './PracticeTimingChoice';
 import { WeekGlance } from './Weekly';
+import { WindowDemo } from './WindowDemo';
 import { hasFinishedOfficialRun } from './use-history';
 import './home.css';
 
 
 type Props = {
+  /** No first play yet in this browser: offer the untimed walkthrough beside Play. */
+  isNew?: boolean;
+  /** Today's public game number from the season config (beta numbering before launch). */
+  gameNumber: number;
+  /** Open the untimed first-play walkthrough. */
+  onLearn?: (() => void) | undefined;
   store: SaveStore;
   today: string;
   config: SeasonConfig;
@@ -31,12 +38,13 @@ type Props = {
 };
 
 /**
- * The returning player's pregame home for an unstarted official daily: Daily Five is the one
- * dominant action, everything else is a quiet secondary row that appears only when it has
- * something real to show. (An unfinished daily resumes directly, and a finished one shows
- * its result, so neither passes through here.)
+ * The pregame home for an unstarted official daily. The hook and a picture of the rules
+ * tell a new visitor what this is in one glance; Play is the one dominant action. A new
+ * player also gets a quiet way to learn first. Everything else is a quiet secondary row
+ * that appears only when it has something real to show. (An unfinished daily resumes
+ * directly, and a finished one shows its result, so neither passes through here.)
  */
-export function Home({ store, today, config, onStart, previous, archive, onPractice, onScouting, onWeekly, onSurvival, onHowToPlay }: Props) {
+export function Home({ isNew = false, gameNumber, onLearn, store, today, config, onStart, previous, archive, onPractice, onScouting, onWeekly, onSurvival, onHowToPlay }: Props) {
   const [practiceOpen, setPracticeOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
   const [timing, setTiming] = useState<PracticeTiming>('timed');
@@ -50,13 +58,20 @@ export function Home({ store, today, config, onStart, previous, archive, onPract
   const days = showAll ? archive : archive.slice(0, 5);
 
   return (
-    <article className="ready-card home">
-      <p className="context">Daily puzzle</p>
-      <h1>Ready for five?</h1>
-      <p>Catch five numbers in your windows. You’ll have 24 seconds per question.</p>
-      <button type="button" className="btn btn-primary" onClick={onStart}>Start today's five</button>
+    <article className="ready-card home" data-new={isNew || undefined}>
+      <h1>How well do you know ball?</h1>
+      <p className="home-lede">Five NBA questions a day, each answered with a number. Frame your guess between two brackets.</p>
+      <WindowDemo className="home-demo" />
+      <div className="home-actions">
+        <button type="button" className="btn btn-primary" onClick={onStart}>Play Game {gameNumber}</button>
+        {isNew && onLearn && (
+          <button type="button" className="btn btn-quiet home-learn" onClick={onLearn}>Try a practice question first</button>
+        )}
+      </div>
+      <p className="home-terms">24 seconds a question · Free, no account</p>
       {previous}
-      <WeekGlance store={store} today={today} config={config} onOpen={() => { track({ name: 'weekly_open', source: 'home' }); onWeekly(); }} />
+      {/* The scoreboard is linked once, from the row in More ways to play (shown whenever this week has a game). */}
+      <WeekGlance store={store} today={today} config={config} onOpen={onWeekly} link={false} />
 
       <nav className="home-more" aria-label="More ways to play">
         {archive.length > 0 ? (
@@ -101,7 +116,7 @@ export function Home({ store, today, config, onStart, previous, archive, onPract
         )}
         {onHowToPlay && (
           <button type="button" className="home-more__row" onClick={onHowToPlay}>
-            <span>How to play</span><small>The rules and each question type.</small>
+            <span>How to play</span><small>The rules and the three question types.</small>
           </button>
         )}
       </nav>

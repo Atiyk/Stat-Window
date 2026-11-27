@@ -1,18 +1,19 @@
 import { useEffect, useRef, useState } from 'react';
 import { analyticsEnabled } from '../lib/track';
 import { NBA_CUTOVER } from '../content/cutover';
-import type { QuestionFormat } from '../content/formats';
+import type { PlayerFormat } from '../content/formats';
 import { CORE_INTRO, FORMAT_GUIDE, GUIDE_FORMATS, type TeachingExample } from '../content/teaching';
 import { formatDay } from '../lib/format';
 import { TeachingPlay } from './TeachingPlay';
+import { WindowDemo } from './WindowDemo';
 import './teaching.css';
 
 /** What the guide shows: the overview, the first-play walkthrough, or one format's example. */
-export type GuideView = 'list' | 'intro' | QuestionFormat;
+export type GuideView = 'list' | 'intro' | PlayerFormat;
 
 /**
- * How to play: the rules, every question type and a replayable, untimed worked NBA
- * example for each, using the real brackets and chart. Opening it never touches the
+ * How to play: the rules, the three question types and one replayable, untimed worked
+ * NBA example for each, using the real brackets and chart. Opening it never touches the
  * shot clock. While a timed question is live the guide still opens (it is the
  * player's choice, never forced) but says the clock is running and holds the worked
  * examples until the round resolves.
@@ -118,45 +119,27 @@ export function Help({ open, onClose, onPrivacy, view: requested = 'list', clock
                 Your shot clock is still running. This guide doesn’t pause it; worked examples open after this question.
               </p>
             )}
-            <div className="help-diagram" aria-hidden="true">
-              <span className="help-band" />
-              <span className="help-bracket help-bracket-lo" />
-              <span className="help-bracket help-bracket-hi" />
-              <span className="help-pin" />
-            </div>
             <p>
-              Drag the brackets to frame your guess, then lock the window before the 24-second buzzer.
-              The clock keeps running if you switch tabs or reload.
+              Five NBA questions a day, each with a number for an answer. Drag the two brackets to frame your estimate,
+              then lock the window before the 24-second shot clock runs out.
             </p>
+            <WindowDemo className="help-demo" />
             <p>
-              <strong>Tighter pays more.</strong> Catch the answer with a one-notch window for 100 points.
-              A window covering nearly the whole ruler scores 0 even if it catches the answer. A miss or timeout earns zero.
-              Both edges count as inside.
+              <strong>Tighter pays more,</strong> up to 100 points a question and 500 a day. A window covering nearly the whole
+              ruler scores 0 even when it catches the answer, and so does a miss or a timeout. Both edges count as inside. The
+              clock keeps running if you switch tabs or reload.
             </p>
-            <ul className="help-examples">
-              <li data-kind="hit">
-                <span className="help-glyph" aria-hidden="true">✓</span>
-                <span>
-                  <strong>Inside.</strong> In the Warriors practice round, 73 wins lands inside 66–78 and earns 75 points.
-                </span>
-              </li>
-              <li data-kind="miss">
-                <span className="help-glyph" aria-hidden="true">✕</span>
-                <span>
-                  <strong>Outside.</strong> Wilt Chamberlain’s 100 points are outside 55–70. That earns zero and the window turns dashed.
-                </span>
-              </li>
-            </ul>
 
             <h3 className="guide-section">Question types</h3>
             <p className="guide-intro">
-              Every type uses the same brackets, scoring and clock. Each has an untimed worked example; nothing you do in one is saved or scored.
+              The basics, then the three question types. All use the same brackets, scoring and clock, and each has an untimed
+              example to try; nothing in it is saved or scored.
             </p>
             <ul className="guide-types">
               <li>
                 <button type="button" className="guide-type" data-guide-open="intro" disabled={clockLive} onClick={() => show('intro')}>
                   <span className="guide-type__label">The basics</span>
-                  <span className="guide-type__summary">Replay the first-play Warriors walkthrough.</span>
+                  <span className="guide-type__summary">The Warriors walkthrough: drag, lock, score, move up the court.</span>
                 </button>
               </li>
               {GUIDE_FORMATS.map((f) => (
@@ -174,7 +157,7 @@ export function Help({ open, onClose, onPrivacy, view: requested = 'list', clock
               (Shift moves further, Enter locks). Tap the ruler outside your window to pull that side straight to it.
             </p>
             <p className="help-small">
-              A new puzzle opens every day at 12:00 AM Eastern, the same five for everyone. From {formatDay(NBA_CUTOVER)} every puzzle is NBA; the earlier mixed-sport days stay playable. Your progress stays in this browser;
+              A new puzzle opens every day at 12:00 AM Eastern, the same five for everyone. From {formatDay(NBA_CUTOVER)} every puzzle is NBA. Your progress stays in this browser;
               there’s no account.{' '}
               {analyticsEnabled
                 ? 'We count plays without cookies or IDs (rounds locked, games finished, shares) to improve the game. Today’s total can feed a daily percentile, kept with a random code from this browser for 7 days; your windows are checked, then discarded. Names and answers are never kept.'

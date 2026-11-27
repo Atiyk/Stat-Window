@@ -9,7 +9,7 @@
     {
       "id": "nba-gsw16-start",
       "sport": "NBA",
-      "prompt": "The 2015–16 Warriors opened the season with how many straight wins?",
+      "prompt": "Houston and Seattle both opened 1993–94 on long win streaks. How many straight wins did the 2015–16 Warriors start with?",
       "context": "Golden State Warriors · 2015–16",
       "answer": 24,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 0,
       "max": 30,
       "step": 1,
-      "note": "24 in a row before their first loss.",
+      "note": "Nine more than Houston's 15–0 start in 1993–94.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
@@ -56,83 +56,103 @@
           }
         }
       ],
+      "chart": {
+        "title": "Best starts: opening win streaks",
+        "unit": "games",
+        "points": [
+          {
+            "label": "Rockets '94",
+            "value": 15
+          },
+          {
+            "label": "Sonics '94",
+            "value": 10
+          },
+          {
+            "label": "Warriors '16",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "win-streak",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Golden State Warriors"
         ],
-        "supports": []
+        "supports": [
+          "nba-rockets94-start",
+          "nba-sonics94-opening-streak"
+        ]
       }
     },
     {
-      "id": "nba-sonics79-january-wins",
+      "id": "nba-oscar62-season-rpg-v52a",
       "sport": "NBA",
-      "prompt": "The 2012–13 Heat won a record 17 games in one calendar month. How many did Seattle win in January 1979 on its title run?",
-      "context": "SuperSonics · January 1979 · monthly record",
-      "answer": 10,
+      "prompt": "In 1961–62, guard Oscar Robertson averaged a triple-double for the Royals. How many rebounds per game did he average?",
+      "context": "Cincinnati Royals · 1961–62 regular season · 6 ft 5 in guard",
+      "answer": 12.5,
       "unit": {
-        "singular": "January win",
-        "plural": "January wins"
+        "singular": "rebound per game",
+        "plural": "rebounds per game"
       },
-      "min": 1,
-      "max": 24,
-      "step": 1,
-      "note": "Ten wins in January, powered by strong road form.",
+      "min": 5,
+      "max": 25,
+      "step": 0.1,
+      "note": "12.5 to go with 30.8 points and 11.4 assists, from a 6-foot-5 guard.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-        "quote": "January: 10–4 (home: 3–3; road: 7–1)"
+        "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+        "quote": "with 30.8 points, 12.5 rebounds and 11.4 assists."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Seattle won seven January road games and lost only once away from home.",
+          "text": "He was the first player to average a triple-double over a full season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "January: 10–4 (home: 3–3; road: 7–1)"
+            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+            "quote": "Robertson became the first player in NBA history to average a triple-double for an entire season"
           }
         },
         {
-          "text": "The Sonics won a tight January game at Washington, a preview of the Finals matchup.",
+          "text": "That season he also broke Bob Cousy's single-season assists record.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "January 23 @ Washington W 103–100"
+            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+            "quote": "He broke the assists record by Bob Cousy, who had recorded 715 assists two seasons earlier, by logging 899"
           }
         },
         {
-          "text": "The Sonics also won a tight January game on the road in Phoenix.",
+          "text": "Russell Westbrook became the only other player to do it, with 42 triple-doubles in 2016–17.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
-            "quote": "January 11 @ Phoenix W 109–106"
+            "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+            "quote": "Russell Westbrook recorded 42 and joined Robertson as the only other player to average a triple-double for an entire season."
           }
         }
       ],
       "meta": {
-        "format": "reference",
-        "family": "wins-month",
-        "era": "cross-era",
+        "format": "recall",
+        "family": "rebounds-average",
+        "era": "1960s",
         "subjects": [
-          "Oklahoma City Thunder"
+          "Oscar Robertson",
+          "Sacramento Kings"
         ],
-        "supports": [
-          "nba-heat13-month-wins"
-        ]
+        "supports": []
       }
     },
     {
       "id": "nba-knicks24-wins-v5",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 2023–24 Knicks win as the Eastern Conference's No. 2 seed?",
-      "context": "New York Knicks · 2023–24 · Boston was the No. 1 seed",
+      "prompt": "Top seed Boston won 64 games in 2023–24. How many did the No. 2 seed Knicks win?",
+      "context": "New York Knicks · 2023–24 · widest 1–2 seed gap in the East since 1976",
       "answer": 50,
       "unit": {
         "singular": "win",
@@ -163,32 +183,31 @@
           }
         },
         {
-          "text": "That spring Jalen Brunson passed the 46 points Bernard King scored in 1984, a Knicks playoff mark.",
+          "text": "In the first round, New York erased a five-point deficit in the final 30 seconds to win Game 2, 104–101.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
-            "quote": "he surpassed the 46 points scored by Bernard King in 1984"
+            "quote": "the Knicks overcame a five-point deficit in the final 30 seconds to win 104–101 and take a 2–0 series lead."
           }
         },
         {
-          "text": "In that record playoff game, Brunson made 18 of his 34 shots.",
+          "text": "Josh Hart's go-ahead three finished off the 76ers in Game 6.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
-            "quote": "Brunson shot 18-of-34 from the field"
+            "quote": "a wide open Josh Hart made a go-ahead three-pointer to put New York on top as they eliminated the 76ers 4-2."
           }
         }
       ],
       "meta": {
-        "format": "difference",
+        "format": "reference",
         "family": "wins-season",
         "era": "2020s",
         "subjects": [
           "New York Knicks"
         ],
         "supports": [
-          "nba-celtics24-wins",
-          "nba-celtics24-seed-gap"
+          "nba-celtics24-wins"
         ]
       }
     },
@@ -205,7 +224,7 @@
       "min": 15,
       "max": 65,
       "step": 1,
-      "note": "32, more than anyone else that night.",
+      "note": "32 on 6-of-8 threes, with 15 rebounds and nine assists, in a Game 7 loss.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
@@ -256,7 +275,7 @@
     {
       "id": "nba-dame21-playoffs-12-threes",
       "sport": "NBA",
-      "prompt": "The chart mixes regular-season and playoff nights. How many threes did Damian Lillard make in his 2021 double-overtime playoff game?",
+      "prompt": "Single-game three records from the Finals and regular season are charted. How many threes did Damian Lillard make in a 2021 playoff game?",
       "context": "Damian Lillard · Blazers at Nuggets · 2021 playoffs",
       "answer": 12,
       "unit": {
@@ -266,7 +285,7 @@
       "min": 0,
       "max": 18,
       "step": 1,
-      "note": "12 threes, a playoff record, as Dame scored 55 in a heartbreaking defeat.",
+      "note": "A playoff record, plus 10 assists, and Portland lost anyway.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
@@ -279,7 +298,7 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Dame set a playoff career high in points that night.",
+          "text": "His fifty-five points were a playoff career high.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Damian_Lillard",
@@ -304,20 +323,16 @@
         }
       ],
       "chart": {
-        "title": "Threes in one game (season and playoffs)",
+        "title": "Threes in one game: Finals, season, playoffs",
         "unit": "three-pointers",
         "points": [
           {
-            "label": "Kobe '03 reg",
-            "value": 12
+            "label": "Smith '95 Fin",
+            "value": 7
           },
           {
             "label": "Allen '10 Fin",
             "value": 8
-          },
-          {
-            "label": "Miller '12 Fin",
-            "value": 7
           },
           {
             "label": "Curry '16 reg",
@@ -338,9 +353,8 @@
           "Portland Trail Blazers"
         ],
         "supports": [
-          "nba-kobe03-threes",
+          "nba-smith95-threes",
           "nba-allen10-g2-threes",
-          "nba-miller12-g5-threes",
           "nba-curry16-13-threes"
         ]
       }

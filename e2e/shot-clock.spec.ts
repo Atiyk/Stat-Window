@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { DAY1, lowBracket, startDailyIfNeeded } from './helpers';
+import { DAY1, openWalkthrough, lowBracket, startDailyIfNeeded } from './helpers';
 
 // Date.now must advance with the timers. setFixedTime freezes Date.now and would
 // incorrectly make a real wall-clock countdown appear stuck at 24 seconds.
@@ -29,6 +29,11 @@ test('shot clock expiry is a zero-point turnover, not a normal miss or a second 
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
   expect(saved.runs['2026-11-15'].results[0]).toMatchObject({ points: 0, timedOut: true, elapsedMs: 24000 });
   await expect(page.getByRole('button', { name: 'Next question' })).toBeVisible();
+  // A timeout carries its own clock cue in the progress strip, not just the miss styling.
+  const first = page.locator('.ledger-cell').first();
+  await expect(first).toHaveAttribute('data-timeout', 'true');
+  await expect(first.locator('.clock-glyph')).toBeVisible();
+  await expect(first).toContainText('time ran out');
 });
 
 test('refresh does not buy another 24 seconds', async ({ page }) => {
@@ -81,6 +86,7 @@ test('a completed question clears its shot deadline, so fresh challenges can rep
 test('interactive tutorial is not scored and requires an explicit start', async ({ page }) => {
   await page.clock.install({ time: DAY1 });
   await page.goto('/');
+  await openWalkthrough(page);
   await expect(page.getByRole('heading', { name: /^How many regular-season games did the 2015/ })).toBeVisible();
   await expect(page.locator('.onboarding-play .ruler')).toBeVisible();
   await expect(page.locator('.onboarding-play .readout')).toBeVisible();
@@ -94,14 +100,14 @@ test('interactive tutorial is not scored and requires an explicit start', async 
   await page.getByRole('textbox', { name: /^Low end, between/ }).fill('30');
   await page.keyboard.press('Enter');
   await page.getByRole('button', { name: 'Lock the window' }).click();
-  await expect(page.locator('.onboarding-play .story-answer')).toContainText('73');
+  await expect(page.locator('.onboarding-play .reveal-answer')).toContainText('73');
   await expect(page.locator('.onboarding-play .ruler[data-state="hit"]')).toBeVisible();
   await expect(page.locator('.onboarding-play .story')).toContainText('The Warriors finished 73–9');
   // Source links were deliberately removed from the player-facing practice reveal.
   await expect(page.locator('.onboarding-play .story a')).toHaveCount(0);
   const unsaved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
   expect(unsaved.runs?.['2026-11-15']?.results ?? []).toHaveLength(0);
-  await page.getByRole('button', { name: "Start today's five" }).click();
+  await page.getByRole('button', { name: /^Play Game \d+$/ }).click();
   await expect(page.locator('.question')).toBeVisible();
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
   expect(saved.settings.introSeen).toBe(true);
@@ -110,6 +116,7 @@ test('first-play practice mirrors the real round on 320px mobile without horizon
   await page.setViewportSize({ width: 320, height: 568 });
   await page.clock.install({ time: DAY1 });
   await page.goto('/');
+  await openWalkthrough(page);
   await expect(page.locator('h1.onboarding-practice-title')).toBeVisible();
   await expect(page.locator('.onboarding-play .readout')).toBeVisible();
   await expect(page.locator('.onboarding-play .ruler')).toBeVisible();
@@ -140,6 +147,7 @@ test('Q2 countdown begins on Next without touching the window', async ({ page })
 test('opening and abandoning the tutorial does not start the clock or a scored run', async ({ page }) => {
   await page.clock.install({ time: DAY1 });
   await page.goto('/');
+  await openWalkthrough(page);
   await expect(page.getByRole('heading', { name: /^How many regular-season games did the 2015/ })).toBeVisible();
   await expect(page.locator('.round:not(.onboarding-play) .question')).toHaveCount(0);
   const before = await page.evaluate(() => ({
@@ -149,6 +157,7 @@ test('opening and abandoning the tutorial does not start the clock or a scored r
   expect(before.deadline).toBeNull();
   expect(Object.keys(before.sent).some(key => key.startsWith('start:'))).toBe(false);
   await page.reload();
+  await openWalkthrough(page);
   await expect(page.getByRole('heading', { name: /^How many regular-season games did the 2015/ })).toBeVisible();
   await page.getByRole('button', { name: 'Skip tutorial and start' }).click();
   await expect(page.locator('.question')).toBeVisible();
@@ -164,6 +173,7 @@ test('opening and abandoning the tutorial does not start the clock or a scored r
 test('first-play rehearsal allows a miss and a retry without starting any daily shot clock', async ({ page }) => {
   await page.clock.install({ time: DAY1 });
   await page.goto('/');
+  await openWalkthrough(page);
   await expect(page.locator('.onboarding-play')).toBeVisible();
   const clockKey = 'stat-window:shot:v1:nba-gsw-2016-wins';
   await expect(page.getByRole('button', { name: 'Pull the brackets in first' })).toBeDisabled();
@@ -171,10 +181,10 @@ test('first-play rehearsal allows a miss and a retry without starting any daily 
   await page.keyboard.press('Home'); // moves the high bracket near the minimum, missing 73
   await page.getByRole('button', { name: 'Lock the window' }).click();
   await expect(page.locator('.onboarding-play .outcome-word')).toContainText('Outside.');
-  await expect(page.locator('.onboarding-play .story-answer')).toContainText('73');
+  await expect(page.locator('.onboarding-play .reveal-answer')).toContainText('73');
   expect(await page.evaluate(k => sessionStorage.getItem(k), clockKey)).toBeNull();
   await page.getByRole('button', { name: 'Try another window' }).click();
-  await expect(page.locator('.onboarding-play .story-answer')).toHaveCount(0);
+  await expect(page.locator('.onboarding-play .reveal-answer')).toHaveCount(0);
   await expect(page.locator('.onboarding-play .ruler')).toBeVisible();
   await expect(page.getByRole('button', { name: 'Pull the brackets in first' })).toBeDisabled();
   expect(await page.evaluate(k => sessionStorage.getItem(k), clockKey)).toBeNull();
@@ -185,6 +195,7 @@ test('reduced-motion first-play practice preserves focus and layout across five 
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.clock.install({ time: DAY1 });
   await page.goto('/');
+  await openWalkthrough(page);
   const headline=page.locator('h1.onboarding-practice-title');
   await expect(headline).toBeVisible();
   await expect(headline).toBeFocused();
@@ -203,7 +214,7 @@ test('reduced-motion first-play practice preserves focus and layout across five 
   await page.getByRole('slider', { name: 'Low end of your window' }).focus();
   await page.keyboard.press('ArrowRight');
   await page.getByRole('button', { name: 'Lock the window' }).click();
-  await expect(page.locator('.onboarding-play .story-answer')).toContainText('73');
+  await expect(page.locator('.onboarding-play .reveal-answer')).toContainText('73');
   await expect(page.locator('.onboarding-play .story')).toBeFocused();
   const before=await page.evaluate(() => ({
     score: JSON.parse(localStorage.getItem('stat-window:v1') || '{}'),
@@ -211,7 +222,7 @@ test('reduced-motion first-play practice preserves focus and layout across five 
   }));
   expect(before.score.runs?.['2026-11-15']?.results??[]).toHaveLength(0);
   expect(before.deadline).toBeNull();
-  await page.getByRole('button', { name: "Start today's five" }).click();
+  await page.getByRole('button', { name: /^Play Game \d+$/ }).click();
   await expect(page.locator('.round:not(.onboarding-play) .question')).toBeVisible();
   await expect(page.locator('.shot-clock')).toContainText('24s');
 });

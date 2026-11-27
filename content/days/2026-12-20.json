@@ -9,7 +9,7 @@
     {
       "id": "nba-spurs14-season-wins",
       "sport": "NBA",
-      "prompt": "The 1985–86 Celtics won 67 games. How many regular-season games did the 2013–14 champion Spurs win?",
+      "prompt": "The chart shows four other champions' regular seasons. How many regular-season games did the 2013–14 Spurs win?",
       "context": "San Antonio · the Beautiful Game title",
       "answer": 62,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 20,
       "max": 86,
       "step": 1,
-      "note": "62 wins before the rematch with Miami.",
+      "note": "Then a Finals rematch in which they beat Miami in five games.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
@@ -56,22 +56,51 @@
           }
         }
       ],
+      "chart": {
+        "title": "Champions' wins, 2004 to 2019",
+        "unit": "wins",
+        "points": [
+          {
+            "label": "Pistons '04",
+            "value": 54
+          },
+          {
+            "label": "Celtics '08",
+            "value": 66
+          },
+          {
+            "label": "Heat '13",
+            "value": 66
+          },
+          {
+            "label": "Spurs '14",
+            "value": null
+          },
+          {
+            "label": "Raptors '19",
+            "value": 58
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "wins-season",
         "era": "cross-era",
         "subjects": [
           "San Antonio Spurs"
         ],
         "supports": [
-          "nba-celtics86-wins"
+          "nba-detroit04-regular-wins",
+          "nba-celtics08-wins",
+          "nba-heat13-wins",
+          "nba-raptors19-regular-wins"
         ]
       }
     },
     {
       "id": "nba-barry80-threes",
       "sport": "NBA",
-      "prompt": "Stephen Curry made 13 threes in a 2016 game. Rick Barry set the original NBA record in February 1980. How many did he make?",
+      "prompt": "Stephen Curry made a record 13 threes in a 2016 game. Rick Barry set the original record in February 1980. How many did he make?",
       "context": "Houston Rockets vs Utah Jazz · 1979–80",
       "answer": 8,
       "unit": {
@@ -81,7 +110,7 @@
       "min": 0,
       "max": 15,
       "step": 1,
-      "note": "Eight, against Utah.",
+      "note": "In the shot's debut season; in that year's Finals, Julius Erving made the only three of the series.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
@@ -144,7 +173,7 @@
       "min": 15,
       "max": 75,
       "step": 1,
-      "note": "51 more: from 15 wins in 2007–08 to 66 in 2012–13.",
+      "note": "From 15–67 to 66–16. LeBron, Wade and Bosh turned the worst team in the league into a juggernaut.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_Miami_Heat_season",
@@ -183,7 +212,7 @@
         }
       ],
       "meta": {
-        "format": "trajectory",
+        "format": "recall",
         "family": "wins-change",
         "era": "cross-era",
         "subjects": [
@@ -198,7 +227,7 @@
     {
       "id": "nba-gus79-finals-g4-points",
       "sport": "NBA",
-      "prompt": "How many points did Gus Williams score in overtime Game 4 of the 1979 Finals?",
+      "prompt": "The chart shows big Finals scoring nights from 1969 to 1980. How many did Seattle's Gus Williams score in overtime Game 4 in 1979?",
       "context": "SuperSonics vs Bullets · 1979 Finals",
       "answer": 36,
       "unit": {
@@ -208,7 +237,7 @@
       "min": 10,
       "max": 82,
       "step": 1,
-      "note": "36 points in a pivotal overtime win.",
+      "note": "Seattle won 114–112 to move within one win of its only NBA title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
@@ -245,15 +274,36 @@
           }
         }
       ],
+      "chart": {
+        "title": "Big Finals scoring nights, 1969–80",
+        "unit": "points",
+        "points": [
+          {
+            "label": "West '69",
+            "value": 53
+          },
+          {
+            "label": "Williams '79",
+            "value": null
+          },
+          {
+            "label": "Magic '80",
+            "value": 42
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "1970s",
+        "era": "cross-era",
         "subjects": [
           "Gus Williams",
           "Oklahoma City Thunder"
         ],
-        "supports": []
+        "supports": [
+          "nba-west69-g1",
+          "nba-magic80-g6-points"
+        ]
       }
     },
     {
@@ -269,7 +319,7 @@
       "min": 5,
       "max": 135,
       "step": 1,
-      "note": "53 seconds remained. The shot gave Cleveland the late lead in its 3–1 comeback.",
+      "note": "It broke an 89–89 tie; Cleveland held on to win 93–89 and finish its 3–1 comeback.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",

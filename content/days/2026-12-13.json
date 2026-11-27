@@ -19,7 +19,7 @@
       "min": 25,
       "max": 75,
       "step": 1,
-      "note": "43, with 10 rebounds.",
+      "note": "43 and 10 rebounds to even the series 2–2; Golden State won the next two for the title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
@@ -40,7 +40,7 @@
           }
         },
         {
-          "text": "Andrew Wiggins helped win the rebounding battle with a career-best Finals night on the glass.",
+          "text": "Andrew Wiggins set a career high in rebounds that night.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
@@ -72,7 +72,7 @@
     {
       "id": "nba-rodman96-rpg",
       "sport": "NBA",
-      "prompt": "The chart shows two other rebounding seasons. How many rebounds per game did Dennis Rodman average for the 1995–96 Bulls?",
+      "prompt": "Dwight Howard and Joakim Noah supply the scale. How many rebounds per game did Dennis Rodman average for the 72-win 1995–96 Bulls?",
       "context": "Chicago Bulls · 1995–96 regular season",
       "answer": 14.9,
       "unit": {
@@ -82,7 +82,7 @@
       "min": 6,
       "max": 20,
       "step": 0.1,
-      "note": "14.9 a night, while scoring just 5.5 points.",
+      "note": "His fifth rebounding title in a row, in his first season with Chicago.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1995%E2%80%9396_Chicago_Bulls_season",
@@ -120,7 +120,7 @@
         }
       ],
       "chart": {
-        "title": "Rebounds per game in a season",
+        "title": "Rebounds per game: elite rebounders",
         "unit": "rebounds",
         "points": [
           {
@@ -128,12 +128,12 @@
             "value": 13.8
           },
           {
-            "label": "Rodman '96",
-            "value": null
-          },
-          {
             "label": "Noah '11",
             "value": 10.4
+          },
+          {
+            "label": "Rodman '96",
+            "value": null
           }
         ]
       },
@@ -154,7 +154,7 @@
     {
       "id": "nba-allen10-g3-fga",
       "sport": "NBA",
-      "prompt": "Ray Allen made 8 threes in Game 2 of the 2010 Finals. In Game 3 he went 0-for-how-many from the field?",
+      "prompt": "Ray Allen hit 8 of 11 threes in Game 2 of the 2010 Finals. In Game 3 he went 0-for-how-many from the field?",
       "context": "2010 NBA Finals · Game 3 · vs Lakers",
       "answer": 13,
       "unit": {
@@ -164,7 +164,7 @@
       "min": 2,
       "max": 20,
       "step": 1,
-      "note": "0 for 13.",
+      "note": "A near-record cold night, two days after his record eight threes.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
@@ -185,15 +185,15 @@
           }
         },
         {
-          "text": "Singer Monica performed the national anthem before the first Finals game at Boston's arena that year.",
+          "text": "The Lakers won 91–84 to take a 2–1 series lead.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-            "quote": "Prior to the starting lineups being announced, singer Monica performed the national anthem"
+            "quote": "the Lakers edged the Celtics with a 91–84 victory to take a 2–1 lead in the series."
           }
         },
         {
-          "text": "Kevin Garnett hit Boston's opening baskets, but Los Angeles put together a strong first-half response.",
+          "text": "Kevin Garnett scored the game's first six points.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
@@ -227,7 +227,7 @@
       "min": 0,
       "max": 94,
       "step": 1,
-      "note": "60 feet, tying it at 102.",
+      "note": "It tied the game at 102, but in 1970 even a 60-footer counted for only two points.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
@@ -240,7 +240,7 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "West's miracle shot counted for only two because the NBA had not yet adopted the three-point line.",
+          "text": "Only the rival ABA used a three-point line in 1970.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
@@ -278,7 +278,7 @@
     {
       "id": "nba-westbrook17-50-nuggets-winner",
       "sport": "NBA",
-      "prompt": "When Russell Westbrook broke Oscar Robertson's season triple-double mark with a Denver buzzer-beater in 2017, how many points did he score?",
+      "prompt": "Other guards' signature nights are charted. How many did Russell Westbrook score in his record-setting 2017 buzzer-beater win at Denver?",
       "context": "Russell Westbrook · Thunder at Nuggets · 2017",
       "answer": 50,
       "unit": {
@@ -288,7 +288,7 @@
       "min": 10,
       "max": 115,
       "step": 1,
-      "note": "50 points, plus a long-range buzzer-beater on the day he made triple-double history.",
+      "note": "OKC trailed by 14; he scored 18 of the 50 down the stretch and won it at the buzzer.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Russell_Westbrook",
@@ -301,39 +301,65 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "He broke Oscar Robertson's single-season triple-double mark.",
+          "text": "That night's triple-double broke Oscar Robertson's record for one season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Russell_Westbrook",
-            "quote": "breaking Robertson's record"
+            "quote": "breaking Robertson's record of most triple-doubles in a season"
           }
         },
         {
-          "text": "Westbrook hit an unusually deep winning shot.",
+          "text": "That June he was named the NBA's Most Valuable Player.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Russell_Westbrook",
-            "quote": "36-foot game-winning buzzer-beater"
+            "quote": "On June 26, 2017, Westbrook was named the recipient of the NBA Most Valuable Player Award."
           }
         },
         {
-          "text": "The Thunder won by a single point in Denver.",
+          "text": "The Thunder won 106–105 in Denver.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Russell_Westbrook",
-            "quote": "106–105 road victory"
+            "quote": "came in a 106–105 road victory against the Denver Nuggets on April 9 in which the team overcame a 14-point deficit"
           }
         }
       ],
+      "chart": {
+        "title": "Guards' signature regular-season nights",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Kobe '06",
+            "value": 81
+          },
+          {
+            "label": "Curry '13",
+            "value": 54
+          },
+          {
+            "label": "Westbrook '17",
+            "value": null
+          },
+          {
+            "label": "Harden '19",
+            "value": 61
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Russell Westbrook",
           "Oklahoma City Thunder"
         ],
-        "supports": []
+        "supports": [
+          "nba-kobe-81",
+          "nba-curry13-knicks-54",
+          "nba-harden19-msg-61"
+        ]
       }
     }
   ]

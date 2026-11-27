@@ -19,7 +19,7 @@
       "min": 2,
       "max": 14,
       "step": 1,
-      "note": "Seven, a record.",
+      "note": "Seven straight, 1991–92 through 1997–98, across Detroit, San Antonio and Chicago.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
@@ -40,7 +40,7 @@
           }
         },
         {
-          "text": "His number was eventually retired by the Pistons, and he entered the Hall of Fame that same year.",
+          "text": "The Pistons later retired his number.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
@@ -70,7 +70,7 @@
     {
       "id": "nba-barry75-finals-g2-points",
       "sport": "NBA",
-      "prompt": "The chart shows three other Finals scoring games. How many points did Rick Barry score in Game 2 of the 1975 Finals?",
+      "prompt": "Compare other Finals scoring nights of that era. How many points did Rick Barry score in Game 2 of the 1975 Finals?",
       "context": "Golden State vs Washington · 1975 Finals · Game 2",
       "answer": 36,
       "unit": {
@@ -78,9 +78,9 @@
         "plural": "points"
       },
       "min": 16,
-      "max": 60,
+      "max": 75,
       "step": 1,
-      "note": "36 points in a one-point Warriors win.",
+      "note": "36 in a one-point win, as Golden State went on to sweep heavily favored Washington.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
@@ -118,24 +118,24 @@
         }
       ],
       "chart": {
-        "title": "Finals scoring games",
+        "title": "Finals scoring nights, 1962–1980",
         "unit": "points",
         "points": [
           {
-            "label": "Gordon '23",
-            "value": 27
+            "label": "Baylor '62",
+            "value": 61
           },
           {
-            "label": "Middleton '21",
-            "value": 40
-          },
-          {
-            "label": "Curry '19",
-            "value": 47
+            "label": "West '69",
+            "value": 53
           },
           {
             "label": "Barry '75",
             "value": null
+          },
+          {
+            "label": "Magic '80",
+            "value": 42
           }
         ]
       },
@@ -148,9 +148,9 @@
           "Golden State Warriors"
         ],
         "supports": [
-          "nba-gordon23-finals-g4-points",
-          "nba-middleton21-g4",
-          "nba-curry19-g3"
+          "nba-baylor62-finals-61",
+          "nba-west69-g1",
+          "nba-magic80-g6-points"
         ]
       }
     },
@@ -167,7 +167,7 @@
       "min": 20,
       "max": 140,
       "step": 1,
-      "note": "100.",
+      "note": "100 across 24 games: a sweep, two seven-game series and a six-game Finals loss.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
@@ -180,7 +180,7 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Tatum's first Finals game was a passing showcase despite a poor shooting night against Golden State.",
+          "text": "His Finals debut brought a career high in assists, the most ever by a player in his first Finals game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
@@ -188,7 +188,7 @@
           }
         },
         {
-          "text": "Boston erased a shaky regular-season start to reach its first NBA Finals in over a decade.",
+          "text": "Boston was only 16–19, in 10th place, at one point that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
@@ -228,7 +228,7 @@
       "min": 4,
       "max": 30,
       "step": 0.1,
-      "note": "13.8 rebounds a night from Orlando's dominant center.",
+      "note": "13.8, in the season he won Defensive Player of the Year.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
@@ -249,7 +249,7 @@
           }
         },
         {
-          "text": "Howard won Defensive Player of the Year and made the All-NBA First Team.",
+          "text": "He also made the All-NBA First Team that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
@@ -281,7 +281,7 @@
     {
       "id": "nba-ant24-nuggets-g1-43",
       "sport": "NBA",
-      "prompt": "Michael Jordan scored 55 in Game 4 of the 1993 Finals. How many did Anthony Edwards score in Game 1 at Denver in 2024?",
+      "prompt": "Brunson and Butler also erupted in recent playoffs. How many points did Anthony Edwards score in Game 1 at Denver in 2024?",
       "context": "Wolves at Nuggets · 2024 West semifinals · Game 1",
       "answer": 43,
       "unit": {
@@ -291,7 +291,7 @@
       "min": 15,
       "max": 100,
       "step": 1,
-      "note": "43 points in Denver. Ant launched the upset bid with a Minnesota postseason scoring record.",
+      "note": "A Wolves playoff record, set on the defending champions' floor.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
@@ -312,7 +312,7 @@
           }
         },
         {
-          "text": "The Wolves seized the opening game on Denver's floor.",
+          "text": "The win gave Minnesota a 1–0 series lead.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
@@ -320,7 +320,7 @@
           }
         },
         {
-          "text": "Naz Reid helped Minnesota take over late.",
+          "text": "Minnesota pulled away with an 18–7 run.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
@@ -328,16 +328,35 @@
           }
         }
       ],
+      "chart": {
+        "title": "Playoff scoring explosions, 2023–24",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Brunson '24",
+            "value": 47
+          },
+          {
+            "label": "Butler '23",
+            "value": 56
+          },
+          {
+            "label": "Edwards '24",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "cross-era",
+        "era": "2020s",
         "subjects": [
           "Anthony Edwards",
           "Minnesota Timberwolves"
         ],
         "supports": [
-          "nba-jordan93-g4-55"
+          "nba-brunson24-philly-47",
+          "nba-butler23-56-bucks-upset"
         ]
       }
     }

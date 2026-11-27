@@ -19,7 +19,7 @@
       "min": 6,
       "max": 22,
       "step": 0.1,
-      "note": "11.5 assists each night in his first MVP season.",
+      "note": "11.5, leading the league, as Phoenix jumped from 29 wins to 62 and Nash won MVP.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2004%E2%80%9305_Phoenix_Suns_season",
@@ -134,7 +134,7 @@
     {
       "id": "nba-miller98-season-ppg",
       "sport": "NBA",
-      "prompt": "The chart shows four other scoring seasons. How many points per game did Reggie Miller average for the 1997–98 Pacers?",
+      "prompt": "The chart shows four other scoring seasons, from an MVP to a shooting specialist. What did Reggie Miller average for the 1997–98 Pacers?",
       "context": "Indiana Pacers · 1997–98 regular season",
       "answer": 19.5,
       "unit": {
@@ -144,7 +144,7 @@
       "min": 9,
       "max": 42,
       "step": 0.1,
-      "note": "19.5 points per game in 81 starts.",
+      "note": "19.5, efficient rather than high-volume, in 34.5 minutes a night for a 58-win team.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
@@ -186,24 +186,24 @@
         "unit": "points",
         "points": [
           {
-            "label": "Robinson '20",
-            "value": 13.5
-          },
-          {
-            "label": "West '08",
-            "value": 20.6
-          },
-          {
-            "label": "Webber '02",
-            "value": 24.5
-          },
-          {
             "label": "Kareem '71",
             "value": 31.7
           },
           {
             "label": "Miller '98",
             "value": null
+          },
+          {
+            "label": "Webber '02",
+            "value": 24.5
+          },
+          {
+            "label": "West '08",
+            "value": 20.6
+          },
+          {
+            "label": "Robinson '20",
+            "value": 13.5
           }
         ]
       },
@@ -216,10 +216,10 @@
           "Indiana Pacers"
         ],
         "supports": [
-          "nba-robinson20-season-ppg",
-          "nba-west08-season-ppg",
+          "nba-alcindor71-ppg",
           "nba-webber02-season-ppg",
-          "nba-alcindor71-ppg"
+          "nba-west08-season-ppg",
+          "nba-robinson20-season-ppg"
         ]
       }
     },

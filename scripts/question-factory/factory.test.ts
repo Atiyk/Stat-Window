@@ -30,7 +30,7 @@ function fact(id: string, kind: ResearchFact['kind'], difficulty: ResearchFact['
   };
 }
 // A legal official mix (V5.1): recall, reference, reference, ratio, recall = 2+2+1.
-const formats = [undefined, 'reference', 'reference', 'ratio', undefined] as const;
+const formats = [undefined, 'reference', 'reference', 'missing-point', undefined] as const;
 const raws = [
   fact('test-q1', 'famous-moment', 'easy', 75),
   fact('test-q2', 'season-story', 'medium', 83),
@@ -122,11 +122,15 @@ describe('question factory', () => {
       expect.stringContaining('concise numeric question'),
     ]));
   });
-  it('refuses an official slate with more than two questions of one format, and names the rule', () => {
+  it('refuses an official slate that is not 2/2/1 across the three formats, and names the rule', () => {
     const allRecall = reviewed(generate({ ...batch, facts: raws.map(({ format: _f, ...f }) => f) }));
     expect(() => plan(allRecall, policy, '2027-01-06', 1)).toThrow('<=2 per format');
     expect(plan(reviewed(generate(batch)), policy, '2027-01-06', 1).days[0]!.questions.map((q) => q.format))
-      .toEqual(['recall', 'reference', 'reference', 'ratio', 'recall']);
+      .toEqual(['recall', 'reference', 'reference', 'missing-point', 'recall']);
+  });
+  it('rejects a retired format on a new research fact', () => {
+    const bad = reviewed(generate({ ...batch, facts: raws.map((f, i) => (i === 0 ? { ...f, format: 'ratio' as never } : f)) }));
+    expect(validateBatch(bad)).toEqual(expect.arrayContaining([expect.stringContaining('unknown question format ratio')]));
   });
   it('rejects an unknown question format on a research fact', () => {
     const bad = reviewed(generate({ ...batch, facts: raws.map((f, i) => (i === 0 ? { ...f, format: 'trivia' as never } : f)) }));

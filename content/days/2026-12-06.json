@@ -9,7 +9,7 @@
     {
       "id": "nba-celtics86-wins",
       "sport": "NBA",
-      "prompt": "The 2018–19 champion Raptors won 58 games. How many did Larry Bird's 1985–86 Celtics win?",
+      "prompt": "Giannis's 2018–19 Bucks won 60 games in his first MVP season. How many did Larry Bird's 1985–86 Celtics win?",
       "context": "Boston Celtics · 1985–86 · 82 games",
       "answer": 67,
       "unit": {
@@ -32,7 +32,7 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "Boston went 37–1 at the Boston Garden and 3–0 at the Hartford Civic Center.",
+          "text": "Their lone home loss came at the Boston Garden; they also went 3–0 in Hartford.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
@@ -64,14 +64,14 @@
           "Boston Celtics"
         ],
         "supports": [
-          "nba-raptors19-regular-wins"
+          "nba-bucks19-season-wins"
         ]
       }
     },
     {
       "id": "nba-allstar24-east",
       "sport": "NBA",
-      "prompt": "The 1966–67 Sixers set a team record of 125 points per game. How many points did the East score in the 2024 All-Star Game?",
+      "prompt": "Wilt's 100-point game produced 316 combined points. How many did the East score by itself in the 2024 All-Star Game?",
       "context": "2024 NBA All-Star Game · East vs West",
       "answer": 211,
       "unit": {
@@ -81,7 +81,7 @@
       "min": 130,
       "max": 270,
       "step": 1,
-      "note": "211, beating the West's 186.",
+      "note": "211–186, as the league brought back East versus West; Damian Lillard was the game's MVP.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/NBA_All-Star_Game",
@@ -124,14 +124,14 @@
         "era": "cross-era",
         "subjects": [],
         "supports": [
-          "nba-sixers67-ppg"
+          "nba-wilt-100-combined"
         ]
       }
     },
     {
       "id": "nba-jackson98-regular-apg",
       "sport": "NBA",
-      "prompt": "The chart shows three other assist averages. What did Mark Jackson average for the 1997–98 Pacers?",
+      "prompt": "Walter Davis and Hedo Türkoğlu ran other finalists' offenses. How many assists per game did Mark Jackson average for the 1997–98 Pacers?",
       "context": "Indiana · 1997–98 regular season",
       "answer": 8.7,
       "unit": {
@@ -141,7 +141,7 @@
       "min": 3,
       "max": 19,
       "step": 0.1,
-      "note": "8.7 assists per game from Indiana's veteran point guard.",
+      "note": "8.7 a game from the pass-first point guard of a Pacers team that took Jordan's Bulls to a seventh game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
@@ -170,33 +170,29 @@
           }
         },
         {
-          "text": "Jalen Rose played every game without making a single start.",
+          "text": "Indiana's season ended in a hard-fought seven-game series loss to the Bulls in the East finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1997%E2%80%9398_Indiana_Pacers_season",
-            "quote": "Jalen Rose | SF | 82 | 0"
+            "quote": "thus losing in a hard-fought seven-game series"
           }
         }
       ],
       "chart": {
-        "title": "Assists per game: seasons and one Finals",
-        "unit": "apg",
+        "title": "Lead playmakers on conference finalists",
+        "unit": "assists per game",
         "points": [
           {
-            "label": "Bibby '02",
-            "value": 5
-          },
-          {
-            "label": "Stockton '90",
-            "value": 14.5
+            "label": "Davis '84",
+            "value": 5.5
           },
           {
             "label": "Jackson '98",
             "value": null
           },
           {
-            "label": "Murray '23 Fin",
-            "value": 10
+            "label": "Türkoğlu '09",
+            "value": 4.9
           }
         ]
       },
@@ -209,9 +205,8 @@
           "Indiana Pacers"
         ],
         "supports": [
-          "nba-bibby02-regular-apg",
-          "nba-stockton90-apg",
-          "nba-murray23-finals-apg"
+          "nba-davis84-regular-apg",
+          "nba-turkoglu09-regular-apg"
         ]
       }
     },
@@ -228,7 +223,7 @@
       "min": 5,
       "max": 22,
       "step": 0.1,
-      "note": "10.4 rebounds per game despite substantial time missed.",
+      "note": "10.4 in 48 games, after surgery on a torn ligament in his right hand.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
@@ -279,7 +274,7 @@
     {
       "id": "nba-luka20-clippers-buzzer-43",
       "sport": "NBA",
-      "prompt": "In Luka Dončić's unforgettable 2020 bubble overtime winner against the Clippers, how many points did he score?",
+      "prompt": "Iverson and LeBron had big playoff nights at 25 or under. How many did 21-year-old Luka Dončić score in his 2020 OT winner vs the Clippers?",
       "context": "Luka Dončić · Mavericks vs Clippers · 2020 playoffs",
       "answer": 43,
       "unit": {
@@ -289,7 +284,7 @@
       "min": 15,
       "max": 95,
       "step": 1,
-      "note": "43 points, plus 17 boards and 13 assists, capped by his step-back game winner.",
+      "note": "With 17 rebounds and 13 assists: a playoff triple-double capped by his own game-winner.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs",
@@ -302,7 +297,7 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Luka nailed the three-pointer at the end of overtime.",
+          "text": "Dallas was down by one when Luka's three beat the overtime buzzer.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs",
@@ -326,15 +321,36 @@
           }
         }
       ],
+      "chart": {
+        "title": "Playoff nights by stars aged 25 or under",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Iverson '01",
+            "value": 48
+          },
+          {
+            "label": "James '09",
+            "value": 49
+          },
+          {
+            "label": "Luka '20",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Luka Dončić",
           "Dallas Mavericks"
         ],
-        "supports": []
+        "supports": [
+          "nba-iverson01-g1",
+          "nba-james09-magic-g1-points"
+        ]
       }
     }
   ]

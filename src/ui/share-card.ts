@@ -10,8 +10,9 @@ import {
 } from '../engine/court-run';
 import type { RoundRecord } from '../engine/game';
 import { SHOT_MARKER_RADIUS, SHOT_OUTCOME_LABELS, SHOT_UNSUBMITTED_DIVIDER, SHOT_UNSUBMITTED_SPAN, type ShotAttempt } from '../engine/shot-chart';
-import { MAX_TOTAL, formatAnswerTime } from '../engine/summary';
+import { MAX_TOTAL, formatAnswerTime, inviteLine } from '../engine/summary';
 import { drawSymbol } from '../brand/symbol';
+import type { WeeklyCardDay, WeeklyCardModel } from '../engine/weekly';
 
 export type CardFormat = 'square' | 'portrait';
 export type CardStyle = 'classic' | 'shot-chart' | 'court-run';
@@ -34,6 +35,7 @@ type ClassicCard = CardHeading & {
 
 type CourtCard = CardHeading & {
   total: number;
+  untimed?: boolean;
   puzzleUrl: string;
 } & (
   | { style: 'shot-chart'; attempts: readonly ShotAttempt[] }
@@ -58,6 +60,8 @@ const C = {
   brandSoft: '#E3E8EE',
   brandPress: '#0F2744',
   copper: '#B94B21',
+  /** Muted type on the navy footer (about 6:1 on brand). */
+  onBrandSoft: '#C3CEDB',
 };
 
 export const CARD_SIZE = 1080;
@@ -164,7 +168,7 @@ function drawClassicCard(ctx: CanvasRenderingContext2D, input: ClassicCard): voi
   }
   ctx.fillStyle = C.ink;
   ctx.font = `850 54px ${sans}`;
-  ctx.fillText(total > 0 && !input.untimed ? `Same five questions. Beat ${total}?` : 'Same five questions. Your turn.', 96, y);
+  ctx.fillText(inviteLine(total, input.untimed), 96, y);
   ctx.fillStyle = C.soft;
   ctx.font = `500 34px ${sans}`;
   ctx.fillText(input.host, 96, footerY);
@@ -387,7 +391,7 @@ function drawCourtCard(ctx: CanvasRenderingContext2D, input: CourtCard): void {
       ctx.fillText(note, cx, roundsY + 84, columnWidth - 8);
     }
     ctx.textAlign = 'left';
-    drawFooter(ctx, roundsY + 120, input.puzzleUrl);
+    drawFooter(ctx, roundsY + 120, input.puzzleUrl, inviteLine(input.total, input.untimed));
     return;
   }
 
@@ -418,10 +422,11 @@ function drawCourtCard(ctx: CanvasRenderingContext2D, input: CourtCard): void {
     ctx.font = `500 30px ${SANS}`;
     ctx.fillText(note, 260, rowY, 200);
   });
-  drawFooter(ctx, CARD_SIZE - 160, input.puzzleUrl);
+  drawFooter(ctx, CARD_SIZE - 160, input.puzzleUrl, inviteLine(input.total, input.untimed));
 }
 
-function drawFooter(ctx: CanvasRenderingContext2D, dividerY: number, puzzleUrl: string): void {
+/** The same invitation as the share text and the Classic card (inviteLine). */
+function drawFooter(ctx: CanvasRenderingContext2D, dividerY: number, puzzleUrl: string, invite: string): void {
   ctx.strokeStyle = C.line;
   ctx.lineWidth = 3;
   ctx.beginPath();
@@ -430,7 +435,7 @@ function drawFooter(ctx: CanvasRenderingContext2D, dividerY: number, puzzleUrl: 
   ctx.stroke();
   ctx.fillStyle = C.ink;
   ctx.font = `850 48px ${SANS}`;
-  ctx.fillText('Five questions. Your turn.', 96, dividerY + 62, 888);
+  ctx.fillText(invite, 96, dividerY + 62, 888);
   ctx.fillStyle = C.soft;
   ctx.font = `500 34px ${SANS}`;
   ctx.fillText(puzzleUrl.replace(/^https?:\/\//, ''), 96, dividerY + 110, 888);
@@ -444,19 +449,167 @@ export function drawCard(ctx: CanvasRenderingContext2D, input: CardInput): void 
   }
 }
 
-/** PNG of the card, or null when canvas isn't available (old browsers, blocked). */
-export async function cardBlob(input: CardInput): Promise<Blob | null> {
+const num = (n: number) => n.toLocaleString('en-US');
+
+/** One day's column. Shape and words carry the state; colour only reinforces it. */
+function drawWeekDay(ctx: CanvasRenderingContext2D, d: WeeklyCardDay, x: number, top: number, w: number, h: number, big: boolean): void {
+  const inset = 3;
+  ctx.save();
+  ctx.lineWidth = 4;
+  ctx.setLineDash([]);
+  if (d.mark === 'score' || d.mark === 'zero') {
+    ctx.fillStyle = C.bandSoft;
+    ctx.fillRect(x, top, w, h);
+    const bar = d.mark === 'score' ? Math.max(10, d.fill * h) : 0;
+    ctx.fillStyle = C.brand;
+    ctx.fillRect(x, top + h - bar, w, bar);
+    // A played zero keeps a solid floor line: finished, not missing.
+    ctx.fillRect(x, top + h - 8, w, 8);
+  } else if (d.mark === 'prelaunch') {
+    ctx.strokeStyle = C.line;
+    ctx.beginPath();
+    ctx.rect(x, top, w, h);
+    ctx.clip();
+    ctx.lineWidth = 3;
+    for (let k = -h; k < w; k += 22) { ctx.moveTo(x + k, top + h); ctx.lineTo(x + k + h, top); }
+    ctx.stroke();
+  } else {
+    ctx.strokeStyle = d.mark === 'open' ? C.brand : C.soft;
+    if (d.mark === 'unplayed' || d.mark === 'unavailable') ctx.setLineDash([14, 10]);
+    if (d.mark === 'future') { ctx.strokeStyle = C.courtLine; ctx.setLineDash([3, 10]); ctx.lineCap = 'round'; }
+    ctx.strokeRect(x + inset, top + inset, w - inset * 2, h - inset * 2);
+  }
+  ctx.restore();
+
+  const cx = x + w / 2;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'alphabetic';
+  if (d.note) {
+    // The state's word sits inside its box, so a glance at a thumbnail still separates them.
+    ctx.fillStyle = d.mark === 'zero' ? C.ink : C.soft;
+    const size = big ? 26 : 22;
+    ctx.font = `600 ${size}px ${SANS}`;
+    // Two short lines rather than squeezed type when the word is wider than the box.
+    const lines = ctx.measureText(d.note).width > w - 16 && d.note.includes(' ') ? d.note.split(' ') : [d.note];
+    lines.forEach((line, k) => ctx.fillText(line, cx, top + h / 2 + 8 + (k - (lines.length - 1) / 2) * size * 1.15, w - 12));
+  }
+  const valueY = top + h + (big ? 64 : 52);
+  ctx.fillStyle = d.mark === 'score' || d.mark === 'zero' ? C.ink : C.soft;
+  ctx.font = `${d.mark === 'score' || d.mark === 'zero' ? 800 : 600} ${big ? 48 : 40}px ${SANS}`;
+  if (d.value) ctx.fillText(d.value, cx, valueY, w);
+  ctx.fillStyle = C.ink;
+  ctx.font = `700 ${big ? 32 : 26}px ${SANS}`;
+  ctx.fillText(d.weekday, cx, valueY + (big ? 46 : 38), w);
+  ctx.fillStyle = C.soft;
+  ctx.font = `500 ${big ? 26 : 22}px ${SANS}`;
+  ctx.fillText(d.date, cx, valueY + (big ? 80 : 66), w);
+  ctx.textAlign = 'left';
+}
+
+/** The Weekly Scoreboard as a spoiler-free image: dates, daily scores, the total and the count behind it. */
+export function drawWeeklyCard(ctx: CanvasRenderingContext2D, card: WeeklyCardModel, format: CardFormat = 'square'): void {
+  const portrait = format === 'portrait';
+  const S = CARD_SIZE;
+  const L = portrait
+    // Portrait fills the story safe area (y 250–1660) from the wordmark to the host line; the
+    // navy footer runs on to the bottom edge, so the band under the story overlay is not dead paper.
+    ? { header: 252, kicker: 412, range: 480, total: 708, games: 784, bars: 840, barH: 400, divider: 1436, stats: 1520, invite: 1592, host: 1648 }
+    : { header: 88, kicker: 236, range: 290, total: 436, games: 510, bars: 556, barH: 170, divider: 874, stats: 926, invite: 984, host: 1030 };
+  ctx.fillStyle = C.paper;
+  ctx.fillRect(0, 0, S, portrait ? PORTRAIT_HEIGHT : S);
+  drawWordmark(ctx, L.header);
+
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'alphabetic';
+  ctx.fillStyle = C.soft;
+  ctx.font = `600 34px ${SANS}`;
+  ctx.fillText('Weekly scorecard', 96, L.kicker);
+  ctx.fillStyle = C.ink;
+  ctx.font = `800 ${portrait ? 56 : 50}px ${SANS}`;
+  ctx.fillText(card.range, 96, L.range, S - 192);
+
+  ctx.fillStyle = C.brand;
+  ctx.font = `790 ${portrait ? 220 : 148}px ${SANS}`;
+  const total = num(card.total);
+  ctx.fillText(total, 88, L.total);
+  const w = ctx.measureText(total).width;
+  ctx.fillStyle = C.soft;
+  ctx.font = `600 ${portrait ? 54 : 46}px ${SANS}`;
+  ctx.fillText(`of ${num(card.max)}`, 88 + w + 24, L.total, S - 200 - w);
+  ctx.fillStyle = C.ink;
+  ctx.font = `700 ${portrait ? 42 : 36}px ${SANS}`;
+  ctx.fillText(card.gamesLine, 96, L.games, S - 192);
+
+  const gap = portrait ? 16 : 14;
+  const colW = (S - 192 - gap * 6) / 7;
+  card.days.forEach((d, i) => drawWeekDay(ctx, d, 96 + i * (colW + gap), L.bars, colW, L.barH, portrait));
+
+  if (portrait) {
+    ctx.fillStyle = C.brand;
+    ctx.fillRect(0, L.divider, S, PORTRAIT_HEIGHT - L.divider);
+  } else {
+    ctx.strokeStyle = C.line;
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(96, L.divider);
+    ctx.lineTo(S - 96, L.divider);
+    ctx.stroke();
+  }
+  // On the navy footer: cream type, and a muted label tone that keeps 4.5:1.
+  const footInk = portrait ? C.paper : C.ink;
+  const footSoft = portrait ? C.onBrandSoft : C.soft;
+
+  // Best day and average, only when there is a completed game to describe.
+  const stats: [string, string][] = [];
+  if (card.best) stats.push(['Best day', `${card.best.weekday} ${num(card.best.points)}`]);
+  if (card.average !== null) stats.push(['Average', `${num(card.average)} per game`]);
+  let sx = 96;
+  for (const [label, value] of stats) {
+    ctx.fillStyle = footSoft;
+    ctx.font = `600 ${portrait ? 34 : 30}px ${SANS}`;
+    ctx.fillText(label, sx, L.stats);
+    const lw = ctx.measureText(label).width;
+    ctx.fillStyle = footInk;
+    ctx.font = `800 ${portrait ? 40 : 34}px ${SANS}`;
+    ctx.fillText(value, sx + lw + 14, L.stats);
+    sx += lw + 14 + ctx.measureText(value).width + 48;
+  }
+
+  ctx.fillStyle = footInk;
+  ctx.font = `850 ${portrait ? 46 : 40}px ${SANS}`;
+  ctx.fillText(card.invite, 96, L.invite, S - 192);
+  ctx.fillStyle = footSoft;
+  ctx.font = `500 32px ${SANS}`;
+  ctx.fillText(card.host, 96, L.host, S - 192);
+}
+
+async function toPng(height: number, draw: (ctx: CanvasRenderingContext2D) => void): Promise<Blob | null> {
+  let canvas: HTMLCanvasElement | null = null;
   try {
     if (typeof document === 'undefined') return null;
     await document.fonts?.ready;
-    const canvas = document.createElement('canvas');
+    canvas = document.createElement('canvas');
     canvas.width = CARD_SIZE;
-    canvas.height = input.format === 'portrait' ? PORTRAIT_HEIGHT : CARD_SIZE;
+    canvas.height = height;
     const ctx = canvas.getContext('2d');
     if (!ctx) return null;
-    drawCard(ctx, input);
-    return await new Promise<Blob | null>((resolve) => canvas.toBlob((b) => resolve(b), 'image/png'));
+    draw(ctx);
+    const c = canvas;
+    return await new Promise<Blob | null>((resolve) => c.toBlob((b) => resolve(b), 'image/png'));
   } catch {
     return null;
+  } finally {
+    // Release the backing store now: iOS Safari caps total canvas memory per page.
+    if (canvas) { canvas.width = 0; canvas.height = 0; }
   }
+}
+
+/** PNG of the weekly scorecard, or null when canvas isn't available. */
+export function weeklyCardBlob(card: WeeklyCardModel, format: CardFormat = 'square'): Promise<Blob | null> {
+  return toPng(format === 'portrait' ? PORTRAIT_HEIGHT : CARD_SIZE, (ctx) => drawWeeklyCard(ctx, card, format));
+}
+
+/** PNG of the card, or null when canvas isn't available (old browsers, blocked). */
+export function cardBlob(input: CardInput): Promise<Blob | null> {
+  return toPng(input.format === 'portrait' ? PORTRAIT_HEIGHT : CARD_SIZE, (ctx) => drawCard(ctx, input));
 }

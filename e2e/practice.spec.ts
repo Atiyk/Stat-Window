@@ -79,7 +79,8 @@ test('untimed practice restores its round, scores normally and stays outside off
   const shared = await page.locator('body').getAttribute('data-practice-share');
   expect(shared).toContain('Untimed practice');
   expect(shared?.split('\n').at(-1)).toMatch(/\?day=2026-11-15$/);
-  expect(shared).not.toContain('Can you beat');
+  expect(shared).toContain('Same five questions. Your turn.');
+  expect(shared).not.toMatch(/Beat \d/);
 
   await page.reload();
   await expect(page.locator('.results-context')).toContainText('Untimed practice');

@@ -1,5 +1,7 @@
 # Design and gameplay polish
 
+**History only.** The Chalk, Ink and Juniper palette below was superseded by Garden Classic ([BRAND.md](BRAND.md)).
+
 Base `f3ff603c9c84af08732b12565575a21a8a276e69`, the live V3 public beta. The polish branch matches the repository’s existing Vercel preview exclusion. The V3 production recovery remains on hold after the deployment quota rejection. [V3 recovery checkpoint](https://github.com/Atiyk/Stat-Window/pull/23#issuecomment-7091402064)
 
 | Milestone | Completed work | Evidence |

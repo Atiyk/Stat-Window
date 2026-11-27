@@ -1,5 +1,6 @@
 import { expect, test, type Locator, type Page } from '@playwright/test';
 import { lockAndSettle, next, openAt, startDailyIfNeeded, typeWindow } from './helpers';
+import { openFold } from './results-helpers';
 
 /** 2026-11-21 (No. 7 of the beta): Q1 is 25–100, answer 73. */
 const NOV21 = new Date('2026-11-21T15:00:00Z');
@@ -187,6 +188,7 @@ test.describe('BUG-06: practice and challenge results lead with "Challenge a fri
     await context.grantPermissions(['clipboard-read', 'clipboard-write']);
     await openAt(page, NOV21);
     await playFive(page);
+    await openFold(page, 'Practice a past game');
     await page.getByRole('button', { name: 'Nov 18' }).click();
     await startDailyIfNeeded(page);
     await expect(page.locator('.round-meta')).toContainText('Practice');
@@ -231,7 +233,7 @@ test.describe('BUG-05: a bad ?day= link says so and cleans the address bar', () 
   for (const q of ['/?day=2026-11-25&vs=250', '/?day=2099-01-01', '/?day=2026-13-45&vs=250', '/?day=garbage&vs=999', '/?day=2025-01-01&vs=100', '/?day=%E0%A4%A']) {
     test(`${q} opens today with a dismissible note`, async ({ page }) => {
       await openAt(page, NOV21, q);
-      await expect(page.locator('.day-label')).toHaveText('No. 7');
+      await expect(page.locator('.day-label')).toHaveText('Game 7');
       const note = page.getByRole('status').filter({ hasText: 'That link’s puzzle isn’t available, so here’s today’s.' });
       await expect(note).toBeVisible();
       await expect.poll(() => page.evaluate(() => location.search)).toBe('');
@@ -323,6 +325,8 @@ test.describe('BUG-09, BUG-10, BUG-13: layout, colour and copy nits', () => {
     expect(meta.y).toBeLessThan(ledger.y + ledger.height);
     await page.setViewportSize({ width: 390, height: 844 });
     await playFive(page);
+    await openFold(page, 'Practice a past game');
+    await openFold(page, 'Your stats');
     // The space before the dot was in the DOM but collapsed on screen: measure the rendered gap.
     const gap = await page.getByRole('button', { name: /Nov 16/ }).locator('.archive-tag').evaluate((tag) => {
       const range = document.createRange();

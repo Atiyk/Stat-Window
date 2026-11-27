@@ -19,7 +19,7 @@
       "min": 34,
       "max": 82,
       "step": 1,
-      "note": "63 victories, before a shocking first-round elimination.",
+      "note": "The league's best record, and then one of the biggest upsets ever: out in the first round to No. 8 Denver.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
@@ -79,7 +79,7 @@
       "min": 0,
       "max": 15,
       "step": 1,
-      "note": "Just four: 46–4. The 2015–16 Warriors later matched it.",
+      "note": "46–4, still tied for the best 50-game start; the Sixers then ended Boston's run of eight titles.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1966%E2%80%9367_Philadelphia_76ers_season",
@@ -129,7 +129,7 @@
     {
       "id": "nba-bucks71-streak",
       "sport": "NBA",
-      "prompt": "The 2007–08 Rockets won 22 straight. How long was the 1970–71 Bucks' winning streak, the NBA's longest at that time?",
+      "prompt": "The chart shows winning streaks by two other champions. How long was the 1970–71 Bucks' winning streak, the NBA's longest at that time?",
       "context": "Milwaukee Bucks · 1970–71",
       "answer": 20,
       "unit": {
@@ -139,7 +139,7 @@
       "min": 2,
       "max": 30,
       "step": 1,
-      "note": "20 straight.",
+      "note": "A league record until the Lakers broke it the very next season.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
@@ -176,22 +176,41 @@
           }
         }
       ],
+      "chart": {
+        "title": "Title teams' winning streaks",
+        "unit": "games",
+        "points": [
+          {
+            "label": "Bucks '71",
+            "value": null
+          },
+          {
+            "label": "Rockets '94",
+            "value": 15
+          },
+          {
+            "label": "Bulls '96",
+            "value": 18
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "win-streak",
         "era": "cross-era",
         "subjects": [
           "Milwaukee Bucks"
         ],
         "supports": [
-          "nba-rockets08-streak"
+          "nba-rockets94-start",
+          "nba-bulls96-18-streak"
         ]
       }
     },
     {
       "id": "nba-wilt62-others-points-v5",
       "sport": "NBA",
-      "prompt": "In Wilt Chamberlain's 100-point game, how many points did everyone else on the floor score combined?",
+      "prompt": "The 1966–67 76ers averaged 125 points a game. In Wilt Chamberlain's 100-point game, how many did everyone else on the floor score combined?",
       "context": "Philadelphia Warriors vs New York Knicks · March 2, 1962",
       "answer": 216,
       "unit": {
@@ -201,7 +220,7 @@
       "min": 120,
       "max": 360,
       "step": 2,
-      "note": "216: the two teams scored a record 316 in all.",
+      "note": "The teams combined for a record 316, with Philadelphia winning 169–147.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
@@ -240,13 +259,14 @@
         }
       ],
       "meta": {
-        "format": "difference",
+        "format": "reference",
         "family": "points-combined",
         "era": "1960s",
         "subjects": [
           "Golden State Warriors"
         ],
         "supports": [
+          "nba-sixers67-ppg",
           "nba-wilt-100-combined",
           "nba-wilt-100"
         ]
@@ -255,7 +275,7 @@
     {
       "id": "nba-ja22-warriors-game2-47",
       "sport": "NBA",
-      "prompt": "The chart shows four other playoff scoring nights. How many points did Ja Morant score against Curry's Warriors in 2022 Game 2?",
+      "prompt": "The chart shows three other playoff scoring explosions. How many points did Ja Morant score against Curry's Warriors in 2022 Game 2?",
       "context": "Ja Morant · Grizzlies vs Warriors · May 2022",
       "answer": 47,
       "unit": {
@@ -265,7 +285,7 @@
       "min": 10,
       "max": 120,
       "step": 1,
-      "note": "47 points, including Memphis's final 15, to even the series.",
+      "note": "Including Memphis's last 15 points, to even the series in a 106–101 win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",
@@ -303,16 +323,16 @@
         }
       ],
       "chart": {
-        "title": "Playoff scoring nights",
+        "title": "Recent playoff scoring explosions",
         "unit": "points",
         "points": [
           {
-            "label": "Durant '21",
-            "value": 49
-          },
-          {
             "label": "Klay '16",
             "value": 41
+          },
+          {
+            "label": "Giannis '21",
+            "value": 50
           },
           {
             "label": "Ja '22",
@@ -321,10 +341,6 @@
           {
             "label": "Butler '23",
             "value": 56
-          },
-          {
-            "label": "Giannis '21",
-            "value": 50
           }
         ]
       },
@@ -337,10 +353,9 @@
           "Memphis Grizzlies"
         ],
         "supports": [
-          "nba-durant21-nets-bucks-g5-49",
           "nba-klay16-okc-game6-41",
-          "nba-butler23-56-bucks-upset",
-          "nba-giannis21-g6"
+          "nba-giannis21-g6",
+          "nba-butler23-56-bucks-upset"
         ]
       }
     }

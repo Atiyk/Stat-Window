@@ -9,7 +9,7 @@
     {
       "id": "nba-lebron16-finals-ppg",
       "sport": "NBA",
-      "prompt": "What was LeBron James's scoring average in the 2016 Finals, when he was named MVP?",
+      "prompt": "The chart shows four other Finals MVPs' scoring averages. What did LeBron James average in the 2016 Finals?",
       "context": "2016 NBA Finals · seven games",
       "answer": 29.7,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 20,
       "max": 48,
       "step": 0.1,
-      "note": "29.7 points, plus 11.3 rebounds and 8.9 assists.",
+      "note": "29.7, and he led both teams in points, rebounds, assists, steals and blocks for the series.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
@@ -56,15 +56,46 @@
           }
         }
       ],
+      "chart": {
+        "title": "Finals MVPs, points per game",
+        "unit": "ppg",
+        "points": [
+          {
+            "label": "Jordan '93",
+            "value": 41
+          },
+          {
+            "label": "Shaq '00",
+            "value": 38
+          },
+          {
+            "label": "Billups '04",
+            "value": 21
+          },
+          {
+            "label": "Kobe '09",
+            "value": 32.4
+          },
+          {
+            "label": "LeBron '16",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "scoring-average",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "LeBron James",
           "Cleveland Cavaliers"
         ],
-        "supports": []
+        "supports": [
+          "nba-jordan93-finals-ppg",
+          "nba-shaq00-finals-ppg",
+          "nba-billups04-finals-ppg",
+          "nba-kobe09-finals-ppg"
+        ]
       }
     },
     {
@@ -80,7 +111,7 @@
       "min": 30,
       "max": 60,
       "step": 1,
-      "note": "50.",
+      "note": "50–10, then Bill Walton's foot injury hit and Portland went 8–14 the rest of the way.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1977_NBA_Finals",
@@ -179,7 +210,7 @@
         }
       ],
       "meta": {
-        "format": "difference",
+        "format": "recall",
         "family": "assists-season",
         "era": "1960s",
         "subjects": [
@@ -283,8 +314,8 @@
     {
       "id": "nba-mavs22-suns-game7-halftime-thirty",
       "sport": "NBA",
-      "prompt": "In Game 7 at Phoenix in May 2022, Luka's Mavericks routed the Suns. How many points did Dallas lead by at halftime?",
-      "context": "Benchmark: Dallas once led the Clippers by 50 at halftime",
+      "prompt": "Dallas once led the Clippers by 50 at halftime of a 2020 regular-season game. How big was its halftime lead at Phoenix in 2022's Game 7?",
+      "context": "Mavericks at Suns · 2022 West semifinals · Game 7",
       "answer": 30,
       "unit": {
         "singular": "point",
@@ -293,7 +324,7 @@
       "min": 0,
       "max": 65,
       "step": 1,
-      "note": "Dallas led by 30 at halftime, 57–27. Phoenix never recovered from the Game 7 embarrassment.",
+      "note": "30, at 57–27, then the largest halftime lead in Game 7 history; the margin later grew to 46.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2022_NBA_playoffs",

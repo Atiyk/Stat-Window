@@ -103,14 +103,23 @@ test('mouse: both ends of a narrow window drag precisely from off-center contact
 test('six-digit scales fit at 320px with 200% text and keep exact editable values', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 568 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await openAt(page, new Date('2026-12-17T15:00:00Z'));
+  // 2027-01-10 Q2: All-Star attendance on a 0–150,000 scale (six-digit labels).
+  await openAt(page, new Date('2027-01-10T15:00:00Z'));
   await lockAndSettle(page);
   await next(page);
-  await expect(page.locator('.question')).toContainText('prize money');
+  await expect(page.locator('.question')).toContainText('All-Star Game');
   await page.addStyleTag({ content: 'html { font-size: 200% }' });
   await page.evaluate(() => document.fonts.ready);
-  const highReadout = page.getByRole('button', { name: /^High end: 750,000/ });
+  // Push the high bracket to the scale maximum so the readout really has six digits.
+  await highBracket(page).focus();
+  await page.keyboard.press('End');
+  await expect(highBracket(page)).toHaveAttribute('aria-valuenow', '150000');
+  const highReadout = page.getByRole('button', { name: /^High end: \d{3},\d{3}/ });
   await expect(highReadout).toBeVisible();
+  await expect(highReadout).toContainText('150,000');
+  const highValue = (await highReadout.getAttribute('aria-label') ?? (await highReadout.innerText())).match(/\d{3},\d{3}/)![0].replace(/,/g, '');
+  expect(highValue).toBe('150000');
+  expect(Number(highValue)).toBeGreaterThanOrEqual(100000);
   const labels = await page.locator('.tick-label').evaluateAll((elements) =>
     elements.map((element) => {
       const { left, right } = element.getBoundingClientRect();
@@ -123,11 +132,33 @@ test('six-digit scales fit at 320px with 200% text and keep exact editable value
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
   await highReadout.click();
   const input = page.getByRole('textbox', { name: /^High end/ });
-  await expect(input).toHaveValue('750000');
+  await expect(input).toHaveValue(highValue);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
-  await input.fill('700000');
+  const typed = String(Number(highValue) - 1000);
+  await input.fill(typed);
   await input.press('Enter');
-  await expect(highBracket(page)).toHaveAttribute('aria-valuenow', '700000');
+  await expect(highBracket(page)).toHaveAttribute('aria-valuenow', typed);
+});
+
+test('progress chips grow with 200% text at 390px, so no number is clipped', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await openAt(page, new Date('2027-01-10T15:00:00Z'));
+  await lockAndSettle(page);
+  await next(page);
+  await page.addStyleTag({ content: 'html { font-size: 200% }' });
+  await page.evaluate(() => document.fonts.ready);
+  const cells = page.locator('.round-top .ledger-cell');
+  await expect(cells).toHaveCount(5);
+  for (let i = 0; i < 5; i++) {
+    const cell = (await cells.nth(i).boundingBox())!;
+    const num = (await cells.nth(i).locator('.ledger-num').boundingBox())!;
+    expect(num.x, `chip ${i + 1} left`).toBeGreaterThanOrEqual(cell.x - 0.5);
+    expect(num.x + num.width, `chip ${i + 1} right`).toBeLessThanOrEqual(cell.x + cell.width + 0.5);
+    expect(num.y, `chip ${i + 1} top`).toBeGreaterThanOrEqual(cell.y - 0.5);
+    expect(num.y + num.height, `chip ${i + 1} bottom`).toBeLessThanOrEqual(cell.y + cell.height + 0.5);
+  }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
 });
 
 test('touch: dragging a bracket moves it and never scrolls the page', async ({ page, isMobile }) => {

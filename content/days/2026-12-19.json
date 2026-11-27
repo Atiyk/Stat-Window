@@ -9,7 +9,7 @@
     {
       "id": "nba-nuggets23-regular-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did the 2022–23 Nuggets win?",
+      "prompt": "The chart shows wins for four other West No. 1 seeds. How many regular-season games did the 2022–23 Nuggets win?",
       "context": "Denver Nuggets · 2022–23 · 82 games",
       "answer": 53,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 37,
       "max": 78,
       "step": 1,
-      "note": "53–29, and Denver reached the Finals for the first time.",
+      "note": "Denver's first No. 1 seed ever, and the start of its first title run.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2022%E2%80%9323_Denver_Nuggets_season",
@@ -56,14 +56,45 @@
           }
         }
       ],
+      "chart": {
+        "title": "West No. 1 seeds' regular-season wins",
+        "unit": "wins",
+        "points": [
+          {
+            "label": "Lakers '87",
+            "value": 65
+          },
+          {
+            "label": "Suns '93",
+            "value": 62
+          },
+          {
+            "label": "Kings '02",
+            "value": 61
+          },
+          {
+            "label": "Mavs '07",
+            "value": 67
+          },
+          {
+            "label": "Nuggets '23",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "wins-season",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Denver Nuggets"
         ],
-        "supports": []
+        "supports": [
+          "nba-lakers87-wins",
+          "nba-suns93-regular-wins",
+          "nba-kings02-regular-wins",
+          "nba-mavs07-wins"
+        ]
       }
     },
     {
@@ -79,7 +110,7 @@
       "min": 0,
       "max": 20,
       "step": 1,
-      "note": "13 straight.",
+      "note": "Including the famous mid-air hand switch, as Chicago evened the series and never lost again.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1991_NBA_Finals",
@@ -130,63 +161,62 @@
       }
     },
     {
-      "id": "nba-giannis21-g6-ft-pct-v51b",
+      "id": "nba-floyd87-51",
       "sport": "NBA",
-      "prompt": "What percent of his free throws did Giannis Antetokounmpo make in the 2021 title clincher? Nearest whole percent.",
-      "context": "2021 NBA Finals · Game 6 · free throws made ÷ attempted",
-      "answer": 89,
+      "prompt": "The 1987 Lakers lost one game in the West playoffs, when Sleepy Floyd scored how many in Oakland?",
+      "context": "1987 West semifinals · Game 4 · Warriors vs Lakers",
+      "answer": 51,
       "unit": {
-        "singular": "percent",
-        "plural": "percent"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 40,
-      "max": 100,
+      "min": 30,
+      "max": 80,
       "step": 1,
-      "note": "89%: 17 of 19 at the line, a big surprise from a streaky foul shooter.",
+      "note": "51, sparing Golden State a sweep; it was the only game the 1987 Lakers lost in the West.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-        "quote": "Antetokounmpo made 16 of his 25 shots, and was a surprising 17 for 19 on his free throws",
-        "derivation": "17 free throws made ÷ 19 attempted × 100 = 89.47, so 89% to the nearest whole percent."
+        "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+        "quote": "Their only loss was a Sleepy Floyd 51-point outburst in Game 4 in Oakland"
       },
       "verified": {
-        "on": "2026-11-26",
+        "on": "2026-11-16",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Giannis's clutch foul shooting contrasted sharply with his struggles at the line earlier in those playoffs.",
+          "text": "The Lakers swept Denver in the opening round, starting their Western playoff run without a loss.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-            "quote": "after hitting just 55.6% in the playoffs"
+            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+            "quote": "they swept the Denver Nuggets in the first round"
           }
         },
         {
-          "text": "His Finals MVP win made him the youngest recipient since Kawhi Leonard.",
+          "text": "Floyd's outburst allowed Golden State to avoid a second-round sweep.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-            "quote": "the youngest winner at age 26 since Kawhi Leonard (22) in 2014"
+            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+            "quote": "which allowed the Warriors to avoid a sweep"
           }
         },
         {
-          "text": "The Bucks secured the championship behind lockdown defense from Jrue Holiday on Devin Booker.",
+          "text": "Michael Cooper set a playoff mark with six made three-pointers against Boston in the Finals.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
-            "quote": "His defense helped limit Booker to 19 points"
+            "url": "https://en.wikipedia.org/wiki/1987_NBA_Finals",
+            "quote": "He hit six 3 pointers, a playoff record"
           }
         }
       ],
       "meta": {
-        "format": "ratio",
-        "family": "shooting-pct",
-        "era": "2020s",
+        "format": "recall",
+        "family": "points-game",
+        "era": "1980s",
         "subjects": [
-          "Giannis Antetokounmpo",
-          "Milwaukee Bucks"
+          "Sleepy Floyd",
+          "Golden State Warriors"
         ],
         "supports": []
       }
@@ -194,7 +224,7 @@
     {
       "id": "nba-sixers01-opening-streak",
       "sport": "NBA",
-      "prompt": "The 2015–16 Warriors opened 24–0. How many games in a row did Allen Iverson's 2000–01 Sixers win to start their season?",
+      "prompt": "The chart shows other season-opening winning streaks. How many games did Allen Iverson's 2000–01 Sixers win to start their season?",
       "context": "Philadelphia 76ers · opening streak · 2000–01",
       "answer": 10,
       "unit": {
@@ -204,7 +234,7 @@
       "min": 3,
       "max": 25,
       "step": 1,
-      "note": "Ten straight wins before their first loss.",
+      "note": "The start of a run to the East's best record and Philadelphia's first Finals since 1983.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2000%E2%80%9301_Philadelphia_76ers_season",
@@ -241,14 +271,33 @@
           }
         }
       ],
+      "chart": {
+        "title": "Season-opening win streaks",
+        "unit": "games",
+        "points": [
+          {
+            "label": "Rockets '94",
+            "value": 15
+          },
+          {
+            "label": "76ers '01",
+            "value": null
+          },
+          {
+            "label": "Warriors '16",
+            "value": 24
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
+        "format": "missing-point",
         "family": "win-streak",
         "era": "cross-era",
         "subjects": [
           "Philadelphia 76ers"
         ],
         "supports": [
+          "nba-rockets94-start",
           "nba-gsw16-start"
         ]
       }
@@ -256,7 +305,7 @@
     {
       "id": "nba-vince01-sixers-first-half-eight-threes",
       "sport": "NBA",
-      "prompt": "In Vince Carter's legendary 2001 playoff duel with Allen Iverson's Sixers, how many threes did he hit in the first half?",
+      "prompt": "Kobe Bryant once made a then-record 12 threes in a game. In his 2001 playoff duel with Iverson, how many did Vince Carter hit in one half?",
       "context": "Vince Carter · Raptors vs 76ers · May 2001",
       "answer": 8,
       "unit": {
@@ -266,7 +315,7 @@
       "min": 0,
       "max": 24,
       "step": 1,
-      "note": "Eight first-half threes, as Vince poured in 50 points against Philadelphia.",
+      "note": "A playoff record for one half. Vince finished with 50 points.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Vince_Carter",
@@ -304,14 +353,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "threes-game",
         "era": "2000s",
         "subjects": [
           "Vince Carter",
           "Toronto Raptors"
         ],
-        "supports": []
+        "supports": [
+          "nba-kobe03-threes"
+        ]
       }
     }
   ]

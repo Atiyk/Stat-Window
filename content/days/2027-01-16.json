@@ -19,7 +19,7 @@
       "min": 0,
       "max": 12,
       "step": 1,
-      "note": "Eight unanswered points.",
+      "note": "Eight: two threes around a steal of Anthony Mason's inbound pass, then free throws after John Starks missed two.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Reggie_Miller",
@@ -70,7 +70,7 @@
     {
       "id": "nba-pistons50-19-18",
       "sport": "NBA",
-      "prompt": "Atlanta once scored 6 in a playoff quarter. Before the shot clock, how many points did Fort Wayne score to beat Minneapolis in 1950?",
+      "prompt": "Utah scored just 54 in a 1998 Finals game. Before the shot clock, how many did Fort Wayne score to beat Minneapolis in 1950?",
       "context": "Fort Wayne Pistons vs Minneapolis Lakers · November 22, 1950",
       "answer": 19,
       "unit": {
@@ -80,7 +80,7 @@
       "min": 0,
       "max": 45,
       "step": 1,
-      "note": "19, winning 19–18. The fourth quarter went 3–1.",
+      "note": "19, in a 19–18 win built on stalling to keep the ball from George Mikan; Fort Wayne took just 13 shots.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Shot_clock",
@@ -125,7 +125,7 @@
           "Detroit Pistons"
         ],
         "supports": [
-          "nba-hawks86-third-quarter"
+          "nba-jazz98-g3-54"
         ]
       }
     },
@@ -142,7 +142,7 @@
       "min": 1,
       "max": 16,
       "step": 0.1,
-      "note": "6.0 assists per game, alongside elite on-ball defense.",
+      "note": "6.0, modest for a point guard, but his 2.3 steals a game earned All-Defensive First Team honors.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
@@ -224,7 +224,7 @@
     {
       "id": "nba-mowilliams09-season-ppg",
       "sport": "NBA",
-      "prompt": "David West averaged 20.6 for the 2007–08 Hornets. What did Mo Williams average in his first season with the Cavaliers?",
+      "prompt": "David West averaged 20.6 as Chris Paul's No. 2 in 2007–08. What did Mo Williams average as LeBron's No. 2 the next season?",
       "context": "Cleveland Cavaliers · 2008–09 · regular season",
       "answer": 17.8,
       "unit": {
@@ -234,7 +234,7 @@
       "min": 8,
       "max": 31,
       "step": 0.1,
-      "note": "17.8 points per game in his first Cleveland season.",
+      "note": "17.8 on 43.6% three-point shooting, as Cleveland won 66 games.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Cleveland_Cavaliers_season",
@@ -297,7 +297,7 @@
       "min": 0,
       "max": 20,
       "step": 0.1,
-      "note": "5.2 seconds. Jordan's jumper helped clinch Chicago's sixth title in eight seasons.",
+      "note": "5.2 seconds, moments after Jordan stripped Karl Malone; Stockton's last three missed and Chicago won title No. 6.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Game_6_of_the_1998_NBA_Finals",

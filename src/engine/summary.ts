@@ -42,10 +42,14 @@ export function shareText(opts: {
     `Stat Window ${opts.label ?? `No. ${opts.number ?? 0}`}  ${total}/${MAX_TOTAL}${detail}`,
     opts.results.map(roundMark).join(''),
     ...(opts.percentile ? [opts.percentile] : []),
-    total > 0 && !opts.untimed ? `Same five questions. Can you beat ${total}?` : 'Same five questions. Your turn.',
+    inviteLine(total, opts.untimed),
     opts.url,
   ].join('\n');
 }
+
+/** The invitation under a shared score, the same in the text and on the card image. */
+export const inviteLine = (total: number, untimed = false): string =>
+  total > 0 && !untimed ? `Think you know ball? Beat ${total}.` : 'Same five questions. Your turn.';
 
 export type StreakMilestone = 3 | 7 | 30;
 
@@ -76,7 +80,8 @@ export function postgameHighlight(results: readonly RoundRecord[], official?: Of
   });
   if (bestWindow >= 0 && results[bestWindow]!.points > 0) {
     if (perfect === 1) return `Perfect window on question ${bestWindow + 1}.`;
-    return `Your best window was Q${bestWindow + 1} (${results[bestWindow]!.points} points).`;
+    const best = results[bestWindow]!.points;
+    return `Your best window was Q${bestWindow + 1} (${best} ${best === 1 ? 'point' : 'points'}).`;
   }
   if (hits === 0) return 'No points scored this game.';
   return `${hits} of ${results.length} windows caught the answer without scoring.`;

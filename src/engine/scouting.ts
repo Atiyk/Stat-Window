@@ -4,7 +4,7 @@
  * docs/V5.1-STATS.md; change them in both places.
  */
 import franchises from '../../data/nba/franchises.json';
-import { formatOf } from '../content/formats';
+import { formatOf, isPlayerFormat } from '../content/formats';
 import type { Question } from '../content/schema';
 import type { EligibleRecord } from './history';
 import type { RoundRecord } from './game';
@@ -21,6 +21,8 @@ export const CATEGORY_LEAD = 5;
 export const PERIOD_DIFFERENCE = 10;
 /** Average potential points the two periods must differ by before windows are called wider or narrower. */
 export const POTENTIAL_DIFFERENCE = 5;
+/** Completed games before the report describes how spread out the totals are. */
+export const MIN_CONSISTENCY_GAMES = 5;
 /** A miss within this share of the whole scale is a near miss. */
 export const NEAR_MISS_SHARE = 0.05;
 
@@ -196,7 +198,52 @@ export type Report = {
   /** Each game's total, oldest first, for the trend chart. */
   readonly series: readonly { day: string; total: number }[];
   readonly observations: readonly string[];
+  /** The headline profile, each part null until the sample supports it. */
+  readonly profile: Profile;
+  /** Question format rows: the three player formats, and retired ones played earlier under their own names. */
+  readonly formats: { readonly current: readonly CategoryRow[]; readonly earlier: readonly CategoryRow[] };
 };
+
+export type Profile = {
+  /** Average over the last PERIOD_GAMES completed games, or all of them when fewer. */
+  readonly recent: { readonly games: number; readonly average: number } | null;
+  readonly caught: { readonly caught: number; readonly attempts: number };
+  readonly best: { readonly day: string; readonly total: number } | null;
+  /** The highest-scoring statistic category, only with enough attempts and a clear lead (topCategory). */
+  readonly strongest: CategoryRow | null;
+  /** Where most saved windows sit, by risk band. Needs MIN_CATEGORY_ATTEMPTS windows. */
+  readonly risk: { readonly band: RiskBand; readonly label: string; readonly share: number; readonly windows: number } | null;
+  /** The middle half of game totals (lower and upper quartile by rank). Needs MIN_CONSISTENCY_GAMES. */
+  readonly consistency: { readonly low: number; readonly high: number; readonly games: number } | null;
+  /** Recent against the comparable earlier period; null below 2 × PERIOD_GAMES games. */
+  readonly trend: { readonly direction: 'more' | 'fewer' | 'same'; readonly points: number } | null;
+};
+
+function profileOf(records: readonly EligibleRecord[], overall: Tally, bands: readonly BandStats[], family: readonly CategoryRow[], comparison: Comparison | null): Profile {
+  const recentRecs = records.slice(-PERIOD_GAMES);
+  let best: Profile['best'] = null;
+  for (const r of records) if (!best || r.total > best.total) best = { day: r.day, total: r.total };
+  const windows = bands.reduce((n, b) => n + b.attempts, 0);
+  const top = [...bands].sort((a, b) => b.attempts - a.attempts)[0];
+  const sorted = records.map((r) => r.total).sort((a, b) => a - b);
+  const q = (f: number, round: (n: number) => number) => sorted[round((sorted.length - 1) * f)]!;
+  let trend: Profile['trend'] = null;
+  if (comparison) {
+    const diff = Math.round(comparison.recent.average - comparison.earlier.average);
+    trend = { direction: Math.abs(diff) < PERIOD_DIFFERENCE ? 'same' : diff > 0 ? 'more' : 'fewer', points: Math.abs(diff) };
+  }
+  return {
+    recent: recentRecs.length ? { games: recentRecs.length, average: Math.round(avg(recentRecs.map((r) => r.total))) } : null,
+    caught: { caught: catches(overall), attempts: overall.attempts },
+    best,
+    strongest: topCategory(family),
+    risk: top && windows >= MIN_CATEGORY_ATTEMPTS
+      ? { band: top.band, label: RISK_BANDS.find((b) => b.id === top.band)!.label, share: top.attempts / windows, windows }
+      : null,
+    consistency: sorted.length >= MIN_CONSISTENCY_GAMES ? { low: q(0.25, Math.floor), high: q(0.75, Math.ceil), games: sorted.length } : null,
+    trend,
+  };
+}
 
 const n = (count: number, one: string, many = `${one}s`) => `${count} ${count === 1 ? one : many}`;
 
@@ -259,5 +306,10 @@ export function buildReport(records: readonly EligibleRecord[], today: string): 
     dims,
     series: records.map((r) => ({ day: r.day, total: r.total })),
     observations,
+    profile: profileOf(records, overall, bands, dims.family, comparison),
+    formats: {
+      current: dims.format.filter((r) => isPlayerFormat(r.key)),
+      earlier: dims.format.filter((r) => !isPlayerFormat(r.key)),
+    },
   };
 }

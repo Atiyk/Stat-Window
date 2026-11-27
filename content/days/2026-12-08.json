@@ -19,7 +19,7 @@
       "min": 30,
       "max": 70,
       "step": 1,
-      "note": "54–28, before the defense-first Pistons won the title.",
+      "note": "54 wins and second place in the Central, then the defense-first Pistons won the title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
@@ -71,7 +71,7 @@
     {
       "id": "nba-wilt62-100-ft-share-v5",
       "sport": "NBA",
-      "prompt": "Wade scored 49% of his points at the line in 2006 Finals Game 5. What share of Wilt's 100 points came on free throws?",
+      "prompt": "What share of Wilt Chamberlain's 100 points came from free throws? Nearest whole percent.",
       "context": "Wilt Chamberlain · Warriors vs Knicks · March 2, 1962",
       "answer": 28,
       "unit": {
@@ -81,7 +81,7 @@
       "min": 5,
       "max": 60,
       "step": 1,
-      "note": "28%: Wilt made 28 free throws, an unusual night at the line for him.",
+      "note": "28%: he made 28 of 32 free throws, far better than his roughly 50% career rate.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
@@ -120,15 +120,14 @@
         }
       ],
       "meta": {
-        "format": "ratio",
+        "format": "recall",
         "family": "shooting-pct",
-        "era": "cross-era",
+        "era": "1960s",
         "subjects": [
           "Wilt Chamberlain",
           "Golden State Warriors"
         ],
         "supports": [
-          "nba-wade06-g5-ft-scoring-share",
           "nba-wilt-100-ftm",
           "nba-wilt-100"
         ]
@@ -147,7 +146,7 @@
       "min": 0,
       "max": 34,
       "step": 1,
-      "note": "21, with five of six threes.",
+      "note": "Five of six from three, the last of them the game-winner.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2005_NBA_Finals",
@@ -198,17 +197,17 @@
     {
       "id": "nba-jordan93-finals-ppg",
       "sport": "NBA",
-      "prompt": "The chart shows three other Finals scoring averages. What did Michael Jordan average in the 1993 Finals against Phoenix?",
+      "prompt": "Beside three other Finals MVPs' averages, what did Michael Jordan average against Phoenix in the 1993 Finals?",
       "context": "1993 NBA Finals · six games vs Phoenix",
       "answer": 41,
       "unit": {
         "singular": "point per game",
         "plural": "points per game"
       },
-      "min": 15,
-      "max": 60,
-      "step": 0.2,
-      "note": "41.0 points per game, a Finals record.",
+      "min": 16,
+      "max": 56,
+      "step": 0.1,
+      "note": "41.0, a Finals record, as Chicago completed its first three-peat.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
@@ -246,12 +245,16 @@
         }
       ],
       "chart": {
-        "title": "Finals scoring averages",
+        "title": "Scoring averages of Finals MVPs",
         "unit": "points per game",
         "points": [
           {
-            "label": "Duncan '99",
-            "value": 27.4
+            "label": "Dumars '89",
+            "value": 27.3
+          },
+          {
+            "label": "Jordan '93",
+            "value": null
           },
           {
             "label": "Shaq '00",
@@ -260,10 +263,6 @@
           {
             "label": "Brown '24",
             "value": 20.8
-          },
-          {
-            "label": "Jordan '93",
-            "value": null
           }
         ]
       },
@@ -276,7 +275,7 @@
           "Chicago Bulls"
         ],
         "supports": [
-          "nba-duncan99-finals-ppg",
+          "nba-dumars89-finals-ppg",
           "nba-shaq00-finals-ppg",
           "nba-brown24-finals-ppg"
         ]
@@ -285,7 +284,7 @@
     {
       "id": "nba-harden19-msg-61",
       "sport": "NBA",
-      "prompt": "At Madison Square Garden in January 2019, how many points did James Harden score against the Knicks?",
+      "prompt": "The chart shows other huge regular-season scoring nights. How many did James Harden score at Madison Square Garden in January 2019?",
       "context": "James Harden · Houston Rockets at Knicks · January 2019",
       "answer": 61,
       "unit": {
@@ -295,7 +294,7 @@
       "min": 0,
       "max": 95,
       "step": 1,
-      "note": "61 points and 15 rebounds, extending his astonishing 2018–19 scoring run.",
+      "note": "A career high, with 15 rebounds, in a 114–110 Rockets win at the Garden.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/James_Harden",
@@ -308,23 +307,23 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Harden grabbed 15 rebounds that night.",
+          "text": "That season he scored 30 or more against all 29 other teams, an NBA first.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/James_Harden",
-            "quote": "61 points to go with 15 rebounds"
+            "quote": "became the first player in NBA history to score 30 or more points against all 29 other teams in a single season"
           }
         },
         {
-          "text": "Houston narrowly won at the Garden.",
+          "text": "He became only the third player with 2,700 points and 500 assists in one season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/James_Harden",
-            "quote": "in a 114–110 win over the New York Knicks"
+            "quote": "became the third person in NBA history to record 2,700+ points and 500+ assists in a single season"
           }
         },
         {
-          "text": "He matched this career high again later that season.",
+          "text": "When he matched that career high later in the season, he scored 27 in the first quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/James_Harden",
@@ -332,15 +331,41 @@
           }
         }
       ],
+      "chart": {
+        "title": "Regular-season scoring explosions",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Baylor '60",
+            "value": 71
+          },
+          {
+            "label": "Robinson '94",
+            "value": 71
+          },
+          {
+            "label": "Kobe '06",
+            "value": 81
+          },
+          {
+            "label": "Harden '19",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "James Harden",
           "Houston Rockets"
         ],
-        "supports": []
+        "supports": [
+          "nba-baylor60-71",
+          "nba-robinson94-71",
+          "nba-kobe-81"
+        ]
       }
     }
   ]

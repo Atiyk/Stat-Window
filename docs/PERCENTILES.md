@@ -67,7 +67,7 @@ On the results screen, at most one extra quiet line: *Toughest for the crowd tod
 - The five windows match today's published slate exactly: same question ids in order, on the step grid, inside the scale, at least one step wide. The server re-scores them with `src/engine/scoring.ts` (the same code the game uses); a client `total` that disagrees is rejected.
 - One per browser code per day per season: **first stored wins** (`SET` only if absent inside one Lua script). A refresh, a retry or 20 simultaneous tabs count once and get the first score back (`duplicate`).
 - A first play of today's puzzle that arrived through a friend's `?day=…&vs=…` link is eligible (the client marks it a daily run; the `vs` value is never sent). Past-day challenge links and archive practice are not.
-- Season comes from server config (`LAUNCH_DAY`), never from the client. `test: true` (set by `?qa=1`, remembered) goes to season `qa`, which no ranking reads. Preview and development deployments write under their own key prefix (`sw:v1:preview:…`), never production. On Vercel the function **fails closed**: if `VERCEL_ENV` is missing (and no `SCORES_NAMESPACE` is set), or `SCORE_HASH_SECRET` is missing or shorter than 32 characters, it collects nothing.
+- Season comes from the committed `LAUNCH_DAY` (`src/engine/launch-config.ts`), never from the client. `test: true` (set by `?qa=1`, remembered) goes to season `qa`, which no ranking reads. Preview and development deployments write under their own key prefix (`sw:v1:preview:…`), never production. On Vercel the function **fails closed**: if `VERCEL_ENV` is missing (and no `SCORES_NAMESPACE` is set), or `SCORE_HASH_SECRET` is missing or shorter than 32 characters, it collects nothing.
 
 ## Consent flow
 
@@ -158,7 +158,7 @@ Treat percentiles as a friendly comparison among unverified browsers. A real lea
 | `SCORES_NAMESPACE` | optional | overrides the environment prefix (lowercase, ≤ 24 chars). It never changes the 100-game floor |
 | `PERCENTILE_MIN_SAMPLE` | optional | raises the sample threshold (never below 100) |
 | `SCORES_TEST_LOW_SAMPLE` | tests only, never Production | `1` lets `PERCENTILE_MIN_SAMPLE` go below 100; ignored on production deployments |
-| `LAUNCH_DAY` | only at formal launch | see `docs/LAUNCH.md` |
+| `LAUNCH_DAY`, `VITE_LAUNCH_DAY` | never: delete from every environment, Preview included | the launch day is committed in `src/engine/launch-config.ts`; a build fails if either is set to a different value (`docs/LAUNCH.md`) |
 
 ## Emergency disable / rollback
 

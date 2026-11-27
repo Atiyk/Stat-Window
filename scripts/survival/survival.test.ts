@@ -143,8 +143,10 @@ describe('supply and the beta gate', () => {
     // Dec 6 to Dec 5. This is a content change, not a relaxed Survival threshold.
     // Keep both the day-before and the first-passing-day checks, as well as
     // the independent scan above, to flag any further unintended movement.
-    const dayBefore = '2026-12-04';
-    const firstPassing = '2026-12-05';
+    // V5.2 editorial (re-rated and replaced official-season questions) moved
+    // the first passing day again, from Dec 5 to Dec 4, with the same gates.
+    const dayBefore = '2026-12-03';
+    const firstPassing = '2026-12-04';
     expect(supplyOf(poolOn(dayBefore), dayBefore).beta).toBe(false);
     expect(supplyOf(poolOn(firstPassing), firstPassing).beta).toBe(true);
     expect(first).toBe(firstPassing);

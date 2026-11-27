@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { lockAndSettle, NBA_FIRST, next, openAt, startDailyIfNeeded } from './helpers';
+import { openFold } from './results-helpers';
 
 /**
  * Runs only against a build made with VITE_ANALYTICS=vercel (npm run test:e2e:analytics).
@@ -132,6 +133,7 @@ test('a completed daily sends one streak event, bucketed 1, 2-6 or 7plus; practi
   await playFive();
   await expect.poll(async () => (await views(page)).filter((p) => p.startsWith('/e/streak/'))).toEqual(['/e/streak/daily/2-6']);
   // A practice run of an earlier day is not a daily.
+  await openFold(page, 'Practice a past game');
   await page.getByRole('button', { name: 'Nov 18' }).click();
   // Opening an archive practice slate mounts its own deliberate Start gate.
   // Wait for the destination rather than treating the previous results as play.
@@ -145,21 +147,32 @@ test('a completed daily sends one streak event, bucketed 1, 2-6 or 7plus; practi
 test('first-time tutorial impressions and practice do not count as daily starts', async ({ page }) => {
   await page.clock.setFixedTime(NBA_FIRST);
   await page.goto('/');
+  await page.getByRole('button', { name: 'Try a practice question first' }).click();
   await expect(page.getByRole('heading', { name: 'How many regular-season games did the 2015–16 Golden State Warriors win?' })).toBeVisible();
-  await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new']);
+  // The tutorial counts as a tutorial start, never as a daily start.
+  await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new', '/e/tutorial/start']);
   // Practice now uses the real ruler and Lock action; it must not emit a real run start.
   await page.getByRole('slider', { name: 'Low end of your window' }).focus();
   await page.keyboard.press('ArrowRight');
   await page.getByRole('button', { name: 'Lock the window' }).click();
-  await expect(page.locator('.onboarding-play .story-answer')).toBeVisible();
-  await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new']);
-  await page.getByRole('button', { name: "Start today's five" }).click();
+  await expect(page.locator('.onboarding-play .reveal-answer')).toBeVisible();
+  await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new', '/e/tutorial/start']);
+  await page.getByRole('button', { name: /^Play Game \d+$/ }).click();
   await expect(page.locator('.question')).toBeVisible();
-  await expect.poll(() => views(page)).toContain('/e/start/daily');
+  await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new', '/e/tutorial/start', '/e/tutorial/complete', '/e/start/daily']);
   // Refresh preserves an in-progress clock, not a second run-start event.
   await page.reload();
   await expect(page.locator('.question')).toBeVisible();
   await expect.poll(() => views(page)).toEqual(['/']);
+});
+
+test('skipping the tutorial counts a skip, not a completion', async ({ page }) => {
+  await page.clock.setFixedTime(NBA_FIRST);
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Try a practice question first' }).click();
+  await page.getByRole('button', { name: 'Skip tutorial and start' }).click();
+  await expect(page.locator('.question')).toBeVisible();
+  await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new', '/e/tutorial/start', '/e/tutorial/skip', '/e/start/daily']);
 });
 
 test('a returning player can leave the ready screen without registering a start', async ({ page }) => {
@@ -170,9 +183,9 @@ test('a returning player can leave the ready screen without registering a start'
     }));
   });
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Ready for five?' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'How well do you know ball?' })).toBeVisible();
   await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new']);
-  await page.getByRole('button', { name: "Start today's five" }).click();
+  await page.getByRole('button', { name: /^Play Game \d+$/ }).click();
   await expect(page.locator('.question')).toBeVisible();
   await expect.poll(() => views(page)).toContain('/e/start/daily');
 });
@@ -200,6 +213,7 @@ test('tapping a reminder link queues /e/remind/ics or /e/remind/google', async (
     await lockAndSettle(page);
     await next(page);
   }
+  await openFold(page, 'Next puzzle and reminders');
   await page.getByRole('link', { name: 'Apple or Outlook calendar' }).click();
   await expect.poll(async () => (await views(page)).filter((p) => p.startsWith('/e/remind/'))).toEqual(['/e/remind/ics']);
   const popup = context.waitForEvent('page');
@@ -222,6 +236,7 @@ test('under Global Privacy Control the reminder sends nothing and loads no scrip
     await lockAndSettle(page);
     await next(page);
   }
+  await openFold(page, 'Next puzzle and reminders');
   await page.getByRole('link', { name: 'Apple or Outlook calendar' }).click();
   const popup = context.waitForEvent('page');
   await page.getByRole('link', { name: 'Google Calendar (opens in a new tab)' }).click();

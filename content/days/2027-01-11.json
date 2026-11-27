@@ -19,7 +19,7 @@
       "min": 25,
       "max": 105,
       "step": 1,
-      "note": "71 points, plus 11 assists.",
+      "note": "71 with 11 assists, the first 70-point game with 10 or more assists, in a 145–134 OT win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Donovan_Mitchell",
@@ -72,7 +72,7 @@
     {
       "id": "nba-klay16-60-minutes",
       "sport": "NBA",
-      "prompt": "Willis Reed played 27 minutes in Game 7 of the 1970 Finals. How many minutes did Klay Thompson play in his 60-point game?",
+      "prompt": "Klay Thompson scored 60 points against Indiana in December 2016. How many minutes did he play?",
       "context": "Klay Thompson · Warriors vs Pacers · December 5, 2016",
       "answer": 29,
       "unit": {
@@ -82,7 +82,7 @@
       "min": 20,
       "max": 48,
       "step": 1,
-      "note": "29 minutes for 60 points against Indiana.",
+      "note": "29 minutes, more than two points for every minute he was on the floor.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
@@ -120,16 +120,14 @@
         }
       ],
       "meta": {
-        "format": "reference",
+        "format": "recall",
         "family": "minutes",
-        "era": "cross-era",
+        "era": "2010s",
         "subjects": [
           "Klay Thompson",
           "Golden State Warriors"
         ],
-        "supports": [
-          "nba-reed70-g7-minutes"
-        ]
+        "supports": []
       }
     },
     {
@@ -145,7 +143,7 @@
       "min": 12,
       "max": 70,
       "step": 1,
-      "note": "38 in 44 minutes.",
+      "note": "38 in 44 minutes, before he collapsed into Scottie Pippen's arms at the buzzer.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1997_NBA_Finals",
@@ -222,7 +220,7 @@
     {
       "id": "nba-six-overtime-game",
       "sport": "NBA",
-      "prompt": "Before the shot clock, two teams played a game with only one shot in each overtime. How many overtimes?",
+      "prompt": "Before the shot clock, Rochester and Indianapolis played a 1951 game with one shot per overtime. How many overtimes did it last?",
       "context": "NBA · 1950–51",
       "answer": 6,
       "unit": {
@@ -232,7 +230,7 @@
       "min": 2,
       "max": 12,
       "step": 1,
-      "note": "Six.",
+      "note": "Six. Stalls like this pushed the NBA to adopt the 24-second clock in 1954.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Shot_clock",
@@ -280,7 +278,7 @@
     {
       "id": "nba-durant17-finals-g3-shot-45seconds",
       "sport": "NBA",
-      "prompt": "How many seconds were left on Kevin Durant's go-ahead pull-up three over LeBron in Game 3 of the 2017 Finals?",
+      "prompt": "Kyrie Irving's 2016 Game 7 dagger came with 53 seconds left. How many seconds were left on Kevin Durant's go-ahead three in 2017 Game 3?",
       "context": "Kevin Durant · Warriors at Cavaliers · 2017 Finals Game 3",
       "answer": 45.3,
       "unit": {
@@ -290,7 +288,7 @@
       "min": 20,
       "max": 60,
       "step": 0.1,
-      "note": "45.3 seconds. KD's three capped Golden State's furious comeback on the way to his first title.",
+      "note": "45.3, during 11 unanswered closing points that stole Game 3 and put Golden State up 3–0.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2017_NBA_Finals",
@@ -328,14 +326,16 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "time",
         "era": "2010s",
         "subjects": [
           "Kevin Durant",
           "Golden State Warriors"
         ],
-        "supports": []
+        "supports": [
+          "nba-kyrie16-finals-g7-shot-53-sec"
+        ]
       }
     }
   ]

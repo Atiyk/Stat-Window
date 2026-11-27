@@ -59,6 +59,8 @@ export type TrackEvent =
   | { name: 'weekly_share'; method: ShareMethod }
   /** Practice discovery on the home screen: the list was opened, or a past game was started from it. */
   | { name: 'practice_discover'; step: 'expand' | 'start' }
+  /** The first-play tutorial was shown, skipped before its lock, or played through to its Play button. */
+  | { name: 'tutorial'; step: 'start' | 'skip' | 'complete' }
   /** The one experiment: arm is per browser, step is what happened. */
   | { name: 'experiment'; arm: 'cta' | 'control'; step: 'exposed' | 'first-exposure' | 'click' | 'daily-start' | 'next-day-start' | 'daily-share' };
 
@@ -147,6 +149,8 @@ function basePath(e: TrackEvent): string {
       return `/e/weekly/share/${e.method}`;
     case 'practice_discover':
       return `/e/practice/${e.step}/home`;
+    case 'tutorial':
+      return `/e/tutorial/${e.step}`;
     case 'experiment':
       return `/e/x/survival-cta/${e.arm}/${e.step}`;
   }

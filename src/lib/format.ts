@@ -5,6 +5,19 @@ export function formatValue(value: number, step: number): string {
   return value.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
 }
 
+/**
+ * A verified observation (a chart bar): at least the step's precision, never fewer digits than
+ * the fact itself has, so 8.3 on a whole-number scale reads 8.3, not 8.
+ */
+export function formatObserved(value: number, step: number): string {
+  const own = Number.isInteger(value) ? 0 : stepDecimals(value);
+  const d = Math.max(stepDecimals(step), Math.min(own, 3));
+  return value.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+}
+
+/** “1 point”, “2 points”: a count with its noun in the right number. */
+export const plural = (n: number, one: string, many = `${one}s`): string => `${n} ${n === 1 ? one : many}`;
+
 export function unitFor(value: number, unit: { singular: string; plural: string }): string {
   return value === 1 ? unit.singular : unit.plural;
 }
@@ -46,4 +59,14 @@ export function niceTicks(min: number, max: number, target: number): { major: nu
   if (!major.some((m) => Math.abs(m - min) < gap)) major.unshift(round(min));
   if (!major.some((m) => Math.abs(m - max) < gap)) major.push(round(max));
   return { major, minor: minor.filter((t) => !major.includes(t)) };
+}
+
+/**
+ * The unit to print after a chart title, or null when the title already says it
+ * ("Points in one game" needs no "(points)"). Whole words, any case; "a game" reads as "per game".
+ */
+export function chartUnitLabel(title: string, unit: string): string | null {
+  const norm = (s: string) => s.toLowerCase().replace(/\ba game\b/g, 'per game').replace(/\s+/g, ' ').trim();
+  const phrase = norm(unit).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`(^|[^\\p{L}\\p{N}-])${phrase}($|[^\\p{L}\\p{N}-])`, 'u').test(norm(title)) ? null : unit;
 }

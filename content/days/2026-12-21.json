@@ -9,7 +9,7 @@
     {
       "id": "nba-bucks21-regular-wins",
       "sport": "NBA",
-      "prompt": "The chart shows four recent regular-season win totals. How many did the shortened-season 2020–21 Bucks win?",
+      "prompt": "The chart shows regular-season wins for four other recent champions. How many did the 2020–21 Bucks win in the shortened 72-game season?",
       "context": "Milwaukee · pandemic-shortened NBA season",
       "answer": 46,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 20,
       "max": 80,
       "step": 1,
-      "note": "46–26 in the shortened season.",
+      "note": "A third seed's record. Milwaukee then won its first title in 50 years.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
@@ -110,7 +110,7 @@
       "min": 12,
       "max": 40,
       "step": 1,
-      "note": "31 victories in their final 36 games.",
+      "note": "After a 6–8 start; the Spurs carried the form into a 15–2 playoff run and their first title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
@@ -162,7 +162,7 @@
     {
       "id": "nba-suns21-g1-ft",
       "sport": "NBA",
-      "prompt": "Dirk once made 24 free throws without a miss in a playoff game. How many in a row did Phoenix make to open Game 1 of the 2021 Finals?",
+      "prompt": "To open Game 1 of the 2021 Finals against Milwaukee, Phoenix made how many free throws in a row?",
       "context": "2021 NBA Finals · Game 1 · vs Milwaukee",
       "answer": 25,
       "unit": {
@@ -172,7 +172,7 @@
       "min": 10,
       "max": 45,
       "step": 1,
-      "note": "25.",
+      "note": "They nearly set a record for a game without a miss, until Jae Crowder missed with 24.8 seconds left.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2021_NBA_Finals",
@@ -210,15 +210,13 @@
         }
       ],
       "meta": {
-        "format": "reference",
+        "format": "recall",
         "family": "free-throws",
-        "era": "cross-era",
+        "era": "2020s",
         "subjects": [
           "Phoenix Suns"
         ],
-        "supports": [
-          "nba-dirk11-24-ft"
-        ]
+        "supports": []
       }
     },
     {
@@ -234,7 +232,7 @@
       "min": 0,
       "max": 12,
       "step": 1,
-      "note": "Eight steals, with 21 points, 12 rebounds and 10 assists.",
+      "note": "Part of a near quadruple-double: 21 points, 12 rebounds, 10 assists, in an overtime loss.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1985%E2%80%9386_Boston_Celtics_season",
@@ -285,7 +283,7 @@
     {
       "id": "nba-wemby24-10-blocks-blazers",
       "sport": "NBA",
-      "prompt": "In Wembanyama's spectacular December 2024 two-way night against Portland, how many shots did he block?",
+      "prompt": "The chart shows two other famous shot-blocking nights. How many shots did Victor Wembanyama block against Portland in December 2024?",
       "context": "Victor Wembanyama · Spurs vs Blazers · December 2024",
       "answer": 10,
       "unit": {
@@ -295,7 +293,7 @@
       "min": 0,
       "max": 27,
       "step": 1,
-      "note": "10 blocks, plus 30 points. Even for Wembanyama, that's an extraordinary defensive night.",
+      "note": "Tying his career high, with 30 points, at age 20 in a 114–94 win.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Victor_Wembanyama",
@@ -332,15 +330,36 @@
           }
         }
       ],
+      "chart": {
+        "title": "Blocks in one game: big men's nights",
+        "unit": "blocks",
+        "points": [
+          {
+            "label": "Hakeem '90",
+            "value": 11
+          },
+          {
+            "label": "Giannis '21",
+            "value": 5
+          },
+          {
+            "label": "Wemby '24",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "blocks-game",
-        "era": "2020s",
+        "era": "cross-era",
         "subjects": [
           "Victor Wembanyama",
           "San Antonio Spurs"
         ],
-        "supports": []
+        "supports": [
+          "nba-hakeem90-quadruple-blocks",
+          "nba-giannis21-finals-g6-blocks"
+        ]
       }
     }
   ]

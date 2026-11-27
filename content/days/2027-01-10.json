@@ -19,7 +19,7 @@
       "min": 15,
       "max": 52,
       "step": 0.1,
-      "note": "30.2 points per game over the Bucks' championship run.",
+      "note": "30.2 a game, capped by 50 points in the title-clinching Game 6.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2020%E2%80%9321_Milwaukee_Bucks_season",
@@ -80,7 +80,7 @@
       "min": 10000,
       "max": 150000,
       "step": 1000,
-      "note": "108,713.",
+      "note": "108,713, more than ten times the first All-Star crowd in 1951.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/NBA_All-Star_Game",
@@ -140,7 +140,7 @@
       "min": 0,
       "max": 3200,
       "step": 10,
-      "note": "2,560, a record at his retirement.",
+      "note": "2,560. He had passed Dale Ellis for the career lead back in 1997.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Three-point_field_goal",
@@ -201,7 +201,7 @@
       "min": 0,
       "max": 34,
       "step": 1,
-      "note": "29 rebounds, and the Finals MVP award.",
+      "note": "29 to go with 24 points in a 114–100 clincher, and Wilt was named Finals MVP.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1971%E2%80%9372_Los_Angeles_Lakers_season",
@@ -278,8 +278,8 @@
     {
       "id": "nba-curry22-allstar-sixteen-threes",
       "sport": "NBA",
-      "prompt": "Stephen Curry set the All-Star Game record for threes in 2022 in Cleveland. How many did he make?",
-      "context": "Benchmark: Curry hit 13 threes in a regular-season game in 2016",
+      "prompt": "Stephen Curry's 13 threes in 2016 set the single-game record. How many did he make in the 2022 All-Star Game in Cleveland?",
+      "context": "2022 NBA All-Star Game · Cleveland",
       "answer": 16,
       "unit": {
         "singular": "three-pointer",

@@ -24,3 +24,40 @@
 .results-more .week-glance { padding-top: 0; border-top: 0; }
 .results-more__link { margin: 0; color: var(--brand); font-size: 0.9375rem; }
 .home-links { display: flex; flex-wrap: wrap; gap: var(--space-4); margin: 0; }
+
+/* The hook, then the rules as a picture, then Play: a visitor reads it top to bottom in seconds. */
+.home h1 { font-size: clamp(2rem, 1.4rem + 2.6vw, 2.75rem); }
+.home-lede { font-size: 1.0625rem; line-height: 1.4; text-wrap: pretty; }
+.window-demo.home-demo { margin-top: var(--space-1); }
+.home-actions { display: grid; gap: var(--space-2); width: 100%; margin-top: var(--space-2); }
+.home-actions .btn { width: 100%; }
+.ready-card .home-actions .btn-primary { margin-top: 0; }
+.home-terms { color: var(--ink-soft); font-size: 0.875rem; }
+@media (max-width: 359px), (max-height: 600px) {
+  .home.ready-card { gap: var(--space-2); }
+  .home-lede { font-size: 1rem; }
+}
+.home-actions .home-learn { padding-inline: var(--space-4); }
+@media (max-width: 400px) {
+  .home.ready-card { padding: var(--space-5) var(--space-4); }
+}
+
+/* Short landscape phones (844×390): the hook and Play on the left, the rules picture on the
+   right, so "Play Game N" is on the first screen. Everything else follows at full width. */
+@media (orientation: landscape) and (max-height: 500px) {
+  .home.ready-card {
+    width: min(calc(100% - 2 * var(--gutter)), 880px);
+    margin-block: 4px var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: var(--space-5);
+    row-gap: var(--space-2);
+    align-items: start;
+  }
+  .home.ready-card > * { grid-column: 1 / -1; }
+  .home.ready-card > :is(h1, .home-lede, .home-actions, .home-terms) { grid-column: 1; }
+  .home.ready-card > .home-demo { grid-column: 2; grid-row: 1 / span 4; align-self: center; margin-top: 0; }
+  .home h1 { font-size: 1.75rem; }
+  .home-lede { font-size: 0.9375rem; }
+  .home-actions { margin-top: var(--space-1); }
+}

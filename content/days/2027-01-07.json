@@ -9,7 +9,7 @@
     {
       "id": "nba-rose11-season-ppg",
       "sport": "NBA",
-      "prompt": "Lew Alcindor led the NBA at 31.7 points per game in 1970–71. What was Derrick Rose's average in his 2010–11 MVP season?",
+      "prompt": "What was Derrick Rose's scoring average in 2010–11, the season he became the NBA's youngest MVP?",
       "context": "Chicago Bulls · 2010–11 · regular season",
       "answer": 25,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 14,
       "max": 43,
       "step": 0.1,
-      "note": "25.0 points per game alongside his playmaking.",
+      "note": "25.0 points with 7.7 assists, for a Bulls team that won 62 games.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
@@ -57,16 +57,14 @@
         }
       ],
       "meta": {
-        "format": "reference",
+        "format": "recall",
         "family": "scoring-average",
-        "era": "cross-era",
+        "era": "2010s",
         "subjects": [
           "Derrick Rose",
           "Chicago Bulls"
         ],
-        "supports": [
-          "nba-alcindor71-ppg"
-        ]
+        "supports": []
       }
     },
     {
@@ -135,7 +133,7 @@
     {
       "id": "nba-klay16-wcf-threes",
       "sport": "NBA",
-      "prompt": "The chart shows three other playoff three-point nights. Facing elimination in 2016, how many threes did Klay Thompson make in Game 6?",
+      "prompt": "The chart shows three other playoff three-point nights. Facing elimination in 2016, how many threes did Klay Thompson make in Game 6 at OKC?",
       "context": "2016 Western Conference finals · Game 6",
       "answer": 11,
       "unit": {
@@ -145,7 +143,7 @@
       "min": 4,
       "max": 23,
       "step": 1,
-      "note": "11, breaking the record of nine.",
+      "note": "11, breaking the playoff record of nine. Damian Lillard pushed it to 12 in 2021.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2015%E2%80%9316_Golden_State_Warriors_season",
@@ -191,16 +189,16 @@
             "value": 6
           },
           {
+            "label": "Klay '16",
+            "value": null
+          },
+          {
             "label": "Curry '18",
             "value": 9
           },
           {
             "label": "Dame '21",
             "value": 12
-          },
-          {
-            "label": "Klay '16",
-            "value": null
           }
         ]
       },
@@ -232,7 +230,7 @@
       "min": 7,
       "max": 26,
       "step": 1,
-      "note": "12, a postseason record.",
+      "note": "12, a postseason record. All four of their Finals wins over Miami came by 15 or more.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
@@ -282,7 +280,7 @@
     {
       "id": "nba-ad20-lakers-ten-straight-wcf-winner",
       "sport": "NBA",
-      "prompt": "Anthony Davis's buzzer-beating three beat Denver in 2020 Game 2. How many straight points did he score to close the game?",
+      "prompt": "The chart shows three other one-man scoring bursts. How many straight Lakers points did Anthony Davis score to beat Denver in 2020 Game 2?",
       "context": "Anthony Davis · Lakers vs Nuggets · 2020 Western finals",
       "answer": 10,
       "unit": {
@@ -292,7 +290,7 @@
       "min": 0,
       "max": 50,
       "step": 1,
-      "note": "AD scored the Lakers' final 10, including the game-winning three at the buzzer.",
+      "note": "10, the Lakers' last 10, capped by his first playoff buzzer-beater.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Anthony_Davis",
@@ -305,7 +303,7 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "He drilled a game-winning three against Denver.",
+          "text": "His three at the buzzer beat Denver 105–103.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Anthony_Davis",
@@ -329,15 +327,41 @@
           }
         }
       ],
+      "chart": {
+        "title": "One-man scoring bursts",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Dumars '89",
+            "value": 17
+          },
+          {
+            "label": "McGrady '04",
+            "value": 13
+          },
+          {
+            "label": "LeBron '07",
+            "value": 25
+          },
+          {
+            "label": "Davis '20",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-run",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Anthony Davis",
           "Los Angeles Lakers"
         ],
-        "supports": []
+        "supports": [
+          "nba-dumars89-17-straight",
+          "nba-mcgrady04-35-seconds",
+          "nba-lebron07-final-twentyfive"
+        ]
       }
     }
   ]

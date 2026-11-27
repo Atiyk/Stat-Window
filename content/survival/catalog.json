@@ -541,10 +541,7 @@
       "era": "2010s",
       "steps": 18,
       "day": "2026-11-28",
-      "notBefore": "2026-12-12",
-      "leaks": [
-        "nba-curry15-g2-misses"
-      ]
+      "notBefore": "2026-11-29"
     },
     "nba-shaq00-finals-ppg": {
       "tier": "medium",
@@ -644,7 +641,11 @@
       "era": "2000s",
       "steps": 55,
       "day": "2026-11-30",
-      "notBefore": "2026-12-01"
+      "notBefore": "2026-12-01",
+      "leaks": [
+        "nba-west69-g1",
+        "nba-iverson01-g1"
+      ]
     },
     "nba-allen10-g2-threes": {
       "tier": "medium",
@@ -701,22 +702,19 @@
       "day": "2026-12-01",
       "notBefore": "2026-12-06",
       "leaks": [
-        "nba-celtics08-wins",
+        "nba-celtics24-wins",
         "nba-bulls11-regular-wins",
         "nba-magic09-kings-threes"
       ]
     },
-    "nba-rose11-mvp-youngest-age": {
+    "nba-magic80-finals-mvp-age-v52a": {
       "tier": "medium",
       "family": "age",
-      "franchise": "CHI",
-      "era": "2010s",
+      "franchise": "LAL",
+      "era": "1970s",
       "steps": 20,
       "day": "2026-12-01",
-      "notBefore": "2026-12-02",
-      "leaks": [
-        "nba-mazzulla24-age"
-      ]
+      "notBefore": "2026-12-02"
     },
     "nba-luka22-knicks-triple-rebounds": {
       "tier": "hard",
@@ -729,6 +727,7 @@
       "leaks": [
         "nba-murray23-finals-apg",
         "nba-jokic23-playoff-triple-doubles",
+        "nba-jokic-murray23-finals-g3-20-assists",
         "nba-jokic23-finals-g3-rebounds"
       ]
     },
@@ -739,10 +738,9 @@
       "era": "2000s",
       "steps": 24,
       "day": "2026-12-01",
-      "notBefore": "2026-12-12",
+      "notBefore": "2026-12-02",
       "leaks": [
-        "nba-curry16-13-threes",
-        "nba-curry15-g2-misses"
+        "nba-curry16-13-threes"
       ]
     },
     "nba-lillard19-okc-winner-distance": {
@@ -764,7 +762,12 @@
       "era": "2010s",
       "steps": 52,
       "day": "2026-12-02",
-      "notBefore": "2026-12-03"
+      "notBefore": "2026-12-03",
+      "leaks": [
+        "nba-lakers87-wins",
+        "nba-celtics08-wins",
+        "nba-warriors75-season-wins"
+      ]
     },
     "nba-grizzlies21-bench-points-v5": {
       "tier": "medium",
@@ -787,17 +790,14 @@
       "day": "2026-12-02",
       "notBefore": "2026-12-03"
     },
-    "nba-webber02-season-ppg": {
+    "nba-baylor62-season-ppg-v52a": {
       "tier": "hard",
       "family": "scoring-average",
-      "franchise": "SAC",
-      "era": "2000s",
-      "steps": 400,
+      "franchise": "LAL",
+      "era": "1960s",
+      "steps": 360,
       "day": "2026-12-02",
-      "notBefore": "2026-12-03",
-      "leaks": [
-        "nba-wilt62-ppg"
-      ]
+      "notBefore": "2026-12-03"
     },
     "nba-wolves24-denver-game7-comeback": {
       "tier": "expert",
@@ -808,8 +808,7 @@
       "day": "2026-12-02",
       "notBefore": "2026-12-03",
       "leaks": [
-        "nba-jazz96-comeback",
-        "nba-lakers00-portland-g7-comeback"
+        "nba-jazz96-comeback"
       ]
     },
     "nba-kobe-81": {
@@ -856,11 +855,11 @@
       "family": "assists-average",
       "franchise": "SAC",
       "era": "2000s",
-      "steps": 80,
+      "steps": 160,
       "day": "2026-12-03",
-      "notBefore": "2026-12-18",
+      "notBefore": "2026-12-04",
       "leaks": [
-        "nba-celtics02-19-threes",
+        "nba-stockton90-apg",
         "nba-lowry19-regular-apg"
       ]
     },
@@ -907,17 +906,16 @@
         "nba-giannis21-finals-g6-blocks"
       ]
     },
-    "nba-kawhi19-jokic23-playoff-points-gap-v5": {
+    "nba-nuggets09-hornets-margin-v52a": {
       "tier": "hard",
-      "family": "points-season-total",
-      "franchise": "TOR",
-      "era": "2010s",
-      "steps": 150,
+      "family": "margin",
+      "franchise": "DEN",
+      "era": "2000s",
+      "steps": 75,
       "day": "2026-12-04",
       "notBefore": "2026-12-05",
       "leaks": [
-        "nba-jokic23-playoff-points",
-        "nba-kawhi19-playoff-points-732"
+        "nba-grizzlies21-margin"
       ]
     },
     "nba-klay16-okc-game6-41": {
@@ -930,7 +928,6 @@
       "notBefore": "2027-01-08",
       "leaks": [
         "nba-cavs16-g5-41",
-        "nba-iverson01-g1",
         "nba-klay16-wcf-threes",
         "nba-butler23-56-bucks-upset"
       ]
@@ -945,8 +942,8 @@
       "notBefore": "2027-01-15",
       "leaks": [
         "nba-celtics08-playoff-games",
-        "nba-warriors75-season-wins",
-        "nba-kings02-regular-wins"
+        "nba-kings02-regular-wins",
+        "nba-suns93-regular-wins"
       ]
     },
     "nba-magic09-kings-threes": {
@@ -956,10 +953,9 @@
       "era": "2000s",
       "steps": 45,
       "day": "2026-12-05",
-      "notBefore": "2026-12-12",
+      "notBefore": "2027-01-13",
       "leaks": [
-        "nba-curry16-13-threes",
-        "nba-curry15-g2-misses"
+        "nba-cavs09-home-wins"
       ]
     },
     "nba-kobe03-40-streak": {
@@ -980,7 +976,8 @@
       "day": "2026-12-05",
       "notBefore": "2026-12-06",
       "leaks": [
-        "nba-shaq00-finals-ppg"
+        "nba-shaq00-finals-ppg",
+        "nba-brown24-finals-ppg"
       ]
     },
     "nba-cp3-2022-perfect-playoff-shots": {
@@ -999,9 +996,10 @@
       "era": "1980s",
       "steps": 42,
       "day": "2026-12-06",
-      "notBefore": "2026-12-07",
+      "notBefore": "2027-01-07",
       "leaks": [
-        "nba-raptors19-regular-wins"
+        "nba-bucks19-season-wins",
+        "nba-bird85-hawks-sixty"
       ]
     },
     "nba-allstar24-east": {
@@ -1011,10 +1009,7 @@
       "era": "2020s",
       "steps": 140,
       "day": "2026-12-06",
-      "notBefore": "2026-12-07",
-      "leaks": [
-        "nba-sixers67-ppg"
-      ]
+      "notBefore": "2026-12-07"
     },
     "nba-jackson98-regular-apg": {
       "tier": "hard",
@@ -1023,12 +1018,7 @@
       "era": "1990s",
       "steps": 160,
       "day": "2026-12-06",
-      "notBefore": "2026-12-07",
-      "leaks": [
-        "nba-stockton90-apg",
-        "nba-murray23-finals-apg",
-        "nba-bibby02-regular-apg"
-      ]
+      "notBefore": "2026-12-07"
     },
     "nba-noah11-rebounds-average": {
       "tier": "hard",
@@ -1046,7 +1036,11 @@
       "era": "2010s",
       "steps": 80,
       "day": "2026-12-06",
-      "notBefore": "2026-12-07"
+      "notBefore": "2026-12-07",
+      "leaks": [
+        "nba-iverson01-g1",
+        "nba-luka22-knicks-triple-rebounds"
+      ]
     },
     "nba-pacers98-season-wins": {
       "tier": "easy",
@@ -1055,7 +1049,10 @@
       "era": "1990s",
       "steps": 54,
       "day": "2026-12-07",
-      "notBefore": "2026-12-08"
+      "notBefore": "2026-12-08",
+      "leaks": [
+        "nba-celtics86-wins"
+      ]
     },
     "nba-finals84-g5-heat": {
       "tier": "medium",
@@ -1079,8 +1076,8 @@
         "nba-bobcats12-wins",
         "nba-bobcats12-losing-streak",
         "nba-battier13-g7-threes",
-        "nba-curry16-13-threes",
-        "nba-miller95-8-points"
+        "nba-miller95-8-points",
+        "nba-allen10-g2-threes"
       ]
     },
     "nba-raptors19-sixers-g7-points": {
@@ -1105,7 +1102,9 @@
       "notBefore": "2026-12-08",
       "leaks": [
         "nba-west69-g1",
-        "nba-celtics24-playoff-losses"
+        "nba-celtics24-playoff-losses",
+        "nba-klay16-okc-game6-41",
+        "nba-luka20-clippers-buzzer-43"
       ]
     },
     "nba-detroit04-regular-wins": {
@@ -1124,11 +1123,11 @@
       "era": "1960s",
       "steps": 55,
       "day": "2026-12-08",
-      "notBefore": "2026-12-09",
+      "notBefore": "2027-01-07",
       "leaks": [
         "nba-wilt-100",
         "nba-wilt-100-ftm",
-        "nba-wade06-g5-ft-scoring-share"
+        "nba-wilt-60-point-games"
       ]
     },
     "nba-horry05-g5": {
@@ -1145,13 +1144,13 @@
       "family": "scoring-average",
       "franchise": "CHI",
       "era": "1990s",
-      "steps": 225,
+      "steps": 400,
       "day": "2026-12-08",
       "notBefore": "2026-12-09",
       "leaks": [
+        "nba-dumars89-finals-ppg",
         "nba-shaq00-finals-ppg",
-        "nba-brown24-finals-ppg",
-        "nba-duncan99-finals-ppg"
+        "nba-brown24-finals-ppg"
       ]
     },
     "nba-harden19-msg-61": {
@@ -1163,6 +1162,8 @@
       "day": "2026-12-08",
       "notBefore": "2027-01-23",
       "leaks": [
+        "nba-kobe-81",
+        "nba-baylor60-71",
         "nba-lebron16-finals-game7-block-110s"
       ]
     },
@@ -1173,14 +1174,18 @@
       "era": "2010s",
       "steps": 30,
       "day": "2026-12-09",
-      "notBefore": "2026-12-10"
+      "notBefore": "2026-12-10",
+      "leaks": [
+        "nba-rockets94-start",
+        "nba-sonics94-opening-streak"
+      ]
     },
-    "nba-sonics79-january-wins": {
+    "nba-oscar62-season-rpg-v52a": {
       "tier": "medium",
-      "family": "wins-month",
-      "franchise": "OKC",
-      "era": "1970s",
-      "steps": 23,
+      "family": "rebounds-average",
+      "franchise": "SAC",
+      "era": "1960s",
+      "steps": 200,
       "day": "2026-12-09",
       "notBefore": "2026-12-10"
     },
@@ -1215,8 +1220,6 @@
       "day": "2026-12-09",
       "notBefore": "2026-12-10",
       "leaks": [
-        "nba-kobe03-threes",
-        "nba-miller12-g5-threes",
         "nba-curry16-13-threes",
         "nba-allen10-g2-threes"
       ]
@@ -1249,7 +1252,10 @@
       "era": "1990s",
       "steps": 50,
       "day": "2026-12-10",
-      "notBefore": "2026-12-11"
+      "notBefore": "2026-12-11",
+      "leaks": [
+        "nba-nuggets09-hornets-margin-v52a"
+      ]
     },
     "nba-wilt-100-fga": {
       "tier": "hard",
@@ -1260,7 +1266,9 @@
       "day": "2026-12-10",
       "notBefore": "2026-12-11",
       "leaks": [
-        "nba-wilt-100"
+        "nba-wilt-100",
+        "nba-wilt-100-ftm",
+        "nba-wilt62-100-ft-share-v5"
       ]
     },
     "nba-curry13-knicks-54": {
@@ -1270,10 +1278,9 @@
       "era": "2010s",
       "steps": 70,
       "day": "2026-12-10",
-      "notBefore": "2026-12-11",
+      "notBefore": "2027-01-23",
       "leaks": [
-        "nba-klay16-okc-game6-41",
-        "nba-luka20-clippers-buzzer-43",
+        "nba-curry23-game7-fifty",
         "nba-harden19-msg-61"
       ]
     },
@@ -1295,9 +1302,8 @@
       "day": "2026-12-11",
       "notBefore": "2026-12-12",
       "leaks": [
-        "nba-lakers87-wins",
         "nba-warriors75-season-wins",
-        "nba-raptors19-regular-wins"
+        "nba-sonics79-season-wins"
       ]
     },
     "nba-warriors48-low-fg-v5": {
@@ -1312,29 +1318,31 @@
         "nba-spurs83-fg"
       ]
     },
-    "nba-curry15-g2-misses": {
+    "nba-klay18-14-threes-v52a": {
       "tier": "hard",
-      "family": "threes-attempts",
+      "family": "threes-game",
       "franchise": "GSW",
       "era": "2010s",
       "steps": 18,
       "day": "2026-12-11",
-      "notBefore": "2027-01-27",
+      "notBefore": "2026-12-12",
       "leaks": [
-        "nba-starks94-g7-3pa",
+        "nba-kobe03-threes",
         "nba-curry16-13-threes",
-        "nba-iguodala15-votes",
-        "nba-teague15-assists-average"
+        "nba-dame21-playoffs-12-threes"
       ]
     },
-    "nba-jokic-murray23-finals-g3-20-assists": {
+    "nba-trae21-bucks-g1-48": {
       "tier": "expert",
-      "family": "assists-game",
-      "franchise": "DEN",
+      "family": "points-game",
+      "franchise": "ATL",
       "era": "2020s",
-      "steps": 50,
+      "steps": 110,
       "day": "2026-12-11",
-      "notBefore": "2026-12-12"
+      "notBefore": "2026-12-12",
+      "leaks": [
+        "nba-luka20-clippers-buzzer-43"
+      ]
     },
     "nba-rodman-reb-titles": {
       "tier": "easy",
@@ -1350,11 +1358,12 @@
       "family": "points-game",
       "franchise": "GSW",
       "era": "1970s",
-      "steps": 44,
+      "steps": 59,
       "day": "2026-12-12",
       "notBefore": "2026-12-13",
       "leaks": [
-        "nba-gordon23-finals-g4-points"
+        "nba-magic80-g6-points",
+        "nba-west69-g1"
       ]
     },
     "nba-tatum22-turnovers": {
@@ -1387,7 +1396,8 @@
       "day": "2026-12-12",
       "notBefore": "2026-12-13",
       "leaks": [
-        "nba-jordan93-g4-55"
+        "nba-butler23-56-bucks-upset",
+        "nba-brunson24-philly-47"
       ]
     },
     "nba-curry22-g4": {
@@ -1422,8 +1432,9 @@
       "era": "2000s",
       "steps": 18,
       "day": "2026-12-13",
-      "notBefore": "2026-12-14",
+      "notBefore": "2026-12-23",
       "leaks": [
+        "nba-jackson10-titles",
         "nba-allen10-g2-threes"
       ]
     },
@@ -1443,7 +1454,12 @@
       "era": "2010s",
       "steps": 105,
       "day": "2026-12-13",
-      "notBefore": "2026-12-14"
+      "notBefore": "2026-12-14",
+      "leaks": [
+        "nba-kobe-81",
+        "nba-harden19-msg-61",
+        "nba-curry13-knicks-54"
+      ]
     },
     "nba-lebron13-g7": {
       "tier": "easy",
@@ -1452,7 +1468,12 @@
       "era": "2010s",
       "steps": 50,
       "day": "2026-12-14",
-      "notBefore": "2026-12-15"
+      "notBefore": "2026-12-15",
+      "leaks": [
+        "nba-magic80-g6-points",
+        "nba-iverson01-g1",
+        "nba-curry22-g4"
+      ]
     },
     "nba-spurs90-improvement": {
       "tier": "medium",
@@ -1484,7 +1505,7 @@
       "day": "2026-12-14",
       "notBefore": "2026-12-15",
       "leaks": [
-        "nba-webber02-season-ppg"
+        "nba-baylor62-season-ppg-v52a"
       ]
     },
     "nba-jordan92-finals-shrug-first-half-35": {
@@ -1518,7 +1539,6 @@
         "nba-dumars89-finals-ppg",
         "nba-shaq00-finals-ppg",
         "nba-brown24-finals-ppg",
-        "nba-duncan99-finals-ppg",
         "nba-kobe09-finals-apg-v5"
       ]
     },
@@ -1555,7 +1575,10 @@
       "era": "2010s",
       "steps": 40,
       "day": "2026-12-15",
-      "notBefore": "2026-12-16"
+      "notBefore": "2027-01-13",
+      "leaks": [
+        "nba-lakers11-mavs-game4-only-86"
+      ]
     },
     "nba-heat20-regular-wins": {
       "tier": "easy",
@@ -1564,7 +1587,13 @@
       "era": "2010s",
       "steps": 58,
       "day": "2026-12-16",
-      "notBefore": "2026-12-17"
+      "notBefore": "2026-12-17",
+      "leaks": [
+        "nba-celtics24-wins",
+        "nba-celtics08-wins",
+        "nba-raptors19-regular-wins",
+        "nba-hawks15-regular-wins"
+      ]
     },
     "nba-spurs14-streak": {
       "tier": "medium",
@@ -1576,7 +1605,6 @@
       "notBefore": "2027-01-14",
       "leaks": [
         "nba-gsw16-start",
-        "nba-rockets94-start",
         "nba-spurs14-march-wins",
         "nba-spurs14-finals-avg-margin-fourteen"
       ]
@@ -1593,14 +1621,17 @@
         "nba-kobe-81"
       ]
     },
-    "nba-unseld75-finals-g2-rebounds": {
+    "nba-wilt60-55-rebounds-v52b": {
       "tier": "hard",
       "family": "rebounds-game",
-      "franchise": "WAS",
-      "era": "1970s",
-      "steps": 38,
+      "franchise": "GSW",
+      "era": "1960s",
+      "steps": 55,
       "day": "2026-12-16",
-      "notBefore": "2026-12-17"
+      "notBefore": "2026-12-17",
+      "leaks": [
+        "nba-wilt60-half-reb"
+      ]
     },
     "nba-durant21-nets-bucks-g5-49": {
       "tier": "expert",
@@ -1611,7 +1642,6 @@
       "day": "2026-12-16",
       "notBefore": "2026-12-17",
       "leaks": [
-        "nba-butler23-56-bucks-upset",
         "nba-giannis21-finals-g6-blocks"
       ]
     },
@@ -1624,14 +1654,17 @@
       "day": "2026-12-17",
       "notBefore": "2026-12-18"
     },
-    "nba-cup23-prize": {
+    "nba-celtics85-memorial-day-margin-v52b": {
       "tier": "medium",
-      "family": "prize-money",
-      "franchise": null,
-      "era": "2020s",
-      "steps": 75,
+      "family": "margin",
+      "franchise": "BOS",
+      "era": "1980s",
+      "steps": 70,
       "day": "2026-12-17",
-      "notBefore": "2026-12-18"
+      "notBefore": "2026-12-18",
+      "leaks": [
+        "nba-bulls98-g3-margin-v5"
+      ]
     },
     "nba-celtics02-19-threes": {
       "tier": "hard",
@@ -1652,11 +1685,7 @@
       "era": "2010s",
       "steps": 38,
       "day": "2026-12-17",
-      "notBefore": "2026-12-18",
-      "leaks": [
-        "nba-curry16-13-threes",
-        "nba-curry15-g2-misses"
-      ]
+      "notBefore": "2026-12-18"
     },
     "nba-shaq00-finals-g2-24-boards": {
       "tier": "expert",
@@ -1665,10 +1694,9 @@
       "era": "1990s",
       "steps": 60,
       "day": "2026-12-17",
-      "notBefore": "2026-12-18",
+      "notBefore": "2027-01-07",
       "leaks": [
-        "nba-unseld75-finals-g2-rebounds",
-        "nba-luka22-knicks-triple-rebounds",
+        "nba-shaq00-g2-fta",
         "nba-jokic23-finals-g3-rebounds",
         "nba-giannis24-cup-final-rebounds-v5"
       ]
@@ -1682,6 +1710,9 @@
       "day": "2026-12-18",
       "notBefore": "2026-12-19",
       "leaks": [
+        "nba-magic80-g6-points",
+        "nba-green16-g7",
+        "nba-lebron13-g7",
         "nba-mavs20-halftime-lead"
       ]
     },
@@ -1694,8 +1725,7 @@
       "day": "2026-12-18",
       "notBefore": "2026-12-19",
       "leaks": [
-        "nba-lakers87-wins",
-        "nba-celtics86-wins"
+        "nba-detroit04-regular-wins"
       ]
     },
     "nba-butler20-regular-apg": {
@@ -1707,7 +1737,8 @@
       "day": "2026-12-18",
       "notBefore": "2026-12-19",
       "leaks": [
-        "nba-lowry19-regular-apg"
+        "nba-jackson98-regular-apg",
+        "nba-bibby02-regular-apg"
       ]
     },
     "nba-giannis19-regular-rpg": {
@@ -1745,7 +1776,10 @@
       "day": "2026-12-19",
       "notBefore": "2026-12-20",
       "leaks": [
-        "nba-west69-g1"
+        "nba-lakers87-wins",
+        "nba-west69-g1",
+        "nba-kings02-regular-wins",
+        "nba-suns93-regular-wins"
       ]
     },
     "nba-jordan91-straight-makes": {
@@ -1760,18 +1794,14 @@
         "nba-cp3-2022-perfect-playoff-shots"
       ]
     },
-    "nba-giannis21-g6-ft-pct-v51b": {
+    "nba-floyd87-51": {
       "tier": "hard",
-      "family": "shooting-pct",
-      "franchise": "MIL",
-      "era": "2020s",
-      "steps": 60,
+      "family": "points-game",
+      "franchise": "GSW",
+      "era": "1980s",
+      "steps": 50,
       "day": "2026-12-19",
-      "notBefore": "2026-12-22",
-      "leaks": [
-        "nba-suns21-g1-ft",
-        "nba-giannis24-cup-final-rebounds-v5"
-      ]
+      "notBefore": "2026-12-20"
     },
     "nba-sixers01-opening-streak": {
       "tier": "hard",
@@ -1782,7 +1812,8 @@
       "day": "2026-12-19",
       "notBefore": "2026-12-20",
       "leaks": [
-        "nba-gsw16-start"
+        "nba-gsw16-start",
+        "nba-rockets94-start"
       ]
     },
     "nba-vince01-sixers-first-half-eight-threes": {
@@ -1794,7 +1825,7 @@
       "day": "2026-12-19",
       "notBefore": "2026-12-20",
       "leaks": [
-        "nba-allen10-g2-threes"
+        "nba-kobe03-threes"
       ]
     },
     "nba-spurs14-season-wins": {
@@ -1806,7 +1837,9 @@
       "day": "2026-12-20",
       "notBefore": "2027-01-14",
       "leaks": [
-        "nba-celtics86-wins",
+        "nba-celtics08-wins",
+        "nba-detroit04-regular-wins",
+        "nba-raptors19-regular-wins",
         "nba-melo14-knicks-msg-62",
         "nba-spurs14-finals-avg-margin-fourteen"
       ]
@@ -1820,8 +1853,7 @@
       "day": "2026-12-20",
       "notBefore": "2026-12-21",
       "leaks": [
-        "nba-curry16-13-threes",
-        "nba-curry15-g2-misses"
+        "nba-curry16-13-threes"
       ]
     },
     "nba-heat13-turnaround-v5": {
@@ -1844,7 +1876,11 @@
       "era": "1970s",
       "steps": 72,
       "day": "2026-12-20",
-      "notBefore": "2026-12-21"
+      "notBefore": "2026-12-21",
+      "leaks": [
+        "nba-magic80-g6-points",
+        "nba-west69-g1"
+      ]
     },
     "nba-kyrie16-finals-g7-shot-53-sec": {
       "tier": "expert",
@@ -1862,9 +1898,12 @@
       "era": "2020s",
       "steps": 60,
       "day": "2026-12-21",
-      "notBefore": "2026-12-22",
+      "notBefore": "2027-01-26",
       "leaks": [
+        "nba-mavs20-halftime-lead",
         "nba-celtics24-wins",
+        "nba-giannis21-g6",
+        "nba-season21-games",
         "nba-nuggets23-regular-wins",
         "nba-raptors19-regular-wins",
         "nba-spurs14-season-wins"
@@ -1889,10 +1928,7 @@
       "era": "2020s",
       "steps": 35,
       "day": "2026-12-21",
-      "notBefore": "2026-12-22",
-      "leaks": [
-        "nba-dirk11-24-ft"
-      ]
+      "notBefore": "2026-12-22"
     },
     "nba-bird85-opener-steals": {
       "tier": "hard",
@@ -1913,7 +1949,11 @@
       "era": "2020s",
       "steps": 27,
       "day": "2026-12-21",
-      "notBefore": "2026-12-22"
+      "notBefore": "2026-12-22",
+      "leaks": [
+        "nba-giannis21-finals-g6-blocks",
+        "nba-hakeem90-quadruple-blocks"
+      ]
     },
     "nba-jackson10-titles": {
       "tier": "easy",
@@ -1935,7 +1975,11 @@
       "era": "1990s",
       "steps": 32,
       "day": "2026-12-22",
-      "notBefore": "2026-12-23"
+      "notBefore": "2026-12-23",
+      "leaks": [
+        "nba-lakers87-wins",
+        "nba-pistons89-wins"
+      ]
     },
     "nba-duncan14-season-rpg": {
       "tier": "hard",
@@ -1946,10 +1990,8 @@
       "day": "2026-12-22",
       "notBefore": "2027-01-14",
       "leaks": [
-        "nba-spurs14-streak",
-        "nba-giannis19-regular-rpg",
-        "nba-spurs14-finals-avg-margin-fourteen",
-        "nba-giannis24-cup-final-rebounds-v5"
+        "nba-noah11-rebounds-average",
+        "nba-spurs14-finals-avg-margin-fourteen"
       ]
     },
     "nba-allen13-g6-seconds": {
@@ -1983,7 +2025,12 @@
       "era": "1980s",
       "steps": 56,
       "day": "2026-12-23",
-      "notBefore": "2026-12-24"
+      "notBefore": "2026-12-24",
+      "leaks": [
+        "nba-warriors75-season-wins",
+        "nba-bucks21-regular-wins",
+        "nba-heat20-regular-wins"
+      ]
     },
     "nba-dumars89-17-straight": {
       "tier": "medium",
@@ -2007,7 +2054,6 @@
       "notBefore": "2026-12-24",
       "leaks": [
         "nba-rodman96-rpg",
-        "nba-noah11-rebounds-average",
         "nba-howard09-regular-rpg",
         "nba-duncan14-season-rpg"
       ]
@@ -2021,12 +2067,12 @@
       "day": "2026-12-23",
       "notBefore": "2026-12-24"
     },
-    "nba-trae21-bucks-g1-48": {
+    "nba-jokic-murray23-finals-g3-20-assists": {
       "tier": "expert",
-      "family": "points-game",
-      "franchise": "ATL",
+      "family": "assists-game",
+      "franchise": "DEN",
       "era": "2020s",
-      "steps": 110,
+      "steps": 50,
       "day": "2026-12-23",
       "notBefore": "2026-12-24"
     },
@@ -2039,17 +2085,17 @@
       "day": "2026-12-24",
       "notBefore": "2026-12-25"
     },
-    "nba-wilt-kobe-record-gap-v51b": {
+    "nba-wilt62-halftime-points-v52b": {
       "tier": "medium",
-      "family": "points-game",
-      "franchise": "LAL",
-      "era": "2000s",
-      "steps": 40,
+      "family": "points-period",
+      "franchise": "GSW",
+      "era": "1960s",
+      "steps": 80,
       "day": "2026-12-24",
       "notBefore": "2026-12-25",
       "leaks": [
         "nba-wilt-100",
-        "nba-kobe-81"
+        "nba-wilt60-half-reb"
       ]
     },
     "nba-bulls96-home-streak": {
@@ -2070,6 +2116,8 @@
       "day": "2026-12-24",
       "notBefore": "2026-12-25",
       "leaks": [
+        "nba-wemby24-10-blocks-blazers",
+        "nba-giannis21-finals-g6-blocks",
         "nba-hakeem90-quadruple-blocks"
       ]
     },
@@ -2084,7 +2132,6 @@
       "leaks": [
         "nba-green16-g7",
         "nba-lebron13-g7",
-        "nba-curry22-g4",
         "nba-bucks19-opening-win-streak"
       ]
     },
@@ -2095,7 +2142,12 @@
       "era": "1990s",
       "steps": 50,
       "day": "2026-12-25",
-      "notBefore": "2026-12-26"
+      "notBefore": "2026-12-26",
+      "leaks": [
+        "nba-jordan93-g4-55",
+        "nba-wade06-g3",
+        "nba-iverson01-g1"
+      ]
     },
     "nba-lakers72-wins": {
       "tier": "medium",
@@ -2106,7 +2158,9 @@
       "day": "2026-12-25",
       "notBefore": "2026-12-26",
       "leaks": [
-        "nba-bucks71-wins"
+        "nba-lakers87-wins",
+        "nba-pistons89-wins",
+        "nba-celtics24-wins"
       ]
     },
     "nba-bobcats12-losing-streak": {
@@ -2127,7 +2181,7 @@
       "day": "2026-12-25",
       "notBefore": "2026-12-26",
       "leaks": [
-        "nba-jackson98-regular-apg"
+        "nba-murray23-finals-apg"
       ]
     },
     "nba-melo14-knicks-msg-62": {
@@ -2169,6 +2223,7 @@
       "day": "2026-12-26",
       "notBefore": "2027-01-06",
       "leaks": [
+        "nba-rockets94-start",
         "nba-bucks71-bucks21-wins-gap-v51c"
       ]
     },
@@ -2181,7 +2236,8 @@
       "day": "2026-12-26",
       "notBefore": "2026-12-27",
       "leaks": [
-        "nba-wilt-100"
+        "nba-wilt-100",
+        "nba-sixers67-ppg"
       ]
     },
     "nba-ja22-warriors-game2-47": {
@@ -2195,8 +2251,7 @@
       "leaks": [
         "nba-giannis21-g6",
         "nba-butler23-56-bucks-upset",
-        "nba-klay16-okc-game6-41",
-        "nba-durant21-nets-bucks-g5-49"
+        "nba-klay16-okc-game6-41"
       ]
     },
     "nba-sixers73-wins": {
@@ -2229,7 +2284,9 @@
       "day": "2026-12-27",
       "notBefore": "2026-12-28",
       "leaks": [
-        "nba-howard09-regular-rpg"
+        "nba-noah11-rebounds-average",
+        "nba-howard09-regular-rpg",
+        "nba-duncan14-season-rpg"
       ]
     },
     "nba-detroit04-rasheed-win-pct-v51b": {
@@ -2239,7 +2296,10 @@
       "era": "2000s",
       "steps": 60,
       "day": "2026-12-27",
-      "notBefore": "2026-12-28"
+      "notBefore": "2026-12-28",
+      "leaks": [
+        "nba-detroit04-regular-wins"
+      ]
     },
     "nba-lebron12-boston-g6-45": {
       "tier": "expert",
@@ -2251,7 +2311,10 @@
       "notBefore": "2027-01-27",
       "leaks": [
         "nba-bobcats12-wins",
-        "nba-miller12-g5-threes"
+        "nba-lebron13-g7",
+        "nba-miller12-g5-threes",
+        "nba-klay16-okc-game6-41",
+        "nba-kawhi19-philly-game7-41"
       ]
     },
     "nba-cavs16-g5-41": {
@@ -2263,7 +2326,10 @@
       "day": "2026-12-28",
       "notBefore": "2026-12-29",
       "leaks": [
-        "nba-klay16-okc-game6-41"
+        "nba-lebron13-g7",
+        "nba-klay16-okc-game6-41",
+        "nba-lebron11-finals-g4-eight",
+        "nba-lebron12-boston-g6-45"
       ]
     },
     "nba-alcindor71-ppg": {
@@ -2273,10 +2339,7 @@
       "era": "1970s",
       "steps": 310,
       "day": "2026-12-28",
-      "notBefore": "2026-12-29",
-      "leaks": [
-        "nba-wilt62-ppg"
-      ]
+      "notBefore": "2026-12-29"
     },
     "nba-spurs14-g3-fg": {
       "tier": "hard",
@@ -2299,7 +2362,8 @@
       "day": "2026-12-28",
       "notBefore": "2026-12-29",
       "leaks": [
-        "nba-sixers73-wins"
+        "nba-sixers73-wins",
+        "nba-blazers83-ot"
       ]
     },
     "nba-luka24-wolves-g2-32": {
@@ -2309,7 +2373,12 @@
       "era": "2020s",
       "steps": 80,
       "day": "2026-12-28",
-      "notBefore": "2026-12-29"
+      "notBefore": "2026-12-29",
+      "leaks": [
+        "nba-luka20-clippers-buzzer-43",
+        "nba-westbrook17-50-nuggets-winner",
+        "nba-kawhi19-philly-game7-41"
+      ]
     },
     "nba-lebron18-g1": {
       "tier": "easy",
@@ -2318,22 +2387,16 @@
       "era": "2010s",
       "steps": 50,
       "day": "2026-12-29",
-      "notBefore": "2026-12-30",
-      "leaks": [
-        "nba-jordan93-g4-55"
-      ]
+      "notBefore": "2026-12-30"
     },
-    "nba-spurs14-international": {
+    "nba-horry-seven-titles-v52b": {
       "tier": "medium",
-      "family": "roster",
+      "family": "titles",
       "franchise": "SAS",
-      "era": "2010s",
-      "steps": 14,
+      "era": "2000s",
+      "steps": 12,
       "day": "2026-12-29",
-      "notBefore": "2027-01-14",
-      "leaks": [
-        "nba-spurs14-finals-avg-margin-fourteen"
-      ]
+      "notBefore": "2026-12-30"
     },
     "nba-majerle93-three-pointers": {
       "tier": "hard",
@@ -2367,7 +2430,8 @@
       "day": "2026-12-29",
       "notBefore": "2026-12-30",
       "leaks": [
-        "nba-butler23-56-bucks-upset"
+        "nba-butler23-56-bucks-upset",
+        "nba-durant21-nets-bucks-g5-49"
       ]
     },
     "nba-suns05-season-win-gain": {
@@ -2413,7 +2477,10 @@
       "era": "2000s",
       "steps": 26,
       "day": "2026-12-30",
-      "notBefore": "2026-12-31"
+      "notBefore": "2026-12-31",
+      "leaks": [
+        "nba-celtics87-g6-q3"
+      ]
     },
     "nba-curry21-blazers-62": {
       "tier": "expert",
@@ -2422,7 +2489,10 @@
       "era": "2020s",
       "steps": 125,
       "day": "2026-12-30",
-      "notBefore": "2026-12-31"
+      "notBefore": "2026-12-31",
+      "leaks": [
+        "nba-curry13-knicks-54"
+      ]
     },
     "nba-cavs09-record-wins": {
       "tier": "easy",
@@ -2431,7 +2501,11 @@
       "era": "2000s",
       "steps": 40,
       "day": "2026-12-31",
-      "notBefore": "2027-01-01"
+      "notBefore": "2027-01-01",
+      "leaks": [
+        "nba-sixers01-regular-wins",
+        "nba-bulls11-regular-wins"
+      ]
     },
     "nba-detroit04-winter-streak": {
       "tier": "medium",
@@ -2456,7 +2530,8 @@
       "day": "2026-12-31",
       "notBefore": "2027-01-01",
       "leaks": [
-        "nba-murray23-finals-apg"
+        "nba-avery99-finals-apg",
+        "nba-giannis21-finals-g6-blocks"
       ]
     },
     "nba-sikma79-suns-g7-points": {
@@ -2511,7 +2586,8 @@
       "day": "2027-01-01",
       "notBefore": "2027-01-02",
       "leaks": [
-        "nba-kobe09-finals-ppg"
+        "nba-kobe09-finals-ppg",
+        "nba-murray23-finals-apg"
       ]
     },
     "nba-billups04-finals-ppg": {
@@ -2533,7 +2609,12 @@
       "era": "2010s",
       "steps": 100,
       "day": "2027-01-01",
-      "notBefore": "2027-01-02"
+      "notBefore": "2027-01-02",
+      "leaks": [
+        "nba-harden19-msg-61",
+        "nba-jokic25-61-point-triple-double",
+        "nba-curry21-blazers-62"
+      ]
     },
     "nba-heat13-streak": {
       "tier": "easy",
@@ -2542,7 +2623,11 @@
       "era": "2010s",
       "steps": 36,
       "day": "2027-01-02",
-      "notBefore": "2027-01-03"
+      "notBefore": "2027-01-03",
+      "leaks": [
+        "nba-spurs14-streak",
+        "nba-bucks71-streak"
+      ]
     },
     "nba-curry18-g2-threes": {
       "tier": "medium",
@@ -2568,6 +2653,7 @@
         "nba-rodman96-rpg",
         "nba-howard09-regular-rpg",
         "nba-duncan14-season-rpg",
+        "nba-sonics94-regular-wins",
         "nba-giannis19-regular-rpg"
       ]
     },
@@ -2596,7 +2682,11 @@
       "era": "1970s",
       "steps": 42,
       "day": "2027-01-03",
-      "notBefore": "2027-01-04"
+      "notBefore": "2027-01-04",
+      "leaks": [
+        "nba-lakers72-wins",
+        "nba-bucks71-streak"
+      ]
     },
     "nba-booker17-70": {
       "tier": "medium",
@@ -2608,8 +2698,8 @@
       "notBefore": "2027-01-04",
       "leaks": [
         "nba-kobe-81",
-        "nba-harden19-msg-61",
-        "nba-curry21-blazers-62"
+        "nba-kobe16-final-game",
+        "nba-melo14-knicks-msg-62"
       ]
     },
     "nba-rodman92-34": {
@@ -2621,6 +2711,7 @@
       "day": "2027-01-03",
       "notBefore": "2027-01-04",
       "leaks": [
+        "nba-shaq00-finals-g2-24-boards",
         "nba-love10-knicks-thirty-one-boards"
       ]
     },
@@ -2631,7 +2722,11 @@
       "era": "1990s",
       "steps": 32,
       "day": "2027-01-03",
-      "notBefore": "2027-01-04"
+      "notBefore": "2027-01-04",
+      "leaks": [
+        "nba-magic84-assists",
+        "nba-magic80-finals-mvp-age-v52a"
+      ]
     },
     "nba-lebron07-final-twentyfive": {
       "tier": "expert",
@@ -2666,9 +2761,7 @@
       "day": "2027-01-04",
       "notBefore": "2027-01-05",
       "leaks": [
-        "nba-bulls11-regular-wins",
         "nba-hawks15-regular-wins",
-        "nba-spurs14-season-wins",
         "nba-bucks19-season-wins"
       ]
     },
@@ -2702,7 +2795,8 @@
       "day": "2027-01-04",
       "notBefore": "2027-01-05",
       "leaks": [
-        "nba-jazz96-comeback"
+        "nba-lakers00-portland-g7-comeback",
+        "nba-wolves24-denver-game7-comeback"
       ]
     },
     "nba-jordan86-63": {
@@ -2726,8 +2820,9 @@
       "day": "2027-01-05",
       "notBefore": "2027-01-06",
       "leaks": [
-        "nba-bulls97-wins",
-        "nba-celtics24-wins",
+        "nba-jackson10-titles",
+        "nba-nuggets23-regular-wins",
+        "nba-bucks21-regular-wins",
         "nba-spurs14-season-wins",
         "nba-lakers00-portland-g7-comeback"
       ]
@@ -2739,7 +2834,10 @@
       "era": "1980s",
       "steps": 26,
       "day": "2027-01-05",
-      "notBefore": "2027-01-06"
+      "notBefore": "2027-01-06",
+      "leaks": [
+        "nba-celtics86-wins"
+      ]
     },
     "nba-bucks71-bucks21-wins-gap-v51c": {
       "tier": "hard",
@@ -2762,7 +2860,12 @@
       "era": "2010s",
       "steps": 120,
       "day": "2027-01-05",
-      "notBefore": "2027-01-06"
+      "notBefore": "2027-01-06",
+      "leaks": [
+        "nba-lebron18-g1",
+        "nba-durant21-nets-bucks-g5-49",
+        "nba-ja22-warriors-game2-47"
+      ]
     },
     "nba-spurs14-march-wins": {
       "tier": "easy",
@@ -2771,7 +2874,10 @@
       "era": "2010s",
       "steps": 19,
       "day": "2027-01-06",
-      "notBefore": "2027-01-07"
+      "notBefore": "2027-01-07",
+      "leaks": [
+        "nba-spurs14-streak"
+      ]
     },
     "nba-wilt-60-point-games": {
       "tier": "medium",
@@ -2801,11 +2907,7 @@
       "era": "2000s",
       "steps": 26,
       "day": "2027-01-06",
-      "notBefore": "2027-01-07",
-      "leaks": [
-        "nba-bulls96-road-wins",
-        "nba-suns05-season-win-gain"
-      ]
+      "notBefore": "2027-01-07"
     },
     "nba-bird85-hawks-sixty": {
       "tier": "expert",
@@ -2814,7 +2916,11 @@
       "era": "1980s",
       "steps": 120,
       "day": "2027-01-06",
-      "notBefore": "2027-01-07"
+      "notBefore": "2027-01-07",
+      "leaks": [
+        "nba-jordan93-g4-55",
+        "nba-floyd87-51"
+      ]
     },
     "nba-rose11-season-ppg": {
       "tier": "easy",
@@ -2825,7 +2931,7 @@
       "day": "2027-01-07",
       "notBefore": "2027-01-08",
       "leaks": [
-        "nba-alcindor71-ppg"
+        "nba-bulls11-regular-wins"
       ]
     },
     "nba-oscar-career-td": {
@@ -2870,7 +2976,12 @@
       "era": "2010s",
       "steps": 50,
       "day": "2027-01-07",
-      "notBefore": "2027-01-08"
+      "notBefore": "2027-01-08",
+      "leaks": [
+        "nba-dumars89-17-straight",
+        "nba-mcgrady04-35-seconds",
+        "nba-lebron07-final-twentyfive"
+      ]
     },
     "nba-kobe06-second-half-55": {
       "tier": "easy",
@@ -2894,7 +3005,6 @@
       "notBefore": "2027-01-09",
       "leaks": [
         "nba-celtics86-wins",
-        "nba-celtics24-wins",
         "nba-celtics08-wins"
       ]
     },
@@ -2907,7 +3017,8 @@
       "day": "2027-01-08",
       "notBefore": "2027-01-09",
       "leaks": [
-        "nba-howard09-regular-rpg"
+        "nba-howard09-regular-rpg",
+        "nba-suns93-regular-wins"
       ]
     },
     "nba-bulls11-home-wins": {
@@ -2966,7 +3077,7 @@
       "notBefore": "2027-01-10",
       "leaks": [
         "nba-alcindor71-ppg",
-        "nba-webber02-season-ppg",
+        "nba-pacers98-season-wins",
         "nba-west08-season-ppg"
       ]
     },
@@ -2979,7 +3090,8 @@
       "day": "2027-01-09",
       "notBefore": "2027-01-20",
       "leaks": [
-        "nba-harden19-30-streak"
+        "nba-harden19-30-streak",
+        "nba-klay18-14-threes-v52a"
       ]
     },
     "nba-cavs-warriors16-game7-tied-six-games-610": {
@@ -2998,7 +3110,11 @@
       "era": "2020s",
       "steps": 370,
       "day": "2027-01-10",
-      "notBefore": "2027-01-11"
+      "notBefore": "2027-01-11",
+      "leaks": [
+        "nba-mavs20-halftime-lead",
+        "nba-giannis21-g6"
+      ]
     },
     "nba-allstar10-attendance": {
       "tier": "medium",
@@ -3027,7 +3143,7 @@
       "day": "2027-01-10",
       "notBefore": "2027-01-22",
       "leaks": [
-        "nba-unseld75-finals-g2-rebounds",
+        "nba-wilt-100",
         "nba-shaq00-finals-g2-24-boards",
         "nba-jokic23-finals-g3-rebounds",
         "nba-wilt67-ppg-v5"
@@ -3043,7 +3159,6 @@
       "notBefore": "2027-01-23",
       "leaks": [
         "nba-curry16-13-threes",
-        "nba-curry15-g2-misses",
         "nba-curry23-game7-fifty"
       ]
     },
@@ -3057,6 +3172,8 @@
       "notBefore": "2027-01-26",
       "leaks": [
         "nba-kobe-81",
+        "nba-murray23-finals-apg",
+        "nba-jokic23-playoff-triple-doubles",
         "nba-lillard23-seventy-one"
       ]
     },
@@ -3067,10 +3184,7 @@
       "era": "2010s",
       "steps": 28,
       "day": "2027-01-11",
-      "notBefore": "2027-01-12",
-      "leaks": [
-        "nba-reed70-g7-minutes"
-      ]
+      "notBefore": "2027-01-12"
     },
     "nba-jordan97-flu-game": {
       "tier": "hard",
@@ -3103,7 +3217,10 @@
       "era": "2010s",
       "steps": 400,
       "day": "2027-01-11",
-      "notBefore": "2027-01-12"
+      "notBefore": "2027-01-12",
+      "leaks": [
+        "nba-kyrie16-finals-g7-shot-53-sec"
+      ]
     },
     "nba-cavs09-home-wins": {
       "tier": "easy",
@@ -3151,7 +3268,7 @@
       "day": "2027-01-12",
       "notBefore": "2027-01-13",
       "leaks": [
-        "nba-kobe09-finals-ppg"
+        "nba-shaq00-finals-ppg"
       ]
     },
     "nba-lakers11-mavs-game4-only-86": {
@@ -3206,10 +3323,7 @@
       "era": "1970s",
       "steps": 120,
       "day": "2027-01-13",
-      "notBefore": "2027-01-14",
-      "leaks": [
-        "nba-barry75-finals-g2-points"
-      ]
+      "notBefore": "2027-01-14"
     },
     "nba-spurs14-finals-avg-margin-fourteen": {
       "tier": "expert",
@@ -3227,7 +3341,10 @@
       "era": "2010s",
       "steps": 17,
       "day": "2027-01-14",
-      "notBefore": "2027-01-15"
+      "notBefore": "2027-01-15",
+      "leaks": [
+        "nba-hawks15-regular-wins"
+      ]
     },
     "nba-adebayo20-regular-rpg": {
       "tier": "medium",
@@ -3238,9 +3355,9 @@
       "day": "2027-01-14",
       "notBefore": "2027-01-15",
       "leaks": [
-        "nba-noah11-rebounds-average",
         "nba-howard09-regular-rpg",
-        "nba-duncan14-season-rpg"
+        "nba-barkley93-suns-rpg",
+        "nba-giannis19-regular-rpg"
       ]
     },
     "nba-celtics08-playoff-games": {
@@ -3252,7 +3369,7 @@
       "day": "2027-01-14",
       "notBefore": "2027-01-15"
     },
-    "nba-parker14-season-ppg": {
+    "nba-kawhi14-finals-ppg-v52d": {
       "tier": "hard",
       "family": "scoring-average",
       "franchise": "SAS",
@@ -3261,8 +3378,7 @@
       "day": "2027-01-14",
       "notBefore": "2027-01-15",
       "leaks": [
-        "nba-rose11-season-ppg",
-        "nba-spurs14-finals-avg-margin-fourteen"
+        "nba-billups04-finals-ppg"
       ]
     },
     "nba-pacers24-msg-game7-671-shooting": {
@@ -3272,9 +3388,10 @@
       "era": "2020s",
       "steps": 350,
       "day": "2027-01-14",
-      "notBefore": "2027-01-15",
+      "notBefore": "2027-01-26",
       "leaks": [
-        "nba-spurs14-g3-fg"
+        "nba-spurs14-g3-fg",
+        "nba-mavs24-finals-g4-blowout-margin"
       ]
     },
     "nba-iverson01-season-ppg": {
@@ -3286,16 +3403,19 @@
       "day": "2027-01-15",
       "notBefore": "2027-01-16"
     },
-    "nba-davis84-regular-apg": {
+    "nba-jordan90-cavs-69-v52d": {
       "tier": "medium",
-      "family": "assists-average",
-      "franchise": "PHX",
+      "family": "points-game",
+      "franchise": "CHI",
       "era": "1980s",
-      "steps": 120,
+      "steps": 65,
       "day": "2027-01-15",
       "notBefore": "2027-01-16",
       "leaks": [
-        "nba-nash05-regular-apg"
+        "nba-kobe-81",
+        "nba-harden19-msg-61",
+        "nba-curry21-blazers-62",
+        "nba-bird85-hawks-sixty"
       ]
     },
     "nba-miller94-4q": {
@@ -3317,7 +3437,8 @@
       "notBefore": "2027-01-16",
       "leaks": [
         "nba-curry13-knicks-54",
-        "nba-heat13-turnaround-v5"
+        "nba-heat13-turnaround-v5",
+        "nba-lebron09-g1-scoring-share-v5"
       ]
     },
     "nba-murray20-utah-g6-nine-threes": {
@@ -3329,9 +3450,8 @@
       "day": "2027-01-15",
       "notBefore": "2027-01-16",
       "leaks": [
-        "nba-miller12-g5-threes",
+        "nba-battier13-g7-threes",
         "nba-klay16-wcf-threes",
-        "nba-allen10-g2-threes",
         "nba-butler20-regular-apg",
         "nba-dame21-playoffs-12-threes"
       ]
@@ -3352,11 +3472,7 @@
       "era": "1950s",
       "steps": 45,
       "day": "2027-01-16",
-      "notBefore": "2027-01-17",
-      "leaks": [
-        "nba-hawks86-third-quarter",
-        "nba-six-overtime-game"
-      ]
+      "notBefore": "2027-01-17"
     },
     "nba-payton94-apg": {
       "tier": "hard",
@@ -3382,7 +3498,8 @@
       "day": "2027-01-16",
       "notBefore": "2027-01-17",
       "leaks": [
-        "nba-west08-season-ppg"
+        "nba-west08-season-ppg",
+        "nba-cavs09-record-wins"
       ]
     },
     "nba-jordan98-last-shot-five-point-two": {
@@ -3437,9 +3554,7 @@
       "day": "2027-01-17",
       "notBefore": "2027-01-18",
       "leaks": [
-        "nba-iverson01-season-ppg",
-        "nba-rose11-season-ppg",
-        "nba-miller98-season-ppg"
+        "nba-west08-season-ppg"
       ]
     },
     "nba-kobe10-finals-game7-twentyfive-percent": {
@@ -3458,7 +3573,13 @@
       "era": "2010s",
       "steps": 280,
       "day": "2027-01-18",
-      "notBefore": "2027-01-19"
+      "notBefore": "2027-01-19",
+      "leaks": [
+        "nba-jordan93-finals-ppg",
+        "nba-shaq00-finals-ppg",
+        "nba-kobe09-finals-ppg",
+        "nba-billups04-finals-ppg"
+      ]
     },
     "nba-blazers78-start": {
       "tier": "medium",
@@ -3502,7 +3623,8 @@
       "day": "2027-01-18",
       "notBefore": "2027-01-19",
       "leaks": [
-        "nba-mavs20-halftime-lead"
+        "nba-mavs20-halftime-lead",
+        "nba-tatum22-bucks-g6-46"
       ]
     },
     "nba-embiid24-70-spurs": {
@@ -3514,7 +3636,7 @@
       "day": "2027-01-19",
       "notBefore": "2027-01-20",
       "leaks": [
-        "nba-jordan86-63"
+        "nba-melo14-knicks-msg-62"
       ]
     },
     "nba-harden19-30-streak": {
@@ -3526,9 +3648,7 @@
       "day": "2027-01-19",
       "notBefore": "2027-01-20",
       "leaks": [
-        "nba-kobe03-40-streak",
-        "nba-siakam19-g1",
-        "nba-wilt-kobe-record-gap-v51b"
+        "nba-siakam19-g1"
       ]
     },
     "nba-pippen97-g3-threes": {
@@ -3541,7 +3661,7 @@
       "notBefore": "2027-01-20",
       "leaks": [
         "nba-cooper87-threes",
-        "nba-klay16-wcf-threes",
+        "nba-battier13-g7-threes",
         "nba-allen10-g2-threes",
         "nba-curry18-g2-threes"
       ]
@@ -3562,7 +3682,10 @@
       "era": "2010s",
       "steps": 90,
       "day": "2027-01-19",
-      "notBefore": "2027-01-20"
+      "notBefore": "2027-01-20",
+      "leaks": [
+        "nba-magic80-g6-points"
+      ]
     },
     "nba-jokic23-playoff-triple-doubles": {
       "tier": "easy",
@@ -3586,10 +3709,9 @@
       "notBefore": "2027-01-21",
       "leaks": [
         "nba-jordan97-flu-game",
-        "nba-cavs16-g5-41",
-        "nba-wade06-g3",
-        "nba-barry75-finals-g2-points",
-        "nba-gus79-finals-g4-points"
+        "nba-iverson01-g1",
+        "nba-giannis21-g6",
+        "nba-barry75-finals-g2-points"
       ]
     },
     "nba-celtics-lakers-finals-record": {
@@ -3611,10 +3733,7 @@
       "era": "1990s",
       "steps": 42,
       "day": "2027-01-20",
-      "notBefore": "2027-01-21",
-      "leaks": [
-        "nba-spurs99-wins"
-      ]
+      "notBefore": "2027-01-21"
     },
     "nba-lakers01-shaq-kobe-fifteen-playoff-wins": {
       "tier": "expert",
@@ -3625,7 +3744,8 @@
       "day": "2027-01-20",
       "notBefore": "2027-01-21",
       "leaks": [
-        "nba-lakers89-playoff-start"
+        "nba-lakers89-playoff-start",
+        "nba-vince01-sixers-first-half-eight-threes"
       ]
     },
     "nba-klay15-quarter-37": {
@@ -3646,7 +3766,7 @@
       "day": "2027-01-21",
       "notBefore": "2027-01-22",
       "leaks": [
-        "nba-heat13-streak"
+        "nba-hawks15-january-wins"
       ]
     },
     "nba-heat23-wins": {
@@ -3661,7 +3781,7 @@
         "nba-celtics24-wins",
         "nba-nuggets23-regular-wins",
         "nba-raptors19-regular-wins",
-        "nba-bucks21-regular-wins"
+        "nba-spurs14-season-wins"
       ]
     },
     "nba-wilt67-ppg-v5": {
@@ -3692,7 +3812,13 @@
       "era": "2020s",
       "steps": 70,
       "day": "2027-01-22",
-      "notBefore": "2027-01-23"
+      "notBefore": "2027-01-23",
+      "leaks": [
+        "nba-green16-g7",
+        "nba-lebron13-g7",
+        "nba-sikma79-suns-g7-points",
+        "nba-kawhi19-philly-game7-41"
+      ]
     },
     "nba-rodman92-rpg": {
       "tier": "medium",
@@ -3713,7 +3839,10 @@
       "era": "2020s",
       "steps": 28,
       "day": "2027-01-22",
-      "notBefore": "2027-01-23"
+      "notBefore": "2027-01-23",
+      "leaks": [
+        "nba-cp3-2022-perfect-playoff-shots"
+      ]
     },
     "nba-lakers72-sixers73-win-gap-v51d": {
       "tier": "hard",
@@ -3749,7 +3878,10 @@
       "era": "2000s",
       "steps": 170,
       "day": "2027-01-23",
-      "notBefore": "2027-01-24"
+      "notBefore": "2027-01-24",
+      "leaks": [
+        "nba-hornets08-season-wins"
+      ]
     },
     "nba-wade06-finals-ppg": {
       "tier": "medium",
@@ -3763,14 +3895,18 @@
         "nba-shaq00-finals-ppg"
       ]
     },
-    "nba-floyd87-51": {
+    "nba-giannis21-g6-ft-pct-v51b": {
       "tier": "hard",
-      "family": "points-game",
-      "franchise": "GSW",
-      "era": "1980s",
-      "steps": 50,
+      "family": "shooting-pct",
+      "franchise": "MIL",
+      "era": "2020s",
+      "steps": 60,
       "day": "2027-01-23",
-      "notBefore": "2027-01-24"
+      "notBefore": "2027-01-24",
+      "leaks": [
+        "nba-suns21-g1-ft",
+        "nba-giannis24-cup-final-rebounds-v5"
+      ]
     },
     "nba-blazers77-g4-q3": {
       "tier": "hard",
@@ -3793,8 +3929,8 @@
       "day": "2027-01-23",
       "notBefore": "2027-01-24",
       "leaks": [
-        "nba-jazz96-comeback",
         "nba-lakers00-portland-g7-comeback",
+        "nba-lillard19-okc-winner-distance",
         "nba-wolves24-denver-game7-comeback",
         "nba-celtics08-finals-g4-comeback-24",
         "nba-mavs11-heat-finals-g2-comeback-fifteen"
@@ -3826,11 +3962,13 @@
       "family": "points-game",
       "franchise": "LAL",
       "era": "2000s",
-      "steps": 55,
+      "steps": 75,
       "day": "2027-01-24",
       "notBefore": "2027-01-25",
       "leaks": [
-        "nba-kobe-81"
+        "nba-kobe-81",
+        "nba-booker17-70",
+        "nba-luka24-73-hawks"
       ]
     },
     "nba-celtics08-g6-margin": {
@@ -3842,7 +3980,7 @@
       "day": "2027-01-24",
       "notBefore": "2027-01-25",
       "leaks": [
-        "nba-grizzlies21-margin"
+        "nba-bulls98-g3-margin-v5"
       ]
     },
     "nba-kings23-light-beam-sixteen-drought": {
@@ -3907,7 +4045,11 @@
       "era": "2020s",
       "steps": 90,
       "day": "2027-01-25",
-      "notBefore": "2027-01-26"
+      "notBefore": "2027-01-26",
+      "leaks": [
+        "nba-bulls98-g3-margin-v5",
+        "nba-celtics85-memorial-day-margin-v52b"
+      ]
     },
     "nba-wemby24-five-five-points": {
       "tier": "easy",
@@ -3942,8 +4084,7 @@
       "day": "2027-01-26",
       "notBefore": "2027-01-27",
       "leaks": [
-        "nba-curry16-season-threes-402",
-        "nba-curry22-allstar-sixteen-threes"
+        "nba-majerle93-three-pointers"
       ]
     },
     "nba-teague15-assists-average": {
@@ -3956,9 +4097,9 @@
       "notBefore": "2027-01-27",
       "leaks": [
         "nba-lowry19-regular-apg",
+        "nba-hawks15-regular-wins",
         "nba-bibby02-regular-apg",
-        "nba-butler20-regular-apg",
-        "nba-james09-season-apg"
+        "nba-payton94-apg"
       ]
     },
     "nba-blazers19-nuggets-game3-four-overtimes": {
@@ -4015,8 +4156,9 @@
       "day": "2027-01-27",
       "notBefore": "2027-01-28",
       "leaks": [
-        "nba-noah11-rebounds-average",
+        "nba-mutombo01-posttrade-rpg",
         "nba-howard09-regular-rpg",
+        "nba-hornets08-season-wins",
         "nba-kemp94-rpg",
         "nba-giannis19-regular-rpg"
       ]
@@ -4100,7 +4242,8 @@
       "day": null,
       "notBefore": "2027-01-24",
       "leaks": [
-        "nba-clippers19-warriors-g2-31-comeback"
+        "nba-clippers19-warriors-g2-31-comeback",
+        "nba-klay18-14-threes-v52a"
       ]
     },
     "nba-kobe-three-titles-age": {
@@ -4761,12 +4904,9 @@
       "family": "assists-average",
       "franchise": "MIL",
       "era": "1970s",
-      "steps": 12,
+      "steps": 140,
       "day": null,
-      "notBefore": "2027-01-26",
-      "leaks": [
-        "nba-oscar71-ppg-v5"
-      ]
+      "notBefore": "2027-01-26"
     },
     "nba-giannis21-g6-ft": {
       "tier": "hard",
@@ -4832,6 +4972,135 @@
       "notBefore": "2027-01-25",
       "leaks": [
         "nba-cavs17-g4-q1"
+      ]
+    },
+    "nba-rose11-mvp-youngest-age": {
+      "tier": "medium",
+      "family": "age",
+      "franchise": "CHI",
+      "era": "2010s",
+      "steps": 20,
+      "day": null,
+      "notBefore": "2026-12-02",
+      "leaks": [
+        "nba-mazzulla24-age"
+      ]
+    },
+    "nba-webber02-season-ppg": {
+      "tier": "hard",
+      "family": "scoring-average",
+      "franchise": "SAC",
+      "era": "2000s",
+      "steps": 400,
+      "day": null,
+      "notBefore": "2026-12-03",
+      "leaks": [
+        "nba-wilt62-ppg"
+      ]
+    },
+    "nba-kawhi19-jokic23-playoff-points-gap-v5": {
+      "tier": "hard",
+      "family": "points-season-total",
+      "franchise": "TOR",
+      "era": "2010s",
+      "steps": 150,
+      "day": null,
+      "notBefore": "2026-12-05",
+      "leaks": [
+        "nba-jokic23-playoff-points",
+        "nba-kawhi19-playoff-points-732"
+      ]
+    },
+    "nba-sonics79-january-wins": {
+      "tier": "medium",
+      "family": "wins-month",
+      "franchise": "OKC",
+      "era": "1970s",
+      "steps": 23,
+      "day": null,
+      "notBefore": "2026-12-10"
+    },
+    "nba-curry15-g2-misses": {
+      "tier": "hard",
+      "family": "threes-attempts",
+      "franchise": "GSW",
+      "era": "2010s",
+      "steps": 18,
+      "day": null,
+      "notBefore": "2027-01-27",
+      "leaks": [
+        "nba-starks94-g7-3pa",
+        "nba-curry16-13-threes",
+        "nba-iguodala15-votes",
+        "nba-teague15-assists-average"
+      ]
+    },
+    "nba-unseld75-finals-g2-rebounds": {
+      "tier": "hard",
+      "family": "rebounds-game",
+      "franchise": "WAS",
+      "era": "1970s",
+      "steps": 38,
+      "day": null,
+      "notBefore": "2026-12-17"
+    },
+    "nba-cup23-prize": {
+      "tier": "medium",
+      "family": "prize-money",
+      "franchise": null,
+      "era": "2020s",
+      "steps": 75,
+      "day": null,
+      "notBefore": "2026-12-18"
+    },
+    "nba-wilt-kobe-record-gap-v51b": {
+      "tier": "medium",
+      "family": "points-game",
+      "franchise": "LAL",
+      "era": "2000s",
+      "steps": 40,
+      "day": null,
+      "notBefore": "2026-12-25",
+      "leaks": [
+        "nba-wilt-100",
+        "nba-kobe-81"
+      ]
+    },
+    "nba-spurs14-international": {
+      "tier": "medium",
+      "family": "roster",
+      "franchise": "SAS",
+      "era": "2010s",
+      "steps": 14,
+      "day": null,
+      "notBefore": "2027-01-14",
+      "leaks": [
+        "nba-spurs14-finals-avg-margin-fourteen"
+      ]
+    },
+    "nba-parker14-season-ppg": {
+      "tier": "hard",
+      "family": "scoring-average",
+      "franchise": "SAS",
+      "era": "2010s",
+      "steps": 290,
+      "day": null,
+      "notBefore": "2027-01-15",
+      "leaks": [
+        "nba-rose11-season-ppg",
+        "nba-spurs14-finals-avg-margin-fourteen"
+      ]
+    },
+    "nba-davis84-regular-apg": {
+      "tier": "medium",
+      "family": "assists-average",
+      "franchise": "PHX",
+      "era": "1980s",
+      "steps": 120,
+      "day": null,
+      "notBefore": "2027-01-16",
+      "leaks": [
+        "nba-nash05-regular-apg"
       ]
     }
   },
@@ -8750,22 +9019,21 @@
     {
       "id": "nba-oscar71-apg",
       "sport": "NBA",
-      "prompt": "In his first Bucks season, about how many assists per game did Oscar Robertson average, to the nearest whole number?",
+      "prompt": "In his first Bucks season, how many assists per game did Oscar Robertson average?",
       "context": "Milwaukee Bucks · 1970–71",
-      "answer": 8,
+      "answer": 8.2,
       "unit": {
         "singular": "assist per game",
         "plural": "assists per game"
       },
-      "min": 2,
-      "max": 14,
-      "step": 1,
-      "note": "About 8: the text says 8.3, the season table 8.25.",
+      "min": 3,
+      "max": 17,
+      "step": 0.1,
+      "note": "8.2, third in the NBA, in the season his arrival helped bring Milwaukee the title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
-        "quote": "Robertson ranked third in the league in assists at 8.3 apg and was the Bucks' No. 2 scorer at 19.4 ppg.",
-        "derivation": "The article’s text says 8.3; its season table gives 668 assists in 81 games, 8.25. Either way, 8 to the nearest whole number."
+        "url": "https://en.wikipedia.org/wiki/Oscar_Robertson",
+        "quote": "| 1970–71† | Milwaukee | 81 |  | 39.4 | .496 | .850 | 5.7 | 8.2 |"
       },
       "verified": {
         "on": "2026-11-16",
@@ -9171,6 +9439,692 @@
         ],
         "supports": [
           "nba-cavs17-g4-q1"
+        ]
+      }
+    },
+    {
+      "id": "nba-rose11-mvp-youngest-age",
+      "sport": "NBA",
+      "prompt": "Joe Mazzulla was 35 when he coached Boston to the 2024 Finals. How old was Derrick Rose when he won MVP in 2011?",
+      "context": "Chicago Bulls · 2010–11 MVP season",
+      "answer": 22,
+      "unit": {
+        "singular": "year old",
+        "plural": "years old"
+      },
+      "min": 18,
+      "max": 38,
+      "step": 1,
+      "note": "Just 22. Chicago's hometown star became the youngest MVP in league history.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+        "quote": "At 22 years and 6 months old, Rose also became the youngest player"
+      },
+      "verified": {
+        "on": "2026-11-22",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Chicago finished with the NBA's best record in Rose's MVP season: 62–20.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+            "quote": "league leading record of 62–20"
+          }
+        },
+        {
+          "text": "At that time, Michael Jordan was the only other Bulls player to have won league MVP.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+            "quote": "joining Jordan as the only players"
+          }
+        },
+        {
+          "text": "Rose broke an age record previously held by Wes Unseld.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Derrick_Rose",
+            "quote": "formerly the youngest MVP"
+          }
+        }
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "age",
+        "era": "cross-era",
+        "subjects": [
+          "Derrick Rose",
+          "Chicago Bulls"
+        ],
+        "supports": [
+          "nba-mazzulla24-age"
+        ]
+      }
+    },
+    {
+      "id": "nba-webber02-season-ppg",
+      "sport": "NBA",
+      "prompt": "Wilt Chamberlain's record 1961–62 average was 50.4 points per game. How many did Chris Webber average for the 2001–02 Kings?",
+      "context": "Sacramento · 2001–02 regular season",
+      "answer": 24.5,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 15,
+      "max": 55,
+      "step": 0.1,
+      "note": "24.5 points per game, with 10.1 rebounds.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+        "quote": "Webber averaged 24.5 points, 10.1 rebounds, 4.8 assists"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Webber also pulled down 10.1 rebounds a game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Webber averaged 24.5 points, 10.1 rebounds, 4.8 assists"
+          }
+        },
+        {
+          "text": "His passing added another 4.8 assists per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "Webber averaged 24.5 points, 10.1 rebounds, 4.8 assists"
+          }
+        },
+        {
+          "text": "He made the All-NBA Second Team that season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season",
+            "quote": "and was named to the All-NBA Second Team"
+          }
+        }
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "scoring-average",
+        "era": "cross-era",
+        "subjects": [
+          "Chris Webber",
+          "Sacramento Kings"
+        ],
+        "supports": [
+          "nba-wilt62-ppg"
+        ]
+      }
+    },
+    {
+      "id": "nba-kawhi19-jokic23-playoff-points-gap-v5",
+      "sport": "NBA",
+      "prompt": "How many more playoff points did Kawhi Leonard score on Toronto's 2019 title run than Nikola Jokić on Denver's in 2023?",
+      "context": "Two Finals MVP title runs · 2019 vs 2023",
+      "answer": 132,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 20,
+      "max": 320,
+      "step": 2,
+      "note": "132 more: Kawhi scored 732 in 2019, Jokić 600 in 2023.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+        "quote": "Leonard scored 732 points during the 2019 playoffs; this was the third-best scoring total for a single NBA postseason in league history",
+        "derivation": "Kawhi Leonard 732 points (2019 playoffs) − Nikola Jokić 600 points (2023 playoffs) = 132."
+      },
+      "verified": {
+        "on": "2026-11-26",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "At the time, only LeBron James (748 in 2018) and Michael Jordan (759 in 1992) had scored more in a single postseason.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+            "quote": "behind only LeBron James (748, 2018) and Michael Jordan (759, 1992)"
+          }
+        },
+        {
+          "text": "Kawhi Leonard was named Finals MVP for the second time after Toronto's 2019 title.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
+            "quote": "He was subsequently named NBA Finals MVP for the second time"
+          }
+        },
+        {
+          "text": "Jokić became the first center to win Finals MVP since Shaquille O'Neal in 2002.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
+            "quote": "becoming the first center to win the award since Shaquille O'Neal in 2002"
+          }
+        }
+      ],
+      "meta": {
+        "format": "difference",
+        "family": "points-season-total",
+        "era": "cross-era",
+        "subjects": [
+          "Kawhi Leonard",
+          "Toronto Raptors"
+        ],
+        "supports": [
+          "nba-kawhi19-playoff-points-732",
+          "nba-jokic23-playoff-points"
+        ]
+      }
+    },
+    {
+      "id": "nba-sonics79-january-wins",
+      "sport": "NBA",
+      "prompt": "The 2012–13 Heat won a record 17 games in one calendar month. How many did Seattle win in January 1979 on its title run?",
+      "context": "SuperSonics · January 1979 · monthly record",
+      "answer": 10,
+      "unit": {
+        "singular": "January win",
+        "plural": "January wins"
+      },
+      "min": 1,
+      "max": 24,
+      "step": 1,
+      "note": "Ten wins in January, powered by strong road form.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+        "quote": "January: 10–4 (home: 3–3; road: 7–1)"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Seattle won seven January road games and lost only once away from home.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "January: 10–4 (home: 3–3; road: 7–1)"
+          }
+        },
+        {
+          "text": "The Sonics won a tight January game at Washington, a preview of the Finals matchup.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "January 23 @ Washington W 103–100"
+          }
+        },
+        {
+          "text": "The Sonics also won a tight January game on the road in Phoenix.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1978%E2%80%9379_Seattle_SuperSonics_season",
+            "quote": "January 11 @ Phoenix W 109–106"
+          }
+        }
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "wins-month",
+        "era": "cross-era",
+        "subjects": [
+          "Oklahoma City Thunder"
+        ],
+        "supports": [
+          "nba-heat13-month-wins"
+        ]
+      }
+    },
+    {
+      "id": "nba-curry15-g2-misses",
+      "sport": "NBA",
+      "prompt": "John Starks missed 11 threes in Game 7 of the 1994 Finals. How many threes did Stephen Curry miss in Game 2 of the 2015 Finals?",
+      "context": "2015 NBA Finals · Game 2 · vs Cleveland",
+      "answer": 13,
+      "unit": {
+        "singular": "missed three",
+        "plural": "missed threes"
+      },
+      "min": 3,
+      "max": 21,
+      "step": 1,
+      "note": "13 misses, a Finals record.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+        "quote": "Curry set an NBA record for most missed three-point attempts in an NBA Finals game with 13."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Matthew Dellavedova's physical defense held Curry scoreless from the field on his attempts against him.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+            "quote": "Matthew Dellavedova's defense on Curry was huge as Curry was 0–for–8 against him"
+          }
+        },
+        {
+          "text": "The overtime victory was Cleveland's first Finals game win in franchise history, after its earlier sweep in 2007.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+            "quote": "The victory for Cleveland was their first ever single game Finals victory"
+          }
+        },
+        {
+          "text": "LeBron dubbed the undermanned Cavs 'The Grit Squad' as injuries forced a slower, tougher style.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
+            "quote": "James had dubbed the undermanned Cavaliers as \"The Grit Squad\""
+          }
+        }
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "threes-attempts",
+        "era": "cross-era",
+        "subjects": [
+          "Stephen Curry",
+          "Golden State Warriors"
+        ],
+        "supports": [
+          "nba-starks94-g7-3pa"
+        ]
+      }
+    },
+    {
+      "id": "nba-unseld75-finals-g2-rebounds",
+      "sport": "NBA",
+      "prompt": "How many rebounds did Wes Unseld grab in Game 2 of the 1975 Finals?",
+      "context": "Washington Bullets at Golden State · 1975 Finals",
+      "answer": 20,
+      "unit": {
+        "singular": "rebound",
+        "plural": "rebounds"
+      },
+      "min": 5,
+      "max": 43,
+      "step": 1,
+      "note": "20 rebounds, but Washington lost the game by a single point.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+        "quote": "Rebs: Wes Unseld 20"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Jamaal Wilkes's undersized but effective defense on Elvin Hayes proved decisive.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "the defensive play of the seemingly undersized Jamaal Wilkes on Bullets' power forward Elvin Hayes"
+          }
+        },
+        {
+          "text": "Reserve center George Johnson added 10 points and nine rebounds in Game 3.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "backup center George Johnson had 10 points and nine rebounds off the bench"
+          }
+        },
+        {
+          "text": "Rick Barry had 38 points in Game 3 as the Warriors moved within a win of the title.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
+            "quote": "Rick Barry poured in 38 points"
+          }
+        }
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "rebounds-game",
+        "era": "1970s",
+        "subjects": [
+          "Wes Unseld",
+          "Washington Wizards"
+        ],
+        "supports": []
+      }
+    },
+    {
+      "id": "nba-cup23-prize",
+      "sport": "NBA",
+      "prompt": "How much prize money did each player on the 2023 In-Season Tournament champions earn?",
+      "context": "2023 In-Season Tournament · prize pool",
+      "answer": 500000,
+      "unit": {
+        "singular": "dollar",
+        "plural": "dollars"
+      },
+      "min": 0,
+      "max": 750000,
+      "step": 10000,
+      "note": "$500,000 each.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+        "quote": "Players on the tournament championship team: $500,000 each"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Players on runner-up Indiana still collected $200,000 each for their tournament run.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+            "quote": "Players on the tournament runner-up team: $200,000 each"
+          }
+        },
+        {
+          "text": "Losing semifinalists received $100,000 each, even without reaching the title game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+            "quote": "Players on teams that lose in the semifinals: $100,000 each"
+          }
+        },
+        {
+          "text": "Unlike earlier knockout games, the Cup championship did not count toward the NBA regular-season standings.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2023_NBA_in-season_tournament",
+            "quote": "Quarterfinal and semifinal games counted as regular season games, affecting teams' positions in league standings, but the championship game did not."
+          }
+        }
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "prize-money",
+        "era": "2020s",
+        "subjects": [],
+        "supports": []
+      }
+    },
+    {
+      "id": "nba-wilt-kobe-record-gap-v51b",
+      "sport": "NBA",
+      "prompt": "How many more points did Wilt Chamberlain score against the Knicks in 1962 than Kobe Bryant against Toronto in 2006?",
+      "context": "Wilt's 1962 game vs Kobe's 2006 game · gap in points",
+      "answer": 19,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 5,
+      "max": 45,
+      "step": 1,
+      "note": "19 more: Wilt scored 100 and Kobe 81.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+        "quote": "On January 22, 2006, Bryant scored a career-high 81 points",
+        "derivation": "Wilt Chamberlain 100 points − Kobe Bryant 81 points = 19."
+      },
+      "verified": {
+        "on": "2026-11-26",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Only audio of the fourth quarter survives, and the recording was added to the U.S. National Recording Registry.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
+            "quote": "there are only audio recordings of the game's fourth quarter, which was added for preservation in the United States' National Recording Registry"
+          }
+        },
+        {
+          "text": "The Lakers trailed Toronto by 14 points at halftime before Kobe took over.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+            "quote": "the Lakers trailed 63–49 at halftime"
+          }
+        },
+        {
+          "text": "He played 42 minutes and knocked down seven threes during the explosion.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
+            "quote": "Bryant play 42 minutes, shooting 28-of-46 from the field, including 7-of-13 on three-pointers"
+          }
+        }
+      ],
+      "meta": {
+        "format": "difference",
+        "family": "points-game",
+        "era": "cross-era",
+        "subjects": [
+          "Kobe Bryant",
+          "Los Angeles Lakers"
+        ],
+        "supports": [
+          "nba-wilt-100",
+          "nba-kobe-81"
+        ]
+      }
+    },
+    {
+      "id": "nba-spurs14-international",
+      "sport": "NBA",
+      "prompt": "The 2013–14 Spurs opened the season with an NBA-record number of international players. How many?",
+      "context": "San Antonio Spurs · 2013–14",
+      "answer": 10,
+      "unit": {
+        "singular": "player",
+        "plural": "players"
+      },
+      "min": 5,
+      "max": 19,
+      "step": 1,
+      "note": "Ten.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+        "quote": "They also entered the season with an NBA-record ten international players."
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "French forward Boris Diaw became a key ball-mover on the championship roster.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "Diaw led all players in the series in assists"
+          }
+        },
+        {
+          "text": "The team's system spread minutes so widely that no Spur averaged half an hour during the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "no player averaging 30 minutes during the regular season"
+          }
+        },
+        {
+          "text": "The Finals marked the return of a less punishing travel format, partly enabled by charter flights.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2014_NBA_Finals",
+            "quote": "as well as the increased use of chartered flights as opposed to commercial flights"
+          }
+        }
+      ],
+      "meta": {
+        "format": "recall",
+        "family": "roster",
+        "era": "2010s",
+        "subjects": [
+          "San Antonio Spurs"
+        ],
+        "supports": []
+      }
+    },
+    {
+      "id": "nba-parker14-season-ppg",
+      "sport": "NBA",
+      "prompt": "Derrick Rose averaged 25.0 points as the 2011 MVP. What did Tony Parker average for the 2013–14 champion Spurs?",
+      "context": "San Antonio · balanced championship attack",
+      "answer": 16.7,
+      "unit": {
+        "singular": "point per game",
+        "plural": "points per game"
+      },
+      "min": 8,
+      "max": 37,
+      "step": 0.1,
+      "note": "16.7 points per game as part of a deep team.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+        "quote": "Tony Parker | PG | 68 | 68 | 1,997 | 155 | 388 | 36 | 9 | 1,134 | 29.4 | 2.3 | 5.7 | .5 | .1 | 16.7"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "hard",
+      "funFacts": [
+        {
+          "text": "Parker played nearly two thousand minutes across sixty-eight appearances.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Tony Parker | PG | 68 | 68 | 1,997"
+          }
+        },
+        {
+          "text": "He dished out 388 assists in the regular season.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Tony Parker | PG | 68 | 68 | 1,997 | 155 | 388"
+          }
+        },
+        {
+          "text": "Parker's passing average stood at 5.7 assists per game.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
+            "quote": "Tony Parker | PG | 68 | 68 | 1,997 | 155 | 388 | 36 | 9 | 1,134 | 29.4 | 2.3 | 5.7"
+          }
+        }
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "scoring-average",
+        "era": "2010s",
+        "subjects": [
+          "Tony Parker",
+          "San Antonio Spurs"
+        ],
+        "supports": [
+          "nba-rose11-season-ppg"
+        ]
+      }
+    },
+    {
+      "id": "nba-davis84-regular-apg",
+      "sport": "NBA",
+      "prompt": "Steve Nash averaged 11.5 assists for the 2004–05 Suns. What did Phoenix scorer Walter Davis average in 1983–84?",
+      "context": "Suns · veteran scorer and creator",
+      "answer": 5.5,
+      "unit": {
+        "singular": "assist per game",
+        "plural": "assists per game"
+      },
+      "min": 1,
+      "max": 13,
+      "step": 0.1,
+      "note": "5.5 assists per game from the veteran guard.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+        "quote": "Walter Davis | 78 | 70 | 32.6 | .512 | .230 | .863 | 2.6 | 5.5"
+      },
+      "verified": {
+        "on": "2026-11-16",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "medium",
+      "funFacts": [
+        {
+          "text": "Davis scored twenty points a game that year.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Walter Davis | 78 | 70 | 32.6 | .512 | .230 | .863 | 2.6 | 5.5 | 1.4 | .2 | 20.0"
+          }
+        },
+        {
+          "text": "He started seventy of his seventy-eight appearances.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Walter Davis | 78 | 70 | 32.6"
+          }
+        },
+        {
+          "text": "Davis hit 86.3 percent of his free throws.",
+          "source": {
+            "name": "Wikipedia contributors (CC BY-SA 4.0)",
+            "url": "https://en.wikipedia.org/wiki/1983%E2%80%9384_Phoenix_Suns_season",
+            "quote": "Walter Davis | 78 | 70 | 32.6 | .512 | .230 | .863"
+          }
+        }
+      ],
+      "meta": {
+        "format": "reference",
+        "family": "assists-average",
+        "era": "cross-era",
+        "subjects": [
+          "Walter Davis",
+          "Phoenix Suns"
+        ],
+        "supports": [
+          "nba-nash05-regular-apg"
         ]
       }
     }

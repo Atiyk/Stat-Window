@@ -35,7 +35,7 @@ test('unset launch config preserves live beta numbering and legacy challenge lin
   await startDailyIfNeeded(page);
   await expect(page.locator('.challenge-note')).toContainText('300');
   await expect(page.locator('.link-note')).toHaveCount(0);
-  await expect(page.locator('.day-label')).not.toHaveText('No. 1');
+  await expect(page.locator('.day-label')).not.toHaveText('Game 1');
 });
 
 test('a configured future launch does not prematurely retire yesterday or its score link', async ({ page }) => {
@@ -55,8 +55,8 @@ test('new Day 1 starts at No. 1 with no beta archive, preserving old saves but r
 
   // Switching to official Day 1 must not count or publicly expose beta play.
   await at(page, first, `/?${preview}`);
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
-  await expect(page.getByRole('heading', { name: 'Ready for five?' })).toBeVisible();
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
+  await expect(page.getByRole('heading', { name: 'How well do you know ball?' })).toBeVisible();
   await expect(page.locator('.ready-previous')).toHaveCount(0);
   await page.setViewportSize({ width: 320, height: 568 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(321);
@@ -75,7 +75,7 @@ test('new Day 1 starts at No. 1 with no beta archive, preserving old saves but r
 test('a retired beta challenge gives an explicit notice and strips its score/time link', async ({ page }) => {
   await at(page, first, `/?day=2027-01-09&vs=300&time=1234&${preview}`);
   await expect(page.getByRole('status').filter({ hasText: 'beta puzzle was retired' })).toBeVisible();
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
   const params = new URLSearchParams(new URL(page.url()).search);
   expect(params.has('day')).toBe(false);
   expect(params.has('vs')).toBe(false);
@@ -96,13 +96,13 @@ test('retirement switches at Eastern midnight, not UTC midnight', async ({ page 
   // At 05:00Z the New York puzzle day rolls over and the beta link retires.
   await at(page, '2027-01-10T05:00:00Z', legacy);
   await expect(page.locator('.link-note')).toContainText('beta puzzle was retired');
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
   await expect(page.locator('.challenge-note')).toHaveCount(0);
 });
 
 test('Day 2 archive contains only Day 1, and new-season challenge links remain playable', async ({ page }) => {
   await at(page, second, `/?${preview}`);
-  await expect(page.locator('.day-label')).toHaveText('No. 2');
+  await expect(page.locator('.day-label')).toHaveText('Game 2');
   await complete(page);
   const buttons = page.locator('.archive-list button');
   await expect(buttons).toHaveCount(1);
@@ -110,7 +110,7 @@ test('Day 2 archive contains only Day 1, and new-season challenge links remain p
 
   await at(page, second, `/?day=${LAUNCH}&vs=250&${preview}`);
   await startDailyIfNeeded(page);
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
   await expect(page.locator('.challenge-note')).toContainText('250');
   await expect(page.locator('.link-note')).toHaveCount(0);
 });
@@ -123,7 +123,7 @@ test('November 28 candidate becomes an official Day 1 without beta scores or sta
 
   await at(page, '2026-11-28T15:00:00Z', `/?day=2026-11-27&vs=210&time=4800&launch-preview=${launchDay}`);
   await expect(page.locator('.link-note')).toContainText('beta puzzle was retired');
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
   const params = new URL(page.url()).searchParams;
   expect(params.has('day')).toBe(false);
   expect(params.has('vs')).toBe(false);
@@ -139,4 +139,109 @@ test('November 28 candidate becomes an official Day 1 without beta scores or sta
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') ?? '{}'));
   expect(Object.keys(saved.runs)).toContain('2026-11-27');
   expect(Object.keys(saved.runs)).toContain('2026-11-28');
+});
+
+// The committed launch day (src/engine/launch-config.ts), with no preview override: the
+// real Day 1 cutover, simulated with pinned clocks. docs/V5.2-DAY1-SIMULATION.md.
+test.describe('committed Day 1 (LAUNCH_DAY 2026-11-30)', () => {
+  const NOV29_LATE = '2026-11-30T04:59:00Z'; // 11:59 PM Sunday Nov 29 in New York (EST)
+  const DAY1_START = '2026-11-30T05:00:00Z'; // 12:00 AM Monday Nov 30 in New York
+  const DAY1 = '2026-11-30T15:00:00Z';
+  const DAY2 = '2026-12-01T15:00:00Z';
+  const total = (run: { results: { points: number }[] }) => run.results.reduce((s, r) => s + r.points, 0);
+
+  test('Nov 29 is still beta Game 15; midnight Eastern makes Nov 30 Game 1; Dec 1 is Game 2', async ({ page }) => {
+    await at(page, NOV29_LATE, '/');
+    await expect(page.locator('.day-label')).toHaveText('Game 15');
+    await at(page, DAY1_START, '/');
+    await expect(page.locator('.day-label')).toHaveText('Game 1');
+    await at(page, DAY2, '/');
+    await expect(page.locator('.day-label')).toHaveText('Game 2');
+  });
+
+  test('beta play is kept but never counted: Day 1 stats, streak, weekly and share start from No. 1', async ({ page, context, browserName }) => {
+    await at(page, '2026-11-30T03:00:00Z', '/');
+    await expect(page.locator('.day-label')).toHaveText('Game 15');
+    await complete(page);
+
+    await at(page, DAY1, '/');
+    await expect(page.locator('.day-label')).toHaveText('Game 1');
+    await expect(page.locator('.ready-previous')).toHaveCount(0);
+    await startDailyIfNeeded(page);
+    const firstPrompt = await page.locator('.question').innerText();
+    // A refresh before locking reopens the same puzzle, not a re-rolled one.
+    await page.reload();
+    await startDailyIfNeeded(page);
+    await expect(page.locator('.question')).toHaveText(firstPrompt);
+    await complete(page);
+
+    const stat = (name: string) => page.locator('.stats dt', { hasText: name }).locator('..').locator('dd');
+    await expect(stat('Played')).toHaveText('1');
+    await expect(stat('Days in a row')).toHaveText('1');
+    await expect(page.locator('.archive-list')).toHaveCount(0);
+    const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') ?? '{}'));
+    expect(Object.keys(saved.runs).sort()).toEqual(['2026-11-29', '2026-11-30']);
+    const day1 = total(saved.runs['2026-11-30']);
+    await expect(stat('Average')).toHaveText(String(day1));
+
+    if (browserName === 'chromium' && test.info().project.name === 'desktop') {
+      await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+      await page.getByRole('button', { name: 'Challenge a friend' }).click();
+      const shared = await page.evaluate(() => navigator.clipboard.readText());
+      expect(shared.split('\n')[0]).toMatch(new RegExp(`^Stat Window No\\. 1  ${day1}/500`));
+      expect(shared).toContain('/?day=2026-11-30&vs=');
+    }
+
+    await at(page, DAY1, '/?weekly');
+    await expect(page.locator('.week-summary__points')).toHaveText(day1.toLocaleString('en-US'));
+    await expect(page.locator('.weekly__stats dt', { hasText: 'Games' }).locator('..').locator('dd')).toHaveText('1 of 7');
+  });
+
+  test('an old beta challenge link degrades with a notice on Day 1', async ({ page }) => {
+    await at(page, DAY1, '/?day=2026-11-29&vs=300&time=4000');
+    await expect(page.getByRole('status').filter({ hasText: 'beta puzzle was retired' })).toBeVisible();
+    await expect(page.locator('.day-label')).toHaveText('Game 1');
+    expect(new URL(page.url()).search).toBe('');
+    await startDailyIfNeeded(page);
+    await expect(page.locator('.challenge-note')).toHaveCount(0);
+  });
+
+  test('Day 2 archive holds only Day 1', async ({ page }) => {
+    await at(page, DAY2, '/');
+    await complete(page);
+    const buttons = page.locator('.archive-list button');
+    await expect(buttons).toHaveCount(1);
+    await expect(buttons.first()).toContainText('Nov 30');
+  });
+
+  async function openAcrossMidnight(page: Page) {
+    await page.route('**/api/scores**', route => route.fulfill({ status: 503, contentType: 'application/json', body: '{"status":"disabled"}' }));
+    await page.clock.install({ time: new Date('2026-11-30T04:59:40Z') });
+    await page.goto('/');
+    await expect(page.locator('.day-label')).toHaveText('Game 15');
+    await page.evaluate(() => { (window as unknown as { sameDocument: boolean }).sameDocument = true; });
+  }
+  const sameDocument = (page: Page) => page.evaluate(() => (window as unknown as { sameDocument?: boolean }).sameDocument === true);
+
+  test('an open tab crosses the Nov 29 → 30 midnight onto Game 1 without a reload when launch.json agrees', async ({ page }) => {
+    let checked = 0;
+    await page.route('**/launch.json', async route => { checked++; await route.continue(); });
+    await openAcrossMidnight(page);
+    await page.clock.runFor(60_000);
+    await expect(page.locator('.day-label')).toHaveText('Game 1');
+    expect(checked).toBeGreaterThan(0);
+    expect(await sameDocument(page)).toBe(true);
+  });
+
+  test('an open tab whose bundle disagrees with the deployed launch.json reloads at midnight', async ({ page }) => {
+    // Simulates a tab opened before a deploy that changed the launch day.
+    await page.route('**/launch.json', route => route.fulfill({ status: 200, contentType: 'application/json', body: '{"launchDay":null}' }));
+    await openAcrossMidnight(page);
+    const reloaded = page.waitForEvent('load');
+    await page.clock.runFor(60_000);
+    await reloaded;
+    expect(await sameDocument(page)).toBe(false);
+    // This bundle still carries 2026-11-30, so after the reload the new day is Game 1.
+    await expect(page.locator('.day-label')).toHaveText('Game 1');
+  });
 });

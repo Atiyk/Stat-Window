@@ -45,6 +45,7 @@ test.describe('release accessibility and viewport smoke', () => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.clock.setFixedTime(DAY1);
     await page.goto('/');
+    await page.getByRole('button', { name: 'Try a practice question first' }).click();
     await expect(page.getByRole('heading', { name: /Golden State Warriors/ })).toBeVisible();
     const low = lowBracket(page);
     const grip = low.locator('.bracket-grip');
@@ -59,8 +60,9 @@ test.describe('release accessibility and viewport smoke', () => {
     await low.focus();
     await page.keyboard.press('ArrowRight');
     await page.keyboard.press('Enter');
-    await expect(page.getByRole('region', { name: 'Practice answer' })).toContainText('73 wins');
-    await page.getByRole('button', { name: "Start today's five" }).click();
+    await expect(page.locator('.onboarding-play .reveal-answer')).toHaveText('73 wins');
+    await expect(page.getByRole('region', { name: 'Practice answer' })).toContainText('73–9');
+    await page.getByRole('button', { name: /^Play Game \d+$/ }).click();
     await expect(page.locator('h1.question')).toBeFocused();
     await expect(page.getByRole('timer')).toContainText('24s');
     expect(await page.evaluate(() => window.scrollY)).toBe(0);

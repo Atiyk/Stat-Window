@@ -1,11 +1,13 @@
-import { FORMATS, type QuestionFormat } from './formats';
+import { isPlayerFormat, PLAYER_FORMATS, type PlayerFormat } from './formats';
 import type { Question } from './schema';
 import { potentialPoints, rangeSteps, toSteps, type RoundScore, type Window } from '../engine/scoring';
 import { formatValue, unitFor } from '../lib/format';
 
 /**
  * Evergreen teaching inventory (Workstream T): one untimed, worked NBA example per
- * canonical question format, plus the first-play Warriors walkthrough.
+ * player format (taxonomy v2: recall, reference, missing-point), plus the first-play
+ * Warriors walkthrough. The four retired formats have no lesson: a historical question
+ * that still carries one of their labels is taught with the recall guide.
  *
  * Rules (enforced by scripts/nba/teaching.test.ts against data/nba/facts.json and
  * data/nba/calendar.json):
@@ -58,13 +60,13 @@ const WIKI = 'Wikipedia contributors (CC BY-SA 4.0)';
 const VERIFIED = { on: '2026-11-26', by: 'Stat Window teaching inventory, from verified facts' } as const;
 
 /**
- * The single source of truth for format help, keyed by the canonical enum. `satisfies`
- * makes a new format in FORMATS fail to compile until it has help text and an example.
+ * The single source of truth for format help, keyed by the player formats. `satisfies`
+ * makes a new player format fail to compile until it has help text and an example.
  */
 export const FORMAT_GUIDE = {
   recall: {
     label: 'Straight recall',
-    instruction: 'Estimate the number, then frame it.',
+    instruction: 'Frame your best estimate of the number.',
     detail: 'The question asks for one verified figure. Set your window around what you remember: tighter pays more, but it has to catch the answer.',
     example: {
       id: 'teach-recall-kobe-12-threes',
@@ -93,7 +95,7 @@ export const FORMAT_GUIDE = {
   },
   reference: {
     label: 'Reference figure',
-    instruction: 'Use the reference figure as an anchor; it isn’t the answer.',
+    instruction: 'The figure given is a clue, not the answer.',
     detail: 'The prompt prints a verified number from another player, team or season. Reason from it (higher or lower, and by how much), then frame the number actually asked for.',
     example: {
       id: 'teach-reference-dirk-wilt-free-throws',
@@ -122,8 +124,8 @@ export const FORMAT_GUIDE = {
   },
   'missing-point': {
     label: 'Missing data point',
-    instruction: 'Read the known bars, then frame the hidden one.',
-    detail: 'Each bar is a verified figure on the same scale; the dashed slot is the one you estimate. Read the title and unit first; your window is drawn on the slot as you move it.',
+    instruction: 'Read the bars, then frame the hidden one.',
+    detail: 'Each bar is a verified figure on the same scale, starting from zero. The dashed column is the one you estimate; your window is drawn on it as you move the brackets.',
     example: {
       id: 'teach-missing-best-records',
       basis: {
@@ -175,144 +177,18 @@ export const FORMAT_GUIDE = {
       },
     },
   },
-  difference: {
-    label: 'Difference',
-    instruction: 'Frame the gap between the two figures, in the direction asked.',
-    detail: 'Work out both figures, then subtract in the order the question states. Your window is for the gap itself, not for either total.',
-    example: {
-      id: 'teach-difference-west-magic',
-      basis: { references: ['nba-magic80-g6-points'], derive: { op: 'difference', of: ['nba-west69-g1', 'nba-magic80-g6-points'] } },
-      why: 'Jerry West scored 53; Magic Johnson scored 42. The question asks for West minus Magic: 53 − 42 = 11.',
-      question: {
-        id: 'teach-difference-west-magic',
-        sport: 'NBA',
-        prompt: 'Magic Johnson scored 42 in Game 6 of the 1980 Finals. How many more did Jerry West score in Game 1 of the 1969 Finals?',
-        context: 'Lakers Finals scoring · West 1969 minus Magic 1980',
-        answer: 11,
-        unit: { singular: 'point', plural: 'points' },
-        min: 0,
-        max: 30,
-        step: 1,
-        note: 'West scored 53 against Boston, 11 more than rookie Magic’s 42 in the 1980 clincher.',
-        source: {
-          name: WIKI,
-          url: 'https://en.wikipedia.org/wiki/1969_NBA_Finals',
-          quote: 'He used this freedom to score 53 points on opposing guards',
-          derivation: 'Jerry West 53 points − Magic Johnson 42 points = 11 points.',
-        },
-        verified: VERIFIED,
-        meta: { format: 'difference', family: 'points-game', era: 'cross-era', subjects: ['Jerry West', 'Magic Johnson', 'Los Angeles Lakers'], supports: ['nba-west69-g1', 'nba-magic80-g6-points'] },
-      },
-    },
-  },
-  ratio: {
-    label: 'Percentage or share',
-    instruction: 'Check what’s divided by what; frame the percentage, not a point gap.',
-    detail: 'Find the numerator (the part) and the denominator (the whole) the prompt names, then estimate part ÷ whole as a percentage. A percentage is not a gap in percentage points.',
-    example: {
-      id: 'teach-ratio-kings-home-share',
-      basis: { references: ['nba-kings02-regular-wins'], derive: { op: 'percent', of: ['nba-kings02-home-wins', 'nba-kings02-regular-wins'] } },
-      why: 'Part: 36 home wins. Whole: all 61 wins (not the 41 home games). 36 ÷ 61 × 100 = 59.0, so 59%.',
-      question: {
-        id: 'teach-ratio-kings-home-share',
-        sport: 'NBA',
-        prompt: 'The 2001–02 Kings won 61 regular-season games. What percentage of those wins came at home, to the nearest whole percent?',
-        context: 'Sacramento Kings · 2001–02 · home wins ÷ all wins',
-        answer: 59,
-        unit: { singular: 'percent', plural: 'percent' },
-        min: 30,
-        max: 90,
-        step: 1,
-        note: '36 of their 61 wins came at ARCO Arena: about 59%.',
-        source: {
-          name: WIKI,
-          url: 'https://en.wikipedia.org/wiki/2001%E2%80%9302_Sacramento_Kings_season',
-          quote: 'Sacramento Kings | 61 | 21 | .744 | – | 36–5 | 25–16',
-          derivation: '36 home wins ÷ 61 wins × 100 = 59.0, so 59%.',
-        },
-        verified: VERIFIED,
-        meta: { format: 'ratio', family: 'wins-situational', era: '2000s', subjects: ['Sacramento Kings'], supports: ['nba-kings02-home-wins', 'nba-kings02-regular-wins'] },
-      },
-    },
-  },
-  ranking: {
-    label: 'Ranking',
-    instruction: 'Frame the place or count under the stated rules.',
-    detail: 'Read who is being ranked, what decides the order and how ties count. Then estimate the place (1 is the top) or the count, and frame it.',
-    example: {
-      id: 'teach-ranking-celtics-playoff-record',
-      basis: {
-        fact: 'nba-celtics24-playoff-losses',
-        references: ['nba-celtics24-playoff-losses'],
-        ranking: {
-          population: 'NBA champions since all four playoff rounds became best-of-seven, by playoff record',
-          ties: 'Equal records share the better place; 1st is the fewest losses',
-          quoted: 'second only to the 2016–17 Golden State Warriors',
-        },
-      },
-      why: 'The source says the 16–3 Celtics were second only to the 2016–17 Warriors. One champion ahead of them means 2nd.',
-      question: {
-        id: 'teach-ranking-celtics-playoff-record',
-        sport: 'NBA',
-        prompt: 'Boston went 16–3 in the 2024 playoffs. Among champions since all four rounds became best-of-seven, where does that rank?',
-        context: 'Champions’ playoff records · 1st = fewest losses, ties share',
-        answer: 2,
-        unit: { singular: 'on the list', plural: 'on the list' },
-        min: 1,
-        max: 13,
-        step: 1,
-        note: '2nd. Only the 2016–17 Warriors lost fewer once all four rounds were best-of-seven.',
-        source: {
-          name: WIKI,
-          url: 'https://en.wikipedia.org/wiki/2023%E2%80%9324_Boston_Celtics_season',
-          quote: 'With a playoff record of 16–3, the Celtics were second only to the 2016–17 Golden State Warriors',
-          derivation: 'Second only to the 2016–17 Warriors: one champion ahead, so 2nd.',
-        },
-        verified: VERIFIED,
-        meta: { format: 'ranking', family: 'losses-season', era: '2020s', subjects: ['Boston Celtics'], supports: ['nba-celtics24-playoff-losses'] },
-      },
-    },
-  },
-  trajectory: {
-    label: 'Career or era change',
-    instruction: 'Find the two seasons or milestones, then frame the change.',
-    detail: 'Identify the starting and ending points the prompt names (two seasons, or a record and the mark that broke it), then estimate how far the number moved between them.',
-    example: {
-      id: 'teach-trajectory-scoring-record',
-      basis: { references: ['nba-baylor60-71'], derive: { op: 'difference', of: ['nba-wilt-100', 'nba-baylor60-71'] } },
-      why: 'Start: Baylor’s 71 in November 1960. End: Wilt’s 100 on March 2, 1962. The record climbed 100 − 71 = 29 points.',
-      question: {
-        id: 'teach-trajectory-scoring-record',
-        sport: 'NBA',
-        prompt: 'Elgin Baylor’s 71 points set the NBA single-game record in November 1960. By how much had Wilt raised it by March 2, 1962?',
-        context: 'Single-game scoring record · 1960–61 to 1961–62',
-        answer: 29,
-        unit: { singular: 'point', plural: 'points' },
-        min: 0,
-        max: 60,
-        step: 1,
-        note: 'Wilt’s 100 against the Knicks topped Baylor’s 71 by 29 points.',
-        source: {
-          name: WIKI,
-          url: 'https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game',
-          quote: 'by scoring 100 points for the Philadelphia Warriors in a 169–147 win over the New York Knicks on March 2, 1962',
-          derivation: 'Wilt Chamberlain 100 points (March 2, 1962) − Elgin Baylor 71 points (November 15, 1960) = 29 points.',
-        },
-        verified: VERIFIED,
-        meta: { format: 'trajectory', family: 'points-game', era: '1960s', subjects: ['Wilt Chamberlain', 'Elgin Baylor'], supports: ['nba-wilt-100', 'nba-baylor60-71'] },
-      },
-    },
-  },
-} satisfies Record<QuestionFormat, FormatGuide>;
+} satisfies Record<PlayerFormat, FormatGuide>;
 
-/** Canonical order, straight from the enum. */
-export const GUIDE_FORMATS: readonly QuestionFormat[] = FORMATS;
+/** Canonical order, straight from the player enum. */
+export const GUIDE_FORMATS: readonly PlayerFormat[] = PLAYER_FORMATS;
 
-export const isFormat = (f: unknown): f is QuestionFormat => typeof f === 'string' && (FORMATS as readonly string[]).includes(f);
-
-/** Guidance for a question's format. Missing or unknown metadata falls back to recall. */
-export function guideFor(format: string | null | undefined): FormatGuide & { format: QuestionFormat } {
-  const f: QuestionFormat = isFormat(format) ? format : 'recall';
+/**
+ * Guidance for a question's format. A retired format (an old beta day, a saved run, the
+ * Survival reserve) asks for one number like any recall question, so it gets the recall
+ * guide; so does missing or unknown metadata.
+ */
+export function guideFor(format: string | null | undefined): FormatGuide & { format: PlayerFormat } {
+  const f: PlayerFormat = isPlayerFormat(format) ? format : 'recall';
   return { ...FORMAT_GUIDE[f], format: f };
 }
 

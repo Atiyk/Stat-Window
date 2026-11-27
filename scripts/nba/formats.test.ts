@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { deriveAnswer, formatIssues, metaOf, resolveChart, supportsOf, type FormatFact, type FormatSpec } from './formats.ts';
-import { slateFormatIssues, VARIETY_FROM } from '../../src/content/formats.ts';
+import { PLAYER_FORMATS, sequenceIssues, slateFormatIssues, VARIETY_FROM } from '../../src/content/formats.ts';
 import { buildSlates, loadNbaData, questionFromFact, ROOT, V5_CONTENT_FROM, v5Context, validateNba, type Fact, type NbaData } from './model.ts';
 import { buildCatalog, leakHorizon } from './survival.ts';
 import { parseSlate, QuestionSchema } from '../../src/content/schema.ts';
@@ -56,9 +56,10 @@ describe('reference questions', () => {
 
 describe('missing-point charts', () => {
   const wins = (id: string, answer: number, season: string) => base(id, answer, { family: 'wins-season', season, player: null, franchise: 'BOS', unit: { singular: 'win', plural: 'wins' } });
-  const a = wins('nba-c73', 68, '1972-73');
-  const b = wins('nba-c86', 67, '1985-86');
-  const c = wins('nba-c08', 66, '2007-08');
+  // Fixture values sit more than 5% from one another (the near-collision gate below).
+  const a = wins('nba-c73', 78, '1972-73');
+  const b = wins('nba-c86', 70, '1985-86');
+  const c = wins('nba-c08', 60, '2007-08');
   const spec = (points: { label: string; fact: string }[]): FormatSpec => ({ kind: 'missing-point', chart: { title: 'Regular-season wins', unit: 'wins', points } });
   const q = withFormat(c, spec([{ label: '1985–86', fact: b.id }, { label: '2007–08', fact: c.id }, { label: '1972–73', fact: a.id }]));
 
@@ -71,8 +72,18 @@ describe('missing-point charts', () => {
     expect(resolveChart(q, index(a, b, q))).toEqual({
       title: 'Regular-season wins',
       unit: 'wins',
-      points: [{ label: '1985–86', value: 67 }, { label: '2007–08', value: null }, { label: '1972–73', value: 68 }],
+      points: [{ label: '1985–86', value: 70 }, { label: '2007–08', value: null }, { label: '1972–73', value: 78 }],
     });
+  });
+  it('rejects a known bar within 5% of the hidden answer (it would give the answer away)', () => {
+    const near = wins('nba-near', 63, '1990-91'); // |63 − 60| = 3 ≤ 0.05 × 60
+    const chart = withFormat(c, spec([{ label: '1985–86', fact: b.id }, { label: '2007–08', fact: c.id }, { label: '1990–91', fact: near.id }]));
+    expect(formatIssues(chart, index(b, near, chart)).join()).toMatch(/nba-near \(63\) is within 5% of the hidden answer 60/);
+    const clear = wins('nba-clear', 64, '1990-91'); // 4 > 3: far enough
+    const ok = withFormat(c, spec([{ label: '1985–86', fact: b.id }, { label: '2007–08', fact: c.id }, { label: '1990–91', fact: clear.id }]));
+    expect(formatIssues(ok, index(b, clear, ok))).toEqual([]);
+    // Only the untimed walkthrough example, whose lesson is the cluster, is exempt.
+    expect(formatIssues(chart, index(b, near, chart), { teaching: true })).toEqual([]);
   });
   it('requires the question itself exactly once, 3–7 points and distinct labels', () => {
     expect(formatIssues(withFormat(c, spec([{ label: 'x', fact: a.id }, { label: 'y', fact: b.id }, { label: 'z', fact: a.id }])), index(a, b, c)).join()).toMatch(/exactly once/);
@@ -150,6 +161,13 @@ describe('ranking and trajectory', () => {
     const r = base('nba-rank', 4);
     expect(formatIssues(withFormat(r, { kind: 'ranking' }), index(r)).join()).toMatch(/population and tie/);
     expect(formatIssues(withFormat(r, { kind: 'ranking', ranking: { population: 'all NBA players, regular season', ties: 'shared rank' } }), index(r))).toEqual([]);
+  });
+  it('a recall question with a ranking spec states its population and tie rule too (taxonomy v2)', () => {
+    const r = base('nba-rank', 4);
+    const recall = (ranking: { population: string; ties: string }) => formatIssues(withFormat(r, { kind: 'recall', ranking }), index(r)).join();
+    expect(recall({ population: '', ties: 'shared rank' })).toMatch(/population and tie/);
+    expect(recall({ population: 'all NBA players, regular season', ties: ' ' })).toMatch(/population and tie/);
+    expect(recall({ population: 'all NBA players, regular season', ties: 'shared rank' })).toBe('');
   });
   it('a trajectory needs a derivation', () => {
     const t = base('nba-t', 4);
@@ -267,23 +285,43 @@ describe('V5 launch inventory audit', () => {
   });
 });
 
-describe('V5.1 official-season audit (every slot from VARIETY_FROM)', () => {
+describe('V5.1 official-season audit (frozen record)', () => {
   const audit = readAuditFile('v51-audit.json');
   const official = real.calendar.days.filter((d) => d.date >= VARIETY_FROM);
-  it('records exactly one independent editorial decision per official slot, naming the question now in it', () => {
+  it('still records one decision per official slot', () => {
+    expect(audit.entries.length).toBe(official.length * 5);
+    for (const e of audit.entries) expect(e.note.trim().length).toBeGreaterThan(5);
+  });
+});
+
+describe('V5.2 official-season audit (taxonomy v2, every slot from VARIETY_FROM)', () => {
+  const audit = readAuditFile('v52-audit.json');
+  const official = real.calendar.days.filter((d) => d.date >= VARIETY_FROM);
+  const kind = (id: string) => real.facts.find((x) => x.id === id)!.question.format?.kind ?? 'recall';
+  it('records exactly one editorial decision per official slot, naming the question now in it', () => {
     const bySlot = new Map(audit.entries.map((e) => [`${e.day}#${e.slot}`, e]));
     expect(audit.entries.length).toBe(official.length * 5);
     for (const d of official) d.questions.forEach((id, i) => {
       const e = bySlot.get(`${d.date}#${i + 1}`);
       expect(e?.id, `${d.date} Q${i + 1}`).toBe(id);
+      expect(['retained', 'reframed', 'replaced']).toContain(e!.verdict);
       expect(e!.note.trim().length).toBeGreaterThan(5);
-      expect(e!.format).toBe(real.facts.find((x) => x.id === id)!.question.format?.kind ?? 'recall');
+      expect(e!.format).toBe(kind(id));
     });
   });
-  it('every official slate mixes at least three formats with at most two of each', () => {
+  it('every official slate uses all three formats in a 2/2/1 distribution', () => {
+    for (const d of official) expect(slateFormatIssues(d.questions.map(kind)), d.date).toEqual([]);
+  });
+  it('no two consecutive official days repeat a format sequence', () => {
+    expect(sequenceIssues(official.map((d) => d.questions.map(kind)))).toEqual([]);
+  });
+  it('rotates the single format across the catalog (each is the single on at least a quarter of days)', () => {
+    const singles = new Map<string, number>();
     for (const d of official) {
-      const formats = d.questions.map((id) => real.facts.find((x) => x.id === id)!.question.format?.kind ?? 'recall');
-      expect(slateFormatIssues(formats), d.date).toEqual([]);
+      const counts = new Map<string, number>();
+      for (const id of d.questions) counts.set(kind(id), (counts.get(kind(id)) ?? 0) + 1);
+      for (const [f, n] of counts) if (n === 1) singles.set(f, (singles.get(f) ?? 0) + 1);
     }
+    for (const f of PLAYER_FORMATS) expect(singles.get(f) ?? 0, f).toBeGreaterThanOrEqual(Math.floor(official.length / 4));
   });
 });

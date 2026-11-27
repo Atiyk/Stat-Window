@@ -51,11 +51,12 @@ export function seasonStart(season: SeasonId, config: SeasonConfig): string {
   return season === 's1' && config.launchDay ? config.launchDay : EPOCH_DAY;
 }
 
-/** The current week and, when the season already covers part of it, the previous one. */
+/** Every week from the current one back to the first that the season covers (newest first). */
 export function reviewableWeeks(today: string, season: SeasonId, config: SeasonConfig): string[] {
-  const current = weekStartOf(today);
-  const previous = addDays(current, -WEEK_DAYS);
-  return addDays(previous, WEEK_DAYS - 1) >= seasonStart(season, config) ? [current, previous] : [current];
+  const first = weekStartOf(seasonStart(season, config));
+  const weeks = [weekStartOf(today)];
+  for (let w = addDays(weeks[0]!, -WEEK_DAYS); w >= first; w = addDays(w, -WEEK_DAYS)) weeks.push(w);
+  return weeks;
 }
 
 export function buildWeek(weekStart: string, today: string, season: SeasonId, config: SeasonConfig, history: OfficialHistory): Week {
@@ -136,4 +137,61 @@ export function weeklyShareText(week: Week, url: string): string {
     'Same daily five for everyone. Play along:',
     url,
   ].join('\n');
+}
+
+/**
+ * What the weekly scorecard image shows, as data: the canvas only draws this.
+ * Each day carries a mark (its shape), a value and a word, so no state depends on
+ * colour: a played zero shows "0", an unplayed day "–" and "not played".
+ */
+export type WeeklyCardDay = {
+  readonly weekday: string;
+  readonly date: string;
+  readonly mark: 'score' | 'zero' | 'unplayed' | 'open' | 'future' | 'prelaunch' | 'unavailable';
+  readonly value: string;
+  readonly note: string | null;
+  /** Bar height, 0 to 1 of a 500-point day. */
+  readonly fill: number;
+};
+
+export type WeeklyCardModel = {
+  readonly range: string;
+  readonly total: number;
+  readonly max: number;
+  readonly completed: number;
+  readonly gamesLine: string;
+  readonly days: readonly WeeklyCardDay[];
+  readonly best: { readonly weekday: string; readonly points: number } | null;
+  readonly average: number | null;
+  readonly invite: string;
+  readonly host: string;
+};
+
+const CARD_DAY: Record<Exclude<DayState['kind'], 'completed'>, Pick<WeeklyCardDay, 'mark' | 'value' | 'note'>> = {
+  unplayed: { mark: 'unplayed', value: '–', note: 'not played' },
+  open: { mark: 'open', value: '', note: 'today' },
+  future: { mark: 'future', value: '', note: 'to come' },
+  'before-season': { mark: 'prelaunch', value: '', note: 'not open' },
+  unavailable: { mark: 'unavailable', value: '?', note: 'unavailable' },
+};
+
+export function weeklyCard(week: Week, url: string): WeeklyCardModel {
+  return {
+    range: weekRange(week),
+    total: week.total,
+    max: week.maxPossible,
+    completed: week.completed,
+    gamesLine: `${week.completed} of ${week.seasonDays} ${week.seasonDays === 1 ? 'game' : 'games'} played`,
+    days: week.days.map((d): WeeklyCardDay => {
+      const base = { weekday: weekdayShort(d.day), date: monthDay(d.day) };
+      if (d.kind !== 'completed') return { ...base, ...CARD_DAY[d.kind], fill: 0 };
+      return d.points > 0
+        ? { ...base, mark: 'score', value: String(d.points), note: null, fill: d.points / (5 * MAX_POINTS_PER_ROUND) }
+        : { ...base, mark: 'zero', value: '0', note: 'played', fill: 0 };
+    }),
+    best: week.best ? { weekday: weekdayShort(week.best.day), points: week.best.points } : null,
+    average: week.average,
+    invite: 'Same daily five for everyone. Play along.',
+    host: url.replace(/^https?:\/\//, '').replace(/\/$/, ''),
+  };
 }

@@ -154,3 +154,59 @@ describe('report basics', () => {
     expect(r.perAttempt).toBeCloseTo(r.overall.earned / 15);
   });
 });
+
+describe('player profile', () => {
+  it('leads with the recent average over at most the last seven games, with its sample', () => {
+    const few = buildReport(records(3), '2026-12-03').profile;
+    expect(few.recent).toEqual({ games: 3, average: 325 });
+    const many = buildReport(records(10, (i) => Array(5).fill(i < 3 ? [0, 100] : [63, 83])), '2026-12-10').profile;
+    expect(many.recent).toEqual({ games: PERIOD_GAMES, average: 325 }); // the three zero days are older than the last seven
+  });
+
+  it('states the catch rate as counts, and the personal best with its day', () => {
+    const r = buildReport(records(2, (i) => (i === 0 ? [[73, 74], [0, 10], [0, 10], [0, 10], [0, 10]] : Array(5).fill([63, 83]))), '2026-12-02');
+    expect(r.profile.caught).toEqual({ caught: 6, attempts: 10 });
+    expect(r.profile.best).toEqual({ day: '2026-12-01', total: 325 });
+  });
+
+  it('names a strongest category only when the sample supports it', () => {
+    const meta = () => [0, 1, 2, 3, 4].map((k) => ({ format: 'recall' as const, family: k < 3 ? 'points-game' : 'wins-season', era: '1990s', subjects: [] }));
+    const small = buildReport(records(1, () => [[73, 74], [73, 74], [73, 74], [0, 10], [0, 10]], meta), '2026-12-01').profile;
+    expect(small.strongest).toBeNull(); // 3 and 2 attempts: under the minimum
+    const enough = buildReport(records(3, () => [[73, 74], [73, 74], [73, 74], [0, 10], [0, 10]], meta), '2026-12-03').profile;
+    expect(enough.strongest).toMatchObject({ key: 'points-game', label: 'Points game', attempts: 9 });
+  });
+
+  it('describes the estimation risk profile from where most windows sit, once there are enough', () => {
+    expect(buildReport(records(0), '2026-12-01').profile.risk).toBeNull();
+    const tight = buildReport(records(2, () => [[73, 74], [73, 74], [73, 74], [63, 83], 'timeout']), '2026-12-02').profile;
+    expect(tight.risk).toEqual({ band: 'high', label: 'High potential', share: 0.75, windows: 8 });
+  });
+
+  it('describes consistency as the middle half of games, from five games on', () => {
+    expect(buildReport(records(4), '2026-12-04').profile.consistency).toBeNull();
+    const totals = [0, 100, 200, 300, 400, 500];
+    const r = buildReport(records(6, (i) => Array.from({ length: 5 }, (_, k) => (k < i ? [73, 74] : [0, 10]))), '2026-12-06');
+    expect(r.series.map((s) => s.total)).toEqual(totals);
+    expect(r.profile.consistency).toEqual({ low: 100, high: 400, games: 6 });
+  });
+
+  it('carries the recent trend only from comparable periods', () => {
+    expect(buildReport(records(13), '2026-12-13').profile.trend).toBeNull();
+    const up = buildReport(records(14, (i) => Array(5).fill(i < 7 ? [0, 100] : [63, 83])), '2026-12-14').profile;
+    expect(up.trend).toEqual({ direction: 'more', points: 325 });
+    expect(buildReport(records(14), '2026-12-14').profile.trend).toEqual({ direction: 'same', points: 0 });
+  });
+});
+
+describe('format analysis', () => {
+  it('lists the three player formats, and retired formats separately under their own names', () => {
+    const meta = () => [
+      { format: 'recall' as const }, { format: 'reference' as const }, { format: 'missing-point' as const },
+      { format: 'difference' as const }, { format: 'ratio' as const },
+    ].map((m) => ({ ...m, family: 'x', era: '1990s', subjects: [] }));
+    const r = buildReport(records(1, undefined, meta), '2026-12-01');
+    expect(r.formats.current.map((x) => x.label).sort()).toEqual(['Missing point', 'Recall', 'Reference']);
+    expect(r.formats.earlier.map((x) => x.label).sort()).toEqual(['Difference', 'Ratio']);
+  });
+});

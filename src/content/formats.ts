@@ -1,22 +1,30 @@
 import * as z from 'zod/mini';
 
 /**
- * V5 question formats. Every format is answered with the same brackets, scored by
- * the same formula, on the same 24-second clock: a format only changes what the
- * player is shown before the lock and how the reveal explains the answer.
+ * Question formats. Every format is answered with the same brackets, scored by the
+ * same formula, on the same 24-second clock: a format only changes what the player is
+ * shown before the lock and how the reveal explains the answer.
  *
- * - `recall`: a verified number on its own (every question before V5).
- * - `reference`: the prompt gives a related verified figure to reason from.
- * - `missing-point`: a small chart of verified observations with one gap; the gap
- *   is the answer and fills in on reveal.
- * - `difference`: the gap between two verified figures; direction and unit are in
- *   the prompt.
- * - `ratio`: a percentage or share computed from two verified figures.
- * - `ranking`: an objective rank or threshold count stated by the source.
- * - `trajectory`: a change across seasons or career stages.
+ * Taxonomy v2 (V5.2) has three player-facing formats (`PLAYER_FORMATS`):
+ * - `recall`: a clear numerical question on its own. The answer may still be computed
+ *   from verified figures (a gap, a share, a rank); that is the underlying statistic,
+ *   not a separate format.
+ * - `reference`: the prompt gives a related verified figure that genuinely helps the
+ *   player reason toward the answer.
+ * - `missing-point`: a small chart of related verified observations with one gap; the
+ *   gap is the answer and fills in on reveal.
+ *
+ * `FORMATS` is the storage schema and still lists V5/V5.1's four retired formats
+ * (`RETIRED_FORMATS`), because published beta day files, saved runs and Survival's
+ * reserve keep the label they were played with. Official slates never use them.
  */
-export const FORMATS = ['recall', 'reference', 'missing-point', 'difference', 'ratio', 'ranking', 'trajectory'] as const;
+export const PLAYER_FORMATS = ['recall', 'reference', 'missing-point'] as const;
+export const RETIRED_FORMATS = ['difference', 'ratio', 'ranking', 'trajectory'] as const;
+export const FORMATS = [...PLAYER_FORMATS, ...RETIRED_FORMATS] as const;
 export type QuestionFormat = (typeof FORMATS)[number];
+export type PlayerFormat = (typeof PLAYER_FORMATS)[number];
+export const TAXONOMY_VERSION = 2;
+export const isPlayerFormat = (f: unknown): f is PlayerFormat => typeof f === 'string' && (PLAYER_FORMATS as readonly string[]).includes(f);
 
 const text = (min: number, max: number) => z.string().check(z.minLength(min), z.maxLength(max));
 
@@ -57,11 +65,12 @@ export type QuestionMeta = z.infer<typeof QuestionMetaSchema>;
 export const formatOf = (q: { meta?: QuestionMeta | undefined }): QuestionFormat => q.meta?.format ?? 'recall';
 
 /**
- * V5.1 daily variety rule. From this canonical day on, every official five-question
- * slate must use at least three distinct canonical formats, and never more than two
- * questions of any one format (2+2+1, 2+1+1+1 or 1+1+1+1+1). The format is the
- * question's single primary reasoning task (`meta.format`); subjects, eras and stat
- * families are secondary metadata and never count toward this rule.
+ * V5.2 daily distribution rule. From this canonical day on, every official five-question
+ * slate uses all three player formats in a 2/2/1 distribution: two of one, two of
+ * another, one of the third. Which format appears once, and the round positions, rotate
+ * from day to day (`sequenceIssues` refuses identical consecutive sequences). The format
+ * is the question's single primary player-facing task (`meta.format`); subjects, eras
+ * and stat families never count toward this rule.
  *
  * It is the first day the restarted official season can begin (docs/LAUNCH.md), so
  * every official slate is covered. Earlier days are published beta content whose
@@ -69,26 +78,36 @@ export const formatOf = (q: { meta?: QuestionMeta | undefined }): QuestionFormat
  */
 export const VARIETY_FROM = '2026-11-30';
 export const MAX_PER_FORMAT = 2;
-export const MIN_FORMATS = 3;
 
 /**
- * Problems with one slate's format mix. `formats` holds each question's canonical
- * format, or `undefined`/an unknown string when the metadata is missing, which is
- * itself an error: the cap cannot be proven without it.
+ * Problems with one official slate's format mix. `formats` holds each question's
+ * canonical format, or `undefined`/an unknown string when the metadata is missing,
+ * which is itself an error: the distribution cannot be proven without it.
  */
 export function slateFormatIssues(formats: readonly (string | undefined)[]): string[] {
   const issues: string[] = [];
   if (formats.length !== 5) issues.push(`has ${formats.length} questions; an official slate has 5`);
-  const counts = new Map<QuestionFormat, number>();
+  const counts = new Map<PlayerFormat, number>(PLAYER_FORMATS.map((f) => [f, 0]));
   formats.forEach((f, i) => {
     if (f === undefined) issues.push(`Q${i + 1} has no format metadata`);
-    else if (!(FORMATS as readonly string[]).includes(f)) issues.push(`Q${i + 1} has unknown format ${f}`);
-    else counts.set(f as QuestionFormat, (counts.get(f as QuestionFormat) ?? 0) + 1);
+    else if ((RETIRED_FORMATS as readonly string[]).includes(f)) issues.push(`Q${i + 1} uses the retired ${f} format`);
+    else if (!isPlayerFormat(f)) issues.push(`Q${i + 1} has unknown format ${f}`);
+    else counts.set(f, counts.get(f)! + 1);
   });
   if (issues.length) return issues;
-  for (const [f, n] of counts) if (n > MAX_PER_FORMAT) issues.push(`${n} ${f} questions (max ${MAX_PER_FORMAT} per format)`);
-  if (counts.size < MIN_FORMATS) issues.push(`only ${counts.size} format${counts.size === 1 ? "" : "s"} (need at least ${MIN_FORMATS})`);
+  for (const [f, n] of counts) {
+    if (n > MAX_PER_FORMAT) issues.push(`${n} ${f} questions (2/2/1 allows at most 2)`);
+    if (n === 0) issues.push(`no ${f} question (every official day uses all three formats)`);
+  }
   return issues;
+}
+
+/** Consecutive official days must not repeat the exact same format sequence. */
+export function sequenceIssues(days: readonly (readonly string[])[]): string[] {
+  const out: string[] = [];
+  for (let i = 1; i < days.length; i++)
+    if (days[i]!.join('|') === days[i - 1]!.join('|')) out.push(`day ${i + 1} repeats the format sequence of day ${i}`);
+  return out;
 }
 
 /** The distribution as a sorted pattern ("2+2+1"), for reports. */

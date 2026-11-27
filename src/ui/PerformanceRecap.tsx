@@ -5,6 +5,7 @@ import {
 } from '../engine/court-run';
 import { SHOT_MARKER_RADIUS, SHOT_OUTCOME_LABELS, SHOT_UNSUBMITTED_DIVIDER, SHOT_UNSUBMITTED_SPAN, type ShotAttempt } from '../engine/shot-chart';
 import { Ball, CourtSvg } from './CourtRun';
+import { plural } from '../lib/format';
 import './performance-recap.css';
 
 export function ShotMarker({ outcome, number }: { outcome: ShotAttempt['outcome']; number?: number }) {
@@ -63,6 +64,20 @@ function CourtRunCourt({ total, checkpoints }: { total: number; checkpoints: rea
   );
 }
 
+const toNext = (points: number, name: string) => `${plural(points, 'more point', 'more points')} ${points === 1 ? 'reaches' : 'reach'} ${name}.`;
+
+/** One true sentence about where the points carried the ball, by real court features. */
+export function courtRunLine(total: number): string {
+  const { reached, next } = courtLandmarks(total);
+  return total === 0
+    ? 'The ball is still at half court.'
+    : reached?.name === 'the rim'
+      ? 'All the way to the rim. A perfect game.'
+      : reached
+        ? `Inside ${reached.name}${next ? `. ${toNext(next.at - total, next.name)}` : '.'}`
+        : toNext(next!.at - total, next!.name);
+}
+
 const VIEWS = [
   { value: 'shots', label: 'Shot chart' },
   { value: 'run', label: 'Court run' },
@@ -78,14 +93,7 @@ export function PerformanceRecap({ attempts, checkpoints, total }: {
   const id = useId();
   const [view, setView] = useState<View>('shots');
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
-  const { reached, next } = courtLandmarks(total);
-  const runLine = total === 0
-    ? 'The ball is still at half court.'
-    : reached?.name === 'the rim'
-      ? 'All the way to the rim. A perfect game.'
-      : reached
-        ? `Inside ${reached.name}${next ? `. ${next.at - total} more points reach ${next.name}.` : '.'}`
-        : `${next!.at - total} more points reach ${next!.name}.`;
+  const runLine = courtRunLine(total);
   const outcomes = [...new Set(attempts.map(({ outcome }) => outcome))];
 
   const onKey = (event: KeyboardEvent<HTMLDivElement>) => {
@@ -123,11 +131,15 @@ export function PerformanceRecap({ attempts, checkpoints, total }: {
             <p className="performance-caption">Each circle is a question. Farther from the basket means a tighter, bolder window.</p>
             <ShotChartCourt attempts={attempts} />
             <ol className="performance-rounds" aria-label="Each shot" role="list">
-              {attempts.map(({ number, outcome, potential }) => (
+              {attempts.map(({ number, outcome, potential, earned }) => (
                 <li key={number} data-outcome={outcome}>
                   <span className="performance-q">Q{number}</span>
-                  <strong className="tabular">{potential ?? '–'}</strong>
+                  {/* The points it actually scored; a missed window's value is only a secondary note. */}
+                  <strong className="tabular">{potential === null ? '–' : earned}</strong>
                   <span className="performance-note">{SHOT_OUTCOME_LABELS[outcome]}</span>
+                  {outcome === 'missed' && potential !== null && (
+                    <span className="performance-worth tabular" aria-hidden="true">worth {potential}</span>
+                  )}
                   <span className="sr-only">{potential !== null ? `, window worth ${potential} points` : ''}</span>
                 </li>
               ))}

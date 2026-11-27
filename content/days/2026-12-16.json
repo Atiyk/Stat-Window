@@ -9,8 +9,8 @@
     {
       "id": "nba-heat20-regular-wins",
       "sport": "NBA",
-      "prompt": "How many games did Miami win before the 2020 Bubble playoffs?",
-      "context": "Heat · Jimmy Butler's first season · shortened schedule",
+      "prompt": "The chart shows regular-season wins for four other East finalists. How many did the 2019–20 Heat win before their Bubble run to the Finals?",
+      "context": "Miami · Jimmy Butler's first season · 73 games before the Bubble",
       "answer": 44,
       "unit": {
         "singular": "win",
@@ -19,7 +19,7 @@
       "min": 22,
       "max": 80,
       "step": 1,
-      "note": "44 regular-season wins, then a surprise Finals appearance.",
+      "note": "44–29, a fifth seed's record; Miami then knocked out top-seeded Milwaukee on the way to the Finals.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2019%E2%80%9320_Miami_Heat_season",
@@ -56,20 +56,51 @@
           }
         }
       ],
+      "chart": {
+        "title": "East finalists' regular-season wins",
+        "unit": "wins",
+        "points": [
+          {
+            "label": "Celtics '08",
+            "value": 66
+          },
+          {
+            "label": "Hawks '15",
+            "value": 60
+          },
+          {
+            "label": "Raptors '19",
+            "value": 58
+          },
+          {
+            "label": "Heat '20",
+            "value": null
+          },
+          {
+            "label": "Celtics '24",
+            "value": 64
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "wins-season",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Miami Heat"
         ],
-        "supports": []
+        "supports": [
+          "nba-celtics08-wins",
+          "nba-hawks15-regular-wins",
+          "nba-raptors19-regular-wins",
+          "nba-celtics24-wins"
+        ]
       }
     },
     {
       "id": "nba-spurs14-streak",
       "sport": "NBA",
-      "prompt": "The chart shows four famous winning streaks. How long was the 2013–14 Spurs' late-season winning streak?",
+      "prompt": "The chart shows three famous winning streaks. How long was the 2013–14 Spurs' longest winning streak?",
       "context": "San Antonio Spurs · 2013–14 regular season",
       "answer": 19,
       "unit": {
@@ -79,7 +110,7 @@
       "min": 0,
       "max": 30,
       "step": 1,
-      "note": "19 straight, from late February to early April.",
+      "note": "It ran from late February to early April and included a perfect 16–0 March.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2013%E2%80%9314_San_Antonio_Spurs_season",
@@ -121,24 +152,20 @@
         "unit": "games",
         "points": [
           {
-            "label": "Rockets '94",
-            "value": 15
-          },
-          {
-            "label": "Warriors '16",
-            "value": 24
-          },
-          {
-            "label": "Spurs '14",
-            "value": null
-          },
-          {
             "label": "Bulls '96",
             "value": 18
           },
           {
             "label": "Rockets '08",
             "value": 22
+          },
+          {
+            "label": "Spurs '14",
+            "value": null
+          },
+          {
+            "label": "Warriors '16",
+            "value": 24
           }
         ]
       },
@@ -150,10 +177,9 @@
           "San Antonio Spurs"
         ],
         "supports": [
-          "nba-rockets94-start",
-          "nba-gsw16-start",
           "nba-bulls96-18-streak",
-          "nba-rockets08-streak"
+          "nba-rockets08-streak",
+          "nba-gsw16-start"
         ]
       }
     },
@@ -170,7 +196,7 @@
       "min": 20,
       "max": 80,
       "step": 1,
-      "note": "60, the oldest player ever to score 60.",
+      "note": "60, and at 37 years, 234 days he became the oldest player ever to score 60 in a game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_scoring_leaders",
@@ -221,71 +247,73 @@
       }
     },
     {
-      "id": "nba-unseld75-finals-g2-rebounds",
+      "id": "nba-wilt60-55-rebounds-v52b",
       "sport": "NBA",
-      "prompt": "How many rebounds did Wes Unseld grab in Game 2 of the 1975 Finals?",
-      "context": "Washington Bullets at Golden State · 1975 Finals",
-      "answer": 20,
+      "prompt": "Wilt Chamberlain grabbed 31 rebounds in one half against Bill Russell's Celtics in 1960. How many did he finish that game with?",
+      "context": "Philadelphia Warriors vs Boston Celtics · November 24, 1960",
+      "answer": 55,
       "unit": {
         "singular": "rebound",
         "plural": "rebounds"
       },
-      "min": 5,
-      "max": 43,
+      "min": 25,
+      "max": 80,
       "step": 1,
-      "note": "20 rebounds, but Washington lost the game by a single point.",
+      "note": "An NBA record. He also scored 34, and Boston won anyway, 132–129.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-        "quote": "Rebs: Wes Unseld 20"
+        "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain",
+        "quote": "On November 24, 1960, Chamberlain grabbed an NBA-record 55 rebounds, along with 34 points and 4 assists"
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Jamaal Wilkes's undersized but effective defense on Elvin Hayes proved decisive.",
+          "text": "Wilt added 34 points and four assists in the same game.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "the defensive play of the seemingly undersized Jamaal Wilkes on Bullets' power forward Elvin Hayes"
+            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain",
+            "quote": "Chamberlain grabbed an NBA-record 55 rebounds, along with 34 points and 4 assists"
           }
         },
         {
-          "text": "Reserve center George Johnson added 10 points and nine rebounds in Game 3.",
+          "text": "Boston still won the game, 132–129, in Philadelphia.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "backup center George Johnson had 10 points and nine rebounds off the bench"
+            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain",
+            "quote": "in a 132–129 home loss against the Russell-led Boston Celtics"
           }
         },
         {
-          "text": "Rick Barry had 38 points in Game 3 as the Warriors moved within a win of the title.",
+          "text": "He won eleven rebounding titles in his career.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/1975_NBA_Finals",
-            "quote": "Rick Barry poured in 38 points"
+            "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain",
+            "quote": "He won seven scoring, eleven rebounding, nine durability, and nine field goal percentage titles."
           }
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "rebounds-game",
-        "era": "1970s",
+        "era": "1960s",
         "subjects": [
-          "Wes Unseld",
-          "Washington Wizards"
+          "Wilt Chamberlain",
+          "Golden State Warriors"
         ],
-        "supports": []
+        "supports": [
+          "nba-wilt60-half-reb"
+        ]
       }
     },
     {
       "id": "nba-durant21-nets-bucks-g5-49",
       "sport": "NBA",
-      "prompt": "Kevin Durant put the Nets ahead of the Bucks in 2021 Game 5 with a triple-double. How many points did he score?",
-      "context": "Benchmark: Jimmy Butler scored 56 against Milwaukee in 2023",
+      "prompt": "With the 2021 East semifinal tied 2–2, Kevin Durant led Brooklyn's comeback win over Milwaukee. How many did he score?",
+      "context": "Brooklyn Nets vs Milwaukee Bucks · East semifinals · Game 5",
       "answer": 49,
       "unit": {
         "singular": "point",
@@ -294,7 +322,7 @@
       "min": 10,
       "max": 120,
       "step": 1,
-      "note": "49 points, with 17 rebounds and 10 assists, to put the Nets ahead in the series.",
+      "note": "Plus 17 rebounds and 10 assists in a 114–108 win that put Brooklyn up 3–2.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
@@ -315,11 +343,11 @@
           }
         },
         {
-          "text": "He delivered 10 assists for a triple-double.",
+          "text": "The Nets came back to win the game 114–108.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
-            "quote": "Asts: Kevin Durant 10"
+            "url": "https://en.wikipedia.org/wiki/Kevin_Durant",
+            "quote": "leading the Nets to a 114–108 comeback victory"
           }
         },
         {
@@ -332,16 +360,14 @@
         }
       ],
       "meta": {
-        "format": "reference",
+        "format": "recall",
         "family": "points-game",
         "era": "2020s",
         "subjects": [
           "Kevin Durant",
           "Brooklyn Nets"
         ],
-        "supports": [
-          "nba-butler23-56-bucks-upset"
-        ]
+        "supports": []
       }
     }
   ]

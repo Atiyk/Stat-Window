@@ -14,7 +14,7 @@ import { answerSpellings, type Question, type Slate } from '../../src/content/sc
 import { addDays } from '../../src/engine/daily.ts';
 import { potentialPoints } from '../../src/engine/scoring.ts';
 import { formatIssues, metaOf, resolveChart, supportsOf, type FormatSpec } from './formats.ts';
-import { slateFormatIssues, VARIETY_FROM } from '../../src/content/formats.ts';
+import { sequenceIssues, slateFormatIssues, VARIETY_FROM } from '../../src/content/formats.ts';
 
 export const ROOT = join(import.meta.dirname, '..', '..');
 export const DATA_DIR = join(ROOT, 'data', 'nba');
@@ -34,7 +34,6 @@ export const MIN_FACTS = 250;
 export const MIN_DAYS = 50;
 export const MIN_THEMED_DAYS = 30;
 export const VERIFIED_BY = 'Stat Window editorial';
-export const SOURCE_LABEL = 'Wikipedia contributors (CC BY-SA 4.0)';
 /**
  * First day whose file carries V5 fields (format metadata and charts). Earlier day
  * files keep their exact published bytes; the publisher refuses to rewrite them.
@@ -202,7 +201,12 @@ export type Report = { errors: string[]; warnings: string[]; stats: Record<strin
 const AS_OF_WORDS = /\b(still|current|currently|remains|as of|to date|ever since)\b/i;
 /** Present-tense record claims in the question text itself. */
 const STANDING_CLAIM = /\b(holds|still|remains|currently|to date)\b|\bis the (?:\w+ )*?record\b/i;
-const BANNED_HOSTS = /(^|\.)(basketball-reference\.com|sports-reference\.com|nba\.com|kaggle\.com|githubusercontent\.com|github\.com)$/;
+/**
+ * Hosts the data-rights register rejects outright (docs/NBA_DATA_RIGHTS.md), checked before the
+ * approved list. Basketball-Reference / Sports Reference are not here: the owner approved them
+ * (data/nba/sources.json) for single facts a person reads by hand, so its approved entry decides.
+ */
+const BANNED_HOSTS = /(^|\.)(nba\.com|kaggle\.com|githubusercontent\.com|github\.com)$/;
 
 export function validateNba(data: NbaData): Report {
   const errors: string[] = [];
@@ -391,7 +395,7 @@ export function validateNba(data: NbaData): Report {
         if (issue) at(issue);
       }
     }
-    // V5.1: every official slate mixes at least three formats, at most two of each.
+    // V5.2: every official slate uses all three player formats, 2/2/1.
     if (d.date >= VARIETY_FROM && fs.length === 5)
       for (const issue of slateFormatIssues(fs.map((f) => f.question.format?.kind ?? 'recall'))) at(issue);
     const famCount = new Map<string, number>();
@@ -417,6 +421,15 @@ export function validateNba(data: NbaData): Report {
     if (!calendar.reserve.includes(id)) errors.push(`reserve: embargo for non-reserve question ${id}`);
     if (!isValidDate(notBefore) || notBefore <= calendar.cutover)
       errors.push(`reserve: invalid release embargo ${id} -> ${notBefore}`);
+  }
+  // V5.2: consecutive official days never repeat the exact same format sequence.
+  {
+    const official = days.filter((d) => d.date >= VARIETY_FROM);
+    const seqs = official.map((d) => d.questions.map((id) => byId.get(id)?.question.format?.kind ?? 'recall'));
+    for (const issue of sequenceIssues(seqs)) {
+      const n = Number(/^day (\d+)/.exec(issue)![1]);
+      errors.push(`${official[n - 1]!.date}: repeats the format sequence of ${official[n - 2]!.date}`);
+    }
   }
   // A question that shows or derives from another fact must come after that fact's own
   // Daily Five day: never on the same day, never before it.
@@ -502,7 +515,25 @@ export function v5Context(data: Pick<NbaData, 'facts' | 'franchises'>): V5Contex
   return { byId: new Map(data.facts.map((f) => [f.id, f])), franchiseName: (id) => names.get(id) ?? id };
 }
 
-export function questionFromFact(f: Fact, v5?: V5Context): Question & { difficulty: Difficulty } {
+/**
+ * The credit line for a source URL, from the register (data/nba/sources.json): the approved entry
+ * for the URL's host gives it, as the first quoted label in its attribution rule, else its provider.
+ */
+export function sourceCredit(url: string, sources: readonly Source[]): string {
+  const host = hostOf(url);
+  const entry = sources.find((s) => s.reviewStatus === 'approved' && s.hosts.includes(host));
+  if (!entry) throw new Error(`source host ${host} has no approved entry in data/nba/sources.json`);
+  return /"([^"]+)"/.exec(entry.attribution)?.[1] ?? entry.provider;
+}
+
+let registered: Source[] | undefined;
+const registerCredit = (url: string) => sourceCredit(url, (registered ??= read<Source[]>('sources.json')));
+
+export function questionFromFact(
+  f: Fact,
+  v5?: V5Context,
+  credit: (url: string) => string = registerCredit,
+): Question & { difficulty: Difficulty } {
   const q = f.question;
   const chart = v5 ? resolveChart(f, v5.byId) : undefined;
   return {
@@ -517,7 +548,7 @@ export function questionFromFact(f: Fact, v5?: V5Context): Question & { difficul
     step: q.step,
     note: q.reveal,
     source: {
-      name: SOURCE_LABEL,
+      name: credit(f.source.url),
       url: f.source.url,
       quote: f.source.quote,
       ...(f.source.derivation ? { derivation: f.source.derivation } : {}),
@@ -533,13 +564,14 @@ export function questionFromFact(f: Fact, v5?: V5Context): Question & { difficul
 export function buildSlates(data: NbaData): Slate[] {
   const byId = new Map(data.facts.map((f) => [f.id, f]));
   const v5 = v5Context(data);
+  const credit = (url: string) => sourceCredit(url, data.sources);
   return data.calendar.days.map((d) => ({
     date: d.date,
     theme: { title: d.theme.title, subtitle: d.theme.subtitle, recap: d.theme.recap },
     questions: d.questions.map((id) => {
       const f = byId.get(id);
       if (!f) throw new Error(`${d.date}: unknown question ${id}`);
-      return questionFromFact(f, d.date >= V5_CONTENT_FROM ? v5 : undefined);
+      return questionFromFact(f, d.date >= V5_CONTENT_FROM ? v5 : undefined, credit);
     }),
   }));
 }

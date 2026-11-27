@@ -19,7 +19,7 @@
       "min": 18,
       "max": 42,
       "step": 0.1,
-      "note": "27.4 points per game while winning Finals MVP.",
+      "note": "With 14 rebounds a game, it made him Finals MVP and brought San Antonio its first NBA championship.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
@@ -40,15 +40,15 @@
           }
         },
         {
-          "text": "San Antonio drafted Duncan after an injury-hit season and a fortunate draft lottery.",
+          "text": "Duncan was named Finals MVP as the Spurs beat the Knicks for their first NBA championship.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
-            "quote": "The Spurs earned this draft pick through the draft lottery due to a 62-loss 1996–97 season"
+            "quote": "Tim Duncan was named the Most Valuable Player of the finals"
           }
         },
         {
-          "text": "The Knicks were an eighth seed when they reached the Finals, an extraordinary playoff run.",
+          "text": "The Knicks had barely qualified for the playoffs, as the eighth and final seed.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
@@ -80,7 +80,7 @@
       "min": 0,
       "max": 16,
       "step": 1,
-      "note": "Eleven rejections completed a remarkable four-category performance.",
+      "note": "11, to go with 18 points, 16 rebounds and 10 assists: one of the NBA's rare quadruple-doubles.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Hakeem_Olajuwon",
@@ -109,7 +109,7 @@
           }
         },
         {
-          "text": "He also led the league in rebounds during that same remarkable defensive season.",
+          "text": "He also won the rebounding title that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Hakeem_Olajuwon",
@@ -141,7 +141,7 @@
       "min": 0,
       "max": 12,
       "step": 1,
-      "note": "Eight in the first quarter.",
+      "note": "Eight in the first quarter, more than Giannis blocked in an entire Finals clincher.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
@@ -154,7 +154,7 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Bol set his mark while playing for Washington in an overtime victory against the Milwaukee Bucks.",
+          "text": "He did it for Washington against Milwaukee on December 12, 1985.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
@@ -192,24 +192,23 @@
       }
     },
     {
-      "id": "nba-kawhi19-jokic23-playoff-points-gap-v5",
+      "id": "nba-nuggets09-hornets-margin-v52a",
       "sport": "NBA",
-      "prompt": "How many more playoff points did Kawhi Leonard score on Toronto's 2019 title run than Nikola Jokić on Denver's in 2023?",
-      "context": "Two Finals MVP title runs · 2019 vs 2023",
-      "answer": 132,
+      "prompt": "Next to famous routs and the regular-season record, by how many points did Denver beat New Orleans in a 2009 playoff game?",
+      "context": "2009 Western Conference first round · Game 4 · at New Orleans",
+      "answer": 58,
       "unit": {
         "singular": "point",
         "plural": "points"
       },
-      "min": 20,
-      "max": 320,
-      "step": 2,
-      "note": "132 more: Kawhi scored 732 in 2019, Jokić 600 in 2023.",
+      "min": 10,
+      "max": 85,
+      "step": 1,
+      "note": "58, tying the most lopsided playoff win, set by the Minneapolis Lakers 53 years earlier.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
-        "quote": "Leonard scored 732 points during the 2019 playoffs; this was the third-best scoring total for a single NBA postseason in league history",
-        "derivation": "Kawhi Leonard 732 points (2019 playoffs) − Nikola Jokić 600 points (2023 playoffs) = 132."
+        "url": "https://en.wikipedia.org/wiki/2009_NBA_playoffs",
+        "quote": "The Nuggets then pulled a 58-point win in Game 4."
       },
       "verified": {
         "on": "2026-11-26",
@@ -218,48 +217,70 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "At the time, only LeBron James (748 in 2018) and Michael Jordan (759 in 1992) had scored more in a single postseason.",
+          "text": "New Orleans committed a playoff-high 26 turnovers that night.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
-            "quote": "behind only LeBron James (748, 2018) and Michael Jordan (759, 1992)"
+            "url": "https://en.wikipedia.org/wiki/2009_NBA_playoffs",
+            "quote": "The Hornets recorded a playoff-low in points and also a playoff-high 26 turnovers, which led to 41 Nuggets' points."
           }
         },
         {
-          "text": "Kawhi Leonard was named Finals MVP for the second time after Toronto's 2019 title.",
+          "text": "Carmelo Anthony scored a playoff career-high 34 points in the same series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/Kawhi_Leonard",
-            "quote": "He was subsequently named NBA Finals MVP for the second time"
+            "url": "https://en.wikipedia.org/wiki/2009_NBA_playoffs",
+            "quote": "Carmelo Anthony scored his career playoff-high with 34 points as the Nuggets cruised to another double-digit win."
           }
         },
         {
-          "text": "Jokić became the first center to win Finals MVP since Shaquille O'Neal in 2002.",
+          "text": "Winning the series in Game 5 gave Denver its first series win since 1994.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "becoming the first center to win the award since Shaquille O'Neal in 2002"
+            "url": "https://en.wikipedia.org/wiki/2009_NBA_playoffs",
+            "quote": "The Nuggets then recorded their first series win since 1994 after a victory in Game 5."
           }
         }
       ],
+      "chart": {
+        "title": "Lopsided wins, playoffs and the record",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Blazers '77",
+            "value": 32
+          },
+          {
+            "label": "Grizzlies '21",
+            "value": 73
+          },
+          {
+            "label": "Lakers '01",
+            "value": 39
+          },
+          {
+            "label": "Nuggets '09",
+            "value": null
+          }
+        ]
+      },
       "meta": {
-        "format": "difference",
-        "family": "points-season-total",
+        "format": "missing-point",
+        "family": "margin",
         "era": "cross-era",
         "subjects": [
-          "Kawhi Leonard",
-          "Toronto Raptors"
+          "Denver Nuggets"
         ],
         "supports": [
-          "nba-kawhi19-playoff-points-732",
-          "nba-jokic23-playoff-points"
+          "nba-blazers77-g4-margin",
+          "nba-grizzlies21-margin",
+          "nba-lakers01-39"
         ]
       }
     },
     {
       "id": "nba-klay16-okc-game6-41",
       "sport": "NBA",
-      "prompt": "The chart shows three other playoff scoring nights. How many points did Klay Thompson score in Game 6 at OKC in 2016?",
+      "prompt": "Facing elimination at OKC in 2016, Klay Thompson joined these famous playoff scoring nights. How many did he score in Game 6?",
       "context": "Klay Thompson · Warriors at Thunder · 2016 playoffs",
       "answer": 41,
       "unit": {
@@ -269,7 +290,7 @@
       "min": 10,
       "max": 95,
       "step": 1,
-      "note": "41 points, with a playoff-record barrage of threes to force a decider.",
+      "note": "A series high, built on a playoff-record 11 threes, as the Warriors stayed alive.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2016_NBA_playoffs",
@@ -282,19 +303,19 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Klay set a postseason record for made threes.",
+          "text": "Golden State became only the 10th team to win a playoff series after trailing 3–1.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2016_NBA_playoffs",
-            "quote": "made an NBA playoff record 11 3s"
+            "quote": "became the 10th team to win an NBA playoff series after trailing 3–1"
           }
         },
         {
-          "text": "The Warriors won on the road to force a deciding game.",
+          "text": "Golden State then won Game 7, 96–88, after stopping a brief Thunder rally in the fourth quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2016_NBA_playoffs",
-            "quote": "the Warriors won the game 108–101 and tied the series 3-3"
+            "quote": "After the Warriors thwarted Oklahoma City's brief comeback attempt in the fourth quarter, Golden State won 96–88."
           }
         },
         {
@@ -307,24 +328,24 @@
         }
       ],
       "chart": {
-        "title": "Playoff scoring in one game",
+        "title": "Famous playoff scoring nights",
         "unit": "points",
         "points": [
           {
-            "label": "Powe '08",
-            "value": 21
+            "label": "Baylor '62",
+            "value": 61
           },
           {
-            "label": "Iverson '01",
-            "value": 48
-          },
-          {
-            "label": "Butler '23",
-            "value": 56
+            "label": "Rose '11",
+            "value": 44
           },
           {
             "label": "Klay '16",
             "value": null
+          },
+          {
+            "label": "Butler '23",
+            "value": 56
           }
         ]
       },
@@ -337,8 +358,8 @@
           "Golden State Warriors"
         ],
         "supports": [
-          "nba-powe08-g2",
-          "nba-iverson01-g1",
+          "nba-baylor62-finals-61",
+          "nba-rose11-hawks-g3-points",
           "nba-butler23-56-bucks-upset"
         ]
       }

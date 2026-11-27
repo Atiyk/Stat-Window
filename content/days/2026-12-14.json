@@ -9,7 +9,7 @@
     {
       "id": "nba-lebron13-g7",
       "sport": "NBA",
-      "prompt": "How many points did LeBron James score in Game 7 of the 2013 Finals?",
+      "prompt": "The chart shows other stars' famous Finals nights. How many points did LeBron James score in Game 7 of the 2013 Finals?",
       "context": "2013 NBA Finals · Game 7 · vs San Antonio",
       "answer": 37,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 15,
       "max": 65,
       "step": 1,
-      "note": "37, with five threes and 12 rebounds.",
+      "note": "37 with 12 rebounds; his late jumper sealed Miami's repeat over San Antonio.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
@@ -56,15 +56,41 @@
           }
         }
       ],
+      "chart": {
+        "title": "Stars' famous Finals nights",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Magic '80",
+            "value": 42
+          },
+          {
+            "label": "Iverson '01",
+            "value": 48
+          },
+          {
+            "label": "LeBron '13",
+            "value": null
+          },
+          {
+            "label": "Curry '22",
+            "value": 43
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-game",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "LeBron James",
           "Miami Heat"
         ],
-        "supports": []
+        "supports": [
+          "nba-magic80-g6-points",
+          "nba-iverson01-g1",
+          "nba-curry22-g4"
+        ]
       }
     },
     {
@@ -80,7 +106,7 @@
       "min": 15,
       "max": 65,
       "step": 1,
-      "note": "35, going 56–26.",
+      "note": "35, from 21–61 to 56–26: the largest one-season turnaround in NBA history at the time.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/David_Robinson",
@@ -142,7 +168,7 @@
       "min": 25,
       "max": 75,
       "step": 1,
-      "note": "The first 43 games.",
+      "note": "43 games; Luke Walton went 39–4 as interim coach, with the wins credited to Kerr.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2016_NBA_Finals",
@@ -195,7 +221,7 @@
     {
       "id": "nba-west08-season-ppg",
       "sport": "NBA",
-      "prompt": "The chart shows two other scoring averages. What was David West's scoring average on the 2007–08 Hornets?",
+      "prompt": "Other forwards' scoring seasons are charted. What did David West average as Chris Paul's frontcourt partner on the 2007–08 Hornets?",
       "context": "New Orleans · regular-season offense",
       "answer": 20.6,
       "unit": {
@@ -205,7 +231,7 @@
       "min": 9,
       "max": 43,
       "step": 0.1,
-      "note": "20.6 points per game for New Orleans.",
+      "note": "20.6 with 8.9 rebounds, earning his first All-Star selection.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2007%E2%80%9308_New_Orleans_Hornets_season",
@@ -243,16 +269,20 @@
         }
       ],
       "chart": {
-        "title": "Regular-season scoring averages",
+        "title": "Forwards' regular-season scoring averages",
         "unit": "points per game",
         "points": [
           {
-            "label": "Webber '02",
-            "value": 24.5
+            "label": "Baylor '62",
+            "value": 38.3
           },
           {
-            "label": "Duncan R. '20",
+            "label": "Robinson '20",
             "value": 13.5
+          },
+          {
+            "label": "Webber '02",
+            "value": 24.5
           },
           {
             "label": "West '08",
@@ -269,8 +299,9 @@
           "New Orleans Pelicans"
         ],
         "supports": [
-          "nba-webber02-season-ppg",
-          "nba-robinson20-season-ppg"
+          "nba-baylor62-season-ppg-v52a",
+          "nba-robinson20-season-ppg",
+          "nba-webber02-season-ppg"
         ]
       }
     },

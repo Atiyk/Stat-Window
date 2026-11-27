@@ -69,7 +69,7 @@
     {
       "id": "nba-bucks71-wins",
       "sport": "NBA",
-      "prompt": "The chart shows three other title teams. In only their third season, how many games did the 1970–71 Bucks win?",
+      "prompt": "Later 1970s champions from Golden State and Seattle give the scale. In only their third season, how many games did the 1970–71 Bucks win?",
       "context": "Milwaukee Bucks · 1970–71 · 82 games",
       "answer": 66,
       "unit": {
@@ -79,7 +79,7 @@
       "min": 24,
       "max": 82,
       "step": 1,
-      "note": "66–16, then a title.",
+      "note": "66–16 behind Lew Alcindor and Oscar Robertson, then a Finals sweep of Baltimore.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1970%E2%80%9371_Milwaukee_Bucks_season",
@@ -117,38 +117,33 @@
         }
       ],
       "chart": {
-        "title": "Wins by other title-winning teams",
+        "title": "Champions of the 1970s",
         "unit": "wins",
         "points": [
+          {
+            "label": "Bucks '71",
+            "value": null
+          },
           {
             "label": "Warriors '75",
             "value": 48
           },
           {
-            "label": "Lakers '87",
-            "value": 65
-          },
-          {
-            "label": "Raptors '19",
-            "value": 58
-          },
-          {
-            "label": "Bucks '71",
-            "value": null
+            "label": "Sonics '79",
+            "value": 52
           }
         ]
       },
       "meta": {
         "format": "missing-point",
         "family": "wins-season",
-        "era": "cross-era",
+        "era": "1970s",
         "subjects": [
           "Milwaukee Bucks"
         ],
         "supports": [
           "nba-warriors75-season-wins",
-          "nba-lakers87-wins",
-          "nba-raptors19-regular-wins"
+          "nba-sonics79-season-wins"
         ]
       }
     },
@@ -165,7 +160,7 @@
       "min": 5,
       "max": 45,
       "step": 0.1,
-      "note": "16.4%, a record low for one game.",
+      "note": "16.4%, in an era with no shot clock, when teams often stalled instead of shooting.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
@@ -178,7 +173,7 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "At the other extreme, San Antonio shot 70.7% from the field against Dallas in April 1983.",
+          "text": "San Antonio's record night came on 53 of 75 shots against Dallas.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
@@ -215,86 +210,105 @@
       }
     },
     {
-      "id": "nba-curry15-g2-misses",
+      "id": "nba-klay18-14-threes-v52a",
       "sport": "NBA",
-      "prompt": "John Starks missed 11 threes in Game 7 of the 1994 Finals. How many threes did Stephen Curry miss in Game 2 of the 2015 Finals?",
-      "context": "2015 NBA Finals · Game 2 · vs Cleveland",
-      "answer": 13,
+      "prompt": "Kobe and Dame each hit 12 threes in a game. How many did Klay Thompson make against Chicago in October 2018?",
+      "context": "Warriors at Bulls · October 29, 2018 · 27 minutes played",
+      "answer": 14,
       "unit": {
-        "singular": "missed three",
-        "plural": "missed threes"
+        "singular": "three-pointer",
+        "plural": "three-pointers"
       },
-      "min": 3,
-      "max": 21,
+      "min": 0,
+      "max": 18,
       "step": 1,
-      "note": "13 misses, a Finals record.",
+      "note": "14, breaking Curry's mark of 13, on his way to 52 points in just 27 minutes.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
-        "quote": "Curry set an NBA record for most missed three-point attempts in an NBA Finals game with 13."
+        "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+        "quote": "On October 29, 2018, against the Chicago Bulls, he hit an NBA-record 14 threes to break Curry's former mark of 13."
       },
       "verified": {
-        "on": "2026-11-16",
+        "on": "2026-11-26",
         "by": "Stat Window editorial"
       },
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Matthew Dellavedova's physical defense held Curry scoreless from the field on his attempts against him.",
+          "text": "He needed only 27 minutes on the floor to do it.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
-            "quote": "Matthew Dellavedova's defense on Curry was huge as Curry was 0–for–8 against him"
+            "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+            "quote": "Thompson scored 52 points in 27 minutes while making 14-for-24 of his threes and shooting 18-for-29 overall from the field."
           }
         },
         {
-          "text": "The overtime victory was Cleveland's first Finals game win in franchise history, after its earlier sweep in 2007.",
+          "text": "In 2015 he scored an NBA-record 37 points in a single quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
-            "quote": "The victory for Cleveland was their first ever single game Finals victory"
+            "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+            "quote": "In the third quarter of that game, he scored an NBA-record 37 points for a single quarter,"
           }
         },
         {
-          "text": "LeBron dubbed the undermanned Cavs 'The Grit Squad' as injuries forced a slower, tougher style.",
+          "text": "In 2016 he scored 60 points in only 29 minutes.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2015_NBA_Finals",
-            "quote": "James had dubbed the undermanned Cavaliers as \"The Grit Squad\""
+            "url": "https://en.wikipedia.org/wiki/Klay_Thompson",
+            "quote": "Thompson scored a career-high 60 points (shooting 21-of-33 and 8-of-14 on three-pointers) in 29 minutes"
           }
         }
       ],
+      "chart": {
+        "title": "Big three-point nights",
+        "unit": "three-pointers",
+        "points": [
+          {
+            "label": "Kobe '03",
+            "value": 12
+          },
+          {
+            "label": "Klay '18",
+            "value": null
+          },
+          {
+            "label": "Dame '21 PO",
+            "value": 12
+          }
+        ]
+      },
       "meta": {
-        "format": "reference",
-        "family": "threes-attempts",
+        "format": "missing-point",
+        "family": "threes-game",
         "era": "cross-era",
         "subjects": [
-          "Stephen Curry",
+          "Klay Thompson",
           "Golden State Warriors"
         ],
         "supports": [
-          "nba-starks94-g7-3pa"
+          "nba-kobe03-threes",
+          "nba-dame21-playoffs-12-threes"
         ]
       }
     },
     {
-      "id": "nba-jokic-murray23-finals-g3-20-assists",
+      "id": "nba-trae21-bucks-g1-48",
       "sport": "NBA",
-      "prompt": "When Jokić and Murray made history with twin 30-point triple-doubles in the 2023 Finals, how many assists did they combine for?",
-      "context": "Jokić + Murray · Denver vs Miami · 2023 Finals Game 3",
-      "answer": 20,
+      "prompt": "Luka Dončić, traded for Trae Young on draft night, scored 43 in a 2020 playoff game. How many did Trae score in 2021 East finals Game 1?",
+      "context": "Trae Young · Hawks at Bucks · conference finals debut",
+      "answer": 48,
       "unit": {
-        "singular": "assist",
-        "plural": "assists"
+        "singular": "point",
+        "plural": "points"
       },
-      "min": 5,
-      "max": 55,
+      "min": 10,
+      "max": 120,
       "step": 1,
-      "note": "20 combined assists, matching Miami's entire team, as both stars logged 30-point triple-doubles.",
+      "note": "His conference finals debut, and Atlanta came back after halftime to steal Game 1 in Milwaukee.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
-        "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-        "quote": "while their 20 assists matched Miami's total of 20."
+        "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+        "quote": "48 points in his conference finals debut"
       },
       "verified": {
         "on": "2026-11-16",
@@ -303,38 +317,41 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "They were the first NBA teammates with 30-point triple-doubles in one game.",
+          "text": "Five offensive rebounds in the final two minutes helped the Hawks close it out.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "Jokić and Murray became the first pair of teammates in NBA history to each record a 30-point triple-double in the same game"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+            "quote": "the Hawks rallied in the 2nd half to beat the Bucks in game 1 in Milwaukee, aided by 5 offensive rebounds in the final 2 minutes"
           }
         },
         {
-          "text": "Denver retook the Finals lead in a comfortable win.",
+          "text": "Later in the series, Young bruised his foot when he rolled his ankle on a referee's foot.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "as the Nuggets won 109–94, reclaiming the series lead"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+            "quote": "Trae Young suffered a bruised foot when he rolled his ankle over a referee's foot"
           }
         },
         {
-          "text": "The pair nearly matched all of Miami's rebounds.",
+          "text": "Back for Game 6 with Atlanta facing elimination, he was still struggling with the foot.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
-            "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
-            "quote": "grabbing a combined 31 rebounds to the Heat's total of 33"
+            "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
+            "quote": "Facing elimination, the Hawks got Trae Young back to start game 6, but he still struggled with his injured foot"
           }
         }
       ],
       "meta": {
-        "format": "recall",
-        "family": "assists-game",
-        "era": "2020s",
+        "format": "reference",
+        "family": "points-game",
+        "era": "cross-era",
         "subjects": [
-          "Denver Nuggets"
+          "Trae Young",
+          "Atlanta Hawks"
         ],
-        "supports": []
+        "supports": [
+          "nba-luka20-clippers-buzzer-43"
+        ]
       }
     }
   ]

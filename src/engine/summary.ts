@@ -42,7 +42,7 @@ export function shareText(opts: {
     `Stat Window ${opts.label ?? `No. ${opts.number ?? 0}`}  ${total}/${MAX_TOTAL}${detail}`,
     opts.results.map(roundMark).join(''),
     ...(opts.percentile ? [opts.percentile] : []),
-    total > 0 && !opts.untimed ? `Same five questions. Can you beat ${total}?` : 'Same five questions. Your turn.',
+    total > 0 && !opts.untimed ? `Think you know ball? Beat ${total}.` : 'Same five questions. Your turn.',
     opts.url,
   ].join('\n');
 }

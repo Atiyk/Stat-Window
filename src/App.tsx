@@ -784,7 +784,7 @@ function Game(props: {
         ? {
           context: `Challenge · ${puzzle}`,
           title: session.vs !== null && session.vs > 0 ? `Beat ${session.vs} ${session.vs === 1 ? 'point' : 'points'}` : 'Ready for five?',
-          body: `${session.vs !== null ? `Your friend scored ${session.vs}. ` : ''}The same five questions, 24 seconds each.${daily ? ' This counts as your daily.' : ' Not counted in your stats.'}`,
+          body: `A friend challenged you${session.vs !== null ? ` and scored ${session.vs}` : ''}. Same five NBA questions, 24 seconds each.${daily ? ' This counts as your daily.' : ' Not counted in your stats.'}`,
           cta: 'Start the challenge',
         }
         : daily

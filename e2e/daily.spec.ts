@@ -49,7 +49,7 @@ test('a full daily run scores every round, saves, and shares without spoilers', 
     const shared = await page.evaluate(() => navigator.clipboard.readText());
     const origin = new URL(page.url()).origin;
     expect(shared).toContain('Stat Window No. 1  274/500');
-    expect(shared).toContain('Same five questions. Can you beat 274?');
+    expect(shared).toContain('Think you know ball? Beat 274.');
     expect(shared).toContain(`${origin}/?day=2026-11-15&vs=274&time=`);
     // Spoiler-free: no answer appears in the share text.
     for (const answer of ['73', '23', '92', '138', '2632', '2,632']) {

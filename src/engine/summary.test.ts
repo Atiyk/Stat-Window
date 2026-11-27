@@ -11,12 +11,17 @@ describe('shareText', () => {
     const url = 'https://stat-window.vercel.app/?day=2026-11-17&vs=240';
     const text = shareText({ number: 3, results: run([100, 83, 0, 45, 12]).results, url });
     expect(text).toBe(
-      ['Stat Window No. 3  240/500', '🟩🟩⬛🟨🟧' /* taste-skill-ignore */, 'Same five questions. Can you beat 240?', url].join('\n'),
+      ['Stat Window No. 3  240/500', '🟩🟩⬛🟨🟧' /* taste-skill-ignore */, 'Think you know ball? Beat 240.', url].join('\n'),
     );
   });
   it('does not dare a friend to beat zero', () => {
     const text = shareText({ number: 3, results: run([0, 0, 0, 0, 0]).results, url: 'https://x.test/' });
     expect(text.split('\n')[2]).toBe('Same five questions. Your turn.');
+  });
+  it('invites a friend like a fan, without a dare on an untimed practice score', () => {
+    const results = run([100, 83, 0, 45, 12]).results;
+    expect(shareText({ number: 3, results, url: 'https://x.test/', answerMs: 61_000 }).split('\n')[2]).toBe('Think you know ball? Beat 240.');
+    expect(shareText({ number: 3, results, url: 'https://x.test/', untimed: true }).split('\n')[2]).toBe('Same five questions. Your turn.');
   });
 });
 

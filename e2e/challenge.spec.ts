@@ -120,7 +120,7 @@ test('sharing falls back to selectable text when there is no share sheet or clip
   const box = page.getByRole('textbox', { name: 'Your result to copy' });
   await expect(box).toBeVisible();
   await expect(box).toHaveValue(/\/\?day=2026-11-16&vs=\d+&time=\d+(&v=2&r=\d+(\.\d+){4})?$/);
-  await expect(box).toHaveValue(/Same five questions/);
+  await expect(box).toHaveValue(/\n(Think you know ball\? Beat \d+\.|Same five questions\. Your turn\.)\n/);
 });
 
 test('practice runs of earlier days are saved, so a refresh does not re-roll them', async ({ page }) => {
@@ -139,4 +139,20 @@ test('practice runs of earlier days are saved, so a refresh does not re-roll the
   await page.getByRole('button', { name: 'Nov 15' }).click();
   await expect(page.locator('.round-meta')).toContainText('Question 2 of 5');
   await expect(page.locator('.stats')).toHaveCount(0);
+});
+
+test('a first-time recipient lands on a gate that says a friend challenged them, one tap from the first question', async ({ page }) => {
+  await page.clock.setFixedTime(DAY2);
+  await page.goto('/?day=2026-11-16&vs=274&time=61000');
+  const gate = page.locator('.ready-card');
+  await expect(gate.getByRole('heading', { level: 1 })).toHaveText('Beat 274 points');
+  await expect(gate).toContainText('A friend challenged you and scored 274. Same five NBA questions, 24 seconds each. This counts as your daily.');
+  // No tutorial or home screen in the way: one Start, then the question.
+  await expect(page.getByRole('button', { name: 'Skip tutorial and start' })).toHaveCount(0);
+  await gate.getByRole('button', { name: 'Start the challenge' }).click();
+  await expect(page.locator('.question')).toContainText(BONDS);
+
+  // Without a score the gate still names the friend.
+  await page.goto('/?day=2026-11-15');
+  await expect(page.locator('.ready-card')).toContainText('A friend challenged you. Same five NBA questions, 24 seconds each. Not counted in your stats.');
 });

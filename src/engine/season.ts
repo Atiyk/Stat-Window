@@ -58,7 +58,14 @@ export function seasonOf(day: string, config: SeasonConfig): SeasonId {
 /** The season whose official daily runs on `today` (the one new scores count toward). */
 export const currentSeason = (today: string, config: SeasonConfig): SeasonId => seasonOf(today, config);
 
-export type PublicNumber = { readonly season: SeasonId; readonly number: number; readonly label: string };
+export type PublicNumber = {
+  readonly season: SeasonId;
+  readonly number: number;
+  /** "No. 7": the share-text and share-card label (an existing format; do not change). */
+  readonly label: string;
+  /** "Game 7": what the player reads on screen, matching the "Play Game 7" button. */
+  readonly display: string;
+};
 
 /**
  * "No. 7" or "Beta No. 12". In beta mode every day keeps the number it has always
@@ -70,11 +77,11 @@ export function publicNumber(day: string, config: SeasonConfig, today?: string):
   const season = seasonOf(day, config);
   if (season === 's1') {
     const number = dayIndex(day, config.launchDay!) + 1;
-    return { season, number, label: `No. ${number}` };
+    return { season, number, label: `No. ${number}`, display: `Game ${number}` };
   }
   const number = dayIndex(day, EPOCH_DAY) + 1;
   const begun = config.launchDay !== null && (today === undefined || today >= config.launchDay);
-  return { season, number, label: begun ? `Beta No. ${number}` : `No. ${number}` };
+  return { season, number, label: begun ? `Beta No. ${number}` : `No. ${number}`, display: begun ? `Beta Game ${number}` : `Game ${number}` };
 }
 
 /** Publicly playable days. A formal launch retires the beta catalog from discovery and links,

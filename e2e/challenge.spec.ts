@@ -33,7 +33,7 @@ test('a friend opens a challenge link after Eastern midnight and gets the same f
   const errors = collectErrors(b);
   await openAt(b, new Date('2026-11-17T05:05:00Z'), `/?day=2026-11-16&vs=${total}`);
   await expect(b.locator('.question')).toContainText(BONDS);
-  await expect(b.locator('.day-label')).toHaveText('No. 2');
+  await expect(b.locator('.day-label')).toHaveText('Game 2');
   await expect(b.locator('.round-meta')).toContainText('Question 1 of 5');
   await expect(b.locator('.challenge-note')).toContainText(`Beat your friend’s ${total}`);
   // No spoilers before play: the answer and its note are not on the page yet.
@@ -45,13 +45,13 @@ test('a friend opens a challenge link after Eastern midnight and gets the same f
   await b.reload();
   await expect(b.locator('.round-meta')).toContainText('Question 2 of 5');
   await playOut(b, 1);
-  await expect(b.locator('.results-head')).toContainText('Challenge · No. 2');
+  await expect(b.locator('.results-head')).toContainText('Challenge · Game 2');
   await expect(b.locator('.results-head')).toContainText('not counted in your stats');
   await expect(b.locator('.versus')).toContainText(`Your friend leads by`);
 
   // Their own daily (No. 3) is untouched and still to play.
   await b.getByRole('button', { name: 'Play today’s puzzle' }).click();
-  await expect(b.locator('.day-label')).toHaveText('No. 3');
+  await expect(b.locator('.day-label')).toHaveText('Game 3');
   // A new official day requires a deliberate Start, even after a completed challenge.
   await expect(b.locator('.question')).toHaveCount(0);
   await startDailyIfNeeded(b);
@@ -63,7 +63,7 @@ test('a friend opens a challenge link after Eastern midnight and gets the same f
 
 test('a link for today plays the official daily, with the friend’s score shown', async ({ page }) => {
   await openAt(page, DAY2, '/?day=2026-11-16&vs=120');
-  await expect(page.locator('.day-label')).toHaveText('No. 2');
+  await expect(page.locator('.day-label')).toHaveText('Game 2');
   await expect(page.locator('.challenge-note')).toContainText('120');
   await playOut(page);
   await expect(page.locator('.stats')).toContainText('Played1');
@@ -75,7 +75,7 @@ test('future, malformed and tampered links fall back to today without leaking an
   for (const q of ['/?day=2026-11-20', '/?day=2026-11-20&vs=300', '/?day=not-a-day&vs=9999', '/?day=2026-02-30', '/?vs=<script>', '/?day=2030-01-01']) {
     await openAt(page, DAY2, q);
     await expect(page.locator('.question')).toContainText(BONDS);
-    await expect(page.locator('.day-label')).toHaveText('No. 2');
+    await expect(page.locator('.day-label')).toHaveText('Game 2');
     await expect(page.locator('.challenge-note')).toHaveCount(0);
   }
   // A link with no score still says where the five came from.
@@ -93,18 +93,18 @@ test('a run in progress at Eastern midnight is finished on its own day, then tod
   await page.goto('/');
   await startDailyIfNeeded(page);
   await expect(page.locator('.question')).toBeVisible();
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
   await lockAndSettle(page);
   await next(page);
   await page.clock.setFixedTime(new Date('2026-11-16T05:00:05Z'));
   await page.evaluate(() => document.dispatchEvent(new Event('visibilitychange')));
   // Still No. 1, round 2: midnight does not pull the player out of a run.
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
   await expect(page.locator('.round-meta')).toContainText('Question 2 of 5');
   await playOut(page, 1);
   await expect(page.locator('.stats')).toContainText('Played1');
   await page.getByRole('button', { name: 'Play today’s puzzle' }).click();
-  await expect(page.locator('.day-label')).toHaveText('No. 2');
+  await expect(page.locator('.day-label')).toHaveText('Game 2');
   await startDailyIfNeeded(page);
   await expect(page.locator('.question')).toContainText(BONDS);
 });

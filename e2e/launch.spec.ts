@@ -35,7 +35,7 @@ test('unset launch config preserves live beta numbering and legacy challenge lin
   await startDailyIfNeeded(page);
   await expect(page.locator('.challenge-note')).toContainText('300');
   await expect(page.locator('.link-note')).toHaveCount(0);
-  await expect(page.locator('.day-label')).not.toHaveText('No. 1');
+  await expect(page.locator('.day-label')).not.toHaveText('Game 1');
 });
 
 test('a configured future launch does not prematurely retire yesterday or its score link', async ({ page }) => {
@@ -55,7 +55,7 @@ test('new Day 1 starts at No. 1 with no beta archive, preserving old saves but r
 
   // Switching to official Day 1 must not count or publicly expose beta play.
   await at(page, first, `/?${preview}`);
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
   await expect(page.getByRole('heading', { name: 'How well do you know ball?' })).toBeVisible();
   await expect(page.locator('.ready-previous')).toHaveCount(0);
   await page.setViewportSize({ width: 320, height: 568 });
@@ -75,7 +75,7 @@ test('new Day 1 starts at No. 1 with no beta archive, preserving old saves but r
 test('a retired beta challenge gives an explicit notice and strips its score/time link', async ({ page }) => {
   await at(page, first, `/?day=2027-01-09&vs=300&time=1234&${preview}`);
   await expect(page.getByRole('status').filter({ hasText: 'beta puzzle was retired' })).toBeVisible();
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
   const params = new URLSearchParams(new URL(page.url()).search);
   expect(params.has('day')).toBe(false);
   expect(params.has('vs')).toBe(false);
@@ -96,13 +96,13 @@ test('retirement switches at Eastern midnight, not UTC midnight', async ({ page 
   // At 05:00Z the New York puzzle day rolls over and the beta link retires.
   await at(page, '2027-01-10T05:00:00Z', legacy);
   await expect(page.locator('.link-note')).toContainText('beta puzzle was retired');
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
   await expect(page.locator('.challenge-note')).toHaveCount(0);
 });
 
 test('Day 2 archive contains only Day 1, and new-season challenge links remain playable', async ({ page }) => {
   await at(page, second, `/?${preview}`);
-  await expect(page.locator('.day-label')).toHaveText('No. 2');
+  await expect(page.locator('.day-label')).toHaveText('Game 2');
   await complete(page);
   const buttons = page.locator('.archive-list button');
   await expect(buttons).toHaveCount(1);
@@ -110,7 +110,7 @@ test('Day 2 archive contains only Day 1, and new-season challenge links remain p
 
   await at(page, second, `/?day=${LAUNCH}&vs=250&${preview}`);
   await startDailyIfNeeded(page);
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
   await expect(page.locator('.challenge-note')).toContainText('250');
   await expect(page.locator('.link-note')).toHaveCount(0);
 });
@@ -123,7 +123,7 @@ test('November 28 candidate becomes an official Day 1 without beta scores or sta
 
   await at(page, '2026-11-28T15:00:00Z', `/?day=2026-11-27&vs=210&time=4800&launch-preview=${launchDay}`);
   await expect(page.locator('.link-note')).toContainText('beta puzzle was retired');
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
   const params = new URL(page.url()).searchParams;
   expect(params.has('day')).toBe(false);
   expect(params.has('vs')).toBe(false);

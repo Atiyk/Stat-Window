@@ -132,7 +132,8 @@ export function Help({ open, onClose, onPrivacy, view: requested = 'list', clock
 
             <h3 className="guide-section">Question types</h3>
             <p className="guide-intro">
-              Same brackets, scoring and clock for all three. Each has an untimed example to try; nothing in it is saved or scored.
+              The basics, then the three question types. All use the same brackets, scoring and clock, and each has an untimed
+              example to try; nothing in it is saved or scored.
             </p>
             <ul className="guide-types">
               <li>

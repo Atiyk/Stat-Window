@@ -34,8 +34,10 @@ const CARD_STYLES = [
 
 type Props = {
   slate: Slate;
-  /** Public puzzle label: "No. 4", or "Beta No. 4" once a formal season has launched. */
+  /** Share label: "No. 4", or "Beta No. 4" once a formal season has launched (share formats keep it). */
   label: string;
+  /** On-screen label: "Game 4" / "Beta Game 4", matching the "Play Game 4" button. Defaults to `label`. */
+  screenLabel?: string;
   /** First completed run of today's official puzzle: may join the daily comparison. */
   eligible: boolean;
   onPrivacy?: (() => void) | undefined;
@@ -84,7 +86,7 @@ function friendLine(total: number, vs: number, time: number | null, vsTime: numb
   return `Tied at ${total} points. Rematch?`;
 }
 
-export function Results({ slate, label, eligible, onPrivacy, mode, playMode, untimedPractice = false, isToday, vs, vsTime, vsRounds = null, results, stats, officialHighlight, animateScorecard = false, archive, onPractice, onBackToToday, onShared, survivalCta = null, weekly = null, onWeekly, onScouting }: Props) {
+export function Results({ slate, label, screenLabel = label, eligible, onPrivacy, mode, playMode, untimedPractice = false, isToday, vs, vsTime, vsRounds = null, results, stats, officialHighlight, animateScorecard = false, archive, onPractice, onBackToToday, onShared, survivalCta = null, weekly = null, onWeekly, onScouting }: Props) {
   const total = totalPoints(results);
   const [cardStyle, setCardStyle] = useState<CardStyle>('classic');
   const [format, setFormat] = useState<CardFormat>('square');
@@ -301,8 +303,8 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
     <header className="results-head">
       <p className="context results-context">
         {practice
-          ? `${practiceLabel} · ${label} · ${formatDay(slate.date)} · not counted in your stats`
-          : `${label} · ${formatDay(slate.date)}`}
+          ? `${practiceLabel} · ${screenLabel} · ${formatDay(slate.date)} · not counted in your stats`
+          : `${screenLabel} · ${formatDay(slate.date)}`}
       </p>
       <h1 className="results-title results-total" ref={headingRef} tabIndex={-1}>
         <span className="sr-only">Score </span>

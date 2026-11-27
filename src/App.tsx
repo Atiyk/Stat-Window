@@ -374,7 +374,7 @@ export function App() {
     setSettings((s) => ({ ...s, ...patch }));
   };
 
-  const number = publicNumber(session ? session.day : today, SEASON, today).label;
+  const number = publicNumber(session ? session.day : today, SEASON, today).display;
   const archive = playableDays(inventoryDays, today, SEASON).filter((d) => d < today).reverse();
 
   return (
@@ -713,6 +713,7 @@ function Game(props: {
       <Results
         slate={session.slate}
         label={pub.label}
+        screenLabel={pub.display}
         eligible={eligible}
         onPrivacy={props.onPrivacy}
         mode={session.mode}

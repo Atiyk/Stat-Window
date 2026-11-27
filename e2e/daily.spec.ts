@@ -15,7 +15,7 @@ test('a full daily run scores every round, saves, and shares without spoilers', 
   const errors = collectErrors(page);
   await context.grantPermissions(['clipboard-read', 'clipboard-write']).catch(() => {});
   await openAt(page, DAY1);
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
 
   const points: number[] = [];
   for (const [i, round] of DAY1_PLAN.entries()) {
@@ -96,17 +96,17 @@ test('everyone gets the slate for the Eastern date, and a new one at midnight Ea
   await openAt(page, new Date('2026-11-16T04:59:00Z'));
   await expect(page.locator('.question')).toContainText('Golden State Warriors');
   await openAt(page, new Date('2026-11-16T05:00:30Z'));
-  await expect(page.locator('.day-label')).toHaveText('No. 2');
+  await expect(page.locator('.day-label')).toHaveText('Game 2');
   await expect(page.locator('.question')).toContainText('Barry Bonds');
 });
 
 test('an idle tab before Start sees the next Eastern day without burning question time', async ({ page }) => {
   await page.clock.install({ time: new Date('2026-11-16T04:59:50Z') });
   await page.goto('/');
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
   await expect(page.locator('.round:not(.onboarding-play) .question')).toHaveCount(0);
   await page.clock.fastForward('00:45');
-  await expect(page.locator('.day-label')).toHaveText('No. 2');
+  await expect(page.locator('.day-label')).toHaveText('Game 2');
   await expect(page.locator('.round:not(.onboarding-play) .question')).toHaveCount(0);
   await startDailyIfNeeded(page);
   await expect(page.locator('.question')).toContainText('Barry Bonds');
@@ -116,13 +116,13 @@ test('an adjusted but not locked first window survives Eastern midnight', async 
   await page.clock.install({ time: new Date('2026-11-16T04:59:50Z') });
   await page.goto('/');
   await startDailyIfNeeded(page);
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
   const low = lowBracket(page);
   await low.focus();
   await page.keyboard.press('ArrowRight');
   await expect(low).toHaveAttribute('aria-valuenow', '41');
   await page.clock.fastForward('00:15');
-  await expect(page.locator('.day-label')).toHaveText('No. 1');
+  await expect(page.locator('.day-label')).toHaveText('Game 1');
   await expect(lowBracket(page)).toHaveAttribute('aria-valuenow', '41');
 });
 

@@ -233,7 +233,7 @@ test.describe('BUG-05: a bad ?day= link says so and cleans the address bar', () 
   for (const q of ['/?day=2026-11-25&vs=250', '/?day=2099-01-01', '/?day=2026-13-45&vs=250', '/?day=garbage&vs=999', '/?day=2025-01-01&vs=100', '/?day=%E0%A4%A']) {
     test(`${q} opens today with a dismissible note`, async ({ page }) => {
       await openAt(page, NOV21, q);
-      await expect(page.locator('.day-label')).toHaveText('No. 7');
+      await expect(page.locator('.day-label')).toHaveText('Game 7');
       const note = page.getByRole('status').filter({ hasText: 'That link’s puzzle isn’t available, so here’s today’s.' });
       await expect(note).toBeVisible();
       await expect.poll(() => page.evaluate(() => location.search)).toBe('');

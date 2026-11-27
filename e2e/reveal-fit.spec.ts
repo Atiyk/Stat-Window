@@ -49,3 +49,24 @@ test('short landscape results: the score and Challenge a friend share the first 
   await expect(page.locator('.results-total')).toBeInViewport({ ratio: 1 });
   await expect(challenge).toBeInViewport({ ratio: 1 });
 });
+
+// A legacy challenge link (total only): the outcome against the friend is the point of the
+// screen, so it sits with the score and Challenge, on the first screen in short landscape.
+for (const size of [{ width: 844, height: 390 }, { width: 320, height: 568 }]) {
+  test(`challenge results at ${size.width}×${size.height}: "Your friend leads by" sits with the score, above Challenge`, async ({ page }) => {
+    await page.setViewportSize(size);
+    await openAt(page, new Date('2026-11-17T05:05:00Z'), '/?day=2026-11-16&vs=500');
+    for (let q = 0; q < 5; q++) { await lockAndSettle(page); await next(page); }
+    const challenge = page.getByRole('button', { name: /Challenge a friend/ });
+    await expect(challenge).toBeVisible({ timeout: 15_000 });
+    const versus = page.locator('.versus');
+    await expect(versus).toContainText('Your friend leads by');
+    const v = (await versus.boundingBox())!;
+    const c = (await challenge.boundingBox())!;
+    expect(v.y + v.height, 'outcome line above Challenge').toBeLessThanOrEqual(c.y);
+    if (size.height < 500) {
+      expect(await page.evaluate(() => window.scrollY)).toBe(0);
+      for (const target of [versus, page.locator('.results-total'), challenge]) await expect(target).toBeInViewport({ ratio: 1 });
+    }
+  });
+}

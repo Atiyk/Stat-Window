@@ -316,6 +316,8 @@ export function Results({ slate, label, screenLabel = label, eligible, onPrivacy
         <span className="results-max">of {MAX_TOTAL}</span>
       </h1>
       <p className="results-verdict">{postgameHighlight(results, officialHighlight)}</p>
+      {/* Against a total-only link the outcome is the headline: it sits with the score, above Challenge. */}
+      {vs !== null && !vsRounds && <p className="versus">{friendLine(total, vs, answerMs, vsTime)}</p>}
     </header>
   );
 
@@ -372,7 +374,6 @@ export function Results({ slate, label, screenLabel = label, eligible, onPrivacy
   const secondary = (
     <>
       {race && <RaceResult you={results.map((r) => r.points)} friend={vsRounds} total={total} vs={vs} answerMs={answerMs} vsTime={vsTime} />}
-      {vs !== null && !vsRounds && <p className="versus">{friendLine(total, vs, answerMs, vsTime)}</p>}
       <ComparisonLine comparison={comparison} onPrivacy={onPrivacy} ref={slotRef} />
       {toughest && (
         <p className="percentile percentile-quiet crowd-toughest">

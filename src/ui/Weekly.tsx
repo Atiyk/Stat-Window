@@ -65,17 +65,18 @@ export function WeekGlance({ store, today, config, onOpen, className, link = tru
 export function Weekly({ store, today, config, onBack }: { store: SaveStore; today: string; config: SeasonConfig; onBack: () => void }) {
   const season = currentSeason(today, config);
   const starts = useMemo(() => reviewableWeeks(today, season, config), [today, season, config]);
-  const [which, setWhich] = useState(0);
+  // The chosen week by its Monday, not its position: a new week at Monday midnight shifts every position.
+  const [chosen, setChosen] = useState<string | null>(null);
   const history = useOfficialHistory(store, today, config, starts.at(-1));
   const headingRef = useRef<HTMLHeadingElement>(null);
   useEffect(() => { headingRef.current?.focus({ preventScroll: true }); window.scrollTo({ top: 0, behavior: 'instant' }); }, []);
-  // A week rollover at midnight can shorten the list: never point past it.
-  const index = Math.min(which, starts.length - 1);
+  const found = chosen === null ? -1 : starts.indexOf(chosen);
+  const index = found === -1 ? 0 : found;
   const start = starts[index]!;
   const week = useMemo(() => (history ? buildWeek(start, today, season, config, history) : null), [history, start, today, season, config]);
   const older = index < starts.length - 1;
   const newer = index > 0;
-  const go = (to: number) => setWhich(to);
+  const go = (to: number) => setChosen(starts[to]!);
 
   return (
     <article className="weekly" aria-labelledby="weekly-title">
@@ -192,7 +193,6 @@ function WeekShare({ week }: { week: Week }) {
   // Draw the image ahead of any tap, so the share sheet keeps the user gesture (Safari).
   useEffect(() => {
     let live = true;
-    let objectUrl: string | null = null;
     void weeklyCardBlob(model, format).then((blob) => {
       if (!live) return;
       let file: File | null = null;
@@ -204,14 +204,16 @@ function WeekShare({ week }: { week: Week }) {
           // Download stays available when files can't be shared.
         }
       }
-      objectUrl = blob ? URL.createObjectURL(blob) : null;
-      setPrepared({ format, blob, url: objectUrl, file });
+      setPrepared({ format, blob, url: blob ? URL.createObjectURL(blob) : null, file });
     });
-    return () => {
-      live = false;
-      if (objectUrl) URL.revokeObjectURL(objectUrl);
-    };
+    return () => { live = false; };
   }, [model, format, filename, canShareFile]);
+  // An image URL lives exactly as long as it is the prepared one: revoked once its
+  // replacement has rendered (or on unmount), never while the preview or Save can still use it.
+  useEffect(() => {
+    const u = prepared?.url;
+    return () => { if (u) URL.revokeObjectURL(u); };
+  }, [prepared]);
   const image = prepared?.format === format ? prepared : null;
 
   const shareText = async (file: File | null = null) => {

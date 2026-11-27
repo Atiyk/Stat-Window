@@ -237,6 +237,47 @@ test.describe('Weekly Scoreboard', () => {
     await expect(page.getByRole('status')).toHaveText('Download started');
   });
 
+  test('the chosen week stays put when a new week starts at Monday midnight', async ({ page }) => {
+    await seed(page, at('2026-12-28', '04:58:00'), week(['2026-12-01', '2026-12-15'])); // Sun Dec 27, 23:58 Eastern
+    await page.clock.install({ time: at('2026-12-28', '04:58:00') });
+    await page.goto('/?weekly');
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Dec 21 – Dec 27, 2026');
+    await page.getByRole('button', { name: 'Previous week' }).click();
+    await page.getByRole('button', { name: 'Previous week' }).click();
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Dec 7 – Dec 13, 2026');
+    await page.clock.runFor(3 * 60_000); // past midnight: Monday Dec 28 opens a new week
+    await expect(page.locator('.weekly__sub')).toContainText('3 weeks ago');
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Dec 7 – Dec 13, 2026');
+  });
+
+  test('the image preview never shows a revoked object URL (format switched back mid-draw)', async ({ page }) => {
+    await page.addInitScript(() => {
+      const revoked: string[] = [];
+      (window as unknown as { revoked: string[] }).revoked = revoked;
+      const revoke = URL.revokeObjectURL.bind(URL);
+      URL.revokeObjectURL = (u: string) => { revoked.push(u); revoke(u); };
+      // Slow the draw down so a quick switch lands while the next image is still being made.
+      const toBlob = HTMLCanvasElement.prototype.toBlob;
+      HTMLCanvasElement.prototype.toBlob = function (cb, ...rest) { setTimeout(() => toBlob.call(this, cb, ...rest), 600); };
+    });
+    await seed(page, at(TODAY), week(['2026-11-23', '2026-11-25']));
+    await page.goto('/?weekly');
+    const img = page.locator('.weekly-image__preview img');
+    await expect(img).toBeVisible();
+    await page.getByLabel('Portrait').check();
+    await page.getByLabel('Square').check();
+    const shownRevoked = async () => {
+      const src = await img.getAttribute('src').catch(() => null);
+      return src !== null && (await page.evaluate((u) => (window as unknown as { revoked: string[] }).revoked.includes(u), src));
+    };
+    for (let i = 0; i < 8; i++) {
+      expect(await shownRevoked(), 'preview src was already revoked').toBe(false);
+      await page.waitForTimeout(150);
+    }
+    await expect(img).toBeVisible();
+    expect(await img.evaluate((el: HTMLImageElement) => el.decode().then(() => el.naturalWidth))).toBe(1080);
+  });
+
   test('back returns to today’s puzzle', async ({ page }) => {
     await seed(page, at(TODAY), week(['2026-11-24']));
     await page.goto('/?weekly');

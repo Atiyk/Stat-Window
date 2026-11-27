@@ -56,13 +56,16 @@ for (const size of [{ width: 844, height: 390 }, { width: 932, height: 430 }]) {
 
 // The bars must be tall enough to compare (42, 48 and 47 must not look identical), and the
 // Lock must still be on the first screen with both handles. Value labels never overlap.
+// The format instruction is onboarding guidance and stays visible on short phones too
+// (390×664 is the iPhone 13 class the webkit-mobile project uses).
 const MIN_PLOT = 88;
-for (const size of [{ width: 320, height: 568 }, { width: 390, height: 844 }]) {
+for (const size of [{ width: 320, height: 568 }, { width: 390, height: 664 }, { width: 390, height: 844 }]) {
   test(`chart question at ${size.width}×${size.height}: plot is at least ${MIN_PLOT}px tall, labels apart, Lock in view`, async ({ page }) => {
     await page.setViewportSize(size);
     await openAt(page, CHART_DAY);
     const plot = (await page.locator('.q-chart__plot').first().boundingBox())!;
     expect(plot.height).toBeGreaterThanOrEqual(MIN_PLOT);
+    await expect(page.locator('.round .format-cue__line')).toBeVisible();
     await expect(page.getByRole('button', { name: /Lock the window|Pull the brackets in first/ })).toBeInViewport({ ratio: 1 });
     // The visible grips, not just their hit areas, start clear of the sticky bar (background included).
     const bar = (await page.locator('.action-bar').boundingBox())!;

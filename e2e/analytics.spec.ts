@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { lockAndSettle, NBA_FIRST, next, openAt, startDailyIfNeeded } from './helpers';
+import { openFold } from './results-helpers';
 
 /**
  * Runs only against a build made with VITE_ANALYTICS=vercel (npm run test:e2e:analytics).
@@ -132,6 +133,7 @@ test('a completed daily sends one streak event, bucketed 1, 2-6 or 7plus; practi
   await playFive();
   await expect.poll(async () => (await views(page)).filter((p) => p.startsWith('/e/streak/'))).toEqual(['/e/streak/daily/2-6']);
   // A practice run of an earlier day is not a daily.
+  await openFold(page, 'Practice a past game');
   await page.getByRole('button', { name: 'Nov 18' }).click();
   // Opening an archive practice slate mounts its own deliberate Start gate.
   // Wait for the destination rather than treating the previous results as play.
@@ -201,6 +203,7 @@ test('tapping a reminder link queues /e/remind/ics or /e/remind/google', async (
     await lockAndSettle(page);
     await next(page);
   }
+  await openFold(page, 'Next puzzle and reminders');
   await page.getByRole('link', { name: 'Apple or Outlook calendar' }).click();
   await expect.poll(async () => (await views(page)).filter((p) => p.startsWith('/e/remind/'))).toEqual(['/e/remind/ics']);
   const popup = context.waitForEvent('page');
@@ -223,6 +226,7 @@ test('under Global Privacy Control the reminder sends nothing and loads no scrip
     await lockAndSettle(page);
     await next(page);
   }
+  await openFold(page, 'Next puzzle and reminders');
   await page.getByRole('link', { name: 'Apple or Outlook calendar' }).click();
   const popup = context.waitForEvent('page');
   await page.getByRole('link', { name: 'Google Calendar (opens in a new tab)' }).click();

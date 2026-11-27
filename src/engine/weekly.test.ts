@@ -116,6 +116,17 @@ describe('midweek launch and seasons', () => {
     expect(reviewableWeeks('2026-12-08', 's1', S1)).toEqual(['2026-12-07', '2026-11-30']);
   });
 
+  it('every week back to the season start stays reviewable, newest first, and none before it', () => {
+    expect(reviewableWeeks('2026-12-24', 's1', S1)).toEqual(['2026-12-21', '2026-12-14', '2026-12-07', '2026-11-30']);
+    // A midweek launch: its partial first week is the oldest offered.
+    expect(reviewableWeeks('2026-12-16', 's1', MID)).toEqual(['2026-12-14', '2026-12-07', '2026-11-30']);
+    // Across a year end.
+    const weeks = reviewableWeeks('2027-01-05', 's1', S1);
+    expect(weeks[0]).toBe('2027-01-04');
+    expect(weeks.at(-1)).toBe('2026-11-30');
+    expect(weeks).toHaveLength(6);
+  });
+
   it('a launch-week run excludes beta history from the same calendar week', () => {
     const d = Object.fromEntries([runOn('2026-11-29'), runOn('2026-12-02')]); // beta Sunday + s1 Wednesday
     const h = history(d, 's1', MID, '2026-12-03');

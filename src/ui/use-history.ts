@@ -7,7 +7,7 @@ import { SAVE_KEY, type SaveStore } from '../engine/storage';
 /**
  * This browser's eligible official history for `today`'s season, verified against the
  * published slates (src/engine/history.ts). `null` while loading. `from` limits the
- * slates that must be fetched (the Weekly views need at most fourteen days).
+ * slates that must be fetched (the Weekly views need only the season's weeks).
  * Re-reads when another tab saves a run.
  */
 export function useOfficialHistory(store: SaveStore, today: string, config: SeasonConfig, from?: string): OfficialHistory | null {

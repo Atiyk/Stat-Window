@@ -188,6 +188,22 @@ test.describe('Weekly Scoreboard', () => {
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Dec 7 – Dec 13, 2026');
   });
 
+  test('every week back to the season start can be reviewed, and no earlier', async ({ page }) => {
+    await seed(page, at('2026-12-22'), week(['2026-12-01', '2026-12-15']));
+    await page.goto('/?weekly');
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Dec 21 – Dec 27, 2026');
+    const previous = page.getByRole('button', { name: 'Previous week' });
+    await previous.click();
+    await expect(page.locator('.weekly__sub')).toContainText('last week');
+    await previous.click();
+    await expect(page.locator('.weekly__sub')).toContainText('2 weeks ago');
+    await previous.click();
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Nov 30 – Dec 6, 2026');
+    await expect(page.locator('.weekly__sub')).toContainText('3 weeks ago');
+    await expect(page.locator('.weekly__stats')).toContainText('1 of 7');
+    await expect(previous).toHaveAttribute('aria-disabled', 'true');
+  });
+
   test('the spoiler-free share text names dates, scores, participation and invites play', async ({ page }) => {
     await page.addInitScript(() => {
       Object.defineProperty(navigator, 'share', { value: undefined });

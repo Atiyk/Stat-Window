@@ -51,11 +51,12 @@ export function seasonStart(season: SeasonId, config: SeasonConfig): string {
   return season === 's1' && config.launchDay ? config.launchDay : EPOCH_DAY;
 }
 
-/** The current week and, when the season already covers part of it, the previous one. */
+/** Every week from the current one back to the first that the season covers (newest first). */
 export function reviewableWeeks(today: string, season: SeasonId, config: SeasonConfig): string[] {
-  const current = weekStartOf(today);
-  const previous = addDays(current, -WEEK_DAYS);
-  return addDays(previous, WEEK_DAYS - 1) >= seasonStart(season, config) ? [current, previous] : [current];
+  const first = weekStartOf(seasonStart(season, config));
+  const weeks = [weekStartOf(today)];
+  for (let w = addDays(weeks[0]!, -WEEK_DAYS); w >= first; w = addDays(w, -WEEK_DAYS)) weeks.push(w);
+  return weeks;
 }
 
 export function buildWeek(weekStart: string, today: string, season: SeasonId, config: SeasonConfig, history: OfficialHistory): Week {

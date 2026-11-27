@@ -131,11 +131,15 @@ export function PerformanceRecap({ attempts, checkpoints, total }: {
             <p className="performance-caption">Each circle is a question. Farther from the basket means a tighter, bolder window.</p>
             <ShotChartCourt attempts={attempts} />
             <ol className="performance-rounds" aria-label="Each shot" role="list">
-              {attempts.map(({ number, outcome, potential }) => (
+              {attempts.map(({ number, outcome, potential, earned }) => (
                 <li key={number} data-outcome={outcome}>
                   <span className="performance-q">Q{number}</span>
-                  <strong className="tabular">{potential ?? '–'}</strong>
+                  {/* The points it actually scored; a missed window's value is only a secondary note. */}
+                  <strong className="tabular">{potential === null ? '–' : earned}</strong>
                   <span className="performance-note">{SHOT_OUTCOME_LABELS[outcome]}</span>
+                  {outcome === 'missed' && potential !== null && (
+                    <span className="performance-worth tabular" aria-hidden="true">worth {potential}</span>
+                  )}
                   <span className="sr-only">{potential !== null ? `, window worth ${potential} points` : ''}</span>
                 </li>
               ))}

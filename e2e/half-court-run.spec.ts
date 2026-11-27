@@ -101,7 +101,8 @@ test('the ball follows earned points through a hit, miss, timeout, zero-point ca
   const shots = recap.getByRole('list', { name: 'Each shot' }).getByRole('listitem');
   await expect(shots).toHaveCount(5);
   await expect(shots.nth(0)).toContainText('Scored');
-  await expect(shots.nth(1)).toContainText('100');
+  // A miss scores 0; what the window was worth is only a secondary note.
+  await expect(shots.nth(1).locator('strong')).toHaveText('0');
   await expect(shots.nth(1)).toContainText('Missed');
   await expect(shots.nth(2)).toContainText('Timeout');
   await expect(shots.nth(3)).toContainText('0-point catch');
@@ -115,6 +116,8 @@ test('the ball follows earned points through a hit, miss, timeout, zero-point ca
   expect(await far(2)).toBeCloseTo(shotDistance(worth(1)), 2);
   expect(await far(4)).toBeCloseTo(shotDistance(0), 2);
   await expect(shots.nth(1).locator('.sr-only')).toHaveText(`, window worth ${worth(1)} points`);
+  await expect(shots.nth(1).locator('.performance-worth')).toHaveText(`worth ${worth(1)}`);
+  await expect(shots.nth(0).locator('strong')).toHaveText(String(worth(0)));
   await shotsTab.focus();
   await page.keyboard.press('ArrowRight');
   const runTab = recap.getByRole('tab', { name: 'Court run' });

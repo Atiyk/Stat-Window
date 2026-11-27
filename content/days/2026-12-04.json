@@ -19,7 +19,7 @@
       "min": 18,
       "max": 42,
       "step": 0.1,
-      "note": "27.4 with 14 rebounds a game, as the Spurs won their first title over the eighth-seeded Knicks.",
+      "note": "Plus 14 rebounds a game, as San Antonio won its first title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
@@ -48,7 +48,7 @@
           }
         },
         {
-          "text": "The Knicks were an eighth seed when they reached the Finals, an extraordinary playoff run.",
+          "text": "The Knicks had barely qualified for the playoffs, as the eighth and final seed.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
@@ -109,7 +109,7 @@
           }
         },
         {
-          "text": "He also led the league in rebounds during that same remarkable defensive season.",
+          "text": "He also won the rebounding title that season.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Hakeem_Olajuwon",
@@ -141,7 +141,7 @@
       "min": 0,
       "max": 12,
       "step": 1,
-      "note": "Eight in one quarter, on the way to 11 in the first half against Milwaukee.",
+      "note": "Eight in the first quarter, more than Giannis blocked in an entire Finals clincher.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
@@ -154,7 +154,7 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "Bol set his mark while playing for Washington in an overtime victory against the Milwaukee Bucks.",
+          "text": "He did it for Washington against Milwaukee on December 12, 1985.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/List_of_National_Basketball_Association_single-game_blocks_leaders",
@@ -194,7 +194,7 @@
     {
       "id": "nba-nuggets09-hornets-margin-v52a",
       "sport": "NBA",
-      "prompt": "The chart shows famous routs, plus the regular-season record. By how many points did Denver beat New Orleans in a 2009 playoff game?",
+      "prompt": "Next to famous routs and the regular-season record, by how many points did Denver beat New Orleans in a 2009 playoff game?",
       "context": "2009 Western Conference first round · Game 4 · at New Orleans",
       "answer": 58,
       "unit": {
@@ -225,11 +225,11 @@
           }
         },
         {
-          "text": "The margin matched a playoff record set by the Minneapolis Lakers.",
+          "text": "Carmelo Anthony scored a playoff career-high 34 points in the same series.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2009_NBA_playoffs",
-            "quote": "The margin tied the most lopsided victory in playoff history set 53 years ago by the Minneapolis Lakers."
+            "quote": "Carmelo Anthony scored his career playoff-high with 34 points as the Nuggets cruised to another double-digit win."
           }
         },
         {
@@ -280,7 +280,7 @@
     {
       "id": "nba-klay16-okc-game6-41",
       "sport": "NBA",
-      "prompt": "Compare other famous playoff scoring nights. Facing elimination at OKC in 2016, how many did Klay Thompson score in Game 6?",
+      "prompt": "Other famous playoff scoring nights are charted. Facing elimination at OKC in 2016, how many did Klay Thompson score in Game 6?",
       "context": "Klay Thompson · Warriors at Thunder · 2016 playoffs",
       "answer": 41,
       "unit": {
@@ -290,7 +290,7 @@
       "min": 10,
       "max": 95,
       "step": 1,
-      "note": "41, with a playoff-record 11 threes, forcing a Game 7 that Golden State won.",
+      "note": "A series high, built on a playoff-record 11 threes, as the Warriors stayed alive.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2016_NBA_playoffs",
@@ -303,19 +303,19 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Klay set a postseason record for made threes.",
+          "text": "Golden State became only the 10th team to win a playoff series after trailing 3–1.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2016_NBA_playoffs",
-            "quote": "made an NBA playoff record 11 3s"
+            "quote": "became the 10th team to win an NBA playoff series after trailing 3–1"
           }
         },
         {
-          "text": "The Warriors won on the road to force a deciding game.",
+          "text": "Golden State then won Game 7, 96–88, after stopping a brief Thunder rally in the fourth quarter.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2016_NBA_playoffs",
-            "quote": "the Warriors won the game 108–101 and tied the series 3-3"
+            "quote": "After the Warriors thwarted Oklahoma City's brief comeback attempt in the fourth quarter, Golden State won 96–88."
           }
         },
         {

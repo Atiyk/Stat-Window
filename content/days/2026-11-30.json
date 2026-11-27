@@ -19,7 +19,7 @@
       "min": 20,
       "max": 75,
       "step": 1,
-      "note": "42 plus 13 rebounds, erasing a 13-point deficit; Miami then won the next three games for the title.",
+      "note": "Miami erased a 13-point deficit that night, then won the next three games for the title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2006_NBA_Finals",
@@ -119,7 +119,7 @@
       "difficulty": "medium",
       "funFacts": [
         {
-          "text": "Ray Allen's barrage featured a second-quarter shooting display in which he barely missed from deep.",
+          "text": "Five of the eight came in the second quarter, when Allen missed only once from deep.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
@@ -159,7 +159,7 @@
     {
       "id": "nba-gordon23-finals-g4-points",
       "sport": "NBA",
-      "prompt": "The chart shows Finals nights by players beside a superstar. How many points did Aaron Gordon score in Game 4 of the 2023 Finals?",
+      "prompt": "Leon Powe and Khris Middleton had big Finals nights beside a superstar. How many did Aaron Gordon score in Game 4 of the 2023 Finals?",
       "context": "Denver Nuggets at Miami Heat · June 9, 2023",
       "answer": 27,
       "unit": {
@@ -169,7 +169,7 @@
       "min": 8,
       "max": 41,
       "step": 1,
-      "note": "27 on 11-of-15 shooting, a game high, putting Denver one win from its first title.",
+      "note": "It led all scorers, and the win left Denver one victory from its first championship.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
@@ -241,7 +241,7 @@
     {
       "id": "nba-korver15-three-pct",
       "sport": "NBA",
-      "prompt": "Khris Middleton shot 43.5% from three in the 2019 playoffs. What did Kyle Korver shoot from three for the 2014–15 Hawks?",
+      "prompt": "Khris Middleton made 43.5% of his threes in the 2019 playoffs. What did Kyle Korver shoot from three over the 2014–15 regular season?",
       "context": "Atlanta Hawks · regular season · one decimal place",
       "answer": 49.2,
       "unit": {
@@ -305,7 +305,7 @@
     {
       "id": "nba-lakers00-portland-g7-comeback",
       "sport": "NBA",
-      "prompt": "In Kobe and Shaq's iconic 2000 West finals Game 7 comeback against Portland, how many points down were the Lakers?",
+      "prompt": "In Game 7 of the 2000 West finals, how many points did Kobe and Shaq's Lakers trail Portland by before their comeback?",
       "context": "Lakers vs Trail Blazers · 2000 West finals",
       "answer": 16,
       "unit": {
@@ -315,7 +315,7 @@
       "min": 2,
       "max": 52,
       "step": 1,
-      "note": "16 points down. Kobe's alley-oop to Shaq sealed the comeback that launched the dynasty.",
+      "note": "Portland led 71–55 with a Finals trip at stake; Kobe's alley-oop to Shaq capped the Lakers' rally.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2000_NBA_playoffs",
@@ -328,27 +328,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Kobe's alley-oop to Shaq helped seal the comeback.",
+          "text": "The Lakers had led the series 3–1 before Portland forced a Game 7.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2000_NBA_playoffs",
-            "quote": "Kobe Bryant delivering an alley-oop to Shaquille O'Neal"
+            "quote": "the Los Angeles Lakers took a 3–1 series lead only for the Portland Trail Blazers to force a Game 7"
           }
         },
         {
-          "text": "Los Angeles survived a low-scoring deciding game.",
+          "text": "A 15–0 fourth-quarter run swung the game back to Los Angeles.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2000_NBA_playoffs",
-            "quote": "Portland Trail Blazers 84, Los Angeles Lakers 89"
+            "quote": "the Los Angeles Lakers used a 15–0 fourth quarter run"
           }
         },
         {
-          "text": "Rasheed Wallace led Portland in points that night.",
+          "text": "The win sent the Lakers to their first NBA Finals since 1991.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2000_NBA_playoffs",
-            "quote": "Pts: Rasheed Wallace 30"
+            "quote": "defeat the Portland Trail Blazers and make their first NBA Finals since 1991"
           }
         }
       ],

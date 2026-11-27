@@ -7,7 +7,7 @@
    "id": "nba-wade06-g3",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Charted against Magic '80, Iverson '01 and Curry '19, the bars tell the story of guards carrying a team on the Finals stage, so the opener becomes a judgement about where Wade's comeback night sits among them.; prompt polish",
+   "note": "Charted against Magic '80, Iverson '01 and Curry '19, the bars tell the story of guards carrying a team on the Finals stage, so the opener becomes a judgement about where Wade's comeback night sits among them.; prompt polish; first-14 polish: reveal no longer repeats the 13-rebound fun fact",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -15,9 +15,9 @@
    "day": "2026-11-30",
    "slot": 2,
    "id": "nba-allen10-g2-threes",
-   "verdict": "retained",
+   "verdict": "reframed",
    "format": "reference",
-   "note": "Battier's six threes in a Finals Game 7 is a genuinely comparable role-shooter benchmark; it tells the player what an exceptional Finals night from deep looks like, and Allen's record sits just beyond it. Reveal already adds the 11 attempts and record context.",
+   "note": "Battier's six threes in a Finals Game 7 is a genuinely comparable role-shooter benchmark; it tells the player what an exceptional Finals night from deep looks like, and Allen's record sits just beyond it. Reveal already adds the 11 attempts and record context.; first-14 polish: vague second-quarter fun fact made concrete",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -27,7 +27,7 @@
    "id": "nba-gordon23-finals-g4-points",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The bars are Finals nights by players beside a superstar (Powe next to the Big Three, Middleton next to Giannis), which is exactly Gordon's role next to Jokić; the reveal now explains the efficiency and series stakes instead of restating.; prompt polish",
+   "note": "The bars are Finals nights by players beside a superstar (Powe next to the Big Three, Middleton next to Giannis), which is exactly Gordon's role next to Jokić; the reveal now explains the efficiency and series stakes instead of restating.; prompt polish; first-14 polish: prompt names the charted sidekicks instead of a 'The chart shows' opener; reveal no longer repeats the 11-of-15 fun fact",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -37,7 +37,7 @@
    "id": "nba-korver15-three-pct",
    "verdict": "reframed",
    "format": "reference",
-   "note": "Middleton's 43.5% playoff run is what elite shooting looks like for a modern wing, so it materially anchors the estimate; the reveal replaces an empty adjective with the Hawks' four-All-Star context.",
+   "note": "Middleton's 43.5% playoff run is what elite shooting looks like for a modern wing, so it materially anchors the estimate; the reveal replaces an empty adjective with the Hawks' four-All-Star context.; first-14 polish: prompt states both scopes (playoff anchor, regular-season answer) explicitly",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -45,9 +45,9 @@
    "day": "2026-11-30",
    "slot": 5,
    "id": "nba-lakers00-portland-g7-comeback",
-   "verdict": "retained",
+   "verdict": "reframed",
    "format": "recall",
-   "note": "A memorable finale: the Kobe-to-Shaq alley-oop is iconic, the deficit is estimable from the story, and the reveal already gives the score and the dynasty context.",
+   "note": "A memorable finale: the Kobe-to-Shaq alley-oop is iconic, the deficit is estimable from the story, and the reveal already gives the score and the dynasty context.; first-14 polish: 'iconic' dropped from the prompt; reveal gives the 71–55 scoreline; three vague fun facts replaced with sourced series context (3–1 lead, 15–0 run, first Finals since 1991)",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -78,7 +78,7 @@
    "id": "nba-luka22-knicks-triple-rebounds",
    "verdict": "reframed",
    "format": "recall",
-   "note": "Strong recall: the 60-point night is famous, the rebound count is the surprise. The reveal swaps 'impossible comeback' for the actual historical first.",
+   "note": "Strong recall: the 60-point night is famous, the rebound count is the surprise. The reveal swaps 'impossible comeback' for the actual historical first.; first-14 polish: fun fact repeating the reveal's 60-20 record replaced with the 50-20 rarity; unsupported 'overtime rally' wording removed",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -88,7 +88,7 @@
    "id": "nba-mcgrady04-35-seconds",
    "verdict": "reframed",
    "format": "reference",
-   "note": "Curry's record 17 points across a full five-minute overtime is the best-known benchmark for a scoring burst, so it materially scales what 35 seconds could hold; the reveal now explains how 13 was possible. critic: 'buzzer-beating' overstated the source ('game-winner in the final two seconds'); fixed reveal and fun fact.",
+   "note": "Curry's record 17 points across a full five-minute overtime is the best-known benchmark for a scoring burst, so it materially scales what 35 seconds could hold; the reveal now explains how 13 was possible. critic: 'buzzer-beating' overstated the source ('game-winner in the final two seconds'); fixed reveal and fun fact.; first-14 polish: fun fact that repeated the reveal word for word replaced with the comeback context",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -96,9 +96,9 @@
    "day": "2026-12-01",
    "slot": 5,
    "id": "nba-lillard19-okc-winner-distance",
-   "verdict": "retained",
+   "verdict": "reframed",
    "format": "recall",
-   "note": "A famous, replayed shot whose distance players can reason about from the three-point line and half court; the reveal carries the wave-goodbye story.",
+   "note": "A famous, replayed shot whose distance players can reason about from the three-point line and half court; the reveal carries the wave-goodbye story.; first-14 polish: reveal no longer restates the distance; vague fun facts made specific",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -108,7 +108,7 @@
    "id": "nba-raptors19-regular-wins",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Charting Toronto against three other champions (48, 65, 66 wins) asks the real question: how dominant does a title team need to be in the regular season? The reveal adds the Milwaukee story.; prompt polish",
+   "note": "Charting Toronto against three other champions (48, 65, 66 wins) asks the real question: how dominant does a title team need to be in the regular season? The reveal adds the Milwaukee story.; prompt polish; first-14 polish: trade fun fact trimmed to what its quote supports",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -118,7 +118,7 @@
    "id": "nba-grizzlies21-bench-points-v5",
    "verdict": "reframed",
    "format": "reference",
-   "note": "The 73-point margin is the same game's defining number and materially drives the estimate: a win that lopsided implies the reserves played and scored heavily. Reveal now gives the striking comparison.",
+   "note": "The 73-point margin is the same game's defining number and materially drives the estimate: a win that lopsided implies the reserves played and scored heavily. Reveal now gives the striking comparison.; first-14 polish: reveal leads with the bench-beats-team story; fun fact no longer repeats the context date",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -149,7 +149,7 @@
    "id": "nba-wolves24-denver-game7-comeback",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Bars now run in chronological order through famous comebacks (Jazz '96, Spurs '99, Lakers '00 Game 7), so the player compares Minnesota's hole with the deficits fans remember; the reveal states the Game 7 record.; prompt polish",
+   "note": "Bars now run in chronological order through famous comebacks (Jazz '96, Spurs '99, Lakers '00 Game 7), so the player compares Minnesota's hole with the deficits fans remember; the reveal states the Game 7 record.; prompt polish; first-14 polish: second 'The chart shows' opener of the day varied; vague fun facts made specific",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -159,7 +159,7 @@
    "id": "nba-kobe-81",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The chart is the record progression Kobe chased (Baylor 71, Wilt 78, Wilt 100), a clean story for an opener; the reveal now gives the halftime deficit instead of 'career high'.; prompt polish",
+   "note": "The chart is the record progression Kobe chased (Baylor 71, Wilt 78, Wilt 100), a clean story for an opener; the reveal now gives the halftime deficit instead of 'career high'.; prompt polish; first-14 polish: prompt names the charted landmarks; fun fact that repeated the reveal's halftime deficit replaced with his share of the team's points",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -169,7 +169,7 @@
    "id": "nba-sonics94-opening-streak",
    "verdict": "reframed",
    "format": "reference",
-   "note": "Houston's 15-0 start came in the very same season, the most relevant possible benchmark for an opening streak; reveal now adds where Seattle's season went.",
+   "note": "Houston's 15-0 start came in the very same season, the most relevant possible benchmark for an opening streak; reveal now adds where Seattle's season went.; first-14 polish: reveal no longer repeats the 26–3 fun fact",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -177,9 +177,9 @@
    "day": "2026-12-03",
    "slot": 3,
    "id": "nba-jokic23-finals-g3-rebounds",
-   "verdict": "retained",
+   "verdict": "reframed",
    "format": "recall",
-   "note": "A celebrated title-run game; the 20-plus rebound count is the surprise and the reveal already ties it to the series lead.",
+   "note": "A celebrated title-run game; the 20-plus rebound count is the surprise and the reveal already ties it to the series lead.; first-14 polish: Braun fun fact trimmed to what its quote supports",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -189,7 +189,7 @@
    "id": "nba-bibby02-regular-apg",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Moved to a chart of lead playmakers on contenders (Stockton '90, Türkoğlu '09, Lowry '19): the spread from a point forward to a record passer shows that a 'point guard' label does not fix the number, and the reveal explains why Bibby's was low. critic: added a fun fact sourcing Webber's 4.8 used in the reveal.; prompt polish",
+   "note": "Moved to a chart of lead playmakers on contenders (Stockton '90, Türkoğlu '09, Lowry '19): the spread from a point forward to a record passer shows that a 'point guard' label does not fix the number, and the reveal explains why Bibby's was low. critic: added a fun fact sourcing Webber's 4.8 used in the reveal.; prompt polish; first-14 polish: 'Compare other…' opener varied",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -197,9 +197,9 @@
    "day": "2026-12-03",
    "slot": 5,
    "id": "nba-celtics08-allen-kg-g6-combined",
-   "verdict": "retained",
+   "verdict": "reframed",
    "format": "recall",
-   "note": "A memorable finale on a famous clincher; two stars make the total estimable and the 26-each reveal is satisfying.",
+   "note": "A memorable finale on a famous clincher; two stars make the total estimable and the 26-each reveal is satisfying.; first-14 polish: reveal no longer restates the total",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -209,7 +209,7 @@
    "id": "nba-duncan99-finals-ppg",
    "verdict": "reframed",
    "format": "recall",
-   "note": "Accessible recall on a famous Finals MVP; the reveal now adds the rebounding and the eighth-seed opponent instead of restating the award.",
+   "note": "Accessible recall on a famous Finals MVP; the reveal now adds the rebounding and the eighth-seed opponent instead of restating the award.; first-14 polish: reveal and Knicks fun fact no longer overlap; 'extraordinary' dropped",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -219,7 +219,7 @@
    "id": "nba-hakeem90-quadruple-blocks",
    "verdict": "reframed",
    "format": "recall",
-   "note": "Good recall on a rare feat; the reveal now gives the full quadruple-double line, which is the real story.",
+   "note": "Good recall on a rare feat; the reveal now gives the full quadruple-double line, which is the real story.; first-14 polish: padded fun fact tightened",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -229,7 +229,7 @@
    "id": "nba-bol85-quarter",
    "verdict": "reframed",
    "format": "reference",
-   "note": "Giannis's five blocks in the 2021 clincher is a famous elite shot-blocking night; it tells the player what a whole great game looks like, so they can judge how much a record single quarter could exceed it. Reveal adds the first-half total.",
+   "note": "Giannis's five blocks in the 2021 clincher is a famous elite shot-blocking night; it tells the player what a whole great game looks like, so they can judge how much a record single quarter could exceed it. Reveal adds the first-half total.; first-14 polish: reveal ties the answer back to the Giannis reference instead of repeating the first-half fun fact; unsupported 'overtime victory' removed",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -240,7 +240,7 @@
    "replaced": "nba-kawhi19-jokic23-playoff-points-gap-v5",
    "verdict": "replaced",
    "format": "missing-point",
-   "note": "The old question was arithmetic on two answers players had just been asked days earlier. Denver's 58-point playoff rout is a real historical outlier; the bars set it against famous playoff blowouts and Memphis's regular-season record (name order), asking how far a playoff game can get out of hand.; prompt polish",
+   "note": "The old question was arithmetic on two answers players had just been asked days earlier. Denver's 58-point playoff rout is a real historical outlier; the bars set it against famous playoff blowouts and Memphis's regular-season record (name order), asking how far a playoff game can get out of hand.; prompt polish; first-14 polish: 'The chart shows' opener varied; fun fact repeating the reveal's Minneapolis tie replaced with Carmelo's playoff high",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -250,7 +250,7 @@
    "id": "nba-klay16-okc-game6-41",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Powe's bench game did not belong with elimination-night heroics; the bars are now three famous playoff scoring nights (West, Iverson, Butler) in chronological order, and the reveal explains the threes record and the series result.; prompt polish",
+   "note": "Powe's bench game did not belong with elimination-night heroics; the bars are now three famous playoff scoring nights (West, Iverson, Butler) in chronological order, and the reveal explains the threes record and the series result.; prompt polish; first-14 polish: 'Compare other…' opener varied; two fun facts that repeated the reveal replaced with the 3–1 comeback and Game 7 result",
    "batch": "v52-A",
    "editor": "editor-A"
   },

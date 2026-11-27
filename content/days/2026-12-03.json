@@ -9,7 +9,7 @@
     {
       "id": "nba-kobe-81",
       "sport": "NBA",
-      "prompt": "The chart shows three single-game scoring records set before it. How many points did Kobe Bryant score against Toronto in January 2006?",
+      "prompt": "Elgin Baylor's and Wilt Chamberlain's scoring landmarks are charted. How many points did Kobe Bryant score against Toronto in January 2006?",
       "context": "Lakers vs Toronto Raptors · January 22, 2006",
       "answer": 81,
       "unit": {
@@ -32,11 +32,11 @@
       "difficulty": "easy",
       "funFacts": [
         {
-          "text": "The Lakers trailed Toronto by 14 points at halftime before Kobe took over.",
+          "text": "Kobe scored two-thirds of the Lakers' 122 points.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/Kobe_Bryant%27s_81-point_game",
-            "quote": "the Lakers trailed 63–49 at halftime"
+            "quote": "Bryant scoring 66 percent of the Lakers' 122 points."
           }
         },
         {
@@ -106,7 +106,7 @@
       "min": 3,
       "max": 28,
       "step": 1,
-      "note": "Ten. Seattle reached 26–3 and finished with the NBA's best record.",
+      "note": "Only the start: Seattle went on to finish with the NBA's best record.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1993%E2%80%9394_Seattle_SuperSonics_season",
@@ -197,7 +197,7 @@
           }
         },
         {
-          "text": "Christian Braun's breakout cameo delivered 15 points on exceptionally efficient shooting.",
+          "text": "Christian Braun chipped in fifteen points for Denver.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
@@ -219,7 +219,7 @@
     {
       "id": "nba-bibby02-regular-apg",
       "sport": "NBA",
-      "prompt": "Compare other contenders' lead playmakers. How many assists per game did Kings point guard Mike Bibby average in 2001–02?",
+      "prompt": "Next to other contenders' lead playmakers, how many assists per game did Kings point guard Mike Bibby average in 2001–02?",
       "context": "Sacramento Kings · 2001–02 regular season",
       "answer": 5,
       "unit": {
@@ -316,7 +316,7 @@
       "min": 20,
       "max": 110,
       "step": 1,
-      "note": "52 points: Ray Allen and Kevin Garnett scored exactly 26 each.",
+      "note": "Exactly 26 apiece in the title-clinching rout of the Lakers.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2008_NBA_Finals",

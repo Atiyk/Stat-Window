@@ -69,7 +69,7 @@ function parseLaunchDay(raw) {
 * longer read; a build fails if either is set to a different value, so a stale
 * dashboard setting can never split the client and server seasons.
 */
-var LAUNCH_DAY = "2026-11-30";
+var LAUNCH_DAY = "2026-11-28";
 /** Number of decimals implied by a step (0.01 -> 2). */
 function stepDecimals(step) {
 	const s = String(step);

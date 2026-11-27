@@ -1,0 +1,85 @@
+{
+ "version": 1,
+ "entries": [
+  {
+   "day": "2026-11-28",
+   "slot": 1,
+   "id": "nba-curry16-13-threes",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "Kobe and Kenny Smith give two benchmarks for famous single-game shooting outbursts. Curry missed every three he took in the previous game."
+  },
+  {
+   "day": "2026-11-28",
+   "slot": 2,
+   "id": "nba-shaq00-finals-ppg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Brown is a Finals MVP benchmark in the same units. Shaq’s much higher scoring average shows how heavily the Lakers relied on him against Indiana."
+  },
+  {
+   "day": "2026-11-28",
+   "slot": 3,
+   "id": "nba-murray23-finals-apg",
+   "verdict": "reframed",
+   "format": "reference",
+   "note": "Robertson and Murray were primary ballhandlers on championship teams with MVP centers. The question spells out the full-season versus Finals samples."
+  },
+  {
+   "day": "2026-11-28",
+   "slot": 4,
+   "id": "nba-giannis21-finals-g6-blocks",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Giannis’s title-clinching all-around line makes the defensive statistic a fair surprise."
+  },
+  {
+   "day": "2026-11-28",
+   "slot": 5,
+   "id": "nba-wade06-g5-ft-scoring-share",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "Wade’s free-throw share offers an uncommon stat in a contested Finals moment. The same source supports both numerator and denominator."
+  },
+  {
+   "day": "2026-11-29",
+   "slot": 1,
+   "id": "nba-bulls11-regular-wins",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "The chart compares full regular seasons of three top seeds, ordered by franchise. Rose gives the opener a familiar hook."
+  },
+  {
+   "day": "2026-11-29",
+   "slot": 2,
+   "id": "nba-battier13-g7-threes",
+   "verdict": "reframed",
+   "format": "recall",
+   "note": "The reveal explains why Miami needed Battier’s perimeter scoring in the clincher."
+  },
+  {
+   "day": "2026-11-29",
+   "slot": 3,
+   "id": "nba-giannis24-cup-final-rebounds-v5",
+   "verdict": "retained",
+   "format": "recall",
+   "note": "The Cup final offers a recent, recognizable single-game rebounding question alongside the more familiar scoring line."
+  },
+  {
+   "day": "2026-11-29",
+   "slot": 4,
+   "id": "nba-gsw16-threes",
+   "verdict": "retained",
+   "format": "reference",
+   "note": "Curry and Thompson’s combined total is a useful same-team subset. The rest of Golden State’s contribution is the reasoning step."
+  },
+  {
+   "day": "2026-11-29",
+   "slot": 5,
+   "id": "nba-murray-mitchell20-game4-combined",
+   "verdict": "reframed",
+   "format": "missing-point",
+   "note": "The same Utah series and a famous Cleveland duo provide comparable two-player postseason totals. The first opposing 50-point pair is the payoff."
+  }
+ ]
+}

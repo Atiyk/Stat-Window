@@ -1,7 +1,7 @@
 import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import { scoresApi } from './server/dev-plugin.ts';
-import { activationIssue, assertLaunchEnv, LAUNCH_DAY } from './src/engine/launch-config.ts';
+import { activationIssue, assertLaunchEnv, LAUNCH_DAY, NOVEMBER_LAUNCH_ADVANCE } from './src/engine/launch-config.ts';
 import { puzzleDay } from './src/engine/daily.ts';
 
 // The launch day is committed; a leftover dashboard variable that disagrees fails the deploy.
@@ -37,11 +37,15 @@ export default defineConfig(async ({ command }) => {
   // never ship the launch preview switch.
   if (command === 'build' && process.env.VERCEL_ENV === 'production') {
     if (process.env.VITE_LAUNCH_PREVIEW) throw new Error('VITE_LAUNCH_PREVIEW is set in a production build; the launch preview is for non-production builds only.');
-    const today = puzzleDay(new Date());
+    const mustCheckProduction = LAUNCH_DAY !== null
+      && (LAUNCH_DAY === NOVEMBER_LAUNCH_ADVANCE.to || LAUNCH_DAY <= puzzleDay(new Date()));
     if (process.env.LAUNCH_GUARD_ACK) console.warn(`LAUNCH_GUARD_ACK=${process.env.LAUNCH_GUARD_ACK} is set: delete it from the Vercel environment after this one deploy (docs/LAUNCH.md).`);
-    const issue = LAUNCH_DAY === null || LAUNCH_DAY > today ? null
-      : activationIssue({ launchDay: LAUNCH_DAY, deployed: await deployedLaunchDay(), today, ack: process.env.LAUNCH_GUARD_ACK });
-    if (issue) throw new Error(issue);
+    if (mustCheckProduction) {
+      const deployed = await deployedLaunchDay();
+      const now = new Date();
+      const issue = activationIssue({ launchDay: LAUNCH_DAY, deployed, today: puzzleDay(now), now: now.getTime(), ack: process.env.LAUNCH_GUARD_ACK });
+      if (issue) throw new Error(issue);
+    }
   }
   return {
     plugins: [react(), scoresApi(), launchManifest()],

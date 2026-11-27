@@ -9,8 +9,8 @@
  * - an already-started season is never moved or cancelled (rollback is an explicit,
  *   documented emergency step: SEASON_ROLLBACK_FROM names the cancelled day in the
  *   same commit, see docs/LAUNCH.md);
- * - the new day is at least MIN_LEAD_DAYS ahead. On a push to main the base is the
- *   previous commit (--base HEAD^), so the merge itself is checked too.
+ * - the new day is at least MIN_LEAD_DAYS ahead, apart from the dated advance
+ *   in launch-config.ts. A push to main checks the replaced commit too.
  *
  *   node --experimental-strip-types scripts/season-check.ts [--base origin/main] [--today YYYY-MM-DD]
  */
@@ -20,6 +20,7 @@ import { join } from 'node:path';
 import { VARIETY_FROM } from '../src/content/formats.ts';
 import { addDays, puzzleDay } from '../src/engine/daily.ts';
 import { isIsoDay } from '../src/engine/season.ts';
+import { NOVEMBER_LAUNCH_ADVANCE } from '../src/engine/launch-config.ts';
 
 export const MIN_OFFICIAL_DAYS = 28;
 /**
@@ -43,16 +44,19 @@ export function parseLaunchConfig(text: string): string | null | undefined {
   return m[1] === 'null' ? null : (m[2] ?? m[3] ?? undefined);
 }
 
-export function seasonChangeIssues(o: { base: string | null; head: string | null | undefined; today: string; days: readonly string[]; rollback?: boolean }): string[] {
-  const { base, head, today, days } = o;
+export function seasonChangeIssues(o: { base: string | null; head: string | null | undefined; today: string; days: readonly string[]; now?: number; rollback?: boolean }): string[] {
+  const { base, head, today, days, now = Date.now() } = o;
   if (head === undefined) return [`${CONFIG} must export LAUNCH_DAY as a 'YYYY-MM-DD' string or null`];
   if (head === base) return [];
   const issues: string[] = [];
   if (base !== null && base <= today && !(o.rollback && head === null)) issues.push(`the season that began on ${base} has started; it cannot be moved or cancelled (emergency rollback: docs/LAUNCH.md)`);
   if (head === null) return issues;
   if (!isIsoDay(head)) return [...issues, `LAUNCH_DAY ${head} is not a real date`];
+  const advance = NOVEMBER_LAUNCH_ADVANCE;
+  const nextDayAdvance = base === advance.from && head === advance.to && today === advance.reviewDay;
   if (head <= today) issues.push(`LAUNCH_DAY ${head} is not in the future (today is ${today} Eastern); a launch must start at a future 12:00 AM Eastern boundary`);
-  else if (head < addDays(today, MIN_LEAD_DAYS)) issues.push(`LAUNCH_DAY ${head} is less than ${MIN_LEAD_DAYS} days ahead (today is ${today} Eastern); leave a full day so a late merge can't land after the boundary`);
+  else if (nextDayAdvance && now >= advance.deadline) issues.push(`The ${head} launch advance closed at 8:00 PM Eastern on ${advance.reviewDay}`);
+  else if (!nextDayAdvance && head < addDays(today, MIN_LEAD_DAYS)) issues.push(`LAUNCH_DAY ${head} is less than ${MIN_LEAD_DAYS} days ahead (today is ${today} Eastern); leave a full day so a late merge can't land after the boundary`);
   if (head < VARIETY_FROM) issues.push(`LAUNCH_DAY ${head} is before VARIETY_FROM ${VARIETY_FROM}; earlier slates were not checked for format variety`);
   const have = new Set(days);
   let run = 0;
@@ -64,7 +68,8 @@ export function seasonChangeIssues(o: { base: string | null; head: string | null
 function main() {
   const arg = (n: string) => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : undefined; };
   const baseRef = arg('--base') ?? 'origin/main';
-  const today = [arg('--today') ?? '0000-00-00', puzzleDay(new Date())].sort().at(-1)!;
+  const now = new Date();
+  const today = [arg('--today') ?? '0000-00-00', puzzleDay(now)].sort().at(-1)!;
   try {
     execFileSync('git', ['rev-parse', '--verify', `${baseRef}^{commit}`], { stdio: 'ignore' });
   } catch {
@@ -79,7 +84,7 @@ function main() {
   const head = parseLaunchConfig(headText);
   const rollbackFrom = parseRollbackFrom(headText);
   const days = readdirSync(join(import.meta.dirname, '..', 'content', 'days')).filter((f) => f.endsWith('.json')).map((f) => f.slice(0, 10));
-  const issues = seasonChangeIssues({ base, head, today, days, rollback: base !== null && head === null && rollbackFrom === base });
+  const issues = seasonChangeIssues({ base, head, today, days, now: now.getTime(), rollback: base !== null && head === null && rollbackFrom === base });
   if (issues.length) {
     console.error(`season-check: ${issues.join('\n  ')}`);
     process.exit(1);

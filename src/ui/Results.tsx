@@ -12,7 +12,7 @@ import { ordinal, toughestQuestion } from '../engine/percentile';
 import { crowdThreshold, questionCrowdFor } from '../lib/scores';
 import { formatCountdown, formatDay, formatValue, plural } from '../lib/format';
 import { isMixedSportDay } from '../content/cutover';
-import { track, type PlayMode, type ShareMethod } from '../lib/track';
+import { track, type AnalyticsCohort, type PlayMode, type ShareMethod } from '../lib/track';
 import { useNow } from './hooks';
 import { ComparisonLine, ConsentChoice } from './Comparison';
 import { cardBlob, type CardFormat, type CardInput, type CardStyle } from './share-card';
@@ -43,6 +43,7 @@ type Props = {
   onPrivacy?: (() => void) | undefined;
   mode: Mode;
   playMode: PlayMode;
+  analyticsCohort: AnalyticsCohort;
   untimedPractice?: boolean;
   /** False when this is an earlier day (finished after midnight UTC, practice or a challenge). */
   isToday: boolean;
@@ -86,7 +87,7 @@ export function friendLine(total: number, vs: number, time: number | null, vsTim
   return `Tied at ${total} points. Rematch?`;
 }
 
-export function Results({ slate, label, screenLabel = label, eligible, onPrivacy, mode, playMode, untimedPractice = false, isToday, vs, vsTime, vsRounds = null, results, stats, officialHighlight, animateScorecard = false, archive, onPractice, onBackToToday, onShared, survivalCta = null, weekly = null, onWeekly, onScouting }: Props) {
+export function Results({ slate, label, screenLabel = label, eligible, onPrivacy, mode, playMode, analyticsCohort, untimedPractice = false, isToday, vs, vsTime, vsRounds = null, results, stats, officialHighlight, animateScorecard = false, archive, onPractice, onBackToToday, onShared, survivalCta = null, weekly = null, onWeekly, onScouting }: Props) {
   const total = totalPoints(results);
   const [cardStyle, setCardStyle] = useState<CardStyle>('classic');
   const [format, setFormat] = useState<CardFormat>('square');
@@ -96,7 +97,7 @@ export function Results({ slate, label, screenLabel = label, eligible, onPrivacy
   const [pending, setPending] = useState<'challenge' | 'image' | 'save' | null>(null);
   const working = useRef(false);
   const answerMs = untimedPractice ? null : answerTimeMs(results);
-  const raw = useComparison(eligible, slate.date, results);
+  const raw = useComparison(eligible, slate.date, results, analyticsCohort);
   const slotRef = useRef<HTMLDivElement>(null);
   // After a yes or no the buttons go away; keep focus on the line that now answers.
   // The slot sits well above the consent box on phones, so bring it into view rather than move focus off-screen.
@@ -181,7 +182,7 @@ export function Results({ slate, label, screenLabel = label, eligible, onPrivacy
   }, [toast, toastShown]);
 
   const report = (m: ShareMethod) => {
-    track({ name: 'share', mode: playMode, method: m });
+    track({ name: 'share', mode: playMode, method: m, cohort: analyticsCohort });
     onShared?.(m);
   };
 

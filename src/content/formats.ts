@@ -76,7 +76,7 @@ export const formatOf = (q: { meta?: QuestionMeta | undefined }): QuestionFormat
  * every official slate is covered. Earlier days are published beta content whose
  * bytes and lock fingerprints never change.
  */
-export const VARIETY_FROM = '2026-11-30';
+export const VARIETY_FROM = '2026-11-28';
 export const MAX_PER_FORMAT = 2;
 
 /**

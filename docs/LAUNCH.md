@@ -2,15 +2,15 @@
 
 This page is the runbook for the one step that switches the official season on, and the record of where that step stands.
 
-## Current state (2026-11-26)
+## V5.3 launch schedule
 
 | Item | State |
 |---|---|
-| `LAUNCH_DAY` | `'2026-11-30'`, committed in `src/engine/launch-config.ts` (merged to main in PR #32, `866902e`). |
-| Scheduled activation | 12:00 AM Eastern on Monday 2026-11-30 (05:00 UTC): that day becomes "No. 1". Until then production numbers days as the beta. |
-| Observed activation | Not yet. It counts as observed only once someone opens production on 2026-11-30 and sees "No. 1". Record the time and who checked here. |
-| Production | The first build of the V5.1 merge (18:20 UTC, 2026-11-26) failed: `VITE_LAUNCH_DAY=2026-11-28 disagrees with LAUNCH_DAY=2026-11-30`. Production was redeployed with V5.1 at 19:05 UTC and that build passed, so no Production variable disagrees with the commit any more. |
-| Preview environment | Still had `VITE_LAUNCH_DAY` and `LAUNCH_DAY` set to `2026-11-28` at last check. The owner asked for both to be deleted. Until they are, every Preview build fails `assertLaunchEnv`. |
+| `LAUNCH_DAY` | `'2026-11-28'` in `src/engine/launch-config.ts`. The previous V5.2 deployment serves a November 30 schedule. |
+| Scheduled activation | 12:00 AM Eastern on Saturday, November 28 (05:00 UTC), once `/launch.json` shows `2026-11-28` in production before the boundary. |
+| First week | Saturday Game 1 and Sunday Game 2 count toward the first Weekly Scoreboard, for a 1,000-point maximum. Monday Game 3 begins the first full week. |
+| Observed activation | Record who verified Game 1 on production and when after the boundary. A local clock simulation and a deployed schedule are separate checks. |
+| Vercel environment | Both obsolete launch variables were absent from the environment listing checked November 27. The [V5.2 record](V5.2-PROGRESS.md) has the earlier build history. |
 
 **Delete `VITE_LAUNCH_DAY` and `LAUNCH_DAY` from every Vercel environment (Production, Preview and Development).** Nothing reads them any more. The launch day is the committed value, and `assertLaunchEnv` (called from `vite.config.ts`) fails any build whose environment sets either one to a different value. In Vercel → stat-window → Settings → Environment Variables, check each environment separately.
 
@@ -32,11 +32,11 @@ This page is the runbook for the one step that switches the official season on, 
 ## Choosing L
 
 - *L* must be a day that already has a published slate (or will, after the Question Factory), and must be after today. If *L* is past the last scheduled day (2027-01-27 on 2026-11-26), schedule more content first: `docs/QUESTION-FACTORY.md`.
-- Pick *L* at least 2 days ahead so a deploy can go out before midnight Eastern.
+- Pick *L* at least 2 days ahead so deployment can finish before midnight Eastern. The November 28 advance is tied to the November 30 production schedule and closes at 8:00 PM Eastern on November 27.
 
 ## Launch inventory
 
-Every unpublished day from *L* on is launch inventory. The V5.2 audit covers every official slot from `VARIETY_FROM` (2026-11-30) to 2027-01-27: 59 days, 295 slots, each 2/2/1 across recall, reference and missing-point (see [V5.2.md](V5.2.md)). Choosing L does not change content. Before activating, confirm `npm run content:publish:check` is clean and that `data/nba/editorial/v52-audit.json` still has one entry per official slot (the "V5.2 official-season audit" block in `scripts/nba/formats.test.ts`). Days added after the audit need their own editorial batch through `scripts/nba/revise.ts`. The V5.0 (`launch-audit.json`) and V5.1 (`v51-audit.json`) audits are frozen records.
+The two V5.3 opening slates have a separate audit in `data/nba/editorial/v53-audit.json`. The V5.2 audit covers the 59 slates from November 30 through January 27. All 61 slates use a 2/2/1 mix of recall, reference and missing point. Run `npm run content:publish:check` and the editorial audit tests before merging. The V5.0, V5.1 and V5.2 audits record their respective releases.
 
 ## Preflight (the day before)
 
@@ -48,12 +48,12 @@ Every unpublished day from *L* on is launch inventory. The V5.2 audit covers eve
 
 The launch day lives in **`src/engine/launch-config.ts`** (`LAUNCH_DAY`), one value read by the client label, the score API's season and the CI gates. Activation is a reviewed commit to main that sets it to *L*; Vercel deploys main automatically.
 
-- `npm run season:check -- --base origin/main` (CI runs it on every PR against main, and on every push to main against the commit before it) refuses a change unless *L* is a real date **at least 2 days after today (Eastern)** (so a PR that went green late in the evening still lands before the boundary if it is merged the next day), on or after `VARIETY_FROM` (2026-11-30, so every official slate passes the 2/2/1 format rule), with at least 28 consecutive official slates from *L*. A season that has started can't be moved or cancelled by an ordinary change.
+- `npm run season:check -- --base origin/main` checks the future Eastern boundary, the two-day lead, `VARIETY_FROM`, the 28-slate minimum, and whether the outgoing season has begun. The November 27 exception applies only to advancing November 30 to November 28 before 8:00 PM Eastern. All other checks apply to that transition.
 - The build fails if `VITE_LAUNCH_DAY` or `LAUNCH_DAY` is still set in an environment to a different value (`assertLaunchEnv`), so a stale dashboard value can never split the client and server seasons. Delete both from every Vercel environment, Preview included (see Current state).
-- **The production build guards the boundary itself**, because Vercel deploys main without waiting for CI. It does not repeat the whole season check (lead time, runway, moves); it checks one thing: with `VERCEL_ENV=production`, once `LAUNCH_DAY` has begun, `vite.config.ts` builds only if production already serves that same launch day (it reads `https://$VERCEL_PROJECT_PRODUCTION_URL/launch.json`). So whichever commit would switch a begun season on mid-day, the launch commit or any later one, is refused, and the previous deployment (beta) stays live. If production can't be read (an outage), the build is refused too; set `LAUNCH_GUARD_ACK=<L>` for that one deploy only after checking that production already shows No. 1. A preview switch (`VITE_LAUNCH_PREVIEW`) also fails a production build.
+- **The production build guards the boundary itself** by reading `https://$VERCEL_PROJECT_PRODUCTION_URL/launch.json`. The first November 28 production build requires the prior November 30 manifest and must pass that check before 8:00 PM Eastern on November 27. After that cutoff, builds for November 28 require production to already serve November 28. If the manifest is unreadable, this advance fails closed. For other launches that have begun, `LAUNCH_GUARD_ACK=<L>` applies only to an unreadable manifest, after confirming production already shows No. 1. A configured `VITE_LAUNCH_PREVIEW` fails any production build.
 - Make the CI check a **required status** on main (GitHub → Settings → Branches → main → Require status checks: `check`), so a PR whose check went stale can't be merged without re-running it.
 - Tabs opened before the activation deploy fetch `/launch.json` at the midnight rollover and reload if the deployed launch day differs from their bundle, so a long-open tab doesn't keep beta numbering on *L*.
-- Merge before 12:00 AM Eastern on *L*. Until the boundary the merged build behaves exactly like beta (the same code path the launch e2e proves with a future launch day); at the boundary today becomes No. 1. This is **scheduled** activation; it is **observed** only after someone opens production on *L* and sees No. 1.
+- Merge the November advance only when required checks pass and the build has time to reach production by 8:00 PM Eastern. Verify the production deployment SHA and `/launch.json`. If the release cannot clear that window, keep the November 30 deployment serving. At the scheduled boundary, verify that the public homepage shows Game 1.
 - **Never mid-day.** If the merge slips past midnight Eastern of *L*, the push check fails and the production build refuses to deploy it (and every later production build, since production still serves beta). Players are unaffected: the beta deployment stays live. To recover, commit `LAUNCH_DAY = null` with `SEASON_ROLLBACK_FROM = '<L>'` (the season never went live, so no `s1` data exists and no new season id is needed), then schedule a new future day in a following PR. The same applies after a Vercel Instant Rollback to a pre-launch deployment.
 - `LAUNCH_GUARD_ACK` is a one-deploy override; delete it from the Vercel environment straight after (the build warns while it is set).
 

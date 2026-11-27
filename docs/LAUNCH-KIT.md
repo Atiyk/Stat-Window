@@ -1,4 +1,6 @@
-# V5.2 launch kit (drafts only)
+# V5.2 launch kit (historical drafts)
+
+For the V5.3 production schedule, see [the current launch runbook](LAUNCH.md). Use the V5.3 owner outreach package for current contact routes, platform rules and approved drafts.
 
 Copy for the owner to post by hand. Nothing here has been posted or submitted. Every link is the production URL, `https://stat-window.vercel.app/`. Check each platform's current rules before posting; community rules change and some of these places ban self-promotion outright.
 

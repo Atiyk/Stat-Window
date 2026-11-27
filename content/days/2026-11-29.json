@@ -9,7 +9,7 @@
     {
       "id": "nba-bulls11-regular-wins",
       "sport": "NBA",
-      "prompt": "How many regular-season games did Derrick Rose's 2010–11 Bulls win?",
+      "prompt": "Rose’s MVP season put Chicago atop the East. How many regular-season games did the 2010–11 Bulls win?",
       "context": "Chicago Bulls · 2010–11 · full regular season",
       "answer": 62,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 30,
       "max": 82,
       "step": 1,
-      "note": "62 wins, earning the top seed in the Eastern Conference.",
+      "note": "The Bulls won 62, the league’s best record. Rose led them to the East finals, where Miami’s new Big Three ended the run.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2010%E2%80%9311_Chicago_Bulls_season",
@@ -56,14 +56,35 @@
           }
         }
       ],
+      "chart": {
+        "title": "Top seeds: regular-season wins",
+        "unit": "wins",
+        "points": [
+          {
+            "label": "Bulls ’11",
+            "value": null
+          },
+          {
+            "label": "Mavericks ’07",
+            "value": 67
+          },
+          {
+            "label": "Warriors ’75",
+            "value": 48
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "wins-season",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Chicago Bulls"
         ],
-        "supports": []
+        "supports": [
+          "nba-mavs07-wins",
+          "nba-warriors75-season-wins"
+        ]
       }
     },
     {
@@ -79,7 +100,7 @@
       "min": 0,
       "max": 10,
       "step": 1,
-      "note": "Six, for 18 points.",
+      "note": "Battier hit six threes for 18 points in the clincher. Miami needed his shooting on a night when Bosh and Allen went scoreless.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2013_NBA_Finals",
@@ -253,7 +274,7 @@
     {
       "id": "nba-murray-mitchell20-game4-combined",
       "sport": "NBA",
-      "prompt": "How many points did Jamal Murray and Donovan Mitchell score together in their extraordinary 2020 bubble playoff duel?",
+      "prompt": "Murray and Mitchell traded huge scoring nights in the 2020 bubble. How many points did they combine for in Game 4?",
       "context": "Nuggets vs Jazz · August 2020 playoffs",
       "answer": 101,
       "unit": {
@@ -263,7 +284,7 @@
       "min": 30,
       "max": 140,
       "step": 1,
-      "note": "101 combined: Murray had 50, Mitchell 51, an unprecedented playoff duel.",
+      "note": "Murray had 50 and Mitchell 51. No playoff game before that had a 50-point scorer on each side.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/Jamal_Murray",
@@ -301,14 +322,35 @@
           }
         }
       ],
+      "chart": {
+        "title": "Two-player playoff scoring totals",
+        "unit": "points",
+        "points": [
+          {
+            "label": "Bubble G1",
+            "value": 93
+          },
+          {
+            "label": "Bubble G4",
+            "value": null
+          },
+          {
+            "label": "CLE ’16 G5",
+            "value": 82
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "points-combined",
         "era": "2010s",
         "subjects": [
           "Denver Nuggets"
         ],
-        "supports": []
+        "supports": [
+          "nba-murray-mitchell20-game1-combined",
+          "nba-lebron-kyrie16-g5-combined-82"
+        ]
       }
     }
   ]

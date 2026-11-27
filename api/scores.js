@@ -199,7 +199,7 @@ function seasonOf(day, config) {
 * longer read; a build fails if either is set to a different value, so a stale
 * dashboard setting can never split the client and server seasons.
 */
-var LAUNCH_DAY = "2026-11-30";
+var LAUNCH_DAY = "2026-11-28";
 // server/api.ts
 /**
 * Score submission and daily percentile API (one Vercel Function at /api/scores).

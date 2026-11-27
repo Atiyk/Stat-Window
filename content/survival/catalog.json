@@ -541,7 +541,10 @@
       "era": "2010s",
       "steps": 18,
       "day": "2026-11-28",
-      "notBefore": "2026-11-29"
+      "notBefore": "2026-11-29",
+      "leaks": [
+        "nba-kobe03-threes"
+      ]
     },
     "nba-shaq00-finals-ppg": {
       "tier": "medium",
@@ -550,7 +553,10 @@
       "era": "1990s",
       "steps": 280,
       "day": "2026-11-28",
-      "notBefore": "2026-11-29"
+      "notBefore": "2026-11-29",
+      "leaks": [
+        "nba-brown24-finals-ppg"
+      ]
     },
     "nba-murray23-finals-apg": {
       "tier": "hard",
@@ -559,10 +565,7 @@
       "era": "2020s",
       "steps": 130,
       "day": "2026-11-28",
-      "notBefore": "2026-11-29",
-      "leaks": [
-        "nba-stockton90-apg"
-      ]
+      "notBefore": "2026-11-29"
     },
     "nba-giannis21-finals-g6-blocks": {
       "tier": "hard",
@@ -589,7 +592,10 @@
       "era": "2010s",
       "steps": 52,
       "day": "2026-11-29",
-      "notBefore": "2026-11-30"
+      "notBefore": "2026-11-30",
+      "leaks": [
+        "nba-warriors75-season-wins"
+      ]
     },
     "nba-battier13-g7-threes": {
       "tier": "medium",
@@ -632,7 +638,10 @@
       "era": "2010s",
       "steps": 110,
       "day": "2026-11-29",
-      "notBefore": "2026-11-30"
+      "notBefore": "2026-11-30",
+      "leaks": [
+        "nba-lebron-kyrie16-g5-combined-82"
+      ]
     },
     "nba-wade06-g3": {
       "tier": "easy",
@@ -5101,6 +5110,19 @@
       "notBefore": "2027-01-16",
       "leaks": [
         "nba-nash05-regular-apg"
+      ]
+    },
+    "nba-murray-mitchell20-game1-combined": {
+      "tier": "expert",
+      "family": "points-combined",
+      "franchise": "DEN",
+      "era": "2010s",
+      "steps": 110,
+      "day": null,
+      "notBefore": "2027-01-16",
+      "leaks": [
+        "nba-mitchell20-bubble-fiftyseven",
+        "nba-murray20-utah-g6-nine-threes"
       ]
     }
   },
@@ -10126,6 +10148,41 @@
         "supports": [
           "nba-nash05-regular-apg"
         ]
+      }
+    },
+    {
+      "id": "nba-murray-mitchell20-game1-combined",
+      "sport": "NBA",
+      "prompt": "In the opening game of Denver and Utah’s 2020 bubble series, what was the combined scoring total for Jamal Murray and Donovan Mitchell?",
+      "context": "Denver vs Utah · 2020 first round · Game 1",
+      "answer": 93,
+      "unit": {
+        "singular": "point",
+        "plural": "points"
+      },
+      "min": 30,
+      "max": 140,
+      "step": 1,
+      "note": "Mitchell scored 57 and Murray added 36. Denver won the game in overtime.",
+      "source": {
+        "name": "Wikipedia contributors (CC BY-SA 4.0)",
+        "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs#(3)_Denver_Nuggets_vs._(6)_Utah_Jazz",
+        "quote": "Pts: Donovan Mitchell 57\nRebs: Bradley, Mitchell 9 each\nAsts: Donovan Mitchell 7 | Pts: Jamal Murray 36",
+        "derivation": "Mitchell 57 + Murray 36 = 93 points combined."
+      },
+      "verified": {
+        "on": "2026-11-27",
+        "by": "Stat Window editorial"
+      },
+      "difficulty": "expert",
+      "meta": {
+        "format": "recall",
+        "family": "points-combined",
+        "era": "2010s",
+        "subjects": [
+          "Denver Nuggets"
+        ],
+        "supports": []
       }
     }
   ]

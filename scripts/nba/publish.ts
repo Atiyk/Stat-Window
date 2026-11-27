@@ -3,13 +3,13 @@
  * every day's scoring fingerprint in content/published.lock.json.
  *
  * One policy for every day, mixed-sport or NBA (see docs/CONTENT.md, "Published days"):
- *   - A day on or before today (UTC) is published. This script never rewrites its
+ *   - A day on or before today (Eastern) is published. This script never rewrites its
  *     file, and the lock refuses any change to its ids, answers, scales or order.
  *   - A future day is regenerated from data/nba whenever data/nba changes.
  *   - Days before the cutover are never touched.
  *
  * `--today` can only make the rule stricter (a later date), never unlock a
- * published day: the effective date is the later of --today and the real UTC date.
+ * published day: the effective date is the later of --today and the real Eastern date.
  *
  *   node --experimental-strip-types scripts/nba/publish.ts [--check] [--today YYYY-MM-DD]
  */

@@ -42,7 +42,7 @@ The Vercel project builds `main` with `npm run build` (which regenerates the che
 ## Known limitations
 - Progress is stored in this browser only (localStorage). It is not anti-cheat, and it doesn't sync across devices.
 - Future slates are public files in a static site. Fine for a free game; move slates behind an edge function before offering prizes.
-- The public beta began with two mixed-sport days (2026-11-15 and 11-16) and has been NBA-only since the cutover in `data/nba/calendar.json`. The official season starts on the committed `LAUNCH_DAY` (2026-11-30, [docs/LAUNCH.md](docs/LAUNCH.md)): from then on beta days, mixed-sport and NBA, leave the archive and old links open today's game. Days are built from a checked fact database in `data/nba` and currently run to 2027-01-27 (see [docs/CONTENT.md](docs/CONTENT.md) and [docs/NBA_DATA_RIGHTS.md](docs/NBA_DATA_RIGHTS.md)). After the last day the game says there's no new puzzle until more are published.
+- The public beta began with two mixed-sport days (2026-11-15 and 11-16) and has been NBA-only since the cutover in `data/nba/calendar.json`. The official season starts on the committed `LAUNCH_DAY` ([docs/LAUNCH.md](docs/LAUNCH.md)). Beta days then leave the archive and old links open today's game. Days are built from a checked fact database in `data/nba` and currently run to 2027-01-27 (see [docs/CONTENT.md](docs/CONTENT.md) and [docs/NBA_DATA_RIGHTS.md](docs/NBA_DATA_RIGHTS.md)). After the last day the game says there's no new puzzle until more are published.
 - Analytics send only from the production hostnames, without cookies or IDs, and players can turn them off; previews and local runs send nothing (see docs/MEASUREMENT.md).
 
 ## Adding questions in any sport

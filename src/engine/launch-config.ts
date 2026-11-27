@@ -10,7 +10,15 @@
  * longer read; a build fails if either is set to a different value, so a stale
  * dashboard setting can never split the client and server seasons.
  */
-export const LAUNCH_DAY: string | null = '2026-11-30';
+export const LAUNCH_DAY: string | null = '2026-11-28';
+
+/** One reviewed schedule advance, open only before 8:00 PM Eastern on November 27. */
+export const NOVEMBER_LAUNCH_ADVANCE = {
+  from: '2026-11-30',
+  to: '2026-11-28',
+  reviewDay: '2026-11-27',
+  deadline: Date.parse('2026-11-28T01:00:00Z'),
+} as const;
 
 /**
  * Emergency rollback acknowledgement, committed like the launch day: set it to the
@@ -31,8 +39,17 @@ export const SEASON_ROLLBACK_FROM: string | null = null;
  * mid-day, whichever commit carries it. `ack` is an explicit override for an unreadable
  * production (LAUNCH_GUARD_ACK=<L>, docs/LAUNCH.md).
  */
-export function activationIssue(o: { launchDay: string | null; deployed: string | null | undefined; today: string; ack?: string | undefined }): string | null {
-  const { launchDay, deployed, today } = o;
+export function activationIssue(o: { launchDay: string | null; deployed: string | null | undefined; today: string; now?: number; ack?: string | undefined }): string | null {
+  const { launchDay, deployed, today, now = Date.now() } = o;
+  const advance = NOVEMBER_LAUNCH_ADVANCE;
+  if (launchDay === advance.to && deployed !== launchDay) {
+    if (now >= advance.deadline || today >= launchDay) {
+      return `The first production deployment for ${launchDay} missed its November 27 8:00 PM Eastern cutoff. Production must already serve that launch day to rebuild it.`;
+    }
+    if (deployed !== advance.from) {
+      return `Cannot advance the launch to ${launchDay}: production must still serve the ${advance.from} schedule.`;
+    }
+  }
   if (launchDay === null || launchDay > today) return null;
   if (deployed === launchDay) return null;
   if (deployed === undefined) {

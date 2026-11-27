@@ -28,9 +28,24 @@ describe('analytics readout', () => {
     expect(get('daily: first touch per start').rate).toBe('95.0%');
     expect(get('daily: round 1 locked per start').rate).toBe('90.0%');
     expect(get('daily: finished all five per round 1 lock').rate).toBe('83.3%');
-    // Failed shares are not attempts that reached a share target.
-    expect(get('daily: share attempts per finished game').numerator).toBe(6);
-    expect(get('daily: share attempts per finished game').rate).toBe('20.0%');
+    expect(get('daily: recorded share attempts per finished game').numerator).toBe(8);
+    expect(get('daily: recorded share attempts per finished game').rate).toBe('26.7%');
+    expect(get('daily: successful local actions per recorded share attempt')).toMatchObject({ numerator: 6, denominator: 8 });
+  });
+  it('uses the sampled denominator for question diagnostics and isolates official versus beta and QA', () => {
+    const c = parseCounts([
+      '/e/start/daily,1000', '/e/qa/start/daily,600', '/e/s1/start/daily,500',
+      '/e/s1/complete/daily/400-500,380', '/e/s1/sample/start/daily,60',
+      '/e/s1/sample/first-touch/daily,50', '/e/s1/sample/lock/daily/r1/hit,45',
+      '/e/s1/sample/lock/daily/r2/miss,35', '/e/s1/lock/daily/r1/hit,850',
+    ].join('\n'));
+    const rows = readout(c, 30, 's1');
+    const get = (m: string) => rows.find((r) => r.metric === m)!;
+    expect(get('daily: finishes per start').rate).toBe('76.0%');
+    expect(get('sampled daily: first touch per start').rate).toBe('83.3%');
+    expect(get('sampled daily: round 1 locked per start').rate).toBe('75.0%');
+    expect(get('sampled daily: round 2 lock per round 1 lock').rate).toBe('77.8%');
+    expect(get('sampled daily: round 4 lock per round 3 lock').rate).toMatch(/^not enough data/);
   });
   it('says "not enough data" instead of a rate when the denominator is small', () => {
     const rows = readout(parseCounts('/e/start/daily,3\n/e/first-touch/daily,3'));

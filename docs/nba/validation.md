@@ -10,9 +10,9 @@ All gates pass: 0 errors.
 
 | Measure | Value |
 |---|---|
-| Verified facts (one question each) | 454 |
+| Verified facts (one question each) | 455 |
 | Scheduled questions | 360 |
-| Reserve questions | 94 |
+| Reserve questions | 95 |
 | Days | 72 (2026-11-17 to 2027-01-27) |
 | Themed days (not "mixed") | 6 |
 | Stat families | 81 |
@@ -32,15 +32,15 @@ All gates pass: 0 errors.
 | players | 121 |
 | seasons | 62 |
 | stat_families | 84 |
-| stat_facts | 454 |
-| question_candidates | 454 |
-| question_tags | 1348 |
+| stat_facts | 455 |
+| question_candidates | 455 |
+| question_tags | 1351 |
 | daily_themes | 72 |
 | daily_slates | 72 |
 | daily_slate_questions | 360 |
 
 Integrity: integrity_check ok, no foreign-key violations, every fact verified and sourced.
-Canonical dump sha256 (status as of 2026-11-16): `107b928a01a7eeee9d0a09c02b0959cae3fe088fe5278fa4db62632b5a6f2fe8`.
+Canonical dump sha256 (status as of 2026-11-16): `83b112024240ae81da6164270bdad1f32ed6e8eed9062cdc7d0cffcca1cbfa71`.
 
 ## Difficulty
 
@@ -49,7 +49,7 @@ Canonical dump sha256 (status as of 2026-11-16): `107b928a01a7eeee9d0a09c02b0959
 | easy | 74 | 72 |
 | medium | 95 | 72 |
 | hard | 183 | 144 |
-| expert | 102 | 72 |
+| expert | 103 | 72 |
 
 Mean editorial ratings by slot (interest / recognizability / estimability / surprise):
 
@@ -69,14 +69,14 @@ Where each answer sits on its scale (0 = min, 9 = top tenth). A flat spread mean
 | 2 | 43 |
 | 3 | 132 |
 | 4 | 70 |
-| 5 | 54 |
+| 5 | 55 |
 | 6 | 93 |
 | 7 | 38 |
 | 8 | 16 |
 | 9 | 1 |
 
-Share of answers in the middle fifth: 29.1% (gate: at most 35%).
-Simulated "always centre the window" player: mean 52.78 points per question, best 90 (gate: no question above 90).
+Share of answers in the middle fifth: 29.2% (gate: at most 35%).
+Simulated "always centre the window" player: mean 52.82 points per question, best 90 (gate: no question above 90).
 Every answer sits strictly inside its scale and at least 8% away from either end; every scale has 5–400 whole steps.
 
 ## Editorial balance, by week
@@ -109,7 +109,7 @@ Every rolling 7-day window is also checked: at least 6 families, at least 3 eras
 - 1980s: 35
 - 1990s: 65
 - 2000s: 92
-- 2010s: 119
+- 2010s: 120
 - 2020s: 70
 - timeless: 1
 

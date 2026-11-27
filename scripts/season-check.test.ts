@@ -21,7 +21,7 @@ describe('launch-day release gate', () => {
     expect(seasonChangeIssues({ base: null, head: '2026-11-27', today: '2026-11-28', days }).join()).toMatch(/not in the future/);
   });
   it('refuses a day before the format-variety gate, or without enough runway', () => {
-    expect(seasonChangeIssues({ base: null, head: '2026-11-29', today: '2026-11-20', days }).join()).toMatch(/VARIETY_FROM/);
+    expect(seasonChangeIssues({ base: null, head: '2026-11-27', today: '2026-11-20', days }).join()).toMatch(/VARIETY_FROM/);
     const short = run('2026-11-15', 30);
     expect(seasonChangeIssues({ base: null, head: '2026-12-02', today: '2026-11-28', days: short }).join()).toMatch(new RegExp(`need at least ${MIN_OFFICIAL_DAYS}`));
   });
@@ -39,6 +39,16 @@ describe('launch-day release gate', () => {
   it(`needs at least ${MIN_LEAD_DAYS} days of lead so a late merge can't cross the boundary`, () => {
     expect(seasonChangeIssues({ base: null, head: '2026-12-02', today: '2026-12-01', days }).join()).toMatch(/days ahead/);
     expect(seasonChangeIssues({ base: null, head: '2026-12-03', today: '2026-12-01', days })).toEqual([]);
+  });
+  it('limits the November advance to its agreed transition and cutoff', () => {
+    const advance = { base: '2026-11-30', head: '2026-11-28', today: '2026-11-27', days };
+    const before = Date.parse('2026-11-28T00:59:59Z');
+    const deadline = Date.parse('2026-11-28T01:00:00Z');
+    expect(seasonChangeIssues({ ...advance, now: before })).toEqual([]);
+    expect(seasonChangeIssues({ ...advance, base: null, now: before }).join()).toMatch(/days ahead/);
+    expect(seasonChangeIssues({ ...advance, now: deadline }).join()).toMatch(/advance closed/);
+    expect(seasonChangeIssues({ ...advance, today: '2026-11-28', now: deadline }).join()).toMatch(/not in the future/);
+    expect(seasonChangeIssues({ ...advance, days: [], now: before }).join()).toMatch(/consecutive official slates/);
   });
   it('reads the committed rollback acknowledgement', () => {
     expect(parseRollbackFrom("export const SEASON_ROLLBACK_FROM: string | null = '2026-12-02';")).toBe('2026-12-02');

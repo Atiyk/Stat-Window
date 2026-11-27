@@ -45,6 +45,18 @@ describe('week states', () => {
   const today = '2026-12-02'; // Wednesday
   const days = Object.fromEntries([runOn('2026-11-30'), runOn('2026-12-02', Array(5).fill([0, 100]))]);
 
+  it('completes a Saturday launch week after its two games, with no missed beta days', () => {
+    const config = { launchDay: '2026-11-28' };
+    const perfect: [number, number][] = Array(5).fill([73, 74]);
+    const records = Object.fromEntries(['2026-11-27', '2026-11-28', '2026-11-29'].map((day) => runOn(day, perfect)));
+    const w = buildWeek('2026-11-23', '2026-11-29', 's1', config, history(records, 's1', config, '2026-11-29'));
+    expect(w.days.map((day) => day.kind)).toEqual([...Array(5).fill('before-season'), 'completed', 'completed']);
+    expect(w).toMatchObject({ completed: 2, seasonDays: 2, maxPossible: 1000, total: 1000, status: 'complete' });
+    expect(weeklyCard(w, 'example.com')).toMatchObject({ max: 1000, gamesLine: '2 of 2 games played' });
+    expect(weeklyShareText(w, 'example.com')).toContain('Total 1,000 · 2 of 2 games played');
+    expect(reviewableWeeks('2026-11-30', 's1', config)).toEqual(['2026-11-30', '2026-11-23']);
+  });
+
   it('separates completed, completed-zero, unplayed, open and future days', () => {
     const w = buildWeek('2026-11-30', today, 's1', S1, history(days, 's1', S1, today));
     expect(w.days.map((d) => d.kind)).toEqual(['completed', 'unplayed', 'completed', 'future', 'future', 'future', 'future']);

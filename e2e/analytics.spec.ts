@@ -18,17 +18,21 @@ const views = (page: Page) =>
 
 test.beforeEach(async ({ page }) => {
   await page.route('**/_vercel/insights/script.js', (r) => r.fulfill({ status: 200, contentType: 'text/javascript', body: '' }));
+  await page.addInitScript(() => { Math.random = () => 0.9; });
 });
 
-test('a daily run sends each funnel event once, even across reloads', async ({ page }) => {
-  await openAt(page, NBA_FIRST);
-  await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new', '/e/start/daily']);
+test('a sampled daily reuses its own denominator across reloads', async ({ page }) => {
+  await page.clock.setFixedTime(NBA_FIRST);
+  await page.goto('/');
+  await page.evaluate(() => { Math.random = () => 0.05; });
+  await startDailyIfNeeded(page);
+  await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new', '/e/start/daily', '/e/sample/start/daily']);
   const inject = await page.evaluate(() => document.querySelector('script[src*="/_vercel/insights/script.js"]')?.getAttribute('data-disable-auto-track'));
   expect(inject).toBe('1');
 
   await page.getByRole('slider', { name: 'Low end of your window' }).focus();
   await page.keyboard.press('ArrowRight');
-  await expect.poll(() => views(page)).toContain('/e/first-touch/daily');
+  await expect.poll(() => views(page)).toContain('/e/sample/first-touch/daily');
 
   // A refresh before locking: a real page view, but no second start or first touch.
   await page.reload();
@@ -36,7 +40,7 @@ test('a daily run sends each funnel event once, even across reloads', async ({ p
   await page.getByRole('slider', { name: 'Low end of your window' }).focus();
   await page.keyboard.press('ArrowRight');
   await lockAndSettle(page);
-  await expect.poll(() => views(page)).toEqual(['/', expect.stringMatching(/^\/e\/lock\/daily\/r1\/(hit|miss)$/)]);
+  await expect.poll(() => views(page)).toEqual(['/', expect.stringMatching(/^\/e\/sample\/lock\/daily\/r1\/(hit|miss)$/)]);
   await next(page);
   for (let r = 2; r <= 5; r++) {
     await lockAndSettle(page);
@@ -44,8 +48,8 @@ test('a daily run sends each funnel event once, even across reloads', async ({ p
   }
   await expect(page.locator('.results-score')).toBeVisible();
   const after = await views(page);
-  expect(after.filter((p) => p.startsWith('/e/lock/daily/'))).toHaveLength(5);
-  expect(after.filter((p) => p.startsWith('/e/next/daily/r'))).toEqual(['/e/next/daily/r1', '/e/next/daily/r2', '/e/next/daily/r3', '/e/next/daily/r4', '/e/next/daily/r5']);
+  expect(after.filter((p) => p.startsWith('/e/sample/lock/daily/'))).toHaveLength(5);
+  expect(after.some((p) => p.startsWith('/e/next/'))).toBe(false);
   expect(after.filter((p) => p.startsWith('/e/complete/daily/'))).toHaveLength(1);
 
   // Coming back to a finished day sends only the real page view.
@@ -54,9 +58,42 @@ test('a daily run sends each funnel event once, even across reloads', async ({ p
   await expect.poll(() => views(page)).toEqual(['/']);
 });
 
+test('an ordinary daily queues five views before sharing and one for copying a challenge', async ({ page, context }) => {
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await openAt(page, NBA_FIRST);
+  await page.getByRole('slider', { name: 'Low end of your window' }).focus();
+  await page.keyboard.press('ArrowRight');
+  for (let r = 1; r <= 5; r++) {
+    await lockAndSettle(page);
+    await next(page);
+  }
+  await expect(page.locator('.results-score')).toBeVisible();
+  await expect.poll(() => views(page)).toEqual([
+    '/', '/e/visit/new', '/e/start/daily', expect.stringMatching(/^\/e\/complete\/daily\//), '/e/streak/daily/1',
+  ]);
+  await page.getByRole('button', { name: 'Challenge a friend' }).click();
+  await expect.poll(async () => (await views(page)).slice(5)).toEqual(['/e/share/daily/clipboard']);
+});
+
+test('the daily still completes when the analytics service cannot load', async ({ page }) => {
+  await page.route('**/_vercel/insights/script.js', (r) => r.abort('failed'));
+  await openAt(page, NBA_FIRST);
+  for (let r = 1; r <= 5; r++) {
+    await lockAndSettle(page);
+    await next(page);
+  }
+  await expect(page.locator('.results-score')).toBeVisible();
+});
+
 test('challenge links count as challenges, never as the daily', async ({ page }) => {
   await openAt(page, NBA_FIRST, '/?day=2026-11-15&vs=274');
   await expect.poll(() => views(page)).toEqual(['/', '/e/visit/new', '/e/challenge-open/past/with-score', '/e/start/challenge']);
+  for (let r = 1; r <= 5; r++) {
+    await lockAndSettle(page);
+    await next(page);
+  }
+  await expect(page.locator('.results-score')).toBeVisible();
+  await expect.poll(async () => (await views(page)).slice(4)).toEqual([expect.stringMatching(/^\/e\/complete\/challenge\//)]);
   await openAt(page, NBA_FIRST, '/?day=2099-01-01');
   await expect.poll(() => views(page)).toContain('/e/challenge-open/future');
   expect(await views(page)).not.toContain('/e/start/challenge');
@@ -102,14 +139,18 @@ test('switching Play counts on in the Privacy dialog starts analytics without a 
   await dialog.getByRole('button', { name: 'Done' }).click();
   await startDailyIfNeeded(page);
   await lockAndSettle(page);
-  await expect.poll(() => views(page)).toContainEqual(expect.stringMatching(/^\/e\/lock\/daily\/r1\/(hit|miss)$/));
+  await expect.poll(() => views(page)).toContain('/e/start/daily');
   // And off again stops it at once (the reload itself is counted: the stored choice is now "on").
   await page.goto('/?privacy');
   await expect(dialog).toBeVisible();
   await dialog.getByRole('checkbox', { name: /Play counts/ }).uncheck();
   await dialog.getByRole('button', { name: 'Done' }).click();
   await next(page);
-  await lockAndSettle(page);
+  for (let r = 2; r <= 5; r++) {
+    await lockAndSettle(page);
+    await next(page);
+  }
+  await expect(page.locator('.results-score')).toBeVisible();
   expect(await views(page)).toEqual(['/']);
 });
 

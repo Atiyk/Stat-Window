@@ -80,7 +80,8 @@ export function postgameHighlight(results: readonly RoundRecord[], official?: Of
   });
   if (bestWindow >= 0 && results[bestWindow]!.points > 0) {
     if (perfect === 1) return `Perfect window on question ${bestWindow + 1}.`;
-    return `Your best window was Q${bestWindow + 1} (${results[bestWindow]!.points} points).`;
+    const best = results[bestWindow]!.points;
+    return `Your best window was Q${bestWindow + 1} (${best} ${best === 1 ? 'point' : 'points'}).`;
   }
   if (hits === 0) return 'No points scored this game.';
   return `${hits} of ${results.length} windows caught the answer without scoring.`;

@@ -70,7 +70,8 @@ export function Home({ isNew = false, gameNumber, onLearn, store, today, config,
       </div>
       <p className="home-terms">24 seconds a question · Free, no account</p>
       {previous}
-      <WeekGlance store={store} today={today} config={config} onOpen={() => { track({ name: 'weekly_open', source: 'home' }); onWeekly(); }} />
+      {/* The scoreboard is linked once, from the row in More ways to play (shown whenever this week has a game). */}
+      <WeekGlance store={store} today={today} config={config} onOpen={onWeekly} link={false} />
 
       <nav className="home-more" aria-label="More ways to play">
         {archive.length > 0 ? (

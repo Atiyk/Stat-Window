@@ -44,6 +44,8 @@ test.describe('returning player, daily not started', () => {
     await expect(more.getByRole('button', { name: /Practice/ })).toBeVisible();
     await expect(more.getByRole('button', { name: /Scouting Report/ })).toBeVisible();
     await expect(more.getByRole('button', { name: /Weekly Scoreboard/ })).toBeVisible();
+    // Once on the page: the week glance does not repeat the row below it.
+    await expect(page.getByRole('button', { name: /Weekly Scoreboard/ })).toHaveCount(1);
     await expect(more.getByRole('button', { name: /How to play/ })).toBeVisible();
     // Survival is not offered in this build, and nothing else is invented.
     await expect(page.getByText('Survival')).toHaveCount(0);

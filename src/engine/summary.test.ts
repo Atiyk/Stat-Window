@@ -33,6 +33,9 @@ describe('postgameHighlight', () => {
     expect(postgameHighlight(results, { lastBest: 252, milestone: null })).toBe('2 perfect windows.');
     expect(postgameHighlight(run([0, 85, 0, 85, 73]).results)).toBe('Your best window was Q2 (85 points).');
   });
+  it('says “1 point”, not “1 points”, for a one-point best window', () => {
+    expect(postgameHighlight(run([0, 1, 0, 0, 0]).results)).toBe('Your best window was Q2 (1 point).');
+  });
   it('handles zero-point hits separately from misses', () => {
     const results = run([0, 0, 0, 0, 0]).results;
     expect(postgameHighlight(results)).toBe('No points scored this game.');

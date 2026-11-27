@@ -154,5 +154,42 @@ test('a first-time recipient lands on a gate that says a friend challenged them,
 
   // Without a score the gate still names the friend.
   await page.goto('/?day=2026-11-15');
-  await expect(page.locator('.ready-card')).toContainText('A friend challenged you. Same five NBA questions, 24 seconds each. Not counted in your stats.');
+  await expect(page.locator('.ready-card')).toContainText('A friend challenged you. Same five NBA questions, 24 seconds each. Practice · not counted in your stats.');
+});
+
+// The gate's copy must match where the run is saved. A link for today counts as the daily; a link
+// opened after its day is practice (the friend's score is still the target). Both go THROUGH the gate.
+test('a challenge gate says a same-day link counts as the daily, then the run does', async ({ page }) => {
+  await page.clock.setFixedTime(new Date('2026-11-30T15:00:00Z'));
+  await page.goto('/?day=2026-11-30&vs=177&time=26200&v=2&r=89.0.0.0.88');
+  const gate = page.locator('.ready-card');
+  await expect(gate.getByRole('heading', { level: 1 })).toHaveText('Beat 177 points');
+  await expect(gate).toContainText('This counts as your daily.');
+  await expect(gate).not.toContainText('not counted', { ignoreCase: true });
+  await gate.getByRole('button', { name: 'Start the challenge' }).click();
+  await playOut(page);
+  await expect(page.locator('.results-head')).not.toContainText('not counted');
+  await expect(page.locator('.stats')).toContainText('Played1');
+});
+
+for (const seenOnItsDay of [false, true]) test(`a challenge gate opened after its day says practice, keeps the friend’s score, and the run is practice${seenOnItsDay ? ' (gate first seen on its day, not started)' : ''}`, async ({ page }) => {
+  const link = '/?day=2026-11-30&vs=177&time=26200&v=2&r=89.0.0.0.88';
+  if (seenOnItsDay) {
+    // Seeing the same-day gate without pressing Start must not make the day "already started".
+    await page.clock.setFixedTime(new Date('2026-11-30T14:00:00Z'));
+    await page.goto(link);
+    await expect(page.locator('.ready-card')).toContainText('This counts as your daily.');
+  }
+  await page.clock.setFixedTime(new Date('2026-12-01T15:00:00Z'));
+  await page.goto(link);
+  const gate = page.locator('.ready-card');
+  await expect(gate.getByRole('heading', { level: 1 })).toHaveText('Beat 177 points');
+  await expect(gate).toContainText('scored 177');
+  await expect(gate).toContainText('Practice · not counted in your stats');
+  await expect(gate).not.toContainText('counts as your daily');
+  await gate.getByRole('button', { name: 'Start the challenge' }).click();
+  await playOut(page);
+  await expect(page.locator('.results-head')).toContainText('not counted in your stats');
+  // The friend's score is kept: the race table still totals 177.
+  await expect(page.locator('.race-result')).toContainText('177');
 });

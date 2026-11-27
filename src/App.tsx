@@ -138,6 +138,12 @@ const SEASON: SeasonConfig = seasonConfigFrom(
 // Set before any component mounts, so even a child's first event carries the QA or season prefix.
 if (typeof window !== 'undefined') setCohort(isQa() ? 'qa' : currentSeason(puzzleDay(new Date()), SEASON));
 
+/** The player locked or advanced at least one round of this day's daily. */
+function startedDaily(store: SaveStore, day: string): boolean {
+  const run = store.load().runs[day];
+  return !!run && (run.results.length > 0 || run.advanced > 0);
+}
+
 /** A daily run that has started but not finished (or is mid-reveal) must not be swapped out under the player. */
 function inProgress(store: SaveStore, day: string): boolean {
   const run = store.load().runs[day];
@@ -207,7 +213,9 @@ export function App() {
         return;
       }
       const isToday = day === puzzleDay(new Date());
-      const kind: RunKind = timing === 'timed' && (isToday || store.load().runs[day]) ? 'runs' : 'practice';
+      // An earlier day counts only if the player really started it as their daily: seeing its
+      // Start gate (which saves an empty record) is not starting it.
+      const kind: RunKind = timing === 'timed' && (isToday || startedDaily(store, day)) ? 'runs' : 'practice';
       setMissing(false);
       activeWindowRef.current = false;
       setSession({
@@ -784,7 +792,7 @@ function Game(props: {
         ? {
           context: `Challenge · ${puzzle}`,
           title: session.vs !== null && session.vs > 0 ? `Beat ${session.vs} ${session.vs === 1 ? 'point' : 'points'}` : 'Ready for five?',
-          body: `A friend challenged you${session.vs !== null ? ` and scored ${session.vs}` : ''}. Same five NBA questions, 24 seconds each.${daily ? ' This counts as your daily.' : ' Not counted in your stats.'}`,
+          body: `A friend challenged you${session.vs !== null ? ` and scored ${session.vs}` : ''}. Same five NBA questions, 24 seconds each.${daily ? ' This counts as your daily.' : ' Practice · not counted in your stats.'}`,
           cta: 'Start the challenge',
         }
         : daily

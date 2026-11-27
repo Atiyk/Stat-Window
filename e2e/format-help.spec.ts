@@ -355,14 +355,17 @@ test.describe('contextual guidance during a timed, mixed-format daily', () => {
     await expect(guide(page).locator('.guide-play .q-chart')).toBeVisible();
     await guide(page).getByRole('button', { name: 'Close' }).click();
     expect(JSON.parse((await snapshot(page)).local[FAMILIARITY_KEY]!)).toContain('missing-point');
-    // The format is met: its line is gone, the "?" stays.
-    await expect(cue.locator('.format-cue__line')).toHaveCount(0);
+    // The format is met: its line has faded out (keeping its space), the "?" stays.
+    await expect(cue.locator('.format-cue__line')).toBeHidden();
     // Each new format mid-slate gets its one line on first encounter, and only then.
     await next(page);
     await expect(cue).toHaveAttribute('data-format', 'reference');
     await expect(cue.locator('.format-cue__line')).toHaveText(new RegExp(FORMAT_GUIDE.reference.instruction));
+    const cueHeight = (await cue.boundingBox())!.height;
     await lockAndSettle(page);
-    await expect(cue.locator('.format-cue__line')).toHaveCount(0);
+    await expect(cue.locator('.format-cue__line')).toBeHidden();
+    // Fading the line out on reveal never shifts the layout below it.
+    expect((await cue.boundingBox())!.height).toBeCloseTo(cueHeight, 0);
     await next(page);
     // Plain recall needs no line (the home and the walkthrough teach it); its "?" is there.
     await expect(cue).toHaveAttribute('data-format', 'recall');

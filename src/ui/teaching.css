@@ -9,6 +9,13 @@
   line-height: 1.3;
   color: var(--ink-soft);
 }
+/* Met on reveal: fade out but keep the line's space, so the chart and ruler below never jump.
+   Opacity only, so it stays under reduced motion too. */
+.format-cue__line[data-gone] {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 160ms var(--ease-out), visibility 0s linear 160ms;
+}
 
 .format-cue__toggle {
   /* A 44px target that keeps the line height of a 24px glyph. */

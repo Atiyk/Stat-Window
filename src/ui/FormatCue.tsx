@@ -8,7 +8,8 @@ import './teaching.css';
 /**
  * The question's context line, with the format's help one tap away. The first time this
  * browser meets a reference or missing-point question, its one-line instruction sits under the context line; once
- * that round resolves the format counts as met and the line is gone for good. The "?"
+ * that round resolves the format counts as met and the line fades out in place (its space kept, so nothing below
+ * jumps during the reveal) and is gone from the next question on. The "?"
  * is always there: it expands a short explanation in place, never an overlay, and has
  * no access to the shot clock, so opening, closing or ignoring it changes nothing about
  * the round's timing. The worked example opens only once no clock is running.
@@ -33,7 +34,8 @@ export function FormatCue({ question, context, live, resolved, onGuide }: {
 
   // Plain recall is the question itself (and what the home and the walkthrough teach), so it
   // never spends a line of the 320px round on an instruction; its "?" is still there.
-  const showLine = first && guide.format !== 'recall' && !resolved;
+  const hasLine = first && guide.format !== 'recall';
+  const showLine = hasLine && !resolved;
 
   return (
     <div className="format-cue" data-format={guide.format} data-first={showLine || undefined}>
@@ -50,8 +52,8 @@ export function FormatCue({ question, context, live, resolved, onGuide }: {
           <span aria-hidden="true">?</span>
         </button>
       </p>
-      {showLine && (
-        <p className="format-cue__line">
+      {hasLine && (
+        <p className="format-cue__line" data-gone={!showLine || undefined} aria-hidden={!showLine || undefined}>
           <span className="sr-only">{guide.label}: </span>
           {guide.instruction}
         </p>

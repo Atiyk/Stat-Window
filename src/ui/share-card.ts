@@ -59,6 +59,8 @@ const C = {
   brandSoft: '#E3E8EE',
   brandPress: '#0F2744',
   copper: '#B94B21',
+  /** Muted type on the navy footer (about 6:1 on brand). */
+  onBrandSoft: '#C3CEDB',
 };
 
 export const CARD_SIZE = 1080;
@@ -507,7 +509,9 @@ export function drawWeeklyCard(ctx: CanvasRenderingContext2D, card: WeeklyCardMo
   const portrait = format === 'portrait';
   const S = CARD_SIZE;
   const L = portrait
-    ? { header: 280, kicker: 430, range: 494, total: 720, games: 796, bars: 860, barH: 380, divider: 1420, stats: 1484, invite: 1576, host: 1632 }
+    // Portrait fills the story safe area (y 250–1660) from the wordmark to the host line; the
+    // navy footer runs on to the bottom edge, so the band under the story overlay is not dead paper.
+    ? { header: 252, kicker: 412, range: 480, total: 708, games: 784, bars: 840, barH: 400, divider: 1436, stats: 1520, invite: 1592, host: 1648 }
     : { header: 88, kicker: 236, range: 290, total: 436, games: 510, bars: 556, barH: 170, divider: 874, stats: 926, invite: 984, host: 1030 };
   ctx.fillStyle = C.paper;
   ctx.fillRect(0, 0, S, portrait ? PORTRAIT_HEIGHT : S);
@@ -538,12 +542,20 @@ export function drawWeeklyCard(ctx: CanvasRenderingContext2D, card: WeeklyCardMo
   const colW = (S - 192 - gap * 6) / 7;
   card.days.forEach((d, i) => drawWeekDay(ctx, d, 96 + i * (colW + gap), L.bars, colW, L.barH, portrait));
 
-  ctx.strokeStyle = C.line;
-  ctx.lineWidth = 3;
-  ctx.beginPath();
-  ctx.moveTo(96, L.divider);
-  ctx.lineTo(S - 96, L.divider);
-  ctx.stroke();
+  if (portrait) {
+    ctx.fillStyle = C.brand;
+    ctx.fillRect(0, L.divider, S, PORTRAIT_HEIGHT - L.divider);
+  } else {
+    ctx.strokeStyle = C.line;
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(96, L.divider);
+    ctx.lineTo(S - 96, L.divider);
+    ctx.stroke();
+  }
+  // On the navy footer: cream type, and a muted label tone that keeps 4.5:1.
+  const footInk = portrait ? C.paper : C.ink;
+  const footSoft = portrait ? C.onBrandSoft : C.soft;
 
   // Best day and average, only when there is a completed game to describe.
   const stats: [string, string][] = [];
@@ -551,20 +563,20 @@ export function drawWeeklyCard(ctx: CanvasRenderingContext2D, card: WeeklyCardMo
   if (card.average !== null) stats.push(['Average', `${num(card.average)} per game`]);
   let sx = 96;
   for (const [label, value] of stats) {
-    ctx.fillStyle = C.soft;
+    ctx.fillStyle = footSoft;
     ctx.font = `600 ${portrait ? 34 : 30}px ${SANS}`;
     ctx.fillText(label, sx, L.stats);
     const lw = ctx.measureText(label).width;
-    ctx.fillStyle = C.ink;
+    ctx.fillStyle = footInk;
     ctx.font = `800 ${portrait ? 40 : 34}px ${SANS}`;
     ctx.fillText(value, sx + lw + 14, L.stats);
     sx += lw + 14 + ctx.measureText(value).width + 48;
   }
 
-  ctx.fillStyle = C.ink;
+  ctx.fillStyle = footInk;
   ctx.font = `850 ${portrait ? 46 : 40}px ${SANS}`;
   ctx.fillText(card.invite, 96, L.invite, S - 192);
-  ctx.fillStyle = C.soft;
+  ctx.fillStyle = footSoft;
   ctx.font = `500 32px ${SANS}`;
   ctx.fillText(card.host, 96, L.host, S - 192);
 }

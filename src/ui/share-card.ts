@@ -570,18 +570,23 @@ export function drawWeeklyCard(ctx: CanvasRenderingContext2D, card: WeeklyCardMo
 }
 
 async function toPng(height: number, draw: (ctx: CanvasRenderingContext2D) => void): Promise<Blob | null> {
+  let canvas: HTMLCanvasElement | null = null;
   try {
     if (typeof document === 'undefined') return null;
     await document.fonts?.ready;
-    const canvas = document.createElement('canvas');
+    canvas = document.createElement('canvas');
     canvas.width = CARD_SIZE;
     canvas.height = height;
     const ctx = canvas.getContext('2d');
     if (!ctx) return null;
     draw(ctx);
-    return await new Promise<Blob | null>((resolve) => canvas.toBlob((b) => resolve(b), 'image/png'));
+    const c = canvas;
+    return await new Promise<Blob | null>((resolve) => c.toBlob((b) => resolve(b), 'image/png'));
   } catch {
     return null;
+  } finally {
+    // Release the backing store now: iOS Safari caps total canvas memory per page.
+    if (canvas) { canvas.width = 0; canvas.height = 0; }
   }
 }
 

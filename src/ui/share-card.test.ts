@@ -47,8 +47,10 @@ function mockCanvas() {
   const canvas = {
     width: 0,
     height: 0,
+    /** The size the canvas had when it was encoded (it is released afterwards). */
+    encoded: null as null | [number, number],
     getContext: vi.fn(() => context),
-    toBlob: vi.fn((callback: BlobCallback) => callback(png)),
+    toBlob: vi.fn((callback: BlobCallback) => { canvas.encoded = [canvas.width, canvas.height]; callback(png); }),
   };
   vi.stubGlobal('document', { fonts: { ready: Promise.resolve() }, createElement: () => canvas });
   vi.stubGlobal('Path2D', class {});
@@ -84,8 +86,9 @@ describe.each<{ format: CardFormat; height: number }>([
       expect(Math.max(...baselines.filter((y) => y > 60))).toBeLessThanOrEqual(1560);
     }
     if (card.style !== 'classic') expect(scales.length).toBeGreaterThan(0);
-    expect(canvas.width).toBe(1080);
-    expect(canvas.height).toBe(height);
+    expect(canvas.encoded).toEqual([1080, height]);
+    // The backing store is released once the PNG exists (iOS caps total canvas memory).
+    expect([canvas.width, canvas.height]).toEqual([0, 0]);
     expect(words).toEqual(expect.arrayContaining([
       'Stat Window', '154', 'of 500',
       ...markers,
@@ -131,8 +134,8 @@ describe('weekly scorecard image', () => {
   ])('draws the $format week with dates, total, maximum, every day, best day, average and invitation', async ({ format, height }) => {
     const { canvas, png, words, baselines } = mockCanvas();
     expect(await weeklyCardBlob(model, format)).toBe(png);
-    expect(canvas.width).toBe(1080);
-    expect(canvas.height).toBe(height);
+    expect(canvas.encoded).toEqual([1080, height]);
+    expect([canvas.width, canvas.height]).toEqual([0, 0]);
     // A note too wide for its box is drawn as two lines, so read the words in order.
     const text = words.join(' ');
     for (const marker of ['Stat Window', 'Weekly scorecard', 'Nov 30 – Dec 6, 2026', '1,234', 'of 3,500', '4 of 7 games played',

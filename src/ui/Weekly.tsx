@@ -71,7 +71,8 @@ export function Weekly({ store, today, config, onBack }: { store: SaveStore; tod
   useEffect(() => { headingRef.current?.focus({ preventScroll: true }); window.scrollTo({ top: 0, behavior: 'instant' }); }, []);
   // A week rollover at midnight can shorten the list: never point past it.
   const index = Math.min(which, starts.length - 1);
-  const week = history ? buildWeek(starts[index]!, today, season, config, history) : null;
+  const start = starts[index]!;
+  const week = useMemo(() => (history ? buildWeek(start, today, season, config, history) : null), [history, start, today, season, config]);
   const older = index < starts.length - 1;
   const newer = index > 0;
   const go = (to: number) => setWhich(to);

@@ -132,7 +132,7 @@
     {
       "id": "nba-bulls98-g3-margin-v5",
       "sport": "NBA",
-      "prompt": "The chart shows other lopsided playoff wins. By how many points did Chicago beat Utah in Game 3 of the 1998 Finals?",
+      "prompt": "Portland, the Lakers and Denver all won playoff blowouts. By how many points did Chicago beat Utah in Game 3 of the 1998 Finals?",
       "context": "1998 NBA Finals · Game 3 · at Chicago",
       "answer": 42,
       "unit": {
@@ -142,7 +142,7 @@
       "min": 10,
       "max": 60,
       "step": 1,
-      "note": "42, 96–54: the largest margin in NBA Finals history.",
+      "note": "The largest margin in NBA Finals history.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1998_NBA_Finals",
@@ -281,7 +281,7 @@
     {
       "id": "nba-curry13-knicks-54",
       "sport": "NBA",
-      "prompt": "Other guards' 50-point regular-season nights are charted. How many points did Steph Curry score at Madison Square Garden in February 2013?",
+      "prompt": "Reggie Miller and James Harden also topped 50 as guards. How many points did Steph Curry score at Madison Square Garden in February 2013?",
       "context": "Stephen Curry · Warriors at Knicks · February 2013",
       "answer": 54,
       "unit": {

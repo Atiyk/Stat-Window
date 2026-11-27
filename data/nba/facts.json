@@ -83,7 +83,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows two other elite rebounding seasons. How many rebounds per game did Dennis Rodman average for the 72-win 1995–96 Bulls?",
+   "prompt": "Dwight Howard and Joakim Noah supply the scale. How many rebounds per game did Dennis Rodman average for the 72-win 1995–96 Bulls?",
    "context": "Chicago Bulls · 1995–96 regular season",
    "reveal": "His fifth rebounding title in a row, in his first season with Chicago.",
    "min": 6,
@@ -1143,7 +1143,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Other Finals MVPs' averages are charted. What did Michael Jordan average against Phoenix in the 1993 Finals?",
+   "prompt": "Beside three other Finals MVPs' averages, what did Michael Jordan average against Phoenix in the 1993 Finals?",
    "context": "1993 NBA Finals · six games vs Phoenix",
    "reveal": "41.0, a Finals record, as Chicago completed its first three-peat.",
    "min": 16,
@@ -1631,9 +1631,9 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows other famous season-opening win streaks. How many straight wins did the 2015–16 Warriors start with?",
+   "prompt": "Houston and Seattle both opened 1993–94 on long win streaks. How many straight wins did the 2015–16 Warriors start with?",
    "context": "Golden State Warriors · 2015–16",
-   "reveal": "That beat Houston's charted 15–0 start of 1993–94 by nine games.",
+   "reveal": "Nine more than Houston's 15–0 start in 1993–94.",
    "min": 0,
    "max": 30,
    "step": 1,
@@ -2249,7 +2249,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Elgin Baylor's and Wilt Chamberlain's scoring landmarks are charted. How many points did Kobe Bryant score against Toronto in January 2006?",
+   "prompt": "Before 2006, Baylor and Wilt owned the biggest scoring nights. How many points did Kobe Bryant score against Toronto in January 2006?",
    "context": "Lakers vs Toronto Raptors · January 22, 2006",
    "reveal": "81, second only to Wilt's 100, in a game the Lakers trailed by 14 at halftime.",
    "min": 40,
@@ -5577,7 +5577,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows memorable Finals three-point nights. How many threes did Heat reserve Mike Miller make in the 2012 title clincher?",
+   "prompt": "Memorable Finals three-point nights frame this one. How many threes did Heat reserve Mike Miller make in the 2012 title clincher?",
    "context": "2012 NBA Finals · Game 5 · vs Oklahoma City",
    "reveal": "Seven, on eight attempts, for 23 points as LeBron won his first title.",
    "min": 0,
@@ -8258,7 +8258,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows later champions of the '70s and '80s. In only their third season, how many games did the 1970–71 Bucks win?",
+   "prompt": "Later champions from Seattle, Philadelphia and Boston give the scale. In only their third season, how many games did the 1970–71 Bucks win?",
    "context": "Milwaukee Bucks · 1970–71 · 82 games",
    "reveal": "66–16 behind Lew Alcindor and Oscar Robertson, then a Finals sweep of Baltimore.",
    "min": 24,
@@ -13372,7 +13372,7 @@
   "question": {
    "prompt": "Jerry West forced overtime in Game 3 of the 1970 Finals with a buzzer-beater from how many feet?",
    "context": "1970 NBA Finals · Game 3 · at New York",
-   "reveal": "It tied the game at 102 and forced overtime, but counted for only two points.",
+   "reveal": "It tied the game at 102, but in 1970 even a 60-footer counted for only two points.",
    "min": 0,
    "max": 94,
    "step": 1,
@@ -15725,7 +15725,7 @@
   "question": {
    "prompt": "The 2005–06 Pistons won a franchise-record 64 games. How many did Detroit's 2003–04 title team win?",
    "context": "Detroit Pistons · 2003–04 · 82 games",
-   "reveal": "54–28, before the defense-first Pistons won the title.",
+   "reveal": "54 wins and second place in the Central, then the defense-first Pistons won the title.",
    "min": 30,
    "max": 70,
    "step": 1,
@@ -16936,7 +16936,7 @@
   "question": {
    "prompt": "How many points per game did Tim Duncan average in the 1999 Finals?",
    "context": "Spurs vs Knicks · 1999 NBA Finals",
-   "reveal": "Plus 14 rebounds a game, as San Antonio won its first title.",
+   "reveal": "He added 14 rebounds a game as San Antonio won its first title.",
    "min": 18,
    "max": 42,
    "step": 0.1,
@@ -18506,7 +18506,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Other Eastern Conference finalists are charted. How many regular-season games did Dwight Howard's 2008–09 Magic win?",
+   "prompt": "Beside three other East finalists' win totals, how many regular-season games did Dwight Howard's 2008–09 Magic win?",
    "context": "Orlando · Eastern Conference champions",
    "reveal": "59–23, then Orlando upset LeBron's top-seeded Cavaliers in the East finals.",
    "min": 31,
@@ -20680,7 +20680,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows other top Western Conference seasons. How many regular-season games did Chris Paul's 2007–08 Hornets win?",
+   "prompt": "Three of the West's best regular seasons are plotted. How many regular-season games did Chris Paul's 2007–08 Hornets win?",
    "context": "New Orleans · first full season back in the city",
    "reveal": "56–26 and second in the West; a win over the Clippers on April 15 clinched the Southwest Division.",
    "min": 23,
@@ -24077,7 +24077,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Other famous comebacks are charted. How far behind did Anthony Edwards's Timberwolves fall before their 2024 Game 7 win at Denver?",
+   "prompt": "Three famous comebacks are on the chart. How far behind did Anthony Edwards's Wolves fall before their 2024 Game 7 win at Denver?",
    "context": "Timberwolves at Nuggets · 2024 playoffs",
    "reveal": "20 points, the largest Game 7 comeback in playoff history, against the defending champions.",
    "min": 2,
@@ -24228,7 +24228,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Other famous playoff scoring nights are charted. Facing elimination at OKC in 2016, how many did Klay Thompson score in Game 6?",
+   "prompt": "Facing elimination at OKC in 2016, Klay Thompson joined these famous playoff scoring nights. How many did he score in Game 6?",
    "context": "Klay Thompson · Warriors at Thunder · 2016 playoffs",
    "reveal": "A series high, built on a playoff-record 11 threes, as the Warriors stayed alive.",
    "min": 10,
@@ -24442,7 +24442,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Playoff nights by stars aged 24 or younger are charted. How many did Luka Dončić score in his 2020 overtime winner against the Clippers?",
+   "prompt": "Magic, LeBron and Rose had big playoff nights by age 24. How many did Luka Dončić score in his 2020 overtime winner vs the Clippers?",
    "context": "Luka Dončić · Mavericks vs Clippers · 2020 playoffs",
    "reveal": "With 17 rebounds and 13 assists: a playoff triple-double capped by his own game-winner.",
    "min": 15,
@@ -24794,7 +24794,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Other guards' 50-point regular-season nights are charted. How many points did Steph Curry score at Madison Square Garden in February 2013?",
+   "prompt": "Reggie Miller and James Harden also topped 50 as guards. How many points did Steph Curry score at Madison Square Garden in February 2013?",
    "context": "Stephen Curry · Warriors at Knicks · February 2013",
    "reveal": "Not enough: the Knicks won anyway, 109–105.",
    "min": 5,
@@ -24947,7 +24947,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows other playoff explosions of 2023 and 2024. How many points did Anthony Edwards score in Game 1 at Denver in 2024?",
+   "prompt": "Brunson and Butler also erupted in recent playoffs. How many points did Anthony Edwards score in Game 1 at Denver in 2024?",
    "context": "Wolves at Nuggets · 2024 West semifinals · Game 1",
    "reveal": "A Wolves playoff record, set on the defending champions' floor.",
    "min": 15,
@@ -29093,9 +29093,9 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The chart shows other lopsided playoff wins. By how many points did Chicago beat Utah in Game 3 of the 1998 Finals?",
+   "prompt": "Portland, the Lakers and Denver all won playoff blowouts. By how many points did Chicago beat Utah in Game 3 of the 1998 Finals?",
    "context": "1998 NBA Finals · Game 3 · at Chicago",
-   "reveal": "42, 96–54: the largest margin in NBA Finals history.",
+   "reveal": "The largest margin in NBA Finals history.",
    "min": 10,
    "max": 60,
    "step": 1,
@@ -30729,7 +30729,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Other famous three-point nights are charted. How many threes did Klay Thompson make against Chicago in October 2018?",
+   "prompt": "Kobe and Dame each hit 12 threes in a game. How many did Klay Thompson make against Chicago in October 2018?",
    "context": "Warriors at Bulls · October 29, 2018 · 27 minutes played",
    "reveal": "14, breaking Curry's mark of 13, on his way to 52 points in just 27 minutes.",
    "min": 0,

@@ -72,7 +72,7 @@
     {
       "id": "nba-rodman96-rpg",
       "sport": "NBA",
-      "prompt": "The chart shows two other elite rebounding seasons. How many rebounds per game did Dennis Rodman average for the 72-win 1995–96 Bulls?",
+      "prompt": "Dwight Howard and Joakim Noah supply the scale. How many rebounds per game did Dennis Rodman average for the 72-win 1995–96 Bulls?",
       "context": "Chicago Bulls · 1995–96 regular season",
       "answer": 14.9,
       "unit": {
@@ -227,7 +227,7 @@
       "min": 0,
       "max": 94,
       "step": 1,
-      "note": "It tied the game at 102 and forced overtime, but counted for only two points.",
+      "note": "It tied the game at 102, but in 1970 even a 60-footer counted for only two points.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",

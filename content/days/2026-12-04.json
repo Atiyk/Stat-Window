@@ -19,7 +19,7 @@
       "min": 18,
       "max": 42,
       "step": 0.1,
-      "note": "Plus 14 rebounds a game, as San Antonio won its first title.",
+      "note": "He added 14 rebounds a game as San Antonio won its first title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/1999_NBA_Finals",
@@ -280,7 +280,7 @@
     {
       "id": "nba-klay16-okc-game6-41",
       "sport": "NBA",
-      "prompt": "Other famous playoff scoring nights are charted. Facing elimination at OKC in 2016, how many did Klay Thompson score in Game 6?",
+      "prompt": "Facing elimination at OKC in 2016, Klay Thompson joined these famous playoff scoring nights. How many did he score in Game 6?",
       "context": "Klay Thompson · Warriors at Thunder · 2016 playoffs",
       "answer": 41,
       "unit": {

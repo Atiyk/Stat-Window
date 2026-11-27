@@ -57,7 +57,7 @@
    "id": "nba-magic09-regular-wins",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The old chart mixed a 15-win Heat team with contenders; the new bars are all Eastern Conference finalists from 2011 to 2024, a coherent story that lets an opener be placed quickly.; prompt polish",
+   "note": "The old chart mixed a 15-win Heat team with contenders; the new bars are all Eastern Conference finalists from 2011 to 2024, a coherent story that lets an opener be placed quickly.; prompt polish; first-14 polish: chart lead-in varied",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -149,7 +149,7 @@
    "id": "nba-wolves24-denver-game7-comeback",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Bars now run in chronological order through famous comebacks (Jazz '96, Spurs '99, Lakers '00 Game 7), so the player compares Minnesota's hole with the deficits fans remember; the reveal states the Game 7 record.; prompt polish; first-14 polish: second 'The chart shows' opener of the day varied; vague fun facts made specific",
+   "note": "Bars now run in chronological order through famous comebacks (Jazz '96, Spurs '99, Lakers '00 Game 7), so the player compares Minnesota's hole with the deficits fans remember; the reveal states the Game 7 record.; prompt polish; first-14 polish: second 'The chart shows' opener of the day varied; vague fun facts made specific, chart lead-in reworded",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -159,7 +159,7 @@
    "id": "nba-kobe-81",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The chart is the record progression Kobe chased (Baylor 71, Wilt 78, Wilt 100), a clean story for an opener; the reveal now gives the halftime deficit instead of 'career high'.; prompt polish; first-14 polish: prompt names the charted landmarks; fun fact that repeated the reveal's halftime deficit replaced with his share of the team's points",
+   "note": "The chart is the record progression Kobe chased (Baylor 71, Wilt 78, Wilt 100), a clean story for an opener; the reveal now gives the halftime deficit instead of 'career high'.; prompt polish; first-14 polish: prompt names the charted landmarks; fun fact that repeated the reveal's halftime deficit replaced with his share of the team's points, chart lead-in reworded",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -250,7 +250,7 @@
    "id": "nba-klay16-okc-game6-41",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Powe's bench game did not belong with elimination-night heroics; the bars are now three famous playoff scoring nights (West, Iverson, Butler) in chronological order, and the reveal explains the threes record and the series result.; prompt polish; first-14 polish: 'Compare other…' opener varied; two fun facts that repeated the reveal replaced with the 3–1 comeback and Game 7 result",
+   "note": "Powe's bench game did not belong with elimination-night heroics; the bars are now three famous playoff scoring nights (West, Iverson, Butler) in chronological order, and the reveal explains the threes record and the series result.; prompt polish; first-14 polish: 'Compare other…' opener varied; two fun facts that repeated the reveal replaced with the 3–1 comeback and Game 7 result, chart lead-in reworded",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -260,7 +260,7 @@
    "id": "nba-hornets08-season-wins",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The bars are now the West's top regular seasons of that era (Suns '93, Kings '02, Mavs '07) rather than a 1975 outlier, and the reveal adds Paul's MVP runner-up finish. critic: 'Paul finished second to Kobe in MVP voting' is not on the cited page; reveal now uses the sourced division clinch.; prompt polish",
+   "note": "The bars are now the West's top regular seasons of that era (Suns '93, Kings '02, Mavs '07) rather than a 1975 outlier, and the reveal adds Paul's MVP runner-up finish. critic: 'Paul finished second to Kobe in MVP voting' is not on the cited page; reveal now uses the sourced division clinch.; prompt polish; first-14 polish: 'The chart shows' opener varied",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -350,7 +350,7 @@
    "id": "nba-luka20-clippers-buzzer-43",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Bars are playoff scoring nights by stars aged 24 or younger (Magic, LeBron, Rose), so the chart tells a youth story that fits a 21-year-old's overtime winner; reveal gives the full triple-double.; prompt polish; first-14 polish: second 'The chart shows' opener of the day varied; fun fact adds the one-point deficit instead of repeating the reveal",
+   "note": "Bars are playoff scoring nights by stars aged 24 or younger (Magic, LeBron, Rose), so the chart tells a youth story that fits a 21-year-old's overtime winner; reveal gives the full triple-double.; prompt polish; first-14 polish: second 'The chart shows' opener of the day varied; fun fact adds the one-point deficit instead of repeating the reveal, chart lead-in names the charted stars",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -380,7 +380,7 @@
    "id": "nba-miller12-g5-threes",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The bars run through Finals three-point nights from Cooper '87 to Battier '13, including the record progression (Smith's seven, Allen's eight), so the player places Miller's clincher inside a real history.; prompt polish",
+   "note": "The bars run through Finals three-point nights from Cooper '87 to Battier '13, including the record progression (Smith's seven, Allen's eight), so the player places Miller's clincher inside a real history.; prompt polish; first-14 polish: 'The chart shows' opener varied",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -408,9 +408,9 @@
    "day": "2026-12-08",
    "slot": 1,
    "id": "nba-detroit04-regular-wins",
-   "verdict": "retained",
+   "verdict": "reframed",
    "format": "reference",
-   "note": "Detroit's own 64-win 2005–06 team is a same-franchise, same-core reference that genuinely helps; the champions winning only 54 is a satisfying opener.",
+   "note": "Detroit's own 64-win 2005–06 team is a same-franchise, same-core reference that genuinely helps; the champions winning only 54 is a satisfying opener.; first-14 polish: reveal no longer prints 28, the next question's answer",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -440,7 +440,7 @@
    "id": "nba-jordan93-finals-ppg",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Bars are other Finals MVPs' averages in season order (Dumars '89, Shaq '00, Brown '24); Shaq's 38 is the obvious rival mark, so the player must decide whether Jordan went past it. Step made 0.1 so every bar is representable.; prompt polish",
+   "note": "Bars are other Finals MVPs' averages in season order (Dumars '89, Shaq '00, Brown '24); Shaq's 38 is the obvious rival mark, so the player must decide whether Jordan went past it. Step made 0.1 so every bar is representable.; prompt polish; first-14 polish: chart lead-in varied",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -460,7 +460,7 @@
    "id": "nba-gsw16-start",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Charted against the two other great opening streaks (Houston's 15 and Seattle's 10, both 1993–94), the opener becomes a judgement of how far the Warriors went past them; reveal adds the Walton story.; prompt polish; first-14 polish: reveal puts the streak against the chart instead of repeating the Walton and Milwaukee fun facts",
+   "note": "Charted against the two other great opening streaks (Houston's 15 and Seattle's 10, both 1993–94), the opener becomes a judgement of how far the Warriors went past them; reveal adds the Walton story.; prompt polish; first-14 polish: reveal puts the streak against the chart instead of repeating the Walton and Milwaukee fun facts, 'The chart shows' opener varied, reveal tightened to match the new prompt",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -531,7 +531,7 @@
    "id": "nba-bulls98-g3-margin-v5",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Charted among other lopsided playoff wins (Blazers '77, Lakers '01, Nuggets '09) in season order, the player sees how rare a 40-point game is even in routs; Q3 shifts from recall to a chart.; prompt polish",
+   "note": "Charted among other lopsided playoff wins (Blazers '77, Lakers '01, Nuggets '09) in season order, the player sees how rare a 40-point game is even in routs; Q3 shifts from recall to a chart.; prompt polish; first-14 polish: 'The chart shows' opener varied, reveal no longer prints 54, the day's Q5 answer",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -551,7 +551,7 @@
    "id": "nba-curry13-knicks-54",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The bars are guards' 50-point regular-season nights (Miller '92, Harden '19) around Curry's MSG game, a coherent scorer story; the reveal drops the restated sentence.; prompt polish; first-14 polish: 'Compare other…' opener varied; fun facts that repeated the reveal replaced with his breakthrough and 272-three season",
+   "note": "The bars are guards' 50-point regular-season nights (Miller '92, Harden '19) around Curry's MSG game, a coherent scorer story; the reveal drops the restated sentence.; prompt polish; first-14 polish: 'Compare other…' opener varied; fun facts that repeated the reveal replaced with his breakthrough and 272-three season, chart lead-in names the charted guards",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -571,7 +571,7 @@
    "id": "nba-bucks71-wins",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "The chart now shows champions of the 1970s and 1980s (Sonics '79, Sixers '83, Celtics '86), the era a third-year expansion champion belongs to; reveal names the two stars.; prompt polish",
+   "note": "The chart now shows champions of the 1970s and 1980s (Sonics '79, Sixers '83, Celtics '86), the era a third-year expansion champion belongs to; reveal names the two stars.; prompt polish; first-14 polish: 'The chart shows' opener varied",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -592,7 +592,7 @@
    "replaced": "nba-curry15-g2-misses",
    "verdict": "replaced",
    "format": "missing-point",
-   "note": "A count of missed threes is a negative stat with little to reason from. Klay's 14 completes the single-game three-point record chase (Kobe 12, Curry 13), with Dame's playoff 12 for contrast: a real story in four bars. critic: 'the record chase' title plus Curry's 13 bar disclosed the answer (record +1); removed the Curry bar and retitled.; prompt polish; first-14 polish: 'Compare other…' opener varied",
+   "note": "A count of missed threes is a negative stat with little to reason from. Klay's 14 completes the single-game three-point record chase (Kobe 12, Curry 13), with Dame's playoff 12 for contrast: a real story in four bars. critic: 'the record chase' title plus Curry's 13 bar disclosed the answer (record +1); removed the Curry bar and retitled.; prompt polish; first-14 polish: 'Compare other…' opener varied, chart lead-in names the 12-three nights",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -652,7 +652,7 @@
    "id": "nba-ant24-nuggets-g1-43",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Jordan's Finals 55 was a mismatched anchor. The bars are the other playoff explosions of 2023–24 (Brunson, Butler, ordered by name), so the player places a young star's road opener among recent peers.; prompt polish; first-14 polish: reveal no longer repeats the shooting fun fact; Naz Reid claim trimmed to what the quote supports",
+   "note": "Jordan's Finals 55 was a mismatched anchor. The bars are the other playoff explosions of 2023–24 (Brunson, Butler, ordered by name), so the player places a young star's road opener among recent peers.; prompt polish; first-14 polish: reveal no longer repeats the shooting fun fact; Naz Reid claim trimmed to what the quote supports, 'The chart shows' opener varied",
    "batch": "v52-A",
    "editor": "editor-A"
   },
@@ -672,7 +672,7 @@
    "id": "nba-rodman96-rpg",
    "verdict": "reframed",
    "format": "missing-point",
-   "note": "Bars reordered by name so they no longer run in value order, with a title naming the story (elite rebounders); the 72-win Bulls context helps recognition.; prompt polish; first-14 polish: reveal no longer repeats the 5.5-point fun fact",
+   "note": "Bars reordered by name so they no longer run in value order, with a title naming the story (elite rebounders); the 72-win Bulls context helps recognition.; prompt polish; first-14 polish: reveal no longer repeats the 5.5-point fun fact, 'The chart shows' opener varied",
    "batch": "v52-A",
    "editor": "editor-A"
   },

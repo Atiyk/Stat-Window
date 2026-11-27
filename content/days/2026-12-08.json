@@ -19,7 +19,7 @@
       "min": 30,
       "max": 70,
       "step": 1,
-      "note": "54–28, before the defense-first Pistons won the title.",
+      "note": "54 wins and second place in the Central, then the defense-first Pistons won the title.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2003%E2%80%9304_Detroit_Pistons_season",
@@ -197,7 +197,7 @@
     {
       "id": "nba-jordan93-finals-ppg",
       "sport": "NBA",
-      "prompt": "Other Finals MVPs' averages are charted. What did Michael Jordan average against Phoenix in the 1993 Finals?",
+      "prompt": "Beside three other Finals MVPs' averages, what did Michael Jordan average against Phoenix in the 1993 Finals?",
       "context": "1993 NBA Finals · six games vs Phoenix",
       "answer": 41,
       "unit": {

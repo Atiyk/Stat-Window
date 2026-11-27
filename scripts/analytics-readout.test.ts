@@ -50,11 +50,36 @@ describe('analytics readout', () => {
     expect(get('experiment cta: next-day daily start per exposed browser-day').rate).toBe('40.0%');
     expect(get('experiment control: next-day daily start per exposed browser-day').rate).toMatch(/^not enough data/);
   });
+  it('flags impossible bounded funnels and does not turn counts into percentages', () => {
+    const c = parseCounts([
+      '/e/start/daily,40',
+      '/e/first-touch/daily,41',
+      '/e/lock/daily/r1/hit,42',
+      '/e/complete/daily/200-299,43',
+      '/e/x/survival-cta/cta/first-exposure,20',
+    ].join('\n'));
+    const rows = readout(c);
+    const get = (metric: string) => rows.find((r) => r.metric === metric)!;
+    expect(get('daily: first touch per start').rate).toMatch(/data quality warning/);
+    expect(get('daily: round 1 locked per start').rate).toMatch(/data quality warning/);
+    expect(get('daily: finished all five per round 1 lock').rate).toMatch(/data quality warning/);
+    expect(get('experiment cta: browsers exposed at least once').rate).toBe('count only');
+    expect(get('experiment cta: browsers exposed at least once').numerator).toBe(20);
+  });
   it('gives an interval only with enough exposures per arm', () => {
     expect(diffInterval(10, 50, 5, 50)).toBeNull();
     const ci = diffInterval(120, 400, 100, 400)!;
     expect(ci.diff).toBeCloseTo(0.05);
     expect(ci.lo).toBeLessThan(0);
     expect(ci.hi).toBeGreaterThan(0.1);
+  });
+  it('refuses impossible or malformed experiment counts instead of reporting a lift', () => {
+    expect(diffInterval(301, 300, 120, 300)).toBeNull();
+    expect(diffInterval(100, 300, 301, 300)).toBeNull();
+    expect(diffInterval(-1, 300, 100, 300)).toBeNull();
+    expect(diffInterval(100, 300, Number.NaN, 300)).toBeNull();
+    expect(diffInterval(100.5, 300, 100, 300)).toBeNull();
+    expect(diffInterval(100, 300, 100, Number.POSITIVE_INFINITY)).toBeNull();
+    expect(diffInterval(0, 200, 0, 200)).toEqual({ diff: 0, lo: 0, hi: 0 });
   });
 });

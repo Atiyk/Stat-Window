@@ -83,3 +83,20 @@ for (const size of [{ width: 320, height: 568 }, { width: 390, height: 664 }, { 
     expect(await page.evaluate(() => window.scrollY)).toBe(0);
   });
 }
+
+// Short landscape: the left column has the room below the chart, so the plot uses it (it was
+// 44px). The whole chart, labels included, stays on the first screen beside Lock and both grips.
+const MIN_LANDSCAPE_PLOT = 64;
+for (const day of [CHART_DAY, new Date('2026-12-03T15:00:00Z')]) {
+  test(`short landscape 844×390 (${day.toISOString().slice(0, 10)}): plot is at least ${MIN_LANDSCAPE_PLOT}px, chart and Lock on the first screen`, async ({ page }) => {
+    await page.setViewportSize({ width: 844, height: 390 });
+    await openAt(page, day);
+    const plot = (await page.locator('.q-chart__plot').first().boundingBox())!;
+    expect(plot.height).toBeGreaterThanOrEqual(MIN_LANDSCAPE_PLOT);
+    await expect(page.locator('.q-chart')).toBeInViewport({ ratio: 1 });
+    for (const target of [lowBracket(page), highBracket(page), page.getByRole('button', { name: /Lock the window|Pull the brackets in first/ })]) {
+      await expect(target).toBeInViewport({ ratio: 1 });
+    }
+    expect(await page.evaluate(() => window.scrollY)).toBe(0);
+  });
+}

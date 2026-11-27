@@ -185,7 +185,12 @@
   .round:not(.teaching-play) .question { font-size: 1.25rem; line-height: 1.18; max-width: none; }
   .round:not(.teaching-play) .question[data-long] { font-size: 1.125rem; }
   .round:not(.teaching-play) .context { margin-top: 4px; font-size: 0.8125rem; }
-  .round:not(.teaching-play) .q-chart { --q-chart-h: 44px; margin-top: 6px; }
+  /* The left column has room under the chart: the bars take it (44px made 42 and 48 look alike),
+     leaving a long prompt's extra lines room to the fold (e2e/chart-fit.spec.ts). */
+  .round:not(.teaching-play) .q-chart { --q-chart-h: clamp(44px, calc(100vh - 310px), 96px); margin-top: 6px; }
+  @supports (height: 100dvh) {
+    .round:not(.teaching-play) .q-chart { --q-chart-h: clamp(44px, calc(100dvh - 310px), 96px); }
+  }
 
   /* Compact court run and progress: one row of chips with the meta beside them. */
   .round:not(.teaching-play) .round-top {

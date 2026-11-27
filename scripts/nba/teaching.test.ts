@@ -78,7 +78,8 @@ describe('teaching examples are built only from verified, already-played beta fa
       expect(scheduled.get(id)! <= TEACHING_PLAYED_BY, `${id} is scheduled on ${scheduled.get(id)}`).toBe(true);
     }
     // Same numbers, derivations and source support as the fact database.
-    expect(formatIssues(asFormatFact(e), byId)).toEqual([]);
+    // The walkthrough's chart is a deliberate cluster (its lesson), so only the near-collision gate is waived.
+    expect(formatIssues(asFormatFact(e), byId, { teaching: true })).toEqual([]);
     expect(e.question.meta!.supports.every((id) => used.includes(id))).toBe(true);
     const q = e.question;
     if (e.basis.fact && !e.basis.ranking) {

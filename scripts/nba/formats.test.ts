@@ -56,9 +56,10 @@ describe('reference questions', () => {
 
 describe('missing-point charts', () => {
   const wins = (id: string, answer: number, season: string) => base(id, answer, { family: 'wins-season', season, player: null, franchise: 'BOS', unit: { singular: 'win', plural: 'wins' } });
-  const a = wins('nba-c73', 68, '1972-73');
-  const b = wins('nba-c86', 67, '1985-86');
-  const c = wins('nba-c08', 66, '2007-08');
+  // Fixture values sit more than 5% from one another (the near-collision gate below).
+  const a = wins('nba-c73', 78, '1972-73');
+  const b = wins('nba-c86', 70, '1985-86');
+  const c = wins('nba-c08', 60, '2007-08');
   const spec = (points: { label: string; fact: string }[]): FormatSpec => ({ kind: 'missing-point', chart: { title: 'Regular-season wins', unit: 'wins', points } });
   const q = withFormat(c, spec([{ label: '1985–86', fact: b.id }, { label: '2007–08', fact: c.id }, { label: '1972–73', fact: a.id }]));
 
@@ -71,8 +72,18 @@ describe('missing-point charts', () => {
     expect(resolveChart(q, index(a, b, q))).toEqual({
       title: 'Regular-season wins',
       unit: 'wins',
-      points: [{ label: '1985–86', value: 67 }, { label: '2007–08', value: null }, { label: '1972–73', value: 68 }],
+      points: [{ label: '1985–86', value: 70 }, { label: '2007–08', value: null }, { label: '1972–73', value: 78 }],
     });
+  });
+  it('rejects a known bar within 5% of the hidden answer (it would give the answer away)', () => {
+    const near = wins('nba-near', 63, '1990-91'); // |63 − 60| = 3 ≤ 0.05 × 60
+    const chart = withFormat(c, spec([{ label: '1985–86', fact: b.id }, { label: '2007–08', fact: c.id }, { label: '1990–91', fact: near.id }]));
+    expect(formatIssues(chart, index(b, near, chart)).join()).toMatch(/nba-near \(63\) is within 5% of the hidden answer 60/);
+    const clear = wins('nba-clear', 64, '1990-91'); // 4 > 3: far enough
+    const ok = withFormat(c, spec([{ label: '1985–86', fact: b.id }, { label: '2007–08', fact: c.id }, { label: '1990–91', fact: clear.id }]));
+    expect(formatIssues(ok, index(b, clear, ok))).toEqual([]);
+    // Only the untimed walkthrough example, whose lesson is the cluster, is exempt.
+    expect(formatIssues(chart, index(b, near, chart), { teaching: true })).toEqual([]);
   });
   it('requires the question itself exactly once, 3–7 points and distinct labels', () => {
     expect(formatIssues(withFormat(c, spec([{ label: 'x', fact: a.id }, { label: 'y', fact: b.id }, { label: 'z', fact: a.id }])), index(a, b, c)).join()).toMatch(/exactly once/);

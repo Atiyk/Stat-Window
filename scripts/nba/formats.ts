@@ -75,8 +75,12 @@ function prints(text: string, value: number, step: number): boolean {
   return answerSpellings(value, step).some((s) => !/^[a-z]+$/.test(s) && new RegExp(`(^|[^0-9.,])${s.replace(/[.,]/g, (c) => `\\${c}`)}(?![0-9]|[.,][0-9])`).test(text));
 }
 
-/** Issues with one fact's format, given every fact by id. Empty means valid. */
-export function formatIssues(f: FormatFact, byId: ReadonlyMap<string, FormatFact>): string[] {
+/**
+ * Issues with one fact's format, given every fact by id. Empty means valid.
+ * `teaching`: the untimed walkthrough example, whose lesson is reading a tight cluster of
+ * bars, so the near-collision gate (a known bar within 5% of the answer) does not apply.
+ */
+export function formatIssues(f: FormatFact, byId: ReadonlyMap<string, FormatFact>, opts: { teaching?: boolean } = {}): string[] {
   const spec = f.question.format;
   if (!spec) return [];
   const out: string[] = [];
@@ -120,6 +124,9 @@ export function formatIssues(f: FormatFact, byId: ReadonlyMap<string, FormatFact
       if (g && g.unit.plural !== f.unit.plural) out.push(`chart observation ${g.id} is in ${g.unit.plural}, not ${f.unit.plural}`);
       if (g && g.family !== f.family) out.push(`chart observation ${g.id} measures ${g.family}, not ${f.family}`);
       if (g && g.answer > f.question.max) out.push(`chart observation ${g.id} (${g.answer}) is above the scale's max ${f.question.max}`);
+      // A bar this close to the hidden one hands over the answer (42 beside a hidden 43).
+      if (g && !opts.teaching && Math.abs(g.answer - f.answer) <= 0.05 * Math.abs(f.answer) + 1e-9)
+        out.push(`chart observation ${g.id} (${g.answer}) is within 5% of the hidden answer ${f.answer}; pick a bar further away`);
       if (g && Math.abs(Math.round(g.answer / f.question.step) * f.question.step - g.answer) > 1e-9)
         out.push(`chart observation ${g.id} (${g.answer}) cannot be shown at this question's step ${f.question.step}`);
     }

@@ -27,6 +27,18 @@ for (const size of [{ width: 320, height: 568 }, { width: 390, height: 844 }]) {
   });
 }
 
+// Reduced motion lands the answer at once; the scroll must still measure the settled layout.
+test('reveal under reduced motion at 320×568: answer and ruler axis stay above the Next bar', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.setViewportSize({ width: 320, height: 568 });
+  await openAt(page, CHART_DAY);
+  await lockAndSettle(page);
+  await expectRevealClear(page);
+  await next(page);
+  await lockAndSettle(page);
+  await expectRevealClear(page);
+});
+
 test('short landscape results: the score and Challenge a friend share the first screen', async ({ page }) => {
   await page.setViewportSize({ width: 844, height: 390 });
   await openAt(page, CHART_DAY);

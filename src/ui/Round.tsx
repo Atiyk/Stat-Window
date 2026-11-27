@@ -253,19 +253,38 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
 
   // The landed answer and the ruler's axis must sit above the sticky Next bar (at 320×568 it
   // covered the axis). Scroll just enough, never so far that the answer itself leaves the top.
+  // The story and verdict still grow for a frame or two after 'resolved' commits (instantly under
+  // reduced motion), so measure after layout and re-check while it settles. The target is absolute
+  // (scrollY + shortfall), so a re-check during a smooth scroll lands on the same place.
   useEffect(() => {
     if (state.phase !== 'resolved') return;
     const root = roundRef.current;
-    const ruler = root?.querySelector('.ruler');
-    const answer = root?.querySelector('.reveal-answer');
-    const bar = root?.querySelector('.action-bar');
-    if (!ruler || !answer || !bar) return;
-    const sticky = /sticky|fixed/.test(getComputedStyle(bar).position);
-    const limit = Math.min(window.innerHeight, sticky ? bar.getBoundingClientRect().top : Infinity) - 8;
-    const overlap = ruler.getBoundingClientRect().bottom - limit;
-    const room = answer.getBoundingClientRect().top - 8;
-    const by = Math.min(overlap, room);
-    if (by > 0) window.scrollBy({ top: by, behavior: reduced ? 'instant' : 'smooth' });
+    if (!root) return;
+    const fit = () => {
+      const ruler = root.querySelector('.ruler');
+      const answer = root.querySelector('.reveal-answer');
+      const bar = root.querySelector('.action-bar');
+      if (!ruler || !answer || !bar) return;
+      const sticky = /sticky|fixed/.test(getComputedStyle(bar).position);
+      const limit = Math.min(window.innerHeight, sticky ? bar.getBoundingClientRect().top : Infinity) - 8;
+      const overlap = ruler.getBoundingClientRect().bottom - limit;
+      const room = answer.getBoundingClientRect().top - 8;
+      const by = Math.min(overlap, room);
+      if (by > 0.5) window.scrollTo({ top: window.scrollY + by, behavior: reduced ? 'instant' : 'smooth' });
+    };
+    let raf = requestAnimationFrame(fit);
+    const refit = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(fit);
+    };
+    const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(refit);
+    observer?.observe(root);
+    const settled = window.setTimeout(() => observer?.disconnect(), 1000);
+    return () => {
+      cancelAnimationFrame(raf);
+      observer?.disconnect();
+      window.clearTimeout(settled);
+    };
   }, [state.phase, state.round, reduced]);
 
   // Move the marker from the far end of the ruler and settle on the landing frame.

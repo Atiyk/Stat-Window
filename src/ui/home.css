@@ -41,3 +41,23 @@
 @media (max-width: 400px) {
   .home.ready-card { padding: var(--space-5) var(--space-4); }
 }
+
+/* Short landscape phones (844×390): the hook and Play on the left, the rules picture on the
+   right, so "Play Game N" is on the first screen. Everything else follows at full width. */
+@media (orientation: landscape) and (max-height: 500px) {
+  .home.ready-card {
+    width: min(calc(100% - 2 * var(--gutter)), 880px);
+    margin-block: 4px var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: var(--space-5);
+    row-gap: var(--space-2);
+    align-items: start;
+  }
+  .home.ready-card > * { grid-column: 1 / -1; }
+  .home.ready-card > :is(h1, .home-lede, .home-actions, .home-terms) { grid-column: 1; }
+  .home.ready-card > .home-demo { grid-column: 2; grid-row: 1 / span 4; align-self: center; margin-top: 0; }
+  .home h1 { font-size: 1.75rem; }
+  .home-lede { font-size: 0.9375rem; }
+  .home-actions { margin-top: var(--space-1); }
+}

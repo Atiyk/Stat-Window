@@ -27,3 +27,30 @@ test('the chart caption does not repeat a unit its title already names', async (
   await expect(page.locator('.q-chart__title')).toHaveText('Points in one game');
   await expect(page.locator('.q-chart__unit')).toHaveCount(0);
 });
+
+// Short landscape phones: the clock runs from the first paint, so the slider and Lock must be
+// on the first screen beside the prompt and chart, and the home's Play must be too.
+for (const size of [{ width: 844, height: 390 }, { width: 932, height: 430 }]) {
+  test(`short landscape ${size.width}×${size.height}: chart question keeps both sliders and Lock in view`, async ({ page }) => {
+    await page.setViewportSize(size);
+    await openAt(page, new Date('2026-12-03T15:00:00Z')); // Q1 is a missing-point chart
+    await expect(page.locator('.q-chart')).toBeVisible();
+    const lock = page.getByRole('button', { name: /Lock the window|Pull the brackets in first/ });
+    for (const target of [lowBracket(page), highBracket(page), lock]) {
+      await expect(target).toBeInViewport({ ratio: 1 });
+    }
+    // The chart sits beside the field, not above it.
+    const chart = (await page.locator('.q-chart').boundingBox())!;
+    const field = (await page.locator('.field').boundingBox())!;
+    expect(field.x).toBeGreaterThanOrEqual(chart.x + chart.width - 1);
+    expect(await page.evaluate(() => window.scrollY)).toBe(0);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(size.width);
+  });
+
+  test(`short landscape ${size.width}×${size.height}: home shows Play on the first screen`, async ({ page }) => {
+    await page.setViewportSize(size);
+    await page.clock.setFixedTime(new Date('2026-12-03T15:00:00Z'));
+    await page.goto('/');
+    await expect(page.getByRole('button', { name: /^Play Game \d+$/ })).toBeInViewport({ ratio: 1 });
+  });
+}

@@ -151,3 +151,78 @@
   /* A long prompt over a chart: the chart needs the height. */
   .question[data-long='chart'] { font-size: clamp(1.5rem, 0.9rem + 1.4vw, 2.1rem); }
 }
+
+/* ───────────── Short landscape phones (844×390, 932×430) ─────────────
+ * The clock runs from the first paint, so the window and Lock must be on the first screen.
+ * The prompt and its chart take the left column; the progress strip, the field and the
+ * action sit beside them on the right. The fact after the reveal spans both columns.
+ * Portrait layouts are untouched: everything here is inside this one query.
+ */
+@media (orientation: landscape) and (max-height: 500px) {
+  .topbar { padding-top: max(4px, env(safe-area-inset-top)); padding-bottom: 2px; }
+  .round:not(.teaching-play) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    grid-template-areas:
+      'question top'
+      'question field'
+      'question action'
+      'story story';
+    grid-template-rows: auto auto 1fr auto;
+    column-gap: 20px;
+    align-items: start;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 max(var(--gutter), env(safe-area-inset-left)) 0 max(var(--gutter), env(safe-area-inset-right));
+  }
+  .round:not(.teaching-play) .round-head { display: contents; }
+  .round:not(.teaching-play) :is(.round-top, .question-block, .story, .action-bar) {
+    max-width: none;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .round:not(.teaching-play) .question-block { grid-area: question; padding-block: 4px 8px; }
+  .round:not(.teaching-play) .question { font-size: 1.25rem; line-height: 1.18; max-width: none; }
+  .round:not(.teaching-play) .question[data-long] { font-size: 1.125rem; }
+  .round:not(.teaching-play) .context { margin-top: 4px; font-size: 0.8125rem; }
+  .round:not(.teaching-play) .q-chart { --q-chart-h: 44px; margin-top: 6px; }
+
+  /* Compact court run and progress: one row of chips with the meta beside them. */
+  .round:not(.teaching-play) .round-top {
+    grid-area: top;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px 10px;
+    padding: 4px 0 6px;
+  }
+  .round:not(.teaching-play) .round-top .ledger-cell { width: 28px; height: 28px; }
+  .round:not(.teaching-play) .round-top .ledger-num { font-size: 0.875rem; }
+  .round:not(.teaching-play) .round-meta { font-size: 0.8125rem; }
+  .round:not(.teaching-play) .round-court { order: 0; flex: 0 0 100%; inline-size: auto; }
+  .round:not(.teaching-play):has(.q-chart) .round-court { display: none; }
+
+  .round:not(.teaching-play) .field { grid-area: field; padding: 0; }
+  .round:not(.teaching-play) .field-inner { max-width: none; padding: 8px 14px 4px; }
+  .round:not(.teaching-play) .bound { font-size: 2rem; }
+  .round:not(.teaching-play) .verdict-line { min-height: 0; font-size: 0.875rem; line-height: 1.3; }
+  .round:not(.teaching-play)[data-phase='ready'] .ruler,
+  .round:not(.teaching-play)[data-phase='adjusting'] .ruler { padding-top: 18px; }
+  /* Full-height brackets (the short-wide court rule shortens them): the grips stay clear of the tick labels. */
+  .round:not(.teaching-play) .ruler-track[data-interactive] { height: 124px; }
+  .round:not(.teaching-play) .ruler-track[data-interactive] .bracket { height: 122px; }
+  .round:not(.teaching-play) .bracket-shape::after { height: 30px; }
+  .round:not(.teaching-play) .bracket-grip { top: 96px; }
+
+  .round:not(.teaching-play) .action-bar {
+    grid-area: action;
+    position: static;
+    padding: 8px 0 max(8px, env(safe-area-inset-bottom));
+    border-top: 0;
+    box-shadow: none;
+    background: none;
+  }
+  .round:not(.teaching-play) .action-bar .btn { width: 100%; min-height: 48px; }
+  .round:not(.teaching-play) .story { grid-area: story; }
+}

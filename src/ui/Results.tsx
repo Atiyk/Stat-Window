@@ -22,6 +22,7 @@ import { useComparison } from './use-comparison';
 import { Leaderboard } from './Leaderboard';
 import { InstallPrompt } from './InstallPrompt';
 import { PracticeTimingChoice } from './PracticeTimingChoice';
+import { ClockGlyph } from './ClockGlyph';
 import './results-polish.css';
 import './home.css';
 
@@ -322,12 +323,13 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
   const ledger = (
     <ol className="ledger scorecard" role="list" aria-label="Question by question" data-arrive={animateScorecard || undefined}>
       {results.map((r, i) => (
-        <li key={i} className="ledger-cell" data-status={!r.hit ? 'miss' : r.points > 0 ? 'hit' : 'zero'} style={animateScorecard ? { animationDelay: `${i * 30}ms` } : undefined}>
+        <li key={i} className="ledger-cell" data-status={!r.hit ? 'miss' : r.points > 0 ? 'hit' : 'zero'} data-timeout={r.timedOut || undefined} style={animateScorecard ? { animationDelay: `${i * 30}ms` } : undefined}>
           <span className="sr-only">
-            Question {i + 1}, {r.points} points, {r.timedOut ? 'time expired' : !r.hit ? 'miss' : r.points > 0 ? 'hit' : 'caught for zero'}
+            Question {i + 1}, {r.points} points, {r.timedOut ? 'time ran out' : !r.hit ? 'miss' : r.points > 0 ? 'hit' : 'caught for zero'}
           </span>
           <span className="ledger-q" aria-hidden="true">Q{i + 1}</span>
           <span className="ledger-num" aria-hidden="true">{r.points}</span>
+          {r.timedOut && <ClockGlyph />}
         </li>
       ))}
     </ol>
@@ -421,16 +423,16 @@ export function Results({ slate, label, eligible, onPrivacy, mode, playMode, unt
         const span = q.max - q.min;
         const p = (v: number) => `${((v - q.min) / span) * 100}%`;
         return (
-          <li key={q.id} className="recap-row" data-hit={r.hit}>
+          <li key={q.id} className="recap-row" data-hit={r.hit} data-timeout={r.timedOut || undefined}>
             <div className="recap-text">
               <p className="recap-q">{q.prompt}</p>
               <p className="recap-a">
-                {formatValue(q.answer, q.step)} {q.answer === 1 ? q.unit.singular : q.unit.plural} · you said{' '}
-                {formatValue(r.lo, q.step)}–{formatValue(r.hi, q.step)}
+                {formatValue(q.answer, q.step)} {q.answer === 1 ? q.unit.singular : q.unit.plural} ·{' '}
+                {r.timedOut ? 'Time ran out' : <>you said {formatValue(r.lo, q.step)}–{formatValue(r.hi, q.step)}</>}
               </p>
             </div>
             <div className="recap-bar" aria-hidden="true">
-              <span className="recap-window" style={{ left: p(r.lo), width: `calc(${p(r.hi)} - ${p(r.lo)})` }} />
+              {!r.timedOut && <span className="recap-window" style={{ left: p(r.lo), width: `calc(${p(r.hi)} - ${p(r.lo)})` }} />}
               <span className="recap-pin" style={{ left: p(q.answer) }} />
             </div>
             <p className="recap-points tabular">{r.hit ? `+${r.points}` : '0'}</p>

@@ -297,6 +297,20 @@ a {
   color: var(--ink-soft);
 }
 
+/* A timeout is a miss with a clock instead of the strike, so the two never look alike. */
+.ledger-cell[data-timeout]::after {
+  display: none;
+}
+
+.ledger-cell .clock-glyph {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 10px;
+  height: 10px;
+  color: var(--ink-soft);
+}
+
 @keyframes ledger-in {
   from {
     transform: scale(0.94);

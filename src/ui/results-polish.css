@@ -83,6 +83,7 @@
 .daily-results .scorecard [data-status='miss']::after { display: none; }
 .daily-results .scorecard [data-status='miss'] .ledger-q,
 .daily-results .scorecard [data-status='miss'] .ledger-num { color: var(--ink-soft); }
+.daily-results .scorecard .clock-glyph { top: 4px; right: 4px; width: 12px; height: 12px; }
 .daily-results .results-time { margin: 0; }
 
 .results-cta { display: grid; gap: var(--space-2); }

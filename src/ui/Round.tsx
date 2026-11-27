@@ -19,6 +19,7 @@ import type { PlayerFormat } from '../content/formats';
 import { raceStanding, type RaceStanding } from '../engine/friend-race';
 import { questionCrowdLine } from '../engine/percentile';
 import { crowdThreshold, prefetchQuestionCrowd, questionCrowdFor } from '../lib/scores';
+import { ClockGlyph } from './ClockGlyph';
 import './round-polish.css';
 
 type Props = {
@@ -412,11 +413,12 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
             const shown = r && (i < state.round || state.phase === 'resolved' || state.phase === 'complete');
             const status = shown ? (!r.hit ? 'miss' : r.points > 0 ? 'hit' : 'zero') : i === state.round ? 'current' : 'todo';
             return (
-              <li key={i} className="ledger-cell" data-status={status} data-new-result={freshResult && i === state.round || undefined}>
+              <li key={i} className="ledger-cell" data-status={status} data-timeout={shown && r.timedOut || undefined} data-new-result={freshResult && i === state.round || undefined}>
                 <span className="sr-only">
-                  Question {i + 1}: {shown ? `${r.points} points` : i === state.round ? 'now playing' : 'to play'}
+                  Question {i + 1}: {shown ? `${r.points} points${r.timedOut ? ', time ran out' : ''}` : i === state.round ? 'now playing' : 'to play'}
                 </span>
                 <span className="ledger-num" aria-hidden="true">{shown ? r.points : i + 1}</span>
+                {shown && r.timedOut && <ClockGlyph />}
               </li>
             );
           })}

@@ -29,6 +29,11 @@ test('shot clock expiry is a zero-point turnover, not a normal miss or a second 
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
   expect(saved.runs['2026-11-15'].results[0]).toMatchObject({ points: 0, timedOut: true, elapsedMs: 24000 });
   await expect(page.getByRole('button', { name: 'Next question' })).toBeVisible();
+  // A timeout carries its own clock cue in the progress strip, not just the miss styling.
+  const first = page.locator('.ledger-cell').first();
+  await expect(first).toHaveAttribute('data-timeout', 'true');
+  await expect(first.locator('.clock-glyph')).toBeVisible();
+  await expect(first).toContainText('time ran out');
 });
 
 test('refresh does not buy another 24 seconds', async ({ page }) => {

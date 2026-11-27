@@ -34,7 +34,6 @@ export const MIN_FACTS = 250;
 export const MIN_DAYS = 50;
 export const MIN_THEMED_DAYS = 30;
 export const VERIFIED_BY = 'Stat Window editorial';
-export const SOURCE_LABEL = 'Wikipedia contributors (CC BY-SA 4.0)';
 /**
  * First day whose file carries V5 fields (format metadata and charts). Earlier day
  * files keep their exact published bytes; the publisher refuses to rewrite them.
@@ -516,7 +515,25 @@ export function v5Context(data: Pick<NbaData, 'facts' | 'franchises'>): V5Contex
   return { byId: new Map(data.facts.map((f) => [f.id, f])), franchiseName: (id) => names.get(id) ?? id };
 }
 
-export function questionFromFact(f: Fact, v5?: V5Context): Question & { difficulty: Difficulty } {
+/**
+ * The credit line for a source URL, from the register (data/nba/sources.json): the approved entry
+ * for the URL's host gives it, as the first quoted label in its attribution rule, else its provider.
+ */
+export function sourceCredit(url: string, sources: readonly Source[]): string {
+  const host = hostOf(url);
+  const entry = sources.find((s) => s.reviewStatus === 'approved' && s.hosts.includes(host));
+  if (!entry) throw new Error(`source host ${host} has no approved entry in data/nba/sources.json`);
+  return /"([^"]+)"/.exec(entry.attribution)?.[1] ?? entry.provider;
+}
+
+let registered: Source[] | undefined;
+const registerCredit = (url: string) => sourceCredit(url, (registered ??= read<Source[]>('sources.json')));
+
+export function questionFromFact(
+  f: Fact,
+  v5?: V5Context,
+  credit: (url: string) => string = registerCredit,
+): Question & { difficulty: Difficulty } {
   const q = f.question;
   const chart = v5 ? resolveChart(f, v5.byId) : undefined;
   return {
@@ -531,7 +548,7 @@ export function questionFromFact(f: Fact, v5?: V5Context): Question & { difficul
     step: q.step,
     note: q.reveal,
     source: {
-      name: SOURCE_LABEL,
+      name: credit(f.source.url),
       url: f.source.url,
       quote: f.source.quote,
       ...(f.source.derivation ? { derivation: f.source.derivation } : {}),
@@ -547,13 +564,14 @@ export function questionFromFact(f: Fact, v5?: V5Context): Question & { difficul
 export function buildSlates(data: NbaData): Slate[] {
   const byId = new Map(data.facts.map((f) => [f.id, f]));
   const v5 = v5Context(data);
+  const credit = (url: string) => sourceCredit(url, data.sources);
   return data.calendar.days.map((d) => ({
     date: d.date,
     theme: { title: d.theme.title, subtitle: d.theme.subtitle, recap: d.theme.recap },
     questions: d.questions.map((id) => {
       const f = byId.get(id);
       if (!f) throw new Error(`${d.date}: unknown question ${id}`);
-      return questionFromFact(f, d.date >= V5_CONTENT_FROM ? v5 : undefined);
+      return questionFromFact(f, d.date >= V5_CONTENT_FROM ? v5 : undefined, credit);
     }),
   }));
 }

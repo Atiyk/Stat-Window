@@ -118,6 +118,19 @@ describe('NBA database: Basketball-Reference is an approved source', () => {
     f.question.funFacts![1]!.source.url = 'https://www.sports-reference.com/blog/x.html';
     expect(sourceErrors(d)).toEqual(before);
   });
+  it('credits the provider the register names for that host, not Wikipedia', () => {
+    const d = clone();
+    firstOf(d).source.url = 'https://www.basketball-reference.com/boxscores/196203020PHW.html';
+    const q = buildSlates(d)[0]!.questions[0]!;
+    expect(q.source.name).toBe('Basketball-Reference.com (Sports Reference)');
+    expect(buildSlates(d)[0]!.questions[1]!.source.name).toBe('Wikipedia contributors (CC BY-SA 4.0)');
+  });
+  it('takes the credit from data/nba/sources.json, so a register change carries through', () => {
+    const d = clone();
+    for (const s of d.sources) if (s.id === 'sports-reference') s.attribution = 'Credit "Sports Reference LLC" with a link.';
+    firstOf(d).source.url = 'https://basketball-reference.com/x.html';
+    expect(buildSlates(d)[0]!.questions[0]!.source.name).toBe('Sports Reference LLC');
+  });
   it('still refuses it if the register withdraws the approval', () => {
     const d = clone();
     for (const s of d.sources) if (s.id === 'sports-reference') s.reviewStatus = 'rejected';

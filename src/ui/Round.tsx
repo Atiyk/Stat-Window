@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties, type Dispatch
 import { canLock, currentQuestion, ROUNDS, totalPoints, type GameAction, type GameState, type PracticeTiming } from '../engine/game';
 import { finalShot, verifiedDailyRounds } from '../engine/final-shot';
 import { MAX_POINTS_PER_ROUND, potentialPoints } from '../engine/scoring';
-import { formatValue, unitFor } from '../lib/format';
+import { formatValue, plural, unitFor } from '../lib/format';
 import { feedback } from './feedback';
 import { Readout } from './Readout';
 import { Ruler, type RulerReveal } from './Ruler';
@@ -492,7 +492,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
               'A friend sent you these five.'
             ) : (
               <>
-                Beat your friend’s <b className="tabular">{challenge.vs}</b> points{challenge.vsTime !== null ? ` in ${Math.ceil(challenge.vsTime / 1000)}s` : ''}.
+                Beat your friend’s <b className="tabular">{plural(challenge.vs, 'point')}</b>{challenge.vsTime !== null ? ` in ${Math.ceil(challenge.vsTime / 1000)}s` : ''}.
               </>
             )}
           </p>

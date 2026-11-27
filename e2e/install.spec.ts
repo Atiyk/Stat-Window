@@ -107,6 +107,8 @@ test('iPhone guidance is a dismissible disclosure and stays hidden in standalone
   await page.clock.setFixedTime(new Date(`${NBA_DAYS[1]!}T15:00:00Z`));
   await page.goto('/');
   const guide = page.getByText('In Safari, tap Share', { exact: false });
+  // V5.2: the install suggestion lives in the results' "Next puzzle and reminders" fold.
+  await openFold(page, 'Next puzzle and reminders');
   await expect(manualButton(page)).toHaveAttribute('aria-expanded', 'false');
   await expect(guide).toBeHidden();
   await manualButton(page).click();
@@ -117,11 +119,13 @@ test('iPhone guidance is a dismissible disclosure and stays hidden in standalone
   await expect(installSuggestion(page)).toHaveCount(0);
   await page.reload();
   await expect(page.locator('.results-score')).toBeVisible();
+  await openFold(page, 'Next puzzle and reminders');
   await expect(installSuggestion(page)).toHaveCount(0);
 
   await page.evaluate(() => localStorage.removeItem('stat-window:install-suggestion-hidden'));
   await page.addInitScript(() => Object.defineProperty(navigator, 'standalone', { value: true }));
   await page.reload();
   await expect(page.locator('.results-score')).toBeVisible();
+  await openFold(page, 'Next puzzle and reminders');
   await expect(installSuggestion(page)).toHaveCount(0);
 });

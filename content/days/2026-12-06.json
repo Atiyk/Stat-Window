@@ -9,7 +9,7 @@
     {
       "id": "nba-celtics86-wins",
       "sport": "NBA",
-      "prompt": "The 2018–19 champion Raptors won 58 games. How many did Larry Bird's 1985–86 Celtics win?",
+      "prompt": "Giannis's 2018–19 Bucks won 60 games in his first MVP season. How many did Larry Bird's 1985–86 Celtics win?",
       "context": "Boston Celtics · 1985–86 · 82 games",
       "answer": 67,
       "unit": {
@@ -64,7 +64,7 @@
           "Boston Celtics"
         ],
         "supports": [
-          "nba-raptors19-regular-wins"
+          "nba-bucks19-season-wins"
         ]
       }
     },

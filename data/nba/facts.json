@@ -1985,14 +1985,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "The 2018–19 champion Raptors won 58 games. How many did Larry Bird's 1985–86 Celtics win?",
+   "prompt": "Giannis's 2018–19 Bucks won 60 games in his first MVP season. How many did Larry Bird's 1985–86 Celtics win?",
    "context": "Boston Celtics · 1985–86 · 82 games",
    "reveal": "67–15, including 40–1 at home.",
    "min": 40,
    "max": 82,
    "step": 1,
    "difficulty": "easy",
-   "difficultyReason": "Toronto's 58 wins set a modern title-team bar; players judge how far above it Bird's best Celtics side landed.",
+   "difficultyReason": "Milwaukee's 60 in an MVP season sets a modern bar for a dominant team; players judge how far above it Bird's best Celtics side landed.",
    "ratings": {
     "interest": 4,
     "recognizability": 4,
@@ -2028,7 +2028,7 @@
    "format": {
     "kind": "reference",
     "references": [
-     "nba-raptors19-regular-wins"
+     "nba-bucks19-season-wins"
     ]
    }
   }
@@ -24049,14 +24049,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Three famous comebacks are on the chart. How far behind did Anthony Edwards's Wolves fall before their 2024 Game 7 win at Denver?",
+   "prompt": "Two famous comebacks are on the chart. How far behind did Anthony Edwards's Wolves fall before their 2024 Game 7 win at Denver?",
    "context": "Timberwolves at Nuggets · 2024 playoffs",
    "reveal": "20 points, the largest Game 7 comeback in playoff history, against the defending champions.",
    "min": 2,
    "max": 58,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "Three other comebacks, from 16 to 36 points, frame how deep a hole the Wolves climbed out of.",
+   "difficultyReason": "Two other comebacks, of 17 and 36 points, frame how deep a hole the Wolves climbed out of.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -24102,10 +24102,6 @@
       {
        "label": "Spurs '99",
        "fact": "nba-spurs99-memorial-day"
-      },
-      {
-       "label": "Lakers '00",
-       "fact": "nba-lakers00-portland-g7-comeback"
       },
       {
        "label": "Wolves '24",

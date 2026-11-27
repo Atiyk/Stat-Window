@@ -183,3 +183,23 @@ describe('classic card invitation', () => {
     expect(await lineOf({ ...card, results: rounds, untimed: true })).toEqual(['Same five questions. Your turn.']);
   });
 });
+
+describe('Shot Chart and Court Run card invitation', () => {
+  const puzzle = { label: 'No. 9', date: 'Nov 24', format: 'square', context: null, total: 154, puzzleUrl } as const;
+  const lineOf = async (input: CardInput) => {
+    const { words } = mockCanvas();
+    await cardBlob(input);
+    return words.filter((w) => /Beat|Your turn/.test(w));
+  };
+  const courts: CardInput[] = [
+    { ...puzzle, style: 'shot-chart', attempts },
+    { ...puzzle, style: 'court-run', checkpoints: courtRunCheckpoints(rounds) },
+  ];
+  it.each(courts)('$style uses the shared invitation: “Think you know ball? Beat N.”', async (card) => {
+    expect(await lineOf(card)).toEqual(['Think you know ball? Beat 154.']);
+  });
+  it.each(courts)('$style: a zero score or an untimed run gets the same line as the text', async (card) => {
+    expect(await lineOf({ ...card, total: 0 } as CardInput)).toEqual(['Same five questions. Your turn.']);
+    expect(await lineOf({ ...card, untimed: true })).toEqual(['Same five questions. Your turn.']);
+  });
+});

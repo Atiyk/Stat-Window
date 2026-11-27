@@ -131,8 +131,8 @@ export function Results({ slate, label, screenLabel = label, eligible, onPrivacy
     }
     const puzzleUrl = challengeUrl(window.location.origin, slate.date);
     return cardStyle === 'shot-chart'
-      ? { ...puzzle, style: cardStyle, total, puzzleUrl, attempts }
-      : { ...puzzle, style: cardStyle, total, puzzleUrl, checkpoints };
+      ? { ...puzzle, style: cardStyle, total, untimed: untimedPractice, puzzleUrl, attempts }
+      : { ...puzzle, style: cardStyle, total, untimed: untimedPractice, puzzleUrl, checkpoints };
   }, [label, format, cardContext, cardStyle, slate.date, untimedPractice, results, answerMs, percentile, sample, total, attempts, checkpoints]);
   const now = useNow(1000);
   // The reminder slot is fixed when the screen opens, not every second.

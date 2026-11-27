@@ -35,6 +35,7 @@ type ClassicCard = CardHeading & {
 
 type CourtCard = CardHeading & {
   total: number;
+  untimed?: boolean;
   puzzleUrl: string;
 } & (
   | { style: 'shot-chart'; attempts: readonly ShotAttempt[] }
@@ -390,7 +391,7 @@ function drawCourtCard(ctx: CanvasRenderingContext2D, input: CourtCard): void {
       ctx.fillText(note, cx, roundsY + 84, columnWidth - 8);
     }
     ctx.textAlign = 'left';
-    drawFooter(ctx, roundsY + 120, input.puzzleUrl);
+    drawFooter(ctx, roundsY + 120, input.puzzleUrl, inviteLine(input.total, input.untimed));
     return;
   }
 
@@ -421,10 +422,11 @@ function drawCourtCard(ctx: CanvasRenderingContext2D, input: CourtCard): void {
     ctx.font = `500 30px ${SANS}`;
     ctx.fillText(note, 260, rowY, 200);
   });
-  drawFooter(ctx, CARD_SIZE - 160, input.puzzleUrl);
+  drawFooter(ctx, CARD_SIZE - 160, input.puzzleUrl, inviteLine(input.total, input.untimed));
 }
 
-function drawFooter(ctx: CanvasRenderingContext2D, dividerY: number, puzzleUrl: string): void {
+/** The same invitation as the share text and the Classic card (inviteLine). */
+function drawFooter(ctx: CanvasRenderingContext2D, dividerY: number, puzzleUrl: string, invite: string): void {
   ctx.strokeStyle = C.line;
   ctx.lineWidth = 3;
   ctx.beginPath();
@@ -433,7 +435,7 @@ function drawFooter(ctx: CanvasRenderingContext2D, dividerY: number, puzzleUrl: 
   ctx.stroke();
   ctx.fillStyle = C.ink;
   ctx.font = `850 48px ${SANS}`;
-  ctx.fillText('Five questions. Your turn.', 96, dividerY + 62, 888);
+  ctx.fillText(invite, 96, dividerY + 62, 888);
   ctx.fillStyle = C.soft;
   ctx.font = `500 34px ${SANS}`;
   ctx.fillText(puzzleUrl.replace(/^https?:\/\//, ''), 96, dividerY + 110, 888);

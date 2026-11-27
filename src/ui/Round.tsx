@@ -387,7 +387,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
         </p>
       ) : worth === 0 ? (
         <p className="worth">
-          Pull the brackets in. Tighter windows score more.
+          Pull the brackets in.<span className="worth-more"> Tighter windows score more.</span>
         </p>
       ) : (
         <p className="worth worth-points">

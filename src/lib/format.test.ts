@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { chartUnitLabel, niceTicks, plural } from './format';
+import { chartUnitLabel, formatObserved, niceTicks, plural } from './format';
 
 describe('niceTicks', () => {
   it('labels round values across the scale', () => {
@@ -42,5 +42,17 @@ describe('chartUnitLabel', () => {
     expect(chartUnitLabel("Finals MVPs' scoring averages", 'points per game')).toBe('points per game');
     expect(chartUnitLabel('Famous winning streaks', 'wins')).toBe('wins');
     expect(chartUnitLabel('Threes in a Finals game', 'three-pointers')).toBe('three-pointers');
+  });
+});
+
+describe('formatObserved', () => {
+  it('keeps a chart observation’s own precision when the step is coarser', () => {
+    expect(formatObserved(8.3, 1)).toBe('8.3');
+    expect(formatObserved(8.25, 0.1)).toBe('8.25');
+  });
+  it('pads to the step’s precision otherwise', () => {
+    expect(formatObserved(5, 0.1)).toBe('5.0');
+    expect(formatObserved(42, 1)).toBe('42');
+    expect(formatObserved(1234, 1)).toBe('1,234');
   });
 });

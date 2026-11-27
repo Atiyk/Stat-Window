@@ -1,6 +1,6 @@
 import type { Question } from '../content/schema';
 import type { Window } from '../engine/scoring';
-import { chartUnitLabel, formatValue } from '../lib/format';
+import { chartUnitLabel, formatObserved, formatValue } from '../lib/format';
 import './question-chart.css';
 
 /**
@@ -24,11 +24,13 @@ export function QuestionChart({ question, window, reveal }: {
   const top = question.max;
   const pct = (v: number) => `${Math.max(0, Math.min(100, (v / top) * 100))}%`;
   const shown = (v: number) => formatValue(v, question.step);
+  // Known bars are verified facts: shown at their own precision, never rounded to the step.
+  const observed = (v: number) => formatObserved(v, question.step);
   const revealed = reveal === 1;
   const unit = chartUnitLabel(chart.title, chart.unit);
   // Text equivalent: every known bar's value; the hidden one only once the answer has landed.
   const spoken = chart.points
-    .map((p) => `${p.label}: ${p.value === null ? (revealed ? shown(question.answer) : 'hidden, your estimate') : shown(p.value)}`)
+    .map((p) => `${p.label}: ${p.value === null ? (revealed ? shown(question.answer) : 'hidden, your estimate') : observed(p.value)}`)
     .join('. ');
 
   return (
@@ -43,7 +45,7 @@ export function QuestionChart({ question, window, reveal }: {
           return (
             <li key={p.label} className="q-chart__col" data-hidden={hidden || undefined}>
               <span className="q-chart__value tabular">
-                {hidden ? (revealed ? <span className="q-chart__answer">{shown(question.answer)}</span> : '?') : shown(p.value!)}
+                {hidden ? (revealed ? <span className="q-chart__answer">{shown(question.answer)}</span> : '?') : observed(p.value!)}
               </span>
               <span className="q-chart__plot">
                 {hidden ? (

@@ -53,3 +53,30 @@ for (const size of [{ width: 844, height: 390 }, { width: 932, height: 430 }]) {
     await expect(page.getByRole('button', { name: /^Play Game \d+$/ })).toBeInViewport({ ratio: 1 });
   });
 }
+
+// The bars must be tall enough to compare (42, 48 and 47 must not look identical), and the
+// Lock must still be on the first screen with both handles. Value labels never overlap.
+const MIN_PLOT = 88;
+for (const size of [{ width: 320, height: 568 }, { width: 390, height: 844 }]) {
+  test(`chart question at ${size.width}×${size.height}: plot is at least ${MIN_PLOT}px tall, labels apart, Lock in view`, async ({ page }) => {
+    await page.setViewportSize(size);
+    await openAt(page, CHART_DAY);
+    const plot = (await page.locator('.q-chart__plot').first().boundingBox())!;
+    expect(plot.height).toBeGreaterThanOrEqual(MIN_PLOT);
+    await expect(page.getByRole('button', { name: /Lock the window|Pull the brackets in first/ })).toBeInViewport({ ratio: 1 });
+    // The visible grips, not just their hit areas, start clear of the sticky bar (background included).
+    const bar = (await page.locator('.action-bar').boundingBox())!;
+    for (const grip of await page.locator('.bracket-grip').all()) {
+      const g = (await grip.boundingBox())!;
+      expect(g.y + g.height, 'grip clear of the Lock bar').toBeLessThanOrEqual(bar.y);
+    }
+    const boxes = await page.locator('.q-chart__value').evaluateAll((els) => els.map((e) => {
+      const range = document.createRange();
+      range.selectNodeContents(e);
+      const r = range.getBoundingClientRect();
+      return { left: r.left, right: r.right, text: e.textContent };
+    }));
+    for (let i = 1; i < boxes.length; i++) expect(boxes[i]!.left, `${boxes[i - 1]!.text} / ${boxes[i]!.text}`).toBeGreaterThan(boxes[i - 1]!.right + 2);
+    expect(await page.evaluate(() => window.scrollY)).toBe(0);
+  });
+}

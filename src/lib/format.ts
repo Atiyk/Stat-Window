@@ -5,6 +5,16 @@ export function formatValue(value: number, step: number): string {
   return value.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
 }
 
+/**
+ * A verified observation (a chart bar): at least the step's precision, never fewer digits than
+ * the fact itself has, so 8.3 on a whole-number scale reads 8.3, not 8.
+ */
+export function formatObserved(value: number, step: number): string {
+  const own = Number.isInteger(value) ? 0 : stepDecimals(value);
+  const d = Math.max(stepDecimals(step), Math.min(own, 3));
+  return value.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+}
+
 /** “1 point”, “2 points”: a count with its noun in the right number. */
 export const plural = (n: number, one: string, many = `${one}s`): string => `${n} ${n === 1 ? one : many}`;
 

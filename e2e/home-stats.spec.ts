@@ -179,7 +179,7 @@ test.describe('Weekly Scoreboard', () => {
   });
 
   test('a previous eligible week can be reviewed', async ({ page }) => {
-    // Official-season weeks (from the Nov 30 launch): beta weeks don't count once it has begun.
+    // Review the first full official week from the following week.
     await seed(page, at('2026-12-08'), week(['2026-12-01', '2026-12-03']));
     await page.goto('/?weekly');
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Dec 7 – Dec 13, 2026');
@@ -203,6 +203,10 @@ test.describe('Weekly Scoreboard', () => {
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Nov 30 – Dec 6, 2026');
     await expect(page.locator('.weekly__sub')).toContainText('3 weeks ago');
     await expect(page.locator('.weekly__stats')).toContainText('1 of 7');
+    await previous.click();
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Nov 23 – Nov 29, 2026');
+    await expect(page.locator('.weekly__sub')).toContainText('4 weeks ago');
+    await expect(page.locator('.weekly__stats')).toContainText('0 of 2');
     await expect(previous).toHaveAttribute('aria-disabled', 'true');
   });
 

@@ -1,6 +1,6 @@
 # NBA data rights register
 
-The machine-readable register is `data/nba/sources.json`. `validateNba` (`scripts/nba/model.ts`) accepts a fact only when its source host belongs to an entry with `reviewStatus: "approved"`. It also has its own hard-coded `BANNED_HOSTS` list, checked first, that still names basketball-reference.com and sports-reference.com (see the open items). This page explains the decisions.
+The machine-readable register is `data/nba/sources.json`. `validateNba` (`scripts/nba/model.ts`) accepts a fact only when its source host belongs to an entry with `reviewStatus: "approved"`. It also has its own hard-coded `BANNED_HOSTS` list, checked first, for rejected sources (NBA.com, GitHub and Kaggle mirrors); Basketball-Reference is not on it. This page explains the decisions.
 
 | Source | Status | Why |
 |---|---|---|
@@ -29,10 +29,7 @@ Exact excerpts and the URLs they were read from (2026-11-16) are in `sources.jso
 ## Open items
 Wikipedia's reuse guideline and the Wikimedia Terms of Use could not be fetched from the build environment on 2026-11-16 (the network policy blocks the Wikimedia policy pages). The register and credits page take a conservative approach to CC BY-SA 4.0, while questions and facts are written independently. A person should read [Reusing Wikipedia content](https://en.wikipedia.org/wiki/Wikipedia:Reusing_Wikipedia_content) once and confirm the attribution format is acceptable.
 
-The Basketball-Reference approval is recorded in `sources.json`, but the code has not caught up. Until a reviewed code change lands, a fact citing a Basketball-Reference URL still fails:
-- `BANNED_HOSTS` in `scripts/nba/model.ts`, plus two tests in `scripts/nba/nba.test.ts` that assume it: the gate case "a non-Wikipedia source" and the check that every generated slate cites en.wikipedia.org;
-- the factory policy `data/question-factory/policies/nba.json`, whose `approvedHosts` lists only `en.wikipedia.org`;
-- `public/credits.html` has no Basketball-Reference section yet; add one with the first fact that cites it.
+The Basketball-Reference approval is now enforced in code: `validateNba` and the factory policy `data/question-factory/policies/nba.json` accept its hosts for facts and fun facts, while NBA.com and scraped mirrors stay banned (tests in `scripts/nba/nba.test.ts`). Still open: `public/credits.html` has no Basketball-Reference section yet; add one with the first fact that cites it.
 
 Every fact in the database today cites Wikipedia.
 

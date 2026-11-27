@@ -1,9 +1,13 @@
 {
   "sport": "NBA",
   "approvedHosts": [
-    "en.wikipedia.org"
+    "en.wikipedia.org",
+    "www.basketball-reference.com",
+    "basketball-reference.com",
+    "www.sports-reference.com",
+    "sports-reference.com"
   ],
   "reviewedBy": "Existing Stat Window rights register",
-  "reviewedOn": "2026-11-16",
-  "rationale": "Use only Wikipedia CC BY-SA 4.0 material under the documented terms and attribution review. Full evidence and source policy in docs/NBA_DATA_RIGHTS.md. No Basketball-Reference or NBA.com bulk dataset ingestion. Review the underlying Wikipedia usage and attribution before release."
+  "reviewedOn": "2026-11-27",
+  "rationale": "Wikipedia CC BY-SA 4.0 material under the documented terms and attribution review, and (owner approval, 2026-11-26) single Basketball-Reference / Sports Reference facts that a person reads by hand, restated in our own words with a link and credit. Agents research on Wikipedia only; no automated access to Basketball-Reference, and no Basketball-Reference or NBA.com bulk dataset ingestion. Full evidence and source policy in docs/NBA_DATA_RIGHTS.md."
 }

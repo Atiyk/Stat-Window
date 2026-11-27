@@ -202,7 +202,12 @@ export type Report = { errors: string[]; warnings: string[]; stats: Record<strin
 const AS_OF_WORDS = /\b(still|current|currently|remains|as of|to date|ever since)\b/i;
 /** Present-tense record claims in the question text itself. */
 const STANDING_CLAIM = /\b(holds|still|remains|currently|to date)\b|\bis the (?:\w+ )*?record\b/i;
-const BANNED_HOSTS = /(^|\.)(basketball-reference\.com|sports-reference\.com|nba\.com|kaggle\.com|githubusercontent\.com|github\.com)$/;
+/**
+ * Hosts the data-rights register rejects outright (docs/NBA_DATA_RIGHTS.md), checked before the
+ * approved list. Basketball-Reference / Sports Reference are not here: the owner approved them
+ * (data/nba/sources.json) for single facts a person reads by hand, so its approved entry decides.
+ */
+const BANNED_HOSTS = /(^|\.)(nba\.com|kaggle\.com|githubusercontent\.com|github\.com)$/;
 
 export function validateNba(data: NbaData): Report {
   const errors: string[] = [];

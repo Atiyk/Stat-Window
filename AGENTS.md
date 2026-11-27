@@ -10,7 +10,7 @@ Follow [docs/RELEASE-ORCHESTRATION.md](docs/RELEASE-ORCHESTRATION.md). One manag
 
 Every official NBA slate (from 2026-11-30) uses the three player formats, **recall, reference and missing-point, in a 2/2/1 mix**: two of one, two of another, one of the third, never a retired format (`difference`, `ratio`, `ranking`, `trajectory`), never the same format sequence as the day before or after, and the single format rotates. `validateNba` enforces it and the build fails without it. A reference must genuinely help the estimate (comparable, never within about 5% of the answer); a chart must tell one basketball story. The rule, its enforcement and the quality bar are in QUESTION-FACTORY.md under "Question formats and the 2/2/1 rule".
 
-Sources: research on Wikipedia. Basketball-Reference is approved only for single facts a person reads by hand; agents never fetch it, and the validator still blocks its URLs (docs/NBA_DATA_RIGHTS.md).
+Sources: research on Wikipedia. Basketball-Reference is approved only for single facts a person reads by hand; agents never fetch it. The validator accepts its URLs for such hand-read facts (docs/NBA_DATA_RIGHTS.md).
 
 Check the existing calendar, released historical questions, source-rights policies, content validator, ongoing PRs and Survival spoiler constraints first. Research multiple subjects efficiently; favor recognizable events, meaningful comparisons, surprising facts, estimable numbers, and good explanations. Prioritize enjoyment, not merely arbitrary difficulty. A candidate is never verified or published just because GPT wrote it.
 

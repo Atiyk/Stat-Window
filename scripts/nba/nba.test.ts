@@ -19,6 +19,7 @@ const firstOf = (d: NbaData): Fact => fact(d, d.calendar.days[0]!.questions[0]!)
 
 describe('NBA database: the real data', () => {
   const report = validateNba(real);
+  const approvedHosts = new Set(real.sources.filter((s) => s.reviewStatus === 'approved').flatMap((s) => s.hosts));
   it('passes every gate', () => {
     expect(report.errors).toEqual([]);
   });
@@ -34,7 +35,8 @@ describe('NBA database: the real data', () => {
       for (const q of parsed.questions) {
         expect(q.sport).toBe('NBA');
         expect(q.difficulty).toBeTruthy();
-        expect(new URL(q.source.url).host).toBe('en.wikipedia.org');
+        // Wikipedia or the owner-approved Basketball-Reference: an approved entry in the rights register.
+        expect(approvedHosts.has(new URL(q.source.url).host)).toBe(true);
       }
     }
   });
@@ -53,7 +55,9 @@ describe('NBA database: each gate catches what it should', () => {
     ['a gap in dates', (d) => { d.calendar.days[10]!.date = '2027-02-01'; }, /does not follow/],
     ['days out of order', (d) => { const [a, b] = [d.calendar.days[1]!, d.calendar.days[2]!]; [a.date, b.date] = [b.date, a.date]; [a.questions, b.questions] = [b.questions, a.questions]; d.calendar.days.reverse(); }, /^$/],
     ['an empty theme', (d) => { d.calendar.days[0]!.theme.title = ' '; }, /empty theme/],
-    ['a non-Wikipedia source', (d) => { firstOf(d).source.url = 'https://www.basketball-reference.com/x.html'; }, /excluded by the data-rights register/],
+    ['an NBA.com source', (d) => { firstOf(d).source.url = 'https://www.nba.com/stats/x'; }, /excluded by the data-rights register/],
+    ['a scraped GitHub mirror', (d) => { firstOf(d).source.url = 'https://raw.githubusercontent.com/x/nba/main/games.csv'; }, /excluded by the data-rights register/],
+    ['a Kaggle fun-fact source', (d) => { const f = d.facts.find((x) => x.question.funFacts)!; f.question.funFacts![0]!.source.url = 'https://www.kaggle.com/datasets/x'; }, /fun fact 1 uses an unapproved source/],
     ['an unregistered source', (d) => { firstOf(d).source.url = 'https://example.org/x'; }, /no approved entry/],
     ['a quote that does not show the number', (d) => { firstOf(d).source.quote = 'a famous night in Hershey'; }, /must contain the answer/],
     ['a missing unit', (d) => { firstOf(d).unit.plural = ''; }, /missing unit/],
@@ -96,6 +100,30 @@ describe('NBA database: each gate catches what it should', () => {
       }
     });
   }
+});
+
+describe('NBA database: Basketball-Reference is an approved source', () => {
+  const sourceErrors = (d: NbaData) => errorsOf(d).filter((e) => /source|data-rights/.test(e));
+  it('accepts a fact that cites a Basketball-Reference page', () => {
+    const d = clone();
+    const before = sourceErrors(d);
+    firstOf(d).source.url = 'https://www.basketball-reference.com/boxscores/196203020PHW.html';
+    expect(sourceErrors(d)).toEqual(before);
+  });
+  it('accepts a fun fact that cites Basketball-Reference or Sports Reference', () => {
+    const d = clone();
+    const before = sourceErrors(d);
+    const f = d.facts.find((x) => x.question.funFacts)!;
+    f.question.funFacts![0]!.source.url = 'https://basketball-reference.com/players/c/chambwi01.html';
+    f.question.funFacts![1]!.source.url = 'https://www.sports-reference.com/blog/x.html';
+    expect(sourceErrors(d)).toEqual(before);
+  });
+  it('still refuses it if the register withdraws the approval', () => {
+    const d = clone();
+    for (const s of d.sources) if (s.id === 'sports-reference') s.reviewStatus = 'rejected';
+    firstOf(d).source.url = 'https://www.basketball-reference.com/x.html';
+    expect(errorsOf(d).join('\n')).toMatch(/no approved entry/);
+  });
 });
 
 describe('Content versioning', () => {

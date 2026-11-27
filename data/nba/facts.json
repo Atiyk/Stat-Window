@@ -85,7 +85,7 @@
   "question": {
    "prompt": "The chart shows two other elite rebounding seasons. How many rebounds per game did Dennis Rodman average for the 72-win 1995–96 Bulls?",
    "context": "Chicago Bulls · 1995–96 regular season",
-   "reveal": "14.9 a night, while scoring just 5.5 points.",
+   "reveal": "His fifth rebounding title in a row, in his first season with Chicago.",
    "min": 6,
    "max": 20,
    "step": 0.1,
@@ -3319,7 +3319,7 @@
   "question": {
    "prompt": "Michael Jordan averaged 41.0 points in the 1993 Finals. How many did he score in Game 4 against Phoenix?",
    "context": "1993 NBA Finals · Game 4 · Chicago Stadium",
-   "reveal": "55 at Chicago Stadium, putting the Bulls one win from a third straight title.",
+   "reveal": "Fourteen above his Finals-record 41.0 average, and Chicago moved one win from the title.",
    "min": 30,
    "max": 75,
    "step": 1,
@@ -3341,19 +3341,19 @@
      }
     },
     {
-     "text": "The Suns traded Jeff Hornacek, Tim Perry and Andrew Lang to Philadelphia for Charles Barkley.",
+     "text": "Two games later, John Paxson's three with 3.9 seconds left put Chicago ahead 99–98.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
-      "quote": "acquiring Charles Barkley from the Philadelphia 76ers in exchange for Jeff Hornacek, Tim Perry, and Andrew Lang"
+      "quote": "Paxson then made a three pointer with 3.9 seconds left, giving the Bulls a 99–98 lead."
      }
     },
     {
-     "text": "Phoenix won Game 3 in triple overtime.",
+     "text": "Chicago became the first team since the 1960s Celtics to win three straight titles.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/1993_NBA_Finals",
-      "quote": "The Phoenix Suns won Game 3 in triple overtime"
+      "quote": "The Bulls became the first team since the Boston Celtics of the 1960s to win three consecutive championship titles"
      }
     }
    ],
@@ -9478,7 +9478,7 @@
      }
     },
     {
-     "text": "His number was eventually retired by the Pistons, and he entered the Hall of Fame that same year.",
+     "text": "The Pistons later retired his number.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/Dennis_Rodman",
@@ -10198,7 +10198,7 @@
   "question": {
    "prompt": "Ray Allen hit 8 of 11 threes in Game 2 of the 2010 Finals. In Game 3 he went 0-for-how-many from the field?",
    "context": "2010 NBA Finals · Game 3 · vs Lakers",
-   "reveal": "0 for 13, a near-record cold night two days after his record-setting shooting.",
+   "reveal": "A near-record cold night, two days after his record eight threes.",
    "min": 2,
    "max": 20,
    "step": 1,
@@ -10220,15 +10220,15 @@
      }
     },
     {
-     "text": "Singer Monica performed the national anthem before the first Finals game at Boston's arena that year.",
+     "text": "The Lakers won 91–84 to take a 2–1 series lead.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
-      "quote": "Prior to the starting lineups being announced, singer Monica performed the national anthem"
+      "quote": "the Lakers edged the Celtics with a 91–84 victory to take a 2–1 lead in the series."
      }
     },
     {
-     "text": "Kevin Garnett hit Boston's opening baskets, but Los Angeles put together a strong first-half response.",
+     "text": "Kevin Garnett scored the game's first six points.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2010_NBA_Finals",
@@ -11277,7 +11277,7 @@
      }
     },
     {
-     "text": "Andrew Wiggins helped win the rebounding battle with a career-best Finals night on the glass.",
+     "text": "Andrew Wiggins set a career high in rebounds that night.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
@@ -11464,7 +11464,7 @@
    },
    "funFacts": [
     {
-     "text": "Tatum's first Finals game was a passing showcase despite a poor shooting night against Golden State.",
+     "text": "His Finals debut brought a career high in assists, the most ever by a player in his first Finals game.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
@@ -11472,7 +11472,7 @@
      }
     },
     {
-     "text": "Boston erased a shaky regular-season start to reach its first NBA Finals in over a decade.",
+     "text": "Boston was only 16–19, in 10th place, at one point that season.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2022_NBA_Finals",
@@ -13372,7 +13372,7 @@
   "question": {
    "prompt": "Jerry West forced overtime in Game 3 of the 1970 Finals with a buzzer-beater from how many feet?",
    "context": "1970 NBA Finals · Game 3 · at New York",
-   "reveal": "60 feet, tying it at 102.",
+   "reveal": "It tied the game at 102 and forced overtime, but counted for only two points.",
    "min": 0,
    "max": 94,
    "step": 1,
@@ -13386,7 +13386,7 @@
    },
    "funFacts": [
     {
-     "text": "West's miracle shot counted for only two because the NBA had not yet adopted the three-point line.",
+     "text": "Only the rival ABA used a three-point line in 1970.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/1970_NBA_Finals",
@@ -14456,7 +14456,7 @@
    },
    "funFacts": [
     {
-     "text": "That night was never televised; the surviving recording is a radio call from the final quarter.",
+     "text": "The game was not televised, and no video footage of it has been recovered.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game",
@@ -18665,7 +18665,7 @@
   "question": {
    "prompt": "Joakim Noah averaged 10.4 rebounds per game in 2010–11. How many did Dwight Howard average for the 2008–09 Magic?",
    "context": "Orlando Magic · regular season",
-   "reveal": "13.8, plus 231 blocks, in the season he won Defensive Player of the Year.",
+   "reveal": "13.8, in the season he won Defensive Player of the Year.",
    "min": 4,
    "max": 30,
    "step": 0.1,
@@ -18687,7 +18687,7 @@
      }
     },
     {
-     "text": "Howard won Defensive Player of the Year and made the All-NBA First Team.",
+     "text": "He also made the All-NBA First Team that season.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2008%E2%80%9309_Orlando_Magic_season",
@@ -24794,9 +24794,9 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Compare other guards' 50-point regular-season nights. How many points did Steph Curry score at Madison Square Garden in February 2013?",
+   "prompt": "Other guards' 50-point regular-season nights are charted. How many points did Steph Curry score at Madison Square Garden in February 2013?",
    "context": "Stephen Curry · Warriors at Knicks · February 2013",
-   "reveal": "54 with 11 threes, a Warriors record, yet New York won 109–105.",
+   "reveal": "Not enough: the Knicks won anyway, 109–105.",
    "min": 5,
    "max": 75,
    "step": 1,
@@ -24810,7 +24810,7 @@
    },
    "funFacts": [
     {
-     "text": "Steph hit 11 three-pointers against New York.",
+     "text": "He made a franchise-record eleven three-pointers.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
@@ -24818,19 +24818,19 @@
      }
     },
     {
-     "text": "Curry shot 18-for-28 overall.",
+     "text": "The game is cited as Curry's breakthrough performance.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
-      "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
-      "quote": "He shot 18 for 28 from the field"
+      "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
+      "quote": "The game is cited as the \"breakthrough\" performance and one of the most notable games in Curry's career."
      }
     },
     {
-     "text": "New York won despite Curry's scoring display.",
+     "text": "That season he set the single-season record with 272 threes, passing Ray Allen.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
-      "url": "https://en.wikipedia.org/wiki/2012%E2%80%9313_NBA_season",
-      "quote": "his Warriors lost to the Knicks, 109–105"
+      "url": "https://en.wikipedia.org/wiki/Stephen_Curry",
+      "quote": "He set a new NBA single-season three-point record with 272 three-pointers, eclipsing the previous mark set by Ray Allen"
      }
     }
    ],
@@ -24949,7 +24949,7 @@
   "question": {
    "prompt": "The chart shows other playoff explosions of 2023 and 2024. How many points did Anthony Edwards score in Game 1 at Denver in 2024?",
    "context": "Wolves at Nuggets · 2024 West semifinals · Game 1",
-   "reveal": "43 on 17-of-29 shooting, a Wolves playoff record, as Minnesota stunned the champions.",
+   "reveal": "A Wolves playoff record, set on the defending champions' floor.",
    "min": 15,
    "max": 100,
    "step": 1,
@@ -24971,7 +24971,7 @@
      }
     },
     {
-     "text": "The Wolves seized the opening game on Denver's floor.",
+     "text": "The win gave Minnesota a 1–0 series lead.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
@@ -24979,7 +24979,7 @@
      }
     },
     {
-     "text": "Naz Reid helped Minnesota take over late.",
+     "text": "Minnesota pulled away with an 18–7 run.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2024_NBA_playoffs",
@@ -25033,7 +25033,7 @@
   "question": {
    "prompt": "Other guards' signature nights are charted. How many did Russell Westbrook score in his record-setting 2017 buzzer-beater win at Denver?",
    "context": "Russell Westbrook · Thunder at Nuggets · 2017",
-   "reveal": "50, plus a 36-foot buzzer-beater, on the night he set the season triple-double record.",
+   "reveal": "OKC trailed by 14; he scored 18 of the 50 down the stretch and won it at the buzzer.",
    "min": 10,
    "max": 115,
    "step": 1,
@@ -25047,27 +25047,27 @@
    },
    "funFacts": [
     {
-     "text": "He broke Oscar Robertson's single-season triple-double mark.",
+     "text": "That night's triple-double broke Oscar Robertson's record for one season.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/Russell_Westbrook",
-      "quote": "breaking Robertson's record"
+      "quote": "breaking Robertson's record of most triple-doubles in a season"
      }
     },
     {
-     "text": "Westbrook hit an unusually deep winning shot.",
+     "text": "That June he was named the NBA's Most Valuable Player.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/Russell_Westbrook",
-      "quote": "36-foot game-winning buzzer-beater"
+      "quote": "On June 26, 2017, Westbrook was named the recipient of the NBA Most Valuable Player Award."
      }
     },
     {
-     "text": "The Thunder won by a single point in Denver.",
+     "text": "The Thunder won 106–105 in Denver.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/Russell_Westbrook",
-      "quote": "106–105 road victory"
+      "quote": "came in a 106–105 road victory against the Denver Nuggets on April 9 in which the team overcame a 14-point deficit"
      }
     }
    ],
@@ -25765,7 +25765,7 @@
   "question": {
    "prompt": "Luka Dončić, traded for Trae Young on draft night, scored 43 in a 2020 playoff game. How many did Trae score in 2021 East finals Game 1?",
    "context": "Trae Young · Hawks at Bucks · conference finals debut",
-   "reveal": "With 11 assists, as Atlanta rallied in the second half to win 116–113.",
+   "reveal": "His conference finals debut, and Atlanta came back after halftime to steal Game 1 in Milwaukee.",
    "min": 10,
    "max": 120,
    "step": 1,
@@ -25779,27 +25779,27 @@
    },
    "funFacts": [
     {
-     "text": "Atlanta rallied after halftime to pull off the road win.",
+     "text": "Five offensive rebounds in the final two minutes helped the Hawks close it out.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
-      "quote": "Hawks rallied in the 2nd half"
+      "quote": "the Hawks rallied in the 2nd half to beat the Bucks in game 1 in Milwaukee, aided by 5 offensive rebounds in the final 2 minutes"
      }
     },
     {
-     "text": "The Hawks escaped with a close victory.",
+     "text": "Later in the series, Young bruised his foot when he rolled his ankle on a referee's foot.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
-      "quote": "Atlanta Hawks 116, Milwaukee Bucks 113"
+      "quote": "Trae Young suffered a bruised foot when he rolled his ankle over a referee's foot"
      }
     },
     {
-     "text": "Young dished 11 assists as well.",
+     "text": "Back for Game 6 with Atlanta facing elimination, he was still struggling with the foot.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
-      "quote": "Asts: Trae Young 11"
+      "quote": "Facing elimination, the Hawks got Trae Young back to start game 6, but he still struggled with his injured foot"
      }
     }
    ],
@@ -29198,7 +29198,7 @@
    },
    "funFacts": [
     {
-     "text": "At the other extreme, San Antonio shot 70.7% from the field against Dallas in April 1983.",
+     "text": "San Antonio's record night came on 53 of 75 shots against Dallas.",
      "source": {
       "name": "Wikipedia contributors (CC BY-SA 4.0)",
       "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
@@ -30729,7 +30729,7 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Compare other famous three-point nights. How many threes did Klay Thompson make against Chicago in October 2018?",
+   "prompt": "Other famous three-point nights are charted. How many threes did Klay Thompson make against Chicago in October 2018?",
    "context": "Warriors at Bulls · October 29, 2018 · 27 minutes played",
    "reveal": "14, breaking Curry's mark of 13, on his way to 52 points in just 27 minutes.",
    "min": 0,

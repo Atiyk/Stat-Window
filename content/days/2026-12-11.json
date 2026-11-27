@@ -178,7 +178,7 @@
       "difficulty": "hard",
       "funFacts": [
         {
-          "text": "At the other extreme, San Antonio shot 70.7% from the field against Dallas in April 1983.",
+          "text": "San Antonio's record night came on 53 of 75 shots against Dallas.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/List_of_NBA_regular_season_records",
@@ -217,7 +217,7 @@
     {
       "id": "nba-klay18-14-threes-v52a",
       "sport": "NBA",
-      "prompt": "Compare other famous three-point nights. How many threes did Klay Thompson make against Chicago in October 2018?",
+      "prompt": "Other famous three-point nights are charted. How many threes did Klay Thompson make against Chicago in October 2018?",
       "context": "Warriors at Bulls · October 29, 2018 · 27 minutes played",
       "answer": 14,
       "unit": {
@@ -309,7 +309,7 @@
       "min": 10,
       "max": 120,
       "step": 1,
-      "note": "With 11 assists, as Atlanta rallied in the second half to win 116–113.",
+      "note": "His conference finals debut, and Atlanta came back after halftime to steal Game 1 in Milwaukee.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
@@ -322,27 +322,27 @@
       "difficulty": "expert",
       "funFacts": [
         {
-          "text": "Atlanta rallied after halftime to pull off the road win.",
+          "text": "Five offensive rebounds in the final two minutes helped the Hawks close it out.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
-            "quote": "Hawks rallied in the 2nd half"
+            "quote": "the Hawks rallied in the 2nd half to beat the Bucks in game 1 in Milwaukee, aided by 5 offensive rebounds in the final 2 minutes"
           }
         },
         {
-          "text": "The Hawks escaped with a close victory.",
+          "text": "Later in the series, Young bruised his foot when he rolled his ankle on a referee's foot.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
-            "quote": "Atlanta Hawks 116, Milwaukee Bucks 113"
+            "quote": "Trae Young suffered a bruised foot when he rolled his ankle over a referee's foot"
           }
         },
         {
-          "text": "Young dished 11 assists as well.",
+          "text": "Back for Game 6 with Atlanta facing elimination, he was still struggling with the foot.",
           "source": {
             "name": "Wikipedia contributors (CC BY-SA 4.0)",
             "url": "https://en.wikipedia.org/wiki/2021_NBA_playoffs",
-            "quote": "Asts: Trae Young 11"
+            "quote": "Facing elimination, the Hawks got Trae Young back to start game 6, but he still struggled with his injured foot"
           }
         }
       ],

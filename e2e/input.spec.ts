@@ -110,10 +110,16 @@ test('six-digit scales fit at 320px with 200% text and keep exact editable value
   await expect(page.locator('.question')).toContainText('All-Star Game');
   await page.addStyleTag({ content: 'html { font-size: 200% }' });
   await page.evaluate(() => document.fonts.ready);
-  const highReadout = page.getByRole('button', { name: /^High end: \d{1,3},\d{3}/ });
+  // Push the high bracket to the scale maximum so the readout really has six digits.
+  await highBracket(page).focus();
+  await page.keyboard.press('End');
+  await expect(highBracket(page)).toHaveAttribute('aria-valuenow', '150000');
+  const highReadout = page.getByRole('button', { name: /^High end: \d{3},\d{3}/ });
   await expect(highReadout).toBeVisible();
-  const highValue = (await highReadout.getAttribute('aria-label') ?? (await highReadout.innerText())).match(/\d{1,3}(,\d{3})+/)![0].replace(/,/g, '');
-  expect(Number(highValue)).toBeGreaterThanOrEqual(10000);
+  await expect(highReadout).toContainText('150,000');
+  const highValue = (await highReadout.getAttribute('aria-label') ?? (await highReadout.innerText())).match(/\d{3},\d{3}/)![0].replace(/,/g, '');
+  expect(highValue).toBe('150000');
+  expect(Number(highValue)).toBeGreaterThanOrEqual(100000);
   const labels = await page.locator('.tick-label').evaluateAll((elements) =>
     elements.map((element) => {
       const { left, right } = element.getBoundingClientRect();

@@ -5151,7 +5151,7 @@
   "question": {
    "prompt": "How many three-pointers did Shane Battier make in Game 7 of the 2013 Finals?",
    "context": "2013 NBA Finals · Game 7 · vs San Antonio",
-   "reveal": "Six, for 18 points.",
+   "reveal": "Battier hit six threes for 18 points in the clincher. Miami needed his shooting on a night when Bosh and Allen went scoreless.",
    "min": 0,
    "max": 10,
    "step": 1,
@@ -6061,14 +6061,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Shaquille O'Neal averaged how many points in the 2000 Finals?",
+   "prompt": "Jaylen Brown averaged 20.8 points in his Finals MVP series. What did Shaq average in his 2000 Finals MVP series?",
    "context": "2000 NBA Finals · six games vs Indiana",
-   "reveal": "38.0, plus 16.7 rebounds a game.",
+   "reveal": "Shaq averaged 38.0 points and 16.7 boards against Indiana. It was the first of his three straight Finals MVPs.",
    "min": 26,
    "max": 54,
    "step": 0.1,
    "difficulty": "medium",
-   "difficultyReason": "A dominant big's average is high but estimable.",
+   "difficultyReason": "Comparing two Finals MVP series gives a baseline for estimating how dominant Shaq was in the paint.",
    "ratings": {
     "interest": 4,
     "recognizability": 3,
@@ -6100,7 +6100,13 @@
       "quote": "to win their first NBA championship since 1988 and their twelfth overall"
      }
     }
-   ]
+   ],
+   "format": {
+    "kind": "reference",
+    "references": [
+     "nba-brown24-finals-ppg"
+    ]
+   }
   }
  },
  {
@@ -6886,14 +6892,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "On November 7, 2016, Stephen Curry set what was then the single-game record for threes. How many did he make?",
+   "prompt": "Coming off a rare game without a three, how many did Steph Curry make against New Orleans in November 2016?",
    "context": "Golden State Warriors · 2016–17 regular season",
-   "reveal": "13, then the single-game record.",
+   "reveal": "Curry went from zero made threes against the Lakers to a then-record 13 against New Orleans in his very next game.",
    "min": 6,
    "max": 24,
    "step": 1,
    "difficulty": "easy",
-   "difficultyReason": "A widely reported record for the sport's best shooter.",
+   "difficultyReason": "Two big shooting nights bracket the scale for an iconic Curry game. The before-and-after payoff is memorable.",
    "ratings": {
     "interest": 4,
     "recognizability": 4,
@@ -6925,7 +6931,28 @@
       "quote": "forming a new All-Star \"Fantastic Four\" of Kevin Durant, Stephen Curry, Klay Thompson and Draymond Green"
      }
     }
-   ]
+   ],
+   "format": {
+    "kind": "missing-point",
+    "chart": {
+     "title": "Three-pointers made in one game",
+     "unit": "threes",
+     "points": [
+      {
+       "label": "Kobe ’03",
+       "fact": "nba-kobe03-threes"
+      },
+      {
+       "label": "Curry ’16",
+       "fact": "nba-curry16-13-threes"
+      },
+      {
+       "label": "K. Smith ’95",
+       "fact": "nba-smith95-threes"
+      }
+     ]
+    }
+   }
   }
  },
  {
@@ -16153,14 +16180,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "John Stockton averaged 14.5 assists a game in 1989–90. What did Jamal Murray average in the 2023 Finals?",
+   "prompt": "Oscar Robertson averaged 8.2 assists a game in his title season. What did Jamal Murray average in the 2023 Finals?",
    "context": "Denver Nuggets · five-game 2023 championship series",
-   "reveal": "10.0 assists a night, complementing Jokić's scoring and passing.",
+   "reveal": "Murray averaged 10.0 assists beside Jokić. Denver’s biggest scoring threat in the backcourt was also setting the table.",
    "min": 4,
    "max": 17,
    "step": 0.1,
    "difficulty": "hard",
-   "difficultyReason": "Stockton's all-time season average anchors the assist scale; a Finals scorer averaging a full 10.0 still surprises.",
+   "difficultyReason": "Two championship lead guards playing with MVP centers. A double-digit Finals average surprises even with the scale anchored.",
    "ratings": {
     "interest": 4,
     "recognizability": 4,
@@ -16196,7 +16223,7 @@
    "format": {
     "kind": "reference",
     "references": [
-     "nba-stockton90-apg"
+     "nba-oscar71-apg"
     ]
    }
   }
@@ -17262,14 +17289,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "How many regular-season games did Derrick Rose's 2010–11 Bulls win?",
+   "prompt": "Rose’s MVP season put Chicago atop the East. How many regular-season games did the 2010–11 Bulls win?",
    "context": "Chicago Bulls · 2010–11 · full regular season",
-   "reveal": "62 wins, earning the top seed in the Eastern Conference.",
+   "reveal": "The Bulls won 62, the league’s best record. Rose led them to the East finals, where Miami’s new Big Three ended the run.",
    "min": 30,
    "max": 82,
    "step": 1,
    "difficulty": "easy",
-   "difficultyReason": "A celebrated MVP-led season; the rough win total is an approachable starter.",
+   "difficultyReason": "A recognizable MVP season with two comparable top-seed win totals gives casual fans a place to start.",
    "ratings": {
     "interest": 5,
     "recognizability": 5,
@@ -17301,7 +17328,28 @@
       "quote": "Derrick Rose won 2010-11 NBA MVP and led his team to the Best NBA Regular Season Record without any All-Star teammates."
      }
     }
-   ]
+   ],
+   "format": {
+    "kind": "missing-point",
+    "chart": {
+     "title": "Top seeds: regular-season wins",
+     "unit": "wins",
+     "points": [
+      {
+       "label": "Bulls ’11",
+       "fact": "nba-bulls11-regular-wins"
+      },
+      {
+       "label": "Mavericks ’07",
+       "fact": "nba-mavs07-wins"
+      },
+      {
+       "label": "Warriors ’75",
+       "fact": "nba-warriors75-season-wins"
+      }
+     ]
+    }
+   }
   }
  },
  {
@@ -23860,14 +23908,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "How many points did Jamal Murray and Donovan Mitchell score together in their extraordinary 2020 bubble playoff duel?",
+   "prompt": "Murray and Mitchell traded huge scoring nights in the 2020 bubble. How many points did they combine for in Game 4?",
    "context": "Nuggets vs Jazz · August 2020 playoffs",
-   "reveal": "101 combined: Murray had 50, Mitchell 51, an unprecedented playoff duel.",
+   "reveal": "Murray had 50 and Mitchell 51. No playoff game before that had a 50-point scorer on each side.",
    "min": 30,
    "max": 140,
    "step": 1,
    "difficulty": "expert",
-   "difficultyReason": "Two memorable young stars in an unprecedented bubble duel; their combined offensive outburst offers an informed scoring estimate.",
+   "difficultyReason": "Two famous scoring performances anchor a difficult combined total from the back-and-forth bubble series.",
    "ratings": {
     "interest": 5,
     "recognizability": 4,
@@ -23899,7 +23947,28 @@
       "quote": "shooting 9–12 from three"
      }
     }
-   ]
+   ],
+   "format": {
+    "kind": "missing-point",
+    "chart": {
+     "title": "Two-player playoff scoring totals",
+     "unit": "points",
+     "points": [
+      {
+       "label": "Bubble G1",
+       "fact": "nba-murray-mitchell20-game1-combined"
+      },
+      {
+       "label": "Bubble G4",
+       "fact": "nba-murray-mitchell20-game4-combined"
+      },
+      {
+       "label": "CLE ’16 G5",
+       "fact": "nba-lebron-kyrie16-g5-combined-82"
+      }
+     ]
+    }
+   }
   }
  },
  {
@@ -31206,6 +31275,54 @@
        "label": "Curry '21",
        "fact": "nba-curry21-blazers-62"
       }
+     ]
+    }
+   }
+  }
+ },
+ {
+  "id": "nba-murray-mitchell20-game1-combined",
+  "family": "points-combined",
+  "scope": "playoffs",
+  "season": "2019-20",
+  "eventDate": "2020-08-17",
+  "franchise": "DEN",
+  "player": null,
+  "answer": 93,
+  "unit": {
+   "singular": "point",
+   "plural": "points"
+  },
+  "claim": "Jamal Murray and Donovan Mitchell scored a combined 93 points in Game 1 of the 2020 Denver–Utah first round.",
+  "verifiedOn": "2026-11-27",
+  "source": {
+   "url": "https://en.wikipedia.org/wiki/2020_NBA_playoffs#(3)_Denver_Nuggets_vs._(6)_Utah_Jazz",
+   "quote": "Pts: Donovan Mitchell 57\nRebs: Bradley, Mitchell 9 each\nAsts: Donovan Mitchell 7 | Pts: Jamal Murray 36",
+   "derivation": "Mitchell 57 + Murray 36 = 93 points combined.",
+   "asOf": null
+  },
+  "question": {
+   "prompt": "In the opening game of Denver and Utah’s 2020 bubble series, what was the combined scoring total for Jamal Murray and Donovan Mitchell?",
+   "context": "Denver vs Utah · 2020 first round · Game 1",
+   "reveal": "Mitchell scored 57 and Murray added 36. Denver won the game in overtime.",
+   "min": 30,
+   "max": 140,
+   "step": 1,
+   "difficulty": "expert",
+   "difficultyReason": "A recognizable duel with more than one big night. The high-scoring Game 1 overtime helps fans estimate the two-player total.",
+   "ratings": {
+    "interest": 5,
+    "recognizability": 4,
+    "estimability": 4,
+    "surprise": 4
+   },
+   "format": {
+    "kind": "recall",
+    "derive": {
+     "op": "sum",
+     "values": [
+      57,
+      36
      ]
     }
    }

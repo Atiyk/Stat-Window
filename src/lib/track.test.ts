@@ -10,10 +10,9 @@ describe('eventPath', () => {
       [{ name: 'visit_return', gap: 3, age: 7 }, '/e/visit/return/gap-2-6/day7'],
       [{ name: 'visit_return', gap: 9, age: 30 }, '/e/visit/return/gap-7plus'],
       [{ name: 'run_start', mode: 'daily' }, '/e/start/daily'],
-      [{ name: 'first_touch', mode: 'challenge' }, '/e/first-touch/challenge'],
-      [{ name: 'round_lock', mode: 'daily', round: 3, hit: false }, '/e/lock/daily/r3/miss'],
-      [{ name: 'round_next', mode: 'practice', round: 5 }, '/e/next/practice/r5'],
-      [{ name: 'run_exit', mode: 'daily', round: 2 }, '/e/exit/daily/r2'],
+      [{ name: 'sample_start' }, '/e/sample/start/daily'],
+      [{ name: 'first_touch', sampleKey: 'local-only' }, '/e/sample/first-touch/daily'],
+      [{ name: 'round_lock', sampleKey: 'local-only', round: 3, hit: false }, '/e/sample/lock/daily/r3/miss'],
       [{ name: 'run_complete', mode: 'daily', total: 274 }, '/e/complete/daily/200-299'],
       [{ name: 'share', mode: 'daily', method: 'clipboard' }, '/e/share/daily/clipboard'],
       [{ name: 'challenge_open', kind: 'past', withScore: true }, '/e/challenge-open/past/with-score'],
@@ -111,17 +110,31 @@ describe('startAnalytics wiring (simulated window)', () => {
         pageview: ((p: unknown) => void calls.push(['pageview', p])) as never,
       };
       expect(startAnalytics({ enabled: true, nav: {} as Navigator, vercel })).toBe(true);
-      track({ name: 'round_lock', mode: 'daily', round: 1, hit: true });
+      track({ name: 'run_start', mode: 'daily' });
       const inj = calls[0]![1] as { disableAutoTrack: boolean; beforeSend: (e: { url: string }) => { url: string } };
       expect(inj.disableAutoTrack).toBe(true);
       expect(inj.beforeSend({ url: 'https://stat-window.vercel.app/?day=2026-11-16&vs=274' }).url).toBe('https://stat-window.vercel.app/');
       expect(calls.slice(1)).toEqual([
         ['pageview', { route: '/', path: '/' }],
-        ['pageview', { route: '/e/lock/daily/r1/hit', path: '/e/lock/daily/r1/hit' }],
+        ['pageview', { route: '/e/start/daily', path: '/e/start/daily' }],
       ]);
     } finally {
       setTrackSink(() => {});
       if (!had) delete g.window;
+    }
+  });
+
+  it('leaves the game free to mount if analytics initialization throws', () => {
+    vi.stubGlobal('window', {});
+    try {
+      const pageview = vi.fn();
+      const inject = vi.fn(() => { throw new Error('provider unavailable'); });
+      expect(startAnalytics({ enabled: true, nav: {} as Navigator, vercel: { inject, pageview } })).toBe(false);
+      track({ name: 'run_start', mode: 'daily' });
+      expect(pageview).not.toHaveBeenCalled();
+    } finally {
+      setTrackSink(() => {});
+      vi.unstubAllGlobals();
     }
   });
 });
@@ -157,7 +170,7 @@ describe('Phase 1 analytics controls', () => {
   });
 
   it('new events stay low-cardinality and carry no score, key or URL', () => {
-    expect(eventPath({ name: 'percentile', outcome: 'ready' })).toBe('/e/percentile/ready');
+    expect(eventPath({ name: 'failure', source: 'comparison' })).toBe('/e/failure/comparison');
     expect(eventPath({ name: 'privacy', choice: 'deleted' })).toBe('/e/privacy/deleted');
     expect(eventPath({ name: 'share', mode: 'daily', method: 'native-image' })).toBe('/e/share/daily/native-image');
   });
@@ -166,8 +179,11 @@ describe('Phase 1 analytics controls', () => {
     try {
       setCohort('s1');
       expect(eventPath({ name: 'run_start', mode: 'daily' })).toBe('/e/s1/start/daily');
+      expect(eventPath({ name: 'run_complete', mode: 'daily', total: 274, cohort: 'beta' })).toBe('/e/complete/daily/200-299');
+      expect(eventPath({ name: 'share', mode: 'daily', method: 'clipboard', cohort: 'qa' })).toBe('/e/qa/share/daily/clipboard');
       setCohort('qa');
       expect(eventPath({ name: 'run_start', mode: 'daily' })).toBe('/e/qa/start/daily');
+      expect(eventPath({ name: 'run_start', mode: 'daily', cohort: 'beta' })).toBe('/e/qa/start/daily');
     } finally {
       setCohort('beta');
     }

@@ -88,7 +88,7 @@ export function buildWeek(weekStart: string, today: string, season: SeasonId, co
     best,
     seasonDays,
     maxPossible: seasonDays * 5 * MAX_POINTS_PER_ROUND,
-    status: done.length === WEEK_DAYS ? 'complete' : today >= weekStart && today <= end ? 'current' : 'ended',
+    status: seasonDays > 0 && done.length === seasonDays ? 'complete' : today >= weekStart && today <= end ? 'current' : 'ended',
   };
 }
 

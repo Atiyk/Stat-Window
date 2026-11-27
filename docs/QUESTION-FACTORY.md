@@ -36,7 +36,7 @@ Players see three formats (`PLAYER_FORMATS` in `src/content/formats.ts`). The fo
 
 ### The 2/2/1 rule
 
-Every official slate (from `VARIETY_FROM`, 2026-11-30):
+Every official slate (from `VARIETY_FROM`):
 1. two questions of one format, two of another, one of the third: all three formats present;
 2. no retired format;
 3. a format sequence (format per slot) different from the previous and the next official day;

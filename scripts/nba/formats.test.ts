@@ -263,6 +263,9 @@ describe('V5 formats in the real calendar', () => {
 
 type AuditFile = { entries: { day: string; slot: number; id: string; verdict: string; format: string; note: string; replaced?: string }[] };
 const readAuditFile = (name: string) => JSON.parse(readFileSync(join(ROOT, 'data', 'nba', 'editorial', name), 'utf8')) as AuditFile;
+const v52AuditStart = '2026-11-30';
+const v53Audit = readAuditFile('v53-audit.json');
+const kind = (id: string) => real.facts.find((x) => x.id === id)!.question.format?.kind ?? 'recall';
 
 describe('V5 launch inventory audit', () => {
   const audit = readAuditFile('launch-audit.json');
@@ -272,35 +275,34 @@ describe('V5 launch inventory audit', () => {
     const slots = new Set(audit.entries.map((e) => `${e.day}#${e.slot}`));
     for (const d of launch) for (let i = 1; i <= 5; i++) expect(slots.has(`${d.date}#${i}`), `${d.date} Q${i}`).toBe(true);
   });
-  it('days before the V5.1 audit still hold the question V5.0 decided on', () => {
+  it('V5.3’s earlier launch keeps the two original V5.0 days’ question IDs and order', () => {
     const bySlot = new Map(audit.entries.map((e) => [`${e.day}#${e.slot}`, e]));
-    for (const d of launch.filter((x) => x.date < VARIETY_FROM)) d.questions.forEach((id, i) => {
+    for (const d of launch.filter((x) => x.date < v52AuditStart)) d.questions.forEach((id, i) => {
       const e = bySlot.get(`${d.date}#${i + 1}`);
       expect(e?.id, `${d.date} Q${i + 1}`).toBe(id);
       expect(e!.note.trim().length).toBeGreaterThan(5);
-      const f = real.facts.find((x) => x.id === id)!;
-      expect(e!.format).toBe(f.question.format?.kind ?? 'recall');
-      if (e!.verdict === 'retained') expect(f.question.format, `${id} is retained but carries a new format`).toBeUndefined();
     });
   });
 });
 
 describe('V5.1 official-season audit (frozen record)', () => {
   const audit = readAuditFile('v51-audit.json');
-  const official = real.calendar.days.filter((d) => d.date >= VARIETY_FROM);
-  it('still records one decision per official slot', () => {
+  const official = real.calendar.days.filter((d) => d.date >= v52AuditStart);
+  it('still records one decision per historical slot', () => {
     expect(audit.entries.length).toBe(official.length * 5);
     for (const e of audit.entries) expect(e.note.trim().length).toBeGreaterThan(5);
   });
 });
 
-describe('V5.2 official-season audit (taxonomy v2, every slot from VARIETY_FROM)', () => {
-  const audit = readAuditFile('v52-audit.json');
+describe('Official-season audits (V5.2 and V5.3)', () => {
+  const v52Audit = readAuditFile('v52-audit.json');
   const official = real.calendar.days.filter((d) => d.date >= VARIETY_FROM);
-  const kind = (id: string) => real.facts.find((x) => x.id === id)!.question.format?.kind ?? 'recall';
+  const entries = [...v53Audit.entries, ...v52Audit.entries];
   it('records exactly one editorial decision per official slot, naming the question now in it', () => {
-    const bySlot = new Map(audit.entries.map((e) => [`${e.day}#${e.slot}`, e]));
-    expect(audit.entries.length).toBe(official.length * 5);
+    const bySlot = new Map(entries.map((e) => [`${e.day}#${e.slot}`, e]));
+    expect(v52Audit.entries.every((e) => e.day >= v52AuditStart)).toBe(true);
+    expect(v53Audit.entries.every((e) => e.day < v52AuditStart)).toBe(true);
+    expect(entries.length).toBe(official.length * 5);
     for (const d of official) d.questions.forEach((id, i) => {
       const e = bySlot.get(`${d.date}#${i + 1}`);
       expect(e?.id, `${d.date} Q${i + 1}`).toBe(id);

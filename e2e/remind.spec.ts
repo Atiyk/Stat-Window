@@ -68,18 +68,12 @@ test.describe('New York', () => {
 
   test('tapping either link shows the toast and writes nothing to storage or cookies', async ({ page, context }) => {
     await stubCalendars(context);
+    await page.route('**/api/scores**', (route) => route.fulfill({ status: 409, json: { status: 'consent-required' } }));
     await openAt(page, NBA_FIRST);
     await playFive(page);
-    // Percentile submission is independently asynchronous: on slower iPhone
-    // WebKit it may finish after the results are visible. Settle that outcome
-    // BEFORE taking the baseline so a legitimate percentile receipt does not
-    // masquerade as a calendar link mutating browser storage.
-    await expect.poll(async () => page.evaluate((day) => {
-      try {
-        const seen = JSON.parse(localStorage.getItem('stat-window:sent') ?? '{}') as Record<string, string>;
-        return Object.keys(seen).some((key) => key.startsWith(`pct:${day}:`));
-      } catch { return false; }
-    }, NBA_DAYS[0]!), { timeout: 10_000 }).toBe(true);
+    // Wait for the score-consent probe and its privacy write to settle before
+    // taking the baseline. The reminder itself must leave storage unchanged.
+    await expect(page.getByRole('group', { name: 'See how today’s score compares?' })).toBeVisible();
     const before = await storageDump(page);
     await icsLink(page).click();
     await expect(page.locator('.toast')).toHaveText('Reminder file ready. If it downloaded, open it to add the event.');

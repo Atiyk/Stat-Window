@@ -3,11 +3,19 @@ import { createRoot } from 'react-dom/client';
 import '@fontsource-variable/dm-sans/wght.css';
 import './styles.css';
 import { App } from './App';
-import { startAnalytics } from './lib/track';
+import { puzzleDay } from './engine/daily';
+import { startAnalytics, trackOnce } from './lib/track';
 
 startAnalytics();
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById('root')!, {
+  onUncaughtError(error) {
+    const day = puzzleDay(new Date());
+    trackOnce(`game-failure:${day}`, day, { name: 'failure', source: 'game' });
+    if (typeof reportError === 'function') reportError(error);
+    else console.error(error);
+  },
+}).render(
   <StrictMode>
     <App />
   </StrictMode>,

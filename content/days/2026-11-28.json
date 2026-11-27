@@ -9,7 +9,7 @@
     {
       "id": "nba-curry16-13-threes",
       "sport": "NBA",
-      "prompt": "On November 7, 2016, Stephen Curry set what was then the single-game record for threes. How many did he make?",
+      "prompt": "Coming off a rare game without a three, how many did Steph Curry make against New Orleans in November 2016?",
       "context": "Golden State Warriors · 2016–17 regular season",
       "answer": 13,
       "unit": {
@@ -19,7 +19,7 @@
       "min": 6,
       "max": 24,
       "step": 1,
-      "note": "13, then the single-game record.",
+      "note": "Curry went from zero made threes against the Lakers to a then-record 13 against New Orleans in his very next game.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2016%E2%80%9317_Golden_State_Warriors_season",
@@ -56,21 +56,42 @@
           }
         }
       ],
+      "chart": {
+        "title": "Three-pointers made in one game",
+        "unit": "threes",
+        "points": [
+          {
+            "label": "Kobe ’03",
+            "value": 12
+          },
+          {
+            "label": "Curry ’16",
+            "value": null
+          },
+          {
+            "label": "K. Smith ’95",
+            "value": 7
+          }
+        ]
+      },
       "meta": {
-        "format": "recall",
+        "format": "missing-point",
         "family": "threes-game",
-        "era": "2010s",
+        "era": "cross-era",
         "subjects": [
           "Stephen Curry",
           "Golden State Warriors"
         ],
-        "supports": []
+        "supports": [
+          "nba-kobe03-threes",
+          "nba-smith95-threes"
+        ]
       }
     },
     {
       "id": "nba-shaq00-finals-ppg",
       "sport": "NBA",
-      "prompt": "Shaquille O'Neal averaged how many points in the 2000 Finals?",
+      "prompt": "Jaylen Brown averaged 20.8 points in his Finals MVP series. What did Shaq average in his 2000 Finals MVP series?",
       "context": "2000 NBA Finals · six games vs Indiana",
       "answer": 38,
       "unit": {
@@ -80,7 +101,7 @@
       "min": 26,
       "max": 54,
       "step": 0.1,
-      "note": "38.0, plus 16.7 rebounds a game.",
+      "note": "Shaq averaged 38.0 points and 16.7 boards against Indiana. It was the first of his three straight Finals MVPs.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2000_NBA_Finals",
@@ -118,20 +139,22 @@
         }
       ],
       "meta": {
-        "format": "recall",
+        "format": "reference",
         "family": "scoring-average",
-        "era": "1990s",
+        "era": "cross-era",
         "subjects": [
           "Shaquille O'Neal",
           "Los Angeles Lakers"
         ],
-        "supports": []
+        "supports": [
+          "nba-brown24-finals-ppg"
+        ]
       }
     },
     {
       "id": "nba-murray23-finals-apg",
       "sport": "NBA",
-      "prompt": "John Stockton averaged 14.5 assists a game in 1989–90. What did Jamal Murray average in the 2023 Finals?",
+      "prompt": "Oscar Robertson averaged 8.2 assists a game in his title season. What did Jamal Murray average in the 2023 Finals?",
       "context": "Denver Nuggets · five-game 2023 championship series",
       "answer": 10,
       "unit": {
@@ -141,7 +164,7 @@
       "min": 4,
       "max": 17,
       "step": 0.1,
-      "note": "10.0 assists a night, complementing Jokić's scoring and passing.",
+      "note": "Murray averaged 10.0 assists beside Jokić. Denver’s biggest scoring threat in the backcourt was also setting the table.",
       "source": {
         "name": "Wikipedia contributors (CC BY-SA 4.0)",
         "url": "https://en.wikipedia.org/wiki/2023_NBA_Finals",
@@ -187,7 +210,7 @@
           "Denver Nuggets"
         ],
         "supports": [
-          "nba-stockton90-apg"
+          "nba-oscar71-apg"
         ]
       }
     },

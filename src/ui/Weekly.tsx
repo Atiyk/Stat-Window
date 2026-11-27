@@ -153,7 +153,7 @@ function WeekBody({ week, unavailable }: { week: Week; unavailable: number }) {
           : week.completed === 1 && week.status === 'current'
             ? 'Your first game of the week is in. Each daily five you finish adds to the total.'
             : launchWeek
-              ? `Launch week: the season began midweek, so ${week.seasonDays} ${week.seasonDays === 1 ? 'day counts' : 'days count'} here.`
+              ? `Launch week: ${week.seasonDays} ${week.seasonDays === 1 ? 'day counts' : 'days count'} toward this scorecard.`
               : 'Seven daily games, up to 3,500 points.'}
         {' '}Days you didn’t play stay empty and are never scored as zero.
         {unavailable > 0 && ` ${unavailable} saved ${unavailable === 1 ? 'game' : 'games'} couldn’t be verified and ${unavailable === 1 ? 'isn’t' : 'aren’t'} counted.`}

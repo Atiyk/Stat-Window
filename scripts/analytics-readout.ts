@@ -13,6 +13,7 @@
 import { readFileSync } from 'node:fs';
 
 export type Counts = Map<string, number>;
+export type Cohort = 'beta' | 's1' | 'qa';
 
 export function parseCounts(text: string): Counts {
   const counts: Counts = new Map();
@@ -34,7 +35,14 @@ export function sum(counts: Counts, ...prefixes: string[]): number {
 
 export type Row = { metric: string; numerator: number; denominator: number; rate: string; equation: string };
 
-export function readout(counts: Counts, min = 30): Row[] {
+function forCohort(counts: Counts, cohort: Cohort): Counts {
+  const prefix = `/e/${cohort}/`;
+  if (cohort === 'beta') return new Map([...counts].filter(([path]) => !/^\/e\/(s1|qa)\//.test(path)));
+  return new Map([...counts].filter(([path]) => path.startsWith(prefix)).map(([path, n]) => [`/e/${path.slice(prefix.length)}`, n]));
+}
+
+export function readout(raw: Counts, min = 30, cohort: Cohort = 'beta'): Row[] {
+  const counts = forCohort(raw, cohort);
   const rate = (num: number, den: number) =>
     den < min ? `not enough data (${den} < ${min})` : `${((num / den) * 100).toFixed(1)}%`;
   const row = (metric: string, equation: string, num: number, den: number): Row => ({
@@ -46,6 +54,19 @@ export function readout(counts: Counts, min = 30): Row[] {
   });
   const rows: Row[] = [];
   for (const mode of ['daily', 'practice', 'challenge'] as const) {
+    rows.push(row(`${mode}: finishes per start`, `complete/${mode}/* ÷ start/${mode}`, sum(counts, `/e/complete/${mode}`), sum(counts, `/e/start/${mode}`)));
+  }
+  const sampled = cohort !== 'beta' || sum(counts, '/e/sample') > 0;
+  if (sampled) {
+    const path = '/e/sample';
+    const r1 = sum(counts, `${path}/lock/daily/r1`);
+    const starts = sum(counts, `${path}/start/daily`);
+    rows.push(row('sampled daily: first touch per start', 'sample/first-touch/daily ÷ sample/start/daily', sum(counts, `${path}/first-touch/daily`), starts));
+    rows.push(row('sampled daily: round 1 locked per start', 'sample/lock/daily/r1/* ÷ sample/start/daily', r1, starts));
+    for (let r = 2; r <= 5; r++) {
+      rows.push(row(`sampled daily: round ${r} lock per round ${r - 1} lock`, `sample/lock/daily/r${r}/* ÷ sample/lock/daily/r${r - 1}/*`, sum(counts, `${path}/lock/daily/r${r}`), sum(counts, `${path}/lock/daily/r${r - 1}`)));
+    }
+  } else for (const mode of ['daily', 'practice', 'challenge'] as const) {
     const start = sum(counts, `/e/start/${mode}`);
     const r1 = sum(counts, `/e/lock/${mode}/r1`);
     rows.push(row(`${mode}: first touch per start`, `first-touch/${mode} ÷ start/${mode}`, sum(counts, `/e/first-touch/${mode}`), start));
@@ -58,12 +79,15 @@ export function readout(counts: Counts, min = 30): Row[] {
     }
   }
   const completes = sum(counts, '/e/complete/daily');
-  const shares = sum(counts, '/e/share/daily/native', '/e/share/daily/clipboard');
-  rows.push(row('daily: share attempts per finished game', 'share/daily/{native,clipboard} ÷ complete/daily/*', shares, completes));
+  const shares = sum(counts, '/e/share/daily');
+  const shareActions = sum(counts, '/e/share/daily/native', '/e/share/daily/clipboard', '/e/share/daily/native-image', '/e/share/daily/image-saved');
+  rows.push(row('daily: recorded share attempts per finished game', 'share/daily/* ÷ complete/daily/*', shares, completes));
+  rows.push(row('daily: successful local actions per recorded share attempt', 'share/daily/{native,clipboard,native-image,image-saved} ÷ share/daily/*', shareActions, shares));
   const allShares = sum(counts, '/e/share/daily/native', '/e/share/daily/clipboard', '/e/share/practice/native', '/e/share/practice/clipboard', '/e/share/challenge/native', '/e/share/challenge/clipboard');
-  rows.push(row('challenge starts per share attempt', 'start/challenge ÷ share/*/{native,clipboard}', sum(counts, '/e/start/challenge'), allShares));
+  rows.push(row('challenge starts per copied or handed-off link', 'start/challenge ÷ share/*/{native,clipboard}', sum(counts, '/e/start/challenge'), allShares));
   const opens = sum(counts, '/e/challenge-open/today', '/e/challenge-open/past');
   rows.push(row('challenge links that opened a playable day', 'challenge-open/{today,past}/* ÷ challenge-open/*', opens, sum(counts, '/e/challenge-open')));
+  rows.push(row('referred finishes per playable challenge arrival', 'complete/challenge/* ÷ challenge-open/{today,past}/*', sum(counts, '/e/complete/challenge'), opens));
   const fresh = sum(counts, '/e/visit/new');
   let day1 = 0;
   let day7 = 0;
@@ -115,18 +139,25 @@ export function diffInterval(aNum: number, aDen: number, bNum: number, bDen: num
 if (process.argv[1]?.endsWith('analytics-readout.ts')) {
   const file = process.argv[2];
   if (!file) {
-    console.error('usage: analytics-readout.ts <pages.csv> [--min 30]');
+    console.error('usage: analytics-readout.ts <pages.csv> [--cohort beta|s1|qa] [--min 30]');
     process.exit(2);
   }
   const i = process.argv.indexOf('--min');
   const min = i > -1 ? Number(process.argv[i + 1]) : 30;
-  const counts = parseCounts(readFileSync(file, 'utf8'));
+  const j = process.argv.indexOf('--cohort');
+  const cohort = j > -1 ? process.argv[j + 1] : 'beta';
+  if (cohort !== 'beta' && cohort !== 's1' && cohort !== 'qa') {
+    console.error('--cohort must be beta, s1 or qa');
+    process.exit(2);
+  }
+  const parsed = parseCounts(readFileSync(file, 'utf8'));
+  const counts = forCohort(parsed, cohort);
   if (counts.size === 0) {
     console.log('No /e/… paths found: analytics is off, or no events have arrived yet. Not enough data.');
     process.exit(0);
   }
   console.log('| Metric | Count | Of | Rate | Equation |\n|---|---|---|---|---|');
-  for (const r of readout(counts, min)) console.log(`| ${r.metric} | ${r.numerator} | ${r.denominator} | ${r.rate} | ${r.equation} |`);
+  for (const r of readout(parsed, min, cohort)) console.log(`| ${r.metric} | ${r.numerator} | ${r.denominator} | ${r.rate} | ${r.equation} |`);
   const x = (arm: string, step: string) => sum(counts, `/e/x/survival-cta/${arm}/${step}`);
   const enoughBrowsers = x('cta', 'first-exposure') >= 200 && x('control', 'first-exposure') >= 200;
   const ci = enoughBrowsers ? diffInterval(x('cta', 'next-day-start'), x('cta', 'exposed'), x('control', 'next-day-start'), x('control', 'exposed')) : null;

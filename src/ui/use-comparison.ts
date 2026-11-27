@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import type { RoundRecord } from '../engine/game';
 import { browserSignal, loadPrivacy, savePrivacy, scoreIntent } from '../lib/privacy';
 import { isQa, refreshComparison, submitDaily, type Comparison } from '../lib/scores';
-import { track, trackOnce } from '../lib/track';
+import { track, trackOnce, type AnalyticsCohort } from '../lib/track';
 
 export type ComparisonState = Comparison | { kind: 'none' } | { kind: 'loading' } | { kind: 'off' };
 
@@ -18,7 +18,7 @@ export type ComparisonApi = {
 /** One in-flight submission per day per page, so StrictMode remounts and re-renders never double-send. */
 const inflight = new Map<string, Promise<Comparison>>();
 
-export function useComparison(eligible: boolean, day: string, results: readonly RoundRecord[]): ComparisonApi {
+export function useComparison(eligible: boolean, day: string, results: readonly RoundRecord[], cohort: AnalyticsCohort): ComparisonApi {
   const [state, setState] = useState<ComparisonState>({ kind: eligible ? 'loading' : 'none' });
   const resultsRef = useRef(results);
   resultsRef.current = results;
@@ -33,11 +33,10 @@ export function useComparison(eligible: boolean, day: string, results: readonly 
         inflight.delete(key);
         if (loadPrivacy().deleting || loadPrivacy().scores === 'off') { setState({ kind: 'off' }); return; }
         setState(c);
-        const outcome = c.kind === 'consent' ? 'consent' : c.kind;
-        trackOnce(`pct:${day}:${outcome}`, day, { name: 'percentile', outcome });
+        if (c.kind === 'unavailable') trackOnce(`comparison-failure:${day}`, day, { name: 'failure', source: 'comparison', cohort });
       });
     },
-    [day],
+    [day, cohort],
   );
 
   useEffect(() => {

@@ -30,4 +30,14 @@ describe('production build activation guard', () => {
     expect(activationIssue({ launchDay: L, deployed: undefined, today: L, ack: L })).toBeNull();
     expect(activationIssue({ launchDay: L, deployed: undefined, today: '2026-11-30' })).toBeNull();
   });
+  it('allows the first advance only from the prior production schedule before the cutoff', () => {
+    const o = { launchDay: '2026-11-28', today: '2026-11-27', now: Date.parse('2026-11-28T00:59:59Z') };
+    const deadline = Date.parse('2026-11-28T01:00:00Z');
+    expect(activationIssue({ ...o, deployed: '2026-11-30' })).toBeNull();
+    expect(activationIssue({ ...o, deployed: null })).toMatch(/must still serve/);
+    expect(activationIssue({ ...o, deployed: undefined })).toMatch(/must still serve/);
+    expect(activationIssue({ ...o, now: deadline, deployed: '2026-11-30' })).toMatch(/cutoff/);
+    expect(activationIssue({ ...o, now: deadline, deployed: '2026-11-28' })).toBeNull();
+    expect(activationIssue({ ...o, now: deadline, today: '2026-11-28', deployed: undefined, ack: '2026-11-28' })).toMatch(/cutoff/);
+  });
 });

@@ -16,30 +16,27 @@ import { inject, pageview } from '@vercel/analytics';
 import { analyticsAllowed, loadPrivacy, type Privacy } from './privacy';
 
 export type PlayMode = 'daily' | 'practice' | 'challenge';
+export type AnalyticsCohort = 'beta' | 's1' | 'qa';
 export type ChallengeOpen = 'today' | 'past' | 'future' | 'invalid';
 export type ShareMethod = 'native' | 'native-image' | 'clipboard' | 'image-saved' | 'failed' | 'cancelled';
-export type ScoreOutcome = 'stored' | 'gathering' | 'ready' | 'consent' | 'ineligible' | 'disabled' | 'unavailable';
 
-export type TrackEvent =
+export type TrackEvent = (
   /** First time this browser opens the game. */
   | { name: 'visit_new' }
-  /** First open on a new UTC day by a browser seen before. gap = days since its previous visit; age = days since its first. */
+  /** First open on a new Eastern day by a browser seen before. gap = days since its previous visit; age = days since its first. */
   | { name: 'visit_return'; gap: number; age: number }
-  | { name: 'run_start'; mode: PlayMode }
-  /** First bracket move of a run (round 1 only, so it measures first understanding). */
-  | { name: 'first_touch'; mode: PlayMode }
-  | { name: 'round_lock'; mode: PlayMode; round: number; hit: boolean }
-  /** Player pressed Next after round N's reveal. */
-  | { name: 'round_next'; mode: PlayMode; round: number }
-  /** Page hidden or closed with a run in progress (best effort: browsers may drop it). */
-  | { name: 'run_exit'; mode: PlayMode; round: number }
+  | { name: 'run_start'; mode: PlayMode; diagnostics?: { key: string; day: string } }
+  | { name: 'sample_start' }
+  /** First bracket move and locks from the same sampled daily start. The key stays on this browser. */
+  | { name: 'first_touch'; sampleKey: string }
+  | { name: 'round_lock'; sampleKey: string; round: number; hit: boolean }
   | { name: 'run_complete'; mode: PlayMode; total: number }
   /** A daily run finished; days = the daily streak it leaves (counted from the daily record). */
   | { name: 'streak'; days: number }
   | { name: 'share'; mode: PlayMode; method: ShareMethod }
   | { name: 'challenge_open'; kind: ChallengeOpen; withScore: boolean; withRounds?: boolean }
-  /** What the daily comparison showed on the results screen (exposure, not a verified ranking). */
-  | { name: 'percentile'; outcome: ScoreOutcome }
+  /** Fixed error categories. Error text, URLs, stacks and payloads are never sent. */
+  | { name: 'failure'; source: 'game' | 'comparison' }
   /** A privacy choice made in the app. */
   | { name: 'privacy'; choice: 'scores-on' | 'scores-off' | 'deleted' }
   /** A calendar reminder link was tapped on the results screen (src/engine/remind.ts). */
@@ -62,7 +59,8 @@ export type TrackEvent =
   /** The first-play tutorial was shown, skipped before its lock, or played through to its Play button. */
   | { name: 'tutorial'; step: 'start' | 'skip' | 'complete' }
   /** The one experiment: arm is per browser, step is what happened. */
-  | { name: 'experiment'; arm: 'cta' | 'control'; step: 'exposed' | 'first-exposure' | 'click' | 'daily-start' | 'next-day-start' | 'daily-share' };
+  | { name: 'experiment'; arm: 'cta' | 'control'; step: 'exposed' | 'first-exposure' | 'click' | 'daily-start' | 'next-day-start' | 'daily-share' }
+) & { cohort?: AnalyticsCohort };
 
 /** Rounds 1-4, 5-8 … so the end of a run lands in one of five rows. */
 export function survivalBand(round: number): string {
@@ -85,15 +83,16 @@ export function totalBand(total: number): string {
  * Cohort prefix: none for the public beta (so its paths stay comparable with every
  * earlier release), `/s1` once a formal launch season is live, `/qa` for QA browsers.
  */
-let cohort = '';
-export function setCohort(c: 'beta' | 's1' | 'qa'): void {
-  cohort = c === 'beta' ? '' : `/${c}`;
+let cohort: AnalyticsCohort = 'beta';
+export function setCohort(c: AnalyticsCohort): void {
+  cohort = c;
 }
 
 /** The fixed path each event is counted under. */
 export function eventPath(e: TrackEvent): string {
   const p = basePath(e);
-  return cohort ? p.replace(/^\/e\//, `/e${cohort}/`) : p;
+  const scope = cohort === 'qa' ? 'qa' : e.cohort ?? cohort;
+  return scope === 'beta' ? p : p.replace(/^\/e\//, `/e/${scope}/`);
 }
 
 function basePath(e: TrackEvent): string {
@@ -107,14 +106,12 @@ function basePath(e: TrackEvent): string {
     }
     case 'run_start':
       return `/e/start/${e.mode}`;
+    case 'sample_start':
+      return '/e/sample/start/daily';
     case 'first_touch':
-      return `/e/first-touch/${e.mode}`;
+      return '/e/sample/first-touch/daily';
     case 'round_lock':
-      return `/e/lock/${e.mode}/r${e.round}/${e.hit ? 'hit' : 'miss'}`;
-    case 'round_next':
-      return `/e/next/${e.mode}/r${e.round}`;
-    case 'run_exit':
-      return `/e/exit/${e.mode}/r${e.round}`;
+      return `/e/sample/lock/daily/r${e.round}/${e.hit ? 'hit' : 'miss'}`;
     case 'run_complete':
       return `/e/complete/${e.mode}/${totalBand(e.total)}`;
     case 'streak':
@@ -123,8 +120,8 @@ function basePath(e: TrackEvent): string {
       return `/e/share/${e.mode}/${e.method}`;
     case 'challenge_open':
       return `/e/challenge-open/${e.kind}${e.withScore ? '/with-score' : ''}${e.withScore && e.withRounds ? '/with-rounds' : ''}`;
-    case 'percentile':
-      return `/e/percentile/${e.outcome}`;
+    case 'failure':
+      return `/e/failure/${e.source}`;
     case 'privacy':
       return `/e/privacy/${e.choice}`;
     case 'remind':
@@ -182,23 +179,58 @@ export function track(e: TrackEvent): void {
  */
 const ONCE_KEY = 'stat-window:sent';
 const sentThisLoad = new Set<string>();
+type EventStorage = Pick<Storage, 'getItem' | 'setItem'>;
+
+function readLedger(storage: EventStorage): Record<string, unknown> {
+  const raw: unknown = JSON.parse(storage.getItem(ONCE_KEY) ?? '{}');
+  return raw && typeof raw === 'object' && !Array.isArray(raw) ? raw as Record<string, unknown> : {};
+}
+
+function rememberEvent(storage: EventStorage, raw: Record<string, unknown>, key: string, day: string): void {
+  const cutoff = new Date(Date.parse(`${day}T00:00:00Z`) - 14 * 86_400_000).toISOString().slice(0, 10);
+  const kept = Object.fromEntries(Object.entries(raw).filter(([, d]) => typeof d === 'string' && d >= cutoff));
+  kept[key] = day;
+  storage.setItem(ONCE_KEY, JSON.stringify(kept));
+}
+
 export function trackOnce(key: string, day: string, e: TrackEvent, storage: Pick<Storage, 'getItem' | 'setItem'> | null = safeStorage()): boolean {
   if (sentThisLoad.has(key)) return false;
   sentThisLoad.add(key);
   if (storage) {
     try {
-      const raw = JSON.parse(storage.getItem(ONCE_KEY) ?? '{}') as Record<string, string>;
+      const raw = readLedger(storage);
       if (typeof raw[key] === 'string') return false;
-      const cutoff = new Date(Date.parse(`${day}T00:00:00Z`) - 14 * 86_400_000).toISOString().slice(0, 10);
-      const kept = Object.fromEntries(Object.entries(raw).filter(([, d]) => typeof d === 'string' && d >= cutoff));
-      kept[key] = day;
-      storage.setItem(ONCE_KEY, JSON.stringify(kept));
+      rememberEvent(storage, raw, key, day);
     } catch {
       /* unreadable or full storage: once per page load is the best we can do */
     }
   }
   track(e);
   return true;
+}
+
+/** One draw per daily start, recorded in the existing local dedup ledger so the same run survives reloads. */
+function sampleRun(key: string, day: string): boolean {
+  const storage = safeStorage();
+  if (!storage || Math.random() >= 0.1) return false;
+  try {
+    const raw = readLedger(storage);
+    const marker = `sample:${key}`;
+    if (typeof raw[marker] === 'string') return false;
+    rememberEvent(storage, raw, marker, day);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function sampledRun(key: string): boolean {
+  const storage = safeStorage();
+  try {
+    return storage !== null && typeof readLedger(storage)[`sample:${key}`] === 'string';
+  } catch {
+    return false;
+  }
 }
 
 function safeStorage(): Storage | null {
@@ -265,12 +297,12 @@ export function startAnalytics(
   const enabled = opts.enabled ?? analyticsEnabled;
   pending = null;
   active = false;
+  setTrackSink(devSink);
   if (!enabled || typeof window === 'undefined') return false;
   pending = { nav: opts.nav ?? navigator, vercel: opts.vercel ?? { inject, pageview } };
   // GPC/DNT and the in-app switch both stop analytics; an explicit "on" in the app overrides GPC/DNT.
   if (!analyticsAllowed(opts.privacy ?? loadPrivacy(), privacySignal(pending.nav))) return false;
-  activate(pending);
-  return true;
+  return activate(pending);
 }
 
 /**
@@ -280,29 +312,40 @@ export function startAnalytics(
 export function resumeAnalytics(): boolean {
   if (active) return true;
   if (!pending || !analyticsAllowed(loadPrivacy(), privacySignal(pending.nav))) return false;
-  activate(pending);
-  return true;
+  return activate(pending);
 }
 
-function activate({ nav, vercel: v }: { nav: Navigator; vercel: Vercel }): void {
-  active = true;
-  v.inject({
-    mode: 'production',
-    disableAutoTrack: true,
-    // Page views keep only the path: challenge links carry a day and a score we don't need to collect.
-    beforeSend: (event) => {
-      try {
-        const u = new URL(event.url);
-        return { ...event, url: `${u.origin}${u.pathname}` };
-      } catch {
-        return null; // an unreadable URL is dropped rather than sent with its query string
-      }
-    },
-  });
-  v.pageview({ route: '/', path: '/' });
-  setTrackSink((e) => {
-    if (!analyticsAllowed(loadPrivacy(), privacySignal(nav))) return; // switched off this session
+function activate({ nav, vercel: v }: { nav: Navigator; vercel: Vercel }): boolean {
+  try {
+    v.inject({
+      mode: 'production',
+      disableAutoTrack: true,
+      // Page views keep only the path: challenge links carry a day and a score we don't need to collect.
+      beforeSend: (event) => {
+        try {
+          const u = new URL(event.url);
+          return { ...event, url: `${u.origin}${u.pathname}` };
+        } catch {
+          return null; // an unreadable URL is dropped rather than sent with its query string
+        }
+      },
+    });
+    v.pageview({ route: '/', path: '/' });
+  } catch {
+    return false; // an optional provider must never prevent the app from mounting
+  }
+  const send = (e: TrackEvent) => {
     const path = eventPath(e);
     v.pageview({ route: path, path });
+  };
+  setTrackSink((e) => {
+    if (!analyticsAllowed(loadPrivacy(), privacySignal(nav))) return; // switched off this session
+    if ((e.name === 'first_touch' || e.name === 'round_lock') && !sampledRun(e.sampleKey)) return;
+    send(e);
+    if (e.name === 'run_start' && e.mode === 'daily' && e.diagnostics && sampleRun(e.diagnostics.key, e.diagnostics.day)) {
+      send({ name: 'sample_start', cohort: e.cohort ?? cohort });
+    }
   });
+  active = true;
+  return true;
 }

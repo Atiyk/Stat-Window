@@ -156,7 +156,7 @@ export function Help({ open, onClose, onPrivacy, view: requested = 'list', clock
               (Shift moves further, Enter locks). Tap the ruler outside your window to pull that side straight to it.
             </p>
             <p className="help-small">
-              A new puzzle opens every day at 12:00 AM Eastern, the same five for everyone. From {formatDay(NBA_CUTOVER)} every puzzle is NBA; the earlier mixed-sport days stay playable. Your progress stays in this browser;
+              A new puzzle opens every day at 12:00 AM Eastern, the same five for everyone. From {formatDay(NBA_CUTOVER)} every puzzle is NBA. Your progress stays in this browser;
               there’s no account.{' '}
               {analyticsEnabled
                 ? 'We count plays without cookies or IDs (rounds locked, games finished, shares) to improve the game. Today’s total can feed a daily percentile, kept with a random code from this browser for 7 days; your windows are checked, then discarded. Names and answers are never kept.'

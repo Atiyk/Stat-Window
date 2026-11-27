@@ -138,12 +138,12 @@ function ProfileSheet({ report }: { report: Report }) {
     p.recent
       ? { label: 'Recent scoring', value: `${p.recent.average}`, note: `average over your last ${plural(p.recent.games, 'game')}` }
       : { label: 'Recent scoring', value: '–', note: 'after your first game', quiet: true },
-    { label: 'Catch rate', value: pct(p.caught.caught, p.caught.attempts), note: `${p.caught.caught} of ${plural(p.caught.attempts, 'window')} held the answer` },
+    { label: 'Catch rate', value: pct(p.caught.caught, p.caught.attempts), note: `${p.caught.caught} of ${plural(p.caught.attempts, 'question')} caught; a timeout counts as a miss` },
     p.strongest
       ? { label: 'Strongest category', value: p.strongest.label, note: `${Math.round(p.strongest.perAttempt)} points per attempt over ${plural(p.strongest.attempts, 'attempt')}` }
       : { label: 'Strongest category', value: 'Not clear yet', note: `needs two statistic categories with ${MIN_CATEGORY_ATTEMPTS}+ attempts and a clear lead`, quiet: true },
     p.risk
-      ? { label: 'Risk profile', value: p.risk.label, note: `${Math.round(p.risk.share * 100)}% of ${plural(p.risk.windows, 'window')} ${RISK_BANDS.find((b) => b.id === p.risk!.band)!.widthNote.replace(/^window covers/, 'covered')}` }
+      ? { label: 'Risk profile', value: p.risk.label, note: `${Math.round(p.risk.share * 100)}% of ${plural(p.risk.windows, 'locked window')} (timeouts left out) ${RISK_BANDS.find((b) => b.id === p.risk!.band)!.widthNote.replace(/^window covers/, 'covered')}` }
       : { label: 'Risk profile', value: 'Not enough windows', note: `needs ${MIN_CATEGORY_ATTEMPTS} saved windows`, quiet: true },
     p.trend
       ? { label: 'Recent trend', value: p.trend.direction === 'same' ? 'About the same' : `${signed(p.trend.direction === 'more' ? p.trend.points : -p.trend.points)} per game`, note: `last ${PERIOD_GAMES} games against the ${PERIOD_GAMES} before them` }

@@ -260,6 +260,9 @@ test.describe('Scouting Report', () => {
     await expect(page.locator('.outcomes__list')).toContainText('scoring hits');
     await expect(page.locator('.profile')).toContainText('Strongest categoryNot clear yet'); // no conclusion from 10 attempts
     await expect(page.locator('.profile')).toContainText('Recent trendNot yet');
+    // Each denominator says what it counts: every question for the catch rate, locked windows for risk.
+    await expect(page.locator('.profile')).toContainText(/of 10 questions caught; a timeout counts as a miss/);
+    await expect(page.locator('.profile')).toContainText(/% of \d+ locked windows \(timeouts left out\)/);
     await page.locator('summary', { hasText: 'Every window' }).click();
     await expect(page.locator('.outcomes__list')).toBeVisible();
     await page.locator('summary', { hasText: 'Risk profile' }).click();

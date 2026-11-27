@@ -30468,14 +30468,14 @@
    "asOf": null
   },
   "question": {
-   "prompt": "Wilt Chamberlain averaged 50.4 points in 1961–62. What did Elgin Baylor average that season while on Army weekend passes?",
+   "prompt": "In 1961–62, the season Wilt Chamberlain set the scoring record, what did Elgin Baylor average while on Army weekend passes?",
    "context": "Los Angeles Lakers · 1961–62 regular season",
    "reveal": "38.3, the highest average ever by anyone other than Chamberlain, with 18.6 rebounds.",
    "min": 16,
    "max": 52,
    "step": 0.1,
    "difficulty": "hard",
-   "difficultyReason": "Wilt's same-season 50.4 is the era's ceiling; players weigh Baylor's part-time schedule against his star scoring.",
+   "difficultyReason": "Wilt's same-season record is the era's ceiling, unprinted; players weigh Baylor's part-time Army schedule against his star scoring.",
    "ratings": {
     "interest": 5,
     "recognizability": 4,

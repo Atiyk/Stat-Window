@@ -196,7 +196,10 @@ export function Results({ slate, label, screenLabel = label, eligible, onPrivacy
   useEffect(() => {
     if (!cardOptionsOpen || !canShareFile || cardPrepared) return;
     let live = true;
-    void cardBlob(cardInput).then((blob) => {
+    // Start rendering once the selection settles: a style and a format tapped in quick
+    // succession would otherwise encode two or three abandoned 1080px PNGs first, and the
+    // selected card would wait behind them on a slow phone.
+    const start = setTimeout(() => void cardBlob(cardInput).then((blob) => {
       if (!live) return;
       let file: File | null = null;
       if (blob) {
@@ -208,9 +211,10 @@ export function Results({ slate, label, screenLabel = label, eligible, onPrivacy
         }
       }
       setPreparedCard({ input: cardInput, blob, file });
-    });
+    }), 120);
     return () => {
       live = false;
+      clearTimeout(start);
     };
   }, [cardOptionsOpen, canShareFile, cardPrepared, cardInput, filename]);
 

@@ -1758,21 +1758,8 @@ a {
   .results-head {
     grid-area: head;
   }
-  .recap {
-    grid-area: recap;
-    grid-row: 1 / span 6;
-  }
   .results-actions {
     grid-area: actions;
-  }
-  .stats {
-    grid-area: stats;
-  }
-  .dist {
-    grid-area: dist;
-  }
-  .archive {
-    grid-area: archive;
   }
 }
 

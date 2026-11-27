@@ -111,6 +111,32 @@ test('perfect scores fit inside all five cells at 320px with 200% text', async (
   }
 });
 
+test('expanded results place the weekly strip, stat cards and score distribution on separate rows', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.clock.setFixedTime(new Date(`${day}T15:00:00Z`));
+  await page.route('**/api/scores', (route) => route.fulfill({ status: 503, body: '{}' }));
+  await page.addInitScript((runs) => {
+    localStorage.setItem('stat-window:v1', JSON.stringify({ version: 1, runs, settings: { introSeen: true, sound: false } }));
+  }, saveRuns(5));
+  await page.goto('/');
+  await openFold(page, 'Your stats');
+
+  const week = page.locator('.results .week-glance');
+  const stats = page.locator('.results .stats');
+  const distribution = page.getByRole('region', { name: 'Your days' });
+  await expect(week).toBeVisible();
+  await expect(stats.locator('dd')).toHaveCount(4);
+  await expect(distribution.getByRole('listitem')).toHaveCount(5);
+
+  const weekBox = (await week.boundingBox())!;
+  const statsBox = (await stats.boundingBox())!;
+  const distributionBox = (await distribution.boundingBox())!;
+  expect(statsBox.y).toBeGreaterThanOrEqual(weekBox.y + weekBox.height);
+  expect(distributionBox.y).toBeGreaterThanOrEqual(statsBox.y + statsBox.height);
+  expect(statsBox.x).toBeCloseTo(weekBox.x);
+  expect(distributionBox.x).toBeCloseTo(weekBox.x);
+});
+
 test('clipboard success is confirmed after completion and attempts cannot overlap', async ({ page }) => {
   await page.clock.setFixedTime(new Date(`${day}T15:00:00Z`));
   await page.route('**/api/scores', async (route) => route.fulfill({ status: 503, body: '{}' }));

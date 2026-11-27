@@ -147,17 +147,21 @@ test('progress chips grow with 200% text at 390px, so no number is clipped', asy
   await lockAndSettle(page);
   await next(page);
   await page.addStyleTag({ content: 'html { font-size: 200% }' });
+  await expect(page.locator('html')).toHaveCSS('font-size', '32px');
   await page.evaluate(() => document.fonts.ready);
   const cells = page.locator('.round-top .ledger-cell');
   await expect(cells).toHaveCount(5);
-  for (let i = 0; i < 5; i++) {
-    const cell = (await cells.nth(i).boundingBox())!;
-    const num = (await cells.nth(i).locator('.ledger-num').boundingBox())!;
-    expect(num.x, `chip ${i + 1} left`).toBeGreaterThanOrEqual(cell.x - 0.5);
-    expect(num.x + num.width, `chip ${i + 1} right`).toBeLessThanOrEqual(cell.x + cell.width + 0.5);
-    expect(num.y, `chip ${i + 1} top`).toBeGreaterThanOrEqual(cell.y - 0.5);
-    expect(num.y + num.height, `chip ${i + 1} bottom`).toBeLessThanOrEqual(cell.y + cell.height + 0.5);
-  }
+  // Measure each chip and its label together so WebKit uses the same text layout for both.
+  const bounds = await cells.evaluateAll((elements) => elements.map((element) => ({
+    cell: element.getBoundingClientRect().toJSON(),
+    num: element.querySelector('.ledger-num')!.getBoundingClientRect().toJSON(),
+  })));
+  bounds.forEach(({ cell, num }, i) => {
+    expect(num.left, `chip ${i + 1} left`).toBeGreaterThanOrEqual(cell.left - 0.5);
+    expect(num.right, `chip ${i + 1} right`).toBeLessThanOrEqual(cell.right + 0.5);
+    expect(num.top, `chip ${i + 1} top`).toBeGreaterThanOrEqual(cell.top - 0.5);
+    expect(num.bottom, `chip ${i + 1} bottom`).toBeLessThanOrEqual(cell.bottom + 0.5);
+  });
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
 });
 

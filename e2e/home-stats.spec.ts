@@ -293,14 +293,16 @@ test.describe('Weekly Scoreboard', () => {
     });
     await seed(page, at(TODAY), week(['2026-11-23', '2026-11-25']));
     await page.goto('/?weekly');
-    const img = page.locator('.weekly-image__preview img');
+    const previewImage = '.weekly-image__preview img';
+    const img = page.locator(previewImage);
     await expect(img).toBeVisible();
     await page.getByLabel('Portrait').check();
     await page.getByLabel('Square').check();
-    const shownRevoked = async () => {
-      const src = await img.getAttribute('src').catch(() => null);
-      return src !== null && (await page.evaluate((u) => (window as unknown as { revoked: string[] }).revoked.includes(u), src));
-    };
+    const shownRevoked = () => page.evaluate((selector) => {
+      // A replacement can revoke the old URL before the next browser call.
+      const src = document.querySelector(selector)?.getAttribute('src');
+      return !!src && (window as unknown as { revoked: string[] }).revoked.includes(src);
+    }, previewImage);
     for (let i = 0; i < 8; i++) {
       expect(await shownRevoked(), 'preview src was already revoked').toBe(false);
       await page.waitForTimeout(150);

@@ -8,3 +8,6 @@
 
 ## Release checks
 Run repository gates and independent review at the integrated SHA. Verify both root token files return exact bytes and HTTP 200 on branded production, crawlable pages/links and assets work, mobile widths and focus, embed on a separate origin, analytics receipt and privacy opt-out. Do not change launch date or official content. Do not publish before required release gates pass.
+
+### Capture a real gameplay asset
+With a local preview running, use `node scripts/media/capture.mjs`. The script blocks off-origin requests and captures only the known untimed tutorial question in a fresh browser, to `build/media-review/tutorial-question.png`. Inspect the result for layout, spoilers and privacy before copying to `public/media/` and updating the manifest and page. The initial public library is brand assets only; no screenshot has been generated or approved yet.

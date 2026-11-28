@@ -115,6 +115,7 @@ test('iPhone guidance is a dismissible disclosure and stays hidden in standalone
   await expect(manualButton(page)).toHaveAttribute('aria-expanded', 'true');
   await expect(guide).toContainText('Add to Home Screen');
   await expect(guide).toContainText('Open as Web App');
+  await expect(guide).toContainText('Your saved scores may not carry over.');
   await page.getByRole('button', { name: 'Hide install suggestion' }).click();
   await expect(installSuggestion(page)).toHaveCount(0);
   await page.reload();

@@ -76,6 +76,10 @@ export function InstallPrompt({ completedDays, onDismiss }: { completedDays: num
   const root = useRef<HTMLDivElement>(null);
   const [guideOpen, setGuideOpen] = useState(false);
   const [prompting, setPrompting] = useState(false);
+  // Installing from a publisher frame is not a dependable browser capability.
+  if (typeof window !== 'undefined' && window.self !== window.top) {
+    return <p className="install-prompt-guide">Playing inside another site? <a href="/" target="_blank" rel="noopener noreferrer">Open Stat Window in a new tab</a> to use your browser’s install options. Saved scores may not carry over between browser contexts.</p>;
+  }
   if (completedDays < 2 || !method) return null;
 
   const dismiss = () => {
@@ -126,8 +130,8 @@ export function InstallPrompt({ completedDays, onDismiss }: { completedDays: num
       {manual && (
         <p className="install-prompt-guide" id={guideId} hidden={!guideOpen}>
           {method === 'ios'
-            ? 'In Safari, tap Share. You may find it in the page menu. Choose Add to Home Screen. If you see Open as Web App, leave it on, then tap Add.'
-            : 'Open your browser’s menu and look for Install app or Add to Home screen.'}
+            ? 'In Safari, tap Share. You may find it in the page menu. Choose Add to Home Screen. If you see Open as Web App, leave it on, then tap Add. If you opened this inside another app and the option is missing, use its menu to open the game in Safari. Your saved scores may not carry over.'
+            : 'Open your browser’s menu and look for Install app or Add to Home screen. If you opened this inside another app and the option is missing, use its menu to open the game in your usual browser. Your saved scores may not carry over.'}
         </p>
       )}
     </div>

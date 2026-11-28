@@ -91,3 +91,14 @@ test('generated iframe opens the game from a separate-origin publisher fixture',
   await expect(frame.getByRole('button',{name:/Play Game/})).toBeVisible();
   await expect(page.getByRole('link',{name:'Play Stat Window in a new tab'})).toHaveAttribute('target','_blank');
 });
+
+
+test('home metadata and sitemap identify the real branded website', async ({request})=>{
+  const home=await request.get('/');
+  const html=await home.text();
+  const matches=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+  expect(matches).toHaveLength(1);
+  expect(JSON.parse(matches[0]![1]!)).toEqual({'@context':'https://schema.org','@type':'WebSite',name:'Stat Window',url:'https://www.statwindow.app/'});
+  const sitemap=await request.get('/sitemap.xml');
+  expect(await sitemap.text()).toContain('https://www.statwindow.app/contact.html');
+});

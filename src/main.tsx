@@ -5,9 +5,9 @@ import './styles.css';
 import { App } from './App';
 import { puzzleDay } from './engine/daily';
 import { startAnalytics, trackOnce } from './lib/track';
-import { OriginTransfer } from './lib/save-transfer';
+import { isOriginTransferPage, OriginTransfer } from './lib/save-transfer';
 
-startAnalytics();
+if (!isOriginTransferPage()) startAnalytics();
 
 createRoot(document.getElementById('root')!, {
   onUncaughtError(error) {

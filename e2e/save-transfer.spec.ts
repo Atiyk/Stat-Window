@@ -2,6 +2,7 @@ import { expect, test, type BrowserContext } from '@playwright/test';
 import { CANONICAL_ORIGIN, LEGACY_ORIGIN } from '../src/lib/site';
 import { emptySave, SAVE_KEY, sharedShotKey, shotSessionKey } from '../src/engine/storage';
 import { highBracket, lowBracket, startDailyIfNeeded } from './helpers';
+import { PRIVACY_KEY } from '../src/lib/privacy';
 
 const day = '2026-11-29';
 const now = new Date(day + 'T15:00:00Z');
@@ -76,4 +77,33 @@ test('branded reminder entry can import Vercel history and resume the original c
   await expect(page).toHaveURL(CANONICAL_ORIGIN + '/?qa=1');
   await expect(lowBracket(page)).toHaveAttribute('aria-valuenow', '59');
   await expect(page.getByRole('timer')).toContainText('14s');
+});
+
+
+test('privacy-only migration preserves opt-outs and does not replace a destination score identity', async ({ context, page, baseURL }) => {
+  await serveOrigins(context, baseURL!);
+  await page.clock.setFixedTime(now);
+  const oldKey = 'A'.repeat(22);
+  const newKey = 'B'.repeat(22);
+  await context.addInitScript(({ legacy, canonical, key, oldKey, newKey }) => {
+    if (localStorage.getItem(key)) return;
+    if (location.origin === legacy) {
+      localStorage.setItem(key, JSON.stringify({ analytics: 'off', scores: 'off', key: oldKey, sent: ['2026-11-27'], done: [], asked: true, deleting: true }));
+    } else if (location.origin === canonical) {
+      localStorage.setItem(key, JSON.stringify({ analytics: 'on', scores: 'on', key: newKey, sent: ['2026-11-28'], done: [], asked: false }));
+    }
+  }, { legacy: LEGACY_ORIGIN, canonical: CANONICAL_ORIGIN, key: PRIVACY_KEY, oldKey, newKey });
+  await page.goto(LEGACY_ORIGIN);
+  await expect(page.getByRole('button', { name: 'Move privacy settings only' })).toBeVisible();
+  const popup = page.waitForEvent('popup');
+  await page.getByRole('button', { name: 'Move privacy settings only' }).click();
+  const branded = await popup;
+  await expect(branded).toHaveURL(CANONICAL_ORIGIN + '/');
+  expect(await branded.evaluate(key => JSON.parse(localStorage.getItem(key)!), PRIVACY_KEY)).toMatchObject({
+    analytics: 'off', scores: 'off', key: newKey, sent: ['2026-11-28'], asked: true,
+  });
+  // The old code is still available for erasure; it was never sent to the new origin.
+  expect(await page.evaluate(key => JSON.parse(localStorage.getItem(key)!), PRIVACY_KEY)).toMatchObject({ key: oldKey, deleting: true });
+  await page.goto(LEGACY_ORIGIN + '/?legacy-privacy=1');
+  await expect(page.getByRole('button', { name: 'Delete legacy comparison scores' })).toBeVisible();
 });

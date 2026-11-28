@@ -1,9 +1,37 @@
 import { expect, test } from '@playwright/test';
-import { highBracket, lowBracket, openAt } from './helpers';
+import { highBracket, lockAndSettle, lowBracket, openAt } from './helpers';
 
 // A missing-point chart must leave both bracket handles on screen, above the Lock
 // bar, at round start: the shot clock runs, so a player must never have to scroll to drag.
 const CHART_DAY = new Date('2026-12-01T15:00:00Z'); // Q1 is a missing-point chart with a long prompt
+const OPENING_DAY = new Date('2026-11-28T15:00:00Z');
+
+test('opening chart keeps both grips above Lock on a portrait tablet', async ({ page }) => {
+  await page.setViewportSize({ width: 768, height: 900 });
+  await openAt(page, OPENING_DAY);
+  await expect(page.locator('.q-chart')).toBeVisible();
+  const lock = page.getByRole('button', { name: 'Pull the brackets in first' });
+  await expect(lock).toBeInViewport({ ratio: 1 });
+  for (const handle of [lowBracket(page), highBracket(page)]) {
+    const grip = handle.locator('.bracket-grip');
+    await expect(grip).toBeInViewport({ ratio: 1 });
+    const hit = await grip.evaluate((element) => {
+      const rect = element.getBoundingClientRect();
+      return element.contains(document.elementFromPoint(rect.x + rect.width / 2, rect.y + rect.height / 2));
+    });
+    expect(hit).toBe(true);
+  }
+  expect(await page.evaluate(() => window.scrollY)).toBe(0);
+});
+
+test('opening chart reveal keeps Next within a short laptop viewport', async ({ page }) => {
+  await page.setViewportSize({ width: 1024, height: 768 });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await openAt(page, OPENING_DAY);
+  await lockAndSettle(page);
+  await expect(page.getByRole('button', { name: 'Next question' })).toBeInViewport({ ratio: 1 });
+  await expect(page.locator('.reveal-answer')).toBeInViewport({ ratio: 1 });
+});
 
 // The whole handle, grip included, starts clear of the Lock bar, down to a 320×568 phone.
 for (const size of [{ width: 390, height: 844 }, { width: 320, height: 568 }, { width: 1440, height: 900 }]) {

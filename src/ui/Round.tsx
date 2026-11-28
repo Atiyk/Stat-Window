@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type CSSProperties, type Dispatch, type ReactNode } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type Dispatch, type ReactNode } from 'react';
 import { canLock, currentQuestion, ROUNDS, totalPoints, type GameAction, type GameState, type PracticeTiming } from '../engine/game';
 import { finalShot, verifiedDailyRounds } from '../engine/final-shot';
 import { MAX_POINTS_PER_ROUND, potentialPoints } from '../engine/scoring';
@@ -95,6 +95,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
   const last = state.results[state.round];
   const resolved = state.phase === 'resolved' && last;
   const interactive = state.phase === 'ready' || state.phase === 'adjusting';
+  const showWindow = !last?.timedOut;
   const timed = timing === 'timed' && survival === undefined;
   const [factSeed] = useState(browserFunFactSeed);
   const extra = useMemo(() => pickFunFact(q, factSeed), [q, factSeed]);
@@ -117,9 +118,9 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
     : null, [resolved, crowdDay, state.round]);
   const [progress, setProgress] = useState(0);
   const liveResult = useRef<typeof last>(undefined);
+  const landedResult = useRef<typeof last>(undefined);
   const roundRef = useRef<HTMLElement>(null);
   const actionRef = useRef<HTMLButtonElement>(null);
-  const skipRef = useRef(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const shotKey = shotSessionKey(state.mode, q.id);
   const crossTabKey = sharedShotKey(state.slate.date, q.id);
@@ -138,6 +139,17 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
   });
   const dispatchRef = useRef(dispatch);
   dispatchRef.current = dispatch;
+  const settleReveal = useCallback(() => {
+    const result = liveResult.current;
+    if (result && landedResult.current !== result) {
+      landedResult.current = result;
+      if (!reduced) {
+        if (result.points > 0) feedback.hit(result.points);
+        else if (!result.hit) feedback.miss();
+      }
+    }
+    dispatchRef.current({ type: 'settle' });
+  }, [reduced]);
   const rememberStart = (at: number): number => {
     const actual = Math.min(at, savedShotStart(shotKey, crossTabKey, shareWithTabs) ?? at);
     try { window.sessionStorage.setItem(shotKey, String(actual)); } catch { /* storage blocked */ }
@@ -247,9 +259,12 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
       liveResult.current = last;
       if (!last.timedOut) feedback.lock();
     }
-    const t = window.setTimeout(() => dispatchRef.current({ type: reduced ? 'settle' : 'reveal' }), reduced ? 0 : CLAMP_MS);
+    const t = window.setTimeout(() => {
+      if (reduced) settleReveal();
+      else dispatchRef.current({ type: 'reveal' });
+    }, reduced ? 0 : CLAMP_MS);
     return () => window.clearTimeout(t);
-  }, [state.phase, reduced, last]);
+  }, [state.phase, reduced, last, settleReveal]);
 
   // The landed answer and the ruler's axis must sit above the sticky Next bar (at 320×568 it
   // covered the axis). Scroll just enough, never so far that the answer itself leaves the top.
@@ -291,36 +306,33 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
   useEffect(() => {
     if (state.phase !== 'revealing' || !last) return;
     if (reduced) {
-      dispatchRef.current({ type: 'settle' });
+      settleReveal();
       return;
     }
     let raf = 0;
     const start = performance.now();
     const duration = state.round === 0 ? FIRST_TRAVEL_MS : TRAVEL_MS;
-    skipRef.current = false;
     const step = (now: number) => {
-      const t = skipRef.current ? 1 : Math.min(1, (now - start) / duration);
+      const t = Math.min(1, (now - start) / duration);
       if (t < 1) {
         setProgress(easeOutCubic(t));
         raf = requestAnimationFrame(step);
       } else {
-        if (last.points > 0) feedback.hit(last.points);
-        else if (!last.hit) feedback.miss();
-        dispatchRef.current({ type: 'settle' });
+        settleReveal();
       }
     };
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
-  }, [state.phase, state.round, last, reduced]);
+  }, [state.phase, state.round, last, reduced, settleReveal]);
 
-  // Focus Next as soon as the answer and real score land.
+  // Keep the same action focused as it changes from Skip to Next.
   useEffect(() => {
-    if (state.phase !== 'resolved' || !last) return;
+    if (interactive || !last) return;
     const focused = document.activeElement;
     if (focused === document.body || roundRef.current?.contains(focused)) {
       actionRef.current?.focus({ preventScroll: true });
     }
-  }, [state.phase, last]);
+  }, [interactive, last]);
 
   const revealing = state.phase === 'revealing' || state.phase === 'resolved';
   // The flag sets off from whichever end of the ruler is farther from the answer, so it always has to cross ground.
@@ -346,6 +358,10 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
   const short = survival !== undefined && worth < survival.need;
   const lockable = canLock(state) && !short;
   const isLast = state.round >= ROUNDS - 1;
+  const animating = state.phase === 'locked' || state.phase === 'revealing';
+  const lockLabel = lockable ? 'Lock the window'
+    : survival && canLock(state) ? `Tighten to ${survival.need}+ to lock` : 'Pull the brackets in first';
+  const nextLabel = survival ? survival.nextLabel : isLast ? 'See your day' : 'Next question';
   const target = isLast && previousBest !== null && verifiedDailyRounds(state.slate, state.results)
     ? finalShot(previousBest, totalPoints(state.results.slice(0, ROUNDS - 1)))
     : null;
@@ -495,7 +511,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
         {q.chart && (
           <QuestionChart
             question={q}
-            window={!interactive && last ? { lo: last.lo, hi: last.hi } : state.window}
+            window={showWindow ? state.window : null}
             reveal={reveal ? reveal.progress : null}
           />
         )}
@@ -512,7 +528,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
       </header>
       </div>
 
-      <section className="field" aria-label="Your window">
+      <section className="field" aria-label={showWindow ? 'Your window' : 'Answer'}>
         <div className="field-inner">
           {resolved && (
             // The reveal reads in order: the answer, caught or not, the points; the window steps down below.
@@ -521,19 +537,21 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
             </p>
           )}
           {resolved && verdictLine}
-          <Readout
-            question={q}
-            window={state.window}
-            editable={interactive}
-            caption={resolved ? 'Your window' : undefined}
-            onFirstTouch={() => { startShot(); onFirstTouch(); }}
-            onChange={(w, m) => {
-              // Typing an exact number also starts the clock and retires the tutorial.
-              startShot();
-              onFirstTouch();
-              dispatch({ type: 'setWindow', window: w, moving: m });
-            }}
-          />
+          {showWindow && (
+            <Readout
+              question={q}
+              window={state.window}
+              editable={interactive}
+              caption={resolved ? 'Your window' : undefined}
+              onFirstTouch={() => { startShot(); onFirstTouch(); }}
+              onChange={(w, m) => {
+                // Typing an exact number also starts the clock and retires the tutorial.
+                startShot();
+                onFirstTouch();
+                dispatch({ type: 'setWindow', window: w, moving: m });
+              }}
+            />
+          )}
 
           <div className="sr-only" role="status">{announcement}{raceAnnouncement}</div>
           {!resolved && verdictLine}
@@ -542,6 +560,7 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
             window={state.window}
             interactive={interactive}
             reveal={reveal}
+            showWindow={showWindow}
             onChange={(w, m) => { startShot(); dispatch({ type: 'setWindow', window: w, ...(m ? { moving: m } : {}) }); }}
             onCommit={() => {
               if (!short) lockShot();
@@ -566,25 +585,15 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
       )}
 
       <div className="action-bar">
-        {interactive ? (
-          <button type="button" className="btn btn-primary" disabled={!lockable} onClick={lockShot}>
-            {lockable ? 'Lock the window' : survival && canLock(state) ? `Tighten to ${survival.need}+ to lock` : 'Pull the brackets in first'}
-          </button>
-        ) : state.phase === 'revealing' ? (
-          <button type="button" className="btn btn-primary btn-skip" onClick={() => (skipRef.current = true)}>
-            Skip
-          </button>
-        ) : (
-          <button
-            ref={actionRef}
-            type="button"
-            className="btn btn-primary"
-            disabled={state.phase !== 'resolved'}
-            onClick={() => dispatch({ type: 'next' })}
-          >
-            {state.phase !== 'resolved' ? 'Locked' : survival ? survival.nextLabel : isLast ? 'See your day' : 'Next question'}
-          </button>
-        )}
+        <button
+          ref={actionRef}
+          type="button"
+          className={animating ? 'btn btn-primary btn-skip' : 'btn btn-primary'}
+          disabled={interactive && !lockable}
+          onClick={interactive ? lockShot : animating ? settleReveal : () => dispatch({ type: 'next' })}
+        >
+          {interactive ? lockLabel : animating ? 'Skip reveal' : nextLabel}
+        </button>
       </div>
     </article>
   );

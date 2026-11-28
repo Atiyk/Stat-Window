@@ -74,6 +74,7 @@ test.describe('first use', () => {
     const home = page.locator('.home');
     await expect(home.getByRole('heading', { level: 1 })).toHaveText('How well do you know ball?');
     await expect(home).toContainText('NBA');
+    await expect(home.getByText('A miss scores zero.', { exact: false })).toBeVisible();
     const demo = home.locator('.window-demo');
     await expect(demo.locator('.window-demo__points')).toHaveText(['+16', '+79']);
     await expect(demo).toHaveAccessibleName('Both windows catch the same answer. The wide window earns 16 points and the tight one earns 79.');
@@ -100,6 +101,7 @@ test.describe('first use', () => {
     await page.goto('/');
     await expect(page.getByRole('button', { name: /sound/i })).toHaveCount(0);
     await expect(page.getByRole('button', { name: 'Try a practice question first' })).toHaveCount(0);
+    await expect(page.locator('.home .window-demo')).toHaveCount(0);
     await page.getByRole('button', { name: 'Play Game 12' }).click();
     await lockAndSettle(page);
     expect((await snapshot(page)).session['audio-context-opened']).toBeUndefined();
@@ -111,7 +113,7 @@ test.describe('first use', () => {
     await openWalkthrough(page);
     const intro = page.locator('.onboarding-play');
     await expect(intro.getByRole('heading', { level: 1 })).toHaveText(/2015–16 Golden State Warriors/);
-    await expect(intro.locator('.onboarding-coach')).toHaveText(/Drag either bracket, or tap a big number/);
+    await expect(intro.locator('.onboarding-coach')).toHaveText('Drag a bracket or tap a number.');
     await expect(intro.locator('.live-court')).toBeVisible();
     await expect(page.getByRole('button', { name: 'Skip tutorial and start' })).toBeVisible();
     // Drag the high bracket with a pointer.
@@ -121,7 +123,7 @@ test.describe('first use', () => {
     await page.mouse.down();
     await page.mouse.move(box.x - 20, box.y + box.height / 2, { steps: 4 });
     await page.mouse.up();
-    await expect(intro.locator('.onboarding-coach')).toHaveText(/Tighter is worth more|Still worth 0/);
+    await expect(intro.locator('.onboarding-coach')).toHaveText('Tighter hits earn more. Edges count.');
     // Then type an exact low end that puts 73 on the edge: inclusive capture.
     await intro.getByRole('button', { name: /^High end: / }).click();
     await page.getByRole('textbox', { name: /^High end, between/ }).fill('78');

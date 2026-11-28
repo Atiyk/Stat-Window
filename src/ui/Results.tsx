@@ -239,7 +239,10 @@ export function Results({ slate, label, screenLabel = label, eligible, onPrivacy
           report(file ? 'native-image' : 'native');
           return;
         } catch (e) {
-          if (e instanceof DOMException && e.name === 'AbortError') throw e;
+          if (e instanceof DOMException && e.name === 'AbortError') {
+            report('cancelled');
+            return;
+          }
           // Refused (for example NotAllowedError): fall through to the clipboard.
         }
       }
@@ -248,11 +251,7 @@ export function Results({ slate, label, screenLabel = label, eligible, onPrivacy
       setFallback(null);
       setToast(file ? 'Challenge copied. Save the image separately.' : 'Copied');
       report('clipboard');
-    } catch (e) {
-      if (e instanceof DOMException && e.name === 'AbortError') {
-        report('cancelled');
-        return;
-      }
+    } catch {
       setFallback({ text });
       setToast(file ? 'Copy the selected text and save the image separately.' : 'Copy the selected text');
       report('failed');

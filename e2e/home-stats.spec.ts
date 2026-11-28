@@ -148,6 +148,25 @@ test('missing inventory: an honest message, with the player’s own history stil
 });
 
 test.describe('Weekly Scoreboard', () => {
+  test('the weekly grid keeps full scores readable at 320px with 200% text', async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 568 });
+    await seed(page, at('2026-11-27'), week(['2026-11-23', '2026-11-24', '2026-11-25', '2026-11-26', '2026-11-27']));
+    await page.goto('/?weekly');
+    const days = page.locator('.week-day');
+    await expect(days).toHaveCount(7);
+    await expect(page.locator('.week-day[data-state="completed"]')).toHaveCount(5);
+    const measure = () => days.evaluateAll((cells) => cells.map((cell) => {
+      const { left, right, top } = cell.getBoundingClientRect();
+      const labels = Array.from(cell.querySelectorAll('.week-day__value, .week-day__name'), (label) => label.getBoundingClientRect());
+      return { top, labelsFit: labels.every((label) => label.left >= left - 1 && label.right <= right + 1) };
+    }));
+    expect(new Set((await measure()).map(({ top }) => top)).size).toBe(1);
+    await page.addStyleTag({ content: 'html { font-size: 200%; }' });
+    await expect.poll(async () => new Set((await measure()).map(({ top }) => top)).size).toBeGreaterThan(1);
+    expect((await measure()).every(({ labelsFit }) => labelsFit)).toBe(true);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
+  });
+
   test('shows each day honestly: completed, unplayed, open and upcoming; never a fake zero', async ({ page }) => {
     await seed(page, at(TODAY), week(['2026-11-23', '2026-11-25']));
     await page.goto('/?weekly');
@@ -253,7 +272,50 @@ test.describe('Weekly Scoreboard', () => {
     }
   });
 
-  test('the weekly image previews in square and portrait and downloads as a PNG', async ({ page }) => {
+  test('weekly native share cancellation clears prior confirmation without copying again', async ({ page }) => {
+    await page.addInitScript(() => {
+      const match = window.matchMedia.bind(window);
+      window.matchMedia = (query) => query === '(pointer: coarse)' ? { matches: true } as MediaQueryList : match(query);
+      let copies = 0;
+      let attempts = 0;
+      Object.defineProperty(navigator, 'clipboard', { value: { writeText: async () => {
+        document.body.dataset.copies = String(++copies);
+      } } });
+      Object.defineProperty(navigator, 'share', { value: async () => {
+        document.body.dataset.attempts = String(++attempts);
+        if (attempts === 1) throw new DOMException('Native sharing denied', 'NotAllowedError');
+        await new Promise<void>((_, reject) => {
+          window.addEventListener('cancel-weekly-share', () => reject(new DOMException('Cancelled', 'AbortError')), { once: true });
+        });
+      } });
+    });
+    await seed(page, at(TODAY), week(['2026-11-23']));
+    await page.goto('/?weekly');
+    const share = page.getByRole('button', { name: 'Share this week' });
+    const toast = page.locator('.weekly .toast');
+    await share.click();
+    await expect(toast).toHaveText('Copied');
+    await share.click();
+    await expect(share).toHaveAttribute('aria-busy', 'true');
+    await expect(toast).toBeEmpty();
+    await share.dispatchEvent('click');
+    await expect(page.locator('body')).toHaveAttribute('data-attempts', '2');
+    await page.evaluate(() => window.dispatchEvent(new Event('cancel-weekly-share')));
+    await expect(share).toBeEnabled();
+    await expect(toast).toBeEmpty();
+    await expect(page.locator('body')).toHaveAttribute('data-copies', '1');
+    await expect(page.getByRole('textbox', { name: 'Your weekly scorecard to copy' })).toHaveCount(0);
+  });
+
+  test('weekly images preview under the production policy and download as PNGs', async ({ page }) => {
+    const vercel = JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url), 'utf8')) as {
+      headers: { headers: { key: string; value: string }[] }[];
+    };
+    const policy = vercel.headers.flatMap((entry) => entry.headers).find((header) => header.key === 'Content-Security-Policy')!;
+    await page.route((url) => url.searchParams.has('weekly'), async (route) => {
+      const response = await route.fetch();
+      await route.fulfill({ response, headers: { ...response.headers(), [policy.key]: policy.value } });
+    });
     await seed(page, at(TODAY), week(['2026-11-23', '2026-11-25']));
     await page.goto('/?weekly');
     const img = page.locator('.weekly-image__preview img');
@@ -281,34 +343,32 @@ test.describe('Weekly Scoreboard', () => {
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Dec 7 – Dec 13, 2026');
   });
 
-  test('the image preview never shows a revoked object URL (format switched back mid-draw)', async ({ page }) => {
+  test('the image preview keeps the correct format when switched back mid-draw', async ({ page }) => {
     await page.addInitScript(() => {
-      const revoked: string[] = [];
-      (window as unknown as { revoked: string[] }).revoked = revoked;
-      const revoke = URL.revokeObjectURL.bind(URL);
-      URL.revokeObjectURL = (u: string) => { revoked.push(u); revoke(u); };
-      // Slow the draw down so a quick switch lands while the next image is still being made.
       const toBlob = HTMLCanvasElement.prototype.toBlob;
-      HTMLCanvasElement.prototype.toBlob = function (cb, ...rest) { setTimeout(() => toBlob.call(this, cb, ...rest), 600); };
+      HTMLCanvasElement.prototype.toBlob = function (callback, ...options) {
+        if (this.height !== 1920) return toBlob.call(this, callback, ...options);
+        document.body.dataset.portrait = 'drawing';
+        window.addEventListener('finish-portrait', () => {
+          toBlob.call(this, (blob) => {
+            callback(blob);
+            document.body.dataset.portrait = 'finished';
+          }, ...options);
+        }, { once: true });
+      };
     });
     await seed(page, at(TODAY), week(['2026-11-23', '2026-11-25']));
     await page.goto('/?weekly');
-    const previewImage = '.weekly-image__preview img';
-    const img = page.locator(previewImage);
+    const img = page.locator('.weekly-image__preview img');
     await expect(img).toBeVisible();
     await page.getByLabel('Portrait').check();
+    await expect(page.locator('body')).toHaveAttribute('data-portrait', 'drawing');
     await page.getByLabel('Square').check();
-    const shownRevoked = () => page.evaluate((selector) => {
-      // A replacement can revoke the old URL before the next browser call.
-      const src = document.querySelector(selector)?.getAttribute('src');
-      return !!src && (window as unknown as { revoked: string[] }).revoked.includes(src);
-    }, previewImage);
-    for (let i = 0; i < 8; i++) {
-      expect(await shownRevoked(), 'preview src was already revoked').toBe(false);
-      await page.waitForTimeout(150);
-    }
-    await expect(img).toBeVisible();
-    expect(await img.evaluate((el: HTMLImageElement) => el.decode().then(() => el.naturalWidth))).toBe(1080);
+    await page.evaluate(() => window.dispatchEvent(new Event('finish-portrait')));
+    await expect(page.locator('body')).toHaveAttribute('data-portrait', 'finished');
+    await expect(img).toHaveAttribute('src', /^data:image\/png;base64,/);
+    const size = await img.evaluate((el: HTMLImageElement) => el.decode().then(() => [el.naturalWidth, el.naturalHeight]));
+    expect(size).toEqual([1080, 1080]);
   });
 
   test('back returns to today’s puzzle', async ({ page }) => {

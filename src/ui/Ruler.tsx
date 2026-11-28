@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent } from 'react';
 import type { Question } from '../content/schema';
 import { normalizeWindow } from '../engine/game';
-import type { Window } from '../engine/scoring';
+import { fromSteps, toSteps, type Window } from '../engine/scoring';
 import { formatValue, niceTicks, unitFor } from '../lib/format';
 
 type Bound = 'lo' | 'hi';
@@ -24,12 +24,13 @@ type Props = {
   window: Window;
   interactive: boolean;
   reveal: RulerReveal | null;
+  showWindow?: boolean;
   onChange: (w: Window, moving?: 'lo' | 'hi') => void;
   onCommit: () => void;
   onFirstTouch: () => void;
 };
 
-export function Ruler({ question: q, window: w, interactive, reveal, onChange, onCommit, onFirstTouch }: Props) {
+export function Ruler({ question: q, window: w, interactive, reveal, showWindow = true, onChange, onCommit, onFirstTouch }: Props) {
   const trackRef = useRef<HTMLDivElement>(null);
   const grab = useRef<Grab | null>(null);
   const pointerId = useRef<number | null>(null);
@@ -39,6 +40,8 @@ export function Ruler({ question: q, window: w, interactive, reveal, onChange, o
   const span = q.max - q.min;
   const pct = useCallback((v: number) => ((v - q.min) / span) * 100, [q.min, span]);
   const ticks = useMemo(() => niceTicks(q.min, q.max, 5), [q.min, q.max]);
+  const lowMax = fromSteps(q, toSteps(q, w.hi) - 1);
+  const highMin = fromSteps(q, toSteps(q, w.lo) + 1);
 
   useLayoutEffect(() => {
     latestWindow.current = w;
@@ -137,10 +140,10 @@ export function Ruler({ question: q, window: w, interactive, reveal, onChange, o
         next = cur + big;
         break;
       case 'Home':
-        next = which === 'lo' ? q.min : w.lo;
+        next = which === 'lo' ? q.min : highMin;
         break;
       case 'End':
-        next = which === 'hi' ? q.max : w.hi;
+        next = which === 'hi' ? q.max : lowMax;
         break;
       case 'Enter':
         onCommit(); // the reducer ignores it while the full scale is selected
@@ -193,12 +196,14 @@ export function Ruler({ question: q, window: w, interactive, reveal, onChange, o
           ))}
         </div>
 
-        <div
-          className="band"
-          data-grab={interactive ? 'band' : undefined}
-          style={{ left: `${lo}%`, width: `${hi - lo}%` }}
-          aria-hidden="true"
-        />
+        {showWindow && (
+          <div
+            className="band"
+            data-grab={interactive ? 'band' : undefined}
+            style={{ left: `${lo}%`, width: `${hi - lo}%` }}
+            aria-hidden="true"
+          />
+        )}
 
         {showGap && (
           <span className="ruler-gap" aria-hidden="true" style={{
@@ -214,7 +219,7 @@ export function Ruler({ question: q, window: w, interactive, reveal, onChange, o
           </span>
         )}
 
-        {(['lo', 'hi'] as const).map((which) => {
+        {showWindow && (['lo', 'hi'] as const).map((which) => {
           const v = which === 'lo' ? w.lo : w.hi;
           const position = pct(v);
           return (
@@ -226,8 +231,8 @@ export function Ruler({ question: q, window: w, interactive, reveal, onChange, o
               role="slider"
               tabIndex={interactive ? 0 : -1}
               aria-label={which === 'lo' ? 'Low end of your window' : 'High end of your window'}
-              aria-valuemin={which === 'lo' ? q.min : w.lo}
-              aria-valuemax={which === 'lo' ? w.hi : q.max}
+              aria-valuemin={which === 'lo' ? q.min : highMin}
+              aria-valuemax={which === 'lo' ? lowMax : q.max}
               aria-valuenow={v}
               aria-valuetext={unit(v)}
               aria-disabled={!interactive || undefined}

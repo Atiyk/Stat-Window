@@ -1,8 +1,10 @@
 import { expect, test } from '@playwright/test';
-import { DAY1, highBracket, lockAndSettle, lowBracket, next, openAt, typeWindow } from './helpers';
+import { DAY1, highBracket, lockAndSettle, lowBracket, next, openAt, startDailyIfNeeded, typeWindow } from './helpers';
 
 test('keyboard: arrows step, Shift jumps, brackets cannot cross, Enter locks', async ({ page }) => {
   await openAt(page, DAY1); // scale 40–82, step 1
+  await expect(lowBracket(page)).toHaveAttribute('aria-valuemax', '81');
+  await expect(highBracket(page)).toHaveAttribute('aria-valuemin', '41');
   await lowBracket(page).focus();
   await page.keyboard.press('ArrowRight');
   await expect(lowBracket(page)).toHaveAttribute('aria-valuenow', '41');
@@ -15,6 +17,7 @@ test('keyboard: arrows step, Shift jumps, brackets cannot cross, Enter locks', a
   await page.keyboard.press('Shift+ArrowRight');
   await expect(lowBracket(page)).toHaveAttribute('aria-valuenow', '81');
   await expect(highBracket(page)).toHaveAttribute('aria-valuenow', '82');
+  await expect(highBracket(page)).toHaveAttribute('aria-valuemin', '82');
   await expect(page.locator('.worth b')).toHaveText('100');
   await page.keyboard.press('Enter');
   await expect(page.locator('.outcome-miss')).toBeVisible({ timeout: 5000 });
@@ -226,8 +229,26 @@ test('the reveal can be skipped', async ({ page }) => {
   await lowBracket(page).focus();
   await page.keyboard.press('ArrowRight');
   await page.getByRole('button', { name: 'Lock the window' }).click();
-  await page.getByRole('button', { name: 'Skip' }).click();
+  await page.getByRole('button', { name: 'Skip reveal' }).click();
   await expect(page.locator('.story')).toBeVisible({ timeout: 900 });
+});
+
+test('keyboard can skip the reveal as soon as the window locks', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.clock.install({ time: DAY1 });
+  await page.goto('/');
+  await startDailyIfNeeded(page);
+  const now = await page.evaluate(() => Date.now());
+  await page.clock.pauseAt(new Date(now + 1_000));
+  await lowBracket(page).focus();
+  await page.keyboard.press('ArrowRight');
+  await page.keyboard.press('Enter');
+  await expect(page.locator('.round')).toHaveAttribute('data-phase', 'locked');
+  const skip = page.getByRole('button', { name: /^Skip(?: reveal)?$/ });
+  await expect(skip).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('.story')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Next question' })).toBeFocused();
 });
 
 test('reduced motion: the answer appears without the travel', async ({ page }) => {

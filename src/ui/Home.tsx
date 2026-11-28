@@ -60,15 +60,19 @@ export function Home({ isNew = false, gameNumber, onLearn, store, today, config,
   return (
     <article className="ready-card home" data-new={isNew || undefined}>
       <h1>How well do you know ball?</h1>
-      <p className="home-lede">Five NBA questions a day. Frame each guess between two brackets.</p>
-      <WindowDemo className="home-demo" />
+      <p className="home-lede">
+        {isNew
+          ? 'Five NBA questions a day. Pick a range for each answer. A miss scores zero.'
+          : 'Five NBA questions · 24 seconds each'}
+      </p>
+      {isNew && <WindowDemo className="home-demo" />}
       <div className="home-actions">
         <button type="button" className="btn btn-primary" onClick={onStart}>Play Game {gameNumber}</button>
         {isNew && onLearn && (
-          <button type="button" className="btn btn-quiet home-learn" onClick={onLearn}>Try a practice question first</button>
+          <button type="button" className="btn-link home-learn" onClick={onLearn}>Try a practice question first</button>
         )}
       </div>
-      <p className="home-terms">24 seconds a question · Free, no account</p>
+      {isNew && <p className="home-terms">24 seconds each · Free, no account</p>}
       {previous}
       {/* The scoreboard is linked once, from the row in More ways to play (shown whenever this week has a game). */}
       <WeekGlance store={store} today={today} config={config} onOpen={onWeekly} link={false} />

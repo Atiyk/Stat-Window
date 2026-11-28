@@ -56,7 +56,7 @@ test('branded reminder entry can import Vercel history and resume the original c
   const importLink = page.getByRole('link', { name: 'Import Vercel saves' });
   await expect(importLink).toBeVisible();
   await importLink.click();
-  await expect(page).toHaveURL(LEGACY_ORIGIN + '/?qa=1');
+  await expect(page).toHaveURL(LEGACY_ORIGIN + '/?qa=1&import-saves=1');
   const nextTab = page.waitForEvent('popup');
   await page.getByRole('button', { name: 'Move saved games' }).click();
   const branded = await nextTab;
@@ -102,8 +102,28 @@ test('privacy-only migration preserves opt-outs and does not replace a destinati
   expect(await branded.evaluate(key => JSON.parse(localStorage.getItem(key)!), PRIVACY_KEY)).toMatchObject({
     analytics: 'off', scores: 'off', key: newKey, sent: ['2026-11-28'], asked: true,
   });
+  await expect(branded.getByRole('link', { name: 'Import Vercel saves' })).toBeVisible();
   // The old code is still available for erasure; it was never sent to the new origin.
   expect(await page.evaluate(key => JSON.parse(localStorage.getItem(key)!), PRIVACY_KEY)).toMatchObject({ key: oldKey, deleting: true });
   await page.goto(LEGACY_ORIGIN + '/?legacy-privacy=1');
   await expect(page.getByRole('button', { name: 'Delete legacy comparison scores' })).toBeVisible();
+});
+
+
+test('continue without saves still applies restrictive privacy before playing and retains the challenge', async ({ context, page, baseURL }) => {
+  await serveOrigins(context, baseURL!);
+  await page.clock.setFixedTime(now);
+  await context.addInitScript(({ legacy, key }) => {
+    if (location.origin === legacy && !localStorage.getItem(key)) {
+      localStorage.setItem(key, JSON.stringify({ analytics: 'off', scores: 'off', key: null, sent: [], done: [], asked: true }));
+    }
+  }, { legacy: LEGACY_ORIGIN, key: PRIVACY_KEY });
+  await page.goto(LEGACY_ORIGIN + '/?day=' + day + '&vs=245&utm_source=friend#test');
+  await page.getByRole('button', { name: 'Continue without moving saves' }).click();
+  await expect(page).toHaveURL(CANONICAL_ORIGIN + '/?day=' + day + '&vs=245&utm_source=friend#test');
+  expect(await page.evaluate(key => JSON.parse(localStorage.getItem(key)!), PRIVACY_KEY)).toMatchObject({
+    analytics: 'off', scores: 'off', asked: true,
+  });
+  await startDailyIfNeeded(page);
+  await expect(page.locator('.challenge-note')).toContainText('245');
 });

@@ -5,8 +5,9 @@ import './styles.css';
 import { App } from './App';
 import { puzzleDay } from './engine/daily';
 import { startAnalytics, trackOnce } from './lib/track';
-import { isOriginTransferPage, OriginTransfer } from './lib/save-transfer';
+import { applyLegacyPrivacyRedirect, isOriginTransferPage, OriginTransfer } from './lib/save-transfer';
 
+applyLegacyPrivacyRedirect();
 if (!isOriginTransferPage()) startAnalytics();
 
 createRoot(document.getElementById('root')!, {

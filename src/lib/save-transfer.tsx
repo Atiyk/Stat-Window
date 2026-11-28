@@ -47,7 +47,7 @@ function clocks(storage: Storage, pattern: RegExp): Record<string, number> {
 }
 
 function restrictions() {
-  const p = loadPrivacy(localStorage);
+  const p = loadPrivacy();
   return { analyticsOff: p.analytics === 'off', scoresOff: p.scores === 'off' || p.deleting === true, asked: p.asked };
 }
 
@@ -65,7 +65,14 @@ export function applyLegacyPrivacyRedirect(): void {
   const patch = { ...(bits![0] === '1' ? { analytics: 'off' as const } : {}), ...(bits![1] === '1' ? { scores: 'off' as const } : {}), ...(bits![2] === '1' ? { asked: true } : {}) };
   // savePrivacy also keeps the choices in memory if browser storage is blocked.
   savePrivacy(patch);
-  try { history.replaceState(history.state, '', location.pathname + location.search + hash); } catch { /* leave the restriction marker for reload */ }
+  // Only remove the fragment after the preferences are durable. In a blocked-storage
+  // browser keep the restriction marker available for reloads; memory protects this load.
+  try {
+    const p = JSON.parse(localStorage.getItem(PRIVACY_KEY) ?? 'null');
+    if (p && (bits![0] !== '1' || p.analytics === 'off') && (bits![1] !== '1' || p.scores === 'off') && (bits![2] !== '1' || p.asked === true)) {
+      history.replaceState(history.state, '', location.pathname + location.search + hash);
+    }
+  } catch { /* leave the restriction marker for reload */ }
 }
 
 function exportProgress(includeGames = true) {

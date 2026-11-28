@@ -53,3 +53,41 @@ test('contact page provides accessible email categories and a canonical URL', as
   await expect(page.getByRole('link', { name: 'Embedding support' })).toHaveAttribute('href', /^mailto:stat\.window\.game@gmail\.com\?subject=/);
   await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href', 'https://www.statwindow.app/contact.html');
 });
+
+
+test('publisher can configure a responsive frame without loading a live game', async ({page}) => {
+  await page.setViewportSize({width:390,height:844});
+  await page.goto('/embed.html');
+  const code=page.getByLabel('HTML iframe');
+  const height=page.getByLabel('Frame height (px)');
+  await height.fill('1000');
+  expect(await code.inputValue()).toContain('height="1000"');
+  expect(await code.inputValue()).toContain('width="100%"');
+  expect(await code.inputValue()).toContain('Play Stat Window in a new tab');
+  await page.getByRole('radio',{name:'Phone'}).check();
+  await expect(page.locator('#embed-preview')).toHaveAttribute('data-width','mobile');
+  await expect(page.locator('iframe')).toHaveCount(0);
+  await height.fill('10');
+  await expect(height).toHaveAttribute('aria-invalid','true');
+  await expect(page.getByRole('button',{name:'Copy embed code'})).toBeDisabled();
+  await page.getByRole('button',{name:'Reset'}).click();
+  expect(await code.inputValue()).toContain('height="850"');
+  await expect(page.getByRole('button',{name:'Copy embed code'})).toBeEnabled();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+});
+
+test('generated iframe opens the game from a separate-origin publisher fixture', async ({page,baseURL}) => {
+  // Never play or send scores to a production URL. Rewrite only the fixed embed origin to the local test app.
+  const app=new URL(baseURL!);
+  test.skip(!['localhost','127.0.0.1'].includes(app.hostname),'local isolated preview only');
+  await page.clock.setFixedTime(new Date('2026-11-28T15:00:00Z'));
+  await page.goto('/embed.html');
+  const code=(await page.getByLabel('HTML iframe').inputValue()).replaceAll('https://www.statwindow.app',app.origin);
+  const publisher='http://publisher.statwindow.test/';
+  await page.route(publisher,route=>route.fulfill({contentType:'text/html',body:'<!doctype html><html lang="en"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Publisher test fixture</title><body>'+code+'</body></html>'}));
+  await page.goto(publisher);
+  const frame=page.frameLocator('iframe');
+  await expect(frame.getByRole('heading',{name:'How well do you know ball?'})).toBeVisible({timeout:15000});
+  await expect(frame.getByRole('button',{name:/Play Game/})).toBeVisible();
+  await expect(page.getByRole('link',{name:'Play Stat Window in a new tab'})).toHaveAttribute('target','_blank');
+});

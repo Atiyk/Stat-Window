@@ -46,3 +46,8 @@ Material changes are noted on this page with a new date. Questions: open an issu
 - If a new field is ever added to the submission, update this page, `docs/PERCENTILES.md` and the Privacy dialog in the same PR.
 
 The daily shot clock saves its starting timestamp in this tab's session storage and, for the unfinished official daily question only, also in this browser's local storage so another tab cannot grant a fresh 24 seconds. This timestamp stays on the device and is never transmitted. It is deleted on lock/timeout or when the player clears the site's browser data; an abandoned round's timestamp can remain until that data is cleared. This is not an anti-cheat mechanism across devices or private windows.
+
+
+## Moving from our old address
+
+The optional move transfers browser-local games and restrictive privacy choices, not score identity codes. Players can move privacy choices alone. To erase scores linked to the old browser code, open [legacy score deletion](https://stat-window.vercel.app/?legacy-privacy=1) in the original browser. Do not clear old site data before deletion is confirmed.

@@ -63,5 +63,73 @@
       "statwindow/v3-*": false,
       "statwindow/v3-coordinated-20261122": true
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/how-to-play.html",
+      "has": [
+        {
+          "type": "host",
+          "value": "stat-window.vercel.app"
+        }
+      ],
+      "destination": "https://www.statwindow.app/how-to-play.html",
+      "permanent": true
+    },
+    {
+      "source": "/media.html",
+      "has": [
+        {
+          "type": "host",
+          "value": "stat-window.vercel.app"
+        }
+      ],
+      "destination": "https://www.statwindow.app/media.html",
+      "permanent": true
+    },
+    {
+      "source": "/embed.html",
+      "has": [
+        {
+          "type": "host",
+          "value": "stat-window.vercel.app"
+        }
+      ],
+      "destination": "https://www.statwindow.app/embed.html",
+      "permanent": true
+    },
+    {
+      "source": "/contact.html",
+      "has": [
+        {
+          "type": "host",
+          "value": "stat-window.vercel.app"
+        }
+      ],
+      "destination": "https://www.statwindow.app/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/privacy.html",
+      "has": [
+        {
+          "type": "host",
+          "value": "stat-window.vercel.app"
+        }
+      ],
+      "destination": "https://www.statwindow.app/privacy.html",
+      "permanent": true
+    },
+    {
+      "source": "/credits.html",
+      "has": [
+        {
+          "type": "host",
+          "value": "stat-window.vercel.app"
+        }
+      ],
+      "destination": "https://www.statwindow.app/credits.html",
+      "permanent": true
+    }
+  ]
 }

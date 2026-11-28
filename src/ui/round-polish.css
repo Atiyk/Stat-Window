@@ -266,7 +266,16 @@
   }
   .round:not(.teaching-play) .question-block { min-width: 0; }
   .round-top .ledger-cell { width: 25px; height: 25px; }
-  .round-top .round-label { position: absolute; clip-path: inset(50%); }
+  .round-top .round-meta { position: relative; min-width: 0; }
+  .round-top .round-label {
+    position: absolute;
+    inset-inline-start: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
   .round:not(.teaching-play) .round-court .live-court__court { --live-court-depth: 5; }
   .round:not(.teaching-play) .bound-input { scroll-margin-block: 12px; }
 }
@@ -345,4 +354,18 @@
     .ruler-track[data-interactive] .bracket-lo .bracket-grip { translate: calc(-1 * var(--grip-offset)) 0; }
     .ruler-track[data-interactive] .bracket-hi .bracket-grip { translate: var(--grip-offset) 0; }
   }
+}
+
+/* A 320px viewport at large text size has less than 14em of room.
+   Let the reveal and its action scroll naturally instead of pinning a tall
+   action inside the grid, where it can cover or be covered by the story. */
+@media (max-width: 420px) {
+  .round:not(.teaching-play, .onboarding-play) { container: compact-round / inline-size; }
+}
+@container compact-round (max-width: 14em) {
+  .round:not(.teaching-play, .onboarding-play)[data-phase='resolved'] .action-bar {
+    position: static;
+    align-self: end;
+  }
+  .round-top .ledger { min-width: 0; max-width: 100%; flex-shrink: 1; }
 }

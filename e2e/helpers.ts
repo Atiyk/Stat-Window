@@ -70,7 +70,10 @@ export async function next(page: Page) {
 export function collectErrors(page: Page): string[] {
   const errors: string[] = [];
   page.on('console', (m) => {
-    if (m.type() === 'error') errors.push(m.text());
+    // WebKit reports this unsupported, progressive-enhancement viewport token as
+    // an error; Chromium uses it to resize the content for the virtual keyboard.
+    // Keep every other console, runtime, network and HTTP error in the test gate.
+    if (m.type() === 'error' && m.text() !== 'Viewport argument key "interactive-widget" not recognized and ignored.') errors.push(m.text());
   });
   page.on('pageerror', (e) => errors.push(e.message));
   page.on('requestfailed', (r) => errors.push(`request failed: ${r.url()}`));

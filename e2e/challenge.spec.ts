@@ -139,12 +139,15 @@ test('practice runs of earlier days are saved, so a refresh does not re-roll the
   await lockAndSettle(page);
   await next(page);
   await page.reload();
-  // Reload goes back to today (finished); the practice run waits where it was left.
-  await expect(page.locator('.results-title')).toBeVisible();
-  await openFold(page, 'Practice a past game');
-  await page.getByRole('button', { name: 'Nov 15' }).click();
-  await expect(page.locator('.round-meta')).toContainText('Question 2 of 5');
+  // Timed archive routes now survive reload, just like untimed practice.
+  await expect(page).toHaveURL(/\?practice=2026-11-15&practice-timing=timed$/);
+  await expect(page.locator('.round-meta')).toContainText('Practice · Question 2 of 5');
+  await expect(page.getByRole('timer')).toBeVisible();
   await expect(page.locator('.stats')).toHaveCount(0);
+  // Returning to the daily still shows the completed official result.
+  await page.goto('/');
+  await expect(page.locator('.results-title')).toBeVisible();
+  await expect(page.locator('.stats')).toContainText('Played1');
 });
 
 test('a first-time recipient lands on a gate that says a friend challenged them, one tap from the first question', async ({ page }) => {

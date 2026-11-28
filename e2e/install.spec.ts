@@ -115,6 +115,7 @@ test('iPhone guidance is a dismissible disclosure and stays hidden in standalone
   await expect(manualButton(page)).toHaveAttribute('aria-expanded', 'true');
   await expect(guide).toContainText('Add to Home Screen');
   await expect(guide).toContainText('Open as Web App');
+  await expect(guide).toContainText('Your saved scores may not carry over.');
   await page.getByRole('button', { name: 'Hide install suggestion' }).click();
   await expect(installSuggestion(page)).toHaveCount(0);
   await page.reload();
@@ -127,5 +128,25 @@ test('iPhone guidance is a dismissible disclosure and stays hidden in standalone
   await page.reload();
   await expect(page.locator('.results-score')).toBeVisible();
   await openFold(page, 'Next puzzle and reminders');
+  await expect(installSuggestion(page)).toHaveCount(0);
+});
+
+test('desktop keeps install guidance available if the native prompt fails', async ({ page, isMobile }) => {
+  test.skip(isMobile, 'Desktop browsers need guidance only after an install offer.');
+  await seedResults(page, NBA_DAYS.slice(0, 2));
+  await page.clock.setFixedTime(new Date(`${NBA_DAYS[1]!}T15:00:00Z`));
+  await page.goto('/');
+  await openFold(page, 'Next puzzle and reminders');
+  await page.evaluate(() => {
+    window.dispatchEvent(Object.assign(new Event('beforeinstallprompt', { cancelable: true }), {
+      prompt: async () => { throw new DOMException('Install prompt unavailable', 'NotAllowedError'); },
+    }));
+  });
+  await installButton(page).focus();
+  await page.keyboard.press('Enter');
+  await expect(installButton(page)).toBeFocused();
+  await expect(installButton(page)).toHaveAttribute('aria-expanded', 'true');
+  await expect(page.getByText(/bookmark this page/)).toBeVisible();
+  await page.getByRole('button', { name: 'Hide install suggestion' }).click();
   await expect(installSuggestion(page)).toHaveCount(0);
 });

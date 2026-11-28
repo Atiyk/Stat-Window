@@ -15,7 +15,7 @@
 import { inject, pageview } from '@vercel/analytics';
 import { analyticsAllowed, loadPrivacy, type Privacy } from './privacy';
 import { PRODUCTION_HOSTS } from './site';
-import { currentReferral, type ReferralChannel } from './referral';
+import { beginReferralSession, clearReferralSession, readReferralSession, type ReferralChannel } from './referral';
 
 export type PlayMode = 'daily' | 'practice' | 'challenge';
 export type AnalyticsCohort = 'beta' | 's1' | 'qa';
@@ -290,6 +290,7 @@ type Vercel = { inject: typeof inject; pageview: typeof pageview };
 /** What `startAnalytics` was given when the build and host allow analytics, so the Privacy dialog can start it later. */
 let pending: { nav: Navigator; vercel: Vercel } | null = null;
 let active = false;
+let removePrivacyListener: (() => void) | undefined;
 
 /**
  * Starts Vercel Web Analytics and routes events to it. Safe to call once at startup.
@@ -302,13 +303,15 @@ export function startAnalytics(
   opts: { enabled?: boolean; nav?: Navigator; vercel?: Vercel; privacy?: Privacy } = {},
 ): boolean {
   const enabled = opts.enabled ?? analyticsEnabled;
+  removePrivacyListener?.();
+  removePrivacyListener = undefined;
   pending = null;
   active = false;
   setTrackSink(devSink);
-  if (!enabled || typeof window === 'undefined') return false;
+  if (!enabled || typeof window === 'undefined') { clearReferralSession(); return false; }
   pending = { nav: opts.nav ?? navigator, vercel: opts.vercel ?? { inject, pageview } };
   // GPC/DNT and the in-app switch both stop analytics; an explicit "on" in the app overrides GPC/DNT.
-  if (!analyticsAllowed(opts.privacy ?? loadPrivacy(), privacySignal(pending.nav))) return false;
+  if (!analyticsAllowed(opts.privacy ?? loadPrivacy(), privacySignal(pending.nav))) { clearReferralSession(); return false; }
   return activate(pending);
 }
 
@@ -322,13 +325,33 @@ export function resumeAnalytics(): boolean {
   return activate(pending);
 }
 
+function hasExternalReferrer(): boolean {
+  const referrer = typeof document === 'undefined' ? '' : document.referrer;
+  if (!referrer) return false;
+  try {
+    return new URL(referrer).origin !== window.location.origin;
+  } catch {
+    return true;
+  }
+}
+
 function activate({ nav, vercel: v }: { nav: Navigator; vercel: Vercel }): boolean {
+  const hasReferrer = hasExternalReferrer();
+  let skipFirstPageview = hasReferrer;
   try {
     v.inject({
       mode: 'production',
       disableAutoTrack: true,
       // Page views keep only the path: challenge links carry a day and a score we don't need to collect.
       beforeSend: (event) => {
+        // The provider includes the inbound referrer separately on its first
+        // pageview attempt, even when the pageview URL itself is sanitized.
+        if (skipFirstPageview && event.type === 'pageview') {
+          skipFirstPageview = false;
+          return null;
+        }
+        // Queued views may reach the provider after the player withdraws consent.
+        if (!analyticsAllowed(loadPrivacy(), privacySignal(nav))) return null;
         try {
           const u = new URL(event.url);
           return { ...event, url: `${u.origin}${u.pathname}` };
@@ -338,6 +361,9 @@ function activate({ nav, vercel: v }: { nav: Navigator; vercel: Vercel }): boole
       },
     });
     v.pageview({ route: '/', path: '/' });
+    // The provider consumes the first attempt even when beforeSend cancels it.
+    // Replay the root once so it is still counted, without the external referrer.
+    if (hasReferrer) v.pageview({ route: '/', path: '/' });
   } catch {
     return false; // an optional provider must never prevent the app from mounting
   }
@@ -345,17 +371,29 @@ function activate({ nav, vercel: v }: { nav: Navigator; vercel: Vercel }): boole
     const path = eventPath(e);
     v.pageview({ route: path, path });
   };
-  const referral = currentReferral();
-  if (referral) {
-    try { send({ name: 'referral', channel: referral, step: 'landing' }); }
+  const { channel, landing } = beginReferralSession(cohort);
+  if (channel && landing) {
+    try { send({ name: 'referral', channel, step: 'landing' }); }
     catch { /* optional measurement must not block the game */ }
   }
+  // Other tabs can also withdraw consent. No listener is needed in non-browser unit fixtures.
+  if (typeof window.addEventListener === 'function') {
+    const onPrivacy = () => { if (!analyticsAllowed(loadPrivacy(), privacySignal(nav))) clearReferralSession(); };
+    window.addEventListener('storage', onPrivacy);
+    window.addEventListener('stat-window:privacy-choice', onPrivacy);
+    removePrivacyListener = () => {
+      window.removeEventListener('storage', onPrivacy);
+      window.removeEventListener('stat-window:privacy-choice', onPrivacy);
+    };
+  }
   setTrackSink((e) => {
-    if (!analyticsAllowed(loadPrivacy(), privacySignal(nav))) return; // switched off this session
+    if (!analyticsAllowed(loadPrivacy(), privacySignal(nav))) { clearReferralSession(); return; }
+    const scope = cohort === 'qa' ? 'qa' : e.cohort ?? cohort;
     if ((e.name === 'first_touch' || e.name === 'round_lock') && !sampledRun(e.sampleKey)) return;
     send(e);
-    if (referral && (e.name === 'run_start' || e.name === 'run_complete') && e.mode !== 'practice') {
-      send({ name: 'referral', channel: referral, step: e.name === 'run_start' ? 'start' : 'complete', cohort: e.cohort ?? cohort });
+    if ((e.name === 'run_start' || e.name === 'run_complete') && e.mode !== 'practice') {
+      const referral = readReferralSession(scope);
+      if (referral) send({ name: 'referral', channel: referral, step: e.name === 'run_start' ? 'start' : 'complete', cohort: scope });
     }
     if (e.name === 'run_start' && e.mode === 'daily' && e.diagnostics && sampleRun(e.diagnostics.key, e.diagnostics.day)) {
       send({ name: 'sample_start', cohort: e.cohort ?? cohort });

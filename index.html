@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#F7F4EE" />
-    <title>Stat Window · a daily NBA numbers game</title>
-    <meta name="description" content="Five NBA questions a day, each answered with a number, in three formats. Bracket your guess: the tighter the window, the more it scores. Free, no account." />
+    <title>Stat Window · Daily NBA trivia and stats game</title>
+    <meta name="description" content="Five NBA stats, three formats, every day. Set a range for each answer. A tighter hit scores more. Free to play, no account needed." />
     <link rel="canonical" href="https://www.statwindow.app/" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Stat Window","url":"https://www.statwindow.app/"}</script>
     <meta name="alldle-verify" content="FvgrNyalFna6nqAWGFTwz7hGCiLbjTTZ" />
     <meta property="og:title" content="Stat Window" />
-    <meta property="og:description" content="Five NBA questions a day, the same five for everyone, in three formats: recall, reference and missing point. Bracket each answer; tighter scores more. Free, no account." />
+    <meta property="og:description" content="Five NBA stats, three formats, every day. Set a range for each answer. A tighter hit scores more. Free to play, no account needed." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.statwindow.app/" />
     <meta property="og:site_name" content="Stat Window" />
@@ -19,7 +20,7 @@
     <meta property="og:image:alt" content="Stat Window: five real NBA numbers. Bracket your best guess." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Stat Window" />
-    <meta name="twitter:description" content="Five NBA questions a day, the same five for everyone, in three formats: recall, reference and missing point. Bracket each answer; tighter scores more. Free, no account." />
+    <meta name="twitter:description" content="Five NBA stats, three formats, every day. Set a range for each answer. A tighter hit scores more. Free to play, no account needed." />
     <meta name="twitter:image" content="https://www.statwindow.app/og.png" />
     <meta name="twitter:image:alt" content="Stat Window: five real NBA numbers. Bracket your best guess." />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -28,7 +29,13 @@
   </head>
   <body>
     <div id="root"></div>
-    <noscript>Stat Window is a game and needs JavaScript to run. <a href="/how-to-play.html">How to play</a> · <a href="/embed.html">Embed</a> · <a href="/media.html">Media</a></noscript>
+    <noscript>
+      <main>
+        <h1>Stat Window</h1>
+        <p>Guess five NBA stats every day. Enable JavaScript to play.</p>
+        <nav aria-label="About Stat Window"><a href="/how-to-play.html">How to play</a> · <a href="/embed.html">Embed</a> · <a href="/media.html">Media</a> · <a href="/contact.html">Contact</a></nav>
+      </main>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -1,5 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
-import { lockAndSettle, NBA_FIRST, next, openAt, startDailyIfNeeded } from './helpers';
+import { lockAndSettle, justAfterMidnight, NBA_DAYS, NBA_FIRST, next, openAt, startDailyIfNeeded } from './helpers';
 import { openFold } from './results-helpers';
 
 /**
@@ -108,6 +108,38 @@ test('the real page view never carries the challenge query string', async ({ pag
   });
   expect(stripped).toBe(new URL('/', page.url()).href);
 });
+
+for (const referrerPolicy of ['unsafe-url', 'origin']) {
+  test(`the provider receives one root view and no external referrer (${referrerPolicy})`, async ({ page, baseURL }) => {
+    await page.route('https://external.example/**', route => route.fulfill({
+      contentType: 'text/html',
+      headers: { 'Referrer-Policy': referrerPolicy },
+      body: `<a href="${baseURL}/?utm_source=reddit&utm_campaign=private">Play</a>`,
+    }));
+    await page.goto('https://external.example/private?query=secret');
+    await page.getByRole('link', { name: 'Play' }).click();
+    await expect.poll(() => views(page)).toContain('/e/referral/reddit/landing');
+    const outcomes = await page.evaluate(() => {
+      const entries = (window as unknown as { vaq?: unknown[][] }).vaq ?? [];
+      const beforeSend = entries.find(([kind]) => kind === 'beforeSend')?.[1] as (event: { type: string; url: string }) => { url: string } | null;
+      const paths = entries
+        .filter(([kind]) => kind === 'pageview')
+        .map(([, event]) => (event as { path: string }).path);
+      return {
+        referrer: document.referrer,
+        paths,
+        sent: paths.map(path => beforeSend({ type: 'pageview', url: location.origin + path + '?private=1' })?.url),
+      };
+    });
+    expect(outcomes.referrer).toBe(referrerPolicy === 'origin'
+      ? 'https://external.example/' : 'https://external.example/private?query=secret');
+    expect(outcomes.paths.slice(0, 3)).toEqual(['/', '/', '/e/referral/reddit/landing']);
+    expect(outcomes.sent[0]).toBeUndefined();
+    expect(outcomes.sent.filter(url => url === baseURL + '/')).toHaveLength(1);
+    expect(outcomes.sent[2]).toBe(baseURL + '/e/referral/reddit/landing');
+    expect(outcomes.sent.every(url => !url?.includes('?'))).toBe(true);
+  });
+}
 
 test('a QA link stays in the QA cohort when browser storage is blocked', async ({ page }) => {
   await page.addInitScript(() => Object.defineProperty(window, 'localStorage', {
@@ -315,4 +347,68 @@ test('a tagged referral does not bypass Global Privacy Control', async ({ page }
   await openAt(page, NBA_FIRST, '/?utm_source=reddit');
   await lockAndSettle(page);
   expect(await views(page)).toEqual([]);
+});
+
+test('an untagged reload keeps referral completion but does not repeat landing or start', async ({ page }) => {
+  await openAt(page,NBA_FIRST,'/?qa=1&utm_source=reddit');
+  await lockAndSettle(page);
+  await next(page);
+  await expect.poll(async () => (await views(page)).filter(p=>p.includes('/referral/'))).toEqual(['/e/qa/referral/reddit/landing','/e/qa/referral/reddit/start']);
+  await page.goto('/');
+  await expect(page.locator('.question')).toBeVisible();
+  for(let r=2;r<=5;r++){await lockAndSettle(page);await next(page);}
+  await expect(page.locator('.results-score')).toBeVisible();
+  await expect.poll(async()=> (await views(page)).filter(p=>p.includes('/referral/'))).toEqual(['/e/qa/referral/reddit/complete']);
+});
+
+test('blocked session storage still permits a tagged page-load attribution', async ({page})=>{
+  await page.addInitScript(()=>Object.defineProperty(window,'sessionStorage',{get:()=>{throw new DOMException('blocked','SecurityError');}}));
+  await openAt(page,NBA_FIRST,'/?utm_source=reddit');
+  await expect.poll(async()=> (await views(page)).filter(p=>p.includes('/referral/'))).toEqual(['/e/referral/reddit/landing','/e/referral/reddit/start']);
+});
+
+test('a tagged reload does not repeat the landing or credit a new puzzle day', async ({ page }) => {
+  // Playwright's fake clock also replaces performance entries. Freeze Date alone
+  // so Chromium can report the real navigation type on both reloads.
+  await page.addInitScript((initialTime) => {
+    const time = Number(sessionStorage.getItem('qa-referral-clock') ?? initialTime);
+    window.Date = new Proxy(Date, {
+      construct(target, args) { return Reflect.construct(target, args.length ? args : [time]); },
+      get(target, key) { return key === 'now' ? () => time : Reflect.get(target, key); },
+    });
+  }, NBA_FIRST.getTime());
+  await page.goto('/?qa=1&utm_source=reddit');
+  await startDailyIfNeeded(page);
+  await expect.poll(async () => (await views(page)).filter(path => path.includes('/referral/'))).toEqual([
+    '/e/qa/referral/reddit/landing', '/e/qa/referral/reddit/start',
+  ]);
+  await page.reload();
+  await expect(page.locator('.question')).toBeVisible();
+  await expect.poll(() => views(page)).toEqual(['/']);
+
+  await page.evaluate(time => sessionStorage.setItem('qa-referral-clock', String(time)), justAfterMidnight(NBA_DAYS[1]!).getTime());
+  await page.reload();
+  await startDailyIfNeeded(page);
+  await expect.poll(() => views(page)).toContain('/e/qa/start/daily');
+  expect((await views(page)).filter(path => path.includes('/referral/'))).toEqual([]);
+});
+
+test('turning play counts off clears the channel and prevents queued views from flushing', async ({ page }) => {
+  await page.clock.setFixedTime(NBA_FIRST);
+  await page.goto('/?privacy&utm_source=reddit');
+  const dialog = page.getByRole('dialog', { name: 'Privacy and your data' });
+  const playCounts = dialog.getByRole('checkbox', { name: /Play counts/ });
+  await expect(playCounts).toBeChecked();
+  await expect.poll(() => views(page)).toContain('/e/referral/reddit/landing');
+  await playCounts.uncheck();
+  expect(await page.evaluate(() => {
+    const entries = (window as unknown as { vaq?: unknown[][] }).vaq ?? [];
+    const beforeSend = entries.find(([kind]) => kind === 'beforeSend')?.[1] as (event: { url: string }) => unknown;
+    return beforeSend({ url: location.href });
+  })).toBeNull();
+  await playCounts.check();
+  await dialog.getByRole('button', { name: 'Done' }).click();
+  await startDailyIfNeeded(page);
+  await expect.poll(() => views(page)).toContain('/e/start/daily');
+  expect((await views(page)).filter(path => path.includes('/referral/'))).toEqual(['/e/referral/reddit/landing']);
 });

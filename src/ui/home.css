@@ -68,3 +68,9 @@
   .home-lede { font-size: 0.9375rem; }
   .home-actions { margin-top: var(--space-1); }
 }
+
+/* Quiet public links and optional postgame reporting. */
+.site-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 1rem; margin-top: 1rem; font-size: .875rem; }
+.site-links a, .question-report a { color: var(--ink-soft); display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: .18em; }
+.question-report { grid-column: 1 / -1; font-size: .875rem; }
+.question-report-note { color: var(--ink-soft); font-size: .875rem; }

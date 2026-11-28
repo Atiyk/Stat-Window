@@ -11,6 +11,8 @@
  *   it per day. "Delete my scores" sends it for erasure, then clears it; a new code
  *   is made only after a future opt-in submission.
  */
+import { clearReferralSession } from './referral';
+
 export type ScoreChoice = 'unset' | 'on' | 'off';
 export type Privacy = {
   analytics: 'on' | 'off' | 'unset';
@@ -75,6 +77,7 @@ export function loadPrivacy(s: Store | null = storage()): Privacy {
 
 export function savePrivacy(patch: Partial<Privacy>, s: Store | null = storage()): Privacy {
   const next = { ...loadPrivacy(s), ...patch };
+  if (patch.analytics === 'off') clearReferralSession();
   next.sent = days(next.sent);
   next.done = days(next.done);
   memory = next;

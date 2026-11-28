@@ -15,6 +15,7 @@
 import { inject, pageview } from '@vercel/analytics';
 import { analyticsAllowed, loadPrivacy, type Privacy } from './privacy';
 import { PRODUCTION_HOSTS } from './site';
+import { currentReferral, type ReferralChannel } from './referral';
 
 export type PlayMode = 'daily' | 'practice' | 'challenge';
 export type AnalyticsCohort = 'beta' | 's1' | 'qa';
@@ -24,6 +25,7 @@ export type ShareMethod = 'native' | 'native-image' | 'clipboard' | 'image-saved
 export type TrackEvent = (
   /** First time this browser opens the game. */
   | { name: 'visit_new' }
+  | { name: 'referral'; channel: ReferralChannel; step: 'landing' | 'start' | 'complete' }
   /** First open on a new Eastern day by a browser seen before. gap = days since its previous visit; age = days since its first. */
   | { name: 'visit_return'; gap: number; age: number }
   | { name: 'run_start'; mode: PlayMode; diagnostics?: { key: string; day: string } }
@@ -98,6 +100,8 @@ export function eventPath(e: TrackEvent): string {
 
 function basePath(e: TrackEvent): string {
   switch (e.name) {
+    case 'referral':
+      return `/e/referral/${e.channel}/${e.step}`;
     case 'visit_new':
       return '/e/visit/new';
     case 'visit_return': {
@@ -341,10 +345,18 @@ function activate({ nav, vercel: v }: { nav: Navigator; vercel: Vercel }): boole
     const path = eventPath(e);
     v.pageview({ route: path, path });
   };
+  const referral = currentReferral();
+  if (referral) {
+    try { send({ name: 'referral', channel: referral, step: 'landing' }); }
+    catch { /* optional measurement must not block the game */ }
+  }
   setTrackSink((e) => {
     if (!analyticsAllowed(loadPrivacy(), privacySignal(nav))) return; // switched off this session
     if ((e.name === 'first_touch' || e.name === 'round_lock') && !sampledRun(e.sampleKey)) return;
     send(e);
+    if (referral && (e.name === 'run_start' || e.name === 'run_complete') && e.mode !== 'practice') {
+      send({ name: 'referral', channel: referral, step: e.name === 'run_start' ? 'start' : 'complete', cohort: e.cohort ?? cohort });
+    }
     if (e.name === 'run_start' && e.mode === 'daily' && e.diagnostics && sampleRun(e.diagnostics.key, e.diagnostics.day)) {
       send({ name: 'sample_start', cohort: e.cohort ?? cohort });
     }

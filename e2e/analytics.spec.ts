@@ -316,3 +316,21 @@ test('a tagged referral does not bypass Global Privacy Control', async ({ page }
   await lockAndSettle(page);
   expect(await views(page)).toEqual([]);
 });
+
+test('an untagged reload keeps referral completion but does not repeat landing or start', async ({ page }) => {
+  await openAt(page,NBA_FIRST,'/?qa=1&utm_source=reddit');
+  await lockAndSettle(page);
+  await next(page);
+  await expect.poll(async () => (await views(page)).filter(p=>p.includes('/referral/'))).toEqual(['/e/qa/referral/reddit/landing','/e/qa/referral/reddit/start']);
+  await page.goto('/');
+  await expect(page.locator('.question')).toBeVisible();
+  for(let r=2;r<=5;r++){await lockAndSettle(page);await next(page);}
+  await expect(page.locator('.results-score')).toBeVisible();
+  await expect.poll(async()=> (await views(page)).filter(p=>p.includes('/referral/'))).toEqual(['/e/qa/referral/reddit/complete']);
+});
+
+test('blocked session storage still permits a tagged page-load attribution', async ({page})=>{
+  await page.addInitScript(()=>Object.defineProperty(window,'sessionStorage',{get:()=>{throw new DOMException('blocked','SecurityError');}}));
+  await openAt(page,NBA_FIRST,'/?utm_source=reddit');
+  await expect.poll(async()=> (await views(page)).filter(p=>p.includes('/referral/'))).toEqual(['/e/referral/reddit/landing','/e/referral/reddit/start']);
+});

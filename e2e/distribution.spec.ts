@@ -83,7 +83,7 @@ test('generated iframe opens the game from a separate-origin publisher fixture',
   await page.clock.setFixedTime(new Date('2026-11-28T15:00:00Z'));
   await page.goto('/embed.html');
   const code=(await page.getByLabel('HTML iframe').inputValue()).replaceAll('https://www.statwindow.app',app.origin);
-  const publisher='http://publisher.statwindow.test/';
+  const publisher=app.protocol+'//'+(app.hostname==='localhost'?'127.0.0.1':'localhost')+':'+app.port+'/publisher-fixture';
   await page.route(publisher,route=>route.fulfill({contentType:'text/html',body:'<!doctype html><html lang="en"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Publisher test fixture</title><body>'+code+'</body></html>'}));
   await page.goto(publisher);
   const frame=page.frameLocator('iframe');

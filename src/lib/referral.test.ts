@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { referralChannel } from './referral';
+import { referralChannel, initReferralSession, readReferralSession, clearReferralSession } from './referral';
 import { eventPath, setCohort } from './track';
 
 describe('referral attribution', () => {
@@ -23,5 +23,41 @@ describe('referral attribution', () => {
       setCohort('s1');
       expect(eventPath({name:'referral',channel:'playlin',step:'complete'})).toBe('/e/s1/referral/playlin/complete');
     } finally { setCohort('beta'); }
+  });
+});
+
+describe('tab-scoped referral continuity', () => {
+  const origin='https://www.statwindow.app';
+  const makeStore=()=>{
+    const data=new Map<string,string>();
+    return { data, getItem:(k:string)=>data.get(k)??null,setItem:(k:string,v:string)=>{data.set(k,v);},removeItem:(k:string)=>{data.delete(k);} };
+  };
+  it('restores only a fixed channel on reload without another landing event',()=>{
+    const store=makeStore();
+    expect(initReferralSession('s1','?utm_source=reddit&utm_campaign=private','',origin,store)).toEqual({channel:'reddit',landing:true});
+    expect([...store.data.values()]).toEqual(['reddit']);
+    expect(initReferralSession('s1','',origin+'/how-to-play.html',origin,store)).toEqual({channel:'reddit',landing:false});
+    expect(readReferralSession('s1')).toBe('reddit');
+    expect(readReferralSession('qa')).toBeNull();
+    clearReferralSession(store);
+    expect(store.data.size).toBe(0);
+    expect(readReferralSession('s1')).toBeNull();
+  });
+  it('clears stale attribution for an unknown external arrival, unknown explicit tag or new cohort',()=>{
+    const store=makeStore();
+    const seed=()=>initReferralSession('s1','?utm_source=reddit','',origin,store);
+    seed();expect(initReferralSession('s1','','https://unknown.example',origin,store).channel).toBeNull();
+    seed();expect(initReferralSession('s1','?utm_source=private','',origin,store).channel).toBeNull();
+    seed();expect(initReferralSession('qa','','',origin,store).channel).toBeNull();
+    expect(store.data.size).toBe(0);
+    clearReferralSession(store);
+  });
+  it('rejects tampered storage and works without writable storage',()=>{
+    const store=makeStore();
+    store.setItem('stat-window:referral:s1','private-user-id');
+    expect(initReferralSession('s1','','',origin,store).channel).toBeNull();
+    expect(initReferralSession('s1','?utm_source=x','',origin,null)).toEqual({channel:'x',landing:true});
+    expect(initReferralSession('s1','','',origin,null).channel).toBeNull();
+    clearReferralSession(store);
   });
 });

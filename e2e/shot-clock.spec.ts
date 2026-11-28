@@ -59,21 +59,35 @@ test('a timed-out chart reveals the missing value without showing an unsubmitted
   await expect(chart.locator('.q-chart__band')).toHaveCount(0);
 });
 
-test('refresh does not buy another 24 seconds', async ({ page }) => {
+test('refresh restores both edges and the clock, and expiry on reload scores once', async ({ page }) => {
   await openTimed(page);
   await lowBracket(page).focus();
   await page.keyboard.press('ArrowRight');
+  const high = page.getByRole('slider', { name: 'High end of your window' });
+  await high.focus();
+  await page.keyboard.press('ArrowLeft');
+  const edges = await Promise.all([lowBracket(page).getAttribute('aria-valuenow'), high.getAttribute('aria-valuenow')]);
   await page.clock.fastForward('00:09');
-  const firstTimestamp = await page.evaluate(() => sessionStorage.getItem('stat-window:shot:v1:nba-gsw-2016-wins'));
-  expect(firstTimestamp).not.toBeNull();
+  const timestamp = () => page.evaluate(() => sessionStorage.getItem('stat-window:shot:v1:nba-gsw-2016-wins'));
+  const firstTimestamp = await timestamp();
+  expect(Number(firstTimestamp)).toBeGreaterThan(0);
   await page.reload();
+  await expect(lowBracket(page)).toHaveAttribute('aria-valuenow', edges[0]!);
+  await expect(high).toHaveAttribute('aria-valuenow', edges[1]!);
+  expect(await timestamp()).toBe(firstTimestamp);
   await expect.poll(async () => Number((await page.locator('.shot-clock').textContent())?.match(/(\d+)s/)?.[1])).toBeLessThanOrEqual(16);
   const left = Number((await page.locator('.shot-clock').textContent())?.match(/(\d+)s/)?.[1]);
   expect(left).toBeGreaterThanOrEqual(13);
   expect(left).toBeLessThanOrEqual(16);
-  await page.clock.fastForward('00:17');
+  await page.clock.setSystemTime(new Date(Number(firstTimestamp) + 24_500));
+  await page.reload();
   await page.clock.runFor(2500);
   await expect(page.locator('.outcome-word')).toHaveText('Time’s up.');
+  await page.reload();
+  await expect(page.locator('.outcome-word')).toHaveText('Time’s up.');
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}').runs['2026-11-15']);
+  expect(saved.results).toMatchObject([{ points: 0, timedOut: true, elapsedMs: 24000 }]);
+  expect(saved.guess).toBeUndefined();
 });
 
 test('a late lock cannot score after the deadline, even before the next timer tick', async ({ page }) => {
@@ -99,6 +113,12 @@ test('a completed question clears its shot deadline, so fresh challenges can rep
   await page.getByRole('button', { name: 'Lock the window' }).click();
   const key = 'stat-window:shot:v1:nba-gsw-2016-wins';
   expect(await page.evaluate((k) => sessionStorage.getItem(k), key)).toBeNull();
+  const locked = () => page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}').runs['2026-11-15'].results);
+  const original = await locked();
+  expect(original).toHaveLength(1);
+  await page.reload();
+  await expect(page.getByRole('button', { name: 'Next question' })).toBeVisible();
+  expect(await locked()).toEqual(original);
   await page.evaluate(() => localStorage.clear());
   await page.goto('/?day=2026-11-15&vs=200');
   await startDailyIfNeeded(page);

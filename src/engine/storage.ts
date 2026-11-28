@@ -1,5 +1,6 @@
 import * as z from 'zod/mini';
 import type { Mode, RoundRecord } from './game';
+import type { Window } from './scoring';
 
 /**
  * Browser-local save. This is a convenience, not anti-cheat: anyone can edit
@@ -14,6 +15,8 @@ export function shotSessionKey(mode: Mode, questionId: string): string {
   return mode === 'daily' ? `stat-window:shot:v1:${questionId}` : `stat-window:shot:practice:v1:${questionId}`;
 }
 
+export const sharedShotKey = (day: string, id: string) => `stat-window:shot:daily:v1:${day}:${id}`;
+
 const RoundRecordSchema = z.object({
   questionId: z.string(),
   lo: z.number(),
@@ -25,9 +28,17 @@ const RoundRecordSchema = z.object({
   timedOut: z.optional(z.boolean()),
 });
 
+const GuessSchema = z.object({
+  questionId: z.string(),
+  round: z.int().check(z.minimum(0), z.maximum(4)),
+  lo: z.number(),
+  hi: z.number(),
+});
+
 const RunSchema = z.object({
   results: z.array(RoundRecordSchema).check(z.maxLength(5)),
   advanced: z.int().check(z.minimum(0), z.maximum(5)),
+  guess: z.optional(GuessSchema),
 });
 
 const DayKey = z.string().check(z.regex(/^\d{4}-\d{2}-\d{2}$/));
@@ -48,7 +59,8 @@ const SaveSchema = z.object({
   visits: z.optional(z.object({ first: DayKey, last: DayKey })),
 });
 
-export type SavedRun = { results: readonly RoundRecord[]; advanced: number };
+export type SavedGuess = Window & { questionId: string; round: number };
+export type SavedRun = { results: readonly RoundRecord[]; advanced: number; guess?: SavedGuess | undefined };
 export type SaveData = z.infer<typeof SaveSchema>;
 export type RunKind = 'runs' | 'practice';
 export type Settings = SaveData['settings'];
@@ -57,6 +69,28 @@ export type StorageLike = {
   getItem(key: string): string | null;
   setItem(key: string, value: string): void;
 };
+
+export function mergeTransferredSave(existing: SaveData, payload: unknown): SaveData | null {
+  const parsed = SaveSchema.safeParse(payload);
+  if (!parsed.success) return null;
+  const incoming = parsed.data;
+  // These are separate attempts. Keep a whole run rather than mixing its locked rounds.
+  const progress = (run: SavedRun) => run.results.length * 3 + Number(run.advanced === run.results.length) + Number(!!run.guess);
+  const mergeDays = (current: SaveData['runs'], received: SaveData['runs']) => {
+    const days = { ...current };
+    for (const [day, run] of Object.entries(received)) {
+      const saved = days[day];
+      if (!saved || progress(run) > progress(saved)) days[day] = run;
+    }
+    return days;
+  };
+  return {
+    ...existing,
+    runs: mergeDays(existing.runs, incoming.runs),
+    ...(incoming.practice ? { practice: mergeDays(existing.practice ?? {}, incoming.practice) } : {}),
+    settings: { ...existing.settings, introSeen: existing.settings.introSeen || incoming.settings.introSeen },
+  };
+}
 
 export function emptySave(): SaveData {
   return { version: 1, runs: {}, settings: { sound: false, introSeen: false } };
@@ -69,7 +103,9 @@ export function mergeRun(existing: SavedRun | undefined, incoming: SavedRun): Sa
   for (let i = existing.results.length; i < incoming.results.length; i++) {
     results.push(incoming.results[i]!);
   }
-  return { results, advanced: Math.min(results.length, Math.max(existing.advanced, incoming.advanced)) };
+  const advanced = Math.min(results.length, Math.max(existing.advanced, incoming.advanced));
+  const guess = [incoming.guess, existing.guess].find((g) => g?.round === advanced && advanced === results.length);
+  return { results, advanced, ...(guess ? { guess } : {}) };
 }
 
 export type SaveStore = {
@@ -128,7 +164,7 @@ export function createSaveStore(storage: StorageLike | null, key = SAVE_KEY): Sa
       const data = persistent ? read() : memory;
       const map = data[kind] ?? {};
       const merged = mergeRun(map[day], run);
-      write({ ...data, [kind]: { ...map, [day]: { results: [...merged.results], advanced: merged.advanced } } });
+      write({ ...data, [kind]: { ...map, [day]: { ...merged, results: [...merged.results] } } });
       return merged;
     },
     recordVisit(day) {

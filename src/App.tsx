@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { isMixedSportDay } from './content/cutover';
 import { inventoryDays, loadSlate } from './content/inventory';
 import type { Slate } from './content/schema';
@@ -8,8 +8,8 @@ import { verifiedDailyRounds, verifiedPreviousBest } from './engine/final-shot';
 import { LAUNCH_DAY } from './engine/launch-config';
 import { currentSeason, inSeason, isRetiredDay, playableDays, publicNumber, seasonConfigFrom, seasonOf, type SeasonConfig } from './engine/season';
 import { isQa } from './lib/scores';
-import { gameReducer, initGame, ROUNDS, totalPoints, type GameAction, type GameState, type Mode, type PracticeTiming, type RoundRecord } from './engine/game';
-import { createSaveStore, SAVE_KEY, shotSessionKey, UNTIMED_PRACTICE_KEY, type RunKind, type SavedRun, type SaveStore, type StorageLike } from './engine/storage';
+import { currentQuestion, gameReducer, initGame, ROUNDS, totalPoints, type GameAction, type GameState, type Mode, type PracticeTiming, type RoundRecord } from './engine/game';
+import { createSaveStore, SAVE_KEY, sharedShotKey, shotSessionKey, UNTIMED_PRACTICE_KEY, type RunKind, type SavedRun, type SaveStore, type StorageLike } from './engine/storage';
 import { MAX_TOTAL, playerStats, streakMilestone } from './engine/summary';
 import { analyticsEnabled, setCohort, track, trackOnce, type PlayMode, type ShareMethod } from './lib/track';
 import { CTA_TEST, previewAsOf, SURVIVAL_FLAG, wantsSurvival } from './survival/flag';
@@ -121,7 +121,7 @@ function withoutParams(loc: Pick<Location, 'pathname' | 'search' | 'hash'>, name
   return `${loc.pathname}${rest ? `?${rest}` : ''}${loc.hash}`;
 }
 
-const gameParams = ['day', 'vs', 'time', 'v', 'r', 'practice'] as const;
+const gameParams = ['day', 'vs', 'time', 'v', 'r', 'practice', 'practice-timing'] as const;
 const withoutGameLink = (loc: Pick<Location, 'pathname' | 'search' | 'hash'>) => withoutParams(loc, gameParams);
 
 const daysBetween = (a: string, b: string) => puzzleNumber(b) - puzzleNumber(a);
@@ -137,17 +137,19 @@ const SEASON: SeasonConfig = seasonConfigFrom(
 // Set before any component mounts, so even a child's first event carries the QA or season prefix.
 if (typeof window !== 'undefined') setCohort(isQa() ? 'qa' : currentSeason(puzzleDay(new Date()), SEASON));
 
-/** The player locked or advanced at least one round of this day's daily. */
-function startedDaily(store: SaveStore, day: string): boolean {
-  const run = store.load().runs[day];
-  return !!run && (run.results.length > 0 || run.advanced > 0);
+/** The player opened the clock, adjusted a window, or locked a daily round. */
+function startedDaily(store: SaveStore, slate: Slate): boolean {
+  const run = store.load().runs[slate.date];
+  if (run && (run.results.length > 0 || run.guess)) return true;
+  try { return window.localStorage.getItem(sharedShotKey(slate.date, slate.questions[0]!.id)) !== null; }
+  catch { return false; }
 }
 
 /** A daily run that has started but not finished (or is mid-reveal) must not be swapped out under the player. */
 function inProgress(store: SaveStore, day: string): boolean {
   const run = store.load().runs[day];
   if (!run) return false;
-  return (run.results.length > 0 && run.results.length < ROUNDS) || run.advanced < run.results.length;
+  return !!run.guess || (run.results.length > 0 && run.results.length < ROUNDS) || run.advanced < run.results.length;
 }
 
 function hasConflictingLock(saved: SavedRun, current: readonly RoundRecord[]): boolean {
@@ -218,7 +220,7 @@ export function App() {
       const isToday = day === puzzleDay(new Date());
       // An earlier day counts only if the player really started it as their daily: seeing its
       // Start gate (which saves an empty record) is not starting it.
-      const kind: RunKind = !practice && timing === 'timed' && (isToday || startedDaily(store, day)) ? 'runs' : 'practice';
+      const kind: RunKind = !practice && timing === 'timed' && (isToday || startedDaily(store, slate)) ? 'runs' : 'practice';
       setMissing(false);
       activeWindowRef.current = false;
       setSession({
@@ -254,12 +256,13 @@ export function App() {
     }
     if (link.kind === 'day') {
       // A legacy challenge link always retains its timed rules.
-      if (practice !== null) window.history.replaceState(null, '', withoutParams(window.location, ['practice']));
+      if (practice !== null) window.history.replaceState(null, '', withoutParams(window.location, ['practice', 'practice-timing']));
       void open(link.day, { link: { vs: link.vs, vsTime: link.vsTime, rounds: link.rounds } });
       return;
     }
     if (link.kind === 'none' && practice !== null && practice < dayNow && playable.includes(practice)) {
-      void open(practice, { timing: 'untimed' });
+      const timing = params.get('practice-timing') === 'timed' ? 'timed' : 'untimed';
+      void open(practice, { timing, practice: true });
       return;
     }
     if (link.kind !== 'none' || practice !== null) {
@@ -352,19 +355,13 @@ export function App() {
 
   const openPractice = (day: string, timing: PracticeTiming = 'timed') => {
     const loc = window.location;
-    if (timing === 'untimed') {
-      const dayNow = puzzleDay(new Date());
-      if (day >= dayNow || !playableDays(inventoryDays, dayNow, SEASON).includes(day)) return;
-      const url = new URL(withoutGameLink(loc), loc.origin);
-      url.searchParams.set('practice', day);
-      window.history.pushState(null, '', url);
-      void open(day, { timing });
-    } else {
-      // Leaving a friend's link for timed practice clears the old challenge parameters.
-      const params = new URLSearchParams(loc.search);
-      if (gameParams.some((n) => params.has(n))) window.history.replaceState(null, '', withoutGameLink(loc));
-      void open(day, { practice: true });
-    }
+    const dayNow = puzzleDay(new Date());
+    if (day >= dayNow || !playableDays(inventoryDays, dayNow, SEASON).includes(day)) return;
+    const url = new URL(withoutGameLink(loc), loc.origin);
+    url.searchParams.set('practice', day);
+    if (timing === 'timed') url.searchParams.set('practice-timing', timing);
+    window.history.pushState(null, '', url);
+    void open(day, { timing, practice: true });
   };
 
   const openSurvival = () => {
@@ -563,15 +560,19 @@ function Game(props: {
 
   const [state, rawDispatch] = useReducer(gameReducer, undefined, (): GameState => {
     const saved = store.load()[session.kind]?.[session.day];
-    return initGame(session.slate, session.mode, saved?.results ?? [], saved?.advanced ?? 0);
+    return initGame(session.slate, session.mode, saved?.results ?? [], saved?.advanced ?? 0, saved?.guess);
   });
 
   const startKey = untimedPractice ? `stat-window:practice-start:v1:${session.day}`
     : shotSessionKey(session.mode, session.slate.questions[0]?.id ?? '');
   const runEventKey = `${playMode}:${eventRun}:${session.day}`;
   const [started, setStarted] = useState(() => {
-    if ((store.load()[session.kind]?.[session.day]?.results.length ?? 0) > 0) return true;
-    try { return window.sessionStorage.getItem(startKey) !== null; } catch { return false; }
+    const saved = store.load()[session.kind]?.[session.day];
+    if (saved?.guess || (saved?.results.length ?? 0) > 0) return true;
+    try {
+      return window.sessionStorage.getItem(startKey) !== null ||
+        (daily && window.localStorage.getItem(sharedShotKey(session.day, session.slate.questions[0]!.id)) !== null);
+    } catch { return false; }
   });
   // A new player on the home chose to learn first: the untimed walkthrough, then the daily.
   const [learning, setLearning] = useState(false);
@@ -610,18 +611,24 @@ function Game(props: {
   const adoptSave = useCallback((saved: SavedRun) => {
     // The tab that locked these rounds already reported them.
     lastLocked.current = saved.results.length;
-    rawDispatch({ type: 'hydrate', state: initGame(session.slate, session.mode, saved.results, saved.advanced) });
+    rawDispatch({ type: 'hydrate', state: initGame(session.slate, session.mode, saved.results, saved.advanced, saved.guess) });
   }, [session.slate, session.mode]);
 
-  // Persist every locked round immediately (before the reveal), so a refresh can't re-roll it.
+  // Persist the normalized draft or locked result before paint and before the clock clears.
   const advanced = state.phase === 'complete' ? state.results.length : state.round;
-  useEffect(() => {
-    const saved = store.saveRun(session.day, { results: state.results, advanced }, session.kind);
+  const guess = state.phase === 'adjusting' ? state.window : undefined;
+  const questionId = currentQuestion(state).id;
+  useLayoutEffect(() => {
+    const saved = store.saveRun(session.day, {
+      results: state.results,
+      advanced,
+      ...(guess ? { guess: { questionId, round: advanced, ...guess } } : {}),
+    }, session.kind);
     if (untimedPractice && state.results.length > 0) {
       try { window.sessionStorage.removeItem(startKey); } catch { /* storage blocked */ }
     }
     if ((daily || untimedPractice) && hasConflictingLock(saved, state.results)) adoptSave(saved);
-  }, [store, session.day, session.kind, state.results, advanced, daily, untimedPractice, startKey, adoptSave]);
+  }, [store, session.day, session.kind, state.results, advanced, guess, questionId, daily, untimedPractice, startKey, adoptSave]);
 
   const pub = publicNumber(session.day, SEASON, today);
   useEffect(() => {

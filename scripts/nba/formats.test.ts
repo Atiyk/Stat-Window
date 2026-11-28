@@ -7,6 +7,7 @@ import { buildSlates, loadNbaData, questionFromFact, ROOT, V5_CONTENT_FROM, v5Co
 import { buildCatalog, leakHorizon } from './survival.ts';
 import { parseSlate, QuestionSchema } from '../../src/content/schema.ts';
 import { formatOf } from '../../src/content/formats.ts';
+import { LAUNCH_DAY } from '../../src/engine/launch-config.ts';
 
 const base = (id: string, answer: number, extra: Partial<FormatFact> = {}, step = 1): FormatFact => ({
   id,
@@ -312,7 +313,18 @@ describe('Official-season audits (V5.2 and V5.3)', () => {
     });
   });
   it('every official slate uses all three formats in a 2/2/1 distribution', () => {
+    if (LAUNCH_DAY) expect(official.some((day) => day.date === LAUNCH_DAY)).toBe(true);
     for (const d of official) expect(slateFormatIssues(d.questions.map(kind)), d.date).toEqual([]);
+  });
+  it('rejects the beta Game 13 five-recall mix on official Day 1', () => {
+    const game13 = real.calendar.days.find((day) => day.date === '2026-11-27')!;
+    const first = official.find((day) => day.date === LAUNCH_DAY) ?? official[0]!;
+    const invalid = clone();
+    for (const [slot, id] of first.questions.entries()) {
+      expect(kind(game13.questions[slot]!)).toBe('recall');
+      delete invalid.facts.find((fact) => fact.id === id)!.question.format;
+    }
+    expect(validateNba(invalid).errors.join('\n')).toContain(`${first.date}: 5 recall questions`);
   });
   it('no two consecutive official days repeat a format sequence', () => {
     expect(sequenceIssues(official.map((d) => d.questions.map(kind)))).toEqual([]);

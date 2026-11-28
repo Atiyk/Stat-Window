@@ -1,5 +1,6 @@
 import type { Question, Slate } from '../content/schema';
 import { fromSteps, rangeSteps, scoreWindow, toSteps, type Scale, type Window } from './scoring';
+import type { SavedGuess } from './storage';
 
 export type Mode = 'daily' | 'practice';
 export type PracticeTiming = 'timed' | 'untimed';
@@ -101,6 +102,7 @@ export function initGame(
   mode: Mode,
   saved: readonly RoundRecord[],
   advanced: number = saved.length,
+  guess?: SavedGuess,
 ): GameState {
   const results = matchingResults(slate, saved);
   const last = results.at(-1);
@@ -112,6 +114,9 @@ export function initGame(
   }
   const q = slate.questions[results.length];
   if (!q) throw new Error('Empty slate');
+  if (guess?.round === results.length && guess.questionId === q.id && guess.lo < guess.hi) {
+    return { phase: 'adjusting', mode, slate, round: results.length, results, window: normalizeWindow(q, guess) };
+  }
   return { phase: 'ready', mode, slate, round: results.length, results, window: fullWindow(q) };
 }
 

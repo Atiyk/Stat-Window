@@ -11,3 +11,8 @@ Run repository gates and independent review at the integrated SHA. Verify both r
 
 ### Capture a real gameplay asset
 With a local preview running, use `node scripts/media/capture.mjs`. The script blocks off-origin requests and captures only the known untimed tutorial question in a fresh browser, to `build/media-review/tutorial-question.png`. Inspect the result for layout, spoilers and privacy before copying to `public/media/` and updating the manifest and page. The initial public library is brand assets only; no screenshot has been generated or approved yet.
+
+### V5.7 staged foundation
+Contact uses ordinary email links, never a submission backend. Completed results offer feedback and question reports with only the puzzle date, position and public question ID. The address is visible on the contact page for manual copying. Secondary public links appear on Home and Results, never in timed rounds. The home WebSite JSON-LD describes the real site name and canonical URL. No launch config, verification token, score or analytics change.
+
+Release gate: visually inspect these changes at all required widths and 200% text, test mailto and report links, inspect static JSON-LD and sitemap, check exact-head CI and independent review. The full owner Master UI/UX Design Playbook was not located in the available repository or indexed files; do not claim full compliance. Media captures, physical devices and production analytics are unverified in this staging pass.

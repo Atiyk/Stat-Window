@@ -45,3 +45,11 @@ test('every listed media asset exists and is explicitly spoiler-safe', async ({ 
     expect(res.headers()['content-type']).toMatch(/^image\//);
   }
 });
+
+
+test('contact page provides accessible email categories and a canonical URL', async ({ page }) => {
+  await page.goto('/contact.html');
+  await expect(page.getByRole('heading', { name: 'Contact Stat Window' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Embedding support' })).toHaveAttribute('href', /^mailto:stat\.window\.game@gmail\.com\?subject=/);
+  await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href', 'https://www.statwindow.app/contact.html');
+});

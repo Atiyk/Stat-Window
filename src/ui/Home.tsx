@@ -9,6 +9,7 @@ import { PracticeTimingChoice } from './PracticeTimingChoice';
 import { WeekGlance } from './Weekly';
 import { WindowDemo } from './WindowDemo';
 import { hasFinishedOfficialRun } from './use-history';
+import { SiteLinks } from './SiteLinks';
 import './home.css';
 
 
@@ -124,6 +125,7 @@ export function Home({ isNew = false, gameNumber, onLearn, store, today, config,
           </button>
         )}
       </nav>
+      <SiteLinks />
     </article>
   );
 }

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, 
 import { canLock, currentQuestion, ROUNDS, totalPoints, type GameAction, type GameState, type PracticeTiming } from '../engine/game';
 import { finalShot, verifiedDailyRounds } from '../engine/final-shot';
 import { MAX_POINTS_PER_ROUND, potentialPoints } from '../engine/scoring';
-import { shotSessionKey } from '../engine/storage';
+import { sharedShotKey, shotSessionKey } from '../engine/storage';
 import { formatValue, plural, unitFor } from '../lib/format';
 import { feedback } from './feedback';
 import { Readout } from './Readout';
@@ -68,7 +68,6 @@ const SHOT_CLOCK_MS = 24_000;
  * This is convenience, not anti-cheat: private windows and cleared storage
  * are independent, and nobody's times are server-verified.
  */
-const sharedShotKey = (day: string, id: string) => `stat-window:shot:daily:v1:${day}:${id}`;
 function savedShotStart(sessionKey: string, crossTabKey: string, shared: boolean): number | null {
   if (typeof window === 'undefined') return null;
   const values: number[] = [];
@@ -164,31 +163,30 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
     if (!timed || shot.current.startedAt !== null || shot.current.stopped) return;
     shot.current.startedAt = rememberStart(Date.now());
   };
-  const stopShot = () => {
-    const spent = Math.round(elapsed());
-    shot.current.stopped = true;
-    // After a locked answer, no deadline remains to restore. Keeping one
-    // could instantly expire a fresh replay if a player resets their save.
+  const clearShot = () => {
     try { window.sessionStorage.removeItem(shotKey); } catch { /* blocked storage */ }
     if (shareWithTabs) {
       try { window.localStorage.removeItem(crossTabKey); } catch { /* blocked storage */ }
     }
-    return spent;
   };
   const lockShot = () => {
     if (!canLock(state) || (survival && worth < survival.need)) return;
     if (!timed) { dispatch({ type: 'lock' }); return; }
     if (shot.current.stopped) return;
     startShot();
-    const spent = stopShot();
+    const spent = Math.round(elapsed());
+    shot.current.stopped = true;
     if (spent >= SHOT_CLOCK_MS) dispatch({ type: 'timeout', elapsedMs: SHOT_CLOCK_MS });
     else dispatch({ type: 'lock', elapsedMs: spent });
   };
   useEffect(() => {
     if (!timed) return;
     if (!interactive) {
-      // A restored result or a result from another tab has already used its time.
-      if (last && !shot.current.stopped) stopShot();
+      // The result has been persisted before this effect runs.
+      if (last) {
+        shot.current.stopped = true;
+        clearShot();
+      }
       return;
     }
     // Question is mounted only after Start. Never add time on another tab.
@@ -209,10 +207,6 @@ export function Round({ state, dispatch, label, challenge = null, onFirstTouch, 
       setSecondsLeft(Math.ceil(left / 1000));
       if (left === 0) {
         s.stopped = true;
-        try { window.sessionStorage.removeItem(shotKey); } catch { /* blocked storage */ }
-        if (shareWithTabs) {
-          try { window.localStorage.removeItem(crossTabKey); } catch { /* blocked storage */ }
-        }
         dispatchRef.current({ type: 'timeout', elapsedMs: SHOT_CLOCK_MS });
       }
     };

@@ -60,7 +60,7 @@ The launch day lives in **`src/engine/launch-config.ts`** (`LAUNCH_DAY`), one va
 
 ## Production domains
 
-Publish and share `https://www.statwindow.app/`. Vercel redirects `statwindow.app` to www with a permanent 308 that keeps the path and query. Keep `stat-window.vercel.app` serving the game directly so existing challenge links and browser-local saves still work there. Privacy and credits pages link back on the current origin, and installed apps retain their existing origin and scope.
+Publish and share `https://www.statwindow.app/`. Vercel redirects `statwindow.app` to www with a permanent 308 that keeps the path and query. Keep `stat-window.vercel.app` serving this build during migration so old links can open the branded site with their original parameters and players can move browser-local progress. For a timed game already open on the old site, reload that same tab to move its clock. Installed apps retain their existing origin and scope.
 
 The production analytics allow-list defaults to `www.statwindow.app,statwindow.app,stat-window.vercel.app` in code. Vercel's optional `VITE_ANALYTICS_HOSTS` variable can replace this list for a future build. The score API accepts requests whose `Origin` matches the host they were sent to (`server/api.ts`, `sameOrigin`). Follow [the branded production analytics check](MEASUREMENT.md#turning-it-on-owner-about-two-minutes) after deployment.
 

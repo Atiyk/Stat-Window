@@ -137,7 +137,7 @@
  * action sit beside them on the right. The fact after the reveal spans both columns.
  * Portrait layouts are untouched: everything here is inside this one query.
  */
-@media (orientation: landscape) and (max-height: 500px) {
+@media (orientation: landscape) and (min-width: 600px) and (max-height: 500px) {
   .topbar { padding-top: max(4px, env(safe-area-inset-top)); padding-bottom: 2px; }
   .round:not(.teaching-play) {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
@@ -258,6 +258,19 @@
   .round:not(.teaching-play) .action-bar .btn { min-height: 48px; }
 }
 
+@media (max-width: 420px) {
+  .round:not(.teaching-play) .round-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'top' 'question';
+  }
+  .round:not(.teaching-play) .question-block { min-width: 0; }
+  .round-top .ledger-cell { width: 25px; height: 25px; }
+  .round-top .round-label { position: absolute; clip-path: inset(50%); }
+  .round:not(.teaching-play) .round-court .live-court__court { --live-court-depth: 5; }
+  .round:not(.teaching-play) .bound-input { scroll-margin-block: 12px; }
+}
+
 @media (max-width: 719px) and (min-height: 760px) {
   .round:not(.teaching-play) .round-court .live-court__court { --live-court-depth: 9; }
 }
@@ -303,7 +316,18 @@
   }
 }
 
+@media (max-width: 420px) and (max-height: 650px) {
+  .round:has(.q-chart) .round-top[data-has-court] {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: 'ledger meta' 'court court';
+    align-items: center;
+  }
+  .round:not(.teaching-play):has(.q-chart) .round-court .live-court__court { --live-court-depth: 5; }
+}
+
 @media (max-width: 359px) and (max-height: 600px) {
+  .round:has(.q-chart) .round-top[data-has-court] { row-gap: 0; }
+  .round:not(.teaching-play):has(.q-chart) .round-court .live-court__court { --live-court-depth: 3.5; }
   .round:not(.teaching-play):has(.q-chart) :is(.context, .q-chart) { margin-top: 2px; }
   .round:not(.teaching-play):not([data-phase='resolved']):has(.q-chart) .field-inner { padding-bottom: 4px; }
   .round:not(.teaching-play):is([data-phase='ready'], [data-phase='adjusting']):has(.q-chart) .ruler { padding-top: 2px; }

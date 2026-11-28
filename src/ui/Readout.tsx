@@ -69,7 +69,7 @@ function Bound(props: {
   const label = which === 'lo' ? 'Low end' : 'High end';
   const formatted = formatValue(value, q.step);
   const focusInput = useCallback((input: HTMLInputElement | null) => {
-    input?.focus({ preventScroll: true });
+    input?.focus();
     input?.select();
   }, []);
 

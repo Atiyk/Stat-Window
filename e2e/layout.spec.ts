@@ -1,6 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
-import { collectErrors, DAY1, lockAndSettle, NBA_FIRST, NBA_LAST, NBA_MIDDLE, next, openAt } from './helpers';
+import { collectErrors, DAY1, lockAndSettle, lowBracket, NBA_FIRST, NBA_LAST, NBA_MIDDLE, next, openAt } from './helpers';
 
 const WIDTHS = [320, 375, 390, 430, 768, 1024, 1440];
 const MOBILE_HEIGHTS: Partial<Record<number, number>> = { 320: 720, 375: 812, 390: 844, 430: 932 };
@@ -12,6 +12,38 @@ const DAYS: { name: string; when: Date; widths: number[] }[] = [
   { name: 'nba-last', when: NBA_LAST, widths: [320, 1440] },
 ];
 const shots = 'test-results/screens';
+
+for (const [width, height] of [[320, 568], [375, 667], [390, 844]] as const) {
+  test(`narrow gameplay at ${width}px keeps the controls reachable with a reduced viewport`, async ({ page }) => {
+    await page.setViewportSize({ width, height });
+    await openAt(page, new Date('2026-12-01T15:00:00Z'));
+    const question = (await page.locator('.question-block').boundingBox())!;
+    const progress = (await page.locator('.round-top').boundingBox())!;
+    expect(question.width).toBe(progress.width);
+    expect(question.y).toBeGreaterThanOrEqual(progress.y + progress.height - 1);
+    const noOverflow = () => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth);
+    expect(await noOverflow()).toBe(true);
+    await lowBracket(page).press('ArrowRight');
+    const lock = page.getByRole('button', { name: 'Lock the window' });
+    for (const control of await page.locator('.readout button, .ruler [role="slider"], .action-bar button').all()) {
+      const box = (await control.boundingBox())!;
+      expect(Math.min(box.width, box.height)).toBeGreaterThanOrEqual(44);
+    }
+    await page.getByRole('button', { name: /^High end:/ }).click();
+    const input = page.getByRole('textbox', { name: /^High end, between/ });
+    await expect(input).toBeFocused();
+    // Emulate the content viewport left by a virtual keyboard.
+    await page.setViewportSize({ width, height: 280 });
+    expect(await noOverflow()).toBe(true);
+    for (const control of [input, lowBracket(page), lock]) {
+      await control.scrollIntoViewIfNeeded();
+      await expect(control).toBeInViewport({ ratio: 0.99 });
+    }
+    await expect(input).toBeFocused();
+    await lock.click();
+    await expect(page.getByRole('button', { name: 'Next question' })).toBeVisible();
+  });
+}
 
 test.describe('layout', () => {
   test.skip(({ isMobile }) => isMobile, 'viewport sweep runs once, on the desktop project');

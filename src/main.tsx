@@ -5,6 +5,7 @@ import './styles.css';
 import { App } from './App';
 import { puzzleDay } from './engine/daily';
 import { startAnalytics, trackOnce } from './lib/track';
+import { OriginTransfer } from './lib/save-transfer';
 
 startAnalytics();
 
@@ -17,6 +18,6 @@ createRoot(document.getElementById('root')!, {
   },
 }).render(
   <StrictMode>
-    <App />
+    <OriginTransfer><App /></OriginTransfer>
   </StrictMode>,
 );

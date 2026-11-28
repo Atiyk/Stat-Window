@@ -108,6 +108,9 @@ test('mode selection keeps timed practice separate and supports browser back and
   expect(timedRun?.results).toHaveLength(1);
 
   await page.reload();
+  await expect(page.locator('.round-meta')).toContainText('Practice · Question 2 of 5');
+  await expect(page.getByRole('timer')).toBeVisible();
+  await page.goBack();
   await page.getByRole('radio', { name: 'Untimed', exact: true }).check();
   await day.click();
   await expect(page).toHaveURL(new RegExp(`\\?practice=${seasonDay}$`));

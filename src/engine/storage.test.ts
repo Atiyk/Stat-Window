@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { createSaveStore, emptySave, mergeRun, UNTIMED_PRACTICE_KEY, type StorageLike } from './storage';
+import { createSaveStore, emptySave, mergeRun, mergeTransferredSave, UNTIMED_PRACTICE_KEY, type SaveData, type StorageLike } from './storage';
 
 function memoryStorage(initial: Record<string, string> = {}): StorageLike & { data: Record<string, string> } {
   const data = { ...initial };
@@ -120,4 +120,18 @@ describe('timed round persistence', () => {
     store.saveRun('2026-11-15', { results: [old, timed], advanced: 2 });
     expect(createSaveStore(storage).load().runs['2026-11-15']?.results).toEqual([old, timed]);
   });
+});
+
+it('merges transferred history twice without duplicating or combining attempts', () => {
+  const day = '2026-11-15';
+  const today = '2026-11-16';
+  const guess = { questionId: 'b', round: 1, lo: 23, hi: 31 };
+  const here: SaveData = { ...emptySave(), runs: { [day]: { results: [r('a', 90)], advanced: 1 } } };
+  const there: SaveData = { ...emptySave(), runs: {
+    [day]: { results: [r('a', 5)], advanced: 1 },
+    [today]: { results: [r('a', 70)], advanced: 1, guess },
+  } };
+  const merged = mergeTransferredSave(here, there)!;
+  expect(merged.runs).toEqual({ [day]: here.runs[day], [today]: there.runs[today] });
+  expect(mergeTransferredSave(merged, there)).toEqual(merged);
 });

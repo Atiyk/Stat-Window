@@ -1,53 +1,85 @@
-// Fixed origin and channel: no publisher IDs, HTML injection, or external requests.
-export function embedCode(height=850){
-  if(!Number.isInteger(height)||height<600||height>1400)throw new RangeError('Height must be a whole number between 600 and 1400');
-  const url='https://www.statwindow.app/?utm_source=embed&amp;utm_medium=referral&amp;utm_campaign=organic';
-  return `<iframe\n  src="${url}"\n  title="Stat Window — daily NBA trivia"\n  width="100%"\n  height="${height}"\n  loading="lazy"\n  style="border:0;display:block"\n  allow="clipboard-write; web-share">\n</iframe>\n<p><a href="${url}" target="_blank" rel="noopener noreferrer">Play Stat Window in a new tab</a></p>`;
+const DEFAULT_HEIGHT = 850;
+
+// Fixed origin and channel: publishers only control the validated dimensions.
+export function embedCode(height = DEFAULT_HEIGHT, maxWidth = null) {
+  if (!Number.isInteger(height) || height < 600 || height > 1400) {
+    throw new RangeError('Height must be a whole number from 600 to 1,400');
+  }
+  if (maxWidth !== null && (!Number.isInteger(maxWidth) || maxWidth < 320 || maxWidth > 1440)) {
+    throw new RangeError('Maximum width must be a whole number from 320 to 1,440');
+  }
+  const url = 'https://www.statwindow.app/?utm_source=embed&amp;utm_medium=referral&amp;utm_campaign=organic';
+  const maxWidthStyle = maxWidth === null ? '' : `;max-width:${maxWidth}px`;
+  return `<iframe\n  src="${url}"\n  title="Stat Window — daily NBA trivia"\n  width="100%"\n  height="${height}"\n  loading="lazy"\n  style="border:0;display:block${maxWidthStyle}"\n  allow="clipboard-write; web-share">\n</iframe>\n<p><a href="${url}" target="_blank" rel="noopener noreferrer">Play Stat Window in a new tab</a></p>`;
 }
 
-if (typeof document !== 'undefined') {
-  const controls=document.getElementById('embed-controls');
-  const height=document.getElementById('embed-height');
-  const code=document.getElementById('embed-code');
-  const preview=document.getElementById('embed-preview');
-  const size=document.getElementById('embed-size');
-  const copy=document.getElementById('embed-copy');
-  const status=document.getElementById('embed-copy-status');
-  const note=document.getElementById('embed-height-note');
-  const reset=document.getElementById('embed-reset');
-  if (controls && height && code && preview && size && copy && status && note && reset) {
-    function update() {
-      try {
-        const n=height.valueAsNumber;
-        code.value=embedCode(n);
-        preview.style.height=Math.round(n/2)+'px';
-        size.textContent='Responsive width · '+n+' px high (height shown at half scale)';
-        height.removeAttribute('aria-invalid');
-        note.textContent='Choose 600–1,400 px. Short frames may require scrolling.';
-        copy.disabled=false;
-        status.textContent='';
-      } catch {
-        height.setAttribute('aria-invalid','true');
-        note.textContent='Enter a whole number from 600 to 1,400. Code still shows the last valid height.';
-        copy.disabled=true;
-        status.textContent='';
-      }
+function setup() {
+  const controls = document.getElementById('embed-controls');
+  const height = document.getElementById('embed-height');
+  const maxWidth = document.getElementById('embed-max-width');
+  const code = document.getElementById('embed-code');
+  const previewOptions = document.getElementById('embed-preview-options');
+  const preview = document.getElementById('embed-preview');
+  const size = document.getElementById('embed-size');
+  const copy = document.getElementById('embed-copy');
+  const status = document.getElementById('embed-copy-status');
+  const heightNote = document.getElementById('embed-height-note');
+  const widthNote = document.getElementById('embed-width-note');
+  const reset = document.getElementById('embed-reset');
+
+  function update() {
+    const h = height.valueAsNumber;
+    const w = maxWidth.value === '' ? null : maxWidth.valueAsNumber;
+    const heightValid = height.validity.valid;
+    const widthValid = maxWidth.validity.valid;
+    for (const field of [height, maxWidth]) {
+      if (field.validity.valid) field.removeAttribute('aria-invalid');
+      else field.setAttribute('aria-invalid', 'true');
     }
-    controls.hidden=false;copy.hidden=false;
-    height.addEventListener('input',update);
-    reset.addEventListener('click',()=>{height.value='850';update();});
-    for (const radio of document.querySelectorAll('input[name=embed-width]')) radio.addEventListener('change',()=>{if(radio.checked)preview.dataset.width=radio.value==='mobile'?'mobile':'desktop';});
-    copy.addEventListener('click',async()=>{
-      const value=code.value;
-      try {
-        if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
-        await navigator.clipboard.writeText(value);
-        status.textContent=code.value===value&&!copy.disabled?'Embed code copied.':'Earlier code copied; copy again after your changes.';
-      } catch {
-        code.focus();code.select();
-        status.textContent='Code selected. Copy it using your browser or keyboard.';
-      }
-    });
-    update();
+    heightNote.textContent = heightValid
+      ? '600–1,400 px. Shorter frames may scroll.'
+      : 'Enter a whole number from 600 to 1,400.';
+    widthNote.textContent = widthValid
+      ? '320–1,440 px. Leave blank to fill the column.'
+      : 'Enter a whole number from 320 to 1,440, or leave blank.';
+    copy.disabled = !heightValid || !widthValid;
+    status.textContent = copy.disabled ? 'The code shows your last valid settings.' : '';
+    if (copy.disabled) return;
+    code.value = embedCode(h, w);
+    preview.style.setProperty('--embed-preview-width', w === null ? '100%' : `${w}px`);
+    preview.style.height = `${Math.round(h / 4)}px`;
+    size.textContent = `${w === null ? 'Available width' : `Up to ${w} px wide`} · ${h} px high`;
   }
+
+  controls.hidden = false;
+  previewOptions.hidden = false;
+  copy.hidden = false;
+  height.addEventListener('input', update);
+  maxWidth.addEventListener('input', update);
+  reset.addEventListener('click', () => {
+    height.value = String(DEFAULT_HEIGHT);
+    maxWidth.value = '';
+    update();
+  });
+  for (const radio of previewOptions.querySelectorAll('input[name=embed-width]')) {
+    radio.addEventListener('change', () => {
+      if (radio.checked) preview.dataset.width = radio.value;
+    });
+  }
+  copy.addEventListener('click', async () => {
+    const value = code.value;
+    try {
+      await navigator.clipboard.writeText(value);
+      status.textContent = code.value === value && !copy.disabled
+        ? 'Embed code copied.'
+        : 'Earlier code copied. Copy again after updating your settings.';
+    } catch {
+      code.focus();
+      code.select();
+      status.textContent = 'Code selected. Copy it using your browser or keyboard.';
+    }
+  });
+  update();
 }
+
+if (typeof document !== 'undefined') setup();

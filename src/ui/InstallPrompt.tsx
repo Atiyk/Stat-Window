@@ -10,6 +10,7 @@ const dismissalKey = 'stat-window:install-suggestion-hidden';
 const installedMode = typeof window === 'undefined' ? null : window.matchMedia('(display-mode: standalone)');
 const listeners = new Set<() => void>();
 let nativeInstall: NativeInstallEvent | null = null;
+let nativeInstallFailed = false;
 let hidden = false;
 
 function readDismissal(): boolean {
@@ -42,6 +43,7 @@ if (typeof window !== 'undefined') {
   window.addEventListener('beforeinstallprompt', (event) => {
     event.preventDefault();
     nativeInstall = hidden ? null : (event as NativeInstallEvent);
+    nativeInstallFailed = false;
     publish();
   });
   window.addEventListener('appinstalled', hideSuggestion);
@@ -61,13 +63,13 @@ function subscribe(listener: () => void) {
   };
 }
 
-function installMethod(): 'native' | 'ios' | 'android' | null {
+function installMethod(): 'native' | 'ios' | 'android' | 'browser' | null {
   const browser = navigator as Navigator & { standalone?: boolean };
   if (hidden || installedMode?.matches || browser.standalone) return null;
   if (nativeInstall) return 'native';
   if (/iPhone|iPad|iPod/i.test(browser.userAgent) || (/Macintosh/i.test(browser.userAgent) && browser.maxTouchPoints > 1)) return 'ios';
   if (/Android/i.test(browser.userAgent)) return 'android';
-  return null;
+  return nativeInstallFailed ? 'browser' : null;
 }
 
 export function InstallPrompt({ completedDays, onDismiss }: { completedDays: number; onDismiss: () => void }) {
@@ -102,6 +104,7 @@ export function InstallPrompt({ completedDays, onDismiss }: { completedDays: num
       dismiss();
     } catch {
       nativeInstall = null;
+      nativeInstallFailed = true;
       setGuideOpen(true);
       publish();
     } finally {
@@ -121,7 +124,7 @@ export function InstallPrompt({ completedDays, onDismiss }: { completedDays: num
           aria-disabled={prompting}
           onClick={() => void install()}
         >
-          {manual ? 'Add to Home Screen' : 'Install Stat Window'}
+          {method === 'ios' || method === 'android' ? 'Add to Home Screen' : 'Install Stat Window'}
         </button>
         <button type="button" className="btn btn-link" aria-label="Hide install suggestion" onClick={dismiss}>
           Hide
@@ -129,9 +132,9 @@ export function InstallPrompt({ completedDays, onDismiss }: { completedDays: num
       </div>
       {manual && (
         <p className="install-prompt-guide" id={guideId} hidden={!guideOpen}>
-          {method === 'ios'
-            ? 'In Safari, tap Share. You may find it in the page menu. Choose Add to Home Screen. If you see Open as Web App, leave it on, then tap Add. If you opened this inside another app and the option is missing, use its menu to open the game in Safari. Your saved scores may not carry over.'
-            : 'Open your browser’s menu and look for Install app or Add to Home screen. If you opened this inside another app and the option is missing, use its menu to open the game in your usual browser. Your saved scores may not carry over.'}
+          {method === 'ios' && 'In Safari, tap Share. You may find it in the page menu. Choose Add to Home Screen. If you see Open as Web App, leave it on, then tap Add. If you opened this inside another app and the option is missing, use its menu to open the game in Safari. Your saved scores may not carry over.'}
+          {method === 'android' && 'Open your browser’s menu and look for Install app or Add to Home screen. If you opened this inside another app and the option is missing, use its menu to open the game in your usual browser. Your saved scores may not carry over.'}
+          {method === 'browser' && 'Look for an install option in your browser’s address bar or menu. You can also bookmark this page to come back to play.'}
         </p>
       )}
     </div>

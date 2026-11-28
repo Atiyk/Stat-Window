@@ -5,4 +5,57 @@ main{max-width:48rem;margin:auto;padding:var(--space) var(--space) 4rem}h1,h2{fo
 figure{margin:1rem 0}figure img{display:block;max-width:100%;height:auto;border:1px solid var(--rule);border-radius:8px}figcaption,small{color:var(--muted)}li{margin:.5rem 0}.asset{border-top:1px solid var(--rule);padding:1rem 0}.asset img{max-width:100%;height:auto}.asset a{display:inline-block;min-height:44px;padding:.6rem 0}.asset h2{margin:.4rem 0}textarea{display:block;width:100%;min-height:12rem;resize:vertical;border:1px solid var(--rule);border-radius:8px;background:transparent;color:var(--ink);padding:1rem;font: .9rem/1.5 ui-monospace,monospace;overflow-wrap:anywhere}code{overflow-wrap:anywhere}footer{border-top:1px solid var(--rule);margin-top:3rem;padding-top:1rem;font-size:.9rem;color:var(--muted)}footer p{margin:.5rem 0}
 
 /* Publisher tools use the existing Garden Classic palette. */
-[hidden]{display:none!important}.embed-controls{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}.embed-controls input{width:7rem;min-height:44px;font:inherit;color:var(--ink);border:1px solid var(--rule);border-radius:6px;padding:.4rem;background:transparent}.embed-secondary{min-height:44px;font:inherit;color:var(--navy);background:transparent;border:1px solid var(--rule);border-radius:6px;padding:.4rem .8rem;cursor:pointer}.embed-width{display:flex;gap:1rem;border:0;padding:0;margin:1rem 0}.embed-width label{display:inline-flex;align-items:center;gap:.4rem;min-height:44px}.embed-width input{accent-color:var(--navy)}.embed-preview{width:100%;max-width:100%;height:425px;margin:1rem auto;border:1px solid var(--rule);border-radius:8px;background:rgb(23 54 93 / 5%);overflow:auto;display:grid;place-items:center;padding:1rem}.embed-preview[data-width=mobile]{max-width:390px}.embed-preview-inner{text-align:center;max-width:18rem}.embed-preview-inner img{display:block;margin:0 auto .5rem}.embed-preview-inner strong{font-size:1.25rem}.embed-note{color:var(--muted);font-size:.9rem}.embed-controls input:focus-visible,.embed-secondary:focus-visible,.embed-width input:focus-visible,button.cta:focus-visible{outline:3px solid var(--accent);outline-offset:3px}button.cta{font:inherit;font-weight:650;border:0;cursor:pointer}
+[hidden] { display: none !important; }
+.embed-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: .75rem;
+  margin-bottom: 1rem;
+}
+.embed-controls label, .embed-controls small, .embed-controls input { display: block; }
+.embed-controls input, .embed-secondary {
+  min-height: 44px;
+  font: inherit;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: transparent;
+}
+.embed-controls input { width: 7rem; color: var(--ink); padding: .4rem; }
+.embed-secondary { color: var(--navy); padding: .4rem .8rem; cursor: pointer; }
+.embed-width {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+  min-inline-size: 0;
+  border: 0;
+  padding: 0;
+  margin: 1rem 0;
+}
+.embed-width label { display: inline-flex; align-items: center; gap: .4rem; min-height: 44px; }
+.embed-width input { accent-color: var(--navy); }
+.embed-preview {
+  width: 100%;
+  max-width: var(--embed-preview-width, 100%);
+  height: 213px;
+  margin: 1rem auto;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: rgb(23 54 93 / 5%);
+  overflow: auto;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+.embed-preview[data-width=mobile] { max-width: min(240px, var(--embed-preview-width, 100%)); }
+.embed-preview-inner { text-align: center; max-width: 18rem; }
+.embed-preview-inner img { display: block; margin: 0 auto .5rem; }
+.embed-preview-inner strong { font-size: 1.25rem; }
+.embed-note { color: var(--muted); font-size: .9rem; }
+#embed-preview-options summary { min-height: 44px; padding: .45rem 0; cursor: pointer; }
+.embed-controls input:focus-visible, .embed-secondary:focus-visible, .embed-width input:focus-visible,
+#embed-preview-options summary:focus-visible, button.cta:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+button.cta { font: inherit; font-weight: 650; border: 0; cursor: pointer; }
+button.cta:disabled { opacity: .55; cursor: not-allowed; }

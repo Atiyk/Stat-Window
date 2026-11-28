@@ -443,7 +443,7 @@ export function Results({ slate, label, screenLabel = label, eligible, onPrivacy
               <span className="recap-pin" style={{ left: p(q.answer) }} />
             </div>
             <p className="recap-points tabular">{r.hit ? `+${r.points}` : '0'}</p>
-            <div className="question-report"><a href={questionReportHref(slate.date, i + 1, q.id)} aria-label={`Report question ${i + 1}`}>Report question</a><small>Includes puzzle date, question number and ID only.</small></div>
+            <div className="question-report"><a href={questionReportHref(slate.date, i + 1, q.id)} aria-label={`Report question ${i + 1}`} aria-describedby="question-report-note">Report question</a></div>
           </li>
         );
       })}
@@ -589,7 +589,11 @@ export function Results({ slate, label, screenLabel = label, eligible, onPrivacy
         {secondary}
       </div>
       <div className="results-folds">
-        {fold('Your answers', <>{review}<PerformanceRecap attempts={attempts} checkpoints={checkpoints} total={total} /></>)}
+        {fold('Your answers', <>
+          <p id="question-report-note" className="question-report-note">Reports open an email with the game date, question number and public question ID.</p>
+          {review}
+          <PerformanceRecap attempts={attempts} checkpoints={checkpoints} total={total} />
+        </>)}
         {fold('Score card image', scoreCard, setCardOptionsOpen)}
         {!practice && fold('Your stats', <>{weekly}{statsBlock}</>)}
         {archive.length > 0 && fold('Practice a past game', archiveBlock)}

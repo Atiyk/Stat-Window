@@ -325,13 +325,33 @@ export function resumeAnalytics(): boolean {
   return activate(pending);
 }
 
+function hasExternalReferrer(): boolean {
+  const referrer = typeof document === 'undefined' ? '' : document.referrer;
+  if (!referrer) return false;
+  try {
+    return new URL(referrer).origin !== window.location.origin;
+  } catch {
+    return true;
+  }
+}
+
 function activate({ nav, vercel: v }: { nav: Navigator; vercel: Vercel }): boolean {
+  const hasReferrer = hasExternalReferrer();
+  let skipFirstPageview = hasReferrer;
   try {
     v.inject({
       mode: 'production',
       disableAutoTrack: true,
       // Page views keep only the path: challenge links carry a day and a score we don't need to collect.
       beforeSend: (event) => {
+        // The provider includes the inbound referrer separately on its first
+        // pageview attempt, even when the pageview URL itself is sanitized.
+        if (skipFirstPageview && event.type === 'pageview') {
+          skipFirstPageview = false;
+          return null;
+        }
+        // Queued views may reach the provider after the player withdraws consent.
+        if (!analyticsAllowed(loadPrivacy(), privacySignal(nav))) return null;
         try {
           const u = new URL(event.url);
           return { ...event, url: `${u.origin}${u.pathname}` };
@@ -341,6 +361,9 @@ function activate({ nav, vercel: v }: { nav: Navigator; vercel: Vercel }): boole
       },
     });
     v.pageview({ route: '/', path: '/' });
+    // The provider consumes the first attempt even when beforeSend cancels it.
+    // Replay the root once so it is still counted, without the external referrer.
+    if (hasReferrer) v.pageview({ route: '/', path: '/' });
   } catch {
     return false; // an optional provider must never prevent the app from mounting
   }
@@ -366,11 +389,11 @@ function activate({ nav, vercel: v }: { nav: Navigator; vercel: Vercel }): boole
   setTrackSink((e) => {
     if (!analyticsAllowed(loadPrivacy(), privacySignal(nav))) { clearReferralSession(); return; }
     const scope = cohort === 'qa' ? 'qa' : e.cohort ?? cohort;
-    const referral = readReferralSession(scope);
     if ((e.name === 'first_touch' || e.name === 'round_lock') && !sampledRun(e.sampleKey)) return;
     send(e);
-    if (referral && (e.name === 'run_start' || e.name === 'run_complete') && e.mode !== 'practice') {
-      send({ name: 'referral', channel: referral, step: e.name === 'run_start' ? 'start' : 'complete', cohort: e.cohort ?? cohort });
+    if ((e.name === 'run_start' || e.name === 'run_complete') && e.mode !== 'practice') {
+      const referral = readReferralSession(scope);
+      if (referral) send({ name: 'referral', channel: referral, step: e.name === 'run_start' ? 'start' : 'complete', cohort: scope });
     }
     if (e.name === 'run_start' && e.mode === 'daily' && e.diagnostics && sampleRun(e.diagnostics.key, e.diagnostics.day)) {
       send({ name: 'sample_start', cohort: e.cohort ?? cohort });

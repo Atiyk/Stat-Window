@@ -1,13 +1,19 @@
 # V5.7 growth report (import-based)
 
-No new event, identifier, analytics service or paid API. This companion to analytics-readout.ts focuses on an actionable one-minute report; PR #8 owns experiment interval hardening separately.
+The report uses the existing Vercel Web Analytics pageview counts. It requires Node.js and no additional service.
 
-1. From Vercel Analytics > Pages, select one complete Eastern-aligned day or a 1–7 day reporting window. Check the provider timezone and reporting lag. Copy counts into a UTF-8 CSV with header path,count, one row per distinct path. Include / and fixed /e/… virtual paths; normalize provider exports to this format. Unknown/missing paths are not assumed zero. Do not include raw URLs or individual data.
-2. Run `node scripts/growth-report.mjs pages.csv --period daily --from 2026-11-28 --to 2026-11-28`. For weekly use --period weekly and the actual first/last dates (opening partial week is allowed).
-3. Optionally add --previous prior.csv only for an immediately preceding, same-duration, comparable official window; the script cannot verify the prior export's provenance. Add --usage N using the current team-month usage displayed by Vercel, not the report's event sums.
-4. Use the existing analytics-readout.ts for detailed diagnostics. Save reports privately; no delivery or scheduling is configured. The report has no network access. Automated dashboard export access has not been established.
+1. In the project’s Analytics dashboard, select Production and one complete Eastern-aligned day or a window of up to seven days. Confirm the export’s timezone and allow for reporting lag. In Pages, open the three-dot menu and export as CSV. Normalize it to UTF-8 `path,count` with one row per path, using **pageviews**. Include `/` and the fixed `/e/…` paths. If the export only contains visitors, use the API workflow below. Vercel’s panel export includes up to 250 entries. Missing paths are not assumed zero.
+2. Run `node scripts/growth-report.mjs pages.csv --period daily --from 2026-11-28 --to 2026-11-28`. For a weekly report use `--period weekly` and the actual first and last dates. An opening partial week is allowed.
+3. For a comparable prior window, add `--previous prior.csv --previous-from YYYY-MM-DD --previous-to YYYY-MM-DD`. The prior window must end the day before the current report and match its length. For CSV, confirm these declared dates against the export. For current team usage, add `--usage N` using the team-month number in Vercel.
+4. Use `scripts/analytics-readout.ts` for detailed diagnostics. The statistical safeguards proposed in PR #8 were applied to the current implementation. Impossible funnel counts suppress percentages, and an experiment interval requires enough data with neither arm at a boundary. D1 and D7 show event counts because the exports do not link those counts to an acquisition cohort.
 
-D1/D7 are event counts, not retention estimates, until day-aligned acquisition denominators are available. No ratio is represented as individual conversion. Missing rows, small denominators and aggregate numerator > denominator suppress misleading conclusions. The actual provider reporting timezone and data completeness must be checked by the owner.
+## Optional API import
+
+The connected Vercel Web Analytics API can query read-only production aggregates. Use `visits/aggregate` or the equivalent aggregate pageviews tool, group by `requestPath`, and use the filter `environment eq 'production' and (requestPath eq '/' or startswith(requestPath, '/e/s1/'))` with a limit of 100. Request from the first Eastern midnight through one millisecond before the following Eastern midnight after the last day. In November, for example, the first official day begins at `2026-11-28T05:00:00.000Z` and ends at `2026-11-29T04:59:59.999Z`. The provider returns the upper edge rounded to the hour. The report checks that the returned window matches the declared dates, including across daylight-saving changes.
+
+Save the response as `analytics.json` and pass it in place of `pages.csv`. If the API groups paths under `Others`, use a complete CSV instead. The existing connected aggregate query was verified. The report reads local files and needs no access token. Reports should stay private. No recurring job or delivery is configured.
+
+[Vercel Pages export](https://vercel.com/docs/analytics/using-web-analytics) · [Vercel Web Analytics API](https://vercel.com/docs/analytics/web-analytics-api)
 
 ## Illustrative output (not live data)
 
@@ -16,7 +22,7 @@ D1/D7 are event counts, not retention estimates, until day-aligned acquisition d
 Official s1 events only; root page views include beta and QA. Missing rows are not assumed to be zero.
 
 Game-root page views (not unique visits): 80
-New browsers: not supplied / no matching row | returning browser-day events: 2
+New browser events: not supplied / no matching row | returning browser-day events: 2
 Daily starts: 40 | finishes: 30 | aggregate finish ratio: 75% (aggregate, not joined)
 Trend: unavailable (no preceding equal-length export).
 share/daily: native 4 | clipboard not supplied / no matching row | native-image not supplied / no matching row | image-saved not supplied / no matching row | cancelled not supplied / no matching row | failed not supplied / no matching row
@@ -41,4 +47,4 @@ Existing measurement guide models 6.3 events per starter. A fully attributed com
 |500|94,500|45,000|139,500|
 |1,000|189,000|90,000|279,000|
 
-The 50,000 team-month allowance is the value documented in the current repository; recheck the provider's current usage and terms before relying on it. This change adds zero event volume. No production receipt was tested in this staging pass.
+Vercel currently lists 50,000 events per Hobby team-month. The report does not generate analytics events. Production API receipt of a beta email referral landing and separate QA gameplay events was verified. The V5.7 referral journey still requires a post-deploy receipt check. [Web Analytics pricing](https://vercel.com/docs/analytics/limits-and-pricing)

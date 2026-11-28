@@ -65,6 +65,37 @@ describe('analytics readout', () => {
     expect(get('experiment cta: next-day daily start per exposed browser-day').rate).toBe('40.0%');
     expect(get('experiment control: next-day daily start per exposed browser-day').rate).toMatch(/^not enough data/);
   });
+  it('rejects malformed, duplicate, and unsafe event rows', () => {
+    expect(() => parseCounts('/e/start/daily,1\n/e/start/daily,1')).toThrow('duplicate');
+    expect(() => parseCounts('/e/start/daily,-1')).toThrow('Malformed');
+    expect(() => parseCounts('/e/start/daily,9007199254740992')).toThrow('Invalid');
+  });
+
+  it('flags inconsistent funnels and presents returns and first exposures as event counts', () => {
+    const rows = readout(parseCounts([
+      '/e/s1/start/daily,40', '/e/s1/complete/daily/200-299,45',
+      '/e/s1/sample/start/daily,30', '/e/s1/sample/lock/daily/r1/hit,31',
+      '/e/s1/visit/return/gap-1/day1,5', '/e/s1/visit/return/gap-7plus/day7,3',
+      '/e/s1/x/survival-cta/cta/first-exposure,20', '/e/s1/x/survival-cta/cta/next-day-start,20',
+      '/e/s1/x/survival-cta/cta/exposed,19',
+    ].join('\n')), 30, 's1');
+    const get = (name: string) => rows.find(row => row.metric === name)!;
+    expect(get('daily: finishes per start').rate).toContain('data quality warning');
+    expect(get('sampled daily: round 1 locked per start').rate).toContain('data quality warning');
+    expect(get('experiment cta: next-day daily start per exposed browser-day').rate).toContain('data quality warning');
+    expect(get('experiment cta: first exposure events')).toMatchObject({ numerator: 20, rate: 'count only' });
+    expect(get('D1 return events')).toMatchObject({ numerator: 5, rate: 'count only' });
+    expect(get('D7 return events')).toMatchObject({ numerator: 3, rate: 'count only' });
+  });
+
+  it('withholds an interval for impossible or boundary counts', () => {
+    for (const invalid of [-1, 0, 301, Number.NaN, 100.5, Number.POSITIVE_INFINITY]) {
+      expect(diffInterval(invalid, 300, 120, 300)).toBeNull();
+      expect(diffInterval(120, 300, invalid, 300)).toBeNull();
+    }
+    expect(diffInterval(120, 300, 120, 0)).toBeNull();
+    expect(diffInterval(120, 300, 120, 300, 0)).toBeNull();
+  });
   it('gives an interval only with enough exposures per arm', () => {
     expect(diffInterval(10, 50, 5, 50)).toBeNull();
     const ci = diffInterval(120, 400, 100, 400)!;

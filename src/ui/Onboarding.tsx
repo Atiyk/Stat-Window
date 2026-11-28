@@ -27,6 +27,9 @@ export function Onboarding({ onDone, onGuide, playLabel }: {
       titleClassName="onboarding-practice-title"
       coach
       courtRun
+      afterStory={onGuide && (
+        <button type="button" className="btn-link onboarding-guide" onClick={onGuide}>See the three question types</button>
+      )}
       status={(phase) => (
         <div className="onboarding-top">
           <p className="context onboarding-status"><span className="onboarding-status__kind">Practice · </span><span className="shot-clock">No timer</span></p>
@@ -45,13 +48,7 @@ export function Onboarding({ onDone, onGuide, playLabel }: {
           ) : (
             <button type="button" className="btn btn-primary" disabled>Revealing…</button>
           )}
-          {phase === 'resolved' && <button type="button" className="btn btn-quiet" onClick={replay}>Try another window</button>}
-          {phase === 'resolved' && (
-            <p className="onboarding-footnote">
-              You’ll have 24 seconds per question.
-              {onGuide && <> <button type="button" className="btn-link" onClick={onGuide}>See the three question types</button>.</>}
-            </p>
-          )}
+          {phase === 'resolved' && <button type="button" className="btn btn-quiet onboarding-replay" onClick={replay}>Try another window</button>}
         </>
       )}
     />

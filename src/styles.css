@@ -1646,26 +1646,6 @@ a {
   }
 }
 
-/* A longer sourced fact must not hide the next action on tablet screens.
-   Unlike ordinary sticky footers, this stays reachable before any scrolling.
-   Reserve scroll space so the last source link is never covered. */
-@media (min-width: 720px) and (max-width: 1023px) {
-  .round:not(.onboarding-play)[data-phase='resolved'] {
-    padding-bottom: calc(86px + env(safe-area-inset-bottom));
-  }
-  .round:not(.onboarding-play)[data-phase='resolved'] .action-bar {
-    position: fixed;
-    inset: auto 0 0;
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    padding: 12px var(--gutter) max(14px, env(safe-area-inset-bottom));
-    background: var(--paper);
-    border-top: 1px solid var(--line);
-    box-shadow: 0 -4px 18px rgb(19 42 71 / 8%);
-  }
-}
-
 /* ───────────── Wider screens ───────────── */
 @media (min-width: 720px) {
   .round .action-bar {
@@ -1682,6 +1662,40 @@ a {
   }
   .ledger-num {
     font-size: 1.125rem;
+  }
+}
+
+/* Fit the chart and court side by side on portrait tablets. Keep Lock after
+   the field so it cannot cover the brackets when text is enlarged. */
+@media (min-width: 720px) and (max-width: 1023px) and (min-height: 521px) {
+  .round:not(.onboarding-play) .round-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: 'question top';
+    column-gap: var(--space-4);
+    align-items: end;
+    padding-inline: var(--gutter);
+  }
+  .round:not(.onboarding-play) .round-head > * {
+    margin: 0;
+    padding-inline: 0;
+  }
+  .round:not(.onboarding-play) .round-top {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    padding-bottom: var(--space-4);
+  }
+  .round:not(.onboarding-play) .round-court {
+    order: -1;
+    inline-size: min(18.5rem, 32vw);
+  }
+  .round:not(.onboarding-play) .question[data-long] {
+    max-width: 34ch;
+    font-size: clamp(1.5rem, 1rem + 1.75vw, 2.1rem);
+  }
+  .round:not(.onboarding-play):is([data-phase='ready'], [data-phase='adjusting']) .action-bar {
+    position: static;
+    padding-block: var(--space-3) max(var(--space-3), env(safe-area-inset-bottom));
   }
 }
 
@@ -1760,6 +1774,25 @@ a {
   }
   .results-actions {
     grid-area: actions;
+  }
+}
+
+/* Keep Next reachable on tablet and short laptop reveals. Leave scroll space
+   to read the full story past the fixed action. */
+@media (min-width: 720px) and (max-width: 1023px), (min-width: 1024px) and (521px <= height <= 800px) {
+  .round:not(.onboarding-play)[data-phase='resolved'] {
+    padding-bottom: calc(86px + env(safe-area-inset-bottom));
+  }
+  .round:not(.onboarding-play)[data-phase='resolved'] .action-bar {
+    position: fixed;
+    inset: auto env(safe-area-inset-right) 0 env(safe-area-inset-left);
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 12px max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter))) max(14px, env(safe-area-inset-bottom));
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+    box-shadow: 0 -4px 18px rgb(19 42 71 / 8%);
   }
 }
 
@@ -2168,13 +2201,6 @@ a {
 }
 
 .onboarding-actions > .btn { min-height: 48px; }
-.onboarding-footnote {
-  flex-basis: 100%;
-  margin: 0;
-  font-size: 0.875rem;
-  line-height: 1.35;
-  color: var(--ink-soft);
-}
 
 .daily-results .results-context { margin: 0 0 var(--space-3); }
 .daily-results .results-title { margin: 0; font-size: inherit; }

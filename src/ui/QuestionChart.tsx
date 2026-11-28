@@ -15,7 +15,7 @@ import './question-chart.css';
  */
 export function QuestionChart({ question, window, reveal }: {
   question: Question;
-  window: Window;
+  window: Window | null;
   /** Ruler reveal progress 0..1, or null before the answer starts to land. */
   reveal: number | null;
 }) {
@@ -29,8 +29,9 @@ export function QuestionChart({ question, window, reveal }: {
   const revealed = reveal === 1;
   const unit = chartUnitLabel(chart.title, chart.unit);
   // Text equivalent: every known bar's value; the hidden one only once the answer has landed.
+  const hiddenValue = revealed ? shown(question.answer) : window ? 'hidden, your estimate' : 'hidden';
   const spoken = chart.points
-    .map((p) => `${p.label}: ${p.value === null ? (revealed ? shown(question.answer) : 'hidden, your estimate') : observed(p.value)}`)
+    .map((p) => `${p.label}: ${p.value === null ? hiddenValue : observed(p.value)}`)
     .join('. ');
 
   return (
@@ -52,7 +53,9 @@ export function QuestionChart({ question, window, reveal }: {
                   <>
                     {/* Full height on purpose: the slot says "somewhere on this scale", never a height. */}
                     <span className="q-chart__slot" />
-                    <span className="q-chart__band" style={{ bottom: pct(window.lo), height: `calc(${pct(window.hi)} - ${pct(window.lo)})` }} />
+                    {window && (
+                      <span className="q-chart__band" style={{ bottom: pct(window.lo), height: `calc(${pct(window.hi)} - ${pct(window.lo)})` }} />
+                    )}
                     {reveal !== null && (
                       // Mounted only after the lock; scaleY rides the ruler's own reveal progress.
                       <span className="q-chart__bar q-chart__bar--answer" style={{ height: pct(question.answer), transform: `scaleY(${reveal})` }} />

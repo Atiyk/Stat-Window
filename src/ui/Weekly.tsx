@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { buildWeek, dayWords, monthDay, reviewableWeeks, weekdayLong, weekdayShort, weeklyCard, weekRange, weeklyShareText, WEEK_MAX, type DayState, type Week } from '../engine/weekly';
+import { buildWeek, dayWords, monthDay, reviewableWeeks, weekdayLong, weekdayShort, weeklyCard, weekRange, weeklyShareText, WEEK_MAX, type DayState, type Week, type WeeklyCardModel } from '../engine/weekly';
 import { currentSeason, type SeasonConfig } from '../engine/season';
 import type { SaveStore } from '../engine/storage';
 import { track, type ShareMethod } from '../lib/track';
@@ -154,12 +154,21 @@ function WeekBody({ week, unavailable }: { week: Week; unavailable: number }) {
   );
 }
 
-type Prepared = { format: CardFormat; blob: Blob | null; url: string | null; file: File | null };
+type Prepared = { model: WeeklyCardModel; format: CardFormat; preview: string | null; url: string | null; file: File | null };
+
+function previewSource(blob: Blob): Promise<string | null> {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(typeof reader.result === 'string' ? reader.result : null);
+    reader.readAsDataURL(blob);
+  });
+}
 
 /** Share the week as text, or as an image: preview, download, or the native share sheet. */
 function WeekShare({ week }: { week: Week }) {
   const [fallback, setFallback] = useState<{ text: string } | null>(null);
   const [toast, setToast] = useState<string | null>(null);
+  const [sharing, setSharing] = useState<'text' | 'image' | null>(null);
   const [format, setFormat] = useState<CardFormat>('square');
   const [prepared, setPrepared] = useState<Prepared | null>(null);
   const boxRef = useRef<HTMLTextAreaElement>(null);
@@ -186,7 +195,10 @@ function WeekShare({ week }: { week: Week }) {
   // Draw the image ahead of any tap, so the share sheet keeps the user gesture (Safari).
   useEffect(() => {
     let live = true;
-    void weeklyCardBlob(model, format).then((blob) => {
+    void weeklyCardBlob(model, format).then(async (blob) => {
+      if (!live) return;
+      // The deployed image policy allows data URLs. Keep blob URLs for downloads.
+      const preview = blob ? await previewSource(blob).catch(() => null) : null;
       if (!live) return;
       let file: File | null = null;
       if (blob && canShareFile) {
@@ -197,21 +209,22 @@ function WeekShare({ week }: { week: Week }) {
           // Download stays available when files can't be shared.
         }
       }
-      setPrepared({ format, blob, url: blob ? URL.createObjectURL(blob) : null, file });
+      setPrepared({ model, format, preview, url: blob ? URL.createObjectURL(blob) : null, file });
     });
     return () => { live = false; };
   }, [model, format, filename, canShareFile]);
-  // An image URL lives exactly as long as it is the prepared one: revoked once its
-  // replacement has rendered (or on unmount), never while the preview or Save can still use it.
+  // Release the download URL when the prepared image is replaced or the page closes.
   useEffect(() => {
     const u = prepared?.url;
     return () => { if (u) URL.revokeObjectURL(u); };
   }, [prepared]);
-  const image = prepared?.format === format ? prepared : null;
+  const image = prepared?.model === model && prepared.format === format ? prepared : null;
 
   const shareText = async (file: File | null = null) => {
     if (busy.current) return;
     busy.current = true;
+    setSharing(file ? 'image' : 'text');
+    setToast(null);
     const text = weeklyShareText(week, CANONICAL_URL);
     setFallback(null);
     try {
@@ -221,50 +234,52 @@ function WeekShare({ week }: { week: Week }) {
           report(file ? 'native-image' : 'native');
           return;
         } catch (e) {
-          if (e instanceof DOMException && e.name === 'AbortError') throw e;
+          if (e instanceof DOMException && e.name === 'AbortError') {
+            report('cancelled');
+            return;
+          }
         }
       }
       if (!navigator.clipboard?.writeText) throw new Error('No clipboard');
       await navigator.clipboard.writeText(text);
       setToast(file ? 'Text copied. Save the image separately.' : 'Copied');
       report('clipboard');
-    } catch (e) {
-      if (e instanceof DOMException && e.name === 'AbortError') return report('cancelled');
+    } catch {
       setFallback({ text });
-      setToast('Copy the selected text');
+      setToast(file ? 'Copy the selected text and save the image separately.' : 'Copy the selected text');
       report('failed');
     } finally {
       busy.current = false;
+      setSharing(null);
     }
   };
 
   const save = () => {
-    if (!image?.url) {
-      setToast('Couldn’t make the image. Share the text instead.');
-      return;
-    }
+    if (busy.current || !image?.url) return;
     const link = document.createElement('a');
     link.href = image.url;
     link.download = filename;
     document.body.append(link);
     try {
       link.click();
+      setToast('Download started');
+      report('image-saved');
+    } catch {
+      setToast('Couldn’t save the image. Try again.');
     } finally {
       link.remove();
     }
-    setToast('Download started');
-    report('image-saved');
   };
 
   return (
     <section className="weekly__share" aria-labelledby="weekly-share-title">
       <h2 id="weekly-share-title" className="weekly__h">Share your week</h2>
       <div className="weekly__share-actions">
-        <button type="button" className="btn btn-primary" onClick={() => void shareText()}>Share this week</button>
+        <button type="button" className="btn btn-primary" aria-busy={sharing === 'text'} aria-disabled={sharing !== null} onClick={() => void shareText()}>Share this week</button>
       </div>
       {fallback && <textarea ref={boxRef} className="share-fallback" readOnly rows={9} value={fallback.text} aria-label="Your weekly scorecard to copy" onFocus={(e) => e.currentTarget.select()} />}
       <div className="weekly-image">
-        <fieldset className="card-formats">
+        <fieldset className="card-formats" disabled={sharing !== null}>
           <legend>Image</legend>
           {(['square', 'portrait'] as const).map((option) => (
             <label key={option}>
@@ -273,15 +288,15 @@ function WeekShare({ week }: { week: Week }) {
             </label>
           ))}
         </fieldset>
-        <div className="weekly-image__preview" data-format={format}>
-          {image?.url ? <img src={image.url} alt={`Weekly scorecard image: ${weeklyShareText(week, CANONICAL_URL).split('\n').slice(1, -2).join(', ')}`} />
-            : image ? <p className="weekly__note">Couldn’t make the image. You can still share the text.</p>
+        <div className="weekly-image__preview" data-format={format} data-drawing={!image || undefined}>
+          {image?.preview ? <img src={image.preview} alt={`Weekly scorecard image: ${weeklyShareText(week, CANONICAL_URL).split('\n').slice(1, -2).join(', ')}`} />
+            : image ? <p className="weekly__note">{image.url ? 'Preview unavailable. You can still save the image.' : 'Couldn’t make the image. You can still share the text.'}</p>
             : <p className="weekly__note" aria-live="polite">Drawing your scorecard…</p>}
         </div>
         <div className="weekly__share-actions">
-          <button type="button" className="btn btn-quiet btn-small" aria-disabled={!image?.url} onClick={save}>Save image</button>
+          <button type="button" className="btn btn-quiet btn-small" aria-disabled={!image?.url || sharing !== null} onClick={save}>Save image</button>
           {canShareFile && image?.file && (
-            <button type="button" className="btn btn-quiet btn-small" onClick={() => void shareText(image.file)}>Share image</button>
+            <button type="button" className="btn btn-quiet btn-small" aria-busy={sharing === 'image'} aria-disabled={sharing !== null} onClick={() => void shareText(image.file)}>Share image</button>
           )}
         </div>
       </div>

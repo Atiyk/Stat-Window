@@ -143,7 +143,7 @@ export const REACTIONS: Record<ReactionSituation, readonly string[]> = {
   'near-miss': [
     'That one hurts.',
     'Just outside.',
-    'One nudge away.',
+    'Just missed the bracket.',
     'So close to the edge.',
     'Missed by a hair.',
     'The edge let you down.',

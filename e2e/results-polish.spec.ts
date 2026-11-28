@@ -148,31 +148,38 @@ test('clipboard success is confirmed after completion and attempts cannot overla
       attempts++;
       document.body.dataset.copyAttempts = String(attempts);
       return new Promise<void>((resolve, reject) => {
-        window.addEventListener('complete-copy', () => resolve(), { once: true });
-        window.addEventListener('reject-copy', () => reject(new Error('Clipboard denied')), { once: true });
+        window.addEventListener('settle-copy', (event) => {
+          const outcome = (event as CustomEvent<'complete' | 'abort' | 'reject'>).detail;
+          if (outcome === 'complete') resolve();
+          else if (outcome === 'abort') reject(new DOMException('Clipboard write aborted', 'AbortError'));
+          else reject(new DOMException('Clipboard denied', 'NotAllowedError'));
+        }, { once: true });
       });
     } } });
   }, saveRuns(5));
   await page.goto('/');
   const share = page.getByRole('button', { name: 'Challenge a friend' });
   const toast = page.locator('.results .toast');
+  const settleCopy = (outcome: 'complete' | 'abort' | 'reject') => page.evaluate((detail) => {
+    window.dispatchEvent(new CustomEvent('settle-copy', { detail }));
+  }, outcome);
   await share.click();
   await expect(share).toHaveAttribute('aria-busy', 'true');
   await expect(toast).toBeEmpty();
   await share.dispatchEvent('click');
   await expect(page.locator('body')).toHaveAttribute('data-copy-attempts', '1');
-  await page.evaluate(() => window.dispatchEvent(new Event('reject-copy')));
+  await settleCopy('reject');
   const fallback = page.getByRole('textbox', { name: 'Your result to copy' });
   await expect(fallback).toBeFocused();
   await expect(toast).toHaveText('Copy the selected text');
   await share.click();
   await expect(toast).toBeEmpty();
-  await page.evaluate(() => window.dispatchEvent(new Event('reject-copy')));
+  await settleCopy('abort');
   await expect(fallback).toBeFocused();
   await expect(toast).toHaveText('Copy the selected text');
   await share.click();
   await expect(toast).toBeEmpty();
-  await page.evaluate(() => window.dispatchEvent(new Event('complete-copy')));
+  await settleCopy('complete');
   await expect(toast).toHaveText('Copied');
   await expect(fallback).toHaveCount(0);
 });

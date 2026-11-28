@@ -26,6 +26,9 @@ test('shot clock expiry is a zero-point turnover, not a normal miss or a second 
   await page.clock.fastForward('00:25');
   await page.clock.runFor(2500);
   await expect(page.locator('.outcome-word')).toHaveText('Time’s up.');
+  await expect(page.getByRole('region', { name: 'Answer', exact: true })).toBeVisible();
+  await expect(page.locator('.marker-flag')).toHaveText('73');
+  await expect(page.locator('.field .readout, .ruler .band, .ruler .bracket')).toHaveCount(0);
   const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('stat-window:v1') || '{}'));
   expect(saved.runs['2026-11-15'].results[0]).toMatchObject({ points: 0, timedOut: true, elapsedMs: 24000 });
   await expect(page.getByRole('button', { name: 'Next question' })).toBeVisible();
@@ -34,6 +37,26 @@ test('shot clock expiry is a zero-point turnover, not a normal miss or a second 
   await expect(first).toHaveAttribute('data-timeout', 'true');
   await expect(first.locator('.clock-glyph')).toBeVisible();
   await expect(first).toContainText('time ran out');
+
+  await page.reload();
+  await expect(page.locator('.outcome-word')).toHaveText('Time’s up.');
+  await expect(page.locator('.marker-flag')).toHaveText('73');
+  await expect(page.locator('.field .readout, .ruler .band, .ruler .bracket')).toHaveCount(0);
+});
+
+test('a timed-out chart reveals the missing value without showing an unsubmitted window', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.clock.install({ time: new Date('2026-12-01T15:00:00Z') });
+  await page.goto('/');
+  await startDailyIfNeeded(page);
+  const chart = page.locator('.q-chart');
+  await expect(chart.locator('.q-chart__band')).toBeVisible();
+  await lowBracket(page).focus();
+  await page.keyboard.press('ArrowRight');
+  await page.clock.fastForward('00:25');
+  await page.clock.runFor(2500);
+  await expect(chart.locator('.q-chart__answer')).toBeVisible();
+  await expect(chart.locator('.q-chart__band')).toHaveCount(0);
 });
 
 test('refresh does not buy another 24 seconds', async ({ page }) => {

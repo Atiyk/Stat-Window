@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { normalizeWindow } from '../engine/game';
 import { potentialPoints, scoreWindow, type RoundScore, type Window } from '../engine/scoring';
 import { contextLabel } from '../content/category';
@@ -36,6 +36,7 @@ export function TeachingPlay({
   coach = false,
   courtRun = false,
   status,
+  afterStory,
   actions,
   className = '',
   label,
@@ -51,6 +52,8 @@ export function TeachingPlay({
   courtRun?: boolean;
   /** The top row above the prompt; a function receives the phase. */
   status?: ReactNode | ((phase: TeachingPhase) => ReactNode);
+  /** Optional help shown with the resolved explanation. */
+  afterStory?: ReactNode;
   actions: (c: TeachingControls) => ReactNode;
   className?: string;
   label: string;
@@ -64,7 +67,13 @@ export function TeachingPlay({
   const titleRef = useRef<HTMLHeadingElement>(null);
   const answerRef = useRef<HTMLElement>(null);
 
-  useEffect(() => { if (focusTitle) titleRef.current?.focus({ preventScroll: true }); }, [focusTitle]);
+  useLayoutEffect(() => {
+    const title = titleRef.current;
+    if (!focusTitle || score || !title) return;
+    // Position the question after the replay has replaced the answer and action bar.
+    title.focus({ preventScroll: true });
+    title.scrollIntoView({ block: 'nearest' });
+  }, [focusTitle, score]);
   useEffect(() => {
     if (!score) return;
     if (reducedMotion) { setProgress(1); setLanded(true); return; }
@@ -109,13 +118,10 @@ export function TeachingPlay({
     setLanded(false);
     setProgress(0);
     setWindow({ lo: q.min, hi: q.max });
-    titleRef.current?.focus({ preventScroll: true });
   };
   const coachLine = !coach || !editable ? null : !moved
-    ? 'Drag either bracket, or tap a big number to type it.'
-    : worth === 0
-      ? 'Still worth 0: a window this wide is a free catch, so it scores nothing. Keep pulling in.'
-      : 'Tighter is worth more, but only if it still catches the answer. Edges count. Lock when you’re happy.';
+    ? 'Drag a bracket or tap a number.'
+    : 'Tighter hits earn more. Edges count.';
 
   const verdictLine = (
     <div className="verdict-line">
@@ -138,7 +144,7 @@ export function TeachingPlay({
         <p className="worth" data-zero={moved && worth === 0 || undefined}>
           {worth > 0 ? <>Worth <b className="tabular">{worth}</b> if it’s inside.</> : moved
             ? <>Worth <b className="tabular">0</b> even if it’s inside. Pull in further.</>
-            : 'Pull the brackets in to start scoring.'}
+            : 'The full range scores zero.'}
         </p>
       )}
     </div>
@@ -173,23 +179,24 @@ export function TeachingPlay({
       </section>
 
       <div className="teaching-after">
-      {courtRun && (
-        <div className="teaching-court">
-          <LiveCourtRun earned={landed && score ? score.points : 0} potential={editable && worth > 0 ? worth : null} animate={landed} />
-          <p className="teaching-court__caption">
-            {landed && score ? (score.points > 0 ? `+${score.points} moves the ball up the court.` : 'No points, so the ball stays put.')
-              : 'Points move the ball toward the hoop: five perfect windows, 500 points, reach the rim.'}
-          </p>
-        </div>
-      )}
+        {courtRun && (
+          <div className="teaching-court">
+            <LiveCourtRun earned={landed && score ? score.points : 0} potential={editable && worth > 0 ? worth : null} animate={landed} />
+            <p className="teaching-court__caption">
+              {landed && score ? (score.points > 0 ? `+${score.points} moves the ball up the court.` : 'No points, so the ball stays put.')
+                : 'Points move the ball toward the hoop.'}
+            </p>
+          </div>
+        )}
 
-      {feedback && score && (
-        <section className="story teaching-story" aria-label="Practice answer" ref={answerRef} tabIndex={-1} data-feedback={feedback.kind}>
-          <p className="story-note">{q.note}</p>
-          <p className="teaching-why"><strong>{feedback.headline}</strong> {feedback.detail}</p>
-          {example.why !== q.note && <p className="teaching-why">{example.why}</p>}
-        </section>
-      )}
+        {feedback && score && (
+          <section className="story teaching-story" aria-label="Practice answer" ref={answerRef} tabIndex={-1} data-feedback={feedback.kind}>
+            <p className="story-note">{q.note}</p>
+            <p className="teaching-why"><strong>{feedback.headline}</strong> {feedback.detail}</p>
+            {example.why !== q.note && <p className="teaching-why">{example.why}</p>}
+            {afterStory}
+          </section>
+        )}
       </div>
 
       <div className="action-bar onboarding-actions">

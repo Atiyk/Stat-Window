@@ -147,3 +147,9 @@ Before any paid feature on Vercel, check whether the plan's terms allow commerci
 
 ## NBA calendar checks (from 2026-11-18)
 Use sampled hit rates to evaluate the overall difficulty curve first. Review individual days only when each question position has enough sampled locks. Treat consistently inverted round difficulty as a prompt to inspect future and reserve facts in `data/nba` and preserve published slates.
+
+## Referral attribution (distribution update)
+
+Recognized UTM sources or exact allowlisted referrer hosts become a fixed coarse channel, using `src/lib/referral.ts`. There is no new persistent storage. Unknown/direct visits produce no extra referral event. Tagged landings send `/e/referral/{channel}/landing`; daily/challenge starts and finishes during that page load add `/e/referral/{channel}/start` and `/e/referral/{channel}/complete`, subject to the existing analytics consent, once-per-run guards and QA/season prefixes. Practice is excluded from attributed starts/completions. Reloads can count another landing; conversions after untagged navigation may be unattributed. Counts are not unique people or a joined cohort. A tagged completed run adds up to three views, so monitor the team Hobby allowance. No raw UTM text, raw referral URL or added identifiers are sent in these events. 
+
+Use `https://www.statwindow.app/?utm_source=reddit&utm_medium=social&utm_campaign=organic`, replacing reddit with x, threads, playlin, alldle, directory, email, creator, groupchat, embed, google, bing, tiktok, youtube, instagram, producthunt or hackernews as appropriate. Compare landing, start and complete counts by channel and season; do not infer causal attribution or a unique-player conversion rate. Test with `?qa=1&utm_source=reddit` in an isolated browser and check `/e/qa/referral/reddit/landing`, start and complete receipt. Test opt-out and GPC/DNT, unknown tags, and direct visits. Production receipt is not yet verified.

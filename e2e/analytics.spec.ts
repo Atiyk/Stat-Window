@@ -296,3 +296,23 @@ test('under Global Privacy Control the reminder sends nothing and loads no scrip
   expect(await views(page)).toEqual([]);
   expect(loaded).toBe(false);
 });
+
+test('tagged landing and game funnel use only the coarse channel and the QA cohort', async ({ page }) => {
+  await openAt(page, NBA_FIRST, '/?qa=1&utm_source=reddit&utm_campaign=private-value');
+  for (let r = 1; r <= 5; r++) {
+    await lockAndSettle(page);
+    await next(page);
+  }
+  await expect(page.locator('.results-score')).toBeVisible();
+  await expect.poll(async () => (await views(page)).filter(p => p.includes('/referral/'))).toEqual([
+    '/e/qa/referral/reddit/landing', '/e/qa/referral/reddit/start', '/e/qa/referral/reddit/complete',
+  ]);
+  expect((await views(page)).some(p => p.includes('private-value'))).toBe(false);
+});
+
+test('a tagged referral does not bypass Global Privacy Control', async ({ page }) => {
+  await page.addInitScript(() => Object.defineProperty(Navigator.prototype, 'globalPrivacyControl', { get: () => true }));
+  await openAt(page, NBA_FIRST, '/?utm_source=reddit');
+  await lockAndSettle(page);
+  expect(await views(page)).toEqual([]);
+});

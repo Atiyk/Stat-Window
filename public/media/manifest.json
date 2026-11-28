@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "site": "https://www.statwindow.app",
+  "policy": "Only listed assets are approved for public distribution. No official or future questions, answers, real player scores or private data. Brand assets are not gameplay screenshots.",
+  "assets": [
+    {
+      "id": "social-preview",
+      "url": "https://www.statwindow.app/og.png",
+      "type": "image/png",
+      "width": 1200,
+      "height": 630,
+      "description": "Official spoiler-free social preview",
+      "kind": "brand",
+      "spoilerSafe": true
+    },
+    {
+      "id": "symbol",
+      "url": "https://www.statwindow.app/brand/symbol.svg",
+      "type": "image/svg+xml",
+      "description": "Official full-color symbol",
+      "kind": "brand",
+      "spoilerSafe": true
+    },
+    {
+      "id": "symbol-mono",
+      "url": "https://www.statwindow.app/brand/symbol-mono.svg",
+      "type": "image/svg+xml",
+      "description": "Official monochrome symbol",
+      "kind": "brand",
+      "spoilerSafe": true
+    },
+    {
+      "id": "symbol-cream",
+      "url": "https://www.statwindow.app/brand/symbol-cream.svg",
+      "type": "image/svg+xml",
+      "description": "Official cream symbol for dark backgrounds",
+      "kind": "brand",
+      "spoilerSafe": true
+    },
+    {
+      "id": "app-icon",
+      "url": "https://www.statwindow.app/icons/court-512.png",
+      "type": "image/png",
+      "width": 512,
+      "height": 512,
+      "description": "Official square app icon",
+      "kind": "brand",
+      "spoilerSafe": true
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { normalizeWindow } from '../engine/game';
 import { potentialPoints, scoreWindow, type RoundScore, type Window } from '../engine/scoring';
 import { contextLabel } from '../content/category';
@@ -67,7 +67,13 @@ export function TeachingPlay({
   const titleRef = useRef<HTMLHeadingElement>(null);
   const answerRef = useRef<HTMLElement>(null);
 
-  useEffect(() => { if (focusTitle) titleRef.current?.focus(); }, [focusTitle]);
+  useLayoutEffect(() => {
+    const title = titleRef.current;
+    if (!focusTitle || score || !title) return;
+    // Position the question after the replay has replaced the answer and action bar.
+    title.focus({ preventScroll: true });
+    title.scrollIntoView({ block: 'nearest' });
+  }, [focusTitle, score]);
   useEffect(() => {
     if (!score) return;
     if (reducedMotion) { setProgress(1); setLanded(true); return; }
@@ -112,7 +118,6 @@ export function TeachingPlay({
     setLanded(false);
     setProgress(0);
     setWindow({ lo: q.min, hi: q.max });
-    titleRef.current?.focus();
   };
   const coachLine = !coach || !editable ? null : !moved
     ? 'Drag a bracket or tap a number.'
